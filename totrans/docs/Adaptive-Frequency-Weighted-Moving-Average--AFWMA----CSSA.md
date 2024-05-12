@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:04:41
+-->
+
+# Adaptive Frequency Weighted Moving Average (AFWMA) | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01](https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01)
+
+One of the unique aspects of modelling financial time series  is that recent data is more important than previous data. This is because forecasts need to be made for the next time period, and prices compound in value over time. The other unique aspect of time series data is that there tends to be a combination of random noise and mean-reverting tendencies (especially at shorter frequencies). The researcher often faces a tradeoff between weighting based on recency versus amplifying the noise and mean-reversion that exists at shorter frequencies. This tradeoff is logical, and should be captured explicitly as a function in an adaptive framework (success-weighted) versus back-testing different weighting schemes hindsight.
+
+Recency is easily captured by a weighted moving average (**wma**). In this scheme, prices are weighted in direct proportion to their recency (the recency rank divided by the sum of recency ranks times the price at time t). This link demonstrates the calculation : [http://www.investopedia.com/articles/technical/060401.asp](http://www.investopedia.com/articles/technical/060401.asp) . Alternatively,  the best way to eliminate disturbances induced by shorter frequencies is to middle weight the data. That is, we want to give data closest to the middle higher values than more recent data. This is best accomplished using a triangular moving average, which is essentially a moving average of the moving average of the same length. The smoothing induced by a triangular moving average creates maximum weighting on the middle value. The calculation is described here: [http://daytrading.about.com/od/indicators/a/Triangular.htm](http://daytrading.about.com/od/indicators/a/Triangular.htm).
+
+To keep things consistent, we should use a weighted triangular moving average (**wtma**), which is exactly the same except it uses the weighted moving average versus the simple moving average in the calculation. Thus the Adaptive Frequency Weighted Moving Average can be calculated simply as:
+
+**AFWMA**=  *w**(**wma**)+ (1-*w*)*(**twma**)
+
+where “w” is a constant between 0 and 1
+
+The purpose of the AFWMA is to find the optimal balance between recency and avoiding short-term noise. This can be found by solving for “w” to best minimize out of sample error in a forecast format, or to best maximize out of sample sharpe in a trading strategy format. It is a simple and logical way of compressing the value/information content that differs between the weighted and triangular moving averages without resorting to blind optimization (or worse yet the beliefs/opinions of a technical analysis “guru”).

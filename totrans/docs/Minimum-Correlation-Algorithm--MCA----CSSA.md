@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:05:10
+-->
+
+# Minimum Correlation Algorithm (MCA) | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2012/09/12/minimum-correlation-algorithm-mca/#0001-01-01](https://cssanalytics.wordpress.com/2012/09/12/minimum-correlation-algorithm-mca/#0001-01-01)
+
+Stay tuned for the release of our forthcoming whitepaper: “The Minimum Correlation Algorithm (MCA): A Practical and Effective Diversification Tool.”  The paper will contain an overview of the algorithm logic as well as a comparison of the  performance and diversification score  of MCA versus Risk Parity, Maximum Diversification, and Minimum Variance. This heuristic algorithm is fast and relatively simple to calculate and can be applied effectively to both asset allocation and also to trading strategies. The complete “R” code for replication will be released in the paper. The scheduled release date is next Thursday.
