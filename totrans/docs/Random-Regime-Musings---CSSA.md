@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:20:07
+-->
+
+# Random Regime Musings | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/08/04/random-regime-musings/#0001-01-01](https://cssanalytics.wordpress.com/2010/08/04/random-regime-musings/#0001-01-01)
+
+It is now well-known that historical volatility is a significant moderator of mean-reversion performance. This is just common sense, and is strongly supported by the research. Another good recap (and great visual) was done by **Jeff Pietsch** of the cool new site **ETF Prophet  [http://etfprophet.com/relative-volatility-comparative-mean-reversion-strategy-performance/](http://etfprophet.com/relative-volatility-comparative-mean-reversion-strategy-performance/)**and formerly of Market Rewind fame. In this post Jeff shows how a 3-year relative ranking of 100-day historical volatility had a substantial impact on a basic RSI2 strategy. Another series of posts that break things down in a more detailed and simple manner that is easy to follow was done by **Woodshedder** [http://ibankcoin.com/woodshedderblog/2010/07/19/part-4-the-secret-ingredient/](http://ibankcoin.com/woodshedderblog/2010/07/19/part-4-the-secret-ingredient/). The use of shorter or more complex transforms/measurements of volatility can boost separation in mean-reversion returns even more. But that is not the point—in fact, the point is that we are using *historical volatility* in some way or another to determine what to do right now with our trading.
+
+Now here I am going to connect some dots:
+
+Fact 1: We can measure how 30-day volatility has historically affected a simple mean-reversion strategy by separating the readings into different quartiles or quintiles. These can represent different volatility regimes.
+
+Fact 2: Using this regime information we can actually improve strategy performance out of sample by moderating bet size or exposure. ***However, there is inherent lag in responding to indicators that measure current historical volatility***.
+
+Fact 3: Volatility–lets say 30-day volatility– can be predicted far more reliably than market prices using even simple projection models. The use of volatility projection models (EGARCH etc) is well established in academia and considered to be fairly robust.
+
+Conclusion: Using predicted or projected volatility will substantially aid in regime-based strategy exposure models. In English, ***by using forward estimates we can respond more quickly to changes in volatility and how they will impact our mean-reversion strategies.***
