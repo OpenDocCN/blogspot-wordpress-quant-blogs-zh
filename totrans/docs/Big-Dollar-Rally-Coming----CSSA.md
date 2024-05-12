@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:21:20
+-->
+
+# Big Dollar Rally Coming? | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/07/16/big-dollar-rally-coming/#0001-01-01](https://cssanalytics.wordpress.com/2010/07/16/big-dollar-rally-coming/#0001-01-01)
+
+I am bullish- yes bullish-  intermediate term on the US dollar for several reasons:
+
+1) It is in a long-term technical up trend (in a 100-day channel buy signal)
+
+2) The dollar  has pulled back violently from its highs–much like it did in 2008 in a similar situation before rebounding. Likely the short-covering in the euro has helped exacerbate this situation. Since the euro is in very deep trouble, and in a steep downtrend I see this euro rally/dollar decline as a temporary respite.
+
+3) The dollar has a negative correlation with the stock market because it is a carry trade/risk trade where speculators borrow in dollars to risk capital in other assets. Currently the spring/summer correction in the stock market found a temporary bottom and margin calls to speculators to re-patriate dollars are falling. Since the market is highly stretched to the upside in the short-term and is in a long-term downtrend with mixed probabilities in the intermediate term, the dollar has plenty of scenarios where it could stage a rally.
+
+4) Flight to Safety:  Current deflationary threats due to the employment and poor credit conditions favor bonds. The primary goldbug thesis for the dollar going down was the risk of inflation/debasement via excessive money creation.  Bonds are technically bullish which confirms a perceived deflationary threat (see AGG for a pretty chart). Buyers of bonds internationally drive demand for dollars. Gold in contrast looks weak in the short-term at new highs and may not be as appealing to hedge fund managers since they likely buy into the goldbug thesis concerning the dollar. Gold is over-owned within the hedge fund community and could spontaneously correct several hundred dollars on a liquidation. Gold is often inversely correlated with the dollar, but is currently sitting near a peak in positive correlation (correlations are often mean-reverting in the intermediate term). An unwind of major gold positions could spark a rally in the dollar.
+
+5) The dollar has become a mean-reverting instrument with long-term trend characteristics. This favors the current condition of being deeply oversold in an up-trend.
+
+6) Downside risk at this level is low as we are nearing levels of support and a successful trade will probably work within 5-10 days.
