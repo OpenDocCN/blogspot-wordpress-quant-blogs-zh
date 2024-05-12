@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:39:32
+-->
+
+# Adaptive VIX Moving Average | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/#0001-01-01](https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/#0001-01-01)
+
+One of the challenges with technical or quantitative analysis is to identify strategies that can adapt to different market regimes. The most obvious is a change in the forecast or implied volatility as proxied by the VIX. During more volatile periods we would expect more signal noise and during less volatile periods we would expect less signal noise. But how do we capture this in a strategy? One method is to use the VIX to standardize returns as presented on this blog used [“VIX-Adjusted Momentum” in this post](https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/). An excellent recent [follow-up analysis was done by Justin Czyszczewski](https://justinczyszczewski.com/vix-and-trend-following/) which showed that VIX-adjusted trend-following has been recently very successful during these fast moving markets (Tip: using the median or average of O,H,L,C of VIX versus closing data will make the edge of the original strategy more consistent across history). I will show a new variation using this framework very soon in a follow-up post.
+
+Another way to tackle this issue is to vary the lookback length as a function of the VIX. So how would we do that? Enter the [basic adaptive moving average framework](https://www.tradingtechnologies.com/xtrader-help/x-study/technical-indicator-definitions/adaptive-moving-average-ama/) which seeks to vary the speed or lookback of the moving average as a function of some volatility or trend-strength function.
+
+![](img/0b4ea60d704fcfe7d39b9754c7cc013e.png)
+
+We can easily substitute the VIX within the “VI” by looking at a standardized measure of how high or low volatility has been relative to past history. If it is higher we want to smooth more or have a longer lookback, and if it is lower we want to have a shorter lookback. This can be accomplished as follows:
+
+![](img/b09056cb61d7be86aa5361cd59c655e0.png)
+
+Basically we are taking the percentile ranking using all history to date of 1 divided by the current average VIX over the past 10-days. To visualize how this moving average works we can see it applied to the S&P500 (SPY) in the chart below:
+
+![](img/713fbde001b9c3dd9af701961848b4b1.png)
+
+Notice that the moving average tracks the price very closely during bull markets and then filters out noise by becoming smoother during corrections. This is exactly what we want to see! Now lets compare a standard 200-day sma strategy that uses the current price versus using the Adaptive VIX Moving Average filter.
+
+![](img/e7cc2193fc5ab6f542aec9936d4ae607.png)
+
+The result is a nice boost in gross performance (no transaction costs) that also happens to come with far fewer trades (48 vs 164) which would even further boost net performance. The results are in the table below:
+
+![](img/4f1061b5764c8efcfd129ce3991f80f9.png)
+
+This concept can be extended in several ways including using a simple moving average on the AMA line to create faster crossover strategies that are more responsive to market conditions. Ultimately this is a very simple and intuitive way to adjust standard trend-following as a function of changing volatility regimes.
