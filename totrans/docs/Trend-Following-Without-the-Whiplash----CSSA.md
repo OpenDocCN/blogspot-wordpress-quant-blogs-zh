@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:09:40
+-->
+
+# Trend-Following Without the Whiplash? | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2011/06/30/trend-following-without-the-whiplash/#0001-01-01](https://cssanalytics.wordpress.com/2011/06/30/trend-following-without-the-whiplash/#0001-01-01)
+
+A lot of research has been written on combining mean-reversion with trend filters, but surprisingly little if no recent research has focused on the opposite approach:  attempting to follow the trend with less whiplash. What does that mean? Well anyone who has had the experience of trying to follow a trend typically has to endure the pain of buying their position and having to soon after exit the position at a lower price. Trend followers also experience being profitable for long periods of time, only to have the position suddenly and violently reverse and hand them a tidy loss.  Ironically one of the funny things that happens after such an event is that the market often bounces considerably higher in the short-term. The obvious solution to these problems is to create a counter-trend  delayed entry and exit using short-term mean-reversion indicators. However what is missing from this proposed solution is a generalized framework for determining how and when to use such methods. More on this to follow……….
