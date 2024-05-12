@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:15:04
+-->
+
+# Where is the Market Going Tommorow? Its all about the Euro | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/11/29/where-is-the-market-going-tommorow-its-all-about-the-euro/#0001-01-01](https://cssanalytics.wordpress.com/2010/11/29/where-is-the-market-going-tommorow-its-all-about-the-euro/#0001-01-01)
+
+The importance of common sense macroeconomic factors is something that all traders agree upon. What is less obvious is how to take this information and convert it into an actionable trading strategy. From my experience in system/algorithm design, starting with simple strategies that are long/short and always in the market is always the most effective solution. In this case what could be simpler than using the daily direction of the euro (symbol FXE – an exchange traded fund ) to predict the S&P500 (symbol SPY-an exchange traded fund). After all, the fear of Euro-zone problems and the magnitude of the consequences is ominously comparable to the real estate and financial markets in 2007\. I mentioned this relationship earlier in the year as a factor worth watching since it was very successful at predicting the S&P500 early in the year. Clearly, the smart money is also watching this very carefully. **In this case, using this simple strategy of buying the SPY on the close when the FXE is up today, and shorting the SPY on the close when the FXE is down today is highly profitable.** Below shows the returns YTD in 2010 using this simple strategy. While this relationship has not always held true over the years, this is the first time that the Euro has been such a key logical driver of S&P500 returns. Intermarket factors are not like technical factors– they change all the time, and using a shorter window (60 days to 1-year) to track what is working best is often successful out of sample.
+
+[![](img/c582f53648fc9be090ae29d920b47a37.png "000")](https://cssanalytics.files.wordpress.com/2010/11/0002.png)
