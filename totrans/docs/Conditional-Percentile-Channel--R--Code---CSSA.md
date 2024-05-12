@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:47:52
+-->
+
+# Conditional Percentile Channel “R” Code | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2015/03/11/conditional-percentile-channel-r-code/#0001-01-01](https://cssanalytics.wordpress.com/2015/03/11/conditional-percentile-channel-r-code/#0001-01-01)
+
+The [code in R](http://systematicinvestor.github.io/Conditional-Channel-Breakout/) for [Conditional Percentile Channels](https://cssanalytics.wordpress.com/2015/02/20/conditional-percentile-channels/ "Conditional Percentile Channels") is now available on Michael Kapler’s Systematic Investor [blog](http://systematicinvestor.github.io/Conditional-Channel-Breakout/). The original code was contributed by long-time reader Pierre Chretien and subsequently verified by Michael. Pierre has been generous enough to share code from the blog material several times over the past few years. Thank you both for sharing this code with our readers!
