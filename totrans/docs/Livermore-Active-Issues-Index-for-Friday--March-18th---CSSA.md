@@ -1,0 +1,23 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:11:57
+-->
+
+# Livermore Active Issues Index for Friday, March 18th | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2011/03/18/livermore-active-issues-index-for-friday-march-18th/#0001-01-01](https://cssanalytics.wordpress.com/2011/03/18/livermore-active-issues-index-for-friday-march-18th/#0001-01-01)
+
+March 18, 2011 3:32 pm
+
+David,
+
+Good to see you active on the blog again.
+
+You have been posting the Livermore for well over a year, and thus far it has vastly underperformed its historical backtest. Obviously, one year doesn’t mean a whole lot in the grand scheme of things, but I can’t help noticing a steady decline in performance in the performance since 1998 (excluding 2009). I wonder if you have put much thought into this?
+My thoughts:
+1\. the market has become less of a market of stocks and more of one big stock market where stocks tend to move in unison, potentially due to the growing popularity of ETFs
+2\. momentum strategies are becoming more popular and it is harder to gain an edge now than it was 10 years ago
+3\. I’m overreacting and it’s quite common for the Livermore to go flat for extended periods
+
+Thanks,
+Dave
