@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:50:27
+-->
+
+# Combining Acceleration and Volatility into a Non-Linear Filter (NLV) | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01)
+
+[![nonlinear](img/b71823d163c53cc1aeeec1b199ce968b.png)](https://cssanalytics.files.wordpress.com/2014/12/nonlinear.png)
+
+The last two [posts](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/ "A New (Better?) Measure of Risk and Uncertainty: The Volatility of Acceleration") presented a novel way of incorporating acceleration as an alternative measure risk. The preliminary results and also intuition demonstrate that it deserves consideration as another piece of information that can be used to forecast risk. While I posed the question as to whether acceleration was a “better” indicator than volatility,**the more useful question should be whether we can combine the two into perhaps a better indicator than either in isolation**. Traditional volatility is obviously more widely used, and is critical for solving traditional portfolio optimization. Therefore, it is a logical choice as a baseline indicator.
+
+Linear filters such as moving averages and regression generate output that is a linear function of input. Non-linear filters in contrast generate output that is non-linear with respect to input. An example of non-linear filter would be polynomial regression, or even the humble median. The goal of non-linear filters is to create a superior means of weighting data to create more accurate output. By using a non-linear filter it is possible to substantially reduce lag and increase responsiveness. Since volatility is highly predictable, it stands to reason that we would like to reduce lag and increase responsiveness as much as possible to generate superior results.
+
+So how would we create a volatility measure that incorporates acceleration? The answer is that we need to dynamically weight each squared deviation from the average as a function of the magnitude of acceleration- where greater absolute acceleration should generate an exponentially higher weighting on each data point. Here is how it is calculated for a 10-day NLV. (Don’t panic, I will post a spreadsheet in the next post):
+
+A) Calculate the rolling series of the square of the daily log returns minus their average return
+B) Calculate the rolling series of the absolute value of the first difference in log returns (acceleration/error)
+C) Take the current day’s value using B and divide it by some optional average such as 20-days to get a relative value for acceleration
+D) Raise C to the exponent of 3 or some constant of your choosing- this is the rolling series of relative acceleration constants
+E) Weight each daily value in A by the current day’s D value divided by the sum of D values over the last 10 days-
+F) Divide the calculation found in E by the sum of the weighting constants (sum of D values divided by their sum)– this is the NLV and is analagous to the computation of a traditional weighted moving average
+
+And now for the punchline–here are the results versus the different alternative measures presented in [the last post](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/ "Volatility of Acceleration Part Two"):
+
+[![nlv](img/6edb420e8163303e8866687b0f9e8518.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv.png)
+
+[![nlv2](img/19e127d109696bd90039fb3e57e38ffc.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv2.png)
+
+The concept shows promise as a hybrid measure of volatility that incorporates acceleration. The general calculation can be applied many different ways but this method is fairly intuitive and generic. In the next post I will show how to make this non-linear filter even more responsive to changes in volatility.
