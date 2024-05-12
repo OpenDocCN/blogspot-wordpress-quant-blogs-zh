@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:39:46
+-->
+
+# Current Economic Model Prediction | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2019/10/29/current-economic-model-prediction/#0001-01-01](https://cssanalytics.wordpress.com/2019/10/29/current-economic-model-prediction/#0001-01-01)
+
+As of the 25th of October the Economic Model changed signal from sideways to bullish. So far the out of sample predictions since its creation have been quite useful for trading during these tricky markets. While Fed day is tomorrow and could change market sentiment, the economic numbers continue to show that we are not nearing recession territory. This prediction is in contrast to many pessimistic news articles that have been published over the last two months. Ultimately news articles focus on very recent data and tend to isolate a few specific indicators that may no longer have much predictive value (or are context dependent). That was the reason for developing an integrated model that uses 50 different indicators along with dozens of derivatives of the same time series within a decision-tree framework. This model will be featured in real-time on our upcoming website.
+
+![](img/0a207ba8bdd49678148ef45153041698.png)

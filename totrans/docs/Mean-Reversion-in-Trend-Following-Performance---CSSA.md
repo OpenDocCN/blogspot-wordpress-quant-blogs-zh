@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:40:16
+-->
+
+# Mean-Reversion in Trend-Following Performance | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2019/09/18/mean-reversion-in-trend-following-performance/#0001-01-01](https://cssanalytics.wordpress.com/2019/09/18/mean-reversion-in-trend-following-performance/#0001-01-01)
+
+In a [recent post](https://cssanalytics.wordpress.com/2019/09/12/when-should-you-buy-momentum-mean-reversion-in-the-momentum-factor/) I showed that the momentum factor has been mean-reverting in the short-term, and that this effect can be used to trade both the factor and momentum strategies effectively. An obvious extension is to see whether trend-following as a factor is also mean-reverting. After all, time-series momentum and momentum have been shown to be related in the research.
+
+To represent the trend-following factor I used the data for the BarclayHedge SG Trend-Following Index which captures the profitability of CTAs that follow a systematic trend-following approach. For consistency, I used the same methodology as the original post: I took the 10-day return and smoothed using a 5-period simple moving average in order to reduce noise. I then took the percentile ranking using all history available at each point-in-time of that smoothed return. Oversold was considered to be when the percentile ranking of the return was below the median (<.5) and overbought was when the percentile ranking was above the median (>.5). Positions are held until the percentile ranking goes back above (below) the median. As a third strategy, I tested avoiding the top quartile of performance (<.75) which is a lower turnover and perhaps a more realistic strategy.
+
+![](img/df1e32cbf72befb5d4988e14b53b810e.png)![](img/67be2410eed3922246569bd6c65fdd3b.png)
+
+In general we see evidence of mean-reversion in trend-following performance (this is true using a wide variety of parameters) which becomes most pronounced starting in early 2014\. The strategy of avoiding the top quartile (long when trend-following has not recently been performing very well) has been effective over longer periods of time.
+
+**The lesson highlighted in recent posts has been that to be effective in the modern day environment you have to be a contrarian**— buying momentum and trend-following strategies after they have had poor performance. The reason this anomaly likely exists is because people tend to hire and fire managers based on recent performance. As a piece of anectdotal evidence: when I was doing consulting work a long time ago, I used to joke with my colleagues that certain clients were particularly adept at timing when to be in or out of strategies: as soon as they were upset, the strategy probably bottomed, and as soon as they wanted to increase their allocation it had probably topped. After making several poor allocation/timing decisions they usually quit the strategy altogether claiming that it was ineffective.
+
+I made a presentation at a conference in 2010 about mean-reversion in strategy performance using a sample of over a hundred different strategies (including both mean-reversion and trend-following as well as many others). My experience in money management after 2010 has been no different. Unfortunately, all marketing is geared toward recent performance so there is a conflict of interest: if you understand that strategies mean-revert in the short-term then you will be marketing most when clients are least likely to make money. AUM flows tend to reflect that this method works well. It is therefore not surprising that [DALBAR studies](https://www.dalbar.com/) show that the average investor (most of whom have advisors) significantly underperform their risk benchmarks.
