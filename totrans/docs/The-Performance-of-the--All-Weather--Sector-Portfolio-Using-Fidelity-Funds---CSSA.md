@@ -1,0 +1,15 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:01:18
+-->
+
+# The Performance of the “All-Weather” Sector Portfolio Using Fidelity Funds | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2013/02/14/the-performance-of-the-all-weather-sector-portfolio-using-fidelity-funds/#0001-01-01](https://cssanalytics.wordpress.com/2013/02/14/the-performance-of-the-all-weather-sector-portfolio-using-fidelity-funds/#0001-01-01)
+
+In the last post, we introduced the [“All-Weather” Sector Portfolio](https://cssanalytics.wordpress.com/2013/02/11/building-an-all-weather-sector-portfolio/ "Building an “All-Weather” Sector Portfolio") which was developed using data from Fidelity Asset Allocation Research. I created a heuristic approach to integrate a variety of factors (length of  stage, sector performance ranking by stage) in order to create the final portfolio allocation. It is obviously very interesting to examine the performance of this static/strategic portfolio allocation over time. For testing comparisons, I used the [Fidelity Sector mutual funds](https://www.fidelity.com/mutual-funds/sector-funds/overview) total return series and also the S&P500 total return cash index. The time period for testing was chosen to include all active [](https://cssanalytics.files.wordpress.com/2013/02/all-weather-sector-perf-table.png) sector members to ensure a fair comparison.  Three time series were created: 1) “All-Weather” Sector 2) Equal Weight Sector 3) S&P500 Total Return Index. Rebalancing was conducted on a monthly basis.The graph and table below depict the results:
+
+[![Performance of the All Weather Sector Portfolio2](img/2effb94ddec6069b489ec8dc5ae5a092.png)](https://cssanalytics.files.wordpress.com/2013/02/performance-of-the-all-weather-sector-portfolio2.png)
+[![all weather sector perf table2](img/c3aae2a56355721631e76b8c52d0f29e.png)](https://cssanalytics.files.wordpress.com/2013/02/all-weather-sector-perf-table2.png)
+
+The results are promising– both higher returns and risk-adjusted returns than both an equal weight benchmark and the S&P500\.  The All-Weather Sector also has the lowest risk of the three portfolios. Transaction costs and turnover are likely to be negligible in this case–especially if one were to stay within the minimum holding period for the funds. The broad diversification across sectors and limited “tilting” of sector weights makes this version of the All-Weather Sector Portfolio a desirable core equity holding for investors. The All-Weather Sector Portfolio is arguably a superior theoretical index construction than equal or market cap weightings, with  low tracking error,  tax-efficiency,  and good results to back up the concept.  In subsequent posts I will show some alternative formulations and weighting schemes that have superior performance.
