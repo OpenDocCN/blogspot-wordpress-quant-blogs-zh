@@ -1,0 +1,15 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:52:30
+-->
+
+# Risk Management is Back in Vogue | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2014/10/17/risk-management-is-back-in-vogue/#0001-01-01](https://cssanalytics.wordpress.com/2014/10/17/risk-management-is-back-in-vogue/#0001-01-01)
+
+[![risk management](img/a2ce5c1f6ef6e996a6c67d354bfcc0dc.png)](https://cssanalytics.files.wordpress.com/2014/10/risk-management.png)
+As human beings, we are by design our own worst enemies- especially when it comes to navigating the ups and downs of the market. The longer a person experiences prosperity and does not suffer any drawdowns, the less risky they perceive the market to be. The reverse is true after a person experiences large losses and severe drawdowns. After the equity market goes up significantly for years without a serious correction, most investors begin to forget about the importance of risk management. Typically the only risk they think of is keeping up with the returns of their peers- the fear of missing out on the gravy train. This causes investors to push to overweight stocks beyond both their required allocation for financial planning and also their inherent comfort level. Winners bet more than they should on stocks and losers bet less. No one wants to hear about tactical asset allocation when the market is going up- they would rather listen to stock tips from a “5-star” fund manager- or from their advisor. After a bear market, investors seek out the same tactical advisors they previously ignored, and tend to especially favor advisors with compelling bearish stories that resonate strongly with investor fear and skepticism. Of course they ignore “black-box” systematic strategies that are more likely to capture returns in the next bull market.
+
+The bottom line is that the longer an investor experiences a market state, the more comfortable that they become that it will last forever. The old saying about boiling a frog rings true: if you want to trick the frog, just start out with cold water and slowly bring things to a boil and it won’t jump out until its too late. The stock market demonstrates predictable long-term mean-reversion- the longer and higher something goes up, the more likely it will go down in the future. The result is that investors on balance badly underperform virtually any benchmark imaginable–even accounting for their chosen asset mix.
+
+After a large and sharp market pullback, suddenly investors become alert to the realities of market risk. If you read a lot of the media these days, risk is the only topic that everyone wants to talk about. Risk management is suddenly back in vogue and no one wants to hear about the “bargain stocks” or “good deals” that their beloved fund managers are talking up on TV to rally support for the cult of equities (long equities only buy and hold). But we should all take a step back and consider that risk management is not a fashion fad, but rather should be a core staple in an investor’s portfolio. Managing risk not only protects an investor’s portfolio against market risk, it also helps to protect them from the greatest risk of all: themselves.
