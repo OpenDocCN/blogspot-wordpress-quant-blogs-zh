@@ -1,0 +1,29 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 17:53:20
+-->
+
+# Part 2: What Factors Drive the Performance of Momentum Strategies? | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2014/07/03/part-2-what-factors-drive-the-performance-of-momentum-strategies/#0001-01-01](https://cssanalytics.wordpress.com/2014/07/03/part-2-what-factors-drive-the-performance-of-momentum-strategies/#0001-01-01)
+
+[![mean dispersion](img/b7b5293ec807f4c32106558902a7c895.png)](https://cssanalytics.files.wordpress.com/2014/07/mean-dispersion1.png)
+In [part 1](https://cssanalytics.wordpress.com/2014/06/25/what-factors-drive-the-performance-of-momentum-strategies-part-1/ "What Factors Drive the Performance of Momentum Strategies? (Part 1)") of the series we introduced a three-factor model that decomposes momentum profitability and how that can be translated into a momentum score for an asset universe. In this post we will show how momentum strategies can be profitable even under the conditions where the market is efficient and time series performance is not predictable.
+
+The momentum score we introduced in the last post was comprised of: 1) time series predictability (T) 2) dispersion in mean returns (D) and 3) the existence of lead/lag relationships (L). The score is computed by adding T and D and subtracting out the value of L. More formally, we would take the average auto-covariance across time series, the variance in cross-sectional mean returns and the average cross-serial auto-covariance between asset returns.
+
+One of the core predictions of a truly efficient market is that asset prices should follow a random walk and hence should not be predictable using past prices (or any form of technical analysis). The next period price in this context is a function of the current price plus a random distribution output with a mean and error term. Whether this theory is in fact true based upon the empirical evidence is not a subject that I will address in this article. Instead, what I personally found more interesting was to determine whether the presence of an efficient market would still permit a momentum strategy to be successful. The answer boils down to the formula that de-composes momentum profitability:
+
+T+D-L= Momentum Score
+
+in more formal technical terms, the equation breaks down to:
+
+Momentum Profitability= average asset auto-covariance (T) + cross-sectional variance in asset means (D) – average asset cross-serial auto-covariance (L)
+
+Returning back to the concept of a random walk, this would imply that both auto-correlations and cross-serial autocorrelations would be equal to zero (or close to zero). In that case the formula breaks down as follows:
+
+Momentum Profitability= cross-sectional variance in asset means (D)
+
+Thus, even in the case of a true random walk or an efficient market, we can expect profits to a momentum strategy as long as there is dispersion in the asset means– in other words, we would require that the asset means be heterogeneous to some degree to capture momentum profits. Technically another requirement is that the asset means are fairly stationary– in other words they can drift over time but their means stay approximately the same. However, from a practical perspective many risk premiums are fairly stable over long periods of time (ie the return to investing in the stock market for example). Hence the existence of variation in asset returns alone can support the existence of momentum profits even if the market was considered to be efficient. This helps reconcile why Eugene Fama- the father of the Efficient Markets Hypothesis- can still claim that momentum is the “premier anomaly” and still not technically be a hypocrite (even though it sounds that way to many industry practitioners).
+
+In the last post, we showed that a broad multi-asset class universe had a higher momentum score using the formula presented above than a sector equity universe. This was demonstrated to be primarily due to the fact that the dispersion in asset means is much higher in an asset class universe than a sector universe. To add further to this result, we would expect that the mean returns for asset classes will be more stationary than the means for sectors or individual stocks since they reflect broad risk premiums rather than idiosyncratic or specific risk. As markets become more efficient over time and all assets become more unpredictable, the importance of cross-sectional dispersion in the means (and also mean stationarity) become essential to preserving momentum profits. The implication for investors is that the safest way to profit from a momentum strategy is to employ tactical asset allocation on an asset class universe in order to achieve greater consistency in returns over time.
