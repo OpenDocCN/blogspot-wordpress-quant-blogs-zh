@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:00:10
+-->
+
+# Filtering White Noise | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/#0001-01-01](https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/#0001-01-01)
+
+![](img/078bb421694066e19ebf093a38eac995.png)
+
+Most asset return processes can be characterized as containing a primary trend, along with mean-reversion around that trend, as well as a certain amount of random noise.  Econometricians classify these elements using a [Hurst Exponent](http://en.wikipedia.org/wiki/Hurst_exponent) as either : 1)black noise (trending/positive autocorrelations- Hurst>.5) 2) pink noise (mean-reverting/negative autocorrelations- Hurst<.5) or 3)  [white noise](http://en.wikipedia.org/wiki/White_noise) ( no trend/mean-reversion, low/insignificant autocorrelations- Hurst=.5). Intuitively traders wish to capitalize on either the trend or mean-reverting behaviour- often at different time frames since they are part of the same unified process (trends tend to occur at longer time frames, and mean-reversion around that trend at shorter time frames). The key obstacle for both styles is to eliminate or minimize the impact of white noise on indicators that are used to measure either trending or mean-reverting behavior. The failure to do so results in poor trading results due to false/random signals.
+
+Consider two charts of the same time series (from [Jonathan Kinlay’s](http://jonathankinlay.com/) good blog) one is a black noise process while the other contains a white noise process:
+
+[![Black Noise Fractal Random Walk](img/b8382c0b448e40c18d9474cffd4ff8ec.png)](https://cssanalytics.files.wordpress.com/2013/04/black-noise-fractal-random-walk.png)
+
+[![white noise random walk](img/4612dda0b3a8399451c7511bf99cfe8a.png)](https://cssanalytics.files.wordpress.com/2013/04/white-noise-random-walk.png)
+
+In the first chart- with a black noise process- it is easy to see how profitable it might be to use a simple moving average to trade the underlying–there is very little noise to speak of that is not self-reinforcing (trending). In the second chart- a white noise process- you can see the similarity to real financial time series. There appears to be a fair amount of random noise, and it would be more difficult to trade for example with a moving average. The chart below shows a pink noise process, and looks familiar to those who trade pairs as a log of the ratio of two asset prices that are cointegrated (ie like one sector ETF versus the same sector from a different ETF provider).
+
+[![pink noise](img/77853ac13badcf466cc7fbc4e74dd27e.png)](https://cssanalytics.files.wordpress.com/2013/04/pink-noise.png)
+
+Notice that this process appears to have a stationary mean and predictable negative autocorrelation. It would be impossible to trade this series using a moving-average based trend strategy. However, this would be an ideal dataset to trade using runs (ie buy on a down day short on an up day). In practice, time series data contains elements of all three types of noise and thus what we want to do is to filter out the white noise which is less predictable and obscures otherwise predictable asset behavior.
+
+A [recent paper](http://ssrn.com/abstract=2260609) was written by a colleague- George Yang-  that sheds light on how to go about filtering random/white noise elements and also shows the practical impact on trading system profitability. The paper recently won a prize in the prestigious [Wagner Award](http://www.naaim.org/resources/wagner-award/) competition which is run through [NAAIM](http://www.naaim.org/://). Mr. Yang shows that one can filter out “insignificant” data using a rolling or historical standard deviation threshold and extend indicators to use only “significant” data. For example, if one were to use a 200-day moving average on the S&P500, you might stipulate that market moves between .25% and -.25% are too small to be considered significant in defining the trend. That is, a small up or down day (or series of small days) may cause a trade which will not signal a true change in the underlying trend. This can also be translated for example as a fraction of a rolling standard deviation unit. To calculate the true 200-day moving average in the first case, one would eliminate all insignificant days from the data set and count back in time until there were 200 days of significant data to calculate the moving average. The results in the paper demonstrate that this type of filtering is effective increasing the signal to noise ratio and improving trading results across a wide range of parameters. The paper also shows the same technique is effective at improving a short-term mean-reversion system using runs. This highlights the potential of applications that can filter white noise from the data.
+
+There are multiple extensions to improve this concept, many beyond the scope of this post. However, one seemingly obvious method would be to also filter insignificant days as also requiring trading volume to also be insignificant– presumably volume that is below average would signify a lack of conclusive agreement on the current market price. On the flip side a seemingly small market move accompanied by very heavy trading volume could be a warning sign. Another method could look (on George’s suggestion) at the high to low range for the day in relation to the past (ie like DV2). Presumably a tight daily range implies insignificant movement, while a wider range is more informative. One can picture using multiple filters to enhance the ability to identify truly significant from insignificant trading days. This would in turn significantly improve trading signal performance or forecasting ability.
