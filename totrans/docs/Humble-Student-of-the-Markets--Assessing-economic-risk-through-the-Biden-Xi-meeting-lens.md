@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:22:52
+-->
+
+# Humble Student of the Markets: Assessing economic risk through the Biden-Xi meeting lens
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/11/assessing-economic-risk-through-biden.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/11/assessing-economic-risk-through-biden.html#0001-01-01)
+
+The markets took a risk-on tone in the wake of a softer-than-expected CPI report, followed by a tame PPI report and strong retail sales print. Even before these reports, [Mohamed El-Erian](https://twitter.com/elerianm/status/1721947719550300631) issued a warning about the goldilocks scenario of lower oil prices and falling bond yields.
+
+Is market psychology in a “bad news is good news” mode that’s discounting weakness ahead? To answer that question, one useful way of seeing the world is through the lens of last week’s meeting between Joe Biden and Xi Jinping on the sidelines of the APEC Summit in San Francisco. The U.S. and China met to stabilize their relationship, but each is coming to the table with deep wounds, which are useful in evaluating potential weakness that could affect the global economy. The actual progress made at the meeting was modest, but it’s less important inasmuch as what it revealed about the vulnerabilities of each economy to the growth risks highlighted by El-Erian.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2023/11/18/assessing-economic-risk-through-the-biden-xi-meeting-lens/).
