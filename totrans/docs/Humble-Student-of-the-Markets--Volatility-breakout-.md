@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:39:28
+-->
+
+# Humble Student of the Markets: Volatility breakout?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/05/volatility-breakout.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/05/volatility-breakout.html#0001-01-01)
+
+I've been seeing some odd and contradictory readings from the option market all week. One screams "fear" while the other screams "complacency".
+
+On one hand, the equity put-call ratio, which I highlighted on Sunday night (see
+
+[Watch for the sentimental rally](http://humblestudentofthemarkets.blogspot.com/2014/05/watch-for-sentimental-rally.html)
+
+), remains elevated and is suggestive of a high level of fear. Such a condition is contrarian bullish for equities. The chart below shows the 5 day exponential moving average of the equity only put-call ratio (in blue) and the 21 day moving average (in red). Both are at elevated levels relative to their own recent history.
+
+By contrast, the VIX and its term structure are sending out a completely opposite message. The top panel of the chart below shows the VIX term structure measured as a ratio of VIX to VXV, or three-month expected volatility. When the ratio is above 1, it means that the term structure is downward sloping, the option market is showing a high level of fear. By contrast, if the ratio is low, indicating that the term structure is steeply upward sloping, it is an indication of complacency.
+
+Here is the puzzle: When the equity put-call ratio is showing a high level of fear, why is the VIX structure in the complacency zone?
+
+The bottom panel shows the VIX Index. If the markets are so fearful, then why is this so-called "fear index" so low?
+
+**A regime change?**
+
+I had written about a possible volatility regime change (see
+
+[Interpreting a possible volatility regime change](http://humblestudentofthemarkets.blogspot.com/2014/04/interpreting-possible-volatility-regime.html)
+
+). In my previous blog post, I had featured this chart of the equity put-call ratio (top panel) and VIX (bottom panel). I showed how changes in the trend in equity put-call ratio may be a precursor to a higher volatility environment:
+
+Might this dichotomy in put-call and VIX pricing be part of that process? In that case, an elevated put-call ratio relative to its own recent history could be a signal of rising volatility, rather than just rising fear.
+
+**Jittery sentiment**
+
+Indeed, the latest AAII sentiment readings (via
+
+[Bespoke](http://www.bespokeinvest.com/thinkbig/2014/5/15/bullish-sentiment-increases.html)
+
+) could be a clue of a volatility regime change. Even though the major large cap averages made a new high, AAII bulls rose from 28.3% to 33.1% this week, but they remain low on an absolute basis, which would normally be interpreted as bullish.
+
+However, the AAII survey readings
+
+[from the previous week](http://www.bespokeinvest.com/thinkbig/2014/5/8/fewer-bulls-than-bears.html)
+
+also show a very low level of bulls and bears alike.
+
+I interpret these conditions as a highly jittery market. These are clues of a market ready to move to an environment of higher volatility.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
