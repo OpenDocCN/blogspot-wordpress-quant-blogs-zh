@@ -1,0 +1,85 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:30:52
+-->
+
+# Humble Student of the Markets: How inequality may evolve in the next decade
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/10/how-inequality-may-evolve-in-next-decade.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/10/how-inequality-may-evolve-in-next-decade.html#0001-01-01)
+
+> [Branko Milanovic](http://www.ub.edu/histeco/pdf/milanovic.pdf), the Lead Economist at the World Bank research group, said in so many words the Left in developed countries won the genetic lottery but they didn't even know it (my words, not his). The chart below shows who won and lost in the inequality race globally. The x-axis on the bottom splits the world population from the poorest on the left in subsistence economies to the richest on the right, while the y-axis shows the real income growth in PPP terms between 1988 and 2008.
+
+> [![](img/5f4ecbbbd395ba60d4a4678602b7728c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgen-HsOeaMxfzJrBDEV3L0vplz5v50Cd3mDKlFXkG849kqVY-e0fTGL7ACcWYRyKIRieaVln2QFHG01YNQXOC8Cfjmni8JnSEAulqlBb6jK0Pg6Zjld5q7lpRXBYVs0Tw0r3tpCjCQ0i4/s1600/Global+inequality.png)
+> 
+> In the thirty years spanning 1988 and 2008, the winners in the inequality race were the middle class in emerging economies, because of the effects of globalization, and the very rich, who engineered the globalization revolution. The losers were the very poor in subsistence economies, who weren't able to benefit from and the middle class in developed economies, who did not receive the benefits of the productivity gains (see
+> 
+> [Rex Nutting's analysis](http://www.marketwatch.com/story/the-typical-worker-makes-no-more-than-dad-did-in-1979-2014-01-24)
+> 
+> above) in the last few decades.
+
+**Slowing EM growth**
+
+If the winners of the globalization drive were the emerging market countries' middle class, what would happen if EM growth were to slow? Writing in
+
+[Beyond BRICS](http://blogs.ft.com/beyond-brics/2014/10/08/guest-post-em-growth-may-well-disappoint-over-next-five-years/)
+
+, that's exactly what George Magnus projects for EM economies:
+
+> It is now clear clear that the exceptional acceleration in emerging market growth between 2006-2012 is over.
+> 
+> Even if the IMF predictions from 2015-2019 turn out to be correct (see chart below), the Middle East and North Africa, and Sub-Sahara Africa would be the only geographic regions where growth in those five years would be comparable with the period from the mid-1990s to 2012, according to IMF statistics.
+
+That`s because the low hanging fruit of globalization is gone and EM countries like
+
+[China are facing their Lewis turning point](http://www.imf.org/external/pubs/ft/wp/2013/wp1326.pdf)
+
+:
+
+> Successful economic development now looks a much tougher challenge, and perhaps only a handful of countries can expect to join the select group of 35 high income countries (income per head over $20,000), not counting the 14 low population and small island states. Countries such as Poland and Chile are knocking at the door, but the countries in this universe look increasingly like the exception not the rule.
+
+**An American Renaissance?**
+
+Considering that the Milanovic study found that the middle class in developed market economies lost ground in the globalization drive, a reversal of that effect could mean those effects get slowly reversed in the next decade. In particular, if EM economies and China, in particular, were to see slower growth rates over the next decade, then I can see the following important global effects:
+
+*   Slowing resource demand drives down commodity prices
+*   A greater propensity for onshoring of manufacturing once moved offshore
+
+Lower commodity prices would amount to lower input costs for US businesses. In addition, lower oil prices amounts to an implicit tax cut for the consumer. In addition, an onshoring trend would increase US employment. All these effects could amount to an American Renaissance.
+
+The chart below from
+
+[Boston Consulting Group](https://www.bcgperspectives.com/content/articles/lean_manufacturing_globalization_shifting_economics_global_manufacturing/#bmb=1)
+
+shows the operating costs in each country. Note that the costs for China, once the preferred go-to country for offshoring, are not very different from the US and not competitive relative to Mexico.
+
+BCG went on to summarize the recent winners and losers in operating costs. The main conclusion drawn from this chart shows that the losers were EM countries, while the US and Mexico were the winners.
+
+The combination of rising middle class employment, income and lower fuel spending costs would therefore see greater gains by the developed market middle class - and moderate complaints about the income inequality in the next decade.
+
+**Problems of onshoring**
+
+To be sure, the transition may not be as smooth as I postulated in the seemingly rosy scenario that I outlined. There are reports that companies that tried to onshore manufacturing have run into difficulties, largely because either labor skills sets have disappeared or decades of offshoring has moved the supply chain offshore (via the
+
+[Brookings Institute](http://www.brookings.edu/blogs/the-avenue/posts/2014/10/02-reshoring-strong-regions-muro)
+
+):
+
+> However, it is an instructive irony that although the trends are now right for U.S. reshoring, conditions on the ground are not always so favorable. That's because 40 years of offshoring have done a lot of damage to what Gary Pisano and Willy Shih have called the nation's "[industrial commons](http://hbr.org/2009/07/restoring-american-competitiveness/ar/1)"—the shared resource base of skilled workers and supply chains upon which all manufacturers draw.
+
+Shih conducted a couple of case studies and found labor skill and supply chain problems:
+
+> Shih injects a dose of realism into the reshoring discussion. He notes that both GE and Google’s Motorola Mobility unit faced enormous difficulties in hiring adequate numbers of appropriately skilled people for their factories. Appliance Park started with 10,000 applications for an initial 2012 posting. Of the 6,100 who passed the screening, 730 were hired but 228 were terminated in the first year. Fort Worth had to hire 6,500 workers to yield the required 2,500 employees to begin volume production. In both cases, a lack of basic familiarity with modern precision manufacturing among new hires led to a lot of turnover.
+> 
+> At the same time, managers at both Appliance Park and in Fort Worth faced hollowed-out local supply bases. Almost all the parts for the MotoX had to come from China, Korea or elsewhere in Asia, while GE encountered reduced capacity in its supply base for appliance parts. As of now, Appliance Park has basically succeeded in Louisville (though GE has signaled that it wants to sell its appliance division) while the Motorola—which Google is selling—said recently it will close the MotoX facility in Fort Worth due to lackluster sales and high costs for labor and shipping.
+
+In the long term, the story of slowing EM growth, falling commodity demand and onshoring will continue in fits and starts. Nevertheless, this trend is likely to result in better developed market middle class income growth over the next decade.
+
+The reduction of inequality appears to spur growth potential. A recent paper by Price and Boushey entitled 
+
+[How are inequality and economic growth connected?](http://equitablegrowth.org/research/economic-inequality-growth-connected/)
+
+ conducted a survey of research on the issue of inequality. They summarized the conclusions this way (emphasis added):
+
+> This paper does not contain policy advice. Instead, it contains analysis that largely demonstrates there are direct, and possibly causal, relationships between economic inequality and growth—**places that begin with a lower level of inequality subsequently tend to grow faster and have longer periods of growth than those with a higher level of inequality**. In future research, we will focus on the channels through which inequality could or does affect economic growth.
+
+If inequality were to be reduced in the developed market economies, then it would mean a brighter future for these economies in the decades ahead. The current level of concern expressed about economic inequality may therefore represent the generational high tide mark of this debate.
