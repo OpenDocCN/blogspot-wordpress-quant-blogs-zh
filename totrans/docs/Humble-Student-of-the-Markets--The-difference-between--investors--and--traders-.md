@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:16:48
+-->
+
+# Humble Student of the Markets: The difference between "investors" and "traders"
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/08/the-difference-between-investors-and.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/08/the-difference-between-investors-and.html#0001-01-01)
+
+I received a lot of complimentary comments on my last post (
+
+[Relax, have a glass of wine](http://humblestudentofthemarkets.blogspot.com/2015/08/relax-have-glass-of-wine.html)
+
+) in which I urged investors to take a deep breath and focus on the market fundamentals which indicated that the macro backdrop was tilted bullishly. However, there was a small minority whose comments ran to the tone of the post being ridiculous advice.
+
+The latter group undoubtedly were highly short-term focused and belonged to the community of traders. I would like to take this post to distinguish between my two personas, namely my inner trader and inner investor.
+
+During the current period of market turmoil, my inner trader has to deal with many challenges, not the least of which are the wild daily and overnight swings in asset prices.
+
+By contrast, my inner investor (and underline the term "investor") takes a much more longer term view. The typical "investor" and can only check the market briefly during the day and only trades occasionally. They certainly do not have the time, resources or inclination to be fret over and trade swings in overnight stock index futures.
+
+While the recent stock market downdraft has been surprising, the average diversified investor hasn't really been hurt very much. That's because the bond market has acted as a very good diversifier, unlike 2008 when market contagion leaked into the credit markets.
+
+To illustrate my point, imagine someone with a portfolio with a passive 60% stocks and 40% bond allocation. He invests the stock portion into SPY and the bond portion into AGG. The simulation assumes that all income is re-invested back into the ETF of the respective asset classes (SPY dividends to SPY and AGG income into AGG). Once a year on December 31, he re-balances the portfolio back to the target 60-40 weight.
+
+Here is a chart showing how far his equity weight is off his 60% target since September 2003, when the data series for AGG began. As of Tuesday, August 25, 2015, the worst day of the stock market drawdown so far, the portfolio was underweight its stock benchmark by only 2.2%, which means that the bond market rallied enough to make up most of the losses suffered by equities. Contrast that with past experiences in 2008 when the equity weight cratered, or even the correction of 2011 when bond diversification had a less adequate effect.
+
+In 2015, diversification worked! Investors who have diversified portfolios shouldn't really be freaking out. So 
+
+[relax, have a glass of wine](http://humblestudentofthemarkets.blogspot.com/2015/08/relax-have-glass-of-wine.html)
+
+*.
+
+* Investors who made the decision to be 100% equities either made the conscious investment policy decision to assume equity volatility in return for a higher rate of return, or the current episode taught them a valuable lesson on the importance of an investment policy.

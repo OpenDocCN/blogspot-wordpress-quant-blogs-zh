@@ -1,0 +1,206 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:17:28
+-->
+
+# Humble Student of the Markets: You can't hurry tops!
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/08/you-cant-hurry-tops.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/08/you-cant-hurry-tops.html#0001-01-01)
+
+**Trend Model signal summary**
+
+Trend Model signal: Neutral
+
+Trading model: Bullish
+
+The Trend Model is an asset allocation model which applies trend following principles based on the inputs of global stock and commodity price. In essence, it seeks to answer the question, "Is the trend in the global economy expansion (bullish) or contraction (bearish)?"
+
+My inner trader uses the trading model component of the Trend Model seeks to answer the question, "Is the trend getting better (bullish) or worse (bearish)?" The history of actual out-of-sample (not backtested) signals of the trading model are shown by the arrows in the chart below. In addition, I have a trading account which uses the signals of the Trend Model. The last report card of that account can be found
+
+[here](http://humblestudentofthemarkets.blogspot.com/2015/08/trend-model-july-report-card-47.html)
+
+.
+
+**Trend Model signal history**
+
+**Update schedule**
+
+: I generally update Trend Model readings on
+
+[my blog](http://humblestudentofthemarkets.blogspot.com/)
+
+on weekends and tweet any changes during the week at @humblestudent.
+
+**So easy to be bearish, but...**
+
+Last week, I outlined my views over different investment time frames (see
+
+[Bullish and bearish over different time frames](http://humblestudentofthemarkets.blogspot.com/2015/08/bullish-and-bearish-over-different-time.html)
+
+). I wrote that I believed that the stock market is in the process of forming an intermediate term top over the next several months, but it is likely to rally to test the old highs or make marginal new highs over the next few weeks before a correction begins.
+
+I stand by those remarks.
+
+From a chartist's viewpoint, it would be so easy to be bearish right now. Breadth deterioration in the US equity market has become very evident. The chart below of several measures of market breadth how the leadership is narrowing almost every day, which is a clear warning to the bull camp.
+
+Rather than just repeat myself week after week about how breadth is weak, I thought that I would show the narrowness of the advance differently by analyzing the market using 
+
+[point and figure charts](http://www.investopedia.com/articles/technical/03/081303.asp)
+
+. For the sake of consistency, all charts have been standardized with a 0.5% and 3 box reversal. Here is SPX, which shows that it has broken down out of an uptrend and may be undergoing a sideways consolidation.
+
+If the market had just been losing momentum by breaking down out of an uptrend, I would not be as worried as the bullish impulse can resolve itself by resting through a consolidation period before resuming its upswing. Unfortunately, other major averages are telling a more bearish story. Consider the point and figure charts of the three Dow Jones averages, namely the DJIA, DJTA and DJUA. This chart of the DJ Industrials shows that it is starting to roll over:
+
+The DJTA looks worse as it is in an unambiguous downtrend:
+
+I will not even pretend that the DJUA is in anything but a bear phase, though it may be forming a bottom.
+
+Here is the small cap Russell 2000\. It`s the same story of a market rolling over into a bear phase. It`s the SPX that is the laggard.
+
+Another concern that I am seeing is the message from cross-asset, or inter-market, analysis. The HY, or junk bond, market is not behaving well, which is an indication that global risk appetite is receding. The relative performance of HY bonds compared to equivalent duration UST topped out in April and began to roll over.
+
+On a longer term basis, I found that the relative performance of HY bonds (black line, inverted scale) tends to lead US equities (purple line) by 4-5 months. Here is a longer term chart going back to 1996, with SPX performance lagged by 5 months. The fact that HY spreads are starting to blow out must be a little disconcerting to stock investors.
+
+Arguably, the poor performance of the junk bond market could be attributed to the steep drop in oil prices, which have negatively affected the HY prices of energy related issuers. However, this analysis from Deutsche Bank (via
+
+[Bloomberg](http://www.bloomberg.com/news/articles/2015-08-06/credit-risk-is-staging-a-comeback)
+
+) shows that the spreads on non-resource related issuers have been rising as well.
+
+**Too many bears**
+
+Based on the analysis presented so far, the natural inclination is to batten down the hatches and get bearish. But not yet. 
+
+[Josh Brown](http://thereformedbroker.com/2015/08/09/the-positive-feedback-loop-is-broken/)
+
+ had a great perspective on the kind of technical deterioration that we are seeing. Despite the fact that his director of research 
+
+[Michael Batnick](http://theirrelevantinvestor.tumblr.com/post/125442897978/breadth-and-major-market-tops)
+
+ wrote that breadth deterioration often leads market tops by 1-2 years, the kinds of market action that we are seeing is disconcerting (emphasis added):
+
+> The SP 500 sits just a few percentage points from its all-time record high. And although we’re elevated, it is important to note that the major averages have made no upward progress since Thanksgiving 2014\. This after years of compound annual returns of around 20%. We haven’t fallen, but with every passing week, more and more investors are asking themselves where’s the cheese?
+> 
+> Beneath the surface, there is a very different picture forming. The average SP 500 stock is down 15% from its 52-week high. The positive feedback loop has been broken across vast swathes of the US stock market. Energy, Materials, Utilities, Technology, IPOs, REITs, Small Caps – one by one, our hearts are broken. The feedback is all negative. *I buy stocks, they go down. I buy more stocks, they go even lower. Shock, shock, shock.*
+> 
+> What is a rat to do? Can’t run left because there’s no cheese anymore. Can’t run right because it hurts. Fear sets in. [Fear leads to anger, anger leads to hate, hate leads to suffering.](https://www.youtube.com/watch?v=kFnFr-DOPf8)
+> 
+> ***We’re not quite there yet. There is real fear but the anger part hasn’t manifested itself.*** Although the individual losses are piling up and the gains in the overall market are failing to offset them, it is far from resolved.
+
+While I remain highly concerned about the market on an intermediate term basis, stocks will have difficulty falling today because there are too many bears. Excessive bearish sentiment is therefore putting a floor on equity prices. We need a shakeout of the bears.
+
+Consider the readings of the CNN Money
+
+[Fear and Greed Index](http://money.cnn.com/data/fear-and-greed/)
+
+, which is in a state of high fear.
+
+This chart of the smoothed readings of NAAIM exposure is also showing a crowded short and the lowest reading since October 2014 (via
+
+[Ryan Detrick](https://twitter.com/RyanDetrick/status/629475916284956672)
+
+):
+
+While I am not a big fan of the AAII investor sentiment survey because it asks for the respondents` opinions, which can change from one day to the next, the spread of AAII bears to bulls is also showing a crowded short signal. In the chart below, I overlaid a 5-year moving average to the weekly AAII data and then showed the 2-standard deviation band around that average. Past instances when the AAII bear to bull spread has ticked up over that band, which are marked by vertical lines, has seen at least a short-term (2-4 week) rally in stock prices.
+
+There is a high degree of bearishness in the option market as well. The
+
+[ISE equity-only call-put ratio](http://www.ise.com/market-data/isee-index/)
+
+, which is calculated only using customer opening transactions to form a clearer picture of option trader sentiment, has seen readings under 100% for the last couple of weeks. On Friday, the ISEE came in at 64%.
+
+These series of low ISE readings has prompted comments from
+
+[Dana Lyons](https://twitter.com/JLyonsFundMgmt/status/628551553876688897)
+
+and
+
+[Urban Carmel](http://fat-pitch.blogspot.com/2015/08/insiders-are-bullish-while-outsiders.html?spref=tw)
+
+, who both showed that conditions are contrarian bullish, at least for the next few weeks.
+
+My base case scenario therefore calls for a multi-week rally to test the old highs and possibly make marginal new highs in the SPX before the market corrects.
+
+**Global healing**
+
+What`s more, the fundamental and macro backdrop are supportive of higher prices - at least for the time being. Even
+
+[Ambrose Evans-Pritchard](http://www.telegraph.co.uk/finance/economics/11782568/Day-of-reckoning-postponed-as-global-recovery-builds.html)
+
+, who hasn't met a doomsday scenario he didn't like, has allowed that maybe, perhaps global growth is reviving and the day of reckoning isn't here just yet. In a recent article, he pointed to a whole of host of indicators such as the acceleration in global M3, which is a sign of global reflation.
+
+My previous post about a possible implosion in China (see
+
+[Is China getting hit with THE BIG ONE?](http://humblestudentofthemarkets.blogspot.com/2015/07/is-china-getting-hit-with-big-one.html)
+
+) highlighted the thesis from Ray Dalio of Bridgewater. He believed that the margin debt unwind from the stock market crash was the last straw and represents the tipping point in China`s deleveraging process. Already, there are signs of corporate zombification, where banks are lending to insolvent companies and enterprises in order to maintain the facade that the non-performing loans are not rising. Recall that it was these kinds of practices led to Japan's Lost Decades.
+
+But there are signs of a turnaround. One of the prerequisites of a collapsing, overly indebted economy is that asset prices fall. Stock prices appear to have stabilized, notwithstanding the unusual and extraordinary measures taken by the authorities. More importantly,
+
+[Callum Thomas](https://twitter.com/callum_thomas/status/628428458771640320)
+
+pointed out that real estate prices have begun to recover - and property related debt is one of the key risks facing the Chinese economy today.
+
+To support economic growth, the PBoC is implementing quantitative easing with Chinese (or European LTRO-like) characteristics (via
+
+[Bloomberg](http://www.bloomberg.com/news/articles/2015-08-09/quantitative-easing-with-chinese-characteristics-takes-shape)
+
+):
+
+> China’s leaders are increasingly relying on the central bank to help implement government programs aimed at shoring up growth, in an adaptation of the quantitative easing policies executed by counterparts abroad.
+> 
+> Rather than bankroll projects directly, the People’s Bank of China is pumping funds into state lenders known as policy banks to finance government-backed programs. Instead of buying shares to prop up a faltering stock market, it’s aiding a government fund that’s seeking to stabilize prices. And instead of purchasing municipal bonds in the market, it’s accepting such notes as collateral and encouraging banks to buy the debt.
+
+As well, the Chinese economy is showing signs of gradually shifting away from infrastructure-led growth to consumer driven growth, which is another positive development. The latest PMIs show that the deceleration in manufacturing has been partially offset by an acceleration in services, which is a sign of rebalancing (via
+
+[Business Insider](http://www.businessinsider.com/the-transformation-of-chinas-economy-in-one-chart-2015-8)
+
+).
+
+None of this means that the Chinese economy is out of the woods, but it does suggest that a wholesale collapse or a Zombie Apocalypse isn't here just yet.
+
+In Europe, the combination of a Greek deal, which eliminates the tail-risk of a Greek default or Grexit, and quantitative easing have sparked a growth revival. The latest Markit Eurozone PMI shows that economic growth is chugging along just fine. Indeed, peripheral economies like Spain have become the star of the eurozone (see my last post
+
+[The costs of Spain's astounding recovery: Bug or feature?](http://humblestudentofthemarkets.blogspot.com/2015/08/the-costs-of-spains-astounding-recovery.html)
+
+)
+
+In the US, the latest Employment Report is highly suggestive that the recovery is continuing and the Fed is on pace to raise rates at its September meeting (via
+
+[WSJ](http://www.wsj.com/articles/jobs-report-u-s-businesses-add-215-000-jobs-1438950803)
+
+, also see
+
+[Jon Hilsenrath's analysis](http://www.wsj.com/articles/hilsenrath-analysis-july-job-numbers-keep-fed-rate-hike-on-track-1438956499)
+
+).
+
+**The week ahead: Look for an oversold rally**
+
+Looking to the week ahead, market conditions have become sufficiently oversold that an oversold rally is likely next week. I
+
+[tweeted](https://twitter.com/HumbleStudent/status/629695875632115714)
+
+the following chart on Friday by highlighting the RSI negative divergences as the market tested a key support level. Subsequent to that tweet, the market did stage a minor bounce and support held.
+
+Here is how the market ended on the day and the week. The SPX remains in an uptrend and oversold:
+
+The most likely outcome would be a rally of indeterminate magnitude. Given the overly bearish nature of sentiment models, I would not be overly surprised to see the SPX either test the old highs or make new highs in the weeks ahead. An alternative scenario would see SPX weaken next week to support level at 2040\. In light of the crowded short sentiment readings, further declines from that level would be difficult to envisage barring some unexpected external shock.
+
+My inner investor remains neutrally positioned and at policy weight in his asset allocation.
+
+My inner trader
+
+[turned bullish earlier last week](https://twitter.com/HumbleStudent/status/628576107386671104)
+
+. He is waiting for the oversold rally with eager anticipation. Should it arrive, the SPX will have to overcome the first hurdle at 2100, which is roughly the site of the 50 dma. Further, he is watching how sector leadership evolves for the signs that the market is topping. As long as the three key leaders of Financials, Consumer Discretionary and Health Care sectors, which comprise slightly over 50% of the weight of the SPX, are holding up, stock prices are unlikely to stage a broad retreat. The relative performance of two of those sectors got hit last week and pulled back to short-term uptrends depicted by the thin red lines, which make them buy candidates for the upcoming rally.
+
+Despite the likely rally, my inner trader remains cautious intermediate term and he is well aware of the downside risks to this market. He is singing this song to himself as a reminder not to get overly eager to get short just yet:
+
+> ***You can't hurry Tops* *No, you just have to wait* *She said, Tops don't come easy* *It's a game of give and take...***
+
+Enjoy the rally, but beware the downside.
+
+**Disclosure:**
+
+Long SPXL, CURE
