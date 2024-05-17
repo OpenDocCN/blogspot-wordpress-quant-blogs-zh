@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:54:24
+-->
+
+# Story Writing Through Remote Pairing | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/02/08/story-writing-through-remote-pairing/#0001-01-01](https://mdavey.wordpress.com/2014/02/08/story-writing-through-remote-pairing/#0001-01-01)
+
+## Story Writing Through Remote Pairing
+
+The quality of stories has a direct correlation to the quality of the software in my view.  Lots of people struggle with story writing.  If the stories are low grade, and the Product Owner happens to be sitting next door to the team, and the team are “talking” this may not be so much of an issue.  However, in many cases the Product Owner isn’t always available 24×7.
+
+One interesting exercise it to leverage Google Docs or similar to allow remote pairing whilst writing stories – even if the pair is close by.  The advantage of this is that with less conversation, and more concentration on the words of the [story](http://www.agileproductdesign.com/blog/the_shrinking_story.html), a clearer story emerges which aid understanding and clarity of the business value.  Take this a step further, and effectively the gate for a successful story is that it should relay value when read by an individual that isn’t part of the agile team.
+
+Finally, in my view this remote pair story writing at a minimum offers a better Return On Investment (ROI) around the “[achieve some goal](http://www.agileproductdesign.com/blog/the_shrinking_story.html)” part of the story, which is often forgotten by teams
+
+~ by mdavey on February 8, 2014.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
