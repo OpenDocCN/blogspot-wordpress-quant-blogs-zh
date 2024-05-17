@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:04:59
+-->
+
+# Humble Student of the Markets: Is the QE glass half-full or empty?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/06/is-qe-glass-half-full-or-empty.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/06/is-qe-glass-half-full-or-empty.html#0001-01-01)
+
+How the market reacts to news can be an important clue of future direction. In my
+
+[last post](http://humblestudentofthemarkets.blogspot.ca/2012/06/time-for-draghi-and-bernanke-puts.html)
+
+, I wrote that you shouldn't expect too much from the ECB or Fed this week. The European Central Bank certainly disappointed the bulls with their inaction, not only on interest rates, but on the prospects for "extraordinary measures".
+
+Now it's Ben Bernanke's turn.
+
+We already have a clue on what Bernanke will say from Jon Hilsenrath's WSJ article entitled
+
+[Fed Considers More Action Amid New Recovery Doubts](http://online.wsj.com/article/SB10001424052702303918204577448802287653684.html)
+
+. Here is what I am watching for. Will the markets key on the comment that action is not likely in the June FOMC meeting?
+
+> The Fed's next meeting, June 19 and 20, could be too soon for conclusive decisions. Fed policy makers have many unanswered questions and have had trouble forming a consensus in the past. Top Fed officials have said that they would support new measures if they became convinced the U.S. wasn't making progress on bringing down unemployment. Recent disappointing employment reports have raised this possibility, but the data might be a temporary blip. Moreover, the Fed's options for more easing are sure to stir internal resistance at the central bank if they are considered.
+
+Or will the market key on the fact that the Fed is considering further quantitative easing [emphasis added]?
+
+> Their options include doing nothing and continuing to assess the economic outlook—or more strongly signaling a willingness to act later if the outlook more clearly worsens. Fed policy makers could take a small precautionary measure, like extending for a short period its "Operation Twist" program—in which the Fed is selling short-term securities and using the proceeds to buy long-term securities. Or, ***policy makers could take bolder action such as launching another large round of bond purchases if they become convinced of a significant slowdown.***
+
+What Hilsenrath wrote is not that different from what New York Fed President Dudley said in late May in the
+
+[WSJ](http://blogs.wsj.com/economics/2012/05/24/feds-dudley-doesnt-see-need-for-more-easing/)
+
+, that the Fed will act should it see signs of economic weakness:
+
+> Expectations for U.S. economic growth, while “pretty disappointing” at around 2.4%, is sufficient to keep the central bank from easing monetary policy, Federal Reserve Bank of New York President William Dudley said.
+> 
+> “My view is that, if we continue to see improvement in the economy, in terms of using up the slack in available resources, then I think it’s hard to argue that we absolutely must do something more in terms of the monetary policy front,” Dudley said in an interview with CNBC, aired Thursday.
+
+Now that we know what Chairman Bernanke is likely to say, watch the market reaction. Is the QE glass half-full or half-empty?
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

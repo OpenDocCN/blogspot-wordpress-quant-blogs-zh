@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:05:17
+-->
+
+# Humble Student of the Markets: NFP preview
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/05/nfp-preview.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/05/nfp-preview.html#0001-01-01)
+
+For American investors, Friday will be the big data day which features the Non-Farm Payroll release. The last two NFP numbers have been below expectations. Looking ahead to Friday, however, I think that it is likely to come in either in-line or slightly above consensus expectations for a couple of reasons.
+
+First, the
+
+[Citigroup Surprise Index](http://www.bloomberg.com/quote/CESIUSD:IND/chart)
+
+, which measures high-frequency economic numbers, is steadying after falling below the zero line, which indicates more negative than positive surprises. The rate of deterioration has been halted, which is mildly positive for the economic outlook.
+
+In addition,
+
+[Gallup](http://www.gallup.com/poll/154700/Unemployment-Edges-Down-Mid-May.aspx)
+
+does an employment tracking poll and Gallup forecasts a slight downtick in the unemployment figure in May.
+
+I hate NFP days, because the number is so volatile and the error term is so large. In the last two months, I would have taken the "under" expectations bet if someone put a gun to my head and forced me to make a forecast. This month, I am taking the "over" because I am expecting a slight beat (by 10K or less).
+
+**Will good news *really* be good news?**
+
+If I am right, the stock market will likely rally if NFP beats expectations. But will this kind of good news be actually positive for stocks? An employment number that slightly beats expectations, which would be my forecast, would not be positive enough to significantly light a rocket under the growth outlook, but would be positive enough to keep the Fed from engaging in quantitative easing for the June FOMC meeting. After the June meeting, the Fed will not have the political cover for QE for the rest of 2012 because of the election, unless the economy really craters. I agree with Tim Duy in his post
+
+[Is QE3 just around the corner?](http://economistsview.typepad.com/timduy/2012/05/is-qe3-just-around-the-corner.html)
+
+ [emphasis added]:
+
+> Bottom Line: The data flow is soft, but Dudley indicates it is not soft enough to ease. And while some are pointing to falling TIPS-derived inflation as given the Fed room to move, they have traditionally delayed until conditions are more dire (they are not exactly prone to overshooting in the first place). The Fed doesn't think they will ease further; they think their next move will be to tighten. ***Which means that financial conditions will need to deteriorate dramatically to prompt action in June. So if you are looking for the Fed to ease in just four weeks, you are looking for financial markets to turn very, very ugly. Lehman ugly.*** And I wish that I could say that it won't happen, but European policymakers are hell-bent to push their economies to the wall while worshipping at the alter of moral hazard.
+
+The Bernanke Put may still live, but the deductible on that insurance will be a lot higher for the remainder of 2012.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
