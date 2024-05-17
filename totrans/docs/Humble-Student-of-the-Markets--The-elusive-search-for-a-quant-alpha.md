@@ -1,0 +1,67 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:44:01
+-->
+
+# Humble Student of the Markets: The elusive search for a quant alpha
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/10/elusive-search-for-quant-alpha.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/10/elusive-search-for-quant-alpha.html#0001-01-01)
+
+My post [Why I am not a bottom-up equity quant](http://humblestudentofthemarkets.blogspot.com/2009/10/why-i-am-not-bottom-up-equity-quant.html) generated a fair amount of feedback, both on the comments section and by email. I have had a number of interesting exchanges, particularly on where I believe a quantitative alpha can be found.
+
+To briefly summarize my point in my previous post, the barriers to entry of bottom-up equity quantitative analysis has dropped dramatically over the last couple of decades. As a result, the competitive advantage of using multi-factor bottom-up quantitative stock selection techniques has eroded considerably. We are all using the same databases and the same tools. Is it wonder why we wind up in the same crowded trade and bottom-up stock selection alpha is becoming such an arms race that no one can win?
+
+**Back to first principles: Modeling human behavior**
+To find the ever elusive alpha, it is important to go back to first principles and ask: Why does quantitative analysis work?
+
+Unless you can convincingly answer that question, you will not find an enduring alpha.
+
+The roots of quantitative analysis came out of the anomalies research literature written by finance academics starting in the 1970s. Remember the low P/E anomaly? The P/B anomaly? Small cap and neglect effect? That research was followed by inquiries into earnings expectations and surprise, etc. Investment managers took many of those insights and implemented them in a systematic way in their portfolios. Thus quantitative analysis was born.
+
+What many quants never understood or forgot why buying low P/B stocks gave you better returns. Stocks with cheap valuations, as measured by low P/B, usually have something wrong with them fundamentally – a “yuck” factor. Buying them required an investor to hold his nose from smelling the “yuck” in the portfolio. Quantitative analysis gave you the discipline to buy those stocks.
+
+It was true in those early days and it is true now. The value of quantitative techniques is the systematic application of a principle that exploited human behavior.
+
+Many quants have forgotten the human behavior modeling part of building models.
+
+**Still an alpha in modeling human behavior**
+I can suggest a couple of ways to build quantitative alpha. Both of them require work and real change in the genetic disposition of how quants are trained and think.
+
+The first is the geeky solution.
+
+Today, most bottom-up multi-factor models use common factors like P/E, P/B, EV/EBITDA, etc. While that is a useful technique for valuing stocks from 30,000 feet up, why not use the powerful of the computer to get much closer to the ground?
+
+We know that industry analysts analyze their companies differently. A retail analyst will focus on metrics like same store sales (often released monthly), sales per foot (what are the drivers to sales per foot?), etc. An energy analyst, by contrast, might focus on finding costs, lifting costs, refining margins, etc.
+
+We have the technology. Why not build specialized industry expert systems to analyze stocks by industry? Why use common metrics like P/E or Price to Sales across all industries (what is Price to Sales for a bank?), when they may not be relevant to that industry?
+
+Expert systems lie in the Artificial Intelligence realm, but AI research has come a long way and it is time that quants applied this kind of technology to investing. Does this require real work? Yes. Does this involve a major investment in technology and development? Yes, but where do you think competitive advantage comes from?
+
+Think of this approach as a way of using the systematic discipline of quantitative analysis to model fundamental investor behavior.
+
+**Be more heuristic**
+Another way is to become more empirical and heuristic in using quantitative techniques. The approach that I outlined in my [previous post](http://humblestudentofthemarkets.blogspot.com/2009/10/why-i-am-not-bottom-up-equity-quant.html) of moving toward top-down analysis is an example of this.
+
+Avner Mandelman also wrote a [great column](https://secure.globeadvisor.com/servlet/ArticleNews/story/gam/20091024/RBUYSIDE24ART1907) on using heuristic techniques to marry the power of quantitative analysis to the insight of fundamental investors. That’s also a great solution.
+
+To each his own.
+
+**Changing the firm**
+Make no mistake. Changing this way requires real work and changing the very culture and genetic disposition of quantitative analysts. Quants will have to become much more market savvy. For example, I have spoke to finance academics and interviewed junior quantitative analyst candidates who only have no idea of how to execute a trade and have a foggy idea that, yes, there is a bid-ask spread.
+
+Years ago, I had a job interview with a very large asset management firm with assets in the hundreds of billions. Quants were compartmentalized in sub-functions. One group is responsible for stock selection alpha, another for sector alpha. Portfolio construction is the purview of a wholly different group, which is sometimes geographically removed from others. Portfolio implementation and trading is done by another. Well, you get the idea. Firms like this tended to be populated by quants with very impressive academic credentials. The core belief of these kinds of firms tended to be that if we could get smarter PhDs, we can build the next generation earning surprise model (or whatever model), and get a better alpha.
+
+That kind of compartmentalization encourages a degree of over-specialization that creates a form of dysfunction in the firm. People are not encouraged to see the big picture. You are certainly not required to be market savvy. The way you get to the top of these behemoths is to be better technically and play the right political games, just as the way you get to the top of an investment bank is to be the better revenue producer without an understading of the bigger issues.
+
+Firms built like that are destined become dinosaurs. They will mine lower and lower grade ore until they wake up one day and realize that the ore body is all gone.
+
+Quantitative investment firms need to change if they are to pursue the next generation of alpha. But to change, they have to work harder and differently. It requires cultural change.
+
+Cosider the case of Jeremy Grantham as an example of cultural change. Grantham co-founded GMO when he left [Batterymarch](http://www.batterymarch.com/), a former employer of mine, and both managers are known to be highly quantitative. Both have moved beyond their pure quant roots. [Grantham's latest quarterly letter](http://www.gmo.com/websitecontent/JGLetter_ALL_3Q09.pdf) touches on a variety of topics:
+
+*   **Valuations are still stretched** (S&P 500 fair value is 860), **but corrections are likely to be subdued**. He wrote six months ago that "regardless of the fundamentals, there would be a sharp rally" because the market had, in effect, overshot. Nevertheless, near-zero interest rates and other forms are stimulus are likely to put a floor on this market.
+*   **He believes that an emerging markets bubble is forming**. Value managers would tend to get out and buy something else that's cheaper, but not Grantham: "For once in my miserable life, I would like to participate in a bubble if only for a little piece of it instead of getting out two years too soon. Riding a bubble up is a guilty pleasure totally denied to value managers who typically pay a high price to the God of Investment Discipline (Thor?) for being so painfully early."
+
+These selected musings don't sound like the dogmatic assertions of a single-paced quantitative modeler (we believe in X, whether X is quality companies, low P/E, P/B, etc.) but possessing of [situational awareness](http://researchpuzzle.com/blog/2009/10/26/situational-awareness/).
+
+In conclusion, quant is not dead. I have [demonstrated](http://humblestudentofthemarkets.blogspot.com/2008/01/are-quants-victims-of-their-own-success.html) that it is possible to build quant models that does not put you into a crowded trade. You have to change the way you think and work harder.

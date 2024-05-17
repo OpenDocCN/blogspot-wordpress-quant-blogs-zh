@@ -1,0 +1,88 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:44:07
+-->
+
+# Humble Student of the Markets: What kind of "inflation"?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/10/what-kind-of-inflation_26.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/10/what-kind-of-inflation_26.html#0001-01-01)
+
+The inflation or deflation debate remains highly bifurcated, with many prominent investors and economists on both sides.
+
+**Nobel laureates among the deflationists**
+
+In the deflationists’ corner, we have Nobel laureates
+
+[Joseph Stiglitz](http://www.bloomberg.com/apps/news?pid=20601109&sid=aaqA40k28UJY)
+
+,
+
+[Paul Krugman](http://www.nytimes.com/2009/05/29/opinion/29krugman.html?_r=3)
+
+(who has
+
+[argued vehemently](http://krugman.blogs.nytimes.com/2009/07/02/smells-like-deflation/)
+
+for the deflation case) and prominent bond manager
+
+[Bill Gross](http://www.pimco.com/LeftNav/Featured+Market+Commentary/IO/2008/Investment+Outlook+Bill+Gross+Mooooooo+August+2008.htm#)
+
+. To paraphrase their case, the deflationists believe that the combination of too much debt, massive wealth destruction, a weak American consumer and high unemployment, which restrains labor’s bargaining power, makes a case for a re-run of the Japanese Lost Decade experience highly likely. In the face of these deflationary pressures, the classic macroeconomic solutions of fiscal and monetary stimulus are not going to be very effective.
+
+**A more nuanced view of inflation**
+
+Given those views, the classic inflationist argument that all this government spending and money printing is going to result in inflation seems to be a little hollow.
+
+However, there is a different school of inflationist thought that is more nuanced than the classic view. One prominent member of this school is
+
+[Warren Buffett](http://www.nytimes.com/2009/08/19/opinion/19buffett.html?_r=2&scp=2&sq=buffett&st=cse)
+
+, who is worried about the eventual effects of the fiscal deficit on the US Dollar:
+
+> An increase in federal debt can be financed in three ways: borrowing from foreigners, borrowing from our own citizens or, through a roundabout process, printing money. Let’s look at the prospects for each individually — and in combination.
+> 
+> The current account deficit — dollars that we force-feed to the rest of the world and that must then be invested — will be $400 billion or so this year. Assume, in a relatively benign scenario, that all of this is directed by the recipients — China leads the list — to purchases of United States debt. Never mind that this all-Treasuries allocation is no sure thing: some countries may decide that purchasing American stocks, real estate or entire companies makes more sense than soaking up dollar-denominated bonds. Rumblings to that effect have recently increased.
+> 
+> Then take the second element of the scenario — borrowing from our own citizens. Assume that Americans save $500 billion, far above what they’ve saved recently but perhaps consistent with the changing national mood. Finally, assume that these citizens opt to put all their savings into United States Treasuries (partly through intermediaries like banks).
+> 
+> Even with these heroic assumptions, the Treasury will be obliged to find another $900 billion to finance the remainder of the $1.8 trillion of debt it is issuing. Washington’s printing presses will need to work overtime.
+
+He concludes with [emphasis mine]:
+
+> Once recovery is gained, however, Congress must end the rise in the debt-to-G.D.P. ratio and keep our growth in obligations in line with our growth in resources.
+> 
+> Unchecked carbon emissions will likely cause icebergs to melt. ***Unchecked greenback emissions will certainly cause the purchasing power of currency to melt***. The dollar’s destiny lies with Congress.
+
+Simon Johnson, former chief economist at the IMF,
+
+[echoes this view](http://economix.blogs.nytimes.com/2009/05/28/inflation-fears/)
+
+on the risks to the currency. Historian Niall Ferguson also believes that the
+
+[US Dollar is dying a slow death](http://finance.yahoo.com/tech-ticker/article/357373/The-Dollar-Is-Dying-a-Slow-Death-Says-Niall-%27Ascent-of-Money%27-Ferguson)
+
+.
+
+**What do you mean by “inflation”?**
+
+If Buffett et al is correct, then the deflationists could technically be correct in that the US and global economies remain weak, and inflation doesn’t really show up very much in the official statistics watched by central bankers. Moreover, competitive quantitative easing by world central banks may not, in the short run, show up in the currency markets at all and the downside in the US Dollar may be limited.
+
+Where inflationary pressures show up is in commodity markets.
+
+Would that be inflation?
+
+Well, it depends on what you mean by inflation. If you measure it using core CPI, then the answer is definitely no. It may show up a bit more in headline CPI. Even during the commodity price run-up in the 2001-7 era, analysts like David Rosenberg argued that there was no inflation – just look at the falling price of cars, plasma TVs and electronics, etc.
+
+I don’t mean to get Clintonesque here (i.e. it depends on what you mean by “is”), but Rosenberg was both right and wrong. It just depended on what you mean by inflation.
+
+**Re-examine your long term portfolio plans?**
+
+If Buffett and company is right on their “inflation” outlook, then investors need to re-examine their investment policy and long term portfolio plans.
+
+A portfolio that relies on commodity and commodity-linked equities would be an effective inflation hedge under such a scenario. However, portfolios that rely on fixed income based solutions, such as inflation-indexed bonds like TIPS or even yield steepener trades, may be less effective as these kinds of inflationary signals may not show up as well in those markets.
+
+In the meantime, the
+
+[Inflation-Deflation Timer](http://humblestudentofthemarkets.blogspot.com/2009/08/timing-inflationdeflation-trade.html)
+
+, which is a tactical model based on the measurement of inflationary expectations, remains at an “inflation” reading.
