@@ -1,0 +1,102 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:54:58
+-->
+
+# Humble Student of the Markets: The Third Way in the inflation/deflation debate
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/04/third-way-in-inflationdeflation-debate.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/04/third-way-in-inflationdeflation-debate.html#0001-01-01)
+
+The inflation vs. deflation call may well be the call of the decade for investment policy. On one side are the inflationists, who argue that all this fiscal and monetary stimulus is bound to create inflationary pressures once the world economy begins to recover. On the other side are the deflationists, who argue that the de-leveraging process has unleashed powerful deflationary forces.
+
+There may be a Third Way out of this debate – and that Third Way is even more scary than either of the scenarios contemplated by the two factions.
+
+**Do you believe Warren Buffett?**
+
+The conventional economic view is exemplified by the likes Warren Buffett. In his latest
+
+[letter to Berkshire shareholders](http://www.berkshirehathaway.com/letters/2008ltr.pdf)
+
+, he wrote [emphasis mine]:
+
+> This debilitating spiral has spurred our government to take massive action. In poker terms, the Treasury and the Fed have gone “all in.” Economic medicine that was previously meted out by the cupful has recently been dispensed by the barrel. ***These once-unthinkable dosages will almost certainly bring on unwelcome aftereffects. Their precise nature is anyone’s guess, though one likely consequence is an onslaught of inflation***.
+
+The Federal Reserve is well aware of these concerns. In a
+
+[speech on April 14, 2009](http://www.federalreserve.gov/newsevents/speech/bernanke20090414a.htm)
+
+, Ben Bernanke stated that:
+
+> I can assure you that monetary policy makers are fully committed to acting as needed to withdraw on a timely basis the extraordinary support now being provided to the economy, and we are confident in our ability to do so.
+
+[Avner Mandelman](https://secure.globeadvisor.com/servlet/ArticleNews/story/gam/20090411/RBUYSIDE11ART1817)
+
+of Giraffe Capital suggested that the Obama Administration is positioning Paul Volcker in the wings for a liquidity mop-up once the financial crisis is over. It is unclear, however, how much political will there is to take the pain once it is clear that an economic recovery has begun.
+
+**Deflationists: Proof by counterexpample**
+
+When I went to school back in the Dark Ages, math classes had a technique of “proof by counterexample”. Conventional wisdom holds that all this stimulus is going to result in inflation some time down the road.
+
+Japan is the proof by counterexample. During the Lost Decade, the Japanese government spent like crazy and the BoJ adopted a policy of quantitative easing. Debt to GDP ballooned. The government built roads to nowhere. Yet the economy didn’t recover.
+
+One of the leaders of this deflationist movement is Richard Koo, whose
+
+[webcast](http://www.csis.org/component/option,com_csis_events/task,view/id,1828/)
+
+is long but well worth watching. He argues that as long as government spending displaces consumer spending (because consumers are saving and not spending), there will be no inflation. The appropriate policy in this case, according to Koo, is for government to spend until it hurts and spend some more.
+
+**The Third Way: Down the hyperinflation road?**
+
+Simon Johnson, formerly of the IMF, wrote a disturbing
+
+[article](http://www.theatlantic.com/doc/200905/imf-advice)
+
+about the current financial crisis that compares past emerging market crises to the current one [emphasis mine]:
+
+> [T]o IMF officials, all of these crises looked depressingly similar. Each country, of course, needed a loan, but more than that, each needed to make big changes so that the loan could really work. Almost always, countries in crisis need to learn to live within their means after a period of excess—exports must be increased, and imports cut—and the goal is to do this without the most horrible of recessions. Naturally, the fund’s economists spend time figuring out the policies—budget, money supply, and the like—that make sense in this context. Yet the economic solution is seldom very hard to work out...
+> 
+> ***Typically, these countries are in a desperate economic situation for one simple reason—the powerful elites within them overreached in good times and took too many risks***. Emerging-market governments and their private-sector allies commonly form a tight-knit—and, most of the time, genteel—oligarchy, running the country rather like a profit-seeking company in which they are the controlling shareholders…
+> 
+> ***Squeezing the oligarchs, though, is seldom the strategy of choice among emerging-market governments. Quite the contrary: at the outset of the crisis, the oligarchs are usually among the first to get extra help from the government, such as preferential access to foreign currency, or maybe a nice tax break, or—here’s a classic Kremlin bailout technique—the assumption of private debt obligations by the government.*** Under duress, generosity toward old friends takes many innovative forms. Meanwhile, needing to squeeze someone, most emerging-market governments look first to ordinary working folk—at least until the riots grow too large.
+
+Johnson’s contention is unless the government of the day is willing to take on the entrenched elites and force them to take the pain, the path of least resistance is rising inflation and possibly hyperinflation.
+
+Certainly America’s elites have enjoyed some very good times. William Hester of Hussman Funds has
+
+[documented](http://hussmanfunds.com/rsi/profitmargins.htm)
+
+the elevated levels of profit margins in this past economic cycle, which indicates the bulk of the gains were tilted towards the suppliers of capital, as opposed to the suppliers of labor.
+
+**How real is the American Dream?**
+
+The classic measure of income inequality is the Gini coefficient. High Gini coefficients for the U.S. is well documented. In of itself, this is not necessarily a bad thing as high gaps between rich and poor could serve as a strong incentive for wealth creation. However, an
+
+[OECD study](http://www.economist.com/world/britain/displaystory.cfm?story_id=12480828)
+
+also showed low social mobility in the U.S., as defined by the correlation of the Gini coefficient of parent and offspring, compared to more “egalitarian” countries like Denmark and Norway. High Gini coefficients combined with low social mobility indicates that elites are entrenched and the American Dream is only a dream.
+
+[![](img/ef9e7929ec40f90196abaaccc9623140.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDIzVAmCmFKaZdZtDxTu50jlRB9F0RCGK5X6J91Eux_-dGJ-3jdlcCJoFHTvTUBmaKgv1fonUcdRs-20CMFgKDGutOxvtncSWZx9lS1ZIo1RT91xpiE8fqcGC02_WYntrXJm3WU8IW-XmU/s1600-h/Gini.bmp)
+
+**Wall Street is the new elite**
+Today, the best way to get into Treasury or the Fed seems to be to work for Goldman Sachs. Nobel laureate Joe Stiglitz complained about the entrenchment of the Wall Street/Washington axis:
+
+> “America has had a revolving door. People go from Wall Street to Treasury and back to Wall Street,” he said. “Even if there is no quid pro quo, that is not the issue. The issue is the mindset.”
+
+Wall Street has become the new elite.
+
+**The Argentina/Mexico/Russia solution?**
+Stephen Roach warned of [reviving the Debt Frankenstein](http://www.bloomberg.com/apps/news?pid=20601039&refer=columnist_roach&sid=ag6fYs90r3vk) to revive America, which only would only serve to stretch the current economic imbalances. This appears to be the consensus of policy makers around the world and lead us down the Third Way hyperinflation path. Such a path would likely result in an era of rising inflationary expectations, to be followed by a deflationary collapse.
+
+**Signposts to watch for**
+Right now, there is widespread discontent with Wall Street. The question of whether that level of dissatisfaction leads to real reform is the key to resolving this issue. These are mostly social attitude indicators and difficult to quantify. Here are some signposts that I would watch for in the months to come:
+
+**Do the tax protests gain any traction?** Recently there were calls for “teabag” tax revolt protests. I interpret these as a backlash from the Establishment elite to try to retain power. Redressing either the Horatio Alger style opportunity implicit in the American Dream through high social mobility or redressing the level of Gini coefficients in the U.S. are signs that the elites are losing power. Other signs to watch for: do conservative commentators like [Larry Kudlow](http://kudlow.com/) gain or lose followers?
+
+**Do any American politicians say the S-word?** The willingness of Americans to change their attitudes will be another important milestone in the road to restructuring and reform. For many years Americans have been conditioned to get something for nothing. American were content to trade U.S. debt for cheap Chinese goods. Not once did George W. Bush mention the word “sacrifice” when he began the Global War on Terror. Today, the U.S. faces trillion dollar deficits and Barack Obama is not preparing the country for the tax hikes (remember the “sacrifice” word) to come. One commentator went even further and suggested that [this will doom his second term](http://www.theglobeandmail.com/servlet/story/RTGAM.20090414.wcoibbi15/BNStory/specialComment).
+
+**What happens to inflationary expectations?** Watch the pricing of [TIPS](http://www.bloomberg.com/apps/quote?ticker=tip) and [inflation swaps](http://www.bloomberg.com/apps/quote?ticker=USSWIT5%3Aind). The current picture is inflationary expectations dropped late last year and they are now on an upswing. Levels, however, are not as elevated as they were a year ago.
+
+**Base case: inflation**
+At this point, my base case is inflation and a repeat of the [1970s sideways market](http://humblestudentofthemarkets.blogspot.com/2008/05/decade-long-low-return-environment-for.html) in equities. However, I am watching these indicators carefully and I am willing to be persuaded otherwise.
+
+If you are interested, I have begun a longer email list for inflation bulls. There is no cost and I will keep your email address to myself. Drop me a line and sign up [here](http://humblestudentofthemarkets.blogspot.com/2009/04/for-commodity-bulls.html).
