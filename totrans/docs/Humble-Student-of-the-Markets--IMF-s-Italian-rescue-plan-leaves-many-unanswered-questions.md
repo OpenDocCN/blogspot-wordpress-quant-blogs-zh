@@ -1,0 +1,76 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:12:10
+-->
+
+# Humble Student of the Markets: IMF's Italian rescue plan leaves many unanswered questions
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/11/imfs-italian-rescue-plan-leaves-many.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/11/imfs-italian-rescue-plan-leaves-many.html#0001-01-01)
+
+[Bloomberg](http://www.bloomberg.com/news/2011-11-27/imf-readying-600-billion-euro-loan-offer-for-italy-stampa-says.html)
+
+reported this morning that, according to a report from
+
+[La Stampa](http://www.lastampa.it/_web/cmstp/tmplrubriche/finestrasullamerica/grubrica.asp?ID_blog=43&ID_articolo=2264)
+
+, the IMF is readying a loan facility of between €400-600 billion to Italy.
+
+[ZeroHedge](http://www.zerohedge.com/news/uncle-sam-rescue-after-all-latest-rumor-sees-%E2%82%AC600-billion-bailout-italy-us-pardon-imf)
+
+ then tried to shoot down the story on the basis that €600 billion is a lot of money, which would need the approval of funding countries, including the US. At this point, I would more charitably say that the report of an IMF rescue of Italy leaves many unanswered questions.
+
+**Show me the money!**
+
+First, where does the money come from? Former IMF chief economist
+
+[Simon Johnson](http://baselinescenario.com/2011/09/25/will-the-imf-save-the-world/)
+
+wrote back in September that the IMF's lending capacity is only about €280 billion:
+
+> To put the scale further in perspective, compare them with the IMF’s ability to lend to countries in trouble. The technical term is the fund’s “one year forward commitment capacity” which for “Q3 to date” is 246.0 billion SDRs ([September 15 update](http://www.imf.org/external/np/tre/activity/2011/091511.htm); SDRs are “Special Drawing Rights”, which exist only at the IMF.) On September 20, 1 SDR was worth 1.57154 US dollars, so the IMF could lend no more than 386 billion dollars — as one euro is worth about 1.37 US dollars this week, this is about 280 billion euros.
+
+€600 billion is therefore beyond the current capability of the IMF. Additional resources would have to come from IMF members, which will take time. The United States is one of the larger contributors to the IMF, which means that, were this measure to pass, the American taxpayer would be bailing out Italy. Would Obama give the nod to such a politically charged move just as he is entering a presidential election year?
+
+**The ECB to the rescue?**
+
+What about the ECB? One of the
+
+[reports](//www.google.com/hostednews/afp/article/ALeqM5iyil_vk3MIM-Z6uxbFlA5nJVz1PQ?docId=CNG.3c4aa2738386a5badd0deffd173ef2ae.31)
+
+suggested that the ECB might have to get involved [emphasis added]:
+
+> The size of the loan would make it difficult for the IMF to use its current resources so different options are being explored, ***including possible joint action with the European Central Bank*** in which the IMF would be guarantor.
+
+Conceivably, the ECB could lend to the IMF which then lends to Italy and monitors compliance with austerity programs imposed by lenders.
+
+[John Hussman](http://www.hussmanfunds.com/wmc/wmc111121.htm)
+
+wrote an excellent analysis last week of why the ECB is unlikely to print to rescue Italy, or any single eurozone country.
+
+*   **The principle of proportionality:** "[I]f the ECB buys those bonds, and they don't pay off over the long-term, the ECB will have given a fiscal subsidy to those distressed countries, and Germany will end up bearing most of the cost."
+*   **Legal barriers, which include lending to eurozone governments through third-parties like the IMF** [emphasis added]: "The Treaty is very specific in restricting the ECB from assisting individual governments. Article 123 of the Treaty on the Functioning of the European Union prohibits the ECB from providing any type of credit facility to central governments (and specifically '***any financing of the public sector's obligations vis-a-vis third parties'***)."
+*   **Money printing would be inflationary and run counter to the price stability mandate of the ECB**: "I am convinced that a move to buy distressed European debt by creating euros would be seen as permanent money creation, and that far from seeing any safe-haven demand for euros, we would instead see a flight from the euro. As a result, European inflation would predictably accelerate."
+
+Also recall that I wrote last week (see my post 
+
+[No help from the ECB](http://humblestudentofthemarkets.blogspot.com/2011/11/no-help-from-ecb.html)
+
+) the latest speech from ECB head Mario Draghi did not sound like a man about to print trillions of euros.  
+
+The IMF loan story has more questions than answers. While a rescue package from the IMF would certainly be extremely positive, at this point the story sounds more like a trial balloon than an actual concrete plan.  
+
+***Addendum***
+
+: Further to my post,
+
+[Bruce Krasting](http://brucekrasting.blogspot.com/2011/11/italy-next-week.html)
+
+wrote an excellent analysis of the IMF Italian rescue rumor. Key quote [emphasis added]:
+
+> ***In the real world of global finance the reality is that any country that is forced to accept an IMF bailout is also blocked from issuing debt in the public markets. IMF (or other supranational debt) is ALWAYS senior to other indebtedness of the country.*** That’s just the way it works. When Italy borrows money from the IMF it automatically subordinates the existing creditors. Lenders hate this. They will vote with their feet and take a pass at Italian new debt issuance for a long time to come. Once the process starts, it will not end. There will be a snow ball of other creditors. That's exactly what happened in the 80's when Mexico failed; within a year two dozen other countries were forced to their debt knees. (I had a front row seat.)
+
+How will lenders react when they find out that their loans have been subordinated? If the lender is a bank, how will the bondholders and shareholders of the bank react?
+
+Watch this space.      
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.***None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
