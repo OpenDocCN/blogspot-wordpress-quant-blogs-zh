@@ -1,0 +1,190 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:50:07
+-->
+
+# Humble Student of the Markets: A summer reading list
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/08/a-summer-reading-list.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/08/a-summer-reading-list.html#0001-01-01)
+
+I will be off for a few days in Oregon, where I will (hopefully) observe the Great American Eclipse of 2017\. The regular weekend commentary will continue to be published, but posting will be lighter than usual as internet access is expected to be spotty.
+
+Before I leave, I leave you with a summer reading list. I have been asked in the past to suggest books on how to invest and trade. My answers are a bit more offbeat than the usual recommendations to read
+
+[Market Wizards](https://www.amazon.com/Market-Wizards-Updated-Interviews-Traders/dp/1118273052/)
+
+, 
+
+[The New Market Wizards](https://www.amazon.com/New-Market-Wizards-Conversations-Americas/dp/0887306675/)
+
+, or Fidelity Low-Price Stock PM Joel Tillinghast's book,
+
+[Big Money Thinks Small](https://www.amazon.com/Big-Money-Thinks-Small-Publishing/dp/0231175701/)
+
+(see
+
+[Barron's interview](http://www.barrons.com/amp/articles/joel-tillinghast-finds-big-returns-in-small-stocks-1502511285)
+
+).
+
+The purpose of this site is to
+
+[teach readers how to fish](https://humblestudentofthemarkets.com/2016/03/11/teaching-my-readers-how-to-fish/)
+
+. No book is going to make you the next Warren Buffett or Paul Tudor Jones. I am going to make you work and expend some effort to catch your fish in your reading.
+
+**The basics**
+
+Let`s start with the basics. Even before thinking about investing, consider the basics of financial literacy and why you need a financial plan. Here are some blog posts of value, including some old posts of my own.
+
+**Freakonomics**
+
+:
+
+[Everything you wanted to know about money (but were afraid to ask)](http://freakonomics.com/podcast/everything-always-wanted-know-money-afraid-ask/)
+
+. Can you correctly answer three basic financial literacy questions? If not, you should start with the 10 things you need to know about investing that fit on an index card.
+
+**Humble Student of the Markets**
+
+:
+
+[The ABCs of financial planning](http://humblestudentofthemarkets.blogspot.com/2013/10/the-abcs-of-financial-planning.html)
+
+. Do you have an Investment Policy Statement? If not, how will you know where you are going if you don't have an objective? Put simply, if the term 
+
+***investment plan***
+
+ sounds overly intimidating, think of it as a
+
+***savings plan***
+
+.
+
+**Humble Student of the Markets**
+
+: 
+
+[Investment policy: Not just for pension funds](http://humblestudentofthemarkets.blogspot.com/2013/09/investment-policy-not-just-for-pension.html)
+
+. Once you have figured out where you are going, here is an example from CALPERS on how to create an investment road map.
+
+**A Wealth of Common Sense**
+
+:
+
+[Thinking through a change in asset allocation](http://awealthofcommonsense.com/2017/06/thinking-through-a-change-an-asset-allocation/)
+
+. Once you have an investment plan, Ben Carlson goes through on how to create a process on thinking through changes.
+
+**A Wealth of Common Sense**
+
+:
+
+[Reframing the concept of risk](http://awealthofcommonsense.com/2017/06/reframing-the-concept-of-risk/)
+
+. Risk is everywhere. Carlson puts it very simply, "Don't over-react to events."
+
+**Corporate strategy and fundamental analysis**
+
+For a primer on corporate strategy, there is no better place to start than with Michael Porter. Porter is known as the guru of corporate strategy. His books
+
+[Competitive Advantage](https://www.amazon.com/Competitive-Advantage-Creating-Sustaining-Performance/dp/0684841460/)
+
+and
+
+[Competitive Strategy](https://www.amazon.com/Competitive-Strategy-Techniques-Industries-Competitors/dp/0684841487/)
+
+ are must-reads and taught in virtually all B-School programs. However, Porter acknowledged that his list of competitive advantages, however, are static advantages and shifts can occur. He evolved by detailing how the shifts occur at a macro level in 
+
+[The Competitive Advantage of Nations](https://www.amazon.com/Competitive-Advantage-Nations-Michael-Porter/dp/0684841479/)
+
+.
+
+For investors interested in how disruptions happens, 
+
+[Blue Ocean Strategy](https://www.amazon.com/Blue-Ocean-Strategy-Expanded-Uncontested/dp/1625274491/)
+
+represents a newer line of thinking in corporate strategy. Authors W. Chan Kim and Renée Mauborgne argue that companies can succeed by creating "blue oceans" of uncontested market space, as opposed to "red oceans" where competitors fight for dominance, the analogy being that an ocean full of vicious competition turns red with blood. They assert that these strategic moves create a leap in value for the company, its buyers, and its employees while unlocking new demand and making the competition irrelevant. The book presents analytical frameworks and tools to foster an organization's ability to systematically create and capture blue oceans (via
+
+[Wikipedia](https://en.wikipedia.org/wiki/Blue_Ocean_Strategy)
+
+).
+
+Do you want to find undervalued companies and takeover candidates? Try this useful handbook of how companies work financially:
+
+[Best-Practice EVA: The Definitive Guide to Measuring and Maximizing Shareholder Value](https://www.amazon.com/Best-Practice-EVA-Definitive-Maximizing-Shareholder/dp/1118639383/)
+
+. The book is an eye opener and details how companies add shareholder value. More importantly, the Economic Value-Added (EVA) framework details where the cash flow goes in a company. In turn, it lends to an understanding of corporate restructuring process by private equity investors. In the process, investors can discover hidden gems and takeover candidates where private market value exceeds publicly listed value.
+
+**Top down analysis**
+
+Regular readers know that I have a global big picture macro focus. Here are some important books that have formed my views of how societies develop. Unless you understand the development process, you won't be able to construct an analytical framework and react properly when shocks like the Great Financial Crisis, or the Asian Crisis occur.
+
+[The Competitive Advantage of Nations](https://www.amazon.com/Competitive-Advantage-Nations-Michael-Porter/dp/0684841479/)
+
+. Michael Porter lays out how countries go through the stages of development, and the kinds of policies that work at each stage of growth.
+
+[The Economy of Cities](https://www.amazon.com/Economy-Cities-Jane-Jacobs/dp/039470584X/)
+
+ and 
+
+[Cities and the Wealth of Nations: Principles of Economic Life](https://www.amazon.com/Cities-Wealth-Nations-Principles-Economic/dp/0394729110/)
+
+. Jane Jacobs was a leading researcher in how cities develop. Jacobs' views on development are very similar to Porter's, except that her unit of development is the city-state, instead of country, which is Porter's framework.
+
+**Personal journeys in technical analysis**
+
+Finally, we get to the good stuff (for traders)! I am going to disappoint many readers here. There is no magic black box to trading. Everyone has to develop their own style. Books like 
+
+[Market Wizards](https://www.amazon.com/Market-Wizards-Updated-Interviews-Traders/dp/1118273052/)
+
+ will not instantly make anyone a better trader. Instead, I have suggested to readers that they enroll in the
+
+[Charter Market Technician program](https://cmtassociation.org/cmt/chartered-market-technician/)
+
+. Start by learning the basic body of knowledge, then develop your own style.
+
+That said, here are some examples of books written by a couple of readers that undertaken their own journey of market analysis.
+
+[Mind, Money and Markets: A guide for every investor, trader, and business](http://www.friesenpress.com/bookstore/title/119734000007370143/Dave-Harder-Mind%2C-Money-%26-Markets)
+
+Authors
+
+[Dave Harder](http://ca.rbcwealthmanagement.com/dave.harder/home)
+
+, portfolio manager, and Janice Dorn, a psychologist, have put together a book that combines human psychology with market analysis. The book has received positive reviews from the likes of James P. O’Shaughnessy, money manager and author of
+
+*What Works on Wall Street*
+
+,
+
+*Predicting the Markets of Tomorrow*
+
+,
+
+*How to Retire Rich*
+
+, and
+
+*Invest Like the Best*
+
+; Robert McTamaney, Former Partner and Head of Trading, Goldman Sachs Asia; Robert Sluymer, Technical Analyst, RBC Capital Markets; and John Gray, Editor, Investors Intelligence.
+
+[The Pathway](http://www.thepathway.ca/)
+
+Author and portfolio manager
+
+[Ken MacNeal](http://dir.richardsongmp.com/web/ken.macneal/)
+
+uses a unique technique that uses price momentum for his clients. While I don't always agree with his conclusions, I respect his approach and insights. Ken describes his book this way:
+
+***'[The Pathway - Your money](http://www.thepathway.ca/)** ... in a changing world' tells why Momentum-style investing is the best strategy to navigate the new factors, with unknowable outcomes, affecting financial markets today: the digital revolution, globalization, new Central Bank policies like negative interest rates, Middle East politics, Donald Trump, to name a few. Momentum points you mathematically to the winning sectors and companies while as importantly, avoiding the casualties. You are also given the tools to invest; customized momentum charts of over 500 industry ETFs and the largest companies in them. These are dynamically linked to the internet and update automatically when viewed.*
+
+These are just some samples of journeys that others have taken. The CMT program as a good way of learning the basics, and then you can find your own path.
+
+Regular programming will resume next week. Please keep everything together while I step out (and, please, don't
+
+[shoot any Archdukes](https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand_of_Austria)
+
+while I am gone).

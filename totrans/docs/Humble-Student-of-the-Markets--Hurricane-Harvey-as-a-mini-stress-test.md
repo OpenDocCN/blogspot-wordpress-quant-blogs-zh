@@ -1,0 +1,36 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:49:49
+-->
+
+# Humble Student of the Markets: Hurricane Harvey as a mini-stress test
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/08/hurricane-harvey-as-mini-stress-test.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/08/hurricane-harvey-as-mini-stress-test.html#0001-01-01)
+
+*Q: What's George W. Bush position on Roe vs. Wade?* *A: He doesn't care how people get out of New Orleans after Katrina.**- Joke that circulated in the aftermath of Hurricane Kartina*
+
+There are many stories coming out in the wake of Hurricane Harvey that hit Texas. I was most struck by this
+
+[BBC account](http://www.bbc.com/news/world-us-canada-41065335)
+
+of the woman who was too poor to evacuate from her mobile home:
+
+> Judie stayed, she tells me, because she had no means to leave and no place to go.
+> 
+> "I had some problems getting out of town, a little broke and stuff, so I had to come home and, you know, tough it out," she says. "We're all the working class people.
+> 
+> "We're the ones who go to the restaurants and wait on you and pick up your trash and do all that work. We don't have a lot of money."
+> 
+> "Fighting for the American dream," she adds, with a rueful laugh.
+
+Hurricane Harvey may prove to be a significant stress test for both the American economy and the Federal Reserve. A recent
+
+[Bankrate survey](http://www.bankrate.com/finance/consumer-index/money-pulse-0117.aspx)
+
+indicated that only roughly 4 in 10 Americans have sufficient savings to cope in an emergency, which is indicative of the low margin of financial error that the household sector operates under.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2017/08/28/hurricane-harvey-as-a-mini-stress-test/)
+
+.
