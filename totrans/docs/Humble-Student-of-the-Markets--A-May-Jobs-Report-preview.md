@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:29:10
+-->
+
+# Humble Student of the Markets: A May Jobs Report preview
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2019/06/a-may-jobs-report-preview.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2019/06/a-may-jobs-report-preview.html#0001-01-01)
+
+[Tim Duy](https://blogs.uoregon.edu/timduyfedwatch/2019/05/31/trade-wars-heats-up-with-new-assault-on-mexico/)
+
+thinks that Trump is trying to weaken the economic outlook sufficiently so that the Fed has no choice but to cut rates. The markets adopted a risk-off posture as a consequence of Trump`s announcement that he plans to impose tariffs on Mexico. The entire Treasury yield curve, with the exception of the very long end at 30-years, is at or below the Fed Funds target rate. The market is now anticipating between two and three quarter point rate cuts by the end of 2019.
+
+> **The story here is that market participants anticipate the Fed will need to cut rates to maintain the expansion.** The Fed has so far resisted this story, but the odds favor them moving in this direction. The simple fact is that the Fed reacts systematically to a changing forecast. Financial markets are signaling the the growth forecast will worsen enough, or that the risks to the growth forecast will become sufficiently one-sided, that the Fed will have to act. The Fed isn’t there yet, but they will not be able to resist forever.
+> 
+> **Bottom Line: Trump will get the Fed to back his trade wars, but only threatening to damage the U.S. economy first.**
+
+Powell acknowledged trade tension effects this morning, and echoed vice chair Richard Clarida that the Fed would cut rates if necessary.
+
+> I’d like first to say a word about recent developments involving trade negotiations and other matters. We do not know how or when these issues will be resolved. We are closely monitoring the implications of these developments for the U.S. economic outlook and, as always, we will act as appropriate to sustain the expansion, with a strong labor market and inflation near our symmetric 2 percent objective.
+
+Last week, Clarida repeated the now familiar Fed official party line that the "economy is in a good place".
+
+[Bloomberg](https://www.bloomberg.com/news/articles/2019-05-30/clarida-says-fed-policy-appropriate-while-bank-s-watching-risks)
+
+ reported that Clarida left the door open to a rate cut:
+
+> “Let me be very clear, that we’re attuned to potential risks to the outlook,” he said Thursday after a speech to the Economics Club of New York. “If we saw a downside risk to the outlook, then that would be a factor that could call for a more accommodative policy. So that’s definitely something in the risk-management area that we would think about.”
+> 
+> U.S. central bankers next meet June 18-19\. Clarida, like Chairman Jerome Powell, described a recent dip in inflation as “transitory.”
+> 
+> Clarida said that mounting risks, not just disappointing incoming economic data, could be a trigger for the Fed to cut rates if it felt the need to act preemptively, with inflation already below the central bank’s 2 percent target. The Fed’s preferred price index, minus food and energy, rose 1.6% for the 12 months through March, and analysts expect the same number from the April report due Friday.
+
+The upcoming Jobs Report this Friday will also be an important data point for Fed officials as the pressures builds for rate cuts.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2019/06/04/a-may-jobs-report-preview/)
+
+.
