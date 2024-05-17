@@ -1,0 +1,27 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:00:13
+-->
+
+# Lightstreamer: WebSocket Full-Duplex, Bi-Directional, Real-Time Data Delivery | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/10/07/lightstreamer-websocket-full-duplex-bi-directional-real-time-data-delivery/#0001-01-01](https://mdavey.wordpress.com/2013/10/07/lightstreamer-websocket-full-duplex-bi-directional-real-time-data-delivery/#0001-01-01)
+
+## Lightstreamer: WebSocket Full-Duplex, Bi-Directional, Real-Time Data Delivery
+
+Lightstreamer provides [insight](http://blog.lightstreamer.com/2013/10/optimizing-multiplayer-3d-game.html) into how its Real-Time web server can empower a multiplayer 3D game to provide impressive bandwidth usage, though use of Lighstreamers adapting throttling algorithms (originated in the financial industry).  Resampling of user data on the flyer is the key though a few dynamic variables:
+
+*   **Bandwidth allocation**: For each client, a maximum bandwidth can be allocated to its multiplexed stream connection. Such allocation can be changed at any time and Lightstreamer guarantees that it is always respected, whatever the original data flow bandwidth is.
+*   **Frequency allocation**: For each data flow (a subscription, in Lightstreamer terms) of each client’s multiplexed stream connection, a maximum update frequency can be allocated. Again,  such allocation can be changed at any time.
+*   **Real bandwidth detection**: Internet congestions are automatically detected and Lightstreamer continuously adapt to the real bandwidth available.
+
+Conflation is also mentioned in the article, something that is important with limited bandwidth, and limited client side compute power:
+
+> Resampling works better with **conflation**. Conflation means that instead of simply discarding updates, when resampling is done, the sender should try to merge them to save as much information as possible
+
+Finally, the source code is offered on GitHub offer reader the ability to play with Lightstreamer subscription modes and message routing amongst other things.
+
+~ by mdavey on October 7, 2013.
+
+Posted in [JavaScript](https://mdavey.wordpress.com/category/languages/javascript/), [Trading](https://mdavey.wordpress.com/category/trading/)
+Tags: [Lightstreamer](https://mdavey.wordpress.com/tag/lightstreamer/), [WebSockets](https://mdavey.wordpress.com/tag/websockets/)
