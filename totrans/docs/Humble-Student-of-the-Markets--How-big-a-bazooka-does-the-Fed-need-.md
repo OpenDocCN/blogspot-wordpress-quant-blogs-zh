@@ -1,0 +1,62 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:04:33
+-->
+
+# Humble Student of the Markets: How big a bazooka does the Fed need?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/06/how-big-bazooke-does-fed-need.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/06/how-big-bazooke-does-fed-need.html#0001-01-01)
+
+> *Ben smiled and unveiled it with a flourish, "Let me show you my bazooka."*
+> 
+> *"Oh!"  _______________*  (fill in the blanks)
+> 
+> 1.  *Her eyes widened, "It's enormous!"*
+> 2.  *She wrinkled her nose, "Are you sure it's going to do the job?"*
+> 3.  *She stifled a smile, "Well, it's the thought that counts."*
+
+Notwithstanding my bad writing (in the style of
+
+[other parodies](http://www.mcsweeneys.net/articles/atlas-shrugged-updated-for-the-current-financial-crisis)
+
+), questions remains ahead of the FOMC announcement. What will the Fed do? Will it be enough?
+
+Coincidentally, Bank of Canada researchers published a paper entitled
+
+[Unconventional Monetary Policy: The International Experience with Central Bank Asset Purchases](http://www.bankofcanada.ca/wp-content/uploads/2011/05/kozicki.pdf)
+
+ that assessed the effectiveness of "unconventional monetary policy measures", or quantitative easing. Here are their conclusions:
+
+*   Evidence suggests that the implementation of unconventional monetary policy during the recent financial crisis, via credit easing and asset purchases, succeeded in reducing credit spreads and yields, thereby providing further easing of financial and monetary conditions and fostering aggregate demand.
+*   These policy measures are most effective when targeted to specific market failures, sufficiently large relative to the targeted market, and clearly communicated.
+*   The evidence must be treated with appropriate caution, since the evaluation of the effectiveness of unconventional monetary policy is subject to problems of identification.
+*   The ongoing fiscal retrenchment will affect the outlook and therefore the timing of the withdrawal of monetary stimulus.
+*   Central banks should account for the potential negative externalities of unconventional monetary policies, which are often neglected in the analysis of their effectivness.
+
+Dave Altig and John Robertson of the 
+
+[Atlanta Fed's macroblog](http://macroblog.typepad.com/macroblog/2012/06/fed-purchases-of-government-debt-flow-share-versus-stock-share.html)
+
+referenced the paper in a post and highlighted what they considered the salient points [emphasis theirs, not mine]:
+
+> The effectiveness of unconventional monetary policy measures depends on several factors. Measures appear to have been effective (i) when targeted to address a specific market failure, focusing on market segments that were important to the overall economy; (ii) ***when they were large in terms of total stock purchased relative to the size of the target market***; and (iii) when enhanced by clear communication regarding the objectives of the facility
+
+In other words, you need to adjust the size of the bazooka to the size of the market. If the Fed were to choose to start buying MBS securities, the size of the intervention needs to sufficiently large to push MBS prices up (and yields down). On the other hand, an extension of Operation Twist will likely have limited effect, other than on market psychology, because it only has a limited amount of short-dated securities it can sell in order to extend the maturity of its holdings. Altig and Roberson went on to say:
+
+> [T]he accumulated evidence suggests to us that we should be really thinking in terms of something like the stock or accumulated total of Fed purchases relative to the size of publicly held Treasury debt, as the passage from Kozicki and coauthors indicates. That calculation produces a Federal Reserve share of about 16 percent of publicly held Treasury securities for fiscal year 2011, which is up sharply from the 8–10 percent levels seen during the 2008–10 period but very similar to the share of Treasury securities held by the Federal Reserve during the years 2000 through 2007\.
+
+They went on to say that the Fed should also consider not how much Treasury securities the Fed holds, but the composition of the supply:
+
+> In the shorter term, changes in the magnitude of federal government may not have too large of an independent impact on the stance of monetary policy, although it is noteworthy that current projections indicate the Treasury will sell about $1,450 billion of debt to the public in fiscal year 2012, and $1,060 billion in 2013\. In addition there is this, from today's [edition of The Wall Street Journal's Real Time Economics](http://macroblog.typepad.com/macroblog/2012/06/):
+> 
+> > "The U.S. Treasury intends to continue to gradually extend the average maturity of the securities it issues—a tactic that locks in borrowing costs but potentially dilutes the impact of a Federal Reserve policy intended to boost the economy."
+> 
+> In such an environment, it is probably good to remember that standing pat with central bank asset purchases does not necessarily mean standing still with monetary policy.
+
+Monday's market reaction to the Greek election, where it more or less got what it wanted, is telling. The consensus seems to be for more Twist, but not much else (see one example
+
+[here](http://www.bloomberg.com/news/2012-06-17/fed-seen-twisting-to-risk-management-to-spur-u-s-growth.html)
+
+). Just keep this in mind as you assess the Fed's announcement Wednesday.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
