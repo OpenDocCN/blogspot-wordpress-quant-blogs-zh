@@ -1,0 +1,17 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:45:16
+-->
+
+# ELK Stack – OSS Splunk? | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/11/12/elk-stack-oss-splunk/#0001-01-01](https://mdavey.wordpress.com/2014/11/12/elk-stack-oss-splunk/#0001-01-01)
+
+## ELK Stack – OSS Splunk?
+
+[ELK](http://www.elasticsearch.org/overview/) has been gaining a [good](http://www.javaworld.com/article/2127780/big-data/whats-new-in-logstash-and-why-you-should-care.html) amount of [blog](http://brewhouse.io/blog/2014/11/04/big-data-with-elk-stack.html) press recently.  Which leads to the obvious questions, of can ELK [replace](http://www.infoworld.com/article/2610864/data-mining/logstash-steps-up-as-splunk-s-latest-challenger.html) Splunk?  No an uncommon question given again the blog entries by various people on [leveraging](http://woodygsd.blogspot.co.uk/2014/06/an-adventure-with-elk-or-how-to-replace.html) ELK.  More interesting is recent events, with an Splunk [Exec](http://www.elasticsearch.com/blog/press/elasticsearch-grows-leadership-team-former-splunk-exec-lead-product-management/) moving to ElasticSearch, which should help to push ELK forwards.
+
+~ by mdavey on November 12, 2014.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+Tags: [ELK](https://mdavey.wordpress.com/tag/elk/)
