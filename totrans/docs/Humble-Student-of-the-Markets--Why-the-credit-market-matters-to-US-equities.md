@@ -1,0 +1,68 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:49:52
+-->
+
+# Humble Student of the Markets: Why the credit market matters to US equities
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/09/why-credit-market-matters-to-us-equities.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/09/why-credit-market-matters-to-us-equities.html#0001-01-01)
+
+From a fundamental point of view, stock prices can advance for two reasons. Either earnings rise, or the P/E multiple expands. In this Fed tapering era, risk premiums are likely to rise and therefore P/Es are likely to fall (see my previous post 
+
+[Regime shifts = Volatility](http://humblestudentofthemarkets.blogspot.com/2013/07/regime-shifts-volatility.html)
+
+):
+
+> [T]he Fed indicated on May 22 that it is considering a plan to taper off its QE purchases. In other words, it may be taking its foot off the accelerator but it is not about to stomp on the brakes (raise rates).
+> 
+> The more subtle message that the market still hasn't gotten is that the various QE programs succeeded in lowering risk premiums by pushing market participants to take on more risk (reaching for yield, carry trades, etc.) Undoing the effects of QE, even though slowly, represents a regime change as risk premiums will start to rise. This will represent a headwind for equity valuations longer term, though the markets will be choppy as it adjusts by focusing on the headline of the day (see my previous blog post [It's the risk premium, stupid!](http://humblestudentofthemarkets.blogspot.com/2013/07/its-risk-premium-stupid.html))
+
+Despite the disappoint jobs report on Friday, the
+
+[Street consensus seems to be a September taper](http://www.businessinsider.com/economists-update-taper-expectations-2013-9)
+
+.
+
+[Jon Hilsenrath](http://blogs.wsj.com/economics/2013/09/06/fed-officials-face-cliffhanger-september-meeting-after-mixed-jobs-report/)
+
+of the WSJ writes that the Fed is likely to adopt a taper-lite policy:
+
+> One option that has gained support among some Fed officials in recent weeks: Reduce their monthly bond purchases by a small amount, say $10 billion to $75 billion, and signal as loudly as possible the next step will depend on more evidence the job market is continuing to improve and inflation is moving back toward 2% from its current low levels.
+
+Regardless of the timing, the prospect of a taper creates an environment where risk premiums face upward pressures and therefore P/E ratios face downward pressures. If stocks start to face headwinds on the P/E multiple front, then that means it is up to earnings to do the heavy lifting if prices were to rise.
+
+**Spotlight on earnings** [Ed Yardeni](http://blog.yardeni.com/2013/08/s-500-estimate-remains-high-excerpt.html)
+
+monitors earnings and his analysis shows that SPX forward 12 month earnings (red line) continue to rise, which is bullish.
+
+Where is the earnings growth coming from? This analysis from Deutsche Bank shows that most of the growth comes from Financials. In fact, Y/Y earnings growth ex-Financials have been flat.
+
+**Focus on Financials**
+
+Brian Gilmartin at
+
+[Fundamentalis](http://fundamentalis.com/?p=2456)
+
+analyzed earnings growth at a sector level and found that Financial earnings growth came mainly from improving credit conditions which caused banks to reduce non-performing loan reserves (which had been earnings hits in the past) [emphasis added]:
+
+> What is the primary reason for the strong earnings growth for the Financial sector in 2013 ? Well, if you read the 2nd quarter, 2013 FDIC earnings report released to the public this week, you have record nominal profits for the banking sector for the 2nd quarter in a row. However I don't think a lot of people understand this concept since so many bank stocks are still trading below their 2007 highs, thanks to the dilution of the equity shareholder following the financial crisis. The number of fully-diluted shares outstanding for names like Morgan Stanley (MS), Bank of America (BAC), AIG (AIG) and others is sometimes quintuple their share count since mid, 2007\. (long BAC). Banks and financials are earnings record profits, but “per share” earnings have been horribly diluted.
+> 
+> ***The real key to the FDIC report was the record low in non-performing loans (NPL’s) , which has led to reserve releases across the sector.*** Per the FDIC report, NPL’s improved for the 13th consecutive month, led by single-family housing. In addition the amount set aside by banks for NPL’s fell 40% year-over-year to $8.6 billion or the lowest since the 3rd quarter of 2006.
+
+The tin foil hat brigade will say that this is all financial mumble-jumble and manipulation. I am more pragmatic and believe that even if they were, it will take a lot of time for the market to recognize this and anyone taking a bearish view could get hurt in the meantime. Gilmartin went on to say that he didn't expect this game to go on much longer:
+
+> The point is that “credit improvement” is still driving sector earnings, even though we expect this game to be played out by 2014, or at least greatly diminished.
+> 
+> Unfortunately, Dodd-Frank will likely squash the kind of revenue growth we saw in Financials in the late 1990′s, and through 2003 – 2006, in coming years. Revenue growth for the sector off the March ’09 market low, have been relatively subdued between 2% – 5% for the most part, and I don't think – absent a change in Washington – that will change much going forward.
+
+In order for the Financials to grow their earnings in the face of these headwinds, credit conditions have to continue to improve - and improve dramatically. I am therefore watching the relative performance of junk bonds relative to the overall bond market as a quick-and-dirty way of evaluating the trend in credit. So far, junk bond prices continue to be in a relative uptrend, but if they falter - watch out!
+
+Already, the relative performance of Financials to the market is starting to roll over. The message of the market seems to be: "Don't count on this sector to provide further earnings growth leadership in the near future."
+
+Here is my concern. If Financials, which had been providing the bulk of the earnings growth for the market, start to falter, then what happens to stock prices (unless other sectors start to pick up the pace)?
+
+For now, credit conditions hold the key to earnings growth and therefore the outlook for US equity prices.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
