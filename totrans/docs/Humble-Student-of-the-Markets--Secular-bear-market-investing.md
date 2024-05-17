@@ -1,0 +1,56 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:12:36
+-->
+
+# Humble Student of the Markets: Secular bear market investing
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/11/secular-bear-market-investing.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/11/secular-bear-market-investing.html#0001-01-01)
+
+Last week,
+
+[David Rosenberg](http://pragcap.com/are-we-in-a-depression)
+
+ (via Pragmatic Capitalism) stated that "we’re just 4 years into a depression that will likely last 7-10 years". Ken Rogoff, interviewed by 
+
+[CFA Magazine](http://viewer.zmags.com/publication/761a93ac?page=46#/761a93ac/46)
+
+, said that the current slowdown that began in 2008 is likely to take 6-10 years for a recovery to take hold.
+
+**This is a secular bear**
+
+This confirms my views from
+
+[August](http://humblestudentofthemarkets.blogspot.com/2011/08/stock-market-bottom-at-end-of-this.html)
+
+that I expect a stock market bottom about the end of this decade. This is a secular bear market characterized by flat returns and investors need to re-orient their investment policy and portfolio strategy accordingly.
+
+To recap my first point about a secular bear market, equity valuations are not especially attractive right now. The chart below from
+
+[VectorGrader](http://www.vectorgrader.com/indicators/mcgdp.html)
+
+(chart is theirs, annotations are mine) shows the market cap to GDP of US equities from 1950\. I use market cap to GDP as a proxy for the market Price to Sales ratio. Many investors look at P/E ratios, but P/Es can be volatile since P/E = P/(Sales x Net Margin) and net margins can be volatile depending on where you are in the economic cycle, but Price to Sales is a far more stable ratio for evaluating long-term market valuations.
+
+Note how the bull phases, or secular bulls, coincided with expansion of the market cap to GDP ratio. The equity market then topped out went sideways and entered a secular bear market, which coincided with a corrective phase in the market cap to GDP ratio, until that "valuation" metric returned to more realistic levels.
+
+Similarly, this chart from
+
+[Naufall Sanaullah](http://www.businessinsider.com/naufal-sanaullah-market-overview-2011-11)
+
+of Shadow Capitalism tells a similar story. The chart shows the require amount of work to buy the SPX as a measure of the differential between the returns to labor and capital. Just like the Market Cap to GDP chart, this relationship remains stretched in favor of equity.  
+
+Using a rough eyeball estimate of both charts suggests a valuation bottom some time around the end of this decade given the current trajectory of adjustments. These conclusions are in accordance with the views of David Rosenberg and Ken Rogoff.    
+
+**Using pruning shears in a snowstorm and a snow shovel in July**
+
+Even though I am trained as a quant, I have always thought myself to be an investment strategist first and a quant second. There are different tools for different seasons. Otherwise, you can get caught and wind up holding pruning shears in a February snowstorm or holding a snow shovel in the heat of July.
+
+In secular bull markets, such as the one we experienced in the 1980's and 1990's, buy-and-hold was a great strategy for portfolio construction. Stocks went up. To control risk, you just added some bonds to control volatility and voila, a portfolio that balanced risk and return. To raise expected returns, you raise the equity weight at the cost of greater risk. To lower risk, you raise the bond weight at the cost of lower expected returns.
+
+During secular bear markets characterized by flat returns, buy and hold investors are likely to see flat but volatile returns. Raising the equity component in a balanced portfolio just raises volatility, but does not significantly increase returns. Under these conditions, investors need to use dynamic asset allocation techniques such as the
+
+[Asset Inflation-Deflation Trend Model](http://qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf)
+
+to capture the swings of a flat market.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

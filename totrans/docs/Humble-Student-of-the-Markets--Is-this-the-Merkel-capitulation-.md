@@ -1,0 +1,124 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:12:54
+-->
+
+# Humble Student of the Markets: Is this the Merkel capitulation?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/11/is-this-merkel-capitulation.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/11/is-this-merkel-capitulation.html#0001-01-01)
+
+Is this a sign of panic from Angela Merkel? As we watched markets crater over the spectacle of an Italian bond market melt down, Angela Merkel seems to have thrown in the towel and called for a breakup of the eurozone.
+
+[Reuters](http://www.reuters.com/article/2011/11/09/us-eurozone-idUSTRE7A831520111109)
+
+reports that she agreed with Sarkozy's idea of "a two-speed Europe in which euro zone countries accelerate and deepen integration while an expanding group outside the currency bloc stays more loosely connected "
+
+> It is time for a breakthrough to a new Europe. A community that says, regardless of what happens in the rest of the world, that it can never again change its ground rules, that community simply can't survive.
+
+The
+
+[Guardian](http://www.guardian.co.uk/business/2011/nov/09/european-debt-crisis-eurozone-breakup)
+
+confirmed the story by reporting that Germany and France have begun talks to break up the eurozone amid fears that Italy will be too big to rescue.
+
+[Bloomberg](http://www.businessweek.com/news/2011-11-09/merkel-s-cdu-may-adopt-euro-exit-clause-in-party-platform.html)
+
+also reported that Merkel’s CDU may adopt Euro exit clause in party platform. Interestingly, the story showed Mario Draghi to be very European in outlook:
+
+> Mario Draghi, in his first week as European Central Bank president, said Nov. 3 that it’s not illegitimate to question Greece’s place in the euro area. Even so, the bloc’s founding treaty doesn’t allow for a country leaving and it would be hard to imagine it happening, he said.
+
+Is this talk of a eurozone breakup signs of panic and capitulation from Angela Merkel? Is this a buy signal or a sign that Europe's Lehman moment is upon us?
+
+**Implications of a eurozone breakup**
+
+The implications of a eurozone breakup are profound. Despite the rhetoric, Germany has benefitted tremendously from membership in the eurozone.
+
+[Credit Writedowns](http://www.creditwritedowns.com/2011/11/the-euro-zone-is-one-giant-vendor-financing-scheme.html)
+
+wrote that, since Germany runs a huge trade surplus with the rest of the eurozone, German-Southern Europe trade has become a giant vendor financing scheme.
+
+> The large euro-area internal current account imbalances should be seen as a form of vendor financing, whereby the creditors, principally Germany, forward their customers, the debtors, trade finance in order to sell their wares. Germany’s aging society meant slow growth. So German companies have looked abroad for growth, just as the Japanese have done in their aging society. Taken in aggregate, this means persistent current account surpluses which are a fancy way of saying vendor financing at the national level.
+> 
+> German banks were at it too, by the way. German retail banking is a low margin business and credit growth is weak. So the German banks loaded up on foreign assets, making loans abroad. German banks were very active in Ireland and Spain during the housing bubbles there, for example.
+
+German industrial companies must know this. While the Teutonic holier-than-thou attitude may play well for public consumption, I can't believe that German exporters aren't making their views known to the government.
+
+Even if Germany and France wanted to break up the euro. How do you get from A to B? How do you re-negotiate a treaty with 17 signatories? What do you do in the meantime? Do you sit around planning the nuances of how to revise EU treaties while watching global financial system disintegrate around you?
+
+**A green light for the ECB to go nuclear?**
+
+Remarks about "the new Europe" and the "two-speed Europe" sound either like signs of panic or carefully timed leaks. This may be a sign that Mario Draghi will be given the green light to go nuclear despite the deep reservations expressed by the likes of
+
+[Juergen Stark](http://www.reuters.com/article/2011/11/09/ecb-stark-idUSF9E7H801H20111109)
+
+.
+
+Indeed, the ECB has not been idle but it has been expanding its
+
+[balance sheet](http://www.bloomberg.com/quote/EBBSTOTA:IND/chart)
+
+ despite the rhetoric about treaty obligations, etc.
+
+The latest report shows that it
+
+[bought €9.5 billion in sovereign bonds](http://www.taiwannews.com.tw/etn/news_content.php?id=1752949)
+
+. Nevertheless, its hands may be tied by treaty.
+
+[Ambrose Evans-Pritchard](http://www.telegraph.co.uk/finance/financialcrisis/8877818/ECB-stymied-on-debt-crisis-without-fiscal-union.html)
+
+writes that
+
+> Jens Weidmann, head of the Bundesbank and the ECB's dominant governor, said...Article 123 of the EU Treaty imposed a legal "prohibition on monetary financing", implying that the ECB cannot attempt to shore up the debt markets of Italy and Spain for covert fiscal support.
+
+Therefore the ECB has a strict limit to how far it can go to buy sovereign bonds directly from Italy, as per Article 123.
+
+Yet, where there is a will, there is a way. After all, don't forget that Germany went into the euro with roughly 90% of the population opposed to the move. OK, so if the ECB can't lend directly to a sovereign country, what can it do?
+
+[Alan Beattie](http://blogs.ft.com/the-world/2011/11/a-cunning-plan-ecb-imf-version/#axzz1dFLw5Srj)
+
+of the FT explains:
+
+> One intriguing idea floating around Washington: if the ECB can’t bring itself to bail out Italy direct (sovereign credit risk, no expertise in setting lending conditions) it could in theory, according to Article 23 of its [protocol](http://www.ecb.int/ecb/legal/pdf/en_statute_2.pdf), lend vast amounts to the IMF.
+> 
+> The Fund would then lend them on to Italy, taking on the credit risk and enforcing conditions – both of which are [what it is there for](http://www.imf.org/external/np/exr/facts/conditio.htm).
+
+**Panic is in the air**
+
+In the meantime, the world is in full-fledged panic mode. Ezra Klein's article entitled
+
+[Is this how the euro ends](http://www.washingtonpost.com/blogs/ezra-klein/post/is-this-how-the-euro-ends/2011/08/25/gIQAEFBa5M_blog.html)
+
+ is typical of the sense of terror gripping analysts. After all, Italy is a G7 country which borders two other G7 countries. Another, the UK, is in the same economic union. Will the eurocrats truly allow the European and global economy to go down in flames?
+
+> The problem, put simply, is that Italy is both too big to fail and too big to save. It’s the eighth-largest economy in the world. At $2 trillion, it’s about seven times as large as Greece’s $300 billion economy. France and Germany’s banks alone have $600 billion in exposure to Italian debt. But Barclay’s says Italy is “now mathematically beyond the point of no return.” Silvio Berlusconi might be out, but changing governments does not change arithmetic. And so the question is simple, and stark: If there wasn’t the will to really save Greece, where would the will -- and the money -- come from to save Italy?
+
+[Brad DeLong](http://delong.typepad.com/sdj/2011/11/time-to-spread-foam-on-the-runway-the-federal-reserve-needs-to-act-now-to-firewall-off-the-eurocrisis.html)
+
+has gone even further and urged the Federal Reserve to intervene by calling up the ghost of Creditanstalt and 1931 [emphasis added]:
+
+> I have been complaining for some time now that Reinhart and Rogoff think that the time is always 1931 and that we are always Austria--that the great fiscal crisis is about to erupt and send us lurching down toward Great Depression II. ***Well, right now guess what? The time is 1931, and we are Austria. The Federal Reserve needs to buy up every single European bond owned by every single American financial institution for cash before the increase in eurorisk leads American finance to tighten credit again and send us down into the double dip.*** The Federal Reserve needs to do so now.
+
+If Italy goes down and takes its G7 European partners down with it, then no one is safe.
+
+**What will Merkel do?**
+
+So the big question is now, "Is this Merkel's capitulation moment?" Does she really want to go down in history as the one who could have save the eurozone but didn't? Will Merkel, or some of the cooler heads around her, allow the ECB to go nuclear as a stopgap in order to save the EU?
+
+A word of warning for traders. Those who wait for the ECB to act before the weekend may be disappointed. There is a
+
+[theory](http://www.businessinsider.com/what-happened-today-2011-11)
+
+that Draghi wants to force Berlusconi out now instead of later. So the ECB is standing aside and letting the markets do its work for them. If the markets go into freefall for the next couple of days, the weekend is the perfect time to do a deal - after which the markets would melt up in relief that the Apocalypse has been avoided.  
+
+But first things first. It's up to Angela Merkel to take the first step and show some adult leadership. Will she allow the ECB to take steps and save Europe (at least temporarily)? Or will this be Europe's Lehman moment?  
+
+***Addendum:***
+
+I take it all back. It wasn't a Merkel capitulation moment. See further details
+
+[here](http://humblestudentofthemarkets.blogspot.com/2011/11/two-track-eurozone-wheels-within-wheels.html)
+
+.    
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**

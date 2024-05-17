@@ -1,0 +1,84 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:12:41
+-->
+
+# Humble Student of the Markets: The very long view of Europe
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/11/very-long-view-of-europe.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/11/very-long-view-of-europe.html#0001-01-01)
+
+When I vote in an election, I give very little weight to a politician or party's stated policies. Instead I look at the candidate's overall philosophy to see how he or she would govern. Politicians change their minds. What's more important is how they would behave when circumstances change.
+
+In the same vein, I apply a similar analysis to the eurozone crisis. The
+
+[BBC](http://www.bbc.co.uk/news/magazine-15619946)
+
+had an excellent analysis of the very long view of Europe and outlined its challenges [emphasis added]:
+
+> A hundred and fifty years ago, around 1861, China and Japan both collapsed as Western gunships and financiers pushed into East Asia. Nothing Japan or China could have done would have stopped the rise of Western wealth and power. ***How they reacted to that rise, however, made all the difference between triumph and tragedy.***
+> 
+> China's rulers borrowed heavily from overseas, squandered the capital, and fell into dependency. Japan's rulers bought time, raised huge amounts of local capital and financed an indigenous industrial revolution. By 1911, Japan was a great power and China was the sick man of Asia.
+> 
+> ***A century and a half later, the EU faces the same choices***. Nothing it can do will stop the rise of the Eastern wealth and power - in 100 years, Asia will be the world's economic powerhouse - but ***how it reacts matters very much indeed***.
+
+Today, Europe remains a powerhouse of trade. In the final days of his ECB presidency,
+
+[Jean-Claude Trichet](http://www.telegraph.co.uk/finance/comment/jeremy-warner/8825327/Europes-grand-plan-risks-slow-death-by-a-thousand-cuts.html)
+
+said pretty much the same thing:
+
+> As Mr Trichet pointed out at the AFME dinner, if the eurozone were a single country, it would actually look like a model economy, with a small current account surplus, a primary budget deficit of less than half that of the UK and the US, subdued household debt, low inflation and a little growth.
+
+That's why Europe's major trading partners, such as the Americans and the Chinese, have said repeatedly that Europe has the capability to solve the problem themselves. If we were to take Trichet's comment at face value, then the obvious way forward is fiscal union, to be followed by political union at some point in the future. The alternative is to kick some of the weaker countries out of the eurozone at the price of fracturing European unity. But then, what countries don't have underperforming regions? In the United States, you just have to compare the glittering metropolises of New York, Boston and Los Angeles with parts of the Deep South, or Puerto Rico, to see examples.
+
+The question then becomes, how will Europe go forward with a solution?
+
+**EU half-measures?**
+
+Unfortunately, the history of the European Union is littered with compromises and half-measures that don't always achieve the original stated objective and have the potential to fail because of some fatal flaw. When the euro was formed, I recall that there was some question as to some of the weaker Club Med countries would be allowed into the eurozone. I suppose that, in the end, countries like Greece and Portugal were allowed in the spirit of European unity and the tradition of European compromise.
+
+In the same way, the European Central Bank was mandated to only fight inflation as a nod to
+
+[German price-stability sensibilities](http://on.ft.com/tzhNLk)
+
+. Today, the fatal flaws of the lack of a dual mandate and the prohibition to being the lender of last resort to sovereigns has pushed the eurozone to the edge of the abyss.
+
+Going forward, the stakes for Europe are much higher than ever before and a robust framework needs to triumph over compromise and half-measures. Here is
+
+[The Economist](http://www.economist.com/node/21536866?frsc=dg%7Ca)
+
+on this very topic:
+
+> The price of a cobbled-together rescue is that some day the euro zone will probably have to endure yet another existential crisis. It is all very well to talk of discipline and oversight right now, when disaster is still an imminent possibility; but wariness is bound to fade with time. Bubbles inflate precisely because people fail to recognise that they are living with dangerous imbalances. One French official remembers being told by commission economists during the boom to copy Ireland and Spain. Now the same people are telling him to copy Germany.
+
+The question of whether the eurozone achieves a political or fiscal union, or the weaker countries get kicked out of the euro will be irrelevant in 100 years, but both roads will be hard. What matters is a robust solution, and not a weak half-measure, is implemented.
+
+The BBC article I mentioned above ended with:
+
+> Europe should choose the Japanese path. It will take trillions of euros to contain the crisis and the pain will be immense. But the alternative, of mortgaging Europe's future with Chinese loans, might prove worse.
+
+**The challenge ahead**
+
+The alternative is further existential crises for Europe and the EU. It is with that in mind that investors should remember Jeffrey Grundlach's comment about cooperation and divisiveness (via
+
+[Josh Brown](http://www.thereformedbroker.com/2011/09/29/notes-from-the-doubleline-lunch-with-jeffrey-gundlach/)
+
+):
+
+> **On Bull Markets and Bear Markets**: If you study history, you'll see that "bull markets are about cooperation, bear markets are about divisiveness." Jeffrey says the Euro common currency came about in 1999 at the very peak of global cooperation, the fact that asset prices peaked around then too is not a coincidence. Right now divisiveness is everywhere and a global bear market is underway.
+
+I wrote in my last
+
+[post](http://humblestudentofthemarkets.blogspot.com/2011/11/remembrance-day-in-eurozone.html)
+
+of why I believe Europe came to be and I find it amazing today how many of its inhabitants are
+
+*utterly European*
+
+in outlook and remain committed to the idea of a European Union (see one of many examples
+
+[here](http://www.huffingtonpost.co.uk/2011/10/19/eurozone-crisis-tory-peer_n_1019034.html)
+
+). It is now up to them to forge a solution that will stand the test of time.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.***None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
