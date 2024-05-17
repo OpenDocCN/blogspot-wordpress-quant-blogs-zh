@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:41:36
+-->
+
+# Humble Student of the Markets: Revealed, the secret lives of corporate insiders
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2022/07/revealed-secret-lives-of-corporate.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2022/07/revealed-secret-lives-of-corporate.html#0001-01-01)
+
+Why are stocks rallying? Maybe it's because for much of this year, corporate insiders have been stepping up to buy dips in the stock market. The purchases have occurred in the face of growing recession risk and apparent challenging valuations.
+
+What does this group of "smart investors" know that we ordinary mortals don't? An analysis of valuation and the technical backdrop reveals some pockets of value in the US equity market.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2022/07/23/revealed-the-secret-lives-of-corporate-insiders/)
+
+.
