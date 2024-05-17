@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:14:57
+-->
+
+# Humble Student of the Markets: Fun with technical analysis on the 4th of July
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2020/07/fun-with-technical-analysis-on-4th-of.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2020/07/fun-with-technical-analysis-on-4th-of.html#0001-01-01)
+
+On this 4th of July Independence Day weekend, let's try a change of pace and indulge in some technical analysis of a different sort. The behavioral finance basis for technical analysis is the wisdom of the crowds.
+
+Francis Galton observed a competition at a local fair in 1906 where about 800 people tried to guess the weight of an ox. To Galton's surprise, the average of all the guesses was 1,197 lbs. The actual weight came in at 1,198 lbs. Other studies have confirmed that a diverse crowd is better at estimates than any single expert.
+
+This adage, "the wisdom of the crowds" is really another formulation of the Efficient Market Hypothesis, in which it is difficult for any single analyst to gain a consistent edge. Technical analysis is one way of listening to the markets, and applying its message to understand what the market is discounting.
+
+With that preface in mind, consider this mystery chart. Would you buy, hold, or sell this security?
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2020/07/04/fun-with-technical-analysis-on-the-4th-of-july/)
+
+.
