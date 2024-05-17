@@ -1,0 +1,167 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:34:45
+-->
+
+# Humble Student of the Markets: What keeps me awake at night
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/08/what-keeps-me-awake-at-night.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/08/what-keeps-me-awake-at-night.html#0001-01-01)
+
+*This is the second part of a two-part comment about the US equity market. Yesterday's comment*
+
+(
+
+[The easy money has been made](http://humblestudentofthemarkets.blogspot.com/2014/08/the-easy-money-has-been-made.html)
+
+) 
+
+*was based on technical analysis, while this comment has a top-down macro orientation. I welcome any comments about the new format at cam at hbhinvestments dot com. You can also follow any updates on Twitter at @humblestudent, or subscribe to my blog posts by email [here](http://www.feedburner.com/fb/a/emailverifySubmit?feedId=2701205&loc=en_US).*
+
+Even though I remain relatively bullish on US equities (see
+
+[A tradable bottom?](http://humblestudentofthemarkets.blogspot.com/2014/08/a-tradable-bottom.html)
+
+and
+
+[The easy money has been made](http://humblestudentofthemarkets.blogspot.com/2014/08/the-easy-money-has-been-made.html)
+
+), it's the job of every good investor to think look skeptically at his own views and examine the other side of the coin. When I do, here is the bearish scenario that keeps me awake at night.
+
+The basic theme comes from
+
+[David Levy](http://archive.thetowntalk.com/article/20140723/BUSINESS/140722011/Contrarian-s-case-Why-U-S-could-dip-into-recession)
+
+of Levy Forecast:
+
+> Employers in the U.S. are creating jobs at the fastest pace since the late 1990s and the economy finally looks ready to expand at a healthy rate. But sluggish growth in France, Italy, Russia, Brazil and China suggests that the old truism, "When the U.S. sneezes, the rest of the world catches a cold," may need to be flipped.
+> 
+> Maybe the rest of the world will sneeze this time, and the U.S. will get sick.
+
+David Levy comes from a family with a pedigree of calling the big turns in the market:
+
+> His grandfather, Jerome, didn't just call the Great Crash of 1929, he sold all his stock and liquidated his wholesale goods business in anticipation of it. Immediately after World War II, when many experts thought the U.S. was sure to fall into another depression, his father, Jay, accurately predicted a rapid expansion instead. In late 1999, his uncle, Leon Levy, a hedge fund manager and collector of antiquities, invited this reporter into his office, pointed to a bust of a rich Roman near his door and mused on the fleeting nature of fortune. He then predicted a new generation of wealthy would be laid low soon in a coming dot-com crash.
+
+> Those stocks began their long dive a few months later.
+
+Levy himself called the last downturn:
+
+> Nearly a decade ago, the now 59-year-old economist warned that U.S. housing was a bubble set to burst, and that the damage would push the country into a recession so severe the Federal Reserve would have no choice but to slash short-term borrowing rates to their lowest levels ever to stimulate the economy. That's exactly what happened. Now, Levy says the United States is likely to fall into a recession next year triggered by downturns in other countries, the first time in modern history
+
+Now he is forecasting a recession that begins abroad which eventually spreads to the US:
+
+> Levy says the U.S. is in decent shape. Like most economists, he's not worried about the nation's 2.9 percent drop in economic output in the first quarter, attributing it to harsh winter weather. He expects growth to return, but not for long, as a recession in either Europe or emerging markets spreads to the U.S.
+> 
+> Levy says the U.S. is more vulnerable to troubles abroad than people realize. Exports contributed 14 percent of U.S. economic output last year, up from 9 percent in 2002\. That sounds like a good development, but it also makes the country more dependent on global growth, which, in turn, relies more on emerging markets. Those markets accounted for 50 percent of global output last year, up from 38 percent in 2002.
+
+Indeed, the weakness in Europe and China are evident to see. The latest global PMIs show that while the US and Japan are accelerating, Europe and China are slowing.
+
+[Ed Yardeni](http://blog.yardeni.com/2014/08/global-economy-has-some-issues-excerpt.html?m=1)
+
+recently outlined his concerns about the major non-US economies:
+
+> (1) **China**. Social financing during July was remarkably weak. It fell from $321 billion during June to $44 billion last month. That was the slowest pace of lending since October 2008\. Bank loans dropped from $175 billion during June to $63 billion during July. We think this is a one-month aberration. However, it may be that lending to residential property builders has hit a brick wall as a glut of housing units is depressing prices. In any event, on a y/y basis, bank loans are up 13.4% y/y, in line with M2 growth.
+> 
+> (2) **Japan**. Real GDP fell 6.8% (saar) during Q2 in Japan. That’s after increasing 6.1% during Q1\. Despite Abenomics, real GDP was unchanged on a y/y basis, and up just 2% in nominal terms. Private consumption plunged 18.7% during Q2\. It’s not obvious why it wasn’t obvious to the government that mixing massive monetary and fiscal stimulus with a major tax hike was akin to stepping on the accelerator and the brakes at the same time. It’s a sure way to wind up in a ditch. Even capital spending fell 12.3%. Despite the weaker yen, exports fell 1.8%. It’s dismal.
+> 
+> (3) **Eurozone**. It’s also dismal in the Eurozone. That’s evident in bond yields, which continue to fall to historical lows. The German 10-year government bond yield fell below 1.0% for the first time in history, down to only 0.97% on Friday. Perhaps the biggest shock last week was that Germany’s real GDP fell 0.6% (saar) during Q2\. But that’s after it rose 2.7% during Q1, which was boosted by mild winter weather. However, weakness in the rest of the Eurozone is weighing on the region’s biggest economy and biggest exporter. So is the Ukraine crisis, which has been a slow-motion train wreck so far.
+
+**The eurozone is becoming a basket case** [Thomson-Reuters](http://alphanow.thomsonreuters.com/2014/08/news-charts-euro-area-back-brink-recession/)
+
+comments that not only is eurozone GDP growth slowing, Germany, which has been its locomotive, is seeing its growth roll over:
+
+Despite the ECB`s efforts, non-performing loans continue to rise and put pressure on the financial system:
+
+**China is slowing again**
+
+As China appeared to started to grow robustly after a mini-stimulus package, the
+
+[July money supply and credit growth figures](http://www.forexlive.com/blog/2014/08/13/china-data-new-yuan-loands-social-financing-and-more-13-august-2014/)
+
+ shocked the market (emphasis added):
+
+*   New Yuan Loans ***385.2bn*** (vs. ***expected 780.0bn*** and prior was 1080.0bn)
+*   Aggregate Financing ***273.1bn yuan*** (vs. ***1500.0bn expected*** and prior was 1970.0bn)
+*   Money Supply M0 5.4% y/y (vs. +5.7% expected and prior was 5.3%)
+*   Money Supply M1 +6.7% y/y (vs expected 8.6% and prior was 8.9%)
+*   Money Supply M2 +13.5% y/y (vs expected 14.4%, prior was 14.7)
+
+As
+
+[Sober Look](http://pragcap.com/further-signs-of-chinas-slowing-property-markets)
+
+pointed out, Chinese property prices continue to plummet:
+
+[Diana Choyleva](http://www.ft.com/intl/cms/s/0/cf99b3d0-029d-11e4-8c28-00144feab7de.html)
+
+of Lombard Street Research recently outlined a nightmare scenario of how a slowdown in China could spread to Europe (emphasis added):
+
+> The alternative (scenario) is a stalling of reforms, with either major intervention to weaken the renminbi or an investment binge. The result is likely to be a re-run, on a greater scale, of the selling of long-dated Treasuries witnessed in 2012\. Yields could rise 10bp. These outcomes would slow but not derail the US recovery – yields rose by almost a percentage point in the second half of 2013.
+> 
+> Moreover, these scenarios assume all other things are equal. But they are not. ***Renminbi devaluation and higher US yields would be a lethal combination for the eurozone .*** Most European countries have modestly improved their trade positions with China thanks to stronger German capital exports and soft consumer spending, which has capped imports. But a much weaker renminbi would reverse the trend, thus subtracting from growth.
+> 
+> ***The eurozone’s peripheral economies would be hurt most because they have a larger export share of lower value-added manufactures and are more likely to compete with China. But Germany’s export-led growth would also suffer if China reduced its excessive reliance on investment.***
+> 
+> ***In addition to the currency effect, a rise in US yields transmitted to the eurozone would represent just the “unintended tightening of monetary conditions” that Mario Draghi, European Central Bank president, has identified as one of three contingencies that would warrant a monetary policy response.***
+
+Already, some of the adverse adjustments that Choyleva wrote about may be taking place.
+
+[Ambrose Evans-Pritchard](http://blogs.telegraph.co.uk/finance/ambroseevans-pritchard/100027886/china-is-exporting-deflation-to-the-world-again/)
+
+wrote that recent data showed that Chinese exports to Europe were growing, which is hurting peripheral eurozone countries:
+
+> The 17.5pc rise in exports to Europe is probably real (since that data is harder to fiddle). Far from being healthy, it is alarming. Euroland is clearly not booming. A wealth of data suggests that the eurozone already has one foot in recession.
+> 
+> Hans Redeker from Morgan Stanley said the 5pc-6pc fall the Chinese yuan against the euro in the first half of the year is undercutting southern Europe.
+> 
+> Portugal and Italy – among others, with Spain a borderline case – have a great number of small companies in textiles, shoes, furniture, tiles, and increasingly electrical goods, machinery, and telecommunications that compete toe-to-toe with China. They are famously “fishing in the same pool”, mostly mid-tier technology.
+> 
+> The complementary index for European and Chinese exports shows that the EU is in direct competition with China on 35pc of 5,775 types of goods covered, up from 15 per cent in 2000\. Germany is hit too, of course. Its solar industry has been largely wiped out by cheap Chinese copies. But it is southern Europe that is suffering the worst damage.
+
+**Can the US decouple?**
+
+If China and Europe were to slow, what would the effect be on America? Can the US decouple?
+
+This is where my opinion departs from David Levy. While Levy believes that weakness in Europe and China is likely to pull the US into recession, I believe that the American economy is somewhat insulated from a slowdown overseas because of the relatively weak trade linkages. However, the American stock market is not well insulated from a non-US growth pause because of the high degree of foreign exposure seen in large cap multi-national companies.
+
+First, consider that
+
+[Mebane Faber](https://twitter.com/MebFaber/status/502500396452315136)
+
+recently noted that foreign sales accounted for roughly 40% of sales for SP 500 companies. Now consider that David Bianco of Deutsche Bank analyzed the improvement in US corporate net margins and found that a considerable amount of the improvement in margin came from foreign operations (via
+
+[Business Insider](http://www.businessinsider.com/deutsche-bank-david-bianco-2014-outlook-2013-12)
+
+):
+
+To put it very simply, stock prices depend on three elements:
+
+*   Earnings growth
+*   Interest rates
+*   Risk appetite, or risk premium
+
+So what happens if global growth started to slow? What would happen to large cap earnings growth?
+
+While the characteristics of US large and small capitalization stocks are not directly comparable, this chart from UBS shows the differential in EBIT margins between the two. Should foreign growth start to slow, large and small cap EBIT margins will likely start to converge, with large cap margins falling toward their small cap counterparts for cyclical reasons.
+
+Should we start to see an operating margin squeeze because of a weakening economic cycle, large caps will likely see a double whammy of reduced risk appetite, which would then see PE ratios compress.
+
+**Bearish tripwires**
+
+I had this scenario in the back of head when I observed that commodities and European stock markets were struggling (see
+
+[Global growth scare = Trend Model downgrade](http://humblestudentofthemarkets.blogspot.com/2014/07/global-growth-scare-trend-model.html)
+
+). While European markets have started to recover somewhat, commodity prices remain under pressure and we are not out of the woods yet. Given the kind of macro downside risk, the consequences of a policy mistake is heightened.
+
+Here is what I am watching as my "bearish tripwires" for the US stock market:
+
+*   What is the effect of the ECB TLTRO program on the eurozone economy and financial system? How will peripheral bond risk premiums react? Is the European consensus shifting away from the all-austerity-all-the-time viewÉ How will European stock prices, which are a component of my Trend Model, react to these initiatives?
+*   Were the China July figures indicating a slowdown a blip, or the start of a new trend? The chart below shows the relative performance of the stock markets of Greater China, which consist of China (FXI in red), Hong Kong (EWH in black), Taiwan (EWT in green) and South Korea (EWY in orange) relative to ACWI. Is the recent episode of outperformance the start of a rally, or will these markets roll over as evidence of the ephemeral nature of the rebound emerge? How will commodity prices, another key real-time indicator of Chinese growth, react?
+
+[![](img/5f9d0e7ac8aa7702b11eb43901095083.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAAAVB7ec52_R9FZZNZUrJo3y0ZyCvFqQ1fY0GL2MBOk09oyqgpkIx7hWd2g-QSi0S-64fD7wRgSnlIRa9ItY1wbuR06d4g0BLZi7ob5Z4iE2qv6kXhUTYJ5Ad8Wm3Q_anXfNLGF2IURM/s1600/Greater+China+vs+ACWI.png)
+
+*   Most importantly, how are the Street's consensus SP 500 EPS estimates evolving? On the last question, Ed Yardeni's analysis showed that consensus EPS estimates continue to rise, which is a relief for the bulls.
+
+[![](img/4cf8bf7ba8b62c1229e3c15515eb6baf.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQ_UI2CeJMaHqFyzriBjvDmCliwrUyvJDBVvS0P6nIh9r4CHGc6U6jUSwTDBlYTCyjQ45hZWIdrFJ8BVBgCi6l9CkZFsXXz6bMcm19V_o3nV86-yR-1K30xzCrjbhvr8GymDrgrpNIpls/s1600/Yardeni+fwd+EPS.png)
+
+So far so good and I remain cautiously optimistic. However, these three tripwires bear watching as they could warn of the start of either a serious correction or the start of a bearish impulse in US equities.
