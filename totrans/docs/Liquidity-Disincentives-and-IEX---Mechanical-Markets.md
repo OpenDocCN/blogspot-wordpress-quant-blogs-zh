@@ -1,0 +1,60 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:38:14
+-->
+
+# Liquidity Disincentives and IEX | Mechanical Markets
+
+> 来源：[https://mechanicalmarkets.wordpress.com/2017/08/14/liquidity-disincentives-iex/#0001-01-01](https://mechanicalmarkets.wordpress.com/2017/08/14/liquidity-disincentives-iex/#0001-01-01)
+
+Exchange fee-schedules are probably the most boring topic in market structure. But there are occasional exceptions that are almost interesting, like IEX’s new [fee](https://www.iextrading.com/docs/rule-filings/SR-IEX-2017-27.pdf). In essence, the new fee will charge liquidity takers an extra 30 mils if the “Crumbling Quote Indicator” is on at the time IEX completes an execution. [[1](#bottom1iexpricing)][[2](#bottom2iexpricing)] Most exchanges segment order flow with incentives; IEX is attempting to carve out a niche by using disincentives.
+
+With the fee, IEX seems to be deliberately targetting traders they view as harming their market. John McCrank [relays](https://www.reuters.com/article/us-usa-trading-iex-group-idUSKBN1AR2CH) the following quote from IEX’s Eric Stockland:
+
+> If we can stop HFT (high-frequency trading) market makers from getting picked off by predatory HFT strategies, the byproduct should be more liquidity and a better experience for folks interacting on IEX
+
+And IEX’s [filing](https://www.iextrading.com/docs/rule-filings/SR-IEX-2017-27.pdf) makes clear that the fee targets “Only 13 Members… likely to be engaging in a deliberate strategy to target resting orders at soon to be stale prices.”
+
+We have [discussed](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/) the peculiarility of an exchange penalizing trades at prices that are “soon to be stale,” a phrase that borders on oxymoron. Volume and price-changes are inseparable in a healthy market: traders buy when they think the price is about to increase, and prices tend to increase after buyers initiate trades. These processes are natural features of markets, and ordinarily can be prevented only via transaction-blocking price controls. So I find IEX’s [goal](https://www.iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf) of “[p]reventing someone from *anticipating* an NBBO change” a very odd one.
+
+Part of me suspects that what IEX really hoped to do was extend the last-look [feature](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/) of its peg orders to displayed liquidity, but doing so might’ve been too [problematic](https://mechanicalmarkets.wordpress.com/2016/10/24/chx-and-four-types-of-speed-bump/) even for them. Brad Katsuyama [told](https://www.bloomberg.com/news/articles/2016-10-12/beyond-flash-boys-matt-levine-interviews-iex-s-brad-katsuyama) Matt Levine:
+
+> “People have asked us why not make D-peg a displayed order. That becomes very challenging… within the context of displayed liquidity — seeing something and having it fade on you — we’ve been very cognizant that’s what started this whole journey for us. We don’t want to contribute to that.”
+
+So, instead of allowing displayed orders to fade “during periods of quote instability,” IEX is opting to charge takers the [legal maximum](https://www.law.cornell.edu/cfr/text/17/242.610).
+
+Now, IEX certainly knows the identity of the 13 members that would pay this fee. Stockland says that the fee is targeted at “predatory” HFT strategies [[3](#bottom3iexpricing)], and designed to help other HFT strategies. An exchange is free to make a good-faith judgment about what types of HFT they want to encourage or discourage, but IEX continues to use emotionally-charged language. I hope that their feelings were not a factor in their determination.
+
+In any case, if the fee succeeds and market-makers quote more displayed liquidity on IEX, then the mix of traders paying the fee will likely change. I strongly suspect that the Thor router, as described in “[Flash Boys](https://www.nytimes.com/2014/04/06/magazine/flash-boys-michael-lewis.html),” would pay this fee on most of its eligible orders. If Thor swept Nasdaq’s book, it’s very likely that IEX would determine that the quote is “crumbling” by the time Thor’s order exited the IEX speedbump. Thor seems to be designed for click-traders, so it could delay sending its orders to Nasdaq and Bats by an additional 350us, preventing IEX from realizing the quote is about to “crumble” until after its execution. But many smart order routers and execution algos trade during periods of market activity, and cannot delay their orders without experiencing slippage. [[4](#bottom4iexpricing)]
+
+# Displayed Liquidity and Listings
+
+IEX desperately needs to increase displayed liquidity on their market. In principle they may not [mind](https://medium.com/boxes-and-lines/focusing-on-price-discovery-d99951ec4df4) being a [predominantly](https://twitter.com/sumohurd/status/892348644271075329) dark venue, but if they want to attract [listings](https://www.ft.com/content/f9a7b332-7bbe-11e7-9108-edda0bcbc928) they will need to convince issuers that they can realistically facilitate price discovery. To be frank, the current level of pre-trade transparency on IEX is an embarrassment and any issuer choosing to list there is taking a serious risk. I suspect IEX knows this and the new fee schedule is an genuine attempt to incentivize displayed quoting.
+
+That doesn’t mean it will work though. IEX [believes](https://medium.com/boxes-and-lines/focusing-on-price-discovery-d99951ec4df4) that their [refusal](https://www.ft.com/content/4c805dd6-449f-11e7-8519-9f94ee97d996) to pay rebates is the reason their exchange is mostly dark. [[5](#bottom5iexpricing)] Another possible purpose of the new fee is to increase support for a reduced access fee cap. The fee and any copycats may annoy market participants that are currently indifferent to the access fee cap. Reducing the [current cap](https://www.law.cornell.edu/cfr/text/17/242.610) from 30 mils would cut the rebates exchanges can afford to pay. The result, if IEX’s claim is true, would be to improve their displayed market share. I’m a bit skeptical: I suspect that IEX struggles with displayed liquidity because their last-look-functionality allows dark orders to preferentially trade with low-alpha aggressors, leaving abnormally high-alpha flow to hit their lit quotes.
+
+# Charging Traders For Ex-post Market Moves
+
+The new fee depends on the state of the market after an order is sent. If the access fee cap were higher, this would enable pricing that is economically equivalent to last look. But even with the current cap, there are some weird possibilities. If this fee is allowed, would there be anything stopping an exchange from levying a fee that depends on the market a millisecond in the future? What about a second? Or a day? An exchange could, for instance, charge 30mils extra if a trade is followed by a favorable price movement larger than 0.1%. With the revenue generated, it could pay a huge rebate to resting orders that are blown-through (by say, 1%) during volatile moments, compensating market makers for their losses. This could make the exchange’s order book thicker during high-volume periods, resulting in market share gains. It’s easy to see how such pricing could backfire, with the exchange having to make larger-than-expected payments if a tail-event occurs on the thickened book. And there is something uncomfortable about paying traders for being wrong. But it’s an intriguing possibility that issuers might like.
+
+An exchange could also try the opposite, paying high-alpha traders for correct predictions and penalizing noise-traders. Most likely, noise traders would move to other venues, leaving only orders that are sent by confident participants. This would add another tier to the venue segmentation spectrum. Under the current regime, low-alpha flow is disproportionately directed to internalizers and wholesalers, forcing high-alpha traders to interact with each other on lit exchanges, the centers of price discovery. Perhaps a few ultra-high-alpha traders would be attracted to this new type of venue of last resort, particularly when prices are in transition. I doubt it’d be wise for a major exchange to introduce this type of pseudo-[sin-tax](https://en.wikipedia.org/wiki/Sin_tax), but perhaps a smaller venue like PSX or EdgeA will try it out.
+
+I’m usually skeptical of complex exchange logic, but it’ll take time to see the consequences of this type of pricing. IEX’s proposal shows that they are starting to think like their competitors do, and they’ve spun it in a way that no other exchange could. It may not be to the liking of long-term traders, but there’s no doubt that IEX is gradually becoming more sophisticated. [[6](#bottom6iexpricing)]
+
+[[1](#1iexpricing)] The [filing](https://www.iextrading.com/docs/rule-filings/SR-IEX-2017-27.pdf) says the fee will be applied when “Taking Liquidity During Periods of Quote Instability, as defined in IEX Rule 11.190(g)” if the volume of such executions exceeds “5% of the sum of a Member’s total monthly executions on IEX [and] at least 1,000,000 shares during the calendar month, measured on an MPID basis.”
+
+[[2](#2iexpricing)] Matt Hurd is [not a fan](https://meanderful.blogspot.com.au/2017/08/iex-fee-regression.html) of the new pricing. For more details on the “Crumbling Quote Indicator,” see his [analysis](https://meanderful.blogspot.com.au/2016/07/iex-discretionary-peg-dpeg-calculation.html) and [update](https://meanderful.blogspot.com.au/2016/12/iex-innovation-killing-innovation.html) on the logistic regression IEX uses to assess whether a quote is “crumbling.” The regression uses non-delayed market data, which arrives at IEX 350us later than traders’ orders.
+
+[[3](#3iexpricing)] IEX discloses that the largest such trader would have paid about $120k ([footnote 17](https://www.iextrading.com/docs/rule-filings/SR-IEX-2017-27.pdf)) under the new fee schedule for all of June. Assuming, generously, that these frowned-upon trades made 30mils, then their profit would be about $120k/month.
+
+[[4](#4iexpricing)] IEX appears to [think](https://www.iextrading.com/docs/rule-filings/SR-IEX-2017-27.pdf) that anyone hit by the fee, presumably including these SORs, “degrade the qualtiy of the market.” And “ideally, the fee will be applied to no one, because participants will adjust their trading activity to account for the pricing change.” I could be wrong, but I suspect many brokers disagree.
+
+[[5](#5iexpricing)] IEX executives have repeatedly referred to rebates as “kickbacks.” Matt Hurd [argues](https://meanderful.blogspot.com.au/2017/06/rebate-trafficking.html) that if a payment is a kickback, then so is providing a service for free:
+
+> IEX fail to recognise that zero pricing for lit at IEX would meet their own description of a kickback as a kickback is a remunerative, not monetary, exchange. Giving something away for free, such as an order execution, might also be considered a kickback; as may something for a discount. So if rebates are kickbacks, then IEX is also offering kickbacks. It becomes a matter of degree.
+
+[[6](#6iexpricing)] It’s worth reflecting on “Flash Boys,” which [opined](https://books.google.com/books?redir_esc=y&id=UcIkAwAAQBAJ&dq=editions%3A36ZaAiOcQqEC&q=%22just+three+order+types%22):
+
+> Creating fairness was remarkably simple… They would pay no kickbacks to brokers or banks that sent orders; instead they’d charge both sides of a trade the same amount: nine one-hundredths of a cent per share (known as 9 “mils”). They’d allow just three order types: market, limit, and Mid-Point Peg
+
+IEX has come a long way since then.
