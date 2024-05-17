@@ -1,0 +1,149 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:59:38
+-->
+
+# Humble Student of the Markets: Choppy markets ahead
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/11/choppy-markets-ahead.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/11/choppy-markets-ahead.html#0001-01-01)
+
+Last Wednesday, I wrote the following before the market open because of the volatility and apparent lack of direction overnight (see
+
+[What now for the markets?](http://humblestudentofthemarkets.blogspot.com/2012/11/what-now-for-markets.html)
+
+):
+
+> Here is what I am watching. The graph below of the relative performance of SPY, representing equities and the risk-on trade, against TLT, representing long Treasuries and the risk-off trade, is forming a wedge - a sign of indecision for technicians.
+
+> Technicians often describe this pattern as a coiled spring. When it breaks out, it will typically break hard in the direction of the break.
+
+I was waiting for direction from this Risk on/Risk off metric to tell me which way the market it was going to break - and what a decision! Look at the updated chart now showing the bearish break:
+
+So risk-off it is, but it may be premature to pile in on the short side. The market is oversold and it is poised for a bounce this week as option expiry weeks tend to have a positive bias and the SPX tests its 200-day moving average support.
+
+[Todd Salamone](http://www.schaeffersresearch.com/commentary/content/ezines/charts+to+watch+and+things+to+know+this+expiration+week/mondaymorningoutlook.aspx?id=113644&utm_source=11%2f10%2f2012&utm_medium=email&utm_campaign=MMO&trackback=mmoezine%20&utm_content=continuereading&clicklocation=continuereading)
+
+of Schaeffers Research wrote [emphasis added]:
+
+> The encouraging news for bulls is that the VIX has still not advanced above the level that is defined as 50% above its calendar year low (13.30 in August). This would suggest that volatility buyers view portfolio insurance as too expensive at current levels. In turn, this could have a calming effect on the broader market, as the mechanics of portfolio insurance purchases are a coincidental capping mechanism. In fact, ***a bullish unwinding of speculative downside bets or hedges against a decline is now a possibility, with expiration of index and ETF options this coming Friday and the high-demand VIX options set to expire on Nov. 21***.
+
+There are too many things that could still go right globally, which could spark a rally that could rip the face off any shorts.
+
+**The bear case**
+
+The bear case is easy to make under the circumstances. The morphine jolt from QE-infinity is wearing off and the patient needs ever increasing doses of QE to power the market higher. The fiscal cliff looms and the consequences are dire.
+
+In Europe, the Greeks continue their brinkmanship games. There is disagreement within the Troika about what to do. The Europeans want another round of extend and pretend, but the IMF is skeptical that Greece can meet its targets.
+
+[Tim Duy](http://economistsview.typepad.com/timduy/2012/11/missing-the-bigger-picture-in-greece.html)
+
+summarized the situation this way:
+
+> I understand this is considered political dynamite in Europe, but I still think it will be virtually impossible to fix Greece without a direct transfer of resources. A large, official debt forgiveness program. I suspect the alternative - a failed state on Europe's borders - will be more costly in the long-run.
+
+What's more, the results and guidance from Earnings Season have been less than encouraging for the stock market.
+
+[Josh Brown](http://www.thereformedbroker.com/2012/11/07/fire-in-the-disco/)
+
+have turned more cautious on stocks because of the "earnings cliff":
+
+> First, let us discuss the Cliff that no one else seems to want to acknowledge - **The Earnings Cliff!** This is a very real phenomenon that is very dangerous for both stocks and the economy as a whole - corporations facing a deceleration in earnings growth or an outright drop in year-over-year profits **DO NOT INCREASE SPENDING AND HIRING**. They just don't. That is why earnings recessions make for a pretty good economic indicator, we can argue about whether it is a leading or a coincident indicator some other time.
+> 
+> And please keep in mind that earnings and interest rates are the only thing that matter in the weighing (not the voting) over the long term. So, I'll spot you that interest rates are on our side - fine. And then you'll say, "but Josh, we're coming off of a record year for S&P 500 earnings!" And I'll agree, but then I'll remind you that this is not such a great thing.
+
+Add to the mix the rising fear of a recession due to weakening earnings, the bears are taking control of the market. This chart from
+
+[Political Calculations](http://politicalcalculations.blogspot.com/2012/11/dividends-us-deeper-in-recessionary.html)
+
+tell the story of dividend cuts as a sign of a weakening earnings outlook:
+
+Josh Brown's business partner
+
+[Barry Ritholz](http://www.ritholtz.com/blog/2012/10/reduce-equity-exposure/)
+
+thinks that the odds of a recession are rising:
+
+> In terms of future recession probabilities, I now place us at 60% over the next 18 months. In other words, we are more likely to see a normal cyclical recession before Spring 2014 than not.
+
+**[BCA Research](http://blog.bcaresearch.com/global-credit-cycle-lurches-down)
+
+believes that the global credit cycle is turning down, which is one of the precursors to a global recession:
+
+**Fiscal cliff worries overblown**
+
+Despite last week's negative market tone, I think that it's too early to get overly bearish. I interpret these signals as indications to be more concerned and the stock market will go sideways, but in a highly choppy fashion.
+
+There are still reasons to be bullish. Firstly, panic over the fiscal cliff is overblown. Consider this chart (via
+
+[Business Insider](http://www.businessinsider.com/chart-fiscal-cliff-vs-debt-ceiling-2012-11)
+
+) of the number of articles referring to the fiscal cliff, compared to past articles about the debt ceiling:
+
+The most likely outcome is some compromise solution.
+
+[Bruce Krasting](http://brucekrasting.com/cbo-on-ultimate-can-kicking/)
+
+speculated that we could see a kick the can down the road exercise:
+
+> Lots of policy options are measured in the chart. Think like a politician, and go to the bottom line. What set of proposals has the biggest bang? My summary from the CBO chart:
+> 
+> -Totally junk the scheduled spending cuts for the military.
+> -Do away with all of the mandatory non-defense cuts (sequestration).
+> -Don’t do anything with taxes. Roll over everything for a couple of more years.
+> -Extend the 2% payroll tax break for two years.
+
+Such a decision would buy time for the American economy to grow out of its problems:
+
+> If we kick the can down the road for a few more years, what do we get? The deep thinkers have come up with numbers that look pretty attractive. The CBO thinks that significant benefits could be realized as soon as **September 30, 2013**.
+> 
+> > In terms of jobs, the CBO reckons that as many as 3.4m jobs could be created/saved if everything on the cliff is pushed off to the future.
+> > 
+> > The economy would be much stronger if the can is kicked. The difference between falling off the cliff and extending everything is 2.9% of GDP. That’s a very big number; it comes to $500Bn of top-line growth.
+
+A political solution to the fiscal cliff would spark the face-ripping rally if you get bearish and short.
+
+**An earnings cliff?**
+
+If we don't get a recession, what about an earnings recession that send stock prices down? I have written about the bifurcation in the US economy (see
+
+[Time to take some risk off the table](http://humblestudentofthemarkets.blogspot.com/2012/10/time-to-take-some-risk-off-table.html)
+
+). Employment, consumer spending and housing have been headed up, but business confidence and capital spending are tanking. Could labor's share of the economic pie be coming back and the returns to capital shrink? If so, stock prices would react to a margin squeeze like that by falling. Brown and Ritholz referred to this as an earnings cliff.
+
+[Mike Boyle](https://www.aamlive.com/blog/201210/earnings-cliff-)
+
+at AAM puts the earnings cliff into context and concluded that there is little to worry about:
+
+> Clearly, there have been some high-profile earnings misses this quarter, such as Google and Apple – and of course there is the fact that Google even mistakenly released their earnings report midway through the trading day on Oct 18 vice after the close of trading. Despite this, as we look at the numbers, we see a current earnings season that looks, at least statistically, very similar to the last and also compares very closely with long-term averages.
+
+**No signs of economic stress**
+
+I am no Pollyanna who believes that everything is fine and this is a buying opportunity. I just think that the bearish case is over-hyped and we are not going straight down from here. I am particularly concerned about the signals from the commodity markets. Despite China's apparent turnaround in growth, why are commodity prices turning down? The signal from this market tells me that global growth is slowing.
+
+While I am concerned that a synchronized global recession may not too far off in the horizon and the indicators bear watching, it is far too early to panic and dive into the bunker. The stress indicators that I watch are still showing relatively benign readings. The
+
+[St. Louis Fed's Stress Index](http://research.stlouisfed.org/fred2/series/STLFSI)
+
+are falling, which indicates falling stress:
+
+The Chicago Fed's
+
+[National Financial Conditions Index](http://www.chicagofed.org/webpages/publications/nfci/index.cfm)
+
+isn't telling me that I should panic either.
+
+Watch these indicators. Should financial stress start to spike, then it will be time to get bearish.
+
+**A recipe for volatility**
+
+In conclusion, I believe that all these cross-currents are just a recipe for more volatility. While I am concerned about downside risks, investors also have to be aware of what could go right. While I differ with
+
+[Barry Ritholz's](http://www.ritholtz.com/blog/2012/10/reduce-equity-exposure/)
+
+call for a recession, we do agree about volatility:
+
+> I don’t imagine we go straight down from here; There will be sell offs and rallies, pre and post elections. There will be some data points that suggest things aren’t so bad, and then some that are awful. It is not a black and white situation. I do believe the low volatility we have seen may very well become a thing of the past, and the VIX is becoming a definitive Buy.
+
+It's looks like the market is going to be choppy for a while.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.***None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.****

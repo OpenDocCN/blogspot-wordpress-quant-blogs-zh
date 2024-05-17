@@ -1,0 +1,70 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:00:00
+-->
+
+# Humble Student of the Markets: What next for US homebuilders?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/11/what-next-for-us-homebuilders.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/11/what-next-for-us-homebuilders.html#0001-01-01)
+
+Several weeks ago, I identified the homebuilding stocks as a possible leadership candidate out of several (see
+
+[Suggestions for bulls and bears](http://humblestudentofthemarkets.blogspot.com/2012/10/suggestions-for-bulls-and-bears.html)
+
+). For once, it seems that I was ahead of the curve instead of behind the curve in my market calls as Warren Buffett announced last week that Berkshire Hathaway was getting into the business of being realtors. This represents an enormous vote of confidence for the housing sector in America, as per this story from
+
+[Bloomberg](http://www.bloomberg.com/news/2012-10-31/berkshire-extends-housing-bet-with-brookfield-venture.html)
+
+:
+
+> Warren Buffett’s Berkshire Hathaway Inc. (BRK/A) is extending its bet on the U.S. housing market by forming a venture with Brookfield Asset Management Inc. (BAM/A) as low interest rates, inventory and prices spur a real-estate rebound.
+
+> Berkshire’s HomeServices of America Inc. unit will be the majority owner of the venture to manage a U.S. residential real- estate affiliate network, according to a statement on the new company’s website. The firms plan to offer a new franchise brand, Berkshire Hathaway Home Services, starting next year. Brookfield’s network has operated under the Prudential Real Estate and Real Living Real Estate brands.
+
+**Positive demographics = More demand**
+
+The demographic tea leaves are also lining up bullishly for housing.
+
+[Walter Kurtz](http://pragcap.com/how-an-aging-us-population-will-drive-home-prices-higher)
+
+highlighted a report from Moody's indicating that housing demand is about to turn up as the Echo Boomers reach the age where they want more housing as they begin families:
+
+> It is a well known fact that homeownership in the US has been on a decline, a trend that started even before the financial crisis. Now Moody’s predicts this trend will begin reversing next year.
+> 
+> Their explanation has to do with demographics. Baby boomers are moving into the highest homeownership group by age, while “echo boomers” (children of baby boomers) are getting to the age at which they are significantly more likely to own a home than the younger age group.
+
+**Rising construction employment**
+
+What's more, last Friday's
+
+[NFP report](http://www.bls.gov/ces/ceseeb1a.htm)
+
+showed that the construction sector showed healthy employment gains. Despite being only 4.1% of the workforce, the sector showed 9.1% of the gains of 171K jobs.
+
+On a longer term perspective, however, construction employment is still relatively flat and has potential to go quite a bit higher especially when I looked at this graph from
+
+[Ed Yardeni](http://blog.yardeni.com/2012/11/where-did-all-money-go.html)
+
+:
+
+Should construction continue to recover, then it would indeed be good news for the US economy and has the potential to feed through into a virtuous cycle of better employment and higher consumer spending.
+
+**What's next?**
+
+So what's next for the investors in homebuilding stocks?
+
+In the short term, there could be some turbulence. Despite what some of the polls say, the latest figures from
+
+[intrade.com](http://www.intrade.com/v4/misc/scoreboard/)
+
+shows Obama solidly in the lead for the big showdown on Tuesday. If Obama were to win re-election, which is my base case scenario, then you can expect that capital gains tax rates will rise. In response, expect investors to harvest their capital gains this year instead of waiting to take them next year and get hit with a higher tax bill.
+
+What stocks have had the most gains this year? You guessed it, it's the homebuilders. Therefore, in the near term, don't be surprised to see some softness in these stocks as investors take their capital gains in 2012.
+
+Longer term, the technical picture looks promising. The relative performance chart below of XHB against SPY shows that the homebuilding ETF to be in a well-defined relative uptrend (red channel) but testing a relative resistance level that dates back to 2007\. A breakout out of such a long base suggest a technical target that is well above the relative highs set before the Lehman Crisis of 2007\. Should tax-related profit taking occur, don't be surprised if these stocks pull back and test the bottom of the relative uptrend.
+
+**Bottom line**
+
+: Short-term cautious, but long-term bullish on the sector. Expect some weakness until year-end, but any weakness could be a great opportunity to buy.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
