@@ -1,0 +1,81 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:16:10
+-->
+
+# Humble Student of the Markets: One-eyed men (who would be kings)
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/09/one-eyed-men-who-would-be-kings.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/09/one-eyed-men-who-would-be-kings.html#0001-01-01)
+
+As events turned south in Greece on Friday, the
+
+[WSJ](http://online.wsj.com/article/SB10001424053111904583204576545811058225074.html)
+
+reported that a senior IMF economist expected a Greek default before March:
+
+> "I expect a hard default definitely before March, maybe this year, and it could come with this program review," said a senior IMF economist who is keeping close tabs on the situation. "The chances for a second program are slim."
+
+Furthermore, the Greek bailout was dealt a blow as
+
+[Angela Merkel's CDU was soundly defeated in local elections](http://www.bloomberg.com/news/2011-09-04/dollar-rises-against-euro-on-merkel-election-defeat-u-s-slowdown-concern.html)
+
+over the weekend.
+
+As investors look for safe havens in a potential market panic, I am reminded of the adage, "In the land of the blind, the one-eyed man is king."
+
+Today, I see several metaphorical one-eyed men in this land of the blind that could serve as safe havens were there to be a market panic. All of them have significant flaws. In this post I would like to discuss them one by one.
+
+**US Treasury bonds**
+
+US Treasuries remain my
+
+[favorite safe haven](http://humblestudentofthemarkets.blogspot.com/2011/08/not-too-late-to-buy-long-bond.html)
+
+play and they have significant upside potential in the event of a market meltdown. The long Treasury ETF staged an upside breakout to all-time highs on Friday, surpassing the levels seen during the Lehman Crisis - a bullish sign.
+
+My reservation about Treasury bonds is that the US has long-term fiscal problems. In such a case,
+
+[can bonds be really a safe haven](http://humblestudentofthemarkets.blogspot.com/2011/08/not-too-late-to-buy-long-bond.html)
+
+?
+
+**Gold**
+
+The price of gold has been on a tear since the market bottomed in March 2009.
+
+Gold stocks staged an upside breakout to all-time highs on Friday, which I interpret as being bullish for bullion. Longer term, I still favor
+
+[holding gold over gold stocks](http://humblestudentofthemarkets.blogspot.com/2011/08/stop-buying-gold-stocks.html)
+
+.
+
+My principal reservation about gold is that it generally hasn't held up well in a market panic. It didn't during the Lehman Crisis of 2008\. It sold off during the mini-panic earlier this year after the Japanese earthquake.
+
+Despite what the gold-bugs say, gold and commodities have traditionally been part of the "risk-on" trade. In a "risk-off" market panic, risk managers and margin clerks control the market. They demand that traders and investors liquidate positions in order to meet their risk criteria and meet margin calls on all of their positions. That's why correlations converge to 1 during these market selloff episodes. One sign that I would watch for as a "tell" of a "margin clerk market" might be that gold stocks will de-couple from the price of gold. While gold may go up as a safe haven during such an episode, gold stocks may sell off because the risk managers regard them as stocks first and gold the alternative currency second.
+
+In the current environment, I am inclined to give gold the benefit of the as a safe haven given its recent history of rising during this period of fear. I would not be inclined, however, to give the same benefit of doubt to other hard asset commodities. If there were to be a market selloff because of the fear of a recession or a banking crisis which would plunge the world into a global recession, don't you think that global demand for copper, oil and other economically sensitive commodities would fall as well?
+
+**Swiss Franc**
+
+The Swissie has been rising in the current environment of fear. As the chart below shows, CHF has been in a well-defined uptrend.
+
+My reservations about the Swiss one-eyed man is twofold. Firstly, it didn't serve well as a safe haven during the crisis in 2008\. Second, were Europe to blow up because of a banking crisis, does anyone really think that the Swiss banks won't escape collateral damage? Just look at this chart of
+
+[Swiss bank asset to home country GDP exposure](http://macromon.wordpress.com/2011/08/18/seriously-swissie-a-safe-have-during-a-banking-crisis/)
+
+.
+
+We want a vehicle that will hold up well in a market meltdown. The CHF strikes out in my book.
+
+Incidentally, the Japanese Yen has also rallied during these turbulent periods and some investors have regarded JPY as a possible safe haven in a crisis. But I have observed how the BoJ (cough) "manages" JPY levels and there is too high a risk of intervention. JPY levels is overly "managed" in my book to qualify as a true safe haven in a crisis.
+
+**The winners are...**
+
+In summary, I would look at the following two vehicles as safe havens in a crisis (in order of preference):
+
+1.  US Treasury bonds (long Treasuries if you want to be aggressive);
+2.  Gold, but avoid gold stocks.
+
+I would avoid currencies such as CHF and JPY because of specific problems connected with those countries or currencies.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

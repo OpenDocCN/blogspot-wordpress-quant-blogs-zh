@@ -1,0 +1,90 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:15:40
+-->
+
+# Humble Student of the Markets: Banking liquidity vs. solvency
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/09/banking-liquidity-vs-solvency.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/09/banking-liquidity-vs-solvency.html#0001-01-01)
+
+In the past few weeks I have had a number of discussions with investors. Virtually everyone knows that there is a banking crisis brewing in Europe but some have only a vague understanding of the mechanics of the crisis of its resolution. For the benefit of everyone, here is a primer on banking.
+
+Here is an idealized model of a bank. Bank ABC takes in $100 in deposits (so it owes the depositors $100). To make money, it lends out its deposits. To be prudent (because loans can go sour), it lends out $93\. It has $5 in common equity and an additional $3 in preferred share equity and bonds.
+
+Supposing that Bank ABC makes 1% on the spread between its deposits and loans. Since the ratio of deposits to common equity is 20 to 1 ($100 to $5), that equates to a 20% return, before paying expenses, such as salaries, rent, etc.
+
+**What happens in a liquidity crisis**
+
+Let's assume the economy is doing fine, but there are whispers on the street that Bank ABC is unstable. Depositors rush to the bank and withdraw their money. What happens then?
+
+The bank has an obligation to give the depositors their money (it is their money, after all). The bank has a health porfolio of loans. That's called a liquidity crisis.
+
+In order to have the funds on hand to pay out its depositors it borrows from other banks, or to the central bank as a lender of last resort. It may be required to put up collateral to fund those loans.
+
+**Solvency crisis: What if the loans aren't any good?**
+
+Supposing the rumors were right. A part of the $93 in loans that the bank lent out have largely gone sour. The loan portfolio is now worth $90 (and $3 in loan losses).
+
+In that case, the shareholders take the first hit. Their $5 in equity is now $2\. If there are further loan losses, then shareholders get hit further, then the preferred shareholders are next, followed by bondholders.
+
+Supposing that Bank ABC were to get hit with $10 in loan losses instead of $3\. They now have negative equity. This is called insolvency - and no amount of liquidity injection from the central bank can save Bank ABC.
+
+**European fears**
+
+Yesterday, we had news of 
+
+[coordinated USD liquidity injection into the European banking system](http://www.reuters.com/article/2011/09/15/us-ecb-dollar-idUSTRE78E3LH20110915)
+
+, largely on the basis that European banks had trouble finding USD deposits.
+
+Will that be enough or is that just a band-aid?
+
+Investors' worst fear about European banks is that they are insolvent, not merely illiquid. Supposing that Greece were to default - and their loans are suddenly worth, say, 30c on the dollar. Other peripheral European countries follow: Portugal, Ireland and possibly Spain and Italy.
+
+The European banking system would become insolvent.
+
+[Bruce Krasting](http://brucekrasting.blogspot.com/2011/09/socgen-comes-to-town.html)
+
+took apart SocGen boss Frederic Oudea's discussion of his bank and concluded that SocGen is in a very precarious position:
+
+> The market cap of SOGN as of the close was E12b. That is the bottom of a pile of assets that total E1.3T. The market cap to assets is only 1.0%. Compare that to Wells Fargo @ 10.0% and you see the problem. **Even stinky old BAC has a 3.30% of market cap to its balance sheet**.
+
+Krasting went on to diss the prospect of SocGen shoring up its equity through a rights offering or preferred shares, as well as its efforts to de-lever and shrink its balance sheet through asset sales:
+
+> This is both accurate and scary. The clear suggestion is that many of the banks in Europe face much steeper problems than SocGen. ***I thank the CEO for this important clarification***.
+
+Don't confuse a solvency problem with a liquidity problem. If SocGen is the tip of the European banking iceberg, then we do have much to worry about.
+
+**Judging the effectiveness intervention**
+
+If a problem were to appear, watch how the authorities intervene. The cleanest approach is the Swedish solution that I wrote about
+
+[before](http://humblestudentofthemarkets.blogspot.com/2011/08/price-of-becoming-swedish.html)
+
+. Let's go back to the previous example where Bank ABC suffers a $10 loan loss and becomes insolvent. Under the Swedish solution, the government comes in and injects new equity to make the depositors whole. The shareholders get wiped out. The preferred shareholders and bondholders either take haircuts or get wiped out.
+
+On the other hand, we have the US approach in 2008, or what I call the TARP solution. In effect, the authorities said, "I know that these loans are not worth face value, but we'll pretend that that they are and we'll make you whole on the loans." In effect, they bought those loans for roughly face value on the fear that if they didn't, the entire banking system would go down.
+
+Notwithstanding the inequity of the arrangement, let's consider the relative cost of the Swedish solution compared to the TARP solution. If you were to spend $1 to recapitalize a bank that is levered 20 to 1 under the Swedish solution, you would have to spend $20 (20 to 1 leverage) under the TARP solution.
+
+[Reuters](http://uk.reuters.com/article/2011/09/15/uk-eurozone-geithner-efsf-idUKTRE78E3DY20110915)
+
+reported that Tim Geithner is proposing to lever EFSF 10 to 1 and implement a TALF program to the Europeans at their meeting in Poland today. Initial reactions have been negative.
+
+[Felix Salmon](http://blogs.reuters.com/felix-salmon/2011/09/15/the-can-kicking-bank-bailout/)
+
+writes:
+
+> The point here is that the EFSF was specifically designed as a fiscal alternative to the ECB; if the ECB wasn’t happy putting up $440 billion of its own money for such schemes, it’s unlikely to put up $2 trillion.
+
+[FT Alphaville](http://ftalphaville.ft.com/blog/2011/09/15/678536/geithners-bright-idea-for-europe/)
+
+went on to point out the shortcomings of TALF:
+
+> Talf, you’ll remember — and as wonderfully [explained](http://ftalphaville.ft.com/blog/2011/04/13/544866/taibbi-takes-aim-at-the-talf/) [and](http://ftalphaville.ft.com/blog/2010/01/11/123381/talf-gaffe-at-the-fed/) [pilloried](http://ftalphaville.ft.com/blog/2010/01/28/136456/try-try-again-at-the-talf/) by Tracy Alloway — involved the US Treasury offering credit protection to the NY Fed, which then loaned out money to investors with the explicit intent of using the loans to buy asset-backed securities.
+
+> But the design was deeply flawed — not least because the loans were non-recourse, meaning that borrowers could simply default, surrender the crap ABS collateral, and walk off into the sunset with nary a remedy for the Fed to pursue.
+
+Watch this space. Once you understand the mechanics of banking you will begin to understand the problem and the likely effectiveness of any intervention.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

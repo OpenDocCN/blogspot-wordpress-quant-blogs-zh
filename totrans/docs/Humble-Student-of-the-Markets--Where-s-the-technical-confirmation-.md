@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:16:24
+-->
+
+# Humble Student of the Markets: Where's the technical confirmation?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/08/wheres-technical-confirmation.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/08/wheres-technical-confirmation.html#0001-01-01)
+
+I was rummaging through my desk and found the following article from Investors Business Daily written on September 27, 2001, which was shortly after the 9/11 attack and market selloff (sorry no link). The article details the follow-through day pattern popularized by William O'Neill as a way of spotting intermediate term bottoms:
+
+> [Y]ou’ll want to see a market confirmation.
+
+> That starts when one of the three major indexes begins to rally. That’s day one. Next, wait two days. The market often needs time to digest its initial gains. Make sure the index doesn’t undercut its low. If it does, start counting over again.
+> 
+> Starting on day four of the cycle, look for a follow-through session. That occurs when the Dow, Nasdaq or S+P 500 jumps at least 2% on higher volume than the previous day. Ideally trade will also exceed its 50-day average. The bigger the price and volume moves, the better.
+> 
+> The strongest follow-throughs occur between days four and seven of the attempted rally. Follow-throughs after the 10th day become less significant.
+
+How does it apply to the current market? A number of technicians have turned bullish and called this a W-bottom.
+
+[Bespoke](http://www.bespokeinvest.com/thinkbig/2011/8/31/sp-2010-vs-2011.html)
+
+has published a comparison of the 2010 and 2011 market by popular request:
+
+With that in mind, let's look at the market pattern using the O'Neill follow-through criteria. Here are the charts for the major average ETFs. First, let's look at SPY. Day 1 of the rally, according to the above, was August 23\. On August 29 (day 5), we had a rally of over 2%, but it was not on "higher volume than the previous day".  
+
+What about the NASDAQ? Here is the chart of QQQ, which shows a similar pattern of a low volume rally on August 29\.  
+
+Ditto for IWM, which is the Russell 2000 ETF:  
+
+The SPY just kissed the bottom of the Fibonacci retracement level on this rally today (Wednesday). As you can see from the RSI chart on top, this market is no longer oversold but sport a neutral reading on RSI. Given these non-confirmations, I would at least be hesitant to go long here but regard the current ﻿levels as an opportunity to lighten positions.
+
+*Cam Hui is a portfolio manager at* [*Qwest Investment Fund Management Ltd*](http://www.qwestfunds.com/)*. ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.***None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
