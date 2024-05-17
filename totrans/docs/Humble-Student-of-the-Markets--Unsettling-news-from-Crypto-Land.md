@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:54:06
+-->
+
+# Humble Student of the Markets: Unsettling news from Crypto Land
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2021/10/unsettling-news-from-crypto-land.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2021/10/unsettling-news-from-crypto-land.html#0001-01-01)
+
+The NY Times recently published a note with the headline, "Crypto regulation heats up".
+
+> The wrangling over spending bills and debt-ceiling dramas may be generating the biggest headlines in Washington, but the race to regulate the fast-growing cryptocurrency industry is also ramping up. Here’s a tour of some of the key developments this week:
+> 
+> **Activist groups target crypto’s environmental impact**
+> 
+> . Today, more than 70 nonprofit groups, including the Sierra Club, the Open Markets Institute and the Action Center on Race and the Economy, urged Congress to consider crypto’s energy use when writing new rules for the sector. “As you explore legislative and regulatory responses to ensure investor protection in the industry, it is critical that you also consider the financial stability risks that climate change presents,” they wrote in a letter shared exclusively with DealBook that took particular issue with many cryptocurrencies’
+> 
+> [energy-intensive “mining” process](https://nl.nytimes.com/f/a/0qtvjkrr8saRVCyrLFuEfA~~/AAAAAQA~/RgRjQVwTP0TwaHR0cHM6Ly93d3cubnl0aW1lcy5jb20vaW50ZXJhY3RpdmUvMjAyMS8wOS8wMy9jbGltYXRlL2JpdGNvaW4tY2FyYm9uLWZvb3RwcmludC1lbGVjdHJpY2l0eS5odG1sP2NhbXBhaWduX2lkPTQmZW1jPWVkaXRfZGtfMjAyMTEwMDcmaW5zdGFuY2VfaWQ9NDIyNDMmbmw9ZGVhbGJvb2smcmVnaV9pZD0zMjk4MjUzJnNlZ21lbnRfaWQ9NzA4OTcmdGU9MSZ1c2VyX2lkPTMxN2YzY2ZkZDk4YTRmNmIxNGM5YTVkZmU2ZGFjNjE2VwNueXRCCmFbE9deYV07RhpSFGNvbGh1aWJvbmhvYUBhb2wuY29tWAQAAAAA)
+> 
+> .
+> 
+> **Industry players make the case for balance**
+> 
+> . The venture capital firm Andreessen Horowitz
+> 
+> [submitted a proposal](https://nl.nytimes.com/f/a/cBjeHi0oUb8XTXvogxXP7w~~/AAAAAQA~/RgRjQVwTP0TaaHR0cHM6Ly9hMTZ6LmNvbS8yMDIxLzEwLzA1L291ci1wcm9wb3NhbHMtdG8tdGhlLXNlbmF0ZS1iYW5raW5nLWNvbW1pdHRlZS8_Y2FtcGFpZ25faWQ9NCZlbWM9ZWRpdF9ka18yMDIxMTAwNyZpbnN0YW5jZV9pZD00MjI0MyZubD1kZWFsYm9vayZyZWdpX2lkPTMyOTgyNTMmc2VnbWVudF9pZD03MDg5NyZ0ZT0xJnVzZXJfaWQ9MzE3ZjNjZmRkOThhNGY2YjE0YzlhNWRmZTZkYWM2MTZXA255dEIKYVsT115hXTtGGlIUY29saHVpYm9uaG9hQGFvbC5jb21YBAAAAAA~)
+> 
+> to the Senate Banking Committee outlining its view on the future of digital assets and decentralized technology. The firm, which runs a big crypto fund, urged lawmakers to “ensure that the private sector can experiment and build” as it protects against “the real downside risks that might otherwise harm individuals.”
+> 
+> **They also complain about burnout**
+> 
+> . Brian Armstrong, the C.E.O. of Coinbase, a large crypto exchange,
+> 
+> [tweeted yesterday](https://nl.nytimes.com/f/a/5IG81YiUtFZ6DQrTt9jaPg~~/AAAAAQA~/RgRjQVwTP0TOaHR0cHM6Ly90d2l0dGVyLmNvbS9icmlhbl9hcm1zdHJvbmcvc3RhdHVzLzE0NDU2MDQ2NTgzMTYxNDQ2NDQ_Y2FtcGFpZ25faWQ9NCZlbWM9ZWRpdF9ka18yMDIxMTAwNyZpbnN0YW5jZV9pZD00MjI0MyZubD1kZWFsYm9vayZyZWdpX2lkPTMyOTgyNTMmc2VnbWVudF9pZD03MDg5NyZ0ZT0xJnVzZXJfaWQ9MzE3ZjNjZmRkOThhNGY2YjE0YzlhNWRmZTZkYWM2MTZXA255dEIKYVsT115hXTtGGlIUY29saHVpYm9uaG9hQGFvbC5jb21YBAAAAAA~)
+> 
+> that company chiefs in the U.S. were under too much pressure from officials, the news media and the public. He likened this to the crackdown on companies in China, “putting something that gets too successful in its place.”
+> 
+> **Crypto notches a win**. The S.E.C. approved Volt Equity’s exchange-traded fund that tracks companies whose values swing with Bitcoin prices, with an emphasis on firms that hold Bitcoin on their balance sheets. It’s not quite a pure Bitcoin E.T.F., but it brings the industry closer to that long-sought goal. Investors want “exposure to Bitcoin price movement,” Volt Equity’s Tad Park told DealBook, without necessarily buying crypto directly.
+
+There is a more serious problem that they didn't cover. I recently published a post raising questions about Tether (see
+
+[The brewing crisis in Crypto-Land](https://humblestudentofthemarkets.com/2021/08/07/the-brewing-crisis-in-crypto-land/)
+
+). A Tether is a stablecoin used regularly in the offshore market to trade cryptocurrencies. They are supposed to be backed 1-for-1 to the USD. There are now $69 billion Tether in circulation. This would make Tether one of the biggest banks in the US, except that it's not a bank and not subject to regulation.
+
+A recent Bloomberg article traced down Tether's billions and found some disconcerting results.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2021/10/07/unsettling-news-from-crypto-land/)
+
+.
