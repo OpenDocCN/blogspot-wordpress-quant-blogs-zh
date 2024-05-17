@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:15:29
+-->
+
+# Magmasystems Blog: Considerations for an Object Cache (Part 1)
+
+> 来源：[http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01)
+
+Let’s say that we wanted to write our own multi-platform, distributed, subscription-based object cache. What would we need to do to write the ultimate object cache?
+
+Let’s consider a variety of issues that we would have to consider when writing caching middleware. I am sure that vendors like Gemstone have gone through this exercise already, but why not go through it again!
+
+**Multiplatform support** 
+
+Most Investment Banks have a combination of C++ (both Win32 and Unix), C#/.Net and Java (both Win32 and Unix) applications. It is common to have a .Net front-end talking to a Java server, which in turn, communicates to a C++-based pricing engine. We need to be able to represent the object data is some sort of form that can be easily accessed by applications in all of the various platforms.
+
+The most universal representation would be to represent the object as pure text, and to send it across the wire as text. What kind of text representation would we use?
+
+**XML**
+
+– quasi-universal. We would have to ensure that XML written by one system is readable by other systems. XML serialization is well-known between Java and C# apps, but what about older C++ apps. For C++, would we use Xerces? Also, there is the cost of serialization and deserialization, not to mention the amount of data that is sent over the wire.
+
+**Name/Values Pairs**
+
+– easy to generate and parse. Same costs as XML. We would have to write our own serialization and deserialization schemes for each system. How about complex, hierarchical data? Can simple name/value pairs represent complex data efficiently? Or would we just end up rewriting the XML spec?
+
+Instead of text, we can store objects as true binary objects. What kind of binary object do we store? Native or system-agnostic? If you have a variety of platforms writing into the object cache, do we store the object in the binary format of the system that created the object, or do we pick one platform and use that as master?
+
+**Master Format**
+
+– We pick one format, either C++, C#, or Java binary objects. We would need a series of adapters to transform between binary formats. We would also need an indication of the platform that is doing the reading or writing. Let’s say that we were to store all objects as binary Java objects. If a Java app reads an object, then there would be no costs associated with object transformation, so we can just send a binary Java object down the wire (although we may have to worry about differences between the various versions of Java … can a Java 1.5 object with Java 1.5-specific types or classes be read by a Java 1.4 app?). If a C# app wants to read the Java object, then we must perform some translation. (Do we use something like
+
+[CodeMesh](http://www.codemesh.com/)
+
+to do this?) We also need to ensure that the adaptors can support all of the features of the various languages. For example, let’s say that Java came up with a new data type that C# did not support … would we try to find some representation of that type in C#, or would we just not translate that particular data type?
+
+**Native Format**
+
+– We store pure binary objects, without regards to the system that is reading or writing the object. There is no translation layer. Apps are responsible for doing translation themselves. This is the fastest, most efficient way of storing objects. However, different teams might end up writing their own versions of the translation layer.
+
+What other factors might we consider when choosing a native object format?
+
+How about deltas in subscriptions? If we are storing large objects, then we might only want to broadcast changes to the object instead of resending the entire object. Delta transmission favors sending the changes out in text, and we can save the cost of translating the binary into text if we were just to store the objects as text. And, in this case, name/value pairs are favored.
+
+Large sets of name/value pairs can be compressed if necessary, but we have to consider the time needed to compress and decompress.
+
+Can our object cache store both text and binary? Sure, why not. We can tag a cache region as supporting binary or text, and have appropriate plugins for various operations on each.
+
+As always, comments are welcome.
+
+©2006 Marc Adler - All Rights Reserved
