@@ -1,0 +1,98 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:19:36
+-->
+
+# Magmasystems Blog: Consulting Firms - What Should We Charge?
+
+> 来源：[http://magmasystems.blogspot.com/2006/07/consulting-firms-what-should-we-charge.html#0001-01-01](http://magmasystems.blogspot.com/2006/07/consulting-firms-what-should-we-charge.html#0001-01-01)
+
+*(This was a post on my blog from a few months ago that I took down. The numbers in this post were arrived at during the course of one train ride from New Jersey to NYC, and in no way are derived from any real consulting firm. These are numbers that should be considered if you are going to start your own IT consulting firm. I also included some of the comments that the original post garnered.)****Consulting Firms - What Should We Charge?**
+
+On another blog, a person who is in charge of some consulting dollars (or pounds) at his company questioned why they should pay $X to one consulting company when some temp contractors could do it for $0.5X.
+
+That got me thinking (yet again) about how much high-end consultancies should charge a client per hour or per professional day. I came up with some numbers that I would like to share.
+
+Before I start, some things I want to mention:1) Please feel free to comment in case my numbers are way off base.2) The numbers have no connection whatsoever with Finetix, my former employer. These numbers were arrived at by opening up a random number of fortune cookies and summing up the lottery numbers. 3) These figures are for the US marketplace. I have no idea what the British equivalents to Social Security Tax and 401K plans are.
+
+Fixed Costs Per Employee
+
+------------------------
+
+1) Salary
+
+We want to have a consultancy that has top technical people who have some amount of financial background. We are looking for .NET and Java experts who have done some work on Wall Street in the past, and who can at least tell me what a bond is. In a previous blog posting, I mentioned that the current base salary on Wall Street for this level is about $150,000.
+
+2) 401K/retirement Plan
+
+Let's say that you have a 3% 401K. That adds another $5000.
+
+3) Bonus
+
+Always a tricky thing. Let's take $10,000 for a job well done.
+
+4) Insurance
+
+We pay 2/3 of an employees medical and dental insurance. This amount to about $7000 per year. We also have to pay some other taxes, such an unemployment insurance, etc.
+
+5) Social Security tax
+
+We pay about 7.15 of the person's first $90,000 in income. This is about $6000.
+
+Subtotal - We are paying about $178,000 in salary and benefits per employee.
+
+Costs of Running the Business
+
+-----------------------------
+
+1) Back office staff to support 40 delivery people. We need about 10 people. There are 3 partners, director of Human Resources, director of Benefits, director of Recruiting, two salespeople, director of marketing, plus administrative assistant. If we wanted to chop some dollars, we could probably combine the HR and Benefits. Some of the people are paid totally on commission, some partly, and some are strictly salaried. The partners pay themselves a fixed base salary. So, I am going to put this roughly at $1M.
+
+2) Rent
+
+Nice offices in New York, satellite offices in various locations. Also, cost of utilities, cleaning services, a nice tip for the elevator operators and cleaning people, etc. Let's estimate $400,000.
+
+3) Office Supplies, Furniture, Postage, ISP, etc.
+
+Let's say $100,000.
+
+4) Other items:
+
+- Interest on the Float. The "float' is the number of days between the time you pay your employees and the time you finally collect money from the client.
+
+- Client "incentives" - that nasty, unspoken cost of doing business.
+
+- Marketing Budget
+
+- Conferences and professional organizations
+
+5) Corporate Taxes!!!!
+
+Subtotal - Let's guess about $2M. If we have 40 consultants generating revenue, this is about $50,000 per consultant.
+
+So, now we have the cost per consultant at around $230,000 per year. There are about 230 possible consulting days per year (365 days - 104 weekends - 15 vacation - 10 holidays plus some sick days). This means, if the consultant was billing for all 230 days, we would have to charge the client $1000 per day just to break even. Now, let's say that each consultant is allowed about 10 days of bench time per year. This brings our daily rate up to about $1100.How much profit margin should the partners have? From dealing with various headhunters, I would assume a good profit margin to be about 25-30%. This means that we should be charging a client about $1400 for a consultant.
+
+Our consulting company has a mixture of various skill levels. Some people are more junior than others. So, we create a rate card that goes from $1200 per day for a junior person, to $1600 per day for a senior person. This comes out to $150 to $200 per hour.
+
+Now, at that rate, we are relatively cheap compared to other consulting companies. Microsoft Consulting charges at least $2000 per day. IBM and BearingPoint charge at least $250 per hour for a junior consultant, up to about $450 an hour for a director.
+
+Who are our customers? Certainly, the tier 1 and tier 2 financial institutions. Pharma companies are not going to pay these rates. We are looking to deal with clients who can appreciate our talent pool and who can afford to pay.
+
+Wanna start your own consultancy? These are the numbers that you will have to deal with.
+
+8 Comments:
+
+· I think you're a little on the low side. My former employer charged $250 to $320 per hour, and we had pharmas and other corporates in our clientelle.In yours costs, perhaps factor in some free consulting time to fix screw-ups, late deliveries, etc.What about training? If you want to justify your rate you need highly trained, up to date employees. This is why I left, my employer made no investment in me. I had to train myself on my time, which left me often working around the clock.10 days on the bench per year! Man, I do NOT miss consulting!
+
+By Burnt Out, at
+
+[5:38 PM](http://magmasystems.blogspot.com/2006/02/consulting-firms-what-should-we-charge.html#c114064788271670224#c114064788271670224 "comment permalink")[](http://www.blogger.com/delete-comment.g?blogID=5951375&postID=114064788271670224 "Delete Comment")
+
+· Wouldn't the partners take a % of the profits rather than a salary?What about training, free days to clients, sick days?Why isn't the employees bonus based on a % of the profits the company makes?Based on your calculations the is a backoffice person for every 4 consultants? I hate to see the size of the backoffice for 1000 consultantsWhy don't I offshore some of my the work?Can't your consultancy do fixed price?
+
+By Anonymous, at
+
+[6:30 PM](http://magmasystems.blogspot.com/2006/02/consulting-firms-what-should-we-charge.html#c114065105707537411#c114065105707537411 "comment permalink")[](http://www.blogger.com/delete-comment.g?blogID=5951375&postID=114065105707537411 "Delete Comment")
+
+· Wouldn't the partners take a % of the profits rather than a salary?Possibly. Depends on how risk-averse the partners were. If I was a partner, I would pay myself a low salary ($100K) and then at the end of the year, divvy up the profits.What about training, free days to clients, sick days?I mentioned 5 sick days in my original post. Training is nice, and I would like to give at least a week of training, so that can be done during the 10 days of bench time. OK, let's add in about $100K for training. Free days to clients? Never heard of this!Why isn't the employees bonus based on a % of the profits the company makes?Because many smart people will negotiate a guaranteed fixed bonus when they join, especially since the debacles of 2002 and 2003\. But I might give an added "incentive" bonus to some of my best performers at the end of the year. OK, let's add another 100K.Based on your calculations the is a backoffice person for every 4 consultants? I hate to see the size of the backoffice for 1000 consultants10 people should be a constant. Even when your company grows to 100 people. In fact, at the start, I might consider consolidating the benefits and HR functions, and make the partners do more marketing. So, we can cut our staff back to 8.Why don't I offshore some of my the work?Never, never! This is what distinguishes my shop from other larger ones. Strictly all client-facing work.Can't your consultancy do fixed price?I abhor fixed-price contracts. We could do it, but perhaps under duress!One thing that I forgot to mention was finder’s fees. If I hire a person through an employment agency, then I have to pay then 15-30% of the employee's first year salary. That's a significant chunk. Let's assume $30,000 for 10 people, and that's another $300,000.So, we have added another $500,000 in costs to our model. That's about $10K per employee. Gotta bump up the rate card by $50 per day. So, our rate card is now $1250 through $1650\. And, coincidentally, $1650 per day is what a lot of the top-tier banks pay for senior technical people.
+
+©2006 Marc Adler - All Rights Reserved*
