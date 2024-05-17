@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:46:24
+-->
+
+# Humble Student of the Markets: The breadth thrust controversy
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2022/03/the-breadth-thrust-controversy.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2022/03/the-breadth-thrust-controversy.html#0001-01-01)
+
+**Mid-week market update**
+
+: The strength of the rally off the mid-March lows has been breathtaking.
+
+[Ed Clissold](https://twitter.com/edclissold/status/1505173112861638657)
+
+of NDR Research pointed out that the market experienced several breadth thrust buy signals. The % of stocks above their 10 dma surged from under 10% to above 90% in a short time, which is historically bullish. He also observed that their version of the Zweig Breadth Thrust model using a common stock only universe also flashed a buy signal last Friday.
+
+That's where the controversy begins.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2022/03/23/the-breadth-thrust-controversy/)
+
+.
