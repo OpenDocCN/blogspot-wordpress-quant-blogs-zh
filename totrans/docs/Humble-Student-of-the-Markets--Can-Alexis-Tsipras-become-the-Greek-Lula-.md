@@ -1,0 +1,135 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:18:11
+-->
+
+# Humble Student of the Markets: Can Alexis Tsipras become the Greek Lula?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/07/can-alexis-tsipras-become-greek-lula.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/07/can-alexis-tsipras-become-greek-lula.html#0001-01-01)
+
+In the wee hours of Thursday morning, Greek parliament passed a second series of measures as a condition for negotiating further aid from the rest of Europe. Here is the
+
+[BBC](http://www.bbc.com/news/world-europe-33631751)
+
+:
+
+> Greece has taken a crucial step towards a bailout after its parliament passed a second set of reforms.
+> 
+> The passage of the measures means that negotiations on an €86bn European Union bailout can begin.
+> 
+> The reforms include changes to Greek banking and an overhaul of the judiciary system.
+
+More importantly for PM Alexis Tsipras, there were fewer Syriza defectors than there were in the last vote:
+
+> Among those who voted against were 31 members of his own Syriza party. However, this represents a smaller rebellion than in last week's initial vote.
+> 
+> Former Greek Finance Minister Yanis Varoufakis was one of those rebels in the first vote who returned to vote with the government this time.
+> 
+> Mr Varoufakis wrote (in Greek) that he felt it was important to preserve the unity of the government, even if he believed the programme was "designed to fail" by Greece's creditors.
+
+I have written before (see
+
+[Greece: How both sides are right AND wrong](http://humblestudentofthemarkets.blogspot.com/2015/07/greece-how-both-sides-are-right-and.html)
+
+) that Greece and Europe were talking past each other. While Europe was speaking the language of micro-economics (get the structural reforms right and growth will follow), the Greek government was speaking the language of macro-economics (you can't have growth if the combination of crippling debt and austerity pushes the economy into an economic depression). At the time, I wrote:
+
+> Here are the two basic scenarios that I am working with. Either Tsipras' ultimate objective is to take Greece out of the euro, which would also put their EU membership at risk, or there will be a deal.
+> 
+> If there is a deal, everyone will have to save face. The EU will make Greeks swallow tough Grand Plan restructuring reforms. At the same time, they will be able to demonstrate that the Greeks are taking sufficient pain that the other euroskeptic parties watching this drama will be deterred from taking the same path. The Greeks will get some form of back door debt relief, either as NPV debt writeoffs or some form of aid in the form of humanitarian or military aid to help with their budget.
+> 
+> In other words, it will be the typical European fudge solution. Everything else is theatre.
+
+Now that the Tsipras government has surrendered to virtually all Eurogroup demands, the theatre continues, but on an more optimistic note.
+
+**A Nixon in China moment?**
+
+The passage of these painful reform measures have prompted a few optimistic notes for Greece.
+
+[Jeffrey Frankel](http://econbrowser.com/archives/2015/07/guest-contribution-only-tsipras-can-go-to-china)
+
+went so far as comparing Tsipras to Lula of Brazil, if he can effectively implement the reforms demanded by the creditors:
+
+> Alexis Tsipras, the Greek prime minister, has the chance to play a role for his country analogous to the roles played by Korean President Kim Dae Jung in 1997 and Brazilian President Luiz Inácio Lula da Silva in 2002\. Both of those presidential candidates had been long-time men of the left, with strong ties to labor, and were believed to place little priority on fiscal responsibility or free markets. Both were elected at a time of economic crisis in their respective countries. Both confronted financial and international constraints in office that had not been especially salient in their minds when they were opposition politicians. Both were able soon to make the mental and political adjustment to the realities faced by debtor economies. This flexibility helped both to lead their countries more effectively.
+> 
+> The two new presidents launched needed reforms. Some of these were “conservative” reforms (or “neo-liberal”) that might not have been possible under more mainstream or conservative politicians.
+> 
+> But Kim and Lula were also able to implement other reforms consistent with their lifetime commitment to reducing income inequality. South Korea under Kim began to rein in the chaebols, the country’s huge family-owned conglomerates. Brazil under Lula expanded Bolsa Familia, a system of direct cash payments to households that is credited with lifting millions out of poverty.
+
+George Magnus echoed a similar level of optimism [emphasis added]:
+
+> Many people, certainly in the UK and the US, still see Grexit as the most likely outcome sooner or later. But it’s not an option we should wish upon the Greeks. Nor should we delude ourselves that Syriza’s economic and political agenda, until now at least, was ever compatible with lasting membership. ***But if Alexis Tsipras really does take ownership of the most important parts of the bailout programme and tacks away from the Left Platform in his own party, aided and abetted by steady, if slow, economic growth in Europe—including in Greece from next year—the outcome of this crisis could be far less apocalyptic than many assume.***
+
+Anatole Kaletsky, writing in
+
+[Project Syndicate](https://www.project-syndicate.org/commentary/why-the-greek-deal-will-work-by-anatole-kaletsky-2015-07)
+
+, said that outsiders should look past European theatre to see what matters is the Grand Plan of structural reforms (see my previous post 
+
+[Mario Draghi reveals the Grand Plan](http://humblestudentofthemarkets.blogspot.com/2012/02/mario-draghi-reveals-grand-plan.html)
+
+). As long as they are being implemented, Europe will allow Greece (or Spain, Portugal, etc.) to backslide on debt obligations:
+
+> ***This raises a key issue that the Tsipras government and many others misunderstood throughout the Greek crisis: the role of constructive hypocrisy in Europe’s political economy.*** Gaps between public statements and private intentions open up in all political systems, but these become huge in a complex multinational structure like the EU. On paper, the Greek bailout will impose a fiscal tightening, thereby aggravating the country’s economic slump. In practice, however, the budget targets will surely be allowed to slip, provided the government carries out its promises on privatization, labor markets, and pension reform.
+> 
+> ***These structural reforms are much more important than fiscal targets, both in symbolic terms for the rest of Europe and for the Greek economy.*** Moreover, the extension of ECB monetary support to Greece will transform financial conditions: interest rates will plummet, banks will recapitalize, and private credit will gradually become available for the first time since 2010\. If budget targets were strictly enforced by bailout monitors, which seems unlikely, this improvement in conditions for private borrowers could easily compensate for any modest tightening of fiscal policy.
+
+He concluded:
+
+> In short, the main conditions now seem to be in place for a sustainable recovery in Greece. Conventional wisdom among economists and investors has a long record of failing to spot major turning points; so the near-universal belief today that Greece faces permanent depression is no reason to despair.
+
+**A hard road ahead**
+
+The one common theme to all of this commentary is the kind of structural reforms as outlined in the Grand Plan. It doesn't just mean austerity, though that is one component, though not the key component. It means the kind of reform that makes the economy more competitive. James Suroweiki explained in a New Yorker article:
+
+> So what can Greece do? It really has only one option—to make the economy more productive and, above all, to export more. It’s easy to focus on Greece’s huge pile of debt, but, according to Yannis Ioannides, an economist at Tufts University, “debt is ultimately the lesser problem. Productivity and the lack of competitive exports are the much more important ones.”
+> 
+> There are structural issues that make this challenging. Greece is never going to be a manufacturing powerhouse: almost half of all Greek manufacturers have fewer than fifty employees, which limits productivity and efficiency, since they don’t enjoy economies of scale. Greece also has a legal and business environment that discourages investment, particularly from abroad. Contractual disputes take more than twice as long to resolve as in the average E.U. country. Greece has been among the most difficult European countries in which to start and run a business, and it has myriad regulations designed to protect existing players from competition. All countries have rules like this, but Greece is an extreme case. Bakeries, for instance, can sell bread only in a few standardized weights. Recently, Alexis Tsipras, the Greek Prime Minister, had to promise that he would “liberalize the market for gyms.”
+> 
+> The scale of these problems makes Greece’s task sound hopeless, but simple reforms could have a big impact. Contrary to its image in Europe, Greece has already made moves in this direction: between 2013 and 2014, it jumped a hundred and eleven places in the World Bank’s “ease of starting a business” index. And reform doesn’t mean Greece needs to abandon the things that make it distinctive. In fact, in the case of exports, the country has important assets that it hasn’t taken full advantage of. Greek olive oil is often described as the best in the world. Yet sixty per cent of Greek oil is sold in bulk to Italy, which then resells it at a hefty markup. Greece should be processing and selling that oil itself, and similar stories could be told about feta cheese and yogurt; a 2012 McKinsey study suggested that food products could add billions to Greece’s G.D.P. Similarly, tourism, though it already accounts for eighteen per cent of G.D.P., has a lot more potential. Most tourists in Greece are Greek themselves, a sign that the country could do a much better job of tapping the booming global tourism market. Doing so would require major investments in improving ports and airports, and in marketing. But the upside could be huge. Greece also needs to stem its current brain drain. It produces a large number of scientists and engineers, but it spends little on research and development, so talent migrates abroad. And there are other ways that Greece could capitalize on its climate and its educated workforce; as Galbraith suggests, it’s an ideal location for research centers and branches of foreign universities.
+
+Here's the hard part, implementation requires buy-in, ownership of the reforms and, most of all, trust from all sides:
+
+> To implement such changes, Greece will have to overcome other problems. Reforms work best when the level of trust in political institutions is high. But the Greek state has a poor reputation among citizens, who see it as a pawn of special interests. (This distrust of the government is one reason for the country’s notoriously high rate of tax evasion.) On top of this, the chief advocate of structural reform to date has been the much hated troika, whose obsession with austerity has made the mere notion of reform anathema. Opening up the Greek economy would benefit ordinary citizens, since the economy’s myriad rules and regulations serve mainly to protect the wealthy and those lucky enough to have won a sinecure. But that’s a hard sale to make at a time when people are worried about holding on to what they have.
+
+**Attacking corruption**
+
+Yves Smith at
+
+[Naked Capitalism](http://www.nakedcapitalism.com/2015/07/why-debt-sustains-corruption-in-greece-and-vice-versa.html)
+
+is a bit more skeptical that Tsipras can actually implement the reforms because of the endemic level of corruption in Greece. She highlighted an article by Christos Koulovatianos, of the University of Luxembourg and John Tsoukalas, at the University of Glasgow:
+
+> As numerous Greek MEPs opposed the Eurozone summit deal, implementation will require a broad coalition of political parties. This column argues that corruption in Greek politics will prevent the formation of such a coalition. The heavy debt service leads parties to invent extreme ways of responding to super-austerity and to strongly oppose direct reforms that challenge existing clientelism. The way out is to sign a new agreement that combines debt restructuring and radical transparency reforms, including naming-and-shaming practices, to block clientelism in the medium and long run.
+
+**Correlation between the fiscal-surplus/GDP ratio (in percentage points) and the Corruption-Perceptions Index (CPI) for Eurozone countries (t-statistics in parentheses).**
+
+The argument against the effective reform implementation is there are few reasons for the various factions in Greece to cooperate:
+
+> The immediate argument in favour of broad coalition governments is that policy reforms and austerity have a high political cost. Cooperation among parties can make them share the political cost. In addition, a broad consensus among parties provides credibility to society concerning technocrat-expert suggestions for solving the fiscal profligacy problem. From the very beginning of the sovereign crisis in the Eurozone, the IMF has provided explicit guidelines in favour of broad coalition governments or for cooperation across parties (see International Monetary Fund, 2010a-d, 2011a-f, and 2012a-f for specific sentences expressing these IMF guidelines).1
+> 
+> In the case of Greece, coalition governments have never been broad across parties, and reforms have progressed slowly, despite the intense monitoring by the IMF (Campos and Coricelli 2015). According to the theory suggested by Achury et al. (2015), the corruption problem in Greece, combined with its high debt-to-GDP ratio, has led Greece into a trap.
+
+There is a way out, but it won't be easy:
+
+> The ideal long-run solution to Greece’s problem would be to eradicate rent-seeking groups in politics. However, this requires time and a deep understanding of the problem. The short-run solution would be to restructure Greek debt, postponing payments and giving enough time for economic recovery. This short-run strategy could make benefits from a broad-coalition government more attractive to political parties, because it would take away the debt-servicing burden. The working hypothesis is that some rent-seeking activities would still be speculated by parties (Achury et al. 2015, Sections 2.5, 3.1.2, and 3.1.4).
+> 
+> Of course, such debt restructuring requires a new agreement. And certainly the EU should ask for reforms in exchange for debt restructuring. Whether these reforms could solve the corruption problem (or not) in the long run, is a matter of understanding the roots of the corruption problem in Greek society.
+> The vast majority of Greek citizens are not corrupt: Corruption is a social coordination problem leading to a prisoner’s dilemma
+> 
+> A small but critical mass of citizens and politicians break the rules of fair play and equitability against the law. Businesses that do not pay their taxes oblige other businesses to do the same in order to survive competition. Skilled young people who apply for civil servant jobs are obliged to invest in clientelistic political connections, after seeing inapt persons obtaining such jobs. Citizens see their taxes ending up in the private pockets of people they know, but are unlikely to win a court case because of the political support for involved persons. Lawful citizens, knowing that taxes will not finance public goods but private benefits, are unwilling to pay their income taxes, becoming friendly to parties that promise lenience regarding tax collection.
+> 
+> The list can go on and on, but the issue is not morality. It is the technical perils of a coordination problem that ends up in prisoner’s dilemma situations that arise in everyday life. The sad equilibrium is that Greek citizens do not feel equal among equals against taxpayer law. A feeling of social mistrust pervades citizens, especially young people.
+
+Can the Tsipras led government succeed? In a previous post,
+
+[George Magnus](http://www.prospectmagazine.co.uk/world/how-greece-became-europes-fault-line-greek-refrendum)
+
+complained about how the Syriza government seemed to substitute one set of vested rent-seeking interests for another:
+
+> Greece has less than 200,000 doctors, lawyers and engineers and about 600,000 public sector employees, but they have organisation and impact. The number of the latter has fallen from about one million four years ago, but they retain a strong influence of all aspects of labour relations. Regarding the former, many professional associations self-regulate, and have acquired special tax, pension and legal privileges. Tax evasion and under-reporting of income is rife. According to Oxford law Professor Pavlos Eleftheriadis, in the 2010 legislature, 221 of the 300 seats were occupied by doctors, lawyers, educators, engineers and finance professionals.
+> 
+> ***Ironically, Syriza articulated a made-to-measure analysis and diagnosis of governance problems in its 2014 Thessaloniki programme, which sought to end “decades of misrule”, and transform Greece’s political system and institutions. It argued quite coherently that this was essential to break the vicious circle between political and economic inequality.***
+> 
+> Yet, since being voted into office, it has offered little and done less to live up to this transformation. It is telling that Europe’s final loan conditions before the referendum laid considerable emphasis on governance enhancement, spanning measures to strengthen transparency, price competition, privatisation, and the rule of law, and to attack corruption, fraud and tax evasion. Alexis Tsipras rejected these and other conditions, and lumped them together, accusing his counterparts of blackmail. But without addressing these crucial matters, Greece cannot hope to succeed inside or outside the eurozone.
+
+Alexis Tsipras did a complete U-turn after the "no" result in the referendum and acquiesced to creditor demands. Can he do it again to implement the kinds of reforms outlined above? If so, he will achieve the mantle of the Greek Lula.
