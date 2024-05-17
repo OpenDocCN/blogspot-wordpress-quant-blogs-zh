@@ -1,0 +1,167 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:47:44
+-->
+
+# Humble Student of the Markets: Watching for China-related volatility in November
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/10/watching-for-china-related-volatility.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/10/watching-for-china-related-volatility.html#0001-01-01)
+
+In October, we have seen considerable volatility over US government shutdown and debt ceiling concerns. As October draws to a close, I am looking ahead to November and watching developments in China as a source of volatility.
+
+Specifically, the Chinese Communist Party is holding their plenary in which policy issues are discussed. Note that this is the Party and not the government. Here is how David Keohane of
+
+[FT Alphaville](http://ftalphaville.ft.com/2013/09/27/1648422/plenums-are-made-to-be-boring/)
+
+put it:
+
+> No point in getting too excited about China’s big policy bash — November’s third plenary session of the 18th Party Congress — just yet. It may be a once-in-a-10 year event but it’s probably going to be rather coy on detail.
+> 
+> ***It’s also important to remember this is the party’s meeting not the government’s and it’s not likely everyone sees eye-to-eye on a host of issues***. Never easy getting people excited about changes to the teats [upon which they suckle](http://ftalphaville.ft.com/2013/07/23/1578092/japans-lessons-for-china/ "Japan’s lessons for China - FTAV")…
+
+**China's challenges**
+
+The entire post is useful reading inasmuch as it discusses what can be expected out of the meeting. Regardless, the Party goes to plenary as China faces a number of important challenges.
+
+The most important issue is the nature of China's growth.
+
+[Dani Rodrik](http://rodrik.typepad.com/dani_rodriks_weblog/2013/10/on-premature-deindustrialization.html)
+
+worries that growth is set to slow [emphasis added]:
+
+[![](img/55f8981dba6fe989143a87d6b4ee133b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgECkblaGjM0ichFN__g2kTnDcHjcl9dErUY4RErbPYzYh72QRWBA3NDnsu-sP42O_v8GtRdF3p169Z27Tk5KeeAZr6Yq1qensQrubOc8Vpkeuly_flApRmRB-Bfi7llSxQAOFnBXGDmMk/s1600/Dani+Rodrik+-+Peak+mfg+levels.png)
+
+> The pattern is unmistakable. While early industrializers managed to place 30 percent or more of their workforce in manufacturing, latecomers have rarely managed that feat. Brazil's manufacturing employment peaked at 16 percent and Mexico's at 20 percent. In India, manufacturing employment began to lose ground (in relative terms) after it reached 13 percent.
+> 
+> This may come as a surprise, but ***even China employs few workers in manufacturing, relative to its huge labor force. Moreover, the manufacturing share of employment in China seems to be coming down (caveat: Chinese data on manufacturing employment are problematic).***
+> 
+> As I explain in a new [Project Syndicate column](http://www.project-syndicate.org/commentary/developing-economies--missing-manufacturing-by-dani-rodrik), the early onset of deindustrialization has a number of implications. ***On the economic front, it slows down growth and delays economic convergence. Politically, it forecloses the typical path to democracy -- through the development of a labor movement, disciplined political parties, and habits of compromise and moderation arising out of industrial struggles over pay and working conditions.***
+
+In other words, China may have reached its
+
+[Lewis turning point](http://humblestudentofthemarkets.blogspot.com/2012/04/china-long-and-short-term-views.html)
+
+and export led growth is set to slow. Such a slowdown can create political problems.
+
+Analysis from ANZ Bank confirms the change in the character of Chinese growth (via
+
+[SNBCHF](http://snbchf.com/2013/10/chinesefundamentals-week-october-14-oct-18/)
+
+):
+
+> The following graph from the ANZ Banking Group shows that – as opposed to the period until 2008 – net exports do not add to GDP growth. This means that global imbalances caused by China are not increasing. On the other side, Chinese growth is still driven by investments.
+
+Despite the apparent slowing momentum on exports, China's response to the 2008 global financial crisis was to spend, spend and spend on infrastructure and the growth was debt financed.  If you think that the Fed primed the pump in the aftermath of the financial crisis of 2008, consider what the PBoC did (as per Alan Ruskin of Deutsche via 
+
+[Business Insider](http://www.businessinsider.com/most-important-charts-in-the-world-q4-2013-10?op=1)
+
+):
+
+Many analysts are pointing to diminishing returns to growth from credit expansion. Here is George Magnus of UBS (via
+
+[Business Insider](http://www.businessinsider.com/most-important-charts-in-the-world-q4-2013-10?op=1)
+
+):
+
+[Ed Yardeni](http://blog.yardeni.com/2013/10/less-bang-per-yuan-excerpt.html)
+
+agrees [emphasis added]:
+
+> Another troubling development is that China’s total social financing rose rapidly again during August and September after a brief slowdown during the previous three months. Why is this troubling? ***It seems that China is getting less bang per yuan of debt, as the current pace of borrowing is about the same as since 2009 yet real GDP growth has clearly slowed over this period. One more troubling development is that the CPI inflation rate may be picking up, led by food prices.***
+
+Despite the rhetoric about re-balancing growth away from infrastructure led growth to the consumer, the latest round of growth has been more of the same - infrastructure led growth. Property prices have continued to climb as the
+
+[government has been slow to act](http://www.chinaeconomicreview.com/China-property-controls-more-flexible)
+
+. This prompted David Cui of BoAML to ponder when the PBoC might tighten (via
+
+[Business Insider](http://www.businessinsider.com/most-important-charts-in-the-world-q4-2013-10?op=1)
+
+):
+
+As a result, the government's fiscal deficit has skyrocketed. Nomura estimates that the deficit may be 9.7% of GDP, depending on how you count (via
+
+[The Telegraph](http://www.telegraph.co.uk/finance/china-business/10380937/Chinas-soaring-fiscal-deficit-rings-alarm-bells.html)
+
+):
+
+> Data from the International Monetary Fund shows that China’s budget deficit reached 9.7pc of GDP last year if regional spending is included and one-off land sales are stripped out. This is higher than previously thought and above levels in the US, India, or Southern Europe’s debt-stricken crisis states.
+
+Regardless,
+
+[Michael Pettis](http://blog.mpettis.com/2013/10/hidden-debt-must-still-be-repayed/)
+
+pointed out that debt will eventually have to get paid back in some fashion. Pettis has a good news-bad news message [emphasis added]:
+
+> I agree that China is in a very different position than the US, but this isn’t necessarily a good thing. The main relevant difference is that because all the banks are perceived to be guaranteed by the central government, and Chinese households have a limited number of ways to save outside the banking system, it is unlikely that China will experience a system-wide bank run as long as the credibility of the guarantee survives, and runs on individual banks can be resolved by regulatory fiat (banks that receive deposits will be forced to lend to banks that lose deposits). ***We are not likely to see a Lehman-style crisis.***
+> 
+> We are also not likely to see, however, the advantages of a Lehman-style crisis, and these are a relatively quick adjustment in the process of investment misallocation. I ***have always said that the resolution of the Chinese banking problems is far more likely to resemble that of Japan than the US, and instead of three of four chaotic years as the system adjusts quickly, and at times violently, we are more likely to see a decade or more of a slow grinding-away of the debt excesses. The net economic cost is likely to be higher in a Japanese-style rebalancing, but American-style rebalancing is risky except in countries with very flexible institutions – financial as well as political.***
+
+Pettis believes that China will not see a Lehman-style crash because the banks are perceived to be all government guaranteed, but the costs will be repaid in the form of Japanese Lost Decade(s) like slow growth.
+
+I would, however, add one caveat to Pettis' analysis - we have no way of forecasting the contagion effects of a Chinese bad debt crisis. While the Chinese banks may be supported by the Chinese government, no one knows if any western large financial institutions are overly exposed to China's loan markets. Let's suppose that a large global bank like HSBC (it's only an example, I know nothing about HSBC's exposure to China) were to get severely impaired over a Chinese shadow banking system/subprime-style crisis (see my previous post
+
+[The canaries in the Chinese coalmine](http://humblestudentofthemarkets.blogspot.com/2013/01/the-canaries-in-chinese-coalmine.html)
+
+for a discussion of the shadow banking system and wealth management products), could such an event create havoc in the global financial system? What if a Chinese banking crisis were to arise and global risk premiums on emerging market debt were to skyrocket, you can't tell me that these large global banks aren't exposed to emerging market debt in places like Brazil, India and Turkey. We saw a preview of what happened when the markets got just the whiff of Fed tapering - risk premiums on emerging market debt shot up and the risk of emerging market currency crises rose accordingly.
+
+Notwithstanding my concerns over the contagion effects of a Chinese banking crisis, Pettis makes a good point about the resilience of China's financial system. While it could theoretically absorb the hit from a banking crisis, the costs are ultimately borne by the Chinese household. If that happens, you can forget about the stated strategy of re-balancing growth to the consumer as the household sector will be struggling with the costs of the aggregate costs of the bad loan writeoffs. Pettis made some important points as he addressed the issue that a lot of the bad loans don't matter because they are hidden and government guaranteed [emphasis added]:
+
+> Even those who do not understand why this reasoning is incorrect should know that it must obviously be incorrect. If it weren’t, any country could solve all of its debt problems merely by borrowing in a non-transparent way through the central bank. ***As the Greeks and the Italians most recently showed us, non-transparent borrowing may cause us to recognize a problems later than we otherwise would have, but it cannot solve the problem***.
+> 
+> The reason is because in any case debt must either be serviced or the borrower must default. If the assets which were funded by the debt do not create enough wealth with which to service the debt, and if the borrower does not default, then by definition there must have been a transfer from some other entity to cover the difference between the debt servicing cost and the returns on the asset.
+> 
+> ***Typically this other entity, in China and elsewhere, has been the household sector, and in the case of China the transfer occurred primarily in the hidden form of severely repressed interest rates. Whether the transfer is from the household sector, however, of from other sector, this is where the problem of debt lies for China.***
+
+**The IMF's wish list**
+
+Recently, Anoop Singh of the IMF penned an
+
+[article](http://blog-imfdirect.imf.org/2013/10/22/a-wish-list-for-chinas-third-plenum/)
+
+in which he addressed these issues facing China, but in less alarmist fashion that I have. After outlining the challenges, Singh outlined the way forward:
+
+> Shifting to a sustainable growth path––one that uses resources more efficiently, is more inclusive, and more consumer-based––requires actions on several fronts: financial sector and fiscal reforms, as well as structural measures.
+> 
+> Further financial reforms are essential to contain the buildup of risks, enhance the efficiency of investment, and boost household capital income. The main dimensions of reform are deposit rate liberalization; the elimination of perceived widespread implicit guarantees on financial products and intermediaries through the introduction of deposit insurance, and a formal resolution framework for failing institutions; and gradually moving away from administrative guidance on credit allocation to adopting a policy rate as the main operating target for monetary policy.
+> 
+> Fiscal reforms, including giving local governments authority over their own revenue sources more in line with their expenditure mandates; shifting the tax burden toward progressive and efficient forms of taxation; and channeling dividend payments from state-owned enterprises to the budget; all these measures will complement financial sector reforms in addressing the vulnerabilities in local government finances, reducing excess investment, and boosting household consumption.
+> 
+> The third broad area––structural measures––will reinforce the impact of financial and fiscal reforms and enable a shift toward a growth model less reliant on capital accumulation and more dependent on the efficient use of resources (‘total factor productivity’ growth). The measures include leveling the playing field within and across sectors through deregulation and easing barriers to entry (particularly in services); raising resource prices to rationalize investment and protect the environment; and reforming the hukou (household registration) system to improve labor market mobility and achieve a more efficient matching of workers to vacancies.
+
+Singh went on to say that he believed that the Chinese leadership is aware of what needs to be done:
+
+> Implementing these significant measures is a tall order and involves tough choices, including possibly accepting slower growth as the economy adjusts to the new path. But starting now will allow China to sustain its convergence to the level of higher income economies and deliver the benefits of growth to an ever-wider cross section of its population in a way that’s environmentally sustainable and sound. But delay reforms and the challenges grow larger, raising the probability of stalled convergence.
+> 
+> China’s leadership recognizes the challenges and has already indicated their reform objectives. The priority now is to lay out and then, critically, implement concrete reform plans to manage the transition to a new growth path.
+
+The stakes are high, especially when
+
+[124 countries count China as their biggest trading partner – compared to 76 for the United States](http://nationalinterest.org/article/china-superpower-or-superbust-9269)
+
+. A hiccup, or even any shifts, in the Chinese economy will have global implications. We will all be watching the Third Plenary for signs of direction from the Party.
+
+**How will the market react?**
+
+Remember, the plenum is a Party confab, not the government. The best analogy I can give is what happens under a British parliamentary system. The party in power can hold a meeting (a plenum) to discuss the way they want to move forward. Such pronouncements do not necessarily equal immediate government policy, even though the party holds a parliamentary majority.
+
+So how will the market react to announcements? Will any announcement be interpreted as bullish or bearish. Consider, for example, this Financial Post article entitled
+
+[4 concerns about China that have investors freaked out again](http://business.financialpost.com/2013/10/25/4-concerns-about-china-that-have-investors-freaked-out-again/)
+
+. Last week, we saw four news items out of China that created bearish market reactions:
+
+*   [**China's biggest bank tripled its loan loss provisions**](http://www.bloomberg.com/news/2013-10-22/biggest-china-banks-triple-debt-write-offs-to-brace-for-defaults.html): Is that bullish because it's finally facing reality and cleaning up its books, or bearish because it's a sign of weakness in the financial system?
+*   [**China's interbank market rates are rising, suggesting a repeat of liquidity worries**](http://www.reuters.com/article/2013/10/23/markets-china-bonds-idUSL3N0ID0XN20131023). Isn't financial liberalization the way forward? Or did you want more of the unbalanced credit and infrastructure driven growth?
+*   **Reports that a central government official announced policy tightening.** [BoaML's Ting] Lu writes that this comment was “actually made by Beijing university professor who was an external member of the insignificant non-voting “PBoC monetary policy committee.” Moreover, he said monetary policy should be “adjusted a bit from the easing stance in Q3.”
+*   **Central government pressuring local governments to set 2014 target based on realistic targets.** This has prompted some to think that the government will cut its growth forecast to 7% from 7.5%. Lu thinks there is nothing wrong with the central government pushing local governments to be more realistic but that the likelihood of the central government setting a 7.5% 2014 growth target is higher than a 7% growth target. [This is also consistent with [Premier Li Keqiang's announcement](http://europe.chinadaily.com.cn/business/2013-10/22/content_17052454.htm) to more closely audit local government finances in order to control spending.]
+
+No doubt we will see more announcements out of Beijing. Don't expect them to have too much specifics, as they are more meant to set direction.
+
+Will the market interpret the announcements bullishly or bearishly? I don't know, but as the chart of the Shanghai Composite shows, the index has already violated a technical uptrend and an important support zone, which indicates market nervousness.
+
+Be prepared for greater China-related market volatility in the weeks ahead.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
