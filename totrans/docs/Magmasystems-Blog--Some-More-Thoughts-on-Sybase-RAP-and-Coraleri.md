@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:54:56
+-->
+
+# Magmasystems Blog: Some More Thoughts on Sybase RAP and Coraleri
+
+> 来源：[http://magmasystems.blogspot.com/2009/03/some-more-thoughts-on-sybase-rap-and.html#0001-01-01](http://magmasystems.blogspot.com/2009/03/some-more-thoughts-on-sybase-rap-and.html#0001-01-01)
+
+First, some brief tidbits....
+
+Congrats to Terry Cunningham, the former CEO of Coral8\. It looks like he is now a Senior VP over at i365, which is a Seagate company. I guess that Terry will be wearing a dual hat, as he is also the Chairman of Aleri. One wonders if Seagate will eventually go into the CEP business :-)
+
+Also, good luck to Mark Tsimelzon. A few people at Coral8 have remarked that Mark is no longer with the combined entity. With Mark's track record, I am sure that he will be involved with something new and interesting.
+
+It looks like Coraleri has chosen Coral8's CCL to be the SQL-based language of choice for developing Coraleri applications. This is the first piece that is falling into place, and for me, it's good news. Now, we have to wait to for the Splash integration to happen, and then the second piece of the puzzle will be solved.
+
+The latest Coral8 5.6.1 has lived up to its claims of major performance enhancements. My CEP team reports that CPU usage is down significantly in our tests on our most complex queries.
+
+With Coral8 making big strides in performance, the case to keep the Aleri CEP engine around is weakening. Don DeLoach is adamant that none of their customers will need to rewrite a single line of code, and that Aleri has even put it in writing. I know that Don believes this with all of his heart, but I am still a bit skeptical. But I am willing to cut them a big piece of slack, as long it does not affect what we are doing with Coral8\. We are continuing on as if nothing happened, and I am trusting in Don and the Coraleri team to make the transition completely transparent to us.
+
+Which brings me to my next topic ... Sybase RAP and Coral8.
+
+For this topic, I am putting on the other hat that I wear, which is Chief Architect of Equities. One of the jobs of the Architect is to keep abreast of the current technologies that we use to see if any of them will approach an "end-of-life" situation. Chief Architects needs to make sure that the company does not invest in any technology that might be risky in any way.
+
+Almost every large investment bank has one of every technology. I am not giving away any of our secret sauce when I say that we have a number of applications that use Sybase ASE for the database. So, when Sybase comes knocking on my door, asking me if I am interested in their new CEP product, what do I think?
+
+First, I think it is a bit curious that Sybase did not publicly mention the use of Coral8 as their CEP engine. I can now understand why. I can speculate that Sybase knew of the pending acquisition of Coral8 by Aleri, and wanted to avoid some of the confusion that goes along with a merger like this. If I knew that a company's product was based on another vendor's product, and that other vendor had just gotten acquired by another company, I would need to be absolutely sure that all of the moving parts were going to have a long life, and that we would not be faced with an end-of-life situation. I could imagine more that a few sweaty brows at Sybase when Coral8 said that they were selling to Aleri. I am sure that Sybase did not want this consternation to leak out to their potential customers. So, better not to mention the association between Coral8 and Sybase RAP. If this was the primary reason for the silence, then I can certainly appreciate that.
+
+But, as the Architect, I would also want to know what Sybase's plans are for the future of their Coral8 engine. Sybase bought the source code to Coral8\. Does Sybase plan on getting continuous enhancements from Coral8 as the Coral8 engine and language evolves? Does Sybase plan a separate fork of the source code so that, eventually, the Coral8 engine and language and the Sybase RAP engine and language are two different things? Will Sybase RAP eventually incorporate Aleri's Splash language? These are things that are very important to us. We would need to see Sybase's roadmap as well as Coraleri's roadmap.
+
+In
+
+[a posting on Marco's blog](http://rulecore.com/CEPblog/?p=213)
+
+, Era asks some very important questions:
+
+Are there other details on the deal? Is this a one time source code tree fork? Will Sybase get new versions from Aleri? It would be interesting to hear if Sybase they will develop it itself further or if bugfixes, patches and new features will come from Aleri’s developers?
+
+John Morrell from Coraleri responds with the very mysterious:
+
+Sorry, we are not releasing more details on the terms of the deal. Those are business terms between Sybase and Aleri.
+
+That's a bit scary. I can understand the financial terms not being released (although it would be interesting to see if Coraleri gets a piece of every Sybase RAP sale, as that would help with Coraleri's financials). But not giving transparency into Sybase's plans is not good news for Sybase, although it is a positive for Coraleri. I have no transparency into whether Sybase will be upgrading their engine based on the upcoming work of Coraleri, and that does not sit well with me.
+
+Sybase RAP can be used without the CEP portion. However, I do not know what other parts of RAP are dependent on other third-party vendors, and whether these other parts are subject to any risk. And, it looks like it has some overlap with KDB+ and with Vhayu. (I wonder if there is a third-party comparison between the three.)
+
+I will not be recommending Sybase RAP for consideration until some of these underlying questions are answered. The current situation just leaves too many questions unanswered. I would welcome a bit more transparency from Sybase.
+
+©2009 Marc Adler - All Rights Reserved.
+
+All opinions here are personal, and have no relation to my employer.

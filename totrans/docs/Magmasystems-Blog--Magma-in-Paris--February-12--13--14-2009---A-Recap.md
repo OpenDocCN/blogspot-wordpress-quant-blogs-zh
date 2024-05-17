@@ -1,0 +1,174 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:55:36
+-->
+
+# Magmasystems Blog: Magma in Paris, February 12, 13, 14 2009 - A Recap
+
+> 来源：[http://magmasystems.blogspot.com/2009/02/magma-in-paris-february-12-13-14-2009.html#0001-01-01](http://magmasystems.blogspot.com/2009/02/magma-in-paris-february-12-13-14-2009.html#0001-01-01)
+
+<smarttagtype name="State" namespaceuri="urn:schemas-microsoft-com:office:smarttags"><smarttagtype name="country-region" namespaceuri="urn:schemas-microsoft-com:office:smarttags"><smarttagtype name="City" namespaceuri="urn:schemas-microsoft-com:office:smarttags"><smarttagtype name="place" namespaceuri="urn:schemas-microsoft-com:office:smarttags"></smarttagtype></smarttagtype></smarttagtype></smarttagtype>
+
+-->
+
+I arrived in
+
+<city st="on"><place st="on">Paris</place></city>
+
+at 11:00 AM on Wednesday, February 11 2009 for 3 concerts given by my favorite group of all time, Magma. The concerts were in celebration of their 40
+
+^(th)
+
+anniversary as a group (even though they had their 35
+
+^(th)
+
+anniversary concerts in 2005). The concerts were to take place at Le Casino de Paris, a theater in the 9
+
+^(th)
+
+Arrondissement, which is a section of
+
+<city st="on"><place st="on">Paris</place></city>
+
+more known for its sex shops than anything else.
+
+In addition to Magma, the opening act for all three nights was Jannick Top’s Infernal Machina. Top was the bassist for Magma during their glory years of 1973 and 1974 (and also, 1976), and is a personal hero of mine. His new album, also called Infernal Machina, is a throwback to the glory days of Magma, and to tell you the truth, I wanted to see Jannick just as much as I wanted to see Magma.
+
+After taking the RER B train from the airport to Gare de Nord, and taking the number 2 train to the Pigalle stop, I managed to find my hotel. I used my time-honored technique of sleeping for a few hours immediately after arriving in
+
+<place st="on">Europe</place>
+
+so that I would have energy for the night’s festivities. I picked a 3-star hotel that I found on Expedia that was only about a ten minute walk from Le Casino. Typical 3-star
+
+<city st="on"><place st="on">Paris</place></city>
+
+hotel … clean, sparse (not even a clock in the room), and cable TV.
+
+That night, there was a pre-festivities dinner at a Southwestern French restaurant that was organized by Yann Richard (yannzeuhlwortz). Besides Yann and me, in attendance that night were photographer Fabrice Journo (Riah), Fanny Layani (A-Fiieh) and Muriel Huster (a photographer who is not on the Magma forum). Later, we were joined by Marcello and Tathiane, two Brazilian Magma fans who live in
+
+<city st="on">Los Angeles</city>
+
+, and whom I met in 2007 in
+
+<place st="on"><city st="on">Nancy</city>, <country-region st="on">France</country-region></place>
+
+.
+
+Thankfully, between the courses of escargot and Magret de Canard, everyone mostly spoke English to me, and thus spared me the pain of inflicting my self-taught French upon the fair people of
+
+<city st="on"><place st="on">Paris</place></city>
+
+.
+
+Yann had a friend who had seen Magma two weeks before in
+
+<city st="on"><place st="on">Toulouse</place></city>
+
+. Yann relayed to me a mini-review that his friend had given. The review consisted of the single sentence “Magma is Dead, Long Live Magma.” This review turned out to be very prophetic.
+
+Then I was told that Magma was supposed to play the same exact set every night, and they had no special guests scheduled. Fuck!!!! I thought that, for their 40^(th) anniversary, they would trot out some of their masterpieces. But, this was going to be 3 nights of new or unrecorded compositions.
+
+Everyone had planned to meet up at the brasserie across the street from Le Casino at 5:00 PM the next day. I spent most of Thursday sleeping, as I went to sleep around 4 in the morning. At 5:00, a small contingent of Magma fans had started to gather at the brasserie. I met my old pal Robert Guillerault from
+
+<city st="on"><place st="on">Bordeaux</place></city>
+
+, who runs the Magma Web Pressbook. Robert speaks no English and I cannot understand his spoken French, so we spent a half hour gesturing wildly in the air. We were soon joined by some of the other Zeuhl Kombattahnts that I only knew from the French Magma forums. Fabrice, Yann, Fanny, and Muriel soon arrived. Marino (hpl) came from
+
+<city st="on"><place st="on">Venice</place></city>
+
+, and brought me some DVDs of some live shows. Maxence (Zwenskaia) from
+
+<city st="on"><place st="on">Montpelier</place></city>
+
+came by, as well as photographer-supreme Madi, Francis Lecointe (who has graciously bought the tickets for me), old friend Fabrice Bellearbe (Barfix), ace photographer Marco Tchamp, Roman (Peaudhorse), and more. Magma themselves came by for their pre-concert drinks. Robert introduced me to Magma bassist Philippe Bussonet, who seemed thoroughly unimpressed that I came from
+
+<state st="on"><place st="on">New York</place></state>
+
+to see them. I also got to shake hands with Stella Vander and Herve Aknin. I usually try to avoid contact with bands that I like; I am a firm believer in the old adage “Never meet your heroes because you will inevitably be disappointed.”
+
+At 7:30, we all staggered across the street to the venue. Inside, I met old friend Gaeten Villard (Zess), and I finally met British magma fanatics Steve Ashworth and Steve Davis. Steve Davis has one of the few English websites devoted to Magma. Steve is well-known in
+
+<country-region st="on"><place st="on">England</place></country-region>
+
+for his exploits in the world of Snookers, which is much like the American game of Pool. In fact, he was 6 or 7-time world snookers champion, and now, devotes a substantial amount of his time playing professional poker. Steve also brought the Magma offshoot group, Offering, to the
+
+<country-region st="on"><place st="on">UK</place></country-region>
+
+in the mid 1980’s. Steve and I have been corresponding at infrequent intervals over the years, so it was great to put a face to the name. Both Steves had brought their girlfriends to the Magma show, which I thought was a very dicey proposition.
+
+The seats in Le Casino were uncomfortable, to say the least. The amount of space between the rows of seats was designed for little Frenchmen, not for big Americans.
+
+At about 8:15, the first group, Jannick Top’s Infernal Machina, came on. The group consisted of two drummers (one playing a large Japanese Koto drum), bass, guitar, electric piano, and two vocalists. One of the vocalists was Klaus Blasquiz, who was Magma’s vocalist during the glory years. The other vocalist was a tall, blond woman who was the subject of much conversation over the next three days.
+
+After a soft opening section of cello and percussion, Top’s band ripped into the full force of the composition. Most of the hour-long piece consisted of the group jamming out on various old Magma themes, including parts of MDK, Kohntarkosz (the ending section), and De Futura. I loved it.
+
+There were various issues with the sound system on the first night. From where we were sitting in the third row of the mezzanine, the sound was too muddy. Luckily, over the next two nights, the sound improved a great deal.
+
+In a portent of things to come, Magma also had technical issues at the start. They opened the concert with a brand new piece, only to have Bussonet’s amplifier shut off after the first few chords. Vander signaled for the band to stop, and Bussonet took a few minutes to rectify the situation.
+
+The first piece is unnamed as of now. To my ears, it sounds as if Christian Vander has been listening to a lot of Steve Reich. Two main themes play off of each other in this composition. First, there is a Reich-like ostinato pattern that is played by the vibes, guitar, and electric piano. This is overlaid by a more Magma-like vocal line that is sung by Herve Aknin, the new vocalist who recently replaced Antoine Paganotti. As these two themes move in and out of phase, the drums and bass punctuate the music with a series of intermittent crashes. This goes on for about ten minutes, building up to a climax.
+
+The second piece was a real snoozer for me. It is a 25 minute piece named Felicite Thosz, and is reminiscent of the vocal-intensive Magma offshoot called Offering. To my ears, it sounded like a combination of Magma playing Christmas songs with Magma doing a mouthwash commercial. There were lots of vocal solos and harmonies and sleigh bells … and for me, a reason to catch up on my sleep. A bit of promise in the last section with a Russian-dance theme, ala Wurdah Itah, but no real punch. Polite applause from the audience at the end.
+
+The third piece was Emehnteht-Re, which is third piece of the Magma trilogy that includes Kohntarkosz and Theusz Hamtaahk. It is an hour-long piece that unites several of Magma’s previously-recorded themes. I first saw Magma perform this piece in
+
+<place st="on">Brooklyn</place>
+
+at Club Europa in June of 2007\. Since then, Vander has reworked the piece in various minor ways. The piece now seems more coherent to me. The piece starts out with Rinde from the Attahk album, transitioning into Hhai, transitioning into Zombies, and ending with a dirge that represents the funeral of an Egyptian king.
+
+The Zombies section is supposed to be the atom bomb in the piece. About 10 minutes of unadulterated Zeuhl madness, and is supposed to be the centerpiece for Vander’s remarkable drumming. For the first night, Vander seemed rather subdued. I am not sure if it is his age catching up to him or the tendonitis that has been bothering him for the past few years.
+
+E-R was followed by the cacophonous De Futura. This is a Jannick Top composition that appeared on the Magma album, Udu Wudu, in 1976\. When it was recorded, it was a sparse but rhythmically driven piece that only included bass, drums, occasional synthesizer, and growling vocals. However, for the 3 concerts, it was played by the total combined forces of Magma and Infernal Machina. 15 people on the stage, including 3 drummers, two guitars, two basses, two pianists, and 5 vocalists. All I can say is “What a mess!” Remember the blond vocalist from Infernal Machina? The running joke during the 3 nights of the show was “What will she be wearing during De Futura?” Each night, she seemed to come out with less and less clothes on, and during the afternoon, she must have been shopping for her next costume at the shops next to the Moulon Rouge. The performance of De Futura was extremely sloppy, as confirmed by a lot of the opinions I heard the next day at lunch.
+
+As an encore, Magma finished with Ballade, which is Vander’s moving tribute to his idol, John Coltrane. A beautiful piece with lots of rich harmonies, and featuring Vander doing his famous scat-singing in Kobaian.
+
+After the concert, a lot of the Magma fans gravitated to another brasserie that was a few blocks up from the concert hall. This was to be a nightly occurrence that kept me out until 2:00 AM. I spent most of the time with the only other native English speakers, Steve Davis and his girlfriend, Jeannie, talking about Magma, snookers, and poker. You can actually watch videos on YouTube of Steve playing snookers at the various stages of his career. Steve was also able to satisfy some of my curiosity about the Women’s Pro Pool circuit in the
+
+<country-region st="on"><place st="on">US</place></country-region>
+
+.
+
+The next day, we had a wonderful Zeuhl lunch at Le Triton, a jazz club in
+
+<city st="on"><place st="on">Paris</place></city>
+
+that Magma has played in many times. The talk around the table was about the collective disappointment of the previous night’s concert. There was consensus about the lack of “punch” in the songs and about the poor sound quality. If you ever find yourself in
+
+<city st="on"><place st="on">Paris</place></city>
+
+to see a show at Le Triton, I hardily recommend eating there before the show … the food does not disappoint.
+
+After a brief siesta, it was back to the brasserie for some beers, and onto the show. Friday night’s concert was noticeably better. The word must have gotten to the bands about the poor performance on Thursday, and there were great improvements in the sound and in the quality of playing. It was the same set list, but it seemed that Infernal Machina really jammed out on the De Futura-sounding section, and Magma did the same on the Zombies section of E-R. And, the blond vocalist did not disappoint, as she seemed to outdo her previous night’s antics. Would someone tell Jannick that her presence on stage seriously detracts from his music!
+
+I also met some other fans from the French Magma forum. People like Eric (RI Kobaia), Maahnt (name unknown), Bruno (Nohb), Fatcat (name unknown), JC Alluin, Allain Julliac (
+
+<city st="on"><place st="on">Chicago</place></city>
+
+), Bernard (Wurd), and others. I was surprised to see Steve Ashworth’s girlfriend return for the last two nights, as she did not seem happy after the first night. Marcello and Tathiane were so bummed out by Thursday night’s performance that they did not attend on Friday.
+
+The next day, Guy and Bernadette Mas organized a nice lunch across the street from Les Halles. Lots of wine, laughter, broken French and broken English. Fanny and Fab Journo could not attend the show on Saturday, so we said goodbye to them.
+
+At the pre-concert meet-up, I had the chance to meet and talk to Klaus Blasquiz, who is friends with Marcello and Tathianne. Very nice guy and speaks impeccable English. I did not have the nerve to ask Klaus about all of the old Magma tapes that he has stored in his basement. (He was Magma’s archivist during the early years, and I cannot imagine the riches that he has hidden away.)
+
+Saturday night’s show might have been the best. Even the super-group that played De Futura seemed to be in sync. I congratulate Jon Grandcamp, the drummer for Infernal Machina, for having so much restraint and letting Vander do most of the drumming.
+
+After the show on Saturday night, we tried to go to the usual brasserie again, but for some reason, it was closed, as were some of the other brasseries around.
+
+<place st="on"><city st="on">New York City</city></place>
+
+still retains the title of the “City that Never Sleeps”. I said my goodbyes to Madi and Maxence, and even said goodbye to Jean-Claude Buire.
+
+Why did I go to
+
+<city st="on"><place st="on">Paris</place></city>
+
+for these three days? Christian Vander is 61 years old, and Magma won’t be around forever. I need to be able to see Magma while Vander is still able to play. For me, it’s like being able to see the last days of Michael Jordan or Babe Ruth. But the biggest reason for me to have gone to
+
+<city st="on"><place st="on">Paris</place></city>
+
+was to see all of the great friends that I have made through Magma, and those are the memories that I like to keep.
+
+©2009 Marc Adler - All Rights Reserved.
+
+All opinions here are personal, and have no relation to my employer.
