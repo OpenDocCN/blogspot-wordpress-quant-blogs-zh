@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:16:00
+-->
+
+# Humble Student of the Markets: Surviving and prospering as a quant
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2007/12/surviving-and-prospering-as-quant.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2007/12/surviving-and-prospering-as-quant.html#0001-01-01)
+
+I have learned working over the years that the key to surviving and prospering as a quantitative investor is having the combination of quantitative skills with market knowledge and experience. It’s critical to understand the context and limitations of your models. Here is a quick quant quiz:
+
+What is
+
+*less*
+
+risky (this not a trick question)?
+
+1 To jump out of an airplane at 30,000 feet without a parachute
+
+2 To stay in the plane while someone else jumps out (yes, there is a pilot flying the plane)
+
+The correct quant answer is 1\.
+
+***Jumping out of the airplane is less risky because the standard deviation of the outcome is zero***
+
+.
+
+This illustrates the importance of reality checks for models. Mrs.
+
+*Humble Student of the Markets*
+
+, who is a pilot, calls it “raising your head up from the instrument panel and looking out the cockpit window once in a while”. Bob Park of
+
+[FINCAD](http://www.fincad.com/)
+
+, a vendor of derivatives software, calls it “domain knowledge”.
+
+Quantitative systems work beautifully most of the time. When they fail they can fail spectacularly, particularly if the failure is due to faulty assumptions. The greatest quantitative failure in the last fifty years was neither the recent sub-prime meltdown nor the Long Term Capital Management collapse.
+
+The greatest quant failure occurred in the 1960s and it was caused by Robert McNamara and the “whiz kids” in their conduct of the Vietnam War. They incorrectly framed the problem and focused on the wrong metrics. The results scarred an entire generation and altered American foreign policy ever since. As an example, you can find an analysis of differing analysis of a battle of the Vietnam war
+
+[here at Fabius Maximus' blog](http://fabiusmaximus.wordpress.com/2007/11/26/least-we-forget-lessons-for-us-from-the-battle-of-ia-drang/)
+
+.

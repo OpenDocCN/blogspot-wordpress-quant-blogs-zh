@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:15:55
+-->
+
+# Humble Student of the Markets: Financials or Tech: Which would you prefer?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2007/12/financials-or-tech-which-would-you.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2007/12/financials-or-tech-which-would-you.html#0001-01-01)
+
+**S&P 500 Financial Index vs. S&P 500**![](img/4299e942914c921e0bcda8a8f2bf0dd1.png)**No Capitulation in Financials**
+
+The above chart shows the relative performance of the S&P 500 Financials vs. the S&P 500\. Given the well-publicized subprime problems, the sector is not surprisingly oversold.
+
+[![](img/9dd9f61bc8992ef39a52c4eb8c486f58.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtFrxbNrhh-tDiqUCESArqvvfNOG8IVqL1bv8rXTlhlfeasQ25JGB4yRzCbak7hcy4lOYpRpRKVoukgVBEL0o2_YkgtEejWNqLKGyHssEjH2WNBiyO-1ifchL1yAsPTZJORx1n-uGBptyG/s1600-h/Mut+Fund+Fin+Exposure.JPG)
+
+Using the technique shown in the sidebar (titled
+
+***Reversing Engineering a Manager's Macro Exposure***
+
+) I imputed the average financial sector exposure of 22 US large cap blend equity mutual funds. These 22 funds can be thought of as a composite of the S&P 500-like mandate funds from the largest mutual fund complexes. As you can see from the chart, mutual funds have been overweight the sector and appear to be increasing their weight.
+
+Large cap blend mutual fund managers, as a group, are finding value in Financials and there is no sign of panic over the subprime meltdown in their behavior.
+
+**S&P 500 Technology Index vs. S&P 500**![](img/c84d428ab431043c6a72adb6a8703fba.png)**Tech looks constructive**
+
+By contrast, this chart shows that the relative returns of the S&P 500 Technology Index vs. the S&P 500\. The Tech sector rebounded in the Summer of 2006 and has been in a relative uptrend since the the Summer of 2007\. The sector has pulled back but the relative uptrend remains intact.
+
+[![](img/39101d0562781061d4983ca7ea3e163a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSIE-0R-8v00Un5JsD0-MXilpk1fTY3ufjczKSM8gihRhpilkGjOnwCEXKQAyYQLzLb95xOZobMnMq-_pKwkE5ugLryhEEJdENnPDPXP31xMbsLhSgj66j1PT69KnSxj8jmCgHlX9Xdvor/s1600-h/Mut+Fund+Tech+Exposure.JPG)
+
+The same mutual fund analysis shows that the average US large cap equity blend mutual fund is roughly market weight the sector. From a sentiment analysis viewpoint, this gives the Tech sector room to resume its leadership trend that it began a few months ago.
