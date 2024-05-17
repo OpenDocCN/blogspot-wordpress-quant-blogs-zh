@@ -1,0 +1,57 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:54:39
+-->
+
+# Physics Perspective: Ross Douthat explains the conservative movement
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/10/ross-douthat-explains-conservative.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/10/ross-douthat-explains-conservative.html#0001-01-01)
+
+Today's
+
+[column](http://douthat.blogs.nytimes.com/2013/10/02/why-the-right-fights/)
+
+by Ross Douthat in the New York Times is a must read, as it is a kind of confession of what the Conservative Movement really wants, according to Douthat. What really has them so angry, he says, is the history of the last 40 years or so during which, even when the Republicans were in power, they were unable to roll back the various programs they hate so much that were established from the 1930s to the 1960s. Mostly because they discovered, quite inconveniently, that most people in America want those programs. He quotes Conservative Dave Frum from the early 1990s:
+
+> However heady the 1980s may have looked to everyone else, they were for conservatives a testing and disillusioning time. Conservatives owned the executive branch for eight years and had great influence over it for four more; they dominated the Senate for six years; and by the end of the decade they exercised near complete control over the federal judiciary. And yet, every time they reached to undo the work of Franklin Roosevelt, Lyndon Johnson and Richard Nixon — the work they had damned for nearly half a century — they felt the public’s wary eyes upon them. They didn’t dare, and they realized that they didn’t dare. Their moment came and flickered. And as the power of the conservative movement slowly ebbed after 1986, and then roared away in 1992, the conservatives who had lived through that attack of faintheartedness shamefacedly felt that they had better hurry up and find something else to talk about …
+
+The Conservative Movement is really upset, it turns out, because the policies they long for are more or less completely out of tune with what most Americans want. Or, as Douthat prefers to rather crazily phrase it , "American political reality really does seem to have a liberal bias." (Isn't reality, by definition, unbiased??) In other words, if most people don't agree with me, they must be biased.
+
+I recommend reading some of the comments, where NYT readers chop Douthat into little pieces. Here are a few of my favorites for amusement:
+
+> What Mr. Douthat apparently fails to grasp is in democracies, majorities matter, and Americans have repeatedly--in both elections and opinion polls--indicated that there isn't just majority support--but super-majority support for maintaining and even strengthening the programs that formed the heart of the New Deal (Social Security) and the Great Society (Medicare)"
+> 
+> The right's passionate hatred for both programs--and for the true believers' obsession with dismantling both--is not shared by anyone outsider their base.
+> 
+> Equally bogus is their belief that conservative ideas and ideals have never Ben given a chance--if you look at Romney's--and the right's economic policy--compared the economic, tax and governance policies of Coolidge and Hoover, in the 12 years that Mellon served as Treasury Secretary--one could be forgiven for wondering why Mellon's heirs are not suing the right for plagiarism.
+> 
+> An America without Social Security?
+> 
+> That's not a new idea--we tried that for two centuries.
+> 
+> Ditto for a society where seniors were forced to depend upon charity for healthcare at the time in their lives where there was a high need for medical care and virtually no chance for employment that offered health benefits.
+> 
+> The right fights because they are convinced that a bygone era was a golden time in this nation--when all was right in America.
+> 
+> Far right.
+
+> If these foolishly romantic right wingers actually got a truly smaller government, what do they imagine would fill the vacuum? Do they expect an 18th century agrarian society to spring up spontaneously? This small government fantasy might have made sense in the early twentieth century, when they were opposing FDR. It was even a silly but excusable delusion through the late twentieth century. But now it's clear that the era of the rugged individual, small town values, and decentralized authority is long gone. In its place we have an interdependent worldwide economy, multinational corporations with revenues larger than the gdp of most nations, global terror networks capable of engaging in effective asymmetrical warfare, and a rising foreign middle class competing with us for jobs and resources while our own middle class is shrinking.
+> There's certainly a case to be made for limiting government's growth, and for continuing to seek greater efficiencies in its dealings, and keeping markets reasonably unfettered, and protecting individual liberties. But government actually gets smaller (enough to drown it in Grover Norquist's bathtub for instance) whatever accretion of power takes it place will certainly be much less humane, enlightened, or accountable to the masses than what we have now. Some fighting for this small government fantasy are well aware that they are really fighting for corporate plutocracy (such as the Kochs) but most have just been duped.
+
+> "But to many conservatives, the right has never come remotely close to getting what it actually wants, whether in the Reagan era or the Gingrich years or now the age of the Tea Party."
+> 
+> Maybe because that is because the "right", meaning the far-right of the GOP, wants a national government that resembles 1912\. And that far-right are in the driver's seat.
+> 
+> Meantime,"American political reality really does seem to have a liberal bias." True enough. The American people don;t want Wall Street brokers handling their Social Security or vouchers for their Medicare and seem to like what the ACA (as opposed to "Obamacare") has to offer so far.
+> 
+> They want clean water, safe food, drugs and bridges. Leaving those and other issues to the mercies of the private sector is not always the answer.
+> 
+> Cut spending? How about no tanks for an Army that doesn't want them, streamlined but still effective regulation, tax loopholes that don't only benefit the very well off, the end of fee-for-service medical practices, farm subsidies to folks averaging $250 in annual income and some tightening up of welfare outlays without hurting those who really need the help.
+> 
+> Acting as wreckers rather than governing to make what is in place better and more cost efficient in serving the people is why the GOP enjoys the reputation it enjoys today...outside its gerrymandered districts, that is.
+
+ Read more
+
+[here](http://douthat.blogs.nytimes.com/2013/10/02/why-the-right-fights/)
+
+.

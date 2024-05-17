@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:54:35
+-->
+
+# Physics Perspective: Republicans: destroy planet if need be to stop OBAMACARE
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/10/republicans-destroy-planet-if-need-be.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/10/republicans-destroy-planet-if-need-be.html#0001-01-01)
+
+A gem from
+
+[the Borowitz Report](http://www.newyorker.com/online/blogs/borowitzreport/2013/10/ted-cruz-destroying-entire-planet-best-way-to-stop-obamacare.html)
+
+:
+
+WASHINGTON (
+
+[The Borowitz Report](http://bit.ly/NhEEu0)
+
+)—Senator Ted Cruz (R-Texas) raised the ante in the battle over the Affordable Care Act on Sunday, telling CNN’s Candy Crowley that “destroying the entire planet is really the best and only way to stop Obamacare.”
+
+“Look, I’m in favor of shutting down the government and not raising the debt ceiling, but let’s not kid ourselves. Those are only half measures,” he told Crowley. “If we are really serious about stopping Obamacare, we’ll destroy the entire planet.”
+
+Explaining his proposal to a visibly alarmed Crowley, Senator Cruz said, “Obamacare is like a parasite that needs a host to feed on. If you want to kill the parasite you kill the host, and in this case that means killing this planet. As long as there’s a planet Earth, the nightmare of Obamacare could always come screaming back to life.”
+
+While he was not specific about how he would go about destroying the planet, Cruz said, “This is something that my colleagues and I have been working on for some time.”
+
+The Texas senator refused to speculate on whether there were enough votes in Congress to support his proposal of obliterating Earth, but he ended his interview on a personal note: “Candy, I don’t want my children and my children’s children to live in a world with Obamacare. And the best way to guarantee that is by destroying the world.”

@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:54:27
+-->
+
+# Physics Perspective: Shiller, Fama and all that...
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/10/shiller-fama-and-all-that.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/10/shiller-fama-and-all-that.html#0001-01-01)
+
+I couldn't help but write a little in my latest
+
+[Bloomberg column](http://www.bloomberg.com/view/bios/mark-buchanan/)
+
+on the strange choice for this year's Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel. For readers of the column I wanted to give a few more links here to some stuff I've written before on the Efficient Markets Hypothesis, an idea that I think has been cause for an enormous waste of intellectual energy over 40 years or so. It has many versions. They are either 1) clearly false and so uninteresting or 2) clearly and unsurprisingly true, and hence uninteresting. That's my opinion in short; links to more extended discussions below.
+
+The aforementioned Prize certainly involves a weird juxtaposition of two names -- Robert Shiller and Eugene Fama -- that you wouldn't normally think of seeing together. The one, Shiller, is a great enthusiast for markets, but also a staunch realist who thinks markets can and do go awry in lots of ways, creating bubbles, wasting resources, etc. The other, Fama, is a great enthusiast for markets who thinks they never go wrong, ever, and have an almost magical capacity to steer investments wisely (I think, but it's pretty hard to know exactly what he believes). So wait -- I guess they are clearly linked after all by the label "market enthusiast." There the similarity ends.
+
+I've written previously on a number of occasions about the dreadfully long and confused arguments over the Efficient Markets Hypothesis. See
+
+[here](http://physicsoffinance.blogspot.com/2011/05/whats-efficient-in-efficient-markets.html)
+
+for a general introduction,
+
+[here](http://physicsoffinance.blogspot.com/2012/02/how-markets-become-efficient-answer.html)
+
+for some very recent evidence that pretty much kills the idea in one swoop, and
+
+[here](http://physicsoffinance.blogspot.com/2011/09/of-hurricanes-and-economic-equilibrium.html)
+
+for a discussion of the perversions of normal logic often used by defenders of the EMH to prop the idea up in the face of all evidence. If writing papers about the EMH was banned I think finance would immediately take a step in the right direction. I just don't think it is interesting. Saying that the "market is hard to beat" and is therefore "efficient" in some peculiar sense isn't saying much at all.

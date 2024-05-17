@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:55:16
+-->
+
+# Physics Perspective: Young economists -- go for it!
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/07/young-economists-go-for-it.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/07/young-economists-go-for-it.html#0001-01-01)
+
+I'm really glad to see some economics students standing up for what they believe and taking action to start pushing their field in a better direction.
+
+[This recent conference](http://www.rethinkingeconomics.de/)
+
+in Germany wasn't organized by the elders in economics, the esteemed and deserving (??) Nobel Prize winners of "greed, rationality and equilibrium" who OUGHT to be desperate to find better ideas and to lead the way, but by students acting on their own (with some help from INET). I'm encouraged by their energy and willingness to think openly:
+
+> **Who are we?**  As students of economics at the University of Tübingen, Germany, we are organizing the second Rethinking Economics conference, in order to broaden our insights into modern economic thinking. As the [summer conference in 2012](https://sites.google.com/site/rethinkeconomics/2012-impressions/2012%20RE%20Conference%20Documentation_HP.pdf?attredirects=0&d=1) has shown that university education puts too little attention on issues of epistemology and the history of economic science, this year’s conference aims to stress the methodological plurality of recent economic research. Therefore we are seeking to promote the exchange with new economic thinkers of all strands and like-minded economics students. **Why rethink economics?** Most of current economic research considers economics as a self-equilibrating system populated by rational individuals. It lacks interactions that can endogenously explain crises that we have seen in the real world. Alternative approaches, however, offer inspiring new perspectives to economic phenomena and provide ideas how the deficiencies of current economic paradigms may be solved. Frictions and irrationalities in general, and, for example, the nature and political economy of financial markets and systemic instability in particular, are not treated as unattractive deviations from theoretical ideals, but are incorporated as main features of the model. These theories show that aside from neoclassical approaches there are different ways of thinking about economics, which allow understanding economic dynamics better.
+> **What is our objective?** There has been an intense debate on the direction of economic research since the outbreak of the financial crisis. Our summer conference aims to offer an insight into modern strands of economics and to promote and accelerate new economic thinking among young students of economics. The conference will cover Complexity Economics, Agent-Based Modeling, Neuroeconomics, Postkeynesian Economics, and Behavioral Economics. These theories will be applied to topics such as non-equilibrium economics, contagion in the banking sector, instability of preferences, the links between the financial sector and the real economy, and empirical evidence on neoclassical assumptions from psychology, sociology, anthropology, and neuroscience.
+> 
+> **Who can participate?** The conference addresses students of economics and neighboring fields.  We invite open-minded economic thinkers of all semesters, and will therefore provide workshops that do not assume many previous knowledge of the topic discussed. Every lecturer will provide a reading list, which enables the participants to prepare themselves in advance. The conference will be complemented by a panel discussion open to the public, dealing with the future of economic modeling.
+
+ Good for them.
