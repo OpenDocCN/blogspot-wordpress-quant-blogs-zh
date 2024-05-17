@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:35:57
+-->
+
+# Humble Student of the Markets: How the World Cup almost unraveled China
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2022/12/how-world-cup-almost-unraveled-china.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2022/12/how-world-cup-almost-unraveled-china.html#0001-01-01)
+
+The Chinese authorities were stuck between a rock and a hard place. On one hand, COVID caseloads were skyrocketing; on the other hand, after two years of a series of on-again-off-again of lockdowns, it was unsurprising that Chinese citizens, many of them young, got a case of cabin fever and protested the government's COVID policies in a series of nationwide demonstrations. A 
+
+[podcast from the Economist](https://podcasts.apple.com/ca/podcast/drum-tower/id1651657142?i=1000587817166)
+
+ argued that the combination of strict lockdowns and ubiquitous government monitoring led to widespread dissatisfaction.
+
+Two incidents were believed to be the final straws that were the catalysts for the unrest. The first was an apartment fire in the city of Urumqi in western Xinjiang, where 10 people died, in which fire exits were locked because of COVID restrictions that trapped occupants inside, and COVID barriers prevented firefighters from reaching the building. In addition, broadcasts of the World Cup showed numerous unmasked spectators in the stands, which ran counter to the government’s narrative that China was controlling the pandemic much better than the West.
+
+Protests are relatively common in China, but it's rare to see them erupt spontaneously and in different cities. While the authorities appear to have the protests under control, it could be argued that broadcasts of the World Cup were a spark that almost unraveled China.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2022/12/03/how-the-world-cup-almost-unraveled-china/)
+
+.
