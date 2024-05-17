@@ -1,0 +1,45 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:48:19
+-->
+
+# Humble Student of the Markets: The GOP schism
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/10/the-gop-schism.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/10/the-gop-schism.html#0001-01-01)
+
+Last year, I speculated about a split within the Republican Party (see
+
+[November speed bumps](http://humblestudentofthemarkets.blogspot.com/2012/10/november-speed-bumps.html)
+
+), though it wasn't the base case in my forecast:
+
+> Assuming that we get a status quo electoral result, I believe that the market hasn't considered the possibility that the Republican Party could turn on itself. The GOP has been divided between two wings, the Establishment wing, as exemplified by the likes of George H. W. Bush, the classic East Coast Establishment patrician, and the social conservatives, as exemplified by Sarah Palin and the Tea Party.
+> 
+> You could see the tension develop as the presidential nomination battle developed. The social conservatives lost the nomination, but closed ranks with other Republicans and for the sake of the Party. The implicit message was, "You get your chance to make your mark this time."
+> 
+> What happens if Mitt Romney implodes? Could the social conservatives start to point fingers and try to blame the Establishment wing for the loss and split the GOP? If that happens, the Tea Party and their social conservative allies would make an ideological stand in order to differentiate themselves from the Establishment Republicans and send the country over the fiscal cliff like an innocent bystander.
+
+It looks like the split between the traditional conservatives in the GOP and the Tea Party wing is getting wider. Consider how the MSM's interpretation on the current negotiations - that the Republicans have lost and they are seeking just to hold their gains while the Democrats are going on the offensive (as per the
+
+[Washington Post](http://www.washingtonpost.com/politics/senate-leaders-begin-to-negotiate-as-other-efforts-to-end-impasse-crumble/2013/10/13/498f4202-341a-11e3-8a0e-4e2cf80831fc_story.html?hpid=z1)
+
+, emphasis added):
+
+> Republicans seemed to think they had more to lose. After talks broke down between President Obama and House leaders, GOP senators quickly cobbled together a plan to end the government shutdown — now entering its third week — and raise the $16.7 trillion debt limit. Senate Minority Leader Mitch McConnell (R-Ky.) then asked Majority Leader Harry M. Reid (D-Nev.) to elevate negotiations to the highest level.
+> 
+> On Sunday — with the Treasury Department due to exhaust its borrowing power in just four days — Reid was wielding that leverage to maximum advantage. ***Rather than making concessions that would undermine Obama’s signature health-care initiative, as Republicans first demanded, Democrats are now on the offensive and seeking to undo what has become a cherished prize for the GOP: deep agency spending cuts known as the sequester.***
+
+By contrast, consider this
+
+[Dana Milbank](http://www.washingtonpost.com/opinions/dana-milbank-the-shutdowns-enforcer-in-chief/2013/10/09/0b86d924-312d-11e3-89ae-16e186e117d8_story.html)
+
+profile of Heritage Action's Michael Needham, who is actively seeking to push the GOP to the right and purge the Party of RINOs (Republicans In Name Only):
+
+> At the moment, Needham is fighting alongside Republicans. But Heritage Action’s broader goal is to turn the GOP into a “libertarian populist” party freed from Wall Street and K Street. ***Slate’s John Dickerson asked whether Needham was trying to force a confrontation to induce a “massive crackup of the old order” in the GOP.***
+> ***“I’m pretty optimistic that it’s going to happen and it’s going to happen pretty soon,” Needham said.***
+
+Wow! If the likes of Needham succeed, the ideological gap within the GOP will turn into a schism and tear the Party apart.
+
+Republicans will be so beset with infighting that, to outsiders, they will sound like *gasp* Democrats!
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](//www.blogger.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”**None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
