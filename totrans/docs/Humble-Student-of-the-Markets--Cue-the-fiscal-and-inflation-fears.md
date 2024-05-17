@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:41:19
+-->
+
+# Humble Student of the Markets: Cue the fiscal and inflation fears
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2018/05/cue-fiscal-and-inflation-fears.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2018/05/cue-fiscal-and-inflation-fears.html#0001-01-01)
+
+Was the recent big tax cut not enough? 
+
+[CNBC](https://www.cnbc.com/2018/05/22/donald-trump-says-he-will-propose-new-tax-cuts-prior-to-november.html)
+
+ reported that President Trump is proposing further tax cuts before November. He went on to pressure Congress to enact funding for his budget priorities on
+
+[Twitter](https://twitter.com/realDonaldTrump/status/995428472674758656)
+
+.
+
+These actions prompted Steve Collender (aka @thebudgetguy) to declare in a Forbes article that
+
+[Trump May Be The Most Fiscally Reckless President in American History](https://www.forbes.com/sites/stancollender/2018/05/20/trump-may-be-the-most-fiscally-reckless-president-in-american-history/amp/)
+
+:
+
+> But think about why Trump is asking for rapid action on the 2019 appropriations: He wants even more spending. Even though his policies have spiked the annual budget deficit to a new normal of a $1 trillion (with $2 trillion definitely within view) and interest rates are now starting to go up in large part because of his out-of-sync-with-the-economy stimulative fiscal policy, Trump is demanding that federal spending and the government’s red ink be increased even further.
+> 
+> There was no hint in this or any other subsequent tweet that Trump is going to propose offsetting spending cuts (or, heaven forbid, revenue increases) to compensate for the additional spending he’s demanding.
+> 
+> Trump’s recently-announced rescission package (which is already in a great deal of political trouble with congressional Republicans) doesn’t come close to offsetting the new spending Trump said he wants. It also won’t come close to being an offset even if the first package is followed with that second rescission plan Trump has said is coming, but which so far seems to be totally imaginary.
+
+Here at Humble Student of the Markets, I believe that the determination of the proper path of fiscal policy is above our pay grade. Instead, my focus is on positioning portfolios for any changes in government policy.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2018/05/24/cue-the-fiscal-and-inflation-fears/)
+
+.
+
+We would further like to announce our Sale in May. The offer is available only to the first 100 to sign up. Please use this 
+
+[link](https://humblestudentofthemarkets.com/product/annual-subscription/)
+
+ to order.
