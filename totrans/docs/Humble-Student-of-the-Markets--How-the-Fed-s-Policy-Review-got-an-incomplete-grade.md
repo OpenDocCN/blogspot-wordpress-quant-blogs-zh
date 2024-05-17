@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:12:11
+-->
+
+# Humble Student of the Markets: How the Fed's Policy Review got an incomplete grade
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2020/09/how-feds-policy-review-got-incomplete.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2020/09/how-feds-policy-review-got-incomplete.html#0001-01-01)
+
+It has been over a week since Jerome Powell's virtual Jackson Hole speech in which he laid out the Fed's revised its 
+
+[updates to its Statement on Longer-Run Goals and Monetary Policy Strategy](https://www.federalreserve.gov/newsevents/pressreleases/monetary20200827a.htm)
+
+after a long and extensive internal review. There were two changes. one was a shift towards an "average inflation targeting" regime, where the Fed "seeks to achieve inflation that averages 2 percent over time". The other was an emphasis on to target low unemployment. Instead of minimizing “deviations from the maximum" employment, it will minimize “shortfalls of employment from its maximum level.”
+
+The results of the review were much like a student handing in a term paper after much effort, but the assignment is incomplete, and leaves many questions unanswered.
+
+*   How will the Fed calculate the average inflation rate? In other words, what decision rules will the Fed adopt to raise interest rates?
+*   How credible is the 2% inflation target? How does the Fed expect to raise the inflation rate, when it was unable to do so for many years? Is it because its lab partner, fiscal policy, failed to work on the assignment?
+*   How will the Fed manage the bond market's expectations? If the average inflation target of 2% is credible, how far above 2% will the 10-year Treasury yield be, and what will that do to the economy and stock prices?
+
+On the last point, I had a discussion with a reader about the implications for the bond market in the wake of Powell's speech. Wouldn't a credible 2% average inflation target translate into a substantial surge in bond yields? How far above 2% does the 10-year Treasury have to trade? What does that mean for equity valuations?
+
+Supposing that you knew for certain that inflation will average 2% over the next 10 years, you would certainly demand a Treasury yield of over 2%, say 2.5%. The 10-year yield needs to rise by at least 1.8%. What would that do to the economy, and the stock market?
+
+Forward P/E ratios are stratospheric compared to their own history, but some investors have justified the high multiple by pointing to low rates. TINA, or There Is No Alternative. Valuations are reasonable based on equity risk premium (ERP), which is some variation of E/P - interest rates. Here is the Q2 2020 ERP calculation of Antonio Fatas, professor of economics at INSEAD. While the stock market appears reasonably priced based on ERP today, raising rates by 1.8% (everything else being equal) would make stocks far less attractive compared to fixed income alternatives.
+
+Something doesn't add up. The Fed's review appears incomplete. There are too many unanswered questions.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2020/09/05/how-the-feds-policy-review-received-an-incomplete-grade/)
+
+.
