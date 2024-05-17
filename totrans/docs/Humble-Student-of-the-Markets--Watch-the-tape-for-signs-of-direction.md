@@ -1,0 +1,25 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:40:16
+-->
+
+# Humble Student of the Markets: Watch the tape for signs of direction
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/01/watch-tape-for-signs-of-direction.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/01/watch-tape-for-signs-of-direction.html#0001-01-01)
+
+As 2010 opened, the stock market averages have crept to marginal new highs. Scott Grannis at Calafia Beach Pundit has pointed out that there are some real signs of a recovery. Examples include:
+
+Is all right with things in the world and are stocks poised to continue their rally?
+
+**The bear case**
+Just when you thought that it might be safe to go back in the water (even after the immense recovery in the markets since March), there is bad news on the ticker:
+
+Longer term, [John Hussman](http://www.hussmanfunds.com/wmc/wmc100104.htm) is warning about another round of credit troubles that await the US financial system:
+
+> From the standpoint of the financial markets, we can anticipate an increase in mortgage delinquencies in the coming months if only from the combination of high unemployment, high loan-to-value ratios, and a gradual movement into the heaviest portion of reset schedule on Alt-A and Option-Arm mortgages written at the peak of the housing bubble. That this will result in true credit losses is virtually certain. Whether or not this leads to fresh reported credit losses depends on how much latitude regulators allow in maintaining current (substantially written-up) values for securities that are not delivering the underlying cash flows.
+> 
+> What we do know is that stocks are overvalued even on the basis of normalized earnings, to an extent that exceeds nearly every pre-1995 level except 1929\. Intermediate term conditions are strenuously overbought, investors (with advisory sentiment now down to 15.6% bearishness) are clearly overbullish, and interest rate trends are pushing higher. This situation does not always resolve itself into market declines, and indeed, given that market internals remain reasonably firm, we may continue to observe marginal new highs for some amount of time. But the statistical regularity from overvalued, overbought, overbullish, rising yield environments is one of steep, abrupt market losses generally within a period of about 10-12 weeks.
+
+**Stay tactical**
+
+In this kind of high-risk environment, it's important to stay tactical and watch the tape. How the market reacts to news such as the items mentioned, as well as the NFP report, will set the short-term tone for market direction.
