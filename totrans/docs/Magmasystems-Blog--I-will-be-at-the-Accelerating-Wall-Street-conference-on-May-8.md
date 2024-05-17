@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:02:48
+-->
+
+# Magmasystems Blog: I will be at the Accelerating Wall Street conference on May 8
+
+> 来源：[http://magmasystems.blogspot.com/2008/04/i-will-be-at-accelerating-wall-street.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/i-will-be-at-accelerating-wall-street.html#0001-01-01)
+
+I just got invoted to particpate on a panel about CEP. It's goign to be on Thursday, May 8th at the Grand Hyatt in NYC. The conference is titled "Accelerating Wall Street", and is being sponsored by Wall Street and Technology Magazine.
+
+Here is a link to the conference:
+
+[http://wallstreetandtech.com/accelerate/agenda.jhtml;jsessionid=RR5ALTPMXDVHYQSNDLOSKH0CJUNN2JVN](http://wallstreetandtech.com/accelerate/agenda.jhtml;jsessionid=RR5ALTPMXDVHYQSNDLOSKH0CJUNN2JVN)
+
+My session is "CEP on Wall Street". Here is the blurb:
+
+*Complex Event Processing (CEP) holds the promise of major benefits for Wall Street firms, as it can speed up the interpretation of volumes of data in real time. Where is CEP being used today? Where will it be used in the future? Is it more hype than reality? In this special Get to the Point session, panelists will have 60 seconds to answer questions for the moderator and the audience.***Moderator:* *Greg MacSweeney, Editor-in-Chief, Wall Street & Technology***Panelists:**Malcolm West, Chief Software Architect, HSBC's Corporate, Investment Banking and Markets division**Adam Honoré, Senior Analyst, Aite Group, LLC*
+
+©2008 Marc Adler - All Rights Reserved**
