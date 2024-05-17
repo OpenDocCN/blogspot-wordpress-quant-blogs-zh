@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:57:46
+-->
+
+# Humble Student of the Markets: China's Golden Rule?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/02/chinas-golden-rule.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/02/chinas-golden-rule.html#0001-01-01)
+
+Recently there has been a cacophony of calls for stockholders and bond holders of
+
+[zombie](http://jeffmatthewsisnotmakingthisup.blogspot.com/2009/02/zombies-must-die.html)
+
+financials to take their lumps as part of an overall reorganization plan. Instead of injecting more government money so that these institutions could maintain their zombie status.
+
+[John Hussman’s comments](http://www.hussmanfunds.com/wmc/wmc090223.htm)
+
+are a good example of this school of thought [emphasis mine]:
+
+> Take a look at Citibank's balance sheet as of the third quarter of 2008\. The company had about $2 trillion in assets, versus about $132 billion in shareholder equity, for a gross leverage ratio of about 16-to-1\. That's not a comfortable figure, because it indicates that a decline of about 6% in those assets would wipe out Citibank's equity and make the bank technically insolvent. Unfortunately, we saw credit default spreads screaming higher last week, while the bank's stock dropped below $2 a share, so evidently the market is deeply concerned about the possible immediacy of that outcome.
+> 
+> But keep looking at the liability side of Citibank's balance sheet. There is over $360 billion in long-term debt to the company's bondholders, and another $200 billion in shorter term borrowings. None of that is customer money. That puts the total capital available to absorb losses at $132 + $360 + $200 = $692 billion, which is about 35% of the $2 trillion in assets carried by Citibank. That's a huge cushion for customers, who are unlikely to lose even if Citibank becomes insolvent. Should that occur, the proper response of government will not be to defend Citi's bondholders at taxpayer expense, but rather, to take Citi into receivership, wipe out the shareholders and most of the bondholders, and sell the assets along with the liabilities to customers to another institution…
+> 
+> Simply put, institutions that are insolvent and would only avoid continued insolvency by large and continued infusions of taxpayer funds should be allowed to “fail” through the process of government receivership. ***It is wrong to squander the taxes of ordinary citizens and put a burden of indebtedness on our children in order to protect the bondholders of careless and poorly-managed financial institutions***.
+
+Ahhh, if economic policy is only so simple.
+
+A recent
+
+[article](http://www.financialweek.com/apps/pbcs.dll/article?AID=/20090223/REG/902209973)
+
+reports that China’s holdings of U.S. corporate debt may be hampering efforts to reorganize and/or nationalize banks. Rachel Ziemba, an analyst for RGE Monitor, estimates that China’s banks and investment funds holds close to $160b in U.S. corporate debt, much of which is concentrated in financials.
+
+**Could the U.S. relationship with China be the stumbling block?**
+
+I had written
+
+[before](http://humblestudentofthemarkets.blogspot.com/2008/09/this-bailout-is-destined-to-end-in.html)
+
+that throughout this crisis, the attitude of China has been that it expects the U.S. government to insulate China from losses. The Chinese attitude to business has typically been based on long-term relationships. Part of the give and take of a relationship is to not let your business partner down.
+
+We cannot know what has happened behind closed doors, but given the soothing sounds emerging from Hillary Clinton’s recent visit to China, could efforts to reorganize the U.S. financial system be hampered by U.S. efforts to maintain a friendly Sino-American relationship? The aforementioned article went on to speculates that “the Obama administration may be waiting for China to reduce its exposure to the debt of the latest U.S. financial institutions found lying near death’s door before it nationalizes them.”
+
+As the saying goes, he with the gold makes the rules. China has the gold…
