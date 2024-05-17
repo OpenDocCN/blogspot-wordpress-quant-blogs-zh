@@ -1,0 +1,60 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:22:22
+-->
+
+# Humble Student of the Markets: Demographics beyond the 2020s
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2020/01/demographics-beyond-2020s.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2020/01/demographics-beyond-2020s.html#0001-01-01)
+
+I received some thoughtful feedback to my recent post (see
+
+[The OK Boomer decade](https://humblestudentofthemarkets.com/2019/12/29/the-ok-boomer-decade/)
+
+). In particular, one reader referred me to an article by Greg Ip of the
+
+[WSJ](https://www.wsj.com/articles/the-demographic-threat-to-americas-jobs-boom-11576673115)
+
+regarding the demographic headwinds affecting the American labor force.
+
+> The U.S. will run out of people to join the workforce. Indeed, this bright cyclical picture for the labor market is on a collision course with a dimming demographic outlook. While jobs are growing faster than expected, population is growing more slowly. In July of last year, the U.S. population stood at 327 million, 2.1 million fewer than the Census Bureau predicted in 2014 and 7.8 million fewer than it predicted in 2008\. (Figures for 2019 will be released at the end of the month.)
+
+Population growth is dependent on two factors, fertility rate and immigration, but the US is fading in both areas:
+
+> The U.S. has had two longstanding demographic advantages over other countries: higher fertility and immigration. Both are eroding. Since 2008, the U.S. fertility rate has gone from well above to roughly in line with the average for the Organization for Economic Cooperation and Development, a group 36 mostly developed economies...
+> 
+> Meanwhile, the inflow of foreign migrants to the U.S. has been trending flat to lower, while trending flat to higher in other countries. Last year, the foreign-born population expanded by a historically low 200,000, according to the Census Bureau. The exact reasons are unclear. The illegal immigrant population had stopped growing before President Trump took office. Legal immigration remained above 1 million through 2018.
+
+Indeed, the
+
+[FRED Blog](https://fredblog.stlouisfed.org/2019/12/whither-the-workers/)
+
+recently highlighted the difference between prime age population growth in the US and Canada and hinted that the widening spread may be explained by differences in immigration policy:
+
+> While fertility rates have declined a little, immigration has helped sustain population growth. Immigrants are typically of working age, so immigration can increase the working-age population specifically.
+
+The 63 Canadian passengers (out of a total of 167) who died on the doomed Ukrainian airliner in Tehran provides a window on Ottawa's skilled immigration policy (via
+
+[Bloomberg](https://www.bloomberg.com/news/articles/2020-01-09/phds-doctors-bankers-iran-crash-shows-canada-immigration-push)
+
+):
+
+> They were doctors, engineers and Ph.D. students. The Canadians who lost their lives in the plane crash in Iran were mainly highly educated professionals and students, a reflection of the country’s push to attract skilled workers in the face of an aging population.
+> 
+> As governments around the world grapple with how to make immigration work without fanning political flames, Canada has taken a different tack, welcoming newcomers last year at the fastest pace in decades. About 12% of Canada’s post-secondary school population is made up international students, according to the country’s data agency...
+> 
+> “It’s really difficult to train someone on that level, integrate them and absorb them as high talent,” Parisa Mahboubi, a senior policy analyst at C.D. Howe Institute, a Toronto-based research firm, said by phone. “Doctors and dentists for example, to be able to obtain the degree that they are able to work in Canada. It takes time. It is really sad for both countries, losing those brains,” she said.
+> 
+> Mahboubi is Iranian-Canadian and has lived in Canada for more than 13 years.
+> 
+> Last year, Canada added a net 437,000 people from abroad, despite being only a tenth the size of the U.S., helping to drive its fastest population increase in decades, even with declines in fertility.
+> 
+> “Immigration has been a driver of Canada’s economic and cultural development. And with natural population’s slow growth, immigration contribution to growth in the labor force and even the tax base has been becoming more important,” Mahboubi said.
+
+If labor force growth is being hampered by population growth, what does that mean for the rest of the world, and the world's long-term economic growth potential?
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2020/01/13/demographics-beyond-the-2020s/)
+
+.
