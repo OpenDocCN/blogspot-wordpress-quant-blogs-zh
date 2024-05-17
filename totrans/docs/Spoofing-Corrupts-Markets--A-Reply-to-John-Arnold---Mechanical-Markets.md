@@ -1,0 +1,68 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:43:40
+-->
+
+# Spoofing Corrupts Markets: A Reply to John Arnold | Mechanical Markets
+
+> 来源：[https://mechanicalmarkets.wordpress.com/2015/04/12/spoofing-corrupts-markets-a-reply-to-john-arnold/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/04/12/spoofing-corrupts-markets-a-reply-to-john-arnold/#0001-01-01)
+
+Several months ago, John Arnold made an [argument](http://www.bloombergview.com/articles/2015-01-23/high-frequency-trading-spoofers-and-front-running) that spoofing, a long-banned [practice](http://blogs.wsj.com/briefly/2015/02/22/5-things-to-know-about-spoofing-in-financial-markets/), “keeps markets honest.” His points are thought-provoking and I think that there’s room for a serious debate on whether anti-spoofing rules have gone too far. Nonetheless, I believe his reasoning is flawed.
+
+Arnold’s definition of spoofing sounds spot-on to me:
+
+> In financial markets, to “spoof” means to make a bid or offer for a security or commodity with the intent of cancelling the order before it is executed. It is designed to create a false sense of investor demand in the market, thereby changing the behavior of other traders and allowing the spoofer to profit from these changes.
+
+# Market Impact Does not Signify Front-Running
+
+But why does he think that spoofing improves market quality? Central to his argument is that some high-frequency traders operate strategies which, by detecting patterns in market data, anticipate order flow by large institutional traders. These strategies certainly exist and likely do increase the market impact of orders sent by large traders before they’ve reached their desired position. Arnold labels these strategies “front-runners,” a gross misuse of the term. Cliff Asness has [written](http://www.bloombergview.com/articles/2014-06-20/why-i-love-high-speed-trading) extensively about why. In essence, almost every trader, short or long-term, engages in this activity. The price of a financial instrument is simply a value at which its supply and demand are balanced. If you are predicting the price of an instrument, then you are predicting its future order flow – and vice versa. It is entirely possible that even the most blatant order-anticipation strategies (like those hypothesized by Michael Lewis to trade ahead of Bats’s routed orders) are, in the eyes of their developers, solely predicting price. A statistical model could detect patterns that sometimes correspond with orders being in-flight, even if the model’s operator has no inkling of this fact. You might even call the human brain a very fancy statistical model, which would mean that when a human trader successfully predicts a price, they have done exactly the same thing. The only traders who can honestly say that they are not engaging in what Arnold and others call “front-running” are those who will take their positions literally to the grave. I understand that there are such traders [[1](#bottom1)], but it is not the [common case](https://research.stlouisfed.org/fred2/series/DDEM01USA156NWDB).
+
+# Spoofing Will Not Stop Information Leakage
+
+Arnold argues that spoofing deceives these strategies, preventing them from increasing execution costs for large traders. Whether or not you call such statistical strategies “front-running”, it’s not even clear that spoofing would render them unprofitable. In fact, some order-anticipation strategies might detect spoofing and piggy-back onto it (perhaps unbeknownst to the operator). If so, it would be the spoofer who sees HFT-associated market impact costs. If spoofing were permitted and became widespread, we would likely see these spoofing-immune strategies multiply. The HFT ecosystem invariably adapts when new behaviors occur on the market.
+
+# Spoofing Hurts All Traders
+
+The most serious flaw in his argument, however, is the claim that
+
+> Regulators have never described how spoofing harms market integrity or even legitimate traders… The only party that is touched by the spoofer’s deception is the front-running HFT
+
+I haven’t read every regulatory filing on the matter, but I believe that regulators know full well that spoofing harms traders of all stripes. Perhaps this comment indicates that they could do a better job explaining that to participants. Why does Arnold believe spoofers can’t harm traditional traders? Because “[n]o human can see these trades, much less react to them in real time.” Of course, you could define “spoofing” as something that must occur for no more than “a tenth the time that it takes the human eye to blink.” But that is not the definition everybody else uses. In fact, [one case](http://www.bloombergview.com/articles/2015-01-13/spoofers-tricked-highspeed-traders-by-hitting-keys-fast) that Arnold cites alleges spoofed orders that are live for around 30 seconds, more than enough time to trick human traders into submitting orders of their own.
+
+Even if we exclude cases such as this one and legalize the submission of spoofed orders with the proviso that they stay live for less than 100ms, there are plenty of unsophisticated market participants who would still be harmed. These days, algorithmic trading tools are used by a wide class of traders. There is an entire industry, possibly larger than that of vanilla HFT, focused on creating and marketing these tools. Tremendous volume is executed via algorithms on behalf of traditional long-term traders.[[2](#bottom1)] I’m not an expert on such algorithms, but my impression is that they tend to be much less sophisticated than a lot of vanilla HFT, and thus more likely to be tricked by spoofing. A basic example of one such execution algorithm would be a peg order, which is priced in a very simple [fashion](https://www.interactivebrokers.com/en/?f=%2Fen%2Ftrading%2Forders%2Fpegmid.php) somewhere in between the best bid and ask. If a spoofer alters the best bid then a peg order will change its price in response, leaving the user open to losses.
+
+# Allowing Spoofing is a Slippery Slope
+
+I suppose, we could decide that because spoofing *might* damage order-anticipation strategies (ill-defined as they are), that it is worth the cost imposed on everybody else. This is a dangerous line of reasoning. How would one go about specifying which types of manipulation are allowed and which aren’t? Matt Levine recently wrote a fantastic, easily-digestible [definition of manipulation](http://www.bloombergview.com/articles/2015-04-02/my-dog-is-gluten-free):
+
+> Generally it is allowed, encouraged even, for a big market participant to hide its intentions. It is manipulation for a market participant to affirmatively mislead people about its intentions. The space between those two things is very narrow indeed.
+
+Say that you wanted to change this definition to allow spoofing with the intention of damaging order-anticipation strategies. Could you do so in a fashion that didn’t also allow other kinds of nasty manipulation? I don’t see how. Manipulation via self-trading is probably a behavior that everybody agrees should be prohibited. When a manipulator trades with themselves, they can do so risk-free at an arbitrary price, giving other traders a false sense of the market price.[[3](#bottom3)] Self-trading can be extremely damaging to market integrity. But which group, I wonder, is most hurt by self-trading? One could argue that so-called “front-runners” are. For example, say Apple stock is currently trading at $100, and a manipulator trades 10 million shares with themselves at $90\. There could be order-anticipation algorithms, ‘predicting’ selling to come, that react to this and sell Apple stock.[[4](#bottom3)] There could also be strategies that take this as a signal that there will soon be selling across the entire sector, and sell stocks in related companies. These algorithms fall under Arnold’s definition of “front-running,” and would be expected to lose money when the manipulator decides it’s time to push Apple stock back to $100\. Does that mean we should celebrate the manipulator? No.[[5](#bottom3)]
+
+Arnold says that regulators object to spoofing “because it involves deception.” In extreme cases, unfettered deception can [destroy a marketplace](http://en.wikipedia.org/wiki/The_Market_for_Lemons). I doubt spoofing would completely ruin our financial markets, but it would impose additional costs on participants, as well as drive out those frightened by the prospect of receiving dishonest prices. That seems like reason enough to ban it.[[6](#bottom6)]
+
+[[1](#1)] Buy-and-hold-forever investors qualify. There are surely some who buy equities intending to *never* sell, And there are presumably many such investors in bond markets.
+
+Another example might be a short-seller like Bill Ackman, who has explicitly [said](http://www.bloomberg.com/news/articles/2013-11-22/ackman-says-he-ll-take-herbalife-bet-to-end-of-the-earth) about a position: “We’re going to take this to the end of the earth.” I can’t help but notice how the position’s (intended) infinite duration means that “[t]his is not a trade for me.”
+
+End-users and producers of commodities also seem like good examples. Until we consider that they may still predict the price and adjust their trading accordingly. Or, adjust their consumption and production accordingly. Or even trade, knowing how they and others like them will adjust their consumption and production, which would be very explicit order-anticipation. When you think of it like this, order-anticipation is an essential activity in a capitalist society. Without it, there’s a massive handicap on the feedback mechanism between price and production/consumption.
+
+[[2](#2)] One of the [precipitating events](http://www.sec.gov/news/studies/2010/marketevents-report.pdf) of the flash crash was the usage of an (arguably poorly programmed) execution algorithm:
+
+> [A]gainst this backdrop of unusually high volatility and thinning liquidity, a large fundamental trader (a mutual fund complex) initiated a sell program to sell a total of 75,000 E-Mini contracts (valued at approximately $4.1 billion) as a hedge to an existing equity position.
+
+So, even 5 years ago, execution algorithms were widely used in futures markets.
+
+[[3](#3)] One common defense of spoofing is that the spoofer is taking on real risk with their duplicitous orders. That’s true; spoofed orders are liable to get picked off. This is different from our self-trading example, which is nearly risk-free to the manipulator. But there are other risky manipulation schemes that ensnare so-called “front-runners,” for instance, the [pump-and-dump](http://www.sec.gov/answers/pumpdump.htm) (which could deceive news-focused HFTs, which are predicting future order flow). Regardless, the risk, though it may make a spoofing epidemic self-limiting, seems tangential to me – the penalty for fraud is generally greater than the risk that the fraud goes awry.
+
+[[4](#4)] Such algorithms might sell Apple on other exchanges. If they are responding to a predicted outbound routable order, they would meet Michael Lewis’s definition of “front-running.” You might see selling at prices above or below $90; it doesn’t particularly matter, all such selling could be labelled “front-runnng” under Arnold’s definition and I’d expect it to lose money due to the manipulation.
+
+[[5](#5)] If you’re a long-term investor, this scenario seems great, right? You can buy Apple stock at a $10 discount. So, if you thought the stock had an intrinsic value of $105, you’re getting a real bargain. In practice though, I’d imagine that you would hesitate to start buying stock in such a scenario. At least until you had confirmed that the price wasn’t plummeting because of some news that you hadn’t heard yet. By the time you could rule out any news, the manipulator would have pushed the price back to $100.
+
+[[6](#6)] Banning it does not necessarily mean locking up offenders and throwing away the key. From the [indictment](http://www.justice.gov/usao/iln/pr/chicago/2014/pr1002_01.html) of Michael Coscia:
+
+> Coscia… was charged with six counts of commodities fraud and six counts of “spoofing”… Each count of commodities fraud carries a maximum sentence of 25 years in prison and a $250,000 fine, and each count of spoofing carries a maximum penalty of 10 years in prison and a $1 million fine.
+
+I don’t like spoofing, but it’s not the worst thing I can think of. Does anybody think that this proposed punishment is fit for the crime? Particularly when other alleged spoofers [receive](http:/ftalphaville.ft.com/2014/11/30/2055352/chicago-the-last-refuge-of-light-touch-regulation/) a much smaller fine and a trading ban over the holidays. Heavy fines, a lifetime industry ban, maybe even a month or two in jail seem like reasonable punishments. Life in prison though?
+
+The victims of spoofing also don’t get any benefit from long prison sentences. But, if my proposed [market structure reform](https://mechanicalmarkets.wordpress.com/2015/02/26/ending-market-abuse-limits-on-anonymous-trading/) were implemented, then the victims would be readily identifiable and could sue the offender. If the spoofer is out of prison and working, the victims might be more likely to recover their losses.
