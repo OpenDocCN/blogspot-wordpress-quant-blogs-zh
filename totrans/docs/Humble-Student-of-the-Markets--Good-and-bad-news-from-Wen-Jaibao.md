@@ -1,0 +1,72 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:18:55
+-->
+
+# Humble Student of the Markets: Good and bad news from Wen Jaibao
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/06/good-and-bad-news-from-wen-jaibao.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/06/good-and-bad-news-from-wen-jaibao.html#0001-01-01)
+
+As I read
+
+[Macro Man](http://macro-man.blogspot.com/2011/06/postcard-from-europe.html)
+
+'s hilarious account of Wen Jaibao's tour of Europe, which begins as:
+
+> Dearest Papa,
+> 
+> Our grand tour of Europe continues and I must tell you, Papa, that it is just magical. The locals are so delightfully kind to us and have enthusiastically welcomed our entourage into their homes. But, Papa, their smallholdings are so sad, mainly untended and barely fit to support the livestock they keep. Their pigs are far from healthy, being underfed and almost at death's door. I feel so sorry for them, Papa. Please would you allow me to buy them some feed?
+
+...and gets funnier still:
+
+> Today we have just returned from the most delightful village of Hungary, just outside Vienna. Their cheery demeanor was so charming I felt I just had to leave them one of your One Billion credit line notes. The joy in their eyes made it well worthwhile and, Papa, I so wished you could have been there to hear them singing your praises from the tops of their churches to St Reuters and St Bloomberg. Their delight was such that they have even promised 20% of their wheat harvest for the next 20 seasons, for your delectation! Oh Papa, would you believe it?
+
+Seriously though - there is some good news and bad news coming out of Wen Jaibao's European tour. First, some good news came as the cries from the steeples of "St. Bloomberg" blared "
+
+[Wen Says China Will Keep Investing in European Bonds in Vote of Confidence](http://www.bloomberg.com/news/2011-06-26/wen-says-china-is-a-long-term-investor-in-european-debt-confident-on-euro.html)
+
+" [emphasis added]:
+
+> “China has actually increased the purchase of government bonds of some European countries, and we haven’t cut back on our euro holdings,” Wen told the British Broadcasting Corp. yesterday in an interview. These acts “show our confidence in the economies of Europe and the euro-zone.”
+
+Some good news for a change. However, economic forecasting firm
+
+[Global Economics](http://www.capitaleconomics.com/)
+
+warned not to expect China to hold up the eurozone:
+
+> Despite warm words of support from China's leaders, there is no reason to believe that China has the ability to solve the euro-zone's debt crisis. We estimate that China has already bought more than €40bn of euro-denominated assets this year, many in peripheral economies, and yet the crisis rolls on.
+
+**More tightening in China**
+
+On the bad news front, "St. Reuters" reported that
+
+[China's Wen signals doubt inflation goal can be met](http://www.reuters.com/article/2011/06/27/china-wen-idUSL3E7HR06420110627)
+
+:
+
+> Chinese Premier Wen Jiabao signalled for the first time that China would struggle to meet its 4 percent inflation target this year, underlining expectations that interest rates will rise further even as economic growth slows down.
+
+This news signaled further tightening moves in China:
+
+> Wen's latest comments sounded somewhat less sanguine than his remarks on Friday, when he said China's inflation was firmly under control this year and should cool steadily. However, they may not alter investors' thinking about monetary policy.
+
+...which increases the chances of a policy overshoot and a hard landing in China, though
+
+[some brokers believe that the Chinese market is already priced in for a hard](http://www.bloomberg.com/news/2011-06-26/china-stocks-priced-for-hard-landing-signal-2nd-half-rally-by-top-broker.html)
+
+landing, which is a signal to buy:
+
+> Citic Securities Co. and China International Capital Corp., which predicted the drop this quarter, say the market will rally in the second half as inflation peaks and the government sustains the economic expansion by easing credit. EvenNouriel Roubini, the New York University economist who says China may face a “hard landing” after 2013, expects growth of at least 8.8 percent in 2011 and 2012\.
+> 
+> “The market has basically priced in a very pessimistic outlook for the economy,” said Ling Peng, chief strategist at Shanghai-based Shenyin & Wanguo Securities Co., ranked China’s most influential research provider by New Fortune magazine last year. “A hard landing of the economy is very unlikely,” he said, forecasting the Shanghai index will advance as much as 15 percent by the end of the year to about 3,150\.
+
+This market is poised for a breakout but given the powerful cross-currents, I don't have any strong conviction about direction. While my most
+
+[recent review of global markets](http://humblestudentofthemarkets.blogspot.com/2011/06/bear-are-in-control-around-world.html)
+
+tilts my bias to the downside, I am waiting for the signals from the
+
+[Asset Inflation Deflation Timer Model](http://www.qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf)
+
+and other indicators for some definitive confirmation.
