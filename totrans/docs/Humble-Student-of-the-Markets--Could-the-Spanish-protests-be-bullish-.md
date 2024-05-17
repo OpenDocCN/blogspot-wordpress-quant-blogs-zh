@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:01:05
+-->
+
+# Humble Student of the Markets: Could the Spanish protests be bullish?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/09/could-spanish-protests-be-bullish.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/09/could-spanish-protests-be-bullish.html#0001-01-01)
+
+On Wednesday, the news of protests and clashes with police in Spain and Greece spooked the markets and we saw a solid risk-off day. The protests, it was assumed, were a sign of popular unrest (true) and an indication that the governments of the day would be hard press to implement the harsh austerity measures demanded by the Troika.
+
+Rather than seeing the glass as half empty, I think that it would be useful to think how this glass is half full. At about the same time, Spanish prime minister told the
+
+[Wall Street Journal](http://online.wsj.com/article/SB10000872396390444083304578018480751882670.html)
+
+that he was eyeing the conditions for a bailout, but if bond yields were to tick up on a sustainable basis, there was no question that he would have no choice but to ask for the bailout:
+
+> Asked whether his government would apply for a bailout, Mr. Rajoy said, "At the moment, I cannot tell you." He said the government would need to determine whether conditions attached to the bailout are "reasonable."
+> 
+> He added, however, that if interest rates on Spain's debt were "too high for too long," thus harming the economy and raising the government's debt burden, "I can assure you 100% that I would ask for this bailout."
+
+In other words, he is still negotiating with northern Europe. Given that the ECB's announcement of OMT has driven down bond yields, he is under little pressure to yield to the ECB's "conditionality", which would be draconian.
+
+On the other hand, bad news is good news. The news of the protests and riots spooked the markets and could give the market what it wants, i.e. a bailout request. Indeed, , the
+
+[Spanish 10-year yields](http://www.bloomberg.com/quote/GSPG10:IND)
+
+tick up to the 6% mark on Wednesday (which is a level that is judged to be unsustainably high), though it did stage a minor retreat on Thursday.
+
+At the about same time, the Spanish cabinet unveiled an austerity budget with numerous cuts demanded by the Troika and
+
+[Bloomberg](http://www.bloomberg.com/news/2012-09-27/spain-pledges-cuts-to-meet-2013-deficit-target-as-bailout-looms.html)
+
+report that the budget may be enough to satisfy bailout conditions:
+
+> Spain’s plan “responds to country-specific recommendations and goes even beyond them in some areas,” European Union Economic and Monetary Affairs Commissioner Olli Rehn said in an e-mail sent while the ministers were speaking.
+
+There are hints that it may be enough if and when the government goes cap in hand to the ESM:
+
+> The steps may be enough to ease demands creditor countries such as Germany and the Netherlands would make in exchange for a financial lifeline. The government won’t decide whether to request aid until it has all the relevant information available and has had time to study it, [Economy Minister] de Guindos said.
+
+Reading between the lines, further protests that elevate the yield on Spanish paper is good news, not bad news because it will give the market what it wants.        
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity.* *As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
