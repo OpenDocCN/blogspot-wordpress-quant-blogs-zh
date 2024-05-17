@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:58:55
+-->
+
+# Physics Perspective: Is finance different than medicine?
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/01/is-finance-different-than-medicine.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/01/is-finance-different-than-medicine.html#0001-01-01)
+
+Readers of this blog know that I generally write about the risks of finance -- risks I think are systematically underestimated by standard economic theories. But finance does of course bring many benefits, mostly when used in its proper role as a means to insure against risks. I just happened on this
+
+[terrific paper](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2010606)
+
+(now nearly a year old, not breaking news) by two legal scholars from the University of Chicago who propose the idea of an FDA for finance -- a body that would be charged with approving new financial products before they would enter the market. It's a sensible proposal, especially given the potential risks associated with financial products, which are certainly comparable to the risks of new pharmaceutical products.
+
+But beyond this specific idea, the paper gives a great discussion of the two fundamentally opposing uses of derivatives and other new financial products -- in acting as insurance, to spread risks in a socially beneficial way, or to act as mechanism for gambling, to increase the risks faced by certain parties in a way that does not bring social benefits. The following two paragraphs give the flavor of the argument (which the full paper explores in great detail):
+
+> Financial products are socially beneficial when they help people insure risks, but when these same products are used for gambling they can instead be socially detrimental. The difference between insurance and gambling is that insurance enables people to reduce the risk they face, whereas gambling increases it. A person who purchases financial products in order to insure themselves essentially pays someone else to take a risk on her behalf. The counterparty is better able to absorb the risk, typically because she has a more diversified investment portfolio or owns assets whose value is inversely correlated with the risk taken on. By contrast, when a person gambles, that person exposes herself to increased net risk without offsetting a risk faced by a counterparty: she merely gambles in hopes of gaining at the expense of her counterparty or her counterparty’s regulator. As we discuss below, gambling may have some ancillary benefits in improving the information in market prices. However, it is overwhelmingly a negative-sum activity, which, in the aggregate, harms the people who engage in it, and which can also produce negative third-party effects by increasing systemic risk in the economy.
+> 
+> This basic point has long been recognized, but has had little influence on modern discussions of financial regulation. Before the 2008 financial crisis, the academic and political consensus was that financial markets should be deregulated. This consensus probably rested on pragmatic rather than theoretical considerations: the U.S. economy had grown enormously from 1980 to 2007, and this growth had taken place at the same time as, and seemed to be connected with, the booming financial sector, which was characterized by highly innovative financial practices. With the 2008 financial crisis, this consensus came to an end, and since then there has been a significant retrenchment, epitomized by the passage of the Dodd-Frank Act, which authorizes regulatory agencies to impose significant new regulations on the financial industry.
+
+Of course, putting such a thing into practice would be difficult. But it's also difficult to clean up the various messes that occur when financial products lead to unintended consequences. Difficult isn't an argument against doing something worthwhile. The paper I mentioned makes considerable effort to explore how the insurance benefits and the gambling costs associated with a new instrument might be estimated. And maybe a direct analogy to the FDA isn't the right thing at all. Can a panel of experts estimate the costs/benefits accurately? Maybe not. But there might be sensible ways to bring certain new products under scrutiny once they have been put into wide use. And products needn't be banned either -- merely regulated and their use reviewed to avoid the rapid growth of large systemic risks. Of course, steps were taken in the late 1990s (by Elizabeth Warren, most notably) to regulate derivatives markets much more closely. Those steps were quashed by the finance industry through the action of Larry Summers, Alan Greenspan and others. Had there been something like an independent FDA-like body for finance, things might have turned out less disastrously. 
+
+Forbes (predictably)
+
+[came out strongly](http://www.forbes.com/sites/timworstall/2012/02/19/posners-fda-for-financial-innovation-a-truly-terrible-idea/)
+
+against this idea when it was published (over a year ago), with the argument that it goes against the tried and true Common Law notion that "anything not specifically banned is allowed." But that's just the point. We specifically don't allow Bayer or GlaxoSmithKline create and market new drugs without having extensive tests to give some confidence in their safety. Not only that, once approved those drugs can only be sold in packages containing extensive warnings of their risks. Why should finance be different?
