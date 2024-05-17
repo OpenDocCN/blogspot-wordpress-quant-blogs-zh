@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:36:06
+-->
+
+# Corvil: Sandy Bridge Boost | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2012/08/21/corvil-sandy-bridge-boost/#0001-01-01](https://mdavey.wordpress.com/2012/08/21/corvil-sandy-bridge-boost/#0001-01-01)
+
+## Corvil: Sandy Bridge Boost
+
+Thanks to the disruptor [performance](http://mechanical-sympathy.blogspot.co.uk/2011/08/disruptor-20-released.html), most of us are clear that Intel’s [Sandy Bridge](http://en.wikipedia.org/wiki/Sandy_Bridge) CPU offers an appropriate performance jump over previous CPU’s.  It’s therefore of interest to see that Corvil have managed to gain a 2x [performance](http://www.hftreview.com/pg/newsfeeds/corvil/item/60580/corvil-doubles-performance-across-entire-product-range) increase across its entire product range by leveraging Sandy Bridge coupled with data compression [techniques](http://www.bigdataforfinance.com/bigdata/2012/08/corvil-brings-big-data-analysis-to-latency-management-appliance.html).
+On a slightly different note, its interesting to see that [Redline Trading](http://www.redlinetrading.com/) appears to have dropped any mention of cell processors with regards their [ticker](http://www.redlinetrading.com/pdf/Redline-InRush-datasheet.pdf) plant.  Which either means, they have just had a marketing re-jig, or they are now a software solution.  If Redline are now 100% software, I wonder if Sandy Bridge is part of the reason for the move away from cell?
+
+~ by mdavey on August 21, 2012.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+Tags: [SandyBridge](https://mdavey.wordpress.com/tag/sandybridge/)
