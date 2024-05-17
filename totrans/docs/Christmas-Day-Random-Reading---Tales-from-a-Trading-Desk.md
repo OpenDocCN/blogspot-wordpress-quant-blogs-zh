@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:12:07
+-->
+
+# Christmas Day Random Reading | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2009/12/25/christmas-day-random-reading/#0001-01-01](https://mdavey.wordpress.com/2009/12/25/christmas-day-random-reading/#0001-01-01)
+
+## Christmas Day Random Reading
+
+*   PRISM, MEF and MVVM Part 1 of 3: Unity [Glue](http://www.wintellect.com/CS/blogs/jlikness/archive/2009/12/22/prism-mef-and-mvvm-part-1-of-3-unity-glue.aspx) – “PRISM primarily for its ability to integrate views into regions, to dynamically load modules, and to provide an abstract messaging contract with the event aggregator. [MEF](http://blogs.msdn.com/dphill/archive/2009/12/09/prism-and-mef.aspx) will be used for extensibility and to really tap into the ability to go out, find exports, and glue them into imports.”
+*   POCO [Proxies](http://blogs.msdn.com/adonet/archive/2009/12/22/poco-proxies-part-1.aspx)
+*   OData [Update](http://www.douglaspurdy.com/2009/12/18/odata-v2/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+douglaspurdy+%28Douglas+Purdy%29&utm_content=Google+Reader)
+*   The Forgotten Layer of the Test Automation [Pyramid](http://blog.mountaingoatsoftware.com/the-forgotten-layer-of-the-test-automation-pyramid)
+*   [Dispatching](http://www.wintellect.com/CS/blogs/jlikness/archive/2009/12/16/dispatching-in-silverlight.aspx) in Silverlight
+*   [PowerPivot](http://powerpivotpro.com/)
+*   Experiments using MEF, MVVM and Silverlight 4 Beta – Part 6: Design-mode ViewModel and calling a WCF [Service](http://www.davidezordan.net/blog/?p=1663)
+*   Xap [Reflector](http://weblogs.asp.net/nmarun/archive/2009/12/11/xap-reflector-silverlight-4.aspx) – Silverlight 4
+*   Unit Tests for ViewModels AND Views in [Silverlight](http://www.wintellect.com/CS/blogs/jlikness/archive/2009/12/11/unit-tests-for-viewmodels-and-views-in-silverlight.aspx) – Unit testing the View!
+*   Microsoft Data Development Technologies: Past, Present, and [Future](http://msdn.microsoft.com/en-us/data/ee730343.aspx)
+*   Jumping the trampoline in C# – Stack-friendly [recursion](http://community.bartdesmet.net/blogs/bart/archive/2009/11/08/jumping-the-trampoline-in-c-stack-friendly-recursion.aspx)
+*   Silverlight 4 with Tim Heuer and Jesse [Liberty](http://blogs.infragistics.com/pixel8/media/p/209447.aspx)
+*   Silverlight Behaviors and Triggers: [TextBox Magic](http://www.wintellect.com/CS/blogs/jlikness/archive/2009/10/07/silverlight-behaviors-and-triggers-textbox-magic.aspx), Making a True [Behavior](http://www.wintellect.com/CS/blogs/jlikness/archive/2009/10/16/silverlight-behaviors-and-triggers-making-a-true-behavior.aspx)
+*   WPF discussions, [091101](http://blogs.msdn.com/jaimer/archive/2009/11/02/wpf-discussions-091101.aspx)
+*   Directed Graph Markup Language ( [DGML](http://blogs.msdn.com/camerons/archive/2009/01/26/directed-graph-markup-language-dgml.aspx) )
+
+~ by mdavey on December 25, 2009.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/), [UX](https://mdavey.wordpress.com/category/ux/)
+Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
