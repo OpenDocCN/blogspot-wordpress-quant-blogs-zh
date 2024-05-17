@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:25:17
+-->
+
+# Bloomberg Terminal: The Big Brother In Every Financial Institution | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/05/13/bloomberg-terminal-the-big-brother-in-every-financial-institution/#0001-01-01](https://mdavey.wordpress.com/2013/05/13/bloomberg-terminal-the-big-brother-in-every-financial-institution/#0001-01-01)
+
+## Bloomberg Terminal: The Big Brother In Every Financial Institution
+
+NY Times has an [article](http://www.nytimes.com/2013/05/13/business/media/bloomberg-admits-terminal-snooping.html) around the usage of Boomberg terminal data to provide the Bloomberg New division with a competitive edge over the competition.  In all honesty, its not really surprising, especially given the BBG terminal is in every bank, central banks, rival news organizations, Congress and even the Vatican, coupled with the fact that BBG Chat is historically one of the main communication channels for the last n years.
+
+> On less frequent occasions, reporters also monitored chats between those subscribers and customer service representatives
+
+The above obviously leads to the next question, how many of the non-customer service representative chats are monitored……..
+
+~ by mdavey on May 13, 2013.
+
+Posted in [Trading](https://mdavey.wordpress.com/category/trading/)
+Tags: [bloomberg](https://mdavey.wordpress.com/tag/bloomberg/)
