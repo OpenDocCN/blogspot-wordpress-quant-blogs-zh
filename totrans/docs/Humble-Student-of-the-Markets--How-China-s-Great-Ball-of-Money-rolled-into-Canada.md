@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:01:51
+-->
+
+# Humble Student of the Markets: How China's Great Ball of Money rolled into Canada
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2016/09/how-chinas-great-ball-of-money-rolled.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2016/09/how-chinas-great-ball-of-money-rolled.html#0001-01-01)
+
+I live in Vancouver on Canada's west coast. This was the city I grew up in and where I chose to settle after I went into semi-retirement. It's a great town, but property prices are sky high and have become unaffordable for many locals.
+
+Some real estate boosters will resort to the standard explanations such as "we've hosted the Winter Olympics" and therefore "it's a world class city". But have property prices gone parabolic in other "world class city" Winter Olympics host cities like Turin, Salt Lake City, Nagano, Lillehammer, Sarajevo, or Lake Placid? I didn't think so.
+
+The main reason for the stratospheric prices has been called
+
+[China's Great Ball of Money](http://www.bloomberg.com/news/articles/2015-10-19/the-great-ball-of-china-money-rolls-into-bonds)
+
+and it has rolled into Canadian real estate.
+
+[Factset](http://www.factset.com/insight/2016/09/foreign-money-heating-up-the-canadian-housing-market#.V92Y55VTHPY)
+
+recently documented how residential property prices have skyrocketed in Vancouver and Toronto while the rest of Canada have been flat as Mainland Chinese money has been buying in those two cities. Based on the stories that have surfaced, the flood of money has made the Vancouver and Toronto real estate markets a Wild West (chart annotations below are mine).
+
+I am not here to write about how foreign money pouring into Vancouver and Toronto have caused affordability problems for local residents (true, see
+
+[#HALTtheMadness](https://twitter.com/hashtag/HALTtheMadness)
+
+ on Twitter), or how Canadian authorities have turned a blind eye to the problems of money laundering and tax evasion due to offshore money flows (see this
+
+[SCMP article](http://www.scmp.com/news/world/united-states-canada/article/2005794/canada-tax-chiefs-knew-foreign-moneys-big-role)
+
+). This is a post about vulnerabilities posed by the financial linkages between China and the rest of the world (see my previous post
+
+[How much "runway" does China have left?](https://humblestudentofthemarkets.com/2016/07/14/how-much-runway-does-china-have-left/)
+
+). What happens if we see a hard landing or banking crisis in China?
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2016/09/19/how-chinas-great-ball-of-money-rolled-into-canada/)
+
+.
