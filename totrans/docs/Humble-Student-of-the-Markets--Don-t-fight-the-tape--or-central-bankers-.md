@@ -1,0 +1,256 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:29:05
+-->
+
+# Humble Student of the Markets: Don't fight the tape (or central bankers)
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/11/dont-fight-tape-or-central-bankers.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/11/dont-fight-tape-or-central-bankers.html#0001-01-01)
+
+**Trend Model signal summary**
+
+Trend Model signal: Risk-on (upgrade)
+
+Trading model: Positive
+
+The Trend Model is an asset allocation model used by my inner investor. The trading component of the Trend Model keys on changes in direction in the Trend Model - and it is used by my inner trader. The actual historical (not back-tested) buy and sell signals of the trading component of the Trend Model are shown in the chart below:
+
+**Update schedule**
+
+: I generally update Trend Model readings on 
+
+[my blog](http://humblestudentofthemarkets.blogspot.com/)
+
+ on weekends and tweet any changes during the week at @humblestudent. In addition, I have been trading an account based on the signals of the Trend Model. The last report card of that account can be found 
+
+[here](http://humblestudentofthemarkets.blogspot.com/2014/11/trend-model-report-card-14-oct-351-1-yr.html)
+
+.
+
+**No one ever expects the Central Banker street party!**
+
+In early November, when the BoJ unexpected announced another shock-and-awe QE program, I wrote (see
+
+[Enjoy the party, but watch for the police raid](http://humblestudentofthemarkets.blogspot.com/2014/11/enjoy-party-but-watch-for-police-raid.html)
+
+):
+
+> While the BoJ party is just getting going, the partiers are spilling out onto the street and getting out of control. The neighbors are getting upset and they're about to call the cops. My inner trader remains wary of the time when the police show up and raid the party.
+
+I identified two main risks to the "BoJ party". First, the latest round of Japanese QE will inevitably weaken the JPY against other major currencies and could invite a global currency war. In particular, it would make Japanese capital goods more competitive against eurozone (German) machinery exports and would weaken an already fragile European economy.
+
+As well, I was concerned that China's economy was weakening rapidly and it was unclear how much more stress it could take. I asked:
+
+> How much stress can China take without taking action that reverberates around the world?
+
+Up until recently, the PBOC`s modus operandi has been to launch either limited or covert stimulus if growth slowed too much for fear of sending the wrong message that Beijing was backsliding on its financial reform initiatives (via
+
+[The Economist](http://www.economist.com/news/finance-and-economics/21633847-chinas-central-bank-wary-easing-monetary-policy-what-economy)
+
+):
+
+> The central bank’s answer to this dilemma has been to loosen monetary policy, but in a covert fashion. It lent the state-owned China Development Bank one trillion yuan ($163 billion), according to rumours that dribbled into local media in June. Some likened it to Chinese-style quantitative easing (QE): the central bank had in effect printed cash to rev up growth. But whereas central banks in developed economies have explained every step of their QE schemes to markets, the PBOC did not even bother to announce its activity.
+> 
+> Then, in September and October, it launched a “medium-term lending facility”, injecting a further whack of cash—769.5 billion yuan, it turns out—into the economy via loans to commercial banks. Rumours spread for weeks before the central bank confirmed them on November 6th. As for the initial trillion-yuan loan, it eventually acknowledged the operation, though declined to say how much it had lent, at what rate or even to which bank.
+
+Despite their size, these covert stimulus packages didn`t seem to be enough:
+
+> The combined amount of the infusions, if as big as reported, would be huge—equal to more than three months of America’s now-completed QE scheme when it was at its height, or to five months of Japan’s current programme. The impact of China’s easing, however, has been underwhelming. It has not reached the real economy. Short-term interest rates have fallen: a closely watched interbank rate is down by almost two percentage points this year, to 3.2%. But the rate at which banks lend to businesses, which matters more for growth, has remained stuck at about 7%.
+
+The news about falling home prices in October may have been the last straw:
+
+Finally, Beijing blinked and the PBOC unexpectedly announced an interest rate cut that is designed to effect a more broadly based stimulus program (via 
+
+[Bloomberg](http://www.bloomberg.com/news/2014-11-21/china-central-bank-cuts-interest-rates-for-first-time-since-2012.html)
+
+):
+
+> China cut benchmark interest rates for the first time since July 2012 as leaders step up support for the world’s second-largest economy, sending global shares, oil and metals prices higher.
+> 
+> The one-year lending rate was reduced by 0.4 percentage point to 5.6 percent, while the one-year deposit rate was lowered by 0.25 percentage point to 2.75 percent, effective tomorrow, the People’s Bank of China said on its website today.
+> 
+> The reduction puts China on the side of the European Central Bank and Bank of Japan in deploying fresh stimulus and contrasts with the Federal Reserve, which has stopped its quantitative easing program. Until today, the PBOC had focused on selective monetary easing and liquidity injections as China heads for its slowest full-year growth since 1990.
+
+Even before the news of the latest round of PBOC stimulus, Diana Choyleva of Lombard Street Research presciently wrote the following in the 
+
+[SCMP](http://www.scmp.com/comment/insight-opinion/article/1642075/dangers-chinas-push-more-debt-fuelled-growth)
+
+. She believed that China was preparing to kick the can down the road, but the road is quite long (emphasis added):
+
+> Surprise, surprise - Beijing has set its eyes on debt-fuelled growth again, this time boosting lending to households. ***China's total debt is not excessive, so Beijing can try this trick.*** But its efforts will end in tears without genuine redistribution of income towards consumers.
+> 
+> Some people argue China already has too much debt and has little scope to raise it further. True, total debt has surged since the global financial crisis, but it is not extreme, as in some other countries. Gross private non-financial debt and gross government debt added up to 2.4 times China's gross domestic product last year compared with close to four times for Japan and Portugal and more than three times for Greece and Spain.
+> 
+> Yet there is no magic number above which debt in an economy becomes excessive. Moreover, different economic structures, cultural habits and market perceptions lead to different levels of sustainability for household, company and government debt.
+> 
+> Even so, a global comparison suggests Beijing can continue to play the debt game a bit longer. ***Also, like Japan, most of the debt is owned domestically so China would not be under the same international pressure as Greece and Argentina.***
+
+She concluded that it will not end well and cited the problems encountered by South Korea, but that`s a problem for another day:
+
+> The more output growth weakens, the more likely it is Beijing will spur household borrowing. Expanding the underdeveloped mortgage market is not bad news, but if China relies only on household credit to power economic growth and pulls back from needed financial reforms, the omens are not good.
+> 
+> South Korea went down this path in the 2000s after the fallout from the 1997 Asian crisis, but failed to rebalance its economy towards consumer spending. It was left with the mess from a burst household debt bubble and an economy even more dependent on exports. China must heed the lessons.
+
+In effect, the Chinese saw the party at the BoJ`s place and decided to throw one of their own. Party now, pay later.
+
+**The ECB will  "do what it must"**
+
+If the surprise PBOC announcement wasn`t enough to light a fire under the markets, Mario Draghi stated that it will “do what it must“ to raise inflation and inflationary expectations (via
+
+[Marketwatch](http://www.marketwatch.com/story/draghi-says-ecb-will-do-what-it-must-on-asset-buying-to-lift-inflation-2014-11-21)
+
+, emphasis added):
+
+> In a speech to a banking conference, Draghi said the ECB was prepared, if needed, to expand its purchases of assets, which raises the amount of money flowing in the economy. That heightened hopes in financial markets that the ECB may soon buy large amounts of government bonds of eurozone members, a path other big central banks have taken but the ECB has largely resisted.
+> 
+> “***We will continue to meet our responsibility — we will do what we must to raise inflation and inflation expectations as fast as possible, as our price stability mandate requires of us,***” Draghi said.
+> 
+> “***If on its current trajectory our policy is not effective enough to achieve this, or further risks to the inflation outlook materialize, we would step up the pressure and broaden even more the channels through which we intervene, by altering accordingly the size, pace and composition of our purchases,***” Draghi added.
+
+To emphasize its resolve, it tweeted that it had start to buy ABS as part of its effort to expand its balance sheet:
+
+The BoJ party wasn`t enough. The PBOC party wasn`t enough. The ECB has decided that it wants in on the party action too. So we now have a Central Bankers street party.
+
+**The music`s fine, drinks are free**
+
+In response to these announcements, commodity prices spiked in reaction to the Chinese stimulus news. In Europe, the STOXX 600 staged an upside breakout from a minor resistance level.
+
+I also highlighted a number of positive European catalysts in my last post (
+
+[Two contrarian plays that will make you queasy](http://humblestudentofthemarkets.blogspot.com/2014/11/two-contrarian-plays-that-will-make-you.html)
+
+):
+
+*   Falling unit labor costs in Greece, Spain and Ireland that make them competitive with Germany
+*   Positive earnings surprise from European companies
+*   Forecasts of robust European company EPS growth
+
+In addition,
+
+[BCA Research](http://blog.bcaresearch.com/euro-area-positive-economic-surprise-window-of-opportunity)
+
+also made its case that positive momentum will result in a turnaround in eurozone equities:
+
+In the US, a San Francisco Fed paper indicating that inflation may not rise as much as expected could provide cover should the Yellen Fed decide to lean dovishly on the timing of raising interest rates (via
+
+[WSJ](http://blogs.wsj.com/economics/2014/11/17/sf-fed-paper-warns-fed-may-not-hit-price-target-until-after-2016/)
+
+, emphasis added):
+
+> New research from the Federal Reserve Bank of San Francisco warns the U.S. central bank’s inflation target may prove more elusive than many policymakers now think, in a fresh wrinkle for any move by officials to end their easy-money policy stance.
+> 
+> The report, written by bank economist Vasco Curdia and published Monday, says ***the Fed may not see its 2% inflation objective achieved until “after the end of 2016.”*** The finding generates fresh uncertainty around current Fed projections, which hold that the likely range of inflation in 2016 will be between 1.7% and 2%. For 2017, the likely range seen by officials is 1.9% to 2%.
+
+Combine the SF Fed paper with this detail in the latest
+
+[FOMC minutes](http://www.federalreserve.gov/monetarypolicy/fomcminutes20141029.htm)
+
+ and "many participants" on the FOMC could find justification for delaying raising rates (emphasis added):
+
+> There was widespread agreement that inflation moderately above the Committee's 2 percent goal and ***inflation the same amount below that level were equally costly***--and many participants thought that that view was largely shared by the public.
+
+Back on Wall Street, the SPX staged an upside breakout to all-time highs last Tuesday and I 
+
+[tweeted](https://twitter.com/HumbleStudent/status/534821842205171712)
+
+ that I was buying the breakout:
+
+The market friendly news from the PBOC and ECB helped propel the SPX to further highs:
+
+**Building towards a 1987 event?**
+
+Currently, both the intermediate term fundamental and technical underpinnings of the stock market are supportive of further highs. The latest earnings analysis from
+
+[John Butters of Factset](http://www.factset.com/websitefiles/PDFs/earningsinsight/earningsinsight_11.21.14)
+
+shows that consensus US forward EPS estimates have stopped falling and appears to have started to slowly grow again. Such a development has to be regarded as putting a floor on the stock prices.
+
+Conditions may be setting up for a blow-off top in the stock market. I had highlighted the bullish views of former Value Line Research Director Sam Eisenstadt (see my previous post 
+
+[Global healing = Buy the dips](http://humblestudentofthemarkets.blogspot.com/2014/11/global-healing-stay-long-buy-dips.html)
+
+) where he targeted a SPX level of 2,225 in six months (via Mark Hulbert at
+
+[Marketwatch](http://www.marketwatch.com/story/sp-500-will-be-10-higher-in-six-months-market-timing-guru-says-2014-11-05)
+
+ on November 5, 2014, emphasis added):
+
+> This incredible bull market, which has earned the right to go sideways for a while, is instead going to keep powering ahead.
+> 
+> That, at least, is ***the forecast of the market timer who has more successfully called stocks’ direction in recent years than anyone I can think of***. ***His latest forecast: The SP 500 will rise to 2,225 in six months, 10.3% higher than where it stands today.***
+> 
+> I’m referring to Sam Eisenstadt, the former research director at Value Line Inc. Though he retired in 2009 after 63 years at that firm, he continues in retirement to update and refine a complex econometric model that generates six-month forecasts for the benchmark stock market index.
+
+Coincidentally, Jeremy Grantham postulated a bubble market where the SPX starts to get bubbly at 2,250 in the latest 
+
+[GMO quarterly letter](http://www.gmo.com/websitecontent/GMO_QtlyLetter_3Q14_full.pdf)
+
+. Eisenstadt's target is 2,225 and Grantham is thinking 2,250, which, as the saying goes, is close enough for government work:
+
+> My personal fond hope and expectation is still for a market that runs deep into bubble territory (which starts, as mentioned earlier, at 2250 on the SP 500 on our data) before crashing as it always does. Hopefully by then, but depending on what the rest of the world’s equities do, our holdings of global equities will be down to 20% or less. Usually the bubble excitement – which seems inevitably to be led by U.S. markets – starts about now, entering the sweet spot of the Presidential Cycle’s year three, but occasionally, as you have probably discovered the hard way already, history can be a snare and not a help.
+
+[Dana Lyons](http://jlfmi.tumblr.com/post/103220804375/u-s-stocks-are-2nd-most-overbought-in-history)
+
+also observed that the SPX is well above its trend on an inflation-adjusted basis. The only other time it has been this far above trend was the March 1998 to July 2001 period, which was at the height of the Tech Bubble. I would note, however, that the last time these overbought conditions appeared, it took a full two years before the excesses began to correct themselves. Overbought markets can get more overbought:
+
+As well, Byron Rich is projecting a SPX target of 2917 by the end of 2015 in a
+
+[Forbes](http://www.forbes.com/sites/greatspeculations/2014/11/20/a-rational-case-for-stocks-rising-another-45/)
+
+article:
+
+> If we applied the long-run annualized return for stocks (8%) to the pre-crisis highs of 1,576 on the SP 500, we get 2,917 by the end of next year, when the Fed is expected to start a slow process toward normalizing rates. That’s nearly 45% higher than current levels. Below you can see the table of the SP 500, projecting this “normal” growth rate to stocks.
+
+Notwithstanding Rich`s *ahem* outlier forecast of a 45% SPX gain, consider this 
+
+[Twitter observation](https://twitter.com/jesse_livermore/status/534562992458055680)
+
+ from Jesse Livermore, the blogger at Philosophical Economics, that puts some perspective on the current advance in US stocks from 2009:
+
+I got to thinking. Eisenstadt is a well-respect market analyst who uses models that are tilted towards growth and momentum. Grantham is a well-respected value investor - and value investors tend to be conservative and early. If they are both thinking 2,225 to 2,250 on the SPX, might it overshoot to the 2,400 level, where the combination of over-valuation and some macro event, e.g. Fed tightening, cause the market to crash?
+
+Let me make this very, very clear. I am not forecasting a market crash, but a scenario involving melt-up followed by a market crash is within the realm of possibility. These figures put forward by Eisenstadt, Grantham, Lyons and Livermore certainly puts some parameters of the upside potential in a bull run.
+
+Under these circumstances, let`s enjoy the potential market melt-up first instead of worrying about a market meltdown, Party now, pay later.
+
+**The road ahead**
+
+In the short term, I am seeing signs of positive momentum everywhere. The latest BoAML Fund Manager Survey is seeing a renewal of optimism about global growth but the bullishness is not excessively high:
+
+Fund managers have expressed a desire to pile into equities:
+
+While their positions are above average, the BoAML comment is that readings are only 0.7 standard deviations above average and not stretched:
+
+Technically, the SPX touched its weekly upper Bollinger Band on Friday but did not close above it. Episodes where the market has closed above the upper weekly BB are rare and has tended to signal impending weakness. However, as the market did not punch above its upper weekly BB, it may be poised for a multi-week ride on the upper BB, where the index rises along with the upper band:
+
+In addition, BoAML has pointed out that Thanksgiving Week has been historically seasonally positive for equity returns (via
+
+[ZH](http://www.zerohedge.com/news/2014-11-23/best-and-worst-performing-assets-during-thanksgiving-week)
+
+):
+
+In the meantime, it`s a great party. Don`t be such a worrywart about what might happen next year. My inner trader tells me:
+
+> ***Don`t fight the tape (or central bankers, for that matter). It's a new era of financial hedonism.***
+
+**A personal thought for Thanksgiving **
+
+As my American friends look forward to their Thanksgiving celebrations, let me take this opportunity to launch my personal appeal for support of the Vancouver Youth Symphony Orchestra, to which I am a volunteer board member. I have kept my writing free since I started this blog. If you have found my work to be valuable, please show your appreciation by donating to this worthy cause by clicking
+
+[here](https://www.canadahelps.org/dn/15256)
+
+.
+
+I have long believed that one of the ways to nurture youth is to give them a focus in their lives, whether it be music, sports or other pursuits. This is especially critical during their adolescent years as they start to form their own identities. It's one of the key reasons why I became involved with the
+
+[Vancouver Youth Symphony Orchestra Society](http://vyso.com/)
+
+. Participation in a VYSO orchestra teaches young musicians to focus on both their individual musical and orchestral skills. The latter is particularly important as many people can learn to play music, but a different skill is required when the conductor points to a section and have them all play the same sound at the same time. It's much like the difference between learning to walk and learning to march in formation.
+
+The Vancouver Youth Symphony Orchestra Society is a registered charity and tax receipts are available to contributors who are Canadian residents.
+
+Thank you for your support.
+
+**Disclosure:**
+
+Long SPXL

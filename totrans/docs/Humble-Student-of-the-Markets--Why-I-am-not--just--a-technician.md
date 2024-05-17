@@ -1,0 +1,220 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:29:30
+-->
+
+# Humble Student of the Markets: Why I am not (just) a technician
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/11/why-i-am-not-just-technician.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/11/why-i-am-not-just-technician.html#0001-01-01)
+
+**Trend Model signal summary**
+
+Trend Model signal: Neutral
+
+Trading model: Positive
+
+The Trend Model is an asset allocation model used by my inner investor. The trading component of the Trend Model keys on changes in direction in the Trend Model - and it is used by my inner trader. The actual historical (not back-tested) buy and sell signals of the trading component of the Trend Model are shown in the chart below:
+
+**Update schedule**
+
+: I generally update Trend Model readings on 
+
+[my blog](http://humblestudentofthemarkets.blogspot.com/)
+
+ on weekends and tweet any changes during the week at @humblestudent. In addition, I have been trading an account based on the signals of the Trend Model. The last report card of that account can be found 
+
+[here](http://humblestudentofthemarkets.blogspot.com/2014/11/trend-model-report-card-14-oct-351-1-yr.html)
+
+.
+
+**Consolidation scenario in play**
+
+The major US equity averages eked out a small gain in the week, but ended essentially flat. I wrote last week that the intermediate term trend remained bullish, but the consolidation scenario was in play. It appears that the market is taking a breather to digest and consolidate its gains and that is the likely outcome for the next week or two. Pullbacks should be relatively minor. My inner trader is keeping some powder dry and he is poised to buy the dips.
+
+I could just repeat my market commentary from last week (see
+
+[Global healing = Stay long, buy the dips](http://humblestudentofthemarkets.blogspot.com/2014/11/global-healing-stay-long-buy-dips.html)
+
+). Instead, I would like to use these pages to outline my investment approach using the framework of three of the 4Ps used to evaluate investment managers: Philosophy, Process, Performance and People, the last of which is omitted as I am not selling anyone anything. In particular, I would like to explain why I am not just a technician, but a market analyst who uses TA tools.
+
+**Street smart, but are technicians book smart?**
+
+In my last post, I warned against book-smart quantitative analysts who were not street smart (see
+
+[Can a quant make a fruit salad?](http://humblestudentofthemarkets.blogspot.com/2014/11/can-quant-make-fruit-salad.html)
+
+). When I read the writings of many technical analysts, we seem to have the opposite situation. The majority of technicians are very street smart and market savvy, but many lack book smarts in that many do not have the critical training to understand what makes a good investment or trading model.
+
+As an example, I received a comment from one reader highlighting
+
+[analysis](http://solarcycles.net/2014/11/09/in-perspective/)
+
+warning of a possible stock market top. The concerns had to do with poor leadership, deteriorating breadth and excessively bullish sentiment. While I understand the concepts behind leadership, breadth and sentiment measures, I haven`t seen many technicians analyzing the elements of technical models, taking the model apart and seeing how they work.
+
+There are two things that a model should do, at a minimum. First, it must have sound theory behind it (book smart). Second, it has to make money (street smart).
+
+For instance, the following breadth indicator chart of small vs. large cap performance, % above 200 dma and % bullish (with point and figure buy rankings) all look ominous as they all exhibit negative divergences against the SPX.
+
+Here's the theory behind the concerns raised about the stock market. These three indicators all measure market breadth in some form. The best metaphor of market breadth is the story of the generals and the troops. You would like to see an army (the market) advancing with the troops (all stocks) moving in the same direction. If the generals (large caps) are leading but the troops (broader market) are not following, then we have a picture of narrowing leadership and a warning of an unsustainable rally.
+
+OK, how well did breadth indicators work in practice? Here is a chart of two of the aforementioned indicators going back 20 years. I have marked the negative and positive divergences with arrows. The blue arrows indicate that the signal worked and the red arrows show where they didn`t. This analysis shows that breadth indicators have had a mixed record at calling market direction.
+
+In particular, breadth indicators can be extremely early in calling market turns. They incorrectly turned bullish with a series of higher highs and high lows during the NASDAQ bust bear phase. In addition, they were overly cautious during the market advance of 2004-2007\. Most recently, they turned bearish in early 2013 and missed most of the market advance since then.
+
+What about the current small cap divergence?  Could that be a warning of deteriorating breadth, of the generals leading the charge while the troops waited behind? Here is a 20 year chart of the Russell 2000/SP 500 ratio, which is shown in the middle panel. If you followed small cap divergence as a market timing tool, you would have missed the entire Tech bull market of the late 1990's (being short during those five years would have been extremely painful and likely a career ending exercise). Moreover, you would have bought the market after the Tech Bubble popped (if missing the Tech run didn't end your career, buying into the NASDAQ bust certainly would have hammered the nail into the coffin).
+
+[![](img/9a04ac102774610666162913d94fa324.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguFrnXehkLN6HmY-7AlCZy_Dbo30HpvBj-_6yiUb3vC0bq4nkhOB6crk2Z9-GShYOnK3A8vIe-HXUkIm4sInPdgmNJPhgNHE3EQktvmyisphPVFEhjhJ4UGKzODTLBpprfCc0ldeL11E0/s1600/SPX+sm+cap+breadth.png)
+
+A more savvy analyst would recognize that there is a fundamental difference between US large caps and small caps. Large cap companies tend to be more international in scope and do more of their business outside the US. As it turns out, the relative performance of small to large caps correlate very well with the US Dollar (blue line, middle panel). A falling USD benefits large caps, because their margins expand because of their non-US sales, while a rising USD hurts large caps and benefits small caps.
+
+OK, what if we looked at the relative performance of large caps (SP 500) to mega-caps (SP 100), which is shown on the bottom panel? They are all large cap stocks and they all have lots of overseas sales, right? That ratio should mitigate a lot of the currency effect observed in the Russell 2000/SP 500 ratio. It turns out that the SPX/OEX ratio roughly mirrors the relative performance of the Russell 2000/SP 500\. I marked the divergences in blue, where the signals worked, and in red, when they didn't work. Even this ratio, which took out much of the foreign sales effect, had a mixed performance record.
+
+In conclusion, it seems that small and large cap relative performance is a so-so indicator of future market direction. The large and small cap cycles appears to march to the beat of its own drummer. Right now, small cap relative performance seems to be rolling over.
+
+**The trouble with sentiment**
+
+What about the excessively bullish sentiment readings? Could that be a sign of an impending top?
+
+One of the problems with sentiment models is there are many ways to measure sentiment (see my previous post on measuring professional investor sentiment and the different answers that you get:
+
+[What do the pros REALLY think about the market?](http://humblestudentofthemarkets.blogspot.com/2014/10/what-do-pros-really-think-about-market.html)
+
+). The second issue is the interpretation of the underlying theory. Assuming that you've correctly measured investor sentiment, do you bet with it or against it? And why?
+
+Consider the following 20-year chart of II sentiment, shown with bullish sentiment (green bars), bearish sentiment (red bars) and the bull/bear ratio (bottom grey bars). Technical analysts generally use II sentiment as a contrarian indicator to buy the crowded shorts and sell the crowded longs. A review of the chart highlights a number of problems. First, how do you calibrate the buy and sell points of the model?
+
+For the purposes of this exercise, I have focused on the II bull/bear ratio (bottom panel) to make buy and sell decisions. As the market rallied off the 2003 bottom, the bull/bear ratio moved above 3 - a sell signal that occurred far too early. Anyone using II sentiment for market timing would have missed most of the bull run from 2003-2007\. That`s because a regime change occurred with the onset of the 2003 bull and the II bull/bear ratio shifted upwards, perhaps permanently.
+
+[![](img/d81b4db6523df4878ebadf9455384250.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidRxqwgFvO7490ZL2GKwe54s9PMCYuqypSmmKzx_fntqci73UH5ojQQ1jrSghJ-hO0BSDEy0GuW5izynEri8gQa8rvbh8HXeyaT3gMUGA2SJgZk45J9xpzoWLem-CpKDngG6P3QRl1zxE/s1600/SPX+and+II.png)
+
+Using the rule of buying when the II bull/bear ratio is below 1 and selling when it's above 3, I have highlighted the buy signals with blue vertical lines and sell signals with red vertical lines. The record of the II bull/bear ratio can charitably be described as "spotty". Anyone following this model would have missed the 2003-2006 bull and bought in late in mid-2006\. Though the ratio did identify the top in 2007, it bought far too early and anyone following this model would have suffered through the Lehman Crisis crash. After the Crash, it flashed a series a sell signals and was far too cautious, only to get long at the 2011 bottom and selling in late 2013\. II bull/bear readings seem to have moved to a new plateau in the past year. Could this be a sign of another regime change?
+
+Indeed,
+
+[Ryan Detrick](http://stocktwits.com/message/29241538)
+
+highlighted conditions when AAII and II bulls were showing crowded long readings. Past occurrences of such conditions are not necessarily bearish:
+
+Though he was recently writing about sentiment in gold,
+
+[Pater Tenebrarum](http://www.acting-man.com/?p=34189)
+
+had the following cautionary message for anyone relying on sentiment models:
+
+> One must be careful with sentiment data during a clear trend, as they simply tend to follow prices to a large extent. They can serve as an additional input, but cannot really be used for precise timing. And yet, once people start saying that *there simply is no reason at all to be bullish*, and the bullish consensus according to positioning and sentiment data plumbs all time lows or multi-year lows, we have what is essentially a textbook contrarian situation on our hands.
+
+That said, sentiment models do have their place. I have stated in the past that I would prefer to use sentiment data which indicate what market participants are doing with their money, rather than surveys showing opinions. Watch what they do, not what they say.
+
+**Not just TA, but thoughtful inter-market analysis**
+
+Having trashed the art of technical analysis, or TA for short, let me explain how I use TA techniques for market analysis, using the framework of Philosophy, Process and Performance.
+
+Philosophy
+
+I believe that markets are global in nature and what happens to the other engines of growth can significantly affect the growth outlook of the US economy, its markets and risk appetite.
+
+Process
+
+I apply trend following techniques to inter-market analysis to arrive at my intermediate term forecasts. I supplement my intermediate term forecasts with short term forecasts using primarily option-based sentiment models, largely because trend following models do not behave well in choppy markets. (More on this below).
+
+Performance
+
+The actual history of my model signals are shown regularly in the chart below (reproduced from above) and the latest report card of my actual trading is 
+
+[here](http://humblestudentofthemarkets.blogspot.com/2014/11/trend-model-report-card-14-oct-351-1-yr.html)
+
+.
+
+**Global economy, global markets**
+
+The form of TA that I practice is known as inter-market analysis, because I believe we live in an interconnected global economy with global markets. There are three primary trade blocs and engines of growth in this world:
+
+*   The United States
+*   Europe
+*   China.
+
+I apply trend following techniques to each of these markets to determine what phase of growth they are at. Each of these components vote and my Trend Model arrives at a composite score for a risk-on or risk-off forecast. More importantly, my trading model tracks the ***rate of change*** of the Trend Model. In other words, is the condition of each of the components improving or deteriorating?
+
+With that preface in mind, here is a review of each of the three global engines of growth, starting with the United States. The US economy is furthest along of the major global economies in terms of its progress in recovering from the Great Financial Crisis of 2008\. The American economy is growing, albeit in an anemic fashion when compared to past economic recoveries. The latest weekly review of the high frequency economic indicators by 
+
+[New Deal democrat](http://community.xe.com/blog/xe-market-analysis/weekly-indicators-different-segments-moving-different-speeds-edition)
+
+ captures the state of the US economy very well:
+
+> Watching the three time bands of indicators move is something like watching a snake, or the movement of traffic. Different segments are moving at different speeds. The immediate present looks weak, although still positive. Out a few months looks much stronger. Out about a year is positive, albeit not so much as before.
+> 
+> While the big decline in commodities might be a very negative signal for the international economy, for the US economy it is going to power consumer and business buying and investing.
+
+A look at the SPX tells the story of a market that is in an uptrend, though it appears to be a little extended short-term. The Trend Model would interpret those results bullishly, both on an intermediate and short term basis.
+
+[![](img/49f185a0636883a75cc28ec1aa6a701f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIV-IOJXTDMnu1btkkZBneRmOwxth75o2mLGZFFYvlB6s5EA1TZLVZ5WRPEsj8rerXce_BnmBI3UQ10ZJx3jtPjS7RLcnW3enyu4t4G0HkrZRc4k7zWc4sTNmfyrfogce7OPZLPpgoaGU/s1600/SPX.png)
+
+Across the Atlantic, growth continues to sputter.
+
+[Bloomberg](http://www.bloomberg.com/news/2014-11-13/world-outlook-darkening-as-89-in-poll-see-europe-deflation-risk.html)
+
+reports that confidence in the major leadership in the eurozone (Merkel and Draghi) is falling rapidly:
+
+Last week, the
+
+[latest report](http://www.bloomberg.com/news/2014-11-14/german-economy-returns-to-growth-as-france-beats-forecast.html)
+
+showed that German GDP eked out a 0.1% growth, thus narrowly avoiding a technical recession, and French growth beat consensus expectations. The STOXX 600 tells the story of Europe: Positive momentum, but not enough to overcome growth concerns. The Trend Model would interpret that as neutral intermediate term, but bullish short term because of positive momentum exhibited by the STOXX 600.
+
+Moving our sights to China, It is well known that Chinese growth has been decelerating for the past several years. The
+
+[latest statement from the Chinese leadership](http://www.reuters.com/article/2014/11/15/us-g20-summit-china-banks-idUSKCN0IZ06S20141115?irpc=932)
+
+captures what Xi Jinping calls the "New Normal", where Beijing guides down market growth expectations while trumpeting the high absolute level of economic growth:
+
+> China's economy is going through a "period of pain" as authorities try to shift it toward slower, more sustainable growth, with the rapid expansion of its shadow banking sector a major problem, the vice finance minister said on Saturday.
+> 
+> "We do have problems that have been accumulating over time," Vice Finance Minister Zhu Guangyao told reporters at the G20 Leaders Summit in Australia.
+> 
+> Zhu reiterated President Xi Jinping's catchphrase of a "new normal" for the Chinese economy, saying it would be "running at relatively high speed instead of super high speed."
+> 
+> "We are changing gear and our economic structure is undergoing a period of pain and a period where we are absorbing the large-scale stimulus packages we rolled out earlier," he said.
+
+Instead of analyzing the progress of the Chinese stock market, I analyze indirect measures of Chinese growth, such as the AUDCAD exchange rate, as both Australia and Canada are both commodity producers but Australian growth is more levered to China than Canada, and the price of industrial commodities, to which China is the largest marginal consumer. Both of these indicators tell the story of a decline, which created a Chinese growth scare several months ago, and stabilization today.
+
+Putting the Trend Model readings of these three engines of global growth together, I get the picture of a global economy that is growing slowly and below potential, but the short-term momentum is neutral to slightly positive. Thus, the Trend Model has a intermediate term rating of "neutral" and a short-term bullish rating.
+
+**A better way to use sentiment**
+
+The Trend Model is based on the readings of trend following models, which have two shortcomings. First, they tend to be late at turning points. In addition, they don`t behave well in trend-less sideways markets. To address these weaknesses, I have supplemented my trading model with market-based sentiment models.
+
+Market based sentiment models are different from sentiment surveys in that they show how people are voting with their dollars, not just their opinions in a survey. I find that option-based sentiment is the most useful as they predominantly measure fast-money sentiment, which is what a trading model should do.
+
+I have written extensively about using the VIX/VXV ratio to measure the term structure of the VIX as a way to show how future expectations of volatility, or the market fear gauge, is evolving. A backtested rule of buying the market when the VIX/VXV ratio when it is below 0.92 and selling when it is above that level have yielded good results. The chart below shows buy signals as blue vertical lines and sell signals as red lines. These signals appear to have a far better track record than either the breadth or II sentiment signals shown previously.
+
+I tested the following trading rules for the VIX/VXV indicator:
+
+*   Buy the market when the VIX/VXV ratio falls below 0.92.
+*   Go to cash when it is above 0.92.
+*   Short the market when it is above 1.20, which indicate extreme fear and a high risk of market crash.
+
+The backtest formed three portfolios. A simple buy-and-hold on SPY; a long-only portfolio based only the above rules that is not allowed to short; and a long/short portfolio. There are no frictional costs in this test and the assumed executed price is the closing price the day after the signal is triggered. Cash is assumed to earn 0%. The equity curves of the three portfolios are shown in the chart below.
+
+The VIX/VXV long-only portfolio was able to achieve excellent risk-adjusted returns relative to the buy-and-hold SPY portfolio, mainly because it avoided the bear phases of 2007-2009 and 2011\. However, it has become more cautious recently and thus detracted from performance. The long/short portfolio achieved better returns compared to the buy-and-hold with a lower maximum drawdown. However, its results were far more volatile than the long-only portfolio.
+
+I take these results with a grain of salt because they are backtested and not actual results. However, this does represent a proof of concept showing that option-based sentiment can add value as a component of a trading model.
+
+**Market outlook**
+
+We come to the end of the journey. Having toured the world and analyzed short-term sentiment, where does that leave us?
+
+As the markets are roughly unchanged from last week, I would reiterate the same comment from
+
+[last week](http://humblestudentofthemarkets.blogspot.com/2014/11/global-healing-stay-long-buy-dips.html)
+
+:
+
+> My inner investor is cautiously bullish and he is inclined to tilt his portfolio with an overweight position in the market leaders. As the theme of this post has been healing, the consistent market leadership in the current bull phase has been the Healthcare sector (see my previous post [The one sector every US equity investor needs to look at](http://humblestudentofthemarkets.blogspot.com/2014/09/the-one-sector-every-us-equity-investor.html)).
+
+My inner trader believes that the consolidation scenario is very much in play, as per my
+
+[tweet](https://twitter.com/HumbleStudent/status/532587716048076800)
+
+last Wednesday:
+
+Since then, the market has moved sideways. In response, my inner trader has moved to cash in anticipation of buying in at lower levels. He believes that the market is too extended to buy, but too strong to short.
