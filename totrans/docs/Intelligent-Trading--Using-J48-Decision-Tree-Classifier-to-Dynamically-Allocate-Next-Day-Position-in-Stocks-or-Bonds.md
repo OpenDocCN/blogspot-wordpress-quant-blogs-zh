@@ -1,0 +1,78 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:47:10
+-->
+
+# Intelligent Trading: Using J48 Decision Tree Classifier to Dynamically Allocate Next Day Position in Stocks or Bonds
+
+> 来源：[http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01)
+
+The prior introduction using a simple model to determine next weeks change based on the S&P 500 index and VIX did not look very promising, although hopefully it served to familiarize yourself with how classification is used in augmenting trading decisions. Wouldn't it be nice if we had something that performed a little better?
+
+Well, let's look at an application of using a decision tree type classification in order to predict whether to invest in stocks or bonds one day ahead of time.
+
+We will use a very simple input model stimulus in order to arrive at a decision.
+
+The following will be used as input attributes.
+
+1) VIX 1 day change
+
+2) TLT 1 day change
+
+3) SPY 1 day change
+
+4) VIX 5 day momentum
+
+5) TLT 5 day momentum
+
+6) SPY 5 day momentum
+
+The VIX is used as a volatility proxy to measure fear, which leads (presumably) to flights to safer instruments (bonds).
+
+The TLT is the iShares Barclays 20+ Year Treas Bond ETF used to track treasury bonds with an average duration of 20 years.
+
+The SPY is an ETF that tracks the general market index: S&P500\.
+
+The remaining 5 day momentum attributes are simply nominal attributes of UP or DN used to generally ascertain the momentum of the index over the last 5 days. In addition to the input attributes, we append one output attribute which is the superior instrument to invest in the following day-- SPY or TLT (stocks or bonds). This is what we are trying to predict and decide upon. The training and testing data sample is from the period 7/31/2002 up until present.
+
+By entering the information into Weka (via .csv, see prior tutorials), we will choose the J.48 decision tree learner and use 90%/10% training/test split in order to develop a model tree that will predict which class of instrument to invest in based upon the prior days input stimulus.
+
+[![](img/b65a9f2c7976bae8197054a289d74c84.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfHCZvDIu2KeCy3Lyol51LhiSXwtkUbCEYqwq57T0ZySoGnb8QUhTfHHS6ovdvLHcP4caq49xHQMQFOqm7Pz_L1FwITe5tSOsOj2LpZRw2BmhvVkvIyGAGZoErA_tVihFOt8j4FA6G4BY/s1600-h/fig1_tree2_raw2.jpg)
+
+Fig 1\. Resulting Model Decision Tree
+
+The decision tree can be read from the top down as making a decision based upon certain conditions. I.e. If we traverse the far left branch for example, it would give us the following rule:
+
+IF 5 day SPY momentum is DN and 1 day TLT change is <=.91% and 5 day TLT momentum is UP and 5 day VIX momentum is UP then
+
+invest the next day in SPY.
+
+We can traverse each branch similarly to obtain an all encompassing set of rules to make a decision on what to invest in the following day.
+
+Although the tree looks a bit daunting, if you can program the rule set into your favorite language, it is a simple matter for the algorithm to take that model and process it forward.
+
+Finally, we want to see if the prediction scheme was any better or worse than guessing.
+
+[![](img/b284ad75d98ac721495d02896216a0cb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMxPa_STm5q-cM7cklIDcKnF-ven6TOVUs38iDht2IwVzxVtS5huiJGne7DVOAh2GW_kXuNb5O1gganpouTPZfBmxgc2CckWGjxqgqhmGy9VzmOCHXp7KSJx6h_fETj8YlQTMDRgpi-LY/s1600-h/fig2_results_raw2.jpg)
+
+Fig 2\. 90/10 split train/validation results of J.48 Model Tree
+
+The results are pretty good. Using a very simple and intuitive model, we were able to select the better instrument to buy with a 59% success rate on the 10% out of sample validation set. The same type of methodology can be used to select between trading systems with a little ingenuity.
+
+[![](img/1fa32ee80d32b0fc0f6b3bc1afc851e9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPj9wuNNqr7CI4jbwqTaWnRuyLoFrDr6Ks4pGCF5GOXl2n64Pwi0HkflGNZPwsxHm0PA8Jqt9S7RcwrSjszZSOcxzhT-C8mZoXrWHmjx6skrnTvhIPEcsQ6_L_7kh3WuCyh_VgQnrqljc/s1600-h/fig3_eq_curve.jpg)
+
+Fig 3\. Equity Curve comparison of Learner System to investment classes on out of sample data
+
+Finally, we take a look at the equity curve of investing in
+
+1) The results of the classifier system we modeled
+
+2) Investing in SPY or TLT alone (Stocks or Bonds)
+
+3) Investing half in each
+
+Notice the terminal wealth results from our system only slightly beat
+
+all of the other systems. It's a good example of how you might have a good hit rate and only moderate improvement in net results, since hit rate does not account for magnitude. In addition, the costs associated with commission and slippage from trading many times in an out would likely overcome the systematic edge. Later on as we discuss Genetic Algorithms, we will see there are many other ways to optimize.
+
+As always, please do your own due diligence and thoroughly verify any results you may use to make decisions in your own trading.

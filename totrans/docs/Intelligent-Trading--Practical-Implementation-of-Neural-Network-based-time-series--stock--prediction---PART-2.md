@@ -1,0 +1,92 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:47:58
+-->
+
+# Intelligent Trading: Practical Implementation of Neural Network based time series (stock) prediction - PART 2
+
+> 来源：[http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01)
+
+As a brief follow up to the series, I want to take a moment to describe a bit about Weka, which is the machine learning tool that we will be using to implement the neural network. It is a fantastic open source JAVA based tool that was developed at the University of Waikato, New Zealand. Users who are not all that experienced with programming have access to the GUI shell that makes running a regression or classification scenario a snap. More advanced JAVA programmers may opt to use a command shell or customize their own classes. In addition there are numerous support options, including a fantastic Nabble thread that you may subscribe to--
+
+[Weka thread](http://old.nabble.com/WEKA-f435.html)
+
+I have found that questions are answered very promptly and there is a lot of activity at the site, so you don't have to wait a long time to get a response. In addition there are some great books put out by Ian Witten and Eibe Frank that guide you through the practical data mining with a minimal barrage of mathematical theory:
+
+[Data Mining Practical Machine Learning Tools and Techniques With Java Implementations](http://www.amazon.com/Data-Mining-Practical-Techniques-Management/dp/0120884070/ref=sr_1_1?ie=UTF8&s=books&qid=1264903087&sr=8-1http://www.amazon.com/Data-Mining-Practical-Techniques-Management/dp/0120884070/ref=sr_1_1?ie=UTF8&s=books&qid=1264903087&sr=8-1)
+
+I have the first edition and have found it an immensely useful reference.
+
+There are a variety of built in learning modules included in the free utility (Weka), such as linear regression, neural networks (a.k.a multilayer perceptrons), decision trees, support vector machines, and even genetic algorithms.
+
+[![](img/ce485b5bb1edec1e5954eac139004467.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZNqm-WKrMONM33pPAU3w5mRbpOiWFVK87iZbUk09snDORrMaYu7Qpcgh5BxI0m-SF8yfuO8skZBRisWEPRKd1x5dTenZF3AO33cJI8kPMM-ggWotljRFK_i9MxOHH7Yt5PHdgROi6z9Q/s1600-h/weka_gui1.jpg)
+
+Fig 1\. Using the Weka Gui
+
+In Fig 1., we see the Weka GUI Chooser has been opened and the Explorer option was selected. The native format that Weka commonly uses is the .ARFF format, fortunately for us, however, it also reads in .CSV files, which are easily created with a save option in excel. The excel file we will first train is sim_training_set_perfect_sin.csv. Once loaded, you will see all of the relevant variables in the Weka Explorer shell.
+
+[![](img/4f715de20b798cb4df251342b3ee4327.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpfEeU7bgRZ4opAxbAGkBtvZqoKjVHX8_gA4Ufwz811irkZtognHnNpV6KL0y-oiNKGSkvXe02uYKGZ8YlgJln9J-vsH-dnqPcmTFB58t3l3hlv5RnleBt0SYv5ROQ9pRdDt_kfyqPC4E/s1600-h/fig2_pt2back.jpg)
+
+Fig 2\. Loaded Excel csv training source file for Weka
+
+We notice some new variables have been introduced that were not in part 1.
+
+To understand why, let's show the CSV file that is used here.
+
+[![](img/4ae769e63be56b723db891d9a210830f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt7EMZXcsBv3SpPF52IH76q5HJALLe1wkp75wgQyNAUywZd9nxnBqKJqAometVgId3fIJHB96Ya36BlvtaBqDUHHjIEZ1XaNVYsFl_n0KqYK5poB_EnvldShQPyeVMOi9ucjmw9Z-8FzA/s1600-h/fig2_training_sin-pt2.jpg)
+
+Fig 3\. Training set variables.
+
+What we see is that the original perfect sine wave signal has been preserved in the column labeled signal. The additional signals, s-1, s-2, s-3, s-4 are often called delayed or embedded (dimension) variables. They are simply lagged values of the signal that are used to train the neural network. There is no exact method to determine the number of lagged values, although a number of different methods exist. For now, we will simply accept that four delayed values of the signal are useful. The last column, called bias, is common to neural networks. The bias node allows the neural network to shift the constant signal input to the network via training. For instance, imagine our signal had an average of 2.0 but we were learning it. The neural network needs to have some input that will track that constant value or it will have large offset errors that will obstruct convergence. The bias node accomplishes that operation. Those familiar with Engineering theory will recognize this node as a DC bias.
+
+Ok, so once other thing we notice in the GUI interface is the Class:signal(num) is selected on the bottom right. This is because we are predicting a numerical class, rather than a nominal one (which is the typical default for classification schemes).
+
+Next, we select the classify tab to select our learning scheme, which in this case will be the MultilayerPerceptron.
+
+[![](img/21d063482de4721d0636bb8274dc3c3b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjU7-yjl4QjPOkkYnNluypDObLLFfv_sjLPoVc2JeiSw0_6hvoXXq7kXbZQ-Ro0DhN7FYIkRS7MkOPEGHpZup9wnYYNzMTTY1hQcZeAJKcoBvbbG57SmQFaQViGFZTJ5Kj-yJLzkfl7pM/s1600-h/fig4_mlpselect_pt2.jpg)
+
+We then want to make sure certain options are selected.
+
+[![](img/4fcc16230fcbba02e41ed75f901bf4c4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMV1Zq9uPUxGfVIK2E96dFxs2JhhFvxjYWSi7Yr34H7II7D0-H3TnV8l1ypsL6QDiw7DGugZmEpNFqVn8epuP4pKOhrnOvATPB8wNMONjyWRruSWco3qS0Zp_fDUXA1YAT3npct067BZs/s1600-h/fig5_MLP_options_pt2.jpg)
+
+We set nominalToBinaryFilter and normalize attributes as False, as we don't wish to modify the input data to be binary and are not using nominal attributes. However, we
+
+want the normalizeNumericClass set to True as mentioned earlier, it will force the normalization scheme to be set to Weka's internal limiting range, so we don't have to. Also, we will train for 1000 epochs.
+
+[![](img/92b83515cdc46aaea995bc1a44914697.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8SQWMNUa9ET41uCP4V03aZZWPfzgJRhP82NwIxHAP-4T2UqvYc4Q08a_CVhA5yutodVey587fU-VuhFx6r3sCrVBtYrjQiYBACb69NgqTO2tOzcqHoeNNbiSYoRK6HcYZrtLQ9aIW3oM/s1600-h/fig6_pt2_MLP_options.jpg)
+
+Fig 6\. Preferences for MLP training model.
+
+We will build a model by training on 66% of the data. We want to store and output the predictions so that we can visually see what they look like. Lastly, we will Preserve order for split as it allows us to display the predicted out of sample time series in the original order. With all of these features set, we simply click OK and the start button and it will quickly build our first Neural Network model!
+
+[![](img/e4eba101ecb3ee3bd50242e52f910087.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwxxresRDCU3sHYERfBwT-WxA-wrO2NXxnnYcVFE-RAIHctwXjuIBwvL3x-kNSjRC5ARHftXGBfM6I3XP8HEkJ5SY7cLh7LleGuYaPsU08KKJ-TVN8ZBGo9kHrJ0RjUlFE4Gv4F02gdwE/s1600-h/fig7_pt2_MLP_simple_sin.jpg)
+
+Fig 7\. Results with summary of statistics console.
+
+If we scroll up we can see the actual weights that the model converged upon for our Multilayer Perceptron that will be used to predict the out of sample data.
+
+We can see that there is a nice printout of the last 34% of results (271 out of sample data points) along with the predicted value and error, as well as a useful summary of statistics in the bottom of the console. We often use Root mean squared error as a performance metric for neural net regressions. In this case, the number .0005 is quite good. But let's use a little trick to get a visual inspection of just how good. We can actually grab the data from the console (by selecting it with the left mouse button and dragging), then copy this data back into excel. As a result, we can then plot the actual versus predicted out of sample results inside of excel.
+
+[![](img/d12260af2d62e8b316034d99bce1311e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9FF-MGVDLWuDBDaTr0vAvksQ7gL1MIdK0h-g7qOK4OvxuQZZ_GjTssfxzbvf7TTJxjV4Pxu6QmML6gw88nJAa7LsZdEYwm3pz1xl7Dk9W09k3MWAtrKKR7-j_Z6GLAtJAWKoHQrxABrM/s1600-h/fig8_pt2_MLP_excelimport.jpg)
+
+Fig 8\. Importing prediction results back into Excel.
+
+Notice that we cut and paste the data from the Weka console back into Excel, but must select text to columns in order to separate the data back into columns.
+
+[![](img/a222551fbb9e05ed684e3233eb53f199.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFQrjZnlPmgpJxBAz4ZPFi60Nf-xS_TmX8y9uhB3BPsIm_z1TrwBPq2qsIBytKZ08mXDNdMWgI4sPe4AdicNNXcB7KtRz3ShOeRZ-ooEAAjO3aGIuXc36BYy-m7mUjzDgBtttenjoRuek/s1600-h/fig9_pt2_MLP_txttocolumns.jpg)
+
+Fig 9\. Selecting the regions to separate as columns.
+
+And tada! We can now plot the predicted vs. actual values. And look how nicely they line up. The errors are extremely small on the out of sample set, notice some are 0, others are .001, imperceptible to the eye, without zooming way in on that point.
+
+It actually found a perfect model for this time series (we will expand a bit later why), and the errors can be attributed to numerical precision.
+
+[![](img/7ebd9421261e89d9889e43d3295ae1a6.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUrZEtp4jaBC9LR7IoY07YnJJb_J1SCAcB2iZOsKVVvN7K6PWJutnsgbQ_qxJ962XqdTz4mUkt4GBhMmOXkNhxDolbcbnEfuruyxBKsF1QIr_JSXZq2fTh1-yWtHPuZcvLk4I0lbrbmpA/s1600-h/fig10_pt2_results.jpg)
+
+Fig 10\. Resulting plot of predicted vs. actual data.
+
+We have now just built a basic Neural Network with a simple sine wave time series using Weka and Excel. The predicted out of sample results were extremely good.
+
+However, as we will see, the data signal we used, the simple sine wave is a very easy signal to learn as it is perfectly repetitive and stationary. We will see that as the signal gets increasingly complex, the prediction results do not work as well.
+
+That's it for Part 2, comments are welcome.
