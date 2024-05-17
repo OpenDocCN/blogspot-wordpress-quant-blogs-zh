@@ -1,0 +1,87 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:07:29
+-->
+
+# Humble Student of the Markets: Europe takes one step back?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/03/europe-takes-one-step-back.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/03/europe-takes-one-step-back.html#0001-01-01)
+
+The story of Europe has been the story of two steps forward and one step back. Here are the two steps forward/
+
+Since the eurozone crisis, the ECB has taken steps with its LTRO programs to stabilize the banking and financial system. Moreover, I wrote that Mario Draghi, on behalf of the eurocrats, outlined the
+
+[Grand Plan](http://humblestudentofthemarkets.blogspot.ca/2012/02/mario-draghi-reveals-grand-plan.html)
+
+ as a way to fix the long-term problems within the eurozone. The Grand Plan consisted of two steps, which sound like pages taken from the Maggie Thatcher playbook:
+
+*   **Austerity** in the form of "good austerity", defined as lower taxes and less government spending; and
+*   **Structural reform**, which is the European version of the China taking steps to [smash the iron rice bowl](http://en.wikipedia.org/wiki/Iron_rice_bowl), which translates to union busting and going after all of the entrenched interests of the old with their lifetime jobs and gold-plated pensions at the expense of the young jobless.
+
+The one step back happens when Europe dilutes these grandiose object. In the wake of the
+
+[German](http://www.spiegel.de/international/germany/0,1518,820828,00.html)
+
+and
+
+[Dutch failure to hit austerity targets](http://www.johnmauldin.com/outsidethebox/hmmm-holland)
+
+, a step backward is inevitable.
+
+**Time for Grand Plan 2.0**
+
+Most recently, the
+
+[OECD warned that the eurozone debt crisis is far from over](http://in.reuters.com/article/2012/03/27/euro-zone-debt-crisis-far-from-over-oecd-idINDEE82Q09020120327)
+
+. The organization indicated more work needed to be done, i.e. Grand Plan, and market confidence is fragile. At about the same time,
+
+[Willem Buiter at Citigroup issued a warning on Spain](http://www.businessinsider.com/willem-buiters-warning-on-spain-2012-3)
+
+:
+
+> Spain is likely, in our view, to be pushed into a troika (EC, ECB, IMF) programme of some kind during 2012, possibly by losing access to market funding on affordable terms, but more likely by the ECB making a programme for the Spanish sovereign a condition for continued willingness to fund the Spanish banks, which are currently the main buyers of newly issued Spanish sovereign debt. The existing and likely near future EFSF/ESM and IMF financial facilities are unlikely to be sufficient to both fund the Spanish sovereign fully and leave enough financial ammunition in reserve to deal with possible sovereign financial emergencies in Italy or in the ‘soft-core’ of the euro area. The Spanish sovereign would therefore likely continue to fund itself at least partly in the markets even if it comes under a programme. To ensure market access by the Spanish sovereign, the same combination of cheap ECB funding for periphery banks and financial repression of periphery banks by their national authorities that has been effective in lowering sovereign yields since the first LTRO is likely to be required.
+
+[Buiter](http://ftalphaville.ft.com/blog/2012/03/28/940271/spain-in-the-spotlight/)
+
+did concede that the government is taking steps to implement structural reforms:
+
+> It did use this period to pass several important pieces of structural reform legislation. Among these were labour market reforms aimed at reducing severance pay in the long-term contract sector (while introducing or raising it in the flexible contract sector); reforms aimed at reducing the scope and incidence of industry-wide collective bargaining and replacing it with something closer to firm-level or establishment-level contracting; the imposition of an additional €50bn provisioning requirement on the banks; and laws aimed at strengthening central government control over the finances of the lower-tier authorities (autonomous regions and municipalities).
+
+...though he was uncertain as to their implementation:
+
+> Passing legislation and implementing it are not the same thing, however, as we know from the Greek experience. In addition, both structural reform and a medium-term programme of fiscal austerity based on a politically acceptable formula for fiscal burden sharing look necessary to restore Spain to fiscal sustainability. The new government’s decision to wait 100 days to introduce its first budget, in the pursuit of electoral gain, did little to boost Spain’s standing in global markets.
+
+Spain is a too-big-to-fail country within the eurozone. Market angst is starting to rise over the willingness of the Spanish government and the Spanish people to bear the pain of austerity.
+
+Will Spain fall and bring down the eurozone in another crisis? I doubt it. This is the back-and-forth of the
+
+[Theatre of Europe](http://humblestudentofthemarkets.blogspot.ca/2012/03/all-of-europes-stage.html)
+
+, but some form of Grand Plan 2.0 compromise will likely emerge. I agree with
+
+[Gayle Allard](http://www.marketwatch.com/story/rajoys-budget-seeks-to-buy-time-for-spain-2012-03-28)
+
+at the IE Business School in Madrid who says to not count Spain out in a crisis:
+
+> [Allard] said Spain’s biggest problem is investors’ lack of faith in the population’s willingness to withstand austerity. “They don’t see the Spanish people in that way, they don’t understand how a country can put up with it,” she said.
+> 
+> “Having watched Spain through previous crisis, they are a pretty surprising country. They get behind things, hard things,” Allard said. “I don’t think this is ever going to look like Greece and that’s something the markets don’t understand.”
+
+**Italy does structural reform**
+
+Over in Italy, FT recently reported that Mario Monti clashed with the unions over structural reforms "that would give companies more flexibility to fire workers for economic reasons" and he is winning because of weakened opposition:
+
+> [W]ith the [labor union] CGIL considerably weaker than a decade ago and with the main political parties in no position to offer a coherent alternative to the present government, political commentators doubt Mr Monti’s technocrats risk being driven from office.
+> 
+> Opinion polls indicate strong public support for Mr Monti in general, although a majority of Italians opposes changing Article 18 which protects workers in the courts from wrongful dismissals for economic reasons. Under the proposed changes, employees would receive compensation but not reintegration back into their workplace.
+
+Monti is also following the Grand Plan script of structural reforms which pit the young unemployed against their elders, who have secure jobs:
+
+> With nearly a third of young people unemployed, Mr Monti also wants to end Italy’s two-tier labour market that protects older workers on indefinite contracts but provides little or no security for mostly new hires on short-term contracts.
+
+The politicians are indeed following through with painful structural reforms. In the meantime, there is doubt from the markets that they can implement them even if the legislation is passed. In a typical EU-style compromise, some of the legislation will get watered down, but I believe that the pendulum is swinging back and the momentum toward structural reform is inevitable.
+
+For now, the message for investors is be prepared for some downside volatility out of Europe. But also know that it is likely a temporary hiccup out of which Grand Plan 2.0 will emerge.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

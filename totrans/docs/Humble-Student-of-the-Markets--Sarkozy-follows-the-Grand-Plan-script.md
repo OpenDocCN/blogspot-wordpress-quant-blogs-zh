@@ -1,0 +1,64 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:07:12
+-->
+
+# Humble Student of the Markets: Sarkozy follows the Grand Plan script
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/04/sarkozy-follows-grand-plan-script.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/04/sarkozy-follows-grand-plan-script.html#0001-01-01)
+
+As we enter the French presidential campaign season, the
+
+[Economist](http://www.economist.com/node/21551478)
+
+complained that the candidates were ignoring the economy, the FT had an article with the headline of
+
+[Sarkozy to campaign on public finances](http://www.ft.com/intl/cms/s/0/bc1c212a-7f33-11e1-b3d4-00144feab49a.html#axzz1rPIs2uzF)
+
+:
+
+> President Nicolas Sarkozy put controlling the country’s public finances at the centre of his re-election campaign, saying France faced a “historic choice” if it wanted to avoid sliding into economic crisis like Spain or Greece.
+> 
+> Unveiling a 32-point programme on Thursday that detailed tax and spending plans for the next five years, he promised to eliminate France’s chronic budget deficit in 2016 and return the country to a budget surplus in 2017 for the first time in more than 40 years.
+> 
+> “Some countries are on the edge of a precipice today,” Mr Sarkozy told a press conference in Paris. “We cannot refuse to make the historic choice of competitiveness, innovation and reducing public spending.”
+> 
+> “The situation which our Spanish friends are experiencing, after what our Greek friends experienced, remind us of the realities,” he added.
+
+In concert with his economic focus, Sarkozy released a
+
+[34 page manifesto](http://www.lafranceforte.fr/lettreauxfrancais/)
+
+that told French citizens the way it is, with little sugar coating.
+
+Starting on page 16, he recounts the economic difficulties that France has experienced in the last few years. For those who don't read French, here are the original, along with the English version from Google Translate:
+
+> *En 2011 enfin, la crise de la dette des Etats a failli faire disparaître l’euro. L’euro n’a pas tenu toutes ses promesses, c’est un fait, mais rien n’aurait été pire que son implosion. C’eût été le saut dans l’inconnu, l’Europe divisée, de nombreuses banques en faillite, des millions d’épargnants cherchant à retirer leurs liquidités, les Etats, dont la France, obligés d’emprunter à des taux rédhibitoires, et de réduire en conséquence leurs dépenses de façon brutale tout en augmentant lourdement les impôts.*
+
+ *> Finally in 2011, the debt crisis of the States has threatened the existence of the euro. The euro has not kept its promises, it is a fact, but nothing was worse than his implosion. It would have been jumping into the unknown, Europe divided, many failed banks, millions of investors seeking to withdraw their cash, states, including France, forced to borrow at prohibitive rates, and consequently reduce their costs while increasing brutally heavy taxes.
+
+> The recession would have been even greater violence. That's why I did everything to save the euro and to save Greece. Greece only let out of the euro, it was admitting the reversibility of the single currency. Why not then Italy, Spain, Portugal? It would have been to risk a dangerous contagion.
+
+How many politicians actually tell the voters the harsh reality? What's even more interesting is Sarkozy's assertion that Germany has the least to lose from a eurozone breakup, indicating that it is up to the rest of the eurozone, including France, to make difficult adjustments:
+
+> *L’Allemagne est le pays auquel l’implosion de l’euro aurait causé le moins de problèmes. Elle s’est conduite en alliée pour sauver notre monnaie commune. En même temps, la France a obtenu une réforme de la zone euro pour que les errements du passé ne se reproduisent pas : le gouvernement économique de la zone euro que je réclamais depuis des années est désormais en place et la convergence des politiques économiques est engagée.*
+> 
+> Germany is the country to which the implosion of the euro would cause the least problems. She was driving an ally to save our common currency. At the same time, France was awarded a reform of the euro area so that past mistakes are not repeated: the economic government of the euro area that I claimed for years is now in place and convergence of economic policies is engaged.
+
+He went on to say that there is no going back and, implicitly, Hollande's assertion that he would try to get France a better deal within the EU is doomed to failure:
+
+> *Tout cela a été très difficile. Nous étions au bord du gouffre. Croire dans une réouverture des négociations est une utopie tout simplement parce que celles-ci viennent de s’achever et que pas un gouvernement en place en Europe ne le souhaite. Avec le sauvetage de la Grèce, la réforme de la zone euro vient en outre d’enregistrer son premier succès majeur. Cela n’a donc rien à voir avec la réforme de la zone Schengen que je propose, dont le traité fondateur date de 1985 et dont les insuffisances sont criantes. Cette réforme est au surplus souhaitée par un nombre croissant d’Etats.*
+> 
+> All this was very difficult. We were on the brink. Believe in a reopening of negotiations is a utopia simply because they have just been completed and that no government in place in Europe wants. With the rescue of Greece, the reform of the euro area has also recorded his first major success. This has nothing to do with the reform of the Schengen area that I propose, whose founding treaty in 1985 and whose weaknesses are glaring. This reform is moreover desired by a growing number of states.
+
+Sarkozy is, in effect, following the
+
+[Grand Plan](http://humblestudentofthemarkets.blogspot.ca/2012/02/mario-draghi-reveals-grand-plan.html)
+
+laid out by the eurocrats as outlined in the interview by Mario Draghi by dragging the French screaming and kicking into a market based reality. The Grand Plan calls for "good austerity" in the form of tax cuts and government cutbacks, along with structural reform that does away with the European social model.
+
+Will Sarkozy's approach of giving the unvarnished truth to the French electorate work? Bloomberg reports that a recent poll shows that he is narrowing the lead on Hollande. Even though his socialist challenger is in the lead, Sarkozy has shown himself to be a formidable campaigner. Hollande is being pulled to the left with his proposals to raise the top marginal tax rate and to lower the retirement age back to 60 from 62, which may hurt him.
+
+While the markets may not react well to a Hollande win, all is not lost. The new president will have to deal with the bond market vigilantes, who will be out in force shortly after the election. No doubt Merkel and the Germans would prefer to deal with Sarkozy because he is the devil they know, Hollande has also shown himself to be European in outlook and he is committed to the European Union and understands the consequences of a eurozone breakup. If he were to get elected, we will no doubt seem some back-and-forth which leads to a watered version Grand Plan 2.0, but Europe is likely to continue to proceed down the reform path.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
