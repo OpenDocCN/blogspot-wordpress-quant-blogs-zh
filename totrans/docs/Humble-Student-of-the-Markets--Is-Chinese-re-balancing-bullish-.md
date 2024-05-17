@@ -1,0 +1,54 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:57:24
+-->
+
+# Humble Student of the Markets: Is Chinese re-balancing bullish?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/01/is-chinese-re-balancing-bullish.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/01/is-chinese-re-balancing-bullish.html#0001-01-01)
+
+With China's Q4 GDP up 7.9%, which was ahead of consensus expectations of 7.8%, I thought it would be a good time to look at China's likely growth path yet one more time. The Bonddad Blog had an excellent post entitled "
+
+[Will China Save Us -- Again?](http://bonddad.blogspot.com/2013/01/will-china-save-us-again.html)
+
+" The blog post reviews the (pre-Q4 GDP) data showing a rebound in the growth of China's economy and closes with an indication that growth is re-balancing toward the consumer.
+
+**Is re-balancing good news?**
+
+There is no question that an over-reliance on infrastructure spending has resulted in unbalanced growth that is unsustainable.
+
+[Michael Pettis](http://www.mpettis.com/2012/12/28/the-imf-on-overinvestment/)
+
+recently highlighted an
+
+[IMF study](http://www.imf.org/external/pubs/ft/wp/2012/wp12277.pdf)
+
+showing that Chinese investment accounted for close to 50% of GDP growth and concluded that this resulted in a subsidy of 4% of GDP per annum [emphasis added]:
+
+> ***Now close to 50 percent of GDP, this paper assesses the appropriateness of China’s current investment levels.*** It finds that China’s capital-to-output ratio is within the range of other emerging markets, but its economic growth rates stand out, partly due to a surge in investment over the last decade. Moreover, its investment is significantly higher than suggested by cross-country panel estimation. This deviation has been accumulating over the last decade, and at nearly 10 percent of GDP is now larger and more persistent than experienced by other Asian economies leading up to the Asian crisis. However, because its investment is predominantly financed by domestic savings, a crisis appears unlikely when assessed against dependency on external funding. But this does not mean that the cost is absent. Rather, ***it is distributed to other sectors of the economy through a hidden transfer of resources, estimated at an average of 4 percent of GDP per year***.
+
+Pettis went on to say that he believed that the IMF study actually underestimated the level of subsidy that the household sector has had to bear:
+
+> One of the implications of the study is that households and SMEs have been forced to subsidize growth at a cost to them of well over 4% of GDP annually. My own back-of-the-envelope calculations suggest that the cost to households is actually 5-8% of GDP – perhaps because I also include the implicit subsidy to recapitalize the banks in the form of the excess spread between the lending and deposit rates – but certainly I agree with the IMF study that this has been a massive transfer to subsidize growth.
+
+**Rebalancing = Growth slowdown**
+
+So a move to re-balance growth to the household sector good news and bullish for stocks and risky assets? Well, not in the short term. Here is Pettis' arithmetic:
+
+> But let us...give China five years to bring investment down to 40% of GDP from its current level of 50%. Chinese investment must grow at a much lower rate than GDP for this to happen. How much lower? The arithmetic is simple. It depends on what we assume GDP growth will be over the next five years, but investment has to grow by roughly 4.5 percentage points or more below the GDP growth rate for this condition to be met.
+> 
+> If Chinese GDP grows at 7%, in other words, Chinese investment must grow at 2.3%. If China grows at 5%, investment must grow at 0.4%. And if China grows at 3%, which is much closer to my ten-year view, investment growth must actually contract by 1.5%. Only in this way will investment drop by ten percentage points as a share of GDP in the next five years.
+> 
+> The conclusion should be obvious, but to many analysts, especially on the sell side, it probably needs nonetheless to be spelled out. ***Any meaningful rebalancing in China’s extraordinary rate of overinvestment is only consistent with a very sharp reduction in the growth rate of investment, and perhaps even a contraction in investment growth.***
+
+So it's pay the piper now with a growth slowdown, or pay the piper later with a crash. The key for investors is timing and the pace of policy change [emphasis added]:
+
+> In fact I think over the next few years China will indeed undergo a sharp contraction in investment growth, but my point here is simply to suggest that even under the most optimistic of scenarios it will be very hard to keep investment growth high. ***Either Beijing moves quickly to bring investment growth down sharply, or overinvestment will contribute to further financial fragility leading, ultimately, to the point where credit cannot expand quickly enough and investment will collapse anyway.***
+
+China is an accident waiting to happen. The only level of uncertainty is the timing. That's why I am watching the
+
+[canaries in the Chinese coalmine](http://humblestudentofthemarkets.blogspot.com/2013/01/the-canaries-in-chinese-coalmine.html)
+
+.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* **None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
