@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:27:30
+-->
+
+# Gaia Transparence – Open Source Platform for Financial institutions | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/04/18/gaia-transparence-open-source-platform-for-financial-institutions/#0001-01-01](https://mdavey.wordpress.com/2013/04/18/gaia-transparence-open-source-platform-for-financial-institutions/#0001-01-01)
+
+## Gaia Transparence – Open Source Platform for Financial institutions
+
+Interesting to see the [adoption](http://www.gaiatransparence.com/) of this platform (video [here](http://www.youtube.com/watch?v=PAg-gL6mkiM)).  Essentially the platform offers an integrated trading, risk and processing for financial products.  The [catalogue](http://www.gaiatransparence.com/catalogue.html) provides a view of the components the platform will possibly offer in the future, leaning on cloud and GPU where appropriate.  Primarily the platform is going after the opportunity created by the new regulatory requirements including CCP margining, CVA, MIFID2, and Basle3, coupled with the history of the [CDS Price](http://www.cdsmodel.com/cdsmodel/) issued by the ISDA under Open Source.
+
+Gaia Transparence “Open Source Community” page provides the usual suspects, coupled with a link to Lodestone.  I wonder if the Deutsche [Lodestone](http://www.ft.com/cms/s/0/6ee1921c-f14f-11e1-a553-00144feabdc0.html#axzz2QoRMZll7) initiative is being leveraged by Gaia Transparence?
+
+~ by mdavey on April 18, 2013.
+
+Posted in [Trading](https://mdavey.wordpress.com/category/trading/)
