@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:19:31
+-->
+
+# Prototyping: Microsoft Blend and Adobe Catalyst | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2010/03/26/prototyping-microsoft-blend-and-adobe-catalyst/#0001-01-01](https://mdavey.wordpress.com/2010/03/26/prototyping-microsoft-blend-and-adobe-catalyst/#0001-01-01)
+
+## Prototyping: Microsoft Blend and Adobe Catalyst
+
+[Blend](http://www.microsoft.com/expression/) and [Catalyst](http://labs.adobe.com/technologies/flashcatalyst/) are competing products. As with most things in life, people have preferences. What I seem to be hearing is that Catalyst is “better” than Blend. It’s however unclear what “better” means. Maybe “better” is that the designers are more familiar with the Adobe software suite, or it could be that Catalyst does have some features that are superior to Blend. Adobe have obviously got the best track record for providing the User Experience world with design tools. If “better” can be solved by training and education of the toolset, then that’s an easy fix e.g. [QuantumBlack](http://www.quantumblack.com/). Below is some feedback from a Blend perspective:
+
+*   More output options in Sketchflow. Having the ability to export individual screens or the entire solution to PDF or JPEG. Output to a Word in Blend 3 produces a document that is a mess and not suitable for client presentations.
+*   Downloadable Stencils for Sketchflow. Stencils in Omnigraffle is one of the reasons why UX Architects love this product so much. Something similar for sketchflow would go a long way. Building a community of people creating/sharing these stencils similar to [Graffletopia](http://graffletopia.com). Making it easy to add these stencils to Blend is key.
+*   More control over animations without having to dive into the code. Triggers and Behaviours in Blend 3 went a long way to solving this problem and Blend 4 improves on this, but its an area that needs to be enhanced.
+
+~ by mdavey on March 26, 2010.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
