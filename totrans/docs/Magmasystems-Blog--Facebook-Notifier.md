@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:51:49
+-->
+
+# Magmasystems Blog: Facebook Notifier
+
+> 来源：[http://magmasystems.blogspot.com/2009/09/facebook-notifier.html#0001-01-01](http://magmasystems.blogspot.com/2009/09/facebook-notifier.html#0001-01-01)
+
+OK, I've become hopelessly addicted to Facebook ... I admit it.
+
+Last night, with the rain pouring outside and the US Open tennis matches postponed, I decided to write something that I've wanted for a long time. An application that sits in the Windows System Tray and notifies me when I get a new Facebook notification. By "notification", I am referring to the red balloon with the number '4':
+
+[![](img/cfd5dd7e6808ac9c2df63ec9b6874fa2.png)](http://steveconroy.files.wordpress.com/2008/12/facebook-notification-icon.jpg)
+
+By having this, I don't have to constantly surf over to the Facebook homepage in order to check my activity.
+
+Luckily, there is a .NET Toolkit for Facebook
+
+[here](http://www.codeplex.com/FacebookToolkit)
+
+. Using this toolkit, it only took me about two hours from start to finish to complete my notifier. I spent another hour cleaning up the code and parameterizing some of the hard-coded things like my user ID, my application's secret codes, and the stuff around the playing of the notification sound.
+
+I found that I had to resort to FQL (which is the SQL-like query facility that Facebook provides) to properly retrieve the state of my Facebook notifications. The function that the Facebook Toolkit gave me always told me that I had no notifications.
+
+I also added the ability to pump in my own notifications for testing purposes.
+
+This application is just for me, and I do not think that I will be releasing it. If I really wanted to do something serious, I would create a general-purpose notifier toolkit that is able to work over Facebook, GMail, Yahoo Mail, etc. Each of these services would have its own "input adapter" as part of the notification framework. And, I would probably integrate this with some sort of CEP engine so that alerts could be sent to a Facebook account.
+
+Maybe one day in the future .....
+
+©2009 Marc Adler - All Rights Reserved.
+
+All opinions here are personal, and have no relation to my employer.
