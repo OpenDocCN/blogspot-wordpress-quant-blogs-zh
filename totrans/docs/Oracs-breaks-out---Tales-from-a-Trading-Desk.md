@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:03:36
+-->
+
+# Oracs breaks out | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2005/12/20/oracs-breaks-out/#0001-01-01](https://mdavey.wordpress.com/2005/12/20/oracs-breaks-out/#0001-01-01)
+
+## Oracs breaks out
+
+So [yesterday](http://www.designerslove.net/2005/12/orcas-vs-designer.html) we got the latest [CTP](http://msdn.microsoft.com/windowsvista/getthebeta/default.aspx) of Vista, together with a new release of WinFX. Only problem I have is that my HP nx9010 portable has decided to stop working – my CTP/beta testing machine :(. Don’t think its going to be fixed before Christmas, so its might be a week or two before I get to install the latest bits :(.
+
+**Update:** [John](http://beingextreme.blogspot.com/) kindly helped me fix my nx9010 yesterday. After a few [downloads](http://msdn.microsoft.com/windowsvista/getthebeta/default.aspx) last night I’m ready to play with Oracs over Christmas. Regarding the latest Vista (build 5270), I’m hoping to install it tonight but suspect I still won’t be able to [display](http://weblogs.asp.net/mdavey/archive/2005/10/03/426400.aspx) Aero. [Chris](http://chris123nt.com/?page_id=37) has some tricks and tips on the latest build.
+
+**Update:** Appears I could be about to follow [Sam](http://samgentile.com/blog/archive/2005/12/21/32179.aspx) down a painful road.
+
+~ by mdavey on December 20, 2005.
+
+Posted in [.NET](https://mdavey.wordpress.com/category/languages/net/)
+Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
