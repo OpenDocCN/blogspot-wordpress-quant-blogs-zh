@@ -1,0 +1,77 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:23:21
+-->
+
+# Humble Student of the Markets: How empires decline
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/02/how-empires-decline.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/02/how-empires-decline.html#0001-01-01)
+
+The headline on the weekend read
+
+[House approves dramatic cuts in federal spending in 235-189 vote](http://www.washingtonpost.com/wp-dyn/content/article/2011/02/19/AR2011021900503.html?hpid=topnews)
+
+ [emphasis added]:
+
+> In a rare early morning weekend vote, the House approved an aggressive plan Saturday to eliminate dozens of federal programs and offices while slashing agency budgets by as much as 40 percent, drawing out more than ***$60 billion in deficit savings***.
+
+**Sound and fury signifying nothing**
+
+Wow, $60 billion! How dramatic is that?
+
+The "dramatic cuts" of $60 billion amounted to 1.6% of the budget - or roundoff error. The cuts were political and symbolic for the Republicans such as "hated" programs such as federal funding for Planned Parenthood. Let's put the cuts into context. The
+
+[New York Times](http://www.nytimes.com/packages/html/newsgraphics/2011/0119-budget/index.html)
+
+has a great article showing that the US federal budget at $3.7 trillion and where all the money goes:
+
+**The real choices**
+
+For another look, top performing fixed income manager Jeff Gundlach of DoubleLine Funds (via
+
+[Zero Hedge](http://www.zerohedge.com/article/jeff-gundlachs-december-presentation)
+
+) puts the dire circumstances of the US budget into context here:
+
+In order to make a real dent in the budget by cutting spending, the government will have to make a choice between some big budget items:
+
+*   Health care
+*   Social Security
+*   Defense
+*   Debt interest
+
+Other programs, such as Veterans' Affairs benefits (~$70b as per the NY Times chart), the FCC (~$11b) and FBI (~$8b) are mandatory, built into legislation or part of a well-functioning democracy. A program like foreign aid that many Republicans and Tea Partiers hate are a miniscule percentage of the budget and its elimination wouldn't make a dent in the deficit. (Did you know that aid to Egypt took up a substantial amount of the foreign aid budget, ostensibly to buy geopolitical stability in the region? But then we don't talk about those things in polite company.)
+
+Republicans like to focus on the first two items and regard the last two as sacrosanct. The Democrats, frankly, don't have any great ideas. Personally, I believe that everything should be on the table. It's a question of how Americans want to pay the piper.
+
+Consider the health care cost issue. Instead of focusing on partisan politics, 
+
+[Mike Mandel](http://innovationandgrowth.wordpress.com/2011/02/10/the-new-centrism/)
+
+has a great idea:
+
+> The long-term rise in medical spending is a total reflection of falling or flat productivity in the healthcare sector. If we can fix that–through a combination of techological advances and institutional change–we can in effect grow our way out of the entitlement problem.
+
+There is always defense spending. Many analysts have pointed out that it makes no sense for the US to be spending roughly 50% of the global military budget. Who is threatening them? Aliens from Mars? On the other hand, the
+
+[Center for Geoeconomic Studies](http://blogs.cfr.org/geographics/2011/02/18/defense-spending/)
+
+pointed out that defense spending as a percentage of GDP is already relatively low. Given how defense interest are entrenched in Washington, how realistic is the prospect of deep cuts?
+
+Then there is always the default option. The US government can either explicitly default (interest on debt) or implicitly default (altering the terms of Social Security). Each has its costs and nasty consequences. It's a question of how you want to pay the piper.
+
+Consider what historian
+
+[Niall Ferguson](http://www.niallferguson.com/site/FERG/Templates/ArticleItem.aspx?pageid=52)
+
+wrote about the twilight of the Ottoman empire if the hard choices aren't made in the wake of military adventures:
+
+> This is the story of how an over-extended empire sought to cope with an external debt crisis by selling off revenue streams to foreign investors. The empire that suffered these setbacks in the 1870s was the Ottoman empire. Today it is the US. In the aftermath of the Crimean war, both the sultan in Constantinople and his Egyptian vassal, the khedive, had begun to accumulate huge domestic and foreign debts. Between 1855 and 1875, the Ottoman debt increased by a factor of 28\. As a percentage of expenditure, interest payments and amortisation rose from 15 per cent in 1860 to 50 per cent in 1875\. The Egyptian case was similar: between 1862 and 1876, the total public debt rose from E£3.3m to E£76m. The 1876 budget showed debt charges accounting for more than half of all expenditure.
+> 
+> The loans had been made for both military and economic reasons: to support the Ottoman military position during and after the Crimean war and to finance railway and canal construction, including the building of the Suez canal, which had opened in 1869\. But a dangerously high proportion of the proceeds had been squandered on conspicuous consumption, symbolised by Sultan Abdul Mejid's luxurious Dolmabahçe palace and the spectacular world premiere of Aïda at the Cairo Opera House in 1871\. In the wake of the financial crisis that struck the European and American stock markets in 1873, a Middle Eastern debt crisis was inevit able. In October 1875 the Ottoman government declared bankruptcy.
+
+In effect, foreigners foreclosed on the Ottoman Empires' assets:
+
+> The crisis had two distinct financial consequences: the sale of the khedive's shares in the Suez canal to the British government (for £4m, famously ad­vanced to Disraeli by the Rothschilds) and the hypothecation of certain Ottoman tax revenues for debt service under the auspices of an international Administration of the Ottoman Public Debt, on which European bondholders were represented. The critical point is that the debt crisis necessitated the sale or transfer of Middle Eastern revenue streams to Eur­opeans.
+
+If Americans truly want to cut the budget deficit by cutting spending, then they will have to make some real sacrifices (or raise taxes). Otherwise this is how empires decline.
