@@ -1,0 +1,50 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:52:18
+-->
+
+# Physics Perspective: Depressing but important...
+
+> 来源：[http://physicsoffinance.blogspot.com/2014/03/depressing-but-important.html#0001-01-01](http://physicsoffinance.blogspot.com/2014/03/depressing-but-important.html#0001-01-01)
+
+What’s more, those regulations were often put in place by governments responding to the democratic demands of their citizens. Trade agreements’ new boosters euphemistically claim that they are simply after regulatory harmonization, a clean-sounding phrase that implies an innocent plan to promote efficiency. One could, of course, get regulatory harmonization by strengthening regulations to the highest standards everywhere. But when corporations call for harmonization, what they really mean is a race to the bottom.
+
+When agreements like the TPP govern international trade — when every country has agreed to similarly minimal regulations — multinational corporations can return to the practices that were common before the Clean Air and Clean Water Acts became law (in 1970 and 1972, respectively) and before the latest financial crisis hit. Corporations everywhere may well agree that getting rid of regulations would be good for corporate profits. Trade negotiators might be persuaded that these trade agreements would be good for trade and corporate profits. But there would be some big losers — namely, the rest of us.
+
+These high stakes are why it is especially risky to let trade negotiations proceed in secret. All over the world, trade ministries are captured by corporate and financial interests. And when negotiations are secret, there is no way that the democratic process can exert the checks and balances required to put limits on the negative effects of these agreements.
+
+The secrecy might be enough to cause significant controversy for the TPP. What we know of its particulars only makes it more unpalatable. One of the worst is that it allows corporations to seek restitution in an international tribunal, not only for unjust expropriation, but also for alleged diminution of their potential profits as a result of regulation. This is not a theoretical problem. Philip Morris has already tried this tactic against Uruguay, claiming that its antismoking regulations, which have won accolades from the World Health Organization, unfairly hurt profits, violating a bilateral trade treaty between Switzerland and Uruguay. In this sense, recent trade agreements are reminiscent of the Opium Wars, in which Western powers successfully demanded that China keep itself open to opium because they saw it as vital in correcting what otherwise would be a large trade imbalance.
+
+Provisions already incorporated in other trade agreements are being used elsewhere to undermine environmental and other regulations. Developing countries pay a high price for signing on to these provisions, but the evidence that they get more investment in return is scant and controversial. And though these countries are the most obvious victims, the same issue could become a problem for the United States, as well. American corporations could conceivably create a subsidiary in some Pacific Rim country, invest in the United States through that subsidiary, and then take action against the United States government — getting rights as a “foreign” company that they would not have had as an American company. Again, this is not just a theoretical possibility: There is already some evidence that companies are choosing how to funnel their money into different countries on the basis of where their legal position in relation to the government is strongest.
+
+There are other noxious provisions. America has been fighting to lower the cost of health care. But the TPP would make the introduction of generic drugs more difficult, and thus raise the price of medicines. In the poorest countries, this is not just about moving money into corporate coffers: thousands would die unnecessarily. Of course, those who do research have to be compensated. That’s why we have a patent system. But the patent system is supposed to carefully balance the benefits of intellectual protection with another worthy goal: making access to knowledge more available.
+
+[I’ve written](http://opinionator.blogs.nytimes.com/2013/07/14/how-intellectual-property-reinforces-inequality/)
+
+before about how the system has been abused by those seeking patents for the genes that predispose women to breast cancer. The Supreme Court ended up rejecting those patents, but not before many women suffered unnecessarily. Trade agreements provide even
+
+[more opportunities](http://opinionator.blogs.nytimes.com/2013/07/14/how-intellectual-property-reinforces-inequality/)
+
+for patent abuse.
+
+The worries mount. One way of reading the leaked negotiation documents suggests that the TPP would make it easier for American banks to sell risky derivatives around the world, perhaps setting us up for the same kind of crisis that led to the Great Recession.
+
+In spite of all this, there are those who passionately support the TPP and agreements like it, including many economists. What makes this support possible is bogus, debunked economic theory, which has remained in circulation mostly because it serves the interests of the wealthiest.
+
+Free trade was a central tenet of economics in the discipline’s early years. Yes, there are winners and losers, the theory went, but the winners can always compensate the losers, so that free trade (or even freer trade) is a win-win. This conclusion, unfortunately, is based on numerous assumptions, many of which are simply wrong.
+
+The older theories, for instance, simply ignored risk, and assumed that workers could move seamlessly between jobs. It was assumed that the economy was at full employment, so that workers displaced by globalization would quickly move from low-productivity sectors (which had thrived simply because foreign competition was kept at bay through tariffs and other trade restrictions) to high-productivity sectors. But when there is a high level of unemployment, and especially when a large percentage of the unemployed have been out of work long-term (as is the case now), there can’t be such complacency.
+
+Today, there are 20 million Americans who would like a full-time job but can’t get one. Millions have stopped looking. So there is a real risk that individuals moved from low productivity-employment in a protected sector will end up zero-productivity members of the vast ranks of the unemployed. This hurts even those who keep their jobs, as higher unemployment puts downward pressure on wages.
+
+We can argue over why our economy isn’t performing the way it’s supposed to — whether it’s because of a lack of aggregate demand, or because our banks, more interested in speculation and market manipulation than lending, are not providing adequate funds to small and medium-size enterprises. But whatever the reasons, the reality is that these trade agreements do risk increasing unemployment.
+
+One of the reasons that we are in such bad shape is that we have mismanaged globalization. Our economic policies encourage the outsourcing of jobs: Goods produced abroad with cheap labor can be cheaply brought back into the United States. So American workers understand that they have to compete with those abroad, and their bargaining power is weakened. This is one of the reasons that the real median income of full-time male workers is
+
+[lower than it was](http://www.nytimes.com/2014/01/30/opinion/obamas-free-trade-conundrum.html?action=click&module=Search&region=searchResults%230&version=&url=http%3A%2F%2Fquery.nytimes.com%2Fsearch%2Fsitesearch%2F%3Faction%3Dclick%26region%3DMasthead%26pgtype%3DHomepage%26module%3DSearchSubmit%26contentCollection%3DHomepage%26t%3Dqry653%23%2Fbonior+tpp&_r=1)
+
+40 years ago.
+
+American politics today compounds these problems. Even in the best of circumstances, the old free trade theory said only that the winners could compensate the losers, not that they would. And they haven’t — quite the opposite. Advocates of trade agreements often say that for America to be competitive, not only will wages have to be cut, but so will taxes and expenditures, especially on programs that are of benefit to ordinary citizens. We should accept the short-term pain, they say, because in the long run, all will benefit. But as John Maynard Keynes famously said in another context, “in the long run we are all dead.” In this case, there is little evidence that the trade agreements will lead to faster or more profound growth.
+
+Critics of the TPP are so numerous because both the process and the theory that undergird it are bankrupt. Opposition has blossomed not just in the United States, but also in Asia, where the talks have stalled.
