@@ -1,0 +1,84 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:12:29
+-->
+
+# Humble Student of the Markets: Asset allocation: Back to basics
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/06/asset-allocation-back-to-basics.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/06/asset-allocation-back-to-basics.html#0001-01-01)
+
+In the June 2nd edition of
+
+[Breakfast with Dave](https://ems.gluskinsheff.net/Articles/Breakfast_with_Dave_060210.pdf)
+
+(free registration required) by Dave Rosenberg of Gluskin Sheff, Rosenberg writes:
+
+> The name of the game is to focus attention on strategies that:
+> 
+> *   Delivers income (including dividend growth, hybrid funds and corporate bonds since company balance sheets are in fine shape);
+> *   Minimize volatility and emphasize on capital preservation in a secular bear market (true long-short “hedge fund” portfolios), and;
+> *   Commodities (precious metals as a “buffer” in a financially unstable world; and industrial commodities to take advantage of (i) the secular growth dynamics in Asia, and (ii) repeated rounds of currency depreciation inevitably lead to trade protectionism and “security of supply” constraints, which tend to benefit basic materials.
+
+I have the greatest of respect for Dave Rosenberg. In the current environment of economic uncertainty and volatility, this is the most reasonable asset allocation that I can think of. However, there are a lot of macro risks out there, namely an implosion in Europe, a hard landing in China, risks to the US banking system from
+
+[another round of residential mortgage resets](http://www.hussmanfunds.com/wmc/wmc100315.htm)
+
+, from
+
+[commerical real estate](http://humblestudentofthemarkets.blogspot.com/2010/03/cre-time-bomb.html)
+
+, an imploding
+
+[muni market](http://rick.bookstaber.com/2010/04/municipal-market.html)
+
+and others. Depending on if and how things implode, a portfolio that focuses on income bearing securities may be a
+
+[source of instability](http://alephblog.com/2010/06/03/yield-the-oldest-scam-in-the-books/)
+
+.
+
+I believe that Rosenberg intuitive understands the weakness of a buy-and-hold allocation as he went on to quality his statements in the following way:
+
+> This by no means suggests that now is the time to load up on resources seeing as they are cyclical in nature and prone to sharp short-term swings — but commodities are in a secular bull market so these periodic spasms offer nice long-term buying opportunities. Defense stocks — hardly politically correct but I don’t claim to be a saint — should also be considered seeing as global military conflicts tend to follow suit, if history repeats itself, in the context of these global financial crises (Turkey is all of a sudden a big power broker, and not necessarily in a very stable fashion). Investors should focus their attention on the currencies and government bonds of countries whose public balance sheets are truly AAA rated — low debt ratios, low primary or structural deficits and with stable banking systems: these would include Canada, Australia, New Zealand, Norway, Sweden and Switzerland.
+
+**Towards a new asset allocation framework** [James Montier](http://www.ritholtz.com/blog/2010/05/james-montier-i-want-to-break-free/)
+
+of GMO recently wrote a research article that expresses my view in a much more articulate fashion on asset allocation.
+
+Typically, analysts derive an efficient frontier based on the past performance, volatility and correlations of returns of different asset classes. From this efficient frontier, it is said that and investor can trade off between risk and return to build an “efficient portfolio”.
+
+While many believe that diversification is the only free lunch to be had, many of the effects of diversification disappear when you need it the most – during panic episodes such as we saw in the Lehman crisis, the Russia crisis, etc. The basic assumption in a buy-and-hold asset allocation is that correlations and volatility estimates are stable. What happens when return correlations converge to 1 as they do during panic episodes?
+
+Putting it in geek-speak, Tony Cooper wrote the following in his National Association of Active Investment Managers' 2010 Wagner award winning paper entitled
+
+[Alpha Generation and Risk Smoothing using Volatility of Volatility](http://naaim.org/files/2010/1st_Place_Tony_Cooper_abstract.pdf)
+
+ [emphasis mine]:
+
+> In traditional asset allocation vovo [volatility of volatility] has a cost. As an example, consider a balanced-fund manager who uses, say, bonds to reduce the volatility of a fund which contains equities. Or a financial planner who assesses the risk tolerance of a client investor and proposes, say, a 60-40 equities-bonds mix. The traditional way of managing these investments is to look at the long term historical volatility of the component asset classes to decide the proportions to invest in. Usually no consideration is given to the vovo of the asset classes and no constant volatility target is set. So ***the investor or manager with a static or reasonably constant 60-40 mix has to suffer the varying volatility of the markets. sometimes sleeping well at night, occasionally not***. In order to ensure that the worst volatility is minimised the asset allocation will have erred on the side of conservative. This will have cost returns.
+
+The chart below shows the level of volatility in the OECD leading indicator, which point to an environment of rising macro volatility. How stable are asset return correlations and asset price volatility estimates under these conditions?
+
+**Volatility of OECD Leading Indicator**
+
+Montier made more points about the problem with static buy-and-hold framework to asset allocation, including:
+
+*   Confusing risk with volatility
+*   Not considering valuation risk, or the instability of the [equity risk premium](http://www.cxoadvisory.com/equity-premium/the-2010-equity-risk-premium-from-practitioners/)
+*   How benchmarking alters manager behavior
+
+He also points out a whole host of other important issues. Go read it all.
+
+**Back to basics**
+
+Fixed asset allocation makes good sense in secular bull markets. In a secular bear market or in a range bound market, fixed allocations will be of little use and will result in subpar returns.
+
+I would suggest a back to basics approach to portfolio construction. The first step is to look at the problem from an analytical point of view instead of relying on estimates of volatility and correlation based on historical data. Why is X correlated or uncorrelated to Y and why? Look for causality (e.g. when interest rates rise, bond prices fall) instead of historical correlations.
+
+Think about how different assets behave under different macro risk scenarios. Where does an investment asset lie on the risk vs. safety scale?  As an example, consider the tradeoffs between equities vs. default-free government paper. For example, are emerging market equities more or less risky than developed market equities given the higher secular growth exhibited by emerging market economies? My answer: in the long run, EM is probably less risky than traditionally perceived but in a meltdown scenario, they are more volatile.
+
+If you are reaching for yield, where do REITs sit on the risk vs. safety scale? How would they behave in a market panic?
+
+As a second step, you can then assemble a portfolio based on sensible estimates of diversification effects.
+
+For bonus points, you can move from a fixed allocation buy-and-hold framework to a dynamic allocation framework based on forecasts of risk, using a combination of factors such as valuation, momentum, sentiment, etc.
