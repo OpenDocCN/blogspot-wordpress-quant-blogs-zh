@@ -1,0 +1,19 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:34:50
+-->
+
+# BaaS: R3 Distributed Ledger and Microsoft | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2016/04/04/baas-r3-distributed-ledger-and-microsoft/#0001-01-01](https://mdavey.wordpress.com/2016/04/04/baas-r3-distributed-ledger-and-microsoft/#0001-01-01)
+
+## BaaS: R3 Distributed Ledger and Microsoft
+
+Has [Microsoft](https://www.finextra.com/newsarticle/28696/r3-enlists-microsoft-azure-for-distributed-ledger-push) (Blockchain as a [Service](https://devcon.ethereum.org/slides/ethBaas_gray.pdf) [platform](http://www.ibtimes.co.uk/r3-banking-blockchain-consortium-partners-microsoft-azure-1553100)) just struck a sensible deal to ensure its full in the mix with the banks and blockchain?
+
+> “The Azure platform and intelligent cloud services bring advanced capabilities to this budding financial ecosystem, and the commitment by Microsoft will accelerate the adoption of distributed ledger technology around the globe and take our R3 Lab and Research Center offering to a new level of capability.”
+
+~ by mdavey on April 4, 2016.
+
+Posted in [Data](https://mdavey.wordpress.com/category/data/), [Trading](https://mdavey.wordpress.com/category/trading/)
+Tags: [BaaS](https://mdavey.wordpress.com/tag/baas/), [blockchain](https://mdavey.wordpress.com/tag/blockchain/), [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
