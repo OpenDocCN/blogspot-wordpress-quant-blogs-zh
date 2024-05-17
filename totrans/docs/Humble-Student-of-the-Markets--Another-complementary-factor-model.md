@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:36:21
+-->
+
+# Humble Student of the Markets: Another complementary factor model
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/07/another-complementary-factor-model.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/07/another-complementary-factor-model.html#0001-01-01)
+
+In the past, I had written about how combining factors can lead to more performance stability (see
+
+[Momentum + Bull market = Chocolate + Peanut butter?](http://humblestudentofthemarkets.blogspot.com/2012/09/momentum-bull-market-chocolate-peanut.html)
+
+). My past research showed that while price momentum did exhibit positive alpha over the course of a market cycle, returns were highly volatile.
+
+Instead, the Cass Business School paper entitled
+
+[The Trend is Our Friend: Risk Parity, Momentum and Trend Following in Global Asset Allocation](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2126478)
+
+ indicated that momentum worked much better when conditioned on bull and bear market cycles. The paper showed that returns to price momentum was especially positive during bull phases at a stock level. My research showed that this effect was extended to the sector and industry level. I identified bull (uptrend), bear (downtrend) and neutral market phases using a 50-200 day crossing moving average trend following system.
+
+**Quality and Value**
+
+Now comes some interesting research results from
+
+[Research Affiliates](http://www.researchaffiliates.com/Our%20Ideas/Insights/Fundamentals/Pages/259_The_Moneyball_of_Quality_Investing.aspx)
+
+showing conditioning value investing with certain quality factors potentially adds alpha as well (emphasis added):
+
+> We used three measures to capture the pertinent information: return on equity (ROE) to reflect growth and profitability; the debt coverage ratio to represent the likelihood of default; and the accruals-to-average-total-assets measure defined by Sloan (1996) to quantify possible accounting red flags.12 To arrive at company-specific quality measures, we used the simple arithmetic average of each stock’s percentile rank for these three variables.
+> 
+> The first line of Table 2 shows the performance of a simple long–short strategy based on this quality measure. On average the strategy produces a small negative return. It has some alpha after we control for factor exposure and negative exposure to the value factor.
+
+[![](img/5d20d3a09977d5b1596dae6f1c4e671c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOokqWigbG5sUPl5RrXCnTYrTObnlY1ckvSrAbV6AF6LqjLoBObGmQXM2lNJcquSspjsw5qXbhHhWX0fa5bCCoPfM_16soJ0ftAMNAA5Rh9qPzUVz9nhklLFmuycc8yMgUWt6PhzK8PrE/s1600/Quality+&+value.png)
+
+> When we use quality in conjunction with value, the results are much better. The second line of Table 2 shows the results of a portfolio where we go long value stocks with high quality and short growth stocks with low quality. ***This long–short strategy has annual alpha of 11.2% per annum.*** A substantial portion of this statistically significant alpha comes from conditioning on quality information. ***The annualized alpha, controlling for the Fama–French–Asness–Carhart four factor model, is 9.3% per annum***.
+
+On a long-only basis, the value-high quality combination exhibited higher returns with lower volatility when compared to the value-low quality combination.
+
+The authors concluded (emphasis added):
+
+> The high quality value portfolio has fewer distressed, slow growing, unprofitable companies with potentially questionable accounting practices. As a result, the high-quality value portfolio has a better risk-adjusted return. ***Quality is not, in itself, a factor that generates a premium; but value investing conditioned on a properly specified concept of quality is a powerful investment strategy.***
+
+This is another example of how combining factors can add value. In fact, the use of both of these disciplines, namely price momentum-trend following and quality-value, can be highly complementary strategies in a quantitative equity portfolio.
