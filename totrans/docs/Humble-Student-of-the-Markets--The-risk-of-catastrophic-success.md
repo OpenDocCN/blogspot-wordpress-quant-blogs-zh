@@ -1,0 +1,68 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:45:22
+-->
+
+# Humble Student of the Markets: The risk of catastrophic success
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/01/the-risk-of-catastrophic-success.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/01/the-risk-of-catastrophic-success.html#0001-01-01)
+
+At about the time the tanks rolled across the Iraqi border in Gulf War II, one of the negative scenarios raised by the pundit was catastrophic success. What if the Coalition troops became too successful, Iraqi resistance all but collapses and the Coalition spearhead advances so fast that it outruns its supply lines?
+
+Equity investors today are faced with a similar possibility of catastrophic success. As 2014 dawns, most of the macro tail risks that the markets were concerned about a year ago have evaporated - with the exception of China (more on that later in a future post). The fiscal cliff has been successfully navigated. Europe appears to have bottom and start to recover, as per the chart below of European PMIs:
+
+In the US,
+
+[Scott Grannis](http://scottgrannis.blogspot.com/2014/01/solid-manufacturing-report.html)
+
+believes the December ISM report suggests that we could see GDP growth of 4%+ this year:
+
+> As the chart above suggests, recent readings of the ISM manufacturing index are consistent with overall GDP growth of at least 4%. More importantly, conditions appear to have been improving somewhat in recent months.
+
+4% growth! A 4% growth rate for the economy would turn the Fed's thinking about the effectiveness of QE and other extraordinary measures to interest rate policy normalization. Indeed, the market dialogue seems to be turning in that direction. As an example, Joe LaVorgna at Deutsche Bank's 2014 forecast (via
+
+[Business Insider](http://www.businessinsider.com/deutsche-bank-2014-predictions-2013-12)
+
+) indicates that economic risks are tilted to the upside:
+
+> For Deutsche Bank's Joe LaVorgna, the risks to his forecasts seem to be tilted to the upside. In other words, he thinks it's more likely that the the U.S. economy will turn out better than he expects in 2014.
+> 
+> "Generally, when investors ask us this, they always seem to imply the downside risks," wrote LaVorgna in a note to clients on Tuesday. "However, for us, the risk to growth is to the upside, not the downside. Beyond this, the primary downside risk in 2014, as it is in most years, is geopolitical, meaning we get some sort of negative exogenous shock such as an oil price spike."
+
+**A test for the Yellen Fed?**
+
+If the US economy were to grow at 4% of more, it would put tremendous pressure on the Fed to normalize interest rates relatively quickly. Already, the yield curve has started to steepen in reaction to the news of tapering of QE purchases. If growth were to approach 4%, then the bond market would react first with further steepening of the yield curve and stock prices could react either by rallying on higher earnings expectations or fall because of rising interest rates. Regardless of market direction, sector leadership would change to cyclical and late cycle deep cyclical inflation-sensitive groups.
+
+Julian Emanuel of UBS pointed out (via
+
+[Business Insider](http://www.businessinsider.com/sp-priced-in-gold-under-new-fed-chairs-2013-12)
+
+) that past Fed chairs have faced tests early in their tenure. Though the sample size is small, he highlights the chart below of the SPX to gold ratio as a measure of market anxiety during each of the past four Fed chairs terms. If history is any guide, Janet Yellen is likely to face a test of her leadership in the next six months.
+
+Could interest rate normalization be the first test of Yellen's leadership at the Fed?
+
+[CNBC](http://www.cnbc.com/id/101305593)
+
+recently speculated about this challenge:
+
+> The recent string of positive economic news could turn into a headache for Janet Yellen as she prepares to take the reins at the Federal Reserve.
+> 
+> With gross domestic product growth above 4 percent and the stock market roaring along—save for Thursday's year-opening sell-off—the new central bank chief could have a harder time justifying the Fed's crisis-era monetary policy.
+> 
+> "With growth (in 2014) to the mid-3s and potentially higher, you're actually adding accommodation to the economy," said Joe LaVorgna, chief U.S. economist at Deutsche Bank. "Yes, you're slowing the pace of the buying, but the balance sheet is still growing. It's staggering to me. I just don't see how they're going to get out in a clean way."
+
+**Watching for signs of catastrophic success**
+
+Investors can never fully forecast the future, but they have to be prepared for different possibilities. Here are some of what I am watching for under this scenario of 4%+ growth. In particular, I am monitoring signs that indicate inflationary expectations are rising.
+
+As the chart below shows, inflationary expectations are starting to tick up. TIPS are starting to outperform 7-10 year Treasuries. The chart below shows TIP rallied out of a relative downtrend against IEF, the 7-10 year Treasury ETF.
+
+Similarly, metal and mining stocks have also rallied out of a relative downtrend against SPX. This group appears to be forming a sideways consolidation pattern against the general market.
+
+Energy stocks, which is another major sector that is sensitive to inflationary expectations, has not rallied out of a relative downtrend yet. However, it is testing a multi-year relative support zone. With Warren Buffett's recent forays into the energy sector (Suncor, ExxonMobil and Philips 66), the outlook for this sector appears to be attractive on a longer term basis.
+
+If these charts of inflationary expectations all start to undergo an uptrend, then the risk of a dramatic rise in volatility in stock prices will rise as expectations transition from slow growth to overheating.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
