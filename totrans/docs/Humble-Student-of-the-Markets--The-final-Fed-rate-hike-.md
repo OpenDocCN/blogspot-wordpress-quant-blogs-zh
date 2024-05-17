@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:30:33
+-->
+
+# Humble Student of the Markets: The final Fed rate hike?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/04/the-final-fed-rate-hike.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/04/the-final-fed-rate-hike.html#0001-01-01)
+
+The main events in the coming week will be the interest rate decisions by Federal Reserve on Wednesday and the ECB on Thursday. Both are widely expected to raise rates. However, market expectations for the trajectory of the U.S. Fed Funds rate is a 25-basis-point hike at the May meeting, a pause, and rate cuts later in the year. By contrast the ECB is expected to continue hiking.
+
+On the other hand, the ECB path is more hawkish and its rate hike cycle does not appear to be complete. The governing council is reportedly split between a 25-basis point and a 50-basis point hike at the May meeting. ECB board member Isabel Schnabel told Politico in an interview that underlying inflation, which filters out volatile food and energy prices, shows very strong momentum and it was not clear that it would peak “very soon”. Belgium’s central bank head and ECB setting governing council member Pierre Wunsch told the Financial Times in an interview: “We are waiting for wage growth and core inflation to go down, along with headline inflation, before we can arrive at the point where we can pause.”
+
+[![](img/0dca2e60c2affd1367d081af71abf5c9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgk7BwA15wWJ4KYjyFhM71djg9PBs1OdxkPRteJMitGmWPXLsgs1Rk9J0PFkFMrAYkXIUXLbtFgPahi8j5B2gq9ZasJv29YEqdi4k5mc2eqO7oc_Ig40rN2N7NUxHa7nt67TtF4RUow8DdYti9XAYl4rKhhL0VHtyCx9smhwzlc0Bkk9SeYC6D2wxlxcQ/s950/Fed%20Funds%20probability.png)
+
+The Fed hates to surprise markets. A 25-basis-point rate hike is a virtual certainty. Unless it doesn’t plan to pause increases after the May meeting, it will signal its intention next week, subject to the usual caveats about data dependency. The challenge for investors is how to position themselves should the Fed pause.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2023/04/29/the-final-fed-rate-hike/).
