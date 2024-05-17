@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:46:11
+-->
+
+# State Replication | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/09/30/state-replication/#0001-01-01](https://mdavey.wordpress.com/2014/09/30/state-replication/#0001-01-01)
+
+## State Replication
+
+A colleague pointed me at a few interesting articles ([Replicant](http://hackingdistributed.com/2013/12/26/introducing-replicant/)) centred around state replication. For a long time I’ve been interested in state replication – I’ve blogged here and there about it over the years. The ability for each replicate to accept change, and propagate change to all replicas ensuring consistency is an interesting problem to solve. Such solutions off interesting scalability options in distributed applications.
+
+[Mencius](http://sysnet.ucsd.edu/~yamao/pub/mencius-osdi.pdf)  offer more of what I’m interested – single/multi leader
+
+~ by mdavey on September 30, 2014.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
