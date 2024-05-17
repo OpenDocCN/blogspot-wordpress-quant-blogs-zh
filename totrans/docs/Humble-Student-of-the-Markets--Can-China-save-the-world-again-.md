@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:50:24
+-->
+
+# Humble Student of the Markets: Can China save the world again?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/08/can-china-save-world-again.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/08/can-china-save-world-again.html#0001-01-01)
+
+Japan saved the world in the aftermath of the Crash of 1987\. When the panic selling of stocks cascaded around the world, the Nikkei Index bent, but did not break (via the
+
+[FT](https://www.ft.com/content/dcdfc520-7d93-11dc-9f47-0000779fd2ac)
+
+):
+
+> The Nikkei tumbled 15 per cent on its “Black Tuesday” in the wake of Wall Street’s violent collapse and lost a further 5 per cent before global markets regained their feet in mid-November.
+> 
+> Yet, even though the crash knocked $500bn off corporate Japan’s market value, Tokyo’s fall was mild compared with those in the US, Europe and elsewhere in Asia – where some bourses plunged as much as 40 per cent. By the spring of 1988 the Nikkei was back up to a 15-year high, from which it would continue soaring for another 20 months.
+> 
+> “I don’t remember anybody in the office panicking,” Soichiro Monji says of the turbulent weeks that followed the October crash. Mr Monji, then a dealer at Daiwa Securities, Japan’s second-biggest brokerage house, now plans equity strategy at the group’s asset management arm.
+> 
+> “The economy was in good shape and the stock market had momentum. We thought, ‘There must be days like this sometimes’.”
+> 
+> Daiwa and Japan’s other big brokers were in any case sitting tight, having been ordered by their regulators in the Finance Ministry not to sell into the panic – an act of intervention that “would be inconceivable today”, notes Mr Monji.
+> 
+> Kiichi Miyazawa, the finance minister and later prime minister, who died earlier this year, told all who would listen that calm would soon return.
+> 
+> The government’s tactics helped stem the Nikkei’s fall, although a rosy growth outlook, low interest rates and a rising yen probably played a bigger role. The market’s structure helped: two-thirds of all company shares were held not by profit-seeking investors but by allied companies seeking to cement business ties.
+
+In many ways, the panic was arrested in Japan and saved the world, but it paid a price later in that decade when the Japanese market collapsed and began the Lost Decades.
+
+Fast forward to the Great Financial Crisis of 2008\. The Chinese authorities ordered the banks to lend, and local authorities to spend. In many ways, China saved the world. As the American economy starts to show evidence of late cycle behavior, a recession is sure to follow some time in the future. Can China save the world again?
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2017/08/08/can-china-save-the-world-again/)
+
+.
