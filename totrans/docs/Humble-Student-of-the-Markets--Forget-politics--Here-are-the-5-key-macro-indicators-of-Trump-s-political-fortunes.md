@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:57:21
+-->
+
+# Humble Student of the Markets: Forget politics! Here are the 5 key macro indicators of Trump's political fortunes
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/01/forget-politics-here-are-5-key-macro.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/01/forget-politics-here-are-5-key-macro.html#0001-01-01)
+
+Wow, Trump's political honeymoon didn't last very long! In the past few days, there have been numerous objections of Trump's Executive Orders. I'll spare you the details of the protests and demonstrations, particularly from the Left. What stood out were the objections from the Right and within the GOP. As an example, 
+
+[Eliot Cohen](https://www.theatlantic.com/politics/archive/2017/01/a-clarifying-moment-in-american-history/514868/)
+
+, who served under Condeleeza Rice, fretted about the threats that Trump posed to the American Republic:
+
+> I am not surprised by President Donald Trump’s antics this week. Not by the big splashy pronouncements such as announcing a wall that he would force Mexico to pay for, even as the Mexican foreign minister held talks with American officials in Washington. Not by the quiet, but no less dangerous bureaucratic orders, such as kicking the chairman of the Joint Chiefs of Staff out of meetings of the Principals’ Committee, the senior foreign-policy decision-making group below the president, while inserting his chief ideologist, Steve Bannon, into them. Many conservative foreign-policy and national-security experts saw the dangers last spring and summer, which is why we signed letters denouncing not Trump’s policies but his temperament; not his program but his character.
+> 
+> Precisely because the problem is one of temperament and character, it will not get better. It will get worse, as power intoxicates Trump and those around him. It will probably end in calamity—substantial domestic protest and violence, a breakdown of international economic relationships, the collapse of major alliances, or perhaps one or more new wars (even with China) on top of the ones we already have. It will not be surprising in the slightest if his term ends not in four or in eight years, but sooner, with impeachment or removal under the 25th Amendment. The sooner Americans get used to these likelihoods, the better.
+
+[Cass Sunstein](https://www.bloomberg.com/view/articles/2017-01-17/a-warning-to-trump-from-friedrich-hayek)
+
+ objected to Trump's economic approach by invoking Fredrich Hayek:
+
+> If American conservatives have an intellectual hero, it might well be Friedrich Hayek -- and rightly so. More clearly than anyone else, Hayek elaborated the case against government planning and collectivism, and mounted a vigorous argument for free markets. As it turns out, Hayek simultaneously identified a serious problem with the political creed of President-elect Donald Trump.
+
+Sunstein worried aloud about Trump's conservative credentials and autocratic tendencies:
+
+> In "The Road to Serfdom" and (at greater length) in "The Constitution of Liberty," Hayek distinguished between formal rules, which are indispensable, and mere “commands,” which create a world of trouble, because they are a recipe for arbitrariness. When formal rules are in place, “the coercive power of the state can be used only for cases defined in advance by law and in such a way that it can be foreseen how it will be used.”
+> 
+> Like the rules of the road, formal rules do not name names. They are useful to people who are not and cannot be known by the rule-makers -- and they apply in situations that public officials cannot foresee.
+> 
+> Commands are altogether different. They target particular people and tell them what to do. (Think Hitler’s Germany, Stalin’s Soviet Union, Mao’s China, Castro’s Cuba.) They require the exercise of discretion on the spot. As examples, Hayek pointed to official decisions about “how many buses are to be run, which coal mines are to operate, or at what prices shoes are to be sold.”
+
+Forgive me for being cynical, but blah blah blah...None of this matters very much.
+
+The main objective of these pages is to make money for my readers. I try very hard to divorce my investment views from my political views. As the chart below shows, the stock market can prosper under both Democratic and Republican presidents.
+
+With that preface in mind, here are some key metrics to watch that Donald Trump needs to achieve in order to politically prosper in his first term.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2017/01/30/forget-politics-here-are-the-5-key-macro-indicators-of-trumps-political-fortunes/)
+
+.
