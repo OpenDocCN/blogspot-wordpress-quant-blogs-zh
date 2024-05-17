@@ -1,0 +1,115 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:23:54
+-->
+
+# Humble Student of the Markets: Cheap or expensive? The one thing about equity valuation that few talk about
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/03/cheap-or-expensive-one-thing-about.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/03/cheap-or-expensive-one-thing-about.html#0001-01-01)
+
+[Barry Ritholz](http://www.ritholtz.com/blog/2015/03/three-commandments-of-stock-valuation/)
+
+recently set off a minor debate on valuation when he wrote that the market was fairly valued, rather than being overvalued as many pundits would have us believe:
+
+> Let’s take a look at the valuation of U.S. markets. This is relevant to investors, as valuation determines future expected returns.
+> 
+> There are three commandments to consider:
+> 
+> *   Thou shalt consider a full assortment of all valuation metrics;
+> *   Thou shalt not cherry-pick only those metrics that support your preferred outcome;
+> *   Thou shalt focus on the very best measure of market valuation, according to academic research and data.
+> 
+> These should have the force of moral law for anyone who wants to understand whether stocks are cheap or expensive.
+
+I do consider different valuation metrics and I came down in the overvaluation camp. I wrote about a year ago that based a very long (100 year history) of PE, PB and dividend yield, US equities are expensive, but not stupidly high (see
+
+[More evidence of a low-return outlook](http://humblestudentofthemarkets.blogspot.com/2014/04/more-evidence-of-low-return-equity.html)
+
+). I am in good company. Consider:
+
+*   [BCA Research](http://blog.bcaresearch.com/u-s-equity-valuations-to-be-dismissed), who focuses mainly on forward PE to reach their conclusion.
+*   John Butters at [Factset](http://www.factset.com/insight/2015/02/earningsinsight_2.20.15#.VQWYRbl0zPb), who also highlighted the fact that forward PE ratios are historically high. Since that note was published, his latest [update](http://www.factset.com/insight/2015/02/earningsinsight_2.20.15) shows that forward PE had retreated somewhat to 16.8x earnings:
+
+*   James Paulsen at [Wells Capital Management](http://wellscap.com/docs/emp/20150108.pdf), who studied median PE and PB ratios within the SP 500 and concluded valuations are stretched.
+
+*   [Meb Faber](http://mebfaber.com/2015/03/13/stocks-are-the-most-expensive-since-the-1960s/), who pointed to the history of the Price to Sales ratio, as well as various versions of PE10.
+*   [Shane Leonard](http://ftalphaville.ft.com/2015/02/10/2118021/are-we-numb-to-silly-valuations-again/), who has railed about the nosebleed valuations of Silicon Valley start-ups. Also see the [Fortune](http://fortune.com/2015/03/15/bill-gurley-predicts-dead-unicorns-in-startup-land-this-year/) article by Bill Gurley predicting 'dead unicorns' in start-up land.
+*   [Philosophical Economics](http://www.philosophicaleconomics.com/2015/03/treps/), who developed a new Total Return EPS Index, based on the assumption that companies did not pay dividends but engaged in share buybacks instead. Based on that metric, he came to a SPX target of about 2150.in 2020, indicating stretched valuations.
+
+**Does valuation even matter?**
+
+Despite the warnings about how expensive equities are, stock prices have continued to advance. That's because, for investors and traders with relatively short (1-3 year) time horizons, valuations have a habit of not mattering until they matter.
+
+Using shorter term time frames, what matters more to stock prices is macro-economic and earnings momentum.
+
+[Macro Man](http://macro-man.blogspot.ca/2015/02/a-simple-model.html)
+
+recently created a simple model that regressed retail sales, industrial production and durable goods, ex-transportation, to the stock market. The fit is remarkably good.
+
+This wasn't meant to be a rigorous study and we can argue about the problems of data co-linearity, backtesting and data fitting. Nevertheless, he made the point that stock prices respond to macro signals about growth. 
+
+Regular readers also know that I have regularly monitored 
+
+[Factset](http://www.factset.com/insight/2015/02/earningsinsight_2.20.15)
+
+ for the evolution of forward 12 month EPS, which, incidentally, have begun to slowly rise again after suffering a large decline (mainly due to the negative effects of falling energy prices).
+
+**The next bear market could be a real doozy**
+
+Despite the spirited debate over valuation, the analysis that I have presented so far suggests that valuations do not matter to stock prices. That is certainly not true.
+
+[Doug Short](http://www.advisorperspectives.com/dshort/commentaries/Equity-Valuations-Reccessions-and-the-Market.php)
+
+had an interesting insight on this topic:
+
+> I had a fascinating conversation with Neile Wolfe, of [Wells Fargo Advisors](https://home.wellsfargoadvisors.com/neile.wolfe), LLC. Based on the underlying data in the chart above, Neile made some cogent observations about the historical relationships between equity valuations, recessions and market prices:
+> 
+> *   High valuations lead to large stock market declines during recessions.
+> *   During secular bull markets, modest overvaluation does not produce large stock market declines.
+> *   During secular bear markets, modest overvaluation still produces large stock market declines.
+> 
+> Here is a table that highlights some of the key points. The rows are sorted by the valuation column.
+
+During economic expansions, earnings and economic momentum growth drives stock prices. In a recession, it is valuation that provides a floor on equity values. Short concluded:
+
+> Neile and I discussed his thoughts on the data in this table with respect to portfolio management. I came away with some key implications:
+> 
+> *   The SP 500 is likely to decline severely during the next recession, and future index returns over the next 7 to 10 years are likely to be low.
+> *   Given this scenario, over the next 7 to 10 years a buy and hold strategy may not meet the return assumptions that many investors have for their portfolio.
+> *   Asset allocation in general and tactical asset allocation specifically are going to be THE important determinant of portfolio return during this time frame. Just buying and holding the SP 500 is likely be disappointing.
+> *   Some market commentators argue that high long-term valuations (e.g., Shiller's CAPE) no longer matter because accounting standards have changed and the stock market is still going up. However, the impact of elevated valuations -- when it really matters -- is expressed when the business cycle peaks and the next recession rolls around. Elevated valuations do not take a toll on portfolios so long as the economy is in expansion.
+
+**Do valuations matter?**
+
+I have two key conclusions from this analysis. Yes, valuations do matter - but only for investors trying to project returns as part of an investment plan and policy.
+
+For investors with shorter time horizons, you should only be watching for signs of recession. Equities appear to be expensive right now, but don't worry as there is no sign of a recession on the horizon. That's why it is important to pay attention to Doug Short's
+
+[Big Four Recession Indicators](http://www.advisorperspectives.com/dshort/updates/Big-Four-Economic-Indicators.php)
+
+, whose signals remain benign for the moment.
+
+**Our friend, the bear**
+
+For investors with long time horizons who have formed an investment policy, ugly bear markets are not necessarily disasters. If the account is taxable, bear markets can be welcome periods to re-balance an equity portfolio in a tax-effective manner. You can harvest capital losses and match them against positions with large capital gains in order to free up some cash to look for better investment opportunities.
+
+As well, bear markets are opportunities to better re-invest income and dividends at much lower prices. That's why people like Warren Buffett do not fear them.
+
+[Philosophical Economics](http://www.philosophicaleconomics.com/2014/06/whos-afraid-of-1929/)
+
+pointed out that an investor with a 30 year time horizon actually had better returns by investing in November 1929, the month after the market crash, than in September 1980.
+
+He concluded:
+
+> Ultimately, the outperformance was driven by three factors: (1) stronger corporate performance (real EPS growth given the reinvestment rate was above average from 1929-1959, and below average from 1980-2010), (2) dividends reinvested at more attractive valuations (which were much cheaper, on average, from 1929-1959 than from 1980-2010), and (3) shortcomings in the CAPE and Q-Ratio as valuation metrics (1929 and 2010 were not as expensive as these metrics depicted.)
+
+For long-term investors who want to stick with a buy-and-hold policy for their equity holdings, this suggest a re-investment based strategy:
+
+*   When valuations are high, tilt towards value and high yielding stocks so that in a bear market, you can have more income to re-invest at much cheaper valuations
+*   When valuations are low, focus on growth and low yielding stocks to more effectively take advantage of capital appreciation. 
+
+A recent post by
+
+[A Wealth of Common Sense](http://awealthofcommonsense.com/stock-performance-before-during-after-recessions/)
+
+shows that it can be very profitable to invest during recessions. Long term investors should be hoping that they get a few and to have the resource available to enhance their returns during such periods.
