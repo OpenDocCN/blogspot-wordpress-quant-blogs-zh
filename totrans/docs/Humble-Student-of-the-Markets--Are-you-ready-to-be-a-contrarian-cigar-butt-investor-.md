@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:19:07
+-->
+
+# Humble Student of the Markets: Are you ready to be a contrarian cigar butt investor?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2024/03/are-you-ready-to-be-contrarian-cigar.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2024/03/are-you-ready-to-be-contrarian-cigar.html#0001-01-01)
+
+How would you feel about a star value manager with the track record shown in the chart below. While he beat the market in the wake of the dot-com bubble, he has only matched the performance of the S&P 500 since 2011\. To be sure, he did beat his style benchmark (second panel).
+
+The star manager is none other than the legendary Warren Buffett and the chart shows the relative performance of Berkshire Hathaway’s stock price relative to the S&P 500 and the Russell 1000 Value Index. Buffett’s best known recent win was his purchase of Apple in 2016 which became his largest holding, and whose relative returns are shown in the bottom panel.
+
+I examine how he achieved his results, and offer studies of sources of alpha as examples of different investing styles.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2024/03/02/are-you-ready-to-be-a-contrarian-cigar-butt-investor/).
