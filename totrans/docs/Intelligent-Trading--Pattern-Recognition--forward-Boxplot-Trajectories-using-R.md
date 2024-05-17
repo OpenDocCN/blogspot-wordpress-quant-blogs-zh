@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:44:45
+-->
+
+# Intelligent Trading: Pattern Recognition: forward Boxplot Trajectories using R
+
+> 来源：[http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01)
+
+Although the following discussion can apply to the Quantitative Candlestick Pattern Recognition series, it is addressing the same issue as any basic conditional type system -- how and when to exit.  The following is one way to visualize and think about it, and is by no means optimal.
+
+                                    Fig 1\. Posterior Boxplot Trajectory
+
+Often we attempt to find some set of prior input patterns that leads to profitable posterior outcomes.  However, in most of the available examples, we are typically only given heuristics and rules of thumb on where to exit.  This might make sense, since no one can accurately predict where to exit. However, with knowledge of past samples, we can have some idea of where a good target to exit might be, given the prior knowledge of forward trajectories.  I dubbed the name 'boxplot trajectory', here, as I think it's a useful way to visualize a group of many possible outcome trajectories for further analysis.
+
+In this example, a set of daily price based patterns was analyzed via a proprietary program I wrote in R, which resulted in an input pattern yielding a set of 52 samples that met my conditional criteria.  Fig 1 illustrates a way to look at the trajectory outcomes based upon one of the profitable patterns in the conditional criteria. The bottom graph is simply the plot of median results of each data point in the trajectory. We often try to imagine the best way to exit without foreknowledge of the future (and somewhat less rule of thumb based criteria).
+
+                                      Fig 2\. Trajectory tree.
+
+One approach would be to use some type of exiting rule based upon the statistical median of each sequential point's range.  Knowing that 1/2 of the vertices occur above and 1/2 below the median, we should expect to hit at least 1/2 of the targets at or above the median. Given that the 3rd point is the highest median, it makes sense to exit earlier than waiting for a greater gain further out (which has an even lower median).  So if we take as a target, the median value of the 3rd pt. we achieve an average and fixed target of 1.59% on 27/52 of the total samples.
+
+Of the remaining samples, we may now wish to exit on the 11th bar (or earlier if the same target is hit earlier) target of .556%, which is achieved on 13/52 of the remaining samples.  This leaves only the last bar of which we simply use the average return as the weighted return value for that target, in this case -1.74% for the remaining samples : 12/52\. Notice we will always have the worse contenders that were put off until the end.
+
+The expectation yields E(rtn)=27/52*.0159+13/52*.0056-12/52*-.017 =.0057
+
+eeking out a small average + gain of .57%. Compounded, this gives:
+
+(1+.0159)^27*(1+.0056)^13*(1-.017)^12~ 34% rtn for 52 trades, each less than 3 days in length.  Hit rate (as secondary observation) is 77% in this case.
+
+The approach is particularly appealing for a high frequency strategy with very low commissions. Notice it's by no means comprehensive (and yes, I've only shown in sample here), but rather a novel way to think about exiting strategies.

@@ -1,0 +1,35 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:43:49
+-->
+
+# Intelligent Trading: Review: Machine Learning An Algorithmic Perspective 2nd Edition
+
+> 来源：[http://intelligenttradingtech.blogspot.com/2015/04/review-machine-learning-algorithmic.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2015/04/review-machine-learning-algorithmic.html#0001-01-01)
+
+[Fig 1\. Machine Learning: An Algorithmic Perspective. 2nd Edition. Stephen Marsland](http://www.amazon.com/Machine-Learning-Algorithmic-Perspective-Recognition/dp/1466583282)
+
+   I just wanted to briefly share some initial impressions of the 2nd edition of Stephen Marsland's very hands on text, "Machine Learning, *An Algorithmic Perspective.*"  Having been a big fan of the first, I requested a review copy from Dr. Marsland, and with his help, the publishers were kind enough to send me a review copy. I spent the the last few months going over most of the newer topics and testing many of the newer scripts in Python. With that, I'll dive into some of my impressions of the text.
+
+     I've stated before, that I thought the 1st edition was hands down, one of the best texts covering applied Machine Learning from a Python perspective. I still consider this to be the case. The text, already extremely broad in scope, has been expanded to cover some very relevant modern topics, including:
+
+*   Particle Filtering (expanded coverage with working implementation in Python).
+*   Deep Belief Networks
+*   Gaussian Processes
+*   Support Vector Machines. Now includes working implementation with cvxopt optimization wrapper.
+
+     Those topics alone should generate a significant amount of interest from readers.  There are several things that separate this text's approach from many of the other texts covering Machine Learning.  One, is that the text covers a very wide range of useful topics and algorithms. You rarely find a Machine Learning text with coverage in areas like evolutionary learning (genetic programming) or sampling methods (SIR, Metropolis-Hasting, etc).  This is one reason I recommend the text highly to students of MOOC courses like Andrew Ng's excellent 'Machine Learning', or Hastie and Tibshirani's, 'An Introduction to Statistical learning'. Many of these students are looking to expand their set of skills in Machine Learning, with a desire to access working concrete code that they can build and run.
+
+     While the book does not overly focus on mathematical proofs and derivations, there is sufficient mathematical coverage that enables the student to follow along and understand the topics. Some knowledge of Linear Algebra and notation is always useful in any Machine Learning course. Also, the text is written in such a way, that if you simply want to cover a topic, such as particle filtering, you don't necessarily need to read all of the prior chapters to follow. This is useful for those readers looking to refresh their knowledge of more modern topics.
+
+     I did, occasionally, have to translate some of the Python code to work with Python 3.4\. However, the editing was very minimal. For example, print statements in earlier versions did not require parentheses around the print arguments. So you can just change print 'this' to print('this'), for example.
+
+     I found the coverage of particle filters and sampling, highly relevant to financial time series-- as we have seen, such distributions often require models that depart from normality assumptions. I might possibly add a tutorial on this, sometime in the future.
+
+     In summary, I highly recommend this text to anyone that wants to learn Machine Learning, and finds the best way to augment learning is having access to working, concrete, code examples.  In addition, I particularly recommend it to those students that have followed along from more of a Statistical Learning perspective (Ng, Hastie, Tibshirani) and are looking to broaden their knowledge of applications.  The updated text is very timely, covering topics that are very popular right now and have little coverage in existing texts in this area.
+
+*Anyone wishing to have a deeper look into topics covered and code, can find additional information and code on the
+
+[author's website](https://seat.massey.ac.nz/personal/s.r.marsland/MLBook.html)
+
+.

@@ -1,0 +1,27 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:44:13
+-->
+
+# Intelligent Trading: The Facebook Doomsday Watch
+
+> 来源：[http://intelligenttradingtech.blogspot.com/2012/05/facebook-doomsday-watch.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2012/05/facebook-doomsday-watch.html#0001-01-01)
+
+I've been following the myriad circus of Facebook commentators and bystanders pointing to its horrific failed IPO launch and seemingly inevitable crash to zero. While my focus here isn't really so much on fundamentals or basic TA; I do want to comment on some subjective thoughts on the matter as well as illustrate one catchy graphic I put together.
+
+Fig 1\. FB IPO drawdown (with potential trajectory) vs. EBAY historical IPO opening (a.k.a the U-TURN pattern).
+
+Having lived through and experienced the many ballyhooed IPO juggernauts of the past, I can't help but think back to how overvalued I 'felt' stocks like Ebay and Google felt to me at the outset.  We all know that that we can't directly compare such small samples in any statistical manner with much conviction, but that qualitative sense in me feels that Facebook is one of those Wall Street darlings we rarely encounter and wish we could go back and buy at a discount.  Sure there were the megaflops (Blackstone, The Globe, etc) that never revived quite back, but then again consider the Lynch method of buying (...are the masses using it?), the massive institutional support available, the number of shorts that are sure to pile on, and more importantly, the nagging fact that it is consistently one of the highest viewed websites of all (typically above or next to Google and Baidu -- don't believe me, check Alexa).  Ok, but enough of the soapbox on those biased musings-- one quantitative comparison to consider in the chart above is how Ebay fared at the outset and was also lambasted as a failure throughout Internet chat-rooms and various media pundits.  What I have graphed is a drawdown for both (with adjusted ebay quotes) relative to the 1st day open bid.  The last points on Facebook are potential drawdown (relative to IPO opening price) trajectories  at
+
+| 28.84 | -31.41% (yesterday's close) |
+| 26.5 | -36.98% |
+| 24 | -42.93% |
+| 23 | -45.30% |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+
+So, I leave you with that as food for thought.  I don't often discuss my thoughts about semi qualitative opportunities, but then again, we don't get these types of juggernaut long term opportunities all that often.*  As always, please make your own informed decisions, and I'll try to get back on topic...  one of these days.
+
+* Two other counter points (amongst many excluded) that I'm sure some more astute observers will note.
+
+1) Ebay IPO U-Turn occurred during the mega bull run dot com mania.
+
+2) If the Greece (or insert any suitable catalyst here) fiasco escalates into a fat tail flight to safety avalanche (of which I pointed out have been exceedingly abundant of late); then keep in mind Facebook and any other equity leaders should be expected to plunge together; hence, the emphasis on LONG term  portfolio component opportunity.
