@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:36:36
+-->
+
+# Porsche Vehicle Tracking Services (PVTS) | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2015/08/13/porsche-vehicle-tracking-services-pvts/#0001-01-01](https://mdavey.wordpress.com/2015/08/13/porsche-vehicle-tracking-services-pvts/#0001-01-01)
+
+## Porsche Vehicle Tracking Services (PVTS)
+
+Recently I had the opportunity of hitching a rid in a Porsche.  Like many luxury cars, Porsche offers a vehicle tracking service – PVTS.  What surprised me was the device the driver had to carry with him as part of this service – a small black driver [card](http://www.porscheownersmanuals.com/2014-panamera/8/249/Porsche-Vehicle-Tracking-System-PVTS).  The obvious problem with the driver card is that you can’t attach it to the car keys, as it nows tired to the keys the theft might have stolen, and thus the service is redundant.  If you carry the card in your pocket, its likely to get lost, or you will forget to carry it and get a call from the tracking centre telling you your car was stolen when it isn’t.  I wonder how long it will be before Porsche consider the option of adding an app to your smart phone, and using bluetooth to heart beat to the car – since the driver card at best must effectively be a authorisation heart beat.  Doing away with the driver car is further amplified by taking a look at the Porsche Car [Connect](http://www.porsche.com/uk/connect/carconnect/) app already available – the driver card isn’t even pictures or mentioned, and does look lame in comparison.
+
+~ by mdavey on August 13, 2015.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
