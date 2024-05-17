@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:08:07
+-->
+
+# Magmasystems Blog: Working on the Trading Floor
+
+> 来源：[http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01](http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01)
+
+A few weeks ago, Terry left a comment, asking what it was like to work on the trading floor.
+
+I sit on a very large Equities trading floor that overlooks the Hudson River in lower Manhattan. Our particular area of the floor has the Derivatives Analytics group (my group) and Algorithmic Trading. The next row has the High Frequency Trading guys and some of the guys who control the high-speed market data systems.
+
+Needless to say, the past few weks have been crazy. There is such an energy on the floor that, sometimes, everyone is our row just stops working in order to absorb the electricity. 15 minutes before the opening, things start humming. At the bell, it's chaos for about a half hour. People screaming out orders, groups of traders applauding and whooping when a trade turns out favorable. After 10, things really slow down until about 3PM.
+
+Our group is composed of Quants. We trade our own positions, and we write software which enable us and other groups to trade. Almost all of our software is in C#/.NET 2.0, heavy use of generics and anonymous delegates.
+
+The group is ethnically diverse. 4 Americans, 1 Brit, 3 Far-East Asians, and a couple of Russians for good measure (what's a good Quant group without the Russians!). 3 of the guys have PHDs, the rest have MS's. Actually, the head of the group does not have a Master's degree ... however, he got 3 Bachelor's degrees in 3 years at one of the top business schools in the world. Most of the group is fairly young. If you are in your early 30's, you are ancient. That makes me a pile of ash on the floor.
+
+The group has its own framework. The framework is typical Russian mad scientist code. With this kind of code, it's never "A calls B". It's "A starts 5 threads, waits for completion signals, creates other objects via some dependency injection, does a few somersaults, and then calls B." But the framework is highly performant.
+
+One of the things I am doing is writing some risk hedging apps using my own framework that my team developed for Equities. So, I am eating my own dogfood. I have not found any bugs in my stuff, but I have had to extend it a bit so that it cooperates with some of the stuff that Derivs Analytics have previously written (like Live Greek Servers).
+
+As exciting as the trading floor is, I welcome the one or two days a week that I work from home. If I have to do really major thinking and design work, I cannot do it at work! It is hard to work at work. Luckily, a lot of Wall Street is starting to go to a model of allowing people to work from home part time. The three hours I save on commuting to NYC is time that I put into work. Now that my son is off at college, I don't have to worry about his heavy-metal bands coming into the house at 3:00 every afternoon to thrash around the basement.
+
+©2007 Marc Adler - All Rights Reserved

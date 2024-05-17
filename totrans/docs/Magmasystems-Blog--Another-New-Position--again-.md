@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:07:43
+-->
+
+# Magmasystems Blog: Another New Position (again)
+
+> 来源：[http://magmasystems.blogspot.com/2007/09/another-new-position-again.html#0001-01-01](http://magmasystems.blogspot.com/2007/09/another-new-position-again.html#0001-01-01)
+
+Last week, I was about to finalize my transfer to the Derivatives Analytics desk when an amazing opportunity was offered to me by my company. I cannot blog too much about this new opportunity other to say that it involves Complex Event Processing and transformational new directions for trading and decision making in Equities. This is a huge initiative for my company, is being sponsored by the top people on the business side in Equities, and goes all the way up to the CEO of the company. I will be leading this new project on the technical end, and I am working with one of the movers-and-shakers on the business end.
+
+This is not the standard algorithmic trading scenario that is the standard use case for vendors like Apama, Skyler, etc. We will be pushing the limits of the CEP and messaging vendors. We have the mandate to have all of our Equities systems interact with our. And, if everything goes right, it will transform the way that systems are written within our company.
+
+The nice thing is that the Business is giving us several months of pure R&D time. Reading papers, attending conferences, meeting vendors, etc. For me, it is coming out of a silo and being given the opportunity to learn about every phase of our systems for trading equities. And, it will be building upon all of the things that I have been investigating for the past year in my Architecture role.
+
+©2007 Marc Adler - All Rights Reserved
