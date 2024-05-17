@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-17 23:38:59
+-->
+
+# VPP Pricing V: Least-Squares Monte-Carlo – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2011/11/05/vpp-pricing-v-least-squares-monte-carlo/#0001-01-01](https://hpcquantlib.wordpress.com/2011/11/05/vpp-pricing-v-least-squares-monte-carlo/#0001-01-01)
+
+For the sake of completeness please find [here](http://www.hpc-quantlib.de/src/vpp6.zip) the code for the evaluation of the virtual power plant (VPP) using a least-squares Monte-Carlo algorithm. The code depends on the latest [QuantLib](http://quantlib.org) version from the [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/) or the upcoming QuantLib 1.2 release. The model and power plant specifications can be found in the previous blog entries. A more general description  of the problem and the algorithms can be found e.g. here [1]. Test forward curves can be taken e.g. from the [Kyos example download page](http://www.kyos.com/?content=65).
+
+The regression polynomials are of third order in the spark spread ![x](img/a02ca3461b38d94f9ca87463267dd179.png) and the stochastic component of the gas price ![y](img/af71f85190ec965134a1a811d80c6087.png).
+
+![p_a(x,y)=a_0 + a_1 x + a_2 x^2 +a_3x^3 + a_4y + a_5y^2 + a_6y^3 + a_7xy+a_8x^2y+a_9xy^2](img/9bfdfd6f5268508df552e0942b92e3d3.png)
+
+The regression is carried out for every exercise right (every hour) and every possible VPP state separately. The calibration phase is based on ordinary Monte-Carlo scenarios, whereas the pricing is done using Quasi Monte-Carlo scenarios (Sobol sequence) and a Brownian Bridge (BB).
+
+The following table summarizes the performance of the different pricing algorithms for the example contract and maturity of six month. Target accuracy is around 1% relative error in the NPV. The timings are given for a Core i5@3GHz CPU using four threads or a GTX560@0.8/1.6GHz GPU with 336 cores.
+
+![\footnotesize{  \begin{tabular}{|c|c|c|c|c|c|} \hline Algorithm & Optimisaton & Approximation & Hardware & Runtime & Comment\\ \hline \hline Quasi-MC + BB & dyn. prog. & perfect foresight & GPU & 0.19s & single precision \\ Quasi-MC + BB & dyn. prog. & perfect foresight & CPU & 20.3s & \\ Monte-Carlo & dyn. prog. & perfect foresight & CPU & 286.3s & \\ Finite Difference & dyn. prog.& no & CPU & 487.7s & \\ Least-Squares MC & dyn. prog. & no & CPU & 645.6s & \\ Quasi-MC + BB & linear prog. & perfect foresight & CPU & 4198s & using GLPK \\ \hline \end{tabular} } ](img/941f9186544a8552d1f4fda648b632ce.png)
+
+I don’t know the reason for the bad performance of the [Gnu Linear Programming Kit](http://www.gnu.org/s/glpk/) for these kind of problems. Some commercial linear optimizer are much faster but they can not compete with dynamic programming for a simple VPP. As soon as e.g. time integral constraints are involved linear programming might become the method of choice.
+
+[1] H. van Dijken, [The value of starting up the power plant.](http://www.erasmusenergy.com/articles/192/1/The-value-of-starting-up-the-power-plant/Page1.html)

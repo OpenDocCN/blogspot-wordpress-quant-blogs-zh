@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-17 23:38:50
+-->
+
+# Bermudan Swaption Pricing based on Finite Difference Methods – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01](https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01)
+
+Even though short rate models like the Hull-White model or the G2++ model are getting a bit long in the tooth these models are still used for risk management or as benchmark models. Since the early days QuantLib supports the pricing of Bermudan swaptions based on trinomial trees. It’s time to compare the performance and accuracy of the trinomial tree pricing algorithm with finite difference methods.
+
+The G2++ model is defined by the following stochastic differential equation
+
+![\begin{array}{rcl} dx_t &=& -ax_tdt+\sigma dW_t^1 \\ dy_t &=& -by_tdt + \eta dW_t^2 \\ dW_t^1 dW_t^2 &=& \rho dt \\ r_t &=& x_t + y_t+\phi_t \\ \phi_t &=& f^M(0,T) +\frac{\sigma^2}{2a^2}\left(1-e^{-aT} \right )^2 + \frac{\eta^2}{2b^2}\left(1-e^{-bT} \right )^2 \\ &+&\rho \frac{\sigma\eta}{ab}\left(1-e^{-aT} \right )\left(1-e^{-bT} \right ) \end{array} ](img/d57b86df847f3b070333bb2614d476ae.png)
+
+where ![f^M(0,T)](img/3d2ff0de3c9d0efd0ef16ec9603dee4b.png) is denoting the market instantaneous forward rate at time 0 for the maturity T (see. e.g. [1]). The Hull-White model can be seen as a one-dimensional simplification of the G2++ model. The corresponding partial differential equation (PDE) can be derived using the [Feynman-Kac](http://en.wikipedia.org/wiki/Feynman%E2%80%93Kac_formula) theorem.
+
+![\begin{array}{rcl} \frac{\partial V}{\partial t} = ax\frac{\partial V}{\partial x} + by\frac{\partial V}{\partial y} - \frac{\sigma}{2}\frac{\partial^2 V}{\partial x^2} - \frac{\eta}{2}\frac{\partial^2 V}{\partial y^2}-\rho\sigma\eta\frac{\partial^2 V}{\partial x \partial y} + rV \end{array} ](img/53e08c58105e517fc41d36cdf44e9296.png)
+
+QuantLib supports several operator splitting schemes to solve multi-dimensional PDEs.  The [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/) contains FDM engines to price Bermudan swaptions under the Hull-White and the G2++ model. Other short rate models like the CIR++ or Black-Karasinski model can be implemented in the same manner.
+
+As can be seen in the diagrams below the finite difference method based pricing engines outperform the trinomial tree based engines.
+
+[![](img/d5cc9041ef5b4fcaf929bbd2f3ab5a11.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot3.png)
+
+[![](img/2c3519966a0e2638417219fde1fc9372.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot2.png)
+
+[1] D. Brigo, F. Mercurio, [Interest Rate Models – Theory and Practice](http://www.fabiomercurio.it/contents2nd.html)
