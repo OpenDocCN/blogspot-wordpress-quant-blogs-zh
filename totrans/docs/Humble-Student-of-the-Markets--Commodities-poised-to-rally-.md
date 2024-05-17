@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:53:34
+-->
+
+# Humble Student of the Markets: Commodities poised to rally?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/05/commodities-poised-to-rally.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/05/commodities-poised-to-rally.html#0001-01-01)
+
+Much has been made of the upside technical breakout experienced by the US Dollar last week, but when I dissect the components of USD strength, I found that much of the breakout was attributable to Yen weakness. In fact, the other components of USD are all testing support, which suggests that the euro and commodities are poised to rally here.
+
+At first glance, the USD breakout looks impressive, especially on the weekly chart:
+
+Now consider how weak the JPYUSD has been:
+
+Now consider the EURUSD rate, which is testing technical support:
+
+The commodity weakness story is well known. Disappointment over Chinese growth has been a principal driver, but the flip side of that coin has been USD strength. The commodity sensitive Aussie Dollar is also testing a key technical support zone:
+
+So is its cousin, the Canadian Dollar.
+
+In fact, if you were to consider the EURAUD cross as a measure of the strength of Europe, the euro is turning up against the commodity sensitive Aussie Dollar as it has staged an upside breakout through a resistance level. Viewed in that context, is the euro that weak or is it just weak against the USD?
+
+As I have shown, most of the other components of the USD Index other than the Yen are sitting on technical support. I also wrote to watch for the re-test of the recent bottom in gold as a clue to market direction (see
+
+[The golden canary in the coalmine](http://humblestudentofthemarkets.blogspot.com/2013/05/the-golden-canary-in-coalmine.html)
+
+). As the chart below shows, GLD hit that technical re-test level on Friday and the silver/gold ratio is stabilizing indicating that most of the blind panic selling of gold is over.
+
+All of these conditions are lining up to suggest that commodities are poised to rebound. The euro, commodity sensitive currencies and gold are all at key technical support levels. As I write these words, precious metal prices are substantially in the red. Watch for signs of stabilization, or better yet, reversal on the day. If that were to happen, expect that the rotation back into cyclical sectors will continue and stock prices to continue to grind higher.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:52:41
+-->
+
+# Humble Student of the Markets: An EM yellow flag
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/06/an-em-yellow-flag.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/06/an-em-yellow-flag.html#0001-01-01)
+
+I wrote last week that I was closely watching the behavior of emerging market bonds to see if we are experiencing just a minor market correction or if this is the start of something worse (see
+
+[The bear case for equities](http://humblestudentofthemarkets.blogspot.com/2013/06/the-bear-case-for-equities.html)
+
+). EM bonds had stabilized late last week and my inner bull breathed a sigh of relief. Then today(Tuesday), which was a risk-on day for global equity markets, EM bonds took a nasty tumble and set off alarm bells again.
+
+Consider this chart of the relative performance of EMB (emerging market bonds ETF) against HYG (US high yield ETF). EMB successfully tested a key relative support level and rallied. Just as I started to get constructive on the risk-on trade, EMB reversed itself and went south again.
+
+Here is a close-up look of the same chart with a one-year history:
+
+Unlike emerging market bonds, emerging market equities never bounced. Here is the chart of the relative performance of EM equities (EEM) against the MSCI All-Country World Index (ACWI):
+
+What was unsettling was that this EM selloff occurred on a global equity risk-on day when the Dow Jones Industrials was up over 100 points. While the selloff is not terribly surprising as we saw hot money rush into EM as the Fed and other global central banks engaged in repeated rounds of quantitative easing. Most recently,
+
+[SocGen analyst Kit Juckes](http://www.businessinsider.com/analyst-now-that-the-cheap-money-is-coming-to-an-end-we-can-see-where-the-bubbles-are-2013-6)
+
+wrote that we are seeing the down slope of an emerging markets bubble.
+
+The most likely priximate source of the Tuesday's EM weakness was a reaction to the spike in the Shanghai Inter-bank Offered Rate (SHIBOR), which was an indication of tightening credit conditions in China:
+
+David Keohane of FT Alphaville has an excellent discussion of the Chinese credit conditions and an assessment of the risks 
+
+[here](http://ftalphaville.ft.com/2013/06/18/1537062/when-liquidity-meets-control-in-china/)
+
+. Walter Kurtz of
+
+[Sober Look](http://soberlook.com/2013/06/new-warning-signals-on-chinas-economic.html)
+
+also pointed out that the SHIBOR curve is highly inverted and inverted yield curves are indications of tightening credit conditions and can be precursors to economic slowdowns and recessions.
+
+At this point, the EMB/HYG ratio has not convincingly fallen through relative support. I regard this as a yellow flag and not a red flag. Nevertheless, these readings are indicative of how jittery the markets are.
+
+All eyes are on the Fed. If the FOMC statement is not satisfactory to the markets and the markets sell off, it wouldn't take much to turn the yellow flag into a red flag.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.**None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
