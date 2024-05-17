@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:48:50
+-->
+
+# Humble Student of the Markets: NFP in perspective
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/08/nfp-in-perspective.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/08/nfp-in-perspective.html#0001-01-01)
+
+As the market holds its collective breath waiting for the NFP figures to come out at 8:30, let me give you my take on the employment situation.
+
+**Stabilization, but upturn?**
+
+The chart below shows the relative performance of the S&P Supercomposite Human Resources & Employment Services Index (Temp agencies and headhunters) compared to the S&P 500\. The period depicted shows the current cycle and the previous cycle. By analyzing the relative returns of the temp agencies and headhunters, we can get a real-time perspective on the market's perception of the employment situation.
+
+[![](img/226818b64ca054d08c1ef2345b849161.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgW3IcjQd-N0bCKwmHdkHYEMnFP5xzTjtyPjc11_lELD3roKoj5Cxy98JPbrEPOijRnjeZOpLFpRJvD7WrXt5SW6VvflYr_RomJU_fuGIlo2smxli4P8pPz7SU9djTv-4ob9MVXJ50Ux9Wt/s1600-h/S15HRES+vs+SPX.JPG)
+
+The chart shows that the current and previous cycles show similar technical patterns. The relative performance of the index first breaks the relative downtrend line and spends some time basing before starting new relative uptrends. Currently, the index appears to be in a basing period, indicating that the employment situation has stabilized. It may be too early to be postulating a new uptrend.
+
+However the NFP figure comes out, keep the longer term perspective in mind and don’t get too excited over a single number.
