@@ -1,0 +1,76 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:17:07
+-->
+
+# Humble Student of the Markets: How cheap are stocks?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/08/how-cheap-are-stocks.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/08/how-cheap-are-stocks.html#0001-01-01)
+
+There have been a number of recent posts about stock valuation with the question of, "How cheap are stocks?"
+
+I had posted about
+
+[bullish data points](http://humblestudentofthemarkets.blogspot.com/2011/08/some-bullish-data-points.html)
+
+, most notably from the news that Warren Buffett is buying stocks. Felix Salmon had blogbed about whether
+
+[stocks are cheap compared to TIPS](http://blogs.reuters.com/felix-salmon/2011/08/12/chart-of-the-day-the-great-earnings-yield-divergence/)
+
+or
+
+[corporate bonds](http://blogs.reuters.com/felix-salmon/2011/08/14/felix-salmon-smackdown-watch-earnings-yield-edition/)
+
+. There was also this discussion based on the notion that
+
+[stocks are cheap according to the Fed Model of earnings yield vs. bonds](http://macrofugue.com/the-fat-pitch)
+
+. I thought that I would do my own exercise of US equity valuation. I decided that rather than consider the
+
+[forward P/E ratio favored by the Street](http://www.zerohedge.com/news/morgan-stanley-gets-downright-apocalyptic)
+
+, where the E tends to be optimistic and analysts can never call the turns in the economy, I focused on a trailing P/E based on actual as reported earnings.
+
+Using the
+
+[data from Standard and Poor's](http://www.standardandpoors.com/indices/sp-500/en/us/?indexId=spusa-500-usduf--p-us-l--)
+
+and a
+
+[history of S+P 500 earnings and valuation](http://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/spearn.htm)
+
+, I found that with 94% of the companies reporting 2Q2011 results, "as reported" trailing 12 month earnings for the S+P 500 is $83.75.
+
+**How much can earnings fall in a recession?**
+
+The table below goes back to 1960 where were several recessionary episodes when earnings declined. These declines ranged between a low of 7% (for a mild recession such as we saw in 1990) and a high of 30.8%, with a 15% fall as a reasonable guide as to what a "typical" recession might look like. In all of these cases, except for the earnings decline that began in 2006, the peak-to-trough calculation were based on one-year changes in earnings. The first average shown in the table excludes the 2006-7 and 2006-8 years in order to avoid double and triple counting. The average earnings decline excluding the recessionary episode starting in 2006 came to -14.8%.
+
+**How bad could stocks get in a recession?**
+
+At the current level of roughly 1200, the trailing P/E ratio using "as reported earnings" is 14.3\. If we were to apply that multiple to a 10%, 15% and 30% decline in earnings from current levels due to a recession, we would get targets of 1080 (-10% from current levels), 1020 (-15%) and 840 (-30%) respectively - a simple math calculation.
+
+What about a market panic? When the market reached the devil's bottom of 666 in March 2009, it was trading at roughly 10 times trailing earnings. Applying that panic bottom earnings multiple of 10 to the 10%, 15% and 30% earnings decline scenarios would get us 750 (-37%), 710 (-41%) and 590 (-51%). In a worst case analysis, the market could therefore re-test its lows of 2009.
+
+**More optimistic assumptions**
+
+Wait a minute, you might say, stocks have already fallen from their peak. Is applying the current multiple of 14 times earnings realistic?
+
+The market made its high in early May and the trailing earnings multiple then was 16.9\. Applying a 10%, 15% and 30% decline in earnings using
+
+***a peak multiple of 16.9***
+
+,
+
+which is admittedly an optimistic assumption, gets us targets of 1270 (+6%), 1200 (0%) and 980 (-18%).
+
+**What's in the price?**
+
+Given these range of scenarios, my best guess is that US equities are currently discounting a slow growth environment, possibly a very mild recession such as the 1990 episode. A more typical recession is not in the price.
+
+If you believe that a recession isn't in the cards, then stocks represent good to fair value. On the other hand, if you believe that there is a serious risk of a recession, then you should be more cautious in your equity allocation. Personally, I am tilting to the bearish side because of
+
+[growing evidence of a global slowdown](http://www.econbrowser.com/archives/2011/08/the_slowdown_at.html)
+
+.
+
+To look on the bright side, should the market panic and re-test the 2009 lows, that's a signal to back up the truck and get long.
