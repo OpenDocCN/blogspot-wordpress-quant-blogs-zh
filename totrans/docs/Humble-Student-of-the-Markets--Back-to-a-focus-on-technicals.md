@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:29:22
+-->
+
+# Humble Student of the Markets: Back to a focus on technicals
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/05/back-to-focus-on-technicals.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/05/back-to-focus-on-technicals.html#0001-01-01)
+
+ As at the time of writing, the White House and the Republican-led House haven’t come to a debt ceiling deal yet, though both sides are getting closer to a deal. But you only die once, and focusing on the fear of a catastrophe isn’t very useful. Hedging only works if there is someone you can collect from on your hedge, and obsessing over a U.S. default only gets you so far. Instead, I will focus on getting back to the technical structure of the market by assuming that all parties agree to step back from the brink.
+
+From a longer-term perspective, the narrow leadership of the S&P 500 is disturbing. Remember Bob Farrell’s Rule #7: “Markets are strongest when they are broad and weakest when they narrow to a handful of blue-chip names”. As the S&P 500 tests its 50 dma, the equal-weighted S&P 500, the mid-cap S&P 400 and the small-cap Russell 2000 have already violated their 50 dma.
+
+How much does bad breadth matter?
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2023/05/27/back-to-a-focus-on-technicals/)
+
+.
