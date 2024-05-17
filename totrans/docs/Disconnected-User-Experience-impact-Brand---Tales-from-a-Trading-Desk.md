@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:27:01
+-->
+
+# Disconnected User Experience impact Brand | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2018/09/25/disconnected-user-experience-impact-brand/#0001-01-01](https://mdavey.wordpress.com/2018/09/25/disconnected-user-experience-impact-brand/#0001-01-01)
+
+## Disconnected User Experience impact Brand
+
+Many companies are looking to improve the digital brand by extending their digital footprint.  Companies offering a number of services can often be seen to have a disconnected experience between geographic locations and services.  As companies look to improve their online experience, they need to keep in mind that a consistent experience irrespective of country is important to the brand image, and that the larger the different in experiences by country, the more a users is confused due to the fact that Google and other search engines allow brand follows to consume global content, and compare services.
+
+An example of a company attempting to provide a consistent worldwide experience is [Porsche](https://www.porsche.com/).  The general web site by country is fairly consistent from a flow and navigation perspective.  Its only when you begin to drill down into certain features, that the user experience begins to appear inconsistent e.g.  Porsche Sport Driving [School](https://www.porsche.com/silverstone/en/experience/psds/) (UK) vs Porsche Track [Experience](https://experience.porsche.com/en/track) (global site).  Porsche Experience provides the ability to setup an account and track your progress though the various driving experiences, the UK Porsche site doesn’t provide this, and lacks the depth of information on each experience.  Net out, a disconnected experience that fails to engage the user with the Porsche brand
+
+~ by mdavey on September 25, 2018.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
