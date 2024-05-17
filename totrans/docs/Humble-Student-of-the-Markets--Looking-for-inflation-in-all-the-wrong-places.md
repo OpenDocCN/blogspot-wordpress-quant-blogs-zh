@@ -1,0 +1,19 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:17:37
+-->
+
+# Humble Student of the Markets: Looking for inflation in all the wrong places
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2024/04/looking-for-inflation-in-all-wrong.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2024/04/looking-for-inflation-in-all-wrong.html#0001-01-01)
+
+Last week, I suggested that even though Fed Chair Powell voiced a balanced view of inflation, a voting bloc of hawks (Waller, Bostic, Barkin, and Bowman) on the FOMC may be a key obstacle to the market expectations of a June rate cut. Indeed, Atlanta Fed President Raphael Bostic reiterated his view last week of one rate cut in 2024 and the first cut should occur in Q4.
+
+Based on the speeches of Fed speakers, a divide of opinion is appearing in the FOMC. On one hand, Fed Chair Powell has said that January and February PCE reports represent a bumpy path to the Fed’s 2% inflation target, hawks such as Governor Waller have raised concerns about the persistence of inflation and asked, “What’s the hurry [to cut rates]?”
+
+As well, Chicago Fed President Goolsbee revealed that he wrote down two rate cuts for 2024 in his dot plot projection, which is a surprise as he has been regarded as a dove. Moreover, he stated that if inflation continues to move sideways, it raised doubt as to whether the Fed should cut at all. Minneapolis Fed President Kashkari also revealed that he wrote down two rate cuts for 2024, and also openly wondered if the Fed needs to cut if progress on inflation stalls.
+
+Is it time to say goodbye to a June rate cut? What about the expectation of three cuts this year?
+As a reminder, the Fed targets headline PCE as its main inflation metric. Both headline and core PCE rose in January and February after a series of tame readings in late 2023\. The key question that concerns Fed officials is the last mile inflation question. How persistent is inflation and what’s the path to the 2% target? Investors may gain some insights from the FOMC meeting minutes, which are due to be released in the coming week.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2024/04/06/looking-for-inflation-in-all-the-wrong-places/).
