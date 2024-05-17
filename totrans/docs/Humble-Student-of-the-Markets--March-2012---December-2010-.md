@@ -1,0 +1,70 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:07:55
+-->
+
+# Humble Student of the Markets: March 2012 = December 2010?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/03/march-2012-december-2010.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/03/march-2012-december-2010.html#0001-01-01)
+
+I wrote back on
+
+[February 22, 2012](http://humblestudentofthemarkets.blogspot.com/2012/02/preliminary-verdict-consolidation-and.html)
+
+to expect a period of consolidation and correction, but the intermediate trend remained up. Last week, we saw the stock markets decline for 1% or more on Tuesday. Since then, equities have been flat. There is no doubt that correction is here.
+
+**Which analog? March 2011 or Dec 2010?**
+
+At the same time, a number of bears have suggested the current market is similar to the conditions of March/April 2011 when the market began to top out and ultimately fell, citing conditions such as
+
+[insider selling](http://www.marketwatch.com/story/insiders-as-bearish-now-as-last-april-2012-03-06)
+
+.
+
+I beg to differ. While insider activity is a concern, the flood of central bank liquidity continues. This Bernanke Fed has shown itself to be highly activist. Chairman Bernanke has indicated that
+
+[he is willing to tolerate a higher inflation rate](http://www.bloomberg.com/news/2012-03-07/bernanke-seen-accepting-faster-inflation-as-fed-seeks-to-boost-employment.html)
+
+ under the current weak conditions. The leak about
+
+[sterilized QE](http://online.wsj.com/article/SB10001424052970204276304577265803925182234.html)
+
+shows the lengths Bernanke is willing to go in order to appease the hawks and get what he wants, i.e. further stimulus, at the same time.
+
+Moreover, I have written before that funds flow remains positive for equities and the risk-on trade. Institutions are underweight and re-allocating funds into equities. Once the allocation begins, it's hard to stop. Individuals were underweight and are now roughly market weight as their fund flows are just getting started. Todd Salamone of
+
+[Schaeffer's Research](http://www.schaeffersresearch.com/commentary/mondaymorningoutlook.aspx)
+
+put it this way:
+
+> [A] survey by the National Association of Active Investment Managers (NAAIM) revealed that the average manager was only 57% net long last week, down significantly from the 74% the prior week. For perspective, optimistic extremes during the past five years have been at 85% or higher net long, which we last saw in early 2011\.
+
+In short, I believe the best analog for this market is the brief correction we saw in December 2010, which was in the middle of the QE2 rally in equities.
+
+The periods look the same. I have circled the December 2010 period in blue and the March/April 2011 in green. The stock market had seen a
+
+[golden cross](http://www.investopedia.com/terms/g/goldencross.asp)
+
+ shortly before the December 2010 correction, just as we did now. The rally was just getting started as a result of the tsunami of central bank liquidity, just as we are now.
+
+The market declined to test the 50-day moving average and rallied. By contrast, the market corrected harder in March 2011 and fell through the 50-day moving average. (At the very least, these episodes show the value of the 50-day MA trailing stop as a risk control device.)
+
+We can see a similar pattern by looking northward to the more resource-heavy and cyclically oriented TSX Composite in Canada. The market was in an uptrend and corrected in December 2010 and the uptrend was ultimately broken in March 2011\. Today, the market remains in an uptrend that began in October 2011 and corrected but the current uptrend remains intact. During the QE2 rally, the market experienced a golden cross in September 2010\. Today, the market is about to see a golden cross, indicating that the rally is just getting started.
+
+Similarly, the relative performance of the Morgan Stanley Cyclicals Index against the market tells the same story. Cyclicals remain in a relative uptrend today. During the QE2 rally, the December 2010 correction was just a hiccup in the relative uptrend, which ended in March 2011 when the uptrend was violated.
+
+In short, the internals are pointing to a brief correction just as we saw in December 2010\. Monetary conditions are similar. Uptrends are intact, as measured by trend lines and 50-200 day trend following models.
+
+**Is this correction over?**
+
+My inner investor is convinced that he should stay long and ride out this short-term volatility. On the other hand, my inner trader wants to know if the current correction is over.
+
+Not quite. The chart below shows the weekly
+
+[Summation Index](http://www.investopedia.com/terms/m/mcclellansummation.asp#axzz1oikU8IwY)
+
+ for NYSE stocks, a breadth indicator, to which I overlaid an overbought/oversold stochastic model. Here are a few observations. First, the fact that the Summation Index got to overbought levels suggested that the market was poised for a consolidation and corrective period. Now that we have entered that correction, which has been albeit mild, we need to see the stochastic move to oversold levels before calling the all-clear, just as we saw during the December 2010 episode.
+
+In conclusion, my inner investor is staying long. My inner trader is expecting another week or two of correction and consolidation before the uptrend in stocks and other risky assets continues.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

@@ -1,0 +1,61 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:08:25
+-->
+
+# Humble Student of the Markets: The optimistic view of Europe
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/03/optimistic-view-of-europe.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/03/optimistic-view-of-europe.html#0001-01-01)
+
+Forget about the alligators. Let's talk about draining the swamp. There is a way out of this quagmire for Europe. Ken Rogoff, in an interview with
+
+[Der Spiegel](http://www.spiegel.de/international/business/0,1518,druck-816071,00.html)
+
+, believes that political integration (or a "United States of Europe") is closer than anyone expects:
+
+> **SPIEGEL:** Do you honestly believe that the countries in the euro zone can bring themselves to hand over that much more power to Brussels**?**
+> 
+> **Rogoff:** The terrible thing is that few countries in Europe seem genuinely prepared for that. Those politicians who know what is needed keep quiet, fearing opposition from the voters. But the pressure of this crisis will create a momentum whose scope and impact we cannot yet imagine. At the end of the day, the United States of Europe may well come about a lot quicker than many would have thought.
+> 
+> **SPIEGEL:** With all respect to your optimism, the Europeans are unlikely to play along with that. The popular opinion in most member states is that Europe has far too much power, not too little.
+> 
+> **Rogoff:** Europe is in an interim stage, quite similar to that in late 18th century America. The ratification of the United States constitution in 1788 was preceded by 12 years of a loose confederation, which sometimes worked but usually didn't. Europe is in a similar situation today. States are like people, it is difficult to sustain a stable half-marriage; either you go for it or you forget it.
+
+Much of the latest eurozone crisis stems from the fact that there was economic integration without political integration. Rogoff believes that the European elite within the Community will take this latest crisis to push for greater integration.
+
+This is all part of the
+
+[Grand Plan](http://humblestudentofthemarkets.blogspot.com/2012/02/mario-draghi-reveals-grand-plan.html)
+
+that I wrote about before. Mario Draghi, in an interview with the WSJ, said that the steps include:
+
+1.  Austerity, defined as lower government expenditures and lower taxes; followed by
+2.  Structural reform, defined as the elimination of the European social model.
+
+In the meantime, the ECB stand ready to provide the necessary tonic (such as LTRO) to smooth the transition as long as the eurozone was moving in the right direction. Greater European integration, as per Rogoff, would be one of those steps.
+
+The optimist in me says that if the Europeans manage to pull this off, it will result in a new Renaissance for the EU and the global economy. The World Bank warned this week that
+
+[China may be at risk of a middle-income trap](http://www.telegraph.co.uk/finance/china-business/9109683/China-risks-middle-income-trap-without-free-market-revolution.html)
+
+as the supply cheap labor, which was the primary source of competitive advantage, diminishes. Were Chinese growth were to slow and the slack were to be taken up by a surge in Europe in the next decade, it would be a source of welcome global rebalancing.
+
+**Key risks**
+
+The caveat, of course, is that everything has to go right. For example,
+
+[Bruce Krasting](http://brucekrasting.blogspot.com/2012/02/on-pigs-on-drugs.html)
+
+pointed out that some hospitals in the PIGS countries have not paid their drug bills for up to three years and the outstanding bills amount to €12-15 billion. Stories like these suggest that there are liabilities out there beyond sovereign debt as represented by the bond market that the market isn't very aware of. How much and can the Powers That Be skirt these potholes as they come up? I don't know.
+
+The greatest political challenge to the Grand Plan of austerity, structural reform and political integration is the discontent on the Street. Consider this chart of
+
+[European youth unemployment](http://www.businessinsider.com/european-youth-unemployment-chart-2012-3)
+
+. Note how it is going up everywhere except for Germany.
+
+We have a map showing how to get out of the swamp. Can the European elites steer the EU out? I am not sure, but not all is lost. Just remember how Thatcher's reforms revitalized Britain. Is the current situation on the Continent very much different from the UK in the early 1980's?
+
+I remain cautiously optimistic longer term. Consider the judgment of the markets. If Europe is in such trouble, then why has the EURUSD exchange rate been rallying?
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.***None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
