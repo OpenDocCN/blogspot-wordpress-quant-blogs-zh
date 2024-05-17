@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:33:52
+-->
+
+# Humble Student of the Markets: Be wary of the initial reaction on FOMC days
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/02/be-wary-of-initial-reaction-on-fomc-days.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/02/be-wary-of-initial-reaction-on-fomc-days.html#0001-01-01)
+
+**Mid-week market update**
+
+: The stock market reacted with a risk-on tone to the FOMC decision. The S&P 500 has staged an upside breakout through the 4100 level. While I am cautiously intermediate-term bullish, be warned that the initial reaction to FOMC decisions are often reversed the following day.
+
+Keep in mind that this is a weekly chart. The week isn't over.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2023/02/01/beware-of-the-initial-reaction-on-fomc-days/)
+
+.
