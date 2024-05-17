@@ -1,0 +1,69 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:54:00
+-->
+
+# Humble Student of the Markets: Technical analysis as behavioral finance
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/05/technical-analysis-as-behavioral-finance.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/05/technical-analysis-as-behavioral-finance.html#0001-01-01)
+
+A couple of items came across my desk that, in combination, made me think about how we think about finance today. The first was
+
+[Mark Buchanan's](http://physicsoffinance.blogspot.ca/2013/04/how-to-misunderstand-crises-with.html)
+
+review of Gary Gorton's book
+
+[*Misunderstanding Financial Crises*](http://www.amazon.com/Misunderstanding-Financial-Crises-Dont-Coming/dp/019992290X)
+
+ where the author took down the blindness of economists and, by extension, the theory of rational expectations [emphasis added]:
+
+> I think it's the most convincing book I've read so far that links the mechanisms of the recent crisis to crises in the past. In effect, he argues that the crisis was the direct result of the uncontrolled creation of money by the shadow banking sector, and ultimately took place as a classic bank run, no different from runs in the past, except that this run took place mostly out of public view because it didn't involve ordinary bank deposits. The new kind of money in this bank run was stuff such as repo agreements and commercial paper which played the role of money for financial institutions. In 2007-2008, when lenders lost confidence (for good reason) in the mortgage-backed collateral backing this money, they demanded that money back, and the financial system seized up.
+
+> The explanation is convincing and wholly natural. The argument is most convincing because Gorton does a masterful job of placing this bank run in the context of the long history of past runs. And also because Gorton, as an economist, places blame squarely on the economics profession (himself included) for being asleep at the wheel:
+> 
+> > Think of economists and bank regulators looking out at the financial landscape prior to the financial crisis. What did they see? They did not see the possibility of a systemic crisis. Nor did they see how capital markets and the banking system had evolved in the last thirty years. They did not know of the existence of new financial instruments or the size of certain money markets. They did not know what "money" had become. They looked from a certain point of view, from a certain paradigm, and missed everything that was important... ***The blindness is astounding. That economists did not think such a crisis could happen in the United States was an intellectual failure.***
+> > 
+> > It seems to me that there is a certain amount of denial among economists. I have noticed, in talking about the ideas in this book with my economist colleagues, that there is a fairly clear generational divide on this. To younger economists and graduate students, it is obvious that there was an intellectual failure. Some older economists are inclined to hem and haw, resorting to farfetched rebuttals. It is clear that this is a sensitive issue, as like banks no one wants to have to write down the value of their capital.
+
+> ...One other thing of interest. Gorton in a late chapter, when ***discussing the spectacular failure of the rational expectations paradigm***, quotes University of Chicago economist James Heckman, winner of the economics' Nobel Prize (yes, that's not its actual name) in 2000, from an [interview](http://www.newyorker.com/online/blogs/johncassidy/2010/01/interview-with-james-heckman.html)  he did with John Cassidy in 2010\.
+
+Why didn't economists saw the financial crisis coming? What happened to rational expectations?
+
+In a recent interview, Nobel laureate
+
+[Daniel Kahneman](http://www.thedailybeast.com/articles/2013/04/26/daniel-kahneman-s-gripe-with-behavioral-economics.html)
+
+explained his problem with the rational agent and rational expectations hypothesis this way:
+
+> Think of the kind of market that Adam Smith described. You can get a lot of insight into how just the right amount of bread gets to London in the morning by assuming that the baker and the other participants in the market pursue their own interests in a sensible manner. The rational-agent model takes this idea to its logical extreme. If you want to predict the behavior of a market, you are best off assuming individual agents who act in a way that is predictable and fairly simple—for example by assuming that the participants are similarly motivated and exploit all their opportunities. I am not an economist, but I find it hard to imagine that they will ever give up the use of schematic individual agents, even if they endow these agents with a little more realistic psychology. And I see no reason why they should.
+> 
+> The rational agent model has more questionable consequences in the domain of policy because the assumption that individuals are rational in the pursuit of their interests has an ideological coloring and policy implications that many would view as unfortunate. If individuals are rational, there is no need to protect them against their own choices. At the extreme, no need for Social Security or for laws that compel motorcycle riders to wear helmets. It is not an accident that the department of economics at the University of Chicago, one of the most illustrious in the world, is known both for its adherence to a strict version of the rational actor model and for very conservative politics.
+
+**Rational expectations: Is this an anomaly?**
+
+The other item of note was a post at George Washington's blog (via
+
+[Zero Hedge](http://www.zerohedge.com/contributed/2013-04-28/calm-down-%E2%80%A6-you-are-much-more-likely-be-killed-boring-mundane-things-terroris)
+
+) showing how much more likely an American is to die from heart disease, car accidents and other common causes of death than from terrorism:
+
+> – You are 17,600 times more likely to die from heart disease than from a terrorist attack
+> – You are 12,571 times more likely to die from cancer than from a terrorist attack
+> — You are 11,000 times more likely to die in an airplane accident than from a terrorist plot involving an airplane
+> — You are 1048 times more likely to die from a car accident than from a terrorist attack
+
+Now ask yourself, how much has the United States government spent on combating terrorism compared to heart disease, cancer and automobile accidents? If this had been academic finance literature, then these mis-pricing or mis-allocation of resources would be termed an anomaly, much like low P/E or small capitalization were deemed to be market anomalies in the 1970's.
+
+Here's another thought from the Chicago school: If the world needed to be rid of terrorism, or __________ [insert the dictator of your choice], wouldn't the market have done it?
+
+**In praise of behavioral finance**
+
+Behavioral finance is the school of thought that tries to understand human behavior in the context of what "should" be rational expectations. I have long believed that technical analysis is a branch of behavioral finance.
+
+I recently wrote an essay about the evolution of thinking about technical analysis and why it works. You can read it
+
+[here](http://qwestfunds.com/publications/newsletters_pdf/newsletter_may_2013.pdf)
+
+.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

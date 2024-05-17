@@ -1,0 +1,46 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:54:43
+-->
+
+# Humble Student of the Markets: A Value rally, or defensive sector rally?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/04/a-value-rally-or-defensive-sector-rally.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/04/a-value-rally-or-defensive-sector-rally.html#0001-01-01)
+
+Despite Friday's disappointing Non-Farm Payroll release, I remain relatively constructive on the stock market's outlook for several reasons. First, the market sold off on the open, but rallied into the close - a positive sign.
+
+Second, higher beta parts of the market have been outperforming in spite of the negative news. Consider this chart of the relative performance of small caps against the large caps indicating that the risk-on trade may not be done yet.
+
+The risk-on rebound isn't just confined to the United States. Here is the performance of Greece compared to Europe, which is a key measure of risk aversion:
+
+Here is the relative performance of Italy:
+
+You get the idea.
+
+**What about the defensive stock leadership?**
+
+The one cautionary sign that I had mentioned last week was the leadership of defensive sectors (see
+
+[Something's not right about this rally](http://humblestudentofthemarkets.blogspot.com/2013/04/somethings-not-right-about-this-rally.html)
+
+). I was not the only one to notice this effect. David Rosenberg mentioned it last Thursday and the
+
+[WSJ](http://blogs.wsj.com/marketbeat/2013/04/01/chart-of-the-day-this-is-why-some-bulls-are-nervous/)
+
+featured a comment from UBS on the curious leadership behavior:
+
+> As the chart from UBS strategist Jonathan Golub shows, the classic defensive sectors, such as health care and consumer staples, led the way during the first three months of the year, while some of the more cyclical sectors, such as energy and tech, lagged near the bottom of the pack.
+
+**Defensive leadership or Value leadership?**
+
+There may be a more benign explanation for the leadership of defensive sectors. Value stocks have been outperforming Growth stocks since last June. The chart below of the relative performance of the Russell 1000 Value Index against the Russell 1000 Growth Index tells the story.
+
+It just so happens that the Russell 1000 Value Index is overweight the kinds of sectors that have been outperforming, such as Financials and Utilities and the Russell 1000 Growth Index is overweight the sectors that have been lagging, such as the cyclically sensitive Industrials and Technology.
+
+What's more, leadership in Value isn't just a sector effect. A contact of mine at MSCI Barra indicated to me that their factor analysis shows the performance of Value factors like Book to Price and Dividend yield to be outperforming as well. That outperformance was net of industry effects.
+
+Bottom line: The upcoming Earnings Season will give us the best answer to the question of whether the real leadership is defensive stocks, which suggests caution, or Value stocks, which could be neutral to bullish.
+
+*Cam Hui is a portfolio manager at* *[Qwest Investment Fund Management Ltd](//www.blogger.com/goog_1948472689)**[.](http://www.qwestfunds.com/) ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
