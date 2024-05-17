@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:57:58
+-->
+
+# Magmasystems Blog: New Coral8 Users group on LinkedIn
+
+> 来源：[http://magmasystems.blogspot.com/2008/10/new-coral8-users-group-on-linkedin.html#0001-01-01](http://magmasystems.blogspot.com/2008/10/new-coral8-users-group-on-linkedin.html#0001-01-01)
+
+There is a new "Coral8 Users" discussion group on LinkedIn. Please consider joining if you are a user of Coral8 or are interested in learning more about coral8.
+
+Please note that this group is not being sponsored by Coral8 in any way. This is a user-sponsored group. It is a way for Coral8 users to help each other and to discuss Coral8 without involving the staff of Coral8 at all.
+
+©2008 Marc Adler - All Rights Reserved.
+
+All opinions here are personal, and have no relation to my employer.
