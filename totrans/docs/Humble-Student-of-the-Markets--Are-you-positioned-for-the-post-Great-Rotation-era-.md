@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:03:37
+-->
+
+# Humble Student of the Markets: Are you positioned for the post-Great Rotation era?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2021/03/are-you-positioned-for-post-great.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2021/03/are-you-positioned-for-post-great.html#0001-01-01)
+
+Is the US stock market in a bubble? Yes and no, according to
+
+[Ray Dalio](https://www.bridgewater.com/research-and-insights/ray-dalio-stock-market-bubble)
+
+of Bridgewater Associates. Using a proprietary technique to create a "bubble indicator", Dalio concluded that "the aggregate bubble gauge is around the 77th percentile today", compared to a 100th percentile reading in 1929 and 2000.
+
+Dalio qualified his analysis with some parts of the market are indeed very bubbly, but others are not.
+
+> There is a very big divergence in the readings across stocks. Some stocks are, by these measures, in extreme bubbles (particularly emerging technology companies), while some stocks are not in bubbles.
+
+Credit Suisse came to a similar conclusion with their US Exuberance Index. The number of companies with price-to-sales over 10 have surged, but readings are not at the levels seen during the dot-com peak.
+
+At the same time, the market is undergoing a secular shift from growth to value. Here are some important implications for investor portfolios in the next market cycle.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2021/03/06/are-you-positioned-for-the-post-great-rotation-era/)
+
+.
