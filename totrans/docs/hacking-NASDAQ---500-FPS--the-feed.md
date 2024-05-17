@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:09:50
+-->
+
+# hacking NASDAQ @ 500 FPS: the feed
+
+> 来源：[http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01)
+
+Looks like there`s a variety of datafeeds to receive quote and tick data for trading US equities, with the primary feeds being
+
+For those curious the exchange provides free sample data
+
+They provide full historical data but costs in the region of $1000 USD/month or 1 user. The question is which feed to choose?
+
+The ArcaBook multicast data is just shockingly bad. its a raw tcpdump which is great but seems the exchange people kept the udp socket buffer to their default 64KB size.. so when the traffic bursts it drops a awfully large number of packets. As ArcaBook protocol has a sequentially increasing sequence number(yay) thus easy to calc the sample data drops 8.2% of the packets! Which translates to 726K packets(not messages) dropped out of around 8.8M total packets... how can you verify bookeeping with this? Yes ArcaBookTCP dump should contain everything however dropping that many packets on a low < 100KB/s average stream dosen`t inspire confidence.
+
+OTOH the Itch3.1 sample data weighs in at around 17GB raw and about 700M msgs for a single trading day (2008/11), volume levels that are actually interesting! Also major points for reporting trades on the same feed - Arca is pure quote data. The spec dosent provide a sequentially increasing number to check against, and its tcp data so in theory is complete but the books add up and the volume is 2 orders of magnitude more. So... guess thats where the action is!

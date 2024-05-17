@@ -1,0 +1,86 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:57:29
+-->
+
+# Quantitative Trading: Kelly vs. Markowitz Portfolio Optimization
+
+> 来源：[http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01](http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01)
+
+In my
+
+[book](http://www.amazon.com/dp/0470284889/ref=as_sl_pd_tf_lc?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0470284889&adid=0DEF116W4JR65B8KSV6H&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)
+
+, I described a very simple and elegant formula for determining the optimal asset allocation among N assets:
+
+F=C
+
+^(-1)
+
+*M   (1)
+
+where F is a Nx1 vector indicating the fraction of the equity to be allocated to each asset, C is the covariance matrix, and M is the mean vector for the excess returns of these assets. Note that these "assets" can in fact be "trading strategies" or "portfolios" themselves. If these are in fact real assets that incur a carry (financing) cost, then excess returns are returns minus the risk-free rate.
+
+Notice that these fractions, or weights as they are usually called, are not normalized - they don't necessarily add up to 1\. This means that F not only determines the allocation of the total equity among N assets, but it also determines the overall optimal leverage to be used. The sum of the absolute value of components of F divided by the total equity is in fact the overall leverage. Thus is the beauty of Kelly formula: optimal allocation and optimal leverage in one simple formula, which is supposed to maximize the compounded growth rate of one's equity (or equivalently the equity at the end of many periods).
+
+However, most students of finance are not taught Kelly portfolio optimization. They are taught Markowitz mean-variance portfolio optimization. In particular, they are taught that there is a portfolio called the
+
+*tangency portfolio*
+
+which lies on the efficient frontier (the set of portfolios with minimum variance consistent with a certain expected return) and which maximizes the Sharpe ratio. Left unsaid are
+
+*   What's so good about this tangency portfolio?
+*   What's the real benefit of maximizing the Sharpe ratio?
+*   Is this tangency portfolio the same as the one recommended by Kelly optimal allocation?
+
+I want to answer these questions here, and provide a connection between Kelly and Markowitz portfolio optimization.
+
+According to Kelly and Ed Thorp (and explained in my book), F above not only maximizes the compounded growth rate, but it also maximizes the Sharpe ratio. Put another way: the maximum growth rate is achieved when the Sharpe ratio is maximized. Hence we see why the tangency portfolio is so important. And in fact, **the tangency portfolio is the same as the Kelly optimal portfolio F**, except for that fact that the tangency portfolio is assumed to be normalized and has a leverage of 1 whereas F goes one step further and determines the optimal leverage for us. Otherwise, the percent allocation of an asset in both are the same (assuming that we haven't imposed additional constraints in the optimization problem). How do we prove this?
+
+The usual way Markowitz portfolio optimization is taught is by setting up a constrained
+
+*quadratic*
+
+optimization problem - quadratic because we want to optimize the portfolio variance which is a quadratic function of the weights of the underlying assets - and proceed to use a numerical quadratic programming (QP) program to solve this and then further maximize the Sharpe ratio to find the tangency portfolio. But this is unnecessarily tedious and actually obscures the elegant formula for F shown above. Instead, we can proceed by applying Lagrange multipliers to the following optimization problem (see 
+
+[http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf](http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf)
+
+for a similar treatment):
+
+Maximize Sharpe ratio = F^T*M/(F^T*C*F)^(1/2    )(2)
+
+subject to constraint F^T***1**=1   (3)
+
+(to emphasize that the **1** on the left hand side is a column vector of one's, I used bold face.)
+
+So we should maximize the following unconstrained quantity with respect to the weights F[i ]of each asset i and the Lagrange multiplier λ:
+
+F^T*M/(F^T*C*F)^(1/2  - )λ(F^T***1-**1)  (4)
+
+But taking the partial derivatives of this fraction with a square root in the denominator is unwieldy. So equivalently, we can maximize the logarithm of the Sharpe ratio subject to the same constraint. Thus we can take the partial derivatives of 
+
+log(F^T*M)-(1/2)*log(F^T*C*F)^(  - )λ(F^T***1-**1)   (5)
+
+with respect to F[i]. Setting each component i to zero gives the matrix equation
+
+(1/F^T*M)M-(1/F^T*C*F)C*F=λ**1   **(6)
+
+Multiplying the whole equation by F^(T )on the right gives
+
+(1/F^T*M)F^T*M-(1/F^T*C*F)F^T*C*F=λF^T***1   **(7)
+
+Remembering the constraint, we recognize the right hand side as just λ. The left hand side comes out to be exactly zero, which means that λ is zero. A Lagrange multiplier that turns out to be zero means that the constraint won't affect the solution of the optimization problem up to a proportionality constant. This is satisfying since we know that if we apply an equal leverage on all the assets, the maximum Sharpe ratio should be unaffected. So we are left with the matrix equation for the solution of the optimal F:
+
+C*F=(F^T*C*F/F^T*M)M    (8)
+
+If you know how to solve this for F using matrix algebra, I would like to hear from you. But let's try an *ansatz *F=C^(-1)*M as in (1). The left hand side of (8) becomes M, the right hand side becomes (F^T*M/F^T*M)M = M as well. So the ansatz works, and the solution is in fact (1), up to a proportionality constant. To satisfy the normalization constraint (3), we can write
+
+F=C^(-1)*M / (**1**^T*C^(-1)*M) (9)
+
+So there, the tangency portfolio is the same as the Kelly optimal portfolio, up to a normalization constant, and without telling us what the optimal leverage is.
+
+===
+
+**Workshop Update:**
+
+===

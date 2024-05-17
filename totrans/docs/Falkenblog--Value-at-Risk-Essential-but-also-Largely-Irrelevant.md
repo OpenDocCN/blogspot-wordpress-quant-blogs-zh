@@ -1,0 +1,50 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:59:12
+-->
+
+# Falkenblog: Value at Risk Essential but also Largely Irrelevant
+
+> 来源：[http://falkenblog.blogspot.com/2009/06/value-at-risk-essential-but-also.html#0001-01-01](http://falkenblog.blogspot.com/2009/06/value-at-risk-essential-but-also.html#0001-01-01)
+
+[![](img/93a90e90cb36147fe733875eb3969edf.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf2lBlVYaArfwpfFB5XTSa21wZlsjfwvZlTCvWAyXpeiTugte9AdEoPPclza3ox5x_i1OLnGCmdPkMfRuyKseaGkCT8PiG7Vn4z8Gi8MRqJDAqSDKZ9sntvD0PLoaUNG7V1P6m5A/s1600-h/mvopt.jpg)
+
+I find Value at Risk (VaR) very useful, mainly so that you know people aren't taking unauthorized bets. If a rogue trader decides to punt on the dollar-yen exchange rate, that will show up, so it is helpful in keeping your traders in line. But it very rarely
+
+drives
+
+strategic decisions in banks. It's more like internet security for a bank's website, essential, but also not a first-order issue for managing a bank's relevant risk. It is a mistake of the first order to think banks are picking a VaR in mean-volatility space to find their optimal place on the efficient frontier. VaR risk is mainly incidental, and useful for minimizing operational risk (eg, many fatal risks would never have been tolerated if they were on the radar ex-ante).
+
+[Ricardo Rebenatto](http://www.riccardorebonato.co.uk/)
+
+has written some very good books and articles on interest rate models, I have re-read several of them. He is Head of Market Risk and Global Head of the Quantitative Research Team at Royal Bank of Scotland. His book,
+
+[Plight of the Fortune Tellers](http://www.amazon.com/Plight-Fortune-Tellers-Financial-Differently/dp/0691133611/ref=sr_1_1?ie=UTF8&s=books&qid=1244471388&sr=1-1)
+
+, argues against the naive application of quantitative models, a bold stand surely to be dismissed by the very vociferous advocates of naive usage of models in finance (I can't find their homepage...). We need more common sense, another courageous jab at the highly popular 'no common sense' mantra.
+
+Russ Roberts
+
+[interviewed him](http://www.econtalk.org/archives/2009/06/rebonato_on_ris.html)
+
+on EconTalk, and I just thought, this guy typifies a stereotypical 'risk manager'. He has credentials that demonstrate he knows a lot of math (Doctorate in Nuclear Engineering and PhD in Condensed Matter Physics/Science of Materials). He speaks often at Risk Conferences, and is on the Board of Trustees for GARP. But what clearly comes across is that he does not speak much to decision makers in RBS about actual strategy.
+
+Why do I say this? Because, to think that risk measures to 5 decimal places are 'dangerous' presumes that major decisions are being made based on this information. From his preface:
+
+> Financial risk management is in a state of confusion. It has become obsessively focused on measuring risk. At the same time, it is forgetting that managing risk is about making decisions under uncertainty. It also seems to hold on to two dangerous beliefs: first, that our risk metrics can be estimated to five decimal places; second, that once we have done so the results will self-evidently guide our risk management choices.
+
+To the extent you think this is going on you really have no idea that you have no idea how this information is related to strategic and tactical decisions. VaR is pretty irrelevant for banks. Sure, it's an essential way to aggregate market maker risk, but that risk has been pretty insignificant in the current crisis, because to the extent assets or businesses subject to VaR had significant losses, the VaR was calculated predicated on the assumptions that drove the business decision (ie, that collateral value of equity asset backed securities would not decline). This assumption, which is not very technical, made the resulting VaR innocuous, and is something anyone understands. Why did people assume this? That's an interesting question, but I think it has very little to do with Value-at-Risk. That is, an arbitrary but large stress test would have embodied the same assumption circa 2006.
+
+If you look at Rebenatto's RBS, in their annual report they show a mere 40 million pounds of daily 95% VaR, which annualizes to about a 1.3B pounds at a 99.9% VaR. Say we multiply that by 3, to get capital needed, we are up to 4 B pounds. RBS has about 73B in equity capital. Clearly even in his own company, VaR is not the primary driver for understanding their 'risk'.
+
+The idea that Value-at-Risk, or risk numbers at the 5th decimal place, are dangerous, presupposes people are using this information in a significant way. That is, supposedly, when the VaR of the currency market moves from 43.32491 to 43.32492, traders adjust their spreads. Let us give Ricardo the benefit of the doubt, that the "5th decimal" statement was rhetorical flourish. In any case he thinks VaR drives real decisions. In his circle of contacts (GARP, risk management conferences, presentation of VaR to regulators), this arguement may be tenable, but highlights he does not understand how strategic decisions are made within a bank. He is being patronized by senior management, who absolutely love risk managers who think the fifth decimal of their VaR is important, because they don't see the bigger picture and are then free to do whatever they want.
+
+VaR is primarly applied to market making activities, and generally these have very high Sharpe ratios (>3) because you make you money off bid-ask spread and front-running customers, so profit is primarly a function of volume. Any residual holdings generate 'market risk' via your VaR, but most market makers don't care too much because on a VaR basis, they are all hitting massive home runs in that Sharpes are always greater than anyone's hurdle rate. Market making profits are a function of volume, which means sales, contacts, not having better VaR measures. If they could choose to double their market making activity, and thereby double their VaR, all would choose to do so. VaR is a good way to make sure traders aren't changing their business model, but it does not capture anything essential to that business model, because all market makers want more volume; VaR is not like a choice variable in risk-return space.
+
+He argues we should basically use probabilities inferred from the revealed preference, noting that 'behavioral finance' shows all sorts of biases. This means, anecdotes. All you need is the representative anecdote, the correct prior! That's the problem with common sense. What some people think is common sense, other people think is nonsense. Not that this is not true, merely unhelpful. It should go without saying that the real world does not have numbers drawn from urns where we know the proportion of blue and red balls contained therein. How this plays out, given the parochial nature of most business decisions, is really no more helpful than saying 'you should estimate risks taking into account all the information' when making decisions about the future.
+
+[Kate Kelly's book](http://falkenblog.blogspot.com/2009/05/bear-books.html)
+
+on the failure of Bear Stearns highlights the irrelevancies of these kind of risk managers. As she says, "managers in places like risk management and operations were considered less important to the firm's core franchise and therefore largely excluded from important decisions", and Rebenatto's focus highlights why. He is looking under a very small lamplight in the bank risk landscape: the domain of full-time risk managers.
+
+It is funny that Rebenatto bemoans the lack of common sense of PhD's from the hard sciences, their autistic focus on formulas, their ignorance of the bigger picture. His criticisms of others on a point so relevant to his own views suggests a very interesting bias.

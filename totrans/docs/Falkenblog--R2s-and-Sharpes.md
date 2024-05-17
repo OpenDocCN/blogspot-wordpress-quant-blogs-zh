@@ -1,0 +1,148 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:39:52
+-->
+
+# Falkenblog: R2s and Sharpes
+
+> 来源：[http://falkenblog.blogspot.com/2010/01/r-2-s-and-sharpes_18.html#0001-01-01](http://falkenblog.blogspot.com/2010/01/r-2-s-and-sharpes_18.html#0001-01-01)
+
+In strategy simulations the performance metric is sometimes presented as an R
+
+²
+
+. These are difficult to interpret because clearly a 1% R
+
+²
+
+over 1 day is a better strategy than one with an R
+
+²
+
+of 1% over a month. A nice focal point is an annualized Sharpe ratio. Historically, the benchmark offered by the equity risk premium is a nice focal point, because it is common and feasible (around 0.4, as given a 6% equity premium, a 15% annualized vol (I wrote
+
+[a book](http://www.efalken.com/video/index.html)
+
+why I think this is probably more like 0.1, but that’s a minority view). Anything above 0.5 is quite good, and above 1.0 excellent. The annualized Sharpe ratio is define as
+
+[![](img/f66f19607de662850f49a0ed5008fa54.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVhUkA5UqjBFHY9W3i8yIqdG8ahwWZInNe4niYODHTtWcz8jGIWo-nW-o50WfUXKVoVfw4ErREMqEwc-uhk3PP4ZbhyphenhyphenqIoSkMh5QYfnk_YFndfZ6GR5F0DRHMs91hHQTrEE8tJkg/s1600-h/Eqn020.gif)
+
+By using annualized Sharpes we can compare apples to apples. As returns are linear in time, standard deviation increases by the square root of time, so one needs to have a common time to make Sharpe ratio comparisons.
+
+Now, for many strategies, one is predicting the profit on the combination of a specific tactical rule with a model that generates an expected return. For example, if I think the market is going up, one can take advantage of this several ways: buy futures, options, bull-call spreads, etc. This adds degrees of freedom to the result, because often certain criteria can generate different Sharpe ratios.
+
+I will assume one implements a linear position rule, such that a position is linear in the expected return of the strategy. Thus, if one expects a return of 1%, one has half the long position as when one expects a return of 2%; if one expect a return of -1%, one has the opposite position as when the expected return is 1%. It is the proportionality between signals that affects the Sharpe ratio, not the absolute size, because whether I invest, on average, $1k or $1MM, it will have the same Sharpe ratio. As to whether linear is optimal, intuitively it is pretty close to optimal, basically saying that if conditional variance is constant, you put down twice as many chips as when you expect twice the return.
+
+Thus, assume we are forecasting a return, which can be a portfolio, or a single stock, it does not matter. Some ‘thing’ has an expected return. This has a forecastable and nonforecastable component.
+
+[![](img/71278bb86572840786b76b451e26e646.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiSgEK0Av3WFW-a9JqrwhEzA9wgUBzQhgqZeB5DO1mpn6I8vuz0dWzMyEMnLfeDV7zs_aREcl4vkE8UUUEbeVk7e4vIyORVszpe49F6mdxIFJz8z_TrKaNqqu_YJVQZx5W_UgsNpg/s1600-h/Eqn022.gif)
+
+Here
+
+*f*
+
+is the forecastable component, ε the random component, of the strategy return. Given the linear position rule, the exected return is simply
+
+[![](img/8c3a415b9cc3e933acd5342e6dca2bfb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1v-aROIxdKWhjLkIkuvFKrRUulunpWsBMezJAn1IR9qDnII4N7_UaMHM6_U_2pMndzuhFmgxzkAserGiSAYqoM3py2KyyvmWKyPL-QxKo_CK3r97DAyLhSUiTOf07shNsEj1JVw/s1600-h/Eqn024.gif)
+
+It is useful to assume the unconditional expected return above the risk-free rate on the strategy and the forecast are both zero. To the extent they are not, that would be part of the predictable return that would not be ‘excess’, a cost of capital. Thus, with we have
+
+[![](img/8365f162aa8a66437f3e3224a29fd17d.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhdxBVIPOglUP5REkiqvLPlMEEl07slsgJ5lsjFIbFreLkCPOlJz5beHUcfeftfswj2OWdHxd-Qh3d7BH8MUjigK_7BZKxe66vadQj0sSdYupsOLokGgBpUggYDEBl8s0H-77o2nA/s1600-h/Eqn026.gif)
+
+Now, the variance of the product of two Gaussian random variables, applied to
+
+*f*
+
+and
+
+*ret*
+
+, is
+
+*Var(f⋅ret)=σ²[f,ret]+2σ[f,ret]E(f)E(ret)+E(f)²σ²[ret]+E(ret)²σ²[f]+σ²[f]σ²[ret]*
+
+The proof for that is quite tedious (see
+
+[Bohrnstedt and Goldberger, 1969](http://www.jstor.org/pss/2286081)
+
+), and crucially relies on the Gaussian distribution to avoid extra complexity from higher moments (that’s why we love the normal!).
+
+Given the expected returns are both zero, we have
+
+[![](img/2af9ed7f7d86662008f9313237890b4e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_FOAXzLumahwTLEekP5m0ghUnbuGdBUdb6TQTLonujeVFGRc43jLACkef78JZXLXVk9LcErvGCcxriOopVWA_JNkUIErImIW8F1sVj-3bG8ajkw2GJh7ML679yJ4Key54rocDNw/s1600-h/Eqn028.gif)
+
+So, the Sharpe of the strategy is just
+
+[![](img/e497cd98261b00a86f1ff7f54201ade8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi30BfHmCuqUtyOB3omo8DIvqQDJzrpAVzx79ouG8aTW_v7geZKD11FvqURSdo0Y3X62rsAL9SCyd8Ouni7XP7LB7Xa9O9mkPxiyEZD3E_A0nO6B-4gH3syRldiYRv6oMrVmB4CMw/s1600-h/Eqn029.gif)
+
+Now, given σ
+
+[x,y]
+
+=ρ
+
+[x,y]
+
+σ
+
+[x]
+
+σ
+
+[y]
+
+we have
+
+[![](img/ae10754709fef2cebba32ce00e8b004d.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgR6-ribWrmDTSY6eR49qEEOlgWOeqMkzhGoWL3MztbxylB_nDVjuOsiX8bBEHNFxka7XIQmTi5VbeI1EBd6Xi4zJoBdlSmO0PqZV9i6taqvXnJ-bwF-2kF6IW9OkACKHSDBuIFEQ/s1600-h/Eqn031.gif)
+
+The nice thing is that the numerator, ρ
+
+[x,y]
+
+, is just the square root of an R
+
+²
+
+! That is, whatever your
+
+*f*
+
+, the R
+
+²
+
+of a regression of the return on
+
+*f*
+
+, is what you need to know to calculated a Sharpe ratio.
+
+The last step is to annualize, to put this into consistent units. To do this we simply apply the adjustment. For strategies that are not necessarily done over calendar time in constant increments, we assume t=number of sequential trades per year. This generates the following adjustment. You multiply the Sharpe by the square root of the expected number of trades per year. So, in this equation, you meake sure you have the number of expected trades in there, t.
+
+[![](img/ab9fe783426353065a3ba889acd7ae64.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgV_w-0xZB6fZ7muOjREaXaJTXArjCEqp7DZHds4rWQt7aAZBR30etK7sXn5_1WWt8JDTzxgdBTYtH54ex2TSMY5JLLvaSoGXE_wTm3dzj0afWZhRUeTCs3cmtAtOJeGIpruoDIXg/s1600-h/Eqn054.gif)
+
+or
+
+[![](img/64c7b98da1c8937e3359e95f9530de22.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQsnoxlNETw4LMg2a2BBjsrL2tgieRMSNQ2S7NXBwRez8ICstbUzisEHaubozgb5t2tYiUHmF_Tp339_kQQKJff4Au5IWquHuM2JjZ0Wq6MrfBzh3V2GZNPKVuCvE9XXvWpJECAg/s1600-h/Eqn052.gif)
+
+So, with an R
+
+²
+
+, and trading frequency, we can generate a reasonable Sharpe. For example, in the graph below, we see how the R
+
+²
+
+of Sharpe 1.0 strategies vary by the number of trades made per year (eg, a horizon of 1 month trades 12 times a year).
+
+[![](img/390f8d3f716d1e3fa9373094ab437fea.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUarBh7xBcOqaxh0R3n9fyvem2V0wigOJ5SQRLG2j-VBIvp1FlgL9vn-dgRYWESvhxV9m9l7YL-Aa8ChZVOtIsVtvib3W5Ciq2Bz8EXU1D4Su7JhyphenhyphenMSUlAdf2wm0jvfG3oCJzygg/s1600-h/sharpe.jpg)
+
+So, an R
+
+²
+
+when forecasting annual data, is not nearly as valuable as the same R
+
+²
+
+over 1 week. That's obvious on some level, but I think it's nice to have a specific formula to make such comparisons. An important qualifications is that transaction costs are not addressed here. The higher the frequency of the strategy, the higher the importance of transaction costs.

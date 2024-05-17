@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:52:03
+-->
+
+# RSI2 and DV2 Divergence | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/08/05/rsi2-and-dv2-divergence/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/05/rsi2-and-dv2-divergence/#0001-01-01)
+
+*Coming Soon!*
+
+*Preview:* What happens when the RSI2 value and the percentile DV2 show widely different results? This is a valid question put forth initially by Michael Stokes at MarketSci [http://marketsci.wordpress.com/2009/07/16/rsi2-vs-dv2/](http://marketsci.wordpress.com/2009/07/16/rsi2-vs-dv2/), who observed correctly that the two are not highly correlated. (Note that this same behaviour carries through to individual stocks as well). As it turns out ***if the RSI2 is higher than the DV2***, this is **bullish for the market** (as was the case over the last several days). If the ***RSI2 is lower than the DV2*** this is **bearish for the market** the next day. The RSI2 has been far higher than the DV2 in the past couple weeks, with the RSI2 rarely below 90, but the DV2 rarely climbed above 80—dipping  below 50 giving buy signals while the market was rising………….

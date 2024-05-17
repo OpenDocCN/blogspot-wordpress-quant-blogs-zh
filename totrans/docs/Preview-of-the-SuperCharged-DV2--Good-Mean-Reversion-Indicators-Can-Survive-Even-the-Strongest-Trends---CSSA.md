@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:48:36
+-->
+
+# Preview of the SuperCharged DV2: Good Mean-Reversion Indicators Can Survive Even the Strongest Trends | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/09/15/preview-of-the-supercharged-dv2-good-mean-reversion-indicators-can-survive-even-the-strongest-trends/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/15/preview-of-the-supercharged-dv2-good-mean-reversion-indicators-can-survive-even-the-strongest-trends/#0001-01-01)
+
+Corey Rittenhouse got the chance to take the SuperCharged DV2 (SCDV2) for a test drive tonight.  Corey was skeptical that the SCDV2 would perform well during the rally, so I told him to test out the performance.  Most mean-reversion strategies have taken it on the chin lately, but the  SCDV2 is beating the S&P500 *even though it goes short readings above .5!*  Notable were 86% winners on the long side with an average gain per trade of over 1% since the rally began. It even won 57%  of trades on the short side during this moon shot run! Keep an eye out, as we have some fantastic trading systems coming out using the SCDV2 in tandem with other DV Indicators. [http://www.catallacticanalysis.com/strategytests/superchargedDV2preview.php](http://www.catallacticanalysis.com/strategytests/superchargedDV2preview.php) 
+
+*While no comparison is posted to the DV2, the annualized return for the SCDV2 is **35%** over the last 12 years vs **28%** for the DV2, an incredible difference of **7%** every year with a lower max drawdown!*

@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:45:45
+-->
+
+# Falkenblog: Tyler Cowen for Guns & Butter
+
+> 来源：[http://falkenblog.blogspot.com/2008/11/tyler-cowen-for-guns-butter.html#0001-01-01](http://falkenblog.blogspot.com/2008/11/tyler-cowen-for-guns-butter.html#0001-01-01)
+
+Tyler Cowen is a good blogger because he filters a lot of information and highlights a lot of interesting news. But he is also an incredibly nonjudgmental reviewer, who seems to have hundreds of favorite labor economists, Peruvian painters, Italian novelists, and always sees papers as being at least half full of insight. He's the Paula Abdul of economists, which is fine once you know how to notch down his reviews.
+
+The latest brouhaha about the New Deal, where liberals are trying to re-write the poor growth in the 1930's as the result of restrictive fiscal policy, rather than excessive government meddling, has pitted
+
+[Paul Krugman](http://krugman.blogs.nytimes.com/2008/11/19/amity-shlaes-strikes-again/)
+
+,
+
+[Brad DeLong](http://delong.typepad.com/sdj/2008/11/what-a-change-t.html)
+
+, against
+
+[Russ Roberts](http://cafehayek.typepad.com/hayek/2008/11/will-vs-krugman.html)
+
+, among others. So Cowen wrote a
+
+[down-the-middle argument](http://www.nytimes.com/2008/11/23/business/23view.html?_r=2&partner=permalink&exprod=permalink)
+
+in the New York Times, where he comes out subtly for both sides in this debate: everyone wins!
+
+He starts by arguing against the New Deal. He's against monetary contraction, agricultural policies (paying to not grow), and the cartelization of industry. This last item, however, is really a loaded term because it could refer to the whole panoply of New Deal intrusions: the Tennessee Valley Authority that nationalized a lot of utilities in the Southeast, the National Recovery Administration (NRA) that tried to set minimum wages and other Labor wants, the nationalized unemployment relief through the Works Progress Administration (WPA), the Wagner act that strengthened the Unions in collective bargaining. He could be talking about merely to one of the more absurd policies within this list, but who knows.
+
+Cowen then cryptically notes the positives of the New Deal:
+
+> the truth is that Roosevelt changed course from year to year, trying a mix of policies, some good and some bad ... The good New Deal policies, like constructing a basic social safety net, made sense on their own terms
+
+What could those social safety net policies be? If it were just social security, I presume he would have said social security, so what is in that list? I guess it's take your pick from those policies that were intended to be a safety net within the NRA, WPA that contributed to the cartelization of industry. Pro-New Dealers consider everything part of the 'safety net', whereas anti-New Dealers point to the cartel characteristics, same policies, different emphasis or spin. So, he needs to be more specific, because otherwise this is like saying he is for the 'pro growth/happiness' policies and against the 'mean/decline' policies, which are the same policies seen through a different lens
+
+Like an economist who thinks both the Keynesians and Monetarists were right, the man who sees the truth of each side of an argument sees nothing. Surely, every side has its correct arguments, its principled arguments, but one should step back, and say, net net, that the New Deal was good or bad, not that it was a mixed bag, leaving the good and bad as an ill-defined overlapping set of programs.

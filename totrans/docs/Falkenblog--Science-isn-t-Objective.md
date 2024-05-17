@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:30:41
+-->
+
+# Falkenblog: Science isn't Objective
+
+> 来源：[http://falkenblog.blogspot.com/2010/06/science-isnt-objective.html#0001-01-01](http://falkenblog.blogspot.com/2010/06/science-isnt-objective.html#0001-01-01)
+
+[![](img/5b6d66d7b5afc71b9443efaea1752a9a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEib0AiQD6YFqoQEVcBxEg1-f4alPOgvrajDAk2nuY-UJHSm7TGaSaUrZrKgUAfSaZXCWi55Lc7PglyRY3ioGmsfTPKaXHrPMPBI4gUhBogxpxuZWIitSJadyiVt-5fyzhU_1j4DWw/s1600/Harald_Eia_96737c.jpg)
+
+It tries to be, that's the ideal, but scientists are humans like anyone else. Those who claim their side is scientific, are basically saying the other side is prejudiced and ignorant. It could be true, but both parties in the US have significant anti-(ideal) science wings.
+
+Anyway, think about psychology, which in the first half-century was dominated by Fruedian analysis, an embarrassment (penis envy, Oedipus complex). Think about the fact that most economists thought socialism was more productive than capitalism until the the latter half of the twentieth century, or that large-scale macro models could predict business cycles. Lots of smart, well-intentioned people spent their lives studying and lecturing false ideas, all under the guise of 'science'.
+
+Comedian Harald Eia (see picture), in Norway produced a set of TV segments exposing the politically correct banality of Norwegian sociologists. The videos are
+
+[here](http://www1.nrk.no/nett-tv/klipp/625996)
+
+. From
+
+[Bjørn Vassnes, Science Journalist, Norway](http://isteve.blogspot.com/2010/06/brainwashed.html)
+
+:
+
+> In Norway, the social sciences have been more dominated by ideology and fear of biology than in perhaps any other country. This has a long history starting in the 60s. Social science became very much bound up with the ideology of the Social Democrats, who put pride in the fact that Norway was the most egalitarian country in the world....
+> 
+> And in Norway this became a big problem because there are few scientists, and most research is sponsored by one source, the Norwegian Research Council, which has strong links with the government...
+> 
+> But the main problem, which Eia has exposed so brilliantly, is that much of Norwegian social science, and gender science in particular, is built on very shaky ground. Most studies have been done without even considering factors like heredity: The reason why some people turned criminals, or did badly in school, was always explained by social and cultural factors. To even mention heredity as a possible factor, was met with condescending laughter or irritation...
+
+I wish it were in English, my Norwegian is not so good.

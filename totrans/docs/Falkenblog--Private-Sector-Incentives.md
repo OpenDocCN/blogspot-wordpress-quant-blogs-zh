@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:38:22
+-->
+
+# Falkenblog: Private Sector Incentives
+
+> 来源：[http://falkenblog.blogspot.com/2011/12/private-sector-incentives.html#0001-01-01](http://falkenblog.blogspot.com/2011/12/private-sector-incentives.html#0001-01-01)
+
+A Northwestern grad student (just like I used to be) blogs on academic papers over at A Fine Theorem, and I was struck by
+
+[this snippet](http://afinetheorem.wordpress.com/2011/11/21/decentralization-hierarchies-and-incentives-a-mechanism-design-perspective-d-mookherjee-2006/)
+
+:
+
+> The benefit of capitalism can’t have much to do with profit incentives per se, since (almost) every employee of a modern firm is a not an owner, and hence is incentivized to work hard only by her labor contract. A government agency could conceivably use precisely the same set of contracts and get precisely the same outcome as the private firm (the principle-agent problem is identical in the two cases).
+
+This is wrong. I've worked in small and large firms, and in either case, being part of any initiative that makes money increases your pay and stature rather clearly. Now, the bigger the firm, the more people involved in any initiative, and the more people will exaggerate their involvement with successful projects and downplay their involvement in losers. But the bottom line is the bottom line, and the best way to get your boss to appreciate you more is to help him make more money for the firm. The scope of your command is rarely specified in detail, though increases in scope are the most obvious ways of increasing your power when the 'contract' comes up for renegotiation: work is a repeated game. The government principle has a very different objective function than the private firm principle, the former with a diverse set of stakeholders to satisfy, often with vague and inconsistent objectives, the latter to simply make more profits.
+
+It's true that some people, especially those in over their heads, who are overpaid, dislike productive and smart direct reports because they sense their boss will recognize an attractive replacement. Yet even here the incentive clearly exists for this bad boss to be replaced by his boss, because his boss is not optimizing this position in that case (and watching the bad bosses employees leave when they recognize this is a really good signal that their boss is not a good one). It's also true that salaried employees like cashiers and secretaries may not be proactive about increasing their stature within the firm and simply follow orders, but their bosses recognize this and so are less likely to increase their responsibility.Every ambitious worker tries to make more with less all the time, because they can quantify this, which is the best way to go into an annual performance review. Just because you do not have shares in the firm does not mean you aren't highly incented to make money for shareholders, because the shareholder desire for more profits truly trickles down.
+
+If this kid doesn't appreciate this, he's missing a big part of what makes private organizations work as they do. The nice thing is that it isn't a really fragile result like some of these theoretical models based on the types of agents and some
+
+[envelope theorem](http://en.wikipedia.org/wiki/Envelope_theorem)
+
+. Common sense tells you the more you appear to be creating profits, the better your future will be in the firm and the industry, and the best way to appear to create profits is to actually do so. Economics, as Tom Sargent
+
+[notes](http://gregmankiw.blogspot.com/2011/12/sargent-and-sims.html)
+
+, is 'organized common sense.' Unfortunately, while you can formalize and thus teach models, you can't formalize and teach common sense, which is why game theory is so ambiguous on these important matters.

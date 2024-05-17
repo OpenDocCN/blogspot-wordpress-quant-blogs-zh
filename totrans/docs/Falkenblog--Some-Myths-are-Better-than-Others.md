@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:13:12
+-->
+
+# Falkenblog: Some Myths are Better than Others
+
+> 来源：[http://falkenblog.blogspot.com/2010/12/some-myths-are-better-than-others.html#0001-01-01](http://falkenblog.blogspot.com/2010/12/some-myths-are-better-than-others.html#0001-01-01)
+
+[![](img/3b8f1cca8a85bedb0de2e1fcb0968b21.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhduXW_LQrF6kaJx3gnXWP8kkvlrNcHaH7bJM4P2q717KxLpytT7BTDHJVQTQ-gdLTrk4yaNrinblh7YvIdFauKQzBwvPB_rbKjm3rrQhPYHmOoKH_O_J7AQjJFoKpAUkG56NmFcQ/s1600/norad_santa.jpg)
+
+Norad tracks Santa. With about 2 billion Christians, say 1B independent households, and given Santa has a day to deliver gifts, that's only 86 microseconds per house. Given he tends to leave half eaten carrots (from the reindeer) and cookies, I imagine this speed would actually incinerate most homes. Nevertheless, I love Christmas--the songs, decorations, stories, meals, gift-giving--and my kids do too.
+
+John Cochrane wrote, the CAPM “proved stunningly successful in a quarter century of empirical work,” meaning it seemed to explain the data pretty well, until we found out this was merely due to beta picking up the size effect, which itself was mainly measurement errors.
+
+This longing for a prior sense of ignorance, when a popular theory appeared to be working, is a rather bizarre stance for an economist. It’s like saying how fun Christmas was when we believed in Santa Claus. True, but that’s harmless fun, not science. The CAPM was never a benign conspiracy of professors to create joy in MBAs, but a serious hypothesis about the way the world works. In a similar vein, Paul Samuelson stated about Karl Marx in his 1995 edition of Economics, after the fall of the Berlin Wall reduced the allocation of his text on Marxism to a footnote: “Marx was wrong about many things—notably the superiority of socialism as an economic system—but that does not diminish his stature as an important economist.”
+
+Ah, the “being wrong” part—never mind!—Marx was popular and inspirational. Clearly, economists see theories in context larger than falsifiable predictions. Any idea that generates a large literature, supposedly, is good. The thought that an idea was edifying, even if wrong, is comforting to academics who often investigate unproven ideas. I disagree. There are an infinite number of bad ideas, so eliminating many of them puts hardly a dent in the shelf from which they are drawn. This is especially true when an error merely postpones an inevitable education with reality, like saying drinking and driving was a great idea until I hit a school bus. The fact that economists as preeminent as Cochrane and Samuelson adopt the same stance toward what constitutes a successful theory (ephemeral popularity among scientists), highlights the strange power of any idea that spawns a large literature.

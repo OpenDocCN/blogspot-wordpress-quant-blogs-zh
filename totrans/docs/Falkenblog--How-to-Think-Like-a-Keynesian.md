@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:26:37
+-->
+
+# Falkenblog: How to Think Like a Keynesian
+
+> 来源：[http://falkenblog.blogspot.com/2010/07/how-to-think-like-keynesian.html#0001-01-01](http://falkenblog.blogspot.com/2010/07/how-to-think-like-keynesian.html#0001-01-01)
+
+Currently economists are debating whether the stimulus worked. The President's
+
+[economists state](http://www.whitehouse.gov/files/documents/cea_4th_arra_report.pdf)
+
+that spending about $200B created about $400B in GDP net net. If the payoff is that high clearly we should spend more, way more. As Hayek said, ultimately, facts drive policy disagreements.
+
+The empirical logic used, however, is often quite twisted. Here's
+
+[Cato's Dan Mitchell](http://www.cato-at-liberty.org/2010/07/15/obamanomics-and-my-seven-steamy-nights-with-the-gals-from-victorias-secret/)
+
+with an analogy:
+
+> Next time I see my buddies, I’m going to claim that I enjoyed a week of debauchery with the Victoria’s Secret models. And if any of them are rude enough to point out that I’m lying, I’ll simply explain that I started with an assumption of spending -7 nights with the supermodels. And since I actually spent zero nights with them, that means a net of +7\. Some of you may be wondering whether it makes sense to begin with an assumption of “-7 nights,” but I figure that’s okay since Keynesians begin with the assumption that you can increase your prosperity by transferring money from your left pocket to your right pocket.

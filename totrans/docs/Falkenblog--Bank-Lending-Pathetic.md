@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:37:04
+-->
+
+# Falkenblog: Bank Lending Pathetic
+
+> 来源：[http://falkenblog.blogspot.com/2012/01/bank-lending-pathetic.html#0001-01-01](http://falkenblog.blogspot.com/2012/01/bank-lending-pathetic.html#0001-01-01)
+
+Banks are highly regulated institutions, in spite of what Amar Bhide
+
+[implies in today's NYT editorial](http://www.nytimes.com/2012/01/04/opinion/bring-back-boring-banks.html?_r=1)
+
+. He argues the Fed should insure all bank deposits, no matter how large, but in response regulate more. The regulators are already regulating a lot, choking off credit. When no specifics are offered, it highlights how clueless such solutions are, as with the current
+
+[CFPB](http://www.consumerfinance.gov/the-bureau/)
+
+, which doesn't do anything I'm aware of, but create a new permanent bureaucracy. After all, more regulatory pressure pre-2007 would have just meant more ninja loans, not less, given the conventional wisdom back then.
+
+A friend shares with me the following anecdote. He thinks real estate is cheap, and wants to buy houses, and make money renting them. Ultimately, he would sell out of the homes when they recover in value. He has been doing it for a couple years with good results. He went to a bank, to see if he could leverage this idea, say by getting loans for 50% of the purchase price. They said, only if you hold this in a '
+
+[compensating balance](http://www.investopedia.com/terms/c/compensating-balance.asp#axzz1iWfZnIF5)
+
+.' These are cash balances held by the borrower at the bank, and add fees and some safety to the bank. In this case, the bank wants the borrower to keep the entire balance as a cushion, borrow money for a potential liquidity event, that would be rather futile because once the borrower used said compensating balances to rectify a funding problem, it would then have a liquidity problem with the bank. So, in practice, the compensating balance would not be a cushion for tough times, nor would it earn interest for the borrower. My friend decided not to get the loan.
+
+The regulators aren't letting bankers return to business as usual, as previously they got 100% loan-to-value, now can't even get 50%! Many still think the bankers basically are parasitic thieves. I
+
+[maintain](http://falkenblog.blogspot.com/2011/12/business-cycles-and-barrier-options.html)
+
+that without a healthy bank sector free from the fear of extinction, our recovery will remain weak.

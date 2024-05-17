@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:50:03
+-->
+
+# Falkenblog: Ratings Agencies Lose 'Free Speech' Immunity
+
+> 来源：[http://falkenblog.blogspot.com/2009/09/ratings-agencies-lose-free-speech.html#0001-01-01](http://falkenblog.blogspot.com/2009/09/ratings-agencies-lose-free-speech.html#0001-01-01)
+
+From the WSJ, an
+
+[important ruling](http://online.wsj.com/article/SB125201681110884761.html)
+
+affecting the backlog of lawsuits against Moody's, S&P, and Fitch:
+
+> U.S. District Judge Shira Scheindlin ruled on Wednesday in a 68-page opinion that the ratings of certain securities -- those that were distributed to a limited number of investors -- don't deserve the same free-speech protection as more general ratings of corporate bonds that were widely disseminated.
+
+In other words, you can see the rating of IBM in Google Finance, or other free websites. It's on IBM's investor relations page. In contrast, some special investment vehicles have a rating known to a relatively small number of investors. It's not illegal to mention the rating, but really, who cares about such parochial funds. The example given was for a $1B fund, but there are about $400B of such funds.
+
+I am very sympathetic to the Rating Agencies because I know that in general Moody's is filled with thoughtful, sincere people, who because of their culture, have better ethics than your average investment banker. That is, very few people who work at Ratings agencies make the kind of money prominent investment bankers do, and their steady, salaried work generates more far-sighted thinking. Nonetheless, they got caught up like everyone else in assuming that in aggregate, US houses can not decline in value, an assumption that drove all the insanity.
+
+I am not sympathetic to the 'free speech' gambit, because that seems a bit strained. As the judge noted, it's not like they wrote a newspaper article on their opinion, but rather, they were paid by a small group of people to deliver a rating delivered to a small group of investors. Potentially, there is negligence and bad faith involved. If I were the rating agencies, I would argue this was merely a good faith error, and highlight how conventional their opinions were by referencing contemporaneous statements by academics, regulators, investors, legislators, bankers, even Robert Shiller (the famous 'housing bear' whose meek warning highlights how common the insanity was). I don't think it is reasonable to legally punish someone for holding conventional views, because incorrect conventional views are so common, if such errors were actionable we should just turn over corporate revenues to the trial lawyers right now. As a practical matter, the scope of damages is too large given the historical stupidity of conventional wisdom (busing, new math, socialism).
+
+One thing I wish the Agencies were pressed on, is presenting the performance of their ratings in a standardized way. Currently, the agencies get to present their opinion on their opinions, and this cannot be anything but biased. For example, from 1993-2007 (the latest data available), Moody's cumulative 5-year 'impairment' rate on Residential Mortgage Backed Securities is 0%; for corporate ratings, the 5-year 'default' rate 0.09%. As they said in The Princess Bride, I don't think those words mean what you think they mean.
+
+The problem is the universe of things to rate is very complicated. As a practical matter, you do not want to include Municipal bonds, with sovereign ratings, corporate, and structured finance. Even within structured finance, you want to disaggregate credit cards from commercial real estate. This is because the criteria, the model, the data, one applies to these areas is very different, so the relevance of a AAA for the IBMs of the world, is very different than the AAA applied to Structured Investment Vehicles. One might say, an AAA should mean the same thing, and they do attempt to mean the same thing. But they are very different problems, like estimating the probability Democrats with the presidency in 2016 vs. the probability global temperatures rise by 1 degree Celsius over the next 50 years. AAA targeted default rates are so low, you can't calibrate these empirically, you just make your best estimate in very different domains.
+
+The net result is that when the agencies present their data they exclude various securities that are not obvious, leading to selection biases that are parochial and difficult to tease out. The exclusions are invariably favorable to the rating agencies reputations. I'm sure that, under some definition, the AAA default rate for structured securities is 0%. I'm sure using another, it is much higher. One thing regulators could do is to define for the agencies how this is calculated. Indeed, they should get all ratings data, and performance data, and generate a timely report card. That would be something useful and straightforward for our legions of regulators to do, and given the special status accorded to ratings agencies by the government, not an unreasonable intrusion.
+
+There are many lawsuits in the pipeline, more than the value of the rating agencies. It would not be best for the economy to kill Moody's, Fitch, and S&P, because new firms would have the same analytical problem they face today, only with less institutional experience with a failure that is helpful to have internalized. These institutions are very helpful, because without them there would be much less liquidity in these obligations, and liquidity helps increase intermediation, and getting savings to companies efficiently makes our economy work better.

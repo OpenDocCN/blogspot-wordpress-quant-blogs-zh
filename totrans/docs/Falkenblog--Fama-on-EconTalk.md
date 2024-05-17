@@ -1,0 +1,41 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:35:48
+-->
+
+# Falkenblog: Fama on EconTalk
+
+> 来源：[http://falkenblog.blogspot.com/2012/01/fama-on-econtalk.html#0001-01-01](http://falkenblog.blogspot.com/2012/01/fama-on-econtalk.html#0001-01-01)
+
+Eugene Fama is
+
+[interviewed](http://www.econtalk.org/archives/2012/01/fama_on_finance.html#commentsection)
+
+by Russ Roberts over at EconTalk. Most of the time they talk about the Efficient Markets Hypothesis, and the mortgage crisis, but 'risk premiums' were mentioned in this little exchange:
+
+> Roberts: What are the lessons for me that finance has learned that are important? [bla bla]...
+> Fama: [blah bla] ... I think we've learned a lot about risk and return. Some of it is intuitive. But there is a lot of stuff on which stocks are more or less risky. A lot of stuff on international markets...[bla bla]
+
+That was quite the
+
+[elision](http://en.wikipedia.org/wiki/Elision)
+
+! Risk is ubiquitious in modern finance as an explanation, as Robert Merton says: 'Risk is not an add-on … it permeates the whole body of thought.' Yet it receives only a minor mention that passes so quickly here, as if not to dwell on it long enough to elicit any follow up, such as "which stocks are riskier than than others?" If it's value stocks, why do they have lower betas and volatility than growth stocks? If it's small-cap stocks, in what way are they risky, other than having higher-than-average returns? If it's equities in general, why is the CAPM a failure cross-sectionally? It is, after all, the main focus of his
+
+*oeuvre,*
+
+so I think he's unconsciously signalling he's on the defensive here.
+
+An interesting point is that the Efficient Markets Hypothesis (which I defend
+
+[here](http://www.efalken.com/papers/inefficient_markets.html)
+
+), is something that started out without much enthusiasm, but over time has grown stronger, led mainly by the obvious fact that it is very difficult to make abnormal returns in the market. Fama gets a lot of flack for it since day 1, but it has been his most enduring idea (clearly, a group effort with Working, Samuelson, and Muth). The risk premium, however, started off as a
+
+fait accompli around the same time
+
+, though the risk factor is like a Freudian's Oedipal complex, something that started out with supposedly clear empirical support but later was simply assumed. This is because the risk premium is a direct consequence of the most fundamental assumption of economics: a
+
+[von Neuman-Morgenstern](http://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem)
+
+utility function, one that increases in wealth at a decreasing rate. Given that, risk premiums exist, so for most economists, one doesn't need proof. This is nice because we don't have any other than the supposed equity risk premium, which even if it is 3.5% as most experts think, should generalize to something other than the difference in return between equities and bonds (eg, cross sectionally, over time, across futures, currencies, bonds, etc).

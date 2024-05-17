@@ -1,0 +1,70 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:45:24
+-->
+
+# Falkenblog: Is Low Vol Investing a Value Play?
+
+> 来源：[http://falkenblog.blogspot.com/2011/09/is-low-vol-investing-value-play.html#0001-01-01](http://falkenblog.blogspot.com/2011/09/is-low-vol-investing-value-play.html#0001-01-01)
+
+[Dimensional Fund Advisors](http://www.dfaus.com/)
+
+, the embodiment of conventional wisdom for rational academics, has a paper out--Understanding Low Volatility Strategies: Minimum Variance, by Ronnie R. Shah--arguing that low volatility funds are basically value and industry plays in disguise (I can't find it on the web, so I won't post it, but it seems like a standard white paper for public consumption). It's really a spin on
+
+[Berd Scherer's white paper](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1681306)
+
+from last year, inspired by Dan DiBartolomeo's 2007
+
+[PowerPoint](http://www.northinfo.com/documents/319.pdf)
+
+, that the value stocks are driving low volatility's seeming alpha. Both of these papers devolve into convoluted arguments certain to rationalize the CAPM framework, but instead are just squid ink. DiBartolomeo states that the value premium is primarily just a return to negative skew, which investors dislike and thus demand a premium.
+
+The skew explanation for anomalies is plausible at 30,000 feet, but find this line of reasoning rather unserious, as when Nassim Taleb pals around with Danny Kahneman, one arguing that we are primarily prefer positive skew (Kahneman), the other negative skew (Taleb), and they happily consider themselves brothers in arms. It's like anarchists and fascists united against the status quo, which would excusable if they were not also happily convinced they are more alike than different.
+
+The negative skew premium may exist, but then one would have to then explain why equities are generally thought to have higher returns than corporate bonds, even though clearly bonds have much greater negative skew than equities. And just look at the histogram of monthly returns for the market, size and value factors (from Ken French's
+
+[website](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)
+
+). I don't see how value is considered to have negative skew.
+
+[![](img/4bf4f4c6616bb127b2b34dbbcdaf7998.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhCGbwALKnqLaJosrdl0-fcxWU2-kY3DOp2cOfwhDn0TPuykJmaPjgD3OBsPyio6BIsrnGEJIX_eHeLtACebwaPiyMqp39pbFKtfqoW8wYd-IFNK0TZ7KuPqALiE-x4DVr5AZnBg/s1600/fffactors.png)
+
+Lastly,
+
+[Post and van Vliet](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=503142)
+
+(2006) showed that if you actually look at utility functions where investors care about variance AND skew, the maximum skew premium is a fraction of the 'variance premium', about one-fifth as large. This is because investors still must be globally risk averse, and since skew and variance are positively correlated, there are limits on how large the skew aversion can be relative to the variance aversion.
+
+Scherer notes that if you construct a minimum variance portfolio a certain way, and regress it against the 3 Fama-French factors (market, size, and value), as well as long-short portfolios formed on betas and residual variance, much of the MVP's performance is 'explained'. Now, given MVPs load up on low beta and low residual risk stocks, it's obvious that a long-short portfolio formed on CAPM betas and residual variances would explain the MVP return relative to the broader index, but that's really not interesting. It's a bit like saying the book/market effect explains the price/earnings effect.
+
+The DFA's Ronnie Shah, meanwhile, is much clearer, but makes the same point. He notes that the return premium to value and the market is about 4% for both. As the market beta on his MVP portfolio is about 0.75, and his beta on value is about 0.25, it seems like a swap of market exposure for value exposure.
+
+It could be, but I'm skeptical for two reasons. First, as
+
+[Daniel and Titman](http://www.jstor.org/pss/2329515)
+
+1997 noted, the return to 'value' is more a function of it's characteristic, low book/market, than its 'factor loading', which in the case of value is merely a loading on itself.
+
+[Houge and Loughran](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=879291)
+
+found that mutual funds with high value loading, independent of whether or not it was a 'value fund', had no explanatory power. The value risk factor is really just the value anomaly rebranded as a risk factor, because it isn't obviously 'risky' in any sense. Originally it was thought value was related to financial distress, but then when we look at distress directly, such as using agency ratings or metrics of default based on income statements and balance sheets, distressed firms actually have lower-than-average returns. So I'm skeptical value is anything but a characteristic-based anomaly, not a 'risk factor'.
+
+Secondly, when I look at the Minimum Variance and Low Beta portfolios I have created, I do not see a consistent value loading. Looking at the MVP, which I have data from 1998 to 2011, it estimates value beta of 0.34 using monthly data. Using daily data from July 2000 through July 2011, the value beta is 0.24\. These are around what Shah gets. Yet it floats around like an incidental symptom, not something fundamental. Here's the data for my MVP and Beta 0.5 portfolios using daily data (value beta being a
+
+loading
+
+on the Fama-French HML value factor proxy):
+
+[![](img/22eb21aa5d8ea84554b64de3fe093f62.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbeTVMpZMTe9MmrIRBJx2h-VZSyYnxQ_imqMGgIHDtOkdTi9BRxm5_pTwTy_mlqychbwEaJrhyphenhyphenDiZNlQqpXfsp-wExKGNyynNb3AR3kv15Y7lgHwThxOXBjLHJPkJhew_8Pz664w/s1600/dailyroll.png)
+
+Here it is using the longer monthly time series:
+
+[![](img/47ff3faf377478a88790bd97ebccd663.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEis6jyvlGaBDcKex3hgQGYaWhxrwnFBfvTfrke7qYb9yomIHnGbLCvLvS3GtsFrd851pnT5UP8-R0_AS8Qa7CoZCDl9wj7LaLZfRX5lxmEHb9jVPUYg0LymcxZD8cbBEePbuPQcYA/s1600/monroll.png)
+
+While on average, the value beta may be around 0.3, it doesn't seem consistent enough to be fundamental.
+
+Now, Shah does note that low vol portfolios tend to have a lot of utility loading, and little technology. True. But I've never seen someone argue that various industries have higher risk than others. Looking at industry relative returns, one three-year period over the prior, there is no pattern. That is, past winners do not repeat consistently, as they would if there were an industry risk premium. So, to say this is picking up the 'utility' risk premium, and avoiding the 'tech' insurance premium, does not make sense. Of course, the higher-weighted utility industry has much lower volatility than the lower weighted tech industry, and so if there was a risk story here, it would take some special pleading.
+
+[![](img/f4672b7a1c70dc7d6fb8a32f0e023bc8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUqvRVF6epqOs9bN0as2Y0nJhFkDebwpP-E_DZrE7Qz6ashL1BW1REG_ufQlmJNesnTmpLEVs06u9L-Tj37ko6B3RZTo2Cz7vlriatQiRBnghnu-4MRLBUGSI3BSBTNSsrZWlzpg/s1600/indret.png)
+
+Dimensional's reluctance to embrace low volatility investing is good news to low volatility investors. As long as people generally keep doing what they have done, the opportunity remains to simply improve one's index returns by focusing on the low volatility subset of stocks, lowering volatility and increasing the return. It's the easiest, large-scale way to better institutional returns since the invention of the index fund.

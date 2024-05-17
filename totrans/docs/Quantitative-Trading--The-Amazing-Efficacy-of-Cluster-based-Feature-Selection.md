@@ -1,0 +1,63 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:54:25
+-->
+
+# Quantitative Trading: The Amazing Efficacy of Cluster-based Feature Selection
+
+> 来源：[http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01](http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01)
+
+One major impediment to widespread adoption of machine learning (ML) in investment management is their black-box nature: how would you explain to an investor why the machine makes a certain prediction? What's the intuition behind a certain ML trading strategy? How would you explain a major drawdown? This lack of "interpretability" is not just a problem for financial ML, it is a prevalent issue in applying ML to any domain. If you don’t understand the underlying mechanisms of a predictive model, you may not trust its predictions.
+
+Feature importance ranking goes a long way towards providing better interpretability to ML models. The feature importance score indicates how much information a feature contributes when building a supervised learning model. The importance score is calculated for each feature in the dataset, allowing the features to be ranked. The investor can therefore see the most important predictors (features) used in the predictions, and in fact apply "feature selection" to only include those important features in the predictive model. However, as my colleague Nancy Xin Man and I have demonstrated in [Man and Chan 2021a](https://doi.org/10.3905/jfds.2020.1.047), common feature selection algorithms (e.g. MDA, LIME, SHAP) can exhibit high variability in the importance rankings of features: different random seeds often produce vastly different importance rankings. For e.g. if we run MDA on some cross validation set multiple times with different seeds, it is possible that a feature in a run is ranked at the top of the list but dropped to the bottom in the next run. This variability of course eliminates any interpretability benefit of feature selection. Interestingly, despite this variability in importance ranking, feature selection still generally improves out-of-sample predictive performance on multiple data sets that we tested in the above paper. This may be due to the "substitution effect": many alternative (substitute) features can be used to build predictive models with similar predictive power. (In linear regression, substitution effect is called "collinearity".)
+
+To reduce variability (or what we called *instability*) in feature importance rankings and to improve interpretability, we found that LIME is generally preferable to SHAP, and definitely preferable to MDA. Another way to reduce instability is to increase the number of iterations during runs of the feature importance algorithms. In a typical implementation of MDA, every feature is permuted multiple times. But standard implementations of LIME and SHAP have set the number of iterations to 1 by default, which isn't conducive to stability. In LIME, each instance and its perturbed samples only fit one linear model, but we can perturb them multiple times to fit multiple linear models. In SHAP, we can permute the samples multiple times. Our experiments have shown that instability of the top ranked features do approximately converge to some minimum as the number of iterations increases; however, this minimum is not zero. So there remains some residual variability of the top ranked features, which may be attributable to the substitution effect as discussed before.
+
+To further improve interpretability, we want to remove the residual variability. [López de Prado, M. (2020)](https://amzn.to/39lU6or) described a clustering method to cluster together features are that are similar and  should receive the same importance rankings. This promises to be a great way to remove the substitution effect. In our new paper [Man and Chan 2021b](https://py.predictnow.ai/request_cmda_paper), we applied a hierarchical clustering methodology prior to MDA feature selection to the same data sets we studied previously. This method is generally called cMDA. As they say in social media click baits, the results will (pleasantly) surprise you. 
+
+For the benchmark [breast cancer dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)), the top two clusters found were:
+
+| Topic | Cluster Importance Scores | Cluster Rank | Features |
+| Geometry summary | 0.360 | 1 |   'mean radius',  'mean perimeter',  'mean area',  'mean compactness',  'mean concavity',  'mean concave points',  'radius error',  'perimeter error',  'area error',  'worst radius',  'worst perimeter',  'worst area',  'worst compactness',  'worst concavity',  'worst concave points' |
+| Texture summary | 0.174 | 2 | 'mean texture', 'worst texture' |
+
+Not only do these clusters have clear interpretations (provided by us as a "Topic"), these clusters almost never change in their top importance rankings under 100 random seeds! 
+
+Closer to our financial focus, we also applied cMDA to a
+
+[public dataset](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=517667)
+
+with features that may be useful for predicting S&P 500 index excess monthly returns. The two clusters found are
+
+| Topic | Cluster Scores | Cluster Rank | Features |
+| Fundamental | 0.667 | 1 | d/p, d/y, e/p, b/m, ntis, tbl, lty, dfy, dfr, infl |
+| Technical | 0.333 | 2 | d/e, svar, ltr, tms |
+
+The two clusters can clearly be interpreted as fundamental vs technical indicators, and their rankings don't change: fundamental indicators are always found to be more important than technical indicators in all 100 runs with different random seeds.
+
+Finally, we apply this technique to our proprietary features for predicting the success of our [Tail Reaper](https://www.predictnow.ai/blog/what-is-the-probability-of-profit-of-your-next-trade-introducing-predictnow-ai/) strategy. Again, the top 2 clusters are highly interpretable, and never change with random seeds. (Since these are proprietary features, we omit displaying them.) 
+
+If we select only those clearly interpretable, top clusters of features as input to training our random forest, we find that their *out-of-sample* predictive performances are also improved in many cases. For example, the accuracy of the S&P 500 monthly returns model improves from 0.517 to 0.583 when we use cMDA instead of MDA, while the AUC score improves from 0.716 to 0.779.
+
+|  | S&P 500 monthly returns prediction |
+|  | F1 | AUC | Acc |
+| cMDA | 0.576 | 0.779 | 0.583 |
+| MDA | 0.508 | 0.716 | 0.517 |
+| Full | 0.167 | 0.467 | 0.333 |
+
+Meanwhile, the accuracy of the Tail Reaper metalabeling model improves from 0.529 to 0.614 when we use cMDA instead of MDA and select all clustered features with above-average importance scores, while the AUC score improves from 0.537 to 0.672.
+
+|  | F1 | AUC | Acc |
+| cMDA | 0.658 | 0.672 | 0.614 |
+| MDA | 0.602 | 0.537 | 0.529 |
+| Full | 0.481 | 0.416 | 0.414 |
+
+This added bonus of improved predictive performance is a by-product of capturing all the important, interpretable features, while removing most of the unimportant, uninterpretable features. 
+
+You can try out this hierarchical cluster-based feature selection for free on our financial machine learning SaaS [predictnow.ai](http://predictnow.ai). You can use the no-code version, or ask for our [API](https://py.predictnow.ai/api_request). Details of our methodology can be found [here](https://py.predictnow.ai/request_cmda_paper).
+
+Industry News
+
+1.  Jay Dawani recently published a very readable, comprehensive guide to deep learning "[Hands-On Mathematics for Deep Learning](https://amzn.to/34v6tuY)".
+2.  Tradetron.tech is a new algo strategy marketplace that allows one to build algo strategies without coding and others to subscribe to them and take trades in their own linked brokerage accounts automatically. It can handle complex strategies such as arbitrage and options strategies. Currently some 400 algos are on offer.
+3.  Jonathan Landy, a Caltech physicist, together with 3 of his physicist friends, have started a deep data science and machine learning [blog](https://www.efavdb.com/) with special emphasis on finance.

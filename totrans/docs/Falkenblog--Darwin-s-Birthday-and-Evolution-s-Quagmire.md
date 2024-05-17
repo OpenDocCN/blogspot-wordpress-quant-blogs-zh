@@ -1,0 +1,84 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:27:46
+-->
+
+# Falkenblog: Darwin's Birthday and Evolution's Quagmire
+
+> 来源：[http://falkenblog.blogspot.com/2009/02/darwins-birthday-and-evolutions.html#0001-01-01](http://falkenblog.blogspot.com/2009/02/darwins-birthday-and-evolutions.html#0001-01-01)
+
+[![](img/a17719a50e9bc4db3d6c0e3b0844729e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3OIvMFLEyMVipwsBta9boQOXJ-wAZITkwzglaSVMJp5gE7PjBLVPVIiHDlbofBSMFMBKgBqXnNtqxwSOJ94bgnHLBLmz4zqWU0QlnJOby5PcBUdJnfHUpkUWJ91ikk1QBdbwMEA/s1600-h/darwin2.jpg)
+
+It's Darwin's 200th birthday February 12, in the sesquicentenial of the publication of his
+
+Origin of Species: By Means of Natural Selection or the Preservation of Favoured Races in the Struggle for Life
+
+. I think his seminal theory, that of evolution as the mechanism for creation of all life from some unspecified simple beginning (virus?), is in a very strange way. Go to PZ Meyer's
+
+[website](http://scienceblogs.com/pharyngula/)
+
+, noted by Science magazine as the
+
+[best science education](http://en.wikipedia.org/wiki/PZ_Myers)
+
+site, and over half his posts are on why critics of evolution are not only wrong, but moronic. Similarly, there are many books arguing that evolution is true, even though only a trace of practicing professors are arguing the other side.
+
+No one gets mad when you say 2+2=5, so methinks they doth protest too much. One does not see, say, physicists spending much (any?) of their time defending the second law of thermodynamics and slamming those who critique it. Thus, for a theory that almost all scientists believe is 100% true, many scientists spend a lot of time, and get very upset, defending this assertion. I would think a confident, productive scientist, would merely discuss applications of evolution.
+
+However, these same appliers of Modern Evolutionary Theory (aka, Darwinists, which I use merely for clarity, and do not consider it pejorative) are hesitant to apply Darwinian logic to the entire human species (that whole 'preservation of favoured races' thing in the subtitle). Explanations about how our environment shaped differences in male/female brains, or how different environments may have shaped different regional group's brains, is about as taboo a topic as there is (see Arthur Jensen, Larry Summers). So, even though evolution affects our height, skin color, lactose tolerance, and other biological processes, supposedly it stopped at our brains, penis size, speed, and most things we esteem. Thus,
+
+[Guns, Germs and Steel](http://www.amazon.com/Guns-Germs-Steel-Fates-Societies/dp/0393061310/ref=sr_1_1?ie=UTF8&s=books&qid=1234218976&sr=1-1)
+
+gets rave reviews and is a best seller, whereas
+
+[10,000 Year Explosion](http://www.amazon.co.uk/000-Year-Explosion-Civilization-Accelerated/dp/0465002218)
+
+or
+
+[A Farewell to Alms](http://www.amazon.com/Farewell-Alms-Economic-History-Princeton/dp/0691121354)
+
+will never see much acclaim or popularity because we just can't tolerate the inegalitarian implications of human biodiversity.
+
+My appreciation and criticism of evolutionary theory covers both ends of its unpopularity: applying it to explaining all life via the first prokaryote (no) and applying it to humans (yes). The more we learn about intracellular molecular biology, the more complex it becomes. Cellular machines have dozens of proteins, with logistic systems for building and supplying it, so that the functioning parts involve a complex system of necessary components. The response to this 'irreducable complexity' argument is that the prior forms of any complex working tissue or organelle could have been very different, and we can't know exactly what it function was, but they are theoretically possible, such as the assertion that lungs were probably first air bladders in marine animals. Different function, same proto-organ. But its one thing to say proteins A through F appear in other cells, quite another to explain how they transmogrified, step by step, to a totally new function. If they existed in a particular useful constellation, moving them to a totally new cellular function is like the Towers of Hanoi puzzle, where every plate must be moved following the logic that plates can only lie on top of larger plates. The constraint that all discs must be on a larger disc is like the contraint that every move must not decrease the organism's fitness, and turns a simple problem into one that becomes insanely complex as the number of plates increase. That is, evolution is blind, and each change in genes via reshuffling and mutation can't kill the host, which is a strong constraint because most mutations with effect are harmful.
+
+[![](img/564297ec4037963177e9db81fe4b7e15.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPkmu2s0eONxMgr_uIKce3rpsQtnItOtoUxDc25j0TxPduc62In_wKUeGjfXzT27opCKg58F-3DPbIO81Ii-HEu8xrySsO6MptBE-EpdYhu5gff5MJmU8vCzFZJL8BB863NVX0Hw/s1600-h/300px-Tower_of_Hanoi.jpeg)
+
+The number of moves needed to move the Towers of Hanoi is on the order of 2^k, where k is the number of discs. Assuming the survivability constraint is analogous, moving a complex cellular machine from say a set of 8 proteins that performs cellular secretion of toxins (Ken Miller's Type III secretory system), to a set of 20 proteins which act in concert with all sorts of supply chains (Behe's bacteria flagellum), takes an insanely large number of steps because each step needs to not kill the genetic vehicle. As proteins conservatively have about 100 amino acids each, this means 2000 amino acids. Each amino acid needs three different base codes, so that's 6000 DNA letters. If the mutations occurred only at this level of the DNA, it would involve on the order of 2^6000 moves to get from function A to function B, a number greater than 1E500\. A modern evolutionary theorist would say, this number is big, but so is the number of organisms and things they could change into, and planets in the universe. True enough, but all these numbers are so large, I think its at least just as likely that evolution's probability of success is effectively zero, as opposed to one. As one can't really quantify these things (what is the state space of potential organelles that a Type III secretory system could be?), I think arguing too hard about one side being certainly true is difficult. I have never seen quantitative estimates by Darwinists, just hard waving about possible ways things could have arisen, as opposed to actual numbers and probabilities.
+
+On the other hand, I often find evolutionary explanations very compelling and productive. Why are people who live towards the equator darker skinned that those at the pole (melanomas and vitamin D)? Why do some groups develop greater ability to digest milk (raising cattle for milk is more efficient than merely eating them)? It is absurd to think all these biological differences among humans are confined to unimportant things, and so we just have different culture to explain substantive differences between races. As if black Africans have a culture that appears to really value sprinting, and so it follows in the African diaspora. Kids everywhere race on their little legs all the time, the most obvious, cheapest, contest ever. Out of thousands of known mutations that cause disease in humans, only three are known to cause increased connections between neurons, and
+
+[all three have surprisingly high frequencies among Ashkenazi Jews](http://www.jerrypournelle.com/archives2/archives2mail/mail264.html#smarts)
+
+, even though those mutations have bad, even lethal effects in people with two copies. What are the odds this gene was not 'selected for', resulting in both highly lethal diseases and 112 average IQs for this group? Every Darwinian biologist agrees with the story that Africans have a greater propensity to get sickle cell anemia because of the evolutionary explanation: good if you have 1 copy, bad if you have 2\. The only way such genes could flourish is because of the beneficial evolutionary effects of one copy of this gene. Yet, this same logic, applied to Ashkenazi Jews and their diseases and propensity towards higher than average IQ is supposedly a 'just-so story', because we know that some groups can't be genetically smarter than other people (on average).
+
+Jerry Coyne is a professor of evolutionary genetics at the University of Chicago, and wrote
+
+[Why Evolution is True](http://www.amazon.com/Why-Evolution-True-Jerry-Coyne/dp/0670020532/ref=sr_1_1?ie=UTF8&s=books&qid=1234219021&sr=1-1)
+
+. He spends 350 pages defending evolution. When it comes to humans, he allocates a couple pages to the concept of human races (they are real), lactose tolerance and sickel cell anemia, and notes that "My guess--and this is just informed speculation--is that human races are too young to have evolved important differences in intnellect and behavior. [p. 216]", and moves on. Wouldn't evolutionary theory be most interesting applied to current humans, as opposed to molluscs in the Tertiary period? Why is the origin of horseshoe crabs so much more interesting to these people, than the origin of the differences in behavior between expressive Italians and taciturn Amerindians?
+
+I don't believe in God, and don't have an alternative explanation for how we got here from the Big Bang, but I look at the problem thusly: what is the chance that a nematode could, through mutation, selection, and reproduction, change into a horse? What is the total state space of mutations? What proportion of dead ends in the state space of changes that take us from a nematode to a human? Mutations can be point by point along the DNA, insertions, deletions, amplifications, or changes to the morphology of the the DNA (its folds affect its effects). The vast majority of these changes are deadly or irrelevant. The probability that such changes end in a dead end is very high. How high, exactly? Evolutionists agree, they just highlight that the number of organisms, the time, the number of planets in the universe, all outweigh this. I'm not so sure. We are dealing with numbers beyond our intuition, but just because one is really big, does not mean it offsets the one that is really small. One number might be 1E134 and the other 1E-163, both of which I have no intuition for, but the product is zero.
+
+If the critics of evolution weren't so often biblical creationists, I think this criticism might be taken seriously. Yet even though it is important to understand the motivations and pretexts of your adversaries, it is not true that just because a view is sometimes, or even often, a pretext, that it has no credence. Further, my interest in biology and the history of life is actually increased thinking about the mystery, because it seems like a big unsolved mystery. For example, the DNA folds in a particular way so that certain regions of the DNA are physically close even though very far away in the sequence. How is this folding pattern regulated in the DNA? The idea that evolution is necessary as a motivation for scientific inquiry is simply absurd, because regardless of how life got here, it is interesting to know how it works.
+
+I'm not religious, I just sense the probability that new phyla are create by incremental blind mutation, compounded with natural selection, to be so small it is implausibly the mechanism. I would like to see estimates of the state space of mutations that take a nematode to a lizard via molecular mutations. That is, within a factor of E20, how many mutations were needed to get from prokaryotes to dogs? How many times has this been tried? But like Global Warming advocates who insist the debate is over, for the Darwinists merely engaging this kind of question cedes too much credibility to their critics, so all they do is sneer, note homologies between species, discuss micro evolution (finch beaks, genetic drift in bacteria), and that this has been tried so many times in the universe it does not matter how improbable it is because Infinity times any positive probability generates a certainty. But surely some alien designer surely would have homologies in his toolkit and allow microevolution, and the size and existence of the universe is finite, so there are limits to how improbable something can be before we should expect it to happen (famously, the monkeys typing randomly would not generate Shakespeare's Hamlet given the 14B year age of the universe and a million monkeys--it is too improbable).
+
+It has always been that people take the limits of their own field of vision for the limits of the world, but I figure that humans trying to completely explain their provenance given our brains is like a worm trying to understand where rain comes from. It's fun to think about, but I don't insist that our best theory must be true simply because its our best theory. Quantum physics highlights many bizarre facts (eg, the
+
+[Einstein-Podolsky-Rosen paradox](http://en.wikipedia.org/wiki/EPR_paradox)
+
+), and I'm perfectly content thinking I have no clue what is going on there and no one has a good explanation. I don't have answers, but I'm pretty sure that the current state of knowledge is just hand waving when trying to explain all life on earth. And I don't think it really matters much, that is, whether we were created via natural selection, panspermia, or are
+
+[avatars in some giant computer game](http://www.nytimes.com/2007/08/14/science/14tier.html?_r=3&adxnnlx=1187089232-B3G%20zzuRmQOAyNEjTaQ3Yg&pagewanted=all&oref=slogin)
+
+, I really don't think it matters. Evolution is real and important, I just don't think it has to answer
+
+everything
+
+to be so. After all, there are no theories in chemistry or physics or economics that explain everything. Saying a theory is incomplete is not a radical critique, just modest realism.
+
+Meanwhile, human biodiversity has political implications that make it simply impossible to acknowledge in public arenas (eg, major academic journals, the New York Times, best sellers, at NBER conferences), and so evolution's most useful application is considered taboo by the very people who consider themselves morally superior to those who reject evolution on a priori grounds. Most people assume a slippery slope from acknowledging human differences, to subjugation, slavery and genocide (after all,
+
+Hitler
+
+believed in human biodiversity). Smart people like to point out they understand nuance, and here's a case where nuance is not being applied out of a belief in a 'greater good', or really, a 'greater evil'. The result is that evolution is a mess, as its main proponents apply it selectively and defensively, to the least interesting cases.

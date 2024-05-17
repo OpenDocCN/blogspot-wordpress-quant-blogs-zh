@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:31:41
+-->
+
+# Python 3 & PyCharm | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2015/07/01/python-3-pycharm/#0001-01-01](https://etrading.wordpress.com/2015/07/01/python-3-pycharm/#0001-01-01)
+
+## Python 3 & PyCharm
+
+### July 1, 2015
+
+I’ve been coding in [Python](http://www.python.org) since 2000, and for a long time my dev env preferences haven’t changed. Like many I used Python 1.5.2 with a basic text editor, often vim, for a long time. Once the 2.x series of Python releases started I held off and stuck with 1.5.2 for a long time. I never used 1.6.x. I can’t remember whether I made the jump to 2.1 or 2.2, but I’ve been using 2.x for a long time now, usually with notepad++ as my editor. Part of the reason is that it takes time for the extensive Python ecosystem to catch up and port all the libraries and frameworks. Anyway, I’ve just finished a contract where I used Python 3.3 and the [PyCharm IDE](https://www.jetbrains.com/pycharm/), and it was a breath of fresh air. I’d never consider development in Java or C++ without an IDE, and my preferences are [IntelliJ](https://www.jetbrains.com/idea/) & [MS Visual C++](http://blogs.msdn.com/b/vcblog/) respectively. Previously I’d felt an IDE was unnecessary in Python, mainly because the rapid cycle time is so quick. Unlike C++ the cycle is not edit, compile, link, test. In Python one just edits and tests, which makes the printf style of debugging far more effective. PyCharm turbocharges the debugging process with breakpoints and visual object graph traversal. And during coding it interactively highlights syntax errors and variable references. That’s a big time saver too, since it makes code run at the first attempt without throwing syntax errors. +1 for PyCharm!
+
+So what about the shift from Python 2.x to 3.x ?  For me the important points have been the move to more iterator based coding. The iteritems( )/iterkeys( )/itervalues( ) methods no longer exist as items( )/keys( )/values( ) no longer return lists, they return iterable view objects. Those view objects are not stand in replacements for lists. And I had to get used to using the next( ) operator with generators. And, of course, print is now a function and no longer a statement. But apart from that it was straightforward.
+
+**Update 2015-07-01**: I’ve just been pinged by an old coding compadre who downloaded PyCharm on my recommendation, and needs a tip on fixing up interpreter paths to pick up libs. I had to read a couple of StackOverflow articles to figure this out too, so I though I’d document it here. I’m using PyCharm Community Edition 4.5.2, and to add libraries to my interpreter search path I go to the File/Settings dialog. In the left had tree control, under the Project: <myproj> node I select Project Interpreter. Then I click on the cog icon in the top right, next to the selected interpreter, and choose the More… option. This throws up another dialog: Project Interpreters. On the right are several icons. The bottom one is a mini tree control that shows a pop up tooltip saying “show paths for the selected interpreter”. Click on that, and finally you get the Interpreter Paths dialog, and you can add your library. Phew!! Could this config be buried any deeper? IntelliJ: sort it out! PyCharm is very, very good, but this is quite a useability flaw….

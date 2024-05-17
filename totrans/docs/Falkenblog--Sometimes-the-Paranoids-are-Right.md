@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:29:10
+-->
+
+# Falkenblog: Sometimes the Paranoids are Right
+
+> 来源：[http://falkenblog.blogspot.com/2010/06/sometimes-paranoids-are-right.html#0001-01-01](http://falkenblog.blogspot.com/2010/06/sometimes-paranoids-are-right.html#0001-01-01)
+
+Victor Niederhoffer
+
+[interviewed](http://www.slate.com/blogs/blogs/thewrongstuff/archive/2010/06/21/hoodoos-hedge-funds-and-alibis-victor-niederhoffer-on-being-wrong.aspx)
+
+about 'being wrong' in Slate:
+
+> They all knew that if I was hurting in one market, I'd have to liquidate in the other markets. ... I still think that the crash of Oct. 27, 1997, was basically due to brokers running my position against me, knowing that I was on the ropes. The market had its greatest drop in the previous 10 years that day. And then the next day, once they were able to force me out, it went up more than it dropped.
+
+I knew a guy affiliated with a major player in the the CME at that time, and he told me about how at one point the executor of Niederhoffer's position was conspicuous in the pit, and it was clear he was going to execute a large trade to get out. As Niederhoffer's losses mandated a margin call, the person who liquidated this position had no skin in the game, and did not put any thought into doing it with minimal impact. He asked for a bid, and all the floor traders held their breath and looked at each other. Finally, one trader made an absurdly low bid, at which point they all piled on at that same price. It was, as my acquaintance said, his large company's single best day ever in the pits, suggesting that they not only made Niederhoffer pay extra, but many smaller fish trying to time this--and ignoring the game theory--also got shellacked.
+
+Anyway, Niederhoffer is a fascinating guy. I especially liked this bit:
+
+> ...regrettably, duplicity is very, very important in life. The direct approach always creates tremendous obstruction and friction from the adversary, so often the indirect approach is necessary.

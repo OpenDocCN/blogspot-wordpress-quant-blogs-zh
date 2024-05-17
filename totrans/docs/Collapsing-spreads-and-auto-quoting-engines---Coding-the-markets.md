@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:50:28
+-->
+
+# Collapsing spreads and auto quoting engines | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2006/09/12/collapsing-spreads-and-auto-quoting-engines/#0001-01-01](https://etrading.wordpress.com/2006/09/12/collapsing-spreads-and-auto-quoting-engines/#0001-01-01)
+
+## Collapsing spreads and auto quoting engines
+
+### September 12, 2006
+
+I’m still reading chapter 14 of [Harris](http://www.tradingandexchanges.com), on bid ask spreads. As always with Harris, it’s highly enlightening and thought provoking. I commented earlier on how the [dynamic equilibrium between market and limit orders](https://etrading.wordpress.com/2006/09/07/market-orders-and-limit-orders/) affects spreads, and how [eSpeed charges for market orders](https://etrading.wordpress.com/2006/09/08/espeed-market-orders/) in order to minimise spreads. Later in ch 14 he goes on to enumerate the factors that determine the equilibrium spread in order driven markets. In decreasing order of importance they are: information asymmetry between traders, time to cancel limit orders, volatility, limit order management costs, value of trader time, difference between limit and market order fees and trader risk aversion.
+
+All this put me in mind of how bid ask spreads have collapsed in the fixed income rates markets in recent years; by 80% in the last five years, according to some estimates. A lot of that must have been driven by the greater transparency of electronic markets: buy side clients like pension funds can see live ticking prices for euro govies on [Bloomberg](http://www.bloomberg.com) and [TradeWeb](http://www.tradeweb.com), and initiate competitive multi-dealer auctions.
+
+Bloomberg and TradeWeb are quote driven rather than order driven markets, so Harris’ thoughts on equilibrium spreads don’t all apply, especially the ones on limit order cancellation and management costs. For the order driven markets, like Eurex Bonds, eSpeed and MTS, I wonder how much of the collapse in spreads is due to autoquoting engines driving down the cost of limit order management.
+
+For those not familiar, autoquoting engines can translate a stream of bid and ask prices and sizes into buy and sell orders on order driven markets. When the bid and ask change, the engine pulls and places buy and sell orders as necessary. One autoquoting engine vendor used widely by fixed income dealers is [ION](http://www.iontrading.com/).
+
+Autoquoting engines are like nuclear weapons, once invented they can’t be uninvented. Dealers may yearn for the days of voice quoting, limited transparency and wide spreads. But there’s no going back. Autoquoting engines almost totally eliminate the time to cancel limit orders, and the costs of managing those orders – apart from any fees. If we accept Harris’ arguments, the use of autoquoting engines must bear down on the equilibrium spread.

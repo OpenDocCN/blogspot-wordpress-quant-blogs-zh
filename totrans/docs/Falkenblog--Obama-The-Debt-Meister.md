@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:01:48
+-->
+
+# Falkenblog: Obama The Debt Meister
+
+> 来源：[http://falkenblog.blogspot.com/2009/05/obama-debt-meister.html#0001-01-01](http://falkenblog.blogspot.com/2009/05/obama-debt-meister.html#0001-01-01)
+
+Obama's personal finances suggest he was a typical subprime borrower, counting on some unknown good fortune to bail him out. In an excellent bit of sleuthing, Richard Henry Lee
+
+[does the math](http://www.nydailynews.com/opinions/2009/05/04/2009-05-04_president_obamas_mantra_in_debt_we_trust.html#ixzz0FLMXeUT6&B)
+
+.
+
+In April 1999, they purchased a Chicago condo and obtained a mortgage for $159,250\. Michelle had a 4-times a week visit from a personal trainer, shoes, piano lessons and private school for the kids, other expenses consistent with the lifestyle to which they had become accustomed (they were both Harvard Law grads, after all). The Obamas' adjusted gross income averaged $257,000 from 2000 to 2004\. Yet tax returns for 2004 reveal $14,395 in mortgage deductions. This implies they owed about $240,000 on a home they purchased for $159,250 in 1999, which means they spent about $80,000 beyond their income from 1999 to 2004\. Then Obama's book sales soared and Michelle explained, "It was like Jack and his magic beans."
+
+Luckily for Michelle, speaker fees for ex-Presidents means they will never have to curb their excesses. But when he speaks of prudence or living within a budget, he is not speaking from experience.

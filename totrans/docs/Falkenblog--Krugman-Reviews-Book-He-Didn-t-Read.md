@@ -1,0 +1,86 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:52:29
+-->
+
+# Falkenblog: Krugman Reviews Book He Didn't Read
+
+> 来源：[http://falkenblog.blogspot.com/2009/08/krugman-reviews-book-he-didnt-read.html#0001-01-01](http://falkenblog.blogspot.com/2009/08/krugman-reviews-book-he-didnt-read.html#0001-01-01)
+
+I read the cover of Justin Fox's
+
+[Myth of the Rational Market](http://falkenblog.blogspot.com/2009/06/justin-fox-book-like-market.html)
+
+, and wrote a
+
+[blog post defending](http://falkenblog.blogspot.com/2009/06/myth-of-rational-market.html)
+
+the 'efficient markets hypothesis'. Justin Fox
+
+[noted](http://www.byjustinfox.com/2009/06/i-dont-think-eric-falkenstein-has-read-my-book.html)
+
+that I didn't read his book, because if I did he would have noted Fox's rather balanced treatment. True enough. So I read
+
+[his book](https://www.amazon.com/dp/0060598999?tag=defrprob-20&camp=0&creative=0&linkCode=as1&creativeASIN=0060598999&adid=1RM5PA3H1R3NGA4HEFZV&)
+
+, and actually liked it a great deal. I debated Fox in a very collegial
+
+[Blog War](http://moneywatch.bnet.com/economic-news/blog/blog-war/)
+
+. He presents both sides in his book, and basically gives one a lot of color on the milieu and personalities involved in the debate. But basically, he says this guy (eg, Fama) thinks markets should be called efficient, and this other guy (eg, Dick Thaler) thinks markets should be called 'inefficient'. But Fox does not draw any such conclusion himself, or give one data to suggest one side is generally right. People disagree, pointing to various evidence as definitive, evidence the other side thinks is more anecdotal or irrelevant. Ships passing in the night, as in most big debates.
+
+So it was fun, knowing so much about 'efficient markets', how extremely hard it is to generate alpha, and reading Fox's book carefully (I read it again for my blog war), to read Paul Krugman's
+
+[review of Fox's book](http://www.nytimes.com/2009/08/09/books/review/Krugman-t.html?_r=1&ref=books)
+
+in the New York Times. In it, Krugman demonstrates he has strong opinions disproportionate to any evidence, and displays the measured analysis of an anonymous blog commenter.
+
+> In this sense, efficient-market acolytes were like any other academic movement. But unlike, say, deconstructionist literary theorists, finance professors had an enormous impact on the business world — and, not incidentally, some of them made a lot of money in the process.
+
+This is pure
+
+ad hominem
+
+, that EHM believers are simply believe in 'efficient markets' because they can brow-beat businesses into paying them a lot of money consulting. It is not an argument, and Krugman is no one to talk. He received $50k as a consultant for Enron before this fraudulent entity blew up, probably for classic perfunctory work that big name consultants do. I used to work at Moody's, and know he got paid a good chunk for a day's work, giving a cliche-ridden seminar on economics and meeting executives, around 2000\. Who knows how many companies paid Krugman for such services. Why do you think so many make big bucks giving speeches to big companies? It's stupid, easy work, flattering powerful people in that disengenous way the muck-raking intellegentsia does. I'm not saying I wouldn't take $50k to tell Google how incredibly
+
+smart
+
+they all are (as evidenced by hiring me to tell them so). I'm just saying I wouldn't say the essense of those who disagree with me is they are craven, monied interests with ties to big business, as if that really sheds any light on anything but myself.
+
+> The quintessential collaboration between big money and academic superstars was the hedge fund Long-Term Capital Management, whose partners included Scholes and Robert Merton, with whom Scholes shared another finance Nobel. L.T.C.M. eventually imploded, nearly taking the world economy down with it. But efficient-markets theory retained its hold on financial thought.
+
+If he actually knew something about hedge funds in general, or LTCM in particular, he would know that Merton and Scholes where marketing props. The strategies LTCM employed were neither derived by, or managed by Scholes and Merton. The LTCM strategy had nothing to do with a tweak to the Black-Scholes option formula.
+
+> Lawrence Summers, now a senior official in the Obama administration, began a paper on financial markets thus: “THERE ARE IDIOTS. Look around.” And a whole counter culture emerged in the form of “behavioral finance,” which argued that investors are irrational in predictable ways.
+
+And here is the essense of Krugman. THERE ARE IDIOTS. All caps, to emphasize the screaming. He thinks those who disagree with him are lying bastards (such as those who take money from companies consulting), or those who just don't have his IQ. Idiots and/or liars. There's no other reason to disagree with him on policy.
+
+There are two ways to think about markets. In one, the market is an idiot, like people who aren't smart enough to have PhDs in economics from MIT. Prices are thus invariably too low or too high. Pray tell, can you tell me a
+
+specific
+
+market price today that is too high or too low? No? Ok, lecture me again on AOL circa 1999, housing in 2006, or RCA in 1929\. Boring! It is much smarter to approach markets as if markets are rational. As there are literally thousands of prices in thousands of markets, some are too low or too high, but it is not obvious which because most are priced 'just right' given the information available. If you think it is easy, as implied by an irrational market, you don't check your assumptions enough. Several, perhaps hundreds, prices are wrong, but it takes a lot of smart analysis to figure out which.
+
+Now, this would all be typical Krugman overreach, except that he is reviewing Fox's book, Myth of the Rational Market, which as Fox
+
+[noted responding](http://www.byjustinfox.com/2009/06/i-dont-think-eric-falkenstein-has-read-my-book.html)
+
+to my negative comments, if you actually read you will find is a very balanced portrait of efficient markets. Good point. 'Don't judge a book by its cover', is actually a good cliche. You don't learn in there that markets are 'irrational', or that those creating that theory were biased, lazy, bought, or otherwise infringed. But clearly Krugman just takes the title and says here's another brick in my case why we need more government.
+
+> Justin Fox’s “Myth of the Rational Market” brilliantly tells the story of how that edifice [efficient markets] was built — and why so few were willing to acknowledge that it was a house built on sand.
+
+I doubt Krugman read past page 2, because nowhere does Fox state that the EMH is a house of sand, metaphorically or otherwise. The theory has esteemed detractors, but that's about it. Indeed, it seems ultimately a semantics debate (ie, 'efficient' implies 'perfect' to some).
+
+I also doubt Fox will have a problem with Krugman's review because a NY Times review from a famous intellectual is always welcomed, even if totally off base. I would like to think that if a famous person reviewed
+
+[Finding Alpha](http://www.amazon.com/Finding-Alpha-Search-Return-Finance/dp/0470445904/ref=sr_1_1?ie=UTF8&s=books&qid=1249779357&sr=1-1)
+
+, and praised it to high heaven for something I did not say or intend, I would note I appreciate the love, but must correct my reviewer (alas, I'm untested).
+
+If I could fault Fox's book it would be twofold. First, it is a highly limited book, adding narrative, but no constructive argument to either side in the debate. Such a book has its place on the bookshelf, but it is not part of the intellectual debate, more like learning about Hitler's childhood, which is interesting but really doesn't explain the concentration camps or Operation Barbarossa. Secondly, Fox's book title and its jacket, leads to this kind of interpretation, and when
+
+[interviewed](http://falkenblog.blogspot.com/2009/07/justin-fox-on-cnbc.html)
+
+he encourages this interpretation from overzealous interviewers. This is intellectually dishonest, because it merely plays into the inconsistent opinion that markets are stupid by those same professionals that said absolutely nothing about weakening mortgage standards prior to 2007 (to take one example). For Mark Haynes, bloviator general on CNBC, to spout markets are inefficient takes a lot of chutzpah, because he sure had the motive, means, and opportunity, to set the market straight in the past two bubbles, but merely cheered them on, then after the collapse says 'It was so obvious!' It's pathetic.
+
+Krugman thinks that a major intellectual debate is as simple as one side having bad intelligence or bad faith. This is a stupid way to view such disagreements, one Krugman makes repeatedly in his prominent screeds. As Oscar Wilde states 'Education is an admirable thing, but is well to remember from time to time that nothing that is worth knowing can be taught.' I understand the paradox of not being able to teach creativity, but one would think educated people could learn temperament and humility are part of wisdom,. Unfortunately, esteemed intellectuals lack these virtues in spades, making them disproportionately moronic.

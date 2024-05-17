@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:11:18
+-->
+
+# Falkenblog: Forecasting Charlatans
+
+> 来源：[http://falkenblog.blogspot.com/2011/01/forecasting-charlatans.html#0001-01-01](http://falkenblog.blogspot.com/2011/01/forecasting-charlatans.html#0001-01-01)
+
+An
+
+[article](http://www.boston.com/bostonglobe/ideas/articles/2011/01/09/that_guy_who_called_the_big_one_dont_listen_to_him/?page=full)
+
+in the Boston Globe by Joe Keohane discussing economic forecasting:
+
+> Economists who had a better record at calling extreme events had a worse record in general. “The analyst with the largest number as well as the highest proportion of accurate and extreme forecasts,” they wrote, “had, by far, the worst forecasting record."
+> ...
+> And success, as Denrell revealed in an earlier study, is an especially bad teacher. In 2003 he published a paper arguing that when people study success stories exclusively — as many avid devourers of business self-help books do — they come away with a vastly oversimplified idea of what it takes to succeed.
+
+When I worked for an economics department, I quickly learned what a lame business we were in. Our stated purpose--to forecast the economy to allow people to make better decisions--was different than our actual purpose--to provide rationales for decisions already made, to serve as an excuse to have a get together. The sad thing is that a Big Lie needs many little lies, as the stated goal of forecasting accuracy could not be discussed openly and honestly, because if one did the stated purpose becomes untenable, and then the unstated purpose becomes unworkable. It's one of those phony little kabuki dances that seems so quaint in primitive cultures, but just as common in our own.
+
+A problem in this field is that accuracy spells extinction because no one wants to listen to an honest forecaster, they don't purport to know enough. Rather, listen to someone who can make you rich! In selling forecasts to the masses, honesty is a strictly dominated strategy.
+
+When I first got to KeyCorp after grad school I was most excited by an opportunity to work with their asset management group, which was the main reason I went there--the chance of getting into being a pm for equities. I remember pitching the idea of beating the S&P by a couple percent and having lower volatility by investing in low volatility stocks. The guy in charge said, 'I have people here who can outperform the S&P by 10%!' Now, clearly he didn't, and to this day I don't know if he was so stupid to think he really believed it, but it sure sold better than the truth, and selling funds is more important than returns because due to the magic of survivorship bias the current set of funds will always be better than average. Economic forecasts are even less constrained, with extreme statements as out-of-the-money options either paying off big or disappearing down the memory hole.
+
+The article quotes Philip Tetlock, an expert in experts and their predictions. In a
+
+[lecture](http://longnow.org/seminars/02007/jan/26/why-foxes-are-better-forecasters-than-hedgehogs/)
+
+he outlines his extensive survey of experts and their predictions, and categorizes them as either foxes (detail experts) or hedgehogs (big picture experts). He finds that foxes are usually right, but hedgehogs are "occasionally" right on the farthest out predictions. It's a ambiguous finding, especially considering he criticizes experts for not being honest and diligent in their self-evaluation. When asked if he is a fox or a hedgehog, Tetlock said he didn't know, but perhaps in general a fox with a little hedgehog in him--isn't everyone? He notes this is the general pattern: foxes qualify their statements a lot, but are more correct--when you ignore the qualifications. Notice the recursive property here?
+
+Gay homophobes and racist anti-racists are as common as dogmatic atheists and heuristic-bound behavioral economists. I think those who study biases are disproportionately guilty of what they study. This isn't a necessary paradox, just a tendency.

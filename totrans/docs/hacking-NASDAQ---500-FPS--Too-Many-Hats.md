@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:03:51
+-->
+
+# hacking NASDAQ @ 500 FPS: Too Many Hats
+
+> 来源：[http://hackingnasdaq.blogspot.com/2012/03/too-many-hats.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/03/too-many-hats.html#0001-01-01)
+
+Another week with consistent alpha proving elusive. Got most of the tech problems got sorted out which left only math problems. The math unfortunately is not so easy to fix. Was running a few incarnations of a sub tick arbitrage strategy that unfortunately the combination of comissions/rebates/latency/law of large numbers means it will never make money/inconsistent or not enough to cover the fixed infra costs. So hit the puke point, taken the stop loss and building a new strategy.
+
+Whats interesting(and frustrating) is I can now build a variety of profitable back tested strategies fairly easily, which was certainly not the case a few months ago. Yet when running it live it fails to match the model. The reason? many. but to a large extent I didnt know alot of the characteristics/behaviour when interacting with a real market/real broker which significantly eroded the edge.
+
+My general process for strategy development goes like
+
+Stage 1) "back of the envelope mode" this is quickly test some basic assumptions with level 1 data or medium granularity bars or both. At this point don`t care about latency or even the queue and commissions/rebates arent priced in. The goal here is to check the "edge" is there and if so, it needs to be sufficiently strong  & consistent.
+
+Stage 2) Add the queue/comissions/rebates/tax and then trade & quote data. At this point everything is run in lock step. e.g. one step == one message. Find this is where I most of the time. Whats good about this stage is, its really easy to change the strategy add new things, remove things do all sorts of random stuff to it and not have to worry about any of the order entry/market data details, e.g. order/cancel reject handling, re-priced, latency, etc etc
+
+Stage 3) Code it up as a a real strategy. This means real async order entry/market data and you now have a time constraint - if a tick takes 1sec to crunch then you will get run-over. The environment here is a fully simulated exchange both order entry & market data that is replaying historical. This can be fiddly but your just re-coding up Stage 2) which is fairly straight forward and the environment you already coded thus dosent take very long.
+
+Stage 4) Run it live against the real exchange. My setup makes launching a strategy simply executing a program on the command line, theres no monolithic gui/master program/program within program. All a strategy does is talk to shared memory. Thus can run it one shot at a time, or continuously, have scripts calling scripts call the strat, etc etc the usual linux scriptfu. From here its easy to monitor and watch, tune and fix/debug. The key here is to make it match the theoretical/backtested model or change the theoretical model to match the observed behaviour.
+
+... and this is where im at. Sucks pretty badly spent so much time and effort so far without any real success. Had a few highs tho, turning my position over a few times was really cool! as was sending half a million dollars worth of orders to the market but sadly, still missing something, still in the red and the  20H days are catching up.
+
+the quest continues...

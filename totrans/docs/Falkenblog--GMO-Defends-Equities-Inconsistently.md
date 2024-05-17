@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:24:20
+-->
+
+# Falkenblog: GMO Defends Equities Inconsistently
+
+> 来源：[http://falkenblog.blogspot.com/2012/08/gmo-defends-equities-inconsistently.html#0001-01-01](http://falkenblog.blogspot.com/2012/08/gmo-defends-equities-inconsistently.html#0001-01-01)
+
+Pimco maven Bill Gross recently
+
+[warned](http://www.pimco.com/EN/Insights/Pages/Cult-Figures.aspx)
+
+that both equities and bonds look headed for a bad intermediate future.  He makes the interesting observation that as labor income has declined over the past century, this allowed capital to reap more reward than what is merely in GDP growth (see chart below).  Yet, this cannot continue any more than bonds can appreciate from lower yields.  The result is pretty scary, because as Gross points out, a 4.75% asset return premium needs about a 7% growth from equities if bonds are going to generate 2% returns, and if this won't happen, CalPERS and many of its ilk are in serious trouble.
+
+Ben Inker of GMO
+
+[responded](https://www.gmo.com/America/CMSAttachmentDownload.aspx?target=JUBRxi51IIBopZakKqLplkSPu6PWy8IYlWZlF9wGOhpH4u6Bb7ac58I5rkIUY44faaFdF9aOsz5%2BGC%2BmcvNRJz5yCAhRZUlL1OiylntYmwB668XC3MDYjtWyadqxrBdVChyBBvdvpD4%3D)
+
+by noting two points. First, one doesn't see much relation from developed or developing countries between equity returns and GDP growth, over many decades. This is really interesting because most general equilibrium models of asset growth would show a relationship, and so to my mind this highlights the inappropriateness of 'Lucas tree models' for understanding the aggregate stock market. Equities should not be thought of as residual claims on an economy, but rather the peculiar returns to an asset class in a very complex equilibrium.
+
+[![](img/b30a1270d222e551a1543e5f6e361f28.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1PH6p-PHU37yFnXrm0CJkYhYHCCHp4VOc-hsznc6sMgbxNYO0xPzqnxuUM8n9ZR3osjCWrBrCTSOAyRLNr0cDcZSqemXmcXHVpFthK57rYD12QBWNcHDmXd-wwG9ifzyB3Tlt6w/s1600/gdpequity.jpg)
+
+Consider the first-day returns on IPOs, which have averaged about 12% historically. This is obviously a huge return for those fortunate enough to get such shares, but unless you are Nancy Pelosi, or an investor who perpetually overpays for commissions, you don't get that one-day pop. That is, the investment banks capture this return by making investors overpay (or grant regulatory favors), so non-politicians don't capture any of this net net. The net money always goes to insiders, not passive investors, in hedge funds, corporate equity, corporate bonds, etc. Those big passive equity funds are like kids showing up to a trendy club and finding out that you need more than money to get in, you need connections, something unique to exchange.
+
+As commissions and spreads have declined, the insiders are not making as much as they used to, so they can't afford to give away big returns to top-line stock indices. On top of low current long-term bond yields, this suggests weak equity returns going forward.
+
+But then Inker returns to the intuitive theory of karma, and argues that equities have to generate a 6% real premium to compensate for the fact they are riskier than cash, noting their high volatility, and draw-downs during famously bad times like the Great Depression, WW2, and various financial crises. Yet it is pretty clear that risk is not correlated with higher returns within a variety of asset classes, such as equities, corporate bonds from BBB to C. Even GMO
+
+[accepts this fact](http://www.advisorperspectives.com/commentaries/gmo_111811.php)
+
+. Many people believe in a fundamentally inconsistent asset market: broad asset classes generate risk premiums that don't exist within these asset classes.
+
+My solution, out in a book soon, argues this is because passive investing has zero risk premiums everywhere, when you look at assets in total. In any case, whether you believe in a large equity premium or not, there appears little reason to be in those highly volatile classes, unless you are like most people and overconfident about your stock picking abilities. This little conceit facilitates a rather large cluster-puck of mistaken assumptions, and I'm afraid most people will take the wrong lesson (eg, Joe Nocera's latest
+
+[screed](http://www.nytimes.com/2012/08/11/opinion/nocera-down-with-shareholder-value.html?hp)
+
+against shareholders), which if heeded will just aggravate our tendency towards more giant corporations with governmental influence, privileges, and resulting decreases in efficiency and competition. That will hurt GDP growth.

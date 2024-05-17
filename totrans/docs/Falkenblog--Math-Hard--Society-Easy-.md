@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:38:26
+-->
+
+# Falkenblog: Math Hard, Society Easy?
+
+> 来源：[http://falkenblog.blogspot.com/2010/02/math-hard-society-easy.html#0001-01-01](http://falkenblog.blogspot.com/2010/02/math-hard-society-easy.html#0001-01-01)
+
+From the
+
+[Chronicle of Higher Education](http://chronicle.com/blogPost/Physics-Envy-Or-Why-No-One/21108/?sid=pm&utm_source=pm&utm_medium=en)
+
+:
+
+> The social sciences are easier than the natural sciences, according to second graders.
+> 
+> Adults more or less agree. A study published in the Journal of Experimental Psychology took a look at which disciplines children and adults thought were the most difficult to learn. For the most part, people of all ages think psychology is easy and physics is hard. That bias begins early and changes some, but not much, the older we get.
+
+One of the most interesting things we learned in Artificial Intelligence is that what we consider hard, like chess and multiplication, is easy for a computer. What we consider easy--like recognizing emotions on faces, or visually distinguishing between a dog and a cat--a computer finds quite difficult. What is hard for us, is only because we know the right answer, and know how difficult it is to do the logic in our head. Most thoughts we take for granted are really quite complex, yet because we can't even begin to write down how we do it, we do not realize it.
+
+The social sciences are much harder than the physical sciences or math, in that our progress has been much slower here than in these areas. An educated man knows a lot more math or physics than a child or hunter-gatherer; he does not know much more about what causes business cycles. Figuring out why Haiti is so poor, or how interest rates affect investment, is really difficult. However, it is easy for someone to articulate an answer to hard social issues that is not obviously wrong, which makes it easy to think one knows the answer. A wrong math or physics answer, is clearly wrong, and if you have worked with people who knows something quantitative you learn quite quickly how ignorant you are in that area.
+
+Don't confuse the inability to falsify with having figured something out. It generally means you just don't know what you don't know.

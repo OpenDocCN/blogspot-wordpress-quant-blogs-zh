@@ -1,0 +1,43 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:00:09
+-->
+
+# Falkenblog: The History of Individual Property Rights
+
+> 来源：[http://falkenblog.blogspot.com/2018/05/the-history-of-individual-property.html#0001-01-01](http://falkenblog.blogspot.com/2018/05/the-history-of-individual-property.html#0001-01-01)
+
+| [![](img/b83f1bba40df6cbbfdd360ded934e693.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj25jmHklZyauouE-7B2QnmGy5uGXMCFof6OtkAhNRMV1jGtqOMEc_euMNaClNBZTd0U3yAAJM1DRsX6GErGez6cO-GJr_o9fntxwxuf1NWEc2mKsd3uRSQQAacoDTixHSmgiVmIQ/s1600/220px-JohnLocke.png) |
+| John Locke |
+
+It is important to understand that property rights are not grounded on logic, but no right is.
+
+The liberal ideas that gave rise to the Enlightenment are generally thought (eg, Steven Pinker) to be a break from a religious thinking. Yet the key liberal idea, individual rights, especially property rights, are an axiom with little justification outside Christian theology. As Feynman noted with regards to scientific laws, the process of finding new ones is not deriving them via logic, but rather, guessing, and then looking at the consequences. History has shown that individual property rights are good. Friedrich Hayek noted that a universal morality is beyond human knowledge, in that prior to markets actually existing--say, while we were hunter-gatherers--one would never have predicted free markets are better than socialism. Individual property rights are one of those moral principles that were discovered outside of pure reason.
+
+Historically the King supposedly represented the people, and what he wants necessarily is what his people need. It's the original conflation of the state and society. The idea that a regular individual can seek his own self-interest and simultaneously be optimally working for society seems absurd, in that clearly there are many evil people who have no interest in bettering society. The idea that the state should ultimately own everything is an ancient idea, and private property highly non-intuitive idea, why it took so long to develop.
+
+Roman law recognized private property belonging to individuals, but with a large caveat. For example, Cicero (106-43 BCE) wrote that "I do not mean to find fault with the accumulation of property, provided it hurts nobody, but unjust acquisition of it is always to be avoided." With this little exception many rulers could capriciously expropriate, in the same way there is a right to free speech in Cuba as long as it is "in keeping with the objectives of socialist society." Roman emperors viewed private associations like guilds as having the right to property, but these had to be founded with state authority and were closely regulated.
+
+St. Augustine (354-430 CE) noted that reason is insufficient to motivate a truly Good Will. The will has reasons outside of reason, and is essential for being 'good,' so the individual is primary, his relation to anyone else secondary.  In 1140 Gratian wrote the Decretum, a collection of Canon law as a legal textbook. It argued that natural law of men created in the image of God is the Golden Rule. "Natural law is what is contained in the law and the Gospel. By it, each person is commanded to do to others what he wants done to himself and is prohibited from inflicting on others what he does not want done to himself." Gratian's identification of natural law with the Golden Rule (Matthew 7:12) departs from the definition in Justinian's civil code (529 CE), which defines that natural law is what “nature teaches all animals.”
+
+Franciscan friar Duns Scotus (1266-1308) argued that morality needs freedom because without freedom, a person cannot do anything praiseworthy; without freedom actions do not represent the will, so are morally neutral. Fellow friar William of Ockham’s (1285-1347) writings on natural law are significant for the ideas of both individual rights and consent to government. Defending his Franciscan order against papal criticisms of their teachings on spiritual poverty, he distinguished among the various meanings of the Latin word jus (law, right) and dominium (rule, property) to defend an individual right to property. Ockham's emphasis on faith and freedom countered Thomas Aquinas's rationalist account of natural law. Rights, liberty, were paramount, and these put limits on the power of rulers.
+
+These ideas define the central concepts of liberal constitutional theory: individual rights, freedom, equality, limited government, popular sovereignty, consent to law and government, and the right of the people to resist tyrannical rulers. Hugo Grotius (1583-1645) was a Dutch jurist and argued that nature was not an entity in itself, but God's creation. Samuel Pufendorf (1632-1694) relied on Grotius to argue that the state is nothing more than the sum of the individual wills that are associated within it, and hence the state needs to submit to a discipline essential for human safety. In this view, the state is a subordinate claimant on the individual, behind the individual's prerogative, who then has the free will to sin or not.
+
+Finally, John Locke (1632-1704) also thought natural law was the same as biblical revelation, both originated from God. Thus, the Euthyphro dilemma "is what is morally good commanded by God because it is morally good, or is it morally good because it is commanded by God?" is no dilemma because God wrote his moral code on our heart, and his commands are natural law as well if we care to discover them via trial and error. The preeminence of property for Locke is clear when he writes the 'great and chief end of a commonwealth, and putting themselves under government, is the preservation of their property.'
+
+When the US Framers of the Constitution refer to individual property rights they almost always spoke in overtly religious terms. For example, John Adams wrote "If  'Thou shalt not covet,' and 'Thou shalt not steal,' were not commandments of heaven, they must be made inviolable precepts in every society before it can be civilized or made free." This makes sense because at some level a right like cannot be proven, and so like religion takes a bit of faith.  Rights are like duties, in that they constrain other objectives irrespective of their utilitarian benefits: it is presumed they serve some transcendent or long-term benefit, one that cannot be proven but is rather inferred based on an ideology about the way the universe works.
+
+Property rights were so important to the Framers that all men at the Constitutional Convention placed their protection above freedom of religion, press, and speech (see
+
+[Forrest McDonald](https://www.amazon.com/Novus-Ordo-Seclorum-Intellectual-Constitution/dp/0700603115)
+
+). In short, the Framers placed property rights higher than all those things we now most commonly associated with 'rights.' Traditional property is a social institution, and society maintains the institution only so long as people think private property rights serve the social interest better than alternatives.
+
+A right is something that laws should respect irrespective of its utilitarian justification. Time and again people have argued that certain property should be seized from individuals because it can more effectively be used elsewhere, and for specific cases, this will be true (eg, see Posner and Weyl's
+
+[Radical Markets](https://www.amazon.com/Radical-Markets-Uprooting-Capitalism-Democracy/dp/0691177503)
+
+). Yet this leads to a slippery slope, in that any agency or mechanism with the power to make this assessment is liable to expand its powers, and the result will be a crypto-plutocracy portraying itself as representatives of the people (see Venezuela), or crony capitalism as in highly regulated states like Italy and India.
+
+Property rights originated from Christian theology, and have proven themselves empirically over the past couple hundred years. As Feynman noted, good laws start with a guess, and then we see if it works by experiment or experience.

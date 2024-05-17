@@ -1,0 +1,36 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:37:53
+-->
+
+# Falkenblog: Keynesians Believe in Markets Too
+
+> 来源：[http://falkenblog.blogspot.com/2011/12/keynesians-believe-in-markets-too.html#0001-01-01](http://falkenblog.blogspot.com/2011/12/keynesians-believe-in-markets-too.html#0001-01-01)
+
+Paul Krugman argues that the fact that interest rates are currently low in the US proves his standard Keynesian diagnosis is correct.
+
+[Here](http://krugman.blogs.nytimes.com/2011/12/14/interest-rates-inflation-and-the-way-the-world-works-slightly-wonkish/?utm_source=Blog&utm_medium=twitter&pagewanted=all)
+
+he is in the NYTimes arguing again why the fiscal and monetary stimulus dials should be turned to 11:
+
+> Early on in this crisis I and quite a few other economists — but not enough! — declared that we had entered a classic liquidity trap ... even large government borrowing won’t drive up interest rates, and you can print as much money as you like without causing inflation...[non-Keynesians] declared that soaring inflation was just around the corner, and that interest rates would spike...
+> 
+> So how’s it going? Interest rates have, of course, remained very low. As I post this, the real interest rate on 10-year bonds is actually negative.
+
+He sounds like a caricature of an efficient markets theorist. Well,
+
+[Markit's A-tranche](http://www.markit.com/en/products/data/indices/structured-finance-indices/abx/abx-prices.page?)
+
+for the all their vintage mortgages traded above 99 cents on the dollar at the end of 2006\. By the end of 2007 they were around 45 cents, and today they all trade around 7 cents.
+
+I remember GM being a zombie for years and their stock defied my expectations for a decade, but eventually equity owners were zeroed out and they went bankrupt. You can go a long time with negative profits if people are willing to give you credit. Yet as any small business lender knows, the only thing that stops these institutions is a lack of cash. Currently, US debt is so liquid, and has such a strong history, it remains a top credit. Yet it's good to remember that when I was in charge of economic risk capital allocations back in the 1990s for bank, mortgages had the lowest economic risk rating for any non-sovereign debt. Now it is on par with credit cards (ie, the worst credits).
+
+I don't think this is going to end well for US debtholders, but time will tell. I don't expect Krugman to ever say he was wrong regardless given
+
+[he called for a housing bubble](http://articles.businessinsider.com/2009-06-17/wall_street/30063851_1_interest-rates-housing-bubble-policy-makers)
+
+in 2002 to stimulate the economy, and later
+
+[explained](http://krugman.blogs.nytimes.com/2009/06/17/and-i-was-on-the-grassy-knoll-too/)
+
+that was an economic analysis, not a policy statement, as if that makes a difference.

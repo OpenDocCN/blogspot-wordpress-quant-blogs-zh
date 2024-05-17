@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:12:10
+-->
+
+# Heston PDE Grid: How small can we make it? – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01](https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01)
+
+The aim is to apply the techniques used in [Arbitrary Number of Stencil Points](https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/) to the partial differential equation (PDE) of the Heston model with ![x_t = \ln S_t](img/16f746d6b95837f7e9cfec20abd14a6d.png)
+
+![\displaystyle  0 = \frac{\partial u}{\partial t} +\frac{1}{2}\nu\frac{\partial^2 u}{\partial x^2}  + \left(r_t-q_t -\frac{\nu}{2}\right)\frac{\partial u}{\partial x} + \rho\sigma\nu \frac{\partial^2 u}{\partial \nu \partial x} +\frac{1}{2}\sigma^2\nu\frac{\partial^2 u}{\partial \nu^2} + \kappa(\theta - \nu) \frac{\partial u}{\partial \nu}-r_tu](img/f384ae2a09f7838f35121cd7463a761b.png)
+
+to get – for a given accuracy – to the smallest possible lattice grids. The Heston model parameters at hand are
+
+![\displaystyle S_0 = 100, v_0 = 0.04, \kappa = 1, \theta = v_0, \sigma=0.2, \rho=-0.75, r=5\%, q=0\%](img/4e5ac95d235d554373299178312a9555.png),
+
+the strikes of the benchmark options are given by
+
+![\displaystyle k\in \{50, 75, 90, 100, 110, 125, 150, 200\}](img/f566faea1dfbb25956061e577152528b.png)
+
+and the maturity of the options should be one year. First let’s use a five point stencil in ![x](img/a02ca3461b38d94f9ca87463267dd179.png) direction. As expected the order of convergence is increasing from second to fourth order.
+
+The same experiment but now with five point stencil also in ![\nu](img/cafd388c0e801cfe79db6142b0511d49.png) direction is shown below. Finite lattice effects show-up already at relatively small lattices due to the high convergence speed.
+
+In time direction Richardson extrapolation can be used to increase the order of convergence from two to three.
+
+So finally for this parameter set if the aim is to get the average pricing error below ![\displaystyle 10^{-3}](img/b2b9278c24f8abb4e84a51e1c228657d.png) then a lattice size of
+
+![\displaystyle x\times\nu\times T = 50\times 10 \times 20](img/4b95ce8ce708afea17a46786bafa25e6.png)
+
+seems to be sufficient when using five point stencil operators in ![x](img/a02ca3461b38d94f9ca87463267dd179.png) and ![\nu](img/cafd388c0e801cfe79db6142b0511d49.png) direction and Richardson extrapolation in time direction. Unfortunately for a given accuracy this technique is slower than the usual suspects, e.g. Operator splitting because the matrix inversion for the Crank-Nicolson scheme has to be carried out by an iterative solver, namely by BiCGstab. The code for the numerical experiments can be found in the test case
+
+[`NthOrderDerivativeOpTest::testHigerOrderHestonOptionPricing()`](https://github.com/lballabio/QuantLib/blob/master/test-suite/nthorderderivativeop.cpp).

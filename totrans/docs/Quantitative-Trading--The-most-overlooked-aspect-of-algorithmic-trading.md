@@ -1,0 +1,126 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:55:10
+-->
+
+# Quantitative Trading: The most overlooked aspect of algorithmic trading
+
+> 来源：[http://epchan.blogspot.com/2019/04/the-most-overlooked-aspect-of.html#0001-01-01](http://epchan.blogspot.com/2019/04/the-most-overlooked-aspect-of.html#0001-01-01)
+
+Many algorithmic traders justifiably worship the legends of our industry, people like Jim Simons, David Shaw, or 
+
+[Peter Muller](https://amzn.to/2HQvyaa)
+
+, but there is one aspect of their greatness most traders have overlooked. They have built their businesses and vast wealth not just by sitting in front of their trading screens or scribbling complicated equations all day long, but by collaborating and managing other talented traders and researchers. If you read the recent
+
+[interview](https://youtu.be/srbQzrtfEvY)
+
+of Simons, or the book by
+
+[Lopez de Prado](https://amzn.to/2I3t33f)
+
+ (head of machine learning at AQR), you will notice that both emphasized a collaborative approach to quantitative investment management. Simons declared that total transparency within Renaissance Technologies is one reason of their success, and Lopez de Prado deemed the "production chain" (assembly line) approach the best meta-strategy for quantitative investment. One does not need to be a giant of the industry to practice team-based strategy development, but to do that well requires years of practice and trial and error. While this sounds no easier than developing strategies on your own, it is more sustainable and scalable - we as individual humans do get tired, overwhelmed, sick, or old sometimes. My experience in team-based strategy development falls into 3 categories: 1) pair-trading, 2) hiring researchers, and 3) hiring subadvisors. Here are my thoughts.
+
+#### From Pair Programming to Pair Trading
+
+Software developers may be familiar with the concept of "pair programming". I.e. two programmers sitting in front of the same screen staring at the same piece of code, and taking turns at the keyboard. According to
+
+[software experts](https://amzn.to/2WxS22J)
+
+, this practice reduces bugs and vastly improves the quality of the code.  I have found that to work equally well in trading research and executions, which gives new meaning to the term "pair trading".
+
+The more different the pair-traders are, the more they will learn from each other at the end of the day. One trader may be detail-oriented, while another may be bursting with ideas. One trader may be a programmer geek, and another may have a CFA. Here is an example. In financial data science and machine learning, data cleansing is a crucial step, often seriously affecting the validity of the final results. I am, unfortunately, often too impatient with this step, eager to get to the "red meat" of strategy testing. Fortunately, my colleagues at
+
+[QTS Capital](http://www.qtscm.com/)
+
+are much more patient and careful, leading to much better quality work and invalidating quite a few of my bogus strategies along the way. Speaking of invalidating strategies, it is crucial to have a pair-trader independently backtest a strategy before trading it, preferably in two different programming languages. As I have written in my
+
+[book](https://amzn.to/2HUiyQG)
+
+, I backtest with Matlab and others in my firm use Python, while the final implementation as a production system by my pair-trader Roger is always in C#. Often, subtle biases and bugs in a strategy will be revealed only at this last step. After the strategy is "cross-validated" by your pair-trader, and you have moved on to live trading, it is a good idea to have one human watching over the trading programs at all times, even for fully automated strategies.  (For the same reason, I always have my foot ready on the brake even though my car has a collision avoidance system.) Constant supervision requires two humans, at least, especially if you trade in international as well as domestic markets.
+
+Of course, pair-trading is not just about finding bugs and monitoring live trading. It brings to you new ideas, techniques, strategies, or even completely new businesses. I have started two hedge funds in the past. In both cases, it started with me consulting for a client, and the consulting progressed to a collaboration, and the collaboration became so fruitful that we decided to start a fund to trade the resulting strategies.
+
+For balance, I should talk about a few downsides to pair-trading. Though the final product's quality is usually higher, collaborative work often takes a lot longer. Your pair-trader's schedule may be different from yours. If the collaboration takes the form of a formal partnership in managing a fund or business, be careful not to share ultimate control of it with your pair-trading partner (sharing economic benefits is of course necessary). I had one of my funds shut down due to the early retirement of my partner. One of the reasons I started trading independently instead of working for a large firm is to avoid having my projects or strategies prematurely terminated by senior management, and having a partner involuntarily shuts you down is just as bad.
+
+Where to find your pair-trader? Publish your ideas and knowledge to social media is the easiest way (note this blog here). Whether you blog, tweet, quora, linkedIn, podcast, or youTube, if your audience finds you knowledgeable, you can entice them to a collaboration.
+
+#### Hiring Researchers
+
+Besides pair-trading with partners on a shared intellectual property basis, I have also hired various interns and researchers, where I own all the IP. They range from undergraduates to post-doctoral researchers (and I would not hesitate to hire talented high schoolers either.) The difference with pair-traders is that as the hired quants are typically more junior in experience and hence require more supervision, and they need to be paid a guaranteed fee instead of sharing profits only. Due to the guaranteed fee, the screening criterion is more important.  I found short interviews, even one with brain teasers, to be quite unpredictive of future performance (no offence, D.E. Shaw.) We settled on giving an applicant a tough financial data science problem to be done at their leisure. I also found that there is no particular advantage to being in the same physical office with your staff. We have worked very well with interns spanning the globe from the UK to Vietnam.
+
+Though physical meetings are unimportant, regular Google Hangouts with screen-sharing is essential in working with remote researchers. Unlike with pair-traders, there isn't time to work together on coding with all the different researchers. But it is very beneficial to walk through their codes whenever results are available. Bugs will be detected, nuances explained, and very often, new ideas come out of the video meetings. We used to have a company-wide weekly video meetings where a researcher would present his/her results using Powerpoints, but I have found that kind of high level presentation to be less useful than an in-depth code and result review. Powerpoint presentations are also much more time-consuming to prepare, whereas a code walk-through needs little preparation.
+
+Generally, even undergraduate interns prefer to develop a brand new strategy on their own. But that is not necessarily the most productive use of their talent for the firm. It is rare to be able to develop and complete a trading strategy using machine learning within a summer internship. Also, if the goal of the strategy is to be traded as an independent managed account product (e.g. our
+
+[Futures strategy](https://www.qtscm.com/accounts)
+
+), it takes a few years to build a track record for it to be marketable. On the other hand, we can often see immediate benefits from improving an existing strategy, and the improvement can be researched within 3 or 4 months. This also fits within the "production chain" meta-strategy described by Lopez de Prado above, where each quant should mainly focus on one aspect of the strategy production.
+
+This whole idea of emphasizing improving existing strategies over creating new strategies was suggested to us by our post-doctoral researcher, which leads me to the next point.
+
+Sometimes one hires people because we need help with something we can do ourselves but don't have time to. This would generally be the reason to hire undergraduate interns. But sometimes, I hire  people who are better than I am at something. For example, despite my theoretical physics background, my stochastic calculus isn't top notch (to put it mildly). This is remedied by hiring our postdoc Ray who found tedious mathematics a joy rather than a drudgery. While undergraduate interns improve our productivity, graduate and post-doctoral researchers are generally able to break new ground for us. For these quants, they require more freedom to pursue their projects, but that doesn't mean we can skip the code reviews and weekly video conferences, just like what we do with pair-traders.
+
+Some firms may spend a lot of time and money to find such interns and researchers using professional recruiters. In contrast, these hires generally found their way to us, despite our minuscule size. That is because I am known as an educator (both formally as adjunct faculty in universities, as well as informally on social media and through books). Everybody likes to be educated while getting paid. If you develop a reputation of being an educator in the broadest sense, you shall find recruits coming to you too.
+
+#### Hiring Subadvisors
+
+If one decides to give up on intellectual property creation, and just go for returns on investment, finding subadvisors to trade your account isn't a bad option. After all, creating IP takes a lot of time and money, and finding a profitable subadvisor will generate that cash flow and diversify your portfolio and revenue stream while you are patiently doing research. (In contrast to Silicon Valley startups where the cash for IP creation comes from venture capital, cash flow for hedge funds like ours comes mainly from fees and expense reimbursements, which are quite limited unless the fund is large or very profitable.)
+
+We have tried a lot of subadvisors in the past. All but one failed to deliver. Why? That is because we were cheap. We picked "emerging" subadvisors who had profitable, but short, track records, and charged lower fees. To our chagrin, their long and deep drawdown typically immediately began once we hired them. There is a name for this: it is called selection bias. If you generate 100 geometric random walks representing the equity curves of subadvisors, it is likely that one of them has a Sharpe ratio greater than 2 if the random walk has only 252 steps. 
+
+Here, I simulated 100 normally distributed returns series with 252 bars, and sure enough, the maximum Sharpe ratio of those is 2.8 (indicated by the red curve in the graph below.)
+
+(The first 3 readers who can email me a correct analytical expression with a valid proof that describes the cumulative probability P of obtaining a Sharpe ratio greater than or equal to S of a normally distributed returns series of length T
+
+**will get a free copy of my book [Machine Trading](https://www.amazon.com/Machine-Trading-Deploying-Computer-Algorithms/dp/1119219604/ref=as_sl_pc_tf_til?tag=quantitativet-20&linkCode=w00&linkId=b6c22e03b04fdcf3f6a14bc4b5891edb&creativeASIN=1119219604)**
+
+. At their option, I can also tweet their names and contact info to attract potential employment or consulting opportunities.)
+
+These lucky subadvisors are unlikely to maintain their Sharpe ratios going forward. To overcome this selection bias, we adopted this rule: whenever a subadvisor approaches us, we time-stamp that as Day Zero. We will only pay attention to the performance thereafter. This is similar in concept to "paper trading" or "walk-forward testing". 
+
+Subadvisors with longer profitable track records do pass this test more often than "emerging" subadvisors. But these subadvisors typically charge the full 2 and 20 fees, and the more profitable ones may charge even more. Some investors balk at those high fees. I think these investors suffer from a behavioral finance bias, which for lack of a better term I will call "Scrooge syndrome". Suppose one owns Amazon's stock that went up 92461% since IPO. Does one begrudge Jeff Bezo's wealth? Does one begrudge the many millions he rake in every day? No, the typical investor only cares about the net returns on equity. So why does this investor suddenly becomes so concerned with the difference between gross and net return of a subadvisor? As long as the net return is attractive, we shouldn't care how much fees the subadvisor is raking in. Renaissance Technologies' Medallion Fund reportedly charges 5 and 44, but most people would jump at the chance of investing if they were allowed.
+
+Besides fees, some quant investors balk at hiring subadvisors because of pride. That is another behavioral bias, which is known as the "NIH syndrome" (Not Invented Here). Nobody would feel diminished buying AAPL even though they were not involved in creating the iPhone at Apple, why should they feel diminished paying for a service that generates uncorrelated returns? Do they think they alone can create every new strategy ever discoverable by humankind?
+
+#### Epilogue
+
+Your ultimate wealth when you are 100 years old will more likely be determined by the strategies created by your pair-traders, your consultants/employees, and your subadvisors, than the amazing strategies you created in your twenties. Hire well.
+
+===
+
+#### Industry update
+
+1) A python package for market simulations by Techila
+
+is available
+
+[here](http://www.techilatechnologies.com/python-how-to)
+
+. It enables easy parallel computations.
+
+2) A very readable new
+
+[book](https://amzn.to/2UeABI1)
+
+on using R in Finance by Jonathan Regenstein, who is the Director of Financial Services Practice at RStudio.
+
+4) Larry Connors published a new
+
+[book](https://amzn.to/2Db9Auu)
+
+on simple but high Sharpe ratio strategies. I enjoyed reading it very much.
+
+5)
+
+[QResearch](https://qresearch.qedgeam.com/)
+
+is a backtest platform for the Chinese stock market for non-programmers. 
+
+6) Logan Kane describes an innovative application of volatility prediction
+
+[here](https://seekingalpha.com/article/4226165-trading-strategy-beat-s-and-p-500-16-plus-percentage-points-per-year-since-1928)
+
+.
+
+7) If you aren't following @VolatilityQ on Twitter, you are missing out on a lot of quant research and alphas.

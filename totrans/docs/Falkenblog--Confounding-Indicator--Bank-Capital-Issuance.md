@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:22:13
+-->
+
+# Falkenblog: Confounding Indicator: Bank Capital Issuance
+
+> 来源：[http://falkenblog.blogspot.com/2008/04/confounding-indicator-bank-capital.html#0001-01-01](http://falkenblog.blogspot.com/2008/04/confounding-indicator-bank-capital.html#0001-01-01)
+
+National City
+
+[announced](http://www.forbes.com/markets/2008/04/21/nationalcity-bank-closer-markets-equity-cx_ra_cg_0421markets36.html)
+
+it was issuing $7B in equity, a nice kick in the groin to risk-arb buyers who were anticipating an immanent take-over bid (stock fell 25% today). Keycorp, Fifth Third, Bank of Novia Scotia, KKR, and Warburg Pincus all found Nat City too expensive to buy at the current price, 75% below last year's level. Thus, instead of paying existing shareholders a premium on the thought that the current stock price is too cheap, new investors are demanding existing shareholders get diluted in order to get an equity stake. You couldn't find one financial institution to see value here, and so it seems that unlike 1990, bank prices are not 'too low'--other banks in the know see this and turn away. Thus the indicator is a two-fer: banks issuing equity indicates their stock prices are 'too high', and potential buyers (all banks) think current prices are 'too high'. Citibank, RBS[today!], and Wachovia, also issued equity recently. The fact that so many banks are issuing equity, and not being taken over, suggests that our current swoon is seen by insiders as justified.
+
+One of the big factors explaining the cross-sectional returns to equity is capital issuance. For instance, it is well known that if you buy an IPO, you better have bought it as an insider at the IPO price. If so, you make about 12% on the first day on average. After that, from the close of the first day, it will actually lag the market a considerable amount (Jay Ritter has an excellent set of data on this at his website
+
+[here](http://bear.cba.ufl.edu/ritter/ipodata.htm)
+
+). Interestingly, this pattern shows up also in seasoned equity issuance: issuers tend to signal an overbought equity price. I have a bunch of references to this literature
+
+[here](http://www.defprob.com/member-equityindex-ref.php#capissuance)
+
+. Basically, public companies tend to issue equity when their perceive, correctly, that the price is too high, and buy it back when it's too low.
+
+As the Barron's commercial used to say, every transaction involves a buyer who thinks the price is too low, and a seller who thinks it's too high. A simplification, to be sure, but probably an accurate approximation. So if you are buying from the ultimate insider, ya think there might be a good reason to expect the insider to get the better of the deal?
+
+Indeed, capital issuance is one of the ideas that my ex-employer thinks is so valuable he
+
+[demanded](http://www.efalken.com/tridevseric.html)
+
+I not use in any way, and 'return' in some unspecified form (hopefully the judge won't grant them full biopsy rights, but there's no precedent or statute on this, so I'm crossing my fingers). Therefore, the recent announcements by major banks issuing equity is one big countersignal to my otherwise
+
+[bullish view](http://falkenblog.blogspot.com/2008/04/aggregate-market-predictor.html)
+
+on the stock market, because if the banks are relative underperformers, given I am a big fan of the credit-transmission process for business cycles (eg,
+
+[Bernkanke and Gertler](http://www.federalreserve.gov/newsevents/speech/Bernanke20070615a.htm)
+
+).
+
+If bank portfolio values were merely a liquidity problem, that is, portfolios being marked below 'true value' because of selling for reasons unrelated to new information, one would think strong banks would be buying distressed banks on the cheap, the way JPMorgan picked up Bear Stearns (which probably was mainly a run, as opposed to a more fundamental insolvency). It appears that banks don't think this is mainly a liquidity issue, but more fundamental.

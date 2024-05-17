@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:48:35
+-->
+
+# Falkenblog: Lesnar in 1
+
+> 来源：[http://falkenblog.blogspot.com/2008/11/lesnar-in-1.html#0001-01-01](http://falkenblog.blogspot.com/2008/11/lesnar-in-1.html#0001-01-01)
+
+[![](img/24b8903ff4a66be56639de09c2081ae2.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqZgCZv1wXwIvZolEHh6Xz6OxfUEVAklXWg531FJUQKpj4K8Idb9k-kAv07E45VNBymb3MDcUkTyDIMy9OA56VMmaSK-Y7qE_q-65eUHMPmBNR30p_bW6zItz8vxnPz_2fL0xAYQ/s1600-h/ufc.jpg)
+
+I think Lesnar will destroy Couture in their fight this Saturday, because he has been working on his jujitsu, and plugging that deficiency makes him a really tough fighter. If he wins, the UFC will really get a marketing coup, so I'm sure the fix is in! Lastly, I just can't see how Couture's 45 year old body will handle the 31 year old, much stronger Lesnar.
+
+Tradesports has it 52 to win 100, on Lesnar, so that's pretty much a draw.

@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:53:24
+-->
+
+# Churn ’em & burn ’em | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2006/06/03/churn-em-burn-em/#0001-01-01](https://etrading.wordpress.com/2006/06/03/churn-em-burn-em/#0001-01-01)
+
+## Churn ’em & burn ’em
+
+### June 3, 2006
+
+I'm reading [Larry Harris](http://www-rcf.usc.edu/~lharris/)' ["Trading & Exchanges: Market Microstructure for Practitioners"](http://www.oup.com/us/catalog/general/subject/Finance/?view=usa&ci=0195144708). It's recommended by [Victor Niederhoffer](http://www.dailyspeculations.com/), and it's every bit as impressive as I hoped. This is a canonical text to put up there with Hull. Unlike Hull, it's not about pricing. Rather this is about the structure and mechanics of the industry: the markets, exchanges, ECNs, traders, brokers, dealers and instruments. I'm about 160 pages into this 600 page book, and I've already read wonderfully clear and concise explanations of…
+
+*   The interaction between price and time precedence for orders, and tick size
+*   The Brazilian Straddle: one leg of the trade is a ticket to Rio!
+*   Why a single price auction maximises trader surpluses compared to a continuous two sided auction
+
+Over the last few days I've been reading the chapter on brokers. Harris covers how brokers handle clearing and settlement for their clients, how they provide access to exchanges and dealers, how they are often expert negotiators and know who's likely to trade, and how they can manage orders. There's also good coverage of commisions, soft dollars, dealer kickbacks for order flow, cash management, margin calls, securities lending, and notably the principal agent problem. That problem being that an agent's interests are never identical to their client's. When a broker is dishonest that can leave a client open to abuse. Harris details the following scams…
+
+*   Front running: a broker executes a collaborator's order before a client's large order which will move the market. The collaborator gets a better price, and the client suffers.
+*   Inappropriate exposure: showing a client's order to other players who may then front run it.
+*   Fraudulent trade assignment: swapping executions between clients so that favoured clients get better prices, rather than sticking to straight time ordering.
+*   Prearranged execution at a poor price with a collaborating dealer.
+*   Churning: high pressure sales to persuade clients to trade, thereby generating commissions for the broker, and flow for collaborating dealers. Brokers that churn burn through their clients – hence "churn 'em & burn 'em"
+
+Of course, these issues are especially acute for banks which are both brokers and dealers. Now I really appreciate why we have compliance departments, and why there's so much emphasis in internal communications on upholding the firm's reputation and integrity. Once a broker gets a bad rep, they're finished !

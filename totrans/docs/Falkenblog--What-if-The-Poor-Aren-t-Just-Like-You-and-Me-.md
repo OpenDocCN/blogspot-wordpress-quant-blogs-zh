@@ -1,0 +1,56 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:36:55
+-->
+
+# Falkenblog: What if The Poor Aren't Just Like You and Me?
+
+> 来源：[http://falkenblog.blogspot.com/2010/03/what-if-poor-arent-just-like-you-and-me.html#0001-01-01](http://falkenblog.blogspot.com/2010/03/what-if-poor-arent-just-like-you-and-me.html#0001-01-01)
+
+A perennial approach to poverty is to look at the poor as people just like regular people, who merely have a lack of resources. Sociologist and economists have taken this tact for years, because it seems condescending to do otherwise. In the early 20th century,
+
+[Franz Boas](http://en.wikipedia.org/wiki/Franz_Boas)
+
+started the standard meme that any child can become scientist, beggar, priest, or whatever. The corollary seems to be the Axiom of Equality: every group (race,income,religion,language,age,sex) has the same distribution of every phenotype given the same environment (except sex organs and melanin content). Thus ,the homeless are just people without homes, the poor simply people without money. Indeed, many homeless and poor are this way.
+
+Yet,
+
+most
+
+poor in the US are not simply those just like us without money (note: 'most' does not mean 'all'). The poor in most developed countries have disproportionately lower
+
+[self-control](http://articles.sfgate.com/2006-05-09/opinion/17294721_1_self-control-experiment-human-nature)
+
+and
+
+[IQs](http://en.wikipedia.org/wiki/The_Bell_Curve)
+
+, and these traits are somewhat hard-wired; a higher teacher-student ratio probably won't turn
+
+[Cletus Spuckler's](http://en.wikipedia.org/wiki/Cletus_Spuckler)
+
+spawn into yuppies. There actually isn't a
+
+[Genius in All of Us](http://bloggingheads.tv/diavlogs/26575)
+
+. It is and has been conventional wisdom that traits like intelligence and self-control are themselves a function of wealth or some other environmental root cause.
+
+[Here](http://bloggingheads.tv/diavlogs/26877)
+
+are two conventional, well-known economists (Glenn Loury and Sendhil Mullainathan) seemingly discovering this conventional wisdom as if they just created a paradigm shift.
+
+<embed type="application/x-shockwave-flash" src="http://static.bloggingheads.tv/maulik/offsite/offsite_flvplayer.swf" flashvars="playlist=http%3A%2F%2Fbloggingheads%2Etv%2Fdiavlogs%2Fliveplayer%2Dplaylist%2F26877%2F49%3A07%2F52%3A04">
+
+It's as if no one ever tried modeling the poor as being resource constrained, but instead economists have always assumed they are stupid or lazy. Nothing could be further from the truth. Further, the idea of providing welfare to the poor to rectify the situation has been tried, and is still there, and you can see its results in most urban American cities. We don't expect responsibility and so we don't get it, as opposed to what Glenn states, which is that all we do is preach self-responsibility to these poor ciphers of social forces. I suppose, like international aid, he thinks a
+
+[doubling of expenditures](http://www.commentarymagazine.com/viewarticle.cfm/the-white-man-s-burden-by-william-easterly-10089)
+
+would surely do the trick.
+
+I say, let's actually
+
+try
+
+the stupid and lazy approach. It hasn't been investigated by economists for the reasons Sendhil mentions (its depressing and seemingly mean-spirited). After several decades, isn't it worth a couple top-tier pubs? A handful of tenure posts? Isn't is possible this may have some relevance?
+
+The purpose isn't to make us feel morally superior, but rather, to design more effective remedies, to help the poor be all they can be, which may not be equality. It would be nice to our egalitarian instincts if everyone latched onto some socioeconomic achievement as if they were shot out of a randomizer, but what if that's not possible? What does that imply for policy? Is does not imply ought, but it does constrain what is possible, and highlights what is futile. If we treat the poor like MIT undergrads without wealth, and they don't respond as such, this only helps those who selfishly or naively preen about their moral righteousness, and the journalists and policymakers who think this line of thinking is novel.

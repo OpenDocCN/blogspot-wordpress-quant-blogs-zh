@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:02:33
+-->
+
+# Quantitative Trading: Sorry, your return is too high for us
+
+> 来源：[http://epchan.blogspot.com/2011/07/sorry-your-return-is-too-high-for-us.html#0001-01-01](http://epchan.blogspot.com/2011/07/sorry-your-return-is-too-high-for-us.html#0001-01-01)
+
+I enjoyed reading Richard Wilson's
+
+[The Hedge Fund Book](http://www.amazon.com/gp/product/0470520639/ref=as_li_qf_sp_asin_tl?ie=UTF8&tag=quantitativet-20&linkCode=as2&camp=217145&creative=399377&creativeASIN=0470520639)
+
+ (Richard also runs the
+
+[Hedge Fund Blogger](http://hedgefundblogger.com/)
+
+ site). To be clear: it is purely marketing-oriented. It doesn't tell you how to find a successful trading strategy, but its focus is to tell you how to market your fund to investors once you have a successful strategy. To that end, it does a pretty good job in conveying what might be conventional wisdom to seasoned fund managers. (For e.g., don't bother to market to institutional investors if your AUM is less than $100M.) The book is filled with quite engaging interviews with fund managers, fund marketers, and other fund service providers (including our very own administrator Fund Associates). If Scott Patterson's
+
+[The Quants](http://www.amazon.com/gp/product/0307453383/ref=as_li_tf_tl?ie=UTF8&tag=quantitativet-20&linkCode=as2&camp=217145&creative=399377&creativeASIN=0307453383)
+
+ is about the gods of hedge funds, this book is for and about the mortals.
+
+One paragraph in the book stood out: "I've worked closely on the third-party marketing and capital introduction/prime brokerage side of the business, and I often see both types of firms deny clients service [to funds with high returns and high risk] ... Nobody wants to be associated with a manager aiming at 30 percent a month returns."
+
+Maybe not
+
+*aiming at*
+
+, but what's wrong with
+
+*achieving*
+
+a 30 percent a month returns? I have actually met institutional investors who don't want to look at a fund that actually achieved double-digit monthly returns. Presumably that's because they believe that a high return automatically implies high risk, and also presumably a high leverage as well.  I would argue that there are 2 reasons not to completely dismiss such funds out-of-hand:
+
+1) Leverage should not be determined arbitrarily, but should be based on the minimum of what's dictated by half-Kelly (see my extensive discussions of Kelly formula on this blog and in my book) and what's dictated by the maximum single-day drawdown seen historically or in VaR simulations. And if this minimum still turns out to be higher than what most institutional investors are comfortable with, one should be bold enough to adopt it in your fund.
+
+2) As an investor, there is an easy way to control leverage and risk: just apply Constant Proportion Portfolio Insurance (a concept also discussed elsewhere on this blog). For example, if the fund manager tells you the fund employs a constant 10x leverage (as dictated by the risk analysis outlined in 1) and you are only comfortable with 5x leverage, just invest half your capital into the fund, and keep the other half as cash in your bank account! Going forward, if the fund loses money, your effective leverage would have decreased to below 5x. Say you invested $1M into the fund, and kept $1M in the bank. And say the fund lost $0.5M. Your total equity is now $1.5M, and the fund manager is supposed to trade a $0.5M*10=$5M portfolio. Your effective leverage is now only 3.33x, well within your tolerance. Now if instead, the fund made money, you can immediately withdraw some of the profits to keep your effective leverage at 5x. So, say the fund made $0.5M. Your equity is now $2.5M, and the fund manager is supposed to trade a $1.5M*10=$15M portfolio. If you don't withdraw, this would increase your effective leverage to 6x. But if you immediately withdraw $0.25M, then the fund manager will trade a $1.25M*10=$12.5M portfolio, giving you an effective leverage of the desired 5x.
+
+If you are an investor in hedge funds, please let us know what you think of this scheme in the comments section!

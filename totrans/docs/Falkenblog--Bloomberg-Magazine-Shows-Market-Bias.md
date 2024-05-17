@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:46:51
+-->
+
+# Falkenblog: Bloomberg Magazine Shows Market Bias
+
+> 来源：[http://falkenblog.blogspot.com/2009/10/bloomberg-magazine-shows-market-bias.html#0001-01-01](http://falkenblog.blogspot.com/2009/10/bloomberg-magazine-shows-market-bias.html#0001-01-01)
+
+[![](img/ffdf4ef14387dac60388886a9c50f79c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxZqs7praQDZEVQ0-SwXK4Abq3CT5B5gDYLQylN-43B3TXWCyVzBkElYvQAIpaws5QYLRcyoLwoa7j67-Qgkfkqfi76hyphenhyphentV7pUbpw83Q-GspptsAC5AEdOPGbhszF2Mwgl0BsH9A/s1600-h/marketsmag_200x152.jpg)
+
+In the latest Bloomberg Markets Magazine, the cover story is on
+
+[Research Renegages](http://www.bloomberg.com/news/marketsmag/mm_1109_trim1.html)
+
+. As usual, they highlight some individual performers who very recently made very good calls. For example, Dana Telsey had a buy on J. Crew in January, and by September 14 it was up 154%. Betsy Graseck recommended a sell on Bank of America in the fourth quarter of 2008,, and by March it had fallen 80%. It's always that way, where the best analysts are those with a handful of awesome picks over the past year (some Bloomberg promotions explicitly exclude losers, looking just for biggest winners).
+
+Yet, the outperformance of those stocks rated buy vs. sell is modest, about 4% annually, and after transaction costs this information is not significantly greater than zero (see
+
+[here](http://www.jstor.org/pss/222573)
+
+and here). The internet bubble exposed the naked quid pro quos between stock analysts and firms, as firms would reward investment banks who touted their stocks with investment banking business (issuing equity, debt, or doing mergers& acquisitions), so a better study would simply ignore the pre-2003 data. There are many screens in Bloomberg to look at
+
+changes
+
+in the buys and sells, as if not the ratio, but the difference in the ratio is predictive (see
+
+[here](http://www.jstor.org/pss/3694731)
+
+). If you torture the data enough, some slice of analyst forecasts work, but I think it's reasonable to infer that
+
+[there's no there there](http://www.tenderbuttons.com/gsonline/alice.html)
+
+.
+
+If you look at who had the most credibility in the past crisis, it was those who predicted it. That seems natural enough, but here we are with a very rare event, and there are always permabears, so when a bear market happens, these guys are all geniuses?
+
+I guess the problem is no one currently rolling up their sleeves and doing grunt work has a statistically valid sample size. It would be such a small sample of analysts with a valid sample, it would be bad for selling magazines, which are mainly read by those they are highlighting. So, taking those who were above average recently seems better than taking a random sample, even if the last year is a noisy estimate of true value. But these analysts are up against the much maligned Efficient Markets Hypothesis, and they generally don't do that well. Analyst stock reports, like economist forecasts, are mainly useful in rationalizing a decision you already made, but need to articulate better to your boss or clients.
+
+An interesting effect implied by these winner-take-all contests, where annually only the 'top' analysts are given prominent exposure in financial industry publications, is to focus on sexy stocks, those that can rise a lot. A low-volatility company has little chance of producing a return that will win a 1-year contest even if it goes up, so you might as well ignore it. Thus, everyone is focused on the risky stocks. As most people do not short stocks, the inordinate attention to risky stocks leads to a winner's curse in risky stocks, inflating their price, lowering their future return. This,
+
+[I argue](http://www.amazon.com/Finding-Alpha-Search-Return-Finance/dp/0470445904/ref=sr_1_1?ie=UTF8&s=books&qid=1255398877&sr=1-1)
+
+, is why objectively risky stocks underperform their staid counterparts.

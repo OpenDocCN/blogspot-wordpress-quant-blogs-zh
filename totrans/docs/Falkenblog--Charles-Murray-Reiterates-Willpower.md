@@ -1,0 +1,106 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:35:44
+-->
+
+# Falkenblog: Charles Murray Reiterates Willpower
+
+> 来源：[http://falkenblog.blogspot.com/2012/02/charles-murray-reiterates-willpower.html#0001-01-01](http://falkenblog.blogspot.com/2012/02/charles-murray-reiterates-willpower.html#0001-01-01)
+
+[![](img/bfd259181075ee5c3a08e68839db590b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirSfy_Tb1eG64Pl7mlHCDxZGvY2n4lbAXZyEiHDZaC4GHqopt0RSSVZn7la00h7EBpqmWH0T50ca_JANB5tUkIrqWbThVSLBvnWmu6hgNlpmZlmHj54iB2IYVTbRJQz2cPruqfxg/s1600/murray.jpg)
+
+I really liked Tierney and Baumeister's book
+
+[*Willpower*](http://falkenblog.blogspot.com/2011/12/willpower-for-99.html)
+
+. Their argument is that willpower is a very useful skill, one that like a muscle tires when used, but can be strengthened through repetition. We should all practice daily acts of self-control to become more productive.
+
+Charles Murray's latest book
+
+[*Coming Apart*](http://www.amazon.com/Coming-Apart-State-America-1960-2010/dp/0307453421)
+
+addresses the same theme, noting that society is splitting up into classes based on their abilities, which are highly driven by bourgeois values. Over the past 50 years, the working class have lost their industriousness, honesty, religion, and respect for marriage, and he presents a bunch of data to bolster this argument (eg, less than 5% of college educated white women have children out of wedlock, but 40% of white women without college do). This book is a straightforward extension of the main arguments in his two prior best sellers, where in
+
+[*Losing Ground*](http://www.amazon.com/Losing-Ground-American-1950-1980-Anniversary/dp/0465042333)
+
+he argued that the Welfare State is destructive to productivity and ethical development, and in
+
+[*The Bell Curve*](http://www.amazon.com/Bell-Curve-Intelligence-Structure-Paperbacks/dp/0684824299/ref=pd_sim_b_2)
+
+that society is sorting itself into a meritocratic class structure. By focusing on white people and that portion of individual skill amenable to environment--willpower--he tries to avoid issues of genetics and racial politics that were a large part of
+
+*The Bell Curve*
+
+commentary.
+
+Murray argues the well-off should set a better example by not apologizing for their squareness, but rather, by advocating their lifestyle and scorning those who fail to live up to it—we need more of what is usually called 'blaming the victim'. Murray singles out the modern welfare state as the key instigator for our moral squalor, but I rather think our lack of faith in bourgeois values in general was the first mover here. Surely enlarging the dole increases the size of its patronage pool, but I still think policy is more symptomatic than causal.
+
+Consider that in the 19th century novelists popularized the idea that cultural constraints or expectations were often arbitrary and led to seemingly needless shame and psychological problems (eg,
+
+*The Scarlet Letter, The Brother's Karamazov, Jane Eyre*
+
+). A slew of social scientists picked up the vibe, especially Freud or the
+
+[Frankfurt School](http://pages.gseis.ucla.edu/faculty/kellner/papers/fs.htm)
+
+(Adorno, Horkheimer, Marcuse), and the Marxists. For example, in Freud's view sexual urges were viewed as having a powerful biological basis, while traits such as responsibility, dependability, orderliness, guilt, and the delay of gratification, are imposed by a repressive, pathology-inducing society, often a mere 'transference' from some guilt-trip inspired by traumatic potty-training or one's desire to have sex with one's mother. A bourgeois conscience became a hang-up that prevents you from realizing your authentic self (note the importance of 'self-actualization' in mid 20th century books like
+
+*The Invisible Man*
+
+). It never occurred to them that having no constraints or conscience has worse problems.
+
+The subversive agenda of these writers was to pathologize traditional Western norms such as those celebrated by Puritans, Quakers, and Calvinists. Such norms were rarely perfectly achieved but nonetheless seen as unambiguously good, and so aspirational. It's useful for anyone but especially children to have clear goals as to what is the 'good life', and an important point to remember in this arena is that we should not let the perfect be the enemy of the good, especially in comparison with the untried.
+
+After the Frankfurt school infested America, the
+
+[beatnik](http://www.urbandictionary.com/define.php?term=beatnik)
+
+idea that we should all '
+
+[tune in, turn on, and drop out](http://en.wikipedia.org/wiki/Turn_on,_tune_in,_drop_out)
+
+' was a logical extension, supposedly an incredibly profound insight on how 'to be' (as usual, expertise was confounded common sense, as any family with an addict will tell you such a drug-induced stupor is the opposite of ennobling). Traditional parent-child relations, though popular on TV at the time, were being sullied in the academy as involving the suppression of human nature, and so the cause of domination and authoritarianism, which led to the Hitler (really, read
+
+[*The Authoritarian Personality*](http://www.amazon.com/Authoritarian-Personality-Studies-Prejudice/dp/0393311120)
+
+). A healthy individual, meanwhile, does whatever he feels, which should involve rejecting their parent's strictures.
+
+The end result was not total consciousness and keen insights about truth and beauty, but rather, nihilism and depression. The '
+
+[Greatest Generation](http://en.wikipedia.org/wiki/Greatest_Generation)
+
+' built things like Hoover dam and created a country of unprecedented prosperity and universal education; then, as if to prove that failure is endogenous, raised the greatest generation of naive, self-absorbed whiners in the History of Man.
+
+My parents graduated college when such progressive ideas were intellectually dominant. They considered discipline, such as that required by drilling exercises, to be deeply destructive, and education was simply about figuring out how to release the genius that exists in all of us (this probably explains a little of why I liked
+
+*Willpower*
+
+so much, because I see very clearly how these principles would have been helpful for my upbringing). This naive zeitgeist reached its intellectual apogee, unfortunately, right about when and where I was born (1960's California) and turned that beautiful Eden into a failed state, a suicide
+
+*New Yorker*
+
+intellectuals might not notice from the gated community that is Manhattan (median home price a cool $1.4MM).
+
+Scribes have always been jealous of the wealthy and powerful, thinking that an elite set of navel-gazing intellectuals such as themselves would be more efficient, as if they wouldn't turn into illiberal tyrants in short order (see what became of young intellectuals Trotsky, Mao, Ho Chi Min, and Mugabe). They convince themselves prior attempts along these lines were co-opted, but that's purely self-serving confabulation. Unfortunately, these same people dominate the media and academia by their very nature (wordsmiths), so it will be hard for modern mores to change because people wise enough to see it's wrong will tend to simply succeed off the grid, without reconciling their success theoretically in a treatise.
+
+Currently there existis a dominant coalition of the
+
+[*lumpen-proletariat*](http://www.mltranslations.org/us/rpo/classes/classes4.htm)
+
+and their patronizing, indulgent, but highly status-oriented advocates who aspire to lead the new
+
+[reverse dominance hierarchy](http://falkenblog.blogspot.com/2008/06/reverse-dominance-hierarchies.html)
+
+. The leaders will argue that we should expropriate if not imprison the rich and their like because 1) mass redistribution will always win a referendum and 2) such a process needs leaders, and who better than those most articulate and faithful to the hive?
+
+Subsequent to the anti-nuclear family claptrap within modern literature and sociology departments, psychologists have found that children will accept high levels of parental controls, but only if the relationship with the parents is positive. The key is having moral authority that comes from demonstrated competence and consistency. So too will the lower classes accept judgment from the upper classes if they think such observations come from those who believe what they say and say something true and important. Currently, they simply hear about how great it is to be a victim, how noble it is to be poor, powerless, or discriminated; to be wronged is the ultimate in righteousness. This simply isn't true and the poor know it. Suffering does have meaning when it cannot be controlled, and in such times a stoic attitude is truly heroic, often taken out of a higher duty to one's neighbors and family. But simply suffering low status because one does not have a job, stopped paying their mortgage, is in jail, or did not learn a trade, is usually the result of simple sloth and shortsightedness, and all their friends and family know it.
+
+Alas, successful people are ashamed to assert they have better genetics, values, and habits--even though they quietly believe it to be true--and so are content to let the media and intellectuals push the delusional idea that success is like when Paris Hilton had sex on a digital camera and built a career out of it: luck, connections, and chutzpah, but no discipline, ingenuity, and perseverence. With such examples it becomes defensible to suggest most of the rich are like that--mere lucky hacks in the game of life. The flip side is that those who are unsuccessful are suffering for no fault of their own.
+
+Thus, every day we see people championing the pathetic in journalistic essays: a scared mother of four on food stamps, or her selfless Community Activist advocate. No one champions the simple strivers, those who take care of themselves and in the process alleviate society of one more charity case, and along the way create wealth via 'gains from trade' implicit in market transactions. A simple prosperous mensch who does not hypocritically claim he primarily works for others is off the radar, implicitly insulting to any intellectual making considerably less than him.
+
+The kind of change Murray is talking about will not happen until productive, successful people again feel pride in their distinguishing learned characteristics, including the willingness to shame people who do not have them. Consider that at the height of America's growth, the most popular form of fiction lionized were Horatio Alger stories, which lionized initiative and material prosperity. On the bright side, the ideas of Freud, Marxists, the Frankfurt school, and their destructive spawn are on the decline, mainly because they were never sciences they aspired to be, rather, intellectual fads once plausible but no longer (eg, no trendy writer is going impress his readers by giving his subjects Freudian complexes the way
+
+[Norman Mailer did](http://books.google.com/books?id=tVxNhLyOPEoC&pg=PA18&lpg=PA18&dq=norman+mailer+freudian+themes&source=bl&ots=C00gP6sbSY&sig=IoFENraprhS3DdKeqEnOPQgTQjs&hl=en&sa=X&ei=Et8pT9LoB435ggeqwuHsBA&ved=0CCMQ6AEwAA#v=onepage&q=freud&f=false)
+
+). Children of beatnik-influenced parents like me are not doubling down on the manifest failures in that philosophy. On the other side, failed big governments like Argentina, Brazil, and India highlight that countries are not like companies, they do not have to transform to survive when they go bankrupt. I wish people would valorize bourgeois virtues, but I don't see a catalyst around the corner, especially with 1/6 of Americans getting some kind of welfare.

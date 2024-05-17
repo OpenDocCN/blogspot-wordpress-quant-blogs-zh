@@ -1,0 +1,268 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:59:40
+-->
+
+# Falkenblog: Antifragility is just Hormesis (to the extent it works)
+
+> 来源：[http://falkenblog.blogspot.com/2019/03/why-talebs-antifragile-book-is-fraud.html#0001-01-01](http://falkenblog.blogspot.com/2019/03/why-talebs-antifragile-book-is-fraud.html#0001-01-01)
+
+I 
+
+[tweeted ](https://twitter.com/egfalken/status/1091457140361854976)
+
+that Taleb thinks he invented
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941192983921385311"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991573654849127951">hormesis</gwmw></gwmw>
+
+, whereupon Taleb quickly noted that
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941192988411467359"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991573654255682615">antifragility</gwmw></gwmw>
+
+is not
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941192989371606544"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991573650893753795">hormesis</gwmw></gwmw>
+
+, and 
+
+*Antifragile*
+
+ explicitly mentions
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941192987323978560"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991573652900368199">hormesis</gwmw></gwmw>
+
+and its 1888 discovery, as well as Mithridatism. A snippet of his Twitter rebuttal is 
+
+[here](http://fooledbyrandomness.com/smear.html)
+
+. Tweets are not the place for snarky subtlety. My point was that far as
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941205050273887576"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991587599939896895">antifragility</gwmw></gwmw>
+
+works, it's
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941205050269818003"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991587591080370356">hormesis</gwmw></gwmw>
+
+, in spite of Taleb's qualification that "
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941205059085230722"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991587591130988566">hormesis</gwmw></gwmw>
+
+is a metaphor" for
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941205054079071907"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991587597846551907">antifragility</gwmw></gwmw>
+
+. This got me wondering how such a contradiction happened.
+
+Taleb states his neologism
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235701713958916"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624968095157753">antifragility</gwmw></gwmw>
+
+is "beyond resilience or robustness." He 
+
+[defines ](https://en.wikipedia.org/wiki/Antifragility)<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235701074934854"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624963018162690">antifragility</gwmw></gwmw> more precisely
+
+ as "a convex response to a
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256106816848964430"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235708421554453"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624962396628554">stressor</gwmw></gwmw></gwmw>
+
+or source of harm, leading to a positive sensitivity to increase in volatility." Thus
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235700864089550"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624961334242011">hormesis</gwmw></gwmw>
+
+is not an example of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235707324339719"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624964784512990">antifragility</gwmw></gwmw>
+
+, because, in the parlance of finance,
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256106810543070099"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941235703528741559"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991624962226251813">hormesis</gwmw></gwmw></gwmw>
+
+is like having a positive but modest beta, while
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941235707280724475"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991624963700207603">antifragility</gwmw></gwmw>
+
+is increasing the value of a portfolio by increasing its gamma. Gamma is a measure of convexity, the signature feature of a put or call option, and in uncertain environments, a higher gamma leads to a higher value.
+
+The common takeaway of Antifragile, however, is simple resilience. For example, in Jonathan Haidt's book the 
+
+*Coddling of the American Mind*
+
+he credits Taleb’s concept of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941260639362791632"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991652208875708799">antifragility</gwmw></gwmw>
+
+for arguing that protecting students from ideas they find offensive leads to them becoming more fragile, anxious, and easily discouraged. Actively confronting ideas we don't like makes us tougher and smarter, or as JS Mill wrote, ‘he who knows only his own side of the case knows little of that.’ Haidt's book mentions unstructured play for children, the immune system, and exposure to peanuts as examples of Taleb's concept of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941286945764644351"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991678520983945619">antifragility</gwmw></gwmw>
+
+. Wikipedia’s entry on
+
+*<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256167738384160806"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941298379247743191"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991690136054090165">antifragile</gwmw></gwmw></gwmw>* <gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256167733531328920"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941298376486650322"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991690138656328964">gives</gwmw></gwmw></gwmw>
+
+as its primary
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256167732074808747"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941298374265091603"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991690136791430612">example that</gwmw></gwmw></gwmw>
+
+of bone density being strengthened by exposure to stress. These are all examples of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941300247084247378"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991692314978010280">hormesis</gwmw></gwmw>
+
+.
+
+| [![](img/2cbf99e3aaf80b18e63812399f564460.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7t0HnMcHNIA4nvx1XMZfv5oiEIxlKhN80BRtO0uKEeIiDjElSSTMbOyk0LBeFInT2qihZnV0xGwIqu_wppvUeii4FCd5auuRq-oDZci7eLp7wKcOPCuWeoasUPbOWpSukkNoG4w/s1600/long_call.JPG) |
+| Convex Payoff |
+
+If you own an option you have positive convexity and benefit from higher volatility; you are long volatility (aka long
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256178489302589913"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941308558173450398"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991702754187952819">vega</gwmw></gwmw></gwmw>
+
+). It has long been known that financial options, especially out-of-the-money put and call options, have poor average returns. A good example is provided by 
+
+[VXX](https://finance.yahoo.com/quote/VXX/chart?p=VXX#eyJpbnRlcnZhbCI6IndlZWsiLCJwZXJpb2RpY2l0eSI6MSwiY2FuZGxlV2lkdGgiOjEuODM5MDgwNDU5NzcwMTE1LCJ2b2x1bWVVbmRlcmxheSI6dHJ1ZSwiYWRqIjp0cnVlLCJjcm9zc2hhaXIiOnRydWUsImNoYXJ0VHlwZSI6ImxpbmUiLCJleHRlbmRlZCI6ZmFsc2UsIm1hcmtldFNlc3Npb25zIjp7fSwiYWdncmVnYXRpb25UeXBlIjoib2hsYyIsImNoYXJ0U2NhbGUiOiJsaW5lYXIiLCJzdHVkaWVzIjp7InZvbCB1bmRyIjp7InR5cGUiOiJ2b2wgdW5kciIsImlucHV0cyI6eyJpZCI6InZvbCB1bmRyIiwiZGlzcGxheSI6InZvbCB1bmRyIn0sIm91dHB1dHMiOnsiVXAgVm9sdW1lIjoiIzAwYjA2MSIsIkRvd24gVm9sdW1lIjoiI0ZGMzMzQSJ9LCJwYW5lbCI6ImNoYXJ0IiwicGFyYW1ldGVycyI6eyJ3aWR0aEZhY3RvciI6MC40NSwiY2hhcnROYW1lIjoiY2hhcnQifX19LCJwYW5lbHMiOnsiY2hhcnQiOnsicGVyY2VudCI6MSwiZGlzcGxheSI6IlZYWCIsImNoYXJ0TmFtZSI6ImNoYXJ0IiwidG9wIjowfX0sInNldFNwYW4iOnsiYmFzZSI6ImFsbCIsIm11bHRpcGxpZXIiOjF9LCJsaW5lV2lkdGgiOjIsInN0cmlwZWRCYWNrZ3JvdWQiOnRydWUsImV2ZW50cyI6dHJ1ZSwiY29sb3IiOiIjMDA4MWYyIiwiZXZlbnRNYXAiOnsiY29ycG9yYXRlIjp7ImRpdnMiOnRydWUsInNwbGl0cyI6dHJ1ZX0sInNpZ0RldiI6e319LCJjdXN0b21SYW5nZSI6bnVsbCwic3ltYm9scyI6W3sic3ltYm9sIjoiVlhYIiwic3ltYm9sT2JqZWN0Ijp7InN5bWJvbCI6IlZYWCJ9LCJwZXJpb2RpY2l0eSI6MSwiaW50ZXJ2YWwiOiJ3ZWVrIiwic2V0U3BhbiI6eyJiYXNlIjoiYWxsIiwibXVsdGlwbGllciI6MX19XX0%3D)
+
+ETF, which is long
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256194283796254830"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941324556531354893"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991720299140113230">vega</gwmw></gwmw></gwmw>
+
+and
+
+*loses*
+
+money with about the same Sharpe ratio as the SP500 index. Being long
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256201395231485769"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941331492173597584"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991728562655050658">vega</gwmw></gwmw></gwmw>
+
+is like shorting the market, good in bad times, but in the long run a bad investment.
+
+| [![](img/0c438249f4e8ec8b8e33e52691f8a833.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgHEYERJqppyQhFibXlaIM90MTsGrIE3fd-wThlekqHZhGWBfdVces9VeSeGrnZ0dWnf2_fMN5J1ktU20WMaNEto6VAvW9g4TgVY0L4tIxz5MEypMKFgXJrpe3QbUAeSBVRmO8XAA/s1600/tthales.jpg) |
+| Thales |
+
+Taleb is aware of this and <gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256223200490801209"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941353222665571253"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991756770886249462">states</gwmw></gwmw></gwmw> that good <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256223208473514364"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941353221943403795"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991756770060439272">antifragile</gwmw></gwmw></gwmw> things are not financial options because they "are sold by someone," but rather real options, which he thinks are free: "we don't pay for options given to us by nature and technical innovation." His prominent example here is Thales of Miletus. Aristotle gave us the story that Thales secured the rights to wine presses at a relatively low rate, which is an option: he had the right, not the obligation to use the wine presses. When the harvest proved to be bountiful, and so the demand for the presses was high, Thales charged a high price for their use and reaped a considerable profit. Taleb states the key to Thales's fortune was his awareness of his 'lack of knowledge,' in that as he owned an option he enabled himself to benefit from uncertainty.
+
+I do not have data on wine presses circa 600 BC, but currently, such options are generally over-priced. For example, in futures markets, there is a thing called the basis, the difference between the future and
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256302204418278190"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941400367457149599"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991810160936848075">cash price</gwmw></gwmw></gwmw>
+
+of a good reflecting the yield on the asset vs.
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256322207361665174"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941403080510987662"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991813201621395081">the</gwmw></gwmw></gwmw>
+
+opportunity cost of money (
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256322209010599986"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941403087490591438"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991813206329693640">ie</gwmw></gwmw></gwmw>
+
+, the interest rate). One of the components of that basis is the
+
+[convenience yield](https://www.investopedia.com/terms/c/convenienceyield.asp)
+
+, in that if there is a shortage, having the actual commodity will have a great value. For goods subject to shortages (
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256342219106778265"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941422637348390596"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991834429752456655">eg</gwmw></gwmw></gwmw>
+
+, wine presses), this increases the cash price over the future price because having the good on hand can be very valuable in a crisis. William Easterly has
+
+[argued](https://www.usi.edu/business/cashel/346/BBC%20NEWS%20%20Africa%20%20Can%20aid%20do%20more%20harm%20than%20good.htm)
+
+that Western countries dumping grain on African countries during shortages deprives farmers of essential farmer revenue that comes from crises; often this profit pays for breaking even during normal times, so removing it discourages endogenous markets. Spikes in demand are a large part of any asset owner's income, statistically anticipated and priced into well-functioning markets. Simple awareness of a 'lack of knowledge' about future demand is not helpful, because it presumes the seller assumes the convenience yield or option value is zero. It may have worked in 600 BC, but markets have removed that inefficiency. 
+
+Taleb gives other examples, for instance: avoiding doctors, having different alternatives <gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256402199710018967"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941466419894632944"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530991886723382531990">on</gwmw></gwmw></gwmw> vacation or for dinner, the ability to switch jobs, a rent-controlled apartment, or being married to an accountant but an occasional fling with a rock star. To the extent these options are desirable, they are not <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256412210895284705"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941470725832106017"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991891915141671336">underpriced</gwmw></gwmw></gwmw>, and certainly not free. People realize this, which is why they are rarely mentioned as examples of antifragility by Taleb's many supporters. The bottom line is that things with convexity are too costly in general because people love lottery tickets; convexity is not the essence of any <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529942597724898183436"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991906227240074608">antifragile</gwmw></gwmw> example because they are generally not good investments (antifragility is supposedly a good investment or strategy). 
+
+Another misleading application is in biology or economics, where populations or markets that have had to withstand more competition and external variability dominate those with benign environments. A bacteria population in the lab loses its ability to withstand <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256457978317776669"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941498795384592136"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991929509864441987">stressors</gwmw></gwmw></gwmw>, an industry protected from new entrants loses its ability to compete when technology changes the game, or an industry protected against failure becomes bloated and less robust. Systems that allow or even encourage failure thrive relative to those that protect its members from failure. In economics, the basic idea of exiting losing businesses is perhaps the most crucial advantage of the free market over socialism. Failure strengthens the herd, whether animals or <gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15529256476058334913736"><gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15529941515553030887988"><gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15530991946994727556531">firms</gwmw></gwmw></gwmw>. 
+
+[![](img/98d74a1bdae8256b69ff381b4ed2c9f3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfmjGWrfRJAMzpGGFaRsi4O0H-GZ-cGT_csYy2Q8-7YcLn3uMBe8BKRu7um8C1bcKAYZkjG9b9PMqiBCRsTL3oZYO_IXK1iJN52IG1usGGsJNMzJr15iGd69l877xh9R9WdgeDsA/s1600/sgyewytqxnodc0vtdlb9.webp)
+
+Taleb states that his notion of <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941548419358793024"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991991380925086190">antifragility</gwmw></gwmw> is behind the following: "evolution, culture, ideas, revolutions, political systems, technological innovation, cultural and economic success, corporate survival, good recipes, the rise of cities, cultures, legal systems, equatorial forests, bacterial resistance." Success within these domains comes from looking at the competitive success of groups benefiting from <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941548415926420324"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991991387776670004">hormesis</gwmw></gwmw> vs. <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256512774586501149"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941550071915793316"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530991994311821225340">those</gwmw></gwmw></gwmw> insulated from it. Competition leads to the resiliency and efficiency needed to survive.
+
+Back to his definition of <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256534984154918067"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941571509654891290"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992019245841572045">antifragile</gwmw></gwmw></gwmw>, it is not that the prospering agents are convex to stress, rather that as <gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256534986489809794"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941571506626029266"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992019248410524166">survivors their</gwmw></gwmw></gwmw> progeny takes over the extinct's *<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256534982095686168"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941571508468094497"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992019243308733806">lebensraum</gwmw></gwmw></gwmw>;* the dynamic effect of robustness in a system based on survival of the fittest looks like convexity.  Indeed, Taleb notes the property applies to the group, not the individuals: "the surviving cohort is stronger than the initial one—but not quite the individuals since the weaker ones died." So here, like <gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256551890660918710"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941585436769147832"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992034984502465619">with</gwmw></gwmw></gwmw> <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941585437656496844"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992034987037902265">hormesis</gwmw></gwmw>, he notes it is a metaphor, not a precise analogy. He is quite aware that such systems are not direct examples of <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941593037471786282"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992044320131458576">antifragility</gwmw></gwmw> because the *agents* that generate convexity at the higher level are merely robust, via <gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941593030092167035"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992044321412562999">hormesis, and their germline exhibits convexity. </gwmw></gwmw>
+
+A robust business has to innovate because every business model changes over time. Jeff Bezos
+
+[notes](https://www.youtube.com/watch?v=EctzLTFrktc)
+
+success takes someone with a stubborn vision yet flexible on
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256586179149161390"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941618804687858966"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992073037593976375">details</gwmw></gwmw></gwmw>
+
+, because without a strong
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256586173121200209"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941618808873405482"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992073030070564136">vision one's</gwmw></gwmw></gwmw>
+
+strategy overreacts to current failure or success, while without flexibility one cannot adapt when things do not work precisely as planned, as they always do. Note here we see a classic example of 'moderation in all things,' where the optimum lies between an excess and
+
+<gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15529256596571065768966"><gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15529941629617489999132"><gwmw class="ginger-module-highlighter-mistake-type-2" id="gwmw-15530992084633709492820">deficit</gwmw></gwmw></gwmw>
+
+.  In contrast, Taleb describes a caricature of vision via his "teleological fallacy" which is the "illusion that you know
+
+*exactly*
+
+where you are going." One could go on all day about the inadequacies of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256611477263247808"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941644480819563500"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992100440344261837">strawmen</gwmw></gwmw></gwmw>
+
+, as Taleb does.
+
+An industry protected from failure or change via union work rules or
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529256627136990985262"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941659990766466748"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992119066239278290">bailouts</gwmw></gwmw></gwmw>
+
+removes the micro-instability needed at all levels of a company to develop innovation, robustness, and a healthy familiarity with failure. While some rules and regulations are good, most are merely a pretext for barriers to entry protecting current workers and firms. This is just an argument for allowing stress, and the resulting failures it implies; that is, for 
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529941671543284832617"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992129844657604085">hormesis</gwmw></gwmw>
+
+to do its thing.
+
+[![](img/d6e2f82ecfbba161de58f3ca06b984ff.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4fGUMEoHqlSQhxdAKmAmOPtPQdH5TvSjsgwUbnrMF97vZgAgWw7K-0SfLrE5WyZ_V3VJcu7xaymOoyxg_tyn1OLT5n01i8CZr-sQq61UrVCfFOGxQ3mKCpe__aLbUiZMpHcV43A/s1600/ikigai.png)
+
+Becoming
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529256647174357056585"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941680900231449942"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992138892201016349">excellent first</gwmw></gwmw></gwmw>
+
+requires a lot of domain-specific hard work, with a focus that enlarges some things while excluding others. Jordan Peterson
+
+[argues](https://www.youtube.com/watch?v=vIeFt88Hm8s)
+
+that
+
+[flow](https://www.verywellmind.com/what-is-flow-2794768)
+
+ comes from operating at the edge of our competence, with enough mastery to generate satisfaction yet enough novelty to be challenging. To an outsider, such explorations can seem like random tinkering, but for an expert, it is a variation on their unusual intuition. Suggesting that the general strategy of accumulating convex exposures is the key to success is a profound error, as in the difference between the benefit of anger, and anger directed at the right person at the right time and in the right way.
+
+An essential attribute of someone who innovates is their ability to embrace failure. Adversity is a great teacher, why mother giraffes knock their newborns down just after first learning how to stand;  they have to learn quickly on the African grasslands. Embracing failure is easy to
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941724443098361004"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992196508744651006">say but</gwmw></gwmw>
+
+hard to do, which Taleb acknowledges. Actually, he doesn't
+
+*explicitly*
+
+acknowledge this, but as he never mentions why he worked for several banks while he was a trader (blow up?) or the fact that every close
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941742231071286747"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992215856902357417">friend he</gwmw></gwmw>
+
+mentions in Antifragile is highly successful, suggests he sees failure as a characteristic of unremarkable losers.
+
+Failure will always be costly, and due to
+
+[moral hazard](https://www.investopedia.com/ask/answers/040815/what-are-some-examples-moral-hazard-business-world.asp)
+
+, no one will sell you a put option on your failures (you would fail on purpose to cash in on your put option).  In addition to acclimating ourselves to failure, just as useful are the Christian virtues of faith, hope, and love. If you have faith in what you hope for regardless of your economic success and love someone who loves you for who you are, failures under the sun are not so terrible. This allows you to explore more virgin
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529941775915771377860"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992245083724180657">territory so</gwmw></gwmw>
+
+that when the unexpected happens, you might be in the right place at the right time.
+
+There are two ways to generate an option payoff. One is to buy an option; another is via dynamic replication, which involves doubling down a position as it becomes more in-the-money. The outsized success of winners over losers in dynamic systems generates large convexities, but to be a winner, the keys are not buying options, but rather, via resilience acquired through
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529943362164684521256"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992275466991978232">hormesis</gwmw></gwmw>
+
+, surviving long enough to achieve success indirectly via a combination of vision, excellence, and flexibility (obliquity). To describe the essence of this as creating option payoffs focuses people on explicit optionality, as opposed to the optionality that comes via hormesis. Resilience generates outsized winners in
+
+<gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15529945828196068975966"><gwmw class="ginger-module-highlighter-mistake-type-3" id="gwmw-15530992294440690593709">dynamic zero-sum competition over time as the survivors take over</gwmw></gwmw>
+
+. This is why everyone mentions examples of
+
+<gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15529945571005481872488"><gwmw class="ginger-module-highlighter-mistake-type-1" id="gwmw-15530992302321039648028">hormesis</gwmw></gwmw>
+
+, waves their hands, and hopes no one notices the bait-and-switch.
+
+Promoting the new idea that acquiring options on the next Black Swan is the basis of "our own existence as a species on this planet" is the sort of hyperbole you hear at TED talks. It is the sort of thing bureaucrats love because they are generally too high up to have much domain-specific expertise, and the incoherent but plausible-sounding theme allows one to talk about strategy without actually knowing anything specific. Then you give examples of your great idea that are really something else entirely, and fade to black...

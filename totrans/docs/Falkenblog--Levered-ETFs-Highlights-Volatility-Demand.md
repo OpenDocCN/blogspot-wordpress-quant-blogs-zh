@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:27:52
+-->
+
+# Falkenblog: Levered ETFs Highlights Volatility Demand
+
+> 来源：[http://falkenblog.blogspot.com/2012/06/levered-etfs-highlights-volatility.html#0001-01-01](http://falkenblog.blogspot.com/2012/06/levered-etfs-highlights-volatility.html#0001-01-01)
+
+[PowerShares rolled out a pair of ETNs](http://finance.yahoo.com/news/powershares-rolls-inverse-leveraged-japanese-150033810.html)
+
+offering inverse exposure to Japanese government bonds, the 3x Japanese Government Bond Futures ETN (JGBT), and the 3x Inverse Japanese Government Bond Futures ETN (JGBD). Government bonds are typically considered low risk, but to generate sufficient demand, it appears you need to lever them so they have high enough risk to warrant interest.  I suspect that in 10 years, everything will have a 2x and 3x derivative that's tradable on liquid exchanges.
+
+Now, one reason for the demand is that accounts like 401ks discourage leverage, so the leverage is implicit in the ETF, and not explicit.  This is a big problem with leverage limits because leverage can always be gamed in this way, and there is no simple solution.
+
+But I suspect the main reason is more fundamental: people like volatility, and so demand increases with higher volatility.  Now, in most formulations, risky asset demand is determined something like this.
+
+First, maximize the weight on the risky asset, where w is a proportion of the investor's portfolio allocated to the risky asset:  
+
+[![](img/b4fc6e78a5cbe9038c811028bcde925c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2hlFrQsti6a5xuRSjSovay3br34GRLAUISVD27HKT_XzWt6NSHJiIVw4coVE2Feh-ZRnQKSzf6i2_dlBZhJD3_mNkikqYyHQWn0oDRvPK2G-jB8v-HnKQ9tnIcfHTdow3qecOjQ/s1600/Eqn001.gif)
+
+By definition, the risky asset has a Gaussian distribution, and the risk-free asset is some constant.
+
+[![](img/3a9d1a11269cca5c658e70860376fd5e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0WMTo7WYDl0gEl0GXCYllnFOHpYqzJlbgXis_dn6jIwbHpwOZxGuXvxicvTaysgK6IeSaQUIpUHS6bRnPPmA4gGmiJqTGNdsrhNWfLb9lNa77N0iTrxZ4xxjVjy6BAOi4vwf78Q/s1600/Eqn002.gif)
+
+Taking the derivative with respect to w and setting equal to zero gives us the familiar risky asset demand.
+
+[![](img/02da4cdea8853258da75c058c9f1dd85.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN7t5j7OfhZxUBNXg0LGk6-GyuFmjwAi-vJuqg8iJc-zdcALgh4cxnuHJb-TRgENoL83-gXqJsCJt2M9cJE1nzDbm_4ULkM76FCeqk8E347e-2dVViMzjoLJC4t08r9JIflOD8Jw/s1600/Eqn003.gif)
+
+This says it is linearly related to the expected return, and inversely related to its variance.  Increasing leverage increases the return (numerator) by X, and the variance (denominator) by X
+
+²
+
+, so the ratio changes by 1/x.  Optimal demand, in this theory, goes down
+
+*parri passu*
+
+with the leverage; leverage should not affect actual $ demand because it washes out.
+
+Yet, in practice that's not what happens.  I'm not sure what's going on, but I think part of it is a quantum effect, where investors are not interested in something until it can generate a sufficient threshold return.  That is, most investors basically have 'null' for their Japanese bond exposure.  A significant number of investors would put down $1000 if they had a chance to make $200, but many fewer are interested in putting down $1000 to make $100\.  Sure, they could always lever positions themselves but that's another level of complication, creating all sorts of operational risk such as issues about taxation and margin calls.

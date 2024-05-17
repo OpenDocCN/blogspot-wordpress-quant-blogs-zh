@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:37:37
+-->
+
+# Quantivity on learning algo | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2010/01/11/quantivity-on-learning-algo/#0001-01-01](https://etrading.wordpress.com/2010/01/11/quantivity-on-learning-algo/#0001-01-01)
+
+## Quantivity on learning algo
+
+### January 11, 2010
+
+[Nice post](http://quantivity.wordpress.com/2010/01/10/how-to-learn-algorithmic-trading) by Quantivity on learning about algo trading. I’m familiar with Harris and Hasbrouck, but not much else he mentions. I wonder if Quantivity rates the Penn Lehman Automated Trading project papers I’ve enjoyed so much ?  Maybe they don’t have enough hard maths to be taken seriously, but I rate [Nevmyvaka et al on Optimal Execution](http://www.cis.upenn.edu/~mkearns/papers/optexec.pdf).
+
+Follow up comments on the post are interesting too. I’m intrigued by the strategies that firms like Getco are applying. They claim to be liquidity suppliers, so I guess they’re following some kind of market making, or perhaps, scalping approach. My guess is that it would be an automated version of what the [Flipper](http://www.trading-naked.com/paul_rotter.htm) did on Eurex. Of course such proprietary market making strategies are not constrained in the way that primary dealers offering govt bond liquidity on EuroMTS are constrained; there’s no requirement to make a two sided quote in minimum size with max spread for so many hours a day.
+
+But that’s all just speculation. What I’d love to see would be worked examples showing order book state evolving as an algo trading strategy places orders and either allows them to execute to pulls them in response to book action. I’d expect to find more sophisticated versions of strategies like the one described [here](http://www.cis.upenn.edu/~mkearns/projects/newsandnotes04.html).

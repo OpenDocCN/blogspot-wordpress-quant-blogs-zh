@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:03:48
+-->
+
+# Quantitative Trading: What are we to do with Sharpe ratio?
+
+> 来源：[http://epchan.blogspot.com/2010/08/what-are-we-to-do-with-sharpe-ratio.html#0001-01-01](http://epchan.blogspot.com/2010/08/what-are-we-to-do-with-sharpe-ratio.html#0001-01-01)
+
+I wrote several times before how useless Sharpe ratio is for certain types of strategies: see
+
+[here](http://epchan.blogspot.com/2009/11/picking-up-nickels-in-front-of.html)
+
+and
+
+[here](http://epchan.blogspot.com/2009/02/limitation-of-sharpe-ratio.html)
+
+. Not only is a
+
+*high*
+
+Sharpe ratio quite useless in telling you what damage extreme events can do to your equity, a
+
+*low*
+
+Sharpe ratio is also quite useless in telling you what spectacular gain your strategy might enjoy in the event of a catastrophe. I came across another brilliant example of the latter category in the best-selling book "
+
+[The Big Short](http://www.amazon.com/gp/product/0393072231?ie=UTF8&tag=quantitativet-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0393072231)
+
+", where the author tells of the story of the fund manager Mike Burry.
+
+Mike Burry started buying credit default swaps in 2005, essentially an insurance policy on mortgage-backed securities, betting that there will be widespread defaults on mortgages. Of course, we now know how this story would turn out: Mike Burry made $750 million in 2007 alone.  But there was nothing but pain for the fund manager and his investors in 2005-2006, since they had to pay an annual premium of 8% of the portfolio.  Investors who measured the performance of this strategy using Sharpe ratio, without knowing the details of the strategy itself, would be quite justified to think that it was an utter disaster prior to 2007\. And indeed, many of them lost no time in trying to pull out their investments.
+
+So what are we to do with Sharpe ratio, with its inherent reliance on Gaussian distributions? Clearly, it is useful for measuring high frequency strategies which you can count on to generate consistent returns every day, but which has limited catastrophic risks. But it is less useful for measuring statistical arbitrage strategies that hold positions over multiple days, since there may well be substantial hidden catastrophic risks in these strategies that would not be revealed by their track record and standard deviation of returns alone. As for strategies that are designed to benefit from catastrophes, such as Mike Burry's CDS purchases or Nassim Taleb's options purchases, it is completely useless. If I were to allocate my assets over different hedge funds, I would be sure to include some funds in the first category to generate cash flows for my daily needs, as well as funds in the last category to benefit from the infrequent black-swan events. As for the funds in the middle category, I am increasingly losing my enthusiasm.

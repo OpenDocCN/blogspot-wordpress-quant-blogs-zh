@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:52:16
+-->
+
+# “By the time we got to Hedgestock… | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2006/06/27/by-the-time-we-got-to-hedgestock/#0001-01-01](https://etrading.wordpress.com/2006/06/27/by-the-time-we-got-to-hedgestock/#0001-01-01)
+
+## “By the time we got to Hedgestock…
+
+### June 27, 2006
+
+…we were half a million long” [with apologies to] Crosby, Stills and Nash.
+
+[Paul Graham](http://www.paulgraham.com) has posted a [new essay on outsiders vs. insiders](http://www.paulgraham.com/marginal.html) – thought provoking stuff as ever. So who are the outsiders in our industry, wholesale finance ?  [Hedgestock](http://www.hedgestock.co.uk/2006/), the hedge fund industry beano reveals the hedge fund self image: they’re the counter culture, the underground.
+
+In recent years there’s been a big flow of capital, traders and techies into hegde funds. The capital is seeking returns, of course. The traders are seeking compensation too, as well as freedom from the corporate culture of the big trading banks. And the techies are fleeing the sometimes stifling technical culture of the big banks, with onerous change management and architectural standards. Naturally, the techies are chasing big bonuses too.
+
+Paul Graham has a very pro start up bias in his writing. Not surprising, as he hit the jackpot big time with Viaweb. I’ve worked for small, large and medium sized companies. My experience suggests that PG over emphasizes the freedom of start up environments. When I’m struggling against the inevitable bureaucracy of a large organisation, small companies can seem like highly liberated environments. But it’s important to remember that in a small company, you have to do a bit of everything: sales, admin, marketing. In a large org, there are people to take care of that, so you can specialize. If you get the right role, you become free to concentrate on the good stuff, to concentrate on what you do well and what you enjoy.
+
+Back in the early 90s I worked for a medium sized ISV in the oil industry. In many ways that was the perfect environment. The company was large enough to support specialisation, but still small enough to avoid bureaucracy and a process centric approach. Still small enough that everyone knew everyone else.
+
+I wonder if that kind of environment exists anywhere in etrading ?

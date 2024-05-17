@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:32:37
+-->
+
+# Falkenblog: Low Vol Underperforming
+
+> 来源：[http://falkenblog.blogspot.com/2012/04/low-vol-underperforming.html#0001-01-01](http://falkenblog.blogspot.com/2012/04/low-vol-underperforming.html#0001-01-01)
+
+[![](img/b8860a924cdd0186c4c48369683b5ff9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbEG_Po6joi15fDZjKUFoRsA2pbLmQYrM-KpukaIPOGWXwaFWdYc2QJpJ43cDJGMmmgUkYMZD0xf1et0jOw4imLmrCVnvBqGqnBrsw4FwPIp7Z7rXvfp4_VRbQqq8ddUe58w4gTA/s1600/totret.png)
+
+Low volatility investors, now is the winter of our discontent. When the market does extremely well, high beta outperforms, low beta underperforms. Thus, even though low beta/volatility portfolios are up, they are not up nearly as much as the alternatives. That is benchmark risk, and why the low volatility strategy is not a slam dunk.
+
+These are data I maintain, for the US.

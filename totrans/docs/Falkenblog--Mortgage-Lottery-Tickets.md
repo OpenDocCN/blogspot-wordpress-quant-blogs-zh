@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:50:55
+-->
+
+# Falkenblog: Mortgage Lottery Tickets
+
+> 来源：[http://falkenblog.blogspot.com/2011/07/mortgage-lottery-tickets.html#0001-01-01](http://falkenblog.blogspot.com/2011/07/mortgage-lottery-tickets.html#0001-01-01)
+
+There appears to be a
+
+[program](http://www.startribune.com/business/124984364.html)
+
+that is targeting borrowers who haven't paid their mortgage in 3 months, have had a 15% loss in income, and live in their mortgaged property. As part of a $1B national program, 1500 lucky Minnesotans will receive a $50k no-interest loan after filling out a bunch of paperwork, and they don't have to pay it back at all if they then live in that home for 5 years.
+
+This seems to have all the wrong incentives. Why pay on your mortgage if you have had a decline in income given this carrot? In lending, ability and willingness to pay are key variables, and it seems government is doing everything it can to make people believe those who pay are suckers. As traditional lending then dries up, leaving only FHA lending, the housing market remains depressed. Further, most people who don't pay will just make it harder for them to get loans in the future and won't receive the windfall, as it is decided via a lottery.
+
+Recessions are bad things, but the key is that people need to find new lines of work where their services are needed, that will pay them what they think is their best wage. These programs simply slow this process down, as people hold out for the latest government give-away that encourages having lower income. Further, most people won't receive aid, so luring them into this complacency just makes them less motivated and ultimately poorer.

@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:21:16
+-->
+
+# Falkenblog: Lowenstein on Moody's
+
+> 来源：[http://falkenblog.blogspot.com/2008/04/lowenstein-on-moodys.html#0001-01-01](http://falkenblog.blogspot.com/2008/04/lowenstein-on-moodys.html#0001-01-01)
+
+So I heard from my old Moody's colleague that Roger Lowenstein, who wrote When Genius Failed (about LTCM), was preparing an expose on Moody's related to the mortgage crisis. It was a
+
+[piece](http://www.nytimes.com/2008/04/27/magazine/27Credit-t.html?_r=1&ref=business&pagewanted=print&oref=slogin)
+
+in the NYT Magazine, and I thought it wasn't so tendentious or misleading, it was actually pretty good.
+
+Moody's gave Lowenstein access to a particular mortgage deal in some detail, and Lowenstein notes that for a particular CDO done at the peak of the residential mortgage bubble, a securitization called XYZ, contained the usual stuff, but there was this:
+
+> [the loans] were originated by a West Coast company that Moody's identified as a 'nonbank lender.'... Moody’s learned that almost half of these borrowers — 43 percent — did not provide written verification of their incomes...half of the borrowers, however, took out a simultaneous second loan. Most often, their two loans added up to all their property's presumed resale value, which meant the borrowers had not a cent of equity.
+
+Moody's qualified this by noting these people had good credit scores, and these were generally their primary residences, so they thought it was safe. But 43% with no income verification? Half the borrowers had no equity in the game? Issued by a nonbank lender, meaning, someone without any large franchise value, and so he has little too lose when these things tank? That's picture perfect bad underwriting. I think the first thing to do isn't to adjust the algorithm, but do drug testing, because ignoring these details is like missing a fly ball because you were staring at the shiny lights on the ceiling.
+
+> “We aren’t loan officers,” Claire Robinson, a 20-year veteran who is in charge of asset-backed finance for Moody’s, told me. “Our expertise is as statisticians on an aggregate basis. We want to know, of 1,000 individuals, based on historical performance, what percent will pay their loans?”
+
+If you are using assumptions from people with a clear incentive to misrepresent themselves, why should we believe anything coming out of your group? Do you really think your statistical algorithms are all that people pay for? It's the whole, final, fat grade, which for Baa and up, is simply supposed to say 'you don't have to reunderwrite this, because its risk is insignificant.' A partial grade is a cop-out, because you can always say, after the fact, that one in a million things was off. If for a structured credit, a Moody's Baa means "this is A rated given the unverified and unanalyzed assumptions given to us, so we notched it down one grade", I have one word for you: worthless.
+
+These people, the mortgage recipients, the originators, had no skin in the game, and so, clearly had an incentive to take a bet on housing via a lax securitization process. When I worked for a bank, one needed 20% down payment to get a mortgage. After all, the first rule of banking is to only give loans to people who don't need them. This is a common joke, but the plain fact is, you should be reasonably sure that nonpayments are implausible, because estimating losses that are significant gets you into equity, not debt. The only exception is consumer loans, like credit card, and there we have millions of observations, and so one can expect to lose 5% a year, but with an 18% interest rate, it's tolerable. When you have no money in the house, a 10% fall in housing prices implies significant defaults, leading to the new territory, as we are finding out. If borrowers had 20% down and income verification, there would not be this problem.
+
+Moody's calculated an expected loss over the lifetime of the CDO of 4.9%, but only a year later, 13% of the loans were delinquent. In April 2007, Moody's announced it was revising its model used to evaluate subprime mortgages, but the horse was out of the barn. As Mark Adelson noted, Moody's statistical approach, applied to these very novel underwriting standards, was 'like observing 100 years of weather in Antartica to forecast the weather in Hawaii'. If ever the 'ceteris paribus' assumption didn't hold, this was it. Whoever led this group at Moody's should be fired.
+
+My friend and ex-Moody's colleague
+
+[Jerry Fons](http://www.fonsrisksolutions.com/)
+
+has a consulting practice, and his big beef with the rating agencies is the conflict of interest on these things. He
+
+[notes](http://www.fonsrisksolutions.com/Documents/Ratings%20White%20Paper.pdf)
+
+that, when you are getting paid to give grades, there's a clear incentive to good grades, especially when issuers shop ratings, looking for a good grader, who then gets this business. So one solution is to have investors, not issuers, pay. But that would be tough, because there's a free rider problem, in that most investors would wait for someone else to pay, and then, because secrets are impossible to keep, piggy back on that guy's opinion.
+
+Rating is a scale game, and it's efficient for one or two groups to specialize in these things, give one grade, so people don't needlessly duplicate the same function. I don't see how you can get around issuers paying. But it would be useful to mandate that all Moody's performance data is warehoused at the government, and have someone at the Fed publish the default data for Moody's, S&P, Fitch, and the rest. That is, in compensation for being a Nationally Recognized Rating agency, a valuable designation given to only a handful of companies, they need an objective scorecard that will adversely impact their stock price if they screw up. In this case, Moody's ratings on structured finance clearly isn't worth that much right now, and they really have to earn that back their credibility in this area.
+
+Currently, the rating agencies keep tabs on themselves via their default studies, and this information is too important, and too valuable, to have the agencies grade themselves. For example, Joseph Mason of Drexel University finds that CDOs defaulted eight times the rate of corporates for Baa ratings--a massive miss. Documenting this performance would hold Moody's accountable, as those in charge would know that if any group started to wreck the statistical validity of their ratings, it would cost them. There residential mortgage mistake is not merely a minor mistake, but reflects a profound lack of judgment on something fundamental--incentives.
+
+But as the article notes, what is the alternative? I'm sure the Feds, if they monitored it, would have a different set of incentive problems, more intractable. There is a huge franchise value to being independent, accurate, analysts of these issues, and so I think Moody's and their competitors will figure this out, but if this carrot is not sufficient, I don't see the next best solution. We don't merely want excess caution, because a rating that is excessively pessimistic is just as misinformative as one that is too easy: soon people will dismiss cautions because they are perceived, correctly, as too harsh. The worst result would for Moody's, or some new organization, merely make everything be bullet proof to get a rating, because then we would have a bunch of AAA rated paper, rated between AAA and BB, and this would merely then be noise, constrain credit, and not be an equilibrium solution.

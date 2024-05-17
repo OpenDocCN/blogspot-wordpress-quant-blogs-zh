@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:54:14
+-->
+
+# Clueless journos | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2006/05/30/hello-world/#0001-01-01](https://etrading.wordpress.com/2006/05/30/hello-world/#0001-01-01)
+
+## Clueless journos
+
+### May 30, 2006
+
+The cluelessness of most journalists is a bit of a pet theme for me. It shouldn't really need pointing out. Anyone with two brain cells to rub together will figure it out like this: read a newspaper article on your specialist subject, notice that the author has failed to do even the most basic research and ask the most obvious questions, then realise that the same must apply to pretty much everything else in the paper.
+
+Today's Evening Standard had yet another example. The City Editor, [Anthony Hilton](http://www.gordonpoole.com/speakers/AnthonyHilton.htm) commented on 'Big banks deadly game'. He mentions Enron, points out that they had a dealing room, and then asserts that we're now surrounded by Enrons, in the shape of the global investment banks, which of course, all have dealing rooms. He goes on to say "the big banks make between half and three quarters of their profit from dealing, and that no one from the outside can tell how they do it, or what their business really is".
+
+Later in the column there's an attempt to appear cluefull by means of a reference to [Taleb](http://www.fooledbyrandomness.com/). So let's spell it out for Hilton, since he seems not to understand what a dealer is, depsite his long and distinguished journalisic career. A dealer offers liquidity to the market by quoting prices to buy and sell a range of financial instruments in trades up to a certain size. I work for a dealer that supplies liquidity to the European government bond markets, among others. By standing ready to buy or sell EuroGovies in large amounts, my employer makes it possible for pension funds and insurers to take or unwind positions in EuroGovies at any time. They also make it possible for European governments to conduct treasury operations smoothly – for instance borrowing to finance government spending by issuing new debt. Dealers play a critical role in the smooth running of market economies.
+
+ I suspect Hilton is confused about the distinction between dealers and proprietary traders. No doubt he's confused about a lot else too.

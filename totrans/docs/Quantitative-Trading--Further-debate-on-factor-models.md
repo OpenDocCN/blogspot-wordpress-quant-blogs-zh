@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:22:18
+-->
+
+# Quantitative Trading: Further debate on factor models
+
+> 来源：[http://epchan.blogspot.com/2007/08/further-debate-on-factor-models.html#0001-01-01](http://epchan.blogspot.com/2007/08/further-debate-on-factor-models.html#0001-01-01)
+
+A reader from a hedge fund (who wishes to remain anonymous) sends me some thoughtful comments about factor models. He has graciously allowed me to reprint them here:
+
+"
+
+With regards to your blog entry, '[The Robin Hood regime](http://epchan.blogspot.com/2007/08/robin-hood-regime.html)': this weekend I was actually also thinking about the philosophy behind factor models which you allude to in the post. I am wondering if you have any other thoughts as to what service factor models provide? Relegating them to 'just arrogant bets on the correctness of the managers' convictions' isn’t completely intellectually satisfying to me.
+
+I look at factors as such: the returns I get for exposure to various factors can come either because the market is inefficient and systematically misprices those factors (alpha), and/or because I am providing some service via the exposure (and collecting some kind of risk premium associated with that service). My question #1 to you is, are you convinced that all of the returns to factor models are indeed simply from risk premiums and not alpha? If alpha exists, it’s less clear that a service needs to be provided to the market, at least to me.
+
+However, let’s assume (as I believe your boss did) that in the long run, the market is efficient. Then, you will be compensated for factor exposure only by bearing some risk or providing some service. In my mind, some particular conviction of a manager doesn’t necessarily qualify for a risk factor in and of itself - I think we agree on that point. But are there possible fundamental, valuation-based explanations behind these factors? Perhaps low VALUE companies are generally those companies with bad recent performance but which are expected to turnaround / mean-revert (as you somewhat suggest in your post) and the risk you bear when buying a low P/E company is “turnaround risk”. Or perhaps high MOMENTUM companies are companies riding an industry trend and you are bearing “trend continuation risk”. So, my question #2 to you is, are you convinced that there are no such explanations?
+
+If factor models do indeed work, it seems to me that there must either be real risks behind the factors, or alpha, or both."
+
+And here is my response:
+
+"I believe the service that some value factors provide is the efficient allocation of capital to those companies that deserve them, just like any value investors do. In this case, the factors hope to identify these companies faster than humans can, and therefore bring capital to them sooner. I have no argument with these factors as they also provide liquidity, albeit on a longer time-scale. However, with regard to various momentum factors, they are in fact just betting on certain behavioral characteristics of investors, or on the slow dissemination of news, etc. You can argue that they provide a service by improving the efficiency with which information about companies disseminate. But the problem is that once everybody are using these momentum factors, the market becomes efficient and any further bets generate losses.
+
+So I am quite willing to accept that many of these (momentum) factors represent alpha, but these factors are generating more losses as more investors employ them. I am also willing to accept that many of the (value) factors represent risk premia. As more investors employ these, the profit goes to zero, but fortunately not negative as the risk also disappears."

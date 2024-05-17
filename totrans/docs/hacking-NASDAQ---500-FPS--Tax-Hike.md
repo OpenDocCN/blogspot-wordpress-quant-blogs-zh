@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:03:24
+-->
+
+# hacking NASDAQ @ 500 FPS: Tax Hike
+
+> 来源：[http://hackingnasdaq.blogspot.com/2012/04/tax-hike.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/tax-hike.html#0001-01-01)
+
+Didn`t realize the SEC constantly changes their "securities transaction fee" aka SEC Section 31\. My understanding was it was a constant fixed rate, seems not.
+
+So the previously stated  -0.0000192 * Notional Value is no longer correct and its now
+
+$22.40 / 1e6 -> -0.00002240 * Notional Value
+
+There`s a nice history of the rate here.
+
+Not sure why it constantly changes, so lets dig into the docs. Presumably SEC needs hit a specified $$$ value each quarter and if the volumes drop enough they need to bump the fee,
+
+... and thats pretty much what happens
+
+*"Specifically, the Commission must now adjust the  **fee rates to a uniform adjusted rate that is reasonably likely to produce aggregate fee collections  **(including assessments on security futures transactions) equal to the regular appropriation to the* *Commission for the applicable fiscal year."*
+
+Whats interesting is the number for  "*regular appropriation to the Commission*" which is.... $1,321,000,000
+
+So the SEC`s revenue from this tax alone is $1.3Bn wow! But is pretty small when compared to the aggregate Personal & Corporate tax revenue each year.

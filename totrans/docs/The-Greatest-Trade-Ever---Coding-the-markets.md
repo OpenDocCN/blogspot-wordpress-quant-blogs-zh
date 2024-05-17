@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:35:46
+-->
+
+# The Greatest Trade Ever | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2011/02/01/the-greatest-trade-ever/#0001-01-01](https://etrading.wordpress.com/2011/02/01/the-greatest-trade-ever/#0001-01-01)
+
+## The Greatest Trade Ever
+
+### February 1, 2011
+
+I’m reading Zuckerman’s [Greatest Trade Ever](http://www.amazon.co.uk/Greatest-Trade-Ever-Behind-Scenes/dp/0385529910), an accout of how John Paulson’s hedge fund profited from the credit crunch. There’s a lot of anecdotage and general background. But among all that there’s some good detail on implementation. How to implement a view of the markets as a trade is a key question for any trader. Drobny’s [House of Money](http://www.amazon.co.uk/Inside-House-Money-Traders-Profiting/dp/047037909X) is excellent on this. Zuckerman’s book as some good stuff on why shorting the bonds or equity of home loan origination companies didn’t work, why CDSs on sub prime MBSs didn’t become tradeable til 2005, and why they were the right vehicle for shorting. Also on why using CDSs means negative carry, and why that’s generally a difficult thing for any portfolio. Taleb has some good comments on why his out the money options strategy suffered from the same problem.

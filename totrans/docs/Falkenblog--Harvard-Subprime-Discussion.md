@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:55:35
+-->
+
+# Falkenblog: Harvard Subprime Discussion
+
+> 来源：[http://falkenblog.blogspot.com/2008/09/harvard-subprime-discussion.html#0001-01-01](http://falkenblog.blogspot.com/2008/09/harvard-subprime-discussion.html#0001-01-01)
+
+Several Harvard experts
+
+[spoke](http://video2.harvard.edu:8080/ramgen/AAD-PAN/FinMktsPanel.rm)
+
+on about the subprime problem. Elizabeth Warren talked about how come toasters don't blow up at the same rate as financial instruments? Answer: regulation! Merton, speaks last, and says, paraphrasing, 'I agree with all the distinguish commenter prior to me and only have a few things to add...I don't think regulation is a solution because these areas were already highly regulated, and many regulators were pushing mortgage innovations that were part of the problem, not the solution.'
+
+So in other words, I agree with your usage of 'a' and 'the', but the rest, not so much.
+
+Specificity matters. As most concerns about Fannie and freddie were about their interest rate risk, and academics and regulators were pushing for lowering underwriting standard under the banner of increasing home ownership. 'More' regulation would not have helped given those priorities.
+
+Many of the concerns mentioned, are spilled milk. That is, worry about people being able to securitize loans with little recourse to the originator no more. There are no buyers for this kind of paper. Other issues, I think, would make things much worse. That is, focusing on helping the current mortgage owners by forestalling bankruptcy just makes the problem worse, because it increases the time were no one really owns the property. Giving the current mortgage owner an option at a time when he has no skin in the game, just creates a situation where you are creating hundreds of thousands of people with bad incentives: they should squeeze the banks to the degree they can per the law, because they have zero to lose.
+
+My impression was, warnings by Rogoff, Mankiw and Merton would go unheeded, and Harvard would prioritize more cookie cutter regulation that merely would increase the costs of lending under the guise of helping the little guy. William F. Buckley once famously said he would rather be ruled by the first 100 names in the phone book than the faculty at Harvard. I agree. Their average opinion is usually a train wreck based on top-down egalitarianism based on flawed assumptions about human nature and the relative ethics of the poor vs businessmen (the poor are saintly naifs fighting selfish captains of industry).
+
+Great Quote: "Most researchers want to put this in the greater context of their own research" ~ Greg Mankiw

@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:21:43
+-->
+
+# Falkenblog: Is Capital a Cushion for Bad Times?
+
+> 来源：[http://falkenblog.blogspot.com/2010/09/is-capital-cushion-for-bad-times.html#0001-01-01](http://falkenblog.blogspot.com/2010/09/is-capital-cushion-for-bad-times.html#0001-01-01)
+
+Recent capital regulation has
+
+[moved various capital ratios](http://blogs.reuters.com/felix-salmon/2010/09/12/basel-iii-arrives/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed:+felix-all+(Felix+Salmon+-+All))
+
+up from about 5% to 8%--depending how you calculate capital. I think raising the capital ratios is probably a good idea, given the 'too big to fail' implicit guarantee on bank debt implies huge option value to the equity owners, and no default risk for the debt owners, this is better than doing only 'too big to fail'.
+
+Yet, it is important point to remember is that equity is not a cushion for unexpected losses in some
+
+[Merton and Perold (1993)](http://onlinelibrary.wiley.com/doi/10.1111/j.1745-6622.1993.tb00231.x/abstract)
+
+type model of financial institutions. In the Merton and Perold model, both credit and market risk are completely understood by insiders and outsiders of the firm. Their measure of capital implies an increase in return on capital simply by bringing all firms under one big legal entity, as in this case profits would be strictly additive while capital would benefit from the diversification benefits. The empirical contrast, in the form of many firms in equilibrium, implies that they are missing something big.
+
+One way to see that capital is not merely a cushion for hard times, is to consider the following example. Assume a goose lays an average of 100 golden eggs a year, normally distributed with mean 100, stdev of 10\. The annualized discount rate is 10%, making the present value of this goose is $1,000 (100/.1).
+
+What is the amount of capital needed such that the annualized probability of default is 1%?
+
+A 1% adverse production over a year is a 76.7 eggs, so lending such that an interest rate of 10% generates that kind of interest payment implies that a 767 in debt would be paid each year by the eggs, with a 1% chance of failure.
+
+But if only 76 eggs were produced one year, meaning the goose owner could not pay his interest with cashflow, that same equity owner could easily borrow 1 egg based on his equity collateral, and stave off bankruptcy. The cashflow loss would have to be improbably large to overcome this obvious solution by the equity owner.
+
+It is the variability in the present value of the cash flows that is relevant, because there is basically no scenario that would wipe out the present value of the equity owner so much that he could not borrow to pay off his debt if he had debt of $767\. So now, assume the
+
+prospective mean
+
+of the egg distribution follows a random walk, and to simplify, the standard deviation of cash flows is now zero. Assuming the 1-period liability holders demand a 1% annualized default rate. With 100 as the mean number of eggs, and a 10 as the standard deviation of the mean, the liability holder is willing to finance this goose with 767 in debt (if the mean falls by 23.3, a 1% chance). But say the mean number of eggs falls to 76, and so the new present value is 760\. The equity owner now has a book value of -7\. Is that bankruptcy?
+
+Certainly not. Even in this case, the equity owner can, if he can produce 7 eggs, still maintain equity interest, and thus control over future revenues. If the return next period goes up 57 eggs, he gains 500 in equity value, if it loses any more eggs, he is worth zero. The equity owner has an incentive to borrow small amounts until this position becomes untenable, and he does this mainly by arguing that the prospective mean value is not really 767, but something higher, and bank executives are fundamentally salesmen. So the key issue is not the change in eggs, but that the change in eggs is not so large that the option value is so out of the money that equity owners are unable to pull this trick on debtholders.
+
+The most important determinant of failure is not not the size of the cushion or the shock, but rather, it's the prospect implied by the nature of the recent loss: is that a one-time effect or permanent? Is the 'business model' doomed, or just temporarily troubled?
+
+Defaulted debt averages a 50% recovery rate, so on average equity owners are able to game this until the value of the asset is 50% of the nominal liability. This implies such financial wrangling is common in sinking enterprises, who only 'fail' when outsiders stop buying their excuses (almost all failed companies, according to insiders, only needed 'a little more time').
+
+But this all gets back to an
+
+[article I wrote back in 1997](http://www.efalken.com/papers/VaR.PDF)
+
+for Derivatives Quarterly, that Value at Risk is not directly related to economic risk capital. Sure it is related, but very indirectly. How much would Citigroup have to lose for it to default? That very much depends on the type of loss. If the loss seems a one-timer, this won’t affect the expected returns going forward. If there seems a secular trend in their business such that the current loss is the tip of the iceberg, a small loss is sufficient, and debtholders are just salivating for a legal pretext to grab the assets, chop the company up, and sell it in parts.
+
+Historically, there is absolutely no evidence that leverage ratios are related to future default rates when you look at banks cross-sectionally (excluding the obvious cases where you are measuring leverage less than 6 months from failure, which is too late to affect anything). I think this is for two reasons. First, historically industry considered regulatory minimums too high, and so all banks had very clustered leverage ratios close to the regulatory minimum, making it hard to distinguish bad from good. Secondly, shocks to banks occur so episodically, in such radically different forms, so bankers tend to under provision for them (this is because the
+
+[mimicry genesis of business cycles](http://falkenblog.blogspot.com/2010/07/batesian-mimicry-explanation-of.html)
+
+). Bankers all think they have way too much capital, because there's a massive survivorship bias within banking, where everyone in charge pre-2008 had never experienced more than a couple percent draw-down. Sure, energy lending got whacked in the 1980's, commercial real-estate in 1990, and there were others, but that was 'those guys', idiots.

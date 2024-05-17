@@ -1,0 +1,66 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:01:36
+-->
+
+# hacking NASDAQ @ 500 FPS: SVD of HFT
+
+> 来源：[http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01)
+
+Cant believe it, first post on this blog was exactly 3 years ago wow... seems like such a long time. 3 years ago I couldn`t tell you the difference between buy, sell, bid, ask, long or short yet some how the projects and code I`ve written during this time now checks or trades, millions, tens of millions, hundreds of millions and sometimes billions of dollars every single day. The depressing part? all the time and effort in finance has not translated into 
+
+[George Washingtion`s](http://en.wikipedia.org/wiki/United_States_one-dollar_bill)
+
+. in my bank account.... bugger.
+
+So when your imagination and reality are so divergent its a good  times to step back and work out **what** your missing and not even consider the how or where of the equation - just focus on the what. Lets take a high level look at the game from the top down.
+
+HFT game has 5 major components
+
+1) Speed / Deterministic / Technology
+
+2) Commissions / cost structure
+
+3) Influence with the exchange
+
+4) Capital
+
+5) Strategy
+
+### Speed / Deterministic / Technology 
+
+This is the classic arms race, bigger faster, better. Its very true technology is a large component of any HF strategy however the trap technologist (like myself) fall into is, they believe technology alone can beat the market. What we dont realize is our technology edge starts and ends at the cable plugged into our box/switch. Theres so many other moving parts that are out of our control that tips the balance way into the red.
+
+In Round 1 any technology edge I had ended when it entered at the brokers pre-trade risk checks let alone entering the exchanges infra. In Round 2 have best in class access to the market but the edge is gone once the packet has left the NIC. Net result, speed/technology is important but you cant win a trade with it alone.
+
+### Commissions / cost structure
+
+HF strategies are unique because the per trade profit is very small, which makes it extremely sensitive to the per trade and monthly recurring costs. For example if your trade makes +100 cents on a win and -100cents on a loss with say 100 shares eg. 1cent/share. Say your broker, the exchange, the SEC takes 25 cents or 1/4 of the profit.
+
+This means you need a 15% edge (65% of the trades profitable) just to break even.
+
+Yet if your total fees is 5 cents vs 25 cents you need only a 3% edge (53%) of trades to break even.
+
+A delta of 12% profitable trades, means you need a really good signal, which is extremely difficult. Thats just to break even!
+
+### Influence with the exchange
+
+This one is probably a bit surprising to many as in theory an exchange is equal access for all participants. Thats the theory, yet in practice an exchange has finite manpower and equipment which results in the dude trading $100 / day vs the dude trading $100MM / day gets vastly different levels of service.
+
+Aside from man-power theres always political / boys club games and really is a catch-22 situation. To join the club you need to trade massive volumes, but to trade (profitably) massive volumes you need A class access into the matching engine.
+
+Why is it important? Your technology edge ends at the BGP endpoint (your router/switch) with a shit ton of other crap between that endpoint and a trade thats in the exchanges control.
+
+### Capital
+
+For the HF game capital is usually not a problem. The true believers are flat at the end of the day with no overnight / borrowing costs. Intraday your capital just limits the sizes of your position. The one thing capitial does give you is, market access and influence with an exchange. Any tier one prime broker will want a few million dollars deposit before they will even talk to you. Next step down requires a few $100K and so on. For now capital is not an issue.
+
+### Strategy
+
+And finally strategy, this is the true leveler. If you have excellent strategy then all the above can become noise. Yet the inverse is not true - you can have the best technology in the world but it will never make a bad strategy good.
+
+This is by far my biggest weakness and the skill I need to develop further, but what exactly needs to be learnt? The *what* is not an easy question. The first 6months of this expedition was largely wasted doing essentially some form of technical analysis - if signal X crossed signal Y then buy/sell kind of strategy development. Im sure it works for someone but thats not the HF game to play.
+
+So what`s missing? its how to mine the data and what to mine to gain a statistical edge. The how to mine is an easy technology problem, the what to mine is not. Im convinced machine learning is the way forward as its the next logical step beyond stat arb. After all isnt stat arb a form of the most basic machine learning? guess it all depends on your definite of learning.
+
+Whats next? Bayes, Markov, Kernels, Boosting and Kaggle mmmm Kaggle lol

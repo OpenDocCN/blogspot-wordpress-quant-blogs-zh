@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:49:08
+-->
+
+# Falkenblog: Minsky a Keynesian Sockpuppet
+
+> 来源：[http://falkenblog.blogspot.com/2009/09/minsky-keynesian-sockpuppet.html#0001-01-01](http://falkenblog.blogspot.com/2009/09/minsky-keynesian-sockpuppet.html#0001-01-01)
+
+[![](img/6ed18e556aa0548ea75e38df30685bbf.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhelptNSAYZM2R2EL6mEbJLqDPlzpKiiKlHlBCrLmwKMR_kKxJ3j_7P7LsrSgT6yBghqNxoYwuM92eta9dAaGQn5vD1b_7cGqIwws1g2MrAHDEM_HAfHDINoauWhhrVrK-YLrLu2g/s1600-h/HC-GK535_Minsky_20070817172502.gif)
+
+A Boston Globe
+
+[article](http://www.boston.com/bostonglobe/ideas/articles/2009/09/13/why_capitalism_fails/?page=1)
+
+tries to rehabilitate Minsky, as if his work proves Keynes had it right all along. To the extent Minsky believed markets were endogenously unstable, inevitably generating financial crises, I think this is a profound truth about capitalist systems. But that's a rather general point. It does not identify the mechanism, it just says don't think business cycles and panics are history, because success breeds overconfidence, too much leverage, and eventual collapse.
+
+I was Minsky's TA while a senior at Washington University in St.Louis in 1987, and took a couple of his advanced classes, which regardless of the official name, were all just classes in Minskyism. He was a maverick, but perhaps a bit too much, being a little too dismissive of others, as he hated the traditional Samuelson/Solow Keynesians as much as the Friedmanite Monetarists. He always thought a market collapse was just around the corner. The S&P was 250 when I took his course, it went to 1500 in 2007 and then back to 735 in 2009\. Does that prove he was right all along?
+
+He believed all microeconomics was 'apologetics', because in these models you get an equilibrium, and the essence of his economics was macro, and macro had a necessary time dimension. With time, you get uncertainty, Keynesian uncertainty, the kind that cannot be measured. And with this kind of environment, it does not take long for people to become overconfident, and move from standard finance (paying principle and interest with cash flow), to levered finance (paying only interest with cash flow), to ponzi finance (paying only with increases in collateral value). The latter is a bubble, and when it breaks, it can cause collateral damage via The Multiplier leading to a Great Depression. [I remember when he got all worked up by reading someone saying his 'Ponzi' finance term was an Italian smear. The kind of things academics fight about...].
+
+The problem, however, is that his top-down theory is rejected by the data. Aggregate leverage ratios do not closely correspond to business cycles. If Minsky took microeconomics more seriously he could have made his theory more relevant, by noting that crises tend to occur in specific subsets in the economy: in 1990, hotels and Commercial real estate, in 2001, high tech, in 2008, mortgages. The mistake is not one made in aggregate, but in different sectors each recession. By noting these areas, but not the aggregate economy, had too much leverage, and depended on expected future increases in collateral value, he might have been more successful proselytizing his colleagues. But he was a traditional Keynesian, who liked to look at aggregate equations, like Profits=Investment + Deficits + Net Imports.
+
+Most articles celebrating Minsky have a strong subtext, kind of like Krugman's
+
+[wistful remembrance](http://www.nytimes.com/2009/09/06/magazine/06Economic-t.html?_r=1&em)
+
+of his undergraduate macro based on the General Theory, that if we only go back to the days when Nixon famously said 'we are all Keynesians now', we would have more faith in government top-down solutions. That was when Federal spending was 30% of GDP. Now it's 40%. Economists did not abandon Keynesianism because they are capitalist dupes, rather, it was inconsistent, generated poor models of economic growth, and it neglected the micro economic factors that make all the difference between a North Korea and South Korea: free markets, property rights, decentralized incentives. A Keynesian thought he could steer the economy via two controls, the budget deficit and the Fed Funds rate, and indeed in the short run these are very powerful tools, but in the longer run, rather unimportant.

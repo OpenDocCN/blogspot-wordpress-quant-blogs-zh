@@ -1,0 +1,46 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:54:32
+-->
+
+# Falkenblog: Jim Cramer Generates 134.79% Return!
+
+> 来源：[http://falkenblog.blogspot.com/2009/07/jim-cramer-generates-13479-return.html#0001-01-01](http://falkenblog.blogspot.com/2009/07/jim-cramer-generates-13479-return.html#0001-01-01)
+
+Recently, my email has been full of all sorts of Cramer-Spam, with stories about all these great stock picks he made. Here's a sample of bullet points from emails from "Jim Cramer (members@e.mail-thestreet.com)":
+
+*   Model Portfolio Outperforms S&P 500: 134.79% Total Average Return*
+*   On January 20th, I bought Goldman Sachs at $60\. When it hit $85 on January 28th, I trimmed my shares, locking in a 41% gain
+*   I bought GE at $8.78 when everyone thought it was going bankrupt — and now it's up 50%.
+*   My subscribers were right on hand as I bought NKE for $44 on March 19th, watched the stock skyrocket, and pocketed my profits on June 2nd for a return of 34%.
+*   RealMoney recommended China Green Agriculture (CGA) when its shares were trading at $5\. The stock closed at $8.09 and subscribers who followed our advice netted a 61.8% gain
+*   RealMoney advised subscribers to buy shares in Darling International (DAR) when the stock was trading at $4.54 a share. The stock then closed at $6.60\. Once again, RealMoney nailed the market with a 46% return.
+*   P.S. I can only extend [this offer](http://secure2.thestreet.com/cap/prm.do?OID=012904&cm_cat=RM&cm_ite=012904&cm_ven=EMAIL) to you for 48 hours so please do not delay.... you have absolutely nothing to lose when you take us up on our $129.95 offer
+
+Notice his example picks have an average return well above anyone's hurdle rate, with returns of 30% to 134.79% (love than .79). It's funny when people sell penis enlargement pills online for $50 because its silly and not a lot of money, but as John Stewart noted, the stock market isn't a game. This is disgraceful and CNBC should be aware this makes them part of his scam. It simply isn't plausible that 30%+ returns are representative, and they know that, and suredly would say they didn't mean every return is this high, but it's like lottery ads saying 'anyone can win'—true enough, but highly misleading.
+
+The following is from
+
+[my book](http://www.amazon.com/Finding-Alpha-Search-Return-Finance/dp/0470445904/ref=sr_1_1?ie=UTF8&s=books&qid=1243302335&sr=1-1)
+
+on stock recommendations, where I note that in contrast to standard asset pricing theory, ALL stock recommendations promise above average returns. In theory, half of all stocks should be recommended with below-average returns because they have good 'risk adjusted' returns, but this doesn't happen. That this never happens highlights a profound mischaracterization of risk-taking by standard asset pricing theory. People only take risk to outperform, never to achieve a lower return with greater safety (excluding cash-like asset holdings, such as AAA bonds or short term paper).
+
+<param name="movie" value="http://www.youtube.com/v/FLW5nculY8w&amp;hl=en&amp;fs=1&amp;"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/FLW5nculY8w&amp;hl=en&amp;fs=1&amp;" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+
+Jim Cramer is now an internet hack shill. His encyclopedic knowledge of company details is impressive, and he did run a successful hedge fund for a decade, though as a hedge fund his performance claims are unaudited and implausible (
+
+[24% annual returns with 1 down quarter over 10 years](http://falkenblog.blogspot.com/2008/12/when-investors-dont-ask-questions.html)
+
+). Yet for some strange reason, like many famous investors, he quickly realizes it is more profitable to sell advice than invest on it. If he had anything like the edge he claims (5% out performance?), it simply makes no sense to sell this advice as opposed to invest on it, especially when you have capital to start.
+
+So now the same company (CNBC) he used for his pump-and-dumps in the 1990s he uses to broadcast his highly popular show 'Mad Money', illustrating that the best salesman create willing dupes impervious to experience. Note that Cramer
+
+[went on John Stewart's Daily Show](http://falkenblog.blogspot.com/2009/03/stewart-lectures-cramer.html)
+
+, and instead of defending himself, obsequiously cried 'my bad' and hoped he could then buddy up with a witty and more popular celebrity. Stewart was having none of it, and just piled on the criticism, showing that some people have the integrity not to change their positions merely because they are offered a mutual public admiration quid-pro-quo.
+
+As found in this
+
+[YouTube clip](http://www.youtube.com/watch?v=_nkZ3eHeXlc&eurl=http://falkenblog.blogspot.com/2008/07/cramer-busted.html&feature=player_embedded)
+
+, Cramer has a selective memory when it comes to his recommendations. And his bizarre claim that he manipulated the Spiders (SPY) by shorting them, is so inconceivable, it makes me skeptical of anything he says about his experience (this market is too large for someone running a small hedge fund, and after pushing it down, exactly how do you make money?).

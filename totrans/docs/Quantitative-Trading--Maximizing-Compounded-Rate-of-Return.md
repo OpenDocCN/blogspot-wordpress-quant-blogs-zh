@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:28:16
+-->
+
+# Quantitative Trading: Maximizing Compounded Rate of Return
+
+> 来源：[http://epchan.blogspot.com/2006/10/maximizing-compounded-rate-of-return.html#0001-01-01](http://epchan.blogspot.com/2006/10/maximizing-compounded-rate-of-return.html#0001-01-01)
+
+A simple formula that few traders utilize
+
+*Here is a little puzzle that may stymie many a professional trader. Suppose a certain stock exhibits a true (geometric) random walk, by which I mean there is a 50-50 chance that the stock is going up 1% or down 1% every minute. If you buy this stock, are you most likely, in the long run, to make money, lose money, or be flat?*
+
+*Most traders will blurt out the answer “Flat!”, and that is wrong. The correct answer is you will lose money, at the rate of 0.5% every minute! That is because for a geometric random walk, the average compounded rate of return is not the short-term (or one-period) return *m* (1% here), but is *m – s²/2*, where *s* (also 1% here) is the standard deviation of the short-term return. This is consistent with the fact that the geometric mean of a set of numbers is always smaller than the arithmetic mean (unless the numbers are identical, in which case the two means are the same). When we assume, as I did, that the arithmetic mean of the returns is zero, the geometric mean, which gives the average compounded rate of return, must be negative.*
+
+*This quantity *m – s²/2* holds the key to selecting a maximum growth strategy. In a previous article (“[How much leverage should you use](http://epchan.blogspot.com/2006/10/how-much-leverage-should-you-use.html)?”), I described a scheme to maximize the long-run growth rate of a given investment strategy (*i.e.*, a strategy with a fixed *m* and *s*) by leveraging. However, often we are faced with a choice of different strategies with different expected returns and risk. How do we choose between them? Many traders think that we should pick the one with the highest Sharpe ratio. This is reasonable if a trader fix each of his or her bet to have a constant size. But if you are a trader interested in maximizing long-run wealth (like the Kelly investor I mentioned in the previous article), the bet size should always be proportional to the compounded return. Maximizing Sharpe ratio does not guarantee maximal growth for multi-period returns. Maximizing *m – s²/2* does.*
+
+*For further reading:*
+
+*Miller, Stephen J*. The Arithmetic and Geometric Mean Inequality.* [ArithMeanGeoMean.pdf](http://www.math.princeton.edu/mathlab/book/papers/ArithMeanGeoMean.pdf)*
+
+*Sharpe, William. *Multi-period Returns*. [http://www.stanford.edu/~wfsharpe/mia/rr/mia_rr3.htm](http://www.stanford.edu/~wfsharpe/mia/rr/mia_rr3.htm)*
+
+*Poundstone, William. (2005). *[Fortune’s Formula](http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2FFortunes-Formula-Scientific-Betting-Casinos%2Fdp%2F0809046377%2Fsr%3D8-1%2Fqid%3D1162737089%3Fie%3DUTF8%26s%3Dbooks&amp;amp;tag=quantitativet-20&linkCode=ur2&camp=1789&creative=9325)*. New York: Hill and Wang.*

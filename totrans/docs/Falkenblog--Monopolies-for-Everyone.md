@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:06:21
+-->
+
+# Falkenblog: Monopolies for Everyone
+
+> 来源：[http://falkenblog.blogspot.com/2011/03/monopolies-for-everyone.html#0001-01-01](http://falkenblog.blogspot.com/2011/03/monopolies-for-everyone.html#0001-01-01)
+
+Monopolies enjoy above average profits because barriers to entry prevent competition from lower prices down to their marginal cost. This reduces output, and raises prices for consumers, a suboptimal outcome. We all know that business monopolies are bad for the economy, even if they would help individual companies.
+
+Yet, many still think that if only everyone can be in a union, all would be well. Political scientists Jacob S. Hacker and Paul Pierson
+
+[argue](http://www.washingtonpost.com/wp-dyn/content/article/2011/03/04/AR2011030406264_pf.html)
+
+in the Washington Post that not only are unions good for their members but also that unions promote a strong middle class.
+
+[Krugman](http://www.nytimes.com/2011/02/21/opinion/21krugman.html?_r=1&partner=rssnyt&emc=rss)
+
+and other liberal economists see attacks on unions as harmful to our nation, especially through its affect on inequality. Unions have monopoly power because the federal government gives them the power, not the right, to be the sole bargaining agent for workers in a plant or company, even if many of the workers don't want to be represented. That an economist like Krugman would see such monopolies as a good thing highlights the fact that economics does not constrain or guide one's thinking, merely provides another way to frame arguments.
+
+That the inefficiency of union monopolies is still disputed is one reason I don't take economics so seriously anymore. You can always find some convoluted reason why some partial equilibrium result generalizes, and so basic economic insights like the inefficiency of monopolies, trade restrictions, or taxes that favor debt over equity. It makes me think, what's the point of economics if these easy issues are still debatable?

@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:36:03
+-->
+
+# Falkenblog: Is Arithmetic Return Bias Basis of Low Vol Anomaly?
+
+> 来源：[http://falkenblog.blogspot.com/2012/01/is-arithmetic-return-bias-basis-of-low.html#0001-01-01](http://falkenblog.blogspot.com/2012/01/is-arithmetic-return-bias-basis-of-low.html#0001-01-01)
+
+[![](img/f7ab8138c2076f8b8b189295bdb8a153.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlBmj_Y45TYi3oB_z6HCgwIoTDVJ4o3D2u0fQWUO0enadG1p3yraAk1VNz0-frJvn0wYorHeX_fHHxKa7ov1EazjLpFeC77tsaWatBBFv0OU-oN3gpH1I3nycgv3-ZiO40iGtXrg/s1600/highvsSPX.jpg)
+
+I created an index of the highest beta stocks from 1962 to present. Every 6 months I took those 100 highest beta stocks, excluding the lowest 20% in market cap (to get rid of dumb stocks you can't trade). The results are in the chart above, and summary data are as follows:
+
+[![](img/5da38df058b392327cdd0a188add971b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSVG4zq_VeLmoce1EVxCewHLyxus1ekropjlHXBFYcHfj7JCmE9afmkD1n2xxbxSW0u89CHQxZcZgSNae32MTb2qdZRaZlgSiYqIM_a6eb9ZHpgL5Hc7dKHO-sPNGyGpg3rmdKpg/s1600/betahightab.jpg)
+
+The top line, "AnnReturn", is the arithmetic return, and here the monthly returns for the high beta stocks are about 0.14% higher than the S&P500, which when multiplied by 12 is a 1.7% difference. But looking at the chart which shows a total return chart, and the geometric annualized return, we see a very different picture, with the high beta stocks underperforming by 3.5% annually.
+
+The basis for this is the difference between geometric and arithmetic returns, which is
+
+Geometric Return =Arithmetic Return - Variance/2
+
+Thus, the differential annualized variance (in this case, 12% vs. 2%), generates the differential annualized return. Interestingly, the return rankings for these data are different depending on the horizon!
+
+Mutual funds and individual investor holding horizons average about 1 year, and I think that's a good assumption for an investment horizon. It seems that 1 year would be the obvious horizon to apply data against, but the problem is there is so little of it. There's like twelve times as much monthly data! A simple fix would be to use log returns, but this doesn't always happen, and I think those who still find the
+
+[Security Market Line](http://en.wikipedia.org/wiki/Security_market_line)
+
+to have a positive slope in general are looking at monthly percent return data, and this is why they see what they do.

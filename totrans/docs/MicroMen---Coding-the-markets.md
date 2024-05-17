@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:38:32
+-->
+
+# MicroMen | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2009/10/12/micromen/#0001-01-01](https://etrading.wordpress.com/2009/10/12/micromen/#0001-01-01)
+
+## MicroMen
+
+### October 12, 2009
+
+My first computer was a ZX81, so [MicroMen](http://www.bbc.co.uk/programmes/b00n5b92) on BBC4 was a powerful blast of nostalgia for the early 80s. Funny, sad and exhilarating – the Acorn hack against the clock to build the BBC prototype was fantastic, and the Clive Sinclair Mensa sequence is hysterical. I was an undergrad at Cambridge in the late eighties, so I was pleased to see them get loads of detail right: the Baron of Beef pub, the Computer lab. I used to see Sinclair jogging on the Madingley Road on the rare occasions I was out and about before midday…
+
+I built my [ZX81](http://en.wikipedia.org/wiki/ZX81) from a kit. I later added all kinds of peripherals, including a real keyboard and 16K RAM pack. Another great point of detail in MicroMen was the reference to the dreaded [RAM pack wobble](http://en.wikipedia.org/wiki/ZX81#Peripherals_and_expansions) that afflicted ZX81s. After the ZX81, I went on to a [Camputers Lynx](http://www.computinghistory.org.uk/det/2926/Camputers-Lynx-96/), also mentioned in MicroMen, and then an [Atari 520](http://en.wikipedia.org/wiki/Atari_ST) that I took to college in 86.

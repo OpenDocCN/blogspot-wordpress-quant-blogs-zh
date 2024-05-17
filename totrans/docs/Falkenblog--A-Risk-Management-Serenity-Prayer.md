@@ -1,0 +1,43 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:56:37
+-->
+
+# Falkenblog: A Risk Management Serenity Prayer
+
+> 来源：[http://falkenblog.blogspot.com/2009/06/risk-management-serenity-prayer.html#0001-01-01](http://falkenblog.blogspot.com/2009/06/risk-management-serenity-prayer.html#0001-01-01)
+
+> God grant me the serenity
+> to accept the things I cannot change;
+> courage to change the things I can;
+> and wisdom to know the difference.
+
+There is profound wisdom in
+
+[this statement](http://www.cptryon.org/prayer/special/serenity.html)
+
+, because it highlights the importance prioritization. A mathematician can tell you what is true, false, or undecidable using irrefutable logic, but that's generally not very helpful, and why mathematicians are generally considered smart in that idiot-savant way.
+
+I thought of this when I read Paul Wilmott
+
+[blog](http://www.wilmott.com/blogs/paul/index.cfm/2009/6/24/FSA-Its-Worse-Than-I-Feared)
+
+about why quants should address more of the outside-the-box questions. He gives the
+
+[example](http://www.wilmott.com/blogs/paul/index.cfm/2008/12/12/Magicians-And-Mathematicians)
+
+of, basically, what is the probability a magician will pull a card out of a deck, given you get to 'randomly' pick the card (eg, ace of clubs). With a fair deck the odds are 1/52, but given the card picker is a magician this is probably not a 'fair' deck. So an obvious potential answer is 100%, especially if you are being asked in front of a large audience.
+
+All well and fine, but Wilmott draws from this story that this is what quants should focus upon, the outside-the-box things that seem to bedevil real life. Look for the magicians, not the simple odds in a fair deck.
+
+Consider high profile fiascoes as Metallgesellschaft, Orange County, Enron, AIG. These were not properly calculated risks that went awry, nor were they outright fraud where an unauthorized intraday position blew up. They were the result of investors or management not fully understanding the risks that were being taken (the CEO off AIG was telling employees they had no, zero, exposure to mortgages throughout most of 2008). These risks—breakdowns in incentives, communication, assumptions, etc.—are called operating risks, and represent a residual of all things that are not cleanly within credit or market risks. If operating risk are the primary reason why financial firms fail, emphasis on refining models where the assumptions are presumed true seemingly misses the point.
+
+Operating risk is neglected by risk management for good reason. It is impossible to quantify existing operating risks, which in turn makes it near impossible to evaluate methods of monitoring and reducing these risks. One can endlessly discuss assumptions, but invariably there comes a time to make an assumption and then work on those assumptions. To merely assume anything can happen in a particular instrument invariably will imply you should not be investing in that instrument, because if it makes money under the 'anything can happen' assumption it is obvious arbitrage.
+
+If the primary risks facing financial companies are from things 'outside the box', shouldn't one focus outside the box? That is, if what brings down most companies are flawed assumptions or poor controls rather than poor luck, then most of the true risk for a trading operation is not in stress tests or Value-at-Risk, but the risks that exist outside a firm’s precisely calculated risk metrics.
+
+Consider an analogy from American football. The biggest single metric determining wins and losses is turnovers: you get a turnover you gain a huge amount of field, and vice versa if you lose. While you should tell your players to hold onto the ball, and not throw interceptions, this can't be the focus of your game preparation. There is a lot of luck involved in turnovers, and generally, a team fighting to catch up, or afraid of getting the snot smacked out of them, fumbles more. Focus on what you can improve.
+
+Most high-profile risks appear in retrospect to be the result of avoidable vices such as overconfidence, laziness, fraud, and gross incompetence. Yet complicating this picture is the fact that traders are notorious for continually expanding the scope of products they offer, especially because these cutting-edge products tend to have higher profit margins. This is a risk a profitable trading floor cannot avoid; by the time a product is fully understood by independent risk managers, the large margins will be gone. As opposed to academia where one can spend a long time on a single issue that one defines, in the private sector quants have to come up with solutions for many problems they do not fully understand, and do not have the luxury of saying 'it may lose 100% of its value' as if that's helpful.
+
+One sign of good judgment is the ability to make wise decisions when information is incomplete. Knowing how to prioritize one's focus is a big part of that. There's nothing more pointless than a bunch of high IQ quants—whose comparative advantage is not the 'bigger picture'—focused on that bigger picture. Have them calculate the implications to standard assumptions. This is yeoman's work, essential but insufficient

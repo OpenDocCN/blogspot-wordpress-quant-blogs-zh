@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:25:49
+-->
+
+# Falkenblog: Prop 13 Isn't Choking California
+
+> 来源：[http://falkenblog.blogspot.com/2012/07/prop-13-isnt-choking-california.html#0001-01-01](http://falkenblog.blogspot.com/2012/07/prop-13-isnt-choking-california.html#0001-01-01)
+
+My brother is a standard progressive liberal living in California, and he plans to move to Oregon soon. As California is run by Liberal principles, in large part, I asked him why California is so poorly managed. His answer: prop 13\. But he's not a lunatic, Nobel prize winning economist Paul Krugman has made the
+
+[same argument](http://www.nytimes.com/2009/05/25/opinion/25krugman.html?_r=4)
+
+.
+
+ Prop 13 was a state law enacted in 1978 that prevented property taxes from rising much as long as you owned the property. When you sell it, it resets. While the hope was this would help little old ladies from getting pushed out of their houses, and keep government spending in check, the net result is that with inflation you now have many places where people are living in million dollar homes and paying taxes as if it were only a $100 home. Looking at it differently, they are spending 10x as much as their neighbor on taxes.
+
+ This would fit the narrative that bad things happen mainly because people don't care enough to spend government money on them. That point was made yesterday by the writer John Scalzi, who claimed he owed his success to government in
+
+[this piece](http://whatever.scalzi.com/2012/07/23/a-self-made-man-looks-at-how-he-made-it/)
+
+, and noted:
+
+> From kindergarten through the eighth grade, I had a public school education, which at the time in California was very good, because the cuts that would come to education through the good graces of Proposition 13 had not yet trickled down to affect me.
+
+But then, per capita spending in California on schooling is higher than anywhere else in the US (see
+
+[here](http://www.ppic.org/content/pubs/rb/RB_107TGRB.pdf)
+
+), and per capita spending has been above inflation plus population growth for the past 20 years (see
+
+[here](http://reason.org/news/show/californias-spending-by-the-nu)
+
+). Californians still pay 22% of their income in state and local taxes, compared to 14% for Texas (
+
+[cite](http://www.blogger.com/State%20spending%20in%20the%20past%20two%20decades,%20as%20this%20Reason%20Foundation%20report%20%5BPDF%5D%20spells%20out,%20has%20increased%205.37%20percent%20a%20year%20(and%20nearly%207%20percent%20for%20the%20past%20decade),%20compared%20to%20a%20population-plus-inflation%20growth%20rate%20of%204.38%20percent.%20If%20the%20budget%20growth%20rate%20had%20been%20limited%20to%20the%20population-inflation%20growth%20rate,%20the%20state%20would%20be%20sitting%20on%20a%20%2415%20billion%20surplus%20right%20now.%20Surely%20enough%20to%20dip%20into%20during%20a%20real%20emergency.%20What's%20more,%20despite%20this%20alleged%20tax%20straightjacket,%20Californians%20manage%20to%20still%20pay%2021.9%20percent%20in%20state%20and%20local%20taxes,%20compared%20to%2014.5%20percent%20for%20Texas.)
+
+). The beast is not starved. I agree that prop 13 is a rather ham-handed way to implement constraints on spending, and now it's a mess because it creates a very powerful lock-in effect on current property owners. But it has little to do with California's downward spiral, a state that used to be the most educated, prosperous, and beautiful place on the planet, is now near the bottom of state achievement, and their public places (airports, beach bathrooms) are poorly maintained, like the bankrupt state they are.

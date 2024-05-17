@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:43:01
+-->
+
+# Counterpoint: Strange Divergence | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/11/09/counterpoint-strange-divergence/#0001-01-01](https://cssanalytics.wordpress.com/2009/11/09/counterpoint-strange-divergence/#0001-01-01)
+
+For more COT analysis on Gold, Jez Liberty a frequent reader and friend of the blog forwarded me this link from Alex Roslin’s site: [http://cotstimer.blogspot.com/](http://cotstimer.blogspot.com/)Here is some bullish evidence at least making the case for Gold despite the bearish positions expressed in the COT report. This was forwarded to me by Alex Golubev–also a frequent reader and friend of the blog–a piece written by prominent economist David Rosenberg:
+
+“GOLD-ILOCKS
+
+We are still contemplating the massive gold purchase by the Reserve Bank of India — the largest in at least 30 years that took up half of what the IMF intends to sell. Look for China to come in next.
+
+But here is the reality. All India did was bring gold to a 6% share of its total FX reserves from 4%. Fifteen years ago, that representation was closer to 20%. China has increased its gold holdings by 76% over the past six years but they are a mere 1.9% of the aggregate 2.2 trillion of reserves and Russia’s gold holdings is just under 5%. This is not the 1990s when Bob Rubin was running a hard U.S. dollar policy, U.S. fiscal deficits were vanishing and gold production was on the rise. Today’s world is exactly the opposite. Policymakers beginning in the 1990s wanted disinflation and got it. Now they want inflation — it will take years, maybe a decade, but it will come. For the near-term, we are still optimistic on Treasury securities but be forewarned that this view has an expiry date that is earlier than the peak we are likely to see in gold.
+
+It is very clear that central banks are behaving in a way that would suggest that gold is now again being considered a currency within the global monetary system. As we said before, it is all about relative scarcity and a well-defined supply curve — fiat currency at this juncture does not share that quality. As a good friend reminded me yesterday, when the Fed was created nearly a century ago, it was acceptable to have at least 40% of the money supply backed by gold reserves. The U.S. now has 8,133 tons of gold in reserve, which equates to $285 billion at this year’s pricing.
+
+Meanwhile, the Fed has spiked the punchbowl to such an extent that the monetary base now stands at $1.7 trillion. Do the math — under the old regime (which indeed hamstrung the Fed), the U.S. alone would need to buy an incremental $400 billion of bullion or the equivalent of what would be nearly four times the typical level of annual demand. We could do the same calculation based on M2 but we don’t want anyone falling off their chairs.
+“ – David Rosenberg

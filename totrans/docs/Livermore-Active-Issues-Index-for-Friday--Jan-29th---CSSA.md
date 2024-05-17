@@ -1,0 +1,15 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:36:54
+-->
+
+# Livermore Active Issues Index for Friday, Jan 29th | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/01/29/livermore-active-issues-index-for-friday-jan-29th/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/29/livermore-active-issues-index-for-friday-jan-29th/#0001-01-01)
+
+January 29, 2010 7:08 pm
+
+hi jez, thanks–its a long term index so alpha takes time to build with a fair amount of short-term variance, but it was designed to be asymmetric with more upside in positive markets and less downside in negative markets. it can be used as a ranking system, but the preferred use of the bottom 50 or bottom 10 is actually as a mean-reversion index that can be traded with using the RSI or DV2 etc. an offshoot of the livermore is that it responds especially well to trend-following methods–and since the index does not incorporate timing this is very beneficial.
+
+cheers
+dv

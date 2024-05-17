@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:09:41
+-->
+
+# Falkenblog: Chomsky Making Sense
+
+> 来源：[http://falkenblog.blogspot.com/2009/04/chomsky-making-sense.html#0001-01-01](http://falkenblog.blogspot.com/2009/04/chomsky-making-sense.html#0001-01-01)
+
+Of course, we have to back to his work on linguistics. In this short BBC
+
+[interview](http://www.youtube.com/watch?v=EksuA4IAQIk)
+
+, he articulates his their of the inherent ability of humans to acquire language. We are preprogrammed in a way that makes learning speech easy, in that almost everyone does it without much training. A small amount of rather degenerate experience allows us to make a leap into a rich cognitive system using an innate structure that is today still quite mysterious. In comparison, people need years of training to learn mathematics, or writing. It's really a fascinating insight into the human mind.
+
+<param name="movie" value="http://www.youtube.com/v/EksuA4IAQIk&amp;hl=en&amp;fs=1"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="http://www.youtube.com/v/EksuA4IAQIk&amp;hl=en&amp;fs=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+
+The old theory of behaviorism posited that people learn by overtraining, induction, and deduction. The state we would achieve merely by this method would be a reflection of our environment, which means it would be extraordinarily impoverished and show much more variability than what we observe.
+
+The most imaginative people are the most credulous, as to them everything is possible. Though unlike most leftists of the 1960s, he believed in some innate nature of man, in other aspects he was a typical socialist, whose theory of economics is merely a critique of capitalism as opposed to anything positive or realistic. In his view of human nature people are eager to work for collectives that capture all the great gifts of mankind, but big government or corporations are always frustrating these efforts. Chomsky thinks anyone with power is evil, which conflates many shades of gray. That is, ignorant foragers in the jungle are noble savages, even though they have little enlightenment and high homocide rates, merely because they are not efficient enough to affect others. Further, because the US is powerful, it necessarily is more repressive than any other government. Tell that to all the immigrants who want to move here.
+
+When asked to point to a 20th century government he likes he is silent, because he has been burned before celebrating the relative virtue of the Khmer Rouge or China. His painting the US and USSR as moral equals in the cold war is ridiculous, because beginning with the mass state-sanctioned
+
+[rape of German women](http://www.rferl.org/content/article/1099647.html)
+
+by the Red Army at the end of WW2, through the next 45 years, the Soviet Union was much much worse in terms of generating liberty and prosperity of those they ruled.
+
+But, no man is a unity--Hitler was nice to dogs and children, after all. Chomsky has has had some really good ideas.

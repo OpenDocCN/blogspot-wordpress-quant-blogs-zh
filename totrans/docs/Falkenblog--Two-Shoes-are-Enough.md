@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:20:43
+-->
+
+# Falkenblog: Two Shoes are Enough
+
+> 来源：[http://falkenblog.blogspot.com/2010/09/two-shoes-are-enough.html#0001-01-01](http://falkenblog.blogspot.com/2010/09/two-shoes-are-enough.html#0001-01-01)
+
+[![](img/53ea7186f451faa032238fc3d525d3c4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDp6-Br4deK_hU8k-l8w8Q8d-Xwr67AJpPyScJyz-pef66AduY751rZmCz0HxAzBzj-SlrDHqvyHubGsjvufjoJLnngYesLx74OXXp2awlG9ssQGWBBH03Cl_wR6OjVS7Rp25kIw/s1600/bloomberg040909.jpg)
+
+Anyone who works with a Bloomberg terminal, and knows how much they are paying per month, knows Mayor Bloomberg is a very wealthy man. Yet, interestingly,
+
+[he owns only two pair of 'work' shoes](http://www.nypost.com/p/news/local/mike_an_old_sole_j0woHBJiIM8dIT0UuOdK4L)
+
+:
+
+> Mayor Bloomberg is the rare billionaire who can preach penny-pinching without putting his foot in his mouth.
+> He's been wearing the same shoes for 10 years.
+> "The mayor owns only two pairs of work shoes," his spokesman, Stu Loeser, told The Post. "One day he'll wear one, the next the other -- and when they get worn down, he has them resoled."
+
+I agree, in that when you find a good pair of shoes you want to wear them every other day (they need a breather). Indeed, many of my favorite objects are like that: chairs, couches, jeans, t-shirts. It makes you understand why after only a little bit of income (~$70k/year)
+
+[happiness is uncorrelated with income](http://www.dailymail.co.uk/sciencetech/article-1309649/Key-happiness-Start-50k-year-salary-say-American-scientists.html)
+
+.

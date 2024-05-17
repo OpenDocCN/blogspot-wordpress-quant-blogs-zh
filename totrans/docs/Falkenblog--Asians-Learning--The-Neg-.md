@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:54:19
+-->
+
+# Falkenblog: Asians Learning 'The Neg'
+
+> 来源：[http://falkenblog.blogspot.com/2011/05/asians-learning-neg.html#0001-01-01](http://falkenblog.blogspot.com/2011/05/asians-learning-neg.html#0001-01-01)
+
+In a fascinating essay in the New York Magazine, an Asian writer Wesley Yang
+
+[talks about](http://nymag.com/print/?/news/features/asian-americans-2011-5/)
+
+coming out of his timid shell:
+
+> I recall one of the strangest conversations I had in the city. A woman came up to me at a party and said she had been moved by a piece of writing I had published. She confessed that prior to reading it, she had never wanted to talk to me, and had always been sure, on the basis of what she could see from across the room, that I was nobody worth talking to, that I was in fact someone to avoid.
+> 
+> But she had been wrong about this, she told me: It was now plain to her that I was a person with great reserves of feeling and insight. She did not ask my forgiveness for this brutal misjudgment. Instead, what she wanted to know was—why had I kept that person she had glimpsed in my essay so well hidden? She confessed something of her own hidden sorrow: She had never been beautiful and had decided, early on, that it therefore fell to her to “love the world twice as hard.” Why hadn’t I done that?
+
+The piece goes on to note Asians promoting a 'neg' strategy towards Americans, and giving paid advice on the tactic. The idea of a smart young man discovering he had needed to be more obstreperous I find rather interesting. Is it simply prudent to be less considerate of others? Is appearing aloof and disrespectful of others a smart tactic to make you more more powerful, more financially successful? This concept has been popularized in
+
+[the neg](http://www.theatlantic.com/daily-dish/archive/2009/07/-the-neg-contd/198419/)
+
+, a tactic of sexual swindle by making the target think you think you are better than them, which makes them find you more attractive.
+
+The neg seems most likely to work on insecure, below-excellent, targets, which might be sufficient for a young man looking for sex, but not necessarily a good life strategy. Then again, most people meet their spouses in inauspicious scenarios, and just this weekend I learned of a woman whose first date with her now husband involved him getting into an almost fight with another man--clearly this display was impressive.
+
+But as for the woman taking her lack of beauty as a reason to love the world twice as much, I'm skeptical this is the optimal response. Rather, I think she should simply accept that unlike the Halle Barrys of the world, not everyone will appreciate her attractiveness, and not be discouraged by it. It seems a very Biblical assertion that the more you suffer the more you love the Creator who allows such suffering. Anyway, I like that the woman had a strategy that tried to compensate for her realistic constraints, but I think except in extreme circumstances, a person is never objectively ugly, but rather, merely not beautiful.
+
+Most of us, including me, aren't beautiful like models and movie stars. We are a totality, usually sufficiently attractive to make our objective appearance irrelevant to whether a worthy evaluator considers us beautiful irrespective of our thoughts, behaviors, and manners. I think if my daughter becomes an 'unattractive' woman, I will still think of her as beautiful because I appreciate her essence. Her optimal strategy should not be to love more, but rather, be as attractive as possible--maximize her potential as a person--and find people who appreciate her.

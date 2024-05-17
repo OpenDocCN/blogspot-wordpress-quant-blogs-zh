@@ -1,0 +1,82 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:37:40
+-->
+
+# Front-Run The Delta: Triangular Arbitrage using high-frequency TAQ data on USD/HKD, AUD/USD, and AUD/HKD
+
+> 来源：[https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01)
+
+**Please note before reading**
+
+:
+
+*the watermarks (if you can call them that) on each picture in this post were from the original URL and authorship (a pseudonym) of this blog.  They have not been taken from another source and reposted - they are original works of this blog and this author.*
+
+Triangular arbitrage can be defined as the "price of a second currency expressed in terms of a third or an exchange rate calculated from two other rates." For instance, one can imply the synthetic AUD/HKD rate if one has the live USD/
+
+**HKD**
+
+and
+
+**AUD**
+
+/USD exchange rates.  The arbitrage relationship is inherent between the synthetic AUD/HKD traded against the live, executable AUD/HKD.
+
+[Fenn, Howison, McDonald, Williams, and Johnson (2009)](http://econpapers.repec.org/article/wsiijtafx/v_3a12_3ay_3a2009_3ai_3a08_3ap_3a1105-1123.htm)
+
+note that "Triangular arbitrage represents one of the simplest arbitrage opportunities. However, there is, to our knowledge, no truly rigorous and robust study of triangular arbitrage in the finance literature.  We believe the main reason for this to be the lack of availability of datasets with prices which are sufficiently high-frequency and which are also executable."
+
+[Asynchronous data](http://www.answers.com/topic/asynchronous-data)
+
+is a problem when trying to study any arbitrage relationship.  Be it stock to stock, stock to future, future to future, physical to cash, or speaking ubiquitously,
+
+*any*
+
+arbitrage relationship.  Studies using end-of-period (days, minutes, seconds) data recordings suffer from this issue whereby one variable may be said to have "this" price at the last known recorded interval, while the second variable similarly has "this" price at the last known recorded interval.  The problem arises because the two recorded prices, while they may be the last known price, cannot reliably be used due to their differences in time period.  This problem can only be eliminated using synchronized data in the most granular form available.
+
+**The Data.**
+
+[![](img/7a033a7a8519e8b7ea8aef2dba1396fe.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6HJ8gh-ryo1v9AKwVuezsiYVF1X-BPEYHdmSDEWltCMG6N3IE5y4lkNlJliwQ9ZwYof5tLkHaVAh7zlA_T7p_6NVXbLxK3AVIJCs42OtpwZ7Jzzj3XvEiBggoY3FzG9Dg3qHX_1YIDJE/s1600/data1.png)
+
+The following data set was collected using a proprietary program developed by my IT team.  The software is connected to the interbank foreign exchange market via a direct access API.  In this case, the time and sales for the three pairs were recorded simultaneously and synchronously: any time a single variable changed, the entire data set was recorded as a whole.  The high frequency and synchronicity of the recording alleviates the problem that Fenn et al. (2009) discovered in their research of TriArb.
+
+Below is the spread between the synthetic AUD/HKD and the live AUD/HKD.  As you can see, the arbitrage is
+
+[remarkably consistent and very robust](http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+.  "Although some opportunities appear to exist for in excess of 100s," writes Fenn et al. (2009) in their study, "for both currency groups 95% last for 5 seconds of less and 60% for 1 second of less."
+
+   (Click to enlarge)
+
+There is a significant
+
+**loss of liquidity**
+
+beginning around 11:00 AM CST as evidenced by the increase in bid/ask spread of the three pairs, most notably the AUD/HKD.  The increase in bid/ask spread becomes evident in the construction of the synthetic/real arbitrage as referenced previously.
+
+Bid/Ask Spreads
+
+USD/HKD : Blue
+
+(Click to enlarge)
+
+**Trading the Opportunity.**
+
+At 1:33:55 AM on January 24, 2011, a small break occurs in the AUD/HKD synthetic and live relationship.  The break from parity is caused by an increase in the bid of the live AUD/USD from 0.98945 to 0.9897, an increase of .00052\.  This bid-up caused an increase in the bid price of the synthetic AUD/HKD to 7.7154, while the live AUD/HKD rate was then offered at 7.7143, an
+
+**arbitrage difference of .0011 AUD/HKD**
+
+.
+
+(Click to enlarge)
+
+Notice
+
+: This break lasted only a single second.  While the opportunity undoubtedly lasted much less than a full second, the beta software version we were using to collect this data was not recording at the millisecond level, a problem that has since been eliminated.
+
+The short duration of this break is an obvious barrier to entry.  Fenn et. al. (2009) cite "wider use of electronic trading platforms and trading algorithms" from 2003 to 2005 as the main cause of the opportunity's brevity.  They go on to note that, "From 2003-2005, the proportion of opportunities lasting less than 1 second increased from 40% to 62% for the JPY transactions and from 41% to 64% for the CHF transactions and the proportion of opportunities lasting in excess of 5 seconds halved for both sets of transactions."
+
+Further Reading
+
+[Collective Dynamics of Small-World Networks](http://www.nature.com/nature/journal/v393/n6684/abs/393440a0.html) [Hedging Currency Risk in International Investment and Trade](http://ideas.repec.org/p/cfi/fseres/cf090.html) [High Frequency Trading and the New-Market Makers](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1722924)

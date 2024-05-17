@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:45:01
+-->
+
+# Visualization on the trading floor | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2007/10/25/visualization-on-the-trading-floor/#0001-01-01](https://etrading.wordpress.com/2007/10/25/visualization-on-the-trading-floor/#0001-01-01)
+
+## Visualization on the trading floor
+
+### October 25, 2007
+
+[Daniel Beunza](http://www.derivart.info/index.php?s=qsomos&lang=en) [posts](http://socfinance.wordpress.com/2007/10/25/is-there-room-for-art-in-financial-visualization/) on his [NYC presentation](http://socfinance.files.wordpress.com/2007/10/071015-financial-visualization-usability-panel.pdf) on visualization. Visualization is one of my pet themes – I’ve posted [my thoughts on why it hasn’t been widely applied](https://etrading.wordpress.com/2006/05/31/visualizing-the-markets/) in trading. I’ll add a couple more observations I’ve made while building and deploying a 3D visualization system on our trading floor, at the same time as addressing a couple of points Daniel makes…
+
+*   Daniel: “Traders are practical and resist innovation”. Traders resist innovation for innovation’s sake. If they can see an opportunity to profit from innovation, they’ll be very keen on it.
+*   Traders know markets far more intimately than developers of visualization software ever can. Consequently visualizations can end up showing traders stuff they “just know”: stuff that has already been internalised and assimilated by the trader.
+*   Visualization development cycles can be slow, especially if you’re coding in C++, which can make it hard to hold the attention of traders.
+*   Daniel: “I believe that innovation will happen”. I used to share this belief, but I’m not so sure now. Seeing startups fail, and trying it myself has persuaded me that something very special will be needed.
+
+I wonder if Daniel has come across [Brad Paley’s work](http://wbpaley.com/brad/index.html) ?

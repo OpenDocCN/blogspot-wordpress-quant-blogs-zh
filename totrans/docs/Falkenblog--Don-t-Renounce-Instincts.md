@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:11:12
+-->
+
+# Falkenblog: Don't Renounce Instincts
+
+> 来源：[http://falkenblog.blogspot.com/2013/01/dont-renounce-instincts.html#0001-01-01](http://falkenblog.blogspot.com/2013/01/dont-renounce-instincts.html#0001-01-01)
+
+<embed allowscriptaccess="always" flashvars="diavlogid=14840&amp;file=http://bloggingheads.tv/playlist.php/14840/29:25/30:30&amp;config=http://static.bloggingheads.tv/ramon/_live/files/2012/offsite_config.xml&amp;topics=false" id="bhtv14840" name="bhtv14840" src="http://static.bloggingheads.tv/ramon/_live/players/player_v5.2-licensed.swf" type="application/x-shockwave-flash">
+
+ In this
+
+[Bloggingheads video](http://bloggingheads.tv/videos/14840)
+
+between Robert Wright and Buddhist Gary Weber, Weber notes that he has achieved such a state of bliss that he no longer feels that he care more about his daughters than other children.  This he finds transcendent and logical.  I think it's sad. As a child, I really liked the thought that my mom liked me more than others, and so unlike others really cared about my little travails. As a parent, I feel I need to protect and nurture my children because others won't be nearly as attentive.  It's simply an evolutionary advantage to care more about one's kids than others.  It's hard wired, and so I don't feel one should be proud of losing this like losing one's more irrational prejudices.  It's good that we aren't simply optimizing 'the collective', but instead our kin, because remember: ants are not merely selfless, but genocidal and unempathetic.
+
+[W. Somerset Maugham'](http://en.wikipedia.org/wiki/W._Somerset_Maugham)
+
+s book
+
+[The Razor's Edge](http://en.wikipedia.org/wiki/The_Razor's_Edge)
+
+(1944) tells the story of Larry Darrell, an American pilot traumatized by his experiences in World War I, who sets off in search of some transcendent meaning in his life. His rejection of conventional life and search for meaningful experience allows him to thrive while the more materialistic characters suffer reversals of fortune. When it ends all the characters are suffering for their foolish objectives in various ways whereas the protagonist achieves the total consciousness alluded to by Bill Murray's character in Caddyshack. The book ends noting that the lead character Larry achieves "happiness" as an itinerant worker, as if that is all one should want.
+
+ Maugham anticipated the beat culture, the glorification of finding one's 'authentic self' via a renunciation of material rewards, and rather, an inner happiness one gets from getting high and listening to music.  He was born of the British gentry and so could take status for granted because back then one's class, especially in Britain, was not merely a function of one's wealth. I watched the 1984 version of
+
+[The Razor's Edge](http://www.imdb.com/title/tt0087980/)
+
+recently and was rather taken by the glib supposition that a man without means or connections in America could simply enjoy his transcendent being without material success. To think that you can achieve bliss by being a monk doing manual labor your whole life is just as dumb as thinking that you can achieve greater glory just getting high everyday and listening to music.
+
+A desire for status and achievement is a deep part of our needs.  It makes sense from an evolutionary perspective, because that way people are incented to interact and try to be helpful to others, create things others want, and receive material rewards for doing so.  Surely, a desire for status can go too far like any desire, but to presume you could be a content toll-booth operator  is naive.
+
+The desire for status is hard-wired and like all instincts good in moderate doses.  Such a desire leads one towards benchmarking against others, and this leads to a zero risk premium.  That's in
+
+[my book](http://www.amazon.com/Missing-Risk-Premium-Eric-Falkenstein/dp/1470110970/ref=sr_1_1?s=books&ie=UTF8&qid=1345223074&sr=1-1)
+
+.  Like anyone with a Big Idea, I see it everywhere, and here I think it's absurd to think the good objective in life is losing one's attachment to things like popularity and success. This was really brought back to me reading the existentialists and noting how profoundly sad they all were (Schopenhauer, Nietzsche  Kierkegaard), because they were really lonely, they didn't have wives or children.  I remember reading Henry James telling his brother that his most singular attribute was his pronounced loneliness, which as a homosexual in that day must have been really tough. We have hard wiring that may not make sense from a logical perspective, but we shouldn't dismiss these desires simply because they aren't rational in a utilitarian perspective.

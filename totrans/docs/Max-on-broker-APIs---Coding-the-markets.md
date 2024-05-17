@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:38:10
+-->
+
+# Max on broker APIs | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2009/11/23/max-on-broker-apis/#0001-01-01](https://etrading.wordpress.com/2009/11/23/max-on-broker-apis/#0001-01-01)
+
+## Max on broker APIs
+
+### November 23, 2009
+
+[Max](http://www.maxdama.com) Dama’s posted a [couple of times](http://www.maxdama.com/2009/11/api-translation.html) recently on [broker APIs](http://www.maxdama.com/2009/11/thoughts-on-apis-ib-lime-wex.html). In his most recent post he drops an intriguing aside when commenting on IB, Wex and Lime: “I haven’t used each of the three’s FIX APIs”
+
+Which prompts the question: why not ?  Why code to a proprietary API rather than an industry standard protocol. I’ve had less than happy experiences with FIX for Fixed Income myself, so my guess at the reasons would be…
+
+*   Convenience: going straight to a Java or .Net API is quicker than selecting a FIX implementation and/or protocol implementation like quickfix.org, and then doing an integration.
+*   Statefullness: AFAIK FIX doesn’t address state like “order submitted”, “order on the book”, “order cancelled” etc. A well sorted API with a good callback interface makes this kind of thing earlier. FIX is just a protocol, leaving you to build this stuff yourself.
+*   Speed: less infrastructure means less latency.
+
+I wonder whether FIX is more popular with sell side firms offering connectivity than the buy side. It seems from Max’s posts that he’s doing connectivity work for hedge funds building automated trading systems using the broker APIs he mentions. I’d be interested to know more about why those firms choose to use the proprietary APIs…

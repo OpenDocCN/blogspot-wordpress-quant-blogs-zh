@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:36:08
+-->
+
+# Falkenblog: Economists are Modelers
+
+> 来源：[http://falkenblog.blogspot.com/2009/01/economists-are-modelers.html#0001-01-01](http://falkenblog.blogspot.com/2009/01/economists-are-modelers.html#0001-01-01)
+
+I'm reading a lot of criticism of economists by the usual suspects and it reminds me of when people criticize politicians for 'arrogance' and 'not listening to the people'. Now, we tell children that politicians are 'leaders' who 'implement the will of the people', when in reality they are naive dupes who genuinely believe what the masses believe or cynical hypocrites who are willing to make any sacrifice of conviction and self-respect in order to hold their jobs. So, the criticism works, but only for someone who believes the kiddie version of the job description. Similarly, some people think economists are those who understand the economy, who study the economy, and indeed, many are. But for the best, the most prominent, this is their avocation.
+
+Fundamentally, economists don't know much more than your average undergraduate economics major about economics or the market. Prominent economic theorists are 'modelers', they make little models, akin to Bohr's atom or Newton's inverse square law, that are meant to explain and predict (of course not nearly as successfully), using mathematics. Economists are perhaps better understood as 'those who model economic phenomena', as opposed to 'those who understand economic phenomena'.
+
+Famous economists like Bob Lucas, Joe Stiglitz, or Greg Mankiw, got famous for creating models useful for teaching economics to grad students, and publishing by other economists. The model that made them famous, by the time they are famous, is usually forgotten. For example, Lucas'
+
+[seminal model](http://en.wikipedia.org/wiki/Lucas-Islands_model)
+
+was a model that explains why unanticipated inflation causes business cycles. In the 1970's when he wrote it it seemed apt as inflation uncertainty and recessions were prominent, but it doesn't really work empirically, and it is mainly discussed now because it is a darn neat model, with an intuitive little functional form derived from intuitive--if implausible--assumptions: you push up this parameter (assumption), you get this nice implication.
+
+[Mankiw's model](http://www.economics.harvard.edu/faculty/mankiw/files/Small_Menu_Costs.pdf)
+
+tried to show how 'menu costs', the costs of changing pricing (eg, signage, menus), led to large business cycles. Again, plausible at first, now, not. Great economists are given a pass if their models fail empirically, because they are primarily judged as modelers, not describers of reality. A neat model has its own virtue.
+
+One could go on and on. An economics or financial theorist, if prominent, is not really someone who really understands the economy, but rather, someone who takes some current stylized facts and creates a model that seems capable of explaining these facts. By the time they get tenure or their Nobel prize, everyone understands either the model merely begs the question (eg, what causes productivity growth in Solow's model? What causes increasing returns to scale in Krugman's model?), or it is empirically useless (input-output models, dynamic programming). The pedagogical value of a model can not be underestimated, because for a professor, if you can use a model to generate a lot of g-loaded logic puzzles that appear relevant to economics, it is surely much better than being forced to read a bunch of essays on how and why tax cuts work. Good models have unambiguous correct answers that are easy to grade and work through; real life doesn't.
+
+Economists aren't wrong, they are idiot savants, and there's nothing wrong with that. It's depressing at one level, but we have enough people trying to explain and predict the big picture, taking into account the political-historical-sociocultural-global warming context. That is, the world is a vast, interconnected place with lots of important things going on, and reality has to take this into account. People who try to capture this big picture are called 'journalists', and while there are many good ones, this field does not seem to be advancing, any more than one could say legal theorists are using more discriminating logic than 100 years ago. So economists are not very successful, but neither are the alternative approaches.
+
+Academics place an inordinately high premium on novelty and elegance, which often makes it irrelevant, as there is little correlation between originality and the usefulness of an idea. That they fail in describing reality, is about as shocking as discovering a Chicago politician was engaging in
+
+quid pro quos
+
+.

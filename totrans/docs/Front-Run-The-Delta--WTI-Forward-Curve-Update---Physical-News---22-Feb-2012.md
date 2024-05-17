@@ -1,0 +1,55 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:30:00
+-->
+
+# Front-Run The Delta: WTI Forward Curve Update & Physical News - 22 Feb 2012
+
+> 来源：[https://frontrunthedelta.blogspot.com/2012/02/wti-forward-curve-update-physical-news.html#0001-01-01](https://frontrunthedelta.blogspot.com/2012/02/wti-forward-curve-update-physical-news.html#0001-01-01)
+
+The front 12 months are particularly curious.  Some news clippings this week:
+
+Feb 22, via
+
+[Reuters](http://af.reuters.com/article/energyOilNews/idAFL4E8DM5OU20120222?sp=true)
+
+:
+
+> "Sentiment in the Asia-Pacific crude market firmed on Wednesday, with Australia's Enfield crude expected to fetch double-digit premiums **due to tight supplies**. One cargo of April-lifting Enfield, which was delayed from March, being offered and could trade at a record premium above $10 to dated Brent, a trader said.
+> 
+> Premiums for sweet regional crudes for April have risen across the board after Cyclone Iggy disrupted Australian supplies and Sudanese grades remains off the market."
+
+Feb 22, via
+
+[Reuters](http://www.reuters.com/article/2012/02/22/markets-mediterranean-crude-idUSL5E8DMAV920120222)
+
+:
+
+> "Russian Urals crude eased steeply on Wednesday as traders cited a spike in oil futures and expectations of a large loading programme in March as weighing on the export grade of the world's largest oil producer.
+> 
+> "We have yet to fully see a full loading programme for March. But people expect it to be quite good, plus there is a factor of the launch of (a new Baltic port) Ust Luga," one trader with a major said.
+> 
+> In the Platts window, Trafigura offered a March 3-7 cargo of Urals from the Baltic at dated Brent minus 55 cents, **some 50 cents lower than price indications earlier this week**, traders said.
+> 
+> In the Mediterranean, Eni offered a 80,000-tonne March 3-7 cargo at dated Brent minus 60 cents, some 60-70 cents lower than price indications earlier this week, traders said."
+
+Feb 21, via
+
+[Reuters](http://www.reuters.com/article/2012/02/21/markets-mediterranean-crude-idUSL5E8DLA6Y20120221)
+
+:
+
+> "URALS * On Monday, Lukoil offered a March 3-7 Urals cargo from Primorsk at dated Brent minus 5 cents, some 20 cents lower than price indications last week.
+> 
+> UST-LUGA * Russia's new Ust-Luga Baltic oil terminal, undergoing repairs after damage caused by multiple landslides, will be ready to start loading crude in the coming weeks and may handle a few cargoes in March, a spokesman for Transneft said."
+
+Feb 20, via
+
+[Reuters](http://www.reuters.com/article/2012/02/20/markets-mediterranean-crude-idUSL5E8DK70N20120220)
+
+:
+
+> "Russian Urals crude eased in the Baltic on Monday as fresh loading dates for March showed **healthy supply volumes** from the world's largest oil producer."
+
+> | [![](img/4cbf2c3c5600eed0ffbb462f7b3497f2.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgetFPtIorXqLkccRGBWVc4KwnQzSU7lvggZ0M_tmTcaIeDo-mPxg0KtXCneCgEV6fu5iqRGoaUjB8Ie0qCrTpQTAf5pWwzlyQmjDTctdBBHsUZJeyOFmP6zSXVrUO-JBd9SxyIFcLSxMM/s1600/front12wticurve.png) |
+> | MS Excel |

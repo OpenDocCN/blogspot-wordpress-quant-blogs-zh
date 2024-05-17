@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:47:00
+-->
+
+# Falkenblog: Beta Adored Before Data
+
+> 来源：[http://falkenblog.blogspot.com/2011/08/beta-adored-before-data.html#0001-01-01](http://falkenblog.blogspot.com/2011/08/beta-adored-before-data.html#0001-01-01)
+
+[![](img/7abb5733fc2d46c9a1017c9a074f5f64.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfMK62Jh_WsNAytFwansYAYB3qlAzINm7uH9SkdQ_bXFXBivwCaW4Fu64WVhNwwT_9SyysEhG9EFF1s1BRsraX5DoSme6sfA3fEI4YH5p6sRenMsUrDsO1RVRZPg8G1lD2F2s8Eg/s1600/image009.jpg)
+
+There's a cover story from the September 1971 Institutional Investor entitled 'The Beta Revolution', which mentions 'portfolio managers and security analysts who mathematical backgrounds extend only slightly beyond long division are tossing betas around with the abandon of Ph.D.'s in statistical theory.'
+
+They write the 'beta theory' started with Markowitz in 1952, and later papers by William Sharpe and Jack Treynor in 1963 and 65\. By 1968, they note 253 articles and 89 books written about 'beta' (really, the Capital Asset Pricing Theory).
+
+What's conspicuously absent is any mention of empirical corroboration. A simple scatter plot, with beta on the x-axis, returns on the y-axis, would have been nice. In fact, the first empirical support wasn't even until a couple years later, meaning, there was no data supporting the theory at this time, but the experts all believed the theory anyway. The subsequent supporting data was weak and contained a serious omitted variables bias, namely, that size explained any correlation between beta and average returns. All the hubbub was purely from theorists, without even any flawed empirical support. One can see why the initial flawed empirical research got through, because all the experts knew the right answer, and so didn't think to test the theory with appropriate skepticism.
+
+Yet even then, the article notes that 'very low beta stocks, in fact, tend to have higher alphas and high beta stocks tend to have low alphas.' That is, the beta-return relationship, to the extent it did exist in unpublished studies, was pretty flat. A fund manager back in 1971 could have jumped on that small insight and blown away everyone over the next generation, but that little nugget was ignored.
+
+The description of beta is distressingly vague, but the intuition they mention is based, in their words, on two 'widely accepted ideas.' First, that to obtain higher rewards, one must take higher risks. Secondly, that individual stock returns are correlated with the market as a whole. Interestingly, it is true that given standard utility functions (eg, u(x)=-exp(-ax), these do lead to beta-type risk premiums. Something's clearly wrong, and while most researchers seem to think it's schizophrenic risk-loving (within asset classes, not between them), I think it has to be we are more envious than greedy.

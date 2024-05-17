@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:08:38
+-->
+
+# Falkenblog: Low Vol Makes Comeback in YTD Total Returns
+
+> 来源：[http://falkenblog.blogspot.com/2013/03/low-vol-makes-comeback-in-ytd-total.html#0001-01-01](http://falkenblog.blogspot.com/2013/03/low-vol-makes-comeback-in-ytd-total.html#0001-01-01)
+
+In this year's bull market, low beta portfolios have been doing quite well.  My own Minimum Variance Portfolio, taken using 50 constituents of the SP500, has outperformed the SP500 by just about the same amount as the SPLV ETF (which takes the 100 stocks with the lowest volatility).
+
+[![](img/499ffd13196afb38a1efcf34a6f983ff.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZEz7LN-31fwaeDXTrSn3Aidw617FSUumNDzQIbrMXySxYx0Z_c9eXuCCN26HY8SVQaVJh8VV6n8m3EuJ22QQadYBgLcseIOzbYWoSvcTBBcgt5zQXY70vS25GgNgzl4CLCYKLqQ/s1600/totret.png)
+
+It seems that low beta portfolios were insulated against that mini bear market of a couple weeks ago.

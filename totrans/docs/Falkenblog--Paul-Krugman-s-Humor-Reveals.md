@@ -1,0 +1,44 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:44:37
+-->
+
+# Falkenblog: Paul Krugman's Humor Reveals
+
+> 来源：[http://falkenblog.blogspot.com/2008/12/paul-krugmans-humor-reveals.html#0001-01-01](http://falkenblog.blogspot.com/2008/12/paul-krugmans-humor-reveals.html#0001-01-01)
+
+[![](img/6a3719d7dae4241b74b9287d5ae018c5.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNetaqSyhyDh2riQ8cQq5R4s4mbguQB8tLwbfocYzITS6Q7VQlLbkPxUPuaKyYTFRvyMY7l81ERVnKG8knL_TPSRCgKT0ZIqi5XbmC6ajotSKWESBiMBFaOuR-V9vimLt7Fdhd2Q/s1600-h/Hilarity.jpg)
+
+Paul Krugman won the Nobel prize, so he got to meet President Bush for a photo. Now, Krugman has been so highly critical of Bush, one wondered if he would behave. But he played nice, and let his wife regale Bush with tepid tales about how her parents hosted his father at a fundraiser back in the day.
+
+Anyway, Tyler Cowen had a caption contest for their picture in light of this backdrop, and submitters offered their snarky hypotheticals. Krugman chose the following as his
+
+[favorite](http://freakonomics.blogs.nytimes.com/2008/12/01/what-krugman-was-really-thinking/)
+
+:
+
+> “So then I said to Cheney, ‘Duh! Piecewise continuous functions are always Riemann integrable, so just invert the matrix and use a polynomial distributed lag to eliminate the heteroskedasticity!’ What a lightweight!”
+
+Now, a person's sense of humor reveals a lot about both someone's logical intelligence, and their emotional intelligence. The lowest form of humor is both dumb and mean, like the traditional Polish joke where the punch line is all predicated on the fact that Polaks are stupid (eg, Q: How do you get a one-armed Polak out of a tree? A: Wave to him). But this joke is both dumb--Polish people are generally not stupid, Polish intellectuals include Copernicus, Banach, and Ulam--and mean, because they have basic punch line 'because they are stupid!' It is a good thing that they don't print ethnic joke books anymore (I had a dog-eared Polish/Italian joke book as a 9 year old).
+
+Anyway, Krugman's favorite caption is basically a Polak joke: Bush's stupidity is the punch line. Bush's intellect is contrasted with the intellect involved in advanced mathematics, a contrast so vast it highlights that Bush's intelligence is the polar opposite of that involved in 'piecewise continuous functions'. Like snarking to an obstreperous fat guy, 'listen, skinny...' I doubt any of Krugman's liberal heroes understand the importance of the Riemann integral, or its extensions, the Riemann-Stieltjes integral, and finally the Lebesgue integral. But who cares? Anyone who really understands these concepts understands also they are so parochial as to not indicate much about one's intelligence other than that they had an aptitude
+
+and
+
+interest to take advanced calculus courses. I would bet JFK, LBJ, MLK, or FDR could not take the derivative of exp(x).
+
+So, if that portion of the joke was overreach, the real punchline is merely emphasizing that Bush is dumb. That's so funny! It is a sign of Krugman's irrational partisanship that he thinks Bush's is dumb, and that this matters. For a politician, Bush's IQ is probably average, estimated
+
+[around 124, higher than Kerry's or Gore's](http://www.vdare.com/sailer/kerry_iq_lower.htm)
+
+. This is below the average IQ at top-10 economics graduate programs
+
+[by a standard deviation](http://mahalanobis.twoday.net/stories/2258008/)
+
+, but such is life--there's more to ability, effectiveness, and popularity than IQ. More importantly, it is not true that people who disagree with you are either stupid or liars. Most journalists and academics are Democrats to be sure, but so are most felons and the underclass--do we split the difference?
+
+Even if true, if Bush were stupid, would that be funny? I don't think such humor indicates good character. Intellectual inferiority is a fact, but it is pathetic, worthy of sympathy not ridicule. A leader of a large group is usually of above average intelligence, but not too much so, and so the logic of one's side is not merely an IQ test between their two putative representatives. On any big issue--abortion, evolution, God, taxes, welfare, affirmative action--there are smart, honest, people on both sides. Some sides may be wrong, but neither side is intellectually indefensible, which is why we can't teach wisdom.
+
+Leaders are articulators, consensus builders, ingratiators, and thus Mark Schmitt works as a speechwriter for the much less intelligent Bill Bradley, as George Will worked for Reagan, and Frum worked for Bush. The front-men for any political side is rarely a genius, but that is the nature of leaders--they have other skills.
+
+Thus, Krugman probably believes that those who agree with him are smart, and thus can effectively implement his plans for extensive top-down spending. In this sense, he is consistent, if ultimately clueless Nobel Prize winning economist.

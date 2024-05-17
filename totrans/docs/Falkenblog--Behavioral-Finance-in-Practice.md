@@ -1,0 +1,46 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:08:50
+-->
+
+# Falkenblog: Behavioral Finance in Practice
+
+> 来源：[http://falkenblog.blogspot.com/2009/04/behavioral-finance-in-practice.html#0001-01-01](http://falkenblog.blogspot.com/2009/04/behavioral-finance-in-practice.html#0001-01-01)
+
+Barberis and Thaler have a
+
+[survey chapter](http://important.behaviouralfinance.net/BarberisThaler2003.pdf)
+
+in the Handbook of Finance on Behavioral Finance. They note the following financial opportunities caused by behavioral quirks:
+
+*   pairs trading dual listed shares (Royal Dutch and Shell Transport)
+
+*   Index inclusion (buy stocks goinp into index, sell going out)
+
+*   Internet carve-outs (eg, when 3Com sold 5% of Palm)
+
+*   Agg. Div/Price generates 27% predictability over next 4 years
+
+*   3 year mean-reversion (DeBondt and Thaler)
+
+*   18 month Momentum (Jegadeesh and Titman)
+
+*   B/M and P/E predicting stocks (book and size)
+
+*   positive drift after earnings announcements
+
+*   positive (negative) drift after initiating (omitting) dividend
+
+*   Repurchase shares outpefrom, issue shares underperform
+
+*   Closed end funds trade at discount to NAV
+
+I think only half of these are true today, and they may have only been true anecdotally in the past. For example, the 3Com-Palm spinoff was an arbitrage, and I personally know people who arbitraged it. But it does not happen often enough to be interesting. The predictability of the aggregate dividend price ratio uses a 4 year horizon, so how many 4 year horizons do we have in the US? About 20 (80 years divided by 4). That's hardly enough to draw strong conclusions. The index-add/delete strategy was over years ago. Is it really that strange to note that there are many ways to make money if you could go backtward in time?
+
+Strangely, they list the momentum effect of Jegadeesh and Titman and also their 'overreaction' effect, even though these are contradictory. Further, no one has updated their 3 year mean reversion result. If you think contradictory empirical results are true, and no one publishes 3 year mean reversion follow-ups, chances are you did make a technical mistake (in their case, rebalancing daily returns for low-price stocks).
+
+Value, size, momentum, and equity issuance can add value to a strategy, but I don't see how behavioral economics helps you exploit this. But my bottom line is that the rational market school tells you to be skeptical, to check things again and again. Behavioralism lends itself to seeing too many anomalies that are not, or no longer, there. The batting average of someone jumping into these strategies would be less than 50%. Many have a short time frame, so one taking advantage would have to be a full time short term trader to capture these, and you would have been let go long ago if these were pillars of your strategy.
+
+[![](img/b8b59f3a0bd2055e3346497456ff6cca.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjishSI-8kN6ogLTMA_KF9TKXLKZgIN03vz45N8yE2kRv6Pidwpoj5pbdiJQuhoWLa0xD60Y6zeipM_H_huQUOqnNKFZi4_gsxYa0l4t6QXAqRNcGWUM-ziztfI4kdcBsugyo0vsA/s1600-h/markut.jpg)
+
+The article highlights how Kahneman and Tversky's prospect theory has allowed people to formalize this approach. Above is a utility graph from Harry Markowitz back in a 1952 JPE article, who was commenting on Milton Friedman and Savage's analysis in this same vein. It has the essence of prospect theory: risk loving for losses, risk aversion for gains, for some arbitrary wealth point. The profession dropped this thread because it was too rich: allowing people to be risk averse or loving, ignoring or overweighting small probability events, is not a useful insight. I don't know how many times I hear intellectual dilettantes note how Khaneman's work is really exciting, which is odd given how old the double inflected utility function is. 50 years is a long time; it was not discovered when Kahneman won the Nobel prize in 2002.

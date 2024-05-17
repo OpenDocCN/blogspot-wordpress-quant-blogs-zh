@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:12:18
+-->
+
+# Falkenblog: Buy AAPL
+
+> 来源：[http://falkenblog.blogspot.com/2013/01/buy-aapl.html#0001-01-01](http://falkenblog.blogspot.com/2013/01/buy-aapl.html#0001-01-01)
+
+With the VIX at lows, and central banks across the globe printing money at breakneck pace, it seems a great time to be long equities. Not that I think this is good for the long run, but for at least a couple years this should be great for equities.
+
+Specifically, Apple has decline 25% from its peak in September, probably due to investors with large gains taking their capital gains before 2013 when such capital gains rates will go up.
+
+Given so many interest groups have an interest in asset prices rising, and the central banks across the world have this as their priority, I think once bank get some of their final legacy lawsuits off their backs they will start lending again, M2 will explode, and prices will rise. First in assets.

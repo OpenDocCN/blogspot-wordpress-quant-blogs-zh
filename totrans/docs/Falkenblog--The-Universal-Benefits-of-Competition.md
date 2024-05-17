@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:35:34
+-->
+
+# Falkenblog: The Universal Benefits of Competition
+
+> 来源：[http://falkenblog.blogspot.com/2012/02/universal-benefits-of-competition.html#0001-01-01](http://falkenblog.blogspot.com/2012/02/universal-benefits-of-competition.html#0001-01-01)
+
+[![](img/3e6720e99dd6cf218e5f78aad78a1ebd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg62cr7K34kd9aPd216xVaH6HJ600jVcutvG7LDt3BWSwhWu8RkFFPzIn0Z7Lc0ioBUcZhzUt-i5Nm_o5m1bv31wD_6N40DJKsZrnMALlihhoVDchmEzyUH68keYgq2-2qqv-gNrQ/s1600/fish.jpg)
+
+One of the most important reasons why market outcomes dominate government ones is competition: government often rules out competition by law, or subsidizes production in such a way that alternatives are not truly competing. Yet firms that compete for customers minimize costs, maximize efficiencies, and innovate, much more than governmental organizations.
+
+In Anna Dornhaus's
+
+[lecture](http://falkenblog.blogspot.com/2012/01/fascinating-evo-biology-lecture.html)
+
+I did not mention her wonderful example from the animal world on competition. 'Cleaner fish' get rid of parasites on 'client fish.' The cleaner gets to eat the parasites, the client fish likes having fewer parasites. Sometimes, however, the cleaner fish take a bite out of client fish for some extra protein, and this hurts the client fish.
+
+When client fish have a large territory, they have a choice of cleaner fish, and choose the cleaner fish that don’t bite as much. Client fish watch the fish in front of them getting cleaned (they often approach the cleaner fish in a queue). If the client fish being cleaned is jumping around in front of them, they know there is a lot of biting going on.
+
+The equilibrium results are as follows:
+
+1) Harmless and predatory fish are treated differently by the cleaner fish. For example, the cleaner fish do not bite predatory moray eels, and in fact are more prone to
+
+[massage such clients](http://www.advancedaquarist.com/blog/you-look-like-you-could-use-a-massage)
+
+!
+
+2) Client fish with small territories and no choice of cleaner fish are treated much worse than those client fish with choices, as those cleaner fish tend to
+
+[bite much less when they compete for customers.](http://www.sciencedirect.com/science/article/pii/S0003347210000825)
+
+That's a nice example of how universal the concept of competition, and incentives in general, is. We are nicer, better, less short-sighted, when we have to compete. Insulate yourself from the market, and you can easily rationalize biting your customers.

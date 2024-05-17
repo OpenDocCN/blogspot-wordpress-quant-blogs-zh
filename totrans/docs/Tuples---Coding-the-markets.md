@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:40:42
+-->
+
+# Tuples | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2008/11/13/tuples/#0001-01-01](https://etrading.wordpress.com/2008/11/13/tuples/#0001-01-01)
+
+## Tuples
+
+### November 13, 2008
+
+Matt [mentioned the addition of tuples](http://mdavey.wordpress.com/2008/11/12/where-did-clr-30-go/) to CLR 4.0\. Very happy to see that. Tuples help avoid the unnecessary introduction of types that serve merely to aggregate data. Types or classes to aggregate data was a very mid 90s programming technique, manifest in code featuring classes with data members, getter and setter accessor methods, and no significant behaviour.
+
+And in other news: I was fascinated to stumble across [MarketSci](http://www.marketsci.com/index.html) and it’s [blo](http://marketsci.wordpress.com/)[g](http://marketsci.wordpress.com/). The [recent post](http://marketsci.wordpress.com/2008/11/12/trading-strategy-the-vix-spread-and-the-stock-market/) on the effect of drastic market moves on automated trading strategies was intriguing. Finally, thanks to [Marc](http://magmasystems.blogspot.com) for the heads up on [this one](http://rodrickbrown.com/blog/). I’ll be keeping an eye on it.

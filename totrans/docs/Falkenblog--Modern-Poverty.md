@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:42:49
+-->
+
+# Falkenblog: Modern Poverty
+
+> 来源：[http://falkenblog.blogspot.com/2009/11/modern-poverty.html#0001-01-01](http://falkenblog.blogspot.com/2009/11/modern-poverty.html#0001-01-01)
+
+Maybe I'm being obtuse, but it doesn't seem that amazing that poor people tend to eat food that makes them unhealthy.
+
+Anonymous@11:34am: The pattern you point out is legitimate, but only observable in countries where the "poor" have a standard of living that billions of people in Africa and Asia can only dream of. "Poor" has become a meaningless term these days, since it is applied applied as a category on an ordinal scale, not as a value below a threshold on a ratio scale.
+Anonymous@6:26pm: Answer: false dichotomy. The answer I would give for myself is: statement of fact - or do you disagree that the teens were black? Stereotyping, aka categorization, is how the human brain operates. It is an absolute requirement for higher-level thought processes. When you see two objects, you (and that includes YOU as well) go through a categorization process - are the objects alive? are they mammals? are they human beings? is it male? etc. The (subconscious) purpose is to find similarities and thus establish possible connections. What is so objectionable to you about an exhaustive list of the similarities between two people? American, black, teen, and poor (starting condition) appears to exhaust the common similarities between the two characters. And very few - I am sure not our host - deny the relative poverty of black Americans? So? Your point? Are black Americans required by some divine law to be as wealthy as other Americans?
+
+Yikes! I would hate to have their grocery bill! That's enough to destroy anyone's budget. Teenagers are already very successful at eating their way through their parents wallets, with their bottomless pits, but a pair at 700 lbs takes the cake!
+
+Plamen
+
+Categorization is useful when it adds value. That a category is a fact does not make it relevant or useful. The third letter of your "name" is "A" - fact - so???
+
+You're wrong in that the elements you cite are exhaustive. Nobody pointed out whether they are male or female; jewish, moslem or Christian; rural or urban; only children or siblings etc. etc. etc. What added value is there in their black categorization? If their colour had not been mentioned what value would have been lost?
+
+On your prior point. Why is poverty or anything else meaningless if ordinal? Do you REALLY believe there is an absolute value that determines who is rich & poor? Surely poverty always has a relative dimension. You are poor if you cannot afford the cost of survival (which is relative to the cost of living in the society in which you find yourself) & you are poor(er) if you can access less than others in your society.
+
+Are the American poor "really" rich because they earn a lifetime's income compared to an African tribesman?
+
+Are Australian aborigines wealthy because they have twice as much income as that tribesman?
+
+Would you favor deciding which children perform better than their peers and so warrant going to an ivy league university? If so is that not an ordinal distinction? Or, do you believe that JFK, George W Bush & Barack Obama rank equally in absolute terms with Harvard's 50 Nobel laureates?
+
+So maybe that drop in poverty from 12.8% to 12.3% is bigger than it looks, because poor people aren't starving to death.
+Instead, they are eating the stuff that's subsidized: laden with corn syrup and fat.

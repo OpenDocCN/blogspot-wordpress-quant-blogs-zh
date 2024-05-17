@@ -1,0 +1,130 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:38:21
+-->
+
+# Falkenblog: Valentine's Day Sexonomics
+
+> 来源：[http://falkenblog.blogspot.com/2010/02/valentines-day-sexonomics.html#0001-01-01](http://falkenblog.blogspot.com/2010/02/valentines-day-sexonomics.html#0001-01-01)
+
+Steve Levitt's Freakonomics bestseller highlighted that many quirky phenomenon can be analyzed using economic reasoning, or really, assuming individuals are self interested, and applying statistics and logic to that. Many people find this application of 'economics' much more interesting than applying such logic to widgets or muni bonds, so why not just get all those cost and indifference curves in price/quantity space out of economics textbooks, and replace with sexy pictures and fun sex trivia? One could then see economic lessons on Spike TV, right after
+
+[Manswers](http://www.spike.com/show/22792)
+
+. After all, sex is an object of exchange just like any other commodity, but a lot more fun for college-aged students to contemplate.
+
+[![](img/5ee1ce18a5951e740f58a3b845bbd9b4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjj_ZmhhDZcajHxN3AAR4yQbmixZomAj9zkBEA4BecXx1KF-q4ZXrwW_wq_gor-hIFZcicTObUVHJWBUiP4WeEwZY2yLuZytt9IEwT2nB_chbZaymiVpXBMQn5FYnoONe30TlUQvw/s1600-h/WSTDcover.jpg)
+
+For example, Charlotte Allen's article on the
+
+[New Dating Game](http://www.weeklystandard.com/articles/new-dating-game)
+
+, and
+
+[Lori Gottlieb's book](http://www.amazon.com/gp/product/0525951512?ie=UTF8&tag=dblx-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0525951512)
+
+on why women should settle rather than become spinsters, brought forth a lot of 'Freakonomic' issues around dating, sex and marriage, and generated considerable blog buzz (see
+
+[Robin Hansen](http://www.overcomingbias.com/2010/02/new-paleolithic-mating.html)
+
+,
+
+[Slate](http://www.slate.com/id/2243179/)
+
+,
+
+[Jezebel](http://jezebel.com/5463227/fat-like-him-self+help-writers-ex-speaks-out)
+
+). Writing about these matters is always sure to get people excited, because these are issues people feel they understand pretty well, so people who disagree are way wrong! This got me thinking about the fun book,
+
+[Mathematics and Sex](%E2%80%9Dhttp://ablog.apress.com/?p=365%E2%80%9D)
+
+, which is good nerd porn. Consider the application of economic models to the following issues:
+
+[Asset pricing](http://en.wikipedia.org/wiki/Arbitrage_pricing_theory)
+
+: Choosing a young man for a long-term mate means evaluating his future value; you don't want a young hottie who won't age well. Hot Chippendale dancers with low intelligence aren't good buys. But then, if you want to get the next billionaire, should you try to find the next Bill Gates or Warren Buffet? These are true nerds, and at 18 they weren’t attractive to most women (Buffet writes candidly about his social ineptness as a young man). So, should women glom on to nerds? Well, it could be that nerds have a higher top return, but lower average return, so this isn't optimal even abstracting from their obviously lower current value. Fads based on conspicuous successes can alter the value of current young men. Perhaps your dad was a prior bubble (eg, he was good at 'the hustle').
+
+[Labor Economics](http://econlog.econlib.com/library/Enc/LaborUnions.html)
+
+: A lot of labor issues are about cartels: monopsonies, such as one-firm towns as when mining companies employed a plurality of people in a town, or monopolies as when unions prevent companies from negotiating with individual employees. Historically men have dominated women in the sense of having more political and monetary power, so, why not have all women form a cartel, as in
+
+[Lysistrata](http://en.wikipedia.org/wiki/Lysistrata)
+
+, withholding sex to get men to be nicer? The problem is this is not robust to defection. One woman, presumably an opportunistic woman of lower quality (eg, a "2"), could offer sex to a high quality man and thus snag a top male. Once this happens, the coalition falls like a house of cards. Indeed, Milton Friedman
+
+[predicted that the OPEC oil cartel](http://thoughtfulideas.blogspot.com/2007/11/opec-cartel-that-refuses-to-break-in.html)
+
+would eventually fail because such cartels are inherently fragile.
+
+[Game Theory](http://rss.sagepub.com/cgi/content/abstract/16/3/251)
+
+: Thomas Schelling highlighted the
+
+[benefits of being irrational](http://www.springerlink.com/content/t1u8433886l427r1/)
+
+, because if you convince other countries you will blow the world up if they launch an atomic bomb at you, you actually deter their use of the bomb. Committing to an irrational response, is rational. In a similar way, prudish mores about sex can make everyone in society better off, because without stigma and shame of having sex outside a pair-bond, there's massive sexual inequality and lower parental investment. Consider that monogamy is good for beta or omega males, because that keeps alpha males with only one female. But if sexual morality becomes unpopular, serial monogamy (aka one-night stands) will be a dominant strategy for those with the highest value, because they can. Those with the most to gain from such activity will do it most, further eroding the quaint stigma attached to casual sex, encouraging more of it. Those with low value will try to have casual sex to signal they have higher value, leading to an equilibrium like when Charlton Heston comes down from the mountain with the 10 commandments and it's the best frat party ever (soon ruined by a vengeful God, and as always the people who didn't rush are very envious). Charlotte Adam's piece on the New Dating Game basically suggests this is what is happening, leading to alpha males having many partners, omega males left out, and women of all qualities tolerating philandering men who aren't there to raise the kids (aka, 'restoring primate-style hypergamy').
+
+[Supply/Demand curve elasticities](http://en.wikipedia.org/wiki/Elasticity_(economics))
+
+: Men's demand for sex more inelastic, in that they need sex more than women. Just look at the
+
+[sex frequency of gays vs. lesbians](http://www.ipgcounseling.com/lesbian_theory_1.html)
+
+, and you see that men prefer more sex than women. One reason may be that a sex act implies a
+
+[much higher probability of orgasm for men than women](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1617159/)
+
+, so if the present value of sex is the expected orgasmic payoff, it’s strictly higher for men. In any case, women can extract compensation from men in return for sex, because the person with the higher elasticity has the market power. Ergo, men have to bring more to the transaction than their bodies, they have to pay for dates, open doors, put the toilet seat down, etc. Indeed, on a day-to-day basis, a woman's lower sexual desire negates a man’s physical or monetary advantage, which is why most women are at least co-equals in their relationships.
+
+[Public Choice Theory](http://en.wikipedia.org/wiki/Public_choice_theory)
+
+: median voter theory suggests that candidates merge to slightly different takes on the median position. However, when political issues are considered
+
+[multidimensional rather than single dimensional](http://adventuresinidentification.blogspot.com/2007/02/romer-and-rosenthal-jpe-1979.html)
+
+, an agenda setter could start at any point in the issue space and, by strategically selecting issues end up at any other point in the issue space, so that there is no unique and stable outcome.
+
+[Arrow's Impossibility Theorem](http://en.wikipedia.org/wiki/Arrow's_impossibility_theorem)
+
+highlights that there is no way a multidimensional person can be unambiguously ranked, in that there is always some arbitrariness how you weigh, say, personality vs. physical attractiveness, or within looks, face vs body, or within a face, skin tone vs symmetry (eg, there are many important dimensions). So one clear implication is to emphasize, like
+
+[Maureen Dowd](http://www.amazon.com/Are-Men-Necessary-Sexes-Collide/dp/0399153322)
+
+, your best attributes as best for everyone, and pooh-pooh the status quo preferences that highlight the Beyonce's and their male equivalents as vulgar, uneducated and short sighted.
+
+[Search Theory](http://en.wikipedia.org/wiki/Search_theory)
+
+: Date 37 men. That is a sample of men who reveal a desire to match with you. You want to maximize your mate’s quality. This is the
+
+[optimal stopping problem](http://en.wikipedia.org/wiki/Optimal_stopping)
+
+, or
+
+[secretary problem](http://en.wikipedia.org/wiki/Secretary_problem)
+
+, because you sequentially select from a sample of a population, and at some time have to settle down to enjoy the benefits of that person (eg, you eventually want to ‘use’ the secretary/mate), and you can’t go back (always pathetic, ‘hey, remember me? It turns out I was wrong and you are the best I can do. Want to go out again?’). A practical solution that is near optimal is to lock on to your next partner that is better than best of the original 37, which presumably
+
+[increases the odds](%E2%80%9Dhttp://ablog.apress.com/?p=365%E2%80%9D)
+
+of finding your best match from 1% to 37%(that seems like a lot to me, but hey, he
+
+proved
+
+it). That's probably near your best match given your type.
+
+[Pooling vs. Separating Equilibria](http://en.wikipedia.org/wiki/Signaling_games)
+
+: in a pooling equilibrium, the good and bad apples are mixed together, so you price them as the average. This leads to breakdown in markets, because no one will sell good apples if they are assumed half-good. Quality signals will be costly, because otherwise they lead to pooling equilibrium. One thing men want is fertility, which is correlated with attributes like waist-to-hip ratios (optimally 0.69—heh—for women, 0.92 for men), clear skin, white sclera, and women’s magazines often highlight ways for middle aged women to enhance these attributes. One thing women want in men is money, so they find men with BMWs more attractive than men in Dodge Neons (indeed, women have a
+
+[higher frequency of orgasm with higher wealth men](http://www.staff.ncl.ac.uk/daniel.nettle/orgasms.pdf)
+
+).
+
+[![](img/a4dbe432557932e35459bbacb9be2013.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2tSidFaIETgokOvEohwdcPMUhWRsPVHJYC125vWJQYqe_4ukof4UrfNzEcUdqi1oEb5ZQJE8ms2L5VPnoWhfzds5LtoMKIV4bTfwMkNY2BUOAHebgYkzClaYeQa_UXUnde8gbjg/s1600-h/richguy.jpg)
+
+Obviously, one could come up with enough examples and applications to replace
+
+[Mankiw](http://www.amazon.com/Principles-Economics-Student-Gregory-Mankiw/dp/0324224729)
+
+with something much more salacious and of interest to the mass of 18-21 year olds learning economics. It's not as if the application of economics to the study of GDP and employment has elevated the nature of political debates over the past 100 years.

@@ -1,0 +1,64 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:18:50
+-->
+
+# Falkenblog: Out-Sourcing Risk Management
+
+> 来源：[http://falkenblog.blogspot.com/2009/03/out-sourcing-risk-management.html#0001-01-01](http://falkenblog.blogspot.com/2009/03/out-sourcing-risk-management.html#0001-01-01)
+
+The
+
+[latest Basel Accord consultation document](http://www.bis.org/publ/bcbs150.pdf?noframes=1)
+
+raises the prospect that banks must conduct their own due diligence on each of the assets underlying securitisation transactions – a requirement that could make the securitisation market out of reach for many small firms. They also note that
+
+> A bank should conduct analyses of the underlying risks when investing in the structured products and must not solely rely on the external credit ratings assigned to securitization exposures by the CRAs (Credit Rating Agencies). A bank should be aware that external ratings are a useful starting point for credit analysis, but are no substitute for full and proper understanding of the underlying risk, especially where ratings for certain asset classes have a short history or have been shown to be volatile. Moreover, a bank also should conduct credit analysis of the securitisation exposure at acquisition and on an ongoing basis. It should also have in place the necessary quantitative tools, valuation models and stress tests of sufficient sophistication to reliably assess all relevant risks.
+
+The question raised is whether out-sourcing risk management is ever acceptable. Clearly, in the latest crisis the rating agencies errored. Yet, the rating agencies generally don't go against conventional wisdom. I see no indicators suggesting that while the rating agencies ignored the risk of falling housing prices, more than a handful out of tens of thousands standard financial institutions were applying a 25% stress test to these assets.
+
+There are clearly problems with relying on someone else, especially when they are wrong. But there are problems with in-house analysis too. Consider the pros and cons of an external risk management, such as provided by traditional rating agencies, that centralizes risk measurement:
+
+Pros:
+
+1) regulators need only analyze one framework, and can simultaneously address the risk to an asset class with one thorough vetting process.
+
+2) avoid conflicts of interests within banks that may lead to excessive pressure on risk managers to understate risks.
+
+3) create tranparency in risk measures that allow for greater liquidity, including the hypothecation of assets as collateral, or the existence of trading markets that enable a bank to sell or buy assets to meet liquidity or capital needs.
+
+4) there may be scale economies in evaluating risk. Do we need each bank to reunderwrite IBM's unsecured credit? What about Citibank's credit card receivables?
+
+Cons:
+
+1) If the centralized authority makes an error, it has systemic implications (one error is magnified)
+
+2) There are conflicts of interest between the centralized risk monitor and the various entities it is evaluating.These are inescabable, because if one moves from an issuer pays model, to a buyer pays, then the buyer's intests are in play. He probably will have a large inventory, and would probably want to see continued stable, high ratings for an asset class, just as an issuer would. Further, there would be a free rider problem among credit analysis buyers, which would potentially cause an underinvestment in them, because the centralized authority can not seize sufficient revenue from the value they produce. So, in any scenario, there is conflict of interest for an external ratings provider.
+
+In a crisis, the first reaction is usually to centralize various decentralized functions. Think about the reaction to 9/11 and the calls for one unit in charge of intelligence gathering. Centralization has considerable benefits, which are often alluded to if you ever have to deal with an institutional IT infrastructure and their latest plan to centralize information.
+
+I think the fundamental question is whether one thinks systematic errors are caused by key focal points, in this case, Moody's and S&P, or one thinks the more basic error was a ubiquitous incorrect belief. I tend to the latter. The rating agencies were not leading the adoption of NINJA loans, they were led by
+
+[regulators, legislators, the government sponsored housing entities, and of course investors](http://falkenblog.blogspot.com/2008/09/stan-liebowitz.html)
+
+. It is too simplistic to blame a formula, or a specific group for this crisis, as no one was arguing that assets should have a stress test for a 30% housing decline back in 2006\. No one. With hindsight, that was a mistake, but one everyone made. It is nice to think that people would have independently applied this if it was in their bailiwick, but just as no congressman wanted to appear to squelch more homeowning, and thus prohibit the US Housing and Urban Development Department from encouraging no down payment mortgages.
+
+Consider David A. Andrukonis, risk manager for Fannie, was let go for fighting Bill Syron's plans to accept more mortgages with weaker underwriting standards (Syron got $38MM, Andrukonis was let go). He was a risk manager telling his CEO that a risk that has never materialized, but is based on theory, should inhibit more volume into a higher revenue and ROE activity. He lost, as has every risk manager in such a scenario. With hindsight, NINJA loans are indefensible, but in real time objecting was futile. When there is big money to be made doing X, a theory but no data arguing against X, is not compelling.
+
+I don't think this mental blind spot came from outside, it crept in through a lack of confounding data to the idea that these weaker (err,
+
+innovative
+
+) lending criteria were too risky, and this belief was so endemic because it reflected the righteous goal of increasing home ownership to the poor, especially minorities. People believe bad analysis when they get the answer they like, and everyone liked the answer. Even the American Economic Association granted great honors on those writing that existing lending criteria were (see the seminal prized pub in early form
+
+[here](http://www.bos.frb.org/economic/wp/wp1992/wp92_7.pdf)
+
+), if unintentially, racist, while their critics were left in obscure universities and journals. With over
+
+[$2 Trillion](http://www.community-wealth.org/_pdfs/articles-publications/cdfis/report-ncrc.pdf)
+
+(that's 2 thousand Billion) in loans targeted towards 'traditionally underserved communities' (ie, people with bad credit, no down payment), the money created deep and broad vested interests. The rating agencies were not necessary for this problem.
+
+Lastly, regulators are already overwhelmed by data, as the process of outsiders evaluating a complex financial institution is simply very difficult in the best of circumstances. They ask for risk reports, they will get them, but tables of exposures cross-tabbed by originator, region, etc., will just be butt-covering documentation. To think regulators have the ability to analyze anew thousands of institutions individual risk underwriting just means they will be more overwhelmed. They will look for key words, perfunctory analysis that consultants will teach banks that are necessary, which in the end makes the underwriting just as susceptible to group-think as before. But at least the external rating agency is monitored critically, in a straightforward fashion, and there is some competition (ie, Fitch, S&P and Moody's). The myriad decentralized reports will have the added baggage of serving two purposes. Hitting the hot-buttons everyone knows regulators are looking for, while pretending to be some great alpha-inspired individualized edge, built from the bottom up.
+
+Rahm Emmanuel stated the Obama administration should never let a crisis go to waste. I think crisis bring out the worst in individuals and collectives because they overreact indiscriminately, and this usually merely kills an error that is now so obvious as to be irrelevant going forward anyway. The bottom line is that people need to have good incentives, good data, and good judgment. If losing 80% of one's market cap is not sufficient incentive for firms to address this optimally given their specific contexts, why does one think the incentives, data, and judgment of legislators and bureaucrats in Washington or Basel are going to be better? Because they are selfless public servants? That's a grade-school view of politics. I'm not saying markets are perfect, merely that regulators mandating decentralization of all risk measurement, is worse.

@@ -1,0 +1,64 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:46:18
+-->
+
+# Falkenblog: Risk and Return: Knowledge is Dangerous
+
+> 来源：[http://falkenblog.blogspot.com/2011/09/risk-and-return-knowledge-is-dangerous.html#0001-01-01](http://falkenblog.blogspot.com/2011/09/risk-and-return-knowledge-is-dangerous.html#0001-01-01)
+
+From Yoav Ganzach,
+
+[Judging Risk and Return of Financial Assets](http://www-abc.mpib-berlin.mpg.de/users/r20/judging_risk_return.pdf)
+
+(2001).
+
+> According to this model, unfamiliar assets are unidimensionally perceived on a continuum ranging from “good” to “bad.” Judgments of risk and return are derived from this unidimensional attitudinal continuum. If an asset is perceived as good, it will be judged to have both high return and low risk, whereas if it is perceived as bad, it will be judged to have both low return and high risk.
+> 
+> [for familiar assets the results are] similar to the standard economic model of the risk and return of financial assets (e.g., the Capital Assets Pricing Model; see, for example, Sharpe, 1981).
+
+So, when judging familiar stocks, analysts' judgments of risks and returns were positively correlated, as conventionally predicted. But when judging unfamiliar stocks, analysts tended to judge the stocks as if they were generally good or generally bad - low risk and high returns, or high risk and low returns. Ganzach presents some surveys, testing a bunch of MBAs familiar with the CAPM. He basically argues that when people really understand an asset, they then apply the standard CAPM reasoning (expected return inversely related to risk), and worked backward from the intitial 'good asset' to 'low return' (or from 'bad' to 'high'), using their theoretical training. The author assumed without much note the CAPM theory as correct. I see it as applying a theory that is severely contradicted by the data, solely because it is so well believed by conventional wisdom.
+
+These students would have been better off in a state of ignorance. Empirically we know that high cashflow and low volatility are correlated with higher-than-average returns, but there's no dominant theory for that.
+
+Ganzach's 'unfamiliar asset' finding is what
+
+[Sharpe and Amromnin](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1327134)
+
+found in general surveys of American investors that when they believed times were propitious for stocks, they would have high returns and low risk. Forecasting the overall market is something difficult for anyone, so individuals would likely behave as if this were an 'unfamiliar' asset play.
+
+But with some knowledge of the situation, one sees the particulars which are invariably mixed: everything has pros and cons. To see a pattern within this overload of data requires a theory, and the dominant one in this case is that a 'good' company is not risky (eg, high profits, low volatility), so its return therefore should be low.
+
+People apply the
+
+[halo effect](http://en.wikipedia.org/wiki/Halo_effect)
+
+because it's generally true, in this case to company risk and returns. The 'halo effect' theory is certainly
+
+not
+
+true all the time, but the key is it just has to be true most of the time to be a useful generalization, because it then saves one time thinking about things.
+
+When we have a lot of data, however, we override this generalization, because we figure more knowledge should increase our understanding of whatever we are examining. This too, as a generalization, is true. All theories are wrong, some are useful, so the hope is that your theory is of the latter sort. In these cases, the more one knows, the more one is lured into applying their theoretical knowledge, and then the issue is whether or not their underlying theory is either irrelevant or has a sign error. Unfortunately, a lot of conventional theories are profoundly wrong.
+
+Consider that in earlier days, people thought eating fat made you fat, boys secretly desired to have sex with their mothers, and that people learned solely through operant conditioning. Consider that today, people with education degrees tend to
+
+[emphasize credentialism](http://dailycaller.com/2011/03/14/nick-kristof-bashes-americas-teachers/)
+
+even though they are in the best position to understand how wrong this is, or most
+
+[macroeconomists think](http://falkenblog.blogspot.com/2011/02/mit-symposium-highlights-macroeconomic.html)
+
+that when unemployment is high the government should spend ever more money regardless of how it is spent; experts are less wise than laypersons in their very own fields.
+
+When you know a lot of facts you can rationalize your opinions very well, but it does not converge one's beliefs onto better theories, more so the bigger the theory. Consider how psychologists are not happier than average, political scientists never seem attractive politicians, economists are generally not good economics advisers .
+
+When
+
+[William Blake](http://en.wikipedia.org/wiki/William_Blake)
+
+noted that 'To generalize is to be an idiot. To particularize alone is a distinction of merit', I am sympathetic. People are bad at generalizing in general. Humans are pretty good at picking up social cues, sensing when their dog is hungry, but the more abstract the worse it gets. Our wet neural nets simply weren't optimized for this kind of thing, which is why common sense among experts is less frequent than what one thinks greater learning should bring. We are often led astray by theories that tend to tell comforting stories, or that contain bad analogies, faulty extrapolations, or omitted variables biases. We can't avoid generalizing at some level, just as we can't look at data and see anything without some kind of theory. But it's a useful generalization that when your source is an academic theory,
+
+caveat emptor
+
+.

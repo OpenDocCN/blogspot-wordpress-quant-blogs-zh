@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:26:40
+-->
+
+# Quantitative Trading: Cointegration of OIH with spot oil price
+
+> 来源：[http://epchan.blogspot.com/2006/11/cointegration-of-oih-with-spot-oil.html#0001-01-01](http://epchan.blogspot.com/2006/11/cointegration-of-oih-with-spot-oil.html#0001-01-01)
+
+Both my friend Yaser Anwar over at the
+
+[Investment Ideas blog](http://equityinvestmentideas.blogspot.com/)
+
+and my reader
+
+[Jim](http://epchan.blogspot.com/2006/11/update-on-energy-stocks-vs-futures.html#comments)
+
+urged me to test the oil services ETF OIH instead of XLE for cointegration with crude oil price. Their reasoning is that OIH is composed of oil drilling companies such as Schlumberger and Baker Huhges, as opposed to XLE, which is composed of oil-production companies like Exxon. The oil-drillers are more cyclical and react more to spot oil price rather than far futures contract prices. The hope is that OIH will tend to cointegrate better with spot oil price than XLE because of this. The fact that OIH has higher volatility as a result is not a concern to the arbitrageur (as opposed to the hedger), who profits from high volatility. In any case, its volatility should “cancel out” that of the spot oil price and result in a spread that may actually be less volatile. I follow their advice and carry out the analysis of CL vs. OIH.
+
+![](img/e82b41aa74fb5ad0d25f62aea7f5dd7b.png)
+
+The plot is of the dollar value of long 1 contract of Cl and short 497 shares of OIH. They do cointegrate with over 90% probability. (I also plotted the 1 standard deviation lines of the spread to facilitate those who want to look for approximate entry points.) The cointegration probability is not measurably better than that between CL and XLE. However, the current spread (as of the close of Nov 20) is undervalued by only $9,617 (or 1.48 standard deviation), as opposed to $10,508 (or 1.74 standard deviation) for the CL-XLE spread. (I determined the standard deviation of the CL-XLE spread to be about $6,040). So in recent months, one can indeed say that OIH is trading more in line with spot oil price than XLE. But as an arbitrageur who thinks the larger the spread, the bigger the profit opportunity, this is not an endorsement for buying the CL-OIH spread instead. Rather, I would consider adding this spread as a means of diversification.
+
+Thanks, Yaser and Jim, for this suggestion!

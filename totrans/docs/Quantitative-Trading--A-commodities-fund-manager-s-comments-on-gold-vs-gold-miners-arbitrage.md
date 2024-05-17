@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:27:25
+-->
+
+# Quantitative Trading: A commodities fund manager's comments on gold vs gold-miners arbitrage
+
+> 来源：[http://epchan.blogspot.com/2006/11/commodities-fund-managers-comments-on.html#0001-01-01](http://epchan.blogspot.com/2006/11/commodities-fund-managers-comments-on.html#0001-01-01)
+
+John Netto, a principal in a commodities fund that focuses heavily on gold, wrote me the following concerning my [article](http://epchan.blogspot.com/2006/11/gold-vs-gold-miners-another-arbitrage.html) on arbitrage between gold and gold-miners: "... there is a paradox that exists in many instances with gold companies and the underlying metal, which could potentially unwind most pairs traders. This is the dynamic of non-recourse loans that companies take on when doing a project. This would never show up in a quantitative model but can put companies in a position that when gold rises, they can get hurt to some degree. Banks that do non-recourse loans require the companies to sell futures to guarantee payment for the project in case the price of gold falls. This way, they will not lose if the project no longer becomes a viable business endeavour. If gold rises, these companies must show massive mark-to-market losses on their books based on new accounting rules. So the theory that gold companies can trade correlated to the price of the underlying is correct, however a dynamic exists that has the potential on a per company basis to materially affect that."
+
+I find Mr. Netto's comments very insightful. I would make one further point: if the mark-to-market accounting losses are temporary and will recover next quarter, we can expect their stock prices to revert. This is exactly the [cointegration](http://epchan.blogspot.com/2006/11/cointegration-is-not-same-as.html) scenario that I talked about -- a price reversion after some period of time, but not a day-to-day or week-to-week correlation.

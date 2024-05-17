@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:29:16
+-->
+
+# Windows EOL | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2018/06/14/windows-eol/#0001-01-01](https://etrading.wordpress.com/2018/06/14/windows-eol/#0001-01-01)
+
+## Windows EOL
+
+### June 14, 2018
+
+Could Windows die as an enterprise OS? Could it disappear in the same way as desktop  workstations from Sun, SGI & Next? Could it vanish from the datacentre just like Solaris?
+
+Twenty years ago Open Source advocates pushed the Linux desktop as a means to break Microsoft’s stranglehold on PC computing. At the same time Sun promoted Java applets as desktop OS agnostic. In reality it was the iPhone launch in 2007, and the rise of the smart phone that broke Microsoft’s dominance in the consumer space; Android & iOS are the leading phone and tablet OSes and have driven the shift from Windows being the primary GUI to HTML5\. But despite the primacy of the HTML5 GUI for new systems, Windows position on the corporate desktop still seems secure. Why?
+
+There are good reasons Windows persists in the business environment when it has receded in the consumer space: corporate knowledge workers need desktop computing, and Windows is still the best option: cheaper than MacOS, easier to use than Linux and more compatible with legacy apps than either. It’s still the best platform for running MS Office, naturally. But maybe [ReactOS](http://www.reactos.org) – an Open Source Windows clone, could eventually change that. With no license fee that makes it cheaper than Windows, so the question becomes: could ReactOS form the basis for a RedHat style play that would eliminate desktop Windows in the same way RedHat Enterprise Linux finished off Solaris? For that to be happen possible ReactOS would need to achieve higher levels of compatibility. Currently it can [run a lot of apps including Excel Viewer](https://www.reactos.org/gallery), but not Office itself. That could be addressed by industry consortia. How much do large enterprises spend on Windows licensing? Potentially, that cost could be taken out in favour of funding consortium efforts to raise ReactOS compatibility, package it for corporates and supply support.
+
+It’s an intruiging prospect, but there are good reasons why it would be hard to execute. Firstly, the sheer technical difficulty of troubleshooting without source code access for MS Office, .Net and other legacy apps. Debugging is a hell of a lot easier with source code access. Secondly, Microsoft’s competitive response; they could drop the cost of Windows volume licensing to zero or near zero. And they could engineer Office and .Net for ReactOS incompatibility. However, both responses could invoke resistance from anti monopoly regulators.

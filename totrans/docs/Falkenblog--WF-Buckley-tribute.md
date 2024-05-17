@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:26:54
+-->
+
+# Falkenblog: WF Buckley tribute
+
+> 来源：[http://falkenblog.blogspot.com/2008/02/wf-buckley-tribute.html#0001-01-01](http://falkenblog.blogspot.com/2008/02/wf-buckley-tribute.html#0001-01-01)
+
+From an article on “the aimlessness of American education,” by WFB circa 1960:
+
+John Barrymore said he could induce a severe case of delirium tremens by reckoning the amount of whiskey he had drunk during his lifetime and imagining it all in a single glass (about the size of a small movie theater) poised for him to start all over again. The young college president, freshly in office, must pale at the thought of the miles and miles of clichés that stand between him and that final baccalaureate address, twenty years hence, when he will say: essentially the same thing.

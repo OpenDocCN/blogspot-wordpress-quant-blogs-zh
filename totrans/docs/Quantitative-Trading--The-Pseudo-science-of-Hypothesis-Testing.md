@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:00:07
+-->
+
+# Quantitative Trading: The Pseudo-science of Hypothesis Testing
+
+> 来源：[http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01](http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01)
+
+Backtesting trading strategies necessarily involves a very limited amount of historical data. For example, I seldom test strategies with data older than 2007\. Gathering longer history may not improve predictive accuracy since the market structure may have changed substantially. Given such scant data, it is reasonable to question whether the good backtest results (e.g. a high annualized return R) we may have obtained is just due to luck. Many academic researchers try to address this issue by running their published strategies through  standard statistical hypothesis testing.
+
+You know the drill: the researchers first come up with a supposedly excellent strategy. In a display of false modesty, they then suggest that perhaps a null hypothesis can produce the same good return R. The null hypothesis may be constructed by running the original strategy through some random simulated historical data, or by randomizing the trade entry dates. The researchers then proceed to show that such random constructions are highly unlikely to generate a return equal to or better than R. Thus the null hypothesis is rejected, and thereby impressing you that the strategy is somehow sound.
+
+As statistical practitioners in fields outside of finance will tell you, this whole procedure is quite meaningless and often misleading.
+
+The probabilistic syllogism of hypothesis testing has the same structure as the following simple example (devised by Jeff Gill in his paper "The Insignificance of Null Hypothesis Significance Testing"):
+
+1) If a person is an American then it is highly unlikely she is a member of Congress.
+
+2) The person is a member of Congress.
+
+3) Therefore it is highly unlikely she is an American.
+
+The absurdity of hypothesis testing should be clear. In mathematical terms, the probability we are really interested in is the conditional probability that the null hypothesis is true given an observed high return R: P(H0|R). But instead, the hypothesis test merely gives us the conditional probability of a return R given that the null hypothesis is true: P(R|H0). These two conditional probabilities are seldom equal.
+
+But even if we can somehow compute P(H0|R), it is still of very little use, since there are an infinite number of potential H0. Just because you have knocked down one particular straw man doesn't say much about your original strategy.
+
+If hypothesis testing is both meaningless and misleading, why do financial researchers continue to peddle it? Mainly because this is *de rigueur* to get published. But it does serve one useful purpose for our own private trading research. Even though a rejection of the null hypothesis in no way shows that the strategy is sound, a failure to reject the null hypothesis will be far more interesting.
+
+(For other references on criticism of hypothesis testing, read Nate Silver's bestseller "
+
+[The Signal and The Noise](http://www.amazon.com/dp/159420411X/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=159420411X&adid=1T2D70JWEBA1DVTW0MQD&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)
+
+". Silver is of course the statistician who correctly predicted the winner of all 50 states + D.C. in the 2012 US presidential election. The book is highly relevant to anyone who makes a living predicting the future. In particular, it tells the story of one Bob Voulgaris who makes $1-4M per annum betting on NBA outcomes. It makes me wonder whether I should quit making bets on financial markets and move on to sports.)

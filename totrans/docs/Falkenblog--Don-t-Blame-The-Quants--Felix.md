@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:20:41
+-->
+
+# Falkenblog: Don't Blame The Quants, Felix
+
+> 来源：[http://falkenblog.blogspot.com/2009/02/dont-blame-quants-felix.html#0001-01-01](http://falkenblog.blogspot.com/2009/02/dont-blame-quants-felix.html#0001-01-01)
+
+It would be nice to think that this crisis was a huge math error. Some geek in a cubicle hit the wrong button on his HP12-C. Doh! Alas, it is not the case. Any error this pervasive is not from some obscure assumption, but an assumption that everyone was comfortable with. If an obscure technical assumption drove investors into various bonds, there should be a large group of investors who would have quants who disagreed, and they would have not been exposed. That is, quants may have no common sense, but on
+
+obscure
+
+technical results, they are smart and often disagree. Yet not one of the major investment banks worldwide escaped this craze. It's as if all the geeks thought the 5th digit of Pi was 6.
+
+The only reason everyone made the mistake was that it was from an assumption that everyone seemed to think was reasonable, something quants did not have the authority to affect: that housing prices would not fall significantly. Look at Shiller's update Irrational Exuberance from 2005, and there's a chapter on the Housing Bubble, where he notes that recent housing price increases '
+
+probably
+
+won't continue', hardly a clarion call to avoid housing. When everyone is doing something, and think it's right, the quants will perforce generate supporting documentation. Scientists in that way are like lawyers, advocates, not for a paid client, but rather, the ephemeral verities of the current zeitgeist. With $4B for global warming research, and much less for anti-global warming research, it is no surprise many scientists are documenting various evidence of global warming: people like the results, they aren't as skeptical, more likely to get published, get a grant, get on a government project, etc.
+
+UBS used a 10-day Value-at-Risk on its residential mortgage backed portfolio to assess its risk, using data from the benign 2000-2005 period. This was an error. But UBS was going to invest in mortgages anyway, because presumably this collateral does not decline much if ever, so this was all standard rationalization of preconceived objectives.
+
+Felix Salmon wrote a
+
+[piece](http://www.wired.com/techbiz/it/magazine/17-03/wp_quant?currentPage=all)
+
+in Wired, where he fingers the copula function as the primary culprit.
+
+> And (David) Li's Gaussian copula formula will go down in history as instrumental in causing the unfathomable losses that brought the world financial system to its knees.
+
+He then quotes some quants, like Darrell Duffie, who states that "corporate CDO world relied almost exclusively on this copula-based correlation model". Well, derivatives textbook authors might like to believe that their formulas underlie most financial activity, but I suspect the number of people using copulas in their sales pitch was low, no more than 5%, because most investors, big shots who actually make portfolio decisions, do not like pretentious mathematics. Perfunctory metrics may be ubiquitous, but they are still perfunctory. The decision makers are rich, powerful, kind of smart, do not feel embarrassed by their lack of knowledge in obscure technical trivia, and surely are not intimidated by it. Of that limited set, the copula itself, irrespective of the broader knowledge about mortgages and housing price trends, was probably the driver of 10% of those purchases, because even for investors who like formulas, most require a bigger picture. Thus, I generously estimate about 0.5% of all mortgages were bought because of David Li's Frankenstein formula.
+
+Copulas, value at risk, correlations, credit scores, one might add standard deviations, means, and Microsoft Excel's 'solver'. These concepts can get tricky, but the basic assumption in the mortgage crisis, that housing prices would not fall significantly, was not tricky, and people with the authority to make decisions were not swayed by these technical issues, rather, they used them to validate their earlier beliefs.

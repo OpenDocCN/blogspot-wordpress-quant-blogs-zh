@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:44:13
+-->
+
+# Equity Curve Analysis: A Simple Statistical Test | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01](https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01)
+
+**Note:** A more complex method that applies to this article  mentioned by one of our readers is the application of a regression which is briefly touched upon in the link [http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)
+
+One method of determining when a trading strategy is breaking down is to run a statistical test. Conceptually when I use the term “breaking down” I am  referring to the recent profitability of the strategy being significantly different than average. However, this may also refer to a strategy becoming more volatile than average relative to its profit per trade. Both an analysis of the “mean” and “variance” of a trading strategy in the most recent period versus its historical average are important  in equity curve analyis. Another possible area of investigation is the trade win% versus its historical win%. For this post we will look at how to address the first issue which concerns the possibility that the average profitability is significantly different than average. Thus we will assume that the trading strategy still has the same variance or volatility as measured historically. Enter the paired t-test which is used to determine whether two samples from the same trading strategy are similar or statistically different than normal. In this case I have used the equation that assumes unequal sample sizes because in most cases traders would do a 5 or 10 year backtest, and would want to evaluate a strategy that is currently undergoing some form of drawdown or deterioration (ie you aren’t going to wait 5 or 10 years before you test again!): 
+
+From wikipedia: [http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)
+
+Unequal sample sizes, equal variance
+
+This test is used only when it can be assumed that the two distributions have the same variance. (When this assumption is violated, see below.) The *t* statistic to test whether the means are different can be calculated as follows:
+
+![t = \frac{\bar {X}_1 - \bar{X}_2}{S_{X_1X_2} \cdot \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}](img/0a0a010921762481f7ac482b8cce1b62.png)
+
+where
+
+![ S_{X_1X_2} = \sqrt{\frac{(n_1-1)S_{X_1}^2+(n_2-1)S_{X_2}^2}{n_1+n_2-2}}.](img/38083eee5520e7f044247a084055a4fa.png)
+
+Note that the formulae above are generalizations for the case where both samples have equal sizes (substitute *n*[1] and *n*[2] for *n* and you’ll see).
+
+![S_{X_1X_2}](img/316fd3b7cbb7bd464ac7ff27fbdfcf52.png) is an estimator of the common [standard deviation](https://cssanalytics.wordpress.com/wiki/Standard_deviation "Standard deviation") of the two samples: it is defined in this way so that its square is an unbiased estimator of the common variance whether or not the population means are the same. In these formulae, *n* = number of participants, 1 = group one, 2 = group two. *n* − 1 is the number of degrees of freedom for either group, and the total sample size minus two (that is, *n*[1] + *n*[2] − 2) is the total number of degrees of freedom, which is used in significance testing.
+
+Note that this can also be applied to determine whether say two mean reversion systems like DV2 and RSI2 are signficantly different from eachother. There are some issues with the t-test and to me the assumption of normality–ie that a given trading strategy is normally distributed–is certainly one issue. This flawed assumption has caused quants many problems in the past. The most hazardous to your account is the delay that may be introduced by waiting too long to turn a strategy off. One adjustment that can be made is to have some form of trailing stop or gradual reduction of exposure to a strategy even before it is “statistically significantly different than average.” Other issues concern forms of conditional bias introduced by backtesting during only one “regime” such as an uptrend, this will naturally screw up the test as trading strategies often behave very differently across various “regimes.” Knowing in advance that certain strategies perform poorly when a regime change occurs, gives you “early warning” to stop using it and thus helps you to avoid drawdowns. An example would be shorting after two up days, which typically performs well, should be expected to perform worse during the onset of a new “uptrend” perhaps defined by the 200 day MA or others. Common sense in this regard can be a more proactive form of risk management vs reactive management achieved by trading the equity curve. It stands to reason for example that when the market is 3 standard deviations below its mean, eventually it will snap back, and thus a reduction of exposure to a shorting strategy at this point is probably better than waiting for a drawdown to occur to cut bait. This is also why the use of mean-reversion principles of overbought and oversold are valuable.

@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:34:55
+-->
+
+# Falkenblog: Conservatism as Orgasm
+
+> 来源：[http://falkenblog.blogspot.com/2012/02/conservatism-as-orgasm.html#0001-01-01](http://falkenblog.blogspot.com/2012/02/conservatism-as-orgasm.html#0001-01-01)
+
+[![](img/b8cf509ad6ec327bc405f7b418046e94.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9wtTkwCudmX_ybPk84IikmwRcDMY4WkVxXq0Q4eWUxQEV5uvKEPC55Gf5Llw5x_MVKEf8JZsrmOQHLOAXwnbjDV-w0McBjLcdtxyXSd8sebUUiTcRKMj9iQ9x_0F7ll9NBAWx3Q/s1600/Gopnik.jpg)
+
+Alison Gopnik studies babies, and finds them active little theorists, academics with no responsibilities and lots of time for inquiry. She titled a paper
+
+[Explanation as Orgasm](http://www.alisongopnik.com/Papers_Alison/Explain%20final.pdf)
+
+, noting our pleasure from explanations is like an orgasm, in that it must have some kind of innate reward to get us to do it. Children need to learn about the causal structure of the world, so there must be something hard wired to get them all to seek theories to explain the world, otherwise it wouldn't be common.
+
+Gopnik quotes Hobbes:
+
+> there is a lust of the mind, that, by a preserverance of delight in the continual and indefatibable generation of knowledge, exceeds the short vehemence of **carnal pleasure.**
+
+I do get a large amount of intrinsic pleasure in learning new theories that I think are true and important. Perhaps my delight in figuring things out is not some appreciation I have developed, like learning to appreciate a Jackson Pollack or Bach cantata, but rather something instinctual, like appreciating landscape paintings or great guitar riffs.
+
+Gopnik does not really mention what this biological payoff might be, but clearly it is not much like the cocktail of brain chemicals released during an orgasm, including norepinephrine, serotonin, oxytocin, vasopressin, nitric oxide, and prolactin. The benefit of 'explanation' is a lot different, but no less physical (and thus the analogy retains).
+
+[![](img/6bf97b03b2aff548172089776768d600.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuOMjl58nawW9LrP_x3EuzAmlHBYhbasgcOdZv_9J5Xnxn86YSkdIYkd9xsgBzCbpc3AYIPccyYax0KvS2BDHwhaIj6pjJoJZtxHiHKjXq3CaUm1hmsI9K-Z-ZxQJz1h0olgmu7g/s1600/dalmation.jpg)
+
+Consider the payoff one gets from an 'aha!' moment, those instances when some pattern is recognized that explains the data. For example, note when you see the dalmatian in the picture here, you get an 'aha!' moment. They have many ways to test for 'aha!' moments, such as asking you what word goes with pine, crab, and sauce (hint: it's a fruit). Researcher
+
+[have found](http://www.plosbiology.org/article/info%3Adoi%2F10.1371%2Fjournal.pbio.0020097)
+
+that 0.3 seconds before the subjects indicated solutions achieved through sudden insight, there was a burst of neural activity of high-frequency (gamma band) activity. Such simplifications of reality, explaining more with less, is intuitively pleasing because it releases a burden on our brains, we now need hold and arrange fewer facts to see the same phenomena.
+
+That's all fine, but it suggests a darker flip side. If we abandon an ideology that currently explains many things in our mind--global warming, Freemason conspiracy--then many facts explained by this old ideology are now free floating, unexplained. Letting those go must be as unpleasant as learning a new theory is pleasant, one is the other in reverse. The assumptions we adopt are largely affected by birth milieu, accidental in some sense and so obviously inferior in many respects relative to what an omniscient being would assume, so we have a lot of baggage.
+
+Say we notice that one of our ideologies (we have more than one, as one might believe in libertarianism and String Theory), is definitively inferior in certain cases, and a better theory exists. In that case, it is costly to change, as you would unleash a flood of bad high-frequency brain waves upon scrambling your neat theoretical web that nicely holds many of your observations together. Thus, you reject the new theory and accept the anomaly in hope that an innocuous solution can be found, like the relativistic adjustments for really small or fast objects in the Newtonian paradigm.
+
+This could explain why science progresses one funeral at a time (ie, thus not
+
+*political*
+
+conservatism as orgasm, but the same conservatism that has kept Noam Chomsky and Ron Paul having the same radically opposite beliefs for decades).
+
+Feynman noted that people
+
+[tend to fool](http://www.lhup.edu/~DSIMANEK/cargocul.htm)
+
+themselves a lot:
+
+> The first principle is that you must not fool yourself--and you are the easiest person to fool. So you have to be very careful about that. After you've not fooled yourself, it's easy not to fool other scientists.
+
+We stick to old theories not merely to succeed in our current parochial coalition, but because it is innately unpleasant to replace ideologies that currently seem to explain a lot of facts. Young people have lots of neurons but not many connections, so they don't generate so much cognitive dissonance adopting new theories, as their existing set of theories is pretty limited. Young people can learn a lot because they aren't contradicting much, so it's rather pain free. In contrast, an adult who learns something profound loses some innocence, and has to then rethink deeper assumptions.

@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:51:46
+-->
+
+# Falkenblog: Stigum's Money Market
+
+> 来源：[http://falkenblog.blogspot.com/2008/10/stigums-money-market.html#0001-01-01](http://falkenblog.blogspot.com/2008/10/stigums-money-market.html#0001-01-01)
+
+Tyler Cowen
+
+[notes](http://www.marginalrevolution.com/marginalrevolution/2008/10/marcia-stigums.html)
+
+Marcia Stigum's authoritative (aka 1000 pages)
+
+[Money Market](http://www.amazon.com/Stigums-Money-Market-Marcia-Stigum/dp/0071448454)
+
+as a great source for understanding this crisis. I agree. It highlights that no one prior to this crisis, especially academics, had any clue it was coming, no theory that would have alerted them to coming problems.
+
+In my 1983 edition of Money Markets there is nothing in the index under 'risk', let alone 'credit risk'. Updated versions have perfunctory mention, hardly enough to give one a clue about underwriting critera, loss curves, default rate transitions, recovery rates, the key criteria for consumer vs. commercial loans. Not relevant. Mainly a litany of definitions of various instruments, data on amounts outstanding, the minutia of daycount methodology for various securities. Its collection of facts is no more an insight into finance than a pile of bricks is a house.
+
+My old KeyCorp boss, Kevin Blakely, told me a funny story about how he was asked, as a 45-year old banking executive with a history of risk management, to guest lecture in a Money & Banking class. He read up on the guy's notes, trying to see how he could work his insights into the class. It was all on fractional reserve banking and the money multiplier, the structure of the Federal Reserve, the Great Depression, inflation, etc., etc. In his words, nothing on actual banking, such as the many practicalities of credit risk.
+
+Maybe soon.

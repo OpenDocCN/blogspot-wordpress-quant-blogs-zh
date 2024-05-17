@@ -1,0 +1,51 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:10:52
+-->
+
+# High Performance American Option Pricing – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01](https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01)
+
+A couple of years ago Andersen, Lake and Offengenden have introduced a new high performance algorithm to price American options for the Black-Scholes-Merton model [1][2]. Basis of the algorithm is an interpolation of the early exercise boundary
+
+![S^\star(t) = B(\tau),\ \tau=T-t](img/66b9727f713efa7f4225c1dece238c43.png)
+
+for a time reversed boundary function ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png) with ![B(0)=K](img/6d22988c0bf4137d530e38e501eecc45.png). Knowing the boundary function ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png), the value of an American put option is given by
+
+![\begin{array}{rcl}\displaystyle V(\tau, S)&=& \displaystyle e^{-r\tau}K\Phi\left(-d_-(\tau,S/K)\right)-Se^{-qt}\Phi\left(-d_+(\tau, S/K)\right) \\[5pt] &&\displaystyle + \int_0^\tau r K e^{-r(\tau - u)} \Phi(-d_-(\tau-u, S/B(u) )) du \\[11pt] &&\displaystyle - \int_0^\tau q S e^{-q(\tau - u)} \Phi(-d_+(\tau-u, S/B(u))) du \\[10pt] d_\pm(\tau, x) &=& \displaystyle \frac{\ln{x}+(r-q)\tau \pm\frac{1}{2}\sigma^2\tau}{\sigma\sqrt{\tau}}\end{array}](img/3c84587f6f8fb858cb50cb743e7faa61.png)
+
+and the value of an American call option can be evaluated via the call-put symmetry [3]. The algorithm consists of four separate tasks and the precision of each task is steered by a separate parameter and the choice of an integration algorithm.
+
+1.  The early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png) is interpolated on ![n](img/17deaa124310c647ec1dd85566e7b1e5.png) Chebyshev nodes [4].
+2.  The early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png) is approximated using *m* fixed point iteration steps. The first iteration is a partial Jacobi-Newton step, the other *m*-1 steps are ordinary fixed point iterations.
+3.  Integrations during the fixed point iterations are either carried out using Gauss-Legendre integration of order *l* or a tanh-sinh integration with given tolerance *ε*.
+4.  A last integration along the early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png) to get the American option value is using Gauss-Legendre integration of order *p* or a tanh-sinh integration with given tolerance *ν*.
+
+It is important for the overall performance that all sub steps lead to a similar accuracy. The parameter space may be best explored with help of a benchmark portfolio, e.g. following [1]
+
+![\begin{array}{rcl} T&\in& \{ 30, 91, 182, 273, 365 \} \\ r &\in&  \{2\%, 4\%, 6\%, 8\%, 10\% \} \\ q&\in&\{ 0\%, 4\%, 8\%, 12\%\} \\ S&\in& \{25, 50, 80, 90, 100, 110, 120, 150, 175, 200\} \\ \sigma&\in&\{10\%, 20\%, 40\%, 60\%\}\end{array}](img/e6509237dc04248ff9bc7a7b3f7d2bc8.png),
+
+and the best accuracy per runtime ratios for different parameter configurations. Each dot in the diagram below corresponds to the root mean square error (RMSE) of a different parameter configuration. The RMSE is calculated for all 6000 option prices in the benchmark portfolio and plotted against the runtime of a single option pricing. For comparison the results of the finite difference method have been added but PDEs can not compete with this algorithm (nor can the tree based algorithms in QuantLib).
+
+This data set can be used to define the efficient parameter frontiers and take optimal parameter configurations from the frontiers. A fast configuration is Legendre integration for step 3 and 4 and
+
+![(l, n, m, p) = (7,2,7,27)](img/fecfa5fbcb735fbbf2422d1a0c70136c.png),
+
+accurate is Legendre integration for step 3 and tanh-sinh integration for step 4 with
+
+![(l, n, m, \nu) =(25, 5, 13, 10^{-8})](img/1852f6d21ad68209e65a311b31444d11.png),
+
+high precision is achieved with tanh-sinh for step 3 and 4 with
+
+![(\epsilon, n, m, \nu) = (10^{-10}, 10, 30, 10^{-10})](img/da8f2efc54f0d2ed0f97f0de3d677032.png)
+
+The implementation of this algorithm is not always straight forward and part of the [PR#1495](https://github.com/lballabio/QuantLib/pull/1495).
+
+[1] L. Andersen, M. Lake and D. Offengenden: [High Performance American Option Pricing](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2547027)
+
+[2] L. Andersen and M. Lake: [Fast American Option Pricing: The Double Boundary Case](https://onlinelibrary.wiley.com/doi/abs/10.1002/wilm.10969)
+
+[3] R. McDonald and M. Schroder: [A parity Result for American Options](https://www.researchgate.net/publication/243657048_A_Parity_Result_for_American_Options)
+
+[4]. S.A. Sarra: [Chebyshev Interpolation: An Interactive Tour](https://www.maa.org/sites/default/files/images/upload_library/4/vol6/Sarra/Chebyshev.html)

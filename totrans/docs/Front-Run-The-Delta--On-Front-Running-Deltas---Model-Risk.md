@@ -1,0 +1,88 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:31:10
+-->
+
+# Front-Run The Delta: On Front-Running Deltas & Model Risk
+
+> 来源：[https://frontrunthedelta.blogspot.com/2011/12/on-front-running-deltas-model-risk.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/12/on-front-running-deltas-model-risk.html#0001-01-01)
+
+If you consider markets to be a
+
+[theater](http://en.wikipedia.org/wiki/Theater_(warfare))
+
+of war, you had better read your enemy's book.
+
+My work on this website stems from a growing desire to understand the mechanisms and feedback loops that are active in today's market microstructure.  I have used the concept of delta hedging as an example to showcase the ability to study a pricing model, dissect the various moving parts at work, and attempt to find those actions buried within the global market data.  
+
+**"You magnificent bastard, I read your book!"**
+
+I imagine many of you, having stumbled across this blog, are already familiar with the concept of delta hedging as it relates to options trading.  In his incredibly thorough book 
+
+[Options Trading: The Hidden Reality](http://www.amazon.com/gp/product/0977869172/ref=as_li_tf_tl?ie=UTF8&tag=frorunthedel-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0977869172)
+
+, 
+
+[Charles M. Cottle](http://riskdoctor.com/)
+
+ notes that:
+
+"Today's Market Makers are basically machines.  I have helped professional market maker software venders design their systems to automatically adjust all the quotes in the options chain with each tick in the underlying market (stock and futures, etc.).  In these systems, 
+
+*for every options trade that a market maker's auto-quoting software performs, there follows an instantaneous, offsetting delta hedge with the underlying instrument.*
+
+"  [italics my own]
+
+The principle of delta hedging is nothing new.  Neither is the idea of front-running this mechanism.  In October, 1992, two traders named Darrell Zimmerman and Anthony Catalfo used such a "brilliant" technique to briefly corner the U.S. debt futures market while causing the bankruptcy of the 25-year old clearing firm 
+
+[Lee B. Stern & Company](http://en.wikipedia.org/wiki/Lee_Stern)
+
+ in the process.  A 
+
+[1996 article in the Chicago Reader ](http://www.chicagoreader.com/chicago/busted/Content?oid=891725)
+
+highlights the act:
+
+"When the markets opened at 7:20, Zimmerman and Catalfo started buying every put offered in the pit, 25,000 of them. Put prices soared and 
+
+*the traders who sold scrambled to hedge by selling futures in the bond pit.*
+
+ Zimmerman, however, beat them to it. He was sending huge sell orders to nine different brokers in the pit, driving the bond prices down."  [italics my own]
+
+In his book 
+
+[Demon of Our Own Design](http://www.amazon.com/gp/product/0470393750/ref=as_li_tf_tl?ie=UTF8&tag=frorunthedel-20&linkCode=as2&camp=217145&creative=399369&creativeASIN=0470393750)
+
+, one I am guilty of often citing, 
+
+[Dr. Richard Bookstaber](http://rick.bookstaber.com/)
+
+ attributes the 1987 stock market crash to similar actions under the guise of "
+
+[portfolio insurance](http://rfs.oxfordjournals.org/content/5/1/35.abstract)
+
+," a product he admittingly "had helped to popularize and implement."
+
+In response to a bill under review at the time by the 
+
+[House Committee on Ways & Means](http://waysandmeans.house.gov/)
+
+ that would tax greenmail profits and effectively limit potential rewards sought by risk arbitrage desks across Wall Street, on October 14, 1987, these risk arb desks began to liquidate their positions.  Dr. Bookstaber calls this initial act the "snowball at the mountaintop."  He goes on to write:
+
+"The run had begun. The drop in the market tied to these liquidations was echoed by portfolio insurance hedgers, 
+
+*who had to respond to the drop with their own programmed selling*
+
+.  The portfolio insurance selling clipped the market by another 50 points, and this was capped off at the end of the day by a third wave of selling.  And so the Dow experienced its largest one-day point drop in history, down nearly 100 points.
+
+"Thursday was worse.  Either caught unaware or waiting for the next day 
+
+[by design](http://www.math.ku.dk/~rolf/Klaus/ptc-T-dt-region-090112/Clewlow%201997%20log%20exp.pdf)
+
+, the reaction of portfolio insurance trades brought the Dow down another 50 points.  The results of these two days should have sounded the alarm bells for potential impact of portfolio insurance programs.  
+
+*In retrospect, it was clear that we were getting dangerously close to critical mass in terms of the effect of portfolio insurance on the market, the point where one drop in the market would trigger another, each tied to portfolio insurance hedging and each magnifying the previous one.*
+
+" [italics my own]
+
+What else can be seen out there?

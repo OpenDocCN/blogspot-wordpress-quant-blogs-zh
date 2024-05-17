@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:42:55
+-->
+
+# Trend or Mean-Reversion? The Strategy Allocation Problem (part 1) | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/11/09/trend-or-countertrend-the-strategy-allocation-problem/#0001-01-01](https://cssanalytics.wordpress.com/2009/11/09/trend-or-countertrend-the-strategy-allocation-problem/#0001-01-01)
+
+The complete inability to combine seemingly contrary concepts or ideas is a particulary strange cognitive bias that is highly prevalent even amongst intelligent people.  I think it stems for the need to eliminate cognitive dissonance:  (from wikepedia ) [http://en.wikipedia.org/wiki/Cognitive_dissonance](http://en.wikipedia.org/wiki/Cognitive_dissonance)
+
+**Cognitive dissonance** is an uncomfortable feeling caused by holding two contradictory [ideas](http://en.wikipedia.org/wiki/Idea "Idea") simultaneously. The “ideas” or “cognitions” in question may include [attitudes](http://en.wikipedia.org/wiki/Attitude_(psychology) "Attitude (psychology)") and [beliefs](http://en.wikipedia.org/wiki/Belief "Belief"), the awareness of one’s [behavior](http://en.wikipedia.org/wiki/Behavior "Behavior"), and [facts](http://en.wikipedia.org/wiki/Facts "Facts"). The theory of cognitive dissonance proposes that people have a [motivational drive](http://en.wikipedia.org/wiki/Drive_theory "Drive theory") to reduce dissonance by changing their attitudes, beliefs, and behaviors, or by justifying or rationalizing their attitudes, beliefs, and behaviors.^([[1]](http://en.wikipedia.org/wiki/Cognitive_dissonance#cite_note-0)) Cognitive dissonance theory is one of the most influential and extensively studied theories in [social psychology](http://en.wikipedia.org/wiki/Social_psychology_(psychology) "Social psychology (psychology)").
+
+This explains why people are either “growth” or “value investors” but rarely both,  and in this case traders generally either follow the “trend” or “mean-reversion.”  My stock ranking model, the MVP which stands for momentum, value and profitability tested extremely well historically (and is currently successful) because it straddled multiple investment styles that are complimentary. My theory based on this principle is that in the areas where cognitive dissonance is likely to exist there is likely to be rich opportunity for profits. This was the basis of the Aggregate M [https://cssanalytics.wordpress.com/2009/11/05/trend-or-mean-reversion-why-make-a-choice-the-simple-aggregate-m-indicator/](https://cssanalytics.wordpress.com/2009/11/05/trend-or-mean-reversion-why-make-a-choice-the-simple-aggregate-m-indicator/) Think of the overlap portion in any Venn Diagram of possible strategies that seem contradictory and you are bound to find high alpha.

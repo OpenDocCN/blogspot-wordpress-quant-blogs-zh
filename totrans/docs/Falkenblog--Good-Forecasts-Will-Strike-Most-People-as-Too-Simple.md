@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:13:20
+-->
+
+# Falkenblog: Good Forecasts Will Strike Most People as Too Simple
+
+> 来源：[http://falkenblog.blogspot.com/2008/06/good-forecasts-will-strike-most-people.html#0001-01-01](http://falkenblog.blogspot.com/2008/06/good-forecasts-will-strike-most-people.html#0001-01-01)
+
+In the early days of flight, men would strap on wings to mimic the success of birds. Eventually, we discovered that mechanical flight is best to be quite un-birdlike: a propulsion device and stationary wings. I remember, working for an economics department out of college, noting that our myriad forecasts always had a little squiggle at the end because...we know that in 5 years lines will squiggle.
+
+The issue was put well in a test by Tversky and Edwards in 1966 (“Information versus reward in binary choices,” Journal of Experimental. Psychology 71, 680–683). Subjects were shown a succession of cards, each card either red or blue. 70% of the cards were blue, and 30% red; the color sequence was random. The subjects, asked to bet on each succeeding card, would guess blue around 70% of the time, and red about 30% of the time. They didn't realize that their betting pattern did not have to resemble the observed sequence of cards. On each round, blue is the most likely next card. The best strategy is not betting a mostly-blue pattern resembling the mostly-blue sequence, but betting all blue.
+
+Under conditions of uncertainty, your optimal forecast pattern doesn't resemble a typical sequence, because optimally you should assume every random disturbance equals zero, when we know it will actually be merely distributed around zero.
+
+Probabilistically, the more detail, the more unlikely; in practice, convincing scenarios have a lot of specificity, like a good novel. But novels are fiction, and the future is not. Thus, 4 variable Vector-Auto-Regressions outdo 400-equation macro models, and default models with 4 inputs out-do CFA worksheets that examine 50 different accounting ratios. This is obviously non-intuitive, not natural, as demonstrated by Tversky and Edwards, but also if you look at the standard tools to evaluate credit risk which give you so much information.
+
+Thus, paradoxically, a good model
+
+should
+
+be a tougher sell than an overfit model. If the great unwashed (but white collar) masses like your 'model', you are probably going to fail if your goal is to predict well. A good model should cause unsophisticated people (i.e., most people) to think your model is insufficiently complex, because, intuitively, it is missing components X, Y and Z we see in actual data. But adding X, Y and Z merely increases the mean-squared error. Modeling 'feature creep' comes from giving people what they want, rather than what they need.

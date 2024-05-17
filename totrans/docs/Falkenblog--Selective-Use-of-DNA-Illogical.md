@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:21:34
+-->
+
+# Falkenblog: Selective Use of DNA Illogical
+
+> 来源：[http://falkenblog.blogspot.com/2008/04/selective-use-of-dna-illogical.html#0001-01-01](http://falkenblog.blogspot.com/2008/04/selective-use-of-dna-illogical.html#0001-01-01)
+
+Recently, the U.S. Senate
+
+[passed](http://www.time.com/time/health/article/0,8599,1734855,00.html)
+
+legislation that prohibits employers and health insurance companies from discriminating against people on the basis of their genetic test results. The House is expected to approve the measure as early as next week so it can be sent to President Bush for signing.
+
+The Senate vote was 95 to 0, and reflects the basic popularity of this idea. Earlier this year, the Genetics and Public Policy Center surveyed more than 4,000 Americans and found that 92 percent were worried that genetic test results could be used against a person.
+
+Clearly, people think that things beyond one's control should not be used against them. But life is all about probabilities, not binary decisions, and one can't avoid the fact that many things beyond our control affect our probability of success in life. One's IQ, athleticism, extroversion, musical abilities, are all somewhat determined by one's genes. Sure you can make the best of what you are given, but it is simply improbable that you will be a PhD physicist if you have an IQ of 85, or that you will play college football if you can't run a 40 yard dash under 5.5 seconds, or be a good salesman if you are introverted. Some kids are not nearly as attractive as others. Genes affect longevity, one's propensity to develop cancer, or heart disease. More importantly, some genetic defects are directly related to one's longevity, such as type-1 diabetes, cystic fibrosis, sickle-cell anemia.
+
+A small attempt to get back at an unfair Creator. But I think it would be more fair to say, if you have a gene that predisposes one to cancer, any such cancers should be covered by some federal health insurance. But that would involve up-front expenditures, extra-premiums or plans provided by the Nanny State. Legislators like smooshing expenses indirectly through mandates, that then drive up costs indirectly, and then every one can think the Government costlessly made a good thing happen.

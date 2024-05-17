@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:24:05
+-->
+
+# Falkenblog: Asset Pricing Theory is Really a Framework
+
+> 来源：[http://falkenblog.blogspot.com/2008/04/asset-pricing-theory-is-really.html#0001-01-01](http://falkenblog.blogspot.com/2008/04/asset-pricing-theory-is-really.html#0001-01-01)
+
+The latest JoF came out, and though publication day is the 'death of a paper', I think its fun to go over one article in there. Ang, Bekaert, and Wie, have an article called
+
+[The Term Structure of Real Rates and Expected Inflation](http://www2.gsb.columbia.edu/faculty/aang/papers/realrates.pdf)
+
+. It highlights a pernicious path in asset pricing, in that it is no longer a theory, but a framework. A theory is a testable hypothesis, it generates predictions, restricts what can happen, and is testable. A framework is like string theory with its 10^500 different universes: one of them works!
+
+Its a regime switching model, which is convenient, because interest rates were really crazy from 1970-1981 when inflation was increasing and real yields were negative, and so a parameter that basically gets that separated helps. In a sense, the fact that people didn't anticipate the increase in inflation in the 1970's, or its decline in the 1980's, is modeled via this little trick, but I don't think reifying this makes it any clearer. As per regime switching in general, watch out: macro data has a handful of turning points: 1973 for productivity, 1981 for inflation, the 5 recessions since 1970\. Let my model 'know' those and the model y=constant works pretty well. The model is a function of three more parameters: the inflation rate, a 'latent' factor, and a risk factor--the latter two being unobservable.
+
+The model captures some 'stylized facts' of the yield curve, such as its upward slope. But the upward slope of the yield curve is only for the first 1-3 years, so for some reason, the 'inflation risk premium' they assert that causes this is only applicable for 1-3 years, after that, it goes away. But they offer 1 to 6 (!) regimes, as if, take your pick! They like that their model shows that nominal yields are more upward sloping than real yields, though the Treasury Inflation Index yields look pretty parallel to the nominal curve to my eyes. They find that 80% of the yield curve volatility is from the inflation rate an the inflation risk premium, even though the 10 year TIPS rate has about 87% of the nominal rate since 2002 (data in FRED).
+
+But the authors are proud of their little beast because it is "rich", pointing the varying price of risk, and the regime switching, as evidence of its richness. When the key attractiveness of a model is that it can accommodate the data we all know so well with unobservables, what is the point? Inflation, fine, but latent factors and the time-varying risk parameters is simply the data, because there is very limited intuition for these, they are fit to the data. Now if they found they could pull out a risk factor here, and use it to explain equities, that would be neat. But this model is classic academic research.

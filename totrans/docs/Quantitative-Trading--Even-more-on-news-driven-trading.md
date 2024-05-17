@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:02:51
+-->
+
+# Quantitative Trading: Even more on news driven trading
+
+> 来源：[http://epchan.blogspot.com/2011/06/even-more-on-news-driven-trading.html#0001-01-01](http://epchan.blogspot.com/2011/06/even-more-on-news-driven-trading.html#0001-01-01)
+
+News driven trading is even more in vogue today than when I last
+
+[mentioned](http://epchan.blogspot.com/2007/07/more-on-news-driven-trading.html)
+
+it, judging from the increasing number of vendors (e.g. Ravenpack, Sensobeat, Recorded Future, etc.) and researchers pitching their wares. Not only are traditional financial and economic news deemed important, but researchers have found even blog posts (at least those on
+
+[Seeking Alpha](http://seekingalpha.com/article/263429-seeking-alpha-as-a-predictor-of-stock-movements-and-earnings-surprises)
+
+) and
+
+[Twitter](http://www.finalternatives.com/node/16666)
+
+ (Hat tip: Satya and William) to be predictive of stock prices.
+
+One key ingredient to success in this type of trading is of course the ability to gain access to breaking news ahead of other traders. On the macroeconomic news front, the MIT Billion Prices project has spun off a company called PriceStats to deliver daily consumer product price index to subscribers. PriceStats compiles this index by continuously scanning online retailers' websites, and hopefully provides a preview of the official CPI numbers. Whether this is useful for futures and currencies traders is of course subject to their rigorous backtests, though the
+
+[chart](http://bpp.mit.edu/usa/daily-price-indexes/?country=USA)
+
+displayed on their website does suggest that the daily price index is a leading indicator of the CPI.
+
+There is an important caveat to using news trading: not all news are equal. So another key ingredient to success is to carefully differentiate between the different types of news and backtest their predictive abilities separately. For example, I recall some research has indicated that an analyst downgrade of a stock from a "hold" to a "sell" rating has more impact than from "buy" to "hold" rating.
+
+My own experience with news driven trading is that for all this trouble, the trading opportunities are relatively few compared to pure price driven trading, the consistency of success is low, and finally the profitability lifespan is short. If you have better experience, do share it with us.

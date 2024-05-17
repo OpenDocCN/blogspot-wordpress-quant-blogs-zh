@@ -1,0 +1,72 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:10:35
+-->
+
+# Falkenblog: Acadian Explains Their Paper
+
+> 来源：[http://falkenblog.blogspot.com/2013/02/acadian-explains-their-paper.html#0001-01-01](http://falkenblog.blogspot.com/2013/02/acadian-explains-their-paper.html#0001-01-01)
+
+I spoke with
+
+[Malcolm Baker](http://www.hbs.edu/faculty/Pages/profile.aspx?facId=10639)
+
+of Acadian who was kind enough to explain what they meant in their latest
+
+[SSRN low vol paper](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2210003)
+
+I mentioned
+
+[yesterday](http://falkenblog.blogspot.com/2013/02/acadian-has-new-low-vol-paper.html)
+
+.  Basically, the main idea was to address the argument that much of the low volatility effect is from industry slants, such as utilities.  To the extent one can parcel out the low vol puzzle into a piece coming from the industry or country vs. firm volatility, one can see that this effect is about 60-40 for firm vs. industry.  So, it's not all an industry or country effect, which is interesting because some people are arguing that it is.  I never argued that, but Dimensional, GMO, and others have, and they are significant players, so it's good to try and settle that issue.
+
+As to allocating things into alphas rather than raw returns, this is because the alphas have much higher significance than raw returns.  That's true, but hardly anyone has intuition for alphas from incorrectly specified models, so all the alphas made about as much sense as telling me how much my house is worth is Zambian kwachas. Statistical significance without intuition has always left me flat, but that's sort of a preference, and I know many academics love
+
+[J-tests](http://en.wikipedia.org/wiki/Generalized_method_of_moments#J-test)
+
+on overidentifying restrictions, and I'm not the only one out there needing convincing.
+
+I think a good way to see the effect they are talking about, is to look at the average annualized monthly returns (ie, monthly returns times 12) for the 1989-2010 period, where data are presorted by industry betas.  The negative relation goes away looking at monthly returns.  That's interesting. But note, there's still a puzzle, because monthly returns should be increasing in beta and they clearly are not. It's not flatter than predicted, its flat.
+
+Now, those were monthly returns, and the higher betas imply higher volatility, and so over the entire sample, the total returns are negatively correlated with the beta, why their figure 1 below has the top quartile betas with loser returns. Is the Security Market Line then, flat, or negative?
+
+ It's kind of a philosophical question as to whether the high beta stocks have lower returns given the total sample return was significantly lower, but their average monthly return was similar.  The trick is whether to think of the total sample return as an estimate, or the average monthly return, because if you do a monte carlo on the monthly returns, the expected
+
+**total**
+
+returns will be as equal as those monthly return, even though the expected geometric return is lower via the variance drag on high voaltility portfolios. The trick is, with exponential compounding some histories will have really high returns that will make the average total return much higher than it's geometric return in sample; we haven't seen them, but they are possible. For example, if returns go up or down 50% with equal probability, then with two periods, the average compound return is -7%, but the average total return is zero (total returns of -75%, -25%, -25%, and +225%, average period returns of -50%, -13.4%, -13.4%, and +50%).  If all you saw was up 50% and down 50%, you might think the average return was -13.4%, but that's just one draw from history.
+
+For me, the real evidence is across countries, where in no major economies are highly volatile stocks generating the really high returns that would be consistent with this explanation.  Then again, we only have 20 or so such countries, and maybe we need more.  It's a defensible position, I suppose, but if after 100 years and 20 countries we don't have any examples where the Security Market Line is positive (ie, E(R
+
+[i]
+
+)=R
+
+[f]
+
++Β
+
+[i]
+
+(R
+
+[m]
+
+-R
+
+[f]
+
+)), I'm thinking it doesn't work that way.
+
+Finally, they do make the rather straightforward assertion that
+
+> the incremental value of industry and country selection, even holding stock level risk constant, suggests that the use of a risk model in beta estimation that includes fixed country and industry effects is preferable to simple stock level sorts on beta or volatility.
+
+Now, clearly countries need some separate factor estimation, because it makes a lot of sense theoretically. I'm not so sure that industry risk outside of simple covariances are as helpful to generating a diversified portfolio, as I've seen a lot of overemphasis on industry allocations that hurts overall portfolio variance.
+
+ Like any good recipe, you need a good cook. After all, a good steak is conceptually simple, but most people don't cook a good steak.  The SPLV is the greatest thing for someone in this thread, because while
+
+[Sturgeon's law](http://en.wikipedia.org/wiki/Sturgeon's_Law)
+
+implies most refinements will be crap, it's eminently feasible to do better than this and earn your 30 basis points.

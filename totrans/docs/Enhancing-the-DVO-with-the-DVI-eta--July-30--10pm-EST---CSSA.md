@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:53:01
+-->
+
+# Enhancing the DVO with the DVI eta: July 30, 10pm EST | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/07/30/enhancing-the-dvo-with-the-dvi-eta-thurs-night-10pm-est/#0001-01-01](https://cssanalytics.wordpress.com/2009/07/30/enhancing-the-dvo-with-the-dvi-eta-thurs-night-10pm-est/#0001-01-01)
+
+*Preview:* The DVI is an intermediate oscillator that is constructed in a completely different manner from the DVO. The parameters range between 10 to 30 days. Besides having a longer time frame, it incorporates different types of information than the DVO—1) stetch 2) fractal efficiency 3) acceleration/deceleration and 4) volatility. This makes the DVI a natural complement and helps to easily identify high reward/risk trades with the DVO. Although I do not utilize DVI signals directly–as they are more useful in this regard for less active traders— it is a very valuable tool. It performs far better than any intermediate oscillator that i have tested producing nearly 20% annual returns for the SPY ( non-optimized ) over the last 15 years with oversold being under 50 and overbought being over 50\. It is also excellent for the classic longer term pair strategies with stocks like Coke vs Pepsi, Merck vs Pfizer and so on. But the best application of the DVI is to use it as a filter to separate the higher alpha trades when applying the DVO. In this respect the DVI helps to reduce drawdowns and increase returns by highlighting situations in which increased or reduced exposure would be desirable. This feature is common across intermediate oscillators and you will find that using for example : 20 day bollinger bands, 20 day keltner channels, 20 day stochastics or the basic RSI (14) will provide a good dual screening method for the DV2 or RSI2 . ***The concept is to keep trading signals restricted to the shorter indicator, and calculating per trade expectation within each quartile of the intermediate indicators*** (use a percentrank or z-score to accomplish this). ……………………..More to come–stay tuned!

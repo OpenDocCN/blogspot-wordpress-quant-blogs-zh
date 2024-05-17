@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:28:31
+-->
+
+# Falkenblog: Sports are Meaningless, So is Life
+
+> 来源：[http://falkenblog.blogspot.com/2009/02/sports-are-meaningless-so-is-life.html#0001-01-01](http://falkenblog.blogspot.com/2009/02/sports-are-meaningless-so-is-life.html#0001-01-01)
+
+A
+
+[letter to the editor](http://www.startribune.com/opinion/letters/38724242.html?elr=KArksc8P:Pc:UHDaaDyiUiD3aPc:_Yyc:aULPQL7PQLanchO7DiU)
+
+in my local paper makes the most whiny observation on the Super Bowl I have read in a while:
+
+> Despite tough times, the football fans, being who they are, will see the game as almost a religious experience. But, when the stadium lights go out on Sunday night, will the country be a better place? Will its citizens be in a better place? No! Will the Super Bowl have benefitted anything or anyone other than the entities listed above? No! Jobless numbers will continue to rise; 45 million, including 18 million children, will still be without health insurance; schools will continue to hold bake sales to raise funds; much-needed human services will continue to be cut; veterans and the care they need will continue to be ignored; the causes and cures of deadly diseases will still remain a mystery, and government's indifference toward the average American will continue.
+
+Well, that guy is a real buzz kill. As someone who does not believe in God, I think that all meaning is put into life by humans. That we enjoy sporting events, which are unimportant in themselves, is very important because all of life is about putting meaning and interest into intrinsically unimportant things. Existentialism sucks if you take it to mean 'I must find deep meaning and fix the problems of the world', rather than, 'life's pointless but interesting and fun'. Things that give me pleasure are all pointless in the context of a large, cold, world with injustice, death, and the eventual catastrophic ending (the sun will run out of fuel someday). If you think about poverty, the meaning of life, disease, and inequality, ALL THE TIME you won't be any happier, and won't improve upon those problems any faster.
+
+As the great philosopher Frank Dreben said in Police Squad 2: "Maybe the problems of two people don't amount to a hill of beans. But this is our hill. And these are our beans!" Keep to your beans, and enjoy them.

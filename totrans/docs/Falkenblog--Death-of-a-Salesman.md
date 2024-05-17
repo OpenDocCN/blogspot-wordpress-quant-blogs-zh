@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:34:39
+-->
+
+# Falkenblog: Death of a Salesman
+
+> 来源：[http://falkenblog.blogspot.com/2010/04/death-of-salesman.html#0001-01-01](http://falkenblog.blogspot.com/2010/04/death-of-salesman.html#0001-01-01)
+
+Fab Tourre is the Goldman saleman singled out by the SEC. It's important to remember a salesman's job is to get people to buy things they wouldn't otherwise buy. If a product sells itself it doesn't need salesmen. Salesmen get paid to get people to buy things they otherwise didn't want, and probably don't need or can't afford. If this is a crime, it's being committed right now by millions.
+
+Further, salesmen tend to have a very superficial understanding of what they are selling. Very few salesmen can answer technical questions about their inventory. A really knowledgeable salesmen isn't a good salesmen, because anyone who knows a lot about their product and the competition knows that their product, at best, is not that much better than alternatives. Most things have cheaper substitutes that are just as good, that's what savvy people know--that's the essence of being savvy. Most salesmen are perforce selling inferior products, but to sell a product you can't know that otherwise you are not as convincing when giving the pitch as to why their product is a must buy. Cognitive dissonance is much easier to tolerate when you are too ignorant to sense it.
+
+Persuasion is best done by people smart enough to know a few key selling tricks. For example,
+
+[Kevin Hogan](http://www.kevinhogan.com/)
+
+is a communications expert, and he highlights how words like 'imagine', 'now', 'because', and of course 'please' and 'thank you', are great words when making a sale. He also notes that while first names are great, use them sparingly or it sounds manipulative. So, start a discussion by saying the person's name, and end with their name ( 'OK John, ...make point... thanks, John, talk to you soon'), but don't use their name in the middle! All good stuff, and you can see that to master these tactics you need some skills, though knowing a lot about the product is not one of them.
+
+Aristotle said that a judge should not be young, he should have learned to know evil, not from his own soul, but from long observation of the nature of evil in others. Similarly, bond investors and salemen should have experienced the crises that are the true tests of bond safety. As a 28 year old (circa 2007), Fab never experienced a true credit cycle, and bonds only demonstrate their value during those infrequent crises that occur every 5 to 10 years. Tourre started at Goldman in 2001, missing the tech bubble, and never had any experience with the Commercial Real Estate bubble of 1990, the oil-patch bubble in the 1980's, the interest rate crisis of 1994, etc. Buying a bond from someone who has only read about theses things is a problem because financial market history seems a lot more predictable than it is in real time.
+
+So, when Fab speaks to congress this week, remember, he's a salesman. He probably didn't fully understand the CDOs he was selling, and was exaggerating its safety. That's not a crime, that's the definition of a salesman.
+
+The key fact in this question appears to be whether Tourre or Goldman told asset manager ACA that Paulson & Co. was an equity investor, a material misrepresentation. Goldman flatly denies this, the SEC says they did. I think the real lawsuit should be against ACA for gross negligence, though I'm not sure what's left of ACA could make any restitution.

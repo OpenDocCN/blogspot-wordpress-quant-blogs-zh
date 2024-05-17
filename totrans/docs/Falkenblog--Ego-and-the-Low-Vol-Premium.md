@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:20:52
+-->
+
+# Falkenblog: Ego and the Low Vol Premium
+
+> 来源：[http://falkenblog.blogspot.com/2012/10/ego-and-low-vol-premium.html#0001-01-01](http://falkenblog.blogspot.com/2012/10/ego-and-low-vol-premium.html#0001-01-01)
+
+In my book
+
+[The Missing Risk Premium](http://www.amazon.com/Missing-Risk-Premium-Eric-Falkenstein/dp/1470110970/ref=sr_1_1?s=books&ie=UTF8&qid=1345223074&sr=1-1)
+
+, I have a chapter on why if anything there appears a negative risk premium: more risk, lower return. It's obvious in lotteries and gambling, where the most improbable events have the lowest expected returns, but true in less trivial areas such as options and stocks.
+
+*One*
+
+of the causes is signaling, that investors tend to want to show others how awesome they are by trading frequently just like a real alpha generator would.
+
+ It's interesting to note that in games there's a profound dichotomy between the optimal tactics for beginners and experts. For example,
+
+[Simon Ramo](http://www.amazon.com/gp/product/B0029PQG4S/ref=sr_1_7?ie=UTF8&qid=1216007175&s=books&sr=1-7)
+
+notes that among the very best tennis players, to win you need good winning shots; to be a good average player, you need to merely lower your failure rate. In expert tennis, 80% of the points are won, while in amateur tennis, 80% are lost. The same is true for wrestling, chess, and investing: beginners should focus on avoiding mistakes, experts on making great moves.
+
+Yet if the distinguishing characteristic of an expert investor is whether they are being aggressive, then any aspiring expert is forced to be aggressive because this signals to others that he truly is an expert, and finance is all about getting other people to give you money to manage. Thus it should come as no surprise that if you give people advise to invest in simple index funds or to focus on low volatility stocks because you can do little damage, and save a couple percent a year, many will dismiss this advice. The favorites of aspiring financial moguls are volatile, because one isn't going to hit a 'ten-bagger' on Coca-Cola (vol of 15%), but rather Netflix (vol of 70%).
+
+ An example of how investors think about the perceptions of others was nicely demonstrated by Baumeister, Heatherton, and Tice in their 1993 article 
+
+[When ego threats lead to self-regulation failure: negative consequences of high self esteem](http://www.dartmouth.edu/~thlab/pubs/93_Baumeister_etal_JPSP_64.pdf)
+
+. They gave subjects a video game involving flying a plane through obstacles, and after 20 minutes of practice (and secret recording), they were told they would receive $2 if they matched a time set to just below their actual average time, but $4 if they did some bit better than their average time. Subjects didn't realize this criterion for payout was scaled to their individual prior performance, but rather, thought they were from population averages (ie, those dopey other guys).
+
+Half the subjects were randomly assigned to the ego-threat condition. For these subjects, the experimenter added the following remark: "Now, if you are worried that you might choke under pressure or if you don't think you have what it takes to beat the target, then you might want to play it safe and just go for the two dollars. But it's up to you."
+
+ When that little statement added, more then took the gambit and did worse on average.
+
+Our desire to impress others causes us to take too much risk. On the bright side, this implies some rather simple strategies like low volatility investing, because I don't see it going away.

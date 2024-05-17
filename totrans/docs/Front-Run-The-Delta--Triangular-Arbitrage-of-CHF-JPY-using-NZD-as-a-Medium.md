@@ -1,0 +1,70 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:32:06
+-->
+
+# Front-Run The Delta: Triangular Arbitrage of CHF/JPY using NZD as a Medium
+
+> 来源：[https://frontrunthedelta.blogspot.com/2011/11/triangular-arbitrage-of-chfjpy-using.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/11/triangular-arbitrage-of-chfjpy-using.html#0001-01-01)
+
+| [![](img/55c7b5236d8408f529438bb57d51037a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSqOZgTHBa744PCsoAuoy470xxPXM4I2gWj0BPAKgzfQPE3-fzvnXFL1RtzbDLP_d5UFZAi3pyKP6nwvHYDPejjXd_A5JGKLTCCXcksNwnuuGBgbQ9l7y2Q9-9TEgSWqJm0AyJjp5a6l0/s1600/chf_jpy_full+day+and+spread.png) |
+| Full Trading Period |
+
+The
+
+[CHF](http://en.wikipedia.org/wiki/Swiss_franc)
+
+/
+
+[NZD](http://en.wikipedia.org/wiki/New_Zealand_dollar)
+
+and
+
+[JPY](http://en.wikipedia.org/wiki/Japanese_yen)
+
+/NZD currencies were used to build a live
+
+**synthetic**
+
+CHF/JPY which was then spread to the live
+
+**real**
+
+CHF/JPY available on
+
+[Idealpro](http://www.interactivebrokers.com/en/trading/exchanges.php?exch=ibfxpro)
+
+(left axis).  The corresponding spread (right axis) is given by the orange/green combo hovering around parity (= 0). Prices were recorded Sunday, 2 October through Monday, 3 October, 2011.
+
+**The Opening.**
+
+| [![](img/9422e7a7991a1b696166875fb5b071a4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-4e0BmHZ9Vq2VtunFLGTzjxSCW4F5WYWgPQ9TYaKzDMh9kVa8eaw05YIcTIoWUzu78nQv5WxNzqhgbi6WVWwKlXbzbDNkx8mTh9zniIot5tSqlxJlFSUT2wUHpRwrMHeTJ1eQbP9bVA4/s1600/chf_jpy_opening+outrights+and+spread.png) |
+| Sunday Evening Opening: 4:06PM - Midnight CST |
+
+| [![](img/95ab2518534bc3960e1d6bf385a98cad.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtVzHo4uSkJZQP290sHFTqpkC8qPSiTbZoovb5qmVTJmFJWmKtnCYszQXInNrJ-7yOxlsukZmZmiISLgDqrzu_-0EdRk_mDI_pla7Qkh32PUXp1R0c01KOjyXI_YTHWEEUtlt97E9KCZo/s1600/chf_jpy_opening_1606-1900.png) |
+| Sunday Evening Opening: 4:06PM - 7:00PM CST |
+
+A curious widening of the spread occurs right around 9:00am CST. Seconds after this loss of liquidity, a slight break occurs in the synthetic/real relationship (Figures 1 and 1.A), leading to the first visible arbitrage in the recorded series.  A 2nd break occurs just over an hour later (Figures 2 and 2.A). 
+
+| [![](img/8091b6f4bd11152d60305abd951337d7.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLD22mQOT10iqcxwCGijWmNHesnh4Tcz2wllDncpfVeUDNiLbqys8gKHPhRQuat8yKjTrdtN5Zr_52CszTsVAEVaJq4sgg3a312FLskAR1QQclGTog8f8Wkm8KywbB6C5B-nMdjeGLd9A/s1600/chf_jpy_845-915.png) |
+| Liquidity Gap |
+
+**Arbitrage 1.**
+
+In the first occurrence, the bid of the synthetic (Dark Blue) rises above the offered price available through the live CHF/JPY (Purple).  The synthetic could have been sold while the live CHF/JPY was purchased for an offsetting amount, resulting in a perceived profit subject to the *minimum* liquidity available across all the necessary legs of the trade.  Prices broke again in the opposite direction (Red below Green) a fraction of a second later.  After which, they quickly reverted to their "no-arbitrage" relationship. 
+
+| [![](img/e46bc6220f4d797093f278fc28562d18.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFTRcksNE3OIW7zWRmtjp0EmgFfT-q79yqHGVFO4Y0ThE7t3OEWMwxLSn-VbGDAD6AV40U7AK3CZvGx-8LuiIpkcDw1zinXWnEfyJjQUQjmyXOKxV6rMlB1JBa0b5SOFR5XBoyvgNhCcI/s1600/chf_jpy_858-902_spread.png) |
+| Figure 1 |
+
+| [![](img/59a57daf506b3cf7782d61788b217f23.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1Ul2NqnZHRTQTAyznJaqjzgk_2Dy1_2nzbmSSr4k9u7xHBJ4Qunbss9dgV43bNXsNc3X9_LyHZDMKphkk7oGSThTJZjLtaKRYoH4iWUeSypcD3XGrupaTJw4oapG0QqpY8Gyyn2ehdnE/s1600/chf_jpy_90020-90030_spread_arbitrage.png) |
+| Figure 1.A |
+
+**Arbitrage 2\.**
+
+In the second (or third) finding, the opposite break in the relationship occurs.  The offered price of the synthetic (Red) falls below the bid price of the live CHF/JPY (Green) allowing the high-frequency trader to take advantage of the arbitrage, purchasing the synthetic and selling the live market.  Again, the availability of the trade is subject to the *minimum* quantity available on every leg of the trade. 
+
+| [![](img/375bfbd2e01a85a3222a7216d83f744e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuvyJvRA0lOKN7OcnBxk8JC7c5QPYF6WWsNUh1iazhJw6tLf3HW0pep_GQeEbD1htWHabZGvyqnRgkvQFePAZ8irTIePEAszZOdixQza6Nu5mEPKEURts2e5AHa_W-JsfmsN1myxWMxEw/s1600/chf_jpy_1000-1005am.png) |
+| Figure 2 |
+
+| [![](img/8a4f1b906df7c2b1fb99a36564bf58a0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIBhSKH5VONkKLdv6gGmB7pdx6fOnVKyD3g3v6k56Vwo-41XFYNsRHJy6dxIX7m2zDrH9cX02BMwCrqf4NWD-5EZZOsnMBgRYITd5lMxph2Vb1uUwJRmT-LRg6S8UPcuMDPZvJx57UUlw/s1600/chf_jpy_100330+-+100400_spread_arbitrage.png) |
+| Figure 2.A |

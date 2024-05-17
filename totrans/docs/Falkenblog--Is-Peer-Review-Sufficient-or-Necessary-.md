@@ -1,0 +1,58 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:28:49
+-->
+
+# Falkenblog: Is Peer Review Sufficient or Necessary?
+
+> 来源：[http://falkenblog.blogspot.com/2010/06/is-peer-review-sufficient-or-necessary.html#0001-01-01](http://falkenblog.blogspot.com/2010/06/is-peer-review-sufficient-or-necessary.html#0001-01-01)
+
+[George Monbiot](http://www.monbiot.com/)
+
+, the British climate-change alarmist,
+
+[once wrote](http://www.spiked-online.com/index.php/site/article/8227/)
+
+of a skeptic: ‘I accepted and floored him with a simple question: Has he published his analysis in a peer-reviewed journal?’, as if this were a truth-seeking silver bullet.
+
+Is peer review necessary for one to have an opinion on something important like tax cuts, climate change, the war in Iraq, etc? The book
+
+[The Hockey Stick Illusion](http://www.amazon.com/Hockey-Stick-Illusion-Climategate-Independent/dp/1906768358)
+
+highlighted that Einstein's paper on special relativity, and Watson and Crick's paper on DNA, were not 'peer reviewed', but somehow managed to be apex of scientific insight. So, peer review is not a necessary condition to presenting a new, true, and important idea.
+
+The peer-reviewed journal process is a good thing, but it's still merely a means to an end: highlighting the good ideas, argument, and data. There's no royal road to this end. I review a couple papers a year for second-tier journals, and often I get to read the other referees comments in the second round, and usually find the other reviewer to be an distracted person who meticulously checks some things (grammar, math, the data, the big picture), but then ignores other dimensions. This is only natural, because often the papers are complicated, and he (or she) is counting on the other reviewer. But, what if I didn't check his empirical results with data I have unique access to (say, on corporate defaults)? Would anyone know? If you know what buttons to push, especially by anticipating the kinds of people who will referee your paper, you can game the system to a large degree.
+
+Peer reviewed articles have been found with fraud (
+
+[Hwang Woo-Suk and stem cells](http://www.spiked-online.com/Articles/0000000CAFDC.htm)
+
+), errors, but most often, irrelevance. The latter point is especially important, because like grade inflation, as professors need X peer reviewed papers for tenure, there are ever more journals being created to satisfy this criteria. Alas, Sturgeon's law ('
+
+[90% of everything is crap](http://en.wikipedia.org/wiki/Sturgeon's_Law)
+
+') holds, and so it becomes harder and harder to find the truth in a
+
+[sea of irrelevant papers](http://chronicle.com/article/We-Must-Stop-the-Avalanche-of/65890/)
+
+.
+
+In Karl Popper's the
+
+[Open Society and Its Enemies](http://en.wikipedia.org/wiki/The_Open_Society_and_Its_Enemies)
+
+he wrote that 'Institutions are like fortresses. They must be well designed and manned.' Unfortunately, there are always too few good people to go around. The peer review process is a good thing, but it is still a flawed process, rewarding ritual over substance by the way certain things are treated non-skeptically if you use the rhetoric popular amongst the journal gatekeepers (eg, applying GMM to an equation, or Sokal's hilarious
+
+[post-modern bunkum](http://en.wikipedia.org/wiki/Sokal_affair)
+
+).
+
+As Alexander Cockburn
+
+[notes](http://www.spiked-online.com/index.php/site/reviewofbooks_article/4357/)
+
+, 'many cite peer-reviewed science because they're afraid to have the intellectual argument.' Just about any hypothesis has some esteemed person and publication supporting it. If you then go to the 'majority of experts' route, you need a strange faith in the majority opinion (remember, before 2007, most
+
+[regulators, bankers, investors, and academics](http://falkenblog.blogspot.com/2008/09/stan-liebowitz.html)
+
+believed that lower underwriting standards such as no income verification for home ownership were innocuous if not morally righteous).

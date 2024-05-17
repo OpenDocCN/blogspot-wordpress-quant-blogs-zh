@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:11:23
+-->
+
+# Falkenblog: A Happy Skewness Delusion
+
+> 来源：[http://falkenblog.blogspot.com/2013/01/a-happy-skewness-delusion.html#0001-01-01](http://falkenblog.blogspot.com/2013/01/a-happy-skewness-delusion.html#0001-01-01)
+
+There are several papers asserting that investors like positive skew to their returns. This is because empirically investors tend to be highly undiversified, and have a bias towards highly volatile stocks, and so they seem to want big lottery-type payoffs (incidentally, this is the exact opposite to what Nassim Taleb states is common, that people prefer payoffs that have high modes and low means--negative skew). Anyway, In the early days of portfolio theory, reconciling the desire to take such big risks was considered side by side with minimizing variance, as Markowitz looked at both approaches back in 1952 but eventually just sided with the total variance approach, and preference for positive skew was abandoned as an exception to a mean-variance rule.
+
+Alas, it keeps cropping up, as in papers by
+
+[Kraus and Litzenberger (1976)](http://ideas.repec.org/a/bla/jfinan/v31y1976i4p1085-1100.html)
+
+,
+
+[Harvey and Siddique (2000)](https://faculty.fuqua.duke.edu/~charvey/Research/Published_Papers/P56_Conditional_skewness_in.pdf)
+
+, or
+
+[Statman and Shefrin (2000)](http://www.scribd.com/doc/58269504/2000-Behavioral-Portfolio-Theory-Shefrin-Statman)
+
+. I think Statman and Shefrin do the best job here, notingg that this isstrictly irrational, in that if there is a skewness preference and a risk aversion preference, then the skewness preference will be pretty tame, and as
+
+[Post, van Vliet and Levy (2006](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=411660)
+
+) note, second order relative to the equity risk premium (eg, less than 1%). Rational risk averse investors would not take a lot of risk with some of their assets, at least, not enough to affect pricing much. That's why I like the Statman and Shefrin model, because they explicitly say this doesn't make sense if investors are rational risk averse investors (at least, with risk conventionally defined), unlike Harvey and Siddique who try to cram this into a fully rational model and ignore how it all fits together.
+
+In any case, I was looking at this and came across an interesting take by
+
+[Brunnermeier, Gollier and Parker](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=976962)
+
+(2008).  The model gets pretty convoluted but the intuition is very interesting.  The benefits of being ex ante biased towards skewed assets outweighs the ex post costs of having inefficient portfolios.  These highly skewed assets make it possible to conceive of an aspirational state of much greater wealth, as such an event is possible, though improbable.  Your excessive optimism makes you better off because you anticipate a small probability payoff incorrectly, but since your happiness is the discounted value of these beliefs, you are a happier deluded self. Think about all the time you have spent considering what you would do if you won the lottery, as surely everyone has done that at least once. The cost can be pretty low (for a lottery ticket, $1), but the benefit of visualizing that fantasy pretty large, and it doesn't keep me in a debilitating stupor because I don't do this much (moderation in all things).  
+
+Now, as an explanation of the low vol effect, I think this Brunnermeier
+
+*et al*
+
+model is inferior to the Shefren and Statman approach because it pretends to be a rational, general equilibrium model, when its not (funny how general equilibrium models built on fundamental preferences are usually quite parochial because of their limited assumptions).  But I like the intuition, or find it intriguing.  It's nice to think we are on a journey with sealed orders with some higher purpose that we aren't privy to, but it exists and is important. It may not be true, but it's comforting to think so, and doesn't really cost much.

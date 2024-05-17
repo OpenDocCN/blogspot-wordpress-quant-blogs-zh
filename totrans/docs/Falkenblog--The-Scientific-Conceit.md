@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:44:51
+-->
+
+# Falkenblog: The Scientific Conceit
+
+> 来源：[http://falkenblog.blogspot.com/2009/10/scientific-conceit.html#0001-01-01](http://falkenblog.blogspot.com/2009/10/scientific-conceit.html#0001-01-01)
+
+[![](img/b376550073d3edc16c863a709d1eed6c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvUbZzKJIGqowZVXwDz-DQoMhkMmzwBGbLiJqowwXKhLQJnWwD3gfFoQhcPq6G4VfI0OkzWO7uRXbqyLWycgQamzHNEpzcPugww4mAHAU6vzTK2UcpLhMVlaFdJ-Axtk3r68Uv9A/s1600-h/berlinski_david_100.jpg)
+
+This
+
+[interview](http://www.youtube.com/watch?v=U6JJO4Tc4D8&feature=PlayList&p=F9DB30F6802BC5CE&index=9)
+
+with David Berlinski contains this precious observation:
+
+> The idea that science is a uniquely self critical institution is of course preposterous..scientists are no more self critical than anyone else, they hate to be criticized and never criticize themselves...There are local mechanisms of criticisms in science, within established theories if somebody publishes data that don't work out in a certain way, if there are mathematical flaws in a certain theory, these tend to get know, but large global criticisms of the scientific enterprise are very difficult to find, and certainly not being promulgated by the scientists with any ebullience or enthusiasm ... these people are only human, they hate criticism--me too! The idea that scientists are absolutely eager to get beaten up that's one of the myths, put out by the scientists, and it works out splendidly so that they can avoid criticism.
+
+You know a naive or tendentious science writer when they start talking about how science is so different than other professions in how they objectively present their work for criticism. The journal publication process does filter out a lot of errors and unsubstantiated assertions that a journalist might get away with, but that's really a very narrow domain, it's like noting a New Yorker piece is meticulously checks for grammar (unlike my blog!). It's ruthless criticism in a very specific domain.
+
+Look at Freakonomic's author Steve Levitt's
+
+[work](http://en.wikipedia.org/wiki/The_Impact_of_Legalized_Abortion_on_Crime)
+
+on the abortion-crime link. No referee thought, gee, how does this relate to the different black-white abortion rate relate to the difference in Black-White crime rate over the next 20 years? How did that relate the crime rate differential between 17 year olds and 35 year olds, 17 years after Roe? How does the small difference in fertility post Roe relate to an selectivity effect (clearly, as abortions went up, so did conceptions)? What if you adjusted for population growth? All of these are large, glaring points against Levitt, really common sense type rebuttals, yet he never had to address them because he presented a panel regression with interaction terms.
+
+I have refereed papers with interaction terms, and they are almost always garbage, because they generate a lot of collinearity, and the nonlinear correlations manifest themselves in a bunch of significant coefficients in linear regressions, because if the 'true' relation is y=x^2, and x=A+2B+e, then a regression on y with A and B will have a positive coefficient on A, and a negative on B. Levitt's study has state*age, year*age, and state*year as explanatory variables. Why stop there, why not state*year*age? With tens of regressors, many product terms, you get garbage. Yet, I've refereed reports from professors at Harvard with this stuff, so it's not something that's necessarily wrong, just practically stupid. There has been no important result that shows up only via interaction terms in regressions, just as there has never been an important relationship evinced solely via 3-stage least squares, or the Generalize Method of Moments (GMM). Ever. Rather than correcting error terms for heteroskedasticity or something inside-the-box, there should be more skepticism applied to these kitchen-sink approaches.
+
+But, Levitt is still considered a top-level researcher, and he has a very thin skin. For example, reading his coauthor's
+
+[response](http://freakonomics.blogs.nytimes.com/2009/10/18/global-warming-in-superfreakonomics-the-anatomy-of-a-smear/)
+
+to criticism of his Global Warming chapter in their new book, the tone seemed very defensive, like someone unused to criticism. In sum, Levitt, like most scientists, is exposed to a very narrow set of criticisms, ones that most laypeople could not counter to be sure (must get one's standard errors correct), but that's really no different than the fact that most people (me included) could not write prose for the New Yorker with their syntax errors. In most ways he is unexposed to real criticism and acts accordingly.

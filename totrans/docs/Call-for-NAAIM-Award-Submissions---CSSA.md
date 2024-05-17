@@ -1,0 +1,13 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:37:20
+-->
+
+# Call for NAAIM Award Submissions | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/01/20/call-for-naaim-award-submissions/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/20/call-for-naaim-award-submissions/#0001-01-01)
+
+As a naturally competitive person (as are most traders) I always jump at the opportunity to compete in just about anything. When it comes to research–my first love– nothing motivates me more than the chance to display my work to some of the brightest minds in the business. I will be submitting an entry to this year’s 2010 Wagner Award to the National Association of Active Investment Managers (NAAIM). [http://www.naaim.org/index.php](http://www.naaim.org/index.php) I would strongly encourage all of the intelligent and creative readers of this blog that I come into contact with on a daily basis to consider making a submission. If not for the pure competition/money/fame,  it is a chance for you to share some great ideas and help improve the body of knowledge that makes us all better investors. [http://www.naaim.org/files/NAAIMCallforPapers2010.pdf](http://www.naaim.org/files/NAAIMCallforPapers2010.pdf)
+
+**About NAAIM**
+The National Association of Active Investment Managers (NAAIM) is a non-profit association of registered investment advisors who provide active money management services to their clients to produce favorable risk-adjusted returns as an alternative to more passive, buy-and-hold strategies. NAAIM membership is comprised of some 200 member firms nationwide, managing an estimated $14 billion. For more information, visit [www.NAAIM.org](http://www.naaim.org/).

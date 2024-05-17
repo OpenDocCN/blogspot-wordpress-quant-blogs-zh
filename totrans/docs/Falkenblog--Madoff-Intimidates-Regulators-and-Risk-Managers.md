@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:49:24
+-->
+
+# Falkenblog: Madoff Intimidates Regulators and Risk Managers
+
+> 来源：[http://falkenblog.blogspot.com/2009/09/madoff-intimidates-regulators-and-risk.html#0001-01-01](http://falkenblog.blogspot.com/2009/09/madoff-intimidates-regulators-and-risk.html#0001-01-01)
+
+The SEC released
+
+[transcripts](http://www.sec.state.ma.us/sct/sctfairfield/Fairfield_Exhibit_1.pdf)
+
+from phone conversations between Madoff and various risk managers and SEC personell. It reminds me how
+
+most
+
+powerful trading desk head treats regulators and risk managers, whith duplicity and contempt. Not at this level, and not that everyone is a fraud like Madoff, but truly independent risk managers are considered lightweights, and eager to join those they are policing. In UBS's Report to Shareholders, they noted their Internal Audit group did 250 reviews a year. With that many reviews, the analysis is pretty superficial. It's a mismatch.
+
+Clearly, he understood phone calls are best. People who meticulously avoid email should not be trusted, because it is simply too calculating, as if they know they are regularly committing crimes. A phone conversation can always be disavowed, you just say you were talking about last weekend's bar mitzvah.
+
+> Obviously, first of all, this conversation never took place.
+
+Madoff's strategy was to keep the underling in the dark, a classic spy novel tactic, because then neither creates a liability for the other:
+
+> "The less you know about how we execute," he tells the chief risk officer of one of his feeder funds, "the better you are."
+
+Confidence and reputation can answer most anything:
+
+> "You [...] say, listen, Madoff has been in business for 45 years, you know, he executes, you know, a huge percentage of the industry's orders [...] We make the assumption that he's -- he's doing everything properly... You don't want them to think you're concerned about anything. You're best off, you just be casual."
+
+Madoff dismissed an SEC investigation as a fishing expedition, which it probably was--see if they get any bites, if not, move on. He reminded the risk manager that SEC personnel were young guys looking to get jobs at hedge funds as compliance officers, making them eager to accept anything they said.

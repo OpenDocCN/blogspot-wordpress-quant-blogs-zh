@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:52:22
+-->
+
+# Falkenblog: UFC 101 Awesome
+
+> 来源：[http://falkenblog.blogspot.com/2009/08/ufc-101-awesome.html#0001-01-01](http://falkenblog.blogspot.com/2009/08/ufc-101-awesome.html#0001-01-01)
+
+I love Mixed Martial Arts. It takes skill from jiu-jitsu, wrestling, and boxing, a combination that makes the strategy space very large. But then the current best are truly awesome athletes that generate great shows. Saturday night's
+
+[UFC 101](http://www.sherdog.com/news/news/silva-knocks-out-griffin-penn-subs-florian-19003)
+
+was up there.
+
+[![](img/01f708996d7fbf9be1038c48651dcd11.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgahO7yRpjSqaEtLrlgV3UeOWCTVzXoGeLUJ7_rmjnTgffGN9KaRLtuPetsieOrKY0XLBD2PHoP4-7-DxyrK_onTnFUr_j_xGRfbuiorxJn3ROh30x4nppCDSHk_palXgHoj6WNvw/s1600-h/mma_s_penn13_300.jpg)
+
+At 155 pounds, BJ Penn dominated challenger Kenny Florian, and finally in the fourth round took him down. He then skillfully manuevered to Florian's back, setting up for a rear naked choke. Now, if a fighter gets a forearm under your chin from your back (he is hugging your body with his legs, facing your back), and locks this hand with his other arm, usually this ends the fight because you don't have the leverage to remove the choke, have nothing to strike, and simply must tap out or pass out. Florian is good at jiu-jitsu, so skillfully avoided the choke for a while. But then Penn started kicking him with his heel in Florian's gut, and when Florian finally reacted by naturally moving his hands to block these painful kicks, Penn slipped in the choke, and the fight was over in seconds. Beautiful.
+
+[![](img/1734e099c38dab738f35be5948d58d8f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjbMQZJdApzr_qDIv29hCsctJSYrPBZZSd8tHDFrh3eOW5gDKQNNzD1oekqk6IBCRlYC8QXdAqVR_AxXZves7d7fxISbfbfyBO8QBnf6nUg1JnQVA2xTRqWq-FMSSzncTzkqzgovg/s1600-h/silva.jpg)
+
+In the other premier bout, Anderson Silva moved up to 205 from 185, and fought Forest Griffin. Silva was like a guy plugged into the Matrix, moving at three times the speed of Griffin. In one beautiful sequence of moves Silva first avoided a right then swerved to avoid a left, came over the left and floored Griffin with an overhand right. This was all done moving his upper body, like watching Sugar Ray Leonard in his prime. Finally, Griffin comes in with a lunging right, and Silva backs up. Griffin follows forward with a left, Silva leans back to avoid the punch, but throws a pinpoint right that lands right on the chin. Griffin goes down, fight over. What is so awesome is how punches from hands with light gloves, when it hits the jaw it turns the neck, and the body's reaction is to simply turn off, the knees buckle, and the person is unconscious for a second at least. He threw the punch moving backward, so it was not particularly hard, but it was so precise it was devastating. Rumor has it Griffin's jaw was dislocated.
+
+All good fun.

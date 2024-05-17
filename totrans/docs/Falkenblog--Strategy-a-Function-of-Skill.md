@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:09:03
+-->
+
+# Falkenblog: Strategy a Function of Skill
+
+> 来源：[http://falkenblog.blogspot.com/2008/07/strategy-function-of-skill.html#0001-01-01](http://falkenblog.blogspot.com/2008/07/strategy-function-of-skill.html#0001-01-01)
+
+[Simon Ramo](http://www.amazon.com/Extraordinary-Tennis-Ordinary-PLayer-Simon/dp/B000INF4L4/ref=sr_1_7?ie=UTF8&s=books&qid=1216007175&sr=1-7)
+
+identified the crucial difference between being a good at 'amateur' tennis, and professional tennis: for the best of the best, you need good 'winning' shots; to be a good 'average' player, you need to merely lower your failure rate. In expert tennis, 80% of the points are won, while in amateur tennis, 80% are lost. Thus, a book about being good, to be relevant, should target what group you are in.
+
+I think this is relevant to investing, in that for retail investors, who don't have an edge, they should prioritize the following: minimize costs and diversify. For that select few with an edge, the focus is on fundamentals (financial statements, business model), and though you minimize costs and diversify to the degree you can, it isn't a priority.

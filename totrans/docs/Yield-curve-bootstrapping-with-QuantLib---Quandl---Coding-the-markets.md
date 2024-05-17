@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:31:24
+-->
+
+# Yield curve bootstrapping with QuantLib & Quandl | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2015/08/08/yield-curve-bootstrapping-with-quantlib-quandl/#0001-01-01](https://etrading.wordpress.com/2015/08/08/yield-curve-bootstrapping-with-quantlib-quandl/#0001-01-01)
+
+## Yield curve bootstrapping with QuantLib & Quandl
+
+### August 8, 2015
+
+[In yesterday’s post](https://etrading.wordpress.com/2015/08/07/spreadserve-resources/) I promised to give more detail on the [Yield Curve Bootstrapping sheet](http://54.148.111.119:8888/ycb_quandl_pub.xls/Bootstrapping) running on the [Amazon hosted SpreadServe instance](http://54.148.111.119:8888/dashboard.html). If you’d like to try running the sheet on your own desktop you can [download it from the repository](http://54.148.111.119:8888/repository.html); just click on ycb_quandl_pub.xls. To run the sheet in your own Excel you’ll need to download the [QuantLib](http://quantlib.org/quantlibxl/) and [SpreadServe addins](https://github.com/SpreadServe/SSAddin). ycb_quandl_pub.xls is based on one of QuantLibXL’s example spreadsheets, [YieldCurveBootstrapping.xls](https://github.com/arthurpham/quantlib-full/blob/master/QuantLibXL/Workbooks/StandaloneExamples/YieldCurveBootstrapping.xls), which gives a sample QuantLib Excel solution to a common fixed income rates maths problem: bootstrapping a yield curve. If you look at the original sheet you’ll see that all input data is present as simple cell values. To change it you must rekey it. Ideally this would be automated, so that deposit, futures and swap rates could be regularly pulled from a clean data source, and the bootstrapping results recalculated and published. ycb_quandl_pub.xls uses the SpreadServe Addin to pull the depo, futures and swap rates from quandl. Look at the top left block on the Quandl sheet within the ycb_quandl_pub workbook to see the invocations of the s2quandl function that pull the rates into the sheet from quandl.com. Lower down on the same sheet you can see the s2cron invocation that schedules a timer to go off every 5 minutes and trigger a new download of the same data. The same trigger is used as input to QuantLib’s qlPieceWiseYieldCurve function on the Bootstrapping sheet to force a recalculation when freshly downloaded data arrives. All that is great for automating an Excel spreadsheet. With SpreadServe we can take it one step further and get the sheet off the desktop and onto a server. The whole process is then automated, centralised and freed from possible manual disruption on the desktop.
+
+NB QuantLib date calcs mean the results of this sheet are only good on weekdays, Mon-Fri, and not Sat or Sun.

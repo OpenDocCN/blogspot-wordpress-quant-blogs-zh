@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:18:06
+-->
+
+# Andersen-Piterbarg Integration Limits for the Time Dependent Heston Model – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2017/06/05/andersen-piterbarg-integration-limits-for-the-time-dependent-heston-model/#0001-01-01](https://hpcquantlib.wordpress.com/2017/06/05/andersen-piterbarg-integration-limits-for-the-time-dependent-heston-model/#0001-01-01)
+
+The normalized characteristic function ![\phi_t(z)](img/ddec00299646ff7c75edd27c0cede087.png) of a piecewise constant time dependent Heston model
+
+![\begin{array}{rcl} d \ln S_t&=& \left(r_t - q_t - \frac{\nu_t}{2}\right)dt + \sqrt\nu_t dW^{S}_t \nonumber \\ d\nu_t&=& \kappa_t\left(\theta_t-\nu_t \right ) dt + \sigma_t\sqrt\nu_t dW^{\nu}_t \nonumber \\ \rho_t dt &=& dW^{S}_tdW^{\nu}_t \end{array}](img/573589a5b9dad58d81b7498cb3fe7a18.png)
+
+with ![n](img/17deaa124310c647ec1dd85566e7b1e5.png) time intervals ![[t_0=0, t_1], ... ,[t_{n-1}, t_n]](img/fd1badfce7ffa80b1d419a25dc1d5603.png) and constant parameters within these intervals
+
+![\kappa_t = \kappa_j \wedge \theta_t = \theta_j \wedge \sigma_t=\sigma_j \wedge \rho_t=\rho_j \forall j\in [1, n] \wedge t\in [t_{j-1}, t_j]](img/3b364ddb75a8f68816304d1f561941c9.png)
+
+is given by the recurrence relation
+
+![\begin{array}{rcl}  k_j &=& \kappa_j - iz\rho_j\sigma_j \nonumber \\ d_j &=& \sqrt{k_j^2 +\sigma_j^2(z^2+iz)} \nonumber \\  g_j &=&\displaystyle \frac{k_j- d_j}{k_j + d_j} \nonumber \\ \tilde{g_j} &=& \displaystyle \frac{k_j- d_j - D_{j+1}\sigma_j^2}{k_j + d_j - D_{j+1}\sigma_j^2} \nonumber \\ D_j &=&  \displaystyle \frac{k_j + d_j}{\sigma_j^2}\frac{g_j-\tilde{g_j} e^{-d_j \tau_j}}{1-\tilde{g_j} e^{-d_j\tau_j}} \nonumber \\ C_j &=& \displaystyle \frac{\kappa_j\theta_j}{\sigma_j^2} \left( (k_j- d_j )\tau_j - 2\ln\left(\frac{1-\tilde{g_j}e^{-d_j\tau_j}}{1-\tilde{g_j}}\right)\right) + C_{j+1} \nonumber \\ \tau_j &=& t_j - t_{j-1} \nonumber \\ \phi_{t_n}(z) &=& \exp{\left(C_1(z)+D_1(z)\nu_0\right)}\end{array}](img/6ca76a4b2c48385e8f793311e6d21e1e.png)
+
+and the initial condition
+
+![C_{n+1} = D_{n+1} = 0](img/3c249c34214dda0b860dc7e40e5bddf5.png)
+
+It should be noted that the complex logarithm in this formulation can be restricted to the principal branch without introducing any discontinuities [1]. It is important to know the asymptotic behaviour of ![C_1(z)+D_1(z)\nu_0](img/9de5c3579179ac1a40f9f88238307bb4.png) in order to calculate the truncation point for the integral over the characteristic function when using the Andersen-Piterbarg approach with control variate [2]. A Mathematica script gives
+
+![\begin{array}{rcl} \displaystyle \lim_{u\to\infty}\frac{D_1(u)}{u} &=& \displaystyle-\frac{i\rho_1 + \sqrt{1-\rho_1^2} }{\sigma_1} \nonumber \\ \displaystyle\lim_{u\to\infty}\frac{C_1(u)}{u} &=& \displaystyle -\sum_{j=1}^n \frac{\kappa_j\theta_j}{\sigma_j}\left(\sqrt{1-\rho_j^2} + i\rho_j\right)\tau_j\end{array}](img/a8c1e12125d468a0b8bf6fe62412bff3.png)
+
+The implementation of the Andersen-Piterbarg method for the piecewise constant time dependent Heston model is part of the pull request [#251](https://github.com/lballabio/QuantLib/pull/251).
+
+[1] Afshani, S. (2010) [Complex logarithms and the piecewise constant extension](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1615153) [of the Heston model.](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1615153)
+
+[2] Andersen, L. and Piterbarg, V. (2010) Interest Rate Modeling, Volume I: Foundations and Vanilla Models, (Atlantic Financial Press London).

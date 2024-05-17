@@ -1,0 +1,66 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:32:41
+-->
+
+# Front-Run The Delta: Some Papers on Physical Arbitrage & Route Choice
+
+> 来源：[https://frontrunthedelta.blogspot.com/2011/10/some-papers-on-physical-arbitrage-route.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/10/some-papers-on-physical-arbitrage-route.html#0001-01-01)
+
+I apologize for my lack of posting lately.  I am studying for an exam which has and will continue to monopolize my time for the next ~30 days.  Posts should resume "normally" after November 19.
+
+In the coming weeks, I hope to post more research on triangular arbitrage, expanding on a post earlier detailing the
+
+[introduction of liquidity](http://frontrunthedelta.blogspot.com/2011/09/triangular-arbitrage-during-interbank.html)
+
+to the interbank market during the Sunday evening open each week.  This research utilizes new triangles that I hope others will find as interesting as I do.
+
+I have also recorded prices on the
+
+[SI / SLV relationship](http://frontrunthedelta.blogspot.com/2011/10/etf-futures-arbitrage-slv-against-cmes.html)
+
+and hope to bring this forward in the next few days if time allows. Expanding on the principle of futures vs equity, I recorded prices on the
+
+[FCX](http://www.fcx.com/)
+
+/
+
+[HG](http://www.cmegroup.com/trading/metals/base/copper_contract_specifications.html)
+
+pair and hope to bring this forward as well.  A preliminary look at the prices seems to provide some support for the development of strategies built around this relationship. 
+
+In lieu of new posts, here are a few papers I hope similar minded readers will find interesting.  As mentioned previously, I have a love for
+
+[physical commodity trading](http://frontrunthedelta.blogspot.com/2011/06/glencore-perfect-arbitraguer.html)
+
+and found each of these to be very illuminating in their own way.
+
+**The Papers.**
+
+[The Nature of LNG Arbitrage, and an Analysis of the Main Barriers for the Growth of the Global LNG Market](http://www.apgasforum.com/articles/LNG_Arbitrage_Zhuraleva_Jun09.pdf)
+
+[pdf] by Polina Zhuravleva, Oxford, June, 2009.
+
+> **Abstract:** Due to its gaseous form, and therefore low energy density, pipeline natural gas has traditionally supplied nearby regional markets which have been historically isolated from each other. Regional markets have traditionally had their own supply-demand balances, contractual structures and gas price formation mechanisms. This model is now under threat. With the growth of liquefied natural gas (LNG) supply which is increasingly flexible in terms of destination, regional markets are becoming progressively more connected.  A decade ago, when the LNG industry was based exclusively on long-term take-or-pay contracts and the number of market players was limited, the impact of price signals, if any, was weak. The liquidity of the "flexible" LNG market has increased in tandem with the growth in the number of LNG producing and consuming countries, the appearance of some uncommitted volumes of LNG and development of arbitrage activity. LNG arbitrage is a new pattern of gas trade still in an embryonic stage of development. Few outside the LNG industry or even outside LNG trading circles understand the term "LNG arbitrage" let alone the specific mechanisms. One of the goals of this paper is to establish a clear definition of LNG arbitrage and distinguish it from other trading activities which superficially appear similar.
+
+> Historical gas price data for different markets suggests that price differentials have created opportunities for LNG arbitrage to take place. However, the scale of this type of trading has been constrained to date and has not led to demonstrable gas price convergence between markets. The second aim of the paper is an analysis of the main barriers to the growth of the LNG arbitrage market.
+
+> Research for this paper has enabled a framework of barriers and conditions for LNG arbitrage to be developed. According to this framework there are four necessary conditions for an arbitrage transaction to take place.  Barriers, which deter arbitrage, can be divided into four groups. Analysis of the barriers has shown that some constrain arbitrage on the global level while others are more locally focussed (sic). Some barriers strongly preclude arbitrage activity while others merely make it more challenging.
+
+[Basic Human Decision Making: An Analysis of Route Choice Decisions by Long-Haul Truckers](http://orfe.princeton.edu/%7Ealaink/Papers/KnorringThesis.pdf)
+
+[pdf] by John H. Knorring, Princeton University, April 2003.  Knorring currently trades natural gas derivatives for Goldman Sachs' commodity arm,
+
+[J. Aron](http://info.goldavenue.com/info_site/in_who/in_who_aron.html)
+
+. 
+
+> "Option **A** is you receive $20.  Option **B** is you die."
+
+[The World's Greatest Coal Arbitrage: China's Coal Import Behavior and Implications for the Global Coal Market](http://iis-db.stanford.edu/pubs/22966/WP_94_Morse_He_Greatest_Coal_Arbitrage_5Aug2010.pdf)
+
+[pdf] by Richard K. Morse and Gang He. 
+
+> **Abstract**: In 2009 the global coal market witnessed one of the most dramatic realignments it has ever seen - China, long a net exporter of coal, suddenly imported a record-smashing 126 Mt tons (103 Mt net). This inversion of China's role in global coal markets meant that Chinese imports accounted for nearly 15% of all globally traded coal, and China became the focal point of global demand as traditional import markets like Europe and Japan stagnated in the wake of the financial crisis.  The middle kingdom's appetite for imported coal seems insatiable, and the "China Factor" appears to have ushered in a new paradigm for the global coal market.
+> 
+> But China doesn't "need" the coal.  The world's largest coal producer cranked out 2.96 Bt of production in 2009, backed up by 114.5 Bt of reserves.  While the world's other fastest growing importer, India, is plagued by a growing gap between coal supply and power demand that it is unable to fill domestically, this is not the case in China.  The spike in Chinese demand for imported coal is therefore a more complex (and less easily predictable) phenomenon that requires careful examination if the world is to understand what impact China might have on global energy markets in the coming decade.

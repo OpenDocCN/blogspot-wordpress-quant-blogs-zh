@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:39:21
+-->
+
+# Falkenblog: Gaffe Defined
+
+> 来源：[http://falkenblog.blogspot.com/2010/01/gaffe-defined.html#0001-01-01](http://falkenblog.blogspot.com/2010/01/gaffe-defined.html#0001-01-01)
+
+Republican Lt. Gov. Andre Bauer of South Carolina on
+
+[charity](http://chattahbox.com/us/2010/01/24/sc-lt-gov-poor-like-stray-animals-dont-feed-them-or-they-breed/)
+
+:
+
+> My grandmother was not a highly educated woman, but she told me as a small child to quit feeding stray animals. You know why? Because they breed. You’re facilitating the problem if you give an animal or a person ample food supply. They will reproduce, especially ones that don’t think too much further than that. And so what you’ve got to do is you’ve got to curtail that type of behavior. They don’t know any better,
+
+Of course, the press responded by noting how ridiculously stupid and offensive that remark is. I'm not running for office, so I'll say I think that's about right. One could nuance that, by saying 'The most melancholy of human reflections, perhaps, is that on the whole, it is a question whether the benevolence of mankind does more good or harm (Walter Bagehot). Or that 'The poor don't need money or pity, they need temperance, diligence, thrift and other bourgeois virtues'. Or that 'The ultimate result of shielding men from the effects of folly is to fill the world with fools' (Herbert Spenser). Same idea.
+
+I think what's considered so offensive about the remarks is it implies these people are poor, in large part, because they aren't very bright. That means it's not someone else's fault, and thus responsibility, and thus the rich might just eat them like
+
+[Soylent green](http://en.wikipedia.org/wiki/Soylent_Green)
+
+! For a post-Christian society, we sure hate to judge, just like our bible-thumping predecessors. Better to point out the exceptions to 'disprove' the generalization, and say 'there but for the grace of God go I'.

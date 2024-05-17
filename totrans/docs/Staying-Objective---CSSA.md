@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:37:05
+-->
+
+# Staying Objective | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/01/24/staying-objective/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/24/staying-objective/#0001-01-01)
+
+The last few days have certainly been scary for those who were heavily long. Knowing how to handle these kind of situations is what separates the men from the boys. As the market started turning south in the very early stages Jeff Pietsch of Market Rewind highlighted the importance of hedging [http://marketrewind.blogspot.com/2010/01/portfolio-x-ray-keeping-dubble-out-of.html](http://marketrewind.blogspot.com/2010/01/portfolio-x-ray-keeping-dubble-out-of.html). The ETF Rewind exposure tool mentioned in the article is something that all the best hedge funds like  Renaissance Technologies use on a daily basis to reduce risk and stay consistent.  Another great example comes from  Charles Kirk [http://www.thekirkreport.com/](http://www.thekirkreport.com/) who is another veteran market pro. I really like how he handled things and it struck me as being very sensible. Charles had *trailing stops on all of his positions* which is something he always emphasizes as a key risk management tool to preserve profits and protect you from big losses.  He happened to get stopped out during this pullback–finding himself sitting on a lot of cash. He took a day off to reflect and think about what to do next and came out with a special report the next day after spending a long time collecting his thoughts. This disciplined, common-sense approach is a timeless quality of all the successful market speculators of the past like Nicholas Darvas and William O’Neil.
+
+I am personally always hedged and rarely take much of a net long or short position and was lucky/fortunate enough to have a couple winning days during this period. As a consequence perhaps I can offer some simple and objective advice:
+
+1) If you find yourself in a tough spot–don’t beat yourself up or lament about what you wished you did etc. A soldier in the middle of a war would have no time or use for recriminations and neither should you.
+
+2) Develop a game plan for what you will do NOW and try to pretend whatever P/L you have or currently had are irrelevant. Make the best decision for the present. The market is oversold in the short-term, if you were a short-term swing trader you would be long here and waiting to sell on a bounce. If you are holding a concentrated portfolio of risky stocks, swap that out for a position in a major index like the QQQQ to avoid catastrophic losses and wait to sell on that bounce.
+
+3) Wait and watch following that bounce to see what happens. If the market firms up take an index position to play the upside. If the market and your favorite stocks threaten to break new highs you can now set some buy targets. THIS TIME make sure to set initial and trailing stops.
+
+**Additional Thoughts**
+
+1) Even thought the 20, and 50 day moving averages have been breached, we are still technically in a bull market– the S&P500 is above its 200ma and the trend is still higher(200ma is still rising).
+
+2) Bull markets often correct to points at or below their 200mas, it is just a matter of time until this happens, and this correction could be the start of a move that reaches this point.
+
+3) One of the most reliable signals that a new bear market has started is the Golden Cross a 50sma/200 sma crossover. This is your official signal that the game is over and the bear has truly returned.
+
+**Tips For the Future:**
+
+1) When a bull move has lasted a long time since correcting below the 50sma, or near the 200sma AND the VIX is very low compared to all readings over the past year the market is vulnerable for correction.  This is a time to purchase cheap puts or out of the money calls on the VIX to protect your long positions IN ADDITION to having trailing stops.
+
+2) Another trigger that should encourage you to start hedging is when the RSI14 is near/at/or goes above 70 which happened on January 11th and gave you plenty of time. Previous corrections this year have followed the market reaching these levels. My recommendation is to use ETF Rewind’s exposure tool tool to sell short the appropriate ETFs to balance your risk so you are only exposed to alpha–the outperformance of your favorite stocks versus the market, instead of being exposed to the monster that is the market beta when things go south.

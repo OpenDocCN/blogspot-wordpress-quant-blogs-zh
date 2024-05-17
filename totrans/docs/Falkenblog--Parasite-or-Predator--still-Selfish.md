@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:41:52
+-->
+
+# Falkenblog: Parasite or Predator, still Selfish
+
+> 来源：[http://falkenblog.blogspot.com/2009/12/parasite-or-predator-still-selfish.html#0001-01-01](http://falkenblog.blogspot.com/2009/12/parasite-or-predator-still-selfish.html#0001-01-01)
+
+There's an interesting exchange over at Bloggingheads.tv, about group selection. You see, evolution happens at many levels, such as the gene level as when the sickle cell gene grows in malarial environments. The mere gene view is the 'selfish gene' process introduced in contrast to naive group selectionism, which in the 1960s was based on the idea that 'what is good for the group is good for the individual'. However, Richard Dawkins was far too dismissive of non gene-centered selection, as it is now recognized that organizations higher than the gene—the organism, the tribe, the species—sometimes compete evolutionarily, as when grey squirrels
+
+[drive red squirrel populations to zero](http://www.overthegardengate.net/wildlife/squirrel.asp)
+
+when they have overlapping boundaries.
+
+Anyway, Razib Kahn asks David Sloan Wilson about scientific allegations that certain groups (notably, the Jews) are parasites, and Wilson notes that ecologically you can group people into two groups: predators and parasites. A predator takes advantage of the smaller population, a parasite takes advantage of a larger population, but, they do the same thing. Thus, it isn't any different to assert some group is acting parasitic any more than it is to assert some group is acting predatory. If all groups are selfish acting in their own interest just has a different name depending on its numbers.
+
+<embed type="application/x-shockwave-flash" src="http://static.bloggingheads.tv/maulik/offsite/offsite_flvplayer.swf" flashvars="playlist=http%3A%2F%2Fbloggingheads%2Etv%2Fdiavlogs%2Fliveplayer%2Dplaylist%2F24339%2F43%3A25%2F44%3A39">
+
+I'm if anything a Semitophile, so if you're a visitor, don't infer I'm trying to justify anti-Semitism. However, I think it's reasonable to look at human groups historically and call various strategies as parasitic or predatory. Indeed, given the zeitgeist strongly discourages allegations of parasitism because this is considered piling on minority groups, discouraging diversity, etc., it is probable that parasitic behavior is more common, because it doesn't have to withstand criticisms of parasitism the way majority groups have to withstand the negative PR of predation. For example, note that Noam Chomsky basically defines evil as bad behavior combined with total power, thus making the US the monster of the twentieth century as a consequence of the size of its economy (and, in his mind, the relative virtue of the weak Palestinians vs. the stronger Israelis). It's reasonable to assume majority groups will have more problems exploiting minority groups (predation) than minority groups will have exploiting majority groups (parasitism).

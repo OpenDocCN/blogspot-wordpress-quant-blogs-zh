@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:19:03
+-->
+
+# Falkenblog: Northern Trust on a Tear
+
+> 来源：[http://falkenblog.blogspot.com/2008/05/northern-trust-on-tear.html#0001-01-01](http://falkenblog.blogspot.com/2008/05/northern-trust-on-tear.html#0001-01-01)
+
+So I was at this presentation today by the CFO of Northern Trust, a 'bank' based in Chicago, with about $80B in assets on its balance sheet, and about $800B in assets under management. You should check out their material
+
+[here](http://www.northerntrust.com/pws/jsp/display2.jsp?XML=pages/nt/0401/42065702_3708.xml&TYPE=interior)
+
+. This company has a current P/E of around 16, which basically means the market thinks a dollar of earnings here is worth about 50% more than a dollar from its peers. This is an example of a finance company that avoided the subprime mess, and really it has been the past 12 months, where they have risen 20% while the financial indices have fallen 25%, that has generated the separation.
+
+The CFO, Steve Fradkin, had several themes that I found really refreshing. First, he noted that if you look at JPMorgan you see that it only recently combined with Chase, which had just recently joined with Chemical, etc. The cumulative effects of all these undigested pieces makes for several problems. First, it screws up earnings, as special charges are created, amortized, etc., making it very difficult to know how you are doing, because earnings contain, or exclude, so many special charges, 80% of the earnings are always 'special'. Secondly, you have turf wars, and different cultures fighting for the soul of the company. This can really lead one to take one's eye off the ball.
+
+And 'the ball', is customers. Financial companies are in the business of intermediation, connecting savers to companies that need the capital. They aren't in the business of speculating, or arbitraging a seemingly great spread in auto ABS.
+
+Fradkin noted, with a nice display of corporate candor, that in the early 1990's, they were a standard, smaller bank, that didn't have some master plan to become what they became. By merely focusing on their niche, institutional clients and wealthy individuals, and forsaking the infinite number of other ways to make money, the growth took them to someplace they did not anticipate. They became one of the leading firms in assets under management, though you don't much hear about them because they don't have a retail focus.
+
+Fradkin also noted that when he became CFO five years ago, he visited the nasdaq, where his stock trades (ticker NTRS), the trading guys there said they could give him information on block trades, etc. What would he do with this, he asked? Good question. I wish I could get information on CFO visits to exchanges. Those CFOs that are interested in daily stock market activity would be great shorts, because you simply can't build a business looking at that kind of information.
+
+By sticking to one thing, understanding it, and doing it well, they have grown fantastically, adding a lot of shareholder value. Contrast that with CitiCorp, which is involved in everything, and will probably sell itself off in parts so that they can finally understand what business they are in.

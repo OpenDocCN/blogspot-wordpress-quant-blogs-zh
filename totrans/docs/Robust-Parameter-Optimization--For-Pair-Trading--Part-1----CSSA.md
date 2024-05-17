@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:51:13
+-->
+
+# Robust Parameter Optimization- For Pair Trading (Part 1) | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/08/11/robust-parameter-optimization-for-pair-trading-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/11/robust-parameter-optimization-for-pair-trading-part-1/#0001-01-01)
+
+In this multi-part series I will introduce simple methods to create robust pair trading models using examples from Market Rewind’s fantastic pair trading optimization tool [http://etfrewind.blogspot.com/](http://etfrewind.blogspot.com/) . Outside of pair trading, ETF Rewind is a tremendous resource for almost any type of strategy, and it provides analytics rarely found together in one information portal. Most importantly it gives you a broad overview of the market and what is happening at the sector/country/style level as well as what is happening at the strategy level–ie is the market trending or mean reverting.  Nonetheless, the pair application on ETF Rewind is simple yet sophisticated and inexpensive way of creating your own little hedge fund.
+
+The concepts  that we will introduce in this series can be broadly applied to any parameter optimization whether it is the DVO (of DV2 fame) , or moving average crossovers for trend-following. Without  applying the concepts presented, a trader will not be able to produce trading systems that work in real life. For a good introduction to the process please read my introductory article- Preface: Optimizers Anonymous. I will introduce the concept of “local density,” as well as using the “DVR” as a performance measurement to evaluate the output from optimization. In the course of all these  theoretical musings we will develop real strategies for trading different types of pairs.
+
+That said, good strategies begin with good theories, and pair trading is no different.  I have written numerous articles on pair trading in the archives, I suggest you take a look at those as well.  I have provided Varadi’s Pair theory below as a quick summary/refresher. The bottom line is you can optimize all you want, but without a solid framework you will find that you pair trading ideas will spontaneously fall apart. So lets first introduce some basic concepts or theories around how pairs work:
+
+**Varadi’s Pair Theory**
+
+Substitute assets are interchangeable, and therefore offer pure arbitrage opportunities with no risk other than the transfer mechanism (the operation of simultaneous buying and selling). Substitute assets that offer pure arbitrage are typically not available on secondary exchanges. Near substitute assets are plentiful, but do entail the additional risk associated with the degree of match or the ability to match the two assets. An example would be an S&P500 ETF from two different providers: the risk is that one provider may not be able to replicate the underlying S&P500 as accurately as another, and may have a disruption that permanently impairs tracking error if hedging instruments are not available. The same is true with leveraged ETFs, we are relying on the ability to hedge a given underlying . Even in levered ETF arbitrage–any disruptions can and will impact tracking error even on short-term trades. A disruption such as a  derivatives disaster or 1987 event, could permanently impair tracking error, and the ETF could be broken. OK consider those important risk disclaimers–next we have highly-related assets: this could be two companies from the same industry OR two companies that are affected by the same economic factors. The above categories are bound together by a concept called “cointegration.” This is different from correlation because it implies a lasting underlying relationship. Cointegrated assets essentially have a stable mean, this means that the ratio of one ETF versus another may move in different directions over a given period of time, but eventually they will snap back due to the fact that the underlying assets are somewhat interchangeable. Lastly we have loosely-related assets: an example would be trading your favorite stock versus the S&P500, or trading gold versus oil. In this situation, there is relatedness but the correlation, and appropriate hedging mechanism will change substantially over time.
+
+Derived from the theory are some predictions:
+
+1) Near-substitute assets will trade with a higher frequency of cointegration—that is discrepancies will be corrected rapidly—often within days. The frequency will be more stable across time, and more stable across instruments. Extrapolation from optimization is much less likely to be incorrect.
+
+2) Highly-related assets will trade with an medium but often less stable frequency of cointegration. Because of lognormal drift and less arbitrage money flow and relative to the total pool of long-term investment money flow, highly related assets can trend for extended periods. Trading these pairs requires far more careful attention when using optimization. It is unlikely that highly-related pairs will have the same frequency of cointegration as other instruments. A degree of customization should be built in to improve trading results.
+
+*More on this tonight………*

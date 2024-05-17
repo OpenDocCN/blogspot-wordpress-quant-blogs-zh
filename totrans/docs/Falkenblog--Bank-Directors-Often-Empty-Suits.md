@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:35:19
+-->
+
+# Falkenblog: Bank Directors Often Empty Suits
+
+> 来源：[http://falkenblog.blogspot.com/2009/01/bank-directors-often-empty-suits.html#0001-01-01](http://falkenblog.blogspot.com/2009/01/bank-directors-often-empty-suits.html#0001-01-01)
+
+[![](img/af70f5dbe796a6d44b80c915717a99e8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh2RyQqqDmmRedk0R460VPN2nJDbjU7JIprr7gPWNKyAwnYP8MStrajs4mfIjKbGCQdLgXb7RKOiX03cuPkBNaQwEGxi7rQd0KSB8RzPA_ZiDpg69vtPtgaHn-7gmkhY_n8KWRqkg/s1600-h/parson.gif)
+
+When I was at a bank, no matter what level executive you were addressing about some issue, the meeting would often end: "well, get this and that in there, but don't forget to simplify it when presented to my boss." The Senior Vice President would say this about the Executive Vice President, who would say this about the Managing Committee member, who would say this about the COO, who would say this about the CEO, who would say this about the Board.
+
+And they were all kind of right. The higher you go, the less technical, the more the 'leader' has qualities like reputation, great hair, and the ability to spout platitudes as if they were keen insights into the human condition. Most of all, they know that saying very little, or something very vague, can seem really intelligent when you have a lot of power. Recently, Bob Rubin, the banking expert, claimed that subprime exposure at Citi was a technical detail outside the scope of his activities, which highlights that for $115MM Citi was not paying for anything as prosaic as, say, risk management or portfolio advice.
+
+Richard Parsons is going to be the new head of Citigroup. He is a lawyer by training, whose
+
+first job in banking
+
+was as COO of Dime bank when it was under strong regulatory review during the S&L crisis, and wishing to demutualize (a trick that needs approval from government). He then left to join Time Warner's board, eventually becoming chairman in 2003\. He was head of Time Warner, and left in May 2008 after not budging the stock price over 5 years. But he has great political bona fides, with friends among Republicans and Democrats, and was on Obama's economic advisory team. A large corporation, especially one receiving TARP money, needs expertise managing Washington no less than Fannie Mae, which made many of their senior executives very rich via conflating Fannie's self interest with some social good like encouraging home ownership (among people who can't afford homes).
+
+He's no fool, but having such people lead large banking institutions highlights that banking's primary concerns are political, as they always have been. It is implausible to think that any such executive would have the ability or interest to appreciate the massive degradation in residential mortgage lending in the past decade, which is why just about every single large bank suffered similar problems. Given the nature of leaders, if the zeitgeist is for weaker standards, and there are no actual losses, such leaders are not going to put on the brakes. They won't do much of anything, other than 1) try to maintain their fiefdom via takeovers and avoiding takeovers and 2) lobby for favors from the government, such as keeping 'non bank' competitors out (eg, insurance, mutual funds, foreign banks, etc), and expanding the latitude of services they can provide.

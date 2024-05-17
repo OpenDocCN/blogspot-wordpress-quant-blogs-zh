@@ -1,0 +1,56 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:01:25
+-->
+
+# hacking NASDAQ @ 500 FPS: The Professional Trader
+
+> 来源：[http://hackingnasdaq.blogspot.com/2013/02/the-professional-trader.html#0001-01-01](http://hackingnasdaq.blogspot.com/2013/02/the-professional-trader.html#0001-01-01)
+
+The definition of a professional trader is, "professional" meaning a method to support oneself financially and secondly "trader" describing the type of activity, thus a professional trader makes their living in the markets. 
+
+According to our most trusted news site, CNN. The average salary for a freshly minted CS grad is
+
+[$60,872](http://money.cnn.com/2012/01/12/pf/college/salaries/index.htm)
+
+ which means:
+
+- $5,072 / month
+
+- $1,268 / week
+
+-   $253 / biz day
+
+Now if we break that $253 / day into HF style trades it looks like
+
+@ 1 share/ day     -> $253 net gain / share
+
+@ 10 share / day  -> $25.3 net gain / share
+
+@ 100 share / day -> $2.53 net gain / share
+
+@ 1000 share / day -> $.253 net gain / share
+
+@ 10,000 share / day -> $.0253 net gain / share
+
+@ 100,000 share / day -> $.00253 net gain / share
+
+At 100K shares / day with a *net* pnl per share of 0.253cents (less than a penny) we could make it work. At 10k shares / day with 2.53 cents / share profit also in the realm of feasibility. Note that 25 cents / share profit for every share is possible but think your pushing it to expect that consistently day-in-day-out in high volume. Remember this is per share, not per trade.
+
+Now lets say we choose 10k shares @ 2.543cents / share net pnl, e.g. we`re trading the spread+a tick or two and our edge is say 10%. Meaning 60% of our trades make that 2.543cents, and 40% of the trades loose 2.54 cents, NOTE: in reality that kind of equally priced distribution abs(win) == abs(loss)  is highly unlikely. 
+
+Result is we actually need to trade
+
+   $254 = k * (0.6 * 0.0253 - 0.4 * 0.253) where k = 50K, so our 10K shares is now 50K shares.
+
+Counting in trades lets say we`re trading lots of 100 shares, meaning we`re doing 500 trades / day. And lets say the market is open 6H / day which means 500 trades equally spaced is 6 H * 60Min * 60Sec / 500 trades = 43.2sec. e.g. thats one trade every 43.secs for 6 hours but actually its half that because you need to enter/exit the position, so we`re doing 1 trade every 21.6 seconds.
+
+.
+
+.
+
+.
+
+It starts to put this HF trading thing in perspective -> 1 trade every 21.6secs that makes 2.5 cents/ share on average, to makes $250 / day or $60K / year..... a nice healthy dose of reality. 
+
+What im doing now is diversifying my **income** strategies. Some of this is trading strategies, some un-related and others quite frankly you just would not believe. Having 20/20 hindsight theres so many things I would have done differently, but easily the most important would be to build non-trading income strategies, that cover your bills when the trading hits a rough patch - because when your starting out its just one endless bumpy rough ride.

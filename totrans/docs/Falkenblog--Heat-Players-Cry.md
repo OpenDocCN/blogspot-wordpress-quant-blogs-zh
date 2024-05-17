@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:05:53
+-->
+
+# Falkenblog: Heat Players Cry
+
+> 来源：[http://falkenblog.blogspot.com/2011/03/heat-players-cry.html#0001-01-01](http://falkenblog.blogspot.com/2011/03/heat-players-cry.html#0001-01-01)
+
+[![](img/b8742cecceb5c2ad07003650f65f2b27.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2Xcg9kQc9kqaB8PJyzXCVuseA0mKGI1omRzIj79KUvvpiT7e5muGde3vLmlucpf-hDx_SgCmu7qVDytuUmiE8vESUsDyq9Nj-Tkj-z-NZnTzIPSIPbl1xgQTKZLKbCiCtZZzPBA/s1600/bosh.png)
+
+I was amused to see on SportCenter
+
+[ESPN mocking](http://www.sportsgrid.com/media/miami-heat-crying-game-cover/)
+
+Miami Heat players for, supposedly, crying after losing to the Bulls. I had a coach who once told me there are two good reasons to cry: if someone you love dies, or you just lost a big match/game. I still think it's a decent rule (provided you were a competitor, not a spectator)

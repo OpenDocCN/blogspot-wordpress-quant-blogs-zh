@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:55:51
+-->
+
+# Falkenblog: Prost!
+
+> 来源：[http://falkenblog.blogspot.com/2008/09/prost.html#0001-01-01](http://falkenblog.blogspot.com/2008/09/prost.html#0001-01-01)
+
+[![](img/7bfbda5d79f26051837e01e92364cae0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3_awZk86diH6CgepbTRgRkZpQxM3br1TV7N7RILKjhsYo5dZl5Vpj5ihySaZCAdtRETV9eUqN4Qvop-xlXN01OISdYWsTXpM-dpRFTbSLbAfnNkeyTchpMW-nHWH-TvzxoiEl5w/s1600-h/Oktobergurls.jpg)
+
+Happy Oktoberfest my lederhosen brothers. Here's to a holiday without a pretext of spiritual purity or nationalism. Just drink and enjoy.
+
+Deep thoughts on beer and cognition, by Cliff Clavin of "Cheers":
+
+> Well you see, Norm, it's like this... A herd of buffalo can only move as fast as the slowest buffalo. And when the herd is hunted, it is the slowest and weakest ones at the back that are killed first. This natural selection is good for the herd as a whole, because the general speed and health of the whole group keeps improving by the regular killing of the weakest members. In much the same way, the human brain can only operate as fast as the slowest brain cells. Now, as we know, excessive intake of alcohol kills brain cells. But naturally, it attacks the slowest and weakest brain cells first. In this way, regular consumption of beer eliminates the weaker brain cells, making the brain a faster and more efficient machine And that, Norm, is why you always feel smarter after a few beers.

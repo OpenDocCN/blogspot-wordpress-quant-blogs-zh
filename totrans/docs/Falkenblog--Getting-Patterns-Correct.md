@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:06:09
+-->
+
+# Falkenblog: Getting Patterns Correct
+
+> 来源：[http://falkenblog.blogspot.com/2008/07/getting-patterns-correct.html#0001-01-01](http://falkenblog.blogspot.com/2008/07/getting-patterns-correct.html#0001-01-01)
+
+[![](img/ff41b2bdbd4335947fc58147d8807efd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglHdYLOahUVzghPg0kjNIY72Kr4I2j_a-0l6Vc_PgEyCnXlUEokZK4GavyEfMlCVMb5ByYhyphenhyphensJttHM3gMablbIyaf101AXY3MUprOJxPUjrR8h25t8De3F_O8J8dzPXA-7YFUXaQ/s1600-h/clavicle.jpg)
+
+I tore my rotator cuff and labrum, and I was struck by the fact that tendons and cartilage do not self-repair. That is, if you break your clavicle, a bone, it will find the other broken part, and glue itself back together. If you tear your rotator cuff tendon, it will never reattach to the bone without surgery. Same for ligaments and cartilage.
+
+Thus, if you observed what bones do, you might come up with a rule: broken things in the body need rest, and they will repair themselves. But if you looked deeper, you would see that doesn't always hold. Those tissues without blood supplies have no way to 'reattach', because they have no sensors, they don't know they are broke.
+
+[![](img/fa726bd05883b018093ddab22fef82c1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXnLUuIHTtup0MIgPoOL6Q139LqcwD3aL0C9NRu4CHPRpH9vCmR9MQ079_h0tvROXGRELQLMcO7639M5ievy7b8f5L6JD3Lbm1FrBPlFGkn0peRxgXhBd7NQ0h0K0zftNhhgQH0w/s1600-h/rotatorcuff.jpg)

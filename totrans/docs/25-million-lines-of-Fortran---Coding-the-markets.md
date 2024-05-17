@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:53:36
+-->
+
+# 25 million lines of Fortran | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2006/06/01/25-million-lines-of-fortran/#0001-01-01](https://etrading.wordpress.com/2006/06/01/25-million-lines-of-fortran/#0001-01-01)
+
+One of my colleagues is ex [Bloomberg](http://www.bloomberg.com). He tells me there's only one thing I need to know about them: "25 million lines of Fortran !"  Apparently they have 1500 coders firefighting, just keeping that legacy monster alive.
+
+And there's a good reason Bloomberg has those 1500 coders keeping those 25M lines of Fortran alive. Walk round any trading floor, and you'll see every trader has their Bloomberg terminal running. They're watching news tickers, checking Bloomberg email, and trading. In fixed income, Bloomberg is the leading liquidity pool for the buy side. If you're a money manager, and you need swaps, govies, credit, structured notes, whatever, you go to Bloomberg. Consequently, every trader on the sell side wants to get their quotes on to Bloomberg.
+
+Apparently, Bloomberg has been trying to make the jump from Fortran to C++ for some time, but the Fortran codebase and the guys that maintain it are too entrenched. Cripes – in the oil industry we made that transition 15 years ago !  Anyway, the problems with [rewriting existing products](http://www.joelonsoftware.com/articles/fog0000000069.html) are well known.
+
+Two factors make Bloomberg hard to deal with, from a front office techie point of view. One is the legacy code issue mentioned above. The other is their revenue model. All their income comes from charging users a grand a month for a Bloomberg terminal. As our colleagues in NY say: "you do the math!". How much does your trading floor pay Bloomberg every month ?  So because Bloomberg don't derive their revenue from dealers quoting on their system, and because they have a massive legacy codebase issue, and also because they seem to have tremedous staff churn, working with them can be massively frustrating.
+
+Other ECNs are quite different [an ECN is an electronic communications network – shorthand for "online market" really]. [Liffe](http://www.liffe.com) is a paragon of virtue, for instance. Their [CTSG](http://liffe.com/customer_services/london/liffe-london.htm#ctsg) group are quite simply excellent. They pick up the phone quickly, their staff aren't constantly churning, and they really know their stuff, both technically and in business terms. Andy Weaver deserves a special mention as being incredibly helpful and knowledgeable. Damn – now all you exchange connectivity guys are going to be bugging Andy !  But he deserves the credit. No wonder Euronext have adoped LiffeConnect as the platform for all their exchanges.
+
+All these considerations lead me to ask, what could displace Bloomberg ? It will be incredibly hard to displace that liquidity pool, because traders follow the liquidity. But they've got a legacy and cultural millstone round their necks. And we've got to remember that they were once young and hungry, and they stole the crown from Reuters.
+
+So let's get speculative. Really speculative. Could Bloomberg be displaced by a Web 2.0 player ?  The obvious candidate is Google. They have a lot of the elements for an ECN in place…
+
+*   [Google payments](http://googleblog.blogspot.com/2006/02/update-on-payments_24.html) could be built out to handle clearing and settlement
+*   The [Google web toolkit](http://googleblog.blogspot.com/2006/05/making-ajax-development-easier.html) could be used to build a trading terminal
+*   Being a Google user already gives identity and authentication
+*   [Google finance](http://finance.google.com) already has the makings of a ticker plant and news service
+*   A technical platform that scales, based on Linux, C++ and Python
+
+What are the missing parts of the puzzle ?
+
+*   Trustworthiness and creditworthiness. A trading counterparty must be trust and credit worthy. Ebay has gone some way to addressing trustworthiness. But something new would be necessary for a Web 2.0 solution to the question of establishing credit worthiness.
+*   A trading model: indicative quotes & RFQs, or limit order book ?
+*   Credible solutions for the many technical issues surrounding real time quoting and trading. You know – stale quotes, RFQ wire times – all that stuff
+
+The trading model and real time issues are just technical problems. Google is smart enough to solve them.
+
+But what would be the Web 2.0 solution to creditworthiness ?  In the world as we know it now, this problem is solved by brokers. They decentralise and federate the problem of creditworthiness. Not everyone can be a member of the exchange, so brokers take on the job of knowing their clients, holding their paper, judging when margin calls are necessary etc.
+
+I don't know what the answer to this question will be. But I suspect the answer may tell us where online trading will be in 5 or 10 years.

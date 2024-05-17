@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:18:51
+-->
+
+# Falkenblog: Ed Miller's Curse
+
+> 来源：[http://falkenblog.blogspot.com/2010/10/ed-millers-curse.html#0001-01-01](http://falkenblog.blogspot.com/2010/10/ed-millers-curse.html#0001-01-01)
+
+In 1977,
+
+[Edward Miller presented a model](http://www.jstor.org/pss/2326520)
+
+where investors with different opinions were buying assets. He noted that in such a case, an asset with a greater dispersion of opinion would have higher prices, given the same average expected return. Looking below at the graph from that article, you see that the steep line shows the distribution of valuation when there is a great divergence of opinion. In such a a case, when you need finite amount $X to buy your stock, the more deluded the buyers are the better.
+
+[![](img/76e5988eed5c9b49918fad08e562ccf4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiol7ZRCNUFXiVT6ihfsCHz_D25Vbx01blI54YkrZTxonChuknAGksQjFYSuGcmc27TNxrUp6XXITl_FJS0PyOlNTP86GP4xWBAS7o5Ek02M6_xH4iUgKCM-pmjssW7SQNeygEa4Q/s1600/graphEdMiller.jpg)
+
+It's a pretty simple idea. In
+
+[1971 some engineers at Atlantic Richfield noted](http://www.thediamondangle.com/archive/oct01/wincurse.html)
+
+that there's a winner's curse in drilling rights: those who won an auction were most likely to have overestimated its value. The petroleum engineers noted that oil companies suffered unexpectedly low returns in early Outer Continental Shelf (OCS) oil lease auctions. OCS auctions were common value auctions, where value of the oil in the ground is essentially the same to all bidders. Each bidder has their own estimate of the (unknown) value at the time that they bid. Even if these estimates are unbiased, bidders must account for the informational content inherent in winning the auction: the winner’s estimate of value is (one of) the highest estimates. If bidders ignore this adverse selection effect inherent in winning the auction, it will result in below normal or even negative profits.
+
+Now, this isn't rational, and
+
+[Richard Thaler noted it](http://econ.ucdenver.edu/Beckman/Econ%204001/thaler-winner's%20curse.pdf)
+
+as a potential anomaly in asset markets back in 1988\. People should adjust their bid so that conditional upon winning, their private estimate does not overpay for the asset in question. This is actually very difficult to do in practice, but not that, if you win an auction with 3 people, that's a lot less scary than winning an auction with 300\. The relevance of the winner's curse to asset markets was 'partial equilibrium' analysis, supposedly irrelevant because of arbitrage.
+
+Yet, Ed Miller continued to note that his argument seemed to make sense. In
+
+[2001 article](http://www.iijournals.com/doi/abs/10.3905/jpm.2001.319791)
+
+in the Journal of Portfolio Management, he noted that
+
+> An implication of this theory is that investors can improve their return relative to risk by exploiting the flatness of the security market line.
+
+That was good advice in 2001, and 1977\. Several esteemedd economic papers now reference tho 1977 article as why there are low returns for highly volatile assets, like IPOs.

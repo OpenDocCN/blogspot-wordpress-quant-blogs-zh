@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:36:59
+-->
+
+# System Testing Metrics, GIGO, and Million Dollar Questions | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01)
+
+*Readers are strongly encouraged to read the following links–I don’t want anyone to miss these very eloquent and thought provoking discussions on the topic:*
+
+What are “degrees of freedom” ? This is a very important and highly overlooked topic, and Brenda Jubin– a true market scholar– of **Reading the Markets** does the best job of explaining this concept that I have seen in print: [http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html](http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html)
+
+Jez Liberty of **Automated Trading Systems **who is posting some very good work lately also  highlights a very subtle concept: 1) the fact that there is no magic metric for measuring performance 2) traders are better off tailoring these metrics to their own personality and preference just like they would a trading system. [http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/](http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/)
+
+Last but not least, **TopTick** who is a frequent poster on my forums at DV Indicators in the community section is a quant par excellence and I must say is in very good company (thanks to all the great posts out there!) and I plan to link in many posts in the future. Here TopTick produces a great breakdown of a lot of the ideas to consider for system testing and performance metrics: [http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0](http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0)
+
+Here is my humble take on the topic:
+
+1) Everyone wants to know the secret to finding the perfect metric that will allow you to extrapolate the future reliably from the past.
+
+2) Everyone wants to know how to figure out exactly when a sytem has broken down so that they can exit reliably with minimal drawdown.
+
+These are million dollar questions and those who realistically expect concrete answers in the form of one simple equation are living in a utopian trading universe. System performance metrics ultimately boil down to measuring the equity curve and/or the profitability and variablity of the individual trades. After finding a great result in backtesting the sad truth is that you cannot neccessarily extrapolate. Neither a simple nor complex analysis using the most advanced statistics will help you separate the bogus systems from the true winners. Equity curves are simply output, they depend on what factors/systems go into them. Hence GIGO- garbage in, garbage out. If you want to combine 50 variables and test long-parameter moving average sets over short periods–guess what? degrees of freedom strike thee down! your system is bogus and I don’t care if it has a Sharpe Ratio of 4 and a 2% drawdown.  Understanding the inputs and the possible methodological flaws in trading system design are more important than the output— if you just want to find great numbers genetic algorithms and optimizers will give you what you are looking for in seconds.
+
+**Every equity curve contains a story behind the numbers, and asking good questions is the real key to finding the truth.** If I looked at Madoff’s equity curve any metric I would have used would assure me of continued performance. Behind the curtain of this pretty performance was a fiction that no statistics could reveal. The only person who seemed to catch on was a fellow hedge fund manager who used ahem  “common sense”  to point out that no strategy that was being described for Madoff’s fund or any other for that matter could possibly produce returns that consistent.
+
+ The same applies outside the realm of pure fraud– a 100 or 200 day system test during 2008 of any mean-reversion indicator would have looked flawless and similarly invulnerable. Guess what, the real story behind the curve was that the indicators preyed ruthlessly on  tremendous uncertainty and a credit crisis that drove mass margin calls- this created unprecedented volatility and unusually chaotic correlations that are predictably cyclic—ie they won’t last forever! When uncertainty and credit was restored, profitability was restored to more normal levels. Was the system breaking down? Or was it just experiencing supernormal profitability? If we knew what drove profitability–ie volatility which was a consequence of credit issues– we could use either as a superior means of figuring out when to cash in our chips than observing the system output.
+
+Try to think of yourself more as an experimenter or a scientist: What am I trying to measure here? Which independent variables are responsible for moderating the profitability of my system? (volatility etc)  Am I potentially measuring a spurious correlation? ie perhaps I am taking an indirect measure of something and should search for a clearer proxy (credit spreads?). Keep drilling down and connecting the dots and even if your initial efforts are not rewarded, eventually you will be better and more consistently profitable as a result.  I could go on forever, but if I can implore all of the people who “only care that something works and not why it works” to take a step back and try to understand their systems in logical terms for a change they would get much closer to getting the answers they truly seek. The best physicists–far more gifted in math that you or I— are great abstract thinkers who first seek to understand our universe with sound theory and how it fits together. In an increasingly uncertain world, it is not likely that reality will ever have the consistency and symmetry of a good theory–but the ideas help inspire better systems that are more likely to survive in the future.

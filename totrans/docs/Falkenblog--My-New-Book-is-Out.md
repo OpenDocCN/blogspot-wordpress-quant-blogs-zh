@@ -1,0 +1,70 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:23:44
+-->
+
+# Falkenblog: My New Book is Out
+
+> 来源：[http://falkenblog.blogspot.com/2012/08/my-new-book-is-out.html#0001-01-01](http://falkenblog.blogspot.com/2012/08/my-new-book-is-out.html#0001-01-01)
+
+It's called
+
+[The Missing Risk Premium: Why Low Volatility Investing Works](http://www.amazon.com/Missing-Risk-Premium-Eric-Falkenstein/dp/1470110970/ref=sr_1_1?s=books&ie=UTF8&qid=1345223074&sr=1-1)
+
+. It's available at Amazon for $14.95\. A Kindle version is going to be ready in about 2 weeks that will be a little cheaper.  It would be a great complement to a Corporate Finance course, and should be of interest to anyone interested in the truth on something very fundamental: what do people maximize? I get into the why because people see what they believe, and if they understand low volatility's edge they might appreciate it sooner.
+
+That is, the risk premium and the standard economic utility function exist in an if and only if condition, so that if one does not exist the other must not exist, and vice versa.  Thus, it's interesting to note the extent neither exist, which has important implications outside finance. It's a new, true, and important idea that is presented without caricaturing the standard theory. The novel stylized fact presented is that across 25 major asset classes, risk premiums are the exception, except when they are negative.  That requires a new theory.
+
+I published it myself because I wanted to create a book with equations that doesn't cost a lot, and my
+
+[Finding Alpha](http://www.amazon.com/Finding-Alpha-Search-Return-Finance/dp/0470445904/ref=sr_1_1?s=books&ie=UTF8&qid=1345332207&sr=1-1)
+
+book sells for $95, which is not very good for reaching the masses.  Unfortunately, this go-it-yourself approach created a lot of delays because my printer was not used to equations, charts, or Greek letters. This is simply a book that I would like to read and hope others might find interesting, recognizing this would be a niche focus. It's priced for the masses, but not written for them (it has some equations!).  I think any smart person should be able to follow my arguments without any prior knowledge, and the math presented isn't much more than simple algebra.
+
+Schopenhauer said good new ideas are first ridiculed, then violently opposed, then accepted as obvious.  While the idea that low volatility investing 'works' is becoming more common, the why remains rather unsettled.  I am happy to have my argument neatly summarized in one terse book.  Last Christmas it was about 20% larger, but I got it down to about 60k words or 160 pages with about 30 pages of references and endnotes.  After years of being rejected by academics, and I guess in some sense this is an end run, as various journals have called my theory  'obvious' and 'wrong', or that it was 'not of interest to the general reader of the the
+
+*Journal of Finance*
+
+', or that I was arguing the Earth was flat and wasting their time.
+
+Finance experts know one thing, that risk and return are positively linearly related via a covariance with something that conveniently hasn't been identified. They are wrong.
+
+There was the dark period where my ideas were claimed as falling within the provenance of my confidentiality agreement with a former employer and so forbidden to me, and I spent a fortune defending my right to apply an idea that not only was the focus of my dissertation, but experts had for years told me was obvious, wrong, and uninteresting. The absurdity of my situation turned me on to
+
+[Feyerabend](http://en.wikipedia.org/wiki/Paul_Feyerabend)
+
+.
+
+Low volatility investing is now recognized as a good idea because some courageous individuals within specific companies (Acadian, Analytic, Robeco Unigestion) made this their focus and it subsequently generated above average returns. Passively owning high volatility assets is like being a minority investor in a Sicilian partnership, so simply avoiding these assets allows one to beat the benchmark index funds in Sharpe ratio sense much more than the change from active to passive investing (itself, a good innovation).
+
+One doesn't have to worry that this insight will immediately end the opportunity, as Ultra ETFs highlight the latent demand for all things risky, especially if they can be sold as a hedge (eg, the TVIX).  People are willing to pay several percent per year for the chance of getting rich without work, a lottery ticket approach to investing that relies on hope and possibilities over probabilities. Avoid this foolishness, and take risks where one has some conceivable alpha, which implies some control and responsibility.
+
+It has the following chapters:
+
+ Preface
+
+1: Introduction
+
+2: Asset Pricing Theory
+
+3: The Rise and Fall of Standard Models
+
+4: A Survey of Empirical Evidence
+
+5: Relative Status Utility and Risk Premiums
+
+6: Why Envy Explains More than Greed
+
+7: Why We Take Too Much Financial Risk
+
+8: Why This Bad Theory Is So Popular
+
+9: Practical Implications
+
+10: Conclusion
+
+ Here's a brief description  
+
+[http://www.youtube.com/embed/tmuUNHRnj4A?rel=0](http://www.youtube.com/embed/tmuUNHRnj4A?rel=0)
+
+VIDEO

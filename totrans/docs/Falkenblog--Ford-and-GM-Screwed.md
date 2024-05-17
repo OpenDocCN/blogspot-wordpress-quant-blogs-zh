@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:54:28
+-->
+
+# Falkenblog: Ford and GM Screwed
+
+> 来源：[http://falkenblog.blogspot.com/2008/10/ford-and-gm-screwed.html#0001-01-01](http://falkenblog.blogspot.com/2008/10/ford-and-gm-screwed.html#0001-01-01)
+
+[![](img/173370cfae3ba4e5594a743948b5884e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhstxczhM6uqcu9Cfvma036rbWZeWx8SmfiIKnpn86nfb1mXMMibVMr3sBTRovoJHch2nG2Tqoj_nH7Oye9YQmYrsf5kXE60V9OOgHSVBoWHjV3uKKZZSjeEar9klaFx-V1DmnneQ/s1600-h/ford.jpg)
+
+Both Ford and GM haven't made an operating profit for the past 3 years. Now word that auto sales are plummeting, as financing for such loans is way down, especially for the U
+
+[S auto-makers](http://www.nytimes.com/2008/10/02/business/02sales.html?partner=rssnyt&emc=rss)
+
+.
+
+> This is the worst point we have seen in 15 years,” said Jesse Toprak, head of industry analysis for the automotive Web site Edmunds.com. “And it is likely to be even worse in the month of October."
+> ...
+> “During the last 10 days of the month it was extremely weak,” said George Pipas, a market analyst at Ford. “It was tantamount, really, to a natural disaster.”
+
+Given all the money being thrown around, going bankrupt now would be strategically advantageous.

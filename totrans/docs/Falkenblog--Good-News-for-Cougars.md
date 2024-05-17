@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:18:42
+-->
+
+# Falkenblog: Good News for Cougars
+
+> 来源：[http://falkenblog.blogspot.com/2009/03/good-news-for-cougars.html#0001-01-01](http://falkenblog.blogspot.com/2009/03/good-news-for-cougars.html#0001-01-01)
+
+[![](img/1398e47e44738ea7235584c7e9f920c7.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTMuZ7xpmFwbooWxHFli9ylGJwpkUud4_cvN1V2UEwkBEkd1-ZTsCzO5lMB0kTb602ea0sIlPGMFZuuTA4CPIFbRVJNiFK6mjapfiMuNjvnjMQQct_1w4jCgi6dAiwgbHMsbJd9A/s1600-h/cougar.jpg)
+
+It seems the highest IQ children would have 15 year old men mating with 40 year old women. According to a new study, published Monday in the online journal PLoS Medicine (see
+
+[here](http://medicine.plosjournals.org/archive/1549-1676/6/3/pdf/10.1371_journal.pmed.1000040-L.pdf)
+
+), paternal age at conception generates a linear decrease in child IQ, whereas maternal age rises sharply to age 25, then rises very slightly throughout her life. See graph below cropped from the paper. The solid line is the IQ of the child as a function of the mother's age, the dotted line as a function of the father's age. They held constant race, gestational age, socioeconomic factors, marital status, other parent's age, and mental illness, and had about 33,000 observations. Sounds pretty solid.
+
+[![](img/bd4d209e4abd65d6213594c4b21bc2c5.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYZ455pOJ5yhxEXrZBZSwLdHk4H47VwMez19n249eF3EiJiDTIKdXFOLQYx1uDqZz__3mp5rrSVZRaiOAdP_IYtkcn8pVjSO88MeyR_XCUbGcioEhkQbAXkfBamSvVxex9t7Hxlg/s1600-h/momdadIQ.jpg)
+
+Thus, by having my kids at 35, 37, and 41 I probably cost my kids about 4 IQ points. Then again, if I had kids in my early 20's, they wouldn't be here, some other DNA would, so they really can't complain. Plus, they enjoy the advantage of a ripened mother. I'm sure they will complain anyway.

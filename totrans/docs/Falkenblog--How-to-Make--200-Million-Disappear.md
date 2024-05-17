@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 21:07:19
+-->
+
+# Falkenblog: How to Make $200 Million Disappear
+
+> 来源：[http://falkenblog.blogspot.com/2011/02/how-to-make-200-million-disappear.html#0001-01-01](http://falkenblog.blogspot.com/2011/02/how-to-make-200-million-disappear.html#0001-01-01)
+
+The local paper is predictably liberal in editorial and news coverage, yet they noted a particular Federal Program was
+
+[a total failure](http://www.startribune.com/local/116088579.html?page=1&c=y)
+
+, with almost nothing to show for $200 million. The idea was to create programs and grants to replicate successful poverty-fighting projects in North Minneapolis (the poor part of town), they started with "listening sessions'' to hear directly from folks about their priorities. A strategic plan was hammered out to "reduce poverty and create wealth through community investment, resident engagement and business support." But then as one insider said: "I would get calls from people [at nonprofits] asking, 'What's going on?'' The paper reports basically nothing happened.
+
+The successes included these wonders: leadership training to more than 100,000 people in 283 communities and a new business incubator for chefs, caterers and other food industries called Kindred Kitchen. It's rather amazing that so much money can disappear like that, but given the Department of Education spends $60B and the CIA spends $28B on nothing I am aware of, I guess one should never underestimate the ability of a bureaucracy to spend.
+
+But, hope springs eternal. Recently Minnesota
+
+[qualified for](http://www.startribune.com/politics/local/116706409.html)
+
+:
+
+> $40 million over five years to develop programs that help aged or disabled people move from care institutions into the community.
+
+Developing programs to do something seems like a reasonable first step, but it's quite different than actually doing something. When participants don't have a goal that's really sustainable, as when private investors try to build a business, the result is nothing.

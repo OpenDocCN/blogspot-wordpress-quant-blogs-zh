@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:15:42
+-->
+
+# Falkenblog: Bad Assumption More Than Bad Intentions
+
+> 来源：[http://falkenblog.blogspot.com/2009/03/bad-assumption-more-than-bad-intentions.html#0001-01-01](http://falkenblog.blogspot.com/2009/03/bad-assumption-more-than-bad-intentions.html#0001-01-01)
+
+I listened to a bloggingheads by
+
+[Bill Cohen](http://bloggingheads.tv/diavlogs/18530)
+
+, a former investment banker who wrote House of Cards. He seems to blame this on hubris, not understanding risk, taking too much risk. All true, but that's with hindsight, and there is little one can learn from that diagnosis because I doubt hubris, ignorance, and short-sightedness are in any company's mission statement. Many commentators note that there was significant 'moral hazard' caused by short term bonuses, as basically bankers were putting on trades that had zero or negative net present value, but paid a positive return over long periods. Think of a high yield bond that pays +1, +1, +1, +1, +1, -5\. If you get in on that early, and lever up, by the time it tanks you have banked several healthy bonuses and shareholders and taxpayers are on the hook.
+
+The problem with this line of thinking is that I have worked in banks and hedge funds, and never have I known those making the ultimate decision to ignore the over-the-cycle present value. They are often wrong, but even if a lower-level guy is trying to game the system this way, when the strategy or trade is pitched and discussed, it is over the cycle. When every bank is in on the same trade, it's not like everyone is being duped, rather, its a really subtle, powerful intellectual error. Some people were cynical opportunists--those pushing NINJA loans, turning the knob to 11--but generally I think people were just sincerely incorrect.
+
+Thus, I do not see moral hazard as the main driver of the disastrous risks taken, rather, a collective, economy-wide underappreciation of the credit risk in residential mortgages. You had
+
+[200 full time regulators](http://newmarksdoor.typepad.com/mainblog/2008/10/if-you-think-st.html)
+
+looking at Freddie Mac and Fannie Mae who never wrote about credit risk prior to 2007, and regulators had no big bonuses. Further, most of the investment banks retained significant exposure to the AAA rated pieces, so they weren't playing those they sold to--they believed it. It wasn't bad intentions, it was an honest error that seemed to hit almost everyone.
+
+Kids think everything happens because of will. Bullies bully, storms rain, and rocks fall because they are like cartoons where everything is alive and has intentions. Unfortunately, bad things are usually the result of ignorance, though with hindsight every bubble has hubris almost by definition.

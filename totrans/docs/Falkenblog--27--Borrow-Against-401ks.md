@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 20:54:14
+-->
+
+# Falkenblog: 27% Borrow Against 401ks
+
+> 来源：[http://falkenblog.blogspot.com/2011/05/27-borrow-against-401ks.html#0001-01-01](http://falkenblog.blogspot.com/2011/05/27-borrow-against-401ks.html#0001-01-01)
+
+[![](img/14aadb49aeda30adc3a010bf6357cb7a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVbMlJsJkFZF-A2Rex8Y2EIGPRAC3pVSIWLE36tbQjVXcrSS8vyHTDQT_ILndXkMNie1bpwH55p6S9vahJkxthLbRSRw6imD4M_Ai-wC34zK-ISfK3-Vs6hmcB7aREIJ_aIdqGnQ/s1600/chart-loans.gif)[According to](http://money.cnn.com/2011/05/18/news/economy/Congress_401k/index.htm)
+
+CNN:
+
+> In 2010, nearly 28% of those with 401(k)s had loans outstanding on them, a record high, according to a recent study by Aon Hewitt, a consulting firm owned by Aon Corp. The average loan was $7,860.
+
+This is generally not a good idea, like the stats on credit card balances (
+
+[average of $7k](http://www.bargaineering.com/articles/what-is-the-average-household-credit-card-debt.html)
+
+for families with credit cards). Just one more problem to be solved by our future inflation!
+
+The main financial problems for average consumers are within themselves: they trade too much, have too much debt. If I believed in libertarian paternalism as in Cass Sunstein's
+
+[Nudge](http://www.amazon.com/Nudge-Improving-Decisions-Health-Happiness/dp/0300122233)
+
+, I would be for increasing various costs of trading and borrowing to alleviate this. Yet, the the costs would undoubtedly be stacked towards politically powerful but economically unwise investments (eg, ethanol, mortgages), and people would learn they are not responsible for themselves. One of the costs of freedom is the pain of learning by experience.
+
+But some people don't learn, or only via trial-and-error, which is unfortunate. Our modern welfare state makes it harder for these people because many of them need powerful negative feedback to change behavior, and generally people who don't have life skills get encouragement to self-righteous self-pity.

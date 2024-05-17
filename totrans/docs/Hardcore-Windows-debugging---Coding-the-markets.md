@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:32:55
+-->
+
+# Hardcore Windows debugging | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2014/05/10/hardcore-windows-debugging/#0001-01-01](https://etrading.wordpress.com/2014/05/10/hardcore-windows-debugging/#0001-01-01)
+
+## Hardcore Windows debugging
+
+### May 10, 2014
+
+I’ve been getting into [windbg](http://msdn.microsoft.com/en-gb/library/windows/hardware/ff551063%28v=vs.85%29.aspx) while working on my [POC](https://etrading.wordpress.com/2014/02/16/poc-m1-running/). I’ve long been a fan of Microsoft’s Visual Studio debugger. Even back in the late 90s, when I got a serious case of Open Source Religion after falling under the spell of Eric Raymond’s Cathedral and the Bazaar, and went through an anti Microsoft phase, I never stopped rating the debugger. Visual Studio debugger is great, but windbg is a whole ‘nother thing. It’s the debugger MS use themselves for debugging Windows. Yes, the interface is a little clunky compared to the VS debugger, but the power of the command set more than compensates. It’s got it’s own scripting system built in, so you can construct custom breakpoints: for instance, break the 5th time round the loop when this int is greater than 100\. And it has an API too, so the debug engine can be driven from [other languages like Python](http://pydbgeng.sourceforge.net/). Personally, I’m really enjoying discovering the power of windbg. While I do so I’m capturing tips and tricks [here](https://etrading.wordpress.com/windbg/ "windbg").

@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:29:10
+-->
+
+# Falkenblog: Selection Bias at Conferences
+
+> 来源：[http://falkenblog.blogspot.com/2009/01/selection-bias-at-conferences.html#0001-01-01](http://falkenblog.blogspot.com/2009/01/selection-bias-at-conferences.html#0001-01-01)
+
+At Davos, several high profile finance executives are missing: John Thain (ex Merril CEO), Richard Fuld (Lehman ex-CEO), Martin Sullivan (ex AIG CEO), Marcel Ospel (ex UBS Chairman), Lloyd Blankfein (Goldman CEO). Now, these people used to go, and used to be listened to. I would think their stock of knowledge is now much greater after adversity than prior, and they have a much more interesting tale to tell. But many think these people have merely been exposed as having been lucky fools who seemed like geniuses because of the bull markets they presided over.
+
+People want to hear from successful people at conferences. They hope to either get a job with him or his successful acolytes, or learn about how to be successful like them. But a successful person is probably not going to be totally forthright about their edge, even if they know it (after Bob Rubin stated that their subprime exposure was a detail outside his scope, clearly many titular leaders are merely figureheads). Failure, in contrast, leads to more particularized soul searching.
+
+It takes a lot of personal confidence to admit to errors, and very few are willing to admit mistakes that are supposedly right in their wheelhouse, right in their area of expertise. But in fact these are the errors that are most instructive, because the errors of a dilletante are not very generalizable, but when John Merriweather screwed up Long Term Capital Management in 1998, and now
+
+[JWM Partners](http://online.wsj.com/article/SB120658664128767911.html?mod=hps_us_whats_news)
+
+in 2008, I want to hear what his diagnosis is. What was he thinking? What went wrong, in his opinion? He is not stupid (hate the sin, love the sinner). Errors by experts in their own domain are very, very interesting, much more so than listening to someone who didn't fail last year. After all, they could merely have been timid, or clueless. Putting all your money in cash, or having a monkey randomly going long or short the S&P every day would have outperformed the S&P last year. Noise would have beat most investments last year, so although it is clearly better to have made 0% last year, I'm not impressed. There's a hedge fund that was down only a couple of percent last year, and thinks people will flock to them for their
+
+relative
+
+performance in 2008\. Good luck with that. What's your sales pitch: 'our alpha is not too negative!'
+
+Anyway, it would be a good thing if people who made mistakes were treated with good faith, that their errors were reasonable, and so to that end, listening to their explanation about what they did, and why it didn't work, is truly enlightening. Much more so than Maria Bartiromo talking to George Soros about his silly reflexivity theory.
+
+On the other hand, there is legal liability, and so, discussing mistakes may open one to damages for negligence, and that is unfortunate.

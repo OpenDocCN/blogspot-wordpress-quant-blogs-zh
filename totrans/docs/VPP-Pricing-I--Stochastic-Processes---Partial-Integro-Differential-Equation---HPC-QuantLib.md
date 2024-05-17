@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-13 00:14:43
+-->
+
+# VPP Pricing I: Stochastic Processes & Partial Integro Differential Equation – HPC-QuantLib
+
+> 来源：[https://hpcquantlib.wordpress.com/2011/06/13/vpp-pricing-i-stochastic-processes-partial-integro-differential-equation/#0001-01-01](https://hpcquantlib.wordpress.com/2011/06/13/vpp-pricing-i-stochastic-processes-partial-integro-differential-equation/#0001-01-01)
+
+The basis for the virtual power plant (VPP) pricing algorithm is a joint stochastic process for the power price and the gas price. Instead of defining a  stochastic differential equation for the spark spread directly the spark spread is then given by the difference between the power price and the gas price times the VPP heating rate.
+
+The Kluge model will be used to define the power price process [1], an exponential Ornstein-Uhlenbeck will describe the gas price [2]
+
+![\begin{array}{rcl} P_t &=& \exp(p_t + X_t + Y_t) \\ dX_t &=& -\alpha X_tdt + \sigma_x dW_t^x \\ dY_t &=& -\beta Y_{t-}dt+J_tdN_t \\ \omega(J) &=& \eta e^{-\eta J} \\ G_t &=& \exp(g_t + U_t) \\ dU_t &=& -\kappa U_tdt+\sigma_udW_t^u \\ \rho &=& \mathrm{corr} (dW_t^x, dW_t^u) \end{array} ](img/3768dc187d2f6603d1486e83db42175e.png)
+
+where ![N_t](img/c6d44fd3b9c210c1d0e71a4a31edb3dc.png) is a Poisson process with jump intensity ![\lambda](img/4a42b8a415b6b944138e18b71269a40a.png). To match the power forward curve ![F_0^t](img/421429e49cb430d88afd689dbfe570cc.png) the seasonal function ![p_t](img/cc857dceaf2cce62952d13ed185808ee.png) is given by [1]:
+
+![p_t = \ln F_0^t -X_0 e^{-\alpha t}-Y_o e^{-\beta t} -\frac{\sigma_x^2}{4\alpha}\left(1-e^{-2\alpha t} \right ) - \frac{\lambda}{\beta}\ln\left( \frac{\eta-e^{-\beta t}}{\eta-1}\right), \eta\ge 1 ](img/548ed5dae1a1d0ea73e1335fad1cefad.png)
+
+To be consistent with the gas forward curve ![H_0^t](img/504a5aed47ba8963503203fba9869fbe.png) the seasonal function ![g_t](img/70df1b7221b3a8610b98be43534c9da8.png) is defined by
+
+![g_t = \ln H_0^t -U_0 e^{-\kappa t}-\frac{\sigma_u^2}{4\kappa}\left(1-e^{-2\kappa t} \right )](img/0714df32e939de28523fe51be31d4443.png)
+
+The Feynman-Kac theorem can be applied to derive the corresponding three-dimensional  partial integro differential equation
+
+![\begin{array}{rcl} rV&=&\frac{\partial V}{\partial t}+\frac{\sigma_x^2}{2}\frac{\partial^2 V}{\partial x^2}-\alpha x\frac{\partial V}{\partial x}-\beta y \frac{\partial V}{\partial y} \\[6pt]&+&\frac{\sigma_u^2}{2}\frac{\partial^2 V}{\partial u^2}- \kappa u\frac{\partial V}{\partial u} +\rho\sigma_x\sigma_u\frac{\partial^2 V}{\partial x\partial u}\\[6pt] &+&\lambda\int_\mathbb{R}\left(V(x,y+z,u,t)-V(x,y,u,t) \right )\omega(z)dz \\ \end{array}](img/7f253ce1b580c8eb2d310af36b53214c.png)
+
+In general at least one further dimension is needed to keep track of the state of the virtual power plant. Therefore solving this model using finite difference methods will lead to a four-dimensional PIDE problem.
+
+The following diagram shows an one year example path for the power and the gas price based on the freely available [Kyos example forward curves](http://www.kyos.com/?content=65). The sample parameterization is affected by [1] for the power process and [2] for the gas process.
+
+![\beta=200, \eta=2.5, \lambda=4, \alpha=7, \sigma_x=1.4, \kappa=4.45, \sigma_u=\sqrt{1.3}, \rho=70\%](img/c230c94b41b29da82370f3cd9dbef901.png)
+
+[![](img/3efa49730d65489584b591c309c535e3.png "plot")](https://hpcquantlib.files.wordpress.com/2011/06/plot5.png)
+
+The code is available [here](http://hpc-quantlib.de/src/vpp1.zip). It depends on the latest [QuantLib](http://www.quantlib.org/) version from the [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/). If you want to generate the plot directly out of the C++ program you also need [R](http://www.r-project.org/), [RCPP](http://cran.r-project.org/web/packages/Rcpp/index.html) and [RInside](http://cran.r-project.org/web/packages/RInside/index.html).
+
+[1] T. Kluge, [Pricing Swing Options and other Electricity Derivatives](http://eprints.maths.ox.ac.uk/246/1/kluge.pdf)
+
+[2] G. Fusai, A. Roncoroni, [Implementing Models in Quantitative Finance: Models and Cases](http://www45.essec.edu/professorsCV/showRef.do?bibID=364), Chapter 19, ISBN: 978-3-540-22348-1

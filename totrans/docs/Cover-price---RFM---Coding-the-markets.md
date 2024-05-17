@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:39:01
+-->
+
+# Cover price & RFM | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2009/09/22/cover-price-rfm/#0001-01-01](https://etrading.wordpress.com/2009/09/22/cover-price-rfm/#0001-01-01)
+
+## Cover price & RFM
+
+### September 22, 2009
+
+Neat doc [here](http://www.tradeweb.com/about/resources/brochures/institutional/credit/CDSTradingProtocolsSheetWeb.pdf) from [TradeWeb](http://www.tradeweb.com) on protocols for CDS execution. From it you can imply the definition of “cover price”: the next best price that didn’t execute. As you can see in the doc, or in a TradeWeb or Bloomberg terminal, a client can see competitive quotes from up to 5 dealers. But while an RFQ is in flight, the dealers can’t see each others quotes. When the RFQ ends with an execution, as opposed to a client rejection, then the winning dealer gets to see the cover price – the price they beat. But the losing dealers don’t get to see the winning price, so there’s a fundamental asymmetry there.
+
+So what are the reasons for that asymmetry ?  That’s an interesting question. I’m guessing that it’s motivated by restricting the amount of information that dealers have about each others pricing. Dealers are paranoid about other dealers figuring out their pricing. Another motivation is to keep the dealer pricing keen. If dealers could see each others prices, then they would slack off on aggressive prices, making them only just good enough to win a trade. In the face of those two powerful motivations, I do wonder why ECNs show the cover price to the winning dealer at all.
+
+The RFM model outlined in the TradeWeb doc is interesting too. The RFQ and RFS models operated by Bloomberg and TradeWeb for fixed income trading require the client to declare whether they’re buying or selling up front. RFM is a break with that. If it were applied to the rates markets I wonder whether it would lead to keener pricing or not ?

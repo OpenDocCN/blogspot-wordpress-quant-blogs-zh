@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:51:52
+-->
+
+# Part 2: Improving DV Bands with Intraday Data | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01)
+
+One simple adjustment improves the forecast error of DV Bands  out of sample measurably—adding intraday data. By doing this, you are combining some of the valuable information contained within intraday volatility. Think of it as a merger of ATR bands and Bollinger bands.  The calculation of the moving average  and standard deviation now contains all of the Open, High, Low, and Close data for the last 20 days. To test forecast error, if todays prices are between the upper and lower band, we will see what % of prices fall between the upper and lower band tommorow. All data is on the SPY (s&p500) looking back 3000 bars. Lets look at the results:
+
+|   | *next day  % of prices falling | forecast |
+|   |  between upper and lower bands | error |
+| Bollinger Bands (20,2) | 89% | -6% |
+| **DV Bands w intraday (O,H,L,C) (20,2)** | **93%** | **-2%** |
+| DV Bands  (20,2) | 91% | -4% |
+
+As we can see, a clear improvement, forecast error is reduced by 2%.  Let’s see what the impact that has on average daily returns above and below the re-scaled mean:
+
+|  | ***avg next day returns** |
+|  | **above mean** | **below mean** |
+| Bollinger Bands (20,2) | -0.004% | 0.016% |
+| **DV Bands w intraday (O,H,L,C) (20,2)** | **-0.0015%** | **0.06%** |
+| DV Bands  (20,2) | -0.012% | 0.025% |
+
+Average daily returns were much higher using the intraday DV Bands than the other methods. This is a 140% improvement over the baseline DV bands.  However, when looking at average daily returns above the mean, the DV Bands were not as effective at identifying oversold levels. This is not neccessarily bad at all……..in fact, it makes the upper band penetrations more likely to represent trend signals. Upward breakouts would contain less noise than using standard bands, or the DV Bands with closing data. This would be especially true if the bands were tight.
+
+There are numerous methods to further improve these results, we will take a look at adjusting the bands based on the mean reversion embedded in historical bandwidth. This should make the bands more reliable for countertrend trading, and they can also be redesigned to be superior breakout indicators as well by extension.
+
+The primary reason for the success of DV Bands has to do with normalization and the adjustment of bands based on the current environment. In bear markets, prices rarely touch the standard upper bands, and tend to “walk the lower bands” with a high degree of frequency. The reverse is true with bull markets, where the upper bands can be “walked” for long periods of time. By adjusting for historical frequency, the bands are now adjusted to reflect the probabilities of the current marketplace. These “errors” so to speak, can also be minimized by investigating trend strength through the use of R-squared measurements over the last 20-days, and also the slope direction, and the slope of volume. Ultimately, bands that are adjusted using adaptive methods similar to the DVO, would prove to be even better. Furthermore, one could create bands designed for multiple trading purposes: 1) trend-following 2) mean-reversion 3) breakout strategies and 4) filters for abnormality.

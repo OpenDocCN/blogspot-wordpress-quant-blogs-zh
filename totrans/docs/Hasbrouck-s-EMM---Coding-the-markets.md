@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 19:39:50
+-->
+
+# Hasbrouck’s EMM | Coding the markets
+
+> 来源：[https://etrading.wordpress.com/2009/03/14/hasbroucks-emm/#0001-01-01](https://etrading.wordpress.com/2009/03/14/hasbroucks-emm/#0001-01-01)
+
+## Hasbrouck’s EMM
+
+### March 14, 2009
+
+I’ve finished [Joel Hasbrouck](http://pages.stern.nyu.edu/~jhasbrou/)‘s [Empirical Market Microstructure](http://www.amazon.co.uk/Empirical-Market-Microstructure-Institutions-Econometrics/dp/0195301641), and am a little disappointed with it. It’s unlike Harris’ [Trading and Exchanges](http://www.tradingandexchanges.com/) – it doesn’t present detailed and accessible history of market evolution and convention. It’s also unike more philosophical texts from [Taleb](http://www.fooledbyrandomness.com/) or [Niederhoffer](http://en.wikipedia.org/wiki/Victor_Niederhoffer). And it doesn’t present a sustained argument for a particular thesis on markets, like [Malkiel](http://en.wikipedia.org/wiki/Burton_Malkiel)‘s [Random Walk](http://en.wikipedia.org/wiki/A_Random_Walk_Down_Wall_Street). Instead, it’s a survey and summary of the current aademic state of the art in market microstructure, which is admittedly a very new field.
+
+I’ll illustrate my view by reference to two of the later chapters, on topics that interest me particularly: limit order books and depth. Chapter 12, on order books, discusses limit vs market orders, and the Parlour model for them. A lot of maths is deployed to demonstrate that a lot of depth on the bid side decreases the probability that a buyer will use a limit order. Which is so obviously true it is completely unenlightening for the practitioner. Chapter 13 on depth is a bit better, and offers some worthwhile insights on bid offer price formation due to backfilling after a large order has walked the book. But again, a lot of maths is deployed to achieve trivial results.
+
+I’m also marking Hasbrouck down for not mentioning the Penn Lehman project. Penn Lehman produced papers like [this](http://www.cis.upenn.edu/~mkearns/papers/optexec.pdf) – a great blend of practitioner and academic approaches yielding lots of insight without too much over formalized maths which is only there through physics envy, and to shout “this is real science !”

@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:41:49
+-->
+
+# Front-Run The Delta: Sell Sell Sell
+
+> 来源：[https://frontrunthedelta.blogspot.com/2007/11/sell-sell-sell.html#0001-01-01](https://frontrunthedelta.blogspot.com/2007/11/sell-sell-sell.html#0001-01-01)
+
+Liquidated my Boeing and Petro-Canada in the last few days. The market has been moving against my positions so I am going to sit tight for a few days and take this time to explore more lucrative private investments. We recently secured a contract with a group of investors looking to divest their mineral rights over the next 12 months, which will be occupying a fair amount of my time. I will post more details about this project later, as well as an oil/gas private placement that should be coming to fruition next week.
+
+Just a few comments on the past week:
+
+*   First off, Thursday's 36% drawdown in [CROX](http://stockcharts.com/h-sc/ui?s=crox) is completely irrational. Crox posted positive earnings, albeit meeting analyst's estimates, lowered their guidance a marginal amount, and posted a 297% increase in inventory, a measurement that was said to be cautionary in order to meet the winter demand in Europe and Asia.
+
+*   The Nymex Dec. CL contract is trading at $95.70 as I type, on very low volume. Range for the day was a low of ~$93.50 and a high of ~$96.20\.
+
+*   The weak dollar and the recent GDP data indicates we have entered a recessionary period, with real growth coming in at -1.3%, despite the proposed raw GPD growth of 4.7% and inflation of .8%.
+
+As mentioned, I liqudiated my entire options portfolio and am completely in cash. I am still in several equities, but few growth/spec plays. I purchased several water purification firms and
+
+[one IPO](http://stockcharts.com/h-sc/ui?s=cvi&p=D&b=5&g=0&id=0)
+
+to balance out my large-cap picks.

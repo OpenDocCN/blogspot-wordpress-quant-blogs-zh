@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 22:15:52
+-->
+
+# Falkenblog: Prospect Theory Explains Everything, Nothing
+
+> 来源：[http://falkenblog.blogspot.com/2009/03/prospect-theory-explains-everything.html#0001-01-01](http://falkenblog.blogspot.com/2009/03/prospect-theory-explains-everything.html#0001-01-01)
+
+[![](img/ce58ab53aa0f1c542e3dae48dbc638c8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZCAhhuHkPylY8Vwra2oBLcF3JeGlv2aahlthyhjzxYAqqgCEk5zsj_RD2-e_7bV1IdQOJsRB60D4e-tQ4pRh2kygnzz0mV7C2Xflk1H3JDGwttRH4cKSElFvcTTpv-GmKPnSMDg/s1600-h/prospect_theory_small.png)
+
+I was reading this quote from Kahneman and Tversky, and found this part very revealing:
+
+> Low probabilities, however, are overweighted, and very low probabilities are either overweighted quite grossly or neglected altogether, making the decision weights highly unstable in that region.[page 8, [Choices, Values and Frames](http://www.amazon.com/Choices-Values-Frames-Daniel-Kahneman/dp/0521627494/ref=sr_1_1?ie=UTF8&s=books&qid=1237846939&sr=1-1)]
+
+Given this definition, I don't see why this theory is considered useful. If a disaster happens that seems to cause a lot of angst, one can say it was underweighted. If someone is paying a lot for insurance that seems to generate a positive return, one can say people are overestimating this risk. Ex post, the theory explains everything, and nothing. Looking a small probability event before the fact, it predicts everything, and nothing.

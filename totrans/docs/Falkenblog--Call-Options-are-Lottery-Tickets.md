@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 23:13:41
+-->
+
+# Falkenblog: Call Options are Lottery Tickets
+
+> 来源：[http://falkenblog.blogspot.com/2008/06/call-options-are-lottery-tickets.html#0001-01-01](http://falkenblog.blogspot.com/2008/06/call-options-are-lottery-tickets.html#0001-01-01)
+
+In theory, far out-of-the-money call options should offer extremely high expected returns as a percent of their price. As underlying stocks always, in practice, have positive betas against ‘the market’, all calls will have positive betas that exceed the beta of the underlying stock, and call betas will increase in the strike price as the calls get further out-of-the-money. Hence, all calls will have positive expected returns and the expected returns will be larger for greater strike prices, because the betas increase as you go out of the money. Theoretically, beta—or any covariance with the elusive SDF—measures the ‘how much’ of risk, and so if risk is priced, higher options with higher strike prices (ie, more out-of-the-money), have higher beta(s), which implies higher average return.
+
+For example, say you have a stock with a price of 100, and buy a call with a strike price of 120, expiring in 3 months. If the stock price rises to 110 over the next month, the call option will rise 120%, while a long stock position rises only 10%. This is the implicit leverage in an option, that is, it is like being able to borrow 10 times one’s capital and invest in the market. It is exactly the same bet, just higher powered.
+
+[![](img/f6f83e14380dc3937aa775de567dbde0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhd3lXSYrPWJHlht_LSOaZvfg0gJJhhat7gumh8pH3Lmsyo4oNjxjrojAWAoBSJsqfQ_aRMYFYlyilcIfjTzpdqxl4pYxYVcPlZ4EZC4qnGeTAUYUL7SIAavfanUg4VUkNHL_McZQ/s1600-h/call2.png)[Sophie Ni](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=959024)
+
+(2007) looked at data from 1996 through 2005, and found that the highest out-of-the-money calls have average returns of −37% over a month! The chart above shows that if you bucket call options into groups based on their ‘deltas’, which is a measure of how sensitive they are to the market, you find that call options, indeed, are indeed highly levered stock positions. Remembering that the average stock has a beta of 1.0, these betas range from 4 to 15—giving one 4 to 15 times the juice of the daily return. An option's beta is the beta of the stock, times the '
+
+[omega](http://www.investopedia.com/terms/o/omega.asp)
+
+', which is a measure of the percent return in the option price given a 1% change in the stock price. Not only is the average return negative for call options, these returns get worse, the more implicitly levered, the more ‘risky’, the options become. Returns are negatively correlated with the betas on those options. This has been corroborated by several other studies, including
+
+[Coval and Shumway](http://www-personal.umich.edu/~shumway/papers.dir/optret.html)
+
+(2001). Investors basically are overpaying for lottery tickets when they buy options, and just like the lottery, the average payout is worse, they more ‘risk’ one takes. If there’s a risk premium in equities, it certainly is not amplified in options in any way, because you lose money, on average, buying leverage market positions via call options.

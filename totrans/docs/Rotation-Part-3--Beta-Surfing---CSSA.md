@@ -1,0 +1,62 @@
+<!--yml
+category: 未分类
+date: 2024-05-12 18:35:11
+-->
+
+# Rotation Part 3: Beta-Surfing | CSSA
+
+> 来源：[https://cssanalytics.wordpress.com/2010/02/26/rotation-part-3-beta-surfing/#0001-01-01](https://cssanalytics.wordpress.com/2010/02/26/rotation-part-3-beta-surfing/#0001-01-01)
+
+The last installation was incredibly popular, and thanks to all the public and private commentary (both good and bad) as it makes for better educational/entertainment value for all of us. So feel free to speak you mind—–I always like to have a little constructive debate now and then. Now getting back to the article, for those who do not know what beta is–it is best described as a leverage factor to the S&P500: that is when the S&P500 goes up, a high beta stock/ETF will go higher than the S&P500, and the reverse is true if the index falls.
+
+One of the things that dawned on me this evening was that I did not clearly point out what the underlying source of alpha is in the rotation model. A reader–George–asked the question that is in fact part of the answer. Without paraphrasing, George essentially asked whether the model returns were being driven largely by going long EEM in bull markets and short the market during bear markets via SH. Truthfully, in fact a good rotation model is sort of like an alchemy experiment: **we take beta and we turn it into alpha**. While the ideal situation is to trade alpha (ie switching between good risk-adjusted systems), there is certainly a benefit to surfing the beta wave all the way to the bank. This strange sleight of hand is difficult to see, so I have prepared a little example that is easy to follow. Below, I use the defensive and low-beta consumer staples sector–ticker “XLP” (beta of .65)and the offensive and higher-beta consumer discretionary sector–ticker “XLY” (beta of .91). This pair represents an ideal test because statistically, they both share a low correlation and have different betas. Furthermore, they should have different “inherent” correlations and betas that are driven by their conceptually different relationships to the business cycle. When the market forecasts a strong economy, the smart money expects that consumers will have plenty of discretionary money and will probably purchase big-ticket items. Since XLY contains many of the largest companies within this sector, it should be the first to go up if their is confidence in consumer purchasing power. In contrast, if the market fears a recession or a slowdown, it is expected that consumers will be facing a pinch, and the only money spent will be on “staple” goods like food and cleaning products. Thus XLP should outperform if this is the case. In this test I will again use ETF Rewind’s Rotation model. This is a 3-year frictionless backtest, with no commissions, and weekly rebalancing. Again, I’m using XLP and XLY only. Below are three columns–the rotation model performance, and the buy and hold performance of XLY and XLP. Lets look at the results:
+
+Hypothetical
+Top # Performance
+1 Rotation xly xlp
+3-Yr. Gross +26.0% -16.1% +12.3%
+C.A.G.R. **+8.0%** -5.7% +3.9%
+Sharpe **0.40** 0.18 0.24
+Maximum +8.4% +18.3% +5.8%
+Minimum -13.3% -14.7% -13.3%
+Average +0.2% -0.0% +0.1%
+
+As you can clearly see the CAGR of the rotation model was higher that either XLY or XLP, futhermore—and more relevant to what I was saying, the sharpe ratio or risk-adjusted return is .4, which is also higher than either one. So effectively the rotation model was able to utilize superior timing to harness the power of beta which is a form of embedded leverage. **When the timing is correct the return relative to volatility is temporarily higher than normal, hence you actually end up with alpha.**
+Lets look at another simple example, in this case we will take SPY–the S&P500 index and EEM–the emerging markets index. In recent past EEM (with a beta of 1.49) has done better in bull market conditions, while SPY (beta of 1) has done better when the market has been falling.
+
+Hypothetical
+Top # Performance
+1 Rotation SPY EEM
+3-Yr. Gross +22.1% -14.8% +11.9%
+C.A.G.R. **+6.9%** -5.2% +3.8%
+Sharpe **0.22** 0.20 0.10
+Maximum +13.3% +13.3% +28.3%
+Minimum -19.8% -19.8% -20.1%
+Average +0.2% -0.0% +0.2%
+
+Again, we see the same effect, the rotation model is superior in absolute and risk-adjusted terms to its components. We have successfully surfed the beta wave once again and emerged without any major wipeouts.
+
+**Relative Strength and The “Race Car” Risk Allocation Model**
+
+In the examples above, we took pairs that had different beta/risk levels to generate a higher alpha. The most interesting conclusion that comes out of this analysis is as follows: **If we can profitably trade beta, that also means that we can identify when we should be taking more or less risk in the market even if we are not trading the ETFs above!!** Note that the only adjustment we would have to make is to create a list of ETFs that span the “beta spectrum” that also have commensurate “inherent” betas (intuitive long-term levels of expected beta). In today’s market, the following ETFs make up an accurate spectrum of risk: SPY, EEM, SH, XLY, XLP, SHY. Note that unlike in the previous post, these choices are much more correlated–but that is by design. What we want to do is to figure out how aggressive we should be in our trading: should we be long, in cash, heavily long or short. In the case of this model we will have six “gears” so to speak. To reflect the “neutral” or zero beta component, using modern portfolio theory we would want a proxy for cash–and SHY is a pretty good substitute with a beta of 0.03 (note SHV– the t-bill proxy is actually the most accurate but has a lower yield and a less liquidity than SHY). For a negative beta component we will use SH which is the Short S&P500 ETF. All of the others are self explanatory. In the following model below, think of the race car analogy where the driver can shift the gearbox from first gear to third gear and higher, while also being able to shift into neutral and even reverse.
+
+1) **First Gear:** XLP is the #1 selection in the rotation model–time to hold some positions but invest cautiously
+2) **Second Gear:** XLY is the #1 selection in the rotation model–the market is a little bit more risk-accepting. time to buy some more stocks and increase exposure .
+3) **Third Gear:** SPY is the #1 selection in the rotation model– time to be fully invested.
+4) **Fourth Gear:** EEM is the #1 selection in the rotation model–its time to go full bull, and buy some high beta stocks or potentially use margin (with stops obviously).
+5) **Neutral:** SHY is the #1 selection in the rotation model–time to get cautious and go to cash as there doesn’t appear to be any clear leadership.
+6) **Reverse:** SH is the #1 selection in the rotation model– time to get the $##%^ out of the market and get short. find your favorite banking or housing stock that you love to hate and sell ‘ em short. If you want to be more conservative, take a 25-50% position in SH and put the rest in cash.
+
+Below is the performance of rotating to the top position in the “Race-Car” Risk Allocation model:
+
+Hypothetical
+Top # Performance
+1 Model SPY
+3-Yr. Gross +117.7% -14.8%
+C.A.G.R. **+29.6%** -5.2%
+Sharpe **1.01** 0.20
+Maximum +19.5% +13.3%
+Minimum -11.1% -19.8%
+Average +0.6% -0.0%
+
+Note that this model generates a pretty good CAGR and a sharpe ratio slightly over 1, which indicates that it is pretty accurate at identifying when to “shift gears.” The point of this model is not to be a standalone rotation model–even though the numbers are pretty good–but rather to help the stock investor or trader make risk allocation decisions and determine a directional bias to maximize their returns and minimize their risk.
