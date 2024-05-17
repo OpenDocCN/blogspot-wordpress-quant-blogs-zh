@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:26:32
+-->
+
+# Humble Student of the Markets: Buy or sell this resilient stock market?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/08/buy-or-sell-this-resilient-stock-market.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/08/buy-or-sell-this-resilient-stock-market.html#0001-01-01)
+
+**Mid-week market update**: I have been calling for a period of consolidation and pullback and that phase of the market seems to have arrived. As the S&P 500 weakened and the VIX Index spiked above its upper Bollinger Band, indicating a short-term oversold condition, this stock market has been remarkably resilient. The 5-day RSI traced out a positive divergence, and the NYSE net new highs remained positive during this episode.
+
+Does this mean the correction is over?
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2023/08/09/buy-or-sell-this-resilient-stock-market/)
+
+.
