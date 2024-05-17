@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:02:20
+-->
+
+# Rod Johnson – Scala | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/09/05/rod-johnson-scala/#0001-01-01](https://mdavey.wordpress.com/2013/09/05/rod-johnson-scala/#0001-01-01)
+
+## Rod Johnson – Scala
+
+ScalaDays 2013 Rod Johnson’s keynote is definitely worth a [watch](http://www.parleys.com/play/51c1ffe7e4b0d38b54f46231/chapter0/about).  Offers a good view of today’s Java and Scala, and where Scala might go in the future – definitely not a direct Java replacement.
+
+~ by mdavey on September 5, 2013.
+
+Posted in [Java](https://mdavey.wordpress.com/category/languages/java/)

@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:02:41
+-->
+
+# Agile Software Productivity Measurements – LOC? | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2005/12/15/agile-software-productivity-measurements-loc/#0001-01-01](https://mdavey.wordpress.com/2005/12/15/agile-software-productivity-measurements-loc/#0001-01-01)
+
+## Agile Software Productivity Measurements – LOC?
+
+One of the historical ways of measure software productivity is to look at the Lines of Code ([LOC](http://c2.com/cgi/wiki?LinesOfCode)) produced be day/week/iteration.  Looking at software productivity from a agile perspective, we have the velocity and burndown from a team perspective, which over time provides a view of the story points that are achievable from a delivery perspective per iteration (sprint).
+
+However, the issue with velocity is that it doesn’t capture the business value of the delivered story – clearly there is an implication due to the order of the backlog, and the fact that it went through the process.
+
+Which leads to the thought that if we measured a story in terms of its life cycle changes (wording, acceptance criteria, defects, business value) in a consistent manner, then we could identify the productivity of the story from conception to delivery, coupled with the various silo’s the story went though in terms of bugs generated per story, change request on the story, etc.
+
+In closing, is a team more productive in delivering 10 story points within an iteration that when released to production, provide little business value, compared to delivery 3 story points because the other 7 story points where deemed irrelevant to develop because further analysis identify zero ROI, but the 3 story points delivered to product provided a 10% increase in business value?\
+
+**Update**: Martin offers a [view](http://martinfowler.com/bliki/CannotMeasureProductivity.html) on measuring productivity
+
+~ by mdavey on December 15, 2005.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
