@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:06:51
+-->
+
+# Humble Student of the Markets: What's the pain trade?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2016/05/whats-pain-trade.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2016/05/whats-pain-trade.html#0001-01-01)
+
+**Mid-week market update:**
+
+ In the short run, the SPX has pulled back and appear to be about to test its 50 day moving average (dma) at 2040, while experiencing a positive divergence on RSI-5.
+
+The SPX saw a Golden Cross last week - and the right way to trade these signals is to use the faster moving average as a trailing stop. Until the 50 dma is breached in a definitive way, my inclination is to give the bull case the benefit of the doubt.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2016/05/04/whats-the-pain-trade/)
+
+.
+
+**Site notice**
+
+We would like to announce our "Sale in May" event, where you can get US$50 off the first year of an annual subscription. This offer is only available to the first 100 who sign up or until May 31, whichever comes first. Anything like this we do usually sells out fast so I suggest that you sign up ASAP before missing this golden opportunity.
