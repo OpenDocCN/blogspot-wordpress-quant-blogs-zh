@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:47:25
+-->
+
+# Humble Student of the Markets: The market's report card on the GOP tax bill
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/11/the-markets-report-card-on-gop-tax-bill.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/11/the-markets-report-card-on-gop-tax-bill.html#0001-01-01)
+
+**Mid-week market update**
+
+: The price action of stocks in the last few weeks makes it evident that US equities are awaiting the resolution of the Republican tax bill. This week will be critical for the progress of the bill through the House, as it is scheduled to be marked up in the Ways and Means committee. So far, the market verdict is not hopeful.
+
+As the top panel of the chart below shows that high beta/low volatility pair, which is a proxy for risk appetite, rallied in September, followed by a range-bound market, indicating a lack of conviction. The bottom panel shows that this market has been mainly driven by momentum stocks.
+
+Other market internals are also flashing warning messages for the bulls. From a political perspective, the tax bill is also running into trouble. These are all signs of likely corrective action ahead.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2017/11/08/the-markets-report-card-on-the-gop-tax-bill/)
+
+.
