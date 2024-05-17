@@ -1,0 +1,83 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:10:59
+-->
+
+# Humble Student of the Markets: The ECB's non-party: What does it mean?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/12/ecbs-non-party-what-does-it-mean.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/12/ecbs-non-party-what-does-it-mean.html#0001-01-01)
+
+What happened? The ECB throws a party but no one shows up?
+
+The size of ECB's LTRO was far ahead of expectations at €489 billion (see my previous discussion
+
+[here](http://humblestudentofthemarkets.blogspot.com/2011/12/bull-case-for-stocks.html)
+
+). That should have been bullish, right? Instead:
+
+*   The EURUSD exchange rate fell
+*   Yields for Spanish and Italian debt rose across the yield curve
+*   Shares of key troubled banks (SocGen, Credit Agricole, Comerzbank, Intesa and Unicredit) are mostly down on the day
+*   European stocks retreat and US stocks retreated but rallied to finish the day roughly flat
+
+Why?
+
+There are a number of plausible explanations for the market reaction, but they could amount to little more than rationalizations. First, the EBA effectively nixed the carry trade by requiring banks to mark-to-market, so much of that €489 billion amounted to liquidity injections into the eurozone banking system. If the banks need that much liquidity, what could they be hiding? Or does this just show that the European banking system is just getting by on ECB life support?
+
+[Ambrose Evans-Prichard](http://blogs.telegraph.co.uk/finance/ambroseevans-pritchard/100013911/herr-draghi-or-signor-draghi-and-the-ecbs-santa-rally-technical/)
+
+wrote that the size of yesterday's LTRO wasn't enough:
+
+> Roughly €300bn of today’s eagerly awaited LTRO tender is recycled old money from earlier support operations. The new money is €200bn. This alone is not going to shore up the sovereign states of southern Europe as they grind deeper into recession/depression.
+
+He wrote that European banks need to shore up their Tier 1 capital base to the tune of "€2.5 trillion adjustment according to the BIS’s Global Stability Board". In addition, "Eurozone sovereigns must raise €1.6 trillion in 2012, and banks must raise another €700bn."
+
+The LTRO was a liquidity injection operation that took a Lehman-like event off the table. Maybe the markets are now finally focusing on what typically matters, such as earnings, growth, interest rates, etc. and it didn't like what it saw? Indeed,
+
+[Christine Lagarde of the IMF warned](http://en.mercopress.com/2011/12/20/imf-chief-tells-developing-countries-to-prepare-for-three-possible-storms)
+
+emerging market economies to prepare for a downtrun in Europe.  
+
+**A glass half-full**
+
+Putting on my technician's hat, I would say it doesn't matter what the explanation or rationalization is.
+
+***The market's inability to rally on good news, namely €489 billion in QE from the ECB, has to be interpreted bearishly***
+
+.
+
+When I look at the one-year charts of most markets, I see the charts mostly forming triangles indicating indecision. The direction of the next break will likely determine the next intermediate term move. This chart of ACWI representing the All-World Index is a typical example.  
+
+Going around the world, a similar pattern can be found in the US stock market:  
+
+..the UK market:  
+
+...and the European market:  
+
+    **A bearish tilt**
+
+There are clues of which way the market might break. Much the evidence points to a bearish break. For example, commodities are in a downtrend. If there was a triangle, they experienced a downward break in early or mid December:  
+
+Similarly, the yield on 10-year US Treasury note shows a similar pattern of a downtrend and break downward in early to mid December:  
+
+The commodity sensitive Canadian market is also not behaving well.  
+
+The Chinese market, as represented by the Shanghai Composite, has broken down decisively and is in a well-defined downtrend.  
+
+In sympathy, Hong Kong experienced a downside break in its triangle in the last week.  
+
+India isn't behaving well either.  
+
+The South Korean KOSPI experienced a downside break recently, but that could excused because it could be viewed as a special case of a market reaction to geopolitical tensions.    
+
+**Bullish data points are few**
+
+To be sure, the picture isn't entirely bearish and there are a couple of bullish data points. The Brazilian market rallied above a downtrend line in October.  
+
+The Australian All-Ords Index is showing a similar pattern of broken downtrend and sideways consolidation.  
+
+Both Australia and Brazil are major supplier of resources to China. So these chart patterns must be regarded as somewhat supportive that a hard landing may not be in the cards for the Middle Kingdom.  
+
+However, the weight of the evidence suggests that while the trend breaks have not shown up definitively, the bias for the next intermediate term move is to the downside.      
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**

@@ -1,0 +1,96 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:10:51
+-->
+
+# Humble Student of the Markets: The road ahead: bull & bear case
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/12/road-ahead-bull-bear-case.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/12/road-ahead-bull-bear-case.html#0001-01-01)
+
+As 2011 draws to a close and we 2012 dawns, it's time to consider the bull and bear cases for the stock market and risky assets. I had already outlined my bull case for the market on December 19 (see
+
+[The bull case for stocks](http://humblestudentofthemarkets.blogspot.com/2011/12/bull-case-for-stocks.html)
+
+). The bull case consists of:
+
+*   The coordinated central bank liquidity injection of November 30 has taken a Lehman-like event off the table.
+*   In the US, the Fed does QE3 in the 1H, which would send asset prices flying.
+*   In Europe, the ECB is already engaged in a form of QE though the back door using LTRO, which should heal banking balance sheets over time.
+
+Go and read my previous post, there is little more to be said.
+
+**The bear case for stocks**
+
+From a macro viewpoint, the three regions to watch are Europe, the US and China and the emerging markets. The market was focused on the possibility of a European banking crisis during much of 2011\. No, the bear case for stocks in 2012 does not rest with Europe. I believe that market's focus will shift from Europe to the other regions of the world in 2012.
+
+**Europe: From heart attack to cancer**
+
+The ECB's LTRO program, which offered banks unlimited liquidity for up to three years, has virtually eliminated the possibility of a banking failure. In addition, coordinated central bank intervention that offered unlimited USD liquidity also showed that central bankers around the world are well aware of the risks of a Lehman/Creditanstalt credit event and have taken steps to address the problem. Nevertheless, problems remain and all Draghi & Company has done is bought time for the politicians to address the long term issues.
+
+What is the market saying about Europe? Scott Grannis wrote in his
+
+[PIIGS Update](http://scottgrannis.blogspot.com/2011/12/piigs-update.html)
+
+that conditions in the bond market are normalizing, though far from ideal. The ECB's balance sheet expansion does not appear to be leading the eurozone down the hyperinflation path, but problems remain. In other words,
+
+***Europe has gone from avoiding the imminent heart attack to a lingering but treatable cancer.***
+
+We will have to watch and see how the politicians address the longer term problems of the competitiveness disparity between North and South, as well as the debt situation of the PIIGS. No doubt, we will continue to have crises and summits, but the risk of a catastrophe is lower than it was in 2011.
+
+**A US recession in 2012?**
+
+One thing that investors shouldn't forget that stock prices depend on fundamentals, i.e. earnings, growth outlook, interest rates, etc. An American recession would affect the outlook for earnings and therefore depress stock prices as a result. The question for the bears is, "Will the US experience a recession in 2012?"
+
+Certainly, a recession would not be out of the question here. This post from
+
+[Pragmatic Capital](http://pragcap.com/18-3)
+
+shows that the US was in recession 18.3% of the time in the 2000-2011 period and a whopping 30% of the time if you consider the 1855-2011 time span. The likes of 
+
+[ECRI](http://www.ritholtz.com/blog/2011/12/ecris-achuthan-u-s-economic-outlook-labor-market/)
+
+and
+
+[John Hussman](http://www.hussmanfunds.com/wmc/wmc111205.htm)
+
+have been trumpeting their recession forecasts for the American economy. On the other hand, recent economic releases have largely been coming in ahead of expectations, which point to an economy with subpar growth, but no signs of a slowdown.
+
+Should the US experience a recession, the S+P 500 could easily fall to the 900-1000 level, though it is unlikely to revisit the post-Lehman panic low of 666.
+
+**Watch out for China**
+
+I believe that the bear case for stocks rests largely with China and the emerging markets. I wrote on December 13 to watch for the China is slowing stories to emerge (see
+
+[A "China is slowing" scare?)](http://humblestudentofthemarkets.blogspot.com/2011/12/china-is-slowing-scare.html)
+
+. Whether China slows to a hard landing, i.e. sub-5% growth, or not is less relevant to the markets as the scenario of the markets starting to discount the possibility of a Chinese hard landing.
+
+Since I wrote that post, the scare stories are starting to appear. Consider:
+
+I could go on, but you get the idea. More worrying is the fact that other analysts are starting to pile on, not just the China is slowing story, but the prospect of slowing growth in the emerging markets. As an example, Stephen Roach recently penned an article entitled
+
+[Why India is riskier than China](http://www.project-syndicate.org/commentary/roach12/English)
+
+.
+
+I wrote
+
+[here](http://humblestudentofthemarkets.blogspot.com/2011/12/ecbs-non-party-what-does-it-mean.html)
+
+that the stock indices in India and China are not behaving well.
+
+***I believe that the biggest risk for the stock markets is a rising level of risk aversion as investors price in the increasing likelihood of a slowing growth from the emerging market economies.*** **Listen to the markets**
+
+In the end, I stand with the bears on the recession, or economic slowdown, call. Commodity prices remain in a downtrend, which is a signal of slowing global demand for raw materials.
+
+The CRB Index is liquidity weighted, which means that it is more energy heavy. As you can see below, oil prices have been behaving relatively well lately.
+
+We can get a even better picture of global commodity demand from the Continuous Commodity Index, which is the CRB Index on an equal weighted basis. The picture of the CCI looks even worse than the CRB as it has undercut its October lows and remains in a well-defined downtrend.
+
+As well, you can tell a lot about short-term direction by the way the market responds to news. In the past couple of weeks, we saw a couple of important signs that much of the good news is priced into stocks. The first occasion occurred when the market sold off in the aftermath of a better than expected LTRO at €489 billion. The second was when it sold off again when Italy sold six-month bills at yields that were roughly half of what they were in November.
+
+When the markets go down on good news, the bulls should be wary. In addition, signs of a global slowdown are on the horizon.
+
+That's why I stand with the bears.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
