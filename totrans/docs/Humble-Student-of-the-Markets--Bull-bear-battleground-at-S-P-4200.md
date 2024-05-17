@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:24:54
+-->
+
+# Humble Student of the Markets: Bull-bear battleground at S&P 4200
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/09/bull-bear-battleground-at-s-4200.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/09/bull-bear-battleground-at-s-4200.html#0001-01-01)
+
+**Mid-week market update**: On the weekend, I stated that my base case was the S&P 500 decline would stop at August low support of 4350, but there was a 25% chance that it would test the next trend line support at roughly 4200, or the 200 dma. Now that we are nearing that level, what’s the prognosis?
+
+ The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2023/09/27/bull-bear-battleground-at-sp-4200/)
+
+.
