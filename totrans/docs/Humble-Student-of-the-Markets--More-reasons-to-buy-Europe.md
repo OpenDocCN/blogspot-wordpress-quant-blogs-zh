@@ -1,0 +1,56 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:46:05
+-->
+
+# Humble Student of the Markets: More reasons to buy Europe
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/12/more-reasons-to-buy-europe.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/12/more-reasons-to-buy-europe.html#0001-01-01)
+
+Further to my last post that made the case for buying European small cap stocks (see
+
+[How to stretch the Santa Claus rally into 2014](http://humblestudentofthemarkets.blogspot.com/2013/12/how-to-stretch-santa-claus-rally-into.html)
+
+), I came across further analysis supportive of my bull case for Europe and European small cap stocks.
+
+Firstly, John Mauldin's
+
+[Outside the Box](http://www.investorsinsight.com/blogs/john_mauldins_outside_the_box/archive/2013/12/04/euthanasia-of-the-economy.aspx)
+
+publication this week highlighted Niels Jensen's rant against quantitative easing. In part, it discussed how eurozone banks remain on ECB life support:
+
+> When talking about the financial sector and how they have been able to take advantage of QE to re-capitalise their damaged balance sheets, it ought to be said that QE has effectively allowed banks to ignore their underlying problems. QE has become a life support machine for the financial sector at virtually no cost to them but at a significant cost to the rest of society. That cannot go on ad infinitum. At some point in the not so distant future it will be financial reckoning day for the sector which bodes particularly badly for the European banks, most of which are way behind their U.K. and U.S. peers in terms of cleaning up their balance sheets.
+
+Further, Jensen pointed out the dire straits that Spanish companies have found themselves in [emphasis added]:
+
+> The IMF provided some very granular information on the state of European banks in their most recent Financial Stability Report. ***More than 50% of Spanish companies with loans in Spanish banks have an interest coverage ratio of less than one. In other words, the EBITDA of over half of all Spanish corporates does not even cover their interest expense*** (you would expect a healthy corporate borrower to have an interest coverage ratio of 3-5 times depending on the nature of the business). What's worse, the situation in Italy and Portugal is only marginally better. All of these problems have been largely ignored since the ECB stepped in with their brand of QE about two years ago and saved the European banking sector from a complete meltdown, but few, if any, of the underlying issues have yet been addressed.
+
+I recognize that Jensen was trying to point out the futility of the ECB's QE programs and the precariousness of the system even after all this central bank intervention. No doubt, a high degree of apparent systemic risk exists.
+
+By contrast, my investment philosophy is to be politically agnostic and Jensen's writings smack too much of "what I think policy should be" rather than "how do I make money from the current environment". I would therefore turn Jensen's analysis on its head and ask the following rhetorical question:
+
+> ***If the ECB has demonstrated that it intends to supply the market with a free put option, then why not take it and go long?***
+
+**Free ECB put = Buy Financials**
+
+Indeed, the relative performance of European financials look constructive in light of the ECB's free put. The chart below of the relative returns of Financials show that their relative performance bottomed out in late 2011 and the sector has been in a relative uptrend since the summer of 2012.
+
+**Still risk-on in Europe**
+
+Despite the softness in European equities in the last few days, the underlying environment still calls for a risk-on stance in European equities. My last post highlighted the upside potential in European small caps (see 
+
+[How to stretch the Santa Claus rally into 2014](http://humblestudentofthemarkets.blogspot.com/2013/12/how-to-stretch-santa-claus-rally-into.html)
+
+). The chart below shows the relative performance of DFE (European small cap ETF) against FEZ (European large cap ETF).
+
+There are two takeaways that are encouraging for the bull case in European stocks. First, high beta small caps remain in a relative uptrend against large caps. Second, small caps are still outperforming despite the recent sell-off.
+
+The combination of a free ECB put and positive small cap outperformance in the face of weakness are suggestive of further gains in European stocks. Any weakness is likely to be a temporary pullback and should be viewed a buying opportunity. I would be inclined to focus on sectors and groups showing a high degree of leverage to a recovery, such as European financials and small cap stocks.
+
+**Disclosure:**
+
+Long DFE
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
