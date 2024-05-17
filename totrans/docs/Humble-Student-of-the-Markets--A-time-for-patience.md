@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:20:58
+-->
+
+# Humble Student of the Markets: A time for patience
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2024/01/a-time-for-patience.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2024/01/a-time-for-patience.html#0001-01-01)
+
+**Mid-week market update**: There is a time for an aggressive posture in positioning and there is a time for patience. This is a time for investors to be patient.
+
+In the aftermath of the rally off the October bottom, the S&P 500 is consolidating its gains after breaking out through resistance at 4600 to form a cup and handle breakout. However, it was rejected at all-time high resistance and it's now working off an overbought condition, as evidenced by the 5-week RSI. The VVIX to VIX ratio, which has led past tactical peaks in stock prices, peaked out just before the January highs, but the lack of a negative divergence in this ratio is constructive inasmuch as this is not a signal of a major top. I interpret current conditions as a consolidation within an uptrend.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2024/01/10/a-time-for-patience/).
+
+#### Beat the price increase
+
+We are announcing a 5% price increase on subscriptions, effective February 1, 2024\. Existing subscribers will be grandfathered at their current rates.
+
+If you haven't subscribed, click this [link](https://humblestudentofthemarkets.com/shop-2/?orderby=price) to beat the price increase.
