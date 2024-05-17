@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:06:06
+-->
+
+# Humble Student of the Markets: The "Merde" rally?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/05/merde-rally.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/05/merde-rally.html#0001-01-01)
+
+There is a silver lining in most dark clouds. When the stock market and other risky assets got clobbered over anxieties about Greece today, the silver lining is that a short-term bottom may be forming.
+
+The chart below of SPY is just a bellwether whose analysis could be extrapolated to many other risky assets. The ETF formed a reversal day by selling off but rallying near the end of the day to a level where it roughly opened, and the action occurred on relatively high volume. Moreover, the selloff successfully tested a key short-term support level. For technicians, this action is, at a minimum, an indication of market indecision in the face of bad news - a positive sign. It could be more bullishly interpreted as capitulation selling.
+
+**An overreaction to Europe and Greece**
+
+As for Greece, things aren't necessarily as bad as it sounds.
+
+[Foreign Policy](http://www.foreignpolicy.com/articles/2012/05/07/the_earthquake_in_greece)
+
+wrote that the surprise showing by SYRIZA, the leftist party that polled in second place in the election, doesn't necessarily mean that the scenario of a catastrophic Greek exit from the eurozone is necessarily around the corner [emphasis added]:
+
+> Even if SYRIZA earns the mandate and manages to somehow seize the reins of power, the changes in Greek policy will hardly be "radical," as the Coalition of the Radical Left's name misleadingly implies. The party's young, charismatic leader, Alexis Tsipras, has made it clear that ***he has no intentions of withdrawing Greece from the eurozone, let alone the European Union.*** Instead, we should expect a more nuanced approach to economic revitalization, which would likely include an aggressive renegotiation of the bailout terms currently in place between Greece and the "troika" composed of the EU, the European Central Bank, and the IMF, as well as a demand for more public investment in lieu of loans.
+
+If I were to stretch the point a little further, even
+
+[Foreign Policy](http://www.foreignpolicy.com/)
+
+'s new term to replace "Merkozy" as a characterization of the new Franco-German partnership could also be interpreted bullishly as a contrarian magazine cover indicator:
+
+**A short-term *Merde* bottom?**
+
+I previously
+
+[posted](http://humblestudentofthemarkets.blogspot.ca/2012/05/bottom-for-gold-and-gold-stocks.html)
+
+that a short-term bottom may be forming for gold and gold stocks, which is another high beta risky asset:
+
+> These readings are suggestive of a tradable short-term bottom in gold and gold stocks is coming up, but a long or even intermediate term bottom may have to wait. Given that gold prices are deflating in the wake of the French and Greek elections, that short-term bottom may be fast approaching.
+
+We may be seeing that short-term trading bottom now. My inner trader wants to buy risk in anticipation of an oversold rally. My inner investor tells me to watch the market action in likely ensuing rally to gauge the strength of the bulls as this is just another phase in the choppy up-and-down market action that we have been witnessing in the past few weeks.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**

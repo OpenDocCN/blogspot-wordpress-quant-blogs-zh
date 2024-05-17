@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:05:52
+-->
+
+# Humble Student of the Markets: The magazine cover buy signal?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/05/magazine-cover-buy-signal.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/05/magazine-cover-buy-signal.html#0001-01-01)
+
+I have been seeing signs of a tactical trading bottom lately (see my posts last week 
+
+[here](http://humblestudentofthemarkets.blogspot.ca/2012/05/another-sign-of-short-term-bottom.html)
+
+and
+
+[here](http://humblestudentofthemarkets.blogspot.ca/2012/05/merde-rally.html)
+
+). Now we may have the magazine cover contrarian buy signal, based on the idea that when the mainstream press starts writing about a story, it's too late for investors to benefit from the trend. Most likely, a major news magazine cover trumpeting some trend is a sign that the trend is about to reverse (e.g. the famous
+
+[Death of Equities](http://www.businessweek.com/investor/content/mar2009/pi20090310_263462.htm)
+
+cover story in 1979 or Time's
+
+[Home Sweet Home](http://www.time.com/time/covers/0,16641,20050613,00.html)
+
+cover in 2005).
+
+Now Germany's Der Spiegel, one of Germany's most respected papers, has done it:
+
+You don't even need to understand German to understand the gist of the cover. The Germans are resigned to the idea of a Greek exit from the euro. The English version of the story title is
+
+[Grexit Would Be 'Regrettable, But Not Fatal'](http://www.spiegel.de/international/europe/european-leaders-warn-greece-may-have-to-leave-euro-zone-a-832464.html)
+
+.
+
+Enough said.      
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
