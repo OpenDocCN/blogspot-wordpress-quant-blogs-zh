@@ -1,0 +1,68 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:50:35
+-->
+
+# Humble Student of the Markets: A classic late-cycle rotation
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/08/a-classic-late-cycle-rotation.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/08/a-classic-late-cycle-rotation.html#0001-01-01)
+
+Years ago, one of the first things that I learned when I ventured into technical analysis was sector and industry rotation. Technical (which are not necessarily economic) bull phases start with leadership from interest sensitive groups, such as banks and homebuilders. The leadership baton is then passed to consumer related sectors, capital goods and so on. The terminal phase is signaled by the leadership of deep cyclical resource sectors.
+
+I believe that's what we are witnessing now.
+
+First of all, there is little question that the leadership of homebuilding stocks are rolling over. The chart below shows the market relative returns of the homebuilding ETF (XHB), which is in a relative downtrend after breaking key relative technical support levels.
+
+Meanwhile at the other end of the spectrum, we have seen a divergence between equities and commodity and commodity related plays. The chart below shows the SPX (in black) and the CRB Index (in red) for the last three years. For the first couple of years, the two more or less moved in tandem, but a divergence was much in evidence in 2013 as stocks went north and commodities went south, mostly because of angst over China.
+
+In the last week or two, the data out of China has been more positive (though not everyone believes the official statistics) and commodity prices appear to have bottomed and they are starting to rally. Meanwhile, the equity uptrend remains intact.
+
+***These are the classic signs of a late cycle rotation into deep cyclical sectors of the market.*****A crowded short in commodities and EM**
+
+Commodity related plays have become unloved and sentiment has moved into a crowded short reading. These charts from David Rosenberg of the large speculator position from the Commitment of Traders report on copper tell the story:
+
+Large speculators (read: hedge funds) are also in a crowded short on the China and commodity sensitive Australian Dollar:
+
+The latest BoAML fund manager survey shows that the most unloved sectors are resource and emerging markets (via
+
+[Business Insider](http://www.businessinsider.com/bofa-time-to-buy-the-crash-test-dummies-2013-8)
+
+):
+
+Under these circumstances, give the market the slightly whiff of positive news and it would spark an oversold rally. That's what's happening now. Here is the relative performance of the metals and mining sector (XME) relative to the market. XME has rallied through a relative downtrend and there may be further relative upside. I have outlined the Fibonacci retracement levels as likely upside targets. Even the lower 38.2% Fibo level shows considerable potential upside from current levels.
+
+Here is the longer term XME relative chart. XME remains in a downtrend relative to the market and the site of the relative downtrend line approximately coincides with the 38.2% Fibonacci retracement level from the previous shorter term chart.
+
+Similarly, we have seen a relative rally from emerging market stocks (EEM) against US equities (SPY) as it bounced off a long-term relative support level.
+
+**A tactical bullish call**
+
+In the last couple of weeks, we have seen US equities pause and then weaken. Last week, it tested the 50 day moving average, which is considered by many technicians to be an important support level. Given what I am seeing in the change in sector and industry leadership, I believe that we are seeing a late market cycle rotation into the deep cyclicals and the bull may have one last gasp upward.
+
+This is a tactical bullish call for a few weeks. The AAII's latest sentiment survey (via
+
+[Bespoke](http://www.bespokeinvest.com/thinkbig/2013/8/15/bulls-scurry-again.html)
+
+) shows that bullish sentiment has retreated, which should be supportive of a rally.
+
+Nevertheless, I remain concerned about the intermediate and longer term outlook for stocks for the following reasons:
+
+*   **Valuation signals**:  As I wrote before (see [A new secular bull? Don't count on it!](http://humblestudentofthemarkets.blogspot.com/2013/08/a-new-secular-bull-dont-count-on-it.html)), private equity firms are cashing out their equity holdings, value investors can't find any good values and VLMAP, Value Line's Median Appreciation Potential for stocks, is signaling very low return levels for equities. Mark Hulbert also wrote about the VLMAP sell signal [here](http://www.marketwatch.com/story/stocks-as-overvalued-now-as-at-2007-high-2013-08-14).
+*   **Smart investor trading signals**: In addition to long-term oriented value managers feeling uncomfortable with stocks, [George Soros' largest position is a bearish bet on SPX](http://blogs.marketwatch.com/thetell/2013/08/15/soross-biggest-holding-a-bearish-call-on-the-sp-500/). I am not sure I want to be on the other side of a Soros trade, do you?
+*   **The tapering risk-off trade isn't over,** especially in the [credit and foreign exchange markets](http://humblestudentofthemarkets.blogspot.com/2013/08/is-tapering-panic-over.html). As we move into September and, in all likelihood, the Fed starts to taper down its QE purchases, I would expect further angst from the markets.
+*   **Political headwinds**: There are two items of note for the markets in September and October. First of all, the German elections are scheduled for September 22\. Angela Merkel is expected to return as chancellor and there seems to be a tacit agreement to minimize the level of euro-angst until after the elections. After that, don't be surprised to hear more problems with the eurozone peripheral countries like Portugal. As well, we are going to see the usual Washington drama about the debt ceiling debate. While the consensus is that the politicians will reach a last minute deal, this [Politico](http://www.politico.com/story/2013/08/wall-street-debt-ceiling-95426.html) report suggests that September 2013 may be different from previous years because the GOP leadership is divided and Obama and the Democrats are spoiling for a fight:
+
+> > *The House GOP is hopelessly fractured on spending strategy. Senate Republicans who might otherwise broker a deal face primary challenges that make compromise potentially deadly. Other Senate Republicans are jockeying for 2016\. And congressional Democrats have no appetite for any bargain — grand or otherwise — that cuts entitlement spending.*
+> > *President Barack Obama at his Friday news conference before leaving for vacation lectured Republicans and mocked their threats to shut down the government rather than fund his signature health care law. Hardly a promising sign for the fall.*
+
+Understand that this call for a last gasp rally led by the vastly oversold deep cyclical stocks, a sort of
+
+[Unternehmen Wacht am Rhein](http://en.wikipedia.org/wiki/Battle_of_the_Bulge)
+
+by the bulls, is a tactical call. My inner investor is lightening up positions now, while my inner trader wants to jump on board for the rally, which can be powerful especially for oversold stocks.
+
+**Full Disclosure**
+
+: Long XME
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”**None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*

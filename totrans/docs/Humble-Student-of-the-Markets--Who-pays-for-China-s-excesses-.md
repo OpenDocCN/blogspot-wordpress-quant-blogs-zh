@@ -1,0 +1,105 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:50:48
+-->
+
+# Humble Student of the Markets: Who pays for China's excesses?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2013/08/who-pays-for-chinas-excesses.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2013/08/who-pays-for-chinas-excesses.html#0001-01-01)
+
+I had some feedback to last week's post entitled
+
+[Market perception of China macro risk set to rise](http://humblestudentofthemarkets.blogspot.com/2013/08/market-perception-of-china-macro-risk.html)
+
+. Notwithstanding the upside surprise in Chinese exports, the bigger question is, "If China engaged in over-investment in infrastructure, then who pays for the excesses as she re-adjusts her economy from an export and infrastructure driven growth model to one based on the consumer?"
+
+It's the same question asked when Lehman blew up and took down the banking sector in the United States, or when Greece and other peripheral eurozone countries got into trouble with their debt. Who pays?
+
+**Too much infrastructure?**
+
+China's growth story has been told many times. She leveraged her position as a provider of low cost labor to become a global manufacturing giant. Her growth was also fueled by an infrastructure boom, initially to upgrade facilities like transportation, etc., which then morphed into a property boom because local savers had nowhere else to put their funds. Today, we are now faced with the specter of the see-through apartment buildings, empty shopping malls and white elephant, but spanking new, airport, railway and port facilities sprinkled throughout the country.
+
+It's not that China, as a developing country, doesn't need to upgrade its investment in infrastructure. But the investment boom seems overdone even compared to the record of other rapidly developing economies. This chart below from Pictet shows that Japan's investment as a percentage of GDP peaked out at 36% in 1973, South Korea peaked at 38% in 1991 and China recently peaked at a staggering 46% in 2010, but levels remain elevated.
+
+**Re-balancing the economy**
+
+As the new leadership changed, the tone of policy has also changed significantly. Gone is the emphasis on export and infrastructure led growth at any price. Beijing has made itself clear. Given a choice between growth and financial stability, it will pick the latter. Moreover, the government has also made it clear that it wants to re-balance the engine of growth from exports and investment to the consumer.
+
+Indeed, Nomura’s Zhiwei Zhang recently noted that the
+
+[PBoC's mandate has changed](http://ftalphaville.ft.com/2013/08/05/1591252/pboc-tightening-by-stealth/)
+
+:
+
+> The top priorities for the PBoC changed from “stabilizing growth, containing inflation, managing risks” in the Q1 report to “stabilizing growth, rebalancing the economy, promoting reforms, and managing risks”.
+
+It is clear, at least to me, that if the priorities are "rebalancing the economy" and "promoting reforms" so that the household sector becomes the engine of growth, then financial repression of that sector must end.
+
+This means an end to the cap on bank deposit rates, which led to negative real interest rates for savers, which benefited borrowers, which were mainly SOEs and Party cadres, with low and negative real costs of capital. In addition, the ordinary saver had no real outlet for his savings because of the under-developed nature of China's debt and equity markets, poured his funds into real estate, fueling a property boom, which was propelled upwards by a credit boom. One way to correct that is the internationalization of the RMB, which is already happening.
+
+As well, China's seeming endless supply of cheap labor is slowly ending and wages are starting to rise. Analysts have characterized this development as the Lewis turning point (see my previous blog post discussing this issue
+
+[here](http://humblestudentofthemarkets.blogspot.com/2012/04/china-long-and-short-term-views.html)
+
+). Rising wages can also be viewed as a positive development for rebalancing as it benefits household income levels.
+
+**Who gets hurt?**
+
+The question for investors is whether the Chinese economy can rebalance without undergoing a severe financial crisis.
+
+[Michael Pettis](http://www.ft.com/intl/cms/s/0/2f018d1c-f475-11e2-a62e-00144feabdc0.html)
+
+correctly wrote that the priority of China's leadership is social stability, not just growth:
+
+> China’s GDP, in other words, does not need to grow at 7 per cent or even 6 per cent a year in order to maintain social stability. This is a myth that should be discarded. What matters for social stability is that ordinary Chinese continue to improve their lives at the rate to which they are accustomed, and that the Chinese economy is restructured in a way that allows it to tackle its credit bubble.
+> 
+> If household income can grow annually at 6-7 per cent, income will double in 10 to 12 years, in line with the target proposed by Premier Li Keqiang in March during the National People’s Congress. What is more, if China can do this while the economy is weaned off its addiction to credit, it will be an extraordinary achievement, even if it implies, as it must, that GDP grows far more slowly that the growth rates to which we have become accustomed.
+
+Note, however, Pettis' remarks does not preclude a financial crisis, just a political crisis. In a separate
+
+[commentary](http://blog.mpettis.com/2013/08/the-changing-debate-over-chinas-economy/)
+
+, Pettis tempered his bearish views by stating that China has not reached the critical point where a financial crisis is baked in [emphasis added]:
+
+> I have been skeptical about the sustainability of the Chinese growth model since at least 2006-7 but I have never argued that China would collapse, let alone collapse within six months. My argument is that China’s growth model, which is not at all unique and for which there are many historical precedents, is usually wealth enhancing in its early stages, and then becomes wealth destroying once capital is systematically misallocated. When that happens, debt rises at an unsustainable pace until we reach debt capacity limits, in which case the country will have a debt crisis. I have usually estimated that it would reach debt capacity limits around 2016-18 but now I think it is likely to happen earlier.
+> 
+> ***However I never believed China would hit those limits, or have a debt crisis, because I was fairly sure that Beijing would begin adjusting earlier. It is during the adjustment period that I expected growth to drop sharply, to 3-4% as the upper limit.***
+
+As China rebalances, consider who gets hurt as household incomes rise, as per the Politburo's latest policy focus:
+
+*   The export sector, because wages will rise and margins get squeezed. Already, even [Chinese companies are considering offshoring](http://www.zerohedge.com/contributed/2013-08-03/even-ceo-china%E2%80%99s-largest-appliance-manufacturer-gets-cold-feet).
+*   SOEs, which have benefited from the cheap source of capital at low or negative real interest rates.
+*   Party insiders, who also rode the gravy train from their association with SOEs' cheap capital. Party cadres have become filthy rich in the past decade because of this trend. Can anyone tell me why the family of the now disgraced Bo Xilai, who was an avowed Maoist, was able to [accumulate a fortune estimated at USD 160 million or more](http://www.nytimes.com/2012/04/24/world/asia/bo-xilais-relatives-wealth-is-under-scrutiny.html)? This [LA Times](http://www.latimes.com/news/nationworld/world/la-fg-china-bo-20130811,0,6446693.story) story highlights the difficult political position the Bo Xilai show trial has put China's leadership:
+
+> > The problem for China's leaders, their critics point out, is that in some ways they're not so different from Bo. Many of them are equally well off or have families who have grown rich under the system — and just as intent on placing their children in elite schools outside China.
+
+> > Bo was actually less obsessed with money than many other politicians are, said a Taiwanese businessman who knows the family well. "He was into power and women. Money was always second," said the businessman, who spoke on condition of anonymity.
+
+*   The real estate sector, because of reduced infrastructure spending and a reduction of the flow of funds by savers as they acquire more alternatives.
+*   Local government authorities, who financed themselves with property sales to private developers. 
+
+**Who pays?**
+
+If infrastructure investment were to wane and there has been mis-allocated capital into this sector because of government decree, then the bigger question is, "Who pays for all this bad investment?"
+
+The effects of mis-allocated capital would be exacerbated if there were to be a collapse in property prices, leading to a mountain of non-performing loans. How do the losses get distributed?
+
+Consider the standard solutions to resolving a debt crisis:
+
+*   Loan writedowns and writeoffs: This means that the State banking sector pays, which means that losses are socialized and paid by the household sector.
+*   Money printing and inflation: Losses are socialized and paid by the household sector.
+*   Austerity: Losses are paid by the household sector.
+
+You see the problem? How can any of this happen if Bejing's latest priority is to enhance the income and wealth of the household sector? Recall that the highest priority of any Chinese leadership is social stability, which is not enhanced by further financial repression.
+
+With that in mind, here are some possible ways to resolve the problem of mis-allocated capital, both from a financial and political point of view. Keep in mind that the leadership wants to maintain social and financial stability and hurt the household sector the least during this exercise:
+
+> **Party insiders**: If Party insiders got enormously wealthy during the boom, then they must be made to pay. Already, we are seeing anti-corruption campaigns. [Business Insider](http://www.businessinsider.com/chinese-politicians-undergoing-indoctrination-2013-7) has reported that party members are undergoing re-indoctrination and the [BBC](http://www.bbc.co.uk/news/business-17284862) reported that officials will be banned from owning foreign cars. Should a financial crisis flare up, expect more purges and show trials of officials.
+> **Small and medium enterprises, or SMEs**: It is said that very few people in China got rich without some "original sin", usually through a close relationship with a local Party official. Entrepreneurs could become easy targets for purges, should the political climate turn in such a direction.
+> **Foreigners and foreign owned enterprises**: Foreigners and foreigner owned enterprises are also easy targets as they have little political capital to spend. Even in the United States, Congress has enacted measures that have hurt foreigners because it knows that foreigners don't vote.
+> **Inflation**: PBoC could print and inflate some of the debt away but the USD peg makes that a problem. So look for more steps toward exchange rate liberalization like [this](http://seekingalpha.com/article/1607512-china-comes-closer-to-convergence). Given the currency peg, itt is unclear how techniques like forbearance or LTRO style solutions would work.
+> **Household sector**: Finally, the household sector will have to bear some of the pain as the property sector will likely have collapsed. That's why some party cadres will have to be made into scapegoat for political reasons.
+
+I respect Michael Pettis when he states that Beijing has acted preemptively to avoid a financial crisis. I am not sure, however, if their actions have been sufficiently fast or whether they are effective enough to do so. Given the enormous challenges and constraints that Bejing operates under, they don't have a great deal of margin for error and their path will be extremely difficult to navigate. They have taken the first of many of the steps in the direction that I mentioned, time will tell if they are successful.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”**None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
