@@ -1,0 +1,72 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:41:37
+-->
+
+# Humble Student of the Markets: It IS about the risk premium!
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/04/it-is-about-risk-premium.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/04/it-is-about-risk-premium.html#0001-01-01)
+
+A little over a month after the then Fed chair Ben Bernanke dropped hints about Fed tapering of its QE program I wrote that the likely effect of Fed tapering would be a compression in risk premium (see
+
+[It's the risk premium, stupid!](http://humblestudentofthemarkets.blogspot.com/2013/07/its-risk-premium-stupid.html)
+
+). That's because the initial purpose of QE was to encourage risk taking:
+
+> The message from the Fed was: "We want you take take more risk." Greater risk taking meant that businesses would expand, buy more equipment, hire workers, etc. It hoped to spark a virtuous cycle of more sales, more consumer spending and to revive the moribund real estate market. Moreover, banks could repair their balance sheets with the cheap capital.
+
+Fast forward to May 22, 2013\. When the Fed signaled that it was going to considering tapering off its QE purchases, risk-taking effects would be reversed (emphasis added):
+
+> In effect, the Fed threw several giant parties. Now it is telling the guests, "If things go as we expect, Last Call will be some time late this year."
+> 
+> Imagine that you are the bank in the earlier example which bought risk by borrowing short and lending long, or lending to lower credits in order to repair your balance sheet. When the Fed Chair tells you, "Last Call late this year", do you stick around for Last Call in order to make the last penny? No! The prudent course of action is to unwind your risk-on positions now. We are seeing the start of a new market regime as risk gets re-priced.
+> 
+> That's the message many analysts missed. ***The Fed is signaling that risk premiums are not going to get compressed any further. It will now be up to the markets to find the right level for risk premiums.***
+
+I got a lot of push-back from that post. The general feeling, especially after the first round of Market Taperitis, that the effects of tapering had largely been discounted. Yet much of the de-risking had occurred in emerging market economies and the initial shock of even the prospect of QE tapering nearly caused an EM currency crisis.
+
+**IMF: Tapering did matter to EM**
+
+Now
+
+[new research from the IMF](http://www.imf.org/External/Pubs/FT/GFSR/2014/01/pdf/c2.pdf)
+
+ appeared to have vindicated my analysis. While there was a view that the EM currency crisis was idiosyncratic and rapid currency outflows are largely the product of local government and central bank policy, the new work from the IMF indicates that global portfolio flows can overwhelm local country effects (emphasis added):
+
+> We find that the structures of both the investor base and local financial systems matter. The new mix of global portfolio investors is likely to make overall portfolio flows more sensitive to global financial conditions. The share of more volatile bond flows has risen, and larger foreign participation in local markets can transmit new instability. ***Growing investment from institutional investors that are generally more stable during normal times is welcome, but these investors can pull back more strongly and persistently when facing an extreme shock. While domestic macroeconomic conditions matter, investor herding among global funds continues, and there are few signs of increasing differentiation along macroeconomic fundamentals during crises over the past 15 years.*** Nonetheless, the progress made by emerging markets toward strengthening their financial systems reduces their financial asset prices’ sensitivity to global financial shocks.
+
+A recent
+
+[FT article](http://www.ft.com/intl/cms/s/0/236c9c50-ba84-11e3-8b15-00144feabdc0.html?siteedition=intl#axzz2xry2gwmZ)
+
+ commented on the IMF study and highlighted the effects of hot money on EM economies (especially when individual investors were chasing yield in the current low interest rate environment):
+
+> One reason for this new vulnerability is the rapid growth of emerging market bonds flows – especially from retail investors. The IMF found that bond mutual funds typically used by retail investors are far more sensitive to global sentiment than institutional bond investors such as pension, insurance or sovereign wealth funds. Moreover, bond mutual funds are twice as sensitive as equity mutual funds.
+
+When investors decide to de-risk in the face of the prospect of Fed tapering, there was a rush for the exits:
+
+> One way of interpreting the IMF’s results is that global capital markets have become too big for many emerging markets. When capital is pulled out by fund managers there are insufficient local buyers to step in. Turbulence inevitably ensues.
+> 
+> As such, the IMF’s research helps us understand the dynamics at play as the Fed tapers and moves towards eventual interest rate increases.
+> 
+> At last August’s Jackson Hole, Wyoming, summit of central bankers, Hélène Rey, a professor of economics at London Business School, presented a paper identifying how the Fed drives a common global financial cycle influenced by investors’ risk appetites that often renders impotent actions by national authorities. The crucial role played by bond funds identified by the IMF helps explain those linkages.
+
+So, yes, the EM sell-off was triggered by the anticipation of Fed tapering, which led to a compression in risk premium.
+
+**What is happening to risk premiums now?**
+
+Now that the Fed is well into its tapering program, whose schedule is well anticipated, what does that mean for the price of risk?
+
+I can offer good news and bad news. The good news is, barring some external event such as a financial blow-up in China, the risk premium shrinkage in the emerging markets appears to be largely over. I had been monitoring the relative performance of the EM bond ETF (EMB) against US junk bond ETF (HYG) as a measure of risk appetite for EM bonds in the junk bond (EM) vs. junk bond (US) space. As the chart below shows, the relative performance of EMB has stabilized against HYG and has started to recover a little.
+
+Similarly, the EM currency ETF (CEW) displayed a similar bottoming pattern of a rally out of a downtrend:
+
+Now for the bad news. Risk aversion has moved on from EM bonds and equities to other markets. As an example, the chart below of the relative performance of US junk bonds (HYG) against corporate debt (LQD) shows the formation of a broad top. HYG broke down from a relative uptrend against LQD and started to trade sideways. Such consolidations are often preludes to a rollover in risk appetite.
+
+Other signs, such as the recent carnage in the high flying biotech and internet stocks are part of typical topping patterns in overall risk appetite. While breadth indicators, such as the Advance-Decline Line remains healthy as it has confirmed the new SPX highs by making new highs of its own, which indicates that further new highs in the major US market averages are possible, the decline in risk aversion has to be regarded as a cautionary signal for stock investors.
+
+Unless we start to see blowout macro data, such as the upcoming jobs report, or Earning Season brings such surprising good news as to boost the earnings growth outlook, investors may wish to think about selling in May and to go away.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*

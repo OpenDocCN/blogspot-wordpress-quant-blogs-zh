@@ -1,0 +1,88 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:40:41
+-->
+
+# Humble Student of the Markets: Is greed truly good?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/04/is-greed-truly-good.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/04/is-greed-truly-good.html#0001-01-01)
+
+Here is something to ponder on Easter weekend, when Christ was said to have sacrificed himself for the Sins of Humanity. You don't necessarily have to be Christian, or even religious, to consider these questions. You just have to consider the trade-offs between the ideas of self-sacrifice and self-interest.
+
+David Brooks wrote a
+
+[New York Times](http://www.nytimes.com/2014/04/11/opinion/brooks-the-moral-power-of-curiosity.html)
+
+ piece called "The Moral Power of Curiosity" about HFT, but framed as a morality tale (emphasis added):
+
+> As you’re probably aware, this book is about how a small number of Wall Street-types figured out that the stock markets were rigged by high-frequency traders who used complex technologies to give themselves a head start on everybody else. It’s nominally a book about finance, but it’s really a morality tale. The core question Lewis forces us to ask is: Why did some people do the right thing while most of their peers did not?
+> 
+> The answer, I think, is that ***most people on Wall Street are primarily motivated to make money, but a few people are primarily motivated by an intense desire to figure stuff out.***
+
+Brooks concluded that greed isn't necessarily good, but greed could be defeated by the pure thirst of knowledge:
+
+> One lesson of this tale is that ***capitalism doesn’t really work when it relies on the profit motive alone.*** If everybody is just chasing material self-interest, the invisible hand won’t lead to well-functioning markets. It will just lead to arrangements in which market insiders take advantage of everybody else. Capitalism requires the full range of motivation, including the intrinsic drive for knowledge and fairness.
+> 
+> Second, you can’t tame the desire for money with sermons. ***You can only counteract greed with some superior love, like the love of knowledge.***
+> 
+> Third, if market-rigging is defeated, it won’t be by government regulators. It will be through a market innovation in which a good exchange replaces bad exchanges, designed by those who fundamentally understood the old system.
+> 
+> And here’s a phenomenon often true in innovation stories: The people who go to work pursuing knowledge, or because they intrinsically love writing code, sometimes end up making more money than the people who go to work pursuing money as their main purpose.
+
+**Greed is good?**
+
+Brooks' thoughts are herectical to the tenets of capitalism, at least in the purest Libertarian form. If the profit motive alone, or greed, is insufficient to create an efficient economic system, then what is? Do we need to depend on *gasp* altruism?
+
+Here is what the high priestess,
+
+[Ayn Rand](http://aynrandlexicon.com/lexicon/altruism.html)
+
+, had to say about altruism:
+
+> What is the moral code of altruism? The basic principle of altruism is that man has no right to exist for his own sake, that service to others is the only justification of his existence, and that self-sacrifice is his highest moral duty, virtue and value.
+> 
+> Do not confuse altruism with kindness, good will or respect for the rights of others. These are not primaries, but consequences, which, in fact, altruism makes impossible. The irreducible primary of altruism, the basic absolute, is self-sacrifice—which means; self-immolation, self-abnegation, self-denial, self-destruction—which means: the self as a standard of evil, the selfless as a standard of the good.
+> 
+> Do not hide behind such superficialities as whether you should or should not give a dime to a beggar. That is not the issue. The issue is whether you do or do not have the right to exist without giving him that dime. The issue is whether you must keep buying your life, dime by dime, from any beggar who might choose to approach you. The issue is whether the need of others is the first mortgage on your life and the moral purpose of your existence. ***The issue is whether man is to be regarded as a sacrificial animal. Any man of self-esteem will answer: “No.” Altruism says: “Yes.”***
+
+Rand came down on firmly on the affirmative side of the question of whether greed is good.
+
+**No room for altruim?**
+
+From personal experience, I would agree with Brooks' assertion that most people on Wall Street are primarily motivated to make money. While not everyone is cut from that mold, but Wall Street does have more than its fair share of people for whom avarice is the primary motivation. I can say that it is the purest embodiment of capitalism in its rawest form. It attracts a lot of bright young men and women who hope to get paid well - and they do.
+
+This video presents a contrasting tale of another profession that has attracted a lot of young men (and a few young women) - the training of United States Marines. This story is about training people to be prepared for self-sacrifice, which is antithetical to everything that Ayn Rand advocated.
+
+There is a key passage which starts at about the 28:00 mark, It shows the DI telling the young recruits a story about a marine who is wounded in a rice paddy. Another marine who is sheltered behind a dike crawls out to drag the wounded soldier to safety, even though one or both are likely to get die. The reason:
+
+*You do it because he is a marine.*
+
+Then watch the reaction - the story moves the recruits to tears.
+
+The video is somewhat cynically entitled "Anybody`s Son Will Do", because it is about the business of training young soldiers. That is because the idea of self-sacrifice doesn't come naturally to most people and they have to be indoctrinated that way. Soon after the passage about story of the wounded marine in rice paddy, the narrator Gwynne Dyer sums up the indoctrination process for soldiers this way:
+
+> Armies everywhere try to catch their recruits young, because they are vulnerable and more easily influenced about dying. You CAN train older men to be soldiers - and it's done in every major war, but you can never get them to believe they like it.
+
+"Anybody`s Son Will Do" is well worth watching in its entirety. But are you offended by the cynicism of the video? Now consider your comments in the context of Ayn Rand`s thoughts about suicide, altruism and self-sacrifice. Who is right? Either these recruits are unwitting pawns (as per Rand) and you would have to be either an idiot or desperate to enlist, or they are the noble representatives of the American citizenry and United States Marine Corp.
+
+**Greed vs. Altruism or...**
+
+Here is some questions to ponder for this Easter weekend:  
+
+***Is greed good?***
+
+ Can the profit motive alone be relied on to create a well functioning economic system? If not, then do we have to depend on the ideas of altruism and self-sacrifice? If you, like Rand, do not believe in the power of altruism, then is the mythic value of self-sacrifice of soldiers mean nothing and it is a curtain that needs to be pulled back like the story in the Wizard of Oz?
+
+To be sure, David Brooks tried to skate around these issue by declaring that the antidote to pure greed is “some superior love, like the love of knowledge
+
+*“*
+
+, but that sounds like a cop-out to me as it represents altruism in another form.
+
+I can tell you that there are no right answers to these questions. The answers just define what kind of person you are.
+
+(Philosophy lesson over. Back to your regular programming tomorrow...)
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
