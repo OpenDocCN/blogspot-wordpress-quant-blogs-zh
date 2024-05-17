@@ -1,0 +1,125 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:28:26
+-->
+
+# Humble Student of the Markets: Portrait of the advisor as a businessperson
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/12/portrait-of-advisor-as-businessperson.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/12/portrait-of-advisor-as-businessperson.html#0001-01-01)
+
+Sometimes it's interesting to see the unexpected paths that blog posts take me. A recent post sparked some feedback and intelligent discussions with a number of investment professionals (see
+
+[How to rebalance your portfolio (NAAIM maniac edition)](http://humblestudentofthemarkets.blogspot.com/2014/11/how-to-re-balance-your-portfolio-naaim.html)
+
+). In that post, I referenced the chart below of the history of NAAIM (National Association of Active Investment Managers) equity exposure index and wondered out loud why investment professionals and fiduciaries could move their equity exposure around so wildly.
+
+The answers turned out to be revealing. First, the NAAIM survey sample is relatively small. In addition, the
+
+[NAAIM website](http://www.naaim.org/newsresources/naaim-exposure-index/)
+
+states that there is only a limited number of responses to the survey, which creates data problems:
+
+1.  200% Leveraged Short
+2.  100% Fully Short
+3.  0% (100% Cash or Hedged to Market Neutral)
+4.  100% Fully Invested
+5.  200% Leveraged Long
+
+They qualified their survey results with the following disclaimers:
+
+> Use of a single, composite number for each adviser may not accurately represent the market view of a manager who has short term and long term strategies that are providing conflicting signals or a manager who uses both contra-trend and trend following strategies for different portfolios.
+> 
+> Investment Styles very widely among managers participating in this survey. They may include managers that trade very frequently and can switch long and short positions daily. Other managers stay fully invested at all times and only change allocations among market segments or sectors. Still others trade around core positions and only a portion of their portfolios change, but that portion could potentially go from long to short very quickly.
+
+Notwithstanding the data issues surrounding the survey, one key point that came up several times in my discussions was that investment advisors are struggling with redefining their business models. To put in more simply, investment advisors are struggling to formulate a new business model and present a better value proposition for their practices. The wild swings in the NAAIM survey is explained by 1) survey data methodological problems and 2) advisors trying to add value in a differentiated fashion.
+
+**The advisor as small businessperson**
+
+When I started in the business in the 1980`s, one advisor explained his practice to me this way, "I don`t work for XYZ, XYZ works for me." What he meant by that statement was that he uses his firm`s infrastructure to run his own small business, much like a franchisee at a restaurant chain.
+
+Back in those days, it was much easier to get started as an advisor. Brokerage firms hired young graduates out of university, gave them a desk and the phone book and told them, "Go find some clients."
+
+That business model worked reasonably well for a number of reasons. There were a fair number of potential clients as not everyone was in the market. Advisors could spend the time to build up books of business and make a reasonable living at their practice. Their pay depended on "the grid", which is a compensation system designed by the firm to encourage certain kinds of behavior and discourage others. For example, if a client paid $100 in trading commission, the advisor will likely get paid less than if he steered the client into a certain type of mutual fund that paid recurring fees, especially now that most firms are encouraging their sales force to move from a stock trading business model to an asset gathering AUM model where the fees are recurring. Advisor compensation for fixed income products, like tend be relatively lower. Often, the compensation for a GIC, regardless of size, will be a fixed dollar amount rather than one based on a percentage invested.
+
+Fast forward 30 years and the landscape has changed completely. Today, the full-service advisor business model is threatened by discount brokers, which was virtually unheard of 30-40 years ago, online trading with all the tools that encourage DIY investors, the advent of low-cost ETFs, robo-advisors who threaten the advice business and so on. What's more, the market is now saturated. The twentysomething young advisor who comes out of school rarely succeeds in building a book in the same way his counterpart did 30+ years ago, largely because virtually everyone either has an advisor or is using one of the aforementioned solutions.
+
+In speaking with professionals in the business, the most successful new advisors have been people starting their second careers and they can leverage their past contacts, e.g. as an accountant, into their new role as an investment advisor. Many have found success by focusing on the relationship development by offering a full financial advisory business. They are no longer just investment professionals, but offer tax advice, insurance services and so on.
+
+**Looking for the new business model**
+
+Today, the individual advisor is struggling with re-defining their business model. The transition to an AUM and fee-based model is a start, but it`s not a complete solution. To explain, advisors used to be mainly stock brokers who pushed individual stock ideas to their clients. That approach suffered from recurring bouts of feast-and-famine cyclicality during bull and bear markets. In bull markets, clients traded a lot and volumes were high, but volumes shrank in bear markets and therefore broker compensation fell precipitously as a result. The transition to an AUM fee-based model has moderated some of that cyclicality, but doesn`t entirely solve the problem.
+
+It seems that a lot of advisors are, simply put, poor business managers. ThinkAdvisor pointed to a study showing how advisors spent little time managing their own practices:
+
+> A new study by the Financial Planning Association Research and Practice Institute found that business growth is a major challenge in today’s financial advisory businesses, with only 25% of advisors reporting that they exceeded their business growth goals in the past year.
+> 
+> During a visit to ThinkAdvisor’s office on Tuesday, Janet A. Stanzak, FPA president and soon-to-be chairwoman, called these study results “so ironic.”
+> 
+> “We are a profession of financial planners, and yet what our studies are revealing? This one says financial planners are not doing business plans and marketing plans well,” she said. “… It’s ironic as heck that here we are group of planners and where we in our own businesses fall down is in some of the planning aspects of what we do.”
+
+They had no idea of how to grow their own businesses:
+
+> While the study found that “most advisors are struggling to grow their businesses in a way that is directly impacting their bottom line,” as Lauren Schadle, FPA executive director and CEO, said in a statement, it also found two overarching solutions that could help the advisors that are struggling.
+
+Many lacked marketing plans business plans and clearly defined marketing tactics:
+
+> The study found that successful firms had a defined value proposition. Of those who exceeded their goals, 79% had a defined value proposition, compared with 57% of those who fell short of their goals.
+> 
+> A formal, written business plan also proved to be important to those who exceeded their goals and those that experienced high growth (those who grew 20% or more). According to the study, high-growth advisors were considerably more likely to have a formal, written business plan (38%) compared with low-growth advisers (21%) and even more so among those who exceeded their goals (48%) versus those who fell short of their goals (18%).
+> 
+> The “right marketing tactics” that the study focused on were center of influence referrals, client events and thought leadership, which the study defines as building a personal brand or platform using thought leadership and social media.
+> 
+> While a relatively low percentage of respondents are using thought leadership as a tactic, the study found that the larger and growing businesses were more likely to be using this strategy.
+
+**What happens in the next bear market?**
+
+Even the right marketing tactics may not be enough. I know that the regulatory authorities crack down on investment professionals who give guarantees, but here is some guarantees that I can give:
+
+*   Some time in the next 5-10 years, the stock market will suffer a setback of at least 20%
+*   Some time in the next 30 years, the stock market will crumble by 30-50%
+
+Those are the kinds of risks that all investors assume when they commit funds to equities. All investment professionals know that. The key question is, “Are their own business prepared for the next bear markets?“
+
+Michael Kitces, writing in
+
+[Nerd’s Eye View](https://www.kitces.com/blog/are-profit-margins-for-financial-advisors-too-generous-or-are-aum-firms-actually-not-profitable-enough-to-survive-the-next-bear-market/)
+
+, believes that they aren’t:
+
+> While early adopters of the assets-under-management (AUM) model got started in the late 1980s or early 1990s, the model only really began to become widely adopted in the early 2000s. Yet as the AUM model has become increasingly popular, and firms have had time to build, the “typical” advisory firm has grown significantly, from an average of only $25M of AUM in 2002 to more than $200M of AUM in 2013\. And with an average profit margin of about 22%, the typical advisory firm owner with an AUM practice is enjoying record take-home pay.
+
+Think about it this way. If an advisor is working for a large firm, he gets paid based on his production on “the grid“, which maxes out at about 50% and goes down depending on the source of revenue, or financial product sold, and the total size of production and AUM. The dirty little secret of the financial advisory business is that exotic investments, derivatives and equity based products pay more while fixed income products pay less. Such a compensation scheme puts the practice at risk during the next equity bear market.
+
+In addition, there are limits to the AUM fee-based model because it becomes that much more harder to grow assets on a percentage basis once the AUM gets to a certain size:
+
+> Yet the caveat is that as advisory firms on the AUM model have grown, their growth rates seem to be slowing, a combination of both the ongoing crisis of differentiation for advisory firms, and the simple fact that as the firm gets bigger the denominator of the growth rate fraction is difficult to overcome; after all, adding “just” $4M of new assets a decade ago would have been double-digit organic growth, yet the same new asset flows yielded barely a 4% growth rate for a typical firm in 2009 and would be less than a 2% growth rate for the average firm today!
+
+Kitces observed that the 2008-2009 bear market created significant challenges:
+
+> The end result in the 2008 bear market: many advisory firms saw, for the first time, a decline in annual revenue in 2009 (after a tepid year in 2008), and what amounted to a significant step back in annualized revenue projections from the prior peak in the 3rd quarter of 2007\. Between declining assets from market returns, possible client attrition, pressure on fees, and the fact that there were more retired clients taking withdrawals (rather than accumulators who would keep saving into accounts), it just wasn’t feasible for most advisory firms to grow through the bear market. In other words, growth alone was no longer a sufficient defense to market volatility for the advisory firm owner; profit margins had to play a role, too.
+
+True, the markets have recovered so have AUM, but the organic growth picture is not exactly stellar:
+
+> As the chart reveals, once market returns are backed out, growth of advisory firms has been far more erratic than the steady AUM growth charts of the industry studies implied. 2009 was a virtually flat year, as clients remained locked in place (shell-shocked after the market crash?); it was only in 2010 that clients began to really move and change (to) advisors. In 2011 and 2012 the growth rates continued, but at a greatly diminished rate relative to 2010.
+
+**What happens in the next bear market?**
+
+Kitces asked if advisory firms are prepared for the next bear market (emphasis added):
+
+> The reason all this matters is that in today’s environment, advisory firms are now so large that not only is organic growth not realistically capable of sustaining the firm through a bear market (as the growth that produced double-digit growth rates a decade ago can’t even produce a 2% growth rate today), but profit margins aren’t necessarily wide enough to sustain the impact for many advisory firms, either.
+> 
+> ***Across the entire industry, the latest Investment News study found that the average operating income of an advisory firm was 24%, which – even at a 0% organic growth rate – would be barely sufficient to handle a 25% decline in AUM due to a bear marke***t. However, within advisory firms, the Investment News study found significant variability; while top performing (top 25%) solo firms had profit margins of 42.8%, the rest (the other 75%) were only 20.6%; amongst ensemble firms, the top had 44.5% profit margins, but the rest averaged only 16.5%.
+
+He concluded (emphasis added):
+
+> The bottom line, though, is simply this: while many have criticized the profit margins of advisory firms as being unjustly rich and generous, and therefore prone to disruption (e.g., from robo-advisors), ***the reality is that for a large number of advisory firms the profit margins actually may not be large enough to withstand the next bear market, especially given that firms have become so large that they can no longer just grow their way through with new clients as they have in the past.*** At best, most firms will likely find the next bear market to be the most traumatic ever as a firm owner, simply given the sheer operational leverage of today’s typical advisory firm… and for those who don’t have the profit margins nor the growth potential, many advisory firms may not even survive. Is your firm well positioned at its current size to withstand the next market downturn when it comes?
+
+Here in Vancouver, home of the old "Vancouver Stock Exchange" where penny stocks were once bought and sold, there are still firms whose specialty is selling shares of junior companies and have not really migrated to the AUM fee-based model. For those firms, the bear market has been here with a vengeance for quite some time and we are seeing their effects in spades.
+
+What's the answer? I have no idea. There are many avenues but no single one stands out (not everyone can be
+
+[Divesh Makan](http://www.forbes.com/sites/briansolomon/2014/12/01/the-spider-of-silicon-valley-inside-zuck-friends-secret-billionaire-fund/)
+
+).
+
+The next major bear market is likely to be highly disruptive to the financial advisory industry. That's why many advisors are trying different things and struggling to find the next business model. It also partially explains the volatility of the NAAIM survey results - advisors are trying to find a new value proposition in order to better serve their clients and build a sustainable business for themselves.
