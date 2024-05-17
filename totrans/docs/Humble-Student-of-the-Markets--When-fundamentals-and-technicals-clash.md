@@ -1,0 +1,218 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:35:51
+-->
+
+# Humble Student of the Markets: When fundamentals and technicals clash
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/08/when-fundamentals-and-technicals-clash.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/08/when-fundamentals-and-technicals-clash.html#0001-01-01)
+
+**Weekly Trend Model signal**
+
+Trend Model signal: Risk-on
+
+Direction of last change: Negative
+
+The real-time (not back-tested) signals of the Trend Model is shown in the chart below:
+
+**Trend Model Signal History**
+
+(Please scroll to the bottom of this post to see how you can get a free subscription to Trend Model updates.)
+
+**A puzzling retreat**
+
+If I told you I had a crystal ball and told you the following facts last weekend:
+
+*   Earnings season will continue to be strong, with solid beat rates for both the top and bottom lines ([Factset](http://www.factset.com/websitefiles/PDFs/earningsinsight/earningsinsight_8.1.14) reports the SP 500 EPS beat rate was 74% and the revenue beat rate was 65%, well above the historical average);
+*   The growth outlook will continue to be positive, as the 1Q GDP report will beat expectations by a full 1%;
+*   The FOMC statement will come in roughly as expected and the yield curve will steepen somewhat, but interest rates remain stable; 
+*   Non-Farm Payroll will miss expectations, but the closely watched participation rate ticks up and wage pressures remain benign;
+*   Chinese PMI will come in ahead of expectations; and
+*   There will be no new geopolitical shocks.
+
+What would your expectations be for US equities? Would you have predicted that the SPX would crater by 2% on Thursday and continue to decline Friday?
+
+What is puzzling for fundamental investors is that the stock market retreat last week has been singularly lacking in fundamental underpinnings. Most importantly, the two principal drivers of stock prices are E and PE. With respect to the former, the earnings outlook remains positive as Ed Yardeni reported that Street expectations continue to get revised upwards:
+
+More timely data came from
+
+[Brian Gilmartin](http://fundamentalis.com/?p=3958)
+
+as he reported that the forward EPS growth rate had ticked up to 9.58% from 9.41% the previous week, indicating that forward 12 month earnings continue to get revised upwards.
+
+As for the results of the Fed meeting, 
+
+[Marc Chandler](http://www.marctomarket.com/2014/08/some-thoughts-about-week-ahead.html)
+
+ summarized the tone the FOMC statement this way:
+
+> The FOMC statement made it clear that while the downside risk to inflation had lessened, the slack in the labor market favored continued accommodation, and the low Fed funds rate was anticipated to continue for a considerable period. There was one dissent over that forward guidance, but no one, even those that have publicly argued the Fed was slipping behind the curve, called for a rate hike. The course that Bernanke put the Fed on remains intact.
+
+With regards to the capitalization rate for earnings, the 10-year Treasury yield ticked up 6 bp on the week, but the 5-year yield declined. Steepening yield curves are a typical characteristic of a robust and growing economy. That`s good news, right?
+
+So why did the stock market freak out on Thursday and Friday?
+
+**A technically driven decline**
+
+The only reasons that I can cite for the decline in the major US equity averages are based on technical analysis. As I pointed out last weekend (see
+
+[Global growth scare = Trend Model downgrade](http://humblestudentofthemarkets.blogspot.com/2014/07/global-growth-scare-trend-model.html)
+
+), I suggested that Mr. Market is anticipating a global growth scare. As a result, I downgraded the technical signal for my Trend Model for the following technical reasons based on inter-market analysis:
+
+*   Falling commodity prices
+*   Weak equity prices in Europe
+
+For the month of July, the SPY showed a total return of 1.3% , which was highly disappointing in the face of the good news of a positive earnings season and benign interest rate environment. From a technical perspective, a market that fails to respond to good news is characterized as being an exhausted bull.
+
+In addition, I observed that risk aversion is rising, as junk bonds are starting to underperform equivalent Treasuries. As the week progressed, the underperformance continued as credit spreads continued to widen:
+
+(There were many charts in the analysis from last week, but I won`t repeat them here but you can review them at this
+
+[link](http://humblestudentofthemarkets.blogspot.com/2014/07/global-growth-scare-trend-model.html)
+
+.)
+
+While I am gratified that the Trend Model was correct in turning bearish for technical reasons, the decline that began last week is unlikely to have legs unless it is supported by a solid fundamental backdrop. For now, market fundamentals remain bullish.
+
+**When fundamental and technical analysis disagree **
+
+Before technicians celebrate and trumpet the triumph of technical analysis over fundamental analysis, let me remind everyone that the last time the fundamentals and technicals disagreed, fundamentals won out in in the end.
+
+Regular readers will recall that I turned cautious on the stock market in the Spring based on Trend Model readings as negative technical divergences were developing. In early May, I penned a well-reasoned market commentary based on market cycle analysis as to why traders and investors should sell in May (see
+
+[The bearish verdict from market cycle analysis](http://humblestudentofthemarkets.blogspot.com/2014/05/the-bearish-verdict-from-market-cycle.html)
+
+). To summarize, late cycle sectors were assuming the market leadership as early and mid-cycle sectors faltered in relative strength.
+
+Much like the episode in April and May, while the technical picture was deteriorating, the fundamentals remained positive. Growth was reviving after a horrible 1Q and earnings were rising and the interest rate environment was benign. As the stock market continued to grind higher, the Trend Model and I threw in the towel and turned bullish on the market in early June (see
+
+[Correction, interrupted](http://humblestudentofthemarkets.blogspot.com/2014/06/correction-interrupted.html)
+
+).
+
+In short, the last time the fundamentals and technicals disagreed, the fundamentals won. What happens this time?
+
+**The small cap fundamental vs. technical puzzle**
+
+Consider, for example, the underperformance of small cap stocks. It`s not just the Russsell 2000\. Dan McCrum of
+
+[FT Alphaville](http://ftalphaville.ft.com/2014/07/28/1910062/a-small-and-significant-problem/)
+
+highlighted BCA Research`s observation that small caps are lagging their large cap counterparts on a global basis:
+
+BCA postulated that it was because smaller companies are more sensitive to rising labor costs, which would be negative for wage inflation, a measure closely watched by the Fed:
+
+> In the interim, the message is that small cap labor expenses are likely to be far more punitive than wage costs for large businesses. This is confirmed by the sharp rise in the household employment survey relative to the establish- ment survey this year. The former includes smaller companies and the self-employed, and when it rises faster than the payroll survey it is a signal that wage pressures are building among smaller firms. Thus, small cap profit margin pressure will become more acute earlier than it will for large caps.
+
+Several days later, McCrum`s FT Alphaville colleague
+
+[Cardiff Garcia](https://twitter.com/CardiffGarcia/status/494525947887239168/photo/1)
+
+tweeted that wage growth was weak across advanced economies:
+
+What`s the real story? How can wage growth be weak and small caps be pressured by wage growth? Is this a case of the technicals (small cap underperformance) telling one story and the fundamentals (wage growth) telling another?
+
+**There is always a divergence somewhere**
+
+Today, US equities continue to experience negative divergences. As an example,
+
+[Mark Cook](http://www.marketwatch.com/story/stock-trader-who-called-three-crashes-sees-20-collapse-2014-07-28?siteid=rss&rss=1)
+
+uses a proprietary breadth measurement to gauge the health of the stock market and he is seeing conditions similar to the tops in 2000 and 2007 (emphasis added):
+
+> Mark Cook, a veteran investor included in Jack Schwager’s best-selling book, “Stock Market Wizards,” and the winner of the 1992 U.S. Investing Championship with a 563% return, believes the U.S. market is in trouble.
+> 
+> The primary indicator that Cook uses is the “Cook Cumulative Tick,” a proprietary measure he created in 1986 that uses the NYSE Tick in conjunction with stock prices. His indicator alerted him to the 1987, 2000, and 2007 crashes. The indicator also helped to identify the beginning of a bull market in the first quarter of April 2009, when the CCT unexpectedly went up, turning Cook into a bull.
+> 
+> What does Cook see now?
+> 
+> “***There have been only two instances when the NYSE Tick and stock prices diverged radically, and that was in the first quarter of 2000 and the third quarter of 2007\. The third time was April of 2014***,” Cook says.
+> 
+> In simple terms, as stock prices have gone higher, the NYSE Tick has moved lower. This divergence is an extremely negative signal, which is why Cook believes the market is losing energy.
+> 
+> In fact, the Tick is showing a bear market, which seems impossible considering how high the market is rising.
+> 
+> “The Tick readings I am seeing (-1100 and -1200) is like an accelerator on the floor that is pressed for an indefinite amount of time,” Cook says. “Eventually the motor will run out of gas. Now, anything that comes out of left field will create a strain on the market.” Since the CCT is a leading indicator, prices have to catch up with the negative Tick readings.
+> 
+> “Think of a dam that has small cracks that are imperceptible to the eye,” he says. “Finally, the dam gives way. Eventually, prices will go south, and the Tick numbers will be horrific.”
+> 
+> Cook is also concerned that the market is acting abnormally. “***It’s like being in the Twilight Zone***," he says. “***Imagine going outside when it’s raining and getting sunburned. That’s the environment we’re in right now***.”
+
+[Josh Brown](http://www.thereformedbroker.com/2014/07/30/theres-always-a-divergence/)
+
+ aptly wrote last week that there is always a divergence somewhere and sometimes they matter and sometimes they don`t:
+
+> The thing is, there is always a divergence. Sometimes they matter, sometimes they don’t. Sometimes one key divergence that was extremely important ends up meaning exactly zero the next time around. A single divergence, in and of itself, has all of the reliable predictive power of a bowl of chicken bones spilled out across the table.
+> 
+> And since no one has ever been able to prove otherwise – isolating a single divergence and showing a consistent win rate based on following it – you’re going to have to take my word for it.
+
+My view is that unless this decline has a fundamental underpinning, any pullback is likely to be ephemeral. Without fundamental support, the downside for any market weakness is going to be highly limited. The last time the market declined in any major fashion was 2011\. Recall that episode was driven by the combination of a eurozone debt crisis and fiscal uncertainty due to a political impasse in Washington.
+
+**What's the fundamental bearish trigger?**
+
+So what`s the fundamental trigger this time? The most likely one is a fear of rising interest rates. Perennial bear 
+
+[Ambrose Evans-Pritchard](http://www.telegraph.co.uk/finance/comment/ambroseevans_pritchard/11001286/Global-QE-ends-as-China-opens-second-front-in-bond-tapering.html)
+
+pointed out that it isn`t just the Fed, but China is also tapering and withdrawing global liquidity:
+
+> The spigot of global reserve stimulus is slowing to a trickle. The world's central banks have cut their purchases of foreign bonds by two-thirds since late last year. China has cut by three-quarters.
+> 
+> These purchases have been a powerful form of global quantitative easing over the past 15 years, driven by the commodity bloc and the rising powers of Asia.
+> 
+> They have fed demand for US Treasuries, Bunds and Gilts, as well as French, Dutch, Japanese, Canadian and Australian bonds and parastatal debt, displacing the better part of $12 trillion into everything else in a universal search for yield. Any reversal would threaten to squeeze money back out again.
+
+In separate article, Evans-Prichard asserted that the "
+
+[World is at inflexion point as Fed tightening looms](http://blogs.telegraph.co.uk/finance/ambroseevans-pritchard/100027832/world-is-at-inflexion-point-as-fed-tightening-looms/)
+
+":
+
+> The Third Taper Tantrum has been postponed, perhaps. It has not been averted.
+> 
+> The US Federal Reserve is preparing to tighten. Dallas Fed chief Richard Fisher said today that rates may rise early next year: “we are closer to lift-off than the market assumed we were, sometime late in 2015\. I believe we moved that forward significantly,” he told CNBC.
+
+He concluded:
+
+> Suddenly the world we have all know for the last five years is swivelling into reverse. The US will soon stop leaking emergency liquidity into the world economy, stoking asset bubbles everywhere.
+> 
+> The exact opposite may now happen. The Fed will tighten because the US is strong enough to withstand the pain – or thinks it is – causing a flood of capital back into dollar assets. The global liquidity will be vacuumed up again.
+> 
+> As the saying goes, never fight the Fed.
+
+The interest fear thesis could be the trigger for stock market weakness. While such a change in psychology could trigger a correction, it is unlikely to signal the start of a full-blown bear market because the initial hike in rates is linked to rising growth, which is bullish for equity fundamentals. David Rosenberg explained it this way (via
+
+[Business Insider](http://www.businessinsider.com/rosenberg-bull-market-wont-end-after-first-rate-hike-2014-7)
+
+):
+
+> Rosenberg points out that the last rate hike occurred in 2006\. And that in fact now it will be nine years before a hike. He writes that a rate hike is "long overdue," and that he is worried the Fed might outstay its welcome.
+> 
+> "The history books show that at no time did a bull market end after the first rate hike. Typically — in terms of trough to peak moves in the SP 500 — we are only one-third of the way into the bull run on the eve of the first Fed tightening in rates. That is an average, but the median is almost identical and there has never been a time when the cycle was more than halfway through at that point of the first rate increase."
+> 
+> He points out that the stock market only begins to "peak out and roll over —in terms of magnitude, not just duration," when Fed rate hikes are already under way.
+
+My inner investor is watching carefully whether stock prices remain correlated with bond prices, as they did late last week, or if they remain negatively correlated as they have recently. If stock and bond prices move together, then equities are likely to correct further because of interest rate fears. In the meantime, the US economy continue to motor along and EPS growth continue to be positive.
+
+On the other hand, my inner trader is more focused on the technical picture and he remains bearish intermediate term. However, he is acutely aware that the market is short-term very oversold and could see a counter-trend rally at any time (see
+
+[Still bearish, but watch for the dead cat bounce](http://humblestudentofthemarkets.blogspot.ca/2014/07/still-bearish-but-watch-for-dead-cat.html)
+
+). He has therefore covered his shorts and taken a small speculative long position.
+
+As the chart below shows, my favorite
+
+[overbought-oversold indicator](http://www.tradersnarrative.com/finding-buy-points-with-moving-average-ratios-4021.html)
+
+is flashing an oversold signal. In the past (dotted vertical lines), oversold readings have generally led to rebounds in stock prices - except when it has signaled the start of a more prolonged decline.
+
+My best guess is that current conditions resemble the corrective periods in 2011 and 2012, when we saw a series of recurring oversold signals which culminated in the final pullback that marked those episodes. We just have to figure out what the fundamental trigger for market weakness.
+
+**How to subscribe to Trend Model updates**
+
+To subscribe to my posts, which include Trend Model updates, click on one of these links on the sidebar or follow me via Twitter @humblestudent:
+
+**Disclosure:**
+
+Long TNA

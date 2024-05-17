@@ -1,0 +1,80 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:35:16
+-->
+
+# Humble Student of the Markets: Three eclectic bullish trade ideas
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/08/three-eclectic-bullish-trade-ideas.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/08/three-eclectic-bullish-trade-ideas.html#0001-01-01)
+
+As promised, further to my recent post where I indicated that I would write about some bullish ideas (see
+
+[A tradable bottom?](http://humblestudentofthemarkets.blogspot.com/2014/08/a-tradable-bottom.html)
+
+), here are three eclectic and out-of-the-box trade ideas for bulls. Each of them embody a different investment theme and each has different risk profiles and time horizons.
+
+**Russia as the deep value play**
+
+Carla Fried of
+
+[Ycharts](http://ycharts.com/analysis/story/market_beater_and_supercontrarian_david_iben_on_russian_stocks)
+
+highlighted analysis by contrarian manager David Iben on Russia:
+
+> In a [recent note to shareholders](http://kopernikglobal.com/sites/default/files/THE%20SADDLE%20RIDGE%20HOARD.pdf) Iben drew a comparison between one of the finest contrarian investors of all time, the late John Templeton, dove into a battered Japanese stock market in the 1960s (when stocks were trading at low single digit PE ratios) and the opportunity Iben sees today in Russia.
+> 
+> The fact that Russia is a mess is a feature, not a bug for contrarians like Iben. In laying out his case for Russia, Iben invoked one of Templeton’s investing commandments: “People are always asking me where the outlook is good, but that’s the wrong question…. The right question is: Where is the outlook the most miserable?”
+> 
+> Iben clearly makes a case for Russia’s misery factor, and seems practically giddy about it: “Having lost the Cold War two decades ago, still hated passionately by many, infamous for organized crime and corruption, powerful oligarchs worth billions, and an emerging market, its stock market is now selling at a mere 5 times earnings and 0.6 times book value!!”
+
+As confirmation of the contrarian value theme, Jim Grant said the following about Russia energy giant Gazprom back in May when the Russia-Ukraine crisis started hitting the headlines (via
+
+[Business Insider](http://www.businessinsider.com/jim-grant-makes-bull-case-for-gazprom-2014-5)
+
+):
+
+> Yeah. So this is – first of all, it’s a huge company. Revenues of $150 billion. The market cap is immense. They earn a lot of money even after, as my friend (inaudible) even after stealing they earn a lot of money. They pay a 5 percent dividend. As recently as 2006, the stock changed hands at 10 times the estimated earnings. So now it’s at 2.5\. And why is that? Well, because people know that there will be even more extreme and costly sanctions imposed on Russia. They know that something terrible is going to happen with the Ukraine election in a couple of weeks. And well it might. There is certitude about outcomes that is notable given that so few people saw the current set of outcomes approaching some months ago. So in addition to the epigram that good things happen to cheap stocks, I will offer this epigram. This too will pass.
+
+He did qualify his report by stating:
+
+> "Here’s a test of suitability for this investment," said Grant. "You can’t care about the time."
+
+From a technical viewpoint, this chart below of the Russia ETF (RSX) appears to be trying to make a bottom. Even though the eruption of the latest round of geopolitical tensions, RSX failed to make a lower low. The relative performance chart of RSX to ACWI (MSCI All-Country World Index ETF) in the bottom panel shows that RSX remains in a relative downtrend, though it does seem to be finding relative support - which is positive.
+
+**An entry point for the Druckenmiller AMZN-IBM pair?**
+
+In November, 2013,
+
+[Bloomberg](http://www.businessweek.com/news/2013-11-22/druckenmiller-shorting-ibm-in-bet-cloud-computing-to-replace-it)
+
+featured an interview with Stan Druckenmiller about technology companies. Druckenmiller proceeded to pan IBM in the worst way possible:
+
+> Stan Druckenmiller, who has one of the best track records in the hedge-fund industry over the past three decades, said he’s betting against the shares of International Business Machines Corp. (IBM) because the company’s business will be replaced by technology such as cloud computing.
+> 
+> “It’s one of the more higher-probability shorts I have seen in years,” Druckenmiller, 60, said in an interview with Bloomberg TV’s Stephanie Ruhle at the Robin Hood Investors Conference in New York today. “IBM is old technology being replaced by cloud technology.”
+
+By contrast, he praised Amazon.com for its its efforts in cloud computing:
+
+> Druckenmiller said he is betting on Amazon.com Inc. (AMZN), and praised CEO Jeff Bezos. Amazon’s Web Services division, whose server farms generate the processing power the retailer sells to heavy corporate data users on the cheap, “is killing it,” he said. IBM should be investing in its business and taking on the “challenge of the Amazons of the world” instead of doing share buybacks, according to Druckenmiller.
+> 
+> “I think he’s a serial monopolist,” Druckenmiller said of Amazon’s Bezos.
+
+While Druckenmiller did not specifically describe a long AMZN-short IBM position as a pair trade, I chose to interpret it that way and the pair chart is shown below. At the time of the article, the pair trade was somewhat extended in favor of AMZN. Since then, the pair has come back down to earth a bit and current levels could serve as a good entry point.
+
+**Semiconductors, the momentum play**
+
+I have written before that my research has shown that in a bull phase, traders are best served by buying the hot industries and sectors showing the best price momentum (see
+
+[Momentum + Bull market = Chocolate + Peanut butter](http://humblestudentofthemarkets.blogspot.com/2012/09/momentum-bull-market-chocolate-peanut.html)
+
+).
+
+On the weekend, I called for an oversold rally to start (see 
+
+[A tradable bottom?](http://humblestudentofthemarkets.blogspot.com/2014/08/a-tradable-bottom.html)
+
+). In such an instance, the highest beta momentum group to play appears to be the semiconductor stocks. As the chart below of the relative performance of SOX to SPX shows, the semiconductor stocks have been displaying leadership qualities for all of 2014\. The recent retreat, which was due to the minor pullback that we saw in the last couple of weeks, shows the group to have come down to a reasonable long entry point for traders to want to play the momentum game.
+
+**Disclaimer**
+
+I want to repeat my previous caveat that these are all different kinds of trade ideas encompassing different investment themes, different time horizons and different levels of risk. Not all ideas are suitable for everyone. While I have no positions in any of these trades at the moment, I could initiate a position at any time. Further, I know nothing about your portfolio or your risk tolerance. Do your own due diligence before putting on any of these positions.
