@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:54:15
+-->
+
+# Physics Perspective: Beating the dead horse of rational expectations...
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/11/beating-dead-horse-of-rational.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/11/beating-dead-horse-of-rational.html#0001-01-01)
+
+The above award should be given to University of Oxford economist Simon Wren-Lewis for concocting
+
+[yet another defense](http://mainlymacro.blogspot.se/2013/11/defending-rational-expectations.html)
+
+of the indefensible idea of Rational Expectations (RE). Gotta admire his determination. I've written about this idea many times (
+
+[here](http://physicsoffinance.blogspot.com/2013/05/blind-on-purpose-equilibrium-as.html)
+
+and
+
+[here](http://physicsoffinance.blogspot.com/2013/04/how-to-misunderstand-crises-with.html)
+
+, for example), and I thought it had died a death, but that was obviously not true. I'm not going to say too much except to note that the strategy of the Wren-Lewis argument is essentially to ask "what are the alternatives to Rational Expectations?," then to mention just one possible alternative that he calls "naive adaptive expectations," and then to go on to criticize this silly alternative as being unrealistic, which it indeed is. But that's no defense of RE.
+
+He doesn't ever address the question of why economists don't use more realistic ways to model how people form their expectations, for example by looking to psychology and experimental studies of how people learn (especially through social interactions and copying behavior). The only defense he offers on that score is to say they don't want too many details because they seek a "simple" way to model expectations so they can solve their favorite macroeconomic models. That fact that this renders such models possibly quite useless and misleading as guides to the real world doesn't seem to give him (or others) pause.
+
+Lars Syll was a target in the Wren-Lewis post and has a nice rejoinder
+
+[here](http://larspsyll.wordpress.com/2013/11/08/simon-wren-lewiss-attempt-at-rescuing-rational-expectations-an-unmitigatted-failure/#comment-7564)
+
+. In comments, others raised concerns about why Lars didn't mentioned specific alternatives to RE. I added a comment there, which I'll reproduce here:
+
+> It seems to me that there are clear alternatives to rational expectations and I'm not sure why economists seem loath to use then. Simon Wren-Lewis gives one alternative as naive "adaptive expectations", but this seems like a straw man. Here people seem to believe more or less that trends will continue. That is truly naive. Expectations are important and the psychological literature on learning suggests that people form them in many ways, with heuristic theories and rules of thumb, and then adjust their use of these heuristics through experience. This is the kind of adaptive expectations that ought to be used in macro models.
+> 
+> From what I have read, however, the vast "learning literature" in macroeconomics that defenders of RE often refer to really doesn't go very far in exploring learning. A review I read as recently as 2009 used learning algorithms which ASSUMED that people already know the right model of the economy and only need to learn the values of some parameters. I suspect this is done on purpose so that the learning process converges to RE -- and an apparent defense of RE is therefore achieved. But this is only a trick. Use more realistic learning behavior to model expectations and you find little convergence at all -- just ongoing learning as the economy itself keeps doing new things in ways the participants never quite manage to predict.
+> 
+> As Simon Wren-Lewis himself notes, " it is worth noting that a key organising device for much of the learning literature is the extent to which learning converges towards rational expectations." So again, it seems as if the purpose of the model is to see how we can get the conclusion we want, not to explore the kinds of things we might actually expect to see in the world. This is what makes people angry and I think rightfully about the RE idea. I suspect that REAL reason for this is that, if one uses more plausible learning behavior (not the silly naive kind of adaptive expectations), you find that your economy isn't guaranteed to settle down to any kind of equilibrium, and you can't say anything honestly about the welfare of any outcomes, and so most of what has been developed in economics turns out to be pretty useless. Most economists find that too much to stomach.
+
+One day soon I hope this subject really will be a dead horse.
