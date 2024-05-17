@@ -1,0 +1,38 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:37:48
+-->
+
+# Humble Student of the Markets: Hayek vs. Keynes rap song
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/02/hayek-vs-keynes-rap-song.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/02/hayek-vs-keynes-rap-song.html#0001-01-01)
+
+A friend of mine sent me the following link called
+
+[Fear the Boom and Bust](//www.youtube.com/watch?v=d0nERTFo-Sk)
+
+:
+
+<param name="movie" value="//www.youtube.com/v/d0nERTFo-Sk&amp;hl=en_US&amp;fs=1&amp;"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="//www.youtube.com/v/d0nERTFo-Sk&amp;hl=en_US&amp;fs=1&amp;" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true">
+
+It's an amusing but instructive video of the dichotomy between the philosophies of Keynes and Hayek, of the Austrian school of economics. It also starkly highlights the philosophical divide between policymakers and investors.
+
+**Policy paralysis**
+
+The Keynes vs. Hayek debate is illustrative of the investor dilemma of the inflation/deflation call. If the two schools "have been going back and forth for a century" and the outcome is so
+
+[policy dependent but policymakers can't decide on what to do](http://humblestudentofthemarkets.blogspot.com/2010/02/inflation-or-deflation-cancer-or-heart.html)
+
+. As an example, consider John Mauldin's musings this week on the
+
+[dilemma facing Europe](http://www.ritholtz.com/blog/2010/02/the-pain-in-spain/)
+
+and by extension, Japan and the United States [emphasis mine]:
+
+> This is the nature of the End Game I have been writing about. ***The decisions are now political***. How do we unwind the debts and the leverage? How much pain do we postpone and how much do we take on today? It is the same question for much of Europe, Great Britain (serious problems there), Japan (which is a bug in search of a windshield), and the US. ***We now have a limited number of path-dependent options. By that I mean the political paths chosen by the various governments will dictate the economic path we go down.***
+
+It's no wonder why investors can't make a definitive decision on the crucial
+
+[inflation vs. deflation call](http://www.qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf)
+
+either.
