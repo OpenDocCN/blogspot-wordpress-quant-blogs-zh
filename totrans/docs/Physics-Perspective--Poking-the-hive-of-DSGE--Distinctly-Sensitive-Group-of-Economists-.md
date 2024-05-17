@@ -1,0 +1,54 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:57:15
+-->
+
+# Physics Perspective: Poking the hive of DSGE (Distinctly Sensitive Group of Economists)
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/04/poking-hive-of-dsge-distinctly.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/04/poking-hive-of-dsge-distinctly.html#0001-01-01)
+
+The other day when I wrote my recent post
+
+[What you can learn from DSGE](http://physicsoffinance.blogspot.fr/2013/04/what-you-can-learn-from-dsge.html)
+
+, I expected that maybe 6 or 8 people would read it. I mean, it's a fairly tiny fraction of people who really want to read about the methodology of economic modelling, even if some people like myself insist on writing about it occasionally. So I was surprised that this post seems to have drawn considerable attention, especially from economists (apparently) writing on the forum
+
+[econjobrumors](http://www.econjobrumors.com/topic/physicist-what-can-you-learn-from-dsge-nothing)
+
+. An economist I know told me about this site a while back, describing it as a hornet's nest of vicious criticism and name calling.
+
+Now I know this first hand: the atmosphere there is truly dynamic and stochastic, choked with the smog of blogosphere-style vitriol (one commenter even suggesting that I should be shot!). Some comments were amusing and rather telling. For example, writing anonymously, one reader commented that....
+
+> I like how this blogger cites a GMU Ph.D. student as an example of someone considering alternatives to rational expectations. The author has no idea that such work has been going on for decades. He doesn't know s**t.
+
+Actually, I never implied that alternatives had never been considered before. In any event, I guess the not-so-hidden message here is that grad students from GMU -- and not even in a Department of Economics, tsk! tsk! -- shouldn't be taken seriously. Maybe the writer was just irritated that the graduate student in question, Nathan Palmer, was co-author on
+
+[the paper](http://www.aeaweb.org/articles.php?doi=10.1257/aer.102.3.53)
+
+, recently published in the
+
+*American Economic Review*
+
+, that I just wrote about in Bloomberg. AER is a fairly prominent outlet, I believe, taken seriously in the profession. It seems that some real economists must agree with me that this work is pretty interesting.
+
+Most of the other comments were typical of the blog-trashing genre, but one did hit on an interesting point that deserves some further comment:
+
+> ...the implication that physicists or other natural scientists would never deploy the analytic equivalent of a representative agent when studying physical processes is not quite correct.
+> 
+> Mean Field Theory:
+> 
+> In physics and probability theory, mean field theory (MFT also known as self-consistent field theory) studies the behavior of large and complex stochastic models by studying a simpler model. Such models consider a large number of small interacting individuals who interact with each other. The effect of all the other individuals on any given individual is approximated by a single averaged effect, thus reducing a many-body problem to a one-body problem.
+> 
+> The ideas first appeared in physics in the work of Pierre Curie[1] and Pierre Weiss to describe phase transitions.[2] Approaches inspired by these ideas have seen applications in epidemic models,[3] queueing theory,[4] computer network performance and game theory.[5]
+
+This is a good point, although I definitely never suggested that this technique is not used in physics. The mean field approach in physics is indeed the direct analogy to the representative agent technique. Theorists use it all the time, as it is simple and leads quickly to results that are sometimes reasonably correct (sometimes even exact). And sometimes not correct.
+
+In the case of a ferromagnet such as iron, the method essentially assumes that each elementary magnetic unit in the material (for simplicity, think of it as the magnetic moment of a single atom that is itself like a tiny magnet) acts *independently of every other.* That is, each one responds to the overall mean field created by all the atoms throughout the entire material, rather than to, for example, its closest neighbors. In this approximation, the magnetic behavior of the whole is simply a scaled up version of that of the individual atoms. Interactions between nearby magnetic elements do not matter. All is very simple.
+
+Build a model like this -- you'll find this in any introductory statistical mechanics book -- and you get a self-consistency condition for the bulk magnetization. Lo and behold, you find a sharp phase transition with temperature, much like what happens in real iron magnets. A piece of iron is non-magnetic above a certain critical temperature, and spontaneously becomes magnetic when cooled below that temperature. So, voila! The mean field method works, *sometimes.* But this is only the beginning of the story.
+
+Curie and Weiss wrote down theories like this in the early 1900s and this way of thinking remained in fashion into the 1950s. Famed Russian physicist Lev Landau developed a much more general theory of phase transitions based on the idea. But here's the kicker -- since the 1960s, i.e. for half a century now, we have known that this theory does not work in general, and that the mean field approximation often breaks down badly, because different parts of a material aren't statistically independent. Especially near the temperature of the phase transition, you get strong correlations between different magnetic moments in iron, so what one is doing strongly influences what others are likely to be doing. Assume statistical independence now and you get completely incorrect results. The mean field trick fails, and sometimes very dramatically. As a simple example, a string of magnetic elements in one dimension, held on a line, does not undergo *any phase transition at all*, in complete defiance of the mean field prediction.
+
+An awful lot of the most interesting mathematical physics over the past half century has been devoted to overcoming this failure, and to learning how go beyond the mean field approximation, to understand systems in which the correlations between parts are strong and important. I believe that it will be crucial for economics to plunge into the same complex realm, if any serious understanding is to be had of the most important events in finance and economics, which typically do involve strong influences acting between people. The very successful models that John Geanakoplos developed to predict mortgage prepayment rates only worked by including an important element of contagion -- people becoming more likely to prepay when many others prepay, presumably because they become more aware of the possibility and wisdom of doing so.
+
+Unfortunately, I can't write more on this now as I am flying to Atlanta in a few minutes. But this is a topic that deserves a little further examination. For example, those power laws that econophysicists seem to find so fascinating? These also seem to really irritate those writing on econjobrumors. But what we know about power laws in physical systems is that they are often (though not always) the signature if strong correlations among the different elements of a system....  so they may indeed be trying to tell us something.
