@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:51:19
+-->
+
+# Physics Perspective: Medium Tedium
+
+> 来源：[http://physicsoffinance.blogspot.com/2014/06/medium-tedium.html#0001-01-01](http://physicsoffinance.blogspot.com/2014/06/medium-tedium.html#0001-01-01)
+
+In comments on my last post, Gekko asks quite rightly why I've been doing this silly business of posting two paragraphs and then linking to "more at Medium." It's a good question, so let me explain what's going on. I know it's irritating, and I'd like not to do it, but ....
+
+A while back, Medium asked me to write some things for them. They pay a few writers (a little, very little, in my case) and are in the stages of trying to get their project growing. What it will grow into remains unknown. I do like their layout, and would like to be involved in Medium if and when it turns into the next big thing, whatever that might be.... but I also don't want to just go over there and abandon my blog. First, Medium is just articles; you can't have any sidebars with links to other people's sites, and I think such links are valuable, so visiting there is very different. Two, I don't know if Medium won't just disappear two months from now.
+
+So, I'm left with this very unsatisfying business of posting two paragraphs here, and then linking there. (By contract, I'm not supposed to post in both places, at least not before a significant delay.). I'm not sure what else to do. The dilemma has in fact hurt my blogging, as some days I've started writing about something, then fallen into internal debate about whether to post here, or over there, or what else I might do, and then.... just gave up after an hour and did something else, like clean the gutters or walk the dogs.
+
+If anyone has any ideas, I'd love to hear them!
