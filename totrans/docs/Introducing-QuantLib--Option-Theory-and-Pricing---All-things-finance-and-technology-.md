@@ -1,0 +1,108 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:46:23
+-->
+
+# Introducing QuantLib: Option Theory and Pricing | All things finance and technology…
+
+> 来源：[https://mhittesdorf.wordpress.com/2013/07/05/introducing-quantlib-option-theory-and-pricing/#0001-01-01](https://mhittesdorf.wordpress.com/2013/07/05/introducing-quantlib-option-theory-and-pricing/#0001-01-01)
+
+Welcome back! In this post, I will demonstrate how to use QuantLib to price an option. Specifically, we will price a ‘plain vanilla’ option of the kind listed on the major public derivatives exchanges, such as the Chicago Board Options Exchange (CBOE). But first, I will need to introduce and define some fundamental concepts and terms central to option pricing theory.
+
+An option is a financial instrument whose value derives from the value of another instrument often called the *underlying*.  As such, an option belongs to a category of financial instrument known as a *derivative*.  The valuation of derivatives is where QuantLib really shines, as this was one of the primary motivations for creating the library in the first place.
+
+An equity option is a derivative whose value depends on the price of a stock (S), such as AAPL. Options come in two flavors, calls and puts. A call grants the buyer the right, but not the obligation, to buy a specified number of shares of the underlying, usually 100, at the option’s *strike* price, often abbreviated as ‘K’. A put grants the buyer the right, but not the obligation, to sell a specified number of shares at the strike price.
+
+Options have an associated expiration date after which time the buyer of the option loses his right to buy or sell the underlying and the option becomes worthless.  Exchange traded options have standardized expiration dates, typically the third Friday of the month.  In recent years, exchanges have also listed options that expire weekly, at the end of the month, at the end of the quarter, etc.
+
+If the option is governed by *European* exercise rules, the buyer of a call or put may choose to purchase or sell, respectively, the underlying only at option expiration. An *American* option, on the other hand, permits the option buyer to exercise his rights at any time prior to option expiration.
+
+The first step towards understanding how to price an option is to consider the option’s *payoff. *The payoff of an option defines the value of an option just prior to expiration.
+
+For a call option, the payoff formula is: **max(0, S – K)**
+
+**For a put option, the payoff formula is: **max(0, K – S)****
+
+ **Because the future price (i.e forward price) of a stock is unknown, the price of an option at any time prior to expiration must take into account the possible paths that the stock might take, up or down, from where it currently is, from now to option expiration.  The rate at which the option’s underlying price ‘moves around’ is measured by it’s *volatility, *which conceptually corresponds to a one standard deviation change in the return on the underlying, typically calculated as ln(St+1/St).  For options that are currently *out of the money*, where the payoff formula equates to zero, higher volatility translates to a higher option price, as the odds that the option finishes *in the money* with a payoff of greater than zero, is increased.
+
+As you may recall from one of my early ‘Introducing QuantLib’ posts, to determine the value of a future cash flow, such as an option payoff,  it is necessary to calculate the present value of that cash flow.  We do this by discounting the cash flow at the risk-free rate (r), assuming continuous compounding.  Being that an option’s future cash flow is based on a random variable, the underlying forward price,  it is the* expected value* of the option’s payoff that must be discounted.  Conceptually, then, a call option’s value is governed by the following formula, where E is the expectation operator.
+
+** Vc= e^(-rt) * E(max(0,  S – K))**
+
+Similarly, the value of a put option is realized by the formula:
+
+** Vp = e ^ (-rt) *  E(max(0, K – S))**
+
+Itis important to note that this analysis makes the simplifying assumption that the underlying stock pays no dividends over the life of the option.
+
+From the appendix in Chapter 13 of the book [Options, Futures and Other Derivatives, 6th Edition by John Hull](http://www.amazon.com/Options-Futures-Other-Derivatives-Edition/dp/0131499084/ref=sr_1_fkmr2_2?ie=UTF8&qid=1372906406&sr=8-2-fkmr2&keywords=options+futures+and+other+derivatives+6h+edition+hull), the expected value of the payoff for a call option is defined as:
+
+[![expectedvaluecalloption](img/3974437a3fd9764fda59058eb0018175.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/expectedvaluecalloption2.png)
+
+where f(S) is the probability density function (pdf) of the natural log of S, and dS denotes the change in the stock price over a very small period in time.  The formula is similar for a put option – just substitute (K – S) for the payoff calculation.
+
+You may be asking why f(S) is the pdf of the log of the underlying price. This is due to the fact that underlying prices are distributed lognormally. This must be so given that a stock price cannot be less than zero and that stock returns, calculated as ln(St+1/St) (assuming continuous compounding) are normally distributed.  For a more thorough explanation of the lognormal property of stock prices, I recommend that you consult section 13.1 of the Hull book referenced above.
+
+Given what has been presented thus far, do we have enough information to actually price a call option? As it turns out, we do.  Check out the following source code listing, which numerically integrates the payoff for a call option multiplied by the probability for a given value of S from K to 10*K (a relatively large number that serves effectively as ‘infinity’).
+
+```
+ #include <iostream> 
+#include <cstdlib>
+#define BOOST_AUTO_TEST_MAIN
+#include <boost/test/unit_test.hpp>
+#include <boost/detail/lightweight_test.hpp>
+#include <ql/quantlib.hpp>
+#include <boost/format.hpp>
+#include <boost/math/distributions.hpp>
+#include <boost/function.hpp>
+
+namespace {
+
+using namespace QuantLib;
+
+Real expectedValueCallPayoff(Real spot, Real strike,
+        Rate r, Volatility sigma, Time t, Real x) {
+    Real mean = log(spot)+(r - 0.5 * sigma * sigma) * t;
+    Real stdDev = sigma * sqrt(t);
+    boost::math::lognormal d(mean, stdDev);
+    return [PlainVanillaPayoff](http://quantlib.org/reference/class_quant_lib_1_1_plain_vanilla_payoff.html)(Option::Type::Call, strike)(x) * boost::math::pdf(d, x);
+}
+
+BOOST_AUTO_TEST_CASE(testPriceCallOption) {
+    Real spot = 100.0; //current price of the underlying stock (S)
+    Rate r = 0.03; //risk-free rate
+    Time t = 0.5;  //half a year
+    Volatility vol = 0.20; //estimated volatility of underlying
+    Real strike = 110.0; // strike price of the call (K)
+
+    //b need not be infinity, but can just be a large number that is improbable
+    Real a = strike, b = strike * 10.0;
+
+    boost::function< Real(Real) > ptrToExpectedValueCallPayoff = 
+        boost::bind(&expectedValueCallPayoff, spot, strike, r, vol, t, _1);
+
+    Real absAcc = 0.00001;
+    Size maxEval = 1000;
+    SimpsonIntegral numInt(absAcc, maxEval); 
+
+    /* numerically integrate the call option payoff function from a to b and
+     * calculate the present value using the risk free rate as the discount factor
+     */ 
+    Real callOptionValue = numInt(ptrToExpectedValueCallPayoff, a, b) * std::exp(-r * t); 
+
+    std::cout << "Call option value is: " << callOptionValue << std::endl;
+}}
+```
+
+When run, this code produces the following output:
+ `Call option value is: 2.6119` 
+
+Is this the correct value for the price of the call option? Let’s verify the price against a third-party option pricing calculator I found on the Web at [http://www.option-price.com](http://www.option-price.com/index.php).  A screen shot is below:
+
+[![wwoptionpricecom](img/8d5306b6bee9cae89b6ca05183fb10db.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/wwoptionpricecom.png)
+
+As you can see, the ‘Theoretical Price’ printed in the ‘Call Option’ column agrees with the value that we calculated! So we should feel confident that the approach presented is theoretically correct. However, as you’ll see in upcoming posts, the approach is overly simplified as it assumes constant volatility, no dividends and a single, constant discount factor.  Numerical integration is also very slow and not very flexible compared to alternative approaches.
+
+In the real world, to accurately price and trade an option, one must come up with a way to model and manage volatility, dividend and interest rate curves that can vary with time, expiration and/or strike. And, in this age of electronic, high-frequency trading, option prices must be calculated at microsecond speeds. Fortunately, QuantLib provides an extensive, sophisticated framework for ‘real world’ option pricing, which I’ll dive into in the near future. So check back soon for a more in-depth, comprehensive treatment of pricing options with QuantLib.
+
+I hope you enjoyed this latest installment of my blog.  Until next time, have fun with QuantLib and, as always, I encourage feedback, comments and questions.  Thanks!**

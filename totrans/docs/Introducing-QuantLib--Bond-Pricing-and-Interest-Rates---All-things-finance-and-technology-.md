@@ -1,0 +1,48 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:45:52
+-->
+
+# Introducing QuantLib: Bond Pricing and Interest Rates | All things finance and technology…
+
+> 来源：[https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01)
+
+In my last post I demonstrated how to calculate the present value of a future cash flow. Specifically, we used QuantLib to back out the principal amount of a $100 one year loan with a 5% interest rate compounded annually given the amount due, $105, at the maturity of the loan. In this post, we’ll apply the same technique to price a 3 year fixed-rate bond with a face value of $100 and an interest rate of 3% that pays annual coupons of 5% compounded annually.  The code, as you might expect, is very similar to the code to calculate the loan principal as the basic concept is the same:
+
+#include <ql/quantlib.hpp>
+
+#include <iostream>
+
+#define BOOST_AUTO_TEST_MAIN
+
+#include <boost/test/unit_test.hpp>
+
+BOOST_AUTO_TEST_CASE(testCalculateBondPrice) {
+Leg cashFlows;
+Date date = Date::todaysDate();
+cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date+365)));
+cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date + 2*365)));
+cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(105.0, date + 3*365)));
+Rate rate = .03;
+Real npv =
+CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(ActualActual::Bond), Compounded, Annual), true);
+std::cout << “Price of 3 year bond with annual coupons is: ” << npv << std::endl;
+}
+
+When run, this code produces the output:
+
+`Price of 3 year bond with annual coupons is: 105.657`
+
+Now that we’ve seen a couple examples of computing present value, I’d like to focus specifically on the interest rate component of these calculations. In the examples we’ve seen thus far, the interest rate has been an annual rate compounded annually. What does this mean exactly?
+
+Let’s first talk about the concept of an interest rate period.  An interest rate period is the time duration over which interest accrues on a loan or other cash flow. My first loan example had only one time period, at the end of which, the principal and interest was due.  This is an example of ‘simple interest’  calculated as P(1+RT), where P = Principal, R=Rate, and T = time.  If the duration of a loan is broken down into multiple time periods and the interest accrued over one time period is automatically re-invested or rolled over into the next time period, then the interest is said to compound.  The formula for compound interest is P(1+R)^T. Each one of the annual coupons in the bond pricing example above , when paid, is assumed to be re-invested at the bond’s rate, which is 3%. So a bond’s interest rate is an annual rate, compounded annually. Compounding periods need not be annual. They can be semi-annual, monthly, weekly, daily, etc. In fact, the period can be made so short that the interest accrued is constantly rolling over.  The interest rate, in this case, is subject to continuous compounding. The formula for continuous compounding is Pe^RT.
+
+QuantLib implements all of these interest rate concepts in its [InterestRate](http://quantlib.org/reference/class_quant_lib_1_1_interest_rate.html) class. The non-default InterestRate constructor takes a Rate, a DayCounter, a Compounding type and a Frequency.  The DayCounter specifies the convention for how to determine which days over the duration of the loan should be ‘counted’ for the purposes of determining when an interest rate period begins and ends subject to holiday and business calendars, which vary by market, financial instrument and locality.  Day count conventions can be quite difficult to implement correctly in practice. Thankfully, QuantLib’s InterestRate class shields us from this complexity.
+
+So that’s it until my next post, where I’ll show how to calculate equivalent rates. Thus, we will be able to compare, for example, a 5% rate compounded semi-annually to a 4.9% rate compounded continuously to determine which one is actually a higher effective rate.
+
+I hope also to introduce a slightly more elaborate method of pricing bonds that relies on a separate  [Schedule](http://quantlib.org/reference/class_quant_lib_1_1_schedule.html) class to generate the bond’s coupons. Moreover, this method provides for a more flexible and realistic way of modeling the ‘term structure’ of interest rates.  So please come back soon and check out the next installment of my blog. Thanks!
+
+## About Mick Hittesdorf
+
+I'm a versatile technical leader with a passion for data analytics, data science and Big Data technology. I have experience working for both large and small organizations, in a variety of roles. I've been responsible for the management and operations of a global data science and analytics platform, developed low latency, proprietary trading systems, managed software development teams, defined enterprise architecture strategies, written white papers and blogs, published articles in industry journals and delivered innovative solutions to clients, both in a consulting and technical sales capacity. My current areas of focus include Big Data, data engineering, data science, R, and Cloud computing
