@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:51:03
+-->
+
+# Physics Perspective: Gattopardo economics
+
+> 来源：[http://physicsoffinance.blogspot.com/2014/07/gattopardo-economics.html#0001-01-01](http://physicsoffinance.blogspot.com/2014/07/gattopardo-economics.html#0001-01-01)
+
+Thomas Palley has written an interesting and provocative
+
+[working paper](http://www.boeckler.de/pdf/p_imk_wp_112_2013)
+
+on "Gattopardo economics" -- his phrase for recent efforts to paper over the fundamental failings of mainstream economic theory by making superficial changes, thereby leaving the main structures intact. Such efforts seek "change that keeps things the same... Gattopardo economics makes change more difficult because it deceives people into thinking change has taken place. By masquerading as change, it crowds-out space for real change."
+
+The name comes from the novel Il Gattopardo (The Leopard) by Giuseppe Tomasi di Lampedusa, about class conflict in Sicily in the 1860s. In the novel, the aristocracy engineers change of a sort that deflects the real threat to their power and leaves them still in charge. 
+
+I don't know if Palley's account of the causes of the financial crisis and subsequent stagnation is definitely correct, but it rings true to me. It was the end result of broad financial de-regulation, coupled with relentless downward pressure on ordinary wages over the past few decades driven by globalization. This set the stage for a three decade credit bubble which ultimately burst. The part I'm not sure about is his claim that stagnant growth now is due to a lack of aggregate demand linked to soaring wealth inequality. Sounds plausible. Anyway, here's his closing summary. The
+
+[whole paper](http://www.boeckler.de/pdf/p_imk_wp_112_2013)
+
+is worth a read:
+
+> The structural Keynesian account of the economic crisis makes clear the role of mainstream economists and the neoliberal paradigm in creating the crisis. Scratch any side of the neoliberal policy box and you quickly find the ideas of mainstream economists. Corporate globalization was justified by appeal to economists’ comparative
+> advantage theory of free trade. The labor market flexibility agenda was justified by economists’ claims that unions and the minimum wage cause unemployment. The retreat from full employment was justified by the Friedman’s theory of the natural rate of unemployment which implied central banks should focus on low inflation as they cannot permanently affect unemployment. The attack on government and regulation was supported by Chicago School claims that costs of market failure are small relative the costs of government failure and policy induced market distortions. Government was also charged with diminishing freedom and paving “the road to serfdom”, so that freedom was best served by a minimalist government or night watchman state. Financial deregulation was justified by claims it would produce a free lunch by increasing efficiency of resource allocation.
+> 
+> After the financial crisis of 2008 many Keynesian economists hoped there would be profound change of theory within the economics profession. The profession stood discredited owing to its complete failure to anticipate the crisis, whereas Keynesian economists had anticipated the crisis and also showed how neoliberal economics contributed to it. However, change has been minimal.
+> 
+> That should not surprise anyone. Neoliberal economics supports the economic and political interests of powerful elites, and those elites have reason to defend it and block change. Even if only sub-consciously, professional economists also have a private (utility maximizing) interest in maintaining neoliberal ideas to the extent that they are intellectually invested in those ideas and their careers have been built on them.
+> 
+> Society is now engaged in a war of ideas, the outcome of which will greatly influence the future. That is because how we explain the crisis will influence the direction of future economic policy. Gattopardo economics is one of the mechanisms for blocking intellectual change. It works by muddying the water and appearing to offer change when in fact it keeps everything the same. That is why it is so important to expose gattopardo economics.
