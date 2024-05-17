@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:56:42
+-->
+
+# Humble Student of the Markets: Why this uncanny recession indicator may not work this time
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2017/02/why-this-uncanny-recession-indicator.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2017/02/why-this-uncanny-recession-indicator.html#0001-01-01)
+
+The chart below depicts the yield curve, as measured by spread between the 10-year and 2-year Treasury yields, (blue line) and equity returns (grey line). The yield curve has been an uncanny recession forecaster. It has inverted ahead of every single recession, and ahead of major equity bear markets.
+
+Unfortunately, this indicator may not work this time.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2017/02/13/why-this-uncanny-recession-indicator-may-not-work-this-time/)
+
+.
