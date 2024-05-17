@@ -1,0 +1,86 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:21:19
+-->
+
+# Humble Student of the Markets: Another American step to Argentina
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/04/another-american-step-to-argentina.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/04/another-american-step-to-argentina.html#0001-01-01)
+
+I have written before about how
+
+[America is going south to Argentina](http://qwestfunds.com/publications/newsletters_pdf/2009_issues/newsletter_september_2009.pdf)
+
+. To recap the story, the FT had an
+
+[extensive article](http://www.ft.com/cms/s/2/778193e4-44d8-11de-82d6-00144feabdc0.html)
+
+that told the story of American and Argentina well [emphasis added]:
+
+> A short century ago the US and Argentina were rivals. Both were riding the first wave of globalization at the turn of the 20th century. Both were young, dynamic nations with fertile farmlands and confident exporters.
+> 
+> Both brought the beef of the New World to the tables of their European colonial forebears. Before the Great Depression of the 1930s, Argentina was among the 10 richest economies in the world…
+> 
+> There was no individual event at which Argentina’s path was set on a permanent divergence from that of the United States of America. ***But there was a series of mistakes and missteps that fit a general pattern. The countries were dealt quite similar hands but played them very differently.***
+
+Elitism crept in in Argentina but early America was anything but elite. Opportunities for anyone but the elite became more and more restricted in Argentina and the economy eventually stagnated. America, by contrast, embraced the ideal of a Land of Opportunity and flourished.
+
+> European emigrants to Argentina had escaped a landowning aristocracy, only to ­recreate it in the New World. The similarities were more than superficial. In the 1860s and 1870s, the landowners regarded rural life and the actual practice of agriculture with disdain. Many lived refined, deracinated lives in the cities, spending their time immersed in European literature and music. The closest they came to celebrating country life was elevating polo, an aristocratised version of a rural pursuit, to a symbol of Argentine athletic elegance. Even then it took an elite form: the famous Jockey Club of Buenos Aires. By the end of the 19th century some were sending their sons to Eton.
+> 
+> America’s move westwards was more democratic. The government encouraged a system of smaller family holdings. Even when it did sell off large tracts of land, the potential for a powerful landowning class to emerge was limited. Squatters who seized family-sized patches of soil had their claims acknowledged. US cattle ranchers did not spend much time boning up on the entrance requirements of elite English schools. And as well as raising cattle, the western settlers grew wheat and corn…
+
+  **The death of the American Dream**
+
+Fast forward to today. America's elite has become Wall Street and the Too-Big-To-Fail banks while the
+
+[middle class continues to get squeezed](http://www.marketwatch.com/story/small-paychecks-hurting-the-working-class-2011-04-08)
+
+. After I wrote my analysis in September 2009, many prominent analysts, investors and economists, such as
+
+[Warren Buffett,](http://www.nytimes.com/2006/11/26/business/yourmoney/26every.html) [Richard Thaler](http://www.nytimes.com/2010/09/26/business/26view.html)
+
+,
+
+[Simon Johnson](http://baselinescenario.com/2009/10/17/who-is-carlos-slim/)
+
+ and 
+
+[Marc Faber](http://www.kingworldnews.com/kingworldnews/Broadcast/Entries/2011/4/7_Dr._Marc_Faber.html)
+
+. Even 
+
+[Ned Davis](http://www.hussmanfunds.com/wmc/wmc110404.htm)
+
+ (via John Hussman) has jumped  on the squeeze the middle class story:
+
+> Market veteran Ned Davis puts it nicely "I think the Fed has punished savers and has put us between a rock and a hard place with QE2\. It has kept the banking system liquid and helped goose stocks. But in that it has also provided juice for a commodity explosion that has hurt the world's poor, it has offset much, if not all, the good it did. In that real money (ex inflation) matters, the situation is not nearly as favorable as most Fed watchers believe."
+
+Nobel laureate
+
+[Joe Stiglitz](http://www.vanityfair.com/society/features/2011/05/top-one-percent-201105?currentPage=all)
+
+recently lamented the level of income inequality in America [emphasis added]:
+
+> It’s no use pretending that what has obviously happened has not in fact happened. The upper 1 percent of Americans are now taking in nearly a quarter of the nation’s income every year. In terms of wealth rather than income, the top 1 percent control 40 percent. Their lot in life has improved considerably. Twenty-five years ago, the corresponding figures were 12 percent and 33 percent. One response might be to celebrate the ingenuity and drive that brought good fortune to these people, and to contend that a rising tide lifts all boats. That response would be misguided. ***While the top 1 percent have seen their incomes rise 18 percent over the past decade, those in the middle have actually seen their incomes fall.*** For men with only high-school degrees, the decline has been precipitous—12 percent in the last quarter-century alone. ***All the growth in recent decades—and more—has gone to those at the top. In terms of income equality, America lags behind any country in the old, ossified Europe that President George W. Bush used to deride. Among our closest counterparts are Russia with its oligarchs and Iran.*** While many of the old centers of inequality in Latin America, such as Brazil, have been striving in recent years, rather successfully, to improve the plight of the poor and reduce gaps in income, America has allowed inequality to grow.
+
+Stiglitz makes the same arguments I made about how elitism retards American competitiveness:
+
+> [G]rowing inequality is the flip side of something else: shrinking opportunity. Whenever we diminish equality of opportunity, it means that we are not using some of our most valuable assets—our people—in the most productive way possible. Second, many of the distortions that lead to inequality—such as those associated with monopoly power and preferential tax treatment for special interests—undermine the efficiency of the economy. This new inequality goes on to create new distortions, undermining efficiency even further. To give just one example, far too many of our most talented young people, seeing the astronomical rewards, have gone into finance rather than into fields that would lead to a more productive and healthy economy.
+
+**One more sign that America is becoming Argentina**
+
+Here is one more nail in the coffin. During the current budget debate over the debt ceiling, Dean Baker of the "progressive"
+
+[Center for Economic and Policy Research](http://www.cepr.net/)
+
+wrote that
+
+[defaulting on debt is not the end of the world](http://seekingalpha.com/article/262724-defaulting-on-debt-is-not-the-end-of-the-world)
+
+. He then went on to bring up the recent experience of Argentina as an example.  
+
+The difference is that the US Dollar is a major reserve currency in the global economy, whereas Argentina's currency is not. Moreover, US T-Bill yields are regarded by virtually all investors as risk-free (read: default-free) rate. If the US Treasury were to default, even briefly, it would spark a tectonic shift in global finance about the perception of risk.  
+
+I had dismissed the possibility of a US Treasury default as brinksmanship by the Republicans for political purposes. Baker's comments dismissing the consequences of default shows that these attitudes are becoming more bipartisan.  
+
+Down that road is Argentina.
