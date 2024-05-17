@@ -1,0 +1,25 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:37:14
+-->
+
+# MPP: Big Data in Real Time through In-Memory Technology and Analytics | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01](https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01)
+
+## MPP: Big Data in Real Time through In-Memory Technology and Analytics
+
+[Harnessing the Power of Big Data in Real Time through In-Memory Technology and Analytics](http://www3.weforum.org/docs/GITR/2012/GITR_Chapter1.7_2012.pdf) train reading lead to the following thoughts: Page 93 of the PDF talks to finance, and modelling environments (I assume risk?).  With the push for more systems to become Near Real-Time (NRT), in-memory is clearly the chosen path.  With in-memory, the question come as to what product/Open Source solution will assist on this path.  [GridGain](http://www.gridgain.com/blog/fyi/gridgain-4-2-released/) is one such technology with offerings in this area.  [RBS](http://www.bankingtech.com/bankingtech/article.do?articleid=20000192301), as blogged about previously, has gone down the Oracle Coherence route in the Big Data trade world – Operational Data Cache.
+
+In the case of GridGain as a Big Data [product](http://www.gridgain.com/blog/archives/new-products-and-services-from-gridgain/), the product evolution has created three [products](http://www.gridgain.com/features/) – Compute Grid, Data Grid and Big Data (effectively a combination of the two other products).   Its also clear the [death](http://gigaom.com/cloud/why-the-days-are-numbered-for-hadoop-as-we-know-it/) of [Hadoop](http://www.gridgain.com/blog/fyi/gigaom-hadoop-days-are-numbered-are-they/) is over sold in Big Data land.
+
+Turning to Gigaspaces, “XAP 9.0 – Geared for Real-Time Big Data Stream [Processing](http://blog.gigaspaces.com/xap-9-0-%E2%80%93-geared-for-real-time-bigdata-stream-processing/)” touch on an important point which doesn’t often get talked about much – movement of data:
+
+> Once you’ve stored data in memory across multiple nodes, it’s important to achieve locality of data and processing. If you process an incoming event on one node, and need to read and update data on other nodes, your processing latency and scalability will be very limited. Achieving locality requires a solid routing mechanism, that will allow you to send your events to the node most relevant to them, i.e. the one that contains the data that is needed for their processing
+
+[Kognitio](http://www.kognitio.com/analyticalplatform) is another product that offers the ability to run in-memory analytics on Big Data.  Interesting to see “Credit and risk management” mentioned, but with little detail.  Anyone used Kognitio?
+
+~ by mdavey on July 24, 2012.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+Tags: [BigData](https://mdavey.wordpress.com/tag/bigdata/), [MPP](https://mdavey.wordpress.com/tag/mpp/)
