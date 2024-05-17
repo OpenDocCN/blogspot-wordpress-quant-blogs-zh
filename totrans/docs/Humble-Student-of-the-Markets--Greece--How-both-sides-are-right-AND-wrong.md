@@ -1,0 +1,168 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:18:49
+-->
+
+# Humble Student of the Markets: Greece: How both sides are right AND wrong
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/07/greece-how-both-sides-are-right-and.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/07/greece-how-both-sides-are-right-and.html#0001-01-01)
+
+I really hope that this is my last post on Greece for a long, long time...
+
+I recently wrote a post on Greece on how both sides are right and both are wrong at the same time (see
+
+[What would happen after a "Speech of Hope"?](http://humblestudentofthemarkets.blogspot.com/2015/06/what-would-happen-after-speech-of-hope.html)
+
+). I lamented that both Greece and Europe were talking past each other instead of at each other. Part of the problem was that they were speaking different economic languages (macro vs. micro-economics):
+
+> It is also the story of two parties talking at each other instead of with each other. The Greek approach, which is top-down and macro oriented, rests with the idea that somehow the country can return to sustainable growth if the macro problem of excessive debt were to be lifted (and hopefully coupled with some form of stimulus plan).
+> 
+> By contrast, the (mostly) German plan is highly bottom-up and micro-economic oriented. Its underlying philosophy calls for getting the right market mechanisms in place, e.g. cost structures, labor market reforms, the right incentives, etc., and growth will naturally follow. The problem with this approach is that Greece, unlike countries like Ireland, has few competitive advantages. The EU mandated solution amounts to forced internal devaluation. It would mean that, in the example of textiles, that Greek wages would have to fall even further to levels that competes with the likes of China, Vietnam or Thailand.
+
+Let me expand on those points.
+
+**The European Grand Plan**
+
+The European elites have a way of mapping their path for the European Project and not deviating from their plan. Mario Draghi revealed the Grand Plan back in 2012 (see
+
+[Mario Draghi reveals the Grand Plan](http://humblestudentofthemarkets.blogspot.com/2012/02/mario-draghi-reveals-grand-plan.html)
+
+). First, the ECB would hold things together to buy time for member states to execute a set of reforms. This reforms that Draghi outlined in a
+
+[WSJ interview](http://blogs.wsj.com/eurocrisis/2012/02/23/qa-ecb-president-mario-draghi/)
+
+ had several components. The first was government austerity, but the right kind of austerity:
+
+> **WSJ**: Austerity means different things, what’s good and what’s bad austerity?
+> 
+> **Draghi**: In the European context tax rates are high and government expenditure is focused on current expenditure. A “good” consolidation is one where taxes are lower and the lower government expenditure is on infrastructures and other investments.
+> 
+> **WSJ**: Bad austerity?
+> 
+> **Draghi**: The bad consolidation is actually the easier one to get, because one could produce good numbers by raising taxes and cutting capital expenditure, which is much easier to do than cutting current expenditure. That’s the easy way in a sense, but it’s not a good way. It depresses potential growth.
+
+The second is structural reform:
+
+> **WSJ**: Which do you think are the most important structural reforms?
+> 
+> **Draghi**: In Europe first is the product and services markets reform. And the second is the labour market reform which takes different shapes in different countries. In some of them one has to make labour markets more flexible and also fairer than they are today. In these countries there is a dual labour market: highly flexible for the young part of the population where labour contracts are three-month, six-month contracts that may be renewed for years. The same labour market is highly inflexible for the protected part of the population where salaries follow seniority rather than productivity. In a sense labour markets at the present time are unfair in such a setting because they put all the weight of flexibility on the young part of the population.
+
+The purpose of structural reform is to attack the youth unemployment problem by getting rid of the idea of a job for life mentality (emphasis added):
+
+> **WSJ**: Do you think Europe will become less of the social model that has defined it?
+> 
+> **Draghi**: The European social model has already gone when we see the youth unemployment rates prevailing in some countries. These reforms are necessary to increase employment, especially youth employment, and therefore expenditure and consumption.
+> 
+> **WSJ**: Job for life…
+> 
+> **Draghi**: You know there was a time when (economist) Rudi Dornbusch used to say that the Europeans are so rich they can afford to pay everybody for not working. ***That’s gone.***
+
+What Draghi outlined in 2012 were micro-economic prescriptions. Get the economic structures and incentives right and growth follows. That has been the template all along.
+
+There is one other important core element that`s been somewhat lacking in executing these structural reforms: Governance.
+
+[George Magnus](http://www.prospectmagazine.co.uk/world/how-greece-became-europes-fault-line-greek-refrendum)
+
+pointed to a book by Stathis Kalyvas,
+
+*Modern Greece: What Everyone Needs to Know*
+
+, as an explanation:
+
+> The clue is governance. Professor Kalyvas traces some roots here back to Greece’s emergence from an economically backward, agrarian corner of the Ottoman Empire into an aspiring modern state. Specifically, he notes the considerable challenge of trying to graft liberal and democratic institutions and practices on to such a society. Put another way, public administration, the structural backbone of the modern state, is in Greece’s case unfinished, and in some respects even un-started, business.
+> 
+> With this in mind, it becomes clearer why creditors have moaned that Greek governments often lacked the capacity to implement reforms properly or, in some cases, at all. In Syriza’s case, the problem of lack of capacity has been accentuated by lack of willingness. This year, both sides argued a lot about debt relief, primary surpluses, VAT rates and pension arrangements. But many of their disputes were bridged or narrowed significantly. What irks Europe most about Syriza is the latter’s inaction with regard to initiatives to overhaul governance. In other words, to improve the capacity to implement reforms by addressing dysfunctional institutions such as administrative capacity, a weak tax system, over-regulation and protection, corruption and the rule of law, and the privileges of oligarchies, professional associations and other vested interests.
+> 
+> Reflecting these flaws, Greece has tended historically to protect domestic sectors, nationalise weak or failing firms, rely on credit creation as a substitute for productivity growth, and use political patronage to expand growth in the public sector. The PASOK government (1981-89), for example, is argued to have created dysfunctional public administration, civil service and wage-setting institutions that were associated particularly with corruption, mismanagement, maladministration, and disregard of the rule of law.
+> 
+> Even in subsequent years, entrepreneurship and industry were left behind. Greece has not developed a vibrant, successful export sector, other than in tourism and a few agricultural products. Unlike, say Poland, the Czech Republic, Turkey, and much of Asia, including comparable per capita income countries such as Vietnam and Bangladesh, it hasn’t got a viable manufacturing sector. The World Bank’s annual Doing Business survey (2015) still ranked Greece at 61 of 189 countries around the world, with positions close to the bottom in the registration of property, and contract enforcement.
+
+These kinds of cozy relationships are not unusual in cultures where the population doesn't trust the sovereign (government is the wrong word in this case) because the sovereign can change at any time. In such instances, trust is not formed based on bureaucratic structures such as the rule of law, but on family and clan-like relationships that have been created over the years. These cultural norms are common not only in southern Europe but in much of Asia.
+
+In a way, the election of Syriza might have been a hope that a new administration could sweep away many of the cozy and corruption that have plagued Greek society. Magnus went on to complain that Syriza did nothing of the sort:
+
+> Ironically, Syriza articulated a made-to-measure analysis and diagnosis of governance problems in its 2014 Thessaloniki programme, which sought to end “decades of misrule”, and transform Greece’s political system and institutions. It argued quite coherently that this was essential to break the vicious circle between political and economic inequality.
+> 
+> Yet, since being voted into office, it has offered little and done less to live up to this transformation. It is telling that Europe’s final loan conditions before the referendum laid considerable emphasis on governance enhancement, spanning measures to strengthen transparency, price competition, privatisation, and the rule of law, and to attack corruption, fraud and tax evasion. Alexis Tsipras rejected these and other conditions, and lumped them together, accusing his counterparts of blackmail. But without addressing these crucial matters, Greece cannot hope to succeed inside or outside the eurozone.
+
+A recent article in the
+
+[Guardian](http://www.theguardian.com/commentisfree/2015/jul/07/syriza-failed-deal-greece-alexis-tsipras)
+
+echoed similar concerns:
+
+> What Syriza has done is to bring back some of the worst excesses of its predecessors. The state broadcaster ERT – scrapped abruptly by the previous government under the impulsive and irascible conservative, Antonis Samaras – has been reformed. But instead of fresh blood, the government put ERT’s tainted former leadership back in charge. The return as chief executive of Lambis Tagmatarchis, a television executive associated with the governments who ran up Greece’s debt pile, outraged even the ERT employees who were getting their old jobs back. From prefectures to court appointments, party hacks have been favoured over more qualified counterparts. This is indiscernible from the cronyism of old.
+> 
+> The gap between Tsipras’ rhetoric on social justice and progressive policy and his record in office has left some to conclude that Syriza is more intent on consolidating its power than delivering the reforms-for-cash deal with creditors that he claims to still want. If not a deal, then what does he want, critics ask?
+
+So when Europe talks about reforms, that's really code for:
+
+1.  Getting rid of the corruption that have plagued governance
+2.  Austerity, but the right kind of austerity (which seems to have been given a lower priority in the latest round of negotiations) 
+3.  Structural reforms, in order to get rid of the "jobs for life" mindset and make it easier to fire people
+
+Without step (1), the entire task becomes monumental.
+
+**The top-down view of Greece**
+
+The Greeks, however, approach their debt problem from a top-down perspective. It's all well and good to talk about structural reforms, but there has to be a limit. This chart of 
+
+[Euro area statistics](https://www.euro-area-statistics.org/)
+
+ show that Greek unit labor costs have come down considerably compared to Germany. How much more micro-economic adjustment can Greeks take?
+
+The Greek economy is a modern macro-economic disaster. This chart from RBS shows that Greece experienced a GDP collapse that has not been seen other than war or the Great Depression (via
+
+[Business Insider](http://www.businessinsider.com/the-worst-gdp-collapses-since-1870-2015-7)
+
+).
+
+[![](img/e7eb6dd35eaa5669d512e060ef34c409.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-BT_6kJEn5fhoW6EARZ6cqfJanpILL73B5E3-V-JHrvRlBupsmkO_7_-fg6ecRgYDsDR1JOThprBfNV1WqxTyzLCyVKX4qTy6gCDDZOSDVbQtFAnYz15zoUouF0qSWU4PHzyARPonVw4/s1600/cotd-largest-falls-gdp-1870.png)
+
+Tom Keene at Bloomberg summed up a way of analyzing the Greek macro outlook with The Formula, as outlined by Paul De Grauwe:
+
+Keene explained it this way:
+
+> The Formula is timeless and in each and every basic economics text. (It gets less respect because it is a dry-as-dust fiscal equation compared with the steamy romance of monetary math.) In fiscal crises, the best-and-brightest always trot The Formula out. The truth is ***the dynamic simplicity of The Formula's core -- the (r-g) in the above -- always bears repeating***.
+> 
+> The relationship is: A nation's debt-to-GDP ratio is equal to the critical dynamic of its nominal interest rate (the "r" in the above formula) minus its nominal growth rate (the "g"), applied to the previous debt-to-GDP ratio and then all of that compared to the nation's overall growth rate. Then take that movable feast and subtract the massive weight of its primary budget surplus. It is a deceptive and simple relationship but, ***in crisis, there is one key moving par***t. The key moving part, again, is (r-g). ***The "g" must equal or be higher than the "r" in The Formula***. If the nominal interest rate ("r") is higher than the nominal growth rate ("g") then the government will face an ever-increasing debt-to-GDP ratio.
+
+Longer term, Greece needs growth to be higher than its nominal interest rate. Another way to get relief is to change D(t), its debt to GDP ratio, which is what Athens is seeking.
+
+Greece was quick to seize on the
+
+[IMF report](http://www.imf.org/external/pubs/ft/scr/2015/cr15165.pdf)
+
+that the Greek debt position is not sustainable without €50 billion in debt relief over the next three years. The Syriza government has seized on that report to bolster its position to ask for debt writoffs in its negotiations.
+
+Ah, but the devil is always in the detail! 
+
+[Antonio Fatas](http://fatasmihov.blogspot.com/2015/07/did-imf-provide-support-to-syriza.html)
+
+pointed out some inconsistencies between the assumptions of the IMF report and Greek government positions (think about this in the context of The Formula above, emphasis added):
+
+> Can we be more realistic regarding Greek prospects of growth? That's what they IMF is doing now. It forecasts growth in Greece to be input 1.5% in the long term. This is what I would say a very pessimistic number (even if it might still be realistic). It assumes that a country that has a GDP per capita of less than 50% of the most advanced economies in the world will fail to converge to that level, in fact it is likely to get stuck at that level or even diverge.
+> 
+> And here is where the Greek government and the IMF projections might be at odds. ***The Greek government argument is that once debt is reduced and all the reforms are implemented, the Greek economy will take off and start finally growing. But if growth returns, is debt really unsustainable Greek debt is unsustainable because the Greek economy will not grow in the long run (and this is not just about austerity).*** But if the Greek government is right and the reduction in debt does indeed raise the potential growth of Greece then the current debt level might be closer to being sustainable than what the IMF says. In other words, the IMF tells the Greek government something that they want to hear (debt needs to be reduced) but in an scenario that the Greek government cannot accept (growth is going to be dismal for decades).
+
+At the end of this debate, we have to ask ourselves as to who is right and who is wrong.
+
+**A pragmatic view**
+
+I am just a simple investor and trader. The question of who is right and who is wrong is well beyond my pay grade. I am more interested in what is likely to happen. I agree with
+
+[Yves Smith](http://www.nakedcapitalism.com/2015/07/greeced-we-voted-no-to-slavery-but-yes-to-our-chains.html)
+
+, who has taken a far more pragmatic view of the situation (emphasis added):
+
+> Greece faces multiple impediments. The biggest is that financial time moves faster than political time. Greece needed a deal by June 30\. Going past that event horizon, as events are going to prove out, tipped the scales decisively against Greece by given the creditors cover to give their real enforcer, the ECB, free rein. ***Changing values and ideology are decades-long projects, so moral appeals might make for nice op-eds but will not change the power dynamics in time to have any impact. Look at how long it took for women’s rights and civil rights to become accepted in the US, or even with extremely deep pockets and the most sophisticated messaging money can buy, how long it took corporate interests to move values in the US decisively to the right.*** Greece was far too small and economically weakened to confront the creditors and have any hope of succeeding unless it got support. Its only conceivable allies are nowhere to be found. The Obama Administration has gone all in with the Eurocrats and the European left has been missing in action.
+> 
+> As we’ve said from early on, many commentators on Greece have wanted to make Syriza into something other than what it is. Despite the bold talk and some Marxist trappings, the core of the party leadership is moderates and its base consists heavily of disaffected Pasok voters, not hard core leftists. And this sadly, is the flaw of the stirring call to action in this post. Even after its incredible suffering, Greece is not as radicalized as those outside Greece would like to believe. The high percentage of Greeks saying, even on the eve of the referendum, that they still wanted to remain in the Eurozone, shows that Greek society is not willing to make a break even from its punitive overlords Syriza’s new coalition with centrist, pro-business parties should dispel any doubt as to what Syriza really stands for, as opposed to what Tsipras would like you and Greek voters to believe.
+
+Here are the two basic scenarios that I am working with. Either Tsipras' ultimate objective is to take Greece out of the euro, which would also put their EU membership at risk, or there will be a deal.
+
+If there is a deal, everyone will have to save face. The EU will make Greeks swallow tough Grand Plan restructuring reforms. At the same time, they will be able to demonstrate that the Greeks are taking sufficient pain that the other euroskeptic parties watching this drama will be deterred from taking the same path. The Greeks will get some form of back door debt relief, either as NPV debt writeoffs* or some form of aid in the form of humanitarian or military aid to help with their budget.
+
+In other words, it will be the typical European fudge solution. Everything else is theatre.
+
+* Imagine if you owed $1 million but couldn't pay. You then negotiate a settlement where you pay $1 a year for the next million years. The face value of the debt stays the same, but the net present value drops dramatically.
