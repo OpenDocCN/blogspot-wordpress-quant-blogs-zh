@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:50:23
+-->
+
+# Uncertainty in Building Software | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/05/12/uncertainty-in-building-software/#0001-01-01](https://mdavey.wordpress.com/2014/05/12/uncertainty-in-building-software/#0001-01-01)
+
+## Uncertainty in Building Software
+
+Although [old](http://www.infoq.com/news/2011/07/UpdatedScrumGuide), worth a [read](https://www.scrum.org/About/All-Articles/articleType/ArticleView/articleId/95/Commitment-vs-Forecast-A-subtle-but-important-change-to-Scrum) over on Scrum.org: Commitment vs. Forecast: A subtle but important change to Scrum
+
+> In Scrum, the Development Team is now asked to forecast the specific work that can be done in a Sprint, rather than “commit” to it. This allows teams to focus on the things that matter in professional software development like quality, value, and continuous improvement, ***rather*** than satisfying an arbitrary obligation.
+> 
+> Business-facing people (Product Owner, stakeholders, customer…) must recognize the inherent ***uncertainty*** in building software of any real value and complexity. Their responsibility is to create an environment where Development Teams can succeed, and trust in those teams’ professionalism to do all they can to deliver things of value.
+
+~ by mdavey on May 12, 2014.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
