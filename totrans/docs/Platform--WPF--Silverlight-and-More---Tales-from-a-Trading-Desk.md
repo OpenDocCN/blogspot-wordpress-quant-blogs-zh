@@ -1,0 +1,25 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:07:23
+-->
+
+# Platform, WPF, Silverlight and More | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2008/05/10/platform-wpf-silverlight-and-more/#0001-01-01](https://mdavey.wordpress.com/2008/05/10/platform-wpf-silverlight-and-more/#0001-01-01)
+
+## Platform, WPF, Silverlight and More
+
+I’m curious to know why [Platform](http://insidehpc.com/2008/05/07/platform-announces-fs-unit/) has only just decided to create a Financial Services Unit. It’s common knowledge that JPMC has been using Platform for years, and has essentially helped tune Platform’s thoughts on Financial Services usage. So why has it taken so long to create the unit? Has the credit-crunch in 2008 offered Platform an opportunity to expand into other banks and displace DataSynapse?
+
+It’s nice to see a financial slant to [Glenn Block](http://blogs.msdn.com/gblock/archive/2008/05/08/wpf-from-this-to-that-wow.aspx) latest [WPF](http://joshsmithonwpf.wordpress.com/2008/05/10/panel3d-now-supports-transparency/) Prism posting.
+
+So the latest Silverlight application that is making the blog rounds is the [Healthcare](http://blogs.msdn.com/martharotter/archive/2008/05/08/new-shiny-silverlight-2-healthcare-demo.aspx) demo. I agree its a cool demo (shame its not FS centric 🙂 ), however until we get close to Silverlight 2.0 RTM and begin to see what performance Microsoft can actually achieve in the browser, we in a similar place to early WPF – cool stuff, but the performance is …. With the Silverlight push well underway, its nice to see Microsoft facing off Flex in the game authoring arena – Silverlight Popfly [Game](http://www.techcrunch.com/2008/05/02/microsoft-introduces-popfly-for-games-in-silverlight/).
+
+Agree that IDisposable implementation [support](http://msmvps.com/blogs/jon.skeet/archive/2008/02/07/c-4-part-2-ideas-from-other-community-members.aspx) in C# 4.0 would be extremely helpful.
+
+Off topic: [Concurrency at Microsoft](http://research.microsoft.com/research/pubs/view.aspx?0rc=p&type=technical+report&id=1492), Linq [Extender](http://www.codeplex.com/LinqExtender), F# in [20 mins](http://blogs.msdn.com/chrsmith/archive/2008/05/02/f-in-20-minutes-part-i.aspx), FP [Tutorial](http://blogs.msdn.com/ericwhite/archive/2008/04/24/new-version-of-functional-programming-tutorial.aspx).
+
+~ by mdavey on May 10, 2008.
+
+Posted in [.NET](https://mdavey.wordpress.com/category/languages/net/)
+Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
