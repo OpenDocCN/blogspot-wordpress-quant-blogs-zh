@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:59:06
+-->
+
+# Humble Student of the Markets: NFIB update: Revenge of the Proletariat?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2021/06/nfib-update-revenge-of-proletariat.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2021/06/nfib-update-revenge-of-proletariat.html#0001-01-01)
+
+The monthly NFIB update is always useful as a window on the economy. Small businesses tend to have little bargaining power and they are therefore sensitive barometers of economic trends. A month ago, NFIB small business optimism surged (see
+
+[NFIB conservatives grudgingly turn bullish](https://humblestudentofthemarkets.com/2021/05/11/nfib-conservatives-grudgingly-turn-bullish/)
+
+). The
+
+[latest report](https://www.nfib.com/surveys/small-business-economic-trends/)
+
+saw optimism stall as readings edged back from 99.8 to 99.6. 
+
+The biggest complaint was the availability of labor. While the JOLTS report comes to a similar conclusion, it is a survey of April conditions while the NFIB survey period is May. Its headline "Nearly Half of Small Businesses Unable to Fill Job Openings" tells the story.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2021/06/08/nfib-update-revenge-of-the-proletariat/)
+
+.
