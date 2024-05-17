@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:02:17
+-->
+
+# Humble Student of the Markets: Biden's American Rescue Plan: Bullish or bearish?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2021/04/bidens-american-rescue-plan-bullish-or.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2021/04/bidens-american-rescue-plan-bullish-or.html#0001-01-01)
+
+If you thought that Biden would govern as a centrist, you were wrong. In the wake of the passage of a $1.9 trillion stimulus package, President Joe Biden is planning to attack the enduring challenge of inequality by expanding government spending with a second ambitious $3 trillion economic renewal plan and a revamp of the tax code. It is intended to be a repudiation of the Reagan Revolution and the neoliberal consensus that has dominated economic thinking for decades. He reportedly decided to go big on reform for the following reasons:
+
+*   Biden is enjoying his honeymoon period, and his approval ratings are strong. The [New York Times](https://www.nytimes.com/2021/03/26/podcasts/ezra-klein-podcast-kristen-soltis-anderson-transcript.html) reported that a Republican pollster found that even 57% of Republican voters supported Biden's recent $1.9 trillion spending package.
+*   The Democrats have full party control of Congress, and a short window before the mid-terms to enact legislation.
+*   The pandemic recovery is offering both economic and political tailwinds to enact legislation.
+
+What does this mean for investors?
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2021/04/03/bidens-american-rescue-plan-bullish-or-bearish/)
+
+.
