@@ -1,0 +1,64 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:42:40
+-->
+
+# Humble Student of the Markets: Retirement: It's not just about money
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/08/retirement-its-not-just-about-money.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/08/retirement-its-not-just-about-money.html#0001-01-01)
+
+When I left Mother Merrill in early 2007 and announced that I would be moving into early retirement about nearly 30 years in the business (which eventually drove me crazy), I quoted
+
+[Todd Harrison](http://www.marketwatch.com/news/story/4NF33VxR1WWFp3srR2zGrLQ)
+
+in my farewell email to friends and colleagues entitled "Cam
+
+***really is***
+
+leaving to spend more time with his family":
+
+> I'm not going to say that success is insignificant, we know that's not true, but I can tell you, from experience, that if you look for happiness in a bank account, you're missing the bigger trade.
+
+It appears that I am in good company of people wishing to slow down and to smell the roses. Stanley Druckenmiller recently shuttered his hedge fund following in the path of Richard Grubman (Highland Capital), James Simons (Renaissance Technologies), John Horseman (Horseman Global) and Timothy Barakett (Atticus Capital).
+
+I recognized back then that life wasn't just about money (as important as it is). However, neo-classical economists have tended to focus on wealth creation as a source of growth for an economy. As good quantitative analysts know, optimizing a system based on a single factor can lead to unforeseen results (and possible policy mistakes).
+
+**The Paris Hilton effect**
+
+Here is an example. One of the biggest issues that faces the heads of wealthy families is the problem of instilling proper values in their children and how to teach them the value of a dollar. We saw that in spades during the dot com era when 20-somethings and 30-somethings working stiffs became multi-millionaires overnight. What message are you sending the kids when you can hop on the private jet and fly to St. Moritz for Spring Break? Do you let each of your children bring a friend along? What message does it send to your kids' friends and your neighbors?
+
+If you don't think those are problems, then how do you prevent your kids from turning into Paris Hilton?
+
+**The Good Life**
+
+Now a
+
+[MetLife study](http://www.metlife.com/assets/cao/mmi/publications/studies/2010/mmi-meaning-really-matters.pdf)
+
+confirms my sentiments about the Todd Harrison quote. While wealth is important as a source of happiness, it’s not the only thing:
+
+> *   Respondents define the Good Life in terms of the three Ms: Money (having enough), Meaning (time for friends and family), and Medicine (good physical and mental health).
+> *   Living the Good Life is highly related with having a sense of purpose and this in turn is interrelated with “vision” (having clarity about the path to the Good Life) and “focus” (knowing and concentrating on the most important things that will get you to your Good Life).
+> *   Meaning, closely associated with the importance of family and friends, remains the primary component of the Good Life for all age groups, despite instability in financial and other aspects of their life. People plan to spend time with family and friends above all else, regardless of age.
+
+What’s more, the study found that these components tend to be stable and unrelated to age. You can have the Good Life whether you are 20, 50 or 70 if these things are in your life.
+
+**The changing face of retirement**
+
+As the Boomers age, there have been
+
+[worried discussions](http://online.wsj.com/article/SB10001424052748703321004575427881929070948.html)
+
+about what happens when they find out they don’t have enough money to retire. Such discussions may be overly alarmist because they assume that money is the sole source of happiness.
+
+According to an alternative view in
+
+[The Economist](http://www.economist.com/blogs/freeexchange/2010/08/pensions)
+
+, saving enough money to retire may not be realistic. If you are trying to optimize Happiness instead of Wealth, then a better way might be to re-define retirement. Instead of an abrupt exit from the work force, consider part-time work:
+
+> For us, retirement is a choice—and because we enjoy our jobs and they’re not physically taxing, retirement is not something we tend to embrace. But most people are not so lucky. Even if they like their jobs it, the work may be too physically demanding to continue into old age. A colleague of mine was often told by his father, “Get an education so you can get a job where you use your brain; it’s the best insurance against getting injured.”
+
+A phased transition from full to part time work is possible for some people, particularly in an age when medical science has advanced and so has life expectancy.
+
+> As we live progressively longer we must also rethink our retirement expectations. Retiring at the same age that your parents did, or earlier, can no longer be the expectation, or at least not at the rate we are saving. True, working to age 70 will be tough or impossible for some people and it is expensive for employers. Meanwhile, part of the justification for a later retirement age is longer life expectancy, but low income people who worked in hard labour often die younger. In principle we could index the normal retirement age to different demographic life expectancy—so people will have different ages when they can collect full Social Security. But politically that would be a mess, especially because mortality rates are so race-specific. That's why retirement may need to come to mean something different than it currently does. Retirement may not be an abrupt exit from the labour force, but a slow phase out starting with part-time work.
