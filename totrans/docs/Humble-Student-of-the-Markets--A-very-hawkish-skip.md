@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:28:36
+-->
+
+# Humble Student of the Markets: A very hawkish skip
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2023/06/a-very-hawkish-skip.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2023/06/a-very-hawkish-skip.html#0001-01-01)
+
+**Mid-week market update:** It's not easy to make a market comment on an FOMC day. Let's start by analyzing the Fed's projections. The latest Summary of Economic Projections (SEP) shows a stronger economy and tigher monetary policy in response to the revised projections.
+
+The Fed revised up its GDP projections for this year by 0.6% and revised down the unemployment rate by 0.4%. While headline PCE inflation is expected to fade by -0.1%, the more important core PCE was revised up by 0.3%. As a consequence, the target Fed Funds rate projection rose by 0.5% for 2023, with further upside revisions for 2024 and 2025.
+
+The full post can be found [here](https://humblestudentofthemarkets.com/2023/06/14/a-very-hawkish-skip/).
