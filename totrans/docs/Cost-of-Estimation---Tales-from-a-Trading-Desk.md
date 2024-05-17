@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:51:39
+-->
+
+# Cost of Estimation | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/04/03/cost-of-estimation/#0001-01-01](https://mdavey.wordpress.com/2014/04/03/cost-of-estimation/#0001-01-01)
+
+## Cost of Estimation
+
+I’ve been waiting for a blog entry to appear for Mike Cohn’s recent monthly news article, “Paying the Cost for More Precise Estimates”.  Unfortunately, apart from the campaign [URL](http://us4.campaign-archive1.com/?u=69aab24b249d49f4eade10a9c&id=f9db3e601a), nothing has appears on Mike’s blog as far as I can see. So without waiting any long, let me offer the summary view of an excellent article – estimation is not free!  I realise this maybe obvious to some, but few manager understand the “cost” associated with estimation.
+
+> To add precision to an estimate requires time
+> 
+> As long as a boss is willing to pay that cost, a good team should be willing to provide an estimate at whatever level of detail and precision the boss wants. The problem is when the boss wants a highly precise estimate and isn’t willing to pay the cost, for example, “I need to know by lunch time today exactly when this large project can be delivered.”
+> 
+> Information has a cost. If the person asking for that information is willing to pay that cost, you need to be willing to provide the information.
+
+~ by mdavey on April 3, 2014.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
