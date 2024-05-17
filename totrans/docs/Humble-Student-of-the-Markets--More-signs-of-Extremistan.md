@@ -1,0 +1,48 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:42:13
+-->
+
+# Humble Student of the Markets: More signs of Extremistan
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/11/more-signs-of-extremistan.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/11/more-signs-of-extremistan.html#0001-01-01)
+
+Imagine being on a bicycle. If you are moving forward, then you and the bike are stable. On the other hand, if you are stationary or barely moving, then you are apt to tip either to the right or left.
+
+That’s the analogy of Nassim Taleb’s concept of
+
+[Extremistan](http://humblestudentofthemarkets.blogspot.com/2009/11/get-ready-for-extremistan.html)
+
+, an unstable state where we may be moving from one extreme condition to another. Last Friday David Rosenberg provided more evidence that the world may be in that state when he analyzed the FOMC minutes:
+
+> All you need to do is go to the Federal Open Market Committee (FOMC) minutes and see the wide divergence of views over the macro outlook, and this is coming from 17 of the nation’s top policymakers who also ostensibly keep in touch with each other. The range on 2010 GDP estimates is: 2.0% to 4.0%; for 2010, 2.5% to 4.6% for 2011, and 2.8% to 5.0% for 2012\. These two percentage points are huge for a $14 trillion economy — we’re talking about differences that amount to $300 billion! The range on the unemployment rate forecast for 2010 is 8.6% to 10.2%; for 2011 it is 7.2% to 8.7%; and for 2012, the band is 6.1% to 7.6%. These ranges are massive. And, for the inflation rate, the range for 2010 is 1.1% to 2.0%; 0.6% to 2.4% for 2011, and for 2012, the range is 0.2% to 2.3%.
+
+[![](img/ff29832555296eed8a9278d8fdfb7016.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_oKkq5dsNhIHX-PnDMmdwGvQCvbcZnfP2rVVgAAGF5X-lfhhvxbXlbFAxOiUwOpx67cT6SwAcupOf1MqAeMwS2kgV0Jgsd7LCXEc0mJvNcj2mFcIKCEbaA5AsoRmwuHLUnAZ62lAXsIxu/s1600/Rosenberg+-+Range+of+macro+outcomes.JPG)
+
+> So consider that at the Fed, there is one official that sees the potential for a return to full employment by 2012; and another that sees the prospect of deflation. These views are worlds apart and attest to our assertion that the band around any particular forecast in a post-bubble credit collapse is huge.
+
+The Fed has a 2010 GDP forecast that ranged from 2.0% to 4.0%? Can't they make up their minds?
+
+That reminds me of a long ago comment from a commodity analyst that natural gas would be somewhere in the range of $4 to $14 in the coming year! (BTW, is that why we pay these analysts the big bucks?)
+
+**Balanced funds will not do well in Extremistan**
+
+What do investors do in these circumstances?
+
+I would contend that trying a disciplined approach of holding a balanced fund, which is an approach optimized for non-extreme events, is the worst thing an investor can do.
+
+[Andy Lo](http://www.abnormalreturns.com/2009/10/adapative-asset-allocation/)
+
+, leading behavior finance academic and the Harris & Harris Group Professor at MIT, agrees [emphasis mine]:
+
+> To achieve true diversification, investors must now have a broader set of asset classes and risk exposures, long and short, in their portfolios…In this environment, ***managing risk can no longer be easily accomplished via simple buy-and-hold portfolios as before, but requires more frequent rebalancing or “tactical risk management”.***
+
+Today, the extremes that investors face are the tropical heat of runaway deflation and the Arctic deep freeze of deflation. Tactical techniques such as the
+
+[inflation-deflation timer](http://humblestudentofthemarkets.blogspot.com/2009/08/timing-inflationdeflation-trade.html)
+
+are ideal for navigating this perilous path that our metaphorical bicycle is on.
+
+**Inflation-Deflation Timer model update**
+
+: The Inflation-Deflation Timer model has remained at an inflation reading since July 2009, though any possible panic spawned by any contagion from a potential Dubai World default could quickly move it to neutral and then deflation in relatively short order.
