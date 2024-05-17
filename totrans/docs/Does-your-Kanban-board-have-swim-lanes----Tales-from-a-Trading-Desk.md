@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:30:09
+-->
+
+# Does your Kanban board have swim lanes? | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2016/07/22/does-your-kanban-board-have-swim-lanes/#0001-01-01](https://mdavey.wordpress.com/2016/07/22/does-your-kanban-board-have-swim-lanes/#0001-01-01)
+
+## Does your Kanban board have swim lanes?
+
+It may sound either an odd question, or a sensible question depending on your kanban board today, but a lot of people seem to ignore the [swim](https://www.breeze.pm/blog/102-better-task-management-with-swimlanes) lane benefits, and just go with the column standard kanban board.
+
+Given kanban is lean, if your using an electronic board as a lot of us are these days, its probably worth playing with a few of the options in your chosen kanban product to see if you can gain further agility though surfacing of cards.  Swim lanes can clearly call out the progress within work stream or features within the application delivery that previously were hidden within the column order.
+
+Further, options for surfacing further data on the story card itself may aid in clarity of the micro/macro picture e.g usage of tags on the card.  More interestingly tracking staleness per column, which could aid in understanding flow and WIP.
+
+~ by mdavey on July 22, 2016.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
+Tags: [kanban](https://mdavey.wordpress.com/tag/kanban/)
