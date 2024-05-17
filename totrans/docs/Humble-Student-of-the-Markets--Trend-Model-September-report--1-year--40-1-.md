@@ -1,0 +1,83 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:32:05
+-->
+
+# Humble Student of the Markets: Trend Model September report: 1 year +40.1%
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/10/trend-model-september-report-1-year-401.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/10/trend-model-september-report-1-year-401.html#0001-01-01)
+
+I have been writing about a long-short account based on my Trend Model signals for several months now (see 
+
+[An intriguing Trend Model interim report card](http://humblestudentofthemarkets.blogspot.com/2014/07/an-intriguing-trend-model-interim.html)
+
+) and I finally have a one-year track record for that investment account, whose inception date was September 30, 2013 (though the history of actual model signals goes back considerably further).
+
+I am pleased to report that the one-year return for the Trend Model account was 40.1%.
+
+***I reiterate my disclaimer that I have nothing to sell anyone at this time. I am not currently in a position to manage anyone`s money based on the investment strategy that I am about to describe.***
+
+ However, I have had preliminary discussions with interested parties about featuring the Trend Model as part of an advisory service. I may canvass for expressions of interest of such a service through this blog. Please stay tuned!
+
+Trend Model description
+
+For readers who are unfamiliar with my Trend Model, it is a market timing, or asset allocation, model which uses trend following techniques as applied to commodity and global stock market prices to generates a composite Risk-On/Risk-Off signal (risk-on, risk-off or neutral). I have begun updating readers on the Trend Model signals on a weekly basis (for the last comment, see 
+
+[The Big Kahuna Korrection, or buy Yom Kippur](http://humblestudentofthemarkets.blogspot.com/2014/09/the-big-kahuna-korrection-or-buy-yom.html)
+
+) and via Twitter (@humblestudent) as new developments occur.
+
+The chart below shows the actual (not back-tested) changes in the direction of the signal, which are indicated by the arrows, overlaid on top of a chart of the SP 500\. You can think of the blue up arrows, which occurred when the trend signal changed from negative to positive, as buy signals and the red down arrows, which occurred when the trend signal changed from positive to negative, as sell signals.
+
+**Trend Model Signal History**
+
+**A proof of concept**
+
+While the results from the above chart representing paper trading is always interesting, there is no substitute for actual performance. As a proof of concept, I started to manage a small (about 100K) account that traded long, inverse and leveraged ETFs on the major US market averages and, on occasion, sector and industry ETFs. Trading decisions were based on Trend Model signals combined with some short-term sentiment indicators. The inception date of the account was September 30, 2013 and the chart below represents an interim report card of that account.
+
+When evaluating the performance of this trading account, keep in mind that this is intended to be an absolute return vehicle. While I do show the SPY total return, which includes re-invested dividends, for illustrative purposes, the SP 500 is not an appropriate benchmark for measuring the performance of this modeling technique.
+
+**September: 6.7%, YTD: 25.1%, 1 year: 40.1%**
+
+We saw another solid result in September as the account was up 6.7%, during a period when SPY dropped by -1.3% on a total return basis.  The account was up 25.1% YTD and 40.1% for one year, or from inception. However, I would also like to point out that turnover averaged about 190% 
+
+*per month*
+
+, so this strategy is not for everyone, especially the faint of heart.
+
+In line with the results for the last few months, the results continue to be promising:
+
+*   Returns are strong and the Trend Model is performing as expected.
+*   Returns are highly diversifying compared to major asset classes. They are uncorrelated with equities (correlation of -0.18 with SPY) and bonds (-0.28 with AGG).
+
+**Still not ready for primetime**
+
+While these results are promising, I consider the Trend Model to be untested by stressful markets. I continue to be concerned about how the Trend Model would behave at major market turning points. In the past year, equities have more or less been rising steadily without a correction of 10% and pullbacks have mostly been short and shallow. While account performance has been admirable during these minor market hiccups, the biggest test for the Trend Model is how it performs during the volatility seen in major corrections. In particular, how will the Trend Model navigate the initial downturn, the volatility of the bottoming period and the subsequent rally?
+
+My concern is based on a feature of the underlying design principles of the Trend Model, whose buy and sell decisions are based on the application of trend following models to commodity and global equity prices, supplemented by some shorter term sentiment indicators. Trend following models suffer from a well-known problem as they are subject to whipsaw in sideways trend-less markets. While the addition of the short term sentiment models mitigate those effects, they do not entirely eliminate them.
+
+To illustrate my point, the chart of the actual historical signals of the Trend Model shows a number of episodes when returns were negatively affected by whipsaw, which last occurred in Q1 2014:
+
+**Trend Model Signal History**
+
+As the above chart also shows, the stock market has been rising more or less at a steady rate since late 2012\. The key test of the Trend Model will occur when it is faced with choppier markets such as the ones seen during the 2010-2012 period (though the above chart of actual model signals does show promising results for 2011 and 2012).
+
+If the current bout of stock market weakness does turn into a more sustained downdraft, we may see a more meaningful stress test of this model.
+
+**Limiting losses, but allowing winners to run?**
+
+Notwithstanding these concerns, I continue to find these results promising as the Trend Model may be showing the desirable highly characteristic of being able to limit losses but allowing winners to run.
+
+The chart below shows a histogram of the distribution of the monthly returns of the Trend Model account. While the sample size is still quite small (n=12) and therefore the conclusions highly conjectural, the distribution of returns is intriguing.
+
+To explain, the x-axis of the chart shows the monthly returns of the account, while the y-axis shows the number of times, or frequency, of the monthly returns during the test period. As with most financially based returns, you would expect a bell-shaped Gaussian return distribution, which I have sketched out in black. The anomaly to the chart is the relatively high count of negative returns at about the -2% level, but note the zero frequency to the left indicating that there were no large monthly draw-downs. My preliminary (and highly conjectural) conclusion is that this return distribution shows ***the Trend Model is able to limit monthly losses while allowing winners to run*** (on the right of the chart).
+
+One possible problem with that conclusion is that the occasions when the negative returns occurred were consecutive, which resulted in a total draw-down of roughly 7%. that occurred in the whipsaw period that I described before in Q1 2014 If the three draw-down months were to be compressed together into a single month, the chart would then look like the one below, which incidentally preserves the bell-shaped Gaussian distribution of the chart.
+
+These results are highly preliminary as the data is limited, but the results remain intriguing. I will be monitoring and reporting on them in the months to come.
+
+Readers who want to monitor the signals of the Trend Model to subscribe to my blog posts 
+
+[here](http://www.feedburner.com/fb/a/emailverifySubmit?feedId=2701205&loc=en_US)
+
+, which include Trend Model updates, or follow me via Twitter @humblestudent.
