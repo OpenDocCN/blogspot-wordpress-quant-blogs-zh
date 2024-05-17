@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:14:25
+-->
+
+# Humble Student of the Markets: Apple after Jobs
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/10/apple-after-jobs.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/10/apple-after-jobs.html#0001-01-01)
+
+I don't often write about individual stocks, largely because I haven't done much fundamental analysis in years, but that doesn't mean that I don't have any skills in that area. In the aftermath of the news about Steve Jobs' unfortunate demise, there has been a lot of chatter about the fate of Apple in the post-Jobs era.
+
+**What's Apple's economic moat?**
+
+I would analyze the issue by asking, "What's Apple's economic moat?" Warren Buffett has effectively used the concept of "economic moat" as a way of analyzing companies. Here is
+
+[one good explanation of a moat](http://www.associatedcontent.com/article/913515/warren_buffett_and_economic_moat_defined.html)
+
+ [emphasis added]:
+
+> What does the term economic moat mean? An economic moat is ***a competitive advantage that is difficult to copy or emulate, which provides a significant barrier to competition from other firms***. Buffett has often referred to an economic moat as being similar to a fortress or a medieval castle that one can not penetrate.
+
+There is no question that Steve Jobs contributed a great deal to Apple's success. Apple holds
+
+[over 300 patents by Steve Jobs](http://www.nytimes.com/interactive/2011/08/24/technology/steve-jobs-patents.html)
+
+, which is an astounding number for a founder and chief executive. If that is Apple's economic moat, then the company is indeed in trouble.
+
+Jobs was known to be an intensely detailed focused micro-manager. If Jobs was the main reason why Apple was propelled to success, then the company is indeed in trouble.
+
+**iTunes Store is the key to Apple's current success**
+
+My personal belief is that Apple is more than Steve Jobs. The company has many other talented people working for it. I believe that Apple's economic moat was not just the coolness of its products (which Jobs contributed to), but the iTunes platform.
+
+Apple has always embraced a closed architecture for its product lines. The way it made money, and lots of it, was to get people to come inside its walled garden and play. That walled garden is called iTunes. It is Apple's platform to sell its customers music and software content. Wall Street may be focused on how much of a hit the latest iPhone is, but all these gadgets are designed to drive the user to iTunes - which is the key to Apple's long-term cashflow.
+
+Speaking as an iPhone user, I opted for the iPhone over the Blackberry or Android platform was because of the combination of the utility of the device over the Blackberry and the advantages of Apple's closed architecture compared to the Android open architecture. (I am by no means an early adopter of technology - I tend to go with the crowd. As an example, my computers run Windows because of legacy software issues.)
+
+Take the issue of device security as an example. There will be no doubt a lot of malware written for mobile devices. If an Android device got infected, it is unclear who will be responsible for fixing it because responsibility is diffuse. By contrast, if software from an authorized iTunes dealer infected millions of iPhones and iPads, then I think that you can expect that Apple will move heaven and earth to remedy the problem -
+
+***because that's their economic moat***
+
+.
+
+In short, I would be less concerned about the apparent tepid reception for the iPhone 4S. Don't forget that the reception for the iPhone 3GS was less than enthusiastic but they still sold a lot of those devices.
+
+As long as the iTunes franchise is intact, Apple should continue to be successful, even without Steve Jobs.
+
+***Disclaimer***
+
+: I don't have any position in AAPL and this is not a recommendation to buy or sell the stock.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

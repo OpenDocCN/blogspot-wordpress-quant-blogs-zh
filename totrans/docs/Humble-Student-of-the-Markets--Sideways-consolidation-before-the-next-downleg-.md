@@ -1,0 +1,223 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:14:21
+-->
+
+# Humble Student of the Markets: Sideways consolidation before the next downleg?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/10/sideways-consolidation-before-next.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/10/sideways-consolidation-before-next.html#0001-01-01)
+
+Last week featured some very volatile market action. Equities remained highly sensitive to newsflow and rallied on stories that the French and Germans were putting together plans to recapitalize banks (finally!). Then on Friday, you had the rally in the morning to the better than expected Non-Farm Payroll release and the fade when Italy, Spain and a number of UK banks got downgraded.
+
+What's going on?
+
+My interpretation is that the stock market had fallen too far too fast and it's now due for a multi-week period of sideways consolidation. The problems in Europe haven't gone away, nor has the threat of an American recession, which appears to be inevitable. As we move through 3Q Earnings Season in the next few weeks, the markets likely to be range-bound and volatile - until the newsflow worsens, which I believe will occur in about one or two months.
+
+**Market recap**
+
+I recently wrote about
+
+[what the bulls need to do to take control](http://humblestudentofthemarkets.blogspot.com/2011/10/what-bulls-have-to-do-to-take-control.html)
+
+and the bulls have achieved many of those objectives. The stock market rallied through its downtrend line, though considerable overhead resistance awaits. The technical picture spells stalemate, or a range-bound market in the near term. The bulls have managed to contain the damage and make a goal line stand, but they need to show more to win the game.
+
+The rally through the downtrend is even more evident in the broader NYSE Composite
+
+...and in the Euro STOXX 50, which has been the source of much market angst:
+
+Cyclicals are behaving a bit better as they showed a similar pattern of rallying through a relative downtrend:
+
+I had written before about my concerns about the banking sector. It is interesting to see that the Regional Banks have rallied through a short-term relative downtrend, though the longer term relative downtrend remains intact. In addition, this group remains below a multi-year relative support level that was violated in August (and now represents resistance).
+
+How to interpret these conditions? Here is the take from a guest blogger on
+
+[Slope of Hope](http://slopeofhope.com/2011/10/short-term-bounce-or-bear-market-rally.html)
+
+that studied previous stances of support violations and subsequent market rallies [emphasis added]:
+
+> Two things I want to draw your attention to in all three of these charts are MINOR violations of established lows ESPECIALLY when followed by sharp reversals and the level of volume.  In each chart, following a sharp decline, ***we usually see a consolidation period lasting approximately two months at which time a minor break and recovery occurs*** (of course, sometimes a major break occurs such as in Nov 2008, but I’m talking about minor breaks followed by quick reversals).  Usually, a positive divergence also forms in the RSI and MACD indicators (which only means the trend is shallower).  ***At this point, we either see a rally or another leg down.***
+
+Given the negative news backdrop of an inevitable Greek default and imminent US recession, my base case scenario still calls for another downleg after a period of sideways consolidation.
+
+**Europe can't muddle through**
+
+I have come to the conclusion that
+
+[most of the market is too short-term focused](http://brucekrasting.blogspot.com/2011/09/new-study-traders-are-worse-than.html)
+
+and doesn't really care or even want to understand the seriousness of the problems in Europe. Consider this interview with
+
+[Satyajit Das](http://video.ft.com/v/1185437572001/Satyajit-Das-Greece-the-next-Lehman-)
+
+. His best line was, "A orderly default is like an orderly car crash at 120mph". Right now, the Eurocrats are trying to install the airbags just before the crash and the markets are fixated on every one of their moves.
+
+Over the next few weeks, there are likely to be some positive headlines out of Europe. The EU will likely acquiesce and give Greece the next tranche of aid in order to buy a few more weeks of time.
+
+[France](http://www.lefigaro.fr/conjoncture/2011/10/05/04016-20111005ARTFIG00635-paris-prepare-un-plan-pour-aider-ses-banques.php)
+
+and
+
+[Germany](http://www.spiegel.de/international/europe/0,1518,790543,00.html)
+
+are finally trying to put together a plan to recapitalize banks. Barrosso at the European Commission has confirmed the work behind the scenes by making noises about recapitalization plans. However, there will no doubt be all sorts of squabbles about the scope of the plan and its details, as shown by Sunday's
+
+[Merkozy non-statement](http://www.bloomberg.com/news/2011-10-09/euro-leaders-to-do-all-necessary-to-support-banks-merkel-says.html)
+
+ of "we will do everything we can to support the banks" when it was evident that there were
+
+[considerable divisions going into the meeting](http://www.reuters.com/article/2011/10/09/us-eurozone-idUSTRE7953D520111009)
+
+.
+
+As you watch the headlines, don't forget the ultimate endgame.
+
+[Greece is going to default](http://humblestudentofthemarkets.blogspot.com/2011/09/remember-that-endgame-is-greek-default.html)
+
+. It's just a question of when and how. HSBC has written about the breakup of the eurozone, which was once unthinkable (via
+
+[FT Alphaville](http://ftalphaville.ft.com/blog/2011/10/07/696261/mechanics-of-a-euro-breakdown/)
+
+). Under such a scenario, Greece would get kicked out of the EU and the results are going to be very, very, very ugly:
+
+> What would happen to the exiting country?
+> 
+> *The assets and liabilities of the banking system would, most likely, be redenominated at a rate of one-to-one with a view to a quick depreciation.
+>  *Capital controls would have to be put in place both because of the still large current account deficit and to limit daily cash withdrawals in order to avert a collapse of the banking system which would no longer have access to ECB liquidity. If a euro exit were in any way anticipated the bank runs would have already happened.
+> *Default would not eliminate the need for fiscal adjustment as primary balance is still in deficit so overnight even more austerity would have to be delivered than under the Troika plan. Assuming this is politically unfeasible, the central bank would undertake debt monetisation.
+> * Increased likelihood of defaults by companies now holding FX-debt which would also result in a raft of legal challenges in creditor nations.
+> *With no nominal anchor, there would most likely be a wage-price spiral (especially if the central bank is printing money) which would quickly eliminate any competitiveness gains unless it undertakes massive structural reforms
+> *Very hard to reinstate a legacy currency (probably become euro-ised particularly in the tourism sector and the large informal sector)
+> *Technical hurdles would be huge: legal, computer codes would have to be rewritten, ATM machines reprogrammed etc
+> *Would have to leave to EU and could face the imposition of trade tariffs from its members
+
+That's just what happens to Greece. As for the rest of the eurozone:
+
+> *Huge contagion to other peripheral countries given that a precedent has been set for a country to leave: bond spreads blow out as foreign investors flee, widespread runs on banks which will have also suffered a credit event.
+> *The ECB has to respond to with vast liquidity provision and government bond purchases as the EFSF would not be able to issue debt quickly enough to make the necessary purchases
+> *ECB and all private sector and official creditors would have to completely write off their debt claims on the exiting country. The IMF would likely be the exception given its preferred creditor status and because its assistance may be sought again soon
+> *A full-blown credit crunch on a scale that would make 2008 seem mild and economy falls into a deep recession
+> *Member state governments could seek recourse under British Law for the loans extended under the bailout package
+
+In other words, the global banking system would have a major heart attack. Other Apocalyptic scenarios are floating about.
+
+[George Soros](http://www.bloomberg.com/news/2011-10-06/soros-says-europe-u-s-turmoil-reminds-him-of-soviet-collapse.html)
+
+has likened the current European situation to the collapse of the Soviet Union. Others are talking about the
+
+[1930s and a Creditanstalt-like event](http://www.bbc.co.uk/news/business-15217615)
+
+. The blogger
+
+[Fabius Maximus](http://fabiusmaximus.wordpress.com/2011/10/07/29456/)
+
+has compared the current state of affairs to 1914, when Europe stumbled into an inevitable Great War that eventually destroyed empires.    
+
+**Controlled default = Amputation?**
+
+If a default could be "orderly", the procedure is, at best, like a limb amputation. Notwithstanding the consequences for the patient, its results would reverberate around the globe. An orderly default needs a few ingredients. Firstly, you need a credible plan to recapitalize the banks.
+
+[Going Swedish](http://humblestudentofthemarkets.blogspot.com/2011/08/price-of-becoming-swedish.html)
+
+is my preferred policy solution, but such an approach would devastate pension plans and the insurance sector all over Europe and most probably around the world too.  
+
+The second key ingredient of an orderly default is the cooperation of the ECB. Already, the Trichet ECB has said that
+
+[they will supply eurozone unlimited liquidity until January 2013](http://www.bloomberg.com/news/2011-10-06/ecb-buys-governments-time-on-banks-as-greece-moves-closer-to-debt-default.html)
+
+. Will
+
+[Super Mario](http://www.telegraph.co.uk/finance/economics/8596953/Can-Super-Mario-Draghi-save-the-euro.html)
+
+ be more pragmatic and play ball? Or will he need to demonstrate that, despite being Italian, he is more German than the Germans as he becomes the head of the Vichy...err...European Central Bank in his attitude to QE? (Recall that the ECB doesn't have the dual mandate of the Federal Reserve and its only mandate is to control inflation.) If the ECB doesn't cooperate in a Swedish style banking recapitalization with a round of QE, then the recap plan would fail. (Note that the ECB itself has said that it will not be tendering to the "voluntary" Greek debt restructuring, largely because such a move would render the central bank insolvent. It would then either need to go to member states for more capital if they are unwilling to undergo quantitative easing).  
+
+Lastly, Greece has to cooperate and not do an Argentina. The Greek middle class is getting increasingly squeezed and it's unclear how much more austerity they can take (see stories
+
+[here](http://www.spiegel.de/international/europe/0,1518,787847,00.html)
+
+ and
+
+[here](http://www.telegraph.co.uk/finance/financialcrisis/8786547/The-Greek-tragedy-no-money-no-hope.html)
+
+). Also, can someone tell me why they are
+
+[buying 400 American tanks](http://www.alsosprachanalyst.com/economy/what-greece-to-buy-400-tanks-from-the-us.html)
+
+ in the middle of a financial crisis?
+
+Even under a best case scenario,
+
+***an "orderly default" might be likened to the amputation of a limb in order to save the patient***
+
+. Even after an "orderly default", what about the other periphery countries? In this week's commentary,
+
+[John Mauldin](http://www.ritholtz.com/blog/2011/10/an-irish-haircut/)
+
+visited Ireland and wrote the Irish believes that they will be "offered" a haircut by the EU:
+
+> When you press politicians and establishment types (and I did) who are against unilaterally disavowing the debt, a strange thing happens. I kept asking, "But the voters seem to want to forego the debt. And the math suggests that Ireland can't pay back these foreign bankers without great sacrifices." At first, they would point out that Ireland is doing what needs to be done: cutting spending and payrolls. We are not Greece, they say; there is a need for "respectability." But when pressed, they would come around to admitting that, "Yes, Ireland will get a haircut." ***Everyone*** I met expected it to happen. **The difference was the path to the haircut. But while the politics matter, the destination is the same**.
+> 
+> Some favor doing it outright. Others truly believe they will be offered a haircut when Greece and Portugal get theirs. They fully expect it. In a meeting with an establishment-insider economist (off the record), who was at the table when the first deal was done, he said there was an implicit understanding with the IMF (and ECB) that whatever was offered to Greece, et al. would be available to Ireland. So Ireland went along with the bailout to keep from imploding the euro and averting a crisis that would have been biblical in proportions. The future of the euro is now not in their hands, because by taking on the debt they did not blow the euro up. Which could have happened, because European politicians were not ready for such a crisis.
+> 
+> So rather than having to kick the door open for a haircut, they expect the door to be opened for them by the IMF and the ECB. A far more respectable path for those who are very pro-Eurozone. But Irish leaders clearly get that voters expect that something will be done. They have time, as it will be another three-plus years before elections. By then, the crisis will have fully evolved and resolved itself, as far as the political public is concerned. And politicians will take the credit, as they always and everywhere do.
+
+Then don't forget Portugal, Cypress...  
+
+**An imminent American recession**
+
+Across the Atlantic, the recent
+
+[ECRI recession call](http://businesscycle.com/reports_indexes/reportsummarydetails/1091)
+
+was notable in that their model has not had a false positive in its history, which is quite an accomplishment. More puzzling is the recent flow of economic data, which has been weak, but not at recessionary levels.  
+
+[Bruce Krasting](http://brucekrasting.blogspot.com/2011/10/what-happened-in-september.html)
+
+has an interesting five-Friday hypothesis as an explanation for the recent non-recessionary data points. September 2011 had five Fridays. For workers who get paid every two weeks, this meant that they got paid three times in September - which would have distorted the data. Krasting went on the point out that October 2010 had five Fridays, whereas October 2011 has four Fridays. If the "five Friday effect" was the main cause of the distortion in the economic data, then we are likely to get a negative surprise when the October figures get released about a month from now.  
+
+My medium term outlook remains the same. I agree with seasoned analysts like
+
+[John Hussman](http://www.hussmanfunds.com/weeklyMarketComment.html)
+
+and ECRI that a US recession is baked in. In that case, earnings are likely to come down 20-40% as per
+
+[James Bianco](http://www.ritholtz.com/blog/2011/09/another-huge-earnings-miss-coming/)
+
+. If we were to see a market panic, trailing market P/Es could hit as low as 10, which means that US equities have the potential to revisit their 2009 lows.  
+
+**What about China?**
+
+Then we need to consdier the China wildcard. As I pointed out in my
+
+[commentary last week](http://humblestudentofthemarkets.blogspot.com/2011/10/too-many-bullets-for-stocks-to-dodge.html)
+
+, the markets will start to price in the possibility of a Chinese landing as the American and European economies weaken into recession. Already, we are seeing headlines about
+
+[a credit crunch in China](http://pragcap.com/chinas-worsening-credit-crunch)
+
+and
+
+[Chinese home prices dropping for the first time in a year](http://www.businessweek.com/news/2011-10-08/china-home-prices-drop-for-first-time-in-a-year-soufun-says.html)
+
+. These developments are particularly worrying as the shadow banking system in China has grown by leaps and bounds, which is creating a Chinese subprime-like problem (see one discussion
+
+[here](http://chovanec.wordpress.com/2011/10/09/bloomberg-trust-me/)
+
+). Significantly more negative developments out of China or other emerging market countries could throw a fright into equity markets and other risky asset classes.  
+
+**Inner investor still defensive, inner trader mildly bearish**
+
+My inner investor tells me that a financial winter is coming but there is no need to panic. Just as spring follows winter, the global economy will heal itself and investors can survive and prosper again. Have a plan to manage your way through such periods of market volatility. With that in mind, he offers the following suggestions:
+
+*   **Be the predator and not the prey**: Food is scarce in winter and predators will take the opportunity to pick off weakened prey. Should the markets panic, asset prices will sell off into unreasonably cheap levels as weakened investors raise cash to meet margin calls, or worse, pay their bills. If you are sufficiently liquid and have sufficient resources, then there will be great opportunities to pick up assets at distress prices as the weak sell to the strong. At the very least, make sure that you are not the weakened prey.
+*   **Store food for the winter**: From a tactical viewpoint, either get more liquid or take positions in default-free US Treasury bonds whose prices are expected to rally from a rush into safe haven assets. A Canadian investor with a US Treasury bond position has even greater upside potential because the Canadian Dollar is likely to weaken against the US Dollar in such an environment. I use the [Asset Inflation-Deflation Timer Model](http://qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf) to time my entry and exit points.
+*   **Be opportunistically prepared to buy**: Looking longer term, the Fed and other central banks will react to deflation. Low or negative real interest rates generally signal a friendly investment environment for commodity prices. Continued government and/or central bank accommodative policy responses will likely push real interest rates even lower and add to even more future asset inflation. Investors who are opportunistic or prepared to look over the valley can view periods of market weakness as opportunities to accumulate positions in commodities or commodity producers as a hedge against asset inflation.
+
+My inner trader, on the other hand, is moving to a more neutral, though bearish, stance in wait for the next major move. He believes that near term volatility is highly likely and headline driven.
+
+As BCA Research (via
+
+[The Economist](http://www.economist.com/blogs/freeexchange/2011/10/illustrated-euro-crisis)
+
+) points out, under these current conditions of European uncertainty the demand curve for periphery bonds is not necessarily well-behaved (i.e. monotonically downward sloping) but can twist and therefore multiple equilibria is possible. Hence the volatility depending on news. changing risk preferences and shifts in sentiment.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

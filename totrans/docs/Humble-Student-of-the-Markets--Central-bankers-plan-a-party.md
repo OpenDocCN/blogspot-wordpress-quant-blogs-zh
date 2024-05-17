@@ -1,0 +1,71 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:13:20
+-->
+
+# Humble Student of the Markets: Central bankers plan a party
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/10/central-bankers-plan-party.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/10/central-bankers-plan-party.html#0001-01-01)
+
+So now we have the EU Grand Rescue Plan. I wrote
+
+[before](http://humblestudentofthemarkets.blogspot.com/2011/10/framework-for-assessing-eurozone-rescue.html)
+
+that the success of any short-term rescue plan depend on the cooperation of the EU, the ECB and the Greek Street. (Also see Ambrose Evans-Pritchard's comment:
+
+[Europe's grand gamble risks failure without ECB](http://www.telegraph.co.uk/finance/financialcrisis/8851769/Europes-grand-gamble-risks-failure-without-ECB.html)
+
+). I believe that the plan is deeply flawed for many reasons and only kicks the can down the road for a few months, but the key its short-term success is the cooperation of the European Central Bank.
+
+In a "separate" statement yesterday, Mario Draghi said that
+
+[he would support continuing the ECB's program to buy the sovereign bonds of periphery countries](http://www.reuters.com/article/idUSL5E7LQ48Q20111026)
+
+. This program was supposed to be temporary and end when the EFSF came into being.
+
+***Such a statement is an important signal that a Draghi ECB is more pragmatic and more likely to print money if conditions warranted***
+
+. Even permabear
+
+[Albert Edwards](http://ftalphaville.ft.com/blog/2011/10/27/714326/edwards-going-bust-and-ecb-qe/)
+
+believes that ECB will eventually be forced to engage in quantitative easing.
+
+Great, so the ECB is on board, which should alleviate short-term pressures. There are, nevertheless, some major problems with the Grand Rescue Plan:
+
+*   **European banks could send Europe into a deep recession.** I wrote [before](http://humblestudentofthemarkets.blogspot.com/2011/10/poisoned-bank-recap-chalice.html) that banks are asked to recapitalize to the tune of €100 billion, but the total market float of these banks is about €200 billion. Any plan that raises that much equity in such a short time will crater bank stocks. Bank CEOs have the alternative of getting to their 9% target by calling in loans, which would create a credit crunch that sends Europe into a deep recession.
+*   **[How good is the EFSF monocline insurance guarantee](http://ftalphaville.ft.com/blog/2011/10/14/702406/whats-an-efsf-guarantee-worth/)?** Individual EU states are only guaranteeing their contribution the EFSF and have not actually funded their portion of the contribution. So when the EFSF insurance scheme “guarantees” the first 20% of a Spanish bond, part of the guarantee comes from Spain. If Spain were to get into trouble, can investors depend on the Spanish guarantee? In that light, how big is the ***real*** size of the EFSF monoline insurance scheme?
+*   **EFSF insured bonds create a two-tiered bond market in Europe**. What will happen to currently outstanding bonds of troubled countries should there another credit event with, say, Portuguese bonds?
+*   **Greece is still struggling under the burden of an enormous debt**. Even with the “voluntary” haircut, Greek debt will be 120% of GDP, which is above the 100% of GDP benchmark that most analysts consider to be a sustainable level for sovereign debt. Will Greece have to come to the table again for relief in the future?
+*   **Could Portugal be the next Greece?** The Portuguese debt burden does not appear to be sustainable and many [analysts believe that Portugal is the next Greece](http://www.businessinsider.com/nomura-alastair-newton-things-that-keep-me-awake-at-night-2011-10). This deal only grants relief to Greece and does not put a sufficient ring-fence around the other peripheral countries. The current prescription of more austerity is only likely, in the short-run, to exacerbate budget deficits and send fragile EU member state budgets like Portugal and Italy over the edge.
+*   **What does the EU do when Portugal or Ireland asks for debt relief?** When they rescued their banks in 2008-9, the Irish understood that they would be offered the same deal as Greece if there was a deal to be done on debt relief. Already, the [Irish are seeking some form of debt relief](http://www.businessweek.com/news/2011-10-27/irish-spy-reward-opportunity-in-greece-s-debt-hole-euro-credit.html). How will the EU respond?
+
+In brief, the participation of the ECB in the Grand Rescue Plan has put the immediate fear of a calamity on hold and kicked the can down the road. That road has many land mines, which I have outlined, and one of those land mines is likely to blow up in faces in the next few months.
+
+**Let's party like it's 2009!**
+
+In the meantime, the ECB appears to be planning a party. In addition, elements within the Federal Reserve have indicated that they support a form of
+
+[QE3 in the form of large MBS purchases](http://in.reuters.com/article/2011/10/21/idINIndia-60032420111021)
+
+. As well, China also signaled that they are getting ready with selective forms of stimulus by
+
+[cutting bank reserve requirements](http://www.bloomberg.com/news/2011-10-26/brokers-predict-policy-easing-as-china-s-premier-signals-change.html)
+
+.
+
+My inner trader is positively giddy at the prospect of central bank parties. He agrees with the sentiments of
+
+[Cullen Roche](http://pragcap.com/the-global-government-put)
+
+of Pragmatic Capitalism, "Don't fade government intervention." Just look at the last party that was sparked by QE2\. These parties tend to push the price of stocks and other risky assets to significantly higher levels. He says, "Don't worry, be happy."
+
+My inner investors is prepared to show his face at the party, just to be friendly, but he is wary of the cops who are prepared to raid the party and he knows that they are lurking on the next block. This party may last for 2-4 months, but the downside risk is considerable should we see another policy mistake or market accident. He agrees with the analysis of
+
+[Barry Ritholz](http://www.ritholtz.com/blog/2011/10/four-bad-bears/)
+
+, who wrote these words before the melt-up rally yesterday:
+
+> [Y]our posture is dramatically impacted by your time frame. If you are looking out 1-3 months, you are probably bullish. If your outlook is measured in 6-12 months, you might be less sanguine. And the time between is anyone’s guess . . .
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

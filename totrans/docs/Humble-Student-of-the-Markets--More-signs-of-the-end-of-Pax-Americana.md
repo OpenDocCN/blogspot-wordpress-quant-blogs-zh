@@ -1,0 +1,50 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:13:42
+-->
+
+# Humble Student of the Markets: More signs of the end of Pax Americana
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/10/more-signs-of-end-of-pax-americana.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/10/more-signs-of-end-of-pax-americana.html#0001-01-01)
+
+Are these isolated incidents of a Sign of the Times?
+
+1) In the September 2011
+
+[Vanity Fair](http://www.vanityfair.com/culture/features/2011/09/chinese-hacking-201109?printable=true)
+
+story about Chinese cyber intrusions, an analyst was told to back off for political reasons [emphasis added]:
+
+> In this conversation—the first of several that took place over the following months—the man said that he had started his career protecting government networks against foreign attacks. On that job, he became so preoccupied with the scale of Chinese hacking that ***a senior military officer told him to stop talking about it, with the gruff explanation that “the reason this is still going on is that the Chinese government now owns us.”***
+
+2) Last week, the Globe and Mail reported that
+
+[Canada is becoming a magnet for American job hunters](http://www.theglobeandmail.com/report-on-business/economy/jobs/canada-new-magnet-for-us-job-hunters/article2199166/)
+
+:
+
+> In a reversal of historical flows, immigration lawyers report a surge of calls from Americans who want to move north. Statistics bear out their observations: A record number of Americans applied for temporary work visas last year, Immigration Canada statistics show, spurred largely by the contrasting health of the two countries’ labour markets.
+> 
+> On one side of the border, 14 million Americans are out of work – the equivalent of more than 40 per cent of Canada’s population. On the other side, some employers – particularly in Alberta’s oil sector – say they can’t find enough skilled workers, prompting the country’s federal immigration minister to publicly muse last month on how to admit more skilled Americans.
+> 
+> The U.S. jobless rate is 9.1 per cent while Canada’s comparable rate – adjusted to U.S. concepts – is just 6.3 per cent, statistics released last week show.
+
+Canada is indeed becoming a more attractive place to live. When I moved from Canada to the United States in 1994, the top combined marginal income tax rate in Canada was about 53-55%, depending on provincial jurisdiction. When I returned in 2007, the top rate was in the low to mid-40s. While headline healthcare costs are minimal in Canada, residents still bear the costs of drugs so the overall costs between Canadian and American healthcare aren't hugely different for someone with a job (see my
+
+[previous post](http://humblestudentofthemarkets.blogspot.com/2009/07/comparing-us-and-canadian-health-care.html)
+
+about comparing Canadian and American healthcare).  
+
+3) Last but not least, even
+
+[Superman is renouncing his American citizenship](http://comicbook.com/blog/2011/04/30/is-superman-renouncing-american-citizenship-the-most-controversial-comic-book-story-ever-written/)
+
+. (I wonder what his tax consequences are?)    
+
+**Competitive devaluation = Commodity bullish**
+
+I continue to believe that America is undergoing a multi-decade process of losing its global leadership. The US Dollar will, at some point in the future, lose its status as the premier reserve currency in the world. That's why I remain a long-term commodity bull.  
+
+While we are current moving through a period when deflationary forces are ascendant, the long-term path for commodity prices is still up, albeit in a volatile fashion. The major industrialized countries of the world will undergo a path of competitive devaluation and those pressures will show up mainly in commodity and asset price inflation.  
+
+Looking longer term, low or negative real interest rates generally signal a friendly investment environment for commodity prices. Continued government and/or central bank accommodative policy responses will likely push real interest rates even lower and add to even more future asset inflation. Indeed, the latest FOMC minutes are hinting that the Fed will not hesitate to undertake QE3 should the economy weaken further.   Investors who are opportunistic or prepared to look over the valley can view periods of market weakness as opportunities to accumulate positions in commodities or commodity producers as a hedge against asset price inflation.       *Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *  *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.**
