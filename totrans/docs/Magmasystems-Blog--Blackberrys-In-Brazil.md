@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:48:06
+-->
+
+# Magmasystems Blog: Blackberrys In Brazil
+
+> 来源：[http://magmasystems.blogspot.com/2012/01/blackberrys-in-brazil.html#0001-01-01](http://magmasystems.blogspot.com/2012/01/blackberrys-in-brazil.html#0001-01-01)
+
+I had lunch the other day with one of the IT staff from my client here in Sao Paolo, and we were talking about the work/life balance. I was asking him if he checked his Blackberry as soon as he got home, and he gave me the most astonishing reply. It seems that, unless you are on support rota (ie: on call), if you respond to a work-related message on your mobile device, then the company has to pay you overtime. So, as a rule, most banks do not give their employees company Blackberries.
+
+Imagine if I could charge overtime to the companies that I have worked for when I responded to email at home? While climbing the Canadian Rockies? While drinking Cidra at a bar in Spain? Imagine how much nicer my vacations could have been if I had been forced to be disconnected from work?
+
+(Nah .. this wouldn't work for me .... I am a workaholic, and I couldn't imagine being disconnected from the office.)
+
+The more I dive into the Brazilian work culture, the more I like it.
+
+©2012 Marc Adler - All Rights Reserved. All opinions here are personal, and have no relation to my employer.
