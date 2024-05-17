@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:47:18
+-->
+
+# Dynamic Time Warp | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/08/15/dynamic-time-warp/#0001-01-01](https://mdavey.wordpress.com/2014/08/15/dynamic-time-warp/#0001-01-01)
+
+## Dynamic Time Warp
+
+Interesting [read](http://systematicinvestor.wordpress.com/2012/01/20/time-series-matching-with-dynamic-time-warping/) over on Systematic Investor, “Time Series Matching with Dynamic Time Warping”.  Would be interesting to apply DTW against trading recommendations.   Another [paper](http://www.aicit.org/jcit/global/paper_detail.html?jname=JCIT&q=1369) on DTW also looking interesting: Trading Strategies based on Pattern Recognition in Stock Futures Market using Dynamic Time Warping Algorithm.  Likewise: [Patterns](http://run.unl.pt/bitstream/10362/9539/1/Coelho_2012.pdf) In Financial Markets:dynamic Time Warping
+
+~ by mdavey on August 15, 2014.
+
+Posted in [Data](https://mdavey.wordpress.com/category/data/)
