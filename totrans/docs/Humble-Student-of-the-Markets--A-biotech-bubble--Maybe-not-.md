@@ -1,0 +1,52 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:43:34
+-->
+
+# Humble Student of the Markets: A biotech bubble? Maybe not!
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/02/a-biotech-bubble-think-again.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/02/a-biotech-bubble-think-again.html#0001-01-01)
+
+The biotechnology sector has been on a tear for the past few years. A glance at the biotech ETF (IBB) shows that this group (bottom panel) has been steadily advancing since the stock market bottomed in 2009\. It decisively broke out to new all-time highs in late 2010\. By contrast, the SPX (top panel) didn't exceed its old highs until three years later in 2013.
+
+In a recent article, the
+
+[FT](http://www.ft.com/intl/cms/s/0/27482366-9032-11e3-a776-00144feab7de.html#axzz2tjsr0Ncz)
+
+warned of a growing bubble in this sector. The appearance of rising IPO volumes and lower quality (earlier stage company) IPOs are key warning signs:
+
+> The fastest start to a year for US biotech initial public offerings is stoking fears of a bubble amid concerns investors are taking risks on companies at the earliest stage of medical research.
+> 
+> Another eight biotech companies raised a combined $502m in US listings last week, setting a weekly record for the sector and continuing a boom that has seen the Nasdaq biotech index rise more than two-thirds in the past year.
+> 
+> However, fears of overheating are growing as companies come to market at an early stage of drug development when failures are high – and in one case without the usual restrictions that bar existing owners from making a quick profit on IPOs.
+
+The Economist (via
+
+[Business Insider](http://www.businessinsider.com/why-the-latest-biotech-boom-may-not-be-followed-by-another-bust-2014-2)
+
+) also pointed to rising IPO volumes as a possible risk, but suggested that there are reasons to be more sanguine about the current biotech boom. First, the business model for many biotech companies has changed:
+
+> There are several reasons to hope that even if the current share-price and IPO frenzy subsides, biotech firms will continue to prosper. First, many smaller firms have become the research engines for bigger ones, explains Kevin Starr of Third Rock, a venture-capital firm.
+> 
+> For example Sanofi, a French pharmaceutical giant, now depends on Regeneron, an American biotech company, to help drive its growth. This year alone, Sanofi will pump about $1 billion into Regeneron’s research programme. The goal is not to "Sanofise" Regeneron or any other partner, says Christopher Viehbacher, Sanofi’s chief executive. Rather, it is to combine Regeneron’s capabilities in researching new treatments with Sanofi’s skill in bringing them to market.
+> 
+> Celgene, one of America’s larger biotech firms, has a similar "distributed model" of research. It helps finance the scientific work at smaller companies, then usually takes over a drug’s development as it moves into clinical trials. Besides being costly, these require expertise that younger, smaller firms often lack.
+
+As well, we are starting to see the benefits from the human genome project, which holds the promise of truly disruptive life extension technologies - and immense cash flow:
+
+> Second--and more important--firms are at last starting to reap the rewards of studying the human genome. As researchers illuminate the underlying genetic causes of a disease, they open up new routes to developing treatments.
+> 
+> For example, Vertex has a drug to treat a subset of patients with cystic fibrosis, thanks to a better understanding of the faulty gene that causes it. Bluebird bio, one of Celgene’s small partner firms, which Third Rock also financed, is working on a treatment for sickle-cell disease that inserts into the patient’s blood cells a properly functioning version of the faulty gene that causes the inherited ailment.
+> 
+> Advances in genomics are making clinical trials smaller and cheaper, since it is now easier to identify which patients have the specific genetic trait that a new drug is aimed at. This makes it more worthwhile to research diseases that are rare, and those that have so far proved intractable. The FDA gives special consideration to drugs that treat such ailments, so companies can expect a speedier path to approval.
+
+From a technician's viewpoint, the surge in this group may be just starting. A 15 year chart of the relative returns of IBB against SPY shows that the biotech group only recently staged a relative breakout out of a long multi-year base lasting over a decade.
+
+This technical pattern suggests that biotechnology stocks could be the next moonshot winner - the next darling group that the momentum crowd embraces and outperformance could go on for much longer than anyone imagines. We may need comments like "valuations don't matter" and the emergence some truly *ahem* creative valuation techniques, such as the price to eyeballs metric of the internet era, before the bubble pops.
+
+Obviously this call is highly speculative. If I am right, shorting biotechs now could be like shorting technology when Netscape did its IPO because the valuations were overly ambitious.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
