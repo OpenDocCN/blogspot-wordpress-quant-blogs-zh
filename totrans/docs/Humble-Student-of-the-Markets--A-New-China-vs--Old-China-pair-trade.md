@@ -1,0 +1,50 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:42:24
+-->
+
+# Humble Student of the Markets: A New China vs. Old China pair trade
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/03/a-new-china-vs-old-china-pair-trade.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/03/a-new-china-vs-old-china-pair-trade.html#0001-01-01)
+
+[Asia Confidential](http://asiaconf.com/2014/03/16/time-to-buy-china/)
+
+recently wrote a courageous and contrarian article to buy China, though with the usual caveats. They acknowledged the risks, but justified the "buy" recommendation on the basis of valuation:
+
+> Our focus today though is whether China stocks qualify as potential opportunities following their recent correction. It’s our view that these stocks do offer attractive prospective returns. Not outstanding, but attractive. In other words, long-term investors should consider accumulating them at current levels.
+> 
+> Yes, China’s economy is deteriorating. I’ve been consistently negative on this economy over the past 18 months. But the argument here is that a credit bust is now largely factored into stock prices. The Chinese stock market is down two-thirds from 2007 highs, investor sentiment is at multi-year lows, valuations are close to decade lows and bank prices have more than discounted a crisis.
+> 
+> Sure, there are plenty of risks to this call. Stock market corrections normally end with sharp falls and that may be ahead of us. Events such as further trust loan defaults and a serious property downturn (the next domino to fall) could further dent investor confidence. And the list goes on. Ultimately, however, these risks need to be weighed against the price on offer. In the case of Chinese stocks, the price appears reasonable.
+
+ The focus on the long side is on the so-called "New China" consisting of companies exposed to the consumer and away from banks, where much of the credit risk resides:
+
+> The focus of any buying of China stocks should be on what I term “new China”. That is, stocks in sectors which should benefit from the country’s switch to a more consumption-driven economy.
+> 
+> Internet stocks should be the first port of call. They have many structural tailwinds. China’s internet penetration rate stands at just 40%, about the level of the US in 2000\. Only 25% of households have a personal computer, indicating ample room for growth. Lastly, the smartphone installed base, currently at close to 300 million, is expected to hit 400 million in 2014...
+> 
+> [snip]
+> 
+> The consumer sector is also one to like. While consumer staples are expensive, retailers aren’t. While the latter faces considerable short-term headwinds, some are priced for it. I like Giordano, a pan-Asian discount retailer with significant exposure to China. It has a great track record and sports a single digit price-to-earnings ratio and sustainable dividend yield of +7%.
+> 
+> Finally, Chinese insurers operate in an under-penetrated industry which should benefit as incomes improve. PICC has a stronghold on property and casualty insurance and is reasonably priced.
+
+**A pair trade with reduced market risk**
+
+Though I am somewhat skeptical of any company in the financial sector because of looming credit, this investment thesis brings up an idea of a pairs trade. How about buying "New China" (consumer sectors) and shorting "Old China" (finance and infrastructure)?
+
+On the long side, one ETF to consider is PowerShares Golden Dragon Halter USX China Portfolio (PGJ), which is overweight in Technology and virtually nothing Financials:
+
+**PGJ sector weights**
+
+By contrast, iShrares FTSE China 25 (FXI) has a roughly 50% weight in Financials:
+
+**FXI sector weights**
+
+The pairs chart tells the story. This pair had been range-bound until PGJ staged a relative breakout against FXI last summer and it has been on a tear ever since. While it is somewhat extended, this is one way to benefit from the stated government objective of rebalancing growth from credit driven infrastructure growth to consumer-led growth.
+
+The pairs trade chart shows a high degree of volatility and it is obviously not without risk. However, it may be an interesting way of being exposed to China;s growth with reduced market risk.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*

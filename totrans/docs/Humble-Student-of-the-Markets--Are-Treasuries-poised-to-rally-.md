@@ -1,0 +1,71 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:42:11
+-->
+
+# Humble Student of the Markets: Are Treasuries poised to rally?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/03/are-treasuries-poised-to-rally.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/03/are-treasuries-poised-to-rally.html#0001-01-01)
+
+Fed chairs are under intense scrutiny for their utterances. I can remember an interview with Paul Volcker who said that he felt so much under the microscope that when he went out to a restaurant, he felt compelled to say, "I'll have the steak, but that doesn't mean that I don't like the chicken or the lobster."
+
+In the wake of Janet Yellen's uttering the phrase "around six months", both stock and bond markets sold off. While the major equity averages rallied the next day to recover virtually all of their losses, the Treasury market remained mired in the red compared to pre-FOMC announcement levels as of the close on Thursday.
+
+**Most analysts were either neutral or dovish**
+
+So was the market sell-off an overreaction to what amounted to a rookie mistake? Most of the analysis that I've read had a neutral or slightly dovish take to the FOMC statement and Yellen press conference. Here are some examples.
+
+Bill McBride of
+
+[Calculated Risk](http://www.calculatedriskblog.com/2014/03/what-does-yellens-around-six-months-mean.html)
+
+rhetorically asked about the "six month" remark:
+
+> This raises several questions:
+> 1) When does six months end?
+> 2) Is this data dependent?
+> 3) Is this new news?
+
+The answer to the first question is July 2015\. McBride outlined a schedule of FOMC meetings and counted forward six months:
+
+> Based on this schedule, the FOMC will conclude tapering as of January 1, 2015\. So six months would be around July 1, 2015.
+
+The answer to the second was yes. Of course it's data dependent. The answer to the third is no, at least to McBride:
+
+> Maybe it surprise some participants, but Yellen's comment fit previously released projections, so it really shouldn't be too shocking.
+
+**Data dependent, not date-dependent**
+
+Cardiff Garcia at
+
+[FT Alphaville](http://ftalphaville.ft.com/2014/03/21/1804882/yellens-words-vs-what-you-heard/)
+
+thought that Yellen was trying to convey the ambiguity and data dependence of the forecast:
+
+> [S]he wanted to emphasise that this too would be data-contingent, not calendar-based. Markets seem to have ignored the caveats. That is the danger of being too explicit when specificity isn’t called for. Bernanke made a similar mistake last summer in saying that “when asset purchases ultimately come to an end, the unemployment rate would likely be in the vicinity of 7 per cent” — only to walk it back shortly after. Don’t be surprised if Yellen also clarifies further what she meant by the “six months” comment, and soon.
+
+**Greater uncertainty** [Jon Hilsenrath](http://blogs.wsj.com/economics/2014/03/20/grand-central-how-long-is-six-months-really/?mod=WSJBlog#1)
+
+had a slightly different take on the situation. The markets reacted the way they did because of heightened uncertainty:
+
+> What she does seem to have done, however, is awaken investors to risks to the interest rate outlook. Since last September investors had become remarkably secure in their belief that the Fed wouldn’t budge on interest rates until mid- to late-2015\. The Fed’s many reassurances since September formed and underpinned that conviction. Ms. Yellen and her colleagues have introduced a sliver of uncertainty around the edges of these calculations. Officials still don’t expect to move until next year. They still expect to move rates up very gradually once they start and to keep rates well below normal levels of 4% far into the future. But as they like to remind people from time to time, these decisions aren’t on a preset course.
+
+**Growth risks are to the downside**
+
+Jan Hatzius of Goldman Sachs has a more dovish outlook (via
+
+[Business Insider](http://www.businessinsider.com/hatzius-on-the-next-rate-hike-2014-3)
+
+):
+
+> ...we still think that rate hikes are far off. First, we do not think that Yellen meant to send a strong signal of a shift in the reaction function. Second, while we agree that the most likely path for growth is a pickup to a 3%+ pace, the risk to this forecast is on the downside. Third, we expect a more gradual return to 2% inflation than the FOMC. Fourth, we see a significant risk that a tightening of financial conditions in the run-up to the first rate hike will delay the first hike, much as last summer's "taper tantrum" delayed the actual move to QE tapering.
+> 
+> Our central forecast for the first hike remains early 2016, although the risks now tilt in the direction of a slightly earlier move.
+
+To summarize, the consensus is that the market over-reacted to the downside. If that's the case, watch for Fed officials scrambling to get into damage control mode in the days and weeks to come.
+
+If I am right on that score, watch for the Treasury market to rebound - and soon.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
