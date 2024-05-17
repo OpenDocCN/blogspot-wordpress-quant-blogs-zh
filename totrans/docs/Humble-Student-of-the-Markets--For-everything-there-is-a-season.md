@@ -1,0 +1,94 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:59:43
+-->
+
+# Humble Student of the Markets: For everything there is a season
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/01/for-everything-there-is-season.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/01/for-everything-there-is-season.html#0001-01-01)
+
+I have always been a proponent of
+
+[the intelligent use of quantitative models](http://humblestudentofthemarkets.blogspot.com/2007/12/surviving-and-prospering-as-quant.html)
+
+. Examine your assumptions and make sure they hold, I said. Quant models work 99% of the time, but that 1% tail has really nasty consequences. The 1% can blow up your firm. Not only that, it can blow up the country and possibly the global economy.
+
+There are
+
+[no models for all seasons](http://humblestudentofthemarkets.blogspot.com/2008/11/there-are-no-models-for-all-seasons.html)
+
+(assumptions), but there are seasons (assumptions) for models. Broadly speaking, there are three classes of quantitative models in use. I would like to examine each of those and their assumptions, or seasons.
+
+**Equilibrium models**
+
+The equilibrium model represents the orthodoxy of economics and financial modeling. Virtually all the works of mainstream economists are based on equilibrium models. In finance, the discounted cash flow model (DCF) is a good example of an equilibrium model.
+
+The DCF model has spawned a variety of value-based models. The dividend discount model is one variation. The PB-ROE model is another.
+
+Investors use elements of the DCF model to approximate value. The P/E ratio, or E/P ratio, is really nothing more than shorthand for a single term of the DCF model. Other variations, based on going up the income statement, use EBITDA to EV, Sales to Price or Sales to EV. Value investors have used these measures for years.
+
+**Behavioral models**
+
+Equilibrium models don’t explain everything that the market does. A case in point is the curiosity of the relationship between U.S. stock and long bond yields. U.S. stock dividend yields traded above long bond yields until the 1950s, when the relationship inverted. Recently, they inverted again, when dividend yields rose above those of the long bond.
+
+[Mark Hulbert](http://www.marketwatch.com/news/story/first-time-50-years-stocks/story.aspx?guid=%7BE072D0B2-0A01-47FD-9FA9-7A2CB6DFD1EE%7D&dist=msr_6)
+
+reported a possible explanation for this phenomena [emphasis mine]:
+
+> Cliff Asness, however, thinks he has come up with some clear answers. He is managing and founding principal at AQR Capital Management, a Greenwich, CT-based quantitative research firm. In the March/April 2000 issue of Financial Analysts Journal, Asness argued that neither the pre-1958 period nor the decades since are anomalous. On the contrary, he found that -- below the surface -- stock and bond yields have always been strongly positively correlated.
+> 
+> The reason that this strong correlation was hidden, according to Asness, is that ***investors' expectations have changed of the relative volatility of stocks and bonds*.** Prior to the last 50 years, investors expected the stock market's volatility to be much greater than bond market volatility. To entice investors to incur that greater volatility, the stock market had to provide a higher yield than bonds.
+
+This is an example of where equilibrium models break down. Equilibrium models assume that we are all rational human beings who make rational decisions based on expected returns and, even if every person isn’t the same, risk aversion functions are relatively well-behaved.
+
+This example of the stock and bond yield question demonstrates that risk preferences can shift in very a dramatic fashion. Quantitative models that depend on the past are only looking at a single snapshot of history and not all the possible variations.
+
+Recently, the field of behavioral finance has received greater attention. The likes of Andy Lo have done work in the field of neuroscience of how the brain reacts to positive and negative stimuli (see example
+
+[here](http://freakonomics.blogs.nytimes.com/2009/01/09/this-is-your-brain-on-prosperity-andrew-lo-on-fear-greed-and-crisis-management/?scp=1&sq=andrew%20lo&st=cse)
+
+).
+
+Technicians have been using behavioral finance principles to explain market behavior for years. Technical analysts use trend following techniques to jump on the investor bandwagon and a variety of overbought/oversold models to try to jump off the bandwagon. They use techniques such as advance-decline lines to better measure the underlying trend. Divergences are thought of as significant, as the indicator, such as the A-D line, is a better model of the “true” trend.
+
+Growth investing have a behavioral basis in its own way. Numerous studies show that growth stocks, as defined by high P/E or high P/B, lag the market over the long term. Growth investors use momentum techniques to chase the next Xerox, the next Microsoft, the next Google, etc., based on the high psychological payoff of finding the big ten or twenty-bagger.
+
+**Non-linear models and chaos theory**
+
+Benoit Mandelbrot was an early advocate of the Big Idea that the universe operates in a non-linear fashion. This was known as Chaos Theory. Nassim Taleb later popularized the same idea with the Black Swan. The blog
+
+[Crossing Wall Street](http://www.crossingwallstreet.com/archives/2009/01/the_strange_dea.html)
+
+skeptically comments that:
+
+> If you’re not familiar with Taleb, he has one idea and one idea alone. Actually, it’s not even his idea. The man who really impresses me Benoit Mandelbrot. Anyway, the idea is that stock returns don’t follow the normal distribution (the bell curve). That’s it—that’s the Big Think idea.
+> 
+> Here’s the deal: If stocks don’t follow a bell curve, then a lot of the ways we measure risk are flawed. For Taleb, of course, it’s much more than that. His idea (meaning Mandelbrot’s) is really an impossible to comprehend discourse on the human soul.
+
+My own experience with non-linear models is that it is difficult to get them to work, owing to their extreme sensitivity to initial conditions. Some researchers have successfully measured the degree of non-linearity in the market and thus been able to better forecast risk. My own limited observation of non-linear models is that if they do work, their forecasts aren’t all that better than linear models.
+
+Your own mileage will vary.
+
+**The Financial Modelers’ Manifesto**
+
+Over at Paul Willmott’s blog, he published a
+
+[Financial Modeler’s Manifesto](http://www.wilmott.com/blogs/paul/index.cfm/2009/1/8/Financial-Modelers-Manifesto)
+
+, which starts with an echo of the
+
+[Communist Manifesto](http://en.wikipedia.org/wiki/Communist_manifesto)
+
+with:
+
+> A spectre is haunting Markets – the spectre of illiquidity, frozen credit, and the failure of financial models.
+
+It concludes with “Modelers' Hippocratic Oath”:
+
+> ~ I will remember that I didn't make the world, and it doesn't satisfy my equations.
+> ~ Though I will use models boldly to estimate value, I will not be overly impressed by mathematics.
+> ~ I will never sacrifice reality for elegance without explaining why I have done so.
+> ~ Nor will I give the people who use my model false comfort about its accuracy. Instead, I will make explicit its assumptions and oversights.
+> ~ I understand that my work may have enormous effects on society and the economy, many of them beyond my comprehension.
+
+I wholeheartedly agree. Read the whole thing. Examine the assumptions in your models and apply them intelligently.
