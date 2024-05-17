@@ -1,0 +1,128 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:15:48
+-->
+
+# Humble Student of the Markets: Why this is not the start of a bear market
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/09/why-this-is-not-start-of-bear-market.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/09/why-this-is-not-start-of-bear-market.html#0001-01-01)
+
+) that sentiment models are showing a crowded short among several different groups of investors, namely retail (Rydex), US RIAs (NAAIM) and global institutions (BoAML Fund Manager Survey). With respect to sentiment models, I prefer metrics that reflect what people are actually doing with their money, instead of opinion surveys. That's why I give extra weight to measures like Rydex cash flows.
+
+) shows that option skew, or the cost of put option downside insurance compared to call option pricing, is elevated (top panel). In addition, short interest has been rising steadily (bottom panel). These are all signs of a contrarian bullish environment.
+
+shows that "smart money" corporate insiders have been buying heavily since mid-August:
+
+To be sure, sentiment models don't work all the time and they are weak at pinpointing the exact date of a market bottom. I received a thoughtful email from an experienced trader, who highlighted this chart from Ed Yardeni. The green bars show periods when the II bull/bear ratio was under 1.0 (crowded short). To paraphrase Keynes, sentiment can get excessively fearful than the pain threshold of your portfolio.
+
+No indicator works all the time. That's why I rely different dimensions of market analysis.
+
+The last two causes are not an issue right now. So let me focus on the risks of a recession.
+
+[Scott Grannis](http://scottgrannis.blogspot.ca/2015/09/why-recession-is-very-unlikely.html)
+
+sees no signs of a recession from the credit markets. Here is his take:
+
+> Today, money is abundant and resources are abundant. Even energy is abundant, because its price has fallen by over 50% in the past year or so. Corporate profits are near record highs, the supply of labor is virtually unconstrained, energy is suddenly cheap, and productive capacity is relatively abundant. This adds up to a lot of room for maneuver and very little reason for the economic engine of growth to shut down.
+
+[New Deal democrat](http://community.xe.com/blog/xe-market-analysis/weekly-indicators-same-old-us-strength-edition)
+
+ came to a similar, but more nuanced conclusion. He maintains a weekly watch on the high frequency economic indicators and he divides them into long leading, short leading and coincidental indicators. Here are his latest comments from last week:
+
+> This week like last week highlighted the difference between those portions of the US economy most exposed to global forces, which have all turned negative, and those most insulated from global problems, which are all positive, and even strengthening. I suspect that the globe, as a whole, is in recession. With good numbers in housing and vehicle sales, and especially with gas prices declining again, the US is still positive, and although I believe we are past the midpoint of this expansion, I still remain positive through the first half of next year.
+
+The American economy and consumer remains strong. Here is the relative returns of the Consumer Discretionary sector and some of its components relative to the SPX. With the exception of Media, which is underperforming, does this look like the market is worried about the consumer?
+
+The main source of market angst is the slowdown coming from China and its effects on global growth. There are signs that those concerns may be overstated (via
+
+[Bloomberg](http://www.bloomberg.com/news/articles/2015-09-20/china-beige-book-says-pessimism-thoroughly-divorced-from-facts-)
+
+):
+
+> China’s economy isn’t as weak as it may look, according to a private survey from a New York-based research group that says it’s a myth the nation’s slowdown is intensifying.
+> 
+> “No collapse is nigh” in the aftermath of the stock market plunge and currency devaluation, according to the third-quarter China Beige Book, published by CBB International and modeled on the survey compiled by the Federal Reserve on the U.S. economy. Capital expenditure rebounded slightly in the period and the services sector showed strength, the report said.
+> 
+> “Perceptions of China may be more thoroughly divorced from facts on the ground than at any time in our nearly five years of surveying the economy,” CBB President Leland Miller wrote in the report. “Global sentiment on China has veered sharply bearish--too bearish. While we have long cautioned clients against relying on rosy official views of the Chinese economy, we believe sentiment has swung substantially too far in the opposite direction.”
+> 
+> The report describes a mixed, rather than disastrous, picture of the world’s second-largest economy. Weakening exports, deepening factory-gate deflation and a manufacturing slowdown have highlighted the risk of this year’s expansion undershooting Premier Li Keqiang’s target for growth of about 7 percent.
+
+There are signs that all of the stimulus is paying off as the Chinese economy is starting to see a cyclical upturn. The
+
+[South China Morning Post](http://www.scmp.com/business/china-business/article/1859946/land-sales-chinas-first-tier-cities-heat)
+
+reported that the property market and land sales in first and second tier Chinese cities are perking up.
+
+> Developers have begun to beef up their land banks as China's residential property market shows signs of steady recovery.
+> 
+> Most of these land purchases are occurring in first- and second-tier cites but the resultant rise in land prices could squeeze some smaller players out of the market, say analysts.
+> 
+> "Land transactions, especially in the first-tier cities, have become very active," said David Ji, head of research and consultancy, Greater China, at international property consultant Knight Frank. "As property prices and transaction volumes rebound, developers have started bidding aggressively to replenish their land banks," he said.
+
+If the US economy remains robust and China is turning up again, what are you so worried about?
+
+**EPS expectations holding up (for now)**
+
+The fourth major component that I use to analyze the stock market outlook is how EPS expectations are behaving (see my previous post
+
+[The right and wrong way to analyze earnings](http://humblestudentofthemarkets.blogspot.com/2015/09/why-you-shouldnt-freak-out-about.html)
+
+ for my analytical framework). Right now, forward 12 month EPS are still growing (via
+
+[Factset](http://www.factset.com/websitefiles/PDFs/earningsinsight/earningsinsight_9.18.15)
+
+, annotations in red are mine).
+
+[Ed Yardeni](http://blog.yardeni.com/2015/09/go-usa-excerpt.html)
+
+found that forward EPS is highly correlated with coincidental economic indicator and went on to guesstimate that the next recession would start in 2019
+
+> SP 500 forward earnings is highly correlated with the US index of coincident economic indicators (CEI). The latter rose to another new record high during August. Previously, I have observed that based on the past five cycles in the CEI, the next recession should start during March 2019\. That’s not based on science, but rather on a simple average of the length of the previous expansions once the CEI had rebounded back to its previous cyclical peak. So it’s a benchmark of what could happen based on what happened in the past on average.
+> 
+> In any event, I’ve circled March 2019 as the possible date for the next recession. Given the Fed’s latest decision to do nothing, it’s safe to bet that the next recession won’t be caused by the tightening of monetary policy anytime soon. It could be caused by a severe downturn abroad, I suppose. More likely is that the US will continue to grow fast enough to keep the global economy growing as well, albeit at a pace that is best described as “secular stagnation.”
+
+[![](img/46b3c37b806d00e9dc2739bc2d74ffee.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4ViS_DyEANgWtaeGwI2cThC65FezjD2WQYzmAAl4LLFOL96vFMl2ynWIkZ4o-giCscLmU4lYwRp_Ni0FGxle8nz1pHAbcoiGzBCQ2GQ4HyqUmaf9HbjNZYQcdZNVrsPEpNxgNGK7Ay_o/s1600/Yardeni+recession.png)**2015 = 1998 and 2011 (with a difference)**
+
+When I put it all together, my conclusion is that the template for the current corrective episode are 1998 and 2011\. In both those cases, the US markets were spooked by the fear of contagion from abroad (Russia and Asia in 1998 and Europe in 2011), but the US was largely insulated from negative economic effects and life went on.
+
+Using those episodes as rough roadmaps, the US equity market is likely to stay choppy for the next few weeks until the source of the market angst resolve themselves. It does mean that SPX downside projections of 1570 or lower are overblown. It does not mean, however, that the market will not decline and test the August lows or even the October 2014 lows at about 1820\. In all likelihood, I believe we will see another minor leg down to test support in the 1820-1870 zone.
+
+There is a key difference between 2015 and 1988 and 2011\. Both of those previous corrective episodes saw the resumption of a bull trend in stock prices. This time, I have my concerns.
+
+Given the excess fear in the markets, stocks are likely to see a reflex rally and a 2100 year-end SPX target is not unreasonable, but I have my doubts as to how much further it can go for fundamental reasons.
+
+There is no question that the Federal Reserve is poised to raise interest rates, the only question is when, not if. When rates rise, it will start to compress the P/E ratio (because the inverse E/P is dependent on interest rates). That will put tremendous pressure on the E in that ratio to expand, which may be doubtful.
+
+The economic cycle is maturing and the signs of a tightening labor market are everywhere. The key question as we look forward into 2016\. How much can earnings grow in the face of margin pressure from rising labor costs?
+
+[Jim Paulsen](http://wellscap.com/docs/emp/20150818.pdf)
+
+of Wells Capital Management recently voiced these worries, though he phrased his concerns in the context of an aging profit cycle (emphasis added):
+
+> Earnings performance is well past its best for this recovery and investors need to consider whether earnings growth will prove sufficient to support current stock market valuations. The rapidly aging earnings cycle is perhaps best illustrated by an economy nearing full employment with corporate profit margins near record highs. ***Should global growth remain tepid and overall sales results modest, since profit margins are unlikely to rise much, earnings trends will also likely prove disappointing. Conversely, should global growth and corporate sales results accelerate, because the U.S. is nearing full employment, companies may soon face cost-push pressures and margin erosion which will likely off set improved sales results.***
+> 
+> Essentially, it is difficult to see how earnings growth will be adequate during the rest of this mature recovery to support current price/earnings multiples. Is a relatively modest earnings growth against a backdrop of rising inflation and higher interest rates sufficient to support the current 18 to 19 times price/earnings multiple?
+
+Indeed, the
+
+[latest speech from Janet Yellen](http://www.federalreserve.gov/newsevents/speech/yellen20150924a.htm)
+
+today indicated that the economy is nearing full employment (emphasis added):
+
+> Although other indicators suggest that the unemployment rate currently understates how much slack remains in the labor market, ***on balance the economy is no longer far away from full employment***.
+
+In that case, wage pressures will surely start to pressure operating margins.
+
+Margins could unexpectedly improve should the USD weaken. 
+
+[Factset](http://www.factset.com/websitefiles/PDFs/earningsinsight/earningsinsight_9.18.15)
+
+ did show that there is a distinct difference in Q3 earnings and revenue growth for companies exposed to the domestic economy compared to foreign sourced sales (annotations in red are mine).
+
+In conclusion, my base case scenario calls for the market to bounce around for the next few weeks, with a rally into year-end and January. Looking out into 2016, labor costs and the USD will be key drivers of SPX profit expectations - and stock prices. In the absence of a retreat in the USD, the SPX will likely become range-bound in 2016 with 2100-2200 as a ceiling and 1900-2000 as a floor, which would fit well with a resolution of the technical damage done through a period of basing and sideways consolidation.
+
+One last word addressed to my bearish doubters. Before you start flaming me, just a reminder that this post is in effect a mirror image of what I wrote in May:
+
+[Why I am bearish (and what would change my mind)](http://humblestudentofthemarkets.blogspot.com/2015/05/why-i-am-bearish-and-what-would-change.html)
+
+.
