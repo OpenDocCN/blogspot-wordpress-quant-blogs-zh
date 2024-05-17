@@ -1,0 +1,146 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:03:36
+-->
+
+# Humble Student of the Markets: A barbell portfolio for a fork in the road
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2008/10/barbell-portfolio-for-fork-in-road.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2008/10/barbell-portfolio-for-fork-in-road.html#0001-01-01)
+
+Whew! The official intervention in the last few weeks seems to be finally taking effect. Credit markets are finally starting to normalize as we see that LIBOR starting to edge down.
+
+Now that the panic seems to be starting to end, I began to muse the implications of the events of the past few weeks and months on investment policy. Note to traders: investment policy isn’t about what happens in the next day or next week, but orienting the portfolio for the next 3-5 years (or more).
+
+**Inflation or deflation?** 
+
+I have written before that
+
+[future events depend much on the policy response to the crisis](http://humblestudentofthemarkets.blogspot.com/2008/10/how-long-and-deep-slowdown.html)
+
+. Much of the investment outlook for the next 5-10 years depends on how the authorities and market participants behave in the next few months.
+
+The world is in a fork in the road. Down one path is the specter of Weimar Republic style hyperinflation. Already the Treasury yield curve has steepened as the bond market starts to wonder how the authorities are going to pay for this bailout. There are two key risks. First, all this liquidity doesn’t or can’t get drained from the system after risk premiums retreat to normal levels. Former Fed Chairman Paul Volcker summarized the second
+
+[risk of this massive intervention](http://www.iht.com/articles/ap/2008/10/14/business/AS-Volcker-Recession.php)
+
+succinctly: “Those banks have been nationalized, overtly or not overtly, which is something that hasn't happened before in the history of developed countries.
+
+***How to wean them from government support? That is the challenge of the future.***
+
+”
+
+On the other hand, down the other road is the terror of deflation and Depression. If America’s lenders (China, Japan, Middle East states, etc.) decide that enough is enough and it’s time to put the US on a diet. We could witness a Brady-like debt restructuring plan, most likely with draconian adjustments in the manner of IMF prescriptions (here's an
+
+[example](http://fabiusmaximus.wordpress.com/2008/10/05/master-settlement-2009/)
+
+).
+
+**Serial bubbles: The Greenspan put becomes the G-7 put** 
+
+The inflationary case is easy to make. Politicians of all stripes loath to make unpopular decisions and would rather pay the piper later. With
+
+[one in six homes in the US showing negative equity](http://www.reuters.com/article/ousiv/idUSTRE49L01S20081022)
+
+and
+
+[the pain spreading on Main Street](http://www.financialarmageddon.com/2008/10/the-pain-on-main.html)
+
+, the political pressure for further relief is intense. A plethora of measures have been enacted that indicate that the government is well down this path. For instance, the Fed has written a
+
+[blank check](http://www.federalreserve.gov/newsevents/press/monetary/20081013a.htm)
+
+to G-7 central banks for USD assets (emphasis mine):
+
+> The BoE, ECB, and SNB will conduct tenders of U.S. dollar funding at 7-day, 28-day, and 84-day maturities at fixed interest rates for full allotment. Funds will be provided at a fixed interest rate, set in advance of each operation. Counterparties in these operations will be able ***to borrow any amount they wish*** against the appropriate collateral in each jurisdiction. Accordingly, sizes of the reciprocal currency arrangements (swap lines) between the Federal Reserve and the BoE, the ECB, and the SNB will be increased to accommodate whatever quantity of U.S. dollar funding is demanded.
+
+This week we have news of the Money Market Investor Fund Facility (
+
+[MMIFF](http://www.federalreserve.gov/newsevents/press/monetary/20081021a.htm)
+
+), a Federal Reserve facility of up to $540 billion to help money market funds. This is the latest in the alphabet soup of rescue packages from the Fed and Treasury.
+
+Other examples of excesses abound. TARP is already spawning
+
+[moral hazard at the individual level](http://www.signonsandiego.com/uniontrib/20081010/news_lz1e10schiff.html)
+
+. High sounding principles of corporate governance, first espoused at the initiation of the bailout, are being
+
+[watered down](http://www.marketwatch.com/news/story/corporate-governance-takes-back-seat/story.aspx?guid=%7B8750F6ED%2D3F7F%2D4E80%2DB39A%2DC8D03E13234A%7D)
+
+. The
+
+[suspension of mark to market accounting](http://online.wsj.com/article/SB122290736164696507.html)
+
+is already laying the groundwork for the next bubble. Companies like AIG are acting like nothing has happened and business goes on as usual, even after becoming the recipient of the Fed’s largesse (see
+
+[this](http://abcnews.go.com/Blotter/story?id=5973452&page=1)
+
+,
+
+[this](http://www.thesmokinggun.com/archive/years/2008/1007083aig1.html)
+
+and
+
+[this](http://iht.com/articles/ap/2008/10/15/business/NA-US-AIG-Hunting-Trip.php)
+
+).
+
+Foreigners may be already reacting to this heightened inflation risk. Robert Mundell, the father of the euro and an advisor to the Chinese government, was reported quoted as saying that
+
+[China should purchase all of the IMF’s gold if it came up for sale](http://www.gata.org/node/6792)
+
+. While I would somewhat discount this report as it originates with GATA (Gold Anti-Trust Action Committee), which many scoff at as being part of the tinfoil hat brigade, it does represents another piece of the puzzle in a mosaic that indicates we are well down the path of the next bubble. As they say: just because you are paranoid doesn’t mean people aren’t out to get you.
+
+**The deflation case: Where is the growth?** 
+
+Right now, emerging markets (notably China) is the main source of world growth but emerging market growth is teetering. If the emerging markets falter, then the world would descend into a serious synchronized global recession. Brad Setser speculated that the current crisis may mark the
+
+[end of Bretton Woods 2](http://blogs.cfr.org/setser/2008/10/21/the-end-of-bretton-woods-2/)
+
+:
+
+> The Bretton Woods 2 system – where China and then the oil-exporters provided (subsidized) financing to the US to sustain their exports – will come close to ending, at least temporarily. If the US and Europe are not importing much, the rest of the world won’t be exporting much.
+
+China cannot plausibly hold up the entire world. Emerging market economies are
+
+[more fragile than we think](http://blogs.cfr.org/setser/2008/10/18/where-is-my-swap-line-and-will-the-diffusion-of-financial-power-balkanize-the-global-response-to-the-broadening-crises/)
+
+. Already we can see Korea as an example of a country having difficult with getting access to USD liquidity in their banking system. The list of emerging economies in trouble or is seeking IMF help is growing daily (Argentina, Belarus, Hungary, Pakistan, etc.).
+
+**Paul Volcker: No serial bubbles**
+
+According to the latest polls and
+
+[Intrade](http://www.intrade.com/)
+
+, Barack Obama is a virtual shoo-in to win the presidency in November. Paul Volcker is known to be one of his principal economic advisors and the Obama campaign
+
+[reportedly](http://online.wsj.com/article/SB122454498635252109.html)
+
+consults Volcker on virtually all economic issues. Therefore, it wouldn’t be a huge surprise to see Volcker appointed as Treasury Secretary should Obama become president. While Volcker may not accept the appointment because of his advanced age of 81, he would undoubtedly be an influential voice in an Obama Administration.
+
+With that in mind, let’s look at two recent interviews that Paul Volcker had with Charlie Rose (
+
+[here](http://valueplays.blogspot.com/2008/10/paul-volcker-on-financial-crisis.html)
+
+and
+
+[here](http://video.google.com/videoplay?docid=1047202915400865465&ei=sQD-SIr2Hpn-qAPvlZ39Dw&q=%22paul+volcker%22+%22charlie+rose%22)
+
+. Warning – the interview videos are long). A summary of his comments follows:
+
+*   The Fed and Treasury have the tools to fix this crisis and they are now doing the right things.
+*   Japan and China will (have no choice) but to continue to finance the US. In other words, Bretton Woods 2 is not dead.
+*   The US economy is fundamentally sound (similar to my [previous comment](http://humblestudentofthemarkets.blogspot.com/2008/10/how-long-and-deep-slowdown.html) that if the US were a company, it could be best described as right business model but bad balance sheet.), Volcker’s comment was “we need more electrical and chemical engineers and fewer financial engineers”.
+*   When the dust settles, he would favor policies that 1) create more financial regulation and oversight; and 2) encourage savings and less spending.
+*   Beware of inflation: “Inflation is the ultimate destructive result.”
+
+The last point is particularly important about “inflation is the ultimate destructive result”. There would be no serial bubbles with Paul Volcker in charge. He would likely advise the new president to take the pain now and prepare the groundwork for a sustainable recovery. Should Volcker become Treasury Secretary, we can expect a couple years of pain in the form of restructuring, debt destruction and deflation.
+
+****A barbell portfolio for uncertain times** Given these two disparate outcomes, both of which are very real, what does an investor do?
+
+Under a scenario of rising inflation and possibly hyperinflation, hard assets are the best hedge. The equities of emerging markets, the most likely source of growth, would likely lead any rebound should the world reflate relatively quickly from this crisis.
+
+On the other hand, hard assets and emerging market stocks will not fare well in a deflationary scenario where defaults abound and investors seek safety. Cash, in the form of default-free paper, would perform best in that environment.
+
+Given the risks involved, perhaps the most prudent course of action to create a barbell portfolio. Split the portfolio between inflation hedge vehicles and cash, preferably in the form of T-Bills. As I have no idea what anyone’s investment objectives and risk tolerances, the weights and how you pick the inflation hedge vehicles is up to you.**

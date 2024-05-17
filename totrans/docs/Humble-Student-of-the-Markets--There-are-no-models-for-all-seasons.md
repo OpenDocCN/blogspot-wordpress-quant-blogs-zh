@@ -1,0 +1,58 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:03:11
+-->
+
+# Humble Student of the Markets: There are no models for all seasons
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2008/11/there-are-no-models-for-all-seasons.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2008/11/there-are-no-models-for-all-seasons.html#0001-01-01)
+
+My recent post entitled
+
+[***What happens in the long run***](http://humblestudentofthemarkets.blogspot.com/2008/10/what-actually-happens-in-long-run.html)
+
+seems to have struck a nerve but was wrongly interpreted in some quarters (example
+
+[here](http://alephblog.com/2008/11/01/fifteen-notes-on-the-markets/)
+
+). All models are approximations of the real world. Good models work most of the time, but will break down when it hits a “boundary condition”. Good modelers continually ask: “What are the model's assumptions? Under what circumstances will the model break down?”
+
+In the case of my aforementioned post about long run equity returns, the world doesn't seem to be on the verge of war or revolution, so the assumptions DO hold. Macro fears are overblown. The bottom-up investors are right and
+
+[stocks are cheap and are undergoing a bottoming process here](http://humblestudentofthemarkets.blogspot.com/2008/10/does-market-bottom-in-1q2q-2009.html)
+
+.
+
+**Keep questioning assumptions**
+
+With those comments in mind, this is another in a series of
+
+[warnings](http://humblestudentofthemarkets.blogspot.com/2008/10/what-actually-happens-in-long-run.html)
+
+for quantitative modelers to examine their model assumptions.
+
+The CFA Institute is sponsoring a conference on
+
+[Equity Research and Valuation Techniques](http://www.cfainstitute.org/memresources/conferences/081202_2/index.html)
+
+. With that theme in mind it is useful to ask:
+
+*   Do you know what your models are doing?
+*   More importantly, are they designed for the upcoming market environment?
+
+Back when I was [young and naïve](http://humblestudentofthemarkets.blogspot.com/2008/09/sorcerers-apprentices-at-work.html) I believed that quantitative investing was easy. I could build quantitative models, plug them in and they could run on autopilot. As we saw with the recent mortgage debacle, models don’t work in all environments and analysts need to continually question the assumptions behind the models.
+
+**Phoenix markets are challenging for many quant models**
+A case in point, this market and economy will turn up one day (which I believe [will occur in the first half of 2009](http://humblestudentofthemarkets.blogspot.com/2008/10/does-market-bottom-in-1q2q-2009.html)). For the purposes of this discussion, the timing is not relevant. Whenever the recovery happens we will see a [Phoenix effect](http://humblestudentofthemarkets.blogspot.com/2008/05/waiting-for-ride-on-phoenix.html) that will see the low-priced shares of near bankrupt companies spurt to eye-popping levels.
+
+Many multifactor quantitative equity selection models will perform poorly during such a turnaround period. Most mainstream quant models tend to buy stocks of companies with positive cash flows, positive earnings momentum, positive estimate revisions and good potential for positive earning surprise, cheap valuations, good GARP characteristics and so on. Phoenix stocks have terrible balance sheets and highly negative earnings (how does a P/E of -5 strike you?) What's more, low stock price or low trading volume that get screened out because of investability criteria. As a result, most multifactor quant models will simply not buy Phoenix stocks.
+
+When the junk flies, as we saw during the Tech bubble and in 2003, multifactor quantitative equity stock selection models fail. I [wrote](http://humblestudentofthemarkets.blogspot.com/2008/05/waiting-for-ride-on-phoenix.html) that Jeff deGraaf reported in late 2003 that the return spread between the lowest and highest decile of the stock price factor was about 70% - an astounding return. If your multifactor stock selection model is as I have described, then be prepared for a year or so of bad relative performance.
+
+**Inflation vs. deflation: How would your model behave?** One of the keys to success in quantitative investing is to have an understanding of the macro issues. I wrote in a recent post that we are facing a [fork in the road between inflation and deflation](http://humblestudentofthemarkets.blogspot.com/2008/10/barbell-portfolio-for-fork-in-road.html) and the result was highly dependent on policy and market response. Given these hugely disparate outcomes it would be surprising that the same quant model would behave the same way in both environments.
+
+In a deflationary environment, cash is highly prized. Companies with clean balance sheets and low financial leverage tend to outperform. When prices are falling, the ability to maintain margins would depend more on the power of a brand and the product and service a company is selling. Even with the consumer staple sector, there are differences. [Nielsen](http://www.nielsen.com/media/2008/pr_080604a.html) recently put out a study showing consumer product categories were more recession resistant than others (e.g. beer is but tobacco is not).
+
+By contrast, companies with levered balance sheets tend to win in an era of rising inflationary expectations as debt becomes a cheap source of capital. Hard assets and commodity producers are also winners in inflationary eras as they can maintain or even raise their margins in the face of rising prices. Middlemen lose. When we went through the recent bout with inflation, we heard numerous stories from the likes of Starbucks and Hershey’s about the cost of their inputs (milk, cocoa, etc.) squeezing their margins. Yet it is precisely these companies that would tend to stand up better in a deflationary period because of the strength of their brands.
+
+A sea change could very well be underway, is your model suited to all macro backdrops?
