@@ -1,0 +1,66 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:22:51
+-->
+
+# Humble Student of the Markets: China gets it, when will America?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/03/china-gets-it-when-will-america.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/03/china-gets-it-when-will-america.html#0001-01-01)
+
+I have written about social inequality and the risks it poses to the social fabric and stability before (see recent examples
+
+[here](http://humblestudentofthemarkets.blogspot.com/2011/02/can-rich-get-too-rich.html)
+
+and
+
+[here](http://humblestudentofthemarkets.blogspot.com/2011/01/which-is-more-elitist-france-or-america.html)
+
+),
+
+[Andy Xie](http://www.marketwatch.com/story/hot-money-fast-riots-and-the-fed-2011-02-28)
+
+recently commented about the wave of unrest sweeping North Africa and threatening the Middle East. His comments could be generalized to the rest of the developed world, largely because the fruits of globalization have not been distributed evenly [emphasis added]:
+
+> ***A large share of the global population, including low-income groups in the developed economies, have not benefited from globalization but are suffering from inflation***. Their reaction will put global stability in jeopardy. The major central banks may change their attitude toward loose money only when the riots happen in their own countries.
+
+The current wave of commodity inflation has rewarded the rich and hurt the poor:
+
+> Inflation is redistributive, usually unfairly. First, low-income people tend not to have debt, because they are usually not qualified to borrow from banks. When inflation surges, as it is happening now, their bank deposits erode in real value. Where do their losses go? The people who have debt and real assets, like property speculators, gain the same amount. Inflation essentially robs the poor and gives to the rich.
+> 
+> Second, low-income people tend to have insecure jobs and cannot bargain wages up along with inflation, especially when inflation surges like now. The reduced purchasing power for their wages pushes them into an unsustainable situation. They simply cannot make ends meet.
+
+Recall that during the hyper-inflation days of the Weimar Republic, there was a roaring stock market where the suppliers of capital profited while the suppliers of labor got squeezed. We know what happened next.  
+
+Andy Xie thinks that America isn't immune to the risks of social instability:
+
+> In 2009, 14.3% of Americans lived in poverty, according to the U.S. Census. Including ones that have given up looking for a job, one-sixth of American workers are underemployed or unemployed. A huge chunk of American people have no cushion against massive increases in the cost of food and energy. In addition, the prices of imported consumer goods that low-income Americans depend on are rising and are likely to rise much more, later in the year. ***Fifty million Americans are not so different from Egyptians in their economic plight. Riots could come to American cities.***
+
+  **A contrast in policy response**
+
+Consider the contrast in policy response between China and America. In a recent interview, Chinese
+
+ Premier Wen Jiabao
+
+ said that
+
+[rising inequality is threatening social stability](http://www.businessweek.com/news/2011-02-28/china-vows-to-curb-graft-inequality-amid-protest-calls.html)
+
+: "We will roll out measures in all these aspects, including tax policies, to make China a country of equality and justice where each citizen lives within the security net."  
+
+Meanwhile in America, the Fed is focused on QE2, which is a policy designed to raise asset prices to benefit the suppliers of capital in hopes that the wealth effect boosts economic growth. Meanwhile, the suppliers of labor will have to bear the brunt of the adjustments. Notwithstanding the events in Wisconsin,
+
+[Moody's estimates that the GOP plan to cut the deficit would cost 700K jobs](http://www.bloomberg.com/news/2011-02-28/republican-budget-cut-plan-would-cost-700-000-jobs-by-2012-moody-s-says.html)
+
+ and slice 0.5% off GDP growth.
+
+China gets the
+
+[social risks of rising inequality](http://humblestudentofthemarkets.blogspot.com/2011/01/how-china-might-be-viewing-egyptian.html)
+
+. When will America?
+
+***Investment response***
+
+: My inner investor is highly mindful of these risks, but my inner trader tells me to
+
+[enjoy the party that the Fed is throwing](//www.blogger.com/) but to stay near the exit.

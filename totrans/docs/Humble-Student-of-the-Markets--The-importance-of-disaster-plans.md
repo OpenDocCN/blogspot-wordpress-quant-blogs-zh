@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:22:06
+-->
+
+# Humble Student of the Markets: The importance of disaster plans
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/03/importance-of-disaster-plans.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/03/importance-of-disaster-plans.html#0001-01-01)
+
+Earlier in the week
+
+[Barry Ritholz](http://www.ritholtz.com/blog/2011/03/black-swans-100-year-floods/)
+
+wrote about the importance of having a plan in the case of a financial disaster. Asking someone "what should I do" after the roof has fallen in doesn't work:
+
+> The time to look for the emergency aisles and where the exits are located is before takeoff, not after the wings fall off the plane. You must have a plan in place to deal with unanticipated events, a just-in-case things head south scenario.
+> 
+> Ideally, you put this plan together when you are objective and unemotional and calmly contemplative — not when things are figuratively and literally melting down.
+
+While disasters aren't necessarily specifically forseeable, we do know that they do happen. With the onset of QE2, I have seen too many people focus only on the upside (e.g. rare earths as the hot new story du jour) without thinking about the risks involved. When markets de-risk and investors head for the exits, those without a risk management plan in place often get trampled.
+
+**Personal disaster plans** [Stratfor](http://www.stratfor.com/weekly/20110316-taming-chaos-personal-plan)
+
+recently wrote about the importance of a personal plan, which is equally vital [emphasis added]:
+
+> Those caught in close proximity to such a disaster site have the best chance of escaping and reconnecting with loved ones if they have a personal contingency plan. While such planning is critically important for people who live and work overseas in high-threat locations, recent events have demonstrated that even people residing in places considered safe, like Cairo and Tokyo, can be caught in the vortex of a crisis. Taking this one step further, sudden disasters, such as tornadoes, earthquakes, school shootings or the derailment of train cars carrying chlorine, can strike almost anywhere. This means that everyone should have a personal contingency plan.
+> 
+> ***Emergency plans are vital not only for corporations and for schools but also for families and individuals.*** Such plans should be in place for each regular location — home, work and school — that an individual frequents and should cover what that person will do and where he or she will go should an evacuation be necessary. This means establishing meeting points for family members who might be split up — and backup points in case the first or second point also is affected by the disaster.
+
+There are some other important points in the Stratfor essay that is well worth reading.  
+
+**What's your disaster plan?**
+
+Living in Vancouver, I recognize that I am in an earthquake zone and we have a stash of emergency supplies, e.g. potable water, etc. Financially, I depend on the 
+
+[Inflation-Deflation Timer Model](http://www.qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf)
+
+, which is designed to limit losses in the case of financial crisis but at the same time allow winners to run.  
+
+What's your plan?
