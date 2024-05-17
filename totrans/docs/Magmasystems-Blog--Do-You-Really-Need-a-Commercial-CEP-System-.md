@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:57:26
+-->
+
+# Magmasystems Blog: Do You Really Need a Commercial CEP System?
+
+> 来源：[http://magmasystems.blogspot.com/2008/11/do-you-really-need-commercial-cep.html#0001-01-01](http://magmasystems.blogspot.com/2008/11/do-you-really-need-commercial-cep.html#0001-01-01)
+
+Almost every day, we ask ourselves if making the decision to use a commercial CEP system was worth it. If you have been following my blog for the past 14 months, you have traced my thought processes around choosing whether to build vs. buy, and my choice of vendor. And, almost every day, when doing my 30 minutes of elliptical, my mind wanders and I start reflecting on my decision and wondering if it was correct to buy a commercial CEP system.
+
+Our system does not do any sophisticated pattern matching yet. Right now, we are doing a lot of aggregations, groupings, rollups, and simple comparison testing in order to generate alerts and real-time dashboard information.
+
+As long-time blog readers know, we were able to get a working prototype of a very early version of our system up and running in a few days with hand-crafted C# code. But, that’s just us. We had a lot of the elements already in place that the commercial CEP systems offer. But, what if we didn’t have that framework to leverage?
+
+Let’s say that I recently got laid off from my Wall Street company (a very real situation nowadays), and I and a few friends decided to start a small prop trading shop out of my basement. We are a 3 traders and a developer. We need to build ourselves a small algo or high-frequency trading system. What do we need?
+
+We need real-time market data from Reuters or Bloomberg, or if I am interested in something really fast, I might try Activ. We need to persist ticks and results into a database, so we will need both a tick database (something like KDB or Vhayu) and a standard database like SQL Server or MySQL. We need feed handlers that can talk to the engine that maintains our models. We need a GUI so the traders can monitor the market and the orders. We need a FIX engine so that we can send orders out to the markets.
+
+I give my developer explicit orders to get it done as fast as possible. I don’t want him spending time writing a beautifully crafted framework that solves a general problem. I want him to write the simplest thing possible. If we are using Bloomberg, I want him to use the BBAPI to get the market data and put it into the trading engine in the fastest possible way and with the lowest latency. If we have to aggregate something, I want him to take the data, sum it up, and stick it into some hash table that is indexed by symbol.
+
+With all of my requirements in place, I know that it would take my tech guy 6 months to get us up and trading on this new system. It would cost us roughly $100K in development costs. However, our opportunity cost is huge, as we have not been able to put on some of the trades that we would have liked to.
+
+What does it cost to purchase a commercial CEP system? Coral8 charges $15K per core for the primary machine. There are discounts for the HA (high availability) machines. Aleri charges $26K per core. When we met with Streambase in early 2007, they told us that is would take $500K to get us up and running (I don’t know if they have reduced their price.) If I have a 4 CPU dual-core machine, then it would cost $120K for Coral8 and $208K for Aleri. Plus, most companies charge a 15-20% annual maintenance fee.
+
+What do I get for that amount?
+
+I get basically a real-time matching engine. I get a high-level language that, if my traders bother to learn and don’t get themselves into trouble with, will let my traders “tweak” their models. I get a bunch of input and output adapters that will let me get information in and out of the engine. (I might have to pay a lot more for a Reuters or Bloomberg adapter, and that is only if my vendor has one.) I get an IDE that, along with the high-level language, I can use to develop the models.
+
+What do I give up if I buy a commercial CEP engine? I give up the right to fix the internals of the engine if I find a bug. I am at the mercy of the vendor’s release cycle. If I find a bug, and the vendor tells me that it will be fixed in 3 months, when the next release comes out, I won’t be happy. 3 months is really 4 months, because initial major releases always have problems with them. I give up the right to add new features when I need them. I am living in fear that, in this fiscal environment, the VC’s might decide to pull all funding out from under the vendor’s feet.
+
+On the plus side, I get to tap into the vendor’s customer support staff, thus freeing my programmer to do other things. I might get to interface with other users of the CEP system so I could learn best practices.
+
+Now that I have my commercial CEP system, what now? I have to get my tech guy to learn a new language (the Streaming SQL variants that are offered by the CEP vendors are easy to learn, but as we have come to discover, if you don’t use it properly, you can get yourself into a big mess). If we don’t have a specific input adapter (Bloomberg) or output adapter (FIX) that the vendor provides, then my developer has to write it himself. My developer still has to program the models, but now we have to worry if the vendor’s language is powerful and flexible enough to support the programming of the model.
+
+If we find a blocking bug in the CEP engine, or if we find a language feature that we desperately need, then we are at the mercy of the vendor.
+
+On the other hand, the vendor has a highly tuned multi-threaded engine, so that’s a big chunk of development that we don’t have to do. The CEP engine has cool things that we need, like sliding windows and nested pattern matching.
+
+It’s a big decision to make. If I work at a large company, and I have several different frameworks available to me, and I have 5 full-time developers, then I could see writing everything from scratch. If I was a small startup, and I could not afford the market data fees AND the CEP engine, then I might look to a free solution like Esper. If I was a 5-20 person shop, then my decision is tougher.
+
+What would make the decision easier would be to see if a commercial CEP vendor has a vertical application that solved our needs. A trading system in a box. That's the direction that Apama has taken, and that Mark Palmer is trying to pursue with Streambase. Coral8 will follow that path with the hiring of Colin, and Aleri has its eyes on that direction too.,
