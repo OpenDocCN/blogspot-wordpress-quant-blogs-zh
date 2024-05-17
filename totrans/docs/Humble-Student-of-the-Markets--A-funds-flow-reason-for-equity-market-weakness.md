@@ -1,0 +1,48 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:39:53
+-->
+
+# Humble Student of the Markets: A funds-flow reason for equity market weakness
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/05/a-funds-flow-reason-for-equity-market.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/05/a-funds-flow-reason-for-equity-market.html#0001-01-01)
+
+Regular readers will know that I have been relatively cautious on the US equity market. The reasoning has been mainly technical (see
+
+[The bearish verdict from market cycle analysis](http://humblestudentofthemarkets.blogspot.com/2014/05/the-bearish-verdict-from-market-cycle.html)
+
+) and I have struggled to find a fundamental trigger for a market correction (see
+
+[A market correction trigger?](http://humblestudentofthemarkets.blogspot.com/2014/05/a-market-correction-trigger.html)
+
+).
+
+I recently came upon an argument for equity market weakness based on institutional asset allocation flows from this
+
+[unknown analyst](http://thecontrariancorner.com/?p=13554)
+
+:
+
+> Public corporate pension funds thanks to the over 30% gain in SP500 last year and the rise in rates which lowered the net present value of the liabilities many are 100% to 110% funded. At the end of the first quarter a number of large pension funds were up 8% on the year because of there holdings in the MOMO stocks
+> 
+> ( Amozon , Facebook, Netflix ect ) and with the Net present value of their liabilities lower it became attractive to reduce growth assets and increase hedge assets. I think this explains the decline in Momentum stocks in April and the strong bid for long dated fixed income.
+
+In other words, the defined benefit pension funds that became fully funded because of last year's stock market gains are selling to lock in their profits. They do this by selling the risky asset, stocks, and buying the risk-less asset relative to their liabilities, which are long duration bonds. The writer believes that this asset allocation shift has a long way to go because of the scarcity of long-dated Treasuries (emphasis added):
+
+> The question is this asset reallocation over. The answer is no! ***Big picture there are 16T in Private pension fund assets and 12T in US treasuries so this story will continue to play out as our population ages and preference for fixed income increases.***
+
+I don't know how valid the analysis is because I have not looked at the scale of the effect. What is the number of defined benefit plans that have moved into actuarial surplus because of stock market gains? 
+
+***If anyone has any data that bears light on this issue, please speak up!***
+
+The funds flow and asset allocation thesis is consistent with the BoAML report that I highlighted (see
+
+[A warning from the retail investor?](http://humblestudentofthemarkets.blogspot.com/2014/05/a-warning-from-retail-investor.html)
+
+) indicating that institutions were large sellers of equities while the individual investor had been piling in and hedge funds had turned from sellers to mild buyers:
+
+If the funds flow is correct, then we could well be seeing stock prices deflate and long-dated Treasury prices rally while the world scratches their heads. In that case, there may not be a fundamental or valuation driven reason for equity weakness in the days and weeks ahead.
+
+***Addendum**: An astute reader wrote that institutions generally do not have a large weighting in momentum stocks and therefore I am exaggerating the momentum stock sell-off effect. I would tend to agree. However, I was quoting the analyst in his entirety. The re-balancing thesis from stocks to long duration bonds remains valid and would put downward pressure on equity prices and upward pressure on long Treasury bond prices.* *Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
+
+None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*
