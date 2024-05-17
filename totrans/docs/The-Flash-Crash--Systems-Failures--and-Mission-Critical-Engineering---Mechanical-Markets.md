@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:43:23
+-->
+
+# The Flash Crash, Systems Failures, and Mission-Critical Engineering | Mechanical Markets
+
+> 来源：[https://mechanicalmarkets.wordpress.com/2015/05/06/flash-crash-systems-failures-mission-critical-engineering/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/05/06/flash-crash-systems-failures-mission-critical-engineering/#0001-01-01)
+
+The Flash Crash was caused by a complex interaction between different IT systems. Some of those systems failed in an ungraceful manner, and other systems could not cope with these failures. What I wish is that, instead of wringing our hands about how computers now manage our trading infrastructure, we took the time to understand that computers manage systems that are far more mission-critical than our financial markets.
+
+I have worked extensively on trading systems and appreciate the importance of stable markets. I think that any software connecting to markets should have multiple layers of safety checks which are as independent as possible. In fact, I would argue for much greater risk checks than we have [now](https://www.sec.gov/news/press/2010/2010-210.htm). Algorithmic trading companies understand well [what can happen](http://www.reuters.com/article/2012/10/17/us-knightcapital-results-idUSBRE89G0HI20121017) if their safety measures fail. But, the worst thing that can happen to HFTs and exchanges is generally bankruptcy. [[1](#bottom1fc)]
+
+It’s true that ordinary investors can get caught in IT failures and lose money, though hopefully erroneous trades can be unwound in those instances. It’s also true that traders illegally gaming each other and [manipulating markets](http://www.bloombergview.com/articles/2015-04-21/guy-trading-at-home-caused-the-flash-crash) can defraud innocent investors. Given the spectacular systems failure of the Flash Crash, it’s worth reflecting on the risks associated with shoddy automation in other areas of life. I can’t even begin to detail all of the serious IT failures we’ve had in the last 50 years, but here are a few (in no particular order) that make the Flash Crash look like a triviality:
+
+1.  The [Northeast Blackout of 2003](http://ewh.ieee.org/soc/pes/psdpc/documents_blackout_panel/Blackout_White_Paper_By_IEEE_PES_AdComm_FINAL_082504.pdf). Complex interactions between multiple events, including a software failure, interrupted electricity delivery for over 50 million people, [contributing to many deaths](http://www.reuters.com/article/2012/01/27/us-blackout-newyork-idUSTRE80Q07G20120127).
+2.  The Therac-25 radiotherapy device. [Buggy software with poor safeguards](http://courses.cs.vt.edu/professionalism/Therac_25/Therac_1.html) allegedly caused at least 6 cancer patients to receive fatal or near-fatal doses of radiation.
+3.  Problems with software that controls airbag deployment in cars, including certain [Cadillacs](http://www.zdnet.com/article/cadillacs-recalled-over-software-bug/).
+4.  [ Problems with electronic voting](https://joinup.ec.europa.eu/community/osor/news/bug-belgian-voting-machine-should-have-been-found) in the 2014 Belgian Elections. Only 2000 voters seem to have been affected, but I might guess that fewer than that number of traders were seriously affected by the Flash Crash.
+5.  The infamous Toyota “Unintended Acceleration” [issue](http://abcnews.go.com/Blotter/toyota-pay-12b-hiding-deadly-unintended-acceleration/story?id=22972214&singlePage=true) may have been caused by faulty software, according to [some experts](http://betterembsw.blogspot.com/2014/09/a-case-study-of-toyota-unintended.html) . The issue has allegedly caused dozens of deaths.
+6.  A flaw in the software of a Soviet satellite [reportedly](http://www.washingtonpost.com/wp-srv/inatl/longterm/coldwar/shatter021099b.htm) triggered alarms that the US had launched 5 ICBMs. Human operators, suspecting a false alarm, fortunately waited for radar confirmation of the launches before reacting.
+
+This is far from a complete list, and often we don’t even know if faulty IT contributed to a [fatal accident](http://news.bbc.co.uk/2/hi/uk/8438659.stm). I think that many financial professionals suffer from [déformation professionnelle](http://en.wikipedia.org/wiki/D%C3%A9formation_professionnelle). [[2](#bottom2fc)] The reality is that, despite the hullabaloo over the Flash Crash, it had few serious consequences in the grand scheme of things.
+
+The Flash Crash very temporarily resulted in the [loss of about $1T](http://graphics.wsj.com/flash-crash-timeline/) in the market-value of securities. It also triggered a media firestorm which potentially convinced some retail investors to hold cash, and miss the post-crisis stock market recovery. For those active traders who lost money that day, there’s no doubt that the Flash Crash was a big deal. But the reality is that the market recovered within minutes and many of the accidental transactions at absurd values were cancelled. A Flash Crash is also much less likely today, at least in American equity markets, where we have circuit breakers that halt trading when it becomes sufficiently volatile.
+
+As computerized systems rightfully take on more responsibility, I hope we can learn some lessons from the Flash Crash. Unlike exchanges, designers of life-critical systems don’t have the luxury of shutting down for a few minutes when problems are detected. It’s not great that financial markets’ electronic infrastructure couldn’t handle a little stress, but it’s lucky that a failure like this attracted media attention without resulting in any loss of life. The anniversary of the Flash Crash is a reminder that all critical systems require intelligent regulation and, most importantly, is an opportunity to thank the engineers who keep us safe.
+
+[[1](#1fc)] It might be worse for an HFT to have some of their traders violate compliance rules and commit crimes. But I wouldn’t really call that an IT glitch, though with compliance being [increasingly automated](http://www.bloombergview.com/articles/2015-04-08/algorithms-will-make-jpmorgan-less-bad), maybe one day that’ll change.
+
+[[2](#2fc)] I have looked for an English equivalent to this term, and the closest I’ve found is “occupational psychosis,” which sounds a bit more extreme than I’d like.
