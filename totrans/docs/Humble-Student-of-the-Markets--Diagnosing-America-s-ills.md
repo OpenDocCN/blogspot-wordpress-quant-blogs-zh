@@ -1,0 +1,117 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:39:07
+-->
+
+# Humble Student of the Markets: Diagnosing America's ills
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/09/diagnosing-americas-ills.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/09/diagnosing-americas-ills.html#0001-01-01)
+
+Last week the
+
+[World Economic Forum](http://www.reuters.com/article/idUSTRE6880HU20100909)
+
+reported that the US has fallen from second to fourth in its competitiveness rankings. It lost its top spot last year to Switzerland. This year, it had been overtaken by Singapore and (socialist!) Sweden.
+
+In many of these surveys, the scores of the top countries are all clustered together so small movements in rankings aren’t terribly meaningful. However, for the US to slip from first in one year and then to fourth the following year is a disturbing trend.
+
+Here are the cited reasons for the decline in American competitiveness:
+
+> The report said a lack of macroeconomic stability continues to be America's greatest area of weakness, with repeated fiscal deficits leading to burgeoning public indebtedness.
+> 
+> It also said that U.S. business leaders show less trust in politicians and the government's ability to maintain an arm's-length relationship with the private sector.
+
+**Populism rears its ugly head**
+
+In other words, things are getting tough and people are getting cranky. I have written before about the risks of populism and a cranky population before (see examples
+
+[here](http://humblestudentofthemarkets.blogspot.com/2010/02/bare-cupboards-cranky-people.html)
+
+and
+
+[here](http://humblestudentofthemarkets.blogspot.com/2009/10/political-stability-and-middle-class.html)
+
+). The level of discontent rising and the risk of class warfare is going up with it. Consider these items that have appeared recently, some of which has come from middle-of-the-road figures):
+
+*   Profiting from layoffs ([CNN](http://articles.cnn.com/2010-09-01/us/layoff.ceo.pay_1_layoff-chief-executive-officers-executives-from-other-companies?_s=PM:US))
+*   HP: The face of America’s decline (Commentary on the culture of rewarding slash and burn CEOs while offshoring jobs from [Fabius Maximus](http://fabiusmaximus.wordpress.com/2010/08/25/20654/))
+*   What makes America great: Layoffs (CNBC via [Barry Ritholz](http://www.ritholtz.com/blog/2010/09/what-makes-america-great-layoffs/))
+*   Land of Opportunity running out of opportunities ([MarketWatch](http://www.marketwatch.com/story/land-of-opportunity-turning-barren-2010-09-03))
+*   A pity party for America’s rich and powerful (Commentary on Daniel Loeb’s comment about unfair taxation from [Fabius Maximus](http://fabiusmaximus.wordpress.com/2010/09/08/21254/))
+*   Despite US corporations sitting on $2T (in cash), the work force has become the New Expendables ([Barry Ritholz](http://www.ritholtz.com/blog/2010/08/the-expendables/))
+*   End wage inequality to end the recession ([Robert Reich](http://www.nytimes.com/2010/09/03/opinion/03reich.html))
+*   A belief in free markets has turned us into Matrix drones ([The Independent](http://www.independent.co.uk/news/business/news/free-market-has-turned-us-into-matrix-drones-2064799.html))
+
+**What’s wrong with America?**
+
+I believe that America’s ills stems from neglect, largely from the short-term nature of American thinking. There has been a neglect of infrastructure, a lack of focus on basics of innovation and wealth creation, as well as an erosion of the advantages bestowed by education.
+
+The most recent
+
+[infrastructure report card](http://www.infrastructurereportcard.org/)
+
+gives American physical infrastructure badly failing grades: Aviation (D), Bridges (C), Dams (D), Drinking Water (D-), Energy (D+), Hazardous Waste (D), Inland Waterways (D-), Levees (D-), Public Parks and Recreation (C-), Rail (C-), Roads (D-), Schools (D), Solid Waste (C+), Transit (D), and Wastewater (D-). Fixing this shortfall requires spending of over $2T. Nevertheless, there are
+
+[calls for greater infrastructure spending](http://www.nytimes.com/2010/09/12/business/economy/12view.html?_r=1)
+
+as a way to build an economic recovery.
+
+**The erosion of education as a competitive advantage**
+
+Mike Mandel, who has blogged extensively on innovation, has complained that there has been
+
+[too much spending on housing, too little on IT](http://innovationandgrowth.wordpress.com/2010/08/29/why-we-struggle-too-much-housing-too-little-information-technology/)
+
+. While education has been the key to higher value-added jobs, the competitiveness advantages conferred by education have been eroding. IT skills, as an example, are becoming commoditized and offshored, according to this
+
+[New York Times](http://www.nytimes.com/2010/09/07/business/economy/07jobs.html)
+
+article:
+
+> These higher skills have become commodities, said Catherine L. Mann, a global finance professor at the Brandeis University International Business School who studies the outsourcing of jobs. The programming language “C++ is now an international language,” she said. “If that’s all you know, then you’re competing with people in India or China who will do the work for less.” In addition to lower wages, developing countries offer significant consumer growth, giving businesses a reason to make more products closer to the buyer, and hire locally. [](//www.blogger.com/goog_158922131) 
+> 
+> And increasingly, these new, lower-cost research centers, while perhaps initially intended to adapt products for local use, are becoming sources of innovation themselves.
+
+[James Kwak](http://baselinescenario.com/2010/09/06/why-the-education-gap/)
+
+, who blogs at Baseline Scenario with Simon Johnson, explains:
+
+> But since 1980, and especially since 1990, the world has become more open. If the American capitalists want to make more money, they still have to invest in new technology, and they still need an increasingly educated workforce. But now, because of globalization, they can get that workforce anywhere in the world. You can think of this as arbitrage: China doesn’t have that many college graduates as a proportion of its population, but they come cheaper than American college grads. Or you can think of it as free riding: if China (or Korea, or India, or Brazil, or anywhere else) is willing for whatever reason to invest in increasing the number of domestic college graduates, the American capitalists can simply expand their operations over there and save themselves the trouble and expense of investing in the American educational system. (And for China, the returns on investment in education might be higher than the returns for America, because the marginal productivity of new investments in education is probably higher.) And as a result, average educational attainment only went up by 0.8 years from 1980 to 2005.
+
+Perhaps the next big engine of growth will not come from Silicon Valley, but from another sector. Mike Mandel believes that the US has made a
+
+[big bet on life sciences](http://innovationandgrowth.wordpress.com/2010/06/13/the-debt-crisis-and-the-human-genome/)
+
+, in the form of the human genome project, but it hasn’t paid off. In addition, other countries have exploited the
+
+[competitive disadvantage of American restrictions on stem cell research](http://innovationandgrowth.wordpress.com/2010/08/26/stem-cell-research-ruling-and-growth/)
+
+to catch up and overtake US research in this field.
+
+**Two paths**
+
+I don’t have the answers to America’s ills. I can see two paths, both equally likely.The first path leads us to Greece (see this excellent
+
+[Vanity Fair](http://www.vanityfair.com/business/features/2010/10/greeks-bearing-bonds-201010?printable=true)
+
+article on Greek culture and the crisis), where people have turned inward and milk institutions (governments, foreign entities such as the IMF, EU and ECB) for everything they can get away with, while public institutions wither.
+
+> As it turned out, what the Greeks wanted to do, once the lights went out and they were alone in the dark with a pile of borrowed money, was turn their government into a piñata stuffed with fantastic sums and give as many citizens as possible a whack at it. In just the past decade the wage bill of the Greek public sector has doubled, in real terms—and that number doesn’t take into account the bribes collected by public officials.
+
+And that's just the Greek solution for "when the lights go out" and no one is watching. Other countries behaved differently and abused the system differently:
+
+> What they wanted to do with money in the dark varied. Americans wanted to own homes far larger than they could afford, and to allow the strong to exploit the weak. Icelanders wanted to stop fishing and become investment bankers, and to allow their alpha males to reveal a theretofore suppressed megalomania. The Germans wanted to be even more German; the Irish wanted to stop being Irish. All these different societies were touched by the same event, but each responded to it in its own peculiar way.
+
+**Will Time heal our wounds?**
+
+There is a more optimistic solution to global healing. The second and more benign solution is simply time. Ken Rogoff explains in his excellent commentary entitled
+
+[Why America isn't Working](http://www.project-syndicate.org/commentary/rogoff72/English)
+
+:
+
+> The honest answer – but one that few voters want to hear – is that there is no magic bullet. It took more than a decade to dig today’s hole, and climbing out of it will take a while, too. As Carmen Reinhart and I warned in our 2009 book on the 800-year history of financial crises (with the ironic title “This Time is Different”), slow, protracted recovery with sustained high unemployment is the norm in the aftermath of a deep financial crisis.
+
+Rogoff went on to skewer traditional macro solutions such as supply-side economics and Keynesianism. In the end, he does warn about the growing class divide, which I also worry about as it can lead to class warfare, populism and the disintegration of the social fabric:
+
+> [T]here is a fairness issue. By some measures, nearly half of all Americans do not pay any income tax already, so cutting taxes skews an already very unequal income distribution. Deferred maintenance on income equality is one of many imbalances that built up in the US economy during the pre-crisis boom. If allowed to fester, the political consequences could be severe, including trade protectionism and perhaps even social unrest.
