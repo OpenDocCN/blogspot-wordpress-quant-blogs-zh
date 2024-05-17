@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:56:11
+-->
+
+# Physics Perspective: Nanex: visualizing zillions of trades in a half-second
+
+> 来源：[http://physicsoffinance.blogspot.com/2013/06/nanex-visualizing-zillions-of-trades-in.html#0001-01-01](http://physicsoffinance.blogspot.com/2013/06/nanex-visualizing-zillions-of-trades-in.html#0001-01-01)
+
+By way of
+
+[Naked Capitalism](http://www.nakedcapitalism.com/2013/05/ian-fraser-the-beauty-and-insanity-of-hft.html?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+NakedCapitalism+%28naked+capitalism%29)
+
+, I learned of the video below produced by Nanex, the market data analysis company in Chicago. It runs for just under 6 minutes and shows all the quotes for Johnson & Johnson stock racing among a network of exchanges over just one half second of real time. Watch the whole thing and then remember -- this is just one half second (the clock, bottom middle, goes up in increments of milliseconds). Below the video, some explanation of what you're seeing from Nanex.
+
+[http://www.youtube.com/embed/rB5jJuMP84E?feature=player_embedded](http://www.youtube.com/embed/rB5jJuMP84E?feature=player_embedded)
+
+VIDEO
+
+> We got the idea after realizing, in face to face meetings with them [the CFTC], they didn’t understand market structure or the importance of latency and the consolidated feed. That was several years ago. We still aren’t sure if they get it, or are just playing dumb.
+> 
+> The bottom box (SIP) shows the National Best Bid and Offer. Watch how much it changes in the blink of an eye.
+> 
+> Watch High-Frequency Traders (HFT) at the millisecond level jam thousands of quotes in the stock of Johnson and Johnson (JNJ) through our financial networks on May 2, 2013\. Video shows 1/2 second of time. If any of the connections are not running perfectly, High Frequency Traders can profit from the price discrepancies that result. There is no economic justification for this abusive behavior.
+> 
+> Each box represents one exchange. The SIP (CQS in this case) is the box at 6 o’clock. It shows the National Best Bid/Offer. Watch how much it changes in a fraction of a second. The shapes represent quote changes which are the result of a change to the top of the book at each exchange. The time at the bottom of the screen is Eastern Time HH:MM:SS:mmm (mmm = millisecond). We slow time down so you can see what goes on at the millisecond level. A millisecond (ms) is 1/1000th of a second.
+> 
+> Note how every exchange must process every quote from the others — for proper trade through price protection. This complex web of technology must run flawlessly every millisecond of the trading day, or arbitrage (HFT profit) opportunities will appear. It is easy for HFTs to cause delays in one or more of the connections between each exchange.
