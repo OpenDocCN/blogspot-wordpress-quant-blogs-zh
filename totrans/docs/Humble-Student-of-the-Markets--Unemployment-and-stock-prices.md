@@ -1,0 +1,36 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:43:04
+-->
+
+# Humble Student of the Markets: Unemployment and stock prices
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/11/unemployment-and-stock-prices.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/11/unemployment-and-stock-prices.html#0001-01-01)
+
+I normally have a live and let live attitude toward other people's market analysis. Once in a while, I come across research that seem so misguided that I feel compelled to speak up.
+
+A blogger recently posted an intriguing bit of analysis on a discussion group that I subscribe to and it was entitled
+
+[10% Unemployment: A Remarkable Signal for Stocks](http://www.jimkopas.com/archives/211)
+
+. He shows the chart below and concluded that “[h]istorically the stock market has performed exceptionally well after unemployment has peaked.”
+
+[![](img/20c29605ef2530b61cc82b980c020672.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXhU7WnnXptBCV5Fv42HkrwMYHTLfG1uWQMzI-Ww1tUEcjQxx_C19CCbHKbZ8H2229c2bAaeRr2ZOV_jw7-EdKGEcMoh9XjSYlnHFniOoi-kw4A3HaAtp6aY7MBJLJ2NSRKarUPjdUsjqf/s1600-h/Stock-Prices-vs_-unemployment.bmp)**How do you know unemployment has peaked?**
+
+That’s interesting analysis, but how do you know that unemployment has peaked? The latest NFP figures don't seem to be pointing toward any peak in unemployment. By contrast, David Rosenberg of Gluskin Sheff believes that U.S. unemployment is going to see 12-13% before this is all over [emphasis mine]:
+
+> There are serious structural issues undermining the U.S. labour market as companies continue to adjust their order books, production schedules and staffing requirements to a semi-permanently impaired credit backdrop. The bottom line is that the level of credit per unit of GDP is going to be much, much lower in the future than has been the case in the last two decades. ***While we may be getting close to a bottom in terms of employment, the jobless rate is very likely going to be climbing much further in the future due to the secular dynamics within the labour market***…
+> 
+> Think about it. We haven’t yet hit bottom on employment but that will happen at some point. Employment is not going to zero, of that we can assure you. But when we do start to see the economic clouds part in a more decisive fashion, what are employers likely to do first? Well, naturally they will begin to boost the workweek and just getting back to pre-recession levels would be the same as hiring more than two million people. Then there are the record number of people who got furloughed into part-time work and again, they total over nine million, and these folks are not counted as unemployed even if they are working considerably fewer days than they were before the credit crunch began.
+> 
+> So the business sector has a vast pool of resources to draw from before they start tapping into the ranks of the unemployed or the typical 100,000-125,000 new entrants into the labour force when the economy turns the corner. ***Hence the unemployment rate is going to very likely be making new highs long after the recession is over — perhaps even years.***
+
+**Buyer beware**
+
+This is a lesson for individual investors of buyer beware. This analysis sounds like generic boosterism for the stock market. While I understand that investment advisors may have their own agenda in promoting a certain viewpoint, experienced advisors know that success comes from serving their clients’ long-term interests.
+
+Investors and analysts need to learn to
+
+[thimk](http://humblestudentofthemarkets.blogspot.com/2009/06/financial-modelers-need-to-thimk.html)
+
+!

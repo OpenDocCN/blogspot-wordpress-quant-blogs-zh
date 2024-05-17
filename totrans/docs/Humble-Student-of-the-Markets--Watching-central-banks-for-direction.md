@@ -1,0 +1,50 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 00:43:50
+-->
+
+# Humble Student of the Markets: Watching central banks for direction
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2009/11/watching-central-banks-for-direction.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2009/11/watching-central-banks-for-direction.html#0001-01-01)
+
+As the markets wait this week for statements from the FOMC and other central banks around the world, here is what I am watching for in the central bank announcements.
+
+**How worried is the Fed about inflation?**
+
+Central bankers don’t speak off the cuff. Paul Volcker was once joked that when he went out to dinner, he felt compelled to say “I’ll have the steak but that doesn’t mean I don’t like the lobster.”
+
+It is therefore interesting that several Fed governors have started talking up the dangers of inflation. I wrote in a
+
+[previous post](http://humblestudentofthemarkets.blogspot.com/2009/10/is-fed-changing-its-tune.html)
+
+that Don Kohn made a speech indicating that they were concerned about the “anchoring” of inflationary expectations. If inflationary expectations rise, then it would take a lot of tightening (e.g. Volcker’s painful and tight policies of the early 1980’s) to get them back down again.
+
+If the Fed is becoming worried about anchoring, then expect a more hawkish statement.
+
+**How do you define inflation?**
+
+In my post
+
+[What kind of inflation](http://humblestudentofthemarkets.blogspot.com/2009/10/what-kind-of-inflation_26.html)
+
+I pointed out that inflation would like show up in commodity prices. (Isn't it funny that that the countries that have raised rates so far, i.e. Australia and Norway, are mainly resource based economies?)
+
+If you were to measure inflation by core CPI, it is likely to be subdued. Indeed, other core measures such as
+
+[trimmed mean PCE](http://www.dallasfed.org/data/pce/index.html)
+
+has been trending down. Commodity price inflation may show up a bit more in headline CPI, but rises in headline CPI is likely to be restrained by the deflationary effects of all the excess slack present in the economy.
+
+How worried is the Fed about inflation? And what how do you define inflation?
+
+**What happens to the USD carry trade?**
+
+What do the other central bankers do this week? Will the Fed’s comments be in sync with the announcement from the ECB or BoE? The tone of policy coordinarion (or lack thereof) could have huge effects on the US Dollar and FX markets.
+
+As
+
+[Art Cashin](http://www.cnbc.com//id/33491733)
+
+pointed out, the USD has been the funding currency of choice in the carry trade. The downdraft seen in the markets last week has been the result of a rally in the greenback, which led to a general de-risking of portfolios and trading books.
+
+After the dust from the central bank statements settles and if the USD continues to rise, then we may be witnessing a sea change in expectations and market tone. In such a case, we can expect further downside in the equity and commodity markets.
