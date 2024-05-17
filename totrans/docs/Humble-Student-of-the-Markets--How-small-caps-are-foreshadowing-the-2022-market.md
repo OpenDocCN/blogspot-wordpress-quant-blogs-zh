@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 01:51:14
+-->
+
+# Humble Student of the Markets: How small caps are foreshadowing the 2022 market
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2021/11/how-small-caps-are-foreshadowing-2022.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2021/11/how-small-caps-are-foreshadowing-2022.html#0001-01-01)
+
+Small-cap stocks have lagged their large-cap counterparts in 2021\. Even as the S&P 500 steadily rose to fresh highs this year, the Russell 2000 and S&P 600 finally staged upside breakouts in November out of a multi-month trading range, but they have struggled to hold those breakouts. Small-cap relative performance peaked in March, but they have sagged and been flat to down relative to the S&P 500\. In an equally disturbing development for the bulls, the S&P 600 Advance-Decline Line did not confirm the upside breakout by failing to rise to new highs in November.
+
+Here is how I believe small-cap performance is foreshadowing the S&P 500 in 2022, but probably not in the way that you are thinking.
+
+The full post can be found
+
+[here](https://humblestudentofthemarkets.com/2021/11/27/how-small-caps-are-foreshadowing-the-2022-market/)
+
+.
