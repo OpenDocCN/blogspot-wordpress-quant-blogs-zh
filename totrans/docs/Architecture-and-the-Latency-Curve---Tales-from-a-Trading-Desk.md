@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:21:59
+-->
+
+# Architecture and the Latency Curve | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/07/26/architecture-and-the-latency-curve/#0001-01-01](https://mdavey.wordpress.com/2013/07/26/architecture-and-the-latency-curve/#0001-01-01)
+
+## Architecture and the Latency Curve
+
+WatersTechnology [article](http://www.waterstechnology.com/inside-market-data/news/2270595/nafis-latency-panel-stop-and-think-before-spending-on-speed), “NAFIS Latency Panel: Stop and Think Before Spending on Speed” captures an important point around any architecture discussion.  The latency curve, depending on the business area you are in, could range from microseconds to seconds, or more.  When designing an architecture, consideration needs to occur for what the goal is with regards to end to end latency, component latency, and also the latency around failure conditions.  Singleton’s will definitely up-tick latency in a failure condition.  Food for thought.
+
+~ by mdavey on July 26, 2013.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)

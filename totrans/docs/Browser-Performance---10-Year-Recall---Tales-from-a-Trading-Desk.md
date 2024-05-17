@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:22:46
+-->
+
+# Browser Performance – 10 Year Recall | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2013/07/05/browser-performance-10-year-recall/#0001-01-01](https://mdavey.wordpress.com/2013/07/05/browser-performance-10-year-recall/#0001-01-01)
+
+With the noticeable up-tick in blog/articles/forums entries around browser performance, coupled with the ever advancing performance improvements in the JavaScript VM space, its interesting to reflect back to some of the “old” application/framework ideas used to achieve desired performance outcomes from a user perspective.
+
+If I recall correctly, in the Microsoft Foundation Classes (MFC)/.NET WinForm time frame, the ability to batch visual control updates using [BeginUpdate()](http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.beginupdate.aspx) and EndUpdate() allowed software engineers to avoid certain rendering costs when making numerous changes to visual controls.  Clearly the visual control batch method wasn’t the silver bullet to make all visual performance issues disappear.  The software engineer was still required to code appropriately to batch appropriately the changes prior to making appropriate function calls onto a visual widget.
+
+I notice there isn’t a great deal of data on optimizing web application when taking into consideration websocket’s, and streaming data.  The general web application performance articles, together with the Google I/O video presentations concentrate on JavaScript and [CSS](https://developers.google.com/events/io/sessions/324511365) optimization, coupled with coding to leverage optimized [VM](https://developers.google.com/events/io/sessions/324908972) features.  Clearly this is the best appropriate for a large percentage of applications.  With the ever advancing V8 VM, the browser web application world is in a much better place than a few years ago.
+
+Back to websocket’s, and performance.  There seem to be little data around that presents a view on consumption of incoming events off a websocket, coupled with marriage of events to visual widgets.  Unsurprisingly, this again reminds me of the ways historically Java Swing/MFC/WinForm/WPF desktop applications of the “old” designed for performance.  In particular, where thread access was provided, as much work on incoming streaming data was handled by a non UI thread.  Reaching further upstream, it was not uncommon to find throttling/batching of data stream payloads to avoid flooding the user interface.
+
+Throttling and batching in my mind provide different solution to solving the overall goal – to avoid the UI being flooded.  Throttling is usually associated with restricting the number of updates per second to a certain number, e.g 5 per second.  Throttling would normally drop certain updates outside of the throttle applied, but sill aim to ensure that the data sent from server to client within the throttle was the most up to date data.  Throttling thus offers the net out of the web application only receiving a restricted number of updates, that when applied to the
+
+Batching is a further optimization with regards to sending data from server to client.  Specifically, if you have 10 widgets, each updating 3-7 times a second, this could mean a data payload being streamed per widget every 100mns or so, with appropriate DOM update.  Possibly a better consideration would be to batch all widget updates that are available sent in a single payload from server to client every 200mns.
+
+What is clear is that web application development continue to move forwards in the browser space, from devtools ([Canary](https://www.google.com/intl/en/chrome/browser/canary.html)) to JavaScript VM’s.  Firefox with [OdinMonkey](http://www.extremetech.com/computing/151403-firefox-sticks-it-to-google-with-odinmonkey-which-can-boost-javascript-performance-by-1000-or-more) and Google with V8 continue to push forwards in the JS VM space, ignoring the layout engine [Blink](http://blog.chromium.org/2013/04/blink-rendering-engine-for-chromium.html) vs WebKit delta which is going to occur.  Then there’s IE11, pushing [touch](http://www.windows81.com/2013/06/microsoft-says-ie-11-offers-the-best-touch-performance-on-the-market/) performance, who’s major benefit to the world might be to help eradicate old IE’s via the auto update option (following Google).
+
+The downside of web development is still IE, as summarised by Computer World:
+
+> IE10 supports only Windows 8 and Windows 7, leaving Windows Vista stuck with IE9, just as Windows XP has been frozen at IE8.
+
+The world will be a better place if corporations would move off Windows XP!
+
+Final thought:  Although people appears to love [tables](https://github.com/new-proimage/insanely-big-tables) with lots of rows, we really need to assess the ROI of the data presented, and if the all the data needs to be in the web application all the time – paging?
+
+~ by mdavey on July 5, 2013.
+
+Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
