@@ -1,0 +1,36 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:10:02
+-->
+
+# Humble Student of the Markets: "Unofficial" money fleeing China
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/01/unofficial-money-fleeing-china.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/01/unofficial-money-fleeing-china.html#0001-01-01)
+
+There has been much angst over the latest report of
+
+[China's quarterly decline in forex reserves](http://www.ft.com/cms/s/0/b496aee8-3dcf-11e1-91ba-00144feabdc0.html)
+
+, which has been described as "hot money" fleeing China. A more important sign of China's health is how much "unofficial" money from tycoons and wealthy officials have fled. If corrupt officials were to take money out of China , than it would be an important sign of the metaphorical rats leaving a sinking ship.
+
+One rough way of monitoring the "unofficial" money flow is to watch gaming revenues in Macau. The Economist discusses Macau's success as a gaming destination [emphasis added]:
+
+> Macau’s success is not built purely on the Chinese love of gambling. It is also ***fuelled by a stampede of nervous money fleeing the mainland***. A look behind the scenes at Macau reveals a lot about Chinese corruption, and also about how scared many Chinese businessfolk are about the political climate back home.
+
+The article went on to explain how money can be laundered:
+
+> Many come to elude China’s strict limits on the amount of yuan people can take out of the country. ***A government official who has embezzled state funds, for example, may arrange to gamble in Macau through a junket. When he arrives, his chips are waiting for him. When he cashes out, his winnings are paid in Hong Kong dollars, which he can stash in a bank in Hong Kong or take farther afield***.
+
+Using figures from Macau's
+
+[Gaming Inspection and Coordination Bureau](http://www.dicj.gov.mo/web/en/information/DadosEstat_mensal/index.html)
+
+, I compiled the former Portuguese colony's gaming revenues for the period 2009-2011\.    
+
+The charts show that gaming revenues have been steadily rising over the last three years. However, a look at the rate of change shows that the year-over-year change in gaming revenues have been falling since peaking last summer.
+
+The picture is the same whether you look at it from an absolute basis or on a percentage basis:
+
+My initial conclusion is that using the crude measure of Macau gaming revenues is to remain cautiously optimistic about the prospects of a Chinese soft landing in 2012. While there may be substantial funds leaving the country through Macau, the lack of acceleration in gaming revenues showing that the unofficial (and smart) money is not panicking over the situation in China.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*

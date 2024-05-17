@@ -1,0 +1,82 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:09:01
+-->
+
+# Humble Student of the Markets: Breakout or consolidation?
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2012/02/breakout-or-consolidation.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2012/02/breakout-or-consolidation.html#0001-01-01)
+
+On Friday, the Dow Jones Industrials Average staged an upside breakout to a new recovery high. The move was confirmed by the large cap OEX, but not by many other averages.
+
+The S+P 500, for example, is still struggling with resistance. The intermediate term trend, however, appears bullish as it is in a well-defined uptrend and there are signs of
+
+[global healing](http://humblestudentofthemarkets.blogspot.com/2012/01/global-healing.html)
+
+from stock indices around the world. In my mind, there is no question that the bulls are in control of this market in the intermediate term. The more relevant question is whether they have exhausted themselves in the short-term. Can the S+P 500 clear resistance or are we due for a period of consolidation?
+
+More disturbing for the bulls is the narrowing leadership of this rally as it has been led by the large cap stocks. Small caps have not been as strong, which is a bearish negative divergence. As shown below, the small cap Russell 2000 is barely approaching its resistance zone, though it is in a similar well-defined uptrend.
+
+**Cylicals say consolidation**
+
+To discern the future direction of equities, I turn to the answer from three place. I analyzed the chart patterns of the cyclicals, as well as the other two sources of macro risk, Europe and China. Consider the Morgan Stanley Cyclicals Index. These stocks staged an upside breakout in mid-January, but have started to consolidate as they moved sideways through the uptrend line.
+
+Other cyclically sensitive indices and currencies, such as the Australian Dollar, the Australian All-Ords, the Canadian Dollar and the TSX Index all show a pattern of breakout and consolidation.
+
+Commodity prices, on other hand, have lagged this rally. They broke out of a downtrend in mid-January and they appear to be consolidating. I am watching to see if the sideways pattern continues or if they can stage an upside breakout through resistance.
+
+**Are fundamentals improving?** [Josh Brown](http://www.thereformedbroker.com/2012/02/18/saints-and-sinners/)
+
+puts the bull and bear debate into perspective this way:
+
+> I'm convinced that the single most important decision facing asset allocators right now is whether or not to join ***The Big Shift*** or to ignore it and ride it out. Guys like me need to decide if we're going to dance with the sinners in the high-beta, risk-on sectors that have been leading this market or stick with the saints - the defensive, income-heavy non-cyclicals that saved our lives when things got dicey last year.
+
+He went on to say that equity prices may have gotten ahead of fundamental [emphasis added]:
+
+> The trouble with this is that while we may yet be able to avoid another recession scare this year, the data simply does not confirm (just yet) what the homebuilders, banks, casinos, REITs and materials stocks would have us believe. Instead, I think we're witnessing a major rotation, one of the biggest I've ever seen, and that ***it cannot get much further until the data on housing and jobs improves markedly and materially***.
+
+Have the fundamentals improved? Well, sort of. On the earnings side, things are improving as reporting season progresses.
+
+[Thomson-Reuters](http://alphanow.thomsonreuters.com/2012/02/spotted-a-sudden-turnaround-in-earnings-trends/)
+
+reports that the "beat rate" for companies have been steadily getting better.
+
+Corporate guidance, while negative, has been improving as well [emphasis added]:
+
+> Looking ahead to the next earnings season, in which companies will give investors a glimpse of how they are faring in the early months of 2012, the number of companies offering downbeat guidance continues to exceed those steering analysts’ forecasts higher. So far, 52 companies in the S+P 500 have issued negative earning guidance compared to 20 that have issued positive earnings guidance for the first quarter of 2012; the resulting ratio of negative to positive preannouncements is 2.6\. ***While that’s still not telling investors that corporate executives are bullish, it’s a significantly more positive reading than the N/P ration of 3.6 observed as recently as last week.***
+
+**Watch overseas markets**
+
+The other important "tell" of market direction are Europe and China, which are the two big sources of macro risk. I am watching closely the action of the Euro STOXX 50, which has staged an upside breakout, but it isn't clear whether the breakout will hold. (With the ECB about to unleash LTRO2 that is expected unleash
+
+[over €600b of liquidity](http://ftalphaville.ft.com/blog/2012/02/17/885861/the-ltro-2-outlier/)
+
+to the eurozone banking system, does anyone want to
+
+***bet against a breakout***
+
+?)
+
+Moving east,
+
+[I pointed out last week](http://humblestudentofthemarkets.blogspot.com/2012/02/china-saves-world.html)
+
+that the Shanghai Composite had rallied through a downtrend line. That development had alleviated my concerns of China as a source of tail risk and signaled that a hard landing is less likely. Indeed,
+
+[China has cut bank reserves another 50 basis points](http://www.bloomberg.com/news/2012-02-18/china-cuts-banks-reserve-ratios-a-second-time-as-europe-threatens-growth.html)
+
+as it followed suit on a trend of global monetary easing by the BoJ and BoE.
+
+Next door in Hong Kong, the Hang Seng Index has rallied to fill a downside gap and is encountering overhead resistance. I am watching carefully to see if the bulls can stage a rally to overcome resistance.
+
+**Where to next?**
+
+Is this a period of breakout or consolidation? My inner investor tells me to stay with the bull trend in equities as they are in a well-defined uptrend. Moreover, a glance at the 30-year Treasury yield shows that it is forming a saucer bottom pattern, indicating that the risk-off trade is on its last legs.
+
+My inner trader, on the other hand, is more agnostic on the question of breakout or consolidation. On one hand, he is aware that the combination of under-invested equity investors and bullish sentiment can  lead to  
+
+[a series of "good overbought" conditions that result in higher prices](http://humblestudentofthemarkets.blogspot.com/2012/02/bullish-sentiment-can-be-bullish-not.html)
+
+. On the other hand, the markets are overbought and they are ripe for a pullback and he is watching market conditions carefully next week for signs which way the markets break.
+
+*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd](http://www.qwestfunds.com/). ("Qwest"). This article is prepared by Mr. Hui as an outside business activity. As such, Qwest does not review or approve materials presented herein. The opinions and any recommendations expressed in this blog are those of the author and do not reflect the opinions or recommendations of Qwest.* *None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this article constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or Mr. Hui may hold or control long or short positions in the securities or instruments mentioned.*
