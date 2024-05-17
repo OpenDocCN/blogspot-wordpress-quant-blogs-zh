@@ -1,0 +1,21 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:48:01
+-->
+
+# TDD Resistence | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2014/07/20/tdd-resistence/#0001-01-01](https://mdavey.wordpress.com/2014/07/20/tdd-resistence/#0001-01-01)
+
+## TDD Resistence
+
+Ian’s [talk](http://www.infoq.com/presentations/tdd-original) on TDD: Where Did It All Go Wrong? is worth a watch.  The problem Ian outlines is known by I suspect a large percentage of development teams.
+
+> Avoid testing implementation details, test behaviors
+> – A test-case per class approach fails to capture the ethos for TDD. Adding a new class is not the trigger for writing tests. The trigger is implementing a requirement.
+> – Test outside-in, (though I would recommend using ports and adapters and making the ‘outside’ the port), writing tests to cover then use cases (scenarios, examples, GWTs etc.)
+> – Only writing tests to cover the implementation details when you need to better understand the refactoring of the simple implementation we start with.endencies
+
+~ by mdavey on July 20, 2014.
+
+Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
