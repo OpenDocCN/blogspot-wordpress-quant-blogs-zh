@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:05:23
+-->
+
+# Magmasystems Blog: Bonus Season
+
+> 来源：[http://magmasystems.blogspot.com/2007/12/bonus-season.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/bonus-season.html#0001-01-01)
+
+Word is trickling across the Street about Goldman's bonuses. Everyone knows the numbers of an average bonus of over $600,000 per employee. But the whispers that I have heard from a number of people are that the IT employees below Managing Director level did not fare very well.
+
+In conversations that I have had with a number of current and ex colleagues, we are speculating whether most Wall Street companies will turn off the bonus spout, and admonish employees to "Just try to go anywhere else! Nobody is hiring now!".
+
+What will be the likely scenario is a 10% reduction across the board of the lowest performers. I am going long in the steak-knife manufacturers.
+
+What you don't want to see is the de-motivation of the normal, punch-the-clock worker in the IT field. These are the people who score in the middle of the road on their yearly evaluations, the people who have been at a company long enough to know one system inside and out, the people who don't blog nor read blogs, the people who don't work on weekends and who don't think about the next great product that they want to write for the traders. These are the people that usually hold the keys to the systems and the data, the people who you need to convince to open the gates to your applications. Giving these people the doughnut bonus will slow down processes, resulting in further roadblocks for the people who do want to get things done.
+
+Nevertheless, I still have open headcount for the CEP project and for the .NET client framework team.
+
+©2007 Marc Adler - All Rights Reserved
