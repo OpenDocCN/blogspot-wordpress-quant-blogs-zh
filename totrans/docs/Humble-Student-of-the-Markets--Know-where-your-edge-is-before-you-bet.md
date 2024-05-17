@@ -1,0 +1,35 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:35:52
+-->
+
+# Humble Student of the Markets: Know where your edge is before you bet
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2010/10/know-where-your-edge-is-before-you-bet.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2010/10/know-where-your-edge-is-before-you-bet.html#0001-01-01)
+
+A friend recently asked me my opinion about what she should do with a certain stock. This is the sort of question that I hate to answer. First of all, I knew nothing about the stock, which happened to be the shares of a junior mining company. Notwithstanding the fact that I knew nothing about it, it was also difficult to answer the question because I knew little about the rest of the portfolio. How big a position is it? Why did she buy it in the first place? Was it for diversification? Was it because she got a "hot tip"?
+
+In other words, what was the bet that she was making in the portfolio? Until an investor can answer that question, then it's impossible to know what to do with the stock.
+
+**What is your edge?**
+
+First of all, what constitutes properly diversification and what constitutes a "big bet"? For example, Avner Mandelman, writing in the
+
+[Globe and Mail](https://secure.globeadvisor.com/servlet/ArticleNews/story/gam/20100925/GIBUYSIDE0924ATL)
+
+, believes that 15 to 20 stocks is enough for portfolio diversification. That may or may not be correct number. I refer you to my
+
+[past post](http://humblestudentofthemarkets.blogspot.com/2008/02/examining-your-assumptions-fundamental.html)
+
+about Richard Grinold's Fundamental Law of Active Management:
+
+> The idea behind the Fundamental Law of Active Management is *to size the bets according to the edge you have*.
+
+In Mandelman's case, he has an investment process that is based on intensely focused fundamental research. Under those circumstances, you want to bet where his edge is, i.e. fundamental research, and a 15 to 20 stock portfolio may not be a bad idea. On the other hand, a top-down based investment process that picks sectors or countries needs a much larger number of positions in the portfolio because you want to diversify away the individual stock bets in the portfolio but concentrate the sector or country bets.
+
+Returning to the question about what to do with the junior mining stock, my questions would be:
+
+1.  Why did you buy it in the first place?
+2.  What was the bet you wanted to make? How big a bet did you want it to be?
+
+If you don't know the answer to the first question, then recall the adage about looking around a poker table to spot the chump. If you can't find him, then it's time to look in the mirror.
