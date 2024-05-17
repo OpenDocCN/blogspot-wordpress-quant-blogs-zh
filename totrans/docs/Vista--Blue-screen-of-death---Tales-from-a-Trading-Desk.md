@@ -1,0 +1,27 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 06:05:06
+-->
+
+# Vista: Blue screen of death | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2006/11/18/vista-blue-screen-of-death/#0001-01-01](https://mdavey.wordpress.com/2006/11/18/vista-blue-screen-of-death/#0001-01-01)
+
+## Vista: Blue screen of death
+
+To be honest it was expected. The install of Windows Vista RTM on my Dell D620 portable occurred without a hitch – no surprise given that the hardware is less than 3mths old. My Dell desktop was a different kettle of fish. Essentially I had the same driver issues as I’d experience with RC1 and [RC2](https://mdavey.wordpress.com/2006/05/27/vista-build-5384-office-beta-2/). The root of the problem was that my desktop has a nice 512Mb [ATI](http://ati.amd.com/) Radeon X1600 PRO, however when installing Windows Vista RTM the drivers for this card that Microsoft kindly include are version 7.14 dated 21/8/2006, whereas the drivers on ATI’s site are [8.31](http://www.atitech.ca/support/drivers/vista32/common-vista32.html) dated 2/11/2006\. The 7.12 driver appear to cause the Vista install to hang on the driver being loaded; this promptly caused a blue screen of death. This then snowballed into the next problem; the blue screen on appears for about 1-2 seconds before the PC reboots attempting to continue with the installation. The only words I managed to read during this time period was “driver in infinite loop” or similar, which isn’t exactly very helpful. I eventually got Vista installed, but only by following these steps:
+
+*   Replace the X1600 video card with the original Dell video card – NVIDIA g-Force 2 MX.
+*   Install Windows Vista
+*   Re-install the X1600 PRO video card.
+*   On Vista starting, it will kindly detect the new video card, and install the old drivers supplied by Microsoft – there doesn’t appear to be a simple way to cancel this install, so if you reboot after this, then Vista will blue screen again, and you will have to go into Safe Mode and remove the graphics cards
+*   Install the latest ATI drivers
+
+I’ve now got Vista working with Aero on my Dell desktop. The final issue I have to solve is that the Dell originally came with a CNET ethernet card, which as expected doesn’t have Vista drivers 😦 Luckily [Dabs](http://www.dabs.com) sells D-Link DFE-530TX cards for under £10 – drivers for this network card already appear to be available within Vista.
+
+Overall I’m happy with Vista on my portable, but unimpressed with Vista on a 4 year old Dell desktop.
+
+~ by mdavey on November 18, 2006.
+
+Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)
