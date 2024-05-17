@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 02:36:19
+-->
+
+# Humble Student of the Markets: How short-sellers can get hurt in a bear market
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2018/10/how-short-sellers-can-get-hurt-in-bear.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2018/10/how-short-sellers-can-get-hurt-in-bear.html#0001-01-01)
+
+This is a cautionary tale about the importance of return objectives and risk control. Regular readers know that while my trading model has not be perfect, it has been quite good for swing trading purposes.
+
+So far in the month of October, my main trading account is up 7.1%, while the SPY is -7.1%. I don't write this to brag, but to illustrate a point. A secondary account that trades the exact same signals, but uses a more aggressive leverage ratio, underperformed at 5.2%.
+
+This brings up my point about defining return objectives and risk control.
+
+The full post can be found at our new site
+
+[here](https://humblestudentofthemarkets.com/2018/10/25/how-short-sellers-can-get-hurt-in-a-bear-market/)
+
+.
