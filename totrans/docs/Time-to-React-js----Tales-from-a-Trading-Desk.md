@@ -1,0 +1,40 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 05:43:49
+-->
+
+# Time to React.js? | Tales from a Trading Desk
+
+> 来源：[https://mdavey.wordpress.com/2015/02/18/time-to-react-js/#0001-01-01](https://mdavey.wordpress.com/2015/02/18/time-to-react-js/#0001-01-01)
+
+Eric Florenzano offers an interesting [read](https://medium.com/@ericflo/facebook-just-taught-us-all-how-to-build-websites-51f1e7e996f2) on “Facebook just taught us all how to build websites”.  Essentially he is talking React.js.  Given the noise level on the web around React.js, coupled with the recent React.js [conference](http://conf.reactjs.com/), I’d be surprised if readers don’t already have a view of React.js, and haven’t seen their peers/colleagues watching the various [presentations](https://www.youtube.com/watch?v=KVZ-P-ZI6W4).
+
+A recent [blog](http://www.bbc.co.uk/blogs/internet/entries/47a96d23-ae04-444e-808f-678e6809765d) from the [BBC](http://www.bbc.co.uk/blogs/internet/entries/a4ff8c67-7b3c-322c-b771-d43323b221cb) offers insight into the road they are taking with the BBC Homepage refresh.  Unsurprisingly, the BBC has chosen React.js:
+
+> On the front end we have embraced new technologies such as isomorphic Javascript using ReactJS. This allows us to execute our Javascript templates on both the server and the client meaning that users without Javascript can still load a basic version of the page. The technology will also allow us to quickly develop modules that can periodically update themselves with live data from around the BBC. All our scripts are bundled together using Browserify, which allows us to mix both the AMD and the CommonJS module loading systems. Utilising a mix of these two loading systems means we are not restricted in our choice of open source libraries because of the mechanism implemented in a particular module.
+> 
+> We are using Sass to build our stylesheets and BEM to structure our CSS selectors to ensure good performance. The Sass stylesheets are compiled to CSS during our automated build process, which runs using Gulp , our build system, both locally and on a Jenkins continuous integration server.
+> 
+> Gulp also runs our automated unit and acceptance tests, which are written using Mocha,
+
+On the subject of client-server rendering, Tom Dale [offers](http://tomdale.net/2015/02/youre-missing-the-point-of-server-side-rendered-javascript-apps/) some thoughts.  It’s probably also having a read about ember [FastBook](http://emberjs.com/blog/2014/12/22/inside-fastboot-the-road-to-server-side-rendering.html), given the old Twitter posting on [performance](https://blog.twitter.com/2012/improving-performance-on-twittercom) improvements from 2012.  One Big Fluke also offers a view on client-side [templating](http://www.onebigfluke.com/2015/01/experimentally-verified-why-client-side.html) with some test data to back up his views.
+
+> If you care about first paint time, server-side rendering wins. If your app needs all of the data on the page before it can do anything, client-side rendering wins.
+
+As an aside, QuirksMode offers a view on the [problems](http://www.quirksmode.org/blog/archives/2015/01/the_problem_wit.html) of Angular, and the reasons for the 2.0 course change, and thus the death of Angular.js:
+
+> Adopting Angular 2.0 would require them to allocate massive amounts of budget to rewriting code that already works. Also, I wonder how people from a Java background will like new coding style.
+> 
+> For these reasons I think many enterprise users will stick with 1.x and ignore 2.0\. Of course, Google will eventually stop supporting 1.x. Thus I think Google’s attempt at cracking the front-end enterprise nut with Angular is going to fail over the next two to three years.
+> 
+> While the enterprise IT defection could be offset by an influx of front-enders, Angular has meanwhile acquired a bad reputation among them. Besides, yet another MVC framework is not what the front-end world needs right now.
+> 
+> Despite its serious technical problems Angular 1.x is a success especially among corporate developers with a Java background. The 2.0 rewrite is aimed at front-end developers, but may not reach them, and in addition will turn off Angular’s current following. I don’t think Angular will survive the rewrite.
+
+Anyway, back to React.js.  Of note is the Atlassian posting on the rebuilding of [Hipchat](https://developer.atlassian.com/blog/2015/02/rebuilding-hipchat-with-react/).  Atlassian is a cool company.  If they’ve decided to move to React.js its probably worth others taking note.
+
+Finally, there is React [Native](http://jlongster.com/First-Impressions-using-React-Native).  Have Facebook provide us with a way to build browser and native apps in a unified way? “Learn once, write anywhere”
+
+~ by mdavey on February 18, 2015.
+
+Posted in [JavaScript](https://mdavey.wordpress.com/category/languages/javascript/)
