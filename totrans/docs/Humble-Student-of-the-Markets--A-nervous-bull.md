@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 04:18:17
+-->
+
+# Humble Student of the Markets: A nervous bull
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2011/07/nervous-bull.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2011/07/nervous-bull.html#0001-01-01)
+
+As I write this, global equity markets are down in reaction to the lack of a debt ceiling agreement out of Washington. Despite this event, I remain a nervous bull since my
+
+[Asset Inflation-Deflation Timer Model](http://qwestfunds.com/publications/newsletters_pdf/newsletter_november_2009.pdf)
+
+issued its
+
+[buy risk signal last week](http://humblestudentofthemarkets.blogspot.com/2011/07/timer-model-buy-inflation-hedges-risk.html)
+
+ to jump into commodity producers, emerging market equities and TIPs. The market conditions now are similar to the last time the Timer Model issued its buy risk, or inflation signal, last September just after Bernanke's Jackson Hole QE2 speech.
+
+First of all, the driver of the Timer Model, namely commodity prices, are starting to trend up:
+
+Most importantly, economically sensitive commodities such as copper show a similar pattern of break out from a technical downtrend and starting to rise:
+
+Measures of risk appetite, such as the relative performance of Consumer Discretionary to Consumer Staple stocks, are also showing a similar pattern of turning up:
+
+The relative performance of cyclical stocks is one of the weaker links in the pattern. Last time, cyclicals were in a relative downtrend but they were in a constructive pattern of a triangle formation showing higher lows. Today, cyclical stocks are in a relative downtrend and they are approaching a key relative support zone. A breakdown below relative support would be a negative divergence.
+
+**Key risks**
+
+To be sure, there are important macro and event risks that overhang the market. As I pointed out before, the banking sector has broken down below an key relative support level and remains in a relative downtrend. Past instances of important violations of relative support is an indicator of high systemic risk in the financial system, i.e. the Russia Crisis of 1998 and Subprime Crisis of 2007\.
+
+I interpret these conditions as a tactically bullish. Risk appetite is rising and it's time to jump on that momentum. The last time this happened, it sparked a significant intermediate term rally in the market.
+
+While I am highly concerned about the level of systemic risk in the financial system, these concerns were also present last September as well, when the BKX was also in a relative downtrend. Given these conditions, my inner trader tells me to give the bull trade the benefit of the doubt, but maintain tight stops in order to limit my downside risk. In other words, I am a nervous bull.
