@@ -1,0 +1,43 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 03:14:26
+-->
+
+# Humble Student of the Markets: How Valeant revealed the dirty little secret of fund management
+
+> 来源：[https://humblestudentofthemarkets.blogspot.com/2015/10/how-valeant-revealed-dirty-little.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2015/10/how-valeant-revealed-dirty-little.html#0001-01-01)
+
+How would you feel if your equity fund manager lagged the index by 5% in a year? Supposing that you hired the manager, or bought his fund, as part of the diversified equity portion of your portfolio and he missed by 5% in a year. Let's say that you be patient, then he underperforms by another 5% in the next six months. Would you fire someone who lags the market by 10% in 18 months?
+
+**Returns vs. business risk**
+
+I have met people who say that they love managers who hit the home run and loathe benchmark huggers, but investors get very nervous when their managers lag the market by as little as 5-10% in a relatively short (1-3 years) time frame. From the perspective of the manager, this level of risk tolerance brings up the issue of business risk. How do you maximize performance using your process, or "secret sauce", without taking on excessive business risk that sinks the entire firm?
+
+Risk comes in all shapes and sizes. For an equity portfolio, common sources of risk are sector and industry risk, market cap risk and stock specific risk. To illustrate my example, consider the lowly issue of stock specific risk, which should be diversifiable (at least according to theory).
+
+The recent case of price volatility in Valeant Pharmaceuticals (VRX) is an instructive example in risk control. In the past few weeks, I have spoken to a number of Canadian portfolio managers whose performance was blindsided by specific risk from that one single stock, The outlook for VRX is highly divisive and talking about it is the equivalent of bringing up touchy topics like religion or gun control in polite company. (Incidentally, I have no opinion on the stock.) The chart below depicts the price of VRX in the top panel and the TSX-VRX ratio in the bottom panel, which shows what would have happened to relative performance had a manager had no position in VRX for the past few years.
+
+[![](img/b250a2b1f5b8c71c5e79011d3f7d6356.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhENvNoBDV_ECsLQ2KarUCkeQx61ubqrcIS98wBIqG3qFJLxfwxatunIkHR2enbPQ4WQlhUC-kR3v_Bh0763-ZHjw-RuukjlFkgGhLDZ8svI9NhRAS_wDHX5JFIf_Rck9aV-6ULdU8wwpY/s1600/VRX.PNG)
+
+Despite the fact that the stock got hit today, VRX has shown remarkable returns in the past few years. In the space of about 5 years, the stock has become a 10-bagger and anyone who didn't own it would have underperformed the index (bottom panel). Consider the following effects for a manager who did not hold VRX:
+
+*   If he didn't own it at the end of 2013, relative return shortfall would be over 8% when VRX hit its peak this year. For some investment organizations, that kind of shortfall could be a near-death experience.
+*   Even with the pullback, relative performance shortfall would only be back to 2013 levels and he have not made up for the shortfalls in the previous years.
+
+**The art of business risk management**
+
+The analysis brings up a key question for the business risk for investment management operations. Yes, we would all like to have the courage to bet our investment convictions, but how much business risk is the practice willing to take? Supposing that an operation were to lose half its clients because of a single decision on a stock, what does that do to the bottom line? Revenues would go down by about 50%, but there are fixed costs such as rent, salaries, systems, legals, etc. Profitability would plunge in such an instance, is the investment management business willing to take that kind of risk?
+
+If not, then there are a couple of steps a manager can do. First, he has to decide the appropriate level of stock specific risk he is willing to take against the benchmark. Supposing a stock has a 3.5% weight in the benchmark, would you hold a 0% if you ranked it a "sell" (-3.5% bet), a non-zero weight, such as 2.5% (+/- 1% vs, benchmark) or 1.5% (+/- 2% vs. benchmark)? On the other hand, if your ranked it a "buy", would a 5.5% weight (+/- 2% vs. benchmark) be appropriate? What about 8.5% (+/- 5% vs. benchmark)?
+
+Another way of approaching the problem would be to try and determine the median competitor weight in the stock (with techniques that I have written about before). Then set benchmark weight to be the median competitor weight instead of the index weight.
+
+I show this example as just how a simple decision on a single stock can crash an entire investment management practice. I haven't even gone into all the other ways that risk can rear its ugly head, such as macro factor, sector, size and so on.
+
+**Asking too much of managers?**
+
+This post also illustrates the dirty little secret of fund management. Investors are asking too much of managers and managers are consequently reacting rationally by closet indexing.
+
+Investors have to ask themselves: How much rope are you willing to give a manager to succeed? Is John Hussman flaming out, or is he a brilliant thinker going through a bad patch? Other well-known managers like Bill Miller and Ken Heebner have had their ups and downs, how patient are you willing to be? If you have a low level of patience, then you are forcing managers to become benchmark huggers because you are not giving them enough room to win.
+
+For managers: Given the realities of the market, how much risk are you willing to take so you don't crash your firm?
