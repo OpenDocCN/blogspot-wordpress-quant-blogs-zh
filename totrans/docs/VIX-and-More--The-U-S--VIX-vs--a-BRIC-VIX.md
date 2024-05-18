@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:27:15
+-->
+
+# VIX and More: The U.S. VIX vs. a BRIC VIX
+
+> 来源：[http://vixandmore.blogspot.com/2008/09/us-vix-vs-bric-vix.html#0001-01-01](http://vixandmore.blogspot.com/2008/09/us-vix-vs-bric-vix.html#0001-01-01)
+
+India has an [India VIX](http://vixandmore.blogspot.com/search/label/India%20VIX), Germany has the [VDAX](http://vixandmore.blogspot.com/search/label/VDAX), and some other countries (largely in Europe) have their own country volatility indices. Outside of North America and Europe, the volatility index pickings are slim, however, so when you want to get a sense of international volatility on a broader scale, you have to roll your own.
+
+Which is exactly what I have done today.
+
+In the chart below, the bottom half is a six month chart of implied volatility in the S&P 500 index. It is similar, but not identical to the VIX. Note the March high, a second peak in mid-July, and the recent uptrend in volatility.
+
+On the top half of the chart is the implied volatility in the Claymore BHY [BRIC](http://vixandmore.blogspot.com/search/label/BRIC) (Brazil, [Russia](http://vixandmore.blogspot.com/search/label/Russia), India, and [China](http://vixandmore.blogspot.com/search/label/China)) ETF ([EEB](http://finance.yahoo.com/q?s=EEB)), which attempts to replicate the performance of the Bank of New York BRIC Select ADR index. In contrast to the SPX, implied volatility in the BRIC ETF was relatively moderate in July, but has spiked dramatically over the course of the past two weeks. In short, fear and anxiety may be rising slowly in U.S. markets, but in the critical economies of Brazil, Russia, India, and China, signs of panic are much more widespread.
+
+If [emerging markets](http://vixandmore.blogspot.com/search/label/emerging%20markets) are the buffer whose continued growth is supposed to buttress developed markets in this economic slowdown, then emerging markets need to find their own firm ground and soothe anxious investors before they can be expected to lubricate the wheels of the global economy.
+
+![](img/ed4498d5b3f5f4fd91e26416946b78f0.png)
+
+[source: International Securites Exchange]
