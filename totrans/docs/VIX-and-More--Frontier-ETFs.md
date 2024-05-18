@@ -1,0 +1,35 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:21:39
+-->
+
+# VIX and More: Frontier ETFs
+
+> 来源：[http://vixandmore.blogspot.com/2009/11/frontier-country-etfs.html#0001-01-01](http://vixandmore.blogspot.com/2009/11/frontier-country-etfs.html#0001-01-01)
+
+In yesterday’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week), I looked at three ETFs with exposure to the [Middle East](http://vixandmore.blogspot.com/search/label/Middle%20East):
+
+*   Market Vectors Gulf States ETF ([MES](http://vixandmore.blogspot.com/search/label/MES))
+*   Wisdom Tree Middle East Dividend ETF ([GULF](http://vixandmore.blogspot.com/search/label/GULF))
+*   SPDR S&P Emerging Middle East and Africa ETF ([GAF](http://vixandmore.blogspot.com/search/label/GAF))
+
+It is a little known fact that Middle Eastern ETFs are actually subset of a relatively new class of ETFs called [frontier ETFs](http://vixandmore.blogspot.com/search/label/frontier%20ETFs). Many of these frontier ETFs are single country ETFs, but two in particular stand out as diversified frontier plays:
+
+*   PowerShares MENA Frontier Countries Portfolio ETF ([PMNA](http://vixandmore.blogspot.com/search/label/PMNA))
+*   Claymore/BNY Mellon Frontier Markets ETF ([FRN](http://vixandmore.blogspot.com/search/label/FRN))
+
+I list PMNA ([holdings](http://www.invescopowershares.com/products/overview.aspx?ticker=pmna)) first because it is not a global, but a regional ETF, based on the NASDAQ OMX Middle East North Africa Index. At present the fund has a strong emphasis on the Persian Gulf and should be considered as a slightly more liquid (but still relatively illiquid) alternative to MES and GAF, trading approximately 10,000 shares per day. As of last week, the top country allocations were in the United Arab Emirates (22.6%), Egypt (20.2%) and Kuwait (16.9%).
+
+In contrast to PMNA, FRN ([holdings](http://www.claymore.com/etf/fund/frn)) has taken a much broader and more geographically diversified global approach, without a particular regional emphasis. Specifically, the ETF is designed to track the Bank of New York Mellon New Frontier DR Index. As of September 30, the top country allocations were Chile (28.6%), Poland (15.9%) and Egypt (15.4%).
+
+The chart below shows that the while PMNA and FRN were very similar in terms of performance for the first five months of 2009, the more diversified FRN had been a much stronger performer during the latter half of the year. Not surprisingly, given PMNA's exposure to the Persian Gulf, the gap has widened significantly during the last few days.
+
+In addition to these multi-country frontier ETFs and regional frontier ETFs such as Market Vectors Africa ([AFK](http://vixandmore.blogspot.com/search/label/AFK)), it is important to keep in mind that there are many single country ETFs available, with an increasing amount of geographical diversity. Just last week, the first Poland ETF ([PLND](http://vixandmore.blogspot.com/search/label/PLND)) was launched. For investors who are interested in single country Middle Eastern ETFs, Van Eck is planning to launch new ETFs for Egypt and Kuwait.
+
+Finally, consider that frontier ETFs are likely to appeal only to investors who can tolerate high levels of risk. The multi-country and single country variants suffer from low liquidity and high volatility, making it unwise to build up large positions until trading volumes increase dramatically from current levels.
+
+![](img/8483cc7e42eeb87cec364f8b8a7b47bd.png)
+
+*[source: StockCharts.com]*
+
+***Disclosure****: none*
