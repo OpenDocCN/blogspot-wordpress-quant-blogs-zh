@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:13:05
+-->
+
+# VIX and More: VIX Drops 30% in Five Days for Eighth Time in 19 Years
+
+> 来源：[http://vixandmore.blogspot.com/2008/12/vix-drops-30-in-five-days-for-eighth.html#0001-01-01](http://vixandmore.blogspot.com/2008/12/vix-drops-30-in-five-days-for-eighth.html#0001-01-01)
+
+A reader asked about the historical significance of the VIX dropping 30.9% in the last five trading sessions. This has only happened six times since the beginning of the VIX data history in 1990\. If we lower the bar to a 30% drop in five days, we pick up a total 8 instances; and if we move the threshold down to a 25% drop in five days, the number increases to 32 occasions, including quite a few data points that fall on consecutive days.
+
+If you do this type of analysis often enough, you begin to be able to pick the years that will be most prominent on the screen: 1991, 1994, 1997, 1998, 2002, and 2007\. Now 2008 is starting to make its impression in the historical database as well.
+
+The question most people are interest in, however, is not so much the year of the previous instances as the subsequent performance of the stock market in the days and weeks following these 30% drops. The data show almost identical performance patterns for 25% and 30% five day drops in the VIX. Essentially, there is a very strong probability that during the next five days the SPX will be down at least 1% or more. Following the classic [mean reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion) tendency, in looking out 10 trading days or more, the underperformance gap begins to diminish significantly, so any shorts opened today should have an anticipated lifespan of 10 days or less.
