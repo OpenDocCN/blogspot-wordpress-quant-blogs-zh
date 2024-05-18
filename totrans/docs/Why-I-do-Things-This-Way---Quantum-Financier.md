@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 14:01:34
+-->
+
+# Why I do Things This Way – Quantum Financier
+
+> 来源：[https://quantumfinancier.wordpress.com/2010/11/24/why-i-do-things-this-way/#0001-01-01](https://quantumfinancier.wordpress.com/2010/11/24/why-i-do-things-this-way/#0001-01-01)
+
+I must confess a few things. I started my journey in the investment world as a self-proclaimed value investor. I didn’t know any better and I figured; if it worked for Warren Buffet, it ought to work for me. So I read and read on the subject and a little later I was being introduced to financial theory in school; time vale of money, benefits of diversification and all that jazz. At that point I felt like the planets aligned, making money and the market was easy, we only had to consider companies as a series of future cash flows. I then learned to do fundamental valuation: discounted cash flow models, comparables analysis, financial ratios regression et. al. However it never really did it for me, I was always left with questions unanswered.
+
+Looking for other more attractive venues for me, I was always hearing tales of those mythical investors that could predict the future with a single look at a chart. Looking forward to gain this level of perception, I started looking into visual chart analysis. At first I must say I was baffled by what appeared to be doodles on the chart. I remember that at some point early on someone was trying to persuade me that if my chart was forming a tea cup I found myself a pattern to trade on. I must admit I was perplexed. Nonetheless I stuck through and passed the stage of chart reader and graduated to the indicator stage. Then things started to look more appealing to me, I particularly liked how each indicator would put a specific aspect of a stock price series to the foreground and reducing the noise. However I couldn’t seem to find a way to use these indicators to develop a way to make money. Decidedly reaching the $1M mark before 25 years old was going to be more complicated than I had forecasted when I was younger.
+
+Then one day I came across the blogs on my blogroll; I was hooked. The method used in these blogs just made all the puzzle pieces fit together. They wouldn’t discredit any method per se but would question the methods, the underlying assumptions, and would use an outside the box thinking approach to answer question left unanswered. Rather than being strictly technical or fundamental, they would use quantitative methods to analyse the market and rigorously evaluate phenomenons. This no fad, down to earth and based on the scientific approach was exactly was I was looking for all this time without knowing it. While I am nowhere near the $1M mark, I have grown from an absolute approach trader to a seeing the shades of grey. Instead of looking for the Holy Grail strategy or approach, I now strive to constantly get better and get answers to my questions.
+
+If you are a reader of my blog, I also assume you follow these blogs, and the one true great thing I hope you get away from it is not that new strategy published that scores a 40% annualized return in the backtest, or that awesome new indicator that outperforms this and that. Above all else, I hope that what you get from our blogosphere community is the desire to investigate and to constantly improve your trading. And that my friends, is the only way to succeed; and no fundamental or technical school of thoughts will ever give you that if you just blindly follow it without questioning the underlying principles.
+
+QF
