@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 14:59:18
+-->
+
+# Timely Portfolio: rCharts version of d3 horizon
+
+> 来源：[http://timelyportfolio.blogspot.com/2013/07/rcharts-version-of-d3-horizon.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/07/rcharts-version-of-d3-horizon.html#0001-01-01)
+
+I love horizon plots.  My love shows up [throughout my blog](http://timelyportfolio.blogspot.com/search/label/horizonplot), and I have plotted horizon charts in base graphics, xtsExtra, lattice, and ggplot2.  Now with [rCharts](http://rcharts.io/site), we can implement [Jason Davies](http://www.jasondavies.com/) [d3.js](http://d3js.org) horizon chart [plugin](https://github.com/d3/d3-plugins/tree/master/horizon) to plot R data in html/javascript.  I put together a tutorial going into great detail on rCharts and convertin custom charts.  For the tutorial, go [here](http://timelyportfolio.github.io/rCharts_d3_horizon/), or click on the screenshot below.
+
+[![image](img/0787bec5815a19686c6d464ff5979457.png "image")](http://timelyportfolio.github.io/rCharts_d3_horizon/)
