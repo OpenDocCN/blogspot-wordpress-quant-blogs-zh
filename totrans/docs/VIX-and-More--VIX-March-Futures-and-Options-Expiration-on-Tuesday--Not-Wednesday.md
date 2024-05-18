@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:10:56
+-->
+
+# VIX and More: VIX March Futures and Options Expiration on Tuesday, Not Wednesday
+
+> 来源：[http://vixandmore.blogspot.com/2014/03/vix-march-futures-and-options.html#0001-01-01](http://vixandmore.blogspot.com/2014/03/vix-march-futures-and-options.html#0001-01-01)
+
+Just a quick reminder for those who may not be aware of it that the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) and [options](http://vixandmore.blogspot.com/search/label/VIX%20options) expiration for March falls on *next Tuesday*, March 18^(th), not the typical Wednesday. This means that the VIX special opening quotation ([SOQ](http://vixandmore.blogspot.com/search/label/VIX%20SOQ)) used to determine the March settlement price will be at the open on Tuesday and also the last trading day for the VIX March futures and options will be on Monday. With the speed at which things are developing in Ukraine and elsewhere, these 24 hours could turn out to be significant.
+
+For those who are interested in a link to the VIX options expiration calendar, the CBOE maintains a 2014 options expiration calendar [here](http://www.cboe.com/TradTool/2014_CBOEwebsite.pdf), with the VIX expiration highlighted in a solid dark orange box. Note that I have a link to the CBOE options expiration calendar on the blog at the bottom of my VIX, Sentiment & Options section.
+
+To review how the VIX expiration dates are determined, the VIX futures and options expire 30 days before the SPX monthly options expiration in the following month. These SPX options expirations are almost always on a Friday, therefore the VIX expiration is almost always on the Wednesday four weeks and two days prior to the SPX expiration. The complication factor for the VIX March 2014 expiration cycle is that on Friday, April 18, the CBOE is closed due to the Good Friday holiday, which pushes up the April SPX expiration to Thursday, April 17, with the result that the VIX March expiration is pushed up one day as well.
+
+Last but not least, the VIX SOQ probably deserves a separate post in order to explain some of its unique characteristics, but it is worth noting that the VIX SOQ is not the price at which the VIX opens, but rather another separate calculation that takes place at the open.
+
+Related posts:
+
+ ****Disclosure(s):*** *CBOE is an advertiser on VIX and More**

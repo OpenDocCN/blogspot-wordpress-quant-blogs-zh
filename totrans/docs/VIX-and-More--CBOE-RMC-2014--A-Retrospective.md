@@ -1,0 +1,36 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:10:40
+-->
+
+# VIX and More: CBOE RMC 2014: A Retrospective
+
+> 来源：[http://vixandmore.blogspot.com/2014/03/cboe-rmc-2014-retrospective.html#0001-01-01](http://vixandmore.blogspot.com/2014/03/cboe-rmc-2014-retrospective.html#0001-01-01)
+
+Earlier this month, I had the pleasure of attending the CBOE Risk Management Conference (RMC) in Bonita Springs, Florida. Now that the conference is over and the CBOE has [posted](http://www.cboermc.com/agenda/) most of the presentations, I thought I would take a little time and offer a retrospective look at some of the content that caught my attention.
+
+Before I do that, I am compelled to tip my cap to [Russell Rhoads](http://www.cboeoptionshub.com/author/russell-rhoads/), whose indefatigable and prolific efforts were responsible for capturing many of the details of the conference. Russell’s posts and those of [Matt Moran](http://www.cboeoptionshub.com/author/matt-moran/) made it possible for anyone to have a virtual front-row seat throughout the proceedings. Their efforts in conjunction with the RMC are archived at the [CBOE Options Hub](http://www.cboeoptionshub.com/) with the [CBOERMC tag](http://www.cboeoptionshub.com/tag/cboermc/).
+
+From my vantage point, I thought it particularly interesting that the two keynote speakers, [Martin Zonis](http://www.chicagobooth.edu/gls/speakers/?speaker=zonis) and [Carl Tannenbaum](http://www.northerntrust.com/pws/jsp/display2.jsp?TYPE=bio&XML=contact/buscard/1216405007008_743.xml), had such divergent views about the potential risks and rewards in the U.S. financial markets in the coming years. Zonis placed most of his attention on political risk and foreign policy matters and declared that the markets were “underestimating volatility in future years.” While Tannenbaum expressed concern about banks in Europe as well as credit and real estate in China, he had a much more sanguine view of the future of the U.S. economy and financial markets.
+
+Among the other presentations, I was particularly interested to hear Maneesh Deshpande provide an overview of the players and strategies used in volatility products during the course of the evolution of the VIX product platform. Deshpande described the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) as a mature market, with liquidity and supply having shifted from commercial to con-commercial traders. He also indicated that demand for VIX puts has stagnated, while new entrants are increasing the demand for VIX calls. All of this has influenced how the [VIX spikes](http://vixandmore.blogspot.com/search/label/VIX%20spikes) and [mean reverts](http://vixandmore.blogspot.com/search/label/mean%20reversion), as well as how the VIX futures [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) has evolved.
+
+Another particularly interesting session involved Ed Tom and John-Mark Piampiano, who tackled the subject of the volatility of volatility, invoking the likes of [VVIX](http://vixandmore.blogspot.com/search/label/VVIX) as well as the third and fourth derivatives of SPX implied volatility. At every conference at least one session gives you things to mull over long after the speakers are done and for me, this was the session that hit the high notes. Ed Tom’s presentation has not yet been posted, but he started his talk by decomposing VIX risk premium into realized volatility plus skew plus kurtosis and went on from there.
+
+Sheldon Natenberg and Trevor Mottl were tasked with the subject of evaluating the volatility surface: skew and term structure. Not surprisingly, they were up to the task, with Mottl focusing on the role of money and credit in shaping the volatility surface. He indicated that the increasing size of the Fed’s balance sheet has depressed volatility across the board over the course of the past few years and expects that as the Fed’s balance sheet normalizes, the change in non-financial debt will become the most important influence on equity market volatility going forward. Mottl attributed the steepness of the VIX futures term structure to the uncertainty related to the Fed’s ability to be successful with its quantitative easing program. He also traced fluctuations in the skew of volatility to expectations related to the Fed’s tapering plans.
+
+Among the other presentations I sat in on were:
+
+*   a panel on volatility as an asset class (the consensus that volatility is more of a tool and in order to be thought of as an asset class needs to harvestable, allocatable and easier to benchmark; a separate thread was critical of the costs associated with traditional approaches to tail hedges)
+*   a discussion of trading volatility across asset classes (included an interesting set of metrics and trade ideas)
+*   a wide-ranging session on the design and trading of VIX and other volatility derivatives, which had a detailed explanation of the VIX settlement process as well as a discussion of [VXST](http://vixandmore.blogspot.com/search/label/VXST), which is expected to gain much more momentum when options on the index become available on April 10
+
+Finally, I had an opportunity to sit down with Angela Miles of [CBOE TV](http://www.cboeoptionshub.com/cboe-tv/) to offer my thoughts on the second day of RMC:
+
+ <param name="movie" value="http://video.limelight.com/player/loader.swf"><param name="wmode" value="window"><param name="allowScriptAccess" value="always"><param name="allowFullScreen" value="true"><param name="flashVars" value="playerForm=Player&amp;mediaId=0423b06a5a54493a9c3d160d52c424b3"> 
+
+For those who may be interested, the [3rd Annual CBOE RMC](http://www.cboermceurope.com/) will be held September 3-5, just south of Dublin, Ireland.  Since all of my ancestors trace their roots back to Ireland, I can’t imagine a better place to hear about the latest thinking in volatility and ponder the miracle of Guinness draught at the same time.
+
+Related posts:
+
+***Disclosure(s):*** *CBOE is an advertiser on VIX and More*

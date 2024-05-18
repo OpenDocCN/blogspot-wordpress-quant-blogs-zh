@@ -1,0 +1,29 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:10:52
+-->
+
+# VIX and More: CBOE Risk Management Conference Update
+
+> 来源：[http://vixandmore.blogspot.com/2014/03/cboe-risk-management-conference-update.html#0001-01-01](http://vixandmore.blogspot.com/2014/03/cboe-risk-management-conference-update.html#0001-01-01)
+
+Today was the first full day of the CBOE Risk Management Conference and between the presentations, sidebar conversations and opportunities to meet and greet, I have to say that things hit full stride very quickly.
+
+Today CBOE CEO Ed Tilly [announced](http://ir.cboe.com/releasedetail.cfm?ReleaseID=833592) that the CBOE will roll out nearly 24 hours of trading, five days per week in [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) beginning on Sunday, June 22\. This announcement follows another important [announcement](http://ir.cboe.com/releasedetail.cfm?releaseid=832160) last week that options on [VXST](http://vixandmore.blogspot.com/search/label/VXST) (the CBOE Short-Term Volatility Index) will commence on April 10\. Clearly, things continue to move forward on the volatility product front and at the end of the year, I suspect we will lock back on these two developments as critical milestones in the volatility space.
+
+Today I had the opportunity to listen to Marvin Zonis give a keynote address on “New Insights into Geopolitical Risk: Examining Geopolitical Risk Hot Spots and the Implications for Trading Strategies and Risk Management.” For anyone wondering about what it might take to drive the VIX higher over the course of the next few years, Zonis had a laundry list of grave concerns ([Ukraine](http://vixandmore.blogspot.com/search/label/Ukraine), [Japan](http://vixandmore.blogspot.com/search/label/Japan)/China, Korean Peninsula, [Pakistan](http://vixandmore.blogspot.com/search/label/Pakistan), [Iran](http://vixandmore.blogspot.com/search/label/Iran)/[Israel](http://vixandmore.blogspot.com/search/label/Israel)/nuclear weapons, [Egypt](http://vixandmore.blogspot.com/search/label/Egypt)/[Syria](http://vixandmore.blogspot.com/search/label/Syria)/[Turkey](http://vixandmore.blogspot.com/search/label/TUR), [China](http://vixandmore.blogspot.com/search/label/China), political stagnation, etc.) and summarized the situation by saying, “We are in the age of *major*, *major* political risk.”
+
+Another featured speaker was Maneesh Deshpande, who talked extensively about the evolution of the demand for volatility products as well as the evolution of the supply for volatility products. Maneesh had a number of interesting observations about new players and new strategies in the volatility space. He also expressed concern about the crowded VIX short trade and the potential for the next crisis that does not mean-revert quickly to lead to a sharp second [VIX spike](http://vixandmore.blogspot.com/search/label/VIX%20spikes) as shorts scramble to cover their positions.
+
+Also of interest was a two-part presentation with Dominic Salvino discussing VXST and other volatility index products (he expects interest in VXST futures will pick up dramatically after the options are launched in less than a month) as well as a detailed description of the VIX settlement process ([VIX SOQ](http://vixandmore.blogspot.com/search/label/VIX%20SOQ)) by Bill Speth of the CBOE
+
+Other sessions I attended today included:
+
+*   a panel on volatility as an asset class that produced considerable debate on the proper answer to that question as well as a good deal of criticism of tail risk strategies
+*   two speakers on trading volatility across asset classes that shared details on the methodology they use to generate trade ideas as well as quite a few cross-asset class pairs trades
+
+Last but not least, I had the opportunity to meet quite a few people who have been regular readers of *VIX and More* over the years, many of whom nudged me to ramp up my posting frequency – which I certainly intend to do in 2014, starting this week.
+
+Related posts:
+
+***Disclosure(s):*** *CBOE is an advertiser on VIX and More*
