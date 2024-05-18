@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:50:43
+-->
+
+# VIX and More: VWSI at Zero Again
+
+> 来源：[http://vixandmore.blogspot.com/2007/04/vwsi-at-zero-again.html#0001-01-01](http://vixandmore.blogspot.com/2007/04/vwsi-at-zero-again.html#0001-01-01)
+
+The VIX Weekly Sentiment Indicator ([VWSI](http://vixandmore.blogspot.com/search/label/VWSI)) is back at zero for the second week in a row, which is not unusual.  In fact, over the long term, the VWSI should generate a zero reading approximately 40% of the time and fall in to the +3 to -3 ‘neutral zone’ approximately 80-90% of the time.  When it comes to trading the VIX, patience and discipline are absolute requirements for high percentage and high expectancy trades.
+
+On the price patterns front, the VIX fell 9.6% this past week, barely bringing an end to the five week double digit pendulum of price swings we noted [last week](http://vixandmore.blogspot.com/2007/04/vwsi-at-0and-to-drink.html) in this space, but continuing to print an intriguing pattern: +75%; -24%; +19%; -23%; +13%; and -10%.
+
+Speaking of intriguing patterns, the 90,000+ open interest for the April 11 and 12 VIX puts suggests that someone is staking large money on a continued contraction in volatility.
+
+(Note that in the above temperature gauge, the "bullish" and "bearish" labels apply to the VIX, not to the broader markets, which are usually negatively correlated with the VIX.)
+
+***Wine pairing:*** The official [wine pairing](http://vixandmore.blogspot.com/search/label/wine%20pairing) for a VWSI of zero is a [Rhone blend](http://vixandmore.blogspot.com/2007/04/vwsi-at-0and-to-drink.html).  More broadly, it is any affordable and enjoyable red or white that works as an everyday wine.  This week I will offer up an inexpensive version of a popular <place st="on">Rhone</place> varietal, the broadly advertised and surprisingly drinkable 2005 [Wrongo Dongo](http://www.cellartracker.com/wine.asp?iWine=259935&iNote=341678).  While the label is short on information, this wine is from the [Jumilla](http://www.winesfromspain.com/icex/cda/controller/pageGen/0,3346,1549487_4946338_4944445_1072_-1,00.html) region of <place st="on"><country-region st="on">Spain</country-region></place> and consists primarily of [mourvedre](http://www.rhonerangers.org/grapes/mourvedre.php), blended with some cabernet sauvignon and merlot. This is an easy drinking wine, but it has enough spice and backbone to stand up to those hard to pair ethnic foods.  I found it locally for $7.99 and it can be had for less on sale.  If you make money on one side of the market while everyone else is losing money on the other side, what could be more appropriate than to open a glass of Wrongo Dongo and drink to your contrarian success…
