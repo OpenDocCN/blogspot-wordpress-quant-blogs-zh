@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:41:27
+-->
+
+# VIX and More: The Next Big Thing?
+
+> 来源：[http://vixandmore.blogspot.com/2009/06/next-big-thing.html#0001-01-01](http://vixandmore.blogspot.com/2009/06/next-big-thing.html#0001-01-01)
+
+This morning [ProShares](http://vixandmore.blogspot.com/search/label/ProShares) launched two new triple ETFs. Now before you exclaim, “Enough already!” consider that the new ETFs are designed to track the daily moves of the S&P 500 index. As such, these are the first [3x and -3x ETFs](http://vixandmore.blogspot.com/search/label/triple%20ETFs) that track the SPX directly. For this reason alone, the two new ETFs are can’t miss products. While these triple ETFs will have some interesting hedging applications, the fact that they have a target tracking period of one trading day, like the [Direxion](http://vixandmore.blogspot.com/search/label/Direxion) Daily ETFs, means they will probably become very hot in the day trading space. Don’t be surprised to see 100 million shares traded in both of these within a few months.
+
+The official names of the new ETFs are the Ultra ProShares ([UPRO](http://vixandmore.blogspot.com/search/label/UPRO)) and Short ProShares ([SPXU](http://vixandmore.blogspot.com/search/label/SPXU)). For more information on these ETFs, check out their [prospectus](http://media.proshares.com/documents/ProSharesProspectus060232009.pdf).
