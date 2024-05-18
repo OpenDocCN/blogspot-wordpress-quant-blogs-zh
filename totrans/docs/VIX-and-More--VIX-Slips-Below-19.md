@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:29:17
+-->
+
+# VIX and More: VIX Slips Below 19
+
+> 来源：[http://vixandmore.blogspot.com/2008/08/vix-slips-below-19.html#0001-01-01](http://vixandmore.blogspot.com/2008/08/vix-slips-below-19.html#0001-01-01)
+
+One of the interesting side benefits of having a blog is that you can get a sense of what some investors are thinking just by looking at the Google searches that result in people clicking through to the blog.  Today, for instance, I note some have found their way to *VIX and More* with the following Google searches:
+
+*   “VIX oversold”
+*   “VIX call options”
+*   “trade using the VIX”
+*   “bull call spread VIX”
+*   “calendar spread VIX”
+*   “predict VIX settlement value”
+*   “September VIX futures”
+
+It certainly appears as if quite a few investors are looking at a VIX that is below 19 and trying to understand that number in the context of headlines filled with gloom and doom.  One possible conclusion, which I’m sure accounts for a fair number of the Google searches above, is that it is just a matter of time before the VIX spikes to a level consistent with the fear and anxiety which dominates much of the media coverage of the markets at the moment.
+
+While a VIX of 18.92 (as I type this) sounds low, it is only 7.3% below the 10 day simple moving average and 11.8% below the 100 day SMA.  Further, because today is a Friday and we have some low volume days approaching in advance of the Labor Day holiday, there are some [calendar reversion](http://vixandmore.blogspot.com/search/label/calendar%20reversion) effects at work, as Adam at [Daily Options Report](http://adamsoptions.blogspot.com/) has detailed nicely in [VIX Bicentennial Parade](http://adamsoptions.blogspot.com/2008/08/bicentennial-vix-parade.html) and several previous posts.
+
+A look at [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) (see futures quotes from optionsXpress below) shows that futures expectations for the VIX for October to May are generally in the range of 22.50 – 23.20.  Anyone considering a [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options) trade needs to get a better sense of how VIX options are priced off of and generally move with VIX futures, *not* the cash or spot VIX index that is four points lower.
+
+That being said, there is also the case to be made that the VIX is not that low at the moment.  Looking at a weekly chart, for instance, the VIX is toward the middle of the typical [Bollinger band](http://vixandmore.blogspot.com/search/label/Bollinger%20bands) settings.  This is the essence of VIX options:  when they look like sitting ducks, it is usually an optical illusion.
+
+Still, with a relatively low VIX and relatively low VIX implied volatility (58.2%), VIX options may be inexpensive portfolio insurance and/or a good leveraged bet against further turmoil in the markets. The key concept to remember is that a 3-4 point move in the cash/spot VIX will have little impact on the VIX futures prices on which the VIX options are based.

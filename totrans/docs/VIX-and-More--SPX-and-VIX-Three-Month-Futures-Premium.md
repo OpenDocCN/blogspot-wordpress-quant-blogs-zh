@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:29:13
+-->
+
+# VIX and More: SPX and VIX Three Month Futures Premium
+
+> 来源：[http://vixandmore.blogspot.com/2008/08/spx-and-vix-three-month-futures-premium.html#0001-01-01](http://vixandmore.blogspot.com/2008/08/spx-and-vix-three-month-futures-premium.html#0001-01-01)
+
+Friday’s post, [VIX Slips Below 19](http://vixandmore.blogspot.com/2008/08/vix-slips-below-19.html), appears to have raised some interest in [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) premiums (or “premia” for the more scholarly inclined).
+
+Looking three months out, the VIX November 2008 futures contract (VIX/X8) has been open since November 2007 and reached a settlement high of 26.25 on March 14, 2008, just before the bottom of the equities market.  By contrast, the all-time settlement low for the VIX November futures contract was 21.35 on May 2, 2008, a month and a half after the markets moved off of the March bottom and about two weeks before the markets topped.  These VIX futures peaks and valleys just happened to precede important intermediate-term market tops and bottoms and may have hinted that a reversal was coming soon, in a manner similar to that of the [VIX:VXV](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) ratio.
+
+Keep in mind that the [VIX:VXV](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) ratio is a ratio of the VIX (CBOE *[S&P 500 1-Month]* Volatility Index) to the [VXV](http://vixandmore.blogspot.com/search/label/VXV) (CBOE S&P 500 3-Month Volatility Index).  The six month chart below (courtesy of FutureSource.com and StockCharts.com) captures the difference (i.e., "futures premium") between the VIX November 2008 futures (VIX/X8) and the VIX index or cash/spot VIX.  As the chart demonstrates, highs and lows in the VIX futures premium also coincide with tops and bottoms in the SPX.
+
+Whether you are dividing or subtracting VIX futures and the VIX index, I feel obliged to offer a caution that a simplistic analysis of futures premiums can lead to some bad trading decisions.  Like many sentiment indicators, however, when VIX futures premiums reach extremes, these can be valuable signals for market timers.
