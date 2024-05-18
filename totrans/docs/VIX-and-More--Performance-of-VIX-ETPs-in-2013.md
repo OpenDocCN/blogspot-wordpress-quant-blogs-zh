@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:11:32
+-->
+
+# VIX and More: Performance of VIX ETPs in 2013
+
+> 来源：[http://vixandmore.blogspot.com/2014/01/performance-of-vix-etps-in-2013.html#0001-01-01](http://vixandmore.blogspot.com/2014/01/performance-of-vix-etps-in-2013.html#0001-01-01)
+
+A number of readers have asked me to recap the performance of the [VIX ETPs](http://vixandmore.blogspot.com/search/label/VIX%20ETN) in 2013 according to the leverage/maturity grid I have been publishing for several years.
+
+The graphic below should look familiar to long-term readers and measures the performance of all VIX and volatility ETPs for 2013, including dividends. (Two exceptions are [TRSK](http://vixandmore.blogspot.com/search/label/TRSK) and [SPXH](http://vixandmore.blogspot.com/search/label/SPXH), which have data going back to June 24, 2013 and as such, the closing price on that date is treated as the opening price for 2013.)  This time around I am going to refrain from most editorial comments, yet point out that the data bears a very strong resemblance to what I presented in [VIX ETP Performance in 2012](http://vixandmore.blogspot.com/2013/10/performance-of-vix-etps-during-recent.html).  It is also worth noting that just because there were similar numbers in 2012 and 2013, one should not expect these patterns to repeat on a regular basis. In [Performance of VIX ETPs During the Recent Debt Ceiling Crisis](http://vixandmore.blogspot.com/2013/10/performance-of-vix-etps-during-recent.html), for instance, I present a very different set of data that students of volatility should also pay close attention to.
+
+![](img/9a36e8aa28d83ab23313091a1244d377.png)
+
+*[source(s): CBOE, Yahoo, VIX and More]*
+
+For a more detailed discussion of the performance drivers of various VIX ETPs and for additional performance data and commentary, the links below should provide an excellent jumping off point.
+
+Related posts:
+
+***Disclosure(s):*** *none*
