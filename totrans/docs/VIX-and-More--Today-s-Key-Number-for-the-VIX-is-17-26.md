@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:09:32
+-->
+
+# VIX and More: Today's Key Number for the VIX is 17.26
+
+> 来源：[http://vixandmore.blogspot.com/2007/06/todays-key-number-for-vix-is-1726.html#0001-01-01](http://vixandmore.blogspot.com/2007/06/todays-key-number-for-vix-is-1726.html#0001-01-01)
+
+At 17.26, the [VWSI](http://vixandmore.blogspot.com/search/label/VWSI) model jumps from -5 to -7 and I will likely open a fairly significant short position in the VIX. Keep in mind that because fear and greed can go vertical in a hurry, it is always a good idea to scale into a VIX position, starting with a small opening position, and adding to it when the odds in your favor get better. If the VIX continues to spike to 20 or 25, for example, you want to make sure you have some dry gunpowder to take advantage of it.
+
+FWIW, I have already opened up a small short position with call spreads, but I may quickly switch from call spreads to puts if volatility continues to rise. It is unusual that the VWSI threshold targets for today are so compressed, with a VWSI of -10 hit at 17.43\. If we get that far, I'll probably be buying some ATM puts, then if things get uglier, perhaps some OTM puts.

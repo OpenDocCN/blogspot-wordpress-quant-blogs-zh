@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:09:36
+-->
+
+# VIX and More: Portfolio A1 Adds ORH and MBT; Drops IT and RKT
+
+> 来源：[http://vixandmore.blogspot.com/2007/06/portfolio-a1-adds-orh-and-mbt-drops-it.html#0001-01-01](http://vixandmore.blogspot.com/2007/06/portfolio-a1-adds-orh-and-mbt-drops-it.html#0001-01-01)
+
+After a dreadful week that saw [Gartner (IT)](http://finance.google.com/finance?q=it&hl=en) stock give up 10%, I was not surprised to see the company dropped from the Portfolio A1 holdings.  On the other hand, I was surprised to see [Rock-Tenn (RKT)](http://finance.google.com/finance?q=rkt&hl=en) dropped as well.
+
+It turns out that the sale of IT was triggered by a significant drop in my stock ranking system, which was largely due to technical weakness.  Even with last week’s disaster, we are still able to book a 6.5% profit in the stock over the course of our three month holding period.  For RKT, the stock continues to be ranked very high in my stock ranking system, but it is sold because it has now dropped 20% from the post-purchase high, which automatically triggers a selling rule, one that kicks in now that RKT's gains have slipped to 2.8%.
+
+By way of explanation, the 20% rule is designed to get me out of high fliers that may now be in the early stages of a large pullback; during a downturn, it will often also shift the portfolio from high beta stocks to more defensive holdings.
+
+On that theme, I welcome [Odyssey Re Holdings (ORH)](http://finance.google.com/finance?q=orh&hl=en) a reinsurance company, to the portfolio, along with [Mobile TeleSystems OJSC (MBT)](http://finance.google.com/finance?q=mbt&hl=en), an [ADR](http://en.wikipedia.org/wiki/American_Depositary_Receipt) for the Moscow-based cellular company.
+
+There are no other changes to the portfolio for the coming week.
+
+A snapshot of the portfolio is as follows:
