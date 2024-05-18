@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:55:32
+-->
+
+# VIX and More: Greenspan and the China Bubble
+
+> 来源：[http://vixandmore.blogspot.com/2007/10/greenspan-and-china-bubble.html#0001-01-01](http://vixandmore.blogspot.com/2007/10/greenspan-and-china-bubble.html#0001-01-01)
+
+Once again, Alan Greenspan is [predicting](http://www.bloomberg.com/apps/news?pid=20601087&sid=aijVHsYmTOtE&refer=home) that the Chinese stock market is a bubble that has a limited life on the upside before things take an ugly turn.  I have no doubt that Greenspan is correct on this count, but then again the Chinese markets could continue to go parabolic up to and beyond the [Beijing Olympics](http://en.wikipedia.org/wiki/2008_Summer_Olympics), which means at least another 9 ½ months.  Of course Greenspan has a mixed legacy in calling bubbles.  His famous “[irrational exuberance](http://en.wikipedia.org/wiki/Irrational_exuberance)” comment of December 5, 1996 came when the NASDAQ had just crossed 1300 and the bull market still had more than three years left to run.  If he’s risking his credibility here, does he have a stop loss plan?
+
+Getting back to the primary issue, I wonder whether the Chinese government can maintain double digit economic growth for another year while keeping investment speculation under control and avoiding a stock market panic.  If they believe they can accomplish this tall order, will they try to let off some steam now and have the economy coast into the Olympics or try to keep the freight train barreling down the track and tighten the screws on the economy only after the closing ceremonies are behind us?
+
+I have no idea where how the Chinese markets will trade in the coming year, but as their influence continues to grow and a broader group of global investors seeks to participate in some of the gains, this is a story that I find myself spending more time following.  In this regard, I have found two web sites in particular that have been helpful in providing news and data about various Chinese stocks:  [China Analyst](http://www.cnanalyst.com/) is a site that has a wealth of tables, stock rankings and news (their recent coverage of BIDU’s earnings was extremely comprehensive); [Cougar Jump](http://cougarjump.wordpress.com/) is a highly informative data-oriented blog run by CH Tan.
+
+Finally, since I’m more of a chartist than a fundamentalist, I offer the current chart of [FXI](http://finance.google.com/finance?q=fxi), the [iShares FTSE/Xinhua China 25 Index](http://www.ishares.com/fund_info/detail.jhtml?investorType=INDIV&symbol=FXI&qt=FXI&_requestid=41515) of stocks listed on the Hong Kong Stock Exchange.  I’ll have more to say about this chart later.  As a matter of fact, there is a temptation to make this space into an “All China, all the time!” media outlet, but for now at least, I’ll keep <place st="on"><country-region st="on">China</country-region></place> as a sub-plot.

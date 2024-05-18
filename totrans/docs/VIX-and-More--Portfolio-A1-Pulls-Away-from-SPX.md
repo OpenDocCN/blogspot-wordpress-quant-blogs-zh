@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:56:08
+-->
+
+# VIX and More: Portfolio A1 Pulls Away from SPX
+
+> 来源：[http://vixandmore.blogspot.com/2007/10/portfolio-a1-pulls-away-from-spx.html#0001-01-01](http://vixandmore.blogspot.com/2007/10/portfolio-a1-pulls-away-from-spx.html#0001-01-01)
+
+It was a crazy week, but when all the dust had settled, the 3.0% loss in Portfolio A1 was less than that of the 3.9% drop in the benchmark S&P 500 index.  With last week in the books, the cumulative return for Portfolio A1 since inception sits at 9.2%, almost three times that of the 3.1% return for the SPX during the period.
+
+[DryShips (DRYS)](http://finance.google.com/finance?q=drys&hl=en) led the way up from Monday through Thursday, before falling 8.9% Friday.  The only stock to finish the week in positive territory was [The Mosaic Company (MOS)](http://finance.google.com/finance?q=mos&hl=en), which added 1.3%, but as it is the portfolio’s largest holding (28.7%), the gain provided the portfolio with a disproportionate boost.  Going forward, this dry bulk carrier and fertilizer producer should provide important clues about not only the health of the economy, but about pricing power in these two sectors as well.
+
+Since the rules of this portfolio are such that it is long only, I expect Portfolio A1 to be tested once again in the coming week.  If the bulls return before the week is over, I think this portfolio is well positioned to continue to outperform.  If we have another week selling and a whiff of an extended bear, I suspect this portfolio will have difficulty continuing to outperform the SPX with the current holdings.
+
+There are no changes to the portfolio this week.
+
+A snapshot of the portfolio is as follows:
