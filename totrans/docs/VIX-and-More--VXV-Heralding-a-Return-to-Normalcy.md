@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:44:00
+-->
+
+# VIX and More: VXV Heralding a Return to Normalcy
+
+> 来源：[http://vixandmore.blogspot.com/2012/01/vxv-heralding-return-to-normalcy.html#0001-01-01](http://vixandmore.blogspot.com/2012/01/vxv-heralding-return-to-normalcy.html#0001-01-01)
+
+With the political season heating up, it seemed like an opportune time to work “[normalcy](http://en.wikipedia.org/wiki/Normalcy)” into one of my posts [again](http://vixandmore.blogspot.com/2007/08/normalcy-again-vwsi-at-4.html) and what better way to do that than by putting under the microscope one of my favorite overlooked indices: the [CBOE S&P 500 3-Month Volatility Index](http://www.cboe.com/micro/vxv/), which I typically reference with the more pithy [VXV](http://vixandmore.blogspot.com/search/label/VXV) ticker symbol.
+
+For those not familiar with VXV, I am fairly sure I was the first person to [discuss](http://vixandmore.blogspot.com/2007/12/thinking-about-vxv.html) this index back in 2007, talk about the merits of the [VIX:VXV ratio](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) (which is a great way for someone without [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) quotes to keep on top of the VIX futures [term structure](http://vixandmore.blogspot.com/search/label/term%20structure)), devote an entire Barron’s column to the subject ([Take a Longer View on Volatility](http://online.barrons.com/article/SB124648899704482887.html)) and promote VXV as a better reflection of long-term and [structural/systemic volatility](http://vixandmore.blogspot.com/search/label/structural%20volatility) than the VIX, which is better suited to measuring short-term [event volatility](http://vixandmore.blogspot.com/search/label/event%20volatility).
+
+For those who desire some additional background and context, there are shiploads of prior posts on the subject and the links below should provide for some excellent jumping off points.
+
+Getting back to VXV, I think it is important to note that while the VIX remains above its December lows, VXV has now moved below those lows and it plumbing levels that have not been seen since early August – and as VXV is a better gauge of structural and systemic risk than the VIX (not to mention largely untouched by the [holiday effect](http://vixandmore.blogspot.com/search/label/Holiday%20Effect)), I think this is an important development to watch.
+
+Frankly, the VXV chart looks a lot like it did back in early April 2009, when I penned [Chart of the Week: VXV and Systemic Failure](http://vixandmore.blogspot.com/2009/04/chart-of-week-vxv-and-systemic-failure.html).  At that time I concluded, “The key takeaway: systemic healing is continuing and the risk of systemic failure is diminishing.” Based on the VXV chart, it appears as if we are at a similar moment in time right now.
+
+Related posts:
+
+*![](img/706c93ab03b545952d47a676a360a2a2.png)*
+
+*[source(s): StockCharts.com]*
+
+***D******isclosure(s):*** *The CBOE is an advertiser on VIX and More*

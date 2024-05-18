@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:44:04
+-->
+
+# VIX and More: VIX and More and the 2012 Bespoke Roundtable
+
+> 来源：[http://vixandmore.blogspot.com/2012/01/vix-and-more-and-2012-bespoke.html#0001-01-01](http://vixandmore.blogspot.com/2012/01/vix-and-more-and-2012-bespoke.html#0001-01-01)
+
+I was delighted to be invited back for the third year in a row to share my thoughts about 2011 and 2012 as a part of [Bespoke Investment Group](http://www.bespokeinvest.com/)’s third annual Roundtable.
+
+As someone who trades options, just predicting what one stock or index will do over the course of a four-week expiration cycle can be a humbling experience. Since I rarely focus the bulk of my thinking more than two or three expiration cycles into the future, I always embrace the process of what I have come to think of as Bespoke’s comprehensive 37 question “take-home final.” Of course you don’t have to have an opinion about every issue out there to be a successful investor, but being informed about as many issues as possible makes you better prepared when the next surprise hits. As I noted in [The Education of a Trader](http://vixandmore.blogspot.com/2010/09/education-of-trader.html), anyone who has ever uttered, “Do we have to know this for the test?” is not cut out for trading, as every day in the financial markets is an open book pop quiz.
+
+When it comes to formulating answers to these 37 questions, I tried to balance what I think are the most likely scenarios with more provocative comments about some low probability scenarios that I believe that a higher likelihood of coming to fruition than the rest of the crowd. The result is typically a patchwork of the unexciting and the outrageous. In 2012 it looks like I am leaning more toward the unexciting end of the scale, which is not difficult to do in a year in which the Mayan calendar [may be predicting](http://en.wikipedia.org/wiki/2012_phenomenon) the end of the world, while many pundits are calling for at a minimum the end of the euro zone as we know it. That being said, I do think I have some provocative things to say about a wide range of issues, from Apple ([AAPL](http://vixandmore.blogspot.com/search/label/AAPL)) vs. Google ([GOOG](http://vixandmore.blogspot.com/search/label/GOOG)) to social networking and beyond.
+
+The full set of my comments for 2012 is [here](http://bespokepremium.com/roundtable/vixandmore/).
+
+For those who are curious how my crystal ball has fared in years past, my archived predictions for 2010 are [here](http://bespokepremium.com/roundtable/vixandmore/2010/). If I can locate a link to my (decidedly less impressive) 2011 predictions, I will post that here as well.
+
+I also recommend reading through some of the comments from the other participants in the 2012 Bespoke Roundtable. A splash page for the full set of predictions is [here](http://bespokepremium.com/roundtable/).
+
+Related posts:
+
+***Disclosure(s):*** *none*
