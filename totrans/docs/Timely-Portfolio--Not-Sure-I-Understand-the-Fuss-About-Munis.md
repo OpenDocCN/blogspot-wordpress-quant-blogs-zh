@@ -1,0 +1,45 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:24:11
+-->
+
+# Timely Portfolio: Not Sure I Understand the Fuss About Munis
+
+> 来源：[http://timelyportfolio.blogspot.com/2011/01/not-sure-i-understand-fuss-about-munis.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/01/not-sure-i-understand-fuss-about-munis.html#0001-01-01)
+
+Recently, munis have received lots of press due to a perceived crisis.  However, from iShares description of [iShares S&P National AMT-free Municipal Bond Fund (MUB)](http://us.ishares.com/product_info/fund/overview/MUB.htm?fundSearch=true&qt=MUB), it appears that the press and investors just don’t understand one of the most important basics of fixed income—duration.
+
+> Fundamentals as of 1/24/2011
+> 
+> Weighted Average Maturity ![Weighted Average Maturity](img/3618c3137dead7d89a399dc428340c16.png "The mean of the remaining term to maturity of the underlying bonds in a portfolio.")
+> 11.81 yr
+> 
+> Weighted Average Coupon ![Weighted Average Coupon](img/3618c3137dead7d89a399dc428340c16.png "The mean of the coupon rate of the underlying bonds in a portfolio.")
+> 4.77%
+> 
+> Effective Duration ![Effective Duration](img/3618c3137dead7d89a399dc428340c16.png "A measure of the potential responsiveness of a bond or portfolio price to small parallel shifts in interest rates.  Effective Duration takes into account the possible changes in expected bond cash flows due to small parallel shifts in interest rates. ")
+> 7.61
+> 
+> Standard Deviation (3 year) ![Standard Deviation](img/3618c3137dead7d89a399dc428340c16.png "The Standard Deviation is the statistical measure of the degree to which an individual value in a probability distribution tends to vary from the mean of the distribution.  It is widely applied in modern portfolio theory, where the past performance of securities is used to determine the range of possible future performance, and a probability is attached to each performance.")
+> as of 12/31/2010
+> 6.93%
+
+Duration tells you the expected price change from a move in interest rates, so in the case of MUB with effective duration of 7.61, MUB should lose in price 7.61% for every 1% move up in interest rates.  7.61 duration (equivalent to a 7-10 Year Treasury) is what I would consider very interest rate sensitive and much more susceptible than the Barclays Aggregate at 4.98.
+
+If we look on a graph (courtesy of Stockcharts), muni behavior has not been all that strange or unusual compared to the iShares 7-10 US Treasury (IEF).  So far, it just appears to be a bounded random blip that has already corrected itself.
+
+[![](img/d384fa7e6b8c4dba87f08dd364f0e5cd.png)](http://stockcharts.com/h-sc/ui?s=mub:ief&p=d&yr=1&mn=0&dy=0&id=p26890504761&a=222442024)
+
+via [StockCharts.com](http://stockcharts.com/h-sc/ui?s=mub:ief&p=d&yr=1&mn=0&dy=0&id=p26890504761&a=222442024)
+
+Now, of course if you have a leveraged closed-end fund, the pain is worse, but that is the danger of leverage.
+
+Another way to look at it statistically would be to graph the rolling correlation (thanks R and PerformanceAnalytics).
+
+[![image](img/34227a6b3075eca1eb893a167e4625af.png "image")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0eCixpED1avl6WE2Ku00y4AdqRBkZLLSSA1hVcVUM9z06O-8fX8f_nMrF5lRiA-8dlKxFPx-IDFdZfXhd8XJRmGScmCaAdvQCUnSH3YDJchvPyIulPtC0s1msUMENk9VFWer6fFLJ5g/s1600-h/image12%5B1%5D.png)
+
+This also does not look strange or unusual, especially if we compare to the 2008 panic.
+
+The moral of the story is pay attention to duration if you invest in bonds.  The same thing is happening in the Investment Grade Corporate Index at a near-record duration (LQD is 7.01), so be very careful there too.
+
+*1.5 hours*
