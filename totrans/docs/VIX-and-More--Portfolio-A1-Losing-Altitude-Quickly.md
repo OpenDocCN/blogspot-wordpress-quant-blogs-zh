@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:03:01
+-->
+
+# VIX and More: Portfolio A1 Losing Altitude Quickly
+
+> 来源：[http://vixandmore.blogspot.com/2007/08/portfolio-a1-losing-altitude-quickly.html#0001-01-01](http://vixandmore.blogspot.com/2007/08/portfolio-a1-losing-altitude-quickly.html#0001-01-01)
+
+First, an apology.  Last week I was on vacation and made a best efforts attempt to keep the information for Portfolio A1 current.  As you can see from the transaction log below, I posted an ‘update’ of the portfolio too soon and missed the signal to sell [Amkor Technology (AMKR)](http://finance.google.com/finance?q=amkr&hl=en) and replace it with [AST Test Limited (ASTSF)](http://finance.google.com/finance?q=astsf&hl=en), the Taiwanese semiconductor testing company.
+
+As it turns out, ASTSF lasted only one week in the portfolio and is being dropped along with [Navistar International (NAVZ)](http://finance.google.com/finance?q=navz&hl=en) in an effort to find a way to stop the bleeding.
+
+The task of propping up the portfolio falls to [Western Refining (WNR)](http://finance.google.com/finance?q=wnr&hl=en) and [PepsiAmerican (PAS)](http://finance.google.com/finance?q=pas&hl=en) – two relatively conservative plays that appear to be ideally suited to minimizing further downside risk rather than maximizing any gains from a bounce.
+
+In the meantime, the equity curve tells the story of the damage.  The total return is now -13.7% and the peak to trough drawdown currently sits at -22.6%.  This will be a very difficult hole to dig out of, but I still like the long-term performance characteristics of this portfolio and have no intention of cutting the portfolio off without at least a year’s worth of performance statistics from which to learn some lessons.
+
+A snapshot of the portfolio is as follows:
