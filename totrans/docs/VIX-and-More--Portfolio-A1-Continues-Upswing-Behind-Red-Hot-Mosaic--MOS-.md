@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:58:47
+-->
+
+# VIX and More: Portfolio A1 Continues Upswing Behind Red Hot Mosaic (MOS)
+
+> 来源：[http://vixandmore.blogspot.com/2007/09/portfolio-a1-continues-upswing-behind.html#0001-01-01](http://vixandmore.blogspot.com/2007/09/portfolio-a1-continues-upswing-behind.html#0001-01-01)
+
+Thanks to the Fed rate cut, three of Portfolio A1’s five holdings logged gains of 10% or more last week, led by a 12.2% gain in [The Mosaic Company (MOS)](http://finance.google.com/finance?q=mos&hl=en), which now sports an impressive 39.7% return in the five weeks it has been in the portfolio.  Also part of last week’s winning trio were [DryShips (DRYS)](http://finance.google.com/finance?q=drys&hl=en) and [Navistar (NAVZ)](http://finance.google.com/finance?q=navz&hl=en).  By the time the abacus was put to bed, the gap between the benchmark S&P 500 index and the portfolio had closed to 7.9%, the lowest margin since the mid-August plunge.  With a total return of -3.08 since the February 16, 2007 inception, it is beginning to look like the portfolio may soon be back in green.
+
+In the never ending quest for better performance (while keeping a deaf ear to any concerns about high turnover) this week the stock ranking system has jettisoned [Sanderson Farms (SFM)](http://finance.google.com/finance?q=safm&hl=en) in favor of [Terex (TEX)](http://finance.google.com/finance?q=tex&hl=en), an infrastructure play with significant exposure to China. A returnee, Terex was a very strong contributor to the portfolio [earlier in the year](http://vixandmore.blogspot.com/search/label/TEX).
+
+There are no other changes to the portfolio this week.
+
+A snapshot of the portfolio is as follows:
