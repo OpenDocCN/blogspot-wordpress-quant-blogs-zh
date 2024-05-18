@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:06:31
+-->
+
+# VIX and More: Volatility Aces Bloggers
+
+> 来源：[http://vixandmore.blogspot.com/2007/07/volatility-aces-bloggers.html#0001-01-01](http://vixandmore.blogspot.com/2007/07/volatility-aces-bloggers.html#0001-01-01)
+
+![](img/45ca39f0f4057bab3c5b3345e1f91d69.png)A month ago Adam Warner of the [Daily Options Report](http://adamsoptions.blogspot.com/) and I had the bright idea to debate where volatility would trade during this past extended options cycle.  
+
+Adam made a [strong case](http://vixandmore.blogspot.com/2007/06/no-grunting-please.html) for lots of dead time during the options cycle leading to lower volatility, perhaps as low as single digits.  I took the [easy way out](http://vixandmore.blogspot.com/2007/06/vix-implosion-ahead.html) and predicted that volatility was most likely to remain in the 12.50 – 15.00 range that it looked like it was settling in to at the time.
+
+Well…if this were tennis, we would be talking something like 6-1, 6-0, 6-0, with volatility taking the two of us out in straight sets and sending [Bud Collins](http://en.wikipedia.org/wiki/Bud_Collins) (not pictured) officially into retirement.  As the VIX chart below shows, volatility spent almost the entire options cycle in the 15.00 – 19.00 range, with the 15.00 resistance that I was counting on a month ago now looking like support. And this is the bigger story.
+
+Nobody should be surprised that we whiffed on our volatility forecasts, as long-term volatility forecasting is extremely difficult. With an additional month of hindsight, however, 15.00 now looks suspiciously like a floor in this all-important volatility measure.  If this turns out to be the case, then I can safely say we are entering a new era of increasing volatility.  In fact, I think it is just about time to update the long-term VIX chart I offered up on my [first post](http://vixandmore.blogspot.com/2007/01/week-in-vix-january-7-2007-introduction.html) on this blog some 6 ½ months ago by adding a fifth macro period.  Ironically, as it turns out, this new period of increasing volatility neatly coincides with the life of this blog.  You don’t think…?  Nah.

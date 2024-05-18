@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:06:41
+-->
+
+# VIX and More: Pssst. Wanna Make an Easy $800,000?
+
+> 来源：[http://vixandmore.blogspot.com/2007/07/pssst-wanna-make-easy-8000.html#0001-01-01](http://vixandmore.blogspot.com/2007/07/pssst-wanna-make-easy-8000.html#0001-01-01)
+
+![](img/fcf854b5581e875c5a59c5415b60a7f1.png)No, I haven’t gone over to the dark side of peddling volatility trading systems, but I do feel like it is past time for me to highlight a blog dedicated to posting up-to-the minute information on large options trades of interest:  [Options Doggy](http://optionsdoggy.typepad.com/).  This blog describes itself succinctly and accurately as “a free posting of notable activity in US equity options updated frequently throughout the day.”
+
+I mention Options Doggy in the context of $800,000 because earlier today, they [reported a trade](http://optionsdoggy.typepad.com/options_doggy/2007/07/vix-3.html) involving the sale of 20,000 VIX September 25 calls for 0.40.  So it’s not exactly $800,000 after commissions, but it’s fairly close.
+
+My first thought was that 0.40 seemed like a fairly good price for that option, but now I see that it is currently trading at 0.40-0.45, with the September 30 calls even fetching 0.15-0.20, so there is more to be had if you want to risk some money on the tail of the VIX distribution.
+
+But what happens if the VIX spikes into the 20s like it did in the wake of February 27^(th) or in June 2006?  Not that much, if you think about options being tied to futures that are now two months out.  Following February 27^(th), when the spot VIX made it briefly as high as 21.25 intra-day, the immediate jump in the May futures (two months out) was from 12.6 to 14.2, with these futures never rising above 15 during the life of the contract.  Looking back at the June 2006 VIX spike to 23.81 one sees a similar story: the August futures (two months out) trended up from a May 10^(th) low of 12.3 to a mid-June high of 18.7, but never even threatened to touch 20.
+
+So these September 25s are not so much vulnerable to a VIX of 25 as they are to a VIX of 30 or so, at least until they get much closer to expiration.  In the interim, mean reversion acts as a price cushion of sorts for VIX options and VIX futures.  As expiration approaches, however, be wary of the price cushion turning into a pin cushion.
