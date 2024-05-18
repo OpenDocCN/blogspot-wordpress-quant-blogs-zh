@@ -1,0 +1,23 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:39:35
+-->
+
+# Momentum strong indicator in daily returns | Tr8dr
+
+> 来源：[https://tr8dr.wordpress.com/2009/09/17/momentum-strong-indicator-in-daily-returns/#0001-01-01](https://tr8dr.wordpress.com/2009/09/17/momentum-strong-indicator-in-daily-returns/#0001-01-01)
+
+September 17, 2009 · 11:01 pm
+
+On the side have been working with someone who is looking for long term strategies in the fixed income space. My strategies focus on intra-day trading primarily, but have found the start of a number of very attractive longer term (low frequency) strategies.
+
+In particular, we are building a multi-factor model to predict market movements for Canadian bonds. Alternatively, we are also looking at cointegration models that would be implemented as long/short baskets of securities.
+
+Sometimes the simplest ideas work best. I decided to look at a function of momentum over a period as a predictor of return over the following period. Did not expect to have such strong results. Here is the average return predicted by momentums at various standard deviations from parity:
+[![](img/0e2ecf454d80d02997c323688b2b2977.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/09/picture1.png)
+An alternate graph of this showing standard deviation bands for returns against momentum levels:
+﻿[![](img/1647cf2202ed39eeac79aa375f37efb4.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/09/return.gif)
+There is certainly more work to be done to understand maximum drawdown and optimal money management.
+
+Next Steps
+Beyond momentum, we are also looking at building a continuous economic index (much like the [Aruoba-Diebold-Scotto Business Conditions Index](http://www.philadelphiafed.org/research-and-data/real-time-center/business-conditions-index/)). This provides a continuous forecast of economic variables based on a stochastic state space model. Will discuss further in the next post.
