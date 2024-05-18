@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:08:23
+-->
+
+# VIX and More: Interesting Chart Utilizing Put to Call Ratios and Volatility
+
+> 来源：[http://vixandmore.blogspot.com/2010/06/interesting-chart-utilizing-put-to-call.html#0001-01-01](http://vixandmore.blogspot.com/2010/06/interesting-chart-utilizing-put-to-call.html#0001-01-01)
+
+I received quite a few excellent submissions for last week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) contest and three subjects seemed to attract the most attention of chartists: [put to call ratios](http://vixandmore.blogspot.com/search/label/put%20to%20call); volatility and [market breadth](http://vixandmore.blogspot.com/search/label/breadth).
+
+One chart that did a superb job with put to call ratios and volatility was submitted by Greg Neal. Actually, this was not a single chart, per se, but more of a series of charts which tell a compelling story. Whereas Greg submitted his chart over the weekend, I have used updated data through today and have cut Greg’s chart to two sections to make for easier reading below. In terms of key takeaways, I’ll let the chart and Greg’s annotations speak for themselves.
+
+To find a live version of this chart that is continuously updated at StockCharts.com, click [here](http://stockcharts.com/h-sc/ui?s=%24CPCE&p=D&yr=1&mn=0&dy=0&id=p38200361870&a=115818118). The full complement of Greg's public charts at StockCharts.com can be found [here](http://stockcharts.com/def/servlet/Favorites.CServlet?obj=ID1036600).
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: StockCharts.com and Greg Neal]*
+
+***Disclosure(s):*** *none*
