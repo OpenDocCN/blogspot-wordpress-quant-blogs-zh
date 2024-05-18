@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:54:41
+-->
+
+# VIX and More: Shorting VXX and Long XXV or XIV
+
+> 来源：[http://vixandmore.blogspot.com/2011/01/shorting-vxx-and-long-xxv-or-xiv.html#0001-01-01](http://vixandmore.blogspot.com/2011/01/shorting-vxx-and-long-xxv-or-xiv.html#0001-01-01)
+
+If you are interested in the VIX and related options and futures products, 2010 saw the arrival of an excellent new blog which is all over that space: [Volatility Futures & Options](http://onlyvix.blogspot.com/).
+
+The content is of such consistently high quality that I have made a mental note to feature some of it here from time to time and today seems like a good day to kick things off. The reason for my enthusiasm is a post from this morning called [Case Solved: No Arbitrage](http://onlyvix.blogspot.com/2011/01/case-solved-no-arbitrage.html), which follows a previous post on the subject: [VXX-XXV Arbitrage?](http://onlyvix.blogspot.com/2011/01/vxx-xxv-arbitrage.html)
+
+I have probably received hundreds of questions and comments related to the advisability of shorting [VXX](http://vixandmore.blogspot.com/search/label/VXX) and some of the obstacles in being able to execute such a strategy successfully. With the arrival of [XXV](http://vixandmore.blogspot.com/search/label/XXV), some investors thought that the inverse version of VXX might be a better way to accomplish the same goal. As it turns out, XXV has not performed as well as a short VXX position and *Case Solved: No Arbitrage* dives into the math and reverse engineers an excellent formula for calculating just how XXV performs relative to a short VXX position. I highly recommend clicking through to review the details.
+
+Finally, I have noted on a number of occasions, including at some length in my [subscriber newsletter](http://vixandmoresubscriber.blogspot.com/), that the VelocityShares Daily Inverse VIX Short-Term ETN ([XIV](http://vixandmore.blogspot.com/search/label/XIV)) is a better product for replicating a short VXX position than XXV. Investors have yet to arrive at the same conclusion as I have that 2011 will mark “the runaway success of [VIX-based ETNs and ETFs](http://vixandmore.blogspot.com/search/label/VIX%20ETN), notably the recently launched XIV, which will prove that volatility vehicles can be good buy-and-hold investments,” but I am standing by my [prediction](http://vixandmore.blogspot.com/2010/12/vix-and-more-and-2011-bespoke.html) and watching with interest to see how long it takes for money to start flowing into XIV.
+
+Related posts:
+
+***Disclosure(s):*** *short VXX and long XIV at time of writing*
