@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:00:36
+-->
+
+# VIX and More: VXX Monthly Performance
+
+> 来源：[http://vixandmore.blogspot.com/2010/10/vxx-monthly-performance.html#0001-01-01](http://vixandmore.blogspot.com/2010/10/vxx-monthly-performance.html#0001-01-01)
+
+Yesterday I asked for some input in [What Do You Want to Know About VXX?](http://vixandmore.blogspot.com/2010/10/what-do-you-want-to-know-about-vxx.html) and was pleased to see all the comments and emails. Reflecting on the situation, since I have received literally *hundreds* of questions about VXX in the last month or two, I have elected to go ahead with a multi-part series on [VXX](http://vixandmore.blogspot.com/search/label/VXX) starting next Monday, rather than trying another “Ten Things Everyone Should Know…” post like I did with [Ten Things Everyone Should Know About the VIX](http://vixandmore.blogspot.com/2008/04/ten-things-everyone-should-know-about.html). Frankly, limiting myself to just ten facts/issues/misconceptions could not possibly do VXX justice and this time around I will do a much deeper dive than I did with the VIX.
+
+That being said, I feel obliged to give readers something to chew on before this week is over and have therefore attached a chart of the monthly performance of VXX going back to the launch of this ETN. The chart lays out the VXX conundrum in monthly terms, but the issue is similar across all time frames: do you want to take a long position which has a low probability of success, but a high potential reward? Of course, the longer the holding period, the more [contango](http://vixandmore.blogspot.com/search/label/contango) will lower the probability of success, but the better chance there will be that an investor will catch a big spike in volatility, like we had in May.
+
+In some respects, a long VXX position resembles a long out-of-the money option position.
+
+Once again, if you have a specific question about VXX, feel free to add it to the comments section in the first link below and I’ll see if I can work it into next week’s series.
+
+Related posts:
+
+![](img/f856825a9f826272305950de684c9221.png)
+
+*[source:ETFreplay.com]*
+
+***Disclosure(s):*** *short VXX at time of writing*
