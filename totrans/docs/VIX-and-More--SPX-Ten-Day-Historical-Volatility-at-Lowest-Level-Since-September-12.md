@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:09:05
+-->
+
+# VIX and More: SPX Ten Day Historical Volatility at Lowest Level Since September 12
+
+> 来源：[http://vixandmore.blogspot.com/2008/12/spx-ten-day-historical-volatility-at.html#0001-01-01](http://vixandmore.blogspot.com/2008/12/spx-ten-day-historical-volatility-at.html#0001-01-01)
+
+There are quite a few ways in which to measure [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility). Probably the most responsive of the time periods commonly measured is the 10 day historical volatility (HV) period, which covers the last 10 trading days. Variously referred to as statistical volatility, realized volatility, actual volatility, etc., the 10 day historical volatility measure for the SPX (dotted blue line in chart below) peaked on October 22^(nd) at just a fraction under the 100 level. On December 3^(rd) the 10 day HV was still holding strong at 89, but it has fallen precipitously over the course of the last three weeks and is down to just 35 as of Wednesday’s close and on target to dip as low as 33 or so today.
+
+For comparison purposes, the 10 day HV in the SPX has not been below 35 since September 12^(th), just prior to the Lehman bankruptcy.
+
+The bottom line: while a VIX in the low 40s may look cheap at the moment, consider that the recent historical volatility in the SPX has been slightly more than three quarters of that represented by the VIX. Of course, the December [holiday effect](http://vixandmore.blogspot.com/search/label/Holiday%20Effect) has artificially depressed volatility to some extent, but certainly cannot claim full responsibility for the drop in 10 day HV from 89 to 35.
+
+![](img/91b1da92a336f7ca7e6952c7468f41a4.png)
+
+*[source: VIX and More]*
