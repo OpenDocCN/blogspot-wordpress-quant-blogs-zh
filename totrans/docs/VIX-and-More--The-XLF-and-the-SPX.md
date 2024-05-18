@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:42:38
+-->
+
+# VIX and More: The XLF and the SPX
+
+> 来源：[http://vixandmore.blogspot.com/2008/02/xlf-and-spx.html#0001-01-01](http://vixandmore.blogspot.com/2008/02/xlf-and-spx.html#0001-01-01)
+
+After I penned (keyboarded?) [The Rising Popularity of XLF Options](http://vixandmore.blogspot.com/2008/02/rising-popularity-of-xlf-options.html) on Friday, I was please to see that a number of other bloggers picked up on the XLF theme and weighed in with some interesting commentary.  One post I found particularly noteworthy was from Bob Barnes at [bzbtrader](http://bzbtrader.blogspot.com/).  In his aptly titled, [Deconstructing the XLF](http://bzbtrader.blogspot.com/2008/02/deconstructing-xlf.html), Bob breaks down the top holdings of the [XLF](http://vixandmore.blogspot.com/search/label/XLF), dissects the open interest, and discusses trends in short interest as well.  (If you click through, don’t stop with the XLF post, as Bob does an excellent job with a broad range of charting and TA issues and should be required reading for anyone who follows the QQQQs.)
+
+Another thing to think about vis-à-vis the XLF is the relative performance of this sector to the broader indices, like the SPX.  In the chart below, I have graphed a ratio of the XLF to the SPX, with a blue area chart of the SPX added for context.  As financials are still the largest sector component of the SPX, it is not surprising to see these two indices move in the same direction.  When the XLF and the SPX diverge, however, investors should pay close attention.  The divergence from May to October is notable, for instance, with the decline in the XLF perhaps providing a warning that the market was topping during this period.  Another interesting period is in early February, when the SPX rose in spite of a falling XLF.  Now it appears that both the SPX and XLF are moving sideways in unison.  For what it’s worth, I don’t expect the SPX to be able to stage a significant rally without dragging the XLF along for the ride or perhaps even following the financials back up.
+
+So watch the XLF in absolute terms, but also keep an eye on the performance of the XLF relative to the SPX.
