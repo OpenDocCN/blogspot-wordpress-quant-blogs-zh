@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 14:51:56
+-->
+
+# Timely Portfolio: R User Group in Birmingham, AL
+
+> 来源：[http://timelyportfolio.blogspot.com/2014/09/r-user-group-in-birmingham-al.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/09/r-user-group-in-birmingham-al.html#0001-01-01)
+
+If Birmingham, UK has one, then Birmingham, AL, USA should too.[![image](img/45f53356a2487b30eb38a2845cc34989.png "image")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBeJUGvf-VEtwtnfdye0C8Ydmto2z96olOhX05A7erTgoyvX_jHkY3U_7nOlEaT1FY2qJ5URo-5PXwyxtsnPaqXygBMhY63EfUj4EqTUfp5xTRpheMdRkIv1LKVmrXRA4LkVO1lQwf0w/s1600-h/image%25255B8%25255D.png)
+
+There is a big [gaping hole](https://blenditbayes.shinyapps.io/rugsmaps/) in R user groups between Georgia and Texas that I think needs filling.  Way back in 2011, I weakly posted [R User Group Birmingham Alabama](http://timelyportfolio.blogspot.com/2011/03/r-user-group-birmingham-alabama.html), but this time I am more determined.  (note: I might even consider some Julia and Python, and sure you all know I love some Javascript)
+
+[![image](img/3682af7ab8a4809fcc2de7d3433eaaac.png "image")](https://blenditbayes.shinyapps.io/rugsmaps/)
+
+Thanks to [@matlabulous](https://twitter.com/matlabulous) for his [award winning Shiny analysis](https://blenditbayes.shinyapps.io/rugsmaps/) of R user groups that supplied the screenshots for this post.
