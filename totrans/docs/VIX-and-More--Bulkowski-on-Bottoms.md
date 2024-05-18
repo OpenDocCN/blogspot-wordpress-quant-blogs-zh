@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:45:24
+-->
+
+# VIX and More: Bulkowski on Bottoms
+
+> 来源：[http://vixandmore.blogspot.com/2008/01/bulkowski-on-bottoms.html#0001-01-01](http://vixandmore.blogspot.com/2008/01/bulkowski-on-bottoms.html#0001-01-01)
+
+![](img/7149859353ef6f408011530c71b39584.png)I was surprised to see that while I am in my second year of blogging, I have yet to make a reference to Thomas Bulkowski’s excellent [Encyclopedia of Chart Patterns](http://www.amazon.com/Encyclopedia-Chart-Patterns-Wiley-Trading/dp/0471668265).  As the title suggests, this is more of a reference book than a page turner, yet it is an invaluable tool for anyone who is interested in stock charts, whether they would classify themselves as a novice or an expert.
+
+I mention Bulkowski because many people will undoubtedly be trying to determine whether the recent lows are likely to result in a bottom, and what to expect going forward if this bottom holds or if it fails.  Bulkowski’s work is an excellent place to start, where you can brush up on a wide range of bottoms he has classified and analyzed from a trading perspective, including the classic [Head-and-Shoulders Bottoms](http://thepatternsite.com/hsb.html), as well as some of the more esoteric Bulkowski favorites, such as [Horn Bottoms](http://thepatternsite.com/hornb.html), [Pipe Bottoms](http://thepatternsite.com/pipeb.html), [Bump-and-Run Reversal Bottoms](http://thepatternsite.com/barrb.html), and a variety of [double bottom chart patterns](http://thepatternsite.com/chartpatterns.html).
+
+Whether you agree with all of Bulkowski’s conclusions is not important.  Just looking at his work and thinking about how one might go about challenging some of his thinking will more than compensate most traders for the expense of the book.  In the end, I find that there is a fair amount that can be swallowed whole and I cannot help but marvel at the meticulous rigor of Bulkowski’s approach, a process that hearkens back to my discussion earlier this week about [what makes an expert trader](http://vixandmore.blogspot.com/2008/01/expert-traders.html).
+
+In addition to the [three books](http://www.amazon.com/exec/obidos/search-handle-url/104-0346025-5297522?%5Fencoding=UTF8&search-type=ss&index=books&field-author=Thomas%20N.%20Bulkowski) he has written (a fourth, [Encyclopedia of Candlestick Charts](http://www.amazon.com/Encyclopedia-Candlestick-Charts-Wiley-Trading/dp/0470182016/ref=sr_1_3?ie=UTF8&s=books&qid=1201804158&sr=1-3) is due out in the first week of March), Bulkowski maintains a web site, [The Pattern Site](http://thepatternsite.com/), that offers a high level view of his thinking, at no charge.
+
+Finally, regarding my own perspective on the recent market action, I am not ready to call a bottom, but the events of the last 48 hours have me thinking that the likelihood we are forming a bottom is much higher than most pundits think.

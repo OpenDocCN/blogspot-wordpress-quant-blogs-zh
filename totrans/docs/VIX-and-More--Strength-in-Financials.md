@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:45:28
+-->
+
+# VIX and More: Strength in Financials
+
+> 来源：[http://vixandmore.blogspot.com/2008/01/strength-in-financials.html#0001-01-01](http://vixandmore.blogspot.com/2008/01/strength-in-financials.html#0001-01-01)
+
+I am of the opinion that there is a fine line between bravery and stupidity – and when it comes to front running any FOMC announcements, stupidity often rules the day.
+
+With that in mind, consider the action in the financial sector over the past week or so.  Looking at the [XLF](http://vixandmore.blogspot.com/search/label/XLF) SPDR, we have an impressive two day bottom put in last Tuesday and Wednesday, with a pop of 20% from a bottom of 24.11 and a potential cross of the 50 day SMA less than 1% away from current levels.  The volume at the bottom was impressive and has held up fairly well on the way up.  Certainly a cross of the 50 day SMA and a turning up of the 20 day counterpart must bode well for that sector and increase the likelihood that this month’s plunge will ultimately turn out to be the bottom.
+
+All of this is predicated, of course, on the markets having confidence that the Fed is doing the right things to shore up our financial systems, provide appropriate liquidity, and keep the dominoes from getting any wobblier.  Presumably, the markets have priced in a 50 basis point move by the Fed today and have valued the financial sector on the assumption that solutions to the current situation – though they may be slow to take root and turn out to be expensive – are going to ultimately resolve the current credit crisis.
+
+I won’t be front running the Fed today, but if the financial sector turnaround means anything – and it usually does – it could mean that there is still a lot of easy money to be made cherry picking some of the stronger names that have beaten down with the rest of the sector.
