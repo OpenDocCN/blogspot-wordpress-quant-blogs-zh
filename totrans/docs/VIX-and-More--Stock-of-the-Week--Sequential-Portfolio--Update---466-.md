@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:30:35
+-->
+
+# VIX and More: Stock of the Week ‘Sequential Portfolio’ Update: +466%
+
+> 来源：[http://vixandmore.blogspot.com/2009/09/stock-of-week-sequential-portfolio.html#0001-01-01](http://vixandmore.blogspot.com/2009/09/stock-of-week-sequential-portfolio.html#0001-01-01)
+
+I have received so many emails about my [Stock of the Week ‘Sequential Portfolio’](http://vixandmore.blogspot.com/search/label/stock%20of%20the%20week) that I have decided to start discussing this subject on a regular basis on the [*VIX and More* Subscriber Newsletter Blog](http://vixandmoresubscriber.blogspot.com/). For the record, the subscriber blog is open to all readers and does not require a subscription to access. In fact the main purpose of the subscriber blog is to provide highlights and selected updates from the [subscriber newsletter](http://vixandmore.blogspot.com/search/label/subscriber%20newsletter) for the benefit of the general public.
+
+That being said, I have had many requests to describe how I pick the Stock of the Week (SOTW) selections and how I track the results, as well as to provide an archived list of all the SOTW picks going back to the launch of the newsletter.
+
+Rather than address these issues here, I have decided to discuss them on the subscriber blog at [Stock of the Week ‘Sequential Portfolio’ Up 466% Since 3/30/08 Launch](http://vixandmoresubscriber.blogspot.com/2009/09/stock-of-week-sequential-portfolio-up.html).
