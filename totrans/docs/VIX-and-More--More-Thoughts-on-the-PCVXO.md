@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:13:00
+-->
+
+# VIX and More: More Thoughts on the PCVXO
+
+> 来源：[http://vixandmore.blogspot.com/2007/05/more-thoughts-on-pcvxo.html#0001-01-01](http://vixandmore.blogspot.com/2007/05/more-thoughts-on-pcvxo.html#0001-01-01)
+
+![](img/f3ab68c0c21587e8c6fd53842ae69c90.png)
+
+Last week I talked a little about the PCVXO, which combines put to call ratios and volatility data in one sentiment indicator.  In crunching numbers on the original PCVXO system and a number of variants, I have concluded that the PCVXO family can be an effective market timing device.  For those who may be wondering whether they should invest some time and energy in an effort to better understand of the PCVXO, I can offer my encouragement, along with a couple of tidbits from my research.
+
+In a [previous post](http://vixandmore.blogspot.com/2007/05/pcvxo-combining-put-to-call-ratios-and.html), I described some of the [trading rules](http://www.optionetics.com/market/articles/15221) advocated by Jay Kaeppel, the developer of the PCVXO.  Kaeppel recommends initiating positions when the PCVXO re-crosses the 110 and 90 levels, in order to catch the remaining portion of the mean-reverting move.  While various backtesting methods indicate that this does produce good results for both long and short positions, it is possible to miss a large portion of the mean-reverting move if the PCVXO happens to spike above 120 or even 130, as was the case with some PCVXO family systems following the February 27^(th) spike in volatility.  For this reason, I recommend timing entries to coincide with the first drop or second consecutive drop in the PCVXO once it crosses the 110 threshold.  This approach will result in an earlier entry and a better chance of catching a larger portion of the big mean-reversion waves.  A similar strategy is also effective below the 90 level, but because extreme low readings in the PCVXO tend to be much milder than extreme high readings, the incremental gains from this strategy are much smaller.
+
+One particularly interesting aspect of PCVXO calculations is that it gives me an opportunity to evaluate what happens when the put to call and volatility data diverge.  In a nutshell, my findings are that high readings of volatility relative to put to call data are generally bullish for the broad markets while high readings of put to call data relative to volatility are generally bearish for the broad markets.  This is not what I would have expected, which makes the data even more interesting…and raises quite a few additional questions.
+
+Finally, in light of the above, it seems worth noting that there was a significant divergence in the put to call and volatility data as recently as last week.  Given that it was low put to call numbers that contributed to the divergence, this should be a bullish sign for the markets.
