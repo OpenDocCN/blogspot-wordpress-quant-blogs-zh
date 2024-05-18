@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:08:34
+-->
+
+# VIX and More: The Current VIX ETP Landscape
+
+> 来源：[http://vixandmore.blogspot.com/2015/12/the-current-vix-etp-landscape.html#0001-01-01](http://vixandmore.blogspot.com/2015/12/the-current-vix-etp-landscape.html#0001-01-01)
+
+I have been writing about [VIX ETPs](http://vixandmore.blogspot.com/search/label/VIX%20ETN) since the launch of the initial duo of [VXX](http://vixandmore.blogspot.com/search/label/VXX) and [VXZ](http://vixandmore.blogspot.com/search/label/VXZ) back in January 2009 and from 2010 onward I have been plotting all of them on a leverage/maturity grid like the one below. It is amazing how often various VIX ETP investors mentioned one of these charts when I talk to them. Even through the VIX ETP space has been relatively stable as of late, I have not updated this graphic since early 2014, so a refresh is long overdue.
+
+For those who have not been following along over the years, I have plotted every VIX-based ETP using leverage on the Y-axis and maturity on the X-axis. With the advent of what I am calling VIX strategy ETPs, I have isolated in their own box in the lower right hand corner a half dozen of these products whose characteristics do not necessarily imply a fixed point on Cartesian coordinate system.
+
+The key at the bottom highlights various salient features of each of these products. From previous incarnations, I have retained the presence of non-VIX legs (typically positions in SPX/SPY), the combination of both long and short legs, dynamic allocation of the legs and optionability. I have also shaded areas where there is high leverage/compounding risk as well as high roll yield risk. Not surprisingly, these risks converge at [TVIX](http://vixandmore.blogspot.com/search/label/TVIX) and [UVXY](http://vixandmore.blogspot.com/search/label/UVXY), two of the more infamous VIX ETPs.  Another carryover is font color, where black indicates ETFs and blue is for ETNs.  This time around I have also added yellow stars for those ETPs with an average daily volume of 1,000,000 or higher and pink stars for ETPs with an average daily volume between 100,000 and 1,000,000\. Note that while [CVOL](http://vixandmore.blogspot.com/search/label/CVOL) technically makes the cut, at today’s closing price of 0.40, any sort of meaningful reverse split to raise the price about 5 or 10 would highlight just how illiquid this issue is. In fact, only six VIX ETPs pass the one million share screen: TVIX, UVXY, [VIXY](http://vixandmore.blogspot.com/search/label/VIXY), VXX, [SVXY](http://vixandmore.blogspot.com/search/label/SVXY) and [XIV](http://vixandmore.blogspot.com/search/label/XIV).
+
+[![VIX ETPs 120615](img/5332ff987942ed3d5151353628bb31cd.png "VIX ETPs 120615")](http://lh3.googleusercontent.com/-zDCGimFjgdA/VmUNDzR9V4I/AAAAAAAAJqc/ptn0z37jGh8/s1600-h/VIX%252520ETPs%252520120615%25255B4%25255D.png)
+
+*[source(s): VIX and More]*
+
+There are three new additions to this graphic. The most notable of these are [VXUP](http://vixandmore.blogspot.com/search/label/VXUP) and [VXDN](http://vixandmore.blogspot.com/search/label/VXDN), which were launched by AccuShares back in May. These products deserve a post (or series of posts) dedicated to some of the issues surrounding them, but the short version is that high complexity, frequent distributions and consistent tracking errors resulted in a product that investors decided was not worth their trouble. The other “new” products is, [VQTS](http://vixandmore.blogspot.com/search/label/VQTS), the first ETP that tracks the [SPX VEQTOR Switch Index](https://us.spindices.com/documents/methodologies/methodology-sp-500-veqtor-switch-index.pdf?force_download=true), making it a relative of [VQT](http://vixandmore.blogspot.com/search/label/VQT) and [PHDG](http://vixandmore.blogspot.com/search/label/PHDG), but one which uses a dynamic allocation to [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) to achieve a 10% target realized (historical) volatility. VQTS was launched in December 2014 and like most VIX ETPs, has struggled to reach critical mass.
+
+While the VIX ETP market is showing some signs of maturing, there are many new and exciting developments in terms of low volatility ETPs and more broadly in the ETP space in general. As I am currently at the [IMN 20th Annual Global Indexing & ETF Conference](http://www.imn.org/investment-management/conference/Global-Indexing-and-ETFs/Agenda.html) – and scheduled to speak on a panel, “Trading the VIX: Riding Today's Waves of Volatility” with [Larry McDonald](http://www.lawrencegmcdonald.com/lawrence-g-mcdonald/), [Mark Shore](http://www.shorecapmgmt.com/mark-shore-background.html) and [Matt Moran](http://www.cboeoptionshub.com/author/matt-moran/) tomorrow – this seems like a good time to devote more time to writing and in particular to resurrecting the “and More” portion of this blog.
+
+Related posts (a selection from literally hundreds of posts on VIX ETPs):
+
+***Disclosure(s):** net short VIX, VXX, UVXY and TVIX; net long SVXY, XIV and ZIV at time of writing*
