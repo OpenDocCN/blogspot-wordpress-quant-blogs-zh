@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:03:43
+-->
+
+# VIX and More: VIX Weekly Options Coming on September 28
+
+> 来源：[http://vixandmore.blogspot.com/2010/09/vix-weekly-options-coming-on-september.html#0001-01-01](http://vixandmore.blogspot.com/2010/09/vix-weekly-options-coming-on-september.html#0001-01-01)
+
+The CBOE Futures Exchange (CFE) [announced today](http://www.cboe.com/AboutCBOE/ShowDocument.aspx?DIR=ACNews&FILE=cboe_cfe_09_09_2010_1.ascx) that it will begin trading [weekly options](http://vixandmore.blogspot.com/search/label/weekly) on VIX futures as of Tuesday, September 28\. Please note that unlike standard monthly [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options) which expire on Wednesdays, the weekly VIX options will expire on Fridays, as is the case with other weekly options. Also, settlement for weekly options will feature physical settlement - one futures contract for each expiring options contract. [Thanks to Chris McKhann for highlighting this important clarification.]
+
+With the addition of weeklys to the VIX options stable, the proliferation of tradable VIX products has the potential to overwhelm and confuse investors. For example, in just three weeks we will have VIX futures options and [VXX options](http://vixandmore.blogspot.com/search/label/VXX%20options) expiring on the same date. The former will trade off of the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures); the latter is based on iPath S&P 500 VIX Short-Term Futures ETN ([VXX](http://vixandmore.blogspot.com/search/label/VXX)), which is a weighted portfolio of front month and second month VIX futures.
+
+Among other things, the new VIX weeklys set up some interesting volatility pairs trades, including a VXX-VIX options pair that has the potential to be able to isolate the [contango](http://vixandmore.blogspot.com/search/label/contango) and [backwardation](http://vixandmore.blogspot.com/search/label/backwardation) components of VXX using VIX options with an identical expiration date.
+
+For volatility traders, 2010 is shaping up to be a banner year in terms of new products.
+
+Related posts:
+
+***Disclosure(s):*** *none*

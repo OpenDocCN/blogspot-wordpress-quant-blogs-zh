@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:03:35
+-->
+
+# VIX and More: VIX Futures: What Were/Are They Thinking?
+
+> 来源：[http://vixandmore.blogspot.com/2010/09/vix-futures-what-wereare-they-thinking.html#0001-01-01](http://vixandmore.blogspot.com/2010/09/vix-futures-what-wereare-they-thinking.html#0001-01-01)
+
+Yesterday, my proprietary the [VIX Futures Contango Index](http://vixandmore.blogspot.com/search/label/VIX%20Futures%20Contango%20Index) hit a new all-time high, indicating that investors believe very strongly that the current volatility environment is grossly underestimating what volatility will look like in the coming months, particularly in 2011\. This, of course, is nothing new, as the links at the bottom of this post will attest to. It is important to note, however, that the disconnect between current volatility and the volatility levels indicated by the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) suggest that investors have never had such a [Panglossian](http://en.wikipedia.org/wiki/Candide) outlook as they do now.
+
+While the VIX futures may be the market’s best estimate of future volatility, these contracts are far from an ideal prediction mechanism. One only has to look back a couple of months to see how the VIX futures saw the balance of 2010 unfolding. As the chart below shows, investors were anticipating volatility on the order of a VIX of 33-36 for the second half of the year as recently as late May. The reality has turned out to be substantially different. Yesterday’s closing prices in the VIX futures reflect a downward revision to September VIX futures of 12.60 points.
+
+I find it particularly interesting that the massive overestimation of September volatility has had so little impact on estimates of volatility for 2011\. Back in May, the VIX futures were only quoted through December 2010, but if one mentally extends the red trend line formed by the September 2010 through December 2010 futures, the result is an almost identical to the current expectations of a VIX of 31 or so for February through April 2011\. It is almost as if the 12.60 point miss is considered irrelevant.
+
+If some large storm clouds do not begin to appear on the horizon in a hurry, I would expect those who are holding doom and gloom volatility positions will start to capitulate and put some downward pressure on volatility. I do not expect the record [contango](http://vixandmore.blogspot.com/search/label/contango) in the VIX futures [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) to hold up much longer. In order for the term structure to begin to flatten out and assume a more normal shape, either the back month volatility is going to collapse or the near month volatility will have to rise substantially to give credence to the expectations of doom and gloom. My thinking continues to favor the former scenario.
+
+Related posts:
+
+*[source: CBOE Futures Exchange, FutureSource.com]*
+
+***Disclosure(s):*** *none*

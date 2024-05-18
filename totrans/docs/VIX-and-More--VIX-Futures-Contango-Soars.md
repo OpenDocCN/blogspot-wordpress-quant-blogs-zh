@@ -1,0 +1,23 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:03:47
+-->
+
+# VIX and More: VIX Futures Contango Soars
+
+> 来源：[http://vixandmore.blogspot.com/2010/09/vix-futures-contango-soars.html#0001-01-01](http://vixandmore.blogspot.com/2010/09/vix-futures-contango-soars.html#0001-01-01)
+
+Last week I started publishing something I call the [VIX Futures Contango Index](http://vixandmore.blogspot.com/search/label/VIX%20Futures%20Contango%20Index) in my [subscriber newsletter](http://vixandmoresubscriber.blogspot.com/). The intent of this index is to enhance one’s sense of the shape of the of [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) curve, by building on the simple math of the front month and second month [roll yield](http://vixandmore.blogspot.com/search/label/roll%20yield) calculations to come up with a mathematical representation of the degree of [contango](http://vixandmore.blogspot.com/search/label/contango) or [backwardation](http://en.wikipedia.org/wiki/Backwardation) across the entire VIX futures term structure.
+
+Using the VIX Futures Contango Index methodology, today’s close has the index at 99.8, which is the third most extreme contango reading since VIX futures were launched in March 2004\. *[The index values range from 0-100, with 0 being extreme backwardation and 100 being extreme contango.]*
+
+Extreme contango readings are generally associated with turning points in stocks, which is why in the chart below, I have highlighted the two most extreme VIX futures contango readings. The highest VIX futures contango reading in the history of the VIX futures comes from April 21, 2010 and is indicated by the red arrow in the chart below. Note that this mark was achieved just two days before the SPX posted its closing high for 2010.
+
+The second highest VIX futures reading was registered three months later, on July 21, 2010, just over one month ago. This extreme contango situation is flagged with a green arrow on the chart below, as it turns out stocks were about to move up to their highest close (SPX 1127) since the May selloff.
+
+It is difficult to anticipate what the steep contango means for stocks this time around. Clearly the market thinks another selloff is in the cards that will drive the VIX up over 30 by the beginning of 2011\. I have a less pessimistic outlook, but will be watching the VIX term structure closely to see if the level of contango is able to rise above the April high water mark.
+Related posts:
+
+*[source: StockCharts.com]*
+
+***Disclosure(s):*** *none*
