@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:26:52
+-->
+
+# Timely Portfolio: Wow on Hedge Funds, But What Does It Mean?
+
+> 来源：[http://timelyportfolio.blogspot.com/2010/12/wow-on-hedge-funds-but-what-does-it.html#0001-01-01](http://timelyportfolio.blogspot.com/2010/12/wow-on-hedge-funds-but-what-does-it.html#0001-01-01)
+
+I spent way too much time today on Google’s new ngram tool which graphs the use of a word or phrase in its set of books.  I was absolutely amazed when I typed “hedge fund”  and found this [Google Ngram on Hedge Funds](http://ngrams.googlelabs.com/graph?content=hedge+fund&year_start=1900&year_end=2000&corpus=0&smoothing=0)
+
+![](img/f59311abd73d7dda937141484adf42e5.png)
+
+I thought the bubble burst in 2007, but evidently the trend based on the use of the term in books is still very clearly intact.  With a more narrow timeframe but more comprehensive dataset,  Google Trends [http://trends.google.com/trends?q=hedge+fund&date=all&geo=us&ctab=0&sort=0&sa=N](http://trends.google.com/trends?q=hedge+fund&date=all&geo=us&ctab=0&sort=0&sa=N "http://trends.google.com/trends?q=hedge+fund&date=all&geo=us&ctab=0&sort=0&sa=N") shows a different picture.
+
+![](img/4054d93e5da900da4a7ca394f975b99b.png)
+
+Generally, I like to follow the money to tell me the truth, but assets show both withdrawals and drawdowns.
+
+[![](img/f586ed3b75ba5da83a627eb815ec2d74.png)](http://www.financialmarketpulse.com/wp-content/uploads/2010/08/hedge_funds_AUM.jpg)
+
+[![hedgefundclosure-hedgefundjournal05-2010](img/9ca6417c4dadd3eed35e0968e60ec45f.png "hedgefundclosure-hedgefundjournal05-2010")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-LYxpQC1ND9HroFW1o-LgUz-O2hkpxR9cigiofknJGGblEVR9JFgYucc-B5Ct3qWr4dCZa8hGtOPT5HoXLEeKQLLrejNxSnkHq_5Z8HDjQjSbYOJu0_eDmBK0FqgrtPbvb__SFaXOvg/s1600-h/hedgefundclosure-hedgefundjournal05-2010%5B12%5D.jpg)
+
+From these I have to conclude that the trend towards hedge funds is still alive and kicking.
+
+40 minutes
