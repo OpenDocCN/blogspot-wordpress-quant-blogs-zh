@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:49:14
+-->
+
+# VIX and More: Chart of the Week: Percentage of NYSE Stocks Above 50 Day SMA
+
+> 来源：[http://vixandmore.blogspot.com/2009/05/chart-of-week-percentage-of-nyse-stocks.html#0001-01-01](http://vixandmore.blogspot.com/2009/05/chart-of-week-percentage-of-nyse-stocks.html#0001-01-01)
+
+This week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) is a little different than some of its predecessors. The chart below is a weekly chart that tracks the percentage of stocks currently trading above their 50 day simple moving averages. The data are available going back to 2002 and show the only other time that the percentage climbed above 90 was in 2003, as the markets were rallying off of the 2002-03 bottoms.
+
+For the most part, the percentage of stocks above their 50 day SMA tends to top out in the 75-85 range and then correct, with corrections that stay above 20-25 representing excellent buying opportunities. On the other hand, corrections that dip below the 20-25 range run a much higher risk of turning into longer-term bear trends.
+
+At a current level of 90.03% above the 50 day SMA, the two month rally has to be considered extended, but not necessarily without any additional headroom. Given the magnitude of the 2007-09 drop, such bullish extremes on a subsequent bounce should not come as a surprise, but they should cause the bulls to be a little more cautious.
+
+![](img/198f94dbb1d3b08dedeb1ca8773fd042.png)
+
+*[source: StockCharts]*

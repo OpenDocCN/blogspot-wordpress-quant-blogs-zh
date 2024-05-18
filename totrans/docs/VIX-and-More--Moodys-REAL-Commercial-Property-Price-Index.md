@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:50:06
+-->
+
+# VIX and More: Moodys/REAL Commercial Property Price Index
+
+> 来源：[http://vixandmore.blogspot.com/2009/04/moodysreal-commercial-property-price.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/moodysreal-commercial-property-price.html#0001-01-01)
+
+Last week, in [Commercial Real Estate Problems Piling Up](http://vixandmore.blogspot.com/2009/04/commercial-real-estate-problems-piling.html), I opined that [commercial real estate](http://vixandmore.blogspot.com/search/label/commercial%20real%20estate) is a likely candidate to usher in the next leg of the financial crisis. Since the [S&P/Case-Shiller Home Price Index](http://www2.standardandpoors.com/portal/site/sp/en/us/page.topic/indices_csmahp/0,0,0,0,0,0,0,0,0,2,1,0,0,0,0,0.html) gets so much publicity, I thought this would be a good opportunity to mention a commercial real estate index that deserves more attention: the [Moodys/REAL Commercial Property Price Index](http://web.mit.edu/cre/research/credl/rca.html).
+
+This index was last updated April 24^(th) and shows that prices have dropped slightly more than 20% since the October 2007 peak.
+
+While residential prices are important to watch, most of the residential story has already been told. The rest of the real estate story – good or bad – likely lies on the commercial side.
+
+![](img/cd72a236b90e75523eff54ab4757fa56.png)
+
+*[source: MIT Center for Real Estate, Real Capital Analytics]*
