@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:25:55
+-->
+
+# VIX and More: Crazy VIX:VXV Ratio Chart
+
+> 来源：[http://vixandmore.blogspot.com/2012/07/crazy-vixvxv-ratio-chart.html#0001-01-01](http://vixandmore.blogspot.com/2012/07/crazy-vixvxv-ratio-chart.html#0001-01-01)
+
+There was a point in the history of *VIX and More* that I gave serious consideration to a regular feature in which I unveiled “Strange and Unusual Charts” that presumably had, apart from their novelty, the ability to shine some new light on at least one corner of the investment universe. That being said, I have always had an affinity for presenting charts that show unusual ratios, non-standard time frames and such and while the likes of [Chart Porn](http://vixandmore.blogspot.com/2008/01/chart-porn.html) and [Unusual Chart of the Month: VXO and RVX](http://vixandmore.blogspot.com/2008/06/unusual-chart-of-month-vxo-and-rvx.html) did get me started down a slippery slope, I never quite fell into the habit of tilting wildly at windmills on the plains of StockCharts.com and their brethren.
+
+One rabbit hole that I was definitely the first down and pursued the most aggressively was the [VIX:VXV ratio](http://vixandmore.blogspot.com/search/label/VIX%3AVXV), which one blogger insisted was sure to ultimately be my investing legacy. In all fairness, for the first year following the launch of [VXV](http://vixandmore.blogspot.com/search/label/VXV) (essentially a 93-day version of the VIX), the VIX:VXV ratio performed as if it was going to make all other indicators obsolete. Of course, then the financial crisis of 2008 hit and the ratio began sprouting warts all over. While I talk about the VIX:VXV ratio only rarely in this space nowadays, the general idea of which the VIX:VXV ratio is just one instance of what has become one of the main themes of this blog: the idea that an understanding of the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) is critical to understanding the valuation of and trading opportunities available for all VIX products, including futures, options and exchange-traded products.
+
+All of which brings me – somewhat belatedly, perhaps – to today’s chart, which is right out of the same cauldron that produced some of the curiosities of yesteryear. The chart below captures 2 ½ years of daily bars in the VIX:VXV ratio and adds some green Bollinger bands for color and context, along with a gray area graph of the SPX. Finally, I have included a purple line for the VIX:VXV ratio that reflects a 500-day exponential moving average (EMA) in order to show the long-term average of the ratio.
+
+While there are many interesting nuggets buried in this chart, first note that the long-term average of the VIX:VXV ratio is not 1.00, but generally hovers in the 0.90 – 0.95\. This reflects the fact that the VIX futures term structure has historically been in [contango](http://vixandmore.blogspot.com/search/label/contango) (upward sloping, with nearer months less expensive than more distant months) 75-80% of the time. Second, note that spikes in the ratio tend to coincide with bottoms in stocks and vice versa. Finally, note that even with the crazy [VIX spike](http://vixandmore.blogspot.com/search/label/VIX%20spikes) last August and September (and record [backwardation](http://vixandmore.blogspot.com/search/label/backwardation), i.e. high VIX:VXV ratios), the ratio has been depressed since December and the 500-day EMA is now making all-time lows.
+
+What does this mean? Lots of things, but in simple terms investors continue to believe that the VIX is unnaturally low given the scope and magnitude of the future threats to equities. Should the ratio continue at its current 0.83, I would be very concerned about the possibility of a bearish reversal.
+
+*[In order to keep this post to a manageable length, I have skipped over a bunch of related issues, but readers should feel free to wander down some of the same rabbit holes I have preserved in the links below.]*
+
+Related posts:
+
+*![](img/7b2714b28c9dec48cef9fdfd076b200e.png)*
+
+*[source(s): StockCharts.com]*
+
+***Disclosure(s):*** *long VIX at time of writing*

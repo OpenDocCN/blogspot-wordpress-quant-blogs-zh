@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:25:32
+-->
+
+# VIX and More: How Can the VIX Be 14 and Lower than VIN and VIF?
+
+> 来源：[http://vixandmore.blogspot.com/2012/08/how-can-vix-be-14-and-lower-than-vin.html#0001-01-01](http://vixandmore.blogspot.com/2012/08/how-can-vix-be-14-and-lower-than-vin.html#0001-01-01)
+
+Many novice and advanced VIX followers are scratching their heads today, wondering why the VIX is down more than 5%, hovering around the 14.00 level, when the SPX is down 0.4% and all the major market averages are deeply in the red. More serious students of the VIX will also note that this drop in the VIX comes on a Monday, when the typical VIX “[calendar reversion](http://vixandmore.blogspot.com/search/label/calendar%20reversion)” is generally responsible for about a 1% pop in the volatility index.
+
+The answer to most of these questions lies in yet another idiosyncrasy of the VIX: the roll. Quoting directly from the source, the [CBOE Volatility Index (VIX) White Paper](http://www.cboe.com/micro/vix/vixwhite.pdf), we find these two important nuggets from pages 4 and 9, which I have presented here sequentially for easier consumption:
+
+> *“The components of VIX are near- and next-term put and call options, usually in the first and second SPX contract months. ‘Near-term options must have at least one week to expiration; a requirement intended to minimize pricing anomalies that might occur close to expiration. When the near-term options have less than a week to expiration, VIX ‘rolls’ to the second and third SPX contract months. For example, on the second Friday in June, VIX would be calculated using SPX options expiring in June and July. On the following Monday, July would replace June as the ‘near-term’ and August would replace July as the ‘next-term.’”*
+> 
+> *“At the time of the VIX ‘roll,’ both the near-term and next-term options have more than 30 days to expiration. The same formula is used to calculate the 30-day weighted average, but the result is an extrapolation of σ² 1 and σ² 2; i.e., the sum of the weights is still 1, but the near-term weight is greater than 1 and **the next-term weight is negative** (e.g., 1.25 and – 0.25).”* [Emphasis added]
+
+ *When I first posted about [VIN](http://vixandmore.blogspot.com/search/label/VIN) and [VIF](http://vixandmore.blogspot.com/search/label/VIF) back in March 2011 ([VIN, VIF and an Obsolete VIX](http://vixandmore.blogspot.com/2011/03/vin-vif-and-obsolete-vix.html)), I was stunned to learn how few investors, including savvy and experienced VIX fanatics, were completely unaware of these indices. At the time, the CBOE did not even refer to VIN and VIF on their web site, but they have since added a [splash page](http://www.cboe.com/micro/vin/) for these two indices, along with the following brief comments:
+
+> *CBOE maintains indexes that track the level of implied volatility from single SPX maturities.*
+> 
+> *Ticker VIN (VINX on Bloomberg) – nearer term SPX expiration used in VIX calculation*
+> 
+> *Ticker VIF – farther term SPX expiration used in VIX calculation*
+
+Getting back to the roll, the SPX options contract months roll forward one month today, so that the nearer-term month (VIN) moves from August to September and the farther-term month (VIF) moves from September to October. More importantly, per the bolded text from the VIX white paper above, today’s VIX calculations sum more than 100% of the VIN and a ***negative number*** for VIF. This is the reason why the VIX is less than the two components used in its calculation: VIN and VIF.  In summary, the bigger the difference between the VIN and the VIF (and right now that difference is a very large 9.4%), the more likely the VIX is going to be substantially depressed following the VIX roll.  Also, as we move toward the expiration of VIX options on August 22nd, the distortions from the negative VIF component used in the VIX calculations should gradually diminish, as the VIF weighting moves toward zero and then becomes a positive number.
+
+For those who are interested in delving into the nuances of the VIX calculations, the CBOE’s VIX White Paper is the best place to start; the links below might also provide additional insight.
+
+Related posts:
+
+***Disclosure(s):*** *long VIX at time of writing**

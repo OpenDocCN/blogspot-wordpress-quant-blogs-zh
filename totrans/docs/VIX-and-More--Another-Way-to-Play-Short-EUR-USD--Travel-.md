@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:25:45
+-->
+
+# VIX and More: Another Way to Play Short EUR/USD: Travel!
+
+> 来源：[http://vixandmore.blogspot.com/2012/08/another-way-to-play-short-eurusd-travel.html#0001-01-01](http://vixandmore.blogspot.com/2012/08/another-way-to-play-short-eurusd-travel.html#0001-01-01)
+
+There are many ways to translate an opinion about the financial markets into a particular trade. Recently, I decided to act upon my belief that the [euro](http://vixandmore.blogspot.com/search/label/euro) would weaken against the dollar by booking a couple of weeks in Europe. The trader/VIXologist itinerary would have probably run something like [Ireland](http://vixandmore.blogspot.com/search/label/Ireland) > [Portugal](http://vixandmore.blogspot.com/search/label/Portugal) > [Greece](http://vixandmore.blogspot.com/search/label/Greece) > [Spain](http://vixandmore.blogspot.com/search/label/Spain) > [Italy](http://vixandmore.blogspot.com/search/label/Italy), but instead I elected to steer to the north, vising the Netherlands, Belgium, Luxembourg, [Germany](http://vixandmore.blogspot.com/search/label/Germany) and the Czech Republic.
+
+For the first time in many moons, parliamentary votes, etc., the markets were reasonably well behaved during my vacation and the VIX didn’t even make it into the 30s.
+
+As someone who spends a great deal of time nine time zones away from the events behind the European headlines, I was somewhat surprised to see the relative calmness and lack of concern in the people I spoke with about the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis). This is not to say that the consensus was that the most difficult phases of the crisis were in the rear-view mirror, only that in due time, all would be sorted out and life would go on in a manner similar to the way it was prior to 2008.
+
+That being said, I was surprised to see that in the sculptures above the Gate of Giants, which forms the entrance to Prague Castle, one forward-thinking artist had captured the essence of the discussions between the Troika and the Greek government…
+
+Related posts:
+
+*![](img/524f858c38db7d67518c7d258c994715.png)*
+
+*[photo: Gate of Giants, Prague Castle]*
+
+***Disclosure(s):*** *long VIX at time of writing*
