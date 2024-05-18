@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:20:48
+-->
+
+# VIX and More: What Is Historical Volatility?
+
+> 来源：[http://vixandmore.blogspot.com/2009/12/what-is-historical-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2009/12/what-is-historical-volatility.html#0001-01-01)
+
+The volatility universe splits fairly neatly into two halves: [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) (HV) and [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) (IV). I tend to place slightly more emphasis on implied volatility because implied volatility looks to the future, is derived from options prices, and can provide some clues about the current sentiment of options investors. Of course, the CBOE Volatility Index, commonly known as the VIX, is an index that measures implied volatility in S&P 500 index options, so that may persuade me to favor IV over HV a little as well.
+
+Compared to implied volatility, historical volatility seems like a relatively simple concept. It looks backward at price action and measures the degree of change in the price of a security. Things get a little more complicated, however, when one asks two seemingly innocuous questions:
+
+1.  How long of a period?
+
+2.  What method of measurement is used?
+
+The issue of a lookback period is really not much of a complication, but it does lead to a proliferation of historical volatility numbers. As historical volatility looks only at trading days, it is important to note that the historical volatility calendar differs from the implied volatility calendar. As a result, the standard implied volatility [time horizon](http://vixandmore.blogspot.com/search/label/time%20horizon) of 30 (calendar) days (such as is used by the VIX) translates to about 21 trading days, assuming the usual NYSE nine holidays per year. Even with the different calendars, the most frequently used historical volatility measurement is HV 30, which translates to about 43 calendar days.
+
+The appropriate lookback period to use for historical volatility calculations is ultimately a matter of personal taste. As noted above, most providers of HV data tend to standardize on HV 30, but I generally prefer HV 20 or HV 21, as this is a better approximation of a trading month. One can use shorter time frames, but investors should be wary of the amount of noise in calculations that look back less than 20 days. Still, I like to look at HV 10 to get a sense of the most recent volatility trend. Looking farther out, HV 50 or HV 60 are popular ways to capture almost an entire earnings cycle, while HV 90, HV 100, HV 180 and HV 200 are all excellent ways to capture the long-term volatility trend. In order to incorporate a full year of historical volatility, HV 250 is recommended. Some options traders like to look at two full years of historical volatility data with the likes of HV 500, but I rarely find much value looking back a second year unless – as is the case right now – the most recent year is filled with quite a few statistical outliers.
+
+Any good options broker will have one of more historical volatility calculations built in, but HV data is also available from various options service providers such as [Livevol](http://www.livevol.com/) or [iVolatility](http://www.ivolatility.com/).
+
+Note that standard historical volatility data are the result of a calculation involving close-to-close prices, specifically end of day prices. As such, historical volatility does not capture the magnitude of any intraday price movements, which are better served by calculations such as an [average true range](http://vixandmore.blogspot.com/search/label/average%20true%20range).
+
+Finally, while there are many ways to calculate historical volatility, by convention historical volatility is calculated by taking the standard deviation of the difference between the natural log of the daily changes in the price of the underlying and the mean value during the lookback period. This sounds a lot uglier than it turns out to be in Excel. Since this is the holiday season, however, tomorrow I will provide a recipe for the traditional historical volatility calculation as well as a modification that I find simpler and more useful.
+
+For more on historical volatility, readers are encouraged to check out:
+
+ ****Disclosure:*** *Livevol is an advertiser on VIX and More**
