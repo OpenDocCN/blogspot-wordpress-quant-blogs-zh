@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:46:14
+-->
+
+# VIX and More: Reversal Bar Analysis at Quantifiable Edges
+
+> 来源：[http://vixandmore.blogspot.com/2008/01/reversal-bar-analysis-at-quantifiable.html#0001-01-01](http://vixandmore.blogspot.com/2008/01/reversal-bar-analysis-at-quantifiable.html#0001-01-01)
+
+I have been impressed by the breadth of top notch analytical thinking across the investment blog world in the past few weeks and have found many insights of note from some of the stalwarts on my blogroll. For the moment, however, I want to highlight one new blog, [Quantifiable Edges](http://quantifiableedges.blogspot.com/), authored by Rob Hanna, that has particularly impressed me with some timely and thought provoking analysis.
+
+Rob just happens to be in the midst of publishing some excellent work he has been doing on reversal bars – a subject that should be top of mind for all traders, given the recent market action. I encourage readers to click through and have a look: [Quantifiable Edges on reversal bars](http://quantifiableedges.blogspot.com/search/label/reversal%20bar)
