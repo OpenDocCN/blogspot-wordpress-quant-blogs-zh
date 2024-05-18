@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:48:50
+-->
+
+# VIX and More: The Convergence of VIX and VIX Futures at Expiration
+
+> 来源：[http://vixandmore.blogspot.com/2011/08/convergence-of-vix-and-vix-futures-at.html#0001-01-01](http://vixandmore.blogspot.com/2011/08/convergence-of-vix-and-vix-futures-at.html#0001-01-01)
+
+[VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) and [options](http://vixandmore.blogspot.com/search/label/VIX%20options) expire 30 days prior to the expiration of options in the S&P 500 index for the following month. With the September SPX [options expiration](http://vixandmore.blogspot.com/search/label/options%20expiration) set for September 16^(th), this means that August VIX options will expire on next Wednesday, August 17^(th).
+
+Students of the VIX (and there seem to be many when the [VIX spikes](http://vixandmore.blogspot.com/search/label/VIX%20spikes) over 40) should all know that over the course of their life, VIX options are not priced off of the VIX index. Instead, the best approximations for the appropriate underlying for VIX options are the corresponding VIX futures. The one caveat is that at expiration, the VIX index and VIX futures must converge on a single price for the VIX. This price convergence in the VIX and VIX front month futures is always interesting to watch, but particularly so in high volatility environments.
+
+The mechanics of the VIX settlement process are non-trivial, but suffice it to say that they settle with a Special Opening Quotation (SOQ) at Wednesday’s open, based upon opening trades (as well as the midpoint between the bid and ask) in SPX options. As a result, the last opportunity to trade VIX August futures and options is the session before the SOQ, at Tuesday’s close.
+
+With two full trading days plus 1 ½ hours of today’s session left, there is a substantial discrepancy between the VIX and the VIX futures. As I type this, the VIX is at 36.40 and the August VIX futures are at 34.50\. Somehow that gap needs to be closed in the next two days. Right now the market’s best guess is that the VIX will fall 1.90 points by Wednesday’s SOQ, but of course the final settlement could be between the two current values and quite possible above 36.40 or below 34.50\. If you are trading any of these instruments, you should be aware of the price gap and the path of the convergence. You might also use this opportunity to brush up on the little-known near-term month VIX index ([VIN](http://vixandmore.blogspot.com/search/label/VIN)) by checking out [VIN, VIF and an Obsolete VIX](http://vixandmore.blogspot.com/2011/03/vin-vif-and-obsolete-vix.html).
+
+Related posts:
+
+***Disclosure(s):*** *Short VIX at time of writing*

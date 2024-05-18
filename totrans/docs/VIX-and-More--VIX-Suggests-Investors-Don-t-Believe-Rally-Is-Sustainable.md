@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:48:55
+-->
+
+# VIX and More: VIX Suggests Investors Don’t Believe Rally Is Sustainable
+
+> 来源：[http://vixandmore.blogspot.com/2011/08/vix-suggests-investors-dont-believe.html#0001-01-01](http://vixandmore.blogspot.com/2011/08/vix-suggests-investors-dont-believe.html#0001-01-01)
+
+Back in 2007 and 2008 I had a shipload of posts talking about the [SPX:VIX correlation](http://vixandmore.blogspot.com/search/label/SPX-VIX%20correlation), its implications for stocks and the like. I even came up with a plot that I called a “[fearogram](http://vixandmore.blogspot.com/search/label/fearogram)” to map how changes in the VIX relative to the SPX compared with historical norms and recently dove into the subject of [VIX convexity](http://vixandmore.blogspot.com/search/label/VIX%20convexity) and the movements of the VIX relative to the SPX in a June 2011 [Expiring Monthly](http://www.expiringmonthly.com/) article, VIX Convexity.
+
+I mention all this because in the recent downturn the VIX has moved much faster to the upside than the SPX has to the downside, given the historical rule of thumb that for every 1% change in the SPX the VIX moves approximately 4% in the opposite direction. For instance, from August 3 to August 8 the SPX lost 11% over the course of three trading days. During the same period the VIX more than doubled, gaining 105%, considerably more than the 44% or so one would have expected. One could argue that much of the move in the VIX over and above the anticipated 44% gain represented fear and irrationality flooding into the markets.
+
+As I write this the S&P 500 index is up 5.2%. At the same time, the VIX is down about 11.8%, close to half of the anticipated -4x move.
+
+So to recap, the VIX rose more than twice as fast as one would expect and is falling almost half as fast it has over the course of its history. That, in a nutshell, is the fear in the market. Another way of looking at the stubbornly high VIX is that investors do not believe the current rally is likely to be sustained, so options sellers are not marking down options prices with any sense of urgency, estimating that continued high implied volatility will persist.
+
+Related posts:
+
+ *****Disclosure(s):*** *short VIX at time of writing***
