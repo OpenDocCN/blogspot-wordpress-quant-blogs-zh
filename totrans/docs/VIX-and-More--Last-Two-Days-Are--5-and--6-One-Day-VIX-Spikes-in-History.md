@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:09:05
+-->
+
+# VIX and More: Last Two Days Are #5 and #6 One-Day VIX Spikes in History
+
+> 来源：[http://vixandmore.blogspot.com/2015/08/last-two-days-are-5-and-6-one-day-vix.html#0001-01-01](http://vixandmore.blogspot.com/2015/08/last-two-days-are-5-and-6-one-day-vix.html#0001-01-01)
+
+Many readers have commented that one of their favorite of my regular graphics is the table of [VIX spikes](http://vixandmore.blogspot.com/search/label/VIX%20spikes) of 30% or more that I update periodically in this space, along with the subsequent performance in the S&P 500 Index following these spikes.
+
+This time around I have elected to add an additional column that identifies the catalysts involved (necessarily a subjective process) in each instance. When thinking about these catalysts, it might be helpful to compare the nature of the threat and the size of the VIX spike to changes in volatility during various high-profile historical events, an analysis I captured in [Volatility During Crises](http://vixandmore.blogspot.com/2012/12/volatility-during-crises.html). Another useful exercise is to think about the fundamental factors influencing each VIX spike in the context of [A Conceptual Framework for Volatility Events](http://vixandmore.blogspot.com/2008/10/conceptual-framework-for-volatility.html), which I find particularly useful in helping to gauge just how large of a VIX spike a certain type of event might trigger.
+
+Of course the table below has its own set of data nuggets, both fundamental and technical. One interesting statistic I find worth highlighting is the relatively high frequency of large VIX spikes that have occurred during the past five years. VIX data goes back 26 years and yet more than half of the VIX spikes in this table data are from the past five years. I think it is no coincidence that the [VIX ETPs](http://vixandmore.blogspot.com/search/label/VIX%20ETN) (initially [VXX](http://vixandmore.blogspot.com/search/label/VXX) and [VXZ](http://vixandmore.blogspot.com/search/label/VXZ)) were launched in 2009 and the inverse VIX ETPs ([XIV](http://vixandmore.blogspot.com/search/label/XIV) and [ZIV](http://vixandmore.blogspot.com/search/label/ZIV)) and leveraged VIX ETPs (starting with [TVIX](http://vixandmore.blogspot.com/search/label/TVIX)) were launched in the following year, when big VIX spikes suddenly became more common – much more so than during the [2008](http://vixandmore.blogspot.com/search/label/2008) financial crisis, the dotcom crash, etc. For additional information on the subject of more VIX spikes in spite of a generally lower volatility environment, check out [2014 Had Third Highest Number of 20% VIX Spikes](http://vixandmore.blogspot.com/2015/01/2014-had-third-highest-number-of-20-vix.html).
+
+[![History of 30 pct VIX Spikes w Catalysts 082415](img/6ab13e64c087e39e4dd5bafb345c4347.png "History of 30 pct VIX Spikes w Catalysts 082415")](http://lh3.googleusercontent.com/-KcJyImzmfYA/VduR8bjD7SI/AAAAAAAAJkw/KToY9Jl2fMs/s1600-h/History%252520of%25252030%252520pct%252520VIX%252520Spikes%252520w%252520Catalysts%252520082415%25255B4%25255D.png)
+
+*[source(s): CBOE, VIX and More]*
+
+As noted previously, based on the data for all VIX spikes in excess of 30%, the SPX has a tendency to outperform its long-term average over the course of the 1, 3 and 5-day periods following the VIX spike. Also worth noting that that 10 and 20 days following the VIX spike, the SPX has a tendency not only to underperform, but to decline. Further, while the huge decline following 9/29/08 VIX spike tends to dwarf the other data points, even when you remove the 9/29/08 VIX spike it turns out that the SPX still loses money in the 10 and 20-day period following a VIX spike. When the analysis is extended out 50 trading days, the SPX is back to being profitable, but performing below its long-term average. On the other hand, when the analysis includes 100 days following the VIX spike, the SPX is back to outperforming its long-term average.
+
+In summary, this data suggests that following a 30% one-day VIX spike, there appears to generally be a tradable oversold condition in stocks that lasts approximately one week, followed by a period of another month or so in which the markets typically has difficulty coming to terms with the threat to stocks. This tendency makes today’s market action even more remarkable in that today was by far the worst performance of the SPX in a day following a 30% VIX spike.
+
+Taking a longer-term perspective, looking out at least one quarter, all fears are usually in the rear view mirror and stocks are likely to have tacked on significant gains.
+
+As noted many times here in the past, the data in this table supports the idea of both short-term and longer-term [mean reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion), but calls into question the role of mean reversion in the 10-20 days following a VIX spike, where fundamental factors have a tendency to overwhelm a technically oversold condition in stocks.
+
+Related posts:
+
+***Disclosure(s):*** *short VIX at time of writing; the CBOE is an advertiser on VIX and More*

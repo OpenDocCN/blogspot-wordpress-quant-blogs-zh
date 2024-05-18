@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:09:44
+-->
+
+# VIX and More: Top Posts of 2014
+
+> 来源：[http://vixandmore.blogspot.com/2015/01/top-posts-of-2014.html#0001-01-01](http://vixandmore.blogspot.com/2015/01/top-posts-of-2014.html#0001-01-01)
+
+Since I launched *VIX and More* some eight plus years ago, I have devoted one post to highlighting the top 25 most-read posts of each year. I do this in part for archival purposes: to see what is important to readers and how their interest in various issues changes over time. I also hope that these aggregations of most-read posts will serve as relatively easily accessible repositories of high-quality material for the benefit of new readers and long-term readers alike.
+
+During 2014, the blog saw an extended hiatus for the first time in its history, largely due to events arising from the passing of my father. For this reason, I am limiting the number of top posts for the year to thirteen, largely because [Song for My Father*](http://vixandmore.blogspot.com/2014/10/song-for-my-father.html) ended the year in the #13 slot.
+
+Looking ahead, volatility is back and so am I. I miss writing and I miss the interaction with readers. In the coming year I will significantly ramp up my activity on the blog and also in the comments section. I will also continue to write a weekly [newsletter](http://vixandmoresubscriber.blogspot.com/) specializing in volatility (which just so happens to have a 14-day free trial), pen periodic [guest columns for Barron’s](http://vixandmore.blogspot.com/2014/11/how-to-ride-aging-bull-guest-columnist.html) and perhaps contribute to some other publications as well.  All this will be in addition to my primary role, which is that of an investment manager.
+
+In 2014, some of the top stories were [Ebola](http://vixandmore.blogspot.com/search/label/Ebola), [Ukraine](http://vixandmore.blogspot.com/search/label/Ukraine) vs. [Russia](http://vixandmore.blogspot.com/search/label/Russia), [crude oil](http://vixandmore.blogspot.com/search/label/crude%20oil), ISIS/ISIL, [the Fed](http://vixandmore.blogspot.com/search/label/FOMC) and the European Central Bank.  The posts below represent those that have been read by the highest number of unique readers during 2014\. Farther down there are links to similar lists going back to 2008, along with several other “best of” type posts that I have flagged for [archival](http://vixandmore.blogspot.com/search/label/archival) purposes.
+
+For the record, each year I also attach the [hall of fame](http://vixandmore.blogspot.com/search/label/hall%20of%20famehttp:/vixandmore.blogspot.com/2007/01/week-in-vix-january-7-2007-introduction.html) label to a handful of posts that I believe have particularly compelling and/or original content, regardless of readership. I was a tough grader last year, as I only added one new post to the HoF in 2014, but I already have an addition for 2015 and my goal is to continue to crank out Hall-of-Fame-worthy posts on a regular basis in 2015 – and even manage to do it without assistance provided by performance-enhancing drugs…
+
+With an increase in posting on the blog, I also foresee a substantial uptick in my activity on Twitter, where [@VIXandMore](https://twitter.com/VIXandMore) gives me a platform to contribute more in terms of time-sensitive news, short-term insights and other related subjects.
+
+The thirteen most-read posts on *VIX and More* in 2014 were:
+
+Related posts:
+
+***Disclosure(s):*** *none*
