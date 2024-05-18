@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:53:45
+-->
+
+# VIX and More: The Skinny on XVIX
+
+> 来源：[http://vixandmore.blogspot.com/2011/01/skinny-on-xvix.html#0001-01-01](http://vixandmore.blogspot.com/2011/01/skinny-on-xvix.html#0001-01-01)
+
+Of all the second generation [volatility-based exchange-traded products](http://vixandmore.blogspot.com/search/label/VIX%20ETN) that have been launched in the past few months, the one I find most intriguing is the [UBS E-TRACS Daily Long-Short VIX ETN](http://www.ibb.ubs.com/mc/etracs_US/vix_longshort.shtml), which I prefer to refer to by its ticker symbol [XVIX](http://vixandmore.blogspot.com/search/label/XVIX).
+
+XVIX combines a 100% long position in the S&P 500 VIX Mid-Term Futures Excess Return Index with a 50% short position in the S&P 500 VIX Short-Term Futures Excess Return Index. It is therefore the functional equivalent of a position consisting of two units long [VXZ](http://vixandmore.blogspot.com/search/label/VXZ) and one unit short [VXX](http://vixandmore.blogspot.com/search/label/VXX). This combined long-short position nets out with very little exposure to volatility in most market conditions. Instead, XVIX is almost entirely a [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) [term structure](http://vixandmore.blogspot.com/search/label/term%20structure)/[contango](http://vixandmore.blogspot.com/search/label/contango) play that increases in value when the slope of the VIX futures term structure is upward and/or getting steeper. On the other hand, XVIX comes under the most pressure when the slope of the VIX futures term structure is flattening or becoming downward sloping (i.e., entering into [backwardation](http://vixandmore.blogspot.com/search/label/backwardation).)
+
+While I was on a hiatus, [Volatility Futures & Options](http://onlyvix.blogspot.com/) put XVIX under a microscope in [De-constructing XVIX](http://onlyvix.blogspot.com/2011/01/de-constructing-xvix.html) and explored the historical data and the appeal of the 2:1 long-short ratio vis-à-vis a number of alternative ratios.
+
+As I see it, XVIX is almost a pure play on the VIX futures term structure. The historical data provided by UBS and analyzed in some detail by Volatility Futures & Options shows annual returns in the 10-25% range prior to 2010, with a maximum drawdown in the 10-15% range. Last year has to be considered an outlier, as the mean daily contango as calculated by my proprietary [VIX Futures Contango Index](http://vixandmore.blogspot.com/search/label/VIX%20Futures%20Contango%20Index) was 79, a huge premium over the lifetime average reading of 50 for this index. Not only was contango extreme in 2010, but it was also increasing for the majority of the year.
+
+The bottom line is that 2010’s performance (up 55%, with a 5% maximum drawdown) in XVIX is not likely to be repeated any time soon. Over the long term, I expect XVIX to revert to annual returns in the 10-25% range. In the short-term, however, there may be some more significant bumps in the road as the VIX futures term structure unwinds some of its extreme contango and returns to a more consistently flat term structure.
+
+Related posts:
+
+ ****Disclosure(s):*** *short VXX; long VXZ and XVIX at time of writing**

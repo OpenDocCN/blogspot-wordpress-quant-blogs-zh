@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:53:13
+-->
+
+# VIX and More: Chart of the Week: Flight to Safety ETPs
+
+> 来源：[http://vixandmore.blogspot.com/2011/02/chart-of-week-flight-to-safety-etps.html#0001-01-01](http://vixandmore.blogspot.com/2011/02/chart-of-week-flight-to-safety-etps.html#0001-01-01)
+
+It has already been an interesting year for students of market sentiment, volatility and geopolitical influences on financial markets. We have seen revolutions of various sizes and shapes in the likes of Tunisia, Egypt and Libya, with smaller uprisings in Bahrain, Algeria and elsewhere in North Africa and Middle East. For the most part, volatility in the equity markets has been rather muted prior to the Libyan revolution and its influence on [crude oil](http://vixandmore.blogspot.com/search/label/crude%20oil) prices.
+
+In this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week), I examine the year-to-date performance of five exchange-traded products (ETPs) that are central to the flight-to-safety trade. They include volatility ([VXX](http://vixandmore.blogspot.com/search/label/VXX)), gold ([GLD](http://vixandmore.blogspot.com/search/label/GLD)), oil ([USO](http://vixandmore.blogspot.com/search/label/USO)), the dollar ([UUP](http://vixandmore.blogspot.com/search/label/UUP)) and U.S. Treasuries ([TLT](http://vixandmore.blogspot.com/search/label/TLT)).
+
+Note that with the exception of crude oil, the political unrest in North Africa and the Middle East has not been disruptive enough to make these trades profitable ones in 2011, though there has been an uptick across the board since violence heated up in Egypt on January 25^(th) and in Libya starting on February 15^(th). The VXX chart does an excellent job of capturing the nature of the VXX gambit. Even with the geopolitical turmoil and spike in crude oil prices, this ETN is still down 16.2% on the year. The volatility spikes have provided VXX longs with very short-lived opportunities to capitalize on heightened market anxiety, with the chart reflecting the continued downward trend and high volatility in this ETN. *[As an aside, a similar chart swapping [VXZ](http://vixandmore.blogspot.com/search/label/VXZ) for VXX would show very little difference in terms of performance.]*
+
+So the next time you think about a long volatility position in the context of a geopolitical crisis, give some strong consideration to some alternative flight-to-safety plays.
+
+Related posts:
+
+![](img/c15d4083b59e62fd0b0df5b99bb49b0f.png)
+
+*[source: ETFreplay.com]*
+
+****Disclosure(s):*** *long VXZ, short VXX, USO and TLT at time of writing**
