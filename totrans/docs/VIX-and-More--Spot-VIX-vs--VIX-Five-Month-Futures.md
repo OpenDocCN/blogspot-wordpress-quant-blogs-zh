@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:03:09
+-->
+
+# VIX and More: Spot VIX vs. VIX Five Month Futures
+
+> 来源：[http://vixandmore.blogspot.com/2009/01/spot-vix-vs-vix-five-month-futures.html#0001-01-01](http://vixandmore.blogspot.com/2009/01/spot-vix-vs-vix-five-month-futures.html#0001-01-01)
+
+Tuesday I went the analogy route in [Thinking About the New VIX ETNs](http://vixandmore.blogspot.com/2009/01/thinking-about-new-vix-etns.html). Today I thought I should try the direct route and show a graph of the difference between the cash/spot VIX and the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) five months out.
+
+Keep in mind that the Barclays [VIX ETNs](http://vixandmore.blogspot.com/search/label/VIX%20ETN), which are scheduled to begin trading tomorrow, target constant weighted average futures maturities of one month ([VXX](http://vixandmore.blogspot.com/search/label/VXX)) and five months ([VXY](http://vixandmore.blogspot.com/search/label/VXY)). The methodology used to achieve the constant maturity involves the blending of different proportions of various futures maturities each day. The chart below is slightly different in that it utilizes VIX futures with five months to maturity, but only rolls the contract out once per month. Nevertheless, it provides a very good approximation of the difference between the cash/spot VIX and the VIX futures with five months to maturity. Apart from confirming the large difference between current volatility expectations and expectations 5 month out, the peaks and particularly the valleys in the differential between the VIX and VIX five month futures show a high degree of correlation to the peaks and valleys in the SPX during the same period.
+
+Something to think about, anyway, as the VIX ETNs near the starting gate.
+
+And yes, these principles are similar to what I have talked about at some length with respect to the [VIX:VXV](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) ratio. For the record, the VIX:VXV ratio sits at 0.976 as I type this, slightly bearish, but consistent with the tight range this ratio has been in over the course of the past month.
+
+![](img/470d783f9224cc53e42cfdbebe42f0bc.png)
+
+*[source: FutureSource.com]*
+
+ *For some additional perspective on the new VIX ETNs, check out:
+
+…and for those who may have missed it, I published some initial thoughts on VIX ETNs from the top bloggers over the weekend in [Barclays VIX ETNs Slated to Begin Trading on Friday](http://vixandmore.blogspot.com/2009/01/barclays-vix-etns-slated-to-begin.html).*

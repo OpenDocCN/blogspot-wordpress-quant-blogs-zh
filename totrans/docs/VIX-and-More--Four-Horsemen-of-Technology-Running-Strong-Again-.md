@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:03:57
+-->
+
+# VIX and More: Four Horsemen of Technology Running Strong Again?
+
+> 来源：[http://vixandmore.blogspot.com/2009/01/four-horsemen-of-technology-running.html#0001-01-01](http://vixandmore.blogspot.com/2009/01/four-horsemen-of-technology-running.html#0001-01-01)
+
+In this market, I find it hard to think of any stock as ‘running strong’ unless they are in the precious metals business, but strong can also be a relative term.
+
+Some stocks have held up better than others – and even shown considerable buying interest – over the course of the past few weeks and months. Four which stand out from the past are the so-called [Four Horsemen of Technology](http://vixandmore.blogspot.com/2007/10/four-generals-will-tell-story.html): Research in Motion ([RIMM](http://finance.google.com/finance?q=rimm)); Amazon ([AMZN](http://finance.google.com/finance?q=amzn)); Google ([GOOG](http://finance.google.com/finance?q=goog)); and Apple ([AAPL](http://finance.google.com/finance?q=aapl)).
+
+All four of these large cap tech generals have recently provided a positive earnings surprise, with the most recent surprise coming with Google yesterday afternoon. Had it not been for the Steve Jobs health issue, all four stocks would be crushing the S&P 500 index over the course of the past two months highlighted in the chart below. In fact, even with the Jobs issue, Apple is relatively even with the broad market index.
+
+Investors are wondering which stocks will provide [leadership](http://vixandmore.blogspot.com/search/label/leadership) in the next bull leg. My guess is that the next group of leaders will include one or more of these tech titans.
+
+![](img/1e09925e7ddfee05abc8f8f3ed0c25a9.png)
+
+*[source: BigCharts]*
+
+*Disclosure: Long GOOG at time of writing.*
