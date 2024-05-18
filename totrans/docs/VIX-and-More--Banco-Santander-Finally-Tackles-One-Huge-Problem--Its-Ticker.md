@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:32:51
+-->
+
+# VIX and More: Banco Santander Finally Tackles One Huge Problem: Its Ticker
+
+> 来源：[http://vixandmore.blogspot.com/2012/04/banco-santander-finally-tackles-one.html#0001-01-01](http://vixandmore.blogspot.com/2012/04/banco-santander-finally-tackles-one.html#0001-01-01)
+
+With [Spain](http://vixandmore.blogspot.com/search/label/Spain) firmly in the crosshairs of Act N+1 of the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis), it was with great comfort that I noted yesterday’s [announcement](http://finance.yahoo.com/news/banco-santander-changes-nyse-ticker-123900425.html) from Spain’s largest and most important bank, Banco Santander ([STD](http://vixandmore.blogspot.com/search/label/STD)), that the company was finally addressing what I considered to be a seriously overlooked problem, its ticker symbol. After kicking the can down the road for what must have been countless meetings and conference calls, the marketing and PR people can finally claim a small victory now that Banco Santander has indicated it will change the NYSE ticker symbol of its American Depositary Shares from “STD” to “SAN” effective at the commencement of trading on June 14, 2012.
+
+In the meantime, traders continue to favor STD puts and puts from Spain’s second largest bank, Banco Bilbao Vizcaya Argentaria ([BBVA](http://vixandmore.blogspot.com/search/label/BBVA)), both of which have a more liquid options market than that of Spain’s ETF, [EWP](http://vixandmore.blogspot.com/search/label/EWP).
+
+The top chart below shows put activity (red columns in bottom section of graph) ramping up in STD over the course of the last two weeks or so. The lower chart, however, puts recent options activity in the context of the August-October peak in the sovereign debt crisis, with a graphic that dates from July 1, 2011 and shows peak put activity (28.791 contracts per day) and implied volatility (111) dating from the week of August 4 – August 11, 2012.
+
+As far as options traders are concerned, the current situation, while fraught with potential land mines, still pales in comparison to the challenges on the horizon six months ago.
+
+Of course a new ticker won’t help address the underlying problems facing Banco Santander and Spain as a whole, but at least it might cut down on the snickers…
+
+*[VIX and More occasionally tilts at humor.  For more on these efforts, check out posts with the “[lighter side](http://vixandmore.blogspot.com/search/label/lighter%20side)” label.]*
+
+Related posts:
+
+*![](img/e27643309c7c06e5eb6faac4c65526f5.png)*
+
+*![](img/995d89ba3ee83a6a251ef9325c3e102d.png)*
+
+*[source(s): LivevolPro.com]*
+
+***Disclosure(s):*** *short STD and BBVA at time of writing*
