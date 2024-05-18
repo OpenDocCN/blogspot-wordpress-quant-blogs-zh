@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:48:49
+-->
+
+# VIX and More: McMillan on Interest Rate Moves Preceding Volatility
+
+> 来源：[http://vixandmore.blogspot.com/2008/01/mcmillan-on-interest-rate-moves.html#0001-01-01](http://vixandmore.blogspot.com/2008/01/mcmillan-on-interest-rate-moves.html#0001-01-01)
+
+Interesting fodder for further contemplation, from options guru Larry McMillan in Barron's: [Volatility Likely to Remain High in 2008](http://online.barrons.com/article/SB119915343827260141.html?mod=googlenews_barrons).
+
+The article is much more interesting that the title might suggest and discusses a 'theory' that short-term interest rates precede volatility by 2 1/2 years. While this sounds like a stretch to me, if you believe the theory, then the VIX should be topping in early 2009 -- which just happens to be about the time suggested by some of my [VIX macro cycle](http://vixandmore.blogspot.com/search/label/VIX%20macro%20cycles) work. Certainly worth a click through for the curious...
