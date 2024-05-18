@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:26:54
+-->
+
+# VIX and More: VIX Spikes and the 2002 Market Bottom
+
+> 来源：[http://vixandmore.blogspot.com/2008/09/vix-spikes-and-2002-market-bottom.html#0001-01-01](http://vixandmore.blogspot.com/2008/09/vix-spikes-and-2002-market-bottom.html#0001-01-01)
+
+With the VIX spiking over 30 this morning and investors wondering if the markets will ever find a bottom, this seems like a good time to talk about [VIX spikes](http://vixandmore.blogspot.com/search/label/VIX%20spikes) and [market bottoms](http://vixandmore.blogspot.com/search/label/market%20bottoms). Specifically, I want to dispel the myth that bear markets have to end in some grand [capitulation](http://vixandmore.blogspot.com/search/label/capitulation) climax that includes a dramatic volatility spike.
+
+A perfect counter example to the VIX spike requirement can be found in the bear market that followed the NASDAQ boom which crested in March 2000\. In fact, with the exception of the current bear market, the 2000-[2002](http://vixandmore.blogspot.com/search/label/2002) bear market is the only bear market since the launch of the VIX back in 1993 or the historical reconstruction of VIX data by the CBOE that dates back to 1990.
+
+Rather than use the SPX and the VIX to demonstrate my point, the chart below uses the NASDAQ-100 index ([NDX](http://vixandmore.blogspot.com/search/label/NDX)) and its companion volatility index, the [VXN](http://vixandmore.blogspot.com/search/label/VXN). The reason I chose the NDX is that from the March 24, 2000 peak (4816.35) to the October 8, 2002 bottom (795.25), the NDX lost an astonishing 83.5% of its value. If there was ever an opportunity to witness a dramatic drop and capitulation, this was the market and index in which to see it happen.
+
+If one looks at a chart of the NDX and the VXN for the period 2000-2002, five distinct VXN spikes stand out. I have highlighted these with a blue vertical line for easy reference in the chart below. It turns out that those who went long at the time of these volatility spikes saw anywhere from two weeks of a bounce to several months of mostly sideways action. None of these spikes signaled a lasting market bottom.
+
+When the NDX finally hit bottom (marked by the red vertical line and arrow), the VXN barely moved at all. Yes, the nastiest bear market of the last two decades ended with a volatility whimper. I like to call this type of bottoming action a "[stealth bottom](http://vixandmore.blogspot.com/search/label/stealth%20bottom)."
+
+Capitulation comes in all shapes in sizes. Most bottoms are marked by a VIX spike. If, however, you assume that volatility spikes will mark the bottoms and bottoms cannot form without a VIX spike, you will be overlooking an important lesson from perhaps the most important recent bear market.
+
+![](img/9bd3c2c4bfb503d235dbcbeafec91def.png)
+
+[source: StockCharts, VIX and More]
