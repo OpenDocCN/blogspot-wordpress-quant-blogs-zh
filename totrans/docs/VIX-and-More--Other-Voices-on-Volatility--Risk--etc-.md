@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:49:48
+-->
+
+# VIX and More: Other Voices on Volatility, Risk, etc.
+
+> 来源：[http://vixandmore.blogspot.com/2007/12/other-voices-on-volatility-risk-etc.html#0001-01-01](http://vixandmore.blogspot.com/2007/12/other-voices-on-volatility-risk-etc.html#0001-01-01)
+
+![](img/25c0eb4edf0ff33343ed17f6ada25cba.png)One of the advantages of living in <state st="on"><place st="on">California</place></state> is that by the time I wipe the sleep out of my eyes and stare at the computer screen for the first time each morning, bloggers from time zones to the east of me have already digested information I haven’t even seen yet and drawn their own conclusions.  In many instances, this allows me to cherry pick what I think is important to ponder without having to boil the ocean along with a couple of eggs before the market opens.  This particular morning, five related items are among those that are most prominent in my deliberations:

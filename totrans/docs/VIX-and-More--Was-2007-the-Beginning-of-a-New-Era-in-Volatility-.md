@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:49:56
+-->
+
+# VIX and More: Was 2007 the Beginning of a New Era in Volatility?
+
+> 来源：[http://vixandmore.blogspot.com/2007/12/was-2007-beginning-of-new-era-in.html#0001-01-01](http://vixandmore.blogspot.com/2007/12/was-2007-beginning-of-new-era-in.html#0001-01-01)
+
+From the chart below, it certainly looks as if 2007 was the beginning of a new [volatility macro cycle](http://vixandmore.blogspot.com/search/label/VIX%20macro%20cycles).  It also looks as if the rate of change in volatility over the course of 2007 is unsustainable going forward – or at least inconsistent with the slope of volatility macro cycles during previous cycles.  I am not going to make a specific long-term [volatility forecast](http://vixandmore.blogspot.com/search/label/volatility%20forecast) for 2008, but it would not surprise me if volatility flattened out in the low to mid-20s range in much the same manner that it did from late 1998 to early 2002.
+
+While VIX macro cycles are somewhat dependent upon a subjective determination about the beginning and ending dates for each cycle, it should be noted that these cycles tend to last a minimum of two years, suggesting that the current rise in volatility should persist through all of 2008, even if the rate of rise in volatility begins to slow.
+
+The evolution of the current macro cycle will undoubtedly be a big story to watch in 2008; *VIX and More* has a front row seat to watch the action and provide the play-by-play and color commentary as appropriate.

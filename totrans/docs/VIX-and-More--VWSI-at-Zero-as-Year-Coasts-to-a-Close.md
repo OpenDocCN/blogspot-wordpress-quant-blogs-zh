@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:49:17
+-->
+
+# VIX and More: VWSI at Zero as Year Coasts to a Close
+
+> 来源：[http://vixandmore.blogspot.com/2007/12/vwsi-at-zero-as-year-coasts-to-close.html#0001-01-01](http://vixandmore.blogspot.com/2007/12/vwsi-at-zero-as-year-coasts-to-close.html#0001-01-01)
+
+A year ago, the VIX stood at 11.56.  Last week it ended the week at 20.74, up 79%.  Of course, in the absence of a [VIX ETF](http://vixandmore.blogspot.com/search/label/VIX%20ETF) (or ETN), it was almost impossible for volatility aficionados to capture that 79% gain.
+
+For the moment, at least, things seem to be quiet on the volatility front.  Last week the VIX gained 2.27 points (12.3%) to bring the index to a level just 0.17 below the 10 day simple moving average and 0.93 below the 20 day SMA.  Partly because of this, the VWSI is back at zero and indicating no directional bias for the beginning of 2008.
+
+As is my weekly custom, for a survey of the best in current thinking about the markets, Barry Ritholtz at [The Big Picture](http://bigpicture.typepad.com/) sums up the week that was and the week that will be in his [New Year’s Linkfest](http://bigpicture.typepad.com/comments/2007/12/new-years-linkf.html).
+
+Finally, as volatility tends to run in 2-4 year cycles, it is appropriate to ask whether the 79% gain in the VIX in 2007 marks the beginning of a [new volatility macro cycle](http://vixandmore.blogspot.com/search/label/VIX%20macro%20cycles).  In spite of the historical precedent, I am on the record as saying that the [most likely volatility scenario](http://vixandmore.blogspot.com/2007/12/was-2007-beginning-of-new-era-in.html) for 2008 is a VIX in the low to mid-20s.
+
+*(Note that in the above temperature gauge, the "bullish" and "bearish" labels apply to the VIX, not to the broader markets, which are usually negatively correlated with the VIX.)*
+
+ *****Wine pairing:***  For a VWSI of zero, I began the year recommending some [Rhone blends](http://vixandmore.blogspot.com/search/label/Rhone%20blend) and later expanded the category to include any [expensive blend](http://vixandmore.blogspot.com/search/label/inexpensive%20blend).  For 2007, I will close out the year with my two favorite inexpensive blends: the $8 Oakley Five Reds (the 2003 vintage is a blend of 41% syrah, 27% zinfandel, 22% petite sirah, 10% [alicante bouschet](http://www.winepros.org/wine101/grape_profiles/alicante.htm), and 1% mourvedre from [Cline Cellars](http://www.clinecellars.com/)); and the 2005 vintage of The Hermit Crab from [D’Arenberg](http://www.blogger.com/70%25%20viognier%20and%2030%25%20marsanne), a delicious $13 blend of 70% viognier and 30% marsanne.**
