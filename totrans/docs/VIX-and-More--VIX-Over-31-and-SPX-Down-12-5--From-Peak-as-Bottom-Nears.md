@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:49:33
+-->
+
+# VIX and More: VIX Over 31 and SPX Down 12.5% From Peak as Bottom Nears
+
+> 来源：[http://vixandmore.blogspot.com/2011/08/vix-over-31-and-spx-down-125-from-peak.html#0001-01-01](http://vixandmore.blogspot.com/2011/08/vix-over-31-and-spx-down-125-from-peak.html#0001-01-01)
+
+Calling [bottoms in the stock market](http://vixandmore.blogspot.com/search/label/market%20bottoms) is part art and part science, but with the VIX closing over 31 today (up 35.4% to a close of 31.66) and the S&P 500 index having fallen 12.5% peak to trough from its early May high, the markets are likely nearing a bottom. Given that the SPX closed right at 1200, just above the intraday low, it is unreasonable to expect that a bottom is already in the books, but with today’s plunge, the process of finding a bottom has already begun.
+
+Sure the problems with the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis) seem to be at least one step ahead of the European Central Bank and there are widespread signs that economic growth is slowing across the globe, but a number of market sentiment indicators and technical factors suggest that the selloff in the past week has been overdone and way too emotional, perhaps with a healthy dose of forced selling in the mix. For some perspective, ask yourself just how bad tomorrow’s jobs number will have to be to prevent at least a relief rally from starting tomorrow.
+
+As the table of SPX pullbacks below illustrates, the current selloff is the second sharpest in terms of magnitude since the bull market began in March 2009\. It is now the longest in terms of duration, spanning 66 trading days since the high of SPX 1370.
+
+Those who want to initiate new long positions in this environment may wish to limit risk by using options (long calls, bull call spreads, bull put spreads, etc.), but the time has come for the contrarian in the asbestos suit to start at least nibbling on the long side. Those with a more cautious demeanor may prefer to wait for some better evidence of a technical bottom and perhaps even a confirmation of that bottom, but while buying at current prices may risk being a little early, there is also a good chance that today’s sale prices will not be around for long.
+
+[![](img/26047fa704d4e4022cec1e97cdc95ce1.png)](http://i104.photobucket.com/albums/m163/bl82/SPXPullbackTable080411EOD.gif)*[On a personal note, this blog has been quiet for a while as family matters, a vacation and three new computers have competed for my attention. With volatility back on the front page, I will be posting again on a daily basis (at least) in order to offer my perspective on the current spike in volatility, some of its causes and the implications for trading.]*  ****Disclosure(s):** none**
