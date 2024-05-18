@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:54:02
+-->
+
+# VIX and More: CBOE Introduces New Benchmark Index - CBOE S&P 500 VARB-X Strategy Benchmark Provides Performance Measure for Volatility Arbitrage Trading
+
+> 来源：[http://vixandmore.blogspot.com/2007/03/cboe-introduces-new-benchmark-index.html#0001-01-01](http://vixandmore.blogspot.com/2007/03/cboe-introduces-new-benchmark-index.html#0001-01-01)
+
+I normally don't like to quote press releases, but I found the CBOE’s [announcement](http://www.exchange-handbook.co.uk/index.cfm?section=news&action=detail&id=65699) of a new benchmark index for selling volatility to be particularly interesting:
+
+*“The Chicago Board Options Exchange (CBOE) today announced that it will begin publishing a new benchmark index, the CBOE S&P 500 VARB-X Strategy Benchmark (VTY) on Friday, March 16, 2007\. The new index tracks the performance of a hypothetical volatility arbitrage trading strategy designed to capitalize on the historical difference between S&P 500 Index (SPX) option implied volatility and the realized, or historical, volatility of the S&P 500 Index.*
+
+ **…The CBOE S&P 500 VARB-X ("Volatility ARBitrage") Strategy Benchmark tracks the performance of a simulated trading strategy that systematically sells Three-Month Volatility Futures* and holds the short position through expiration. The value of the benchmark is calculated from the profit or loss on the short futures position, plus the interest income derived from the available capital used to finance the portfolio.”*
+
+The CBOE has a [strategy paper](http://www.cboe.com/micro/vty/cboevarbxbenchmark.pdf) that spells out the details of this benchmark index and the underlying strategy.  You can find more information at the [CBOE VARB-X site](http://www.cboe.com/micro/vty/introduction.aspx).  A graphic of the back-tested performance of this strategy over the past 32 months is below:
+
+[![](img/31fbcf3ba34055ffffc6e874ef1ae36c.png)](http://i104.photobucket.com/albums/m163/bl82/VARB-X04-07.gif)*

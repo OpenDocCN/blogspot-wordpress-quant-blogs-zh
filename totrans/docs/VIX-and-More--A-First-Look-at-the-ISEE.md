@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:53:15
+-->
+
+# VIX and More: A First Look at the ISEE
+
+> 来源：[http://vixandmore.blogspot.com/2007/03/first-look-at-isee.html#0001-01-01](http://vixandmore.blogspot.com/2007/03/first-look-at-isee.html#0001-01-01)
+
+I briefly touched upon the ISEE [yesterday](http://vixandmore.blogspot.com/search/label/ISEE); and while the [ISE web site](http://www.iseoptions.com/marketplace/statistics/sentiment_index.asp) has a nice little [graph of the ISEE](http://i104.photobucket.com/albums/m163/bl82/ISEE031607.gif) going back a year, it is probably not sufficient to answer even the more casual questions about the usefulness of the index.  Fortunately, the ISE has data going back to October 2002 available to download so that you can conduct your own analysis…or you can just keep reading.
+
+For now I’m going to skip over the details of the debate about the usefulness of put to call ratios to help call market turns.  If you want to do some research on this indicator, a good place to start would be [Bill Rempel](http://www.billakanodoodahs.com/)’s “[The Significance of the Equity Put to Call Ratio](http://www.marketthoughts.com/z20050728.html)” commentary at [MarketThoughts.com](http://www.marketthoughts.com/index.html).
+
+Suffice it to say that I believe that it is worth the effort to watch this contrarian sentiment indicator and suggest that a good place to do so is the [SchaeffersResearch.com](http://www.schaeffersresearch.com/) page that graphs the [CBOE equity (non-index) put to call ratio](http://www.schaeffersresearch.com/streetools/market_tools/cboe_eqpcr.aspx).  You can create your own CBOE put to call charts at [Stockcharts.com](http://stockcharts.com/) using [$CPCE](http://stockcharts.com/charts/gallery.html?%24cpce) as the equity put to call ticker, [$CPCI](http://stockcharts.com/charts/gallery.html?%24cpci) for the index put to call ticker, and [$CPC](http://stockcharts.com/charts/gallery.html?%24cpc) for the total equity + index data.
+
+The ISEE is actually a call to put ratio based entirely on purchases of calls and puts in which a customer is opening a position through the ISE itself.  For more details and a testimonial of sorts I recommend a [Wall Street Journal article](http://www.iseoptions.com/market_data/ISEE_WSJ_110705.pdf) by Mohammed Hadi.
+
+What do the ISEE data look like?  I have graphed the 10, 20 and 100 day SMAs going back to 2002.  They show a mean of 154, with obvious extreme readings falling conveniently at round numbers: below 100 and above 200.  As a contrarian indicator, a reading of 100 or below is a good cutoff for overly bearish sentiment and a high likelihood of a bullish move ahead; 200 signals extreme bullishness and an increased chance of a bearish turn in the markets in the near future.  In many respects, a high ISEE number is a lot like a low VIX number and vice-versa.
+
+[![](img/27287e5a73aacce8b06d075cdd0823b7.png)](http://i104.photobucket.com/albums/m163/bl82/ISEESMAs031907.gif)
+
+Turning to the ISEE as a predictor of future market performance, this is a subject that I will come back to regularly in this space, but for now I have posted a graph of the SPX and the 10 day SMA of the ISEE for the period 10/1/02 to 3/19/07.  Note that the four largest spikes in the ISEE all preceded significant moves down in the SPX; also, low ISEE readings frequently marked the beginning of bullish moves.
+
+Before wrapping up this subject for today, I will leave the reader with one last thought:  the lowest 10 day SMA ever recorded for the ISEE was an 87.00 last Thursday.
+
+[![](img/8ecaab06e5a51b0109352fd93bb26344.png)](http://i104.photobucket.com/albums/m163/bl82/ISEE-SPX031907.gif)
