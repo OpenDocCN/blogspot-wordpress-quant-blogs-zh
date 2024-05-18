@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:24:45
+-->
+
+# VIX and More: Ratio of VIX to Realized Volatility Higher Than Any Year Since 1996
+
+> 来源：[http://vixandmore.blogspot.com/2012/10/ratio-of-vix-to-realized-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2012/10/ratio-of-vix-to-realized-volatility.html#0001-01-01)
+
+Before I dive into a series of posts about the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures), I think it is important to add some context in the form of several observations about the relationship between the VIX and the [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) (HV) of the S&P 500 index. In the absence of any information about the future, it turns out that historical volatility (a.k.a. [realized volatility](http://vixandmore.blogspot.com/search/label/realized%20volatility) or statistical volatility) can provide a reasonably accurate measure of future volatility. In fact, it is more difficult than one might imagine to incorporate information about the future to come up with a better estimate of future volatility than what can be gleaned just by extrapolating from recent realized volatility.
+
+Looking at historical data, the VIX has an established history of overestimating future realized volatility. In fact, in the 23 years of VIX historical data, there was only one year – 2008 – in which realized volatility turned out to be higher than that which was predicted by the VIX.
+
+As the chart below shows, early traders made a habit of dramatically overestimating future volatility. From 1990-1996, for instance, the VIX overshot realized volatility by an average of 49%. Since 1997, the magnitude of that overshoot has dropped dramatically, to about 24%, as investors apparently began to realize that they had been overpaying for portfolio protection in particular and for options in general.
+
+![](img/0873dd8fac6fca2d0cf4b6c9bb5c549b.png)
+
+*[source(s): CBOE, Yahoo]*
+
+That being said, 2012 has been an unusual instance in which the VIX has overestimated 10-day historical volatility in the SPX by 47% – the biggest cushion since 1996\. Not surprisingly, low realized volatility tends to depress the VIX and the front end of the VIX futures [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) in general. For that reason, the unusually low average 10-day historical volatility of 12.25 experienced so far in 2012 can serve as a partial explanation for the steepness of the VIX futures term structure (extreme [contango](http://vixandmore.blogspot.com/search/label/contango)) yet given the history of even lower volatility numbers during 2004-2007, the low historical volatility for 2012 is at best a very small portion of the full explanation. Two better potential explanations for the steep VIX futures term structure are the psychology of the 2008 financial crisis and its aftermath (i.e., [disaster imprinting](http://vixandmore.blogspot.com/search/label/disaster%20imprinting), [availability bias](http://vixandmore.blogspot.com/search/label/availability%20bias), the recency effect, etc.) and expectations of future higher volatility due to a geopolitical and macroeconomic overhang that has generated a much higher level of anxiety about future prospects than in more uneventful economic times. Then, of course, there is the issue of the role of mushrooming growth in VIX exchange-traded products as an influence on the VIX futures term structure.
+
+Before I address those issues in more detail, however, the next installment in this series is a discussion of the evolution of the VIX futures term structure.
+
+Related posts:
+
+***Disclosure(s):*** *none*
