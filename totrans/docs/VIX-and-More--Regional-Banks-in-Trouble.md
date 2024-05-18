@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:00:26
+-->
+
+# VIX and More: Regional Banks in Trouble
+
+> 来源：[http://vixandmore.blogspot.com/2009/02/regional-banks-in-trouble.html#0001-01-01](http://vixandmore.blogspot.com/2009/02/regional-banks-in-trouble.html#0001-01-01)
+
+While the first six weeks of 2009 have seen pockets of bullishness in stocks, one sector that has been notably absent from the occasional bursts of buying activity has been financials. Within the financial sector, the weakest of the weak has been regional banks, which will see little in the way of benefits from TARP 2.0 and stand to lose a great deal if the consumer credit crisis continues to deepen, as almost everyone now expects will be the most likely scenario.
+
+In the three month chart below, you can see that since the beginning of the year, the S&P 500 index has given up about half of the gains it has made since the November 21^(st) bottom. The regional banks, on the other hand (represented here by [KRE](http://finance.yahoo.com/q?s=KRE), an ETF), have fallen sharply below their November lows and are now even below the lower lows of January and early February.
+
+There is little doubt that regional and local banks have huge fundamental challenges ahead of them. I have seen estimates that 10% or more may even fail before the economy can be nursed back to health.
+
+If regional banks continue to reflect deteriorating valuations, I find it hard to believe that the broader market will be able to shake off this concern and manage a significant rally. At the very least, I would expect the market to be no better than range bound at least until the stocks of regional banks can be taken off of life support.
+
+![](img/771d814fd7ec4435302f495bfaeed319.png)
+
+*[source: BigCharts]*
