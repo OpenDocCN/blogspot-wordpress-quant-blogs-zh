@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:56:54
+-->
+
+# VIX and More: Market Psych Offers Language-Based Fear Index
+
+> 来源：[http://vixandmore.blogspot.com/2010/12/market-psych-offers-language-based-fear.html#0001-01-01](http://vixandmore.blogspot.com/2010/12/market-psych-offers-language-based-fear.html#0001-01-01)
+
+Aside from the VIX, there are quite a few [fear](http://vixandmore.blogspot.com/search/label/fear) indices out there. Just a couple of months ago, for example, I was extolling the virtues of the [St. Louis Fed’s Financial Stress Index](http://vixandmore.blogspot.com/2010/09/st-louis-feds-financial-stress-index.html).
+
+One of the more interesting ones that I have not seen get much in the way of media attention is the [Market Psych Fear Index](http://www.marketpsych.com/mkt_analysis.php). This index is constructed by using a 10-day exponential moving average of the percentage of “fear” words in the U.S. financial news. In the chart below, the Market Psych Fear Index is the solid blue line and the candlesticks are the NASDAQ-100 index ([QQQQ](http://vixandmore.blogspot.com/search/label/QQQQ)).
+
+As the construction of this fear index is based on language in the financial media, the fear index makes it possible to compare market-based fear measures such as the VIX and other volatility indices with the degree of public concern or perhaps even fear mongering found in the media.
+
+One would expect that the Market Psych Fear Index and stocks to generally move in opposite directions, just as is the case with the VIX and stocks. While this is the case more often than not, the chart below shows that in the last month or so, as stocks have been rising, the movements in stocks and the Market Psych Fear Index have been positively correlated. What does this mean? Perhaps all the talk of the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis) and North Korean aggression is starting to wear thin. Perhaps the media is not quite able to stir up fear like it has in the past. Of course, perhaps Occam’s razor would say that investors are being naïve.
+
+In any event, [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) are predicting that the VIX will rise almost 50% by the middle of 2011.
+
+At a minimum, I think the divergence between market-based and language-based fear indicators bear further watching.
+
+Finally, the [Market Psych web site](http://www.marketpsych.com/) has some interesting content, not the least of which is sentiment-based analysis of [stocks](http://www.marketpsychadvisor.com/vitalsigns?ticker=C) and [ETFs](http://www.marketpsychadvisor.com/vitalsignssector?ticker=SPY), but also an excellent collection of [free personality tests](http://www.marketpsych.com/personality_test.php) for traders and investors.
+
+Related posts:
+
+![](img/5a8afcd7588eca1e5eff256d87afac4d.png)
+
+*[source: MarketPsych.com]* 
+
+***Disclosure(s):*** *neutral position in VIX via options at time of writing*
