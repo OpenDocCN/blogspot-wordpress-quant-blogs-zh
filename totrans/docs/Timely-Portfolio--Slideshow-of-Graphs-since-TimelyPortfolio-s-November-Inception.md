@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:13:42
+-->
+
+# Timely Portfolio: Slideshow of Graphs since TimelyPortfolio’s November Inception
+
+> 来源：[http://timelyportfolio.blogspot.com/2011/06/slideshow-of-graphs-since.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/06/slideshow-of-graphs-since.html#0001-01-01)
+
+I have had a lot of fun blogging at Timely Portfolio over the last 7 months.  Here are all the graphs that I have shown.  Thanks especially to R.
+
+<embed type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" flashvars="host=picasaweb.google.com&amp;hl=en_US&amp;feat=flashalbum&amp;RGB=0x000000&amp;feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2Fkentonlrussell%2Falbumid%2F5571414207442318289%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer">
