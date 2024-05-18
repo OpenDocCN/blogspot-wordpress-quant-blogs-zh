@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:01:30
+-->
+
+# VIX and More: VIX Sets Two New Records
+
+> 来源：[http://vixandmore.blogspot.com/2010/10/vix-sets-two-new-records.html#0001-01-01](http://vixandmore.blogspot.com/2010/10/vix-sets-two-new-records.html#0001-01-01)
+
+It is not every day that the VIX establishes some sort of new all-time record and it is rarer still that the volatility index sets two different records on consecutive days, but such has been the case at the beginning of this week.
+
+The first record, established on Monday, was in the [VIX:VXV ratio](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) – a subject that I covered on a regular basis in the first year or so following the launch of [VXV](http://vixandmore.blogspot.com/search/label/VXV), which is essentially a *93 day* version of the VIX and whose formal name is the CBOE S&P 500 3-Month Volatility Index.
+
+Long-time readers will recall that for the first year after VXV was launched, the VIX:VXV ratio performed flawlessly (see [VXV Is One Year Old](http://vixandmore.blogspot.com/2008/11/vxv-is-one-year-old.html).) In a post-Lehman world, however, the VIX:VXV ratio has been inconsistent as the persistent extreme [contango](http://vixandmore.blogspot.com/search/label/contango) has made the ratio more difficult to calibrate. I have been doing some work on this, however, and will share some of my thinking about how to tweak this ratio going forward.
+
+The latest record, established today, is in my proprietary [VIX Futures Contango Index](http://vixandmore.blogspot.com/search/label/VIX%20Futures%20Contango%20Index). I spelled out some of my thinking about the epic disconnect between the cash/spot VIX and the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) in a post a month ago with the title of [VIX Futures: What Are/Were They Thinking?](http://vixandmore.blogspot.com/2010/09/vix-futures-what-wereare-they-thinking.html)
+
+In the end, the VIX:VXV ratio and the VIX Futures Contango Index both measure different aspects of the same phenomenon: how much current volatility readings vary from future market volatility estimates. I do believe that when estimates of near-term and long-term volatility show a record degree of divergence, some considerable opportunities are presented. As I have spelled out in a number of instances lately, my thinking has been that the back month volatility will likely collapse in order to bring the present and the future back into line. There has been some evidence of that happening during the past two days, but I anticipate that long-term volatility expectations will continue to decline.
+
+On a related note, [VXX](http://vixandmore.blogspot.com/search/label/contango) has made a new all-time low six days in a row and counting...
+
+Related posts:
+
+![](img/153744867a232d473b28db71aa4e3ea7.png)
+
+*[source: StockCharts.com]*
+
+***Disclosure(s):*** *neutral position in VIX via options at time of writing*
