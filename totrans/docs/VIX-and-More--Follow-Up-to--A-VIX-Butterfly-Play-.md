@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:59:11
+-->
+
+# VIX and More: Follow Up to “A VIX Butterfly Play”
+
+> 来源：[http://vixandmore.blogspot.com/2009/02/follow-up-to-vix-butterfly-play.html#0001-01-01](http://vixandmore.blogspot.com/2009/02/follow-up-to-vix-butterfly-play.html#0001-01-01)
+
+Someone asked me to explain how the [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options) trade I outlined yesterday in [A VIX Butterfly Play](http://vixandmore.blogspot.com/2009/02/vix-butterfly-play.html) turned out. I will try to keep the explanation short.
+
+The original trade, which I described yesterday morning when the VIX was trading at 50.04, was as follows:
+
+*   long 10 VIX Feb 45 calls
+*   short 20 VIX Feb 50 calls
+*   long 10 VIX Feb 55 calls
+
+To review, yesterday was the last trading day in VIX February options and today the VIX February contract exercise-settlement value was fixed at a special opening quotation ([SOQ](http://vixandmore.blogspot.com/search/label/VIX%20SOQ)) of the VIX that was based off of the SPX *March* options series. Today’s SOQ (ticker [VRO](http://vixandmore.blogspot.com/search/label/VRO)) was 48.40, which was 0.26 below yesterday's VIX close.
+
+*[Note that the reason the VIX has its own [options expiration calendar](http://www.theocc.com/publications/xcal/xcal2009.pdf) is that VIX options settle 30 days prior to the [options expiration](http://vixandmore.blogspot.com/search/label/options%20expiration) date for SPX options in the subsequent month.]*
+
+To summarize, the profit zone for this trade was a VIX of 46.80 - 53.20, with the trade breaking even at the extremes of the range. The maximum profit was at a VIX of 50.00.
+
+With a 10/20/10 position, the maximum potential profit for this trade was $3200; the maximum potential loss (with a VIX either at 45 or below or at 55 or above) was $1800\. At 48.40, the VIX just happened to close exactly halfway between the maximum gain and the break even area. As a result, the trade gained half of the maximum potential profit, or $1600\. Of course these profit and loss numbers are based on a position involving 40 calls (10/20/10). I consider that to be a 10 unit trade. With the accounting on an individual unit basis (long 1, short 2, long 1), the profit would have been $160 per unit.
+
+In one sense, this type of trade is a pure gamble on volatility, but when volatility is unusually high, as it was last night, the profit zone can be large enough to make it a positive expectation trade, depending on one's forecast of overnight volatility.
