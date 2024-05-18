@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:47:57
+-->
+
+# VIX and More: Can the Markets Bottom Without a VIX Spike?
+
+> 来源：[http://vixandmore.blogspot.com/2008/01/can-markets-bottom-without-vix-spike.html#0001-01-01](http://vixandmore.blogspot.com/2008/01/can-markets-bottom-without-vix-spike.html#0001-01-01)
+
+![](img/604c6f9c597ff5594d4a8b462afe605b.png)Back in November, in [Not a Lot of Fear or Volatility Lately](http://vixandmore.blogspot.com/2007/11/not-lot-of-fear-or-volatility-lately.html), I cautioned, “despite what you read elsewhere, not all market bottoms require a high volume capitulation session, with an accompanying VIX spike.”
+
+Of course, that claim immediately triggered a request for me to back up my claim with some data: *Could you describe or show an example of a major bottom without a volume and or VIX spike?*
+
+For the benefit of those who do not always read the comments section, I am reprinting my response in full, as it may shed some light on current market conditions.
+
+*I knew I should have had the answer handy before the inevitable question showed up -- and the ink wasn't even dry on my post yet...
+
+OK, since StockCharts.com only has SPX weekly volume going back to 10/98 and since I'm more interested (generally) in the VIX than in SPX volume, I looked at the VIX and SPX on a weekly basis going back to 1990, which is as far back as VIX data goes, and here is my thinking:
+
+A) Classic capitulation (VIX spikes at least 2x above previous levels and volume surges) bottoms appear in Aug-Dec 1991, Mar 1994, Aug 1998, Sept 2001, and July 2002\. More recent instances include May-Jul 2006, Feb-Mar 2007, and Aug 2007.
+
+B) Bottoms that lack a significant VIX spike (in the area of 2x above previous levels) include Jul-Sept 1996, Mar 1997, Mar 2001, and Sept-Oct 2002\. More recent examples include Mar-Aug 2004 (one bottom or three mini-bottoms), Aug 2005, and October 2005\. I am not ruling out the current [November 27, 2007] environment as another one of these 'uneventful bottoms.'
+
+Note that "major bottoms" may mean one thing to one person and other to someone else. I'd be tempted to argue that the only major bottoms we've had since the VIX data begins are 1990 and 2002 -- so the bottoms above are necessarily more of the intermediate and long-term variety.*
+
+ *So the answer to the question posed in the title is a hearty, “Of course they can!”  As a matter of fact, I expect the current downtrend will likely end without the VIX spiking even close to twice the recent levels.*
