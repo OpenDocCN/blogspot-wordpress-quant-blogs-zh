@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:05:03
+-->
+
+# VIX and More: Today’s Jump in the VIX Futures Term Structure
+
+> 来源：[http://vixandmore.blogspot.com/2010/08/todays-jump-in-vix-futures-term.html#0001-01-01](http://vixandmore.blogspot.com/2010/08/todays-jump-in-vix-futures-term.html#0001-01-01)
+
+When we see a large [VIX spike](http://vixandmore.blogspot.com/search/label/VIX%20spikes), I invariably see a similar spike in emails with the theme of “Are we there yet?” Naturally, investors want to know how far the VIX is likely to move, when the markets should be expected to reverse and whether they should trade with the rising VIX or against it.
+
+These are all great questions and for the most part, the answers are not as simple as just plugging the current data into a spreadsheet and having it spit out something like another 2.16 points, 1.5 days and ‘start fading the VIX 45 minutes after tomorrow’s open…’
+
+What is possible is to look at prior VIX spikes and understand some statistical tendencies. The more difficult part is to put VIX spikes in an overall context and answer questions such as whether the market had been trending up or trending down, whether the proximate cause of the selloff in stocks is geopolitical, macroeconomic, technical or whatever. (See [Forces Acting on the VIX](http://vixandmore.blogspot.com/2009/07/forces-acting-on-vix.html) for a laundry list of potential influences on volatility.) Combining the art of context with the science of statistics, we are now on the doorstep of the dark art of [forecasting volatility](http://vixandmore.blogspot.com/search/label/volatility%20forecast).
+
+The best place to start when evaluating the current state of volatility is with the market’s expectations of future volatility and the best place to gather this information is in the form of [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) (or perhaps SPX implied volatility). The graphic below shows how market expectations of future VIX values have changed from yesterday’s close (dashed blue line) to about 1 hour and 40 minutes into today’s session (solid red line.) While it certainly has felt like a huge move, with the VIX up 17%, the 10.1% move in the front month (August) VIX futures still leaves us well below where investors believe the VIX will be in September and October.
+
+The other important point to note, particularly if you are relatively new to VIX futures and want to understand them in the context of how they influence the VIX ETNs ([VXX](http://vixandmore.blogspot.com/search/label/VXX), [XXV](http://vixandmore.blogspot.com/search/label/XXV) and [VXZ](http://vixandmore.blogspot.com/search/label/VXZ)), is that the VIX futures moves are not proportional. In fact, the front month typically moves much farther in percentage terms than the second month does, the second month moves more than the third month, and so on. One look at [VIX Futures: The One Picture to Remember](http://vixandmore.blogspot.com/2007/05/vix-futures-one-picture-to-remember.html) should drive that point home rather forcefully. The reason why front month futures are more sensitive to changes in the VIX than back month futures has to do with [mean reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion). Simply stated, any one day movement in the VIX should do very little to change one’s view of where the VIX will be six or seven months out. On the other hand, with VIX August futures and options set to expire one week from today, the ripple effect from today’s action is certain to be felt in terms of how investors are looking at stocks – and volatility – one week from now. This also gets at the essence of the difference between VXX and VXZ as well as the slope of the [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) (whether it be in [contango](http://vixandmore.blogspot.com/search/label/contango) or [backwardation](http://vixandmore.blogspot.com/search/label/backwardation)) in the front months versus the back months.
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: FutureSource.com]*
+
+***Disclosure(s):*** *short VIX and VXX at time of writing*
