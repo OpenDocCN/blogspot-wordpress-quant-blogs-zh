@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:23:25
+-->
+
+# VIX and More: SPX Pullback Hits 5.9%, Fourth Longest Drawdown Since March 2009 Bull Began
+
+> 来源：[http://vixandmore.blogspot.com/2012/11/spx-pullback-hits-59-fourth-longest.html#0001-01-01](http://vixandmore.blogspot.com/2012/11/spx-pullback-hits-59-fourth-longest.html#0001-01-01)
+
+The S&P 500 index fell as low as 1388 today, down 86 points or 5.9% from its September 14^(th) high of 1474.
+
+The table below summarizes all the peak-to-trough pullbacks in the SPX since the March 2009 bottom. Note that while a 5.9% drawdown is right in the middle of the pack in terms of the magnitude of the drop, the 36 days that it has taken for stocks to fall that far makes the current pullback the fourth longest in terms of peak-to-trough duration. Of course, these statistics all assume that today’s low will mark a bottom – and while recent market action supports that thesis, there are no guarantees that SPX 1388 will hold.
+
+Also worth noting is the fact that 2012 is the first year that has seen more than one pullback with a duration of at least a month. There are several ways to interpret this. One, of course, is that when there has been weakness as of late, that weakness has persisted for a long time. Another way to interpret the lengthy pullbacks might be that the tendency of the bulls to buy on the dips has diminished the likelihood of sharp downward moves in stocks.
+
+Related posts:
+
+*![](img/559b1cabe45cac59bfaa21e29f7b339f.png)*
+
+*[source(s): Yahoo]*
+
+***Disclosure(s):*** *none*
