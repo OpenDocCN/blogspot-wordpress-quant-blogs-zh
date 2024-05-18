@@ -1,0 +1,10 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:27:29
+-->
+
+# Timely Portfolio: Reading->Writing
+
+> 来源：[http://timelyportfolio.blogspot.com/2010/12/reading.html#0001-01-01](http://timelyportfolio.blogspot.com/2010/12/reading.html#0001-01-01)
+
+I am determined to play not spectate.  After 20 years of voracious reading, I have decided to write, and this blog represents my commitment.  More than likely it will be a reflection of me, so a lot about my work/passion money management and markets but also hopefully some worthwhile thoughts and observations.  I will be the writer and possibly the only reader ultimately but I know that I will benefit immensely from this project.  Any benefit to others will be extremely gratifying and help resolve my debt to all the wonderful authors that have entertained and enlightened me over the years.

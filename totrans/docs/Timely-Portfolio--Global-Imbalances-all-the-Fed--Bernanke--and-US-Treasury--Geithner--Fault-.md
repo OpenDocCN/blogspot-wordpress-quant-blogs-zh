@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:27:04
+-->
+
+# Timely Portfolio: Global Imbalances all the Fed (Bernanke) and US Treasury (Geithner) Fault?
+
+> 来源：[http://timelyportfolio.blogspot.com/2010/12/global-imbalances-all-fed-bernanke-and.html#0001-01-01](http://timelyportfolio.blogspot.com/2010/12/global-imbalances-all-fed-bernanke-and.html#0001-01-01)
+
+Are the US Federal Reserve and Treasury at fault for the imbalances caused by the US Dollar reserve system?  The answer is probably the same as your answer to “Is the alcoholic to blame or the person that knowingly gives the alcoholic a drink more at fault?” or “Is the subprime borrower to blame or the bank that lends money to the subprime borrower more at fault?” I do not think Bernanke and Geithner can bear the burden of imbalances stemming from a US dollar reserve system that has evolved over the last 15 years; however, through improper exploitation of the imbalanced system, they certainly might be very responsible for its demise.
+
+Bloomberg reports $3 trillion in US Dollar Reserve Assets as of June 30, 2010, so the world has added $2.1 trillion in reserves since March 1999.
+
+Emerging currencies are undervalued by 20 to 100%.  Hard to fault the Fed for joining in the world’s buying efforts.  The world has engaged quantitative easing since March 1999.  If they pursue it for their benefit, then why can’t we?
+
+Plan to update soon but time is up for now.
+
+2.25 hours
