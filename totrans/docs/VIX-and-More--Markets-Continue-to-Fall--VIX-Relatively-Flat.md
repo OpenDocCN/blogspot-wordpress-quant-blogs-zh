@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:57:01
+-->
+
+# VIX and More: Markets Continue to Fall, VIX Relatively Flat
+
+> 来源：[http://vixandmore.blogspot.com/2009/03/markets-continue-to-fall-vix-relatively.html#0001-01-01](http://vixandmore.blogspot.com/2009/03/markets-continue-to-fall-vix-relatively.html#0001-01-01)
+
+When it comes to the VIX, lately the question on everyone’s mind is why the VIX has been relatively flat – and considerable lower than it was in October and November – while the markets have been making multi-year lows.
+
+There are a couple of ways to look at this question.
+
+First, consider [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility). From a strictly statistical perspective, 20 day historical volatility in the SPX peaked at 85 at the end of October and now sits at about 41, so in terms of actual recent volatility, a VIX of about half of the October-November highs seems consistent with recent market movements.
+
+Of course the VIX reflects [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility), not historical volatility and implied volatility incorporates incremental changes in uncertainty and [fear](http://vixandmore.blogspot.com/search/label/fear) on top of recent historical volatility. At least this is an easy way to conceptualize some of the component parts of the VIX. The logical conclusion is that not only is the historical volatility component of the VIX dwindling, but so too are some of the uncertainty and fear aspects.
+
+This is not to say that the current economic environment is lacking in fear and uncertainty. Still, there is a process of habituation and coping that has taken place over the course of the past six months. Michael Kahn, writing in Barron’s on Wednesday, calls this phenomenon [Slow-Motion Capitulation](http://online.barrons.com/article/SB123619880239032479.html), which will eventually lead to an “apathy bottom.” The idea is similar to what I [proposed a day earlier](http://vixandmore.blogspot.com/2009/03/possibility-of-stealth-bottom.html) as a “[stealth bottom](http://vixandmore.blogspot.com/search/label/stealth%20bottom).”
+
+While I think all of the above is important, I also think it overlooks the obvious. As I write this the S&P 500 index is 57.4% below its October 2007 high. In October and November, there were concerns that the SPX could fall several hundred points more. Well it has. Now a couple hundred additional points to the down side may still be in the cards, but it will be increasingly difficult for shorts to squeeze money out of already depressed equities. Also, as investors have slowly capitulated over the course of the past year or so, there are fewer and fewer holdouts left to panic – and many of those already have purchased put protection for their remaining long positions.
+
+The chart below shows that death by 1000 cuts will not likely trigger a VIX spike. Regardless of what your directional outlook is for equities, this looks to be a good time to be selling options, particularly using [vertical credit spreads](http://vixandmore.blogspot.com/search/label/vertical%20credit%20spread).
+
+![](img/1c598d7913f39fc303374e30927565e1.png)
+
+*[source: StockCharts]*
