@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:09:43
+-->
+
+# VIX and More: Rule of 16 and VIX of 40
+
+> 来源：[http://vixandmore.blogspot.com/2010/05/rule-of-16-and-vix-of-40.html#0001-01-01](http://vixandmore.blogspot.com/2010/05/rule-of-16-and-vix-of-40.html#0001-01-01)
+
+After a year or so of almost uninterrupted falling volatility, the last few weeks have seen a surge in the VIX and other measures of volatility. In fact the VIX more than tripled in a little over a month, jumping from an April 12 low of 15.23 to a May 21 high of 48.20.
+
+One way to come to terms with the current 40ish level in the VIX is to think in terms of daily percentage changes in the underlying, the S&P 500 index. Technically, the VIX represents one standard deviation of the market’s estimation of changes in the price of the SPX during the next 30 days. The VIX number is the size of that standard deviation in annual percentage terms, but since volatility is a function of the square root of time, in order to translate that annual standard deviation number into a daily number, one has to divide by the square root of the number of trading days in a year. A year typically has about 252 trading days and the square root of 252 is 15.87, which options traders generally round up to 16 in their head. Hence the “[Rule of 16](http://vixandmore.blogspot.com/search/label/rule%20of%2016).”
+
+Using 16 makes it easy to do some quick math in one’s head. If the VIX is at 16, as it was a little over a month ago, one would expect that 68.2% of the time (one standard deviation), the daily change in the SPX would be 1% or less and 31.8% of the time it would be 1% or more. To simplify the math even more, options traders often make the mental conversion of 68.2% to two thirds. Since traders are generally more concerned about big moves than small ones, they tend to focus on the outlier portion of the standard deviation calculation, the one third of trading days which are more volatile than normal.
+
+Using the rule of 16 and the 1/3 trading days time frame, the following translations should be committed to memory:
+
+*   VIX of 16 – 1/3 of the time the SPX will have a daily change of at least 1%
+*   VIX of 32 – 1/3 of the time the SPX will have a daily change of at least 2%
+*   VIX of 48 – 1/3 of the time the SPX will have a daily change of at least 3%
+
+Simple math allows us to do a linear interpolation. Today, with the VIX hovering around 40, options traders are expecting that the SPX will have daily change of 2.5% about 1/3 of the time.
+
+Looking backward, as volatile as the market have been recently, only three days out of the past month have resulted in daily changes of 2.5% or more. In fact, for all of 2010, there have been only four days in which the SPX has been either up or down at least 2.5%.
+
+In terms of conclusions, either market volatility is about to increase substantially from current levels or options traders have overestimated future volatility. As bearish as today has been, the SPX is “only” down 1.6% as I type this. If we have one or two more days in which stocks show average to slightly higher than usual volatility, expect the VIX to begin to move back down to a level that is a better reflection of those daily moves.
+
+For more on related subjects, readers are encouraged to check out:
+
+***Disclosure(s):*** *short VIX at time of writing*
