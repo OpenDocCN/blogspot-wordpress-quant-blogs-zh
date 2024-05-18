@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:35:21
+-->
+
+# VIX and More: Agricultural Commodities vs. Base Metals
+
+> 来源：[http://vixandmore.blogspot.com/2008/05/agricultural-commodities-vs-base-metals.html#0001-01-01](http://vixandmore.blogspot.com/2008/05/agricultural-commodities-vs-base-metals.html#0001-01-01)
+
+I’ll be the first to admit that I am sometimes guilty of oversimplifying the [commodities](http://vixandmore.blogspot.com/search/label/commodities) world by lumping all commodities together for the purpose of making broad comparisons between equities and commodities.  When I break out a particular commodity, it is usually crude oil or gold.
+
+In fact, the recent action in agricultural commodities and base metals has been at least as interesting as the action in the energy and precious metals baskets.  Many of the same factors – supply and demand, inflation, geopolitics, etc. – are at work across the full spectrum of commodities.  Sometimes the geopolitics of agricultural commodities and precious metals are on par with that of oil politics.  Just ask the Chinese…
+
+The chart below compares the ETFs associated with the PowerShares Deutsche Bank Liquid Commodity Index – Agriculture ([DBA](http://finance.google.com/finance?q=dba)) with the comparable ETF for base metals ([DBB](http://finance.google.com/finance?q=dbb)) over the course of the 17 month life of the ETFs.  The chart shows three distinct internal trends within the broad commodity sector: the strong metals performance for the first four months of 2007; the sharp rally in agricultural commodities relative to metals during the remainder of 2007; and the more recent (albeit less dramatic) tilting of the pendulum back in the direction of base metals.
+
+At the moment, both agricultural commodities and base metals are struggling to hold on to gains made over the past six months.  There are a myriad of ways in which to invest in commodities over the long-term or to take short-term speculative positions.  When thinking about the latter alternative, do not overlook a [pairs trading](http://en.wikipedia.org/wiki/Pairs_trade) approach.

@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:35:29
+-->
+
+# VIX and More: Comparative Volatility Indices
+
+> 来源：[http://vixandmore.blogspot.com/2008/05/comparative-volatility-indices.html#0001-01-01](http://vixandmore.blogspot.com/2008/05/comparative-volatility-indices.html#0001-01-01)
+
+I am a strong believer in simplifying life – and one’s approach to investing – as much as possible.  Less is more.
+
+With that thought in mind, I pulled up a six month chart of the [five major US volatility indices](http://vixandmore.blogspot.com/2007/03/meet-spikers_16.html): VIX, [VXO](http://vixandmore.blogspot.com/search/label/VXO), [VXN](http://vixandmore.blogspot.com/search/label/VXN), [RVX](http://vixandmore.blogspot.com/search/label/RVX), and [VXD](http://vixandmore.blogspot.com/search/label/VXD).  The chart, which comes courtesy of [BigCharts](http://bigcharts.marketwatch.com/), shows that over the past six months, the difference between the volatility indices are no more than subtle nuances.  Keep in mind that during this period, the financial sector was extremely hard hit.  Moreover, financials are overrepresented in the VIX and VXO, underrepresented in the RVX, and absent from the VXN.  The sector distinction is all but lost in the charts (except perhaps from mid-February to mid-March) and if there were ever a time for the indices to diverge in a meaningful way, this was it.
+
+The bottom line is that for most market observers, it makes sense to follow only the VIX.  Volatility aficionados may also choose to follow the VXN, but after adding a second volatility index to one’s radar, the incremental return on effort and complexity diminishes rapidly.
+
+When there are important divergences between these indices, I will be quick to point these out, but for the most part, expect my comments about the VIX to apply to the entire volatility index family tree as a whole.
