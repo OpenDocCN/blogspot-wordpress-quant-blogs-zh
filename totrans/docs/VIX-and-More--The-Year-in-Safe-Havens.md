@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:45:43
+-->
+
+# VIX and More: The Year in Safe Havens
+
+> 来源：[http://vixandmore.blogspot.com/2011/12/year-in-safe-havens.html#0001-01-01](http://vixandmore.blogspot.com/2011/12/year-in-safe-havens.html#0001-01-01)
+
+Earlier today, in [Safe Haven Options Shrinking?](http://vixandmore.blogspot.com/2011/12/safe-haven-options-shrinking.html) I noted the recent failure of some of the safe haven trades in volatility, gold and crude oil securities to hedge the latest decline in stocks.
+
+A question many observers have is how well these “big five” safe haven trades – volatility ([VXX](http://vixandmore.blogspot.com/search/label/VXX)), gold ([GLD](http://vixandmore.blogspot.com/search/label/GLD)), crude oil ([BNO](http://vixandmore.blogspot.com/search/label/bno)), the dollar ([UUP](http://vixandmore.blogspot.com/search/label/UUP)) and U.S. Treasuries ([TLT](http://vixandmore.blogspot.com/search/label/TLT)) – have fared over the full extent of the 2011 volatility storms, from the [Arab Spring](http://vixandmore.blogspot.com/search/label/Arab%20Spring) and Japanese earthquake/tsunami/nuclear disaster duo during the first quarter, to the U.S. [debt ceiling](http://vixandmore.blogspot.com/search/label/debt%20ceiling) debacle and the seemingly endless wave of disasters associated with the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis) that plagued investors for the balance of 2011.
+
+The graphic below, courtesy of [ETFreplay.com](http://etfreplay.com), shows the year-to-date performance of big five safe haven ETPs, as well as historical volatility and drawdown data.
+
+It is worth noting that while VXX is up for the year, it may be difficult to think of anything as a safe haven that was down 46.6% peak-to-trough earlier in the year.
+
+Looking back with 20-20 hindsight, if one could have switched between safe haven vehicles at the most opportune time of the year, Brent crude would have been the best bet throughout the Arab Spring and up until early June, at which point gold would have been the horse to ride until August, with volatility the best play through the beginning of October and Treasuries the ideal [hedge](http://vixandmore.blogspot.com/search/label/hedging) for the last two months. While the dollar has turned up as of late, the relatively low volatility in the currency market (assuming no use of leverage) means that the dollar is a better place to park investing capital until the perceived threat passes than to be employed as a hedge against a downward move in stocks.
+
+Related posts:
+
+*![](img/4e361a42489403e06cea0d1615b1e342.png)*
+
+*[source: ETFreplay.com]*
+
+ ****Disclosure(s):*** *short VXX and TLT at time of writing**
