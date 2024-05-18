@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:02:19
+-->
+
+# VIX and More: On the Nature of Fear
+
+> 来源：[http://vixandmore.blogspot.com/2007/01/on-nature-of-fear.html#0001-01-01](http://vixandmore.blogspot.com/2007/01/on-nature-of-fear.html#0001-01-01)
+
+Fear is a strange animal.  It is easy to unleash, yet hard to put back in a cage.  It spikes up, but rather than spiking down, it tends to slowly subside over time.
+
+Why is this the case?
+
+In the stock market, there are many factors that may spook investors.  In the future I am considering trying to construct a formal Taxonomy of Fear, but for now, let me offer some examples.  In the global political arena there are fears that range from terrorism, nuclear proliferation, Middle East tension, and a war in Iraq that could spiral out of control, to the spread of socialism in South America, [China](http://vixandmore.blogspot.com/search/label/China) playing hardball with the renminbi, [Russia](http://vixandmore.blogspot.com/search/label/Russia) throwing their weight around with energy and natural resources, etc.  On the macroenomic front, is it inflation or deflation we should be more concerned about?  Throw in the possibility of a recession, productivity declines and a hiccough in the job creation engine and there is the potential for a stagflation stew.  Really want to make it nasty?  Add a dollop of bird flu or SARS on the health front, sprinkle in some peak oil talk and the possibility of another large hedge fund or two imploding and you can see how emotionally charged the investment horizon can appear.
+
+These are not one day events, either.  These are the types of issues that grab headlines day after day after day.  Whether or not the reality of the situation is worsening, play in the media will manage to keep these issues in the headlines and top of mind for the investment community – and with it, a sense of fear.
+
+Very few of these fears can be defused overnight.  The geopolitical issues, in particular, tend to persist for decades, with relative visibility ebbing and flowing over time.  For the most part, economic fears and health fears are not going to be quelled in the short-term either.  At best, they may come and go in cycles and even if they do fall off of our radar, new concerns are likely to bubble up to take their place.
+
+Ultimately, fear spikes, often instantaneously, and leaves an emotional imprint.  If too many unsettling events -- or even one event of seismic proportions -- result in the piercing of the comfort threshold of the average investor, then echoes start to show on the tape and fear cannot be put back in the cage.
+
+The data make this clear.  The VIX, which in some respects resembles fear, is seven times more likely to spike up three standard deviations in one day than to spike down; it is fifty times more likely to trade three standard deviations above its 10 day moving average than below it.  Asymmetrical VIX spikes are not just an issue of frequency, but one of degree too.  On the 26 days that the S&P500 has fallen by 3% or more in a single day, the VIX has spiked up an average of 16.8%.  Conversely, on the 33 days in which the S&P has risen 3% or more, the VIX has fallen only 9.2% on average.
+
+In most instances, an investor would have been well served to bet on these VIX spikes reverting to the mean within a week or so, but a better understanding of the taxonomy of fear and of important fear thresholds is critical to assessing when to fade the trend and when to ride it.
