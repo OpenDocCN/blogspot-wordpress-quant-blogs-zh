@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:43:25
+-->
+
+# VIX and More: Portfolio A1 Beats SPX by 15.5% in First Year, Helped by Commodity Theme
+
+> 来源：[http://vixandmore.blogspot.com/2008/02/portfolio-a1-beats-spx-by-155-in-first_19.html#0001-01-01](http://vixandmore.blogspot.com/2008/02/portfolio-a1-beats-spx-by-155-in-first_19.html#0001-01-01)
+
+![](img/30ca6314fe60b6f4c718873aadaa2f1a.png)With two of the five focus positions in agriculture and energy, the commodities theme has been good to Portfolio A1.  [W&T Offshore (WTI)](http://finance.google.com/finance?q=wti), the oil and gas exploration and production company, is now up 15.4% in the two weeks it has been in the portfolio.  Last week’s biggest winner was [Terra Industries (TRA)](http://finance.google.com/finance?q=tra), which posted a 10% gain for the week, moving up with the red-hot nitrogen fertilizer space.
+
+After one full year of performance (since the February 16, 2007 inception), Portfolio A1 officially goes in the books with a return of +8.23%, compared to a -7.25% move in the benchmark S&P 500 index over the same period, a net performance gain of 15.48% by the portfolio over the benchmark.
+
+In terms of risk-adjusted return, the graphic to the right shows that Portfolio A1 has had an average [beta](http://en.wikipedia.org/wiki/Beta_coefficient) of 1.48 and an impressive annualized [alpha](http://en.wikipedia.org/wiki/Alpha_coefficient) of 23.58% during the first year that the portfolio has been up and running.
+
+In many respects, this portfolio was established to provided focused approach to "fishing for whales." That approach has been largely successful if a little inconsistent during the first year, landing such strong momentum stocks as of [MOS](http://finance.google.com/finance?q=mos), [DRYS](http://finance.google.com/finance?q=drys), [TEX](http://finance.google.com/finance?q=tex), [PBR](http://finance.google.com/finance?q=pbr), [RIO](http://finance.google.com/finance?q=rio) and others. Part of what makes finding so many big winners possible is a very high annual turnover. At 674%, this is clearly a trading portfolio, not a buy and hold approach. Losses are generally cut quickly and a new hook goes over the transom almost every week. I look forward to seeing how the portfolio fares in the second year, as we begin that year with what looks to be an extremely challenging investment environment.
