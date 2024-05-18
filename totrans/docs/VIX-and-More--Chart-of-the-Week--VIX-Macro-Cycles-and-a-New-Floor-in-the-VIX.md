@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:28:24
+-->
+
+# VIX and More: Chart of the Week: VIX Macro Cycles and a New Floor in the VIX
+
+> 来源：[http://vixandmore.blogspot.com/2009/09/vix-macro-cycles-and-new-floor-in-vix.html#0001-01-01](http://vixandmore.blogspot.com/2009/09/vix-macro-cycles-and-new-floor-in-vix.html#0001-01-01)
+
+The last time I updated my as [VIX macro cycle](http://vixandmore.blogspot.com/search/label/VIX%20macro%20cycles) chart, a little more than five months ago, the VIX had just dipped below 40.00 and I was looking at a bottom as low as 25.00 or so. For awhile, the area around 24.00 offered significant support, but with Wednesday’s low of 22.19, it is time to formally update my thinking about a new floor in the VIX and to place the current declining volatility environment in the context the two decades of VIX historical data.
+
+This week's [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) below shows seven different VIX macro cycles, typically of 2-4 years in duration, dating back to the 1990 historical reconstructions of VIX data. The chart highlights just how extreme and unusual the VIX spikes and persistent high volatility was during the latter part of 2008 and the first few months of 2009\. I find it interesting that this monthly chart shows three consecutive months of doji candlestick patterns with almost identical real bodies – meaning that despite the wide ranges during the month, for the last three months the opening and closing values of the VIX were very similar.
+
+Note also that during the one previous instance of extended high volatility, from 1998 to 2003, strong support was found in the 20-22 range.
+
+In fact, the lifetime average (mean) of the VIX since 1990 stands at 20.25, while the 10-year average is 22.11.
+
+For these and other reasons, I expect that the 21.50-22.00 level will hold up as a VIX floor at least through the end of the calendar year.
+
+Similarly, the most recent VIX macro cycle, which began in December 2008 and consisted of a period of declining volatility, may already have ended and is almost certain to be over by the end of the year.
+
+For additional posts on VIX macro cycles, readers are encouraged to check out:
+
+*![](img/8eebc68c91e7f937ec16edbd150bc1c0.png)*
+
+*[source: StockCharts]*
