@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:34:29
+-->
+
+# VIX and More: Unusual Chart of the Month: VXO and RVX
+
+> 来源：[http://vixandmore.blogspot.com/2008/06/unusual-chart-of-month-vxo-and-rvx.html#0001-01-01](http://vixandmore.blogspot.com/2008/06/unusual-chart-of-month-vxo-and-rvx.html#0001-01-01)
+
+In the past, I have been accused of dreaming up strange and unusual charts just for the fun of it.  I will gladly enter a guilty plea on that one. In fact, I enjoy cajoling the Department of Strange and Unusual Charts to come up with something that readers have never encountered before.
+
+If the chart below looks a little out of the ordinary, chalk it up to that personality disorder I have already confessed to.  Before trying to interpret whether the chart has any possible validity, it is important to take a step back.  Consider that each chart contains at least one hypothesis about a relationship between various data points and/or data sets.  At first glance that hypothesis might seem outrageous or merely coincidental.  The point of the strange and unusual charts is that it is more important to drag those hypotheses out into the open and give readers an opportunity to pause and reflect on them than it is to present each hypothesis as unassailable .
+
+In the long run, it is those strange and unusual relationships that no one else sees, but which persist over time, that provide a meaningful trading edge.  So keep an open mind and keep looking.
+
+Turning to the ratio of the [VXO](http://vixandmore.blogspot.com/search/label/VXO) to the [RVX](http://vixandmore.blogspot.com/search/label/RVX), recall that the VXO is the ‘[original VIX](http://vixandmore.blogspot.com/2008/04/ten-things-everyone-should-know-about.html)’ and reflects the volatility associated with the large cap S&P 100 index (OEX).  The RVX, on the other hand, is the volatility index for the Russell 2000 small cap index (RUT).  Small caps have been outperforming large caps lately, so it is not surprising to see recent volatility trending higher with the large caps.  What did surprise me, however, was to see that a spike in the VXO relative to the RVX has been an excellent indicator of market bottoms over the past two years.  If we extrapolate from the past, the current levels of the VXO versus the RVX also suggest a likely intermediate market bottom, at least in the SPX, which is represented by a gray area chart in the graph.  Unassailable?  No.  Worth watching going forward?  Absolutely.
