@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:32:13
+-->
+
+# VIX and More: XLF Volume Spikes 3.3 Standard Deviations Above Mean Yesterday
+
+> 来源：[http://vixandmore.blogspot.com/2008/07/xlf-volume-spikes-33-standard.html#0001-01-01](http://vixandmore.blogspot.com/2008/07/xlf-volume-spikes-33-standard.html#0001-01-01)
+
+If I could pick only one ticker to watch in order to gauge the market’s health in the current environment, it would probably be [XLF](http://vixandmore.blogspot.com/search/label/XLF), the most popular of the financial sector ETFs.  You could make an argument for [RKH](http://vixandmore.blogspot.com/search/label/RKH), the regional bank ETF, [XBD](http://vixandmore.blogspot.com/search/label/XBD), the broker dealer ETF, or any number of others, but XLF covers the entire financial sector, from Allstate ([ALL](http://finance.google.com/finance?q=all)) to Zions Bancorp ([ZION](http://finance.google.com/finance?q=zion)).
+
+With all the talk about the degree of a VIX spike needed to signal a bottom and other measures of [capitulation](http://vixandmore.blogspot.com/search/label/capitulation), I am surprised I have not heard anyone else mention the volume in XLF yesterday.  As shown in the graphic below, XLF traded over 469 million shares yesterday, eclipsing the previous volume record (set just last Friday), by over 150 million shares.  The 469 million share turnover also represents 3.3 standard deviations above the mean, which translates into an extremely unlikely event.  [Note that in the chart below, the [Bollinger band](http://vixandmore.blogspot.com/search/label/Bollinger%20bands) settings for volume are for 3 standard deviations instead of the default 2 setting] This is capitulation-level volume in the sector that is most important to the stock market at the moment.  If XLF can weather all the financial sector earnings due out tomorrow, I suspect that a bottom will be in for the financial sector.
