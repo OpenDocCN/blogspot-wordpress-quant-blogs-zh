@@ -1,0 +1,12 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:49:54
+-->
+
+# VIX and More: VIX May OTM Calls
+
+> 来源：[http://vixandmore.blogspot.com/2007/04/vix-may-otm-calls.html#0001-01-01](http://vixandmore.blogspot.com/2007/04/vix-may-otm-calls.html#0001-01-01)
+
+Once again, Jim Kingsland of [The Kingsland Report](http://buttonwood1792.blogspot.com/index.html) is talking about [significant buying activity in OTM VIX calls](http://buttonwood1792.blogspot.com/2007/04/nucor-nue.html), this time the May 19s. You may recall the last time he made a [similar observation](http://buttonwood1792.blogspot.com/2007/02/quick-friday-vacation-post.html) and I [commented on it here](http://vixandmore.blogspot.com/2007/02/vix-march-otm-calls.html) that is was only a couple of days before all hell broke loose on the VIX front.
+
+This time around it feels a lot different from where I sit. The last time I could sense [The Coming Storm](http://vixandmore.blogspot.com/2007/02/shape-of-capitulation-in-vix.html) and was surprised only that it took so long before it finally arrived. This time my intuition is tuned to things like the put to call ratio and is telling me not to worry, so I am more likely to be on the selling end of those May 19 calls. The problem is that my intuition, which is generally right about 51% of the time, is not as good at sniffing out a [VIX spike](http://vixandmore.blogspot.com/search/label/VIX%20spikes) as that of Jim Kingsland or [not-so-random](http://vixandmore.blogspot.com/2007/02/valentines-day-massacre-curse-of-not-so.html) [Roger Nusbaum](http://www.randomroger.blogspot.com/). That's okay, though. It gives me something to work on while I watch the time decay on those May 19s.

@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:49:12
+-->
+
+# VIX and More: On Risk, 'Real Money,' and the CNBC Million Dollar Portfolio Challenge
+
+> 来源：[http://vixandmore.blogspot.com/2007/04/on-risk-real-money-and-cnbc-million.html#0001-01-01](http://vixandmore.blogspot.com/2007/04/on-risk-real-money-and-cnbc-million.html#0001-01-01)
+
+A reader wrote to say that when [he read](http://vixandmore.blogspot.com/2007/04/im-moving-all-in-on-vrtx.html) that I had bought [VRTX](http://vixandmore.blogspot.com/search/label/VRTX) for the [CNBC Million Dollar Portfolio Challenge](http://vixandmore.blogspot.com/search/label/CNBC%20Million%20Dollar%20Portfolio%20Challenge), he decided to follow me in that trade with money in his IRA and was interested in hearing about my next pick as well.
+
+I was more than a little surprised to hear this, but since I do not have a disclaimer on this site (I was wondering how long I would be able to get by without one) this seems like a good time to repeat my reply here:
+
+> While I appreciate the vote of confidence, I feel obliged to note that my intent in this CNBC contest is not to build a solid portfolio in risk/reward terms, but to take **as much risk as possible** in order to maximize the probability that I will be able to finish in the top 10 contestants by 5/14 and thus get a shot at the $1 million that comes in the subsequent runoff.
+> 
+> As a result, I am betting my entire portfolio on the riskiest stocks I can find. This is something I would never do in real life -- and I know from experience that my risk tolerance is probability in the 99th percentile for the investor community, but given that there are 900,000 entrants and 10th place is already up 156% in just 6 weeks, I have no choice.
+> 
+> Going forward, I will not be 'investing' in the traditional sense of the word, but rather rolling the dice with the most volatile stocks I can find. After the market closes, we have earnings reports from [ESLR](http://finance.yahoo.com/q?s=eslr), [IWOV](http://finance.yahoo.com/q?s=iwov) and [STX](http://finance.yahoo.com/q?s=stx), among others. These three stocks all have betas above 3.0, so I will likely jump on one of them in hopes of making a big move, but I would strongly recommend that someone using real money not follow a strategy like this.
+> 
+> I hope that disclaimer didn't sound too preachy.
+> 
+> FWIW, my 'real money' take on VRTX is bullish, though I'd probably be moving up trailing stops to protect profits at this point. The problem is that in terms of 'contest money' I need to double my money (at least) in the next 4 weeks and VRTX won't be able to help on that scale.
+> 
+> I hope this helps.
