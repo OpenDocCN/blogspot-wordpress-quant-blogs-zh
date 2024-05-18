@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:33:27
+-->
+
+# VIX and More: E-Mini S&P 500 Futures Fall 1.4% on Disappointing Nonfarm Payrolls
+
+> 来源：[http://vixandmore.blogspot.com/2012/04/e-mini-s-500-futures-fall-14-on.html#0001-01-01](http://vixandmore.blogspot.com/2012/04/e-mini-s-500-futures-fall-14-on.html#0001-01-01)
+
+In case you missed it earlier this morning, after a [nonfarm payrolls](http://vixandmore.blogspot.com/search/label/nonfarm%20payrolls) report that [indicated 120,000 jobs were created in March](http://www.bls.gov/news.release/empsit.nr0.htm), approximately 80,000 short of consensus expectations, equity futures fell approximately 1.4%, with the E-mini S&P 500 futures ([/ES](http://vixandmore.blogspot.com/search/label/%2FES), shown in graph below) falling to 1372 – a level not seen since March 13^(th).
+
+Coming on the heels of three days of declines, another 1.4% move down would bring the peak to trough pullback to about 3.5%, which represents half of the 7.0% median pullback we have witnessed since stocks bottomed in 2009\. *[See [Putting the Current 2.6% SPX Pullback in Recent Historical Context](http://vixandmore.blogspot.com/2012/03/putting-current-26-spx-pullback-in.html) for additional details.]*
+
+Investors who have benefitted from the 32% gain in the S&P 500 index since the beginning of October are no doubt going to be quick to protect profits in an environment where the consensus is that stocks are long overdue for a pullback. What we have lacked until recently has been a catalyst for that selloff. Tuesday’s FOMC minutes, in which the Fed seemed to be much less inclined to move in the direction of QE3 or other stimulus measures seemed to catalyze sellers. Today’s nonfarm payrolls data provided another catalyst, but it may not be as powerful as some expect. Initial jobless claims [continue to trend down](http://www.dol.gov/opa/media/press/eta/ui/eta20120617.htm) and suggest an employment market that is flat or improving, which raises the possibility that the March nonfarm payrolls were a statistical outlier and/or will look stronger in light of future revisions to today’s data.
+
+Perhaps most important, however, weakness in employment is exactly the issue that will cause the Fed to rethink the likelihood of further stimulus measures, up to and including QE3\. At the very least, today’s nonfarm payrolls undermines concerns about the growing hawkish stance evident in Tuesday’s FOMC minutes from the March 13^(th) (there is that date again) meeting. Whether it is current out-of-the-money or at-the-money, the looming presence of a [Bernanke put](http://vixandmore.blogspot.com/search/label/Bernanke%20put) should not be overlooked.
+
+Related posts:
+
+*![](img/e17ed43b6e45106478ec2741ebe5ad4a.png)*
+
+*[source: thinkorswim/TD Ameritrade]*
+
+***Disclosure(s):*** *none*
