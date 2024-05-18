@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:54:28
+-->
+
+# VIX and More: The Week in Fear
+
+> 来源：[http://vixandmore.blogspot.com/2007/11/week-in-fear.html#0001-01-01](http://vixandmore.blogspot.com/2007/11/week-in-fear.html#0001-01-01)
+
+Since I’m going to have to give a name to this concoction, I’m going to call it my weekly fearogram.  Why not?  "Fear plot" sounds a little too Halloween for my taste.
+
+In any event, in the chart below, just like its [October 22^(nd)](http://vixandmore.blogspot.com/2007/10/how-fearful-were-we-last-week.html) and [October 3^(rd)](http://vixandmore.blogspot.com/2007/10/spx-vix-daily-correlation.html) predecessors, I attempt to show how the daily [SPX:VIX ratio](http://vixandmore.blogspot.com/search/label/SPX%3AVIX) compares to the median ratio for 18 years of data.  Interestingly, the chart shows a surprising amount of fear on Monday, followed by middling sentiment on Tuesday, before an atypical amount of fear kicked in yesterday.  Perhaps because the market opened in a relatively benign fashion today compared to some early futures projections, fear is actually below normal for the trading day so far.
+
+In between bouts of intensive trading, I am back-testing this fearogram data and hoping to provide an appropriate interpretive framework soon. My initial hypothesis is that the absence of fear will make it easier for the current pullback to continue.
