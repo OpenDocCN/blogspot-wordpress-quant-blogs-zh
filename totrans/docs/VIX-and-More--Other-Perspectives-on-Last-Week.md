@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:41:19
+-->
+
+# VIX and More: Other Perspectives on Last Week
+
+> 来源：[http://vixandmore.blogspot.com/2008/03/other-perspectives-on-last-week.html#0001-01-01](http://vixandmore.blogspot.com/2008/03/other-perspectives-on-last-week.html#0001-01-01)
+
+![](img/cb83e3b120e2695cd555e33676dbb5d4.png)A confluence of familial and meteorological factors left me in rural <place st="on"><state st="on">Texas</state></place> with only intermittent internet access last week.  This week I am running on full bandwidth, but as I was off the information grid for a good part of last week, I am going to rely on those who were plugged in to provide a recap.
+
+First, from a strict numbers perspective, important support was breached in several of the major indices last week and the put to call numbers were [at extreme levels](http://vixandmore.blogspot.com/2008/03/put-to-call-data-at-extreme-levels.html) all week.  In contrast to the put to call data, the volatility indices were sluggish and unremarkable during the week, with the VIX finishing the week up 0.95 (3.6%) to 27.49 and the VWSI rising to +1.
+
+As the Wall Street Journal ‘Hot or Not’ chart shows, oil was just about the only winning play last week, while the smaller (market cap) and more far flung one’s equity positions were, the worse they performed.
+
+Four top bloggers do an excellent job of summarizing the action on a number of fronts:
+
+Barry Ritholtz at [The Big Picture](http://bigpicture.typepad.com/) is back with his [Linkfest](http://bigpicture.typepad.com/comments/2008/03/leapyear-linkfe.html), where he surveys a wide variety of facts and opinions, with an emphasis on macroeconomic and fundamental news.  Babak at [Trader’s Narrative](http://www.tradersnarrative.com/) provides his [Sentiment Overview](http://www.tradersnarrative.com/sentiment-overview-week-of-march-7th-2008-1561.html) for the week.  Declan Fallond ([Fallond Stock Picks](http://blog.fallondpicks.com/)) offers up a [review of last week](http://blog.fallondpicks.com/2008/03/stockchartscom-weekly-review_09.html) through the eyes of some of the StockCharts.com chart reader cognoscenti – along with his own commentary.  Last but not least by a long shot, [Bill Cara](http://www.billcara.com/) has his usual [exhaustive inventory of charts and commentary](http://www.billcara.com/archives/2008/03/week_in_review_10_20080309.html#more) for the week – ideal for those who wish to slice and dice the markets by sector, region and asset class.
+
+Finally, I cannot end here without recommending an inexpensive red blend that I tried last night: a $6.99 (at Trader Joe’s) [Novella Synergy](http://www.eosvintage.com/winenotes/Nov-04%20Synergy.pdf) from [EOS Winery](http://www.eosvintage.com/) in Paso Robles, <state st="on"><place st="on">California</place></state>.  This blend changes every year, but the 2005 version that I tried consists of 46% petite sirah, 33% cabernet sauvignon, 16% sangiovese, and 5% petit verdot.  While the combination of petite sirah and cabernet sounds like it might make for a heavy, overpowering wine, this is an everyday red with much more finesse than I expected.  Food friendly and quaffable on its own, this wine is also an excellent change of pace for those stuck in a ‘same varietal again’ rut.
