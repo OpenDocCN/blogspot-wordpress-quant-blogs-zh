@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 14:53:53
+-->
+
+# Timely Portfolio: Slidify Old Book Images from Google Books
+
+> 来源：[http://timelyportfolio.blogspot.com/2014/04/slidify-old-book-images-from-google.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/04/slidify-old-book-images-from-google.html#0001-01-01)
+
+I really enjoy reading old books, especially finance books, from Google Books.  With all the changes in the world, their continued relevance amazes me.  For instance, as I prepared for my [talk about Wealth and Skill](http://timelyportfolio.blogspot.com/2014/04/wealth-and-skill-talk-to-students.html), I rediscovered [Developing Financial Skill by Enoch Gowin (1922)](http://books.google.com/books?id=DHARAQAAMAAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false).  I had forgotten some of the interesting visualizations in the book, and I just had to publicize them.  With some R and [slidify](http://slidify.io), I made a IO2012 slideshow of the images in less than an hour.  Each of the images are linked to their original location in the book if you want the context.  Below are a quote from the book along with an image linking to the [slideshow](http://timelyportfolio.github.io/slidify_google_books).
+
+> It appears in the well-thought-out conclusions of Justice Holmes, Doctor Beecher, President Hadley, Professors Fisher, Moore, and Cohn, Lord Kelvin, and Jesse Livermore that current views concerning speculation have confused it with gambling. Its real nature, however, set forth here, provides food for profitable reflection. Speculators, in reality, whether or not they think of themselves as being such, are all men who look ahead, the risk takers, men prudent, farsighted, "longheaded," forward-looking—to whom business profits sooner or later cannot fail to gravitate.
+
+[![image](img/22278a04946924866447d3027470f131.png "image")](http://timelyportfolio.github.io/slidify_google_books)
