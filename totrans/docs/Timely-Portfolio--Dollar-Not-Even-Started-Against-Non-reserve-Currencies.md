@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:20:52
+-->
+
+# Timely Portfolio: Dollar Not Even Started Against Non-reserve Currencies
+
+> 来源：[http://timelyportfolio.blogspot.com/2011/02/dollar-not-even-started-against-non.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/02/dollar-not-even-started-against-non.html#0001-01-01)
+
+Bernanke is not finished with his devaluation job until significant additional deterioration in USD on a broad basis.  With low rates and continued stability in the dollar, I can see how he can justify pursuing the bad monetary policies enabled by emerging market currency undervaluation and dollar reserves.
+
+[![fed fred broad dollar](img/afd3aa5224000539c21c9b20b2cf47b8.png "fed fred broad dollar")](http://research.stlouisfed.org/fred2/graph/fredgraph.png?&chart_type=line&graph_id=&category_id=&recession_bars=On&width=1000&height=600&bgcolor=%23B3CDE7&graph_bgcolor=%23FFFFFF&txtcolor=%23000000&ts=8&preserve_ratio=true&fo=ve&id=TWEXMMTH,TWEXBMTH&transformation=nbd,nbd&scale=Left,Left&range=Custom,Max&cosd=1973-01-01,1973-01-01&coed=2011-01-01,2011-01-01&line_color=%23FF0000,%23006600&link_values=,&mark_type=NONE,NONE&mw=4,4&line_style=Solid,Solid&lw=1,1&vintage_date=2011-02-25,2011-02-25&revision_date=2011-02-25,2011-02-25&mma=0,0&nd=1973-11-01,1973-11-01&ost=,&oet=,&fml=a,a&fq=Monthly,Monthly&fam=avg,avg&fgst=lin,lin)
+
+As I am assembling data on the country death spiral of lower domestic stock prices, higher bond rates, and >50% currency devaluation, I wonder how the dollar will survive an attack against itself or any other currency, since the first reaction of another currency attack will be to sell dollars in defense.
