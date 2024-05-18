@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:47:50
+-->
+
+# VIX and More: The Unusual VIX Activity of April 23rd
+
+> 来源：[http://vixandmore.blogspot.com/2007/04/unusual-vix-activity-of-april-23rd.html#0001-01-01](http://vixandmore.blogspot.com/2007/04/unusual-vix-activity-of-april-23rd.html#0001-01-01)
+
+![](img/26694ff3a852ba91c2053ca7dd387e87.png)A reader [asked for my opinion](http://vixandmore.blogspot.com/2007/04/isee-sma-50-double-bottom.html) on the unusual action in the VIX on Monday, April 23^(rd) in which the VIX was up 8% while the SPX was down only 0.2%.  If you follow the link above, you can see that my relatively unconsidered response pointed at three potential factors which might have had a larger effect on the VIX than the SPX.
+
+Two days later, I am going to stick to my initial reaction, with a couple of minor elaborations.  The one additional factor that looms much larger in retrospect is the fear associated with the [real estate market crashing in Spain](http://www.bloomberg.com/apps/news?pid=20601085&sid=a3CkVkudjbZ0&refer=europe), as well as potential spillover into the banking sector and into other geographies.  I wish I had a better explanation, but I don’t.  I am posting my thoughts here in hopes that some readers can weigh in with their theories.
+
+1.  The Friday to Monday VIX problem is "a collision of the trading week and the calendar week" in which trading and calendar time is synchronized during the trading week, but becomes uncoupled on weekends and holidays.  On Monday, time is re-synchronized and volatility spikes to mark the event.
+
+    This phenomenon is described by [Adam Warner](http://adamsoptions.blogspot.com/) in a [comment](http://vixandmore.blogspot.com/2007/02/vix-on-mondays-and-fridays.html%3Cbr/%3E) on this blog when I was first grappling with this issue; you can also check out a related thread at [Elite Trader.](http://www.elitetrader.com/vb/showthread.php?threadid=92360)  Better yet, read [Alan Lightman](http://www.mit.edu/%7Ehumanistic/faculty/lightman.html)’s delightful [Einstein’s Dreams](http://www.amazon.com/Einsteins-Dreams-Alan-Lightman/dp/0446670111) to get an appreciation for how time warps and bends its way through our lives.
+
+    For an academic perspective on the Friday to Monday VIX phenomenon, I refer you to [A Tale of Two Indices](http://www.math.nyu.edu/research/carrp/papers/pdf/vixov_bloomberg.pdf) by Peter Carr and Liuren Wu, whose weekday effects analysis is on page 10.  A quick eyeball of the charts shows that the typical price jump from Friday to Monday is in the 2.0 to 2.2% range.
+
+2.  A much less important factor, but one I still think is worth pointing out, is that volatility usually rises the week after options expiration. I [discussed this phenomenon](http://vixandmore.blogspot.com/2007/01/vix-performance-during-options.html) early on in the life of the blog, but should return to this theme for follow-up at some point.
+
+3.  My guess is that with a combination of VIX [implied volatility having dropped dramatically](http://www.ivolatility.com/options.j?ticker=VIX:CBOE&R=1&amp;amp;amp;amp;amp;amp;period=12&chart=2&vct=) during the past two weeks and the broader markets on an impressive winning streak, several indicators were flashing overbought signals and the VIX looked like cheap portfolio insurance once again.
+
+Some quick back of the envelope analysis give us 2% for the Friday to Monday calendar problem, another 2% for the 0.23% drop in the SPX (I have the VIX at a current beta of -8.34, so 0.23% * 8.34 ≈ 2%) and perhaps 0.5% (a SWAG) for the week after options expiration week and I can account for about a 4.5% spike in the VIX for Monday.  That leaves another 3.5% to be accounted for by Spanish real estate, cheap portfolio insurance and other factors.
+
+If nothing else, perhaps Monday’s action will provide [Bill Rempel](http://www.billakanodoodahs.com/) with more fodder for his “[error term](http://www.billakanodoodahs.com/2007/04/deconstructing-the-vix/)” analysis.
