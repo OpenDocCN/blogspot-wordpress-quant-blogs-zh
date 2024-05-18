@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:25:02
+-->
+
+# VIX and More: Poll Result: Financial Crisis in Top of the 6th Inning
+
+> 来源：[http://vixandmore.blogspot.com/2008/09/poll-result-top-of-6th-inning.html#0001-01-01](http://vixandmore.blogspot.com/2008/09/poll-result-top-of-6th-inning.html#0001-01-01)
+
+![](img/957388796b5ccd5b4db0b7b7ce627f99.png)Thanks to all who participated in the first ever VIX and More poll, which asked readers, “What inning is it for the financial crisis?”
+
+The results of the poll are shown at the right. The median response puts the crisis in the early part of the sixth inning; the mean response has it split between the fifth and sixth inning; and the most common response was the seventh inning.
+
+The poll ran for one week and much to my surprise, opinions about where we are in the financial crisis did not change at all following Thursday’s rumors and Friday’s announcement concerning the [Troubled Asset Relief Program](http://calculatedrisk.blogspot.com/2008/09/paulson-transcript-troubled-asset.html) or TARP.
+
+For the record, I was pleasantly surprised by the strong response to the poll and will consider resurrecting this feature periodically in order to get a better sense of what the blog's readership is thinking about important issues.

@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:24:12
+-->
+
+# VIX and More: Long the SPX on New VIX Record Closes
+
+> 来源：[http://vixandmore.blogspot.com/2008/09/long-spx-on-new-vix-record-closes.html#0001-01-01](http://vixandmore.blogspot.com/2008/09/long-spx-on-new-vix-record-closes.html#0001-01-01)
+
+In light of yesterday’s record close in the VIX, a reader asked about the historical track record if one were to buy the market when the VIX made a new high.
+
+First, let’s detail the history of new end of day highs in the VIX. Working backward, the five most recent new highs came during a span of 8/27/98 to 10/8/98 as the [Russian financial crisis](http://vixandmore.blogspot.com/search/label/Russian%20financial%20crisis) morphed into the [Long-Term Capital Management](http://vixandmore.blogspot.com/search/label/Long%20Term%20Capital%20Management) crisis. Prior to 1998, the most recent VIX high was from 10/30/97, during the [Asian financial crisis](http://vixandmore.blogspot.com/search/label/Asian%20financial%20crisis).
+
+Looking at data from the CBOE’s historical database, which goes back to the beginning of 1990, the next three VIX highs are from August 1990\. Scrolling back before the August highs, there are 11 highs in January 1990, including eight of the first ten trading days. In the chart below, I have omitted the noise from the first ten trading days and included only the last three VIX highs from the initial month of VIX data. While this leaves only ten data points, the pattern is clear: going long the SPX when the VIX makes a new high is an effective strategy, at least when the holding period is from 1 to 100 days. The mean return for the SPX following a VIX high, for instance, is about 2% ten days after the VIX high, while the mean return during all ten day periods for the SPX during the past 19 years has been only 0.3%.
+
+![](img/1894cf42884255aad083e7409d7b128b.png)
+
+For some additional mean reversion data that may be relevant to yesterday’s 34.5%
+
+[VIX spike](http://vixandmore.blogspot.com/search/label/VIX%20spikes)
+
+, check out a previous post,
+
+[One Day 30% (!) Spikes in the VIX](http://vixandmore.blogspot.com/2007/02/one-day-30-spikes-in-vix.html)
+
+.
