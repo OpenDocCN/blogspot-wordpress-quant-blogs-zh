@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:02:06
+-->
+
+# VIX and More: VXX Volume Easily Surpasses Friday’s Mark
+
+> 来源：[http://vixandmore.blogspot.com/2009/02/vxx-volume-easily-surpasses-fridays.html#0001-01-01](http://vixandmore.blogspot.com/2009/02/vxx-volume-easily-surpasses-fridays.html#0001-01-01)
+
+If Friday was an “[unqualified success](http://vixandmore.blogspot.com/2009/01/first-day-of-trading-in-vxx-and-vxz.html)” for [VXX](http://vixandmore.blogspot.com/search/label/VXX), the iPath S&P 500 VIX Short-Term Futures (1 month) ETN, then today has to be considered even more of the same. The new [VIX ETN](http://vixandmore.blogspot.com/search/label/VIX%20ETN) has already exceeded Friday’s impressive [first day volume](http://vixandmore.blogspot.com/2009/01/first-day-of-trading-in-vxx-and-vxz.html) total, with 220,517 shares traded at after 1:15 p.m. ET, with two and three quarter hours of trading still to come.
+
+For the most part the bid-ask spread for VXX has been in the 0.02 to 0.18 range, sometimes higher and sometimes lower. I consider this acceptable for short-term trading of a security priced in the vicinity of 100\. Market depth is difficult to gauge at this stage but may be a little on the thin side. As news of the success of VXX spreads, however, I expect liquidity issues to be resolved fairly quickly.
+
+As was the case on Friday, volume in for [VXZ](http://vixandmore.blogspot.com/search/label/VXX), the iPath S&P 500 VIX Mid-Term Futures (5 month) ETN is running at about one third the rate of its near-term sibling.
