@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:52:23
+-->
+
+# VIX and More: Chart of the Week: Crude Oil and Transports
+
+> 来源：[http://vixandmore.blogspot.com/2011/04/chart-of-week-crude-oil-and-transports.html#0001-01-01](http://vixandmore.blogspot.com/2011/04/chart-of-week-crude-oil-and-transports.html#0001-01-01)
+
+With [crude oil](http://vixandmore.blogspot.com/search/label/crude%20oil) prices hovering around $108/bbl. level, it is only natural to begin wondering just what kind of impact crude prices will have on stocks.
+
+Looking back at recent history, crude oil and stocks have been positively correlated, largely because an improving economy translates into increased demand for crude oil. At some point, of course, rising crude oil prices are going to translate into a drag on GDP and on equities. Consensus estimates for the impact of crude oil on GDP generally assign about a 0.25% drop in U.S. GDP for every $10 increase in crude oil.
+
+Whether the negative correlation between crude oil and stocks begins to become apparent at $110 or perhaps at higher levels remains to be seen.
+
+When oil prices begin to be a significant drag on stocks, it will likely show up first in the transportation sector. Looking at the [Dow Jones Transportation Average](http://en.wikipedia.org/wiki/Dow_Jones_Transportation_Average) ([DJTA](http://vixandmore.blogspot.com/search/label/DJTA)) and (West Texas Intermediate) crude oil prices since the beginning of 2010 in this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week), it is obvious that the positive correlation between crude oil prices and transports has continued all the way up to the present. While I expect this positive correlation to end shortly, as long as transports continue to move up in concert with rising crude oil prices, investors should feel comfortable with their long positions in equities.
+
+Related posts:
+
+**![](img/b5888b4554c6ad0d5bb316bfb0a81fbe.png)
+
+*[source: StockCharts.com]*
+
+***Disclosure(s):*** *long crude oil futures at time of writing***

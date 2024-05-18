@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:52:40
+-->
+
+# VIX and More: Fukushima Daiichi and ‘Event Theta’
+
+> 来源：[http://vixandmore.blogspot.com/2011/03/fukushima-daiichi-and-event-theta.html#0001-01-01](http://vixandmore.blogspot.com/2011/03/fukushima-daiichi-and-event-theta.html#0001-01-01)
+
+I am generally not a fan of so-called [air quotes](http://en.wikipedia.org/wiki/Air_quotes), nor am I a fan of the gratuitous use of quotation marks for added emphasis in print. That being said, I have this tendency to invent new concepts and attach labels to them that I pull out of the sky. When I do so, as is the case with [event theta](http://vixandmore.blogspot.com/search/label/event%20theta), the quotation marks are merely shorthand for warning readers that I am making stuff up and cloaking it in somewhat fancy-sounding attire. In other words, if you Google “event theta” you will find a lot of information about sorority functions and the like, but nothing (as far as I can tell) about options concepts.
+
+So what is event theta and why do I think it is important enough to invent a label for it?
+
+Nineteen days ago, Japan was hit by a 9.0 magnitude earthquake and a subsequent tsunami that measured at least 30 feet high in some places. As everyone now knows, the earthquake and particularly the tsunami damaged the Fukushima Daiichi nuclear power plant and set off a [chain of events](http://en.wikipedia.org/wiki/Fukushima_I_nuclear_accidents) that resulted in a partial core meltdown, damage to at least one containment vessel, overheating of spent fuel rods and dangerous levels of radiation leaks. The situation has been a fluid one, with a limited flow of information, particularly during the early stages of the disaster.
+
+As these events unfolded, seemingly like a slow-motion train wreck, I kept asking myself whether time was in favor of or working against the efforts of those who were trying to limit the damage to the nuclear facility and surrounding areas. In other words, was this a positive theta event (time in our favor) or a negative theta event (a fight against the clock.) Not being an expert in the field of nuclear energy and knowing that certain factors could spiral out of control quickly, but also knowing that efforts were underway to stabilize some of the processes in the plant, I was left to guessing whether current efforts were more likely to fall short and result in a vicious cycle or were expected to stem the problem and turn the tide in favor of the rescue team.
+
+Knowing whether this was a positive or negative theta event also has substantial implications for investment strategies. From a hedging perspective, event theta could influence the selection of hedging vehicles, the anticipated timing for those hedges, how the hedges might be structured and what sort of prices might be appropriate. For the speculative investor, event theta can also help to determine the risk-reward payoff structure and how it varies over time. Anyone who trades in VIX futures and deals with the VIX term structure on a daily basis should have some insights into potential mismatches between event theta and term structure.
+
+Event theta is an idea that complements some of the thinking I have presented in this space [earlier](http://vixandmore.blogspot.com/2008/10/conceptual-framework-for-volatility.html) regarding [event volatility](http://vixandmore.blogspot.com/search/label/event%20volatility). I maintain that it applies to [Libya](http://vixandmore.blogspot.com/search/label/Libya), the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis), and almost every other threat to the financial markets. Going forward, I will give event volatility and event theta some additional treatment in this space as conditions warrant.
+
+Related posts:
+
+***Disclosure(s):*** *none*
