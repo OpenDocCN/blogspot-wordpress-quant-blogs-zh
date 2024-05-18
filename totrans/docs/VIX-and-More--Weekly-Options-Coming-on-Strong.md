@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:31:40
+-->
+
+# VIX and More: Weekly Options Coming on Strong
+
+> 来源：[http://vixandmore.blogspot.com/2012/04/weekly-options-coming-on-strong.html#0001-01-01](http://vixandmore.blogspot.com/2012/04/weekly-options-coming-on-strong.html#0001-01-01)
+
+When the CBOE made a push to expand interest in [weekly options](http://vixandmore.blogspot.com/search/label/weeklys) about two years ago, their efforts were initially met with a fair degree of skepticism. Over time, however, weekly options have found a dedicated following, with the CBOE “weeklys” growing from 1% of total volume to about 15% today. Two years ago there were a handful of index weeklys, as well as a handful of weekly options based on ETPs and individual stocks. The list of weekly options changes every week, but the current [list for weeklys expiring on May 4^(th)](http://www.cboe.com/publish/weelkysmf/weeklysmf.xls) now includes options on six indexes, 26 ETPs and 119 individual stocks. What was once a curiosity is now a groundswell.
+
+Personally, I have found quite a few uses for weekly options. On Tuesday, for instance, I tweeted that the [VXX](http://vixandmore.blogspot.com/search/label/VXX) 18/19 call spreads had the same price for the weekly options as next month’s standard May 19^(th) expiration.
+
+Part of the appeal of the weeklys can be seen in the graphic below of the skew in Amazon ([AMZN](http://vixandmore.blogspot.com/search/label/AMZN)), where today’s April 27^(th) weeklys (red line) have a huge [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) (and therefore price) premium to their counterparts with more distant maturities. Looking at the graphic, one can see that it is not that difficult to construct positions with weekly options (which also include the May 4^(th) options, shown with a yellow line) in which one leg has implied volatility that is 50-100% higher than another leg. If you have a bias toward selling options, as I do, this can sometimes offer up an irresistible mathematical edge.
+
+Lately when I find myself editing my various watch lists, one of the first things I check for is whether the underlying in question has weekly options. If you have weeklys, you are in the big leagues and there are so many more trading opportunities. With [ZNGA](http://vixandmore.blogspot.com/search/label/ZNGA) weekly options being added this week, for instance, the ease and flexibility of trading this issue around yesterday’s earnings report was dramatically improved.
+
+If you haven’t tried weeklys yet, you are missing out. And if you think the volumes are too small and the markets are too thin, think again.
+
+*[Note that an excellent source of information for all things related to weekly options is the* [*CBOE Weeklys splash page*](http://www.cboe.com/micro/weeklys/introduction.aspx)*.]*
+
+Related posts:
+
+*![](img/9d2f491b277598e8069a740e8e503c83.png)*
+
+*[source(s): LivevolPro.com]*
+
+***Disclosure(s):*** *short VXX and ZNGA at time of writing; Livevol is an advertiser on VIX and More*
