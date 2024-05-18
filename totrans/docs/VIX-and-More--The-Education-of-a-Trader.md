@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:03:04
+-->
+
+# VIX and More: The Education of a Trader
+
+> 来源：[http://vixandmore.blogspot.com/2010/09/education-of-trader.html#0001-01-01](http://vixandmore.blogspot.com/2010/09/education-of-trader.html#0001-01-01)
+
+*[The following first appeared in the May 2010 edition of [Expiring Monthly: The Option Traders Journal](http://www.expiringmonthly.com/), on the back page of the magazine, where the authors are encouraged to be tangential and irreverent. I thought I would share it because of the positive feedback I received from a number of readers and because I think this piece dovetails nicely with the collection of links below.]* 
+Do you remember from your school days those students who when confronted with a complex issue, would acquire a look on their faces somewhere between consternation and dread, immediately thrust a waving hand up into the air and blurt out in a worried voice, “Do we have to know this for the test?” I can be fairly sure that none of these people ended up as successful traders.
+
+One only has to look at the history of hiring patterns at Wall Street firms to get a sense of the evolution of thinking about how to develop a successful trader. For many years, the model for aspiring traders was considered to be a genteel Ivy League education. Over time, Wall Street firms began to favor graduates with a more humble socioeconomic pedigree who were considered hungry, hard working and highly motivated to prove something to the world. In more recent years, we have seen Wall Street seek out physicists and those with exceptional quantitative skills. Lately, a desire for poker skills has also come into play.
+
+As I see it, all traders are ultimately self-taught. There are no required classes, readings, homework assignments or even a syllabus with recommendations. Tests are administered on a daily basis, frequently with multiple tests on the same day. Worst of all, everyone is graded on an unfavorable curve in which there are more Fs than As.
+
+Against this backdrop, education counts, but skill and experience count even more. An insatiable curiosity helps, as does a willingness to explore unfamiliar territory. Great trades, insights and strategies present themselves in somewhat random fashion and, as Louis Pasteur observed, “Chance favors the prepared mind.”
+
+But what kind of preparation is ideal? Malcolm Gladwell asserts that 10,000 hours of experience is a prerequisite for greatness in almost any field. In a normal career, that level of commitment usually translates to five years, but on Wall Street, 10,000 hours of experience can be crammed into 3–4 years. Of course, all hours are not created equal. A trader’s capacity to distinguish between random events and meaningful patterns is important to establish a solid trajectory of growth and development.
+
+For my personal education process, unlearning was more important than learning. My formal schooling consisted of an undergraduate degree in political science and a traditional MBA program. After two decades of business strategy consulting experience deeply rooted in fundamental analysis, I was ill-equipped to excel in a short-term trading time frame. In order to embrace technical analysis, I first had to jettison my fundamental perspective on investments and build a new foundation based on technical analysis and market sentiment.
+
+In my opinion, the best way to approach trading is to consider the educational process to be a lifelong endeavor, crossing as many multi-disciplinary boundaries as can be digested. In a way, I like to think of the foundation of trading success as building a large idea stew and developing an eye for spotting high potential new ideas. The trick is to have the right breadth and depth of knowledge so that when one stumbles on the next great strategy, it can be easily identified, captured and developed. Call it opportunistic research and development, if you will.
+
+As luck would have it, some of the most successful trading strategies I employ are based on areas in which I had limited knowledge when I first encountered them. No matter how well things are going, I take the approach that I never have the luxury of being satisfied with the status quo and need to embrace the idea of getting out of my comfort zone. In trading and in life, it pays to constantly refresh the pipeline of new ideas and continue to tinker with them, because you never know what will be on tomorrow’s test.
+
+Related posts:
+
+*[source: Expiring Monthly, May 2010]*
+
+***Disclosure(s):*** *I am one of the founders and owners of Expiring Monthly*

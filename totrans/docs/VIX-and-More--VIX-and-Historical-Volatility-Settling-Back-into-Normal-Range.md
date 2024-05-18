@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:02:59
+-->
+
+# VIX and More: VIX and Historical Volatility Settling Back into Normal Range
+
+> 来源：[http://vixandmore.blogspot.com/2010/09/vix-and-historical-volatility-settling.html#0001-01-01](http://vixandmore.blogspot.com/2010/09/vix-and-historical-volatility-settling.html#0001-01-01)
+
+So much has been made lately (here and elsewhere, e.g., [Surly Trader](http://www.surlytrader.com/when-is-steep-too-steep/)) about the extremely steep [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) in the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) that I thought it is important to point out that in terms of current data, the VIX and historical volatility are sitting right in the middle of historical norms.
+
+The chart below captures the mean VIX (red line) and mean S&P 500 10-day [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) (HV) values (blue line) for each year going back to 1990\. In addition, I have added a beige column to show the ratio of the annual means for each year. After an unusual pattern in which the VIX spiked higher than HV in 2008 and remained persistently high relative to HV in 2009 (think “[disaster imprinting](http://vixandmore.blogspot.com/search/label/disaster%20imprinting),”) it now looks as if the relationship between the two is back to the more standard correlation and differential. Note also that the VIX is typically about 35% higher than historical volatility in the SPX, about what has transpired so far in 2010.
+
+So the future may indeed to turn out treacherous enough to warrant that steep VIX futures [contango](http://vixandmore.blogspot.com/search/label/contango), but for now, but the present looks very much like business as usual.
+
+Related posts (just a few of many):
+
+***Disclosure(s):*** *neutral position in VIX via options*
