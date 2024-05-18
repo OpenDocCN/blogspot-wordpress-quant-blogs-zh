@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:37:04
+-->
+
+# VIX and More: Excellent New VIX Video at masteroptions.com
+
+> 来源：[http://vixandmore.blogspot.com/2009/07/excellent-new-vix-video-at.html#0001-01-01](http://vixandmore.blogspot.com/2009/07/excellent-new-vix-video-at.html#0001-01-01)
+
+As a discretionary trader, I sometimes like to act on my gut before I get the proper confirmation signal to enter or exit a position. The bottom line is that I don’t mind being early and I don’t mind being wrong, as long as the economics of my gut is positive on balance.
+
+Two weeks ago, I took that same gut feel approach with a new blog from a blogger I was completely unfamiliar with. In fact, in [New Options Blog: masteroptions.com](http://vixandmore.blogspot.com/2009/07/excellent-new-options-blog.html), I had the nerve to call Dean Mouscher’s blog “a must read” after only two posts. Well, bloggers come and go, but if masteroptions.com were a stock, I think my IPO price would have at least doubled or tripled by now, based on the number of readers who thanked me for the recommendation.
+
+The latest from masteroptions.com is [The VIX – What You Need to Know](http://masteroptions.com/?p=82) and includes a new 16-minute video that details some of the essentials of the VIX, with an emphasis on [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures). Between Dean’s video and [My Ten Things Everyone Should Know About the VIX](http://vixandmore.blogspot.com/2008/04/ten-things-everyone-should-know-about.html), someone who is new to the VIX can get up to speed very quickly.
+
+Two quick comments on Dean’s video:
+
+*   VIX futures were introduced in March 2004; [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options) were not introduced until February 2006 (see [Overview of the U.S. Volatility Indices](http://vixandmore.blogspot.com/2008/08/overview-of-us-volatility-indices.html) for more details)
+
+*   Representatives from at least three different brokerages have told me that the SEC/CFTC regulatory split is responsible for quotes for VIX options erroneously using the cash VIX instead of VIX futures as the underlying for calculating VIX implied volatility (see [Calculating the Implied Volatility of the VIX](file:///C:%5CUsers%5Cwjl%5CDocuments%5C__Personal%5CFinance%5CVIX%5CVIX%20and%20More%5Cnd%20the%20potential%20fo) for more details)
