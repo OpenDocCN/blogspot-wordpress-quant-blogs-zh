@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:39:09
+-->
+
+# VIX and More: Equities or Commodities?
+
+> 来源：[http://vixandmore.blogspot.com/2008/04/equities-or-commodities.html#0001-01-01](http://vixandmore.blogspot.com/2008/04/equities-or-commodities.html#0001-01-01)
+
+Ever since the bear market of 2000-2003 found a bottom and started up, equities and commodities have largely been moving up together.  That relationship came to an end when the equity markets topped in mid-October.  Since then, as the first chart below indicates, the SPX has been falling while the [Reuters/Jefferies CRB Index](http://www.jefferies.com/cositemgr.pl/html/ProductsServices/SalesTrading/Commodities/ReutersJefferiesCRB/index.shtml) of commodities has been on the rise.  While the direction of these indices has recently changed, the inverse relationship appears to be holding up.  The SPX and CRB chart below shows that commodities turned down about two weeks ago, just before the equity market bottomed.
+
+A quick and dirty explanation for this change might be that speculative money started getting out of equities last August and September as the market topped, concerns were raised about the credit markets, and the Fed started cutting rates.  The Fed’s actions clearly caused many investors to be more concerned about inflation and pushed them in the direction of assets – such as commodities – that have historically performed well in an inflationary environment.
+
+In addition to the StockCharts.com SPX and CRB chart, I have also included a six month heat map, courtesy of [FINVIZ.com](http://finviz.com/index.ashx), which shows in dramatic fashion, that commodities have been one of the few areas of strong performance during the past six months.
+
+As financial firms de-leverage, it is possible that speculative bets will be limited to equities or commodities, but not both, so it is important to watch which asset class is soaking up most of the money currently on the sidelines.  I will update this story as it unfolds.
+
+*[graphic: StockCharts*]
+
+![](img/1c81a5ff4f118c68739e31705226ad77.png)
+
+ *[graphic: FINVIZ.com*]

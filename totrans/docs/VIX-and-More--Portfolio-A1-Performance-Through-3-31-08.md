@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:39:13
+-->
+
+# VIX and More: Portfolio A1 Performance Through 3/31/08
+
+> 来源：[http://vixandmore.blogspot.com/2008/04/portfolio-a1-performance-through-33108.html#0001-01-01](http://vixandmore.blogspot.com/2008/04/portfolio-a1-performance-through-33108.html#0001-01-01)
+
+After I decided to stop posting an update to Portfolio A1 each weekend, I was surprised and pleased to hear that several readers were using the portfolio’s selections to augment their own holdings.
+
+With that in mind, I thought it might be interesting to update Portfolio A1’s performance through the first quarter of 2008 – and thereafter on a quarterly basis.
+
+As the graphics below show, the Portfolio suffered its worst month to date in January, breaking a string from September through December in which the portfolio annihilated the benchmark S&P 500 index.  Despite the relatively disappointing performance in the first quarter of 2008, from a cumulative return perspective, Portfolio A1’s 5.3% return since the February 16, 2007 inception is still 14.4% better than the 9.1% loss suffered by the SPX during that period.
+
+I should note that the new *[VIX and More Subscriber Newsletter](http://vixandmoresubscriber.blogspot.com/)* has three model portfolios that are updated weekly:  Aggressive Trader; Growth; and Foreign Growth.  These were publicly launched in the newsletter on Sunday, but for the record, each of the three model portfolios have been up and running for the past 3-4 years and have significantly outperformed both the SPX and Portfolio A1 during comparable measurement periods.  Finally, there is also a Stock of the Week ‘Portfolio’ whose performance I will be tracking partly for posterity and partly for entertainment value.  For more details on the subscriber newsletter, click on the link in the upper right hand corner of the blog.

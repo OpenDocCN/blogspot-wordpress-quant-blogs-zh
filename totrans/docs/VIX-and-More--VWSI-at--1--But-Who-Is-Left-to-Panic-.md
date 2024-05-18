@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:39:35
+-->
+
+# VIX and More: VWSI at +1, But Who Is Left to Panic?
+
+> 来源：[http://vixandmore.blogspot.com/2008/03/vwsi-at-1-but-who-is-left-to-panic.html#0001-01-01](http://vixandmore.blogspot.com/2008/03/vwsi-at-1-but-who-is-left-to-panic.html#0001-01-01)
+
+With the launch of the subscriber newsletter, I am in the process of making decisions about what content is directed toward the blog and what content is reserved for the newsletter. I suspect that blog readers should see very little in the way of changes, though I have dropped the weekly update to the Portfolio A1, which did not seem to be generating a great deal of interest.
+
+I also used to do a weekly VIX and [VWSI](http://vixandmore.blogspot.com/search/label/VWSI) update, with a few snippets about market activity thrown in. These will remain, albeit not necessarily with the same level of commentary about put to call ratios and other market sentiment indicators.
+
+Speaking of which, the VIX lost 0.91 (3.4%) last week to close at 25.71\. During the course of the week, the VIX oscillated in a tight range between 24.75 and 27.04\. This is the narrowest weekly range for the VIX since the year began (actually the smallest range in percentage terms since the week before the 2/27/07 VIX spike), and the VWSI responded to the slow week in volatility by ticking up from zero to +1.
+
+I have had several readers comment about the possibility of an impending VIX spike, but these are notoriously difficult to predict. Further, with the constant drumbeat of gloom and doom, I find it difficult to believe that there are many out there who might consider buying puts, but have not already done so. If there is to be another VIX spike, there must be a sufficient element of surprise to cause a panic, yet each new negative headline or financial implosion scenario probably does more to reduce the pool of future put buyers than anything else. For that reason, I see a VWSI of +1 to be entirely plausible, even when the VIX has been drifting down in the face of continued uncertainty.

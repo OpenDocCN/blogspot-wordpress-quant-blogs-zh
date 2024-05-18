@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:39:54
+-->
+
+# VIX and More: VIX Follows Markets Down in Early Trading
+
+> 来源：[http://vixandmore.blogspot.com/2008/03/vix-follows-markets-down-in-early.html#0001-01-01](http://vixandmore.blogspot.com/2008/03/vix-follows-markets-down-in-early.html#0001-01-01)
+
+Given that the VIX moves in the opposite direction of the SPX on about [76% of all trading days](http://vixandmore.blogspot.com/2007/10/more-thoughts-and-numbers-on-spx-vix.html) – and [close to 90%](http://vixandmore.blogspot.com/2007/04/divergence-history-and-tells.html) of the time when the SPX moves at least 1% – I watched with considerable interest when the VIX followed the SPX and the rest of the broad indices down during the first hour of trading.
+
+As I write this, the SPX is down 0.54%, up a little from the 0.87% loss that represents the low of the day.  As the chart below shows, however, the VIX has been down below yesterday’s 26.08 close for the entire trading day.  For a brief period from 10:15 to 10:25 a.m., a high volume selloff in Lehman Brothers ([LEH](http://finance.google.com/finance?q=leh)) triggered considerable investor anxiety and pushed the VIX up while the SPX slid, but now that this episode appears to be in the rear view mirror, the VIX is once again moving down.
+
+Also of interest, if you study yesterday's VIX action, you can see that a weak VIX coincident with a sideways to down SPX, while unusual, is a continuation of yesterday's trend.
+
+A high level of anxiety about the markets (i.e., a formidable ‘wall of worry’) and some indications that market sentiment may have bottomed can provide a solid base from which the markets can rebound.  Little by little, the markets will strengthen each time that investors shrug off bad macroeconomic news or when panic fails to materialize following weakness in the likes Lehman Brothers and other financials that are currently operating under a dark cloud of anxiety.
+
+While this credit crisis should linger for many months to come, there are more indications that the markets are putting in a bottom and are prepared to move higher before all the toxins have had an opportunity to work their way through the financial system.
