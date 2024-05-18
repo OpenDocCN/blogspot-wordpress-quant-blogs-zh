@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:17:44
+-->
+
+# VIX and More: The VIX - SPX 30 Day Historical Volatility Spread and Performance
+
+> 来源：[http://vixandmore.blogspot.com/2008/11/performance-and-vix-and-spx-30-day.html#0001-01-01](http://vixandmore.blogspot.com/2008/11/performance-and-vix-and-spx-30-day.html#0001-01-01)
+
+Two weeks ago in [The VIX in the Context of Historical Volatility of the SPX](http://vixandmore.blogspot.com/2008/10/vix-in-context-of-historical-volatility.html), I used a [chart](http://vixandmore.blogspot.com/2008/10/vix-in-context-of-historical-volatility.html) to demonstrate how the VIX (which is essentially the [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) of the SPX) compares across various SPX [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) lookback time frames.
+
+Why should anyone care about this? Well, it just might be worth noting that in the 19 year history of the VIX, four of the eight largest negative divergences between the VIX and the SPX 30 day historical volatility have occurred in the past two weeks (the other four were from August 2002). Looking back at the history of these negative divergences, they have regularly occurred just before substantially below average market performance. The 14 instances in which the VIX was at least 10 points below the 30 day historical volatility of the SPX, for instance, resulted in an average loss of 8.6% in the next 20 days. The 76 instances in which the VIX was at least 5 points below the 30 day HV of the SPX produced an average return of -1.2% in the next 20 days.
+
+If you look at positive divergences, the story is the exact opposite. The 29 instances in which the VIX was at least 15 points higher than the 30 day HV of the SPX led to a 6.6% return over the course of the next 20 days. For 67 instances in which the VIX was 12.5 points higher than the SPX’s 30 day HV, the 20 day return was 4.5%.
+
+Before one jumps to conclusions about the current environment, it is worth noting that on October 10^(th), the spread between the VIX and the 30 day HV of the SPX was 16.2 (and the SPX jumped 11.6% the next day.) Friday marks the 20^(th) trading day since this signal. Is it possible that the [VIX spread](http://vixandmore.blogspot.com/search/label/VIX%20spread) will begin to create a strong downward pull on the markets by the end of the week?
