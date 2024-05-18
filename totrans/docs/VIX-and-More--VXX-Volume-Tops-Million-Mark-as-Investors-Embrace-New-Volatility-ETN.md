@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:46:29
+-->
+
+# VIX and More: VXX Volume Tops Million Mark as Investors Embrace New Volatility ETN
+
+> 来源：[http://vixandmore.blogspot.com/2009/05/vxx-volume-tops-million-mark-as.html#0001-01-01](http://vixandmore.blogspot.com/2009/05/vxx-volume-tops-million-mark-as.html#0001-01-01)
+
+When I penned yesterday’s [Record Volume in VXX](http://vixandmore.blogspot.com/2009/05/record-volume-in-vxx.html), I had an inkling that the VIX-based volatility ETN might be having a coming out party soon. I did not, however, expect [VXX](http://vixandmore.blogspot.com/search/label/VXX) to attract so much attention in just 24 hours.
+
+With today’s 1,094,140 shares traded, VXX is now officially in the big leagues and is sure to be added to the watch lists of many more retail investors and find itself in the repertoire of a wider variety of hedge funds.
+
+The chart below updates the information from yesterday’s chart and adds an on balance volume study to highlight the strength of the move off of yesterday’s bottom.
+
+For those who may be new to VXX, it is important to keep in mind that while there is strong directional agreement between VXX and the VIX (they move in the same direction in about 6 out of every 7 sessions), VXX tends to move at only *half* the rate the cash/spot VIX on a daily basis. So while VXX may lag the VIX in terms of a [juice factor](http://vixandmore.blogspot.com/search/label/VXX%20juice%20factor), it is probably the best way to trade volatility if one does not wish to do so in the options or futures market.
+
+If this almost four-month-old volatility ETN were to have a motto, perhaps it would be, “When directionally correct is good enough!”
+
+For more information on VXX, readers may also wish to check out:
+
+*![](img/4aa36fa4c575fd1e63aace8fe5f4d7e2.png)*
+
+*[source: StockCharts]*
+
+***Disclosure****: Long VIX and VXX at time of writing.*
