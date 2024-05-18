@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:22:03
+-->
+
+# VIX and More: EVALS Details Performance Data for First Year
+
+> 来源：[http://vixandmore.blogspot.com/2012/12/evals-details-performance-data-for.html#0001-01-01](http://vixandmore.blogspot.com/2012/12/evals-details-performance-data-for.html#0001-01-01)
+
+For the most part, I try to keep information about the [VIX and More Subscriber Newsletter](http://vixandmoresubscriber.blogspot.com/) and [EVALS](http://vixandmoreevals.blogspot.com/) to an absolute minimum in this space, but lately EVALS has become such a phenomenon that I decided it would be easier to discuss it here rather than to continue to the answer the large volume of questions about this service that inevitably clog up my inbox.
+
+In keeping with tradition, I will touch up on a couple of highlights here and recommend that readers who are interested in more information visit the [EVALS blog](http://vixandmoreevals.blogspot.com/) and start with today’s post, [EVALS One Year Summary and Performance Update (+74.13%)](http://vixandmoreevals.blogspot.com/2012/12/evals-one-year-summary-and-performance.html).
+
+Since November 17, 2011, EVALS has been focusing entirely on VIX and volatility-based ETPs. In the first year of operation, the EVALS model portfolio traded 12 different VIX and volatility-based ETPs a total of 81 times. Some 63.6% of all closed trades were winners and the average winner gained 5.4 times as much as the average loser lost, with a median holding period of 60 days.
+
+For those with an interest in risk-adjusted performance metrics, EVALS had a Sharpe ratio of 1.65 in the first year, a Sortino ratio of 2.39 and a Schwager Gain to Pain ratio of 2.91\. More information and performance data can be found on the [EVALS blog](http://vixandmoreevals.blogspot.com/). Also of interest may be the following equity curve, which shows the one-year performance of a hypothetical model portfolio consisting of $100,000 that was invested in EVALS and the S&P 500 on the November 17, 2011 launch date.
+
+![](img/9b3ea1474811b5008fd28294cace7ae4.png)
+
+Finally, for anyone who may be confused about what content is in EVALS, what is in the newsletter and what finds its way to the blog, I have updated what I call the content pyramid, which hopefully will be (mostly) self-explanatory.
+
+![](img/52a3421e609f2960baec0d3accf0af6a.png)
+
+Related posts (from the [EVALS blog](http://vixandmoreevals.blogspot.com/)):
+
+***Disclosure(s):*** *none*
