@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:47:25
+-->
+
+# VIX and More: Chart of the Week: Retail Sales
+
+> 来源：[http://vixandmore.blogspot.com/2009/05/chart-of-week-retail-sales.html#0001-01-01](http://vixandmore.blogspot.com/2009/05/chart-of-week-retail-sales.html#0001-01-01)
+
+I usually try to make sure that the [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) is a chart that tackles a subject I have not seen discussed to the extent I believe it deserves or presents some new material to shine a different light on the subject.
+
+Since I have been out of pocket for the last five days or so, it is possible that others have beaten the subject of [retail sales](http://vixandmore.blogspot.com/search/label/retail%20sales) to death during this period. Even if this is the case, I have no problem with a chart of retail sales pinch hitting for this week’s chart of the week, as I believe that the April retail sales data are a microcosm of the larger economic picture. In a nutshell, the retail sales data serve as a reminder that while things may have improved somewhat from March, for the most part, the economy is still as weak as it has been in at least three decades, probably a lot longer.
+
+The graphic below shows the percentage change in retail sales from the year ago period. Are things improving significantly or are we just starting to scrape along the bottom? It looks as if it will take at least another 2-3 months of data before we can begin to answer this question properly.
+
+![](img/44664d9d8f468d45c45a67e0880e3578.png)
+
+*[source: Federal Reserve Bank of St. Louis]*

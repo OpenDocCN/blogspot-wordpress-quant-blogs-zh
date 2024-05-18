@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:47:11
+-->
+
+# VIX and More: VIX Touches 30.00, Settles at 30.24
+
+> 来源：[http://vixandmore.blogspot.com/2009/05/vix-touches-3000-settles-at-3024.html#0001-01-01](http://vixandmore.blogspot.com/2009/05/vix-touches-3000-settles-at-3024.html#0001-01-01)
+
+Today the VIX stood at 30.02 as the NYSE regular session closed at 4:00 p.m. ET, then ticked down to 30.00 just after the close and inched back up to 30.24 by the time the index trading session closed at 4:15 p.m.
+
+The close was the lowest for the VIX since September 12^(th), which was the Friday just before Lehman Brothers declared bankruptcy.
+
+All told, the VIX has now closed above the 30 level for 170 consecutive trading days. This far surpasses the previous record of 49 days in a row from 1998 as well as the 47 day string of 30+ closes from 2002.
+
+About the only useful historical comparison for extended volatility comes from [1987](http://vixandmore.blogspot.com/search/label/1987)-1988, where data reconstructed for the [VXO](http://vixandmore.blogspot.com/search/label/VXO) (‘original VIX’ calculations) show that the ‘original VIX’ would have remained above the 30 level for 86 consecutive days – about half of the current period of heightened volatility.
+
+To put the 30 level in the VIX in a different perspective, it may be helpful to consider that from March 2003 to August 2007, the VIX did not close above 30 at all. From April 2003 to August 2007, the VIX failed to even reach the 30 level on an intraday basis.
+
+Finally, just for grins, 2001 is the year with the current highest low water mark for the VIX for an entire calendar year. The low VIX for 2001? Just 18.74.
+
+I will have some thoughts on where the VIX might range for the balance of 2009 tomorrow.
+
+In the interim, for more on volatility during the 1987-88 period, check out [The Persistence of Volatility](http://vixandmore.blogspot.com/2009/04/persistence-of-volatility.html) and [Volatility History Lesson: 1987](http://vixandmore.blogspot.com/2008/03/volatility-history-lesson-1987.html). For more on the VXO, including how the index would have acted during in the wake of [Black Monday](http://vixandmore.blogspot.com/search/label/Black%20Monday), try [VXO Chart from 1987-1988 and Explanation of VIX vs. VXO](http://vixandmore.blogspot.com/2008/10/vxo-chart-from-1987-1988-and.html).
+
+*![](img/30a1507e7f095fce321fa3393d969eaf.png)*
+
+*[source: StockCharts]*

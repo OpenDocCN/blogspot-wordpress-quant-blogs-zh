@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:47:54
+-->
+
+# VIX and More: VIX Term Structure and VIX Forecasts
+
+> 来源：[http://vixandmore.blogspot.com/2009/05/vix-term-structure-and-vix-forecasts.html#0001-01-01](http://vixandmore.blogspot.com/2009/05/vix-term-structure-and-vix-forecasts.html#0001-01-01)
+
+Last Friday, Jeff Kearns of Bloomberg had a story with the title [VIX Futures Show Traders Betting Stock Rally to End](http://www.bloomberg.com/apps/news?pid=20601084&sid=aL67pJSx90Is&refer=stocks) that triggered a large number of emails from readers. The quote from the article that seemed to generate the most amount of interest was, “Investors surveyed by [Macro Risk Advisors](http://www.macroriskadvisors.com/) expect the VIX to jump to as much as 51.70 by year end.” In fact, the 51.70 data point was the average high print expected by respondents who were surveyed in April, when the VIX ranged from 33 to 46\. That data point and the balance of the results from the [Volatility Forecast Survey](http://www.macroriskadvisors.com/layout/pdf/Volatility_Forecast_Survey_2009.pdf) make for some interesting reading. Even more interesting, however, is the April 2008 [Volatility Forecast Survey](http://www.macroriskadvisors.com/layout/pdf/MRA1_VOLSURVEY20Updated.pdf), in which respondents expected average realized volatility of 20.9% for the balance of 2008, with an average VIX high print of 34.4\. One brave soul went out on a limb and predicted that the VIX would spike to a new all-time high of 50.
+
+I guess nobody knew what a category 5 VIX hurricane looked like, so extrapolating from historical data, they were having trouble imagining what was coming.
+
+Getting back to the 2009 survey data, while I find it intriguing, I would put a lot less credence into survey data that is several weeks old than real-time market data. One can construct a VIX [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) graph from [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20options) or SPX options. My preference is for the latter approach, which yields a graph like the one below. Note that the slope of the VIX term structure is almost flat. Certainly the 0.11 differential between the front month and 2 ½ years out is in stark contrast to the [33.93 point differential](http://vixandmore.blogspot.com/2008/12/vix-term-structure-chances-since.html) from November 20, 2008, when the front month VIX was 81.07\. Essentially, the consensus opinion is that current volatility measures are about where they should be, with no significant changes anticipated going forward.
+
+Finally, while survey respondents likely had the best of intentions when constructing their [volatility forecasts](http://vixandmore.blogspot.com/search/label/volatility%20forecast) last month, there is nothing like current market data to get a sense of how investors are backing up their beliefs with large dollar value positions in the options market.
+
+![](img/7ca510fba658f05a35d2d3e263556c40.png)
+
+*[source: CBOE, VIXandMore]*
