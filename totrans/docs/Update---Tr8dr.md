@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:29:23
+-->
+
+# Update | Tr8dr
+
+> 来源：[https://tr8dr.wordpress.com/2011/09/15/update/#0001-01-01](https://tr8dr.wordpress.com/2011/09/15/update/#0001-01-01)
+
+September 15, 2011 · 7:14 am
+
+It has been a while since I’ve posted and apologize for leaving the prior subject mid-thread.   I’ve become extraordinarily busy with a new company, but will revert to research mode and follow-up once things settle down.
+
+In the mean time, one of my long-term side interests has been biological systems.  These are interesting because are probably most complex systems we can study.   Our understanding of specific cells and interactions has grown enormously within a century, but we’re still only scratching the surface given crude measurement tools and the mind boggling complexity.   Computational biology provides a simulation based approach to studying these problems, and hence is of particular interest to me.
+
+Some “holy grails” that have interested me:
+
+1.  creation of artificial lifeforms to “prove” that life is nothing more than a system (done: Craig Venter’s team)
+2.  mapping of neural structures into simulation
+3.  creation of alternative chemistry’s / energy / replicating processes
+
+Here is an article I just found of a researcher in the UK that is having some success with creating structures and processes based on metal salts as an alternative to carbon forms: [ Life cells made of metal](http://www.newscientist.com/article/dn20906-lifelike-cells-are-made-of-metal.html).   It seems like they have been able to create cell-like structures and may be close to a means of generating energy for the entity via photosynthesis.   Whether this is a fruitful or not, remains to be seen.
