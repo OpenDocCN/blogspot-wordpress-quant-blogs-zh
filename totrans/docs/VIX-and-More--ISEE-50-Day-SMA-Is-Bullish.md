@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:51:43
+-->
+
+# VIX and More: ISEE 50 Day SMA Is Bullish
+
+> 来源：[http://vixandmore.blogspot.com/2007/03/isee-50-day-sma-is-bullish.html#0001-01-01](http://vixandmore.blogspot.com/2007/03/isee-50-day-sma-is-bullish.html#0001-01-01)
+
+A week ago, I [posted](http://vixandmore.blogspot.com/2007/03/simple-moving-averages-and-isee.html) about the [ISEE](http://vixandmore.blogspot.com/search/label/ISEE) and the predictive power of the [50 day SMA](http://vixandmore.blogspot.com/search/label/50%20day%20SMA).  I have since updated that chart to reflect a buy signal at 120 (-1.5 standard deviations from the mean) and sell signal at 192 (+1.5 standard deviations from the mean.)
+
+After hitting a record low on March 8^(th) and printing three record lows for the 10 day SMA two weeks ago, the ISEE’s 50 day SMA is now comfortably below the 120 buy level.  Perhaps more importantly, with extremely high numbers due to scroll off the average in the next 10 days and relatively high numbers set to scroll off over the next month, it is a good bet that the 50 day SMA will be flashing a buy signal for most of April, if not the entire month.
+
+If you put any faith in [put to call ratios](http://vixandmore.blogspot.com/search/label/put%20to%20call), then this is the time you want to get long, perhaps in a big way.
