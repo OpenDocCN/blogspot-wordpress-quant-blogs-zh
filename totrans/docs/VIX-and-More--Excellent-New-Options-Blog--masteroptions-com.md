@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:38:56
+-->
+
+# VIX and More: Excellent New Options Blog: masteroptions.com
+
+> 来源：[http://vixandmore.blogspot.com/2009/07/excellent-new-options-blog.html#0001-01-01](http://vixandmore.blogspot.com/2009/07/excellent-new-options-blog.html#0001-01-01)
+
+In the blogging world, there are very few options blogs that I would consider a must read. Based on the first two posts, it looks as if Dean Mouscher’s [masteroptions.com](http://masteroptions.com/) blog is going to be added to that list.
+
+[What Is an Option Worth?](http://masteroptions.com/?p=3) is Mouscher’s first post. The post includes a 45 minute video dedicated almost exclusively to [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) and is one of the best videos I have seen on the subject – and almost certainly one of the top free options videos out there. The discussion of implied naturally evolves into a fairly detailed treatment of the forces that act upon the VIX, making this an excellent primer for the beginning options trader and a worthwhile review for intermediate options traders as well.
+
+By all means, check out Mouscher’s blog and take the 45 minutes to hear what he has to say about implied volatility.
