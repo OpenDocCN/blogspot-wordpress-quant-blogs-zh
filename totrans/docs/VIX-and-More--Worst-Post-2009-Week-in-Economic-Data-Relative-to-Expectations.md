@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:29:13
+-->
+
+# VIX and More: Worst Post-2009 Week in Economic Data Relative to Expectations
+
+> 来源：[http://vixandmore.blogspot.com/2012/06/worst-post-2009-week-in-economic-data.html#0001-01-01](http://vixandmore.blogspot.com/2012/06/worst-post-2009-week-in-economic-data.html#0001-01-01)
+
+This week ties the record for the worst week ever in terms of economic data relative to expectations – at least in the 2 ½ years I have been collecting this data and putting it through my proprietary analytics.
+
+I last reported on my analysis of economic data vs. expectations in the middle of April in [Stocks and Economic Data on Upswing Despite Disappointing Manufacturing and Housing Numbers](http://vixandmore.blogspot.com/2012/04/stocks-and-economic-data-on-upswing.html). At that time, I expressed concern about, the relative weakness of the manufacturing and [housing](http://vixandmore.blogspot.com/search/label/housing) data I noted:
+
+> *“In both 2010 and 2011, it was the end of positive surprises in manufacturing and general economic data that coincided with bearish downturns in stocks. So far in 2012, the disappointments in manufacturing and general economic data have not been able to put a dent in the stock market rally. My sense is that this data and the stock market will be moving in the same direction within the next month. Whether that means an uptick in the data or a downtick in stocks remains to be seen.”*
+
+With the benefit of the data through today’s [employment](http://vixandmore.blogspot.com/search/label/employment) report, [ISM](http://vixandmore.blogspot.com/search/label/ISM) manufacturing index and construction numbers, it is clear that the weakness is no longer confined to manufacturing and housing, but has also dragged down employment and well as consumer spending and confidence.
+
+The chart below shows the aggregated data picture across all categories, since the beginning of 2010 across all categories.  For the record, the only other time there was a week in which data was this poor relative to expectations was in the middle of February 2011, at which point the data was pulling back from an all-time high, about 2 ½ months before data and equities topped and began their swoon.
+
+This time around the story is obviously much different, but keep in mind that for the last six months or so stocks have been more correlated with employment data than with any other measure of economic activity.
+
+*[Readers who are interested in more information on the component data included in this graphic and the methodology used are encouraged to check out the links below. For those seeking more details on the specific economic data releases which are part of my aggregate data calculations, check out* [*Chart of the Week: The Year in Economic Data (2010)*](http://vixandmore.blogspot.com/2011/01/chart-of-week-year-in-economic-data.html)*.]*
+
+Related posts:
+
+*![](img/c2b4cf034deacf406e47b5dc7b28fe43.png)*
+
+*[source(s): various]*
+
+***Disclosure(s):*** *none*
