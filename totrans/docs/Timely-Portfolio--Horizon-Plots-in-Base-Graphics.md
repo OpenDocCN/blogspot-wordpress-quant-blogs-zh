@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:04:35
+-->
+
+# Timely Portfolio: Horizon Plots in Base Graphics
+
+> 来源：[http://timelyportfolio.blogspot.com/2012/08/horizon-plots-in-base-graphics.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/08/horizon-plots-in-base-graphics.html#0001-01-01)
+
+*for background please see prior posts [More on Horizon Charts](http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html), [Application of Horizon Plots](http://timelyportfolio.blogspot.com/2012/07/application-of-horizon-plots.html),* [*Horizon Plot Already Available*](http://timelyportfolio.blogspot.com/2012/06/horizon-plot-already-available.html), *and* [*Cubism Horizon Charts in R*](http://timelyportfolio.blogspot.com/2012/06/cubism-horizon-charts-in-r.html)
+
+There are three primary graphics routes in R (base graphics, lattice, and ggplot2), and each have their zealots.  Last time in [More on Horizon Charts](http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html), I used lattice and latticeExtra. This time we will build horizon plots in base graphics, and I was pleased with the result. ~~Unfortunately, there is one small issue in that the points of change from positive to negative overlap.  Please let me know if you have a solution.~~ *Thanks to helpful readers for their comments and code changes, this is now fixed.*
+
+Now, let’s implement a for loop and mirror the negative values.
+
+With horizon chart functionality in base graphics, hopefully we can add this type now to other packages.  Here is a potential example using quantmod.
+
+[R code in GIST (do raw for copy/paste)](https://gist.github.com/3247653)

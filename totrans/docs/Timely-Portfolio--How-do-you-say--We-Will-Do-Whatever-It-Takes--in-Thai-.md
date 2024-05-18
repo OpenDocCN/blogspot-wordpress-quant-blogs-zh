@@ -1,0 +1,42 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:04:43
+-->
+
+# Timely Portfolio: How do you say “We Will Do Whatever It Takes” in Thai?
+
+> 来源：[http://timelyportfolio.blogspot.com/2012/08/how-do-you-say-we-will-do-whatever-it.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/08/how-do-you-say-we-will-do-whatever-it.html#0001-01-01)
+
+As the market has already started to poke holes in Draghi’s promise, I thought it would be good to continue the series of posts that I began with the British version [“We Will Do Whatever it Takes”](http://timelyportfolio.blogspot.com/2012/07/we-will-do-whatever-it-takes.html) with my favorite article written during the Asia Pacific crisis in 1997.
+
+> #### **Too soon to crow**
+> 
+> “Even if Thailand's troubles are in a regional class of their own, its neighbours still have reason to fear the knock-on effect of a successful onslaught on the baht. For now, Thailand has been crowing about a victory over the speculators. Mr Amnuay has even promised to bring interest rates, which have been kept high to protect the baht, down by two percentage points this year. **It is as if a little guy, having survived one round with the big bullies, was dancing around with his fists up, saying, go on, hit me again.**
+
+> **They almost certainly will.** The defence of the baht was achieved by a series of extraordinary measures that will be hard to sustain…”
+
+A little graphical perspective might help us remember when this article was written.
+
+[![image](img/cf746913206a01bbc8818d70e1ab7587.png "image")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhjfeX_8Qdk3Ia3JcxHsIMv_MfHr8k7FpGRRFjcvBmKZt6-wW-HoQRuyuVm2Nst_Thsvjamw6RQGqophT7LAfoQ3qdDTKQaNJHVq6rL2NHjJ4Y58ubDCK6uSSUGnfdPSvtMDkBAxF-JJw/s1600-h/image%25255B13%25255D.png)
+
+For the entire set of **Economist** articles on Thailand during this period, go to [http://www.economist.com/topics/thailand-1?page=33&%2524Version=0&%2524Path=%252F&%2524Domain=.economist.com](http://www.economist.com/topics/thailand-1?page=33&%2524Version=0&%2524Path=%252F&%2524Domain=.economist.com "http://www.economist.com/topics/thailand-1?page=33&%2524Version=0&%2524Path=%252F&%2524Domain=.economist.com").  Also, please read the incredibly thorough account of the 1997 crisis at [The Nation blog](http://blog.nationmultimedia.com/search_blog_index.php?keyword=mini+series)**.**
+
+If throughout financial market history, the central banks and politicians ever defeated the markets (greedy speculators), please let me know.  I am absolutely amazed at the confidence in central banks and politicians, especially in the United States.
+
+R code:
+
+#plot Thai baht
+require(lattice)
+require(latticeExtra)
+require(quantmod)
+getSymbols("DEXTHUS",src="FRED")
+DEXTHUS <- 1/DEXTHUS["1995-01-01::1999-12-31",]
+asTheEconomist(
+  xyplot(DEXTHUS,
+       panel = function (x,y,...) {
+         panel.xyplot(x,y,...)
+         panel.abline(v=index(DEXTHUS)[which(index(DEXTHUS)=="1997-05-22")],col="black", lty=3)
+         panel.text(x=index(DEXTHUS)[which(index(DEXTHUS)=="1997-05-22")], y = 0.025, labels="Economist article The Baht Spills Over", col="indianred4", srt=90, pos=3)
+       },
+        main = "Thai Baht Before and After Crisis (1995-1999) \n source : Federal Reserve Bank of St. Louis")
+)

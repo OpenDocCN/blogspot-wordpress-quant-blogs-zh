@@ -1,0 +1,30 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:05:02
+-->
+
+# Timely Portfolio: “We Will Do Whatever it Takes”
+
+> 来源：[http://timelyportfolio.blogspot.com/2012/07/we-will-do-whatever-it-takes.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/07/we-will-do-whatever-it-takes.html#0001-01-01)
+
+When I first heard Draghi’s quote “We Will Do Whatever it Takes,”  I immediately thought that I should dig through some other good quotes from similarly positioned officials in financial history.  Let’s start with Prime Minister John Major in England 1992.
+
+I found this clip reminding us of the 1992 British Pound devaluation.
+
+[http://news.bbc.co.uk/onthisday/hi/dates/stories/september/16/newsid_2519000/2519013.stm](http://news.bbc.co.uk/onthisday/hi/dates/stories/september/16/newsid_2519000/2519013.stm "http://news.bbc.co.uk/onthisday/hi/dates/stories/september/16/newsid_2519000/2519013.stm") “The move is a dramatic U-turn in government policy, as only last week Prime Minister John Major reaffirmed the government's commitment to remaining within the mechanism.” (see his strong words below at the 2:34 mark)
+
+[http://www.youtube.com/embed/AHDsO7gvXHQ](http://www.youtube.com/embed/AHDsO7gvXHQ)
+
+VIDEO
+
+Another near real-time view of Black Wednesday, September 16, 1992\.
+
+[http://www.youtube.com/embed/CSW6U0Xs7vU](http://www.youtube.com/embed/CSW6U0Xs7vU)
+
+VIDEO
+
+I think the last lines from the [Atlantic June 4, 2010 article “Go For the Jugular”](http://www.theatlantic.com/business/archive/2010/06/go-for-the-jugular/57696/3/) sum it up very well
+
+> “That evening, Lamont called a press conference in the Treasury's central courtyard. At 7:30 p.m., facing a massive battery of TV cameras from all over the world, he announced Britain's exit from the exchange-rate mechanism.
+> 
+> **The markets had won, and the government had at last recognized it.**”
