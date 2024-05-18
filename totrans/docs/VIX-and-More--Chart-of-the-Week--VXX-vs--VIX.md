@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:11:05
+-->
+
+# VIX and More: Chart of the Week: VXX vs. VIX
+
+> 来源：[http://vixandmore.blogspot.com/2010/05/chart-of-week-vxx-vs-vix.html#0001-01-01](http://vixandmore.blogspot.com/2010/05/chart-of-week-vxx-vs-vix.html#0001-01-01)
+
+Given that I have been banging the drum about [VXX](http://vixandmore.blogspot.com/search/label/VXX) (iPath S&P 500 VIX Short-Term Futures ETN) since the [day it was launched](http://vixandmore.blogspot.com/2009/01/first-day-of-trading-in-vxx-and-vxz.html), now that volatility is showing some signs of coming back to life and VXX regularly trades 10-20 million shares per day, I thought it would be appropriate to provide a comparison of the performance of VXX and VIX.
+
+For anyone who has been following this space, the substance of this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) should come as no surprise. Sure, volatility has been falling with almost unprecedented regularity over the course of the last 14 months, but VXX has been falling at a much faster rate than the VIX. In the last year, VXX has fallen at about twice the rate of the VIX, with the difference between the two accelerating over the course of the last 6-9 months.
+
+As has been noted on a number of instances here, the main culprits responsible for the underperformance of VXX are the [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) of [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures), [contango](http://vixandmore.blogspot.com/search/label/contango) and negative [roll yield](http://vixandmore.blogspot.com/search/label/roll%20yield).
+
+For those who wish to get a quick overview of some of the issues behind VXX calculations and performance, [Why the VXX is Not a Good Short-Term or Long-Term Play](http://vixandmore.blogspot.com/2009/10/why-vxx-is-not-good-short-term-or-long.html) is a good place to start, with [VXX Calculations, VIX Futures and Time Decay](http://vixandmore.blogspot.com/2009/05/vxx-calculations-vix-futures-and-time.html) offering a more detailed explanation of what is driving the gap in performance between VXX and the VIX. An even more thorough discussion of VXX can be found in *The VIX ETNs: VXX and VXZ*, in the March 2010 issue of [Expiring Monthly](http://www.expiringmonthly.com/).
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: StockCharts.com]* 
+
+***Disclosure(s):*** *short VXX at time of writing; I am one of the founders and owners of Expiring Monthly*
