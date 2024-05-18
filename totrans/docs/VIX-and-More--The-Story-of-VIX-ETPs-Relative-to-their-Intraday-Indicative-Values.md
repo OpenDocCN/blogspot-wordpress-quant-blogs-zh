@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:38:25
+-->
+
+# VIX and More: The Story of VIX ETPs Relative to their Intraday Indicative Values
+
+> 来源：[http://vixandmore.blogspot.com/2012/02/story-of-vix-etps-relative-to-their.html#0001-01-01](http://vixandmore.blogspot.com/2012/02/story-of-vix-etps-relative-to-their.html#0001-01-01)
+
+This week has seen an explosion of interest in the [VIX exchange-traded product](http://vixandmore.blogspot.com/search/label/VIX%20ETN) (ETP) space, most of which has been due to the suspension by Credit Suisse ([CS](http://vixandmore.blogspot.com/search/label/CS)) of creation units (think ‘new shares’) in the VelocityShares Daily 2x VIX Short-Term ETNs ([TVIX](http://vixandmore.blogspot.com/search/label/TVIX)).
+
+For those who are late to the story and/or would like some background, the links below should suffice, but for today I am interested in some data that might indicate how much stress there is in the market for TVIX shares, for VelocityShares products other than TVIX and for a ProShares product that is similar to TVIX, but is an ETF rather than an ETN: the ProShares Ultra VIX Short-Term Futures ETF, [UVXY](http://vixandmore.blogspot.com/search/label/UVXY).
+
+For this analysis, I have evaluated the prices of a handful of VIX ETPs relative to their [Intraday Indicative Value](http://vixandmore.blogspot.com/search/label/intraday%20indicative%20value) (a real-time estimate of an ETP’s fair value, based on the most recent prices of its underlying securities) for the last week. The graphic below shows the premium for five VIX ETPs as a percentage of their indicative values, normalized to a 100 point scale.
+
+The chart shows that prior to the [suspension of new creation units](http://vixandmore.blogspot.com/2012/02/credit-suisse-suspends-creation-units.html) in TVIX after the close of regular trading on Tuesday, February 21^(st), these VIX ETPs generally traded very close to their indicative values. In fact, the norm for the long ETPs (TVIX, UVXY, [VXX](http://vixandmore.blogspot.com/search/label/VXX) and [VIIX](http://vixandmore.blogspot.com/search/label/VIIX)) was to trade at a slight premium to the indicative value, generally less than 1% higher. By contrast, the one inverse ETP on the list, [XIV](http://vixandmore.blogspot.com/search/label/XIV), tended to trade at a slight discount to indicative value, again, generally less than 1%.
+
+Once Credit Suisse closed the door for new creation units, the price of TVIX has drifted steadily higher relative to its indicative value, even trading at a 20% premium just a few minutes ago.
+
+In terms of other market dislocations, however, the evidence is not compelling. UVXY, which is an excellent substitute for TVIX, doubled its prior record volume yesterday and is on schedule to top that today, but after seeing a slight lift in the premium relative to indicative value, UVXY’s premium is now back to historical norms.
+
+Looking at some of the other VelocityShares products, the two next most popular after TVIX are XIV and VIIX. Here again, there have been some minor fluctuations since the Credit Suisse announcement, but nothing that has pushed these products more than 1% away from their indicative value.
+
+Based on the indicative value data, then, so far the only market dislocation has been in the TVIX product, with no evidence of a spread to competing products (UVXY) or other products in the VelocityShares stable, such as XIV or VIIX.
+
+Related posts:
+
+*![](img/c9f03e70ecace4e6e53e8b5ff247b794.png)*
+
+*[source(s): Yahoo, VIX and More]*
+
+***Disclosure(s):*** *long XIV; short TVIX, UVXY and VXX at time of writing*
