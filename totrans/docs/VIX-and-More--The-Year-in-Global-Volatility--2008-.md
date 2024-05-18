@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:07:47
+-->
+
+# VIX and More: The Year in Global Volatility (2008)
+
+> 来源：[http://vixandmore.blogspot.com/2009/01/year-in-global-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2009/01/year-in-global-volatility.html#0001-01-01)
+
+In November I launched the *VIX and More* [Global Volatility Index](http://vixandmore.blogspot.com/search/label/Global%20Volatility%20Index), which is a weighted average of the implied volatility in options for equities in the [15 largest global economies](http://en.wikipedia.org/wiki/List_of_countries_by_GDP_%28nominal%29). I will have more to say about the Global Volatility Index in 2009, but want to use this occasion to highlight the index as a means of tracking the rise of volatility in response to major volatility events during the course of the past year. In addition to the Global Volatility Index (shown in red), the chart below captures the [Dow Jones World Stock Index](http://vixandmore.blogspot.com/search/label/Dow%20Jones%20World%20Stock%20Index) (blue), as well as the signing of the TARP legislation (black) and the tickers (dark red) for some of the major financial companies that failed and/or were rescued by the U.S. government.
+
+![](img/af7cfa9caf14f31c6ee58c6c689fbd0f.png)
+
+*[source: VIX and More]*
