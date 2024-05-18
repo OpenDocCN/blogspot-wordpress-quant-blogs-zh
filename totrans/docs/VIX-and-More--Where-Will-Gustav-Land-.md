@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:28:51
+-->
+
+# VIX and More: Where Will Gustav Land?
+
+> 来源：[http://vixandmore.blogspot.com/2008/08/where-will-gustav-land.html#0001-01-01](http://vixandmore.blogspot.com/2008/08/where-will-gustav-land.html#0001-01-01)
+
+There are several excellent sources which will provide the latest updates on [hurricanes](http://vixandmore.blogspot.com/search/label/hurricanes) and the various potential paths that a number of computer models are projecting.  These sites include the [National Hurricane Center](http://www.nhc.noaa.gov/index.shtml), [Weather Underground](http://www.wunderground.com/tropical/?index_region=at), [AccuWeather](http://hurricane.accuweather.com/hurricane/index.asp?), and others.  The most common graphical depiction of these projections come in the form of a [probability cone](http://vixandmore.blogspot.com/2007/08/hurricanes-and-vix.html) that projects the most likely path of the eye, with an increasingly large cone farther into the future to reflect the increased uncertainty about the forecast.
+
+You can study these probability cones, computer projections and other data and adjust your portfolio accordingly.  There is another tool that I don’t believe many know is out there.  [Intrade](http://vixandmore.blogspot.com/search/label/Intrade), the [prediction market](http://vixandmore.blogspot.com/search/label/prediction%20markets) site, has recently added a number of contracts covering possible landfall locations for [Gustav](http://vixandmore.blogspot.com/search/label/Gustav).  The graphic below highlights the current landfall contracts associated with Gustav.  These range across the Gulf of Mexico and also include Georgia, South Carolina, and “any other state”.  Note that all these contracts stipulate that landfall has to be as a [category 2 hurricane](http://www.nhc.noaa.gov/aboutsshs.shtml) (winds 96-110 mph) or higher.  Finally, there is also a contract that Gustav does not make first landfall in the U.S. as a category 2 or higher hurricane.
+
+These may not be the ideal trading vehicles for hurricanes, but they can be interesting data sources as volume picks up in these contracts, enhancing the value of their informational content.
