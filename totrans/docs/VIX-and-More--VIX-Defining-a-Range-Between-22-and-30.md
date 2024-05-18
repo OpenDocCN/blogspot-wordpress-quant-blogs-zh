@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:27:20
+-->
+
+# VIX and More: VIX Defining a Range Between 22 and 30
+
+> 来源：[http://vixandmore.blogspot.com/2009/10/vix-defining-range-between-22-and-30.html#0001-01-01](http://vixandmore.blogspot.com/2009/10/vix-defining-range-between-22-and-30.html#0001-01-01)
+
+The CBOE Volatility Index, which is usually referenced here by its ticker symbol, VIX, seems to be settling comfortably into a range between 22.00 and 30.00 that is has traded in since early July. Given that the relatively narrow eight point range has now held up for three months, there is a natural tendency to wonder whether the VIX has started to form a natural top and bottom that will result in an extended stay in this range.
+
+The chart below tracks the daily movements in the VIX back to August 2008 and shows how the gravitational forces working on the VIX have pulled it back from just shy of 90 to the low to middle 20s. This is still above the 19.00 – 22.50 range that prevailed in August 2008, but not by a large margin.
+
+Even with all the uncertainties surrounding the upcoming earnings season – which Alcoa ([AA](http://vixandmore.blogspot.com/search/label/VXX)) technically kicks off after tomorrow’s close – I still think there is a strong probability that the VIX spends the balance of the year in the same range that it has been during the past three months. In fact, with earnings next week from the likes of General Electric ([GE](http://vixandmore.blogspot.com/search/label/GE)), Bank of America ([BAC](http://vixandmore.blogspot.com/search/label/BAC)), Citigroup ([C](http://vixandmore.blogspot.com/search/label/C)), JPMorgan Chase ([JPM](http://vixandmore.blogspot.com/search/label/JPM)), Goldman Sachs ([GS](http://vixandmore.blogspot.com/search/label/GS)), Intel ([INTC](http://vixandmore.blogspot.com/search/label/INTC)), International Business Machines ([IBM](http://vixandmore.blogspot.com/search/label/IBM)), Johnson & Johnson ([JNJ](http://vixandmore.blogspot.com/search/label/JNJ)), [CSX](http://vixandmore.blogspot.com/search/label/CSX) and others, I expect the tone for the balance of the year to be established in another 2-3 weeks, at most.
+
+As volatility tends to escalate prior to earnings, there is a strong temptation sell some options – including VIX strangles – before the third quarter results start pouring in. I will have more on some VIX short [strangle](http://vixandmore.blogspot.com/search/label/strangle) trading ideas in short order.
+
+![](img/99e96e17090483f3e72b25affe344594.png)
+
+*[source: StockCharts]*
