@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 14:27:46
+-->
+
+# Garde le Faucon, je prends les algos ! – Sniper In Mahwah & friends
+
+> 来源：[https://sniperinmahwah.wordpress.com/2013/03/11/garde-le-faucon-je-prends-les-algos/#0001-01-01](https://sniperinmahwah.wordpress.com/2013/03/11/garde-le-faucon-je-prends-les-algos/#0001-01-01)
+
+[![Superyacht Cup Palma 2007, Palma de Mallorca, Balearic Islands, Spain   - Jun 2007](img/548a0659860514ac58d26aff9326c10b.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2013/03/article-2063675-0edd801700000578-810_468x388.jpg)
+
+On se croirait dans *Dynastie* : cette semaine, à la Haute Cour de Justice de Londres, a lieu un procès entre deux anciens partenaires (dans la vie civile comme dans le travail) de la société Ikos Partners, l’un des plus gros *hedge* *funds* anglais.
+
+Ikos avait été fondé par Martin Coward et Elena Ambrosiadou en 1992, pour un coût initial raisonnable (600 000 dollars). Coward et Ambrosiadou étaient tous les deux d’anciens *quants* de Goldman Sachs dans les années 1980 (ces gens intelligents qui sont des as en mathématiques et qui fabriquent pour les banques des produits financiers si complexes que le pauvre commercial qui va les vendre à ses clients n’est même plus capable d’expliquer ce qu’il refourgue aux collectivités locales). Coward et Ambrosiadou s’étaient rencontrés au Lucy Cavendish College alors qu’ils étaient tous les deux étudiants. Après avoir enrichi Goldman Sachs sur les marchés de la City et de Wall Street, Coward était parti travailler pour une banque d’investissement de Bahrain, pendant qu’Ambrosiadou devenait administratrice chez British Petroleum.
+
+Puis le couple fonde Ikos (« maison » en grec), un fonds d’investissement qui s’avérera très lucratif (avec parfois plus de 11,5% de retour sur investissement) et qui ira jusqu’à gérer plus de 3 milliards de livres. En 2004, Elena Ambrosiadou s’octroie une rémunération de 26 millions de dollars, ce qui fait d’elle la femme la plus rémunérée d’Angleterre. Cette même année, le fonds est transféré à Chypre, paradis fiscal bien connu. En 2009, un employé d’Ikos, Vincent Pfister, est accusé d’avoir volé des algorithmes de trading permettant à Ikos de gérer le portfolio de ses clients (les vols d’algorithmes sont légions depuis les années 2000, comme je l’explique dans mon ouvrage à propos de Goldman Sachs, Teza Technologies et Citadel).
+
+Or il s’avère aujourd’hui que Vincent Pfister – qui est un ancien de Crédit Suisse, mon employeur, et qui a ensuite travaillé chez BNP Paribas à Londres jusque septembre 2011 – avait visiblement volé les algorithmes pour le compte de… Martin Coward, le mari d’Elena Ambrosiadou (si Pfister reconnaît bel et bien le vol, il nie en revanche d’avoir eu en projet de partager les codes avec Coward – Pfister fait toujours face à une plainte d’Ikos, mais ne s’est pas présenté aux deux dernières convocations de la justice chypriote, qui a émis, fin 2012, un mandat d’arrêt européen pour que l’Angleterre lui mette la main dessus). Entre temps, Coward et Ambrosiadou avaient divorcé en 2007, puis en 2008 Ambrosiadou a viré 12 employés qui se trouvaient auparavant sous la direction de son ex-mari (sans compter des opérations de surveillance qu’elle avait confié à un ancien des services secrets israéliens, et le traker GPS qu’elle avait installé dans la voiture de son ex-mari).
+
+Bref, en 2010, Martin Coward quitte officiellement Ikos, dont il reste cependant l’un des actionnaires. Depuis, les ex-mariés s’affrontent par tribunaux interposés (58 actions en justice passées ou en cours), en Angleterre, à Chypre et à… Monaco, où Coward est suspecté d’avoir apporté les codes volés chez Ikos pour monter son propre fonds d’investissement. « Il y a quelque chose d’extraordinaire concernant la technologie chez Ikos, affirma un ancien de la société : Ikos est conçu pour éliminer toutes les émotions humaines lors des prises de décisions. » Tout l’enjeu est là : dans les algorithmes.
+
+A côté de ces programmes informatifs très lucratifs, le Faucon maltais – le yacht d’Elena Ambrosiadou, qui est le plus long du monde, valorisé à 120 millions de dollars – n’a pas vraiment d’importance dans les bagarres judiciaires en cours entre les deux anciens associé(e)s. Lors d’un divorce, la question est parfois de savoir qui gardera le chien. Ici, la question est plutôt de savoir qui, de Coward ou d’Ambrosiadou, pourra garder la propriété de ces algorithmes qui font gagner des centaines de millions de dollars à Ikos. Le Faucon maltais, à côté de cela, ne vaut pas tripette – garde le bateau, je prends les algos ! Certains humains ont des problèmes que d’autres n’ont pas.
+
+Corrections (11 mars, 19h47) : contrairement à ce qui était écrit dans le première version de ce billet, Vincent Pfister semble ne plus travailler chez BNP Paribas depuis septembre 2011.
