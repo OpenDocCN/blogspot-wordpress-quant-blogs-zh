@@ -1,0 +1,31 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:39:12
+-->
+
+# VIX and More: An Updated Field Guide to VIX ETPs
+
+> 来源：[http://vixandmore.blogspot.com/2012/02/updated-field-guide-to-vix-etps.html#0001-01-01](http://vixandmore.blogspot.com/2012/02/updated-field-guide-to-vix-etps.html#0001-01-01)
+
+With the sudden success of [TVIX](http://vixandmore.blogspot.com/search/label/TVIX), it seems as if the entire [VIX exchange-traded product](http://vixandmore.blogspot.com/search/label/VIX%20ETN) (ETP) space has a large number of new converts. Growing from just two products at the end of 2009 ([VXX](http://vixandmore.blogspot.com/search/label/VXX) and [VXZ](http://vixandmore.blogspot.com/search/label/VXZ)) to 12 by the end of 2010 and 31 by the end of 2011, VIX ETPs are a growth industry.
+
+For those who trade or invest in the VIX ETP space, I thought the graphic below – a field guide of sorts – might be of assistance. The intent of the graphic is to differentiate between the various VIX and volatility-based ETPs primarily by mapping them according to target duration and leverage. The key at the bottom of the graphic highlights some additional distinctions, such as:
+
+*   ETPs that hold some non-VIX securities in their portfolio are marked by a black triangle. These include [VQT](http://vixandmore.blogspot.com/search/label/VQT) and [CVOL](http://vixandmore.blogspot.com/search/label/CVOL), which hold long or short positions in SPX/SPY
+*   ETPs that include both long and short VIX positions in their portfolio (VQT, [XVZ](http://vixandmore.blogspot.com/search/label/XVZ) and [XVIX](http://vixandmore.blogspot.com/search/label/XVIX)) are flagged with a red/green rectangle
+*   ETPs with a dotted outline (VQT and XVZ) have a rule-based dynamic allocation of volatility components
+*   the red ovals highlight those five VIX ETPs that are currently optionable
+*   the large light red shaded area incorporates all the ETPs that use 2x leverage (there are no 3x VIX ETPs)
+*   the large orange shaded area incorporates all the ETPs which have a target average weighted one month duration and thus are particularly susceptible to the influence of [contango](http://vixandmore.blogspot.com/search/label/contango) and negative [roll yield](http://vixandmore.blogspot.com/search/label/roll%20yield) in the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) portion of their holdings
+
+There are some other important distinctions that are difficult to work into the chart, but one I did incorporate was to flag [VIX ETFs](http://vixandmore.blogspot.com/search/label/VIX%20ETF) (from ProShares) in a black font, while all the ETNs are in a blue font.
+
+For the sake of completeness, I also included a necrology of the two VIX ETPs that were closed last year. Interestingly, both were immediately succeeded with virtually identical products that trade under a similar ticker.
+
+Going forward I fear that the next round of VIX ETPs may make it impossible to capture the same level of detail as I have done in this single page, but for now at least, this is my reference of choice for VIX ETPs.
+
+Related posts:
+
+![](img/de354e14174a1d228d9d6c6ffa3a4016.png)
+
+***Disclosure(s):** long XVZ, short VXX and short TVIX at time of writing*

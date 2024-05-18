@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:39:32
+-->
+
+# VIX and More: Will TVIX Go to Zero?
+
+> 来源：[http://vixandmore.blogspot.com/2012/02/will-tvix-go-to-zero.html#0001-01-01](http://vixandmore.blogspot.com/2012/02/will-tvix-go-to-zero.html#0001-01-01)
+
+The sudden surge of interest in [TVIX](http://vixandmore.blogspot.com/search/label/TVIX) (VelocityShares Daily 2x VIX Short-Term ETN) made it the most heavily traded [VIX exchange-traded product](http://vixandmore.blogspot.com/search/label/VIX%20ETN) (ETP) on Friday, as TVIX vaulted over the former king of the mountain, [VXX](http://vixandmore.blogspot.com/search/label/VXX).
+
+Part of the appeal of TVIX is to retail investors who have embraced this product with surprising swiftness in the last week or two. Some of the appeal of TVIX is a function of its volatility: this is a product that jumped from 15 last August to over 109 in early October, before falling as low as 13 earlier this month. Based on some of the questions I have received, it is also obvious than many new investors in TVIX do not understand the product they are trading.
+
+First things first, for those who are new to TVIX, make sure you understand what VXX is, why it has underperformed for the past three years and why it has shortcomings both as a short-term and long-term investment.  For the most part, TVIX is the equivalent of VXX, with 2x leverage.   *[If you start from the bottom of the links below and keep reading up, the key points regarding VXX should come into focus fairly quickly.]*
+
+I periodically receive inquiries about whether TVIX, VXX and some of the other VIX ETPs were “designed to go to zero.” This is not the case. In fact, TVIX and VXX can be excellent products for those who wish to benefit from a short-term increase in volatility. It is important to note that these products were designed to be short-term trading instruments only, with the expectation that they would have a much greater appeal to institutional investors than to retail investors.
+
+Unfortunately, over a long-term time horizon, long positions in TVIX, VXX and many of the other VIX ETPs will be a losing proposition. For those who doubt this, read the [prospectus for TVIX](http://www.velocityshares.com/pdf/VelocityShares.ETN.Final.Pricing.Supplement.VIXlong.pdf). Start with the Risk Factors discussion on page PS-26 and make sure you read as far as the first paragraph of PS-28, where you will encounter the following statement:
+
+> *“The long term expected value of your ETNs is zero. If you hold your ETNs as a long term investment, it is likely that you will lose all or a substantial portion of your investment.”*
+
+This is the situation in a nutshell and helps to explain why TVIX is down more than 80% since its launch at the end of November 2010 – in spite of a meteoric 7x rise from July to October of last year. Will TVIX go to zero? No. As is the case with a number of other VIX ETPs, should TVIX continue to decline in price, a reverse split will likely be used to inflate the share price.
+
+Tomorrow I will delve into the four key drivers of the price of TVIX and implications they have for short-term traders and long-term investors.
+
+Related posts:
+
+*![](img/5dfc4df3abb48c521ca577e8a45c55e4.png)*
+
+*[source(s): StockCharts.com]*
+
+***Disclosure(s):*** *short VXX and TVIX at time of writing*
