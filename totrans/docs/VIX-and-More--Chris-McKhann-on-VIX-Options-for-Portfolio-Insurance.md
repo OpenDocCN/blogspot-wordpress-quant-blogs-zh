@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:06:17
+-->
+
+# VIX and More: Chris McKhann on VIX Options for Portfolio Insurance
+
+> 来源：[http://vixandmore.blogspot.com/2009/01/chris-mckhann-on-vix-options-for.html#0001-01-01](http://vixandmore.blogspot.com/2009/01/chris-mckhann-on-vix-options-for.html#0001-01-01)
+
+A few weeks ago I discovered that I have an alter ego over at optionMONSTER who thinks about and writes daily about the same subjects *VIX and More* likes to tackle. I am speaking of Chris McKhann, whose [How to Use VIX Options for Insurance](http://www.optionmonster.com/news/article.jsp?page=commentary/in_the_news/how_to_use_vix_options_for_insurance_30046.html), is available for those who do not mind going through the free registration process that is required to access all the free content at optionMONSTER.
+
+Chris makes some important points about [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options), notably that they are priced off of [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures). He adds that one can get a relative sense of the how expensive VIX options are by comparing the cash/spot VIX to the VIX futures. This approach is similar to using the [VIX:VXV](http://vixandmore.blogspot.com/search/label/VIX%3AVXV) ratio and is something that I will discuss in this space in the near future.
+
+(For a similar take I had back in September, check out [VIX Options as Catastrophe Insurance](http://vixandmore.blogspot.com/2008/09/vix-options-as-catastrophe-insurance.html).)
