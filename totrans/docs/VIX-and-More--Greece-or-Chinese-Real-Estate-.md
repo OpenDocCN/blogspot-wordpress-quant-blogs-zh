@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:15:36
+-->
+
+# VIX and More: Greece or Chinese Real Estate?
+
+> 来源：[http://vixandmore.blogspot.com/2010/02/greece-or-chinese-real-estate.html#0001-01-01](http://vixandmore.blogspot.com/2010/02/greece-or-chinese-real-estate.html#0001-01-01)
+
+A couple of days ago I posed the question, [Are You Watching Greece?](http://vixandmore.blogspot.com/2010/02/are-you-watching-greece.html) While I am certain that most investors are doing their best to keep on top of the latest news swirling around [Greece](http://vixandmore.blogspot.com/search/label/Greece) and the European Union, the smaller question I addressed was which security or indicator would give a good glimpse into the status of the Greek problem.
+
+While considerable attention is rightly being paid to Greece at the moment, one could easily argue that the [increase in reserve requirement for Chinese banks](http://www.nytimes.com/2010/02/13/business/global/13yuan.html) is an equally large threat to global economic growth.
+
+Unfortunately, good economic data is hard to come by in [China](http://vixandmore.blogspot.com/search/label/China), but with all the talk of a [potential real estate bubble](http://news.xinhuanet.com/english2010/indepth/2010-02/11/c_13171603.htm), investors should be focusing a good deal of their attention on Chinese [real estate](http://vixandmore.blogspot.com/search/label/real%20estate). The good news is that there is a Chinese real estate ETF that has a relatively long track record, good liquidity, and can serve as an excellent barometer for the real estate sector in China. Trading under the ticker [TAO](http://vixandmore.blogspot.com/search/label/TAO), the Claymore/AlphaShares China Real Estate ETF ([holdings](http://www.claymore.com/etf/fund/tao/holdings)) includes REITs and publicly traded firms in the real estate sector in mainland China, Hong Kong and Macau.
+
+The chart below captures of year of price action in TAO. Note that in the chart below, the long white candle from Wednesday is almost certainly the result of erroneous data. Excluding that bad print at the open, Friday’s low of 15.31 has all the appearances of at least a short-term cycle low.
+
+At a minimum, investors should keep an eye on TAO. Beyond that, TAO is an excellent way for foreigners to speculate on Chinese real estate trends and/or hedge their portfolios accordingly.
+
+For more on related subjects, readers are encouraged to check out:
+
+![](img/c52f54f3a8e6973024be08cf8e92ea2f.png)
+
+*[source: StockCharts]*
+
+***Disclosures:*** *long TAO at time of writing*
