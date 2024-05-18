@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:30:32
+-->
+
+# VIX and More: Handicapping the Chances of Greece Dropping the Euro
+
+> 来源：[http://vixandmore.blogspot.com/2012/05/handicapping-chances-of-greece-dropping.html#0001-01-01](http://vixandmore.blogspot.com/2012/05/handicapping-chances-of-greece-dropping.html#0001-01-01)
+
+Understanding all the moving parts in the [European sovereign debt crisis](http://vixandmore.blogspot.com/search/label/European%20sovereign%20debt%20crisis) can be a Herculean task, even for the most determined analyst. Heck, even hazarding a guess at what tomorrow’s crisis du jour will be is more than enough for most investors to grapple with.
+
+In the case of [Greece](http://vixandmore.blogspot.com/search/label/Greece), with an [ever-changing political party landscape](http://ekloges.ypes.gr/v2012a/public/index.html#%7B%22cls%22:%22main%22,%22params%22:%7B%7D%7D) and fickle voters who intend to distort that landscape even more, trying to assign probabilities to various scenarios and then divine the implications for Greece’s relationship with the [euro](http://vixandmore.blogspot.com/search/label/euro) is sufficiently daunting as to cause many an investor just to park their money in cash until the future begins to look a little less murky.
+
+For some aspects of the euro zone fiasco, there are financial instruments and measures that can serve as a barometer of how bad things are now and are likely to become in the future. [Credit default swaps](http://vixandmore.blogspot.com/search/label/credit%20default%20swaps) are an excellent example, as is the [VSTOXX](http://vixandmore.blogspot.com/search/label/VSTOXX) equity volatility index, the euro volatility index ([EVZ](http://vixandmore.blogspot.com/search/label/EVZ)), sovereign debt yields, etc.
+
+As far as the euro is concerned, the EVZ is relatively subdued at the moment. Over the course of its life (which began in November 2007), EVZ has typically traded at just a shade over half of the VIX, which is where it closed today. Still, while the VIX posted its highest close since January, EVZ was substantially higher during January, February and the beginning of March.
+
+It is at times like this when I find myself paying more attention to the various [Intrade](http://vixandmore.blogspot.com/search/label/Intrade) prediction markets contracts. In the case of the euro, Intrade has three separate contracts based on the possibility that a euro zone member announces it will stop using the euro as its national currency. The three contracts have expiration dates of the end of 2012, 2013 and 2014 and currently indicate (see top graphic below) that the probability of any euro zone country announcing it will drop the euro is 37.5% by the end of 2012, 61% for the end of 2013 and 68% for the end of 2014.
+
+In addition to the probabilities derived from the price of these prediction market contracts, the trend also bears watching. The bottom graphic shows trades in the 2012 contract. Much to my surprise, sentiment that Greece (or any other country) will exit the euro this year apparently peaked (for now, at least) yesterday afternoon, and pulled back somewhat today, in choppy trading. For those who wish to [watch this contract on a tick by tick basis](https://data.intrade.com/graphing/jsp/timeAndSalesForm.jsp?contractId=713737&tradeURL=https://www.intrade.com), try the Advanced Charts option and click the Time and Sales radio button. Note that it is also possible to set alerts for this contract.
+
+This seems like a good place to reiterate that I believe Intrade contracts, while helpful, are far from perfect. Still, if your talents do not include four dimensional euro zone dominoes in Greek, these prediction contracts can be a great shorthand for determining how certain events are likely to play out.
+
+Related posts:
+
+*![](img/8200850afc76fe6b0e4714c48b31124f.png)*
+
+*![](img/af3460d1073fc24f2199b8bcbdc5bf36.png)*
+
+*[source(s): Intrade.com]*
+
+***Disclosure(s):*** *none*
