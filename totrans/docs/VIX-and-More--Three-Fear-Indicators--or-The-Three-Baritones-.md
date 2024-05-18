@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:57:27
+-->
+
+# VIX and More: Three Fear Indicators (or…The Three Baritones)
+
+> 来源：[http://vixandmore.blogspot.com/2009/03/three-fear-indicators-orthe-three.html#0001-01-01](http://vixandmore.blogspot.com/2009/03/three-fear-indicators-orthe-three.html#0001-01-01)
+
+While the VIX gets most of the media attention as a [fear](http://vixandmore.blogspot.com/search/label/fear) indicator, its usefulness is clearly much better for volatility related to U.S. equities than it is for other asset classes and economic threats.
+
+The [TED spread](http://vixandmore.blogspot.com/search/label/TED%20spread) received considerable acclaim in 2008 as measure of liquidity and a reasonable proxy for [counterparty risk](http://vixandmore.blogspot.com/search/label/counterparty%20risk). Of course [gold](http://vixandmore.blogspot.com/search/label/gold) had been around the longest of all and has served as a barometer of risk for all types of investments and other risks for centuries.
+
+In the chart below, I have overlain the VIX, TED spread and gold against a backdrop of a declining SPX for the past year. Note that the TED spread peaks first among the three, during the second week in October, and subsides rather quickly, as liquidity issues recede to the background. The VIX is next to peak, but it too begins to head down toward the end of November as fears of systemic meltdown slowly begin to subside.
+
+The most interesting line on the chart is that price of gold, which actually bottomed in mid-November and has risen sharply over the past three months, partly as a safe haven for panicky investors, but also as a hedge against the risk of inflation due to various fiscal policy approaches that governments are taking in order to rejuvenate the economy.
+
+In summary, the TED spread has retraced its entire September-October spike, the VIX has retraced about half of its September-November spike, and gold appears to have paused after retracing about 20% of its November-February move. The TED spread and the VIX look like old news at the moment, with the possibility that gold may be the best fear indicator for current market conditions.
+
+![](img/cfb633ad0c25bf381c9f910f94b8b536.png)
+
+*[source: StockCharts]*
