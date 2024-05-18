@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:12:27
+-->
+
+# VIX and More: Short Squeeze Portfolio One Year Later
+
+> 来源：[http://vixandmore.blogspot.com/2010/03/short-squeeze-portfolio-one-year-later.html#0001-01-01](http://vixandmore.blogspot.com/2010/03/short-squeeze-portfolio-one-year-later.html#0001-01-01)
+
+In retrospect, I must have been a fool in February 2009 and a genius in March 2009\. From a distance, that is typically what it looks like when I try to call a bottom.
+
+Of course anyone with a dart and a list of stocks could have constructed a portfolio what would return at least 60% a year or so ago, but the tricky part is that so many were reluctant to pull the trigger.
+
+Fortunately, when there was the first whiff of a possible bottom, I was lucky enough to be fishing from a sea of heavily shorted positions and assembled a portfolio of stocks in which at least 30% of the float was short and the average volume in the stock was at least 500,000 million shares. I first unveiled these ideas in [Short Covering Driving Today’s Gains](http://vixandmore.blogspot.com/2009/03/short-covering-driving-todays-gains.html) on March 10, 2009 and later followed up with a discussion of the performance of that portfolio in [Short Covering Rally Data Points](http://vixandmore.blogspot.com/2009/05/short-covering-rally-data-points.html) on May 1, 2009, at which point the average holding had already more than doubled.
+
+Now, a little more than one year later, four of the holdings ([GCI](http://vixandmore.blogspot.com/search/label/GCI), [CBL](http://vixandmore.blogspot.com/search/label/CBL), [MAC](http://vixandmore.blogspot.com/search/label/MAC), [MGM](http://vixandmore.blogspot.com/search/label/MGM)) have gained more than 400%. The two laggards are PALM, down almost 40%, and [TLT](http://vixandmore.blogspot.com/search/label/TLT), the long bond ETF, which is down about 10% after dividends and is omitted from the chart of equities and equity ETFs below.
+
+I believe some of these former short squeeze candidates still have some room to run, but in my next post, I will look at some current heavy [short interest](http://vixandmore.blogspot.com/search/label/short%20interest) plays and see whether the shorts have the odds in their favor this time around.
+
+For more on related subjects, readers are encouraged to check out:
+
+![](img/3c3ff0280df4d8d3342b751791f85dad.png)
+
+*[source: FINVIZ.com]* 
+
+***Disclosure(s):*** *long MAC, DB and XRT at time of writing*
