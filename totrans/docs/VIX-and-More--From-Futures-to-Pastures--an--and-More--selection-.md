@@ -1,0 +1,43 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:14:34
+-->
+
+# VIX and More: From Futures to Pastures (an “and More” selection)
+
+> 来源：[http://vixandmore.blogspot.com/2007/05/from-futures-to-pastures-and-more.html#0001-01-01](http://vixandmore.blogspot.com/2007/05/from-futures-to-pastures-and-more.html#0001-01-01)
+
+![](img/a2c27dc0af220f87e25e805493a5b359.png)All this talk about futures must have conjured up <city st="on"><place st="on">Newton</place></city>’s Third Law of Brainstorming: *whenever I focus my thoughts on a particular future time period, the future simultaneously exerts a force on me with the same magnitude in the opposite direction*.  
+
+The result is today’s chronological oddity in which I use this space to pull from my personal archives some of the computer hardware and software that still generate nostalgic smiles more than 15 years after I first used them.  All examples date (I believe) from before the 1992 launch of [Windows 3.1](http://www.computerhope.com/win3x.htm) that essentially ended the DOS/keyboard era of personal computing.
+
+In no particular order…
+
+**[Stacker](http://en.wikipedia.org/wiki/Stac_Electronics)** (Stac Electronics) – disk compression technology that turned a 10 MB hard drive into a 20 MB one.  Stac was one of many innovative small software companies that Microsoft out-marketed and eventually made irrelevant via operating system bloat.  Bonus points if you have ever heard of Squish Disk or used it to stretch the capacity of 720k floppies.
+
+(the original) **[Norton Utilities](http://en.wikipedia.org/wiki/Norton_Utilities)** – the best tool available for recovering from a nasty crash, with tech support that would help you regardless of whether you owned their product, just for the pure joy of solving your problems and getting you up and running.  Hard to imagine in the current environment…  Key components were Unerase and Disk Doctor
+
+**[QEMM](http://en.wikipedia.org/wiki/QEMM)** (Quarterdeck Extended Memory Manager) – after you discovered, like Bill Gates did ([or did he?](http://www.wired.com/politics/law/news/1997/01/1484)) that not only was 640k not enough, but you were lucky if you could use 512k of that RAM, every k mattered
+
+**[Toshiba T1000 laptop](http://biphome.spray.se/baxtrom/t1000/)** – this was my first computer and my first laptop.  Actually, it was *the* first laptop.  Twenty years later I have owned approximately 25 laptops and zero (count ‘em) desktops.  Despite the 768k [RAM disk](http://en.wikipedia.org/wiki/RAM_disk), this was so technologically backward, even for its time, that it forced you to learn all sorts of innovative workarounds.  Fortunately, very limited technology is a great way to develop and sharpen a techie brain…
+
+**[DOS 3.1](http://en.wikipedia.org/wiki/MS-DOS)** – the first DOS that led me to believe that there would someday be a workable and powerful operating system.  Little did I know how long the wait would be…and perhaps it is still ongoing.  (DR-DOS was better, but it was DOA)
+
+**[LapLink](http://www.laplink.com/aboutus/)** – the first speedy way to transfer information between computers, as long as you didn’t mind trying to keep track of those damn cables…
+
+**[WinFax](http://en.wikipedia.org/wiki/WinFax)** – a great late night savior that allowed me to fax documents from my room to the hotel’s fax machine when late night (or sometimes mid-day) printing was not yet an option…
+
+**[Quattro Pro](http://www.aresluna.org/attached/computerhistory/articles/spreadsheets/anewstatusquoforquattro)** – much better than then-dominant Lotus 1-2-3, with unmatched graphics, tabbed worksheets, and many other features that were way ahead of their time
+
+**[SimCity](http://en.wikipedia.org/wiki/SimCity)** – a glimpse at the future of gaming, with the odd idea that there was nothing to win, but everything to create
+
+**[Telix 3.15](http://en.wikipedia.org/wiki/Telix)** – once you crossed over to the world of [BBSes](http://en.wikipedia.org/wiki/Bulletin_board_system), you pretty much had a virtual internet all to yourself, with the exception of a bunch of other pioneering souls.  Telix facilitated those modem to modem communications – which were definitely not as easy as trying to find a modern day hot spot.
+
+**[Z-modem](http://en.wikipedia.org/wiki/Zmodem)** – a radical idea at the time, a file transfer protocol that actually allowed you to restart your dial-up file transfer from the point where it left off.  Important in the era of frequent dropped connections.
+
+**[Silly Little Mail Reader](http://everything2.com/index.pl?node_id=109097)** (a.k.a. SLMR or Slimer) – no piece of software has ever induced the quantum leap in internet enjoyment as did this offline mail reader
+*This tagline stolen by Silly Little Mail Reader!*
+
+**Practical Peripherals Pocket Modem** – the first cigarette box-sized modem had no lights or audible indicators, but you could travel with it and surf up to 2400 bps back in the day, about 1/22 the speed of current dial-up technology…  I love the comment from the 1991 [New York Times review](http://query.nytimes.com/gst/fullpage.html?res=9D0CEFDC153AF93AA15752C0A967958260):  “…plenty of speed for all but huge amounts of data…”
+
+**[Relay Net International Mail Exchange](http://en.wikipedia.org/wiki/RelayNet)** – imagine something not too far from an open source telephone-based internet, where phones called each other in the middle of the night and swapped BBS messages – long before the DARPA version of the internet was made available to the public

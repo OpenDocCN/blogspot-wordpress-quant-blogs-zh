@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:14:55
+-->
+
+# VIX and More: Portfolio A1 Likes Tesoro
+
+> 来源：[http://vixandmore.blogspot.com/2007/05/portfolio-a1-likes-tesoro.html#0001-01-01](http://vixandmore.blogspot.com/2007/05/portfolio-a1-likes-tesoro.html#0001-01-01)
+
+It has been interesting to watch the Portfolio A1 stock ranking system search for a fifth a final holding for this portfolio.  This week [Enersis (ENI)](http://finance.google.com/finance?q=eni&hl=en) has been dropped after drifting sideways for a week, to be replaced by [Tesoro (TSO)](http://finance.google.com/finance?q=tso&hl=en).  In this instance, the change is more the result of Tesoro’s rising star than a particular dissatisfaction with Enersis: from mid-January to the end of April, Tesoro has more than doubled.  Still, a May 3^(rd) earnings report [failed to impress](http://biz.yahoo.com/ap/070503/earns_tesoro.html?.v=1) and appeared to stall the stock, yet gives the portfolio a chance to buy Tesoro in during what may turn out to be just a pause.  I would love to see some stability in the holdings and I think TSO’s prospects are probably a little better than predecessors ENI, [WCG](http://finance.google.com/finance?q=wcg&hl=en) (which looks to be recovering), [NTY](http://finance.google.com/finance?q=nty&hl=en) and [PCCC](http://finance.google.com/finance?q=pccc&hl=en).
+
+In the bigger picture, the portfolio maintains its 4.5% cushion over the S&P 500, with a 7.9% gain since the February 16, 2007 inception.
+
+There are no other changes to the portfolio for the coming week.
+
+A snapshot of the portfolio is as follows:
