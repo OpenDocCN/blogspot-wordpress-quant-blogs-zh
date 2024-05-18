@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:05:07
+-->
+
+# VIX and More: What a Difference a Weekly Makes
+
+> 来源：[http://vixandmore.blogspot.com/2010/08/what-difference-weekly-makes.html#0001-01-01](http://vixandmore.blogspot.com/2010/08/what-difference-weekly-makes.html#0001-01-01)
+
+Last week I made my first trade using [weekly options](http://vixandmore.blogspot.com/search/label/weekly). Part of the reason I am so excited about weeklys is that I would not have made the trade had only standard monthly options been available.
+
+Last Monday, after the markets had jumped more than 2%, I was of the opinion that we would have choppy trading on Tuesday through Thursday, as investors chose to sit on the sidelines in advance of Friday’s [nonfarm payrolls](http://vixandmore.blogspot.com/search/label/nonfarm%20payrolls) report.
+
+My trade of choice was a short [straddle](http://vixandmore.blogspot.com/search/label/straddle) and my preferred underlying was [IWM](http://vixandmore.blogspot.com/search/label/IWM), the iShares Russell 2000 Index ETF. When I looked at the available options, the weeklys almost jumped off of the page, with superb liquidity and much higher [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility). As the intent of my trade was to take maximum advantage of [time decay](http://vixandmore.blogspot.com/search/label/time%20decay) ([theta](http://vixandmore.blogspot.com/search/label/theta)), choosing the weeklys were a no-brainer.
+
+A look at the chart below shows the difference in IV between the IWM weekly options that expire this Friday (red line) and the standard monthly options that expire the following week (yellow line.) All things being equal (and they never are) the higher implied volatility of the shorter-dated weeklys translates into substantially higher time decay.
+
+So…if you are comfortable trading options that are toward the end of the expiration cycle, take a close look at the weeklys. If you are not comfortable doing this (controlling [gamma](http://vixandmore.blogspot.com/search/label/gamma) risk is critical), then perhaps future posts on weekly options will assist in this regard.
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: Livevol Pro]*
+
+***Disclosure(s):*** *long IWM at time of writing;*Livevol* is an advertiser on VIX and More*

@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:06:04
+-->
+
+# VIX and More: Chart of the Week: Intrade and Control of the House of Representatives
+
+> 来源：[http://vixandmore.blogspot.com/2010/07/chart-of-week-intrade-and-control-of.html#0001-01-01](http://vixandmore.blogspot.com/2010/07/chart-of-week-intrade-and-control-of.html#0001-01-01)
+
+With everyone else thinking about double dip recessions, European bank stress tests and the like, my thoughts have wandered to the next U.S. elections, which are barely three months away.
+
+While there are a number of key questions that will be strongly influenced by the composition of Congress following the November elections, the fundamental question is which party will hold the majority of seats in the House of Representatives when voters have a chance to voice their opinions.
+
+For those who are interested in a seat-by-seat, poll-by-poll perspective on the election, [RealClearPolitics.com](http://realclearpolitics.com/) is a great place to start. Those like me who are more interested in assigning probabilities to the overall outcome may prefer to keep an eye on [Intrade.com](http://www.intrade.com/), the [prediction market](http://en.wikipedia.org/wiki/Prediction_markets) site.
+
+One of the more active contracts at Intrade is based on whether the Republicans will wrest control of the House from the Democrats in November. The [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) below is structured to pay off on the basis of that outcome. The chart shows that the collective wisdom of the crowds put the odds (contract price roughly matches the odds of an event happening, just as the delta of an option roughly matches the probability of finishing in the money at expiration) of a Republican victory in the area of 15% at the time President Obama was sworn in back in January 2009\. The odds moved over 50% for good about a month ago and currently stand at 55.1%.
+
+With many political and economic issues of great importance facing the U.S. in the next year or two, the composition of the U.S. House of Representatives will have a great deal to say not just about fiscal policy, but about a broad range of influences across the financial landscape.
+
+Of course, if you prefer to speculate on whether California will legalize marijuana, Rutgers will join Big 10 Conference or Rod Blagojevich will plead guilty or be found guilty of corruption, then Intrade is a good spot to do that too…
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source:Intrade.com]*
+
+***Disclosure(s):*** *none*

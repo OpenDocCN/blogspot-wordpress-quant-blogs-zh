@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:05:35
+-->
+
+# VIX and More: XXV Has Arrived!
+
+> 来源：[http://vixandmore.blogspot.com/2010/08/xxv-has-arrived.html#0001-01-01](http://vixandmore.blogspot.com/2010/08/xxv-has-arrived.html#0001-01-01)
+
+For day traders, the launch of [triple ETFs](http://vixandmore.blogspot.com/search/label/triple%20ETFs) ushered in a new era of highly liquid trading vehicles with narrow bid-ask spreads and exceptionally high intraday volatility. When FINRA (Financial Industry Regulatory Authority) implemented [more stringent margin requirements](http://www.finra.org/web/groups/industry/@ip/@reg/@notice/documents/notices/p119906.pdf) for leveraged ETFs back on December 1, 2009, some of the luster came off of these products, particularly for the day trading crowd.
+
+With the launch of the fully marginable iPath S&P 500 VIX Short-Term Futures ETN ([VXX](http://vixandmore.blogspot.com/search/label/VXX)) earlier in 2009, I thought it was just a matter of time before VXX became part of that elite group of nitroglycerin-fueled fueled rocket pairs that were led by [FAS](http://vixandmore.blogspot.com/search/label/FAS) and [FAZ](http://vixandmore.blogspot.com/search/label/FAZ) and supported by [TNA](http://vixandmore.blogspot.com/search/label/TNA) and [TZA](http://vixandmore.blogspot.com/search/label/TZA). Sure enough, interest in VXX surged in December 2009 and by January the ETN was eclipsing the daily volume of all but FAS and FAZ.
+
+One of the factors that held back VXX as a day trading vehicle was the absence of an inverse pair that would make it easier to go long and short volatility without having to short VXX and deal with “availability to short” issues.
+
+Today, just two weeks into its life, [XXV](http://vixandmore.blogspot.com/search/label/XXV) (the Barclays ETN+ Inverse S&P 500 VIX Short-Term Futures ETN) is proof that VXX now has a viable inverse counterpart, with bid-ask spreads and liquidity that make it an attractive day trading vehicle. XXV traded 715,872 shares today, reaching that volume level in one third the time it took to attract the same interest. VXX took almost four months to reach one million shares in a single session; my guess is that XXV hits that mark before the week is through.
+
+While XXV will likely prove to be more attractive to many investors than shorting VXX, it should be noted that in its first two weeks, XXV has underperformed a comparable short VXX position in all but one trading session.
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source:StockCharts.com]*
+
+***Disclosure(s):*** *neutral position on VXX via options at time of writing*
