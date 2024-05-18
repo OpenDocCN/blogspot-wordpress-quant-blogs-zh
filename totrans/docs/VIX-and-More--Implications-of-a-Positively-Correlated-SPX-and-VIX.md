@@ -1,0 +1,32 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:40:43
+-->
+
+# VIX and More: Implications of a Positively Correlated SPX and VIX
+
+> 来源：[http://vixandmore.blogspot.com/2012/02/implications-of-positively-correlated.html#0001-01-01](http://vixandmore.blogspot.com/2012/02/implications-of-positively-correlated.html#0001-01-01)
+
+For those who missed today’s market action and just looked at the post-mortem reports, today probably looked like just another in a series of uneventful days. For those who were paying attention to the likes of the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) and ETPs based on VIX futures such as [TVIX](http://vixandmore.blogspot.com/search/label/TVIX) (+10.7%) and [VXX](http://vixandmore.blogspot.com/search/label/VXX) (+5.2%), however, the tension in the air was obvious.
+
+But the SPX, DJIA and NASDAQ composite indices were all up today, so what’s the big deal? It turns out that investors are easily spooked if the VIX (+2.6%) and the SPX (+0.1%) both move in the same direction. As the graphic below shows, the VIX and the SPX move in the same direction about 22% of all trading days. I think the real issue behind the concern about the direction of the VIX and the SPX is related to a hypothesis I laid out yesterday in [What the VIX Kitchen Sink Chart Says](http://vixandmore.blogspot.com/2012/02/what-vix-kitchen-sink-chart-says.html):
+
+> *“…the general consensus seems to be that stocks just do not deserve their current lofty valuation.* *In this type of environment, many investors become particularly susceptible to [confirmation bias](http://vixandmore.blogspot.com/search/label/confirmation%20bias) and scramble to find one or more indicators which will tell them what they have already begun to believe: that a major correction is likely just around the corner.”*
+
+The last time I crunched the numbers for [VIX and SPX daily correlations](http://vixandmore.blogspot.com/search/label/SPX-VIX%20correlation), was in May 2007 and in looking at data from 1990-2007, I concluded that a [High Positive Correlation Between VIX and SPX Often Signals Market Weakness](http://vixandmore.blogspot.com/2007/05/high-positive-correlation-between-vix.html). When I ran the numbers this time around, it turns out that the market gyrations surrounding the financial crisis of 2008 and subsequent bullish rebound did little to change the overall conclusions.  The full data set (1990-2012) now shows that when both the VIX and SPX are up on the same day, the mean returns for the next 1-100 trading days trail the typical returns for the full data set by a substantial margin and are negative through the first five trading days.
+
+In terms of key takeaways, it now appears that stocks perform best following days when the SPX is down and the VIX is up (the ROI +1 column refers to the performance of the SPX one day hence) and worst on days like today when the SPX is up and the VIX is up.  I have sorted the rows according to ROI +10 and in looking at the date, it is clear to me that some [mean reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion) is responsible for a good portion of the performance characteristics following the various VIX-SPX daily return permutations.  *[For the record, the data in the table below includes Fridays and Mondays, so it is possible that [calendar reversion](http://vixandmore.blogspot.com/search/label/calendar%20reversion) may have had an impact on the results.]*
+
+Now I will be the first to admit that stocks are overdue for a pullback, but just because the VIX and SPX both advanced on two consecutive days does not necessarily mean the planets are aligning for an [Aquarian](http://en.wikipedia.org/wiki/Age_of_Aquarius) selloff. If investors are looking for that market reversal silver bullet, the SPX-VIX correlation data, while bearish, fall short of hinting at a major reversal.
+
+Below is a larger than usual set of links for those who may be interested in digging into the history of some of the SPX-VIX correlation themes in this space.
+
+Last but not least, thanks to sharp-eyed reader Lee, whose sleuthing helped me uncover an errant spreadsheet formula that led to some bad data in an earlier version of this post.
+
+Related posts:
+
+![](img/c033caea26749c78af2a6b46dfa4ec61.png)
+
+*[source(s): CBOE, Yahoo]*
+
+***Disclosure(s):*** *short TVIX and VXX at time of writing*
