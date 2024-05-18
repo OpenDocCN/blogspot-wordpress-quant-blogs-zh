@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:00:22
+-->
+
+# VIX and More: Bird Flu Stocks and Volatility
+
+> 来源：[http://vixandmore.blogspot.com/2007/02/bird-flu-stocks-and-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2007/02/bird-flu-stocks-and-volatility.html#0001-01-01)
+
+[Confirmation](http://biz.yahoo.com/ap/070205/bird_flu_ahead_of_the_bell.html?.v=1) of bird flu at a <place st="on"><country-region st="on">UK</country-region></place> turkey farm over the weekend put bird flu stocks back in the spotlight once again.  Over the past two years, most of us have become largely desensitized to the possibility of a widespread bird flu outbreak, as each incident has spawned a less and less strident media frenzy.  In a sense, the same soft of desensitization has set in over the past year or two with bird flu, terrorism, $100/bbl. oil, Iraq/Iran, <country-region st="on"><place st="on">North Korea</place></country-region>, etc.  The media has a field day for awhile, but as the panic level subsides for a second or third time, the public sees these as more [cry wolf](http://www.storyarts.org/library/aesops/stories/boy.html) exercises and makes a mental note to ignore future scare tactics and, in many cases, completely tune out the entire issue.
+
+Is this why the VIX has now made 33 consecutive new lows for the 100 day SMA?  Perhaps it is not so much complacency that has set in as mass desensitization.
+
+Back to bird flu stocks.  Their price movement has a strong fear component in them and as such, they are part of the VIX [taxonomy of fear](http://vixandmore.blogspot.com/2007/01/on-nature-of-fear.html) (which I will someday formalize as the *VIXdex*.)  It should come as no surprise, then, that bird flu stocks have characteristics that are similar to that of the VIX.  Specifically, they tend to spike up sharply, then subside over time, with [patterns](http://vixandmore.blogspot.com/2007/01/what-to-expect-from-vix-spike.html) of 1 and 3-5 day spikes being relatively common.  Some of this can be seen in the BCRX daily chart, where the Williams %R and CCI are showing that four days into the move up, we have a good shorting opportunity:
+
+[![](img/f2a176d83eeb09683e1adead8c2b25f4.png)](http://i104.photobucket.com/albums/m163/bl82/BCRX020807.gif)
+
+NVAX, AVII and GNBT are among my [favorite](http://finance.yahoo.com/q?s=AVII,BCRX,NVAX,GNBT,VICL,HEB,SVA&d=s) of the pure play bird flu vaccine makers.  If you have tested systems for trading the VIX, consider that the same tactics may work as well or better with bird flu stocks, with an opportunity to trade the underlying and with lower implied volatility for the options:
+
+[![](img/b16ea72ab1c81c6f218c9daf2e2b702c.png)](http://i104.photobucket.com/albums/m163/bl82/BCRXivol365d020807.gif)

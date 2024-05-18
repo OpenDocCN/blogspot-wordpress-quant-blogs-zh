@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:00:43
+-->
+
+# VIX and More: Bouncing Back From a Sub-10 VIX
+
+> 来源：[http://vixandmore.blogspot.com/2007/02/bouncing-back-from-sub-10-vix.html#0001-01-01](http://vixandmore.blogspot.com/2007/02/bouncing-back-from-sub-10-vix.html#0001-01-01)
+
+Several readers have asked about the significance of yet another sub-10 VIX close on 1/24/07.  Many seem to be convinced that the markets have entered into an [extended period of low volatility](http://vixandmore.blogspot.com/2007/01/challenge-to-two-things-you-think-you.html) where a single digit VIX reading is no longer necessarily an automatic signal to buy some VIX calls.  The grumbling is along the lines of “it’s different this time,” but the real concern is that things are going to be different in the volatility world for a long time to come.  Not only will the old rules not apply, but it may be awhile before the new rules are apparent.
+
+In the last couple of days, both the [New York Times](http://www.nytimes.com/2007/02/03/business/03values.html?_r=2&oref=slogin&oref=slogin) and [The Economist](http://www.economist.com/finance/displaystory.cfm?story_id=8652989) have weighed in with warnings about the calm before the storm.  Not surprisingly, these publications are not alone.  Felix Zalauf has [predicted](http://online.barrons.com/public/article/SB116925725279982304.html?) that the VIX will be back over 20 this year.  My decaying VIX calls notwithstanding, I am still looking for a significant bump in the road sometime during the next two options cycles.  If I turn out to be wrong, it will be no consolation to have learned company on my side; in the markets, one always does.
+
+Back to the sub-10 VIX.
+
+A graph of the VIX for the twenty days following each of the nine instances in which the VIX closed below 10 looks like this:
+
+[![](img/c52d6ab0bfe0b9db09364e728440e2c3.png)](http://i104.photobucket.com/albums/m163/bl82/VIXsub-1020daysout-each020507.gif)
+
+It is probably important to repeat some [earlier caveats](http://vixandmore.blogspot.com/2007/01/history-of-sub-10-vix-closes.html) to the effect that building a trading strategy around 9 data points in 17 years is probably not a great use of one’s time.  I should also reiterate that of those 9 instances, 4 fall on consecutive trading days in 1993 and another 2 are from consecutive trading days in 2006, so it is easy to argue that the history of sub-10 VIX closes includes a mere 5 data points.  Recognizing this, if you study at the chart above, you can see that almost half of the lines are the same data, with the time phase shifted one or more days.
+
+Regarding the current bounce from a sub-10 VIX, as of 2/5/07 this is the weakest bounce among the group yet, currently sitting below the previous weakest bounce, which just happens to be the last sub-10 close in December 2006.  Two data points don’t necessarily make a trend, but they do provide some food for thought.  Note that in all instances of a sub-10 close to date, most of the bounce over the next 20 trading days had already been completed in five trading days.

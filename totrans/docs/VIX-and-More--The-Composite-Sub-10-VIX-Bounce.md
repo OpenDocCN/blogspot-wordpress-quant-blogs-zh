@@ -1,0 +1,19 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:00:32
+-->
+
+# VIX and More: The Composite Sub-10 VIX Bounce
+
+> 来源：[http://vixandmore.blogspot.com/2007/02/composite-sub-10-vix-bounce.html#0001-01-01](http://vixandmore.blogspot.com/2007/02/composite-sub-10-vix-bounce.html#0001-01-01)
+
+[Yesterday](http://vixandmore.blogspot.com/2007/02/bouncing-back-from-sub-10-vix.html) we examined the ungainly rainbow Hydra that comprise the nine bounces from a sub-10 VIX close over the past 17 years. Today our intent is to bring order from that chaos in the form of a composite view of those bounces, where the aggregate picture tells a more concise story than the individual ones:
+
+[![](img/4af1f3464b3f72c9ee4db40ffcbd4d23.png)](http://i104.photobucket.com/albums/m163/bl82/VIXsub-1020daysout-composite.gif)
+In brief, the composite picture is that of a five day ascent immediately following the sub-10 close, with some sideways meandering thereafter, an aggregate high 12 days out, and finally a slow return to lower levels.
+
+Today’s close of 10.65 on day nine is the lowest day nine close to date. If the current pattern follows form, we will have a three day rise of a little more than half a point, followed by a gradual return to the current level over the next ten day period. As a reminder, it should be noted that the current ‘bounce’ has produced the lowest low for days 5-9 so far, with the distinct possibility that the day 3 peak of 11.46 will hold up as the high value for the 20 days following the sub-10 close.
+
+Just to throw a monkey wrench into this thinking and get away from discussing a sub-10 close for a moment, today was the only the third time in the past 13 years that the VIX’s 20 day SMA made a new low. The last time this happened, on 11/22/06, the VIX jumped 15% in three days and 25% in 10 days. Prior to that, that last new 20 day SMA low was on 1/10/94, when the VIX moved up 13% in three days and 30% in 20 days.
+
+Generally, I favor paying closer attention to the relative VIX values than the absolute values. I suspect the balance of the week will tell us which script to follow.
