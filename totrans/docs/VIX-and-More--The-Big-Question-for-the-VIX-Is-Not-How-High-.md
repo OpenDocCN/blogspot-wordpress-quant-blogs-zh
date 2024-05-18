@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:04:24
+-->
+
+# VIX and More: The Big Question for the VIX Is Not How High…
+
+> 来源：[http://vixandmore.blogspot.com/2007/08/big-question-for-vix-is-not-how-high.html#0001-01-01](http://vixandmore.blogspot.com/2007/08/big-question-for-vix-is-not-how-high.html#0001-01-01)
+
+![](img/7033620083ee8b0be159c3379390fd8f.png)Even with the VIX climbing over 25.00 for the first time since early 2003, I don’t believe that the big question should be how high it is going right now.  To my thinking, the more important question is how low it will sink once the current volatility storm has passed.
+
+In looking at the weekly VIX chart below, keep in mind that the readings at the end of last year are at the very bottom of the range for the [17 years of VIX data](http://vixandmore.blogspot.com/2007/07/return-of-absolute-vix.html).  Also consider that many techniques used to evaluate stock charts have at best dubious cross application to the realm of volatility.  I am, however, a believer in the usefulness of support and resistance for the VIX and believe a strong case can be made for the new post-spike VIX floor to likely settle in the 13-15 range.  That number will undoubtedly seem high to those who are still mentally anchored in the recent experience of a [sub-10 VIX](http://vixandmore.blogspot.com/search/label/sub-10).  It will also probably seem low to those who see [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) trading around 21 all that way out to the June 2008 expiration.
+
+This is exactly why I think the next floor is so important: it will either demonstrate that investors think it is safe to back into the water or tell us to expect the knee-jerk buying on the dips to be replaced by selling into rallies.  If the new VIX floor settles somewhere above 16 or so, I suspect we will slowly see a substantial thinning of the bull herd.
