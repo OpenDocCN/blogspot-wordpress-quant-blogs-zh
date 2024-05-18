@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:38:29
+-->
+
+# VIX and More: NASDAQ 2315 Again
+
+> 来源：[http://vixandmore.blogspot.com/2008/04/nasdaq-2315-again.html#0001-01-01](http://vixandmore.blogspot.com/2008/04/nasdaq-2315-again.html#0001-01-01)
+
+[Two months ago](http://vixandmore.blogspot.com/2008/02/nasdaq-2315-2320.html) I noted that the 2315 level for the NASDAQ Composite Index had figured prominently in several important gaps and served as a critical support and resistance level for the index going back to mid-January.
+
+In range-bound markets – which is what we are in for now until we get a decisive move up or down – these important support and resistance levels end up being revisited on a quite a few occasions and ultimately prove to be an important measuring stick for the strength of subsequent market action.
+
+Looking at the three month chart (with 60 minute bars) below, in the past two months the 2315 level has played an important role in two new gaps, one from the end of February and another at the beginning of April.  The end of February gap down served as a ceiling for price action for almost a month, while the April 1^(st) gap up has been the floor for price movements over the course of the past two weeks.  Today’s sharp drop tested the gap and the corresponding 2315 level.  So far, that test of support has held.  As long as 2315 continues to hold, the markets should continue to consolidate and move up from current levels, but should 2315 be breached – and the gap down to 2290 be closed – expect emboldened shorts and panicky longs to put the 2155 low back in to play.
