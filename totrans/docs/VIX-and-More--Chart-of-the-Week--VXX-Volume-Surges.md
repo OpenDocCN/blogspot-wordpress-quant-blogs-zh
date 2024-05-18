@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:17:44
+-->
+
+# VIX and More: Chart of the Week: VXX Volume Surges
+
+> 来源：[http://vixandmore.blogspot.com/2010/01/chart-of-week-vxx-volume-surges.html#0001-01-01](http://vixandmore.blogspot.com/2010/01/chart-of-week-vxx-volume-surges.html#0001-01-01)
+
+I decided to take a couple of weeks off at the beginning of the year and was amazed to learn retrospectively that as soon as I dialed back my posting, the popularity of the iPath S&P 500 VIX Short-Term Futures ETN ([VXX](http://vixandmore.blogspot.com/search/label/VXX)) surged and volume – which had never hit 4 million shares in 2009 – topped the 4 million mark in 7 of the last 8 sessions.
+
+While I am sure the volume surge in VXX is just a coincidence and I can understand why people might think the VIX seems a little low at 17.91 (and at 16.86 a week ago), it is important to note that VIX January futures are now under 20.00 and in the context of historical volatility the VIX is actually somewhat elevated at current levels.
+
+Still, there are obviously quite a few investors for whom the current VIX level does seen warranted given the macroeconomic risks. While some of this gut feeling may be the result of [Availability Bias and Disaster Imprinting](http://vixandmore.blogspot.com/2009/11/availability-bias-and-disaster.html), there are obviously other factors at work as well.
+
+In this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week), I attempt to capture the price and volume history of VXX, with some of the prior major volatility surges highlighted with the blue vertical bars. The bottom line is that while previous VXX volume spikes did in some instances capture a trough just prior to an uptick in volatility, these were generally small moves of only 3-5 days. Further, while VXX did tend to outperform for a week or more following a volume spike, on balance VXX long positions *still lost money* from one month to one day following a VXX volume spike. So, while there may be a small ‘smart money’ effect when VXX volume surges, the ‘smart money’ is essentially just losing money at a slower pace with VXX long positions.
+
+I have talked about the problems associated with VXX at length in my [subscriber newsletter](http://vixandmoresubscriber.blogspot.com/), but readers should get the gist of my concerns in some of the blog posts linked below.
+
+Specifically, for more on VXX, readers are encouraged to check out:
+
+![](img/4ffe3ba15638e48405d67ed9d82d3934.png)
+
+*[source: StockCharts]*
+
+***Disclosure****: none*
