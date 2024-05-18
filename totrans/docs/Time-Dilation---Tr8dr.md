@@ -1,0 +1,28 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:35:51
+-->
+
+# Time Dilation | Tr8dr
+
+> 来源：[https://tr8dr.wordpress.com/2009/12/18/time-dialation/#0001-01-01](https://tr8dr.wordpress.com/2009/12/18/time-dialation/#0001-01-01)
+
+December 18, 2009 · 8:56 pm
+
+Many measures work best in a homoscedastic volatility regime.   This is not a big secret.    Most regressors, the simplest of which are the ever popular moving averages, are especially biased in the context of a heteroscedastic series.
+
+Probably the best way of normalizing a heteroscedastic series into one with near constant variance is to observe the following.   If we assume our process is roughly a SDE with normally distributed innovations (or alternatively a Hurst constant close to 1/2), we know that:
+
+[![](img/c5216b7c89b40c87cd6f8fe4f11ab5b6.png "Picture 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-14.png)
+
+As a rough measure, we can remove much of the vol of vol by scaling our time axis in proportion to the variance.   I use a duration based local volatility measure with smoothing or alternatively for daily data an EWMA based evaluation of:
+
+[![](img/a89fa860254db94e9b511b811f5c84a4.png "Picture 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-23.png)
+
+We can then change measure:
+
+[![](img/65276c20eee43a7e252e2e1d721cea13.png "Picture 3")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-33.png)
+
+where ψ(t) is a smoothing / scaling function.   An example of such a scaling (with the red curve in the upper pane indicating the degree of scale from the baseline):
+
+[![](img/f0e99b5f5a506136a10bfdcf0f15b62e.png "Picture 6")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-62.png)
