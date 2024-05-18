@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:22:40
+-->
+
+# VIX and More: Failure to Launch
+
+> 来源：[http://vixandmore.blogspot.com/2008/10/failure-to-launch.html#0001-01-01](http://vixandmore.blogspot.com/2008/10/failure-to-launch.html#0001-01-01)
+
+Almost all of my overbought and oversold indicators that I apply to various indices and ETFs are screaming “oversold!” at the moment. One index in particular, the S&P 400 MidCap Index, stands out among the crowd. The MidCap Index, which has an ETF that trades under the ticker [MDY](http://finance.yahoo.com/q?s=MDY), has been in existence since 1995\. The chart below, courtesy of Yahoo, shows the performance of that index over the past 15 years. If you are looking for an overbought/oversold indicator, the 21 day [rate of change](http://vixandmore.blogspot.com/search/label/rate%20of%20change) (ROC) indicator is a good one. Looking at the ROC for 2008, notice how the current readings are the third time this year that the ROC set a new record for negative ROC. Also, the current reading of -33.95 is more than double what had been seen prior to this year.
+
+With all of the oversold extremes, there will certainly be at least a short-term bounce soon. The fact that it has not happened yet is particularly interesting and means that more rocket fuel is building up for that bounce. For now, however, the failure to launch says as much about the investor psyche as anything else. Only in a market with a VIX approaching 60, would a market be too fearful to bounce.
+
+Sometimes it is what the markets don't do that speaks volumes...
+
+![](img/fe3444f6a836555042bdcf6830eb4417.png)
+
+[source: Yahoo]

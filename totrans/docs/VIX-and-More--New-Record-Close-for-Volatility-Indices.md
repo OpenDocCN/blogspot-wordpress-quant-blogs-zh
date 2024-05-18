@@ -1,0 +1,13 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:22:13
+-->
+
+# VIX and More: New Record Close for Volatility Indices
+
+> 来源：[http://vixandmore.blogspot.com/2008/10/new-record-close-for-volatility-indices.html#0001-01-01](http://vixandmore.blogspot.com/2008/10/new-record-close-for-volatility-indices.html#0001-01-01)
+
+![](img/1f8afdd3193c0f75fcc903a66900c8a1.png)
+Today’s dramatic last hour selloff resulted in new record high closes in four of the seven major U.S. volatility indices, including the VIX, which exceeded 60 for the first time and established a new record close of 63.92\. In addition to the VIX, the [VXD](http://vixandmore.blogspot.com/search/label/VXD) (CBOE DJIA Volatility Index) and the [RVX](http://vixandmore.blogspot.com/search/label/RVX) (CBOE Russell 2000 Volatility Index) also set new records.
+
+Note that these volatility indices have different life spans and data histories, so the comparisons of all-time record highs across indices are not always particularly relevant. For more information on all of the volatility indices, try [Overview of U.S. Volatility Indices](http://vixandmore.blogspot.com/2008/08/overview-of-us-volatility-indices.html).
