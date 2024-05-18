@@ -1,0 +1,24 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:52:50
+-->
+
+# VIX and More: Waiting for the Next Shoe to Drop?
+
+> 来源：[http://vixandmore.blogspot.com/2009/04/waiting-for-next-shoe-to-drop.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/waiting-for-next-shoe-to-drop.html#0001-01-01)
+
+There has been a lot of speculation about which corner of the economy is likely to implode next and start to write the next chapter in the current financial crisis. [Credit card](http://vixandmore.blogspot.com/search/label/credit%20cards) debt and [commercial real estate](http://vixandmore.blogspot.com/search/label/commercial%20real%20estate) are two of the most frequently cited potential culprits, but lately Eastern European banks have been under great stress, while [credit default swaps](http://vixandmore.blogspot.com/search/label/credit%20default%20swaps) for Romania, Bulgaria and Hungary have been on the rise.
+
+I did not realize how strong the undercurrent of fear was until I ran [Today’s Jump in the VIX](http://vixandmore.blogspot.com/2009/04/todays-jump-in-vix.html) on Monday evening. From the various public and private comments, it is clear that there is a strong contingent of veteran investors who anticipate not only that the next shoe will drop soon, but that the fallout will be at least as bad as what we experienced during the October-November peak of the crisis.
+
+While I am not ruling out anything at this stage, I do not see the VIX spiking above 60 in the near future, nor do I even see a VIX above 50 as a likely scenario.
+
+Last Friday, the SPX had its highest close since the 666.79 “[devil’s bottom](http://vixandmore.blogspot.com/search/label/devil%27s%20bottom)” low of March 6^(th). From Friday’s 842.50 close to Tuesday’s close of 815.55, the SPX fell 3.2%. During this same period, the cash VIX gained just 1.7%, moving up from 39.70 to 40.39\. In the chart below, however, one can see that even thought the cash VIX rose, the volatility index for SPX options in April, May, June, July and September actually fell, with volatility for the April expiration showing a 12.5% drop in the VIX, May volatility dropping 4% and the June through September strikes show a volatility decrease on the order of 0.9%-1.6%. In other words, expectations for volatility – and presumably fear and uncertainty – for the balance of the year continue to point to improvement.
+
+Of course, there is always a group of traders who get fearful when the VIX fails to measure what they believe is an appropriate level of fear. This group, whose concern I can sympathize with from time to time, will undoubtedly see an indifferent VIX as a reason to be even more concerned about the future.
+
+For now at least, the VIX [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) points to increasing investor confidence in the markets and a decreasing concern about the possibility of gravity commingling ominously with oversized footwear.
+
+![](img/dfd66cb683d24635be95da3cebdc0349.png)
+
+*[source: CBOE, VIXandMore]*

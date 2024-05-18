@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:52:08
+-->
+
+# VIX and More: VIX High or Low? It Depends…
+
+> 来源：[http://vixandmore.blogspot.com/2009/04/vix-high-or-low-it-depends.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/vix-high-or-low-it-depends.html#0001-01-01)
+
+The question of whether the VIX, which closed at 36.53 on Thursday, is high or low, depends a great deal upon the historical backdrop one uses to make the comparison.
+
+In the chart below, I have represented 36.53 as a percentile based upon prior VIX readings of 10 days, 20 days, 50 days, etc. going back all the way to the beginning of VIX historical data in January 1990\. The chart paints an interesting story. As the VIX is the lowest it has been in more than 100 trading days, Thursday’s close puts it at the 0.0 percentile level for all periods up to and including 100 days.
+
+If, however, you place the current VIX in the context of 20 years of historical data going back to 1990, suddenly the VIX is in the 95.8 percentile. As the chart shows, even looking at three years of historical data puts the VIX at an 82.4 percentile level.
+
+Finally, one year of data suggests that the VIX is in the 47.4 percentile, right in the middle of its recent historical range.
+
+So…the VIX is both extremely high and extremely low in historical terms, depending upon the lookback period. For short-term trades, I find the 10 day and 20 day data to be most useful in helping to create profitable [mean-reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion) setups, though long-term investors should probably look at the VIX relative to a multi-year history as being the most relevant indicator of the future direction of volatility.
+
+![](img/fb7421e7cef8b7c11325a3c4b7a18cf0.png)
+
+*[source: VIXandMore]*
