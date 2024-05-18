@@ -1,0 +1,16 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:34:02
+-->
+
+# VIX and More: Volatility at RKH Regional Banking ETF
+
+> 来源：[http://vixandmore.blogspot.com/2008/06/volatility-at-rkh-regional-banking-etf.html#0001-01-01](http://vixandmore.blogspot.com/2008/06/volatility-at-rkh-regional-banking-etf.html#0001-01-01)
+
+I just mentioned [RKH](http://vixandmore.blogspot.com/search/label/RKH), the [HOLDRS](http://www.holdrs.com/holdrs/main/index.asp?Action=Definition) regional banking ETF, on [Wednesday in Regional Banking Woes Worsen](http://vixandmore.blogspot.com/2008/06/regional-banking-woes-worsen.html), where I also posted a graph of RKH’s six month stock price and 30 day implied volatility.
+
+I am revisiting RKH today with a slightly different chart, also courtesy of the [ISE](http://www.ise.com/), that compares RKH’s [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) and [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) over the past six months.  In the chart below, notice that the implied volatility in this ETF has been more of an uptrend than the spike from mid-March.  Notice also that implied volatility appears to have hit a plateau and is still far below the mid-March peak.
+
+Also of interest, the gap between implied and historical volatility is at a six month high right now, as historical volatility has been trending down over the past three weeks at the same time implied volatility has been trending up.
+
+Finally, note that in those instances where historical volatility has been elevated, it usually preceded a drop in implied volatility; conversely, where historical volatility has been depressed, this has a tendency to precede an uptick in volatility.  Volatility extremes often signal turning points.  Whether the current high implied volatility and low historical volatility means that the regional banks are finally bottoming remains to be seen, but I have to believe that the probability of a bottom is increasing with each volatile session.
