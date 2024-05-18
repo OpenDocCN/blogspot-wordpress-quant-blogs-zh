@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:14:54
+-->
+
+# VIX and More: International Securities Exchange Revamps Implied Volatility Charts
+
+> 来源：[http://vixandmore.blogspot.com/2008/11/international-securities-exchange.html#0001-01-01](http://vixandmore.blogspot.com/2008/11/international-securities-exchange.html#0001-01-01)
+
+The International Securities Exchange ([ISE](http://vixandmore.blogspot.com/search/label/ISE)), which publishes a superb [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) chart that I have featured on *VIX and More* on a number of occasions, has recently launched an [enhanced version of their IV chart](http://www.ise.com/WebForm/md_livevol.aspx?categoryId=124&header3=true&menu1=true). The new version of this chart, which I have appended below, adds an “ISEE value” to the list of data. I have discussed the [ISEE](http://vixandmore.blogspot.com/search/label/ISEE) call to put ratio frequently in this space in the past. In this incarnation it is simply a ratio of call volume to put volume for the specified security.
+
+I chose Citigroup ([C](http://vixandmore.blogspot.com/search/label/C)) as my example security because all eyes should be on this bank, which is now trading at a 14 year low after hitting 3.57 earlier this morning. If Citigroup crumbles, it will dwarf the chaos created by [AIG](http://vixandmore.blogspot.com/search/label/AIG) and Lehman Brothers.
+
+Finally, for more information on the company that is the source of the volatility charts used by the ISE, check out [Livevol](http://www.livevol.com/Default.aspx).
+
+![](img/51152b95d028b9e1b2c517afa91e7164.png)
+
+*[source: International Securities Exchange]*
