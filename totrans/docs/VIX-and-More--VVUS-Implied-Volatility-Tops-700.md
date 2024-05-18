@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:06:20
+-->
+
+# VIX and More: VVUS Implied Volatility Tops 700
+
+> 来源：[http://vixandmore.blogspot.com/2010/07/vvus-implied-volatility-tops-700.html#0001-01-01](http://vixandmore.blogspot.com/2010/07/vvus-implied-volatility-tops-700.html#0001-01-01)
+
+From time to time I have highlighted extremely high [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) in individual securities such as [FAS](http://vixandmore.blogspot.com/search/label/FAS), [IOC](http://vixandmore.blogspot.com/search/label/IOC), [EWZ](http://vixandmore.blogspot.com/search/label/EWZ) and the banks that were subject to the stress tests (see links below.)
+
+With the recent action in Vivus ([VVUS](http://vixandmore.blogspot.com/search/label/VVUS)), however, it may be time to reconsider just how extreme implied volatility can get. Vivus has a new weight-loss pill, Qnexa, that is under review by the FDA, with an FDA panel decision expected Thursday. For those who are interested in the details, Business Week provides a handy summary of the situation in [Vivus’s Diet Pill Qnexa Faces FDA Scrutiny on Safety](http://www.businessweek.com/news/2010-07-13/vivus-s-diet-pill-qnexa-faces-fda-scrutiny-on-safety.html).
+
+In the chart below, the red line is the aggregate implied volatility of July options in VVUS, as calculated by [Livevol Pro](http://www.livevol.com/livevol_pro.html). The yellow line is August aggregate IV and the green line is September aggregate IV.
+
+Once the FDA decision has been announced, I will be back to analyze the impact of the news on the various Vivus options and their implied volatility.
+
+With IV this high, VVUS is probably more appropriate for spectators than investors right now. This is a lottery ticket – and an expensive one. Not a place for ‘risk capital’ in my book, but perhaps an appropriate use of ‘entertainment capital’ if anyone one has some of that sitting around.
+
+...unless you can find an aribitrage opportunity like Ophir Gottlieb of Livevol did yesterday in [Vivus (VVUS) -- Biotech's Gigantic Vol Yields Arbs on the Table Right Now](http://livevol.blogspot.com/2010/07/vvus.html).
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: Livevol Pro]*
+
+***Disclosure(s):*** *long VVUS at time of writing;* *Livevol* is an advertiser on VIX and More

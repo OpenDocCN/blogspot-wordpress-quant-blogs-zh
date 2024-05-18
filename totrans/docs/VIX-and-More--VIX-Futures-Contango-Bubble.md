@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:06:32
+-->
+
+# VIX and More: VIX Futures Contango Bubble
+
+> 来源：[http://vixandmore.blogspot.com/2010/07/vix-futures-contango-bubble.html#0001-01-01](http://vixandmore.blogspot.com/2010/07/vix-futures-contango-bubble.html#0001-01-01)
+
+Truth be told, there is no such thing as a “[contango](http://vixandmore.blogspot.com/search/label/contango) bubble,” but I like how the two words look juxtaposed and it is Friday…
+
+Bubble or not, the [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) are stretched to an extreme that I do not ever recall seeing and to the extent that the grapevine is whispering to Adam Warner of the [Daily Options Report](http://www.dailyoptionsreport.com/) that the differential between the first month and third month VIX futures is at its highest level ever. (Note to self, why doesn’t the grapevine ever whisper to me?)
+
+The chart below, courtesy of [FutureSource.com](http://futuresource.quote.com/), shows the difference between the VIX third month futures and front month futures (VX V0 – VX N0 in current VIX futures parlance) going back about six months. Personally, I tend to get excited when the third month VIX futures rises more than 2.00 higher than the front month, as this frequently suggests that the [VXX](http://vixandmore.blogspot.com/search/label/VXX) negative [roll yield](http://vixandmore.blogspot.com/search/label/roll%20yield) contango play is starting to set up.
+
+Some 17 months after its launch, I probably still get more questions about VXX than any other subject. As much confusion as there is about VXX, I think it is probably time to come out with an extended look at this volatility product in the next week or two.
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: FutureSource.com]*
+
+***Disclosure(s):*** *short VXX at time of writing*
