@@ -1,0 +1,22 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:56:00
+-->
+
+# VIX and More: Chart of the Week: Historical Volatility Plummets in Seasonal Swoon
+
+> 来源：[http://vixandmore.blogspot.com/2010/12/chart-of-week-historical-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2010/12/chart-of-week-historical-volatility.html#0001-01-01)
+
+‘Tis the season for the annual [holiday effect](http://vixandmore.blogspot.com/search/label/Holiday%20Effect) in which [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility) (HV) has a strong tendency to plunge and drag [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility) down with it. This is a subject I have tackled on a number of occasions in the past (see links below) and is really just a longer variant of what I call [calendar reversion](http://vixandmore.blogspot.com/search/label/calendar%20reversion) – the tendency of the VIX to fall an extra 1% or so on Fridays due to market makers adjusting prices ahead of the weekend. The lack of volatility all boils down to the same root cause: fewer trading days during the 30 calendar day window specified by the VIX (and implied volatility in general) means there are fewer opportunity for stocks to stray significantly from the path projected by efficient markets, standard deviations and the rest of the normalcy regime.
+
+As of Friday’s close the S&P 500 index had a 10-day historical volatility of 5.5, which is the lowest reading since May 2007\. In this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week) below, I have elected to show the 10-day historical volatility of the Russell 2000 small cap index ([RUT](http://vixandmore.blogspot.com/search/label/RUT)), which traditionally has higher volatility than the SPX and is also more susceptible to the winds of economic change and uncertainty. As the chart shows, 10-day historical volatility (white line) sits at a two-year low and has helped to pull the implied volatility (red line) of the index down below 20\. Note that last week the CBOE Russell 2000 Volatility Index ([RVX](http://vixandmore.blogspot.com/search/label/RVX)) dipped as low as 19.55 and is threatening to drop below the 19.00 level for the first time since June 2007.
+
+After the first of the year I expect to see the holiday effect magically disappear and HV, IV and volatility indices begin to reflect a more accurate view of investor expectations.
+
+Related posts:
+
+![](img/666af19a55186e13179c6da8d6163709.png)
+
+*[source: Livevol.com]*
+
+****Disclosure(s):*** *Livevol is an advertiser on VIX and More**

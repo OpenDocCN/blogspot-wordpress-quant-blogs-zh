@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:55:24
+-->
+
+# VIX and More: MB Trading Actively Screening New Customers?
+
+> 来源：[http://vixandmore.blogspot.com/2010/12/mb-trading-actively-screening-new.html#0001-01-01](http://vixandmore.blogspot.com/2010/12/mb-trading-actively-screening-new.html#0001-01-01)
+
+I do my best to maintain accounts with a wide variety of [brokers](http://vixandmore.blogspot.com/search/label/brokers), particularly with those who are partial to options traders, in an effort to get a sense of how various tools and platforms are evolving at the broker level, keep up to date on educational offerings, etc.
+
+In the last year or two, I have opened new accounts at [tradeMONSTER](https://www.trademonster.com/) and [OptionsHouse](http://www.optionshouse.com/) and have had very positive experiences with both brokers. One broker that I have been meaning to try for awhile is [MB Trading](http://www.mbtrading.com/), which has been a top performer in the [Barron’s online broker rankings](http://online.barrons.com/article/SB126844973242861545.html#articleTabs_panel_article%3D1) (with additional details [here](http://online.barrons.com/article/SB126844977199261489.html)) for the past few years.
+
+Much to my surprise, when I heard back from MB Trading today it was to request more details related to my employment and the like. Keeping in mind that any broker new account application for options and futures trading has a comprehensive list of questions related to employment, assets, trading experience, etc., but for the first time out of perhaps 15-20 new account applications I discovered a broker that was intent on conducting additional due diligence over and above what is covered by the standard application. I have to assume this development is specific to MB Trading and I applaud this effort. It is always nice to know that a place where I put my money uses some discretion in the money they accept from others.
+
+*[Note that Theresa Carey, who authored the Barron’s online broker rankings, also maintains an excellent blog, [Investor Brain](http://www.investorbrain.com/), where she discusses the latest developments in the online broker space, in terms of functionality and features, as well as industry-level issues.]*
+
+Related posts:
+
+***Disclosure(s):*** *none*
