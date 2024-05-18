@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:08:03
+-->
+
+# VIX and More: Futures Now Available on VXN and RVX
+
+> 来源：[http://vixandmore.blogspot.com/2007/07/futures-now-available-on-vxn-and-rvx.html#0001-01-01](http://vixandmore.blogspot.com/2007/07/futures-now-available-on-vxn-and-rvx.html#0001-01-01)
+
+From the in-case-you-missed-it department, comes a [June 11 announcement](http://www.cboe.com/AboutCBOE/ShowDocument.aspx?DIR=ACNews&FILE=cboe_cfe_20070611.doc&CreateDate=11.06.2007) by the [CBOE](http://www.cboe.com/) that the CBOE Futures Exchange (CFE) has launched "two new volatility index futures contracts on the CBOE Nasdaq-100 Volatility Index (ticker symbol VXN, futures symbol VN) and the CBOE Russell 2000 Volatility Index (ticker symbol RVX, futures symbol VR) beginning July 6, 2007."
+
+More information is available from the CBOE for the [VXN futures](http://cfe.cboe.com/Products/Products_VN.aspx) and [RVX futures](http://cfe.cboe.com/Products/Products_VR.aspx) in the links to the left.
+
+Among other things, this means I will now be paying much closer attention to the [VXN](http://finance.yahoo.com/q?s=%5EVXN) and the [RVX](http://finance.yahoo.com/q?s=%5ERVX).
