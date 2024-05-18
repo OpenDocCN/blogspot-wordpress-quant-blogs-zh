@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:57:03
+-->
+
+# VIX and More: Birthday Party?
+
+> 来源：[http://vixandmore.blogspot.com/2007/02/birthday-party.html#0001-01-01](http://vixandmore.blogspot.com/2007/02/birthday-party.html#0001-01-01)
+
+As we all know, the markets have a talent for making big U-turns at the most inconvenient times.  For some, this means a 4% sell off just when you decided to margin some high flying internet stocks.  For me, this means having a birthday and attempting a birthday celebration on the day when the subject of your blog makes an unprecedented 64% move.  Yesterday someone asked me what I wanted for my birthday and I almost blurted out “A 20% spike in the VIX, of course,” but I bit my tongue and said something much less memorable.  There’s a lesson in there somewhere.
+
+Oh well, I guess it could have been worse.  I could have been the guy who bought [63,000 April 11 VIX puts](http://vixandmore.blogspot.com/2007/02/vix-march-otm-calls.html).  Heck, here in <place st="on">Northern California</place>, you can get a fairly decent condo for what he (or she) just threw away.
+
+Back to the real world…I’ve been away from my computer for the nine hours or so since the markets have closed.  I will do my best in the next hour or two to make some sense out of the debris left behind from today's seismic shock and post some thoughts here later.  In the interim, readers looking to get a sense of my thought process might want to check out some of the following archived but relevant posts (as an aside, I too am not a fan of bands that make a live album or greatest hits collection after only one record or two, but that won’t stop me from doing essentially the same thing):
