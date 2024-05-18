@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:15:00
+-->
+
+# VIX and More: Two Must Read Blogs for Volatility Aficionados
+
+> 来源：[http://vixandmore.blogspot.com/2010/02/two-must-read-blogs-for-volatility.html#0001-01-01](http://vixandmore.blogspot.com/2010/02/two-must-read-blogs-for-volatility.html#0001-01-01)
+
+Lately I have been a little light on posting due to various commitments that have kept me fully occupied. While I intend to start ramping up my posting frequency to previous levels, this seems like a good opportunity to highlight two relatively new bloggers who are serving up some excellent insights into volatility.
+
+On the scene since last July is [SurlyTrader](http://www.surlytrader.com/), whose bio indicates a specialty in trading derivatives. This blog should probably be listed in my *Favorite Options Blogs* blogroll, but because of the breadth of the subject matter covered, I have elected to included the not-so-surly-one in my list of *Other Blogs I Frequent*. If today’s [What Influences Volatiilty?](http://www.surlytrader.com/what-influences-volatility/) does not make you an immediate fan, I’d be shocked.
+
+A more recent entrant to the options blog scene is [Volatility Square](http://volatilitysquare.blogspot.com/). Launched earlier this month, the new blog on the block immediately won me over with topics that are close to my heart, such as the recent [VIX Fair Value Model](http://volatilitysquare.blogspot.com/2010/02/vix-fair-value-model.html).
+
+For some reason, options blog seems to have a very short half-life. I’m hoping these two stick around for a long time.
+
+For more on related subjects, readers are encouraged to check out:
+
+***Disclosures:*** *none*
