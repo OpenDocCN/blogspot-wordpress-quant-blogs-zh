@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:35:58
+-->
+
+# VIX and More: Three Good Articles on the VIX
+
+> 来源：[http://vixandmore.blogspot.com/2009/07/three-good-articles-on-vix.html#0001-01-01](http://vixandmore.blogspot.com/2009/07/three-good-articles-on-vix.html#0001-01-01)
+
+I continue to be amazed at the sustained level of interest in the VIX and other measures of investor anxiety and volatility, now that the VIX is down 72% from its high.
+
+Today I was pleased to see three excellent articles on the VIX and VIX-related subjects. In no particular order:
+
+Jared at [Condor Options](http://www.condoroptions.com/) asks and answers a question on the minds of many as of late: [Why Do VIX Futures Remain High?](http://www.condoroptions.com/index.php/market-commentary/why-do-vix-futures-remain-high/) He shares some graphics from his excellent *Volatility Tracker* feature and offers a reminder that “the reason those VIX futures remain higher is that traders are willing to pay for November and December SPX options at a higher implied volatility – so any portfolio insurance purchased now will already have this information priced in.”
+
+Bradley Kay at Morningstar takes up a related question in [Is Volatility Cheap Yet?](http://news.morningstar.com/articlenet/article.aspx?id=301375&pgid=rss) He discusses [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures) and the [VXX](http://vixandmore.blogspot.com/search/label/VXX) futures ETN at some length and offers a reminder that “these futures are also subject to the same dangers of [contango](http://vixandmore.blogspot.com/search/label/contango) that hurt similar rolling near-month futures investments in United States Oil ([USO](http://vixandmore.blogspot.com/search/label/USO)) and United States Natural Gas ([UNG](http://vixandmore.blogspot.com/search/label/UNG)) earlier this year.” Kay concludes, in concert with my own thinking, that “until this contango starts to flatten and the spot VIX falls to levels more in line with historical norms, we do not think these ETNs provide an attractive long-term risk-reward trade-off.” I do think VXX can be traded effectively across relatively short-term time frames, but the contango roll risk or [term structure](http://vixandmore.blogspot.com/search/label/term%20structure) decay should not be dismissed. I will do a deeper dive into this subject in the near future.
+
+Last but not least, Adam at [Daily Options Report](http://dailyoptionsreport.com/) (note the new web site) discusses the Credit Suisse Fear Barometer ([CSFB](http://vixandmore.blogspot.com/search/label/CSFB)) in [About that CSFB Index](http://dailyoptionsreport.com/blog/post/about-that-csfb-index/) and comes down in favor of a modification proposed by Ryan Renicker of [New Edge Group](http://www.newedgegroup.com/web/guest/home). I need to put my hands on a full set of historical data before drawing any meaningful conclusions about the CSFB, but I like the logic and construction behind a fear-based index denominated in cost of collar data. From what I have seen of the CSFB charts, however, I will approach this one with a fair degree of skepticism.
