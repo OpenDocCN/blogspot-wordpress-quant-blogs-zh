@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:03:39
+-->
+
+# VIX and More: Portfolio A1 Slips as AMKR Guides Lower
+
+> 来源：[http://vixandmore.blogspot.com/2007/08/portfolio-a1-slips-as-amkr-guides-lower.html#0001-01-01](http://vixandmore.blogspot.com/2007/08/portfolio-a1-slips-as-amkr-guides-lower.html#0001-01-01)
+
+[Amkor Technology (AMKR)](http://finance.google.com/finance?q=amkr&hl=en), which fueled much of the gains in Portfolio A1 from February through June, [guided third quarter revenues and earnings](http://biz.yahoo.com/ap/070801/amkor_outlook.html?.v=1) below analyst expectations on Tuesday, triggering a 21% loss in the stock for the week.  Now down over 37% from the June high, AMKR’s slide has turned this former big gainer into a 12% loser for the portfolio and has contributed heavily to the portfolio’s decline in the past five weeks.
+
+While this kind of news would automatically mean AMKR would be dropped from any of my discretionary trading systems, the stock Portfolio A1 ranker has not yet seen fit to drop AMKR [Edit: My error here. AMKR was indeed sold; please see [8/12/07 portfolio update](http://vixandmore.blogspot.com/2007/08/portfolio-a1-losing-altitude-quickly.html) for details.] Since the portfolio does not make any decisions regarding changes in holdings during the week, this means the stock has a reprieve for at least another five trading days.
+
+Not surprisingly, the portfolio’s aggregate performance has turned ugly in the past week as well and now trails the benchmark S&P 500 index by 6.1%, the largest performance gap to date.
+
+This is a highly concentrated portfolio of just five stocks, with an average beta that hovers in the 2.0 range, so large drawdowns always loom as a possibility.  If the broader markets fail to rebound in the next week or two, it will be interesting to see how the stock ranking system culls some of the losers and where it chooses to reallocate capital.  In the meantime, as indicated by the system’s rules, this portfolio will continue to remain on autopilot during the trading week.
+
+A snapshot of the portfolio is as follows:

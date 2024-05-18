@@ -1,0 +1,14 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 19:04:09
+-->
+
+# VIX and More: The Aleph Blog on the VIX
+
+> 来源：[http://vixandmore.blogspot.com/2007/08/aleph-blog-on-vix.html#0001-01-01](http://vixandmore.blogspot.com/2007/08/aleph-blog-on-vix.html#0001-01-01)
+
+![](img/20dd9cf5af9ab24741dd8f37e332315f.png)I was fortunate enough to have been one of the first readers to stumble across [The Aleph Blog](http://alephblog.com/), authored by David Merkel, and have a been a big fan ever since.  Earlier this week, for instance, I [linked to](http://vixandmore.blogspot.com/2007/07/links-play-it-where-it-lies.html) his ideas for reducing portfolio risk and for thinking about the Fed Model.
+
+Today I am pleased to be able to recommend his thoughts on the VIX, which he began presenting in the last 24 hours.  In what should be required reading for all VIX aficionados, David has (so far) laid out some of his thinking about this VIX as follows:
+
+I have no idea how much more The Aleph Blog will have to say about the VIX, nor how often he will weave this subject into future writing, but I can encourage you to check out past and present posts, even if you are not one of those people who think the VIX may turn out to be the salvation of western civilization.
