@@ -1,0 +1,34 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:31:48
+-->
+
+# VIX and More: Time for Reader Input: Does the VIX Have Market Timing Value?
+
+> 来源：[http://vixandmore.blogspot.com/2008/07/time-for-reader-input-does-vix-have.html#0001-01-01](http://vixandmore.blogspot.com/2008/07/time-for-reader-input-does-vix-have.html#0001-01-01)
+
+I am going to try something different today:  I’ll frame an issue in the context of an article from a highly regarded pundit, skip my own commentary, and ask for readers to weigh in with their thoughts.  We’ll see how this works, if it works at all…
+
+First, a quick summary of the pundit and the issue.  Mark Hulbert, who I happen to think highly of, is out today with an interesting point of view in [Putting on the VIX](http://www.marketwatch.com/news/story/mark-hulbert-putting-vix/story.aspx?guid=%7B30378D20-7CA5-4B91-ADCB-2591BD381C3C%7D&dist=hpts) over at MarketWatch.  The subtitle, “Commendary:  Not necessarily bullish that VIX briefly rose above 30 last week” summarizes Hulbert’s position nicely, but I want to highlight several quotes from the article.
+
+First, let me start with Hulbert’s conclusion:
+
+*“Even in those situations in which the VIX does appear to have statistically significant ability to forecast market movements, it turns out that those abilities largely derive from no special insights on the part of the VIX itself, but instead because of the stock market's tendency to rebound after steep corrections.*
+
+ **I owe this latter insight to Samuel Eisenstadt, research director at Value Line, Inc.  Eisenstadt several years ago designed an econometric test to see if high VIX readings contain any unusual market-timing information after market declines, above and beyond the already-apparent fact that the market has just fallen. He came away empty-handed. High VIX readings tell us nothing more than we would already know from casually reading the news headlines.*
+
+ **The bottom line? The stock market may indeed continue to rally over the next several weeks. But if it does so, it won't be because the VIX momentarily rose above 30 last week.”*
+
+Early on in the article, Hulbert makes the case for the attractiveness of the VIX as follows:
+
+*“…consider first how the stock market performed over the subsequent month following a VIX close above 30: On average over the past 18 years, it gained 3.8% (as measured by the Dow Jones Wilshire 5000 index).  In contrast, the stock market gained just 0.7% over the subsequent month following VIX closes below 30… Furthermore, similar contrasts existed at the quarter, six-month and 12-month horizons.”*
+
+Hulbert then goes on to refute the data for VIX closes above 30:
+
+*“…there's no way of knowing how high the VIX will rise when it first crosses the 30 threshold. Sometimes, like last week, the stock market immediately rises when that ceiling is broken, leading in most instances to the VIX falling back below 30\. On other occasions, however, the stock market continues declining despite the VIX rising above 30, causing the VIX in most cases to continue rising. The all-time high for the VIX is 45.74.*
+
+ **So even though, other things being equal, higher VIX readings are more bullish than lower ones, there's nothing particularly magical about the 30 level.*
+
+ **To correct for this sleight of hand, I focused on just those occasions in which the VIX initially broke the 30 ceiling, after having been below 30 for at least three months previously. The data now painted an entirely different picture: Following those occasions, the stock market on average performed no better than it did the rest of the time.”*
+
+Readers, what do you think?  Do you find Hulbert’s arguments convincing?  Why or why not?  What other important perspective and/or data do you think Hulbert is overlooking here?  I would be interested in hearing some reader opinions in the comments below.****

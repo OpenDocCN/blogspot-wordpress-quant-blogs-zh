@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:31:31
+-->
+
+# VIX and More: Headwinds Again?
+
+> 来源：[http://vixandmore.blogspot.com/2008/07/headwinds-again.html#0001-01-01](http://vixandmore.blogspot.com/2008/07/headwinds-again.html#0001-01-01)
+
+I was traveling today and missed all of the market action.  It certainly looks like it was an interesting day, as the [headwinds index](http://vixandmore.blogspot.com/search/label/headwinds%20index) showed a turn back toward the old long energy and short financials trade.  True the energy sector did not rise today (all nine of the AMEX sector [SPDR](http://vixandmore.blogspot.com/search/label/SPDRs)s were down), but it did show some signs of stabilizing.
+
+When I need to get caught up on the best of blogland, the first place I visit is [Abnormal Returns](http://abnormalreturns.com/), which has a knack for consistently cherry picking the best of what is out there.
+
+For those who need a VIX fix, look no further than Adam of [Daily Options Report](http://adamsoptions.blogspot.com/) in [That Old VIX Magic](http://adamsoptions.blogspot.com/2008/07/that-old-vix-magic.html), and long-time favorite Michael Stokes of [MarketSci.com](http://marketsci.wordpress.com/), whose [The VIX Isn’t Magical](http://marketsci.wordpress.com/2008/07/24/the-vix-isn%e2%80%99t-magical/) is a can’t miss article today.
+
+Note that Michael Stokes is one of many to weigh in on the question I posed on Monday:  [Does the VIX Have Market Timing Value?](http://vixandmore.blogspot.com/2008/07/time-for-reader-input-does-vix-have.html)  Check out the comments section for some interesting give and take from a wide variety of ably articulated perspectives, including a recent take from the highly skewed Kurt Osis…
+
+I should be back at it tomorrow, same time, same channel, probably long natural gas and short the banks, maybe even nibbling on a few more VIX calls.
