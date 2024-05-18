@@ -1,0 +1,116 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 16:07:16
+-->
+
+# VIX and More: VIX ETPs Flash Some Green in 2016
+
+> 来源：[http://vixandmore.blogspot.com/2017/01/vix-etps-flash-some-green-in-2016.html#0001-01-01](http://vixandmore.blogspot.com/2017/01/vix-etps-flash-some-green-in-2016.html#0001-01-01)
+
+In sharp contrast to across-the-board losses in 2015, the performance of VIX ETPs in 2016 was much more balanced and in line with historical norms.  While there were some sharp VIX spikes, the combination
+
+[moderate volatility](http://vixandmore.blogspot.com/2016/12/my-low-volatility-prediction-for-2016.html)
+
+, above-average
+
+[contango](http://vixandmore.blogspot.com/search/label/contango)
+
+and persistent
+
+[mean reversion](http://vixandmore.blogspot.com/search/label/mean%20reversion)
+
+translated into a sharp down year for the long VIX ETPs and a strong up year for the inverse VIX ETPs.  The more complex multi-leg, long-short and dynamic VIX strategy ETPs were closest to breaking even for the year, with half of these posting modest gains and half posting small losses.
+
+In the graphic below, I have plotted the performance of all twenty VIX-based ETPs with respect to leverage and maturity, using leverage on the y-axis and maturity on the x-axis.  This group includes five VIX strategy ETPs that have no easily discernible point on the leverage-maturity grid.  Depending on how finely you wish to split hairs, these twenty ETPs account for anywhere from fourteen to eighteen unique ways to trade volatility long and short, across various maturities and according to a wide variety of strategic approaches. 
+
+ *[source(s): VIX and More]*
+
+On the plus side, while both
+
+[XIV](http://vixandmore.blogspot.com/search/label/XIV)
+
+and
+
+[SVXY](http://vixandmore.blogspot.com/search/label/SVXY)
+
+were up over 80% during calendar 2016, this performance falls short of the 2012 and 2013 numbers, where each ETP gained more than 100% in both years.  Similarly, while losses of over 93% for
+
+[UVXY](http://vixandmore.blogspot.com/search/label/UVXY)
+
+and
+
+[TVIX](http://vixandmore.blogspot.com/search/label/TVIX)
+
+must sound like a worst-case scenario for these two products, losses were over 97% in 2012 and just slightly better – at -92% – in 2013.  In terms of consistent winners, while their numbers have been more modest, the most consistent gainers in the VIX ETP space have been
+
+[ZIV](http://vixandmore.blogspot.com/search/label/ZIV)
+
+,
+
+[TRSK](http://vixandmore.blogspot.com/search/label/TRSK)
+
+and
+
+[SPXH](http://vixandmore.blogspot.com/search/label/SPXH)
+
+.
+
+Two new VIX ETPs entered the fray in 2016:  
+
+[VMIN](http://vixandmore.blogspot.com/search/label/VMIN)
+
+ and 
+
+[VMAX](http://vixandmore.blogspot.com/search/label/VMAX)
+
+.  While these products have not yet attracted the interest of investors that I believe is warranted (
+
+[VMAX and VMIN Poised to Be Most Important VIX ETP Launch in Years](http://vixandmore.blogspot.com/2016/05/vmax-and-vmin-poised-to-be-most.html)
+
+), there is still time for investors to discover these products.  For the record, VMIN was launched on May 2, 2016 and outperformed both XIV and SVXY from the launch date until the end of the year, racking up an impressive 80.5% return in just eights months of trading.  Going forward, I would expect VMIN to regularly be the top performer in any period in which the inverse ETPs post positive returns.
+
+For those who may be wondering, the VIX index was down 22.9% for the year, while the front month
+
+[VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures)
+
+product ended the year with a loss of 18.3%.
+
+As is typically the case, contango was a significant performance driver during the course of the year.  Contango affecting the front month and second month VIX futures averaged a relatively robust 8.3% per month during the year (the highest since 2012), while contango between the fourth month and seventh month was slightly above average at 1.8% per month.
+
+During the course of the year, five VIX ETPs were shuttered.  These include
+
+[VXUP](http://vixandmore.blogspot.com/search/label/VXUP)
+
+and
+
+[VXDN](http://vixandmore.blogspot.com/search/label/VXDN)
+
+,
+
+[XVIX](http://vixandmore.blogspot.com/search/label/XVIX)
+
+,
+
+[CVOL](http://vixandmore.blogspot.com/search/label/CVOL)
+
+and
+
+[VQTS](http://vixandmore.blogspot.com/search/label/VQTS)
+
+.  The biggest factors in the demise of these products was a lack of volume and assets.  In the case of VXUP and VXDN, the product complexity and cumbersome array of distributions also helped to quell investor enthusiasm.  Last but not least, I elected to drop
+
+[XXV](http://www.ipathetn.com/US/16/en/details.app?instrumentId=68522)
+
+and
+
+[IVOP](http://www.ipathetn.com/US/16/en/details.app?instrumentId=259117)
+
+from this list as these zombie ETPs both have less than 1% exposure to their underlying volatility index due to the lack of daily rebalancing.  As a result, these have become almost entirely all-cash vehicles, with a dash of volatility.  (For those who are curious about these instruments, follow the links above, click on the link to the prospectus and do a keyword search for “participation.”)
+
+As an aside, for those who may be wondering, the flurry of recent posts is not an anomaly.  There is a lot to be said about the VIX, volatility, ETPs, market sentiment and many of my other areas of interest. With the the-year anniversary of the VIX and More blog just three days away, this seems like a good time to dive head first back into the fray.
+
+Related posts:
+
+For those who may be interested, you can always follow me on Twitter at
+
+[@VIXandMore](https://twitter.com/VIXandMore)***Disclosure(s):*** *net short VXX, VMAX, UVXY and TVIX; net long XIV, SVXY and ZIV at time of writing*
