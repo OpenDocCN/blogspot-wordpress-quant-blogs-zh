@@ -1,0 +1,26 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 17:07:38
+-->
+
+# VIX and More: Chart of the Week: U.S. Open Scorecards
+
+> 来源：[http://vixandmore.blogspot.com/2010/06/chart-of-week-us-open-scorecards.html#0001-01-01](http://vixandmore.blogspot.com/2010/06/chart-of-week-us-open-scorecards.html#0001-01-01)
+
+I was pulled in quite a few different directions when considering this week’s [chart of the week](http://vixandmore.blogspot.com/search/label/chart%20of%20the%20week). There was the rally in the [euro](http://vixandmore.blogspot.com/search/label/euro), some positive debt offerings in [Spain](http://vixandmore.blogspot.com/search/label/Spain), new highs in [gold](http://vixandmore.blogspot.com/search/label/gold), [BP](http://vixandmore.blogspot.com/search/label/BP)’s $20 billion escrow fund, etc. On the volatility front, the last week was the first time ever that the VIX fell more than 15% in consecutive weeks.
+
+Of all the things that stuck in my mind this week, however, the one I found the most compelling was the course the United States Golfing Association assembled this week at [Pebble Beach](http://www.pebblebeach.com/) to test the world’s best golfers in the world for the [U.S. Open](http://www.usopen.com/en_US/index.html) championship.
+
+While this was a relatively short course, the challenges posed by natural obstacles, difficult greens and the U.S. Open’s notoriously long and unforgiving rough were such that not one of the 156 golfers was able to break par. In keeping with tradition, the U.S. Open course was set up to extract the maximum penalty for any missed shot.
+
+In fact, as I see it, the championship was decided not by how many birdies a golfer was able to make, but by how well he was able to avoid trouble. The scorecards of the top three finishers tell the story and together comprise this week’s chart of the week. In the end, the winner, [Graeme McDowell](http://en.wikipedia.org/wiki/Graeme_McDowell), persevered by not allowing the course to bully him into anything worse than a bogey. Runner-up [Gregory Havret](http://en.wikipedia.org/wiki/Gr%C3%A9gory_Havret) had only one double bogey on his scorecard, but it was just enough to keep him one stroke back from McDowell. Third place finisher [Ernie Els](http://en.wikipedia.org/wiki/Ernie_Els), who plays with the demeanor of someone who is always unflappable, ended up with two double bogeys and finished two strokes back. In the end, it was the disastrous double bogeys – and one’s ability to avoid them – that spelled the difference.
+
+The reason the Pebble Beach odyssey stuck in my mind is that it reminded me that traders should approach trading the way they would approach a golf course like Pebble Beach. The goal should be to play for pars and look to capitalize on any birdie opportunities that arise. To the extent possible, this means keeping the ball away from hazards and obstacles, as well as avoiding low percentage plays. It also means not compounding small mistakes by pressing and trying to make up lost shots in a hurry. Impulsive play is almost always penalized; patience and discipline are the only way to survive.
+
+In golf and in trading, it is better to be able to drive the ball into the fairway than to hit it 300 yards and not control where it is going. Consistency, precision, patience and opportunistic aggression. That is the recipe for winning golf and winning trading – at Pebble Beach or in your own back yard.
+
+For more on related subjects, readers are encouraged to check out:
+
+*[source: U.S. Open]*
+
+***Disclosure(s):*** *none*
