@@ -1,0 +1,20 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:02:52
+-->
+
+# Timely Portfolio: Cash–Opportunity Lost or Opportunity Gained
+
+> 来源：[http://timelyportfolio.blogspot.com/2012/11/cashopportunity-lost-or-opportunity.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/11/cashopportunity-lost-or-opportunity.html#0001-01-01)
+
+Tom Brakke from [http://researchpuzzle.com/](http://researchpuzzle.com/ "http://researchpuzzle.com/") wrote a great thought piece [Cash as Trash, Cash as King, and Cash as a Weapon](http://blogs.cfainstitute.org/insideinvesting/2012/11/05/cash-as-trash-cash-as-king-and-cash-as-a-weapon/) for the CFA Institute blog.  My favorite part comes in the last paragraph:
+
+> “That’s the kind of analysis that should be brought to the discussion of cash, not simple sayings that bounce back and forth in response to the mood of the market. Individual investors should not be afraid to hold cash, even when it’s earning little, if it’s available to them when needed most. And investment professionals should get away from misguided notions about how much cash is too much cash in a portfolio. Let the manager use the value and power of cash to execute a strategy. Then you can judge whether the strategy makes sense. Don’t remove cash as an effective weapon.”
+
+Another way of looking at cash is does it represent the commonly accepted notion of opportunity lost (opportunity cost or “cash as trash”) or does it represent opportunity gained (Buffett’s cash as a “call option” as described in the solid Globe and Mail [article](http://www.theglobeandmail.com/globe-investor/investment-ideas/streetwise/for-warren-buffett-the-cash-option-is-priceless/article4565468/)).  I hope those who know me or read this blog know where I stand.  Cash is a refuge in the absence of opportunity, and I plan to spend significant time over the next couple months exploring how to mathematically price cash as a call option. If anyone has attempted this or read any research, please share it with me.
+
+Interestingly enough as a byproduct of some other research, yesterday I was confronted with something that I should have already known.  If you compare the 1 year US Treasury (not really cash but close enough) with just the price return of the S&P 500 starting from 1960, the price only S&P 500 is extraordinarily unremarkable.
+
+Also, cash does not look so bad when we consider the new Research Affiliates research ["Glidepath Illusion"](http://researchaffiliates.com/ideas/pdf/fundamentals/Fundamentals_Sep_2012_The_Glidepath_Illusion.pdf).  Certainly commonly accepted “wisdom” does not seem so wise.
+
+[R code from GIST:](https://gist.github.com/4032635)

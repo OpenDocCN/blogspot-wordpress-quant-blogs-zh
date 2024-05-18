@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 15:02:32
+-->
+
+# Timely Portfolio: d3 Showreel Combined with R and Shiny
+
+> 来源：[http://timelyportfolio.blogspot.com/2012/12/d3-showreel-combined-with-r-and-shiny.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/12/d3-showreel-combined-with-r-and-shiny.html#0001-01-01)
+
+Since the d3 portion of the example provide in my last post [d3 and r interacting through shiny](http://timelyportfolio.blogspot.com/2012/12/d3-and-r-interacting-through-shiny.html) was so weak, I thought it would be interesting to combine the much more compelling [Showreel Example](https://github.com/mbostock/d3/tree/master/examples/showreel) with the same stock data.  However, this time the data will come from R getSymbols.  Also, most of the plots would be better using cumulative return data, so we will use R to convert the price data into a cumulative return series.
+
+Almost all credit for the code contained in this example goes to [Mike Bostock](http://bost.ocks.org/mike/), and although much of the code is now gone, the structure and idea belong to [Trestle Technology's Jeff Allen](http://www.trestletechnology.net/2012/12/reconstruct-gene-networks/ "http://www.trestletechnology.net/2012/12/reconstruct-gene-networks/").
+
+See it live in the browser at [http://glimmer.rstudio.com/timelyportfolio/shiny-d3-showreel/](http://glimmer.rstudio.com/timelyportfolio/shiny-d3-showreel/), and all code [is hosted on Github](https://github.com/timelyportfolio/shiny-d3-showreel), so please play, experiment, and let me know what great things you do with this.
+
+[http://www.youtube.com/embed/IUZ5sJxoT0c?rel=0](http://www.youtube.com/embed/IUZ5sJxoT0c?rel=0)
+
+VIDEO
