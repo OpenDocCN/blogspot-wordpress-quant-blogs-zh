@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:53:24
+-->
+
+# VIX and More: Three Noteworthy Posts from Afar
+
+> 来源：[http://vixandmore.blogspot.com/2007/11/three-noteworthy-posts-from-afar.html#0001-01-01](http://vixandmore.blogspot.com/2007/11/three-noteworthy-posts-from-afar.html#0001-01-01)
+
+![](img/7700c9d9fdf2d0fdd51e8cfcdc862cbb.png)In the blogosphere it’s hard to really say what ‘afar’ is – or even if there is such a thing – but I wanted to use this space to highlight three VIX-related posts that have recently caught my attention.
+
+Earlier this morning, [Macro Man](http://macro-man.blogspot.com/) (whose intellectual domain spans well beyond the macro) was ruminating on what a convergence of thinking about the VIX, the credit markets, and the US consumer might mean in terms of the future direction of the markets in a post aptly titled [Fear and Greed](http://macro-man.blogspot.com/2007/11/fear-and-greed.html).  For the record, I have commented on the correlation between the SPX and the VIX on [a number of occasions](http://vixandmore.blogspot.com/search/label/SPX-VIX%20correlation) and have pointed out that a [high positive correlation](http://vixandmore.blogspot.com/2007/05/high-positive-correlation-between-vix.html) is more likely to foretell a bearish move than a high negative correlation.
+
+Adam at [Daily Options Report](http://adamsoptions.blogspot.com/) (as much as he posts, when does he have time to trade?) anticipated some of this yesterday in [VIX Going Forward](http://adamsoptions.blogspot.com/2007/11/vix-going-forward.html), in which he discusses the Holiday Effect and the tendency of traders to lower bids in order to better match the short trading week to the seven day calendar week used to price options.  His Holiday Effect forecast: “volatility numbers on the board this week may be misleadingly low.”  Bingo!
+
+Getting a little farther afield, over the weekend, Brett Steenbarger at [TraderFeed](http://traderfeed.blogspot.com/) posted some very interesting research and analysis in [Herding Behavior in the Stock Market:  A Look at Volume Concentration](http://traderfeed.blogspot.com/2007/11/herding-behavior-in-stock-market-look.html).  Frankly, this may be the most interesting stock market post I have read all year; rather than attempt to summarize his thinking, I am going to recommend that you click over and read his post in the original, as well as a related subsequent post, [Herding Sentiment in the Stock Market and Prospective Index Returns](http://traderfeed.blogspot.com/2007/11/herding-sentiment-in-stock-market-and.html).  In between turkey (ham?) sandwiches, I will certainly be thinking about market sentiment, volatility, and herding over the next few days.
+
+Happy holidays to all.
