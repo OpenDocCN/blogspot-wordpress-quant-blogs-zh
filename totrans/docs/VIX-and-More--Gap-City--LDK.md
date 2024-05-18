@@ -1,0 +1,18 @@
+<!--yml
+category: 未分类
+date: 2024-05-18 18:50:29
+-->
+
+# VIX and More: Gap City: LDK
+
+> 来源：[http://vixandmore.blogspot.com/2007/12/gap-city-ldk.html#0001-01-01](http://vixandmore.blogspot.com/2007/12/gap-city-ldk.html#0001-01-01)
+
+![](img/3808a4ca01eeb5f737d152c97db319ab.png)I’m reasonably sure that whatever I write here will be obsolete in the ten minutes that it takes me to post it, but I feel compelled to comment about [LDK Solar (LDK)](http://finance.google.com/finance?q=ldk) anyway.  
+
+For those who do not follow LDK, this is the Chinese solar company that was the subject of [accounting fraud allegations](http://www.thestreet.com/_yahoo/newsanalysis/energy/10394949.html?cm_ven=YAHOO&cm_cat=FREE&cm_ite=NA) by a former controller that helped to knock the stock down from the mid-70s to the mid-20s over the course of a month or so.  On Monday, [LDK reported](http://biz.yahoo.com/prnews/071217/aqm072.html?.v=26) that the Audit Committee of the Board of Directors had finished their review of the matter and concluded that there had been no wrongdoing.  Things were looking up until LDK [reported quarterly results](http://biz.yahoo.com/prnews/071219/aqw100.html?.v=27) after the close yesterday.  The numbers were generally in line, but [concerns about margins](http://biz.yahoo.com/ap/071220/ldk_solar_out_of_the_gate.html?.v=1) and the absence of raised guidance has put pressure on this stock this morning, which traded down as much as 27% earlier in the session.
+
+While the story is interesting, the chart may raise even more eyebrows, as it is littered with gaps and the tombstones of overzealous traders.  If you are thinking about playing solar roulette, consider that directional plays are extremely dangerous.  One way to make to potentially make some money off of the faddish momentum and wild gyrations is to sell volatility below support and above resistance, so you can get paid while you watch the fun.  Even if you don’t play this stock, the entertainment value alone makes it worth keeping an eye on.
+
+On a related note, is it only me, or does anyone else who trades Chinese solar counterpart [JA Solar Holdings (JASO)](http://finance.google.com/finance?q=jaso) think of a hockey mask every time they look at the ticker?  Given the volatility in that stock, somehow it seems an appropriate image…
+
+Finally, anyone interested in rolling the dice in the solar sector, Chinese and otherwise, should start their research with the excellent [solar stock comparison table](http://www.cnanalyst.com/solar/index.html) at [China Analyst](http://www.cnanalyst.com/).
