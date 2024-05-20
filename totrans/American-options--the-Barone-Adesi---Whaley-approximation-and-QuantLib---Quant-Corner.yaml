@@ -1,0 +1,81 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:09:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: American options, the Barone-Adesi & Whaley approximation and QuantLib | Quant
+    Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post, we shall implement the widely-used Barone-Adesi & Whaley approximation
+    using the **QuantLib** library.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here, our interest lies in **futures options**. For example, we would like to
+    price *options on agricultural futures* quoted on the **CME** markets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As Barone-Adesi & Whaley (1987) explain in their seminal paper, the cost of
+    carrying any futures position is equal to 0\. We thus set the cost-of-carry **b
+    = 0** to work out the approximation method proposed by these authors.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Introducing remarks
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: 'Most of the code used here to implement the BAW approximation is derived from
+    previous posts. Nevertheles, some improvements are made:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '– The program gets by itself today’s date, and associates it with the date
+    the option price is calculated. This is done throught :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '– Option parameters are now set by the user at running-time. This is easily
+    done by a **std::cout** and **std::cin** series:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '– The code is wrapped in an infinite loop. This way the program can be actually
+    used as a simple option pricer for **American futures options**:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: The code that implements the BAW approximation
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Concluding comments
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: This option pricer has been written quite easily, as it grounds on previous
+    codes. The point is that **QuantLib** has a large variety of classes allowing
+    to implement as many **numerical** as well as **analytical schemes** to price
+    options. And, it is quite straightforward to re-engineer a piece of code so that
+    to implement another scheme.
+  prefs: []
+  type: TYPE_NORMAL

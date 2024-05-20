@@ -1,0 +1,314 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:47:33'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : New R Package magicfor -
+    Magic Functions to Obtain Results from for Loops in R'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01](http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: What is inconvenience of for loops in R? It is that results you get will be
+    gone away. So we have created a package to store the results automatically. To
+    do it, you only need to cast one line spell `magic_for()`. In this text, we tell
+    you about how to use the magic.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1\. Overview
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '`for()` is one of the most popular functions in R. As you know, it is used
+    to create loops.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example, let’s calculate squared values for 1 to 3.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: It is very easy.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, it becomes too much hassle to change such codes to store printed results.
+    You must prepare some containers with correct length for storing results and change
+    `print()` to assignment statements.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Moreover, you may want to store results as a data.frame with iteration numbers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: What a bother!
+  prefs: []
+  type: TYPE_NORMAL
+- en: In such or more troublesome situations like that you have to store many variables,
+    codes will grow more complex.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The **magicfor** package makes to resolve the problem being kept readability.
+  prefs: []
+  type: TYPE_NORMAL
+- en: You just add two lines before for loops. First, load the library. Second, call
+    `magic_for()`. Notice that the main for loop is kept intact.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`magic_for()` takes a function name, and reconstructs `for()` to remember values
+    passed to the specified function in for loops. We call it *magicalization*. Once
+    you call `magic_for()`, as you just exectute `for()` as usual, the result will
+    be stored in memory automatically.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here, let’s use `magic_result_as_vector()` to access the stored values.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: This is one of the functions to obtain results from *magicalized for loops*,
+    and means to take out the results as a vector.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Even if the number of observed variables increases, you can do it the same way.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`put()` is the default function to store values in magicalized for loops. It
+    allows to take any number of variables and can display them.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2\. Installation
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: You can install the **magicfor** package from CRAN.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: The source code for **magicfor** package is available on GitHub at
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3\. Details
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'The **magicfor** package provides the functions as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`magic_for()`: Magicalize for.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`magic_free()`: Cancel magicalization.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Get results:'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`magic_result()`: as a list.'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`magic_result_as_vetor()`: as a vector.'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`magic_result_as_dataframe()`: as a data.frame.'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`put()`: Display values.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: In the following, we assume that the library is loaded to use the functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.1 Basics
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: The main function `magic_for()` magicalize for loops. *Magicalize* means to
+    change the behavior of `for()` to store values outputted via target functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The default target function is `put()`. It displays input values, for example:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: You can take out stored values using `magic_result_**()` when for loops have
+    finished.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE10]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.2 `magic_for()`
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`magic_for()` has several options.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Specify the first argument `func`, you can change target functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE11]'
+  prefs: []
+  type: TYPE_PRE
+- en: If `progress = TRUE`, show progress bar.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE12]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE13]'
+  prefs: []
+  type: TYPE_PRE
+- en: If you set `test` a number, the iteration is limited to that number of times.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE14]'
+  prefs: []
+  type: TYPE_PRE
+- en: If `silent = TRUE`, target function will be not executed but only the values
+    will be stored.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If `temp = TRUE`, the effect of magicalization will be lost after once execution
+    of for loop.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE15]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.3 `magic_free()`
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: You can use `magic_free()` to cancel magicalization.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE16]'
+  prefs: []
+  type: TYPE_PRE
+- en: The function also clear the stored values.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE17]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.4 `magic_result_**()`
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: You can use `magic_result_**()` to obtain results from magicalized for loops.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE18]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`magic_result()` returns results as a list.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE19]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`magic_result_as_vector()` returns results as a vector.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE20]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`magic_result_as_dataframe()` returns results as a data.frame.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE21]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.5 `put()`
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`put()` displays input values with high flexibility.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE22]'
+  prefs: []
+  type: TYPE_PRE
+- en: It is very useful for **magicfor**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE23]'
+  prefs: []
+  type: TYPE_PRE
+- en: 4\. Miscellaneous
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Whenever you put just variables in magicalized for loops, their values will
+    be stored regardless of target functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE24]'
+  prefs: []
+  type: TYPE_PRE
+- en: When you write trarget functions inside of if statements without else, `NA`
+    will be inserted to represent missing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE25]'
+  prefs: []
+  type: TYPE_PRE
+- en: Target functions work only top level lines or inside of if statements in magicalized
+    for loops. For example, it does not work inside nested for loops.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE26]'
+  prefs: []
+  type: TYPE_PRE
+- en: 5\. Bug Reports
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: https://github.com/hoxo-m/magicfor/issues
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL

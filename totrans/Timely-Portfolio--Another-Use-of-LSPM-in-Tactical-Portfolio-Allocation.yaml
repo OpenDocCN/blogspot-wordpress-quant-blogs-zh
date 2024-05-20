@@ -1,0 +1,522 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:17:50'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Another Use of LSPM in Tactical Portfolio Allocation'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: After the slightly unconventional use of LSPM presented in [Slightly Different
+    Use of Ralph Vince’s Leverage Space Trading Model](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html),
+    I thought I should follow up with something that more closely resembles my interpretation
+    of Ralph Vince’s book.
+  prefs: []
+  type: TYPE_NORMAL
+- en: LSPM seems to work well for portfolio allocation problems.  In this tactical
+    allocation system, I will use optimal f derived in R with the LSPM package to
+    build a portfolio with SP500, US10y, and the CRB.  If we use the optimal f as
+    our allocation to SP500 and CRB, then the results look like this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In general, my biggest problem is applying my systems to an entire portfolio. 
+    The components are easy, but the blending is troublesome.  If I apply a basic
+    method of monthly rebalancing of the SP500 and CRB, I get something like this
+    (not using any leverage).
+  prefs: []
+  type: TYPE_NORMAL
+- en: SP500 component improves, but because of my 50% limit on the more mean reverting
+    CRB, the CRB component underperforms the straight optimal f allocation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Since most clients don’t like cash, we can fill the portfolio with bonds when
+    there is room left over after the CRB and SP500 allocation.  The total package
+    look like this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As always, I would like my posts to stimulate discussion and thought.  The drawdown
+    here is much more severe than I would like.  Please let me know how you would
+    improve this system.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please see au.tra.sy blog [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#for original walkforward/optimize code and [http://www.fosstrading.com](http://www.fosstrading.com)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#for other techniques'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(RQuantLib)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get bond returns to avoid proprietary data problems'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#see previous timelyportfolio blogposts for explanation'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#probably need to make this a function since I will be using so much'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS10",src="FRED") #load US Treasury 10y from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'GS10pricereturn<-GS10  #set this up to hold price returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10pricereturn[1,1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(GS10pricereturn)<-"PriceReturn"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I know I need to vectorize this but not qualified enough yet'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please feel free to comment to show me how to do this'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(GS10)-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=GS10[i+1,1]/100,issueDate=Sys.Date(),
+  prefs: []
+  type: TYPE_NORMAL
+- en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  prefs: []
+  type: TYPE_NORMAL
+- en: rates=GS10[i,1]/100,period=2)[1]/100-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#interest return will be yield/12 for one month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10interestreturn<-lag(GS10,k=1)/12/100
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(GS10interestreturn)<-"Interest Return"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#total return will be the price return + interest return'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10totalreturn<-GS10pricereturn+GS10interestreturn
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(GS10totalreturn)<-"Bond Total Return"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get sp500 returns from FRED'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("SP500",src="FRED") #load SP500'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#unfortunately cannot get substitute for proprietary CRB data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data series from csv file'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-as.xts(read.csv("spxcrbndrbond.csv",row.names=1))[,2]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#do a little manipulation to get the data lined up on monthly basis'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10totalreturn<-to.monthly(GS10totalreturn)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: SP500<-to.monthly(SP500)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(SP500)<-as.Date(index(SP500))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#my CRB data is end of month; could change but more fun to do in R'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-to.monthly(CRB)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(CRB)<-as.Date(index(CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#now lets merge to get asset class returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROC<-na.omit(merge(ROC(SP500,type="discrete"),CRB,GS10totalreturn))
+  prefs: []
+  type: TYPE_NORMAL
+- en: Set Walk-Forward parameters (number of periods)
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'optim<-12 #1 year = 12 monthly returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'wf<-1 #walk forward 1 monthly returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: numsys<-2
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calculate number of WF cycles
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: numCycles = floor((nrow(assetROC)-optim)/wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Define JPT function
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: this is now part of LSPM package, but fails when no negative returns
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: so I still include this where I can force a negative return
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: jointProbTable <- function(x, n=3, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Load LSPM'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(!require(LSPM,quietly=TRUE)) stop(warnings())
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# handle case with no negative returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (sys in 1:numsys) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (min(x[,sys])> -1) x[,sys][which.min(x[,sys])]<- -0.03
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Function to bin data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: quantize <- function(x, n, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(is.character(FUN)) FUN <- get(FUN)
+  prefs: []
+  type: TYPE_NORMAL
+- en: bins <- cut(x, n, labels=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Allow for different values of ''n'' for each system in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)==1) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: n <- rep(n,NCOL(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '} else'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Bin data in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Aggregate probabilities'
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs <- rep(1/NROW(x),NROW(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Clean up output, return lsp object'
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(res) <- colnames(x)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
+  prefs: []
+  type: TYPE_NORMAL
+- en: return(res)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 0:(numCycles-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Define cycle boundaries'
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-1+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: end<-optim+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Get returns for optimization cycle and create the JPT'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# specify number of bins; does not seem to drastically affect results'
+  prefs: []
+  type: TYPE_NORMAL
+- en: numbins<-6
+  prefs: []
+  type: TYPE_NORMAL
+- en: jpt <- jointProbTable(assetROC[start:end,1:numsys],n=rep(numbins,numsys))
+  prefs: []
+  type: TYPE_NORMAL
+- en: outcomes<-jpt[[1]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs<-jpt[[2]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: port<-lsp(outcomes,probs)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# DEoptim parameters (see ?DEoptim)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'np=numsys*10       # 10 * number of mktsys'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'imax=1000       #maximum number of iterations'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'crossover=0.6       #probability of crossover'
+  prefs: []
+  type: TYPE_NORMAL
+- en: NR <- NROW(port$f)
+  prefs: []
+  type: TYPE_NORMAL
+- en: DEctrl <- list(NP=np, itermax=imax, CR=crossover, trace=TRUE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Optimize f'
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- optimalf(port, control=DEctrl)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# use upper to restrict to a level that you might feel comfortable'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#res <- optimalf(port, control=DEctrl, lower=rep(0,13), upper=rep(0.2,13))'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# these are other possibilities but I gave up after 24 hours'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#maxProbProfit from Foss Trading'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#res<-maxProbProfit(port, 1e-6, 6, probDrawdown, 0.1, DD=0.2, control=DEctrl)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#probDrawdown from Foss Trading'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#res<-optimalf(port,probDrawdown,0.1,DD=0.2,horizon=6,control=DEctrl)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Save leverage amounts as optimal f'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Examples in the book Ralph Vince Leverage Space Trading Model'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# all in dollar terms which confuses me'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# until I resolve I changed lev line to show optimal f output'
+  prefs: []
+  type: TYPE_NORMAL
+- en: lev<-res$f[1:numsys]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#lev<-c(res$f[1]/(-jpt$maxLoss[1]/10),res$f[2]/(-jpt$maxLoss[2]/10))'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'levmat<-c(rep(1,wf)) %o% lev #so that we can multiply with the wfassetROC'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Get the returns for the next Walk-Forward period'
+  prefs: []
+  type: TYPE_NORMAL
+- en: wfassetROC <- assetROC[(end+1):(end+wf),1:numsys]
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'wflevassetROC <- wfassetROC*levmat #apply leverage to the returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) fullassetROC<-wflevassetROC else fullassetROC<-rbind(fullassetROC,wflevassetROC)
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) levered<-levmat else levered<-rbind(levered,levmat)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#not super familiar with xts, but this add dates to levered'
+  prefs: []
+  type: TYPE_NORMAL
+- en: levered<-xts(levered,order.by=index(fullassetROC) )
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(levered)<-c("sp500 optimal f","crb optimal f")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(levered, legend.loc="topleft", cex.legend=0.6)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#review the optimal f values'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I had to fill the window to my screen to avoid a error from R on margins'
+  prefs: []
+  type: TYPE_NORMAL
+- en: par(mfrow=c(numsys,1))
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:numsys) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(levered[,i],xlab=NULL)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#charts.PerformanceSummary(fullassetROC, ylog=TRUE, main="Performance Summary
+    with Optimal f Applied as Allocation")'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCAnalyze<-merge(assetROC,fullassetROC)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(assetROCAnalyze)<-c("sp500","crb","US10y","sp500 f","crb f")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(assetROCAnalyze,ylog=TRUE,main="Performance Summary
+    with Optimal f Applied as Allocation")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#build a portfolio with sp500 and crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: leveredadjust<-levered
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#allow up to 50% allocation in CRB'
+  prefs: []
+  type: TYPE_NORMAL
+- en: leveredadjust[,2]<-ifelse(levered[,2]<0.25,0,0.5)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#allow up to 100% allocation in SP500 but portfolio constrained to 1 leverage'
+  prefs: []
+  type: TYPE_NORMAL
+- en: leveredadjust[,1]<-ifelse(levered[,1]<0.25,0,1-levered[,2])
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(leveredadjust)<-c("sp500 portfolio allocation","crb portfolio allocation")
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCadjust<-merge(assetROCAnalyze,leveredadjust[,1:2]*assetROC[,1:2])
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","sp500 system
+    component","crb system component")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(assetROCadjust,ylog=TRUE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#review the allocations versus optimal f'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I had to fill the window to my screen to avoid a error from R on margins'
+  prefs: []
+  type: TYPE_NORMAL
+- en: par(mfrow=c(numsys,1))
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:numsys) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(merge(levered[,i],leveredadjust[,i]),xlab=NULL,legend.loc="topleft",main="")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#add bonds when out of sp500 or crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCportfolio<-assetROCadjust[,6]+assetROCadjust[,7]+ifelse(leveredadjust[,1]+leveredadjust[,2]
+    >= 1,0,(1-leveredadjust[,1]-leveredadjust[,2])*assetROC[,3])
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCadjust<-merge(assetROCAnalyze,assetROCportfolio)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","system
+    portfolio")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(assetROCadjust[,c(1:3,6)],ylog=TRUE,main="Optimal
+    f System Portfolio with Bond Filler")
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,170 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:38:43'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Backtesting Minimum Variance portfolios | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I want to show how to combine various risk measures I discussed while writing
+    the series of posts about [Asset Allocation](https://systematicinvestor.wordpress.com/category/asset-allocation/)
+    with backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+    I will use Minimum Variance portfolio as an example for this post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I recommend reading a good discussion about Minimum Variance portfolios at [Minimum
+    Variance Sector Rotation](http://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)
+    post by Quantivity.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I will use the investment universe and rebalancing schedule as outlined in
+    the [Forecast-Free Algorithms: A New Benchmark For Tactical Strategies](http://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
+    post by David Varadi. The investment universe:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 1\. S&P500 ([SPY](http://www.google.com/finance?q=SPY)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 2\. Nasdaq 100 ([QQQ](http://www.google.com/finance?q=QQQ)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 3\. Emerging Markets ([EEM](http://www.google.com/finance?q=EEM)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 4\. Russell 2000 ([IWM](http://www.google.com/finance?q=IWM)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 5\. MSCI EAFE ([EFA](http://www.google.com/finance?q=EFA)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 6\. Long-term Treasury Bonds ([TLT](http://www.google.com/finance?q=TLT))
+    |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 7\. Real Estate ([IYR](http://www.google.com/finance?q=IYR)) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 8\. Gold ([GLD](http://www.google.com/finance?q=GLD)) |'
+  prefs: []
+  type: TYPE_TB
+- en: The rebalancing is done on a weekly basis and quarterly data is used to estimate
+    input assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following code implements this strategy using the backtesting library in the
+    [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next let’s create Minimum Variance portfolios using weekly data:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/1e8fa5169596dc6cdaae707627e72d45.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/cf20676b6db5c6fcf5de8d6f6896df5e.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/d9508b3598d8e7eb5b566165f820552f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I find it very interesting that the Minimum Variance portfolios constructed
+    using daily returns to create input assumptions are way different from the Minimum
+    Variance portfolios constructed using weekly returns to create input assumptions.
+    One possible explanation for this discrepancy was examined by Pat Burns in the
+    [The volatility mystery continues](http://www.portfolioprobe.com/2011/12/05/the-volatility-mystery-continues/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are a few ways I suggest you can play with this code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: make covariance matrix estimate more stable, use the Ledoit-Wolf covariance
+    shrinkage estimator from tawny package
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: or
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: or
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: use different investment universe
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: consider different rebalancing schedule
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'consider different risk measures. for example, I discussed and implemented
+    following risk measures in the series of posts about [Asset Allocation](https://systematicinvestor.wordpress.com/category/asset-allocation/):'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.maxloss.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.mad.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.cvar.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.cdar.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.mad.downside.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: min.risk.downside.portfolio
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.min.var.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

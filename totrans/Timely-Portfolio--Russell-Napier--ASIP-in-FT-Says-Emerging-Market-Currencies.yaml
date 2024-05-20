@@ -1,0 +1,209 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:16:06'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Russell Napier, ASIP in FT Says Emerging Market Currencies'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/05/russell-napier-asip-in-ft-says-emerging.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/russell-napier-asip-in-ft-says-emerging.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Clearly I have succumbed to confirmation bias, since my second favorite presentation
+    from the [CFA Institute Annual Conference](http://annual.cfaconference.org/) this
+    year came from Scotland native Russell Napier, ASIP who shares my views nearly
+    completely [http://video.ft.com/v/946244201001/Long-View-Historian-sees-S-P-fall-to-400](http://video.ft.com/v/946244201001/Long-View-Historian-sees-S-P-fall-to-400
+    "http://video.ft.com/v/946244201001/Long-View-Historian-sees-S-P-fall-to-400").
+  prefs: []
+  type: TYPE_NORMAL
+- en: As one of the most bearish money managers in [Barron’s Spring Big Money Poll](http://online.barrons.com/article/SB50001424052970204286704576275002828722960.html#articleTabs_panel_article%3D1),
+    I get some strange looks with my forecast for S&P 500 at 900, so I cannot imagine
+    how much resistance he gets with his S&P 500 potential price of 400.  However,
+    given inappropriate responses to the next crisis or Napier’s “the great reset”,
+    900 to 400 is not entirely inconceivable.
+  prefs: []
+  type: TYPE_NORMAL
+- en: “Kenton Russell, of the brokerage Sterne Agee, used to be bullish, but now makes
+    no bones about being a bear. "The primary assumption people are making is dollar
+    stability," he says. "If you don't pay attention to the dollar while being long
+    bonds and stocks in the U.S., you are not paying attention to the most crucial
+    element of the trade."
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Based on the declining value of the dollar, which hit a 15-month low Wednesday
+    against the euro, the market is "right back at the lows" seen before the financial
+    crisis, Russell says. He expects stocks to drop about 20% in the next year or
+    so, with investors selling the DJIA down to 9500 and the S&P to 900 as they come
+    to realize the U.S. has "reached the limits of fiscal and monetary policy."
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: A 20% correction "is no collapse," Russell says, although some might argue it
+    will feel like one. He recommends shorting the [iShares Russell 2000](http://online.barrons.com/public/quotes/main.html?type=djn&symbol=IWM)
+    exchange-traded fund (IWM) and buying the [iShares MSCI Emerging Markets](http://online.barrons.com/public/quotes/main.html?type=djn&symbol=EEM)
+    ETF (EEM), as he thinks Asian currencies are undervalued.”
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: We both agree most strongly on our view on emerging market currencies.  In an
+    attempt to link what I heard and learned last week at the conference with my blog
+    and R, I thought I should update my March 2011 post [Long EEM Short IWM-How it
+    Works in 3 Ways](http://timelyportfolio.blogspot.com/2011/03/long-eem-short-iwm-how-it-works-in-3.html). 
+    The idea is easily analyzed in R and very easily pursued even by a retail investor. 
+    For all the details please see the [original post](http://timelyportfolio.blogspot.com/2011/03/long-eem-short-iwm-how-it-works-in-3.html). 
+    Here are the updated charts and a couple of new charts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(fAssets)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: tckr<-c("EEM","IEF","IWM","GLD","SPY")
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-"2005-01-01"
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pull tckr index data from Yahoo! Finance
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: getSymbols(tckr, from=start, to=end)
+  prefs: []
+  type: TYPE_NORMAL
+- en: EEM<-adjustOHLC(EEM,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: IEF<-adjustOHLC(IEF,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: IWM<-adjustOHLC(IWM,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: GLD<-adjustOHLC(GLD,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: SPY<-adjustOHLC(SPY,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: EEM<-to.weekly(EEM, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: IEF<-to.weekly(IEF, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: IWM<-to.weekly(IWM, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: GLD<-to.weekly(GLD, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: SPY<-to.weekly(SPY, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: EEMIWM<-to.weekly(EEM/IWM, indexAt='endof')
+  prefs: []
+  type: TYPE_NORMAL
+- en: RetToAnalyze<-merge(weeklyReturn(EEM),weeklyReturn(IEF),weeklyReturn(IWM),weeklyReturn(GLD),weeklyReturn(SPY),weeklyReturn(EEMIWM))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(RetToAnalyze)<-c(tckr,"EEMIWM")
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetsDendrogramPlot(as.timeSeries(RetToAnalyze))
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetsCorEigenPlot(as.timeSeries(RetToAnalyze))
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Yahoo! Finance",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(RetToAnalyze[,1:6,drop=F], main="Correlation since 2005")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Yahoo! Finance",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Rolling Correlations with IEF(bonds) and SPY(stocks)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: corEEMIWMtoBonds<-runCor(RetToAnalyze[,6],RetToAnalyze[,2],25)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corEEMIWMtoStocks<-runCor(RetToAnalyze[,6],RetToAnalyze[,5],25)
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(EEMIWM,TA="addBBands();addTA(corEEMIWMtoBonds);addTA(corEEMIWMtoStocks)",theme="white")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Yahoo! Finance",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#downside risk comparison'
+  prefs: []
+  type: TYPE_NORMAL
+- en: downsideTable<-melt(cbind(rownames(table.DownsideRisk(RetToAnalyze)),table.DownsideRisk(RetToAnalyze)))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(downsideTable)<-c("Statistic","Portfolio","Value")
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(downsideTable, stat="identity", aes(x=Statistic,y=Value,fill=Portfolio))
+    + geom_bar(position="dodge") + coord_flip()
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Yahoo! Finance",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Boxplot(RetToAnalyze,main="Box Plot of Various Assets 2005 to May 2011")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Yahoo! Finance",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetsRiskReturnPlot(RetToAnalyze)
+  prefs: []
+  type: TYPE_NORMAL
+- en: table.CaptureRatios(RetToAnalyze[,6],RetToAnalyze[,5])
+  prefs: []
+  type: TYPE_NORMAL
+- en: pfolioHist(RetToAnalyze[,6])
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetsMomentsPlot(as.timeSeries(RetToAnalyze), main="Plot of Moments of Various
+    Assets since 2005")
+  prefs: []
+  type: TYPE_NORMAL

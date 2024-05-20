@@ -1,0 +1,70 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:39:09'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: More on Factor Attribution to improve performance of the 1-Month Reversal Strategy
+    | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In my last post, [Factor Attribution to improve performance of the 1-Month Reversal
+    Strategy](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/),
+    I discussed how [Factor Attribution](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)
+    can be used to boost performance of the [1-Month Reversal Strategy](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/).
+    Today I want to dig a little dipper and examine this strategy for each sector
+    and also run a sector-neutral back-test.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The initial steps to load historical prices, load Fama/French factors and run
+    Factor Attribution are the same as in the original [post](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/),
+    so I will not repeat them here. The complete source code for this example is located
+    in the [bt.fa.sector.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)
+    for your reference. The new functionality to create sector and sector-neutral
+    back-tests is located in the bt.make.quintiles.sector() function below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: I have compared below, the overall and sector-neutral versions of the strategy
+    based on the 1 Month returns (one.month) and the Residuals from the Factor Attribution
+    regression (last.e_s). In all cases the Residual strategy outperformed the base
+    one and also the sector-neutral versions have better risk-adjusted coefficients
+    compared to the overall strategy.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/960853f1d55b2616164943b25962a327.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/460ae762f3ca987c3b5fa1dc2f71f465.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next I looked at the each sector performance for both strategies and surprisingly
+    found that Energy, Materials, and Utilities underperformed in both cases and Financials
+    and Consumer Staples did very well in both cases. Looking at the sector back-test
+    charts, I think the Momentum strategy that selects top few sectors each month
+    would do very well. You can try implementing this idea as a homework.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b3f16313d2fa6c2cee8aac3283b3f8ed.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/eabdf83c2ad9b6a678c81f05d43b980d.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.fa.sector.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

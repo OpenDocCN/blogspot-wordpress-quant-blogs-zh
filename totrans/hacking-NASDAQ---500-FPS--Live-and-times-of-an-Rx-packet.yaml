@@ -1,0 +1,130 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:07:12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: Live and times of an Rx packet'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/live-and-times-of-rx-packet.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/live-and-times-of-rx-packet.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: To complete the picture we need to look at the Rx packet flow, from when linux
+    receives the Rx interrupt to when the user gets the packet from recvfrom(). First
+    up is the high level view, total time from interrupt acknowledge -> recvfrom().
+  prefs: []
+  type: TYPE_NORMAL
+- en: intr ack -> recvfrom()
+  prefs: []
+  type: TYPE_NORMAL
+- en: And it looks fairly similar to our other plots. This has NAPI disabled and separate
+    Rx/Tx handlers, its interesting that using NAPI the latency goes lower(18,000ns)
+    and higher(35,000ns) presumably luck of the draw when polling @ 300Hz (softirq).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Whan happens after linux receives the irq? the network drivers irq hander is
+    invoked where it acknowedges and clears the interrupt. Nothing particuarly interesting
+    yet does take quite a bit of time doing... something? L1/L2 miss reloads? or just
+    latency of reading registers? not sure. Plot is below, around 600ns or so
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e19fd0dac43ef73169d0cd284b257d19.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrjmSjmadMJPsW_LBCxmfOms9Vvrfo29LKQvRaLbvlLoTUV2ZOuBVrHw0kOQKDP3R6So-1OU_ETyvjpPHOKKPywIv6DVMuMkWWwdfcrLgmtbI9TCJKd0eUIpZ-Wm0CIrMCY7EdRHWJEw/s1600-h/recv_irq2clear.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: irq vector -> driver Rx clear
+  prefs: []
+  type: TYPE_NORMAL
+- en: After the intr has been cleared, the driver reads in the Rx descriptors and
+    uses the CPU to copy the packet (from device DMA ring buffer) onto the usual socket
+    RECV buffer.This (RECV) buffer is the one people usually talk about when discussing
+    sockets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: device buffer -> socket buffer copy
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you can see (above) the histogram is a bit weird, a clear chunk followed
+    by this longtail of stuff. Guessing this is partially ddr fetch latency, atleast
+    the 1000ns part as its only copying 128B + UDP + IP + Ethernet - not much. Also
+    destination mem address might not be aligned correctly to enable write combining,
+    so its doing a RMW + miss on the source fetch, hope not but its an old x86 processor.The
+    flat 2500ns might be unmapping the packets DMA area, where some sort of kernel
+    / pci functions are at work. On a side note, not sure why it unmapps it, and then
+    re-mapps it when the Rx descriptor is free and ready, surely its not for security?
+  prefs: []
+  type: TYPE_NORMAL
+- en: After the payload has been copied, it does IP processing / sanity checking 
+    which is a very small profile so no plot included - it caches all ip/device/socket 
+    info from the previous packet.
+  prefs: []
+  type: TYPE_NORMAL
+- en: netfilter PRE_ROUTING
+  prefs: []
+  type: TYPE_NORMAL
+- en: Once IP processing is done its off to the netfilter. PRE_ROUTING is quite minimal
+    (above) does nothing - no rules are defined.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/6ce74455d6b3d5e342806923f204de03.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjf8PuxUcPd43ZjYw79tAL-aRt7iCJgfSSH90SeDwzj6ffuU3hdxaNWyqCMDnEQWizpP3mvYLA4TtIxJUiUzPEJBmU2BbNm3RI2mHraJHi_Z2ZvUZ8i8Aoi_Ro6ojStnPomKjcIfflREA/s1600-h/recv_netfilter_local.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: netfiler LOCAL_IN
+  prefs: []
+  type: TYPE_NORMAL
+- en: And the same for LOCAL_IN (above) does basically nothing too - no rules are
+    defined.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/4cb9ed88098bde13ce1e60e755a5ae8b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6isItXqvu-KI96_OxwGMj20UgcgLObo-9acSqUEhcTeIvMPrQAIMsm5cKgk0w5JWvo9lqsqIGZzU2sT8eOa-KCwuIiMrGGiuJsAL312OIaKvX7Jd1v-big0wg6KeYSlPtxIxSNuoEfg/s1600-h/recv_udp.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: udp processing
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally UDP processing(above) things get interesting. Firstly the spread on
+    the plot is quite large, so somethings going on there. The really interesting
+    part is the height - probably hard to see, but theres is a 100% column is time
+    bin 0\. E.g. most of the time, udp processing is extremely low, then occasionally
+    it does *something*. Not sure what but definitely a case for investigation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/2866d142df7eb9eaa2301fb0bd80339c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCut-R0ZEapP7Mk3WgFexq_x6lLic54_8Jg4jz2cxPeI3l-PYOunsl4DlJcghG3q_0qhyOA0RBVGCh5B5YmK99kjk6jgf65XXx1KpZZbhYuys7nKvIUJlRYL5zBAjmyzCXDvIaNt56ew/s1600-h/recv_ipudp2user.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: UDP (kernel) -> recvfrom(user)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally the packet arrives in userspace(above) which is the source of our 2
+    peeks in total latency. The reason for this ? not sure, likely related the blocking/signaling
+    behaviour of the blocking recvfrom() call. Possible theory for size and pitch
+    is the softirq timer frequency (300Mhz default). Where a quick tests is to increase/decrease
+    this frequency, rebuild kernel, run, test and check the result.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rx latency summary
+  prefs: []
+  type: TYPE_NORMAL
+- en: Its difficult to summarize each module with a single digit as the stdev for
+    each component can vary significantly, however the above is a rough guide for
+    a non-napi configured driver and stack on 2.6.30.10\. Its really hard to reproduce
+    the exact numbers, just booting the stock arch-linux distro kernel, which is the
+    source .config file for this 2.6.30.10 kernel shows a wildly different profile.
+    Or reloading the Network driver to many times causes weirdness, such is life when
+    theres a metric ton of code running.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Line count on C files for linux-2.6.30.10/net clocks in at around 912K LOC.
+    net/ipv4 clocks in 128K LOC ...  obviously Ethernet+IP/UDP+Intel e1000e is a fraction
+    of that but even 20k LOC is a significant chunk of logic to make tuning at the
+    microsecond level truly a fine art.
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,154 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:15:25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Object Cache Considerations (Part 2)'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**Object Versioning**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can consider the ‘version’ of an object to be two different things.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In the first case, the ‘version’ of an object could represent the number of
+    times a particular object has been written to. When an object is first created,
+    its version number is set to 1, and then each time a client updates the object,
+    the version number is increased. So, we can have an API call is our object cache
+    that tests to see if we are holding on to the most recent version:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (!ObjectCache.IsCurrent(object))
+  prefs: []
+  type: TYPE_NORMAL
+- en: object = ObjectCache.Get(object.Key);
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'or, if we are using a object that has a proxy to the cache, we can do something
+    like this:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (!object.IsCurrent())
+  prefs: []
+  type: TYPE_NORMAL
+- en: object.Refresh();
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In the second (and substantially more complex) case, the ‘version’ can represent
+    the actual layout or shape of an object’s class. Consider a Trade object:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'public class Trade : CachedObject'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs: []
+  type: TYPE_NORMAL
+- en: public int SecurityId;
+  prefs: []
+  type: TYPE_NORMAL
+- en: public double Price;
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This would be version 1.0 of the class.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s say that we have a trading system that has to run 24x7, as is the current
+    rage. Systems that run 24x7 theoretically have no chance to be bounced. Even a
+    system that runs 24x6.5 has a window for maintenance. Our trading system has version
+    1.0 of the Trade object.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now let’s say that we have a request to add sales attribution to the trading
+    system, so now we need to add the id of the sales trader that took the trade request.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'public class Trade : CachedObject'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs: []
+  type: TYPE_NORMAL
+- en: public int SecurityId;
+  prefs: []
+  type: TYPE_NORMAL
+- en: public double Price;
+  prefs: []
+  type: TYPE_NORMAL
+- en: public int BrokerId;
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This is now version 1.1 of the class.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Our object cache holds version 1.0 objects, and all of our subscribers also
+    hold version 1.0 objects. But, now let’s say that the system that writes new trades
+    into the object cache now has to write version 1.1 objects. What do we do?
+  prefs: []
+  type: TYPE_NORMAL
+- en: There are several things to consider here. How do we represent the object in
+    the cache? Because we are using name/value pairs, all new objects will just have
+    the BrokerId/
+  prefs: []
+  type: TYPE_NORMAL
+- en: <id>field added. The old 1.0 objects that are in the cache do not have to change.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The object cache might want to broadcast a message to all subscribers, telling
+    them that the version number of the Trade object has changed. Since the subscribers
+    may be systems that must run 24x7, then the systems might not be able to be bounced
+    in order to rebuild their trade caches. The systems must be able to read and write
+    the new version 1.1 objects as well as continue to support the older 1.0 objects.
+    But, we cannot reconfigure the layout of the objects dynamically, can we?
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Instead of using C# objects, we might consider using dictionaries of dictionaries
+    to represent an app’s object cache. But this is a different kind of programming
+    model. Instead of coding:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Trade obj = ObjectCache.Get(“102374”);
+  prefs: []
+  type: TYPE_NORMAL
+- en: int broker = obj.BrokerId;
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'We might have to do the following (taking advantage of C# 2.0’s nullable types)
+    :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: TradeDictionaryObject obj = ObjectCache.Get(“1002374”);
+  prefs: []
+  type: TYPE_NORMAL
+- en: int? broker = obj.GetInt(“BrokerId”);
+  prefs: []
+  type: TYPE_NORMAL
+- en: What a mess!
+  prefs: []
+  type: TYPE_NORMAL
+- en: What does this tell us? When using an object cache for a 24x7 system, make sure
+    you get your class definition right the first time, and avoid object versioning!
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2006 Marc Adler - All Rights Reserved</id>
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,185 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:30:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pricing & Regime (part 1) | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01](https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'High frequency trading tends to fall into the following categories:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: some form of prop market making (probably largest %)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: gaming other players or microstructure
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: short-period arbitrage
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: execution algos
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'One might also run medium frequency strategies that pursue:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: trend (if there is sufficient momentum)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: cycles (follow the pivots for high amplitude price cycles)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: longer-period arbitrage
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Focusing on market making and trend/cycle following, understanding price regime
+    (the gross characteristics of price movement) and pricing function (a view on
+    expected forward price) is important.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Regime**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: We might like to have an indication of regime to determine whether we should
+    be market making, following a trend, following cycles, etc.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In particular, with market making, there will be periods in the market where
+    market making is “dangerous” (i.e. is almost guaranteed to lose money).   Aside
+    from the obvious danger in gapping prices around news or other events, the main
+    danger is in offering during periods of strong momentum.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There will be a strong order selection bias such that when the market is going
+    up (down) you receive buying (selling) orderflow almost exclusively, and end up
+    with short inventory against an appreciating (depreciating) price.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Hence, there will be periods during a trading day that are “good” for market
+    making (i.e. when there is balanced order flow and very gradual price drift) and
+    periods which are better suited for momentum or high-amplitude cycle following
+    strategies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Pricing**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pricing provides us with an expected mean and its derivatives over some forward
+    period, as well as an estimate of noise and MR activity. This information is invaluable
+    in determining appropriate market making offering prices and in following high
+    amplitude price activity.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Goals**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'We would like to have the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A pricing function with (often) good accuracy over some forward period, tailored
+    to the requirements of the regime
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: A notion of price regime
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Other metrics such as upper and lower noise around the price function (mean),
+    period and amplitudes of monotonic segments, etc.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: In the context of market making we are looking to have a monotonic and almost
+    linear price function that represents a mean or a mode through price noise.  
+    Calibrated in this fashion one has a convenient view on the forward price function
+    and the upper and lower bounds on prices we are willing to offer on.   This combined
+    with inventory can be used to dynamically bias the offerings.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the context of momentum or cycling we are looking for a pricing function
+    that follows the momentum or cycles with appropriate curvature and is reasonably
+    predictive (or retrospective with low-lag) with respect to pivot points.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Example**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is an example of a pricing function (the green line) during a momentum
+    period (over the course of some hours), encountering a disturbance and change
+    in regime to a cycling mode thereafter:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is the continuation within the series with the pricing function in a momentum
+    / cycling mode:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Note that the above is smoothed a-posteri, so the trajectory of the filter has
+    more noise as it progresses tick to tick.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**History Of Approaches**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I’ve used many approaches in the past in modeling the price function:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: variety of filters from the signal processing space
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: signal decompositions and partial reconstitutions
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: a number of different stochastic state systems with an EKF (extended kalman
+    filter)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: direct calibration of least squares splines with various heuristic rules
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'My current approach is the #4, but would like to find a good solution using
+    a SDE in a bayesian framework, as is more elegant and flexible.    My past experience
+    with EKFs was that they are hard to parameterize (via the state and measurement
+    covariances) and can easily become unstable in the presence of unexpected noise.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A few months ago Max Dama posted a link to a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[paper](http://arxiv.org/abs/0802.0220 "paper")'
+  prefs: []
+  type: TYPE_NORMAL
+- en: describing a TV-VAR model, but more of interest, an alternate approach to describing
+    the kalman filter evolution rate with discount factors.   The discounting approach
+    solves one of the problems in parameterizing Kalman filters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That and in discussion with some other quants (hi Sasha) recently motivated
+    me to reexamine the SDE approach.   I’ll be discussing an approach in some detail
+    in the next posts.
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,128 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:01:37'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: The Importance of Tibco EMS Monitoring'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01](http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: If you are using
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: EMS, you should be aware that there is a decent tool that comes with the
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco SDK
+  prefs: []
+  type: TYPE_NORMAL
+- en: that allows you to monitor all activity that goes on in your broker. In the
+    directory
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***c:\tibco\ems\bin***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you will find a command-line application called'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***tibemsmonitor.exe***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . If you run this utility, you can see every connect/disconnect, every creation
+    and destruction of a
+  prefs: []
+  type: TYPE_NORMAL
+- en: MessageProducer
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: MessageConsumer
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', every creation of a topic or queue.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In a quest to optimize our code, I started spying on the interaction between
+    EMS and our application. I found that we were creating
+  prefs: []
+  type: TYPE_NORMAL
+- en: MessageProducers
+  prefs: []
+  type: TYPE_NORMAL
+- en: too many times ... way too many times for an application that did a lot of real-time
+    message processing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I was curious to see what went on behind the act of creating a message producer
+    and consumer. So, I fired up the invaluable Reflector (from
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lutz Roeder
+  prefs: []
+  type: TYPE_NORMAL
+- en: ) and peeked into the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***Tibco.EMS.dll***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assembly. What I found was that, every time a message producer or consumer is
+    created, the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***Tibco.EMS._CreateMessageProducer***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function constructs a message, sends it into the broker, and synchronously waits
+    for a response. This takes a lot of time and produces a lot of overhead.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I changed our code so that we now cache and reuse
+  prefs: []
+  type: TYPE_NORMAL
+- en: MessageProducers
+  prefs: []
+  type: TYPE_NORMAL
+- en: . I have to say that our code looks like it runs a lot faster now. A lot faster....
+  prefs: []
+  type: TYPE_NORMAL
+- en: Since the code in question was something I wrote two years ago, I took it for
+    granted that it was working fine, since about a dozen groups in our company use
+    this code. And, it was working fine, except that it produced a lot of needless
+    overhead. I will gladly accept 10 lashes with a wet noodle for this one ....
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The lessons learned are:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) Optimize, optimize, optimize
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) That old code that you are using that forms the basis of your framework probably
+    can do with monitoring.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3) Use Reflector to see what the underlying libraries are doing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***©2008 Marc Adler - All Rights Reserved.*** ***All opinions here are personal,
+    and have no relation to my employer.***'
+  prefs: []
+  type: TYPE_NORMAL

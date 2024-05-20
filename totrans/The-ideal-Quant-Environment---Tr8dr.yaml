@@ -1,0 +1,198 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:34:27'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: The ideal Quant Environment | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2010/01/27/the-ideal-quant-environment/#0001-01-01](https://tr8dr.wordpress.com/2010/01/27/the-ideal-quant-environment/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: R is a wonderful tool in that one can prototype and test ideas very quickly.
+      If your not using R and doing most of your work in C++ or other low-level language,
+    your missing a lot.   The speed of development between a C++ / Java / C# versus
+    R is 10-50x.
+  prefs: []
+  type: TYPE_NORMAL
+- en: R definitely has its warts as a language and environment.  I not a huge fan
+    of its matrices, index operators, or lazy expression parsing.   More crippling
+    is the fact that R is slow and has memory issues for large data sets.    I would
+    estimate that R is 100x slower than java or C++, depending on what you are doing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: My current environment is a combination of R and a number of lower level languages.
+      For much of my post-exploration work I feel compelled to write in a lower level
+    language due to the performance issues with R.   My preference is to be using
+    a functional language, as they are generally very concise and elegant.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Ideal Environment**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is what an ideal environment for me would be:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: breadth and depth of R
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: clean functional language design
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: concise operations (as close to the math as possible)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: excellent rendering facilities
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: real-time performance
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: ability to work with large data-sets (memory efficient)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: concurrency (I do a lot of parallel evaluation)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: '**Candidates**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here are candidate environments that I’ve used or explored:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: python
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: cleaner, generally faster than R, very little in the way of statistics and poor
+    integration with R.   No real concurrency as interpreter locked.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Ocaml
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Beautifully concise language, INRIA implementation does not support concurrency
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: F# variant of Ocaml
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Solves Ocaml’s problems but bound to MS platform
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Scala
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Excellent performance, a bit bleeding-edge, much more complex than Ocaml, but
+    on the JVM.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**The Special Blend**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: It is impractical to consider reimplementing even a subset of R into another
+    language environment.   A hybrid approach makes sense.   With python you have
+    **Rpy** and with Java  **JRI**.   Neither of these have first class interaction
+    with the language though.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I would like to have the power of a production functional language, but with
+    the same development ergonomics and interaction that R has.    It occurred to
+    me that I could do the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: dump function templates of all R functions in one’s environment into a Scala
+    module
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: create implicit conversions from R fundamental types into Scala objects (matrices,
+    vectors, data frames, etc)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: create specialized mappings between my Scala-side timeseries and R zoo / ts
+    objects
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: create some wrappings for unusual usage patterns such as the ggplot operators
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Scala has an interactive mode where functions, classes, etc. can be created
+    on the fly.   Because we’ve dumped proxy function for each R function, we also
+    have near first class access to R functions.   There would be some differences
+    in that would not be able to replicate the lazy evaluation aspect of some of the
+    R functions.   Functions that use expression() would have to be wrapped specially.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Because scala allows a lot of syntactic magic, the environment would look very
+    much like R and have complete access to R, but with the huge upside of the more
+    powerful Scala.    One can write code that is “production ready” from the get-go
+    and/or do very compute intensive operations otherwise prohibitive in R.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now I need to find the time to put this together …
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Addendum**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have not decided on which language / environment to base this on.   Scala’s
+    main sell is that it is on the JVM.   The other functional language contender
+    on the JVM with above-scripting-level performance is Clojure.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Clojure is basically a dialect of Lisp and there is already a project  called
+    [Incanter](http://github.com/liebke/incanter#readme) that provides a statistical
+    environment within Clojure.    It looks interesting, if early.   Clojure does
+    not yet have a performance profile that is close enough to the metal.   I would
+    expect to see improvements over time though, but due to Lisp’s lack of static
+    typing or type inference, I am doubtful that will see Clojure at the level of
+    statically typed languages.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Since writing this post and having some conversations, I’ve begun to think that
+    F# may be the best choice.   My language preference has been to use Ocaml, but
+    the INRIA Ocaml implementation is handicapped.   F# is closely related to Ocaml
+    and therefore may be a fit.
+  prefs: []
+  type: TYPE_NORMAL
+- en: F# on the MS .NET platform has been shown to be as performant as C#.    From
+    benchmarking C# a couple years ago, was clear that the CLR is pretty close to
+    the JVM in terms of performance.   Given my cross platform constraints, the question
+    has been how viable is F# with Mono from a performance point of view?
+  prefs: []
+  type: TYPE_NORMAL
+- en: It seems like the Mono performance  is being addressed.    The mono LLVM experiment
+    improved mono benchmarks significantly.   I have not been able to test Mono with
+    this extension.   Will have to experiment.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To wed this to R would require writing the equivalent of JRI for .NET / R.
+  prefs: []
+  type: TYPE_NORMAL

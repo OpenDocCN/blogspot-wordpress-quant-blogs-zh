@@ -1,0 +1,92 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:37:27'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Midori: Fine-Grained Process Scaling | Tales from a Trading Desk'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01](https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Midori: Fine-Grained Process Scaling'
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Finally, Joe [Duffy](http://joeduffyblog.com/) has started blogging again, and
+    with it, we get details of [Midori](http://joeduffyblog.com/2015/11/03/blogging-about-midori/) (programming
+    language, compilers, OS, its services, applications, and the overall programming
+    models), the multi-year journey.
+  prefs: []
+  type: TYPE_NORMAL
+- en: A key to achieving asynchronous everything was ultra-lightweight processes
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I’d be interested to know if Midori influenced [Orleans](http://research.microsoft.com/en-us/projects/orleans/)
+    – given the actor model similarities.  Orleans code is available in [GitHub](http://dotnet.github.io/orleans/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Throughout the “Asynchronous Everything” article there are a number of great
+    callouts:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Midori did not have demand paging which, in a classical system, means that touching
+    a piece of memory may physically block to perform IO.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Midori was an entire OS written to use garbage collected memory – Unfortunately,
+    we don’t see Joe offer a view if Midori was a viable production OS.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Avoid superfluous allocations like the plague.  Gen0 collections are NOT free.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: One of the tricks to garbage collection working at the scale of Midori was precisely
+    the fine-grained process model, where each process had a distinct heap that was
+    independently collectible.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Processes were ultra-lightweight and single-threaded – event loop based.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Batches of messages could be stuffed into channels before they filled up. They
+    were delivered in chunks at-a-time – Interesting, as similar concepts have been
+    used in financial software for many years.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: “zero-copy”, SharedData was a automatic ref-counted pointer to some immutable
+    data in a heap shared between processes.  Interested in how this worked across
+    machines
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: causality IDs that flowed with messages across processes
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: asynchronous everywhere
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: ~ by mdavey on December 2, 2015.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [.NET](https://mdavey.wordpress.com/category/languages/net/)
+  prefs: []
+  type: TYPE_NORMAL

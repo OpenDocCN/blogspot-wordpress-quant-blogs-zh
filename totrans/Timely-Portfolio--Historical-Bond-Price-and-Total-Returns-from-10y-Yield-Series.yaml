@@ -1,0 +1,107 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:18:23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Historical Bond Price and Total Returns from 10y Yield Series'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Without access to Barclays or Merrill Bond Indicies to the 1970s or Ned Davis
+    to 1950, studying historical bond returns is very difficult.  Here is a way to
+    derive price and total returns on the 10 year US Treasury back to 1962.  I would
+    like to extend to 1871, but monthly yields from Shiller and Fed are averages of
+    the daily yields and not month-end values.  Applying this method to these month
+    averages does not work.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(RQuantLib)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DGS10",src="FRED") #load US Treasury 10y from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Fed monthly series of yields is the monthly average of daily yields'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Shiller series also is monthly average'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#to calculate returns monthly average does not work'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#so we get daily, take monthend with to.monthly'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#and unfortunately the series does not go back as far'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10<-to.monthly(DGS10)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[1,1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10pricereturn)<-"PriceReturn"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I know I need to vectorize this but not qualified enough yet'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please feel free to comment to show me how to do this'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(DGS10)-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  prefs: []
+  type: TYPE_NORMAL
+- en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  prefs: []
+  type: TYPE_NORMAL
+- en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#total return will be the price return + yield/12 for one month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10totalreturn)<-"Total Return"
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(merge(DGS10pricereturn,DGS10totalreturn),ylog=TRUE,colorset=c("cadetblue","darkolivegreen3"),main="Simulated
+    Returns from US10y Yield")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL

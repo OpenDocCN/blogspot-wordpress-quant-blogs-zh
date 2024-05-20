@@ -1,0 +1,114 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:43:18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Shiny New Toys | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2019/05/14/shiny-new-toys/#0001-01-01](https://cssanalytics.wordpress.com/2019/05/14/shiny-new-toys/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Its been a long time folks, but we have some shiny new toys in the works. Current
+    trends in the industry and working with data scientists has made me a believer
+    in the benefits of using a machine learning approach. I have always been a proponent
+    of “theory-free” approaches on this blog as long as they are designed with robust
+    architecture. In contrast, strict adherence to overly simplistic theories and
+    rules is not optimal for complex systems like the stock market. After experiencing
+    many years of getting whipsawed by traditional indicators, I have recently become
+    convinced a la Philosophical Economics ([see this great piece](http://www.philosophicaleconomics.com/2016/01/gtt/))
+    that you need to have a model(s) that can provide insight into market returns/risk
+    without strictly using price-based indicators. A true macroeconomic model helps
+    to gauge risk that may not be present in current prices and also helps to de-emphasize
+    the reliance price movements that are false alarms. Predicting recessions is not
+    necessarily the most useful for macro models because 1) you can have a bear market
+    without a recession and 2) you can have a recession without a bear market. Furthermore
+    you can have large and damaging corrections that are neither. As a result **predicting
+    drawdowns** is potentially a more interesting and practical exercise.
+  prefs: []
+  type: TYPE_NORMAL
+- en: S&P 500 Indicator Series
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: '[![Economics Report](img/d5939d618de3d75cf33818c80d1f5081.png)](http://lr-economics.herokuapp.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The S&P500 Indicator Series are machine learning forecasting models that use
+    either 1) Macroeconomic 2) Sentiment 3) Technical or 4) Seasonality data with
+    a very wide range of indicators/inputs to make investing decisions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**S&P 500 Economic Forecasting Model Introduction**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The S&P 500 Economic Forecasting Model employs a [Gradient Boosting Model](https://en.wikipedia.org/wiki/Gradient_boosting) (GBM)
+    to predict the future distribution of S&P500 returns over the next 90 days based
+    on economic data. GBM is a machine learning methodology which can be used for
+    either regression or classification.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The S&P500 Economic Forecasting Model is a classifier model that predicts the
+    likelihood of equity market drawdowns (moderate or large corrections) and the
+    direction of returns (positive, negative or flat) over a 90-day period. The input
+    variables are derivatives of monthly aggregated macroeconomic data, and does not
+    include price-based or technical data. The choice of a classifier model is due
+    to the fact that equity markets are driven by a wide variety of variables that
+    are often nonlinear by nature. Furthermore, it is important to note that macroeconomic
+    variables are just one component that explains the variation in equity market
+    returns and by using a classifier we avoid many of the issues that regression
+    models have with unobserved features.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The model itself is based on an ensemble of GBM style models (specifically using
+    the [XGBoost](https://xgboost.ai/) library. A large number of input macroeconomic
+    data series are selected (see [Model Importances](http://lr-economics.herokuapp.com/sp500_econ_model/#model_importances) for
+    the list) and transformed to create derivative time series. Given that monthly
+    economic data is still relatively sparse (60 years of backdata x 12 months/year),
+    we wanted to choose a model technique that doesn’t required huge amounts of data,
+    but is still very flexible. We excluded alternative models such as logistic regression
+    and neural networks for this reason.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In a GBM model that is attempting to match similar periods together, it is important
+    to make the input values ‘comparable’ in some sense, so the raw values are not
+    appropriate in most cases. Otherwise, it is possible for the model to use the
+    values to simply use the values to memorize where it is in time, which does not
+    generalize well. Instead, values are transformed to make them relative (i.e. percentage
+    change Year over Year, or lognormal differences). It is not necessary to make
+    the inputs stationary in a strict sense, but this is useful to maximize the generality
+    of the model.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The models are trained using a k-fold training algorithm, using a Bayesian optimization
+    routine to select the hyperparameters (tree depth, learning rate, etc). Again,
+    this is done to maximize accuracy and generality while avoiding overfitting.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The output of the model is a score, which is then optimized to maximize the[Matthews
+    Correlation Coefficient](https://en.wikipedia.org/wiki/Matthews_correlation_coefficient),
+    which can be considered to be a robust accuracy measure for unbalanced classification
+    sets (which the training data in face is).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The model results over time are shown in the chart below. The blue and red bars
+    show the periods where we expect a drawdown of 10%+ (Moderate Correction) or 15%+(Large
+    Correction) respectively *from the end of that period onwards*.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![](img/2a9be29b7b49df0c5af92ced837f583e.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: More on this model to follow very soon along with weekly model updates on the
+    predicted output.
+  prefs: []
+  type: TYPE_NORMAL

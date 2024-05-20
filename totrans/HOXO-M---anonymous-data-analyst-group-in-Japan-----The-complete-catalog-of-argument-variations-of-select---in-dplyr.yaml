@@ -1,0 +1,399 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:47:57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : The complete catalog of
+    argument variations of select() in dplyr'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2015/07/the-complete-catalog-of-argument.html#0001-01-01](http://mockquant.blogspot.com/2015/07/the-complete-catalog-of-argument.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: When I read the [dplyr vignette](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html),
+    I found a convenient way to select sequential columns such as `select(data, year:day)`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Because I had inputted only column names to `select()` function, I was deeply
+    affected by the convenient way.
+  prefs: []
+  type: TYPE_NORMAL
+- en: On closer inspection, I found that the `select()` function accepts many types
+    of input.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here, I will enumerate the variety of acceptable inputs for `select()` function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: By the way, these column selection methods also can use in the `summarise_each()`,
+    `mutate_each()` and some functions in **tidyr** package(e.g. `gather()`).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1\. Whole codes.
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: At first, whole codes were shown for perspicuity.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the sections below, the details of each command were shown.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 2\. Data preparation.
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: To follow the [dplyr vignette](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html),
+    `flights` data set in **nycflights13** package were used as an example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: This data set includes the 16 columns shown above.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3\. Basic method of use select().
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: At first, the ways of using `select()` were shown.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: This process shows the way to take the `year` column out of data. To pick multiple
+    columns, you can write the following.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: If columns were sequential in the dataset, you could write the following to
+    pick sequential columns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: If you want to remove a specific column, add `-` in the head of the column name
+    as follows.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE10]'
+  prefs: []
+  type: TYPE_PRE
+- en: To remove sequential columns, put sequential columns in brackets `()` connected
+    with a colon.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE11]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE12]'
+  prefs: []
+  type: TYPE_PRE
+- en: It is also possible to pick columns by choosing the column number.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE13]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE14]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next topics are slightly advanced.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It is possible to pick sequential columns temporarily and remove some of these.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE15]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE16]'
+  prefs: []
+  type: TYPE_PRE
+- en: It is also possible to remove sequential columns and keep a part of these.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE17]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE18]'
+  prefs: []
+  type: TYPE_PRE
+- en: Even using a column number can give the same result with the column name. (The
+    results are omitted.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE19]'
+  prefs: []
+  type: TYPE_PRE
+- en: 4\. Utility functions of select().
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Utility functions existing in `select()`, `summarise_each()` and `mutate_each()`
+    in **dplyr** as well as some functions in the **tidyr** package.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Seven functions existed in the utility functions of `select()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`starts_with(match, ignore.case = TRUE)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`ends_with(match, ignore.case = TRUE)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`contains(match, ignore.case = TRUE)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`matches(match, ignore.case = TRUE)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`num_range(prefix, range, width = NULL)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`one_of(...)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`everything()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: We now check the respective commands and how to use them.
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, `starts_with()` picks columns whose name starts with the specified string.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE20]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE21]'
+  prefs: []
+  type: TYPE_PRE
+- en: The argument `ignore.case` specifies whether the lowercase is classified as
+    a capital letter(default is `TRUE`).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The `ends_with()` picks columns whose name ends with the specified string .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE22]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE23]'
+  prefs: []
+  type: TYPE_PRE
+- en: The `contains()` picks columns whose name contains the specified string.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE24]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE25]'
+  prefs: []
+  type: TYPE_PRE
+- en: The `matches()` picks columns based on a regular expression matching string.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE26]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE27]'
+  prefs: []
+  type: TYPE_PRE
+- en: When the numbers were included in column names, `num_range()` might be useful.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this example, we change the column names to be `x1`-`x16` and execute `num_range()`
+    command for the data set.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE28]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE29]'
+  prefs: []
+  type: TYPE_PRE
+- en: By specifying as `num_range("x", 8:11)`, columns `x8` to `x11` can be identified.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Numbers in the column name are not necessarily sequential.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE30]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE31]'
+  prefs: []
+  type: TYPE_PRE
+- en: When column names were padded, the column name was shown as `x01`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here, the argument `width` in `num_range()` might be useful.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We now try this process for a data that changes the column names as `x01`-`x16`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE32]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE33]'
+  prefs: []
+  type: TYPE_PRE
+- en: By specifying as `width=2`, the zero filled columns can be picked out.
+  prefs: []
+  type: TYPE_NORMAL
+- en: When a column is named as a vector or character string, `one_of()` might be
+    useful.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An error occurs in the following case with `select()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE34]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE35]'
+  prefs: []
+  type: TYPE_PRE
+- en: However, an intended process occurs in the case of `one_of()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE36]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE37]'
+  prefs: []
+  type: TYPE_PRE
+- en: The `everything()` selects all columns. (Result was omitted.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE38]'
+  prefs: []
+  type: TYPE_PRE
+- en: If add `-` is in the head of a utility function name, we can pick out all except
+    for the area specified in the utility function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE39]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE40]'
+  prefs: []
+  type: TYPE_PRE
+- en: 5\. Standard evaluation.
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Thus far, we explained the normal `select()` function; however, the normal `select()`
+    function cannot handle character strings as arguments.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This might become a problem when column names are given as a string vector for
+    example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To solve this problem, the `select_()` function was equipped in **dplyr**.
+    (Caution: An underscore was added in the function name.)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The use of the `select_()` function is the same as the `select()` except specifying
+    columns by string; however, attention is needed when specifying a column name
+    by a vector.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE41]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE42]'
+  prefs: []
+  type: TYPE_PRE
+- en: When specifying column names by a vector, the vector should be given the `.dot`
+    argument.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE43]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE44]'
+  prefs: []
+  type: TYPE_PRE
+- en: All arguments that can use the `select()` function are also possible candidates
+    for the `select_()` function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE45]'
+  prefs: []
+  type: TYPE_PRE
+- en: Furthermore, also in this case, the argument vector should be given the `.dot`
+    argument in the `select_()` function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE46]'
+  prefs: []
+  type: TYPE_PRE
+- en: 6\. References.
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Introduction to dplyr
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html](https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Help page for `select()` function
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`> help("select", package = "dplyr")`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Original entry in Japanese by hoxo_m
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[https://qiita.com/hoxo_m/items/f2f1793c6f086d381340](https://qiita.com/hoxo_m/items/f2f1793c6f086d381340)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Translated by siero
+  prefs: []
+  type: TYPE_NORMAL

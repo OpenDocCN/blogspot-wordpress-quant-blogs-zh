@@ -1,0 +1,87 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:34:57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: More Principal Components Fun | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today, I want to continue with the [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
+    theme and show how the [Principal Component Analysis](http://en.wikipedia.org/wiki/Principal_component_analysis)
+    can be used to build portfolios that are not correlated to the market. Most of
+    the content for this post is based on the excellent article, [“Using PCA for spread
+    trading”](http://matlab-trading.blogspot.ca/2012/12/using-pca-for-spread-trading.html)
+    by Jev Kuznetsov.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s start by loading the components of the [Dow Jones Industrial Average index](http://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)
+    over last 5 years.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s compute the [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
+    based on the first year of price history.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Please note that the first principal component is highly correlated to the
+    market and all principal components have very low correlation to each other and
+    very low correlation to the market. Also by construction the volatility of principal
+    components is decreasing. An interesting observation that you might want to check
+    yourself: principal components are quite persistent in time (i.e. if you compute
+    both correlations and volatilities using the future prices, for example, 4 years
+    of prices, the principal components maintain their correlation and volatility
+    profiles)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s check if any of the principal components are mean-reverting. I will
+    use Augmented Dickey-Fuller test to check if principal components are mean-reverting.
+    (small p-value => stationary i.e. mean-reverting)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The Augmented Dickey-Fuller test indicates that the 4th principal component
+    is stationary. Let’s have a closer look at its price history and its composition:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1.png.small](img/dc5d46254bee769386a9a33a827ef96a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The price history along with 200 day moving average and 1 and 2 Bollinger Bands
+    are shown on the top pane. The portfolio weights of the 4th principal component
+    are shown on the bottom pane.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So now you have a mean-reverting portfolio that is also uncorrelated to the
+    market. There are many ways you can use this infromation. Please share your ideas
+    and suggestions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.pca.trading.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

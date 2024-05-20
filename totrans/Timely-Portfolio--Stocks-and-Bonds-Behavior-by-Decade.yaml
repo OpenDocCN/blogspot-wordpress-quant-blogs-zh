@@ -1,0 +1,213 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:58:04'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Stocks and Bonds Behavior by Decade'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I struggled with whether or not I should even post this.  It is raw and ugly,
+    but it might help somebody out there.   I might use this as a basis for some more
+    gridSVG posts, but I do not think I have the motivation to finish the analysis.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![ggplot stocks bonds by decade](img/5d3c0ceacf1f7d8813161f88062199e1.png
+    "ggplot stocks bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrCsCFbFk6Zjet8fvsyr3CNxBtzhKJyys5mNjSiQGtmyYXNmU3wnOoqjIUStmZBhLh-izt3bK00u1eUcEp4xu0YS2UXF0AKNOd3Bs_8uJQGeiMEbrp6AF5g2V-2-yH-AbF3VxDzm1hAg/s1600-h/ggplot%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![performance
+    by time](img/e4f3801a25b505faba37a84790a4361e.png "performance by time")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9gHHO1I1AGxFyCQrvLHu5rB-npQdAXdpe3xEQq8Tycgq-QlAftguhN4LVrXg6LWU4B6RuGusqqbvxtRFcgP_xIWkgmLjCTm5bi3RK2tPKHXLdy6kBpfnLEC4laM4s4KZZLgWF7tuuRw/s1600-h/performance%252520by%252520time%25255B1%25255D.jpg)[![lattice
+    stocks bonds by decade](img/ee68c6ee6abc05248e6eb7e67169c196.png "lattice stocks
+    bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6Rl5cXmXgJgw_79t1iyXEFaqBOkSAt2S4cT4-GIwc465L1w-XoY9ZrKFKEbcGfdWotQ06NH9O80YarIQdIwcSa4K6z4la0UJKcEHQ0930VAt9DfTSw5tVU9_ikSTKeiBlpkeoRI3VA/s1600-h/lattice%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![perf
+    summar](img/7f3684e643a73b391382a117096c0b25.png "perf summar")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1Ych6jFeXNO_IVC6p1p0wK34ILPlIneKh2rYvcMq7f7meGS38fBlKrU5so92d4_qF-U_qMuGlZZ3xvLG0SA7idMTkkaWuqskdWhx-9oPa3Ns-V8iyHc8nYzBVrEa926nquw881MMTEw/s1600-h/perf%252520summar%25255B1%25255D.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(latticeExtra)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: getSymbols("SP500",src="FRED")
+  prefs: []
+  type: TYPE_NORMAL
+- en: US10 <- na.omit(getSymbols("DGS10",src="FRED",auto.assign=FALSE))
+  prefs: []
+  type: TYPE_NORMAL
+- en: stocksBonds <- na.omit(
+  prefs: []
+  type: TYPE_NORMAL
+- en: merge(
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'lag(SP500,k=-100)/SP500-1,  #forward 100 day sp500 perf'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'US10 / runMean(US10,n=250) - 1,       #us10 yield - 250 day average'
+  prefs: []
+  type: TYPE_NORMAL
+- en: SP500
+  prefs: []
+  type: TYPE_NORMAL
+- en: )
+  prefs: []
+  type: TYPE_NORMAL
+- en: )
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get the decade'
+  prefs: []
+  type: TYPE_NORMAL
+- en: stocksBonds$decade = as.numeric(substr(index(stocksBonds),1,3)) * 10
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#name columns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(stocksBonds) <- c("sp500","us10","SP500","decade")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get a color ramp for our change in us10 year yields'
+  prefs: []
+  type: TYPE_NORMAL
+- en: linecolors <- colorRamp(
+  prefs: []
+  type: TYPE_NORMAL
+- en: c("red","green"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: interpolate="linear",
+  prefs: []
+  type: TYPE_NORMAL
+- en: space="rgb"
+  prefs: []
+  type: TYPE_NORMAL
+- en: )((stocksBonds[,2]+0.5))
+  prefs: []
+  type: TYPE_NORMAL
+- en: xyplot(
+  prefs: []
+  type: TYPE_NORMAL
+- en: stocksBonds[,1],
+  prefs: []
+  type: TYPE_NORMAL
+- en: col=rgb(linecolors,max=255),
+  prefs: []
+  type: TYPE_NORMAL
+- en: type="p",pch=19,cex=0.5,
+  prefs: []
+  type: TYPE_NORMAL
+- en: main = "Stocks 100d Forward Performance"
+  prefs: []
+  type: TYPE_NORMAL
+- en: )
+  prefs: []
+  type: TYPE_NORMAL
+- en: xyplot(
+  prefs: []
+  type: TYPE_NORMAL
+- en: sp500 ~ us10 | factor(decade),
+  prefs: []
+  type: TYPE_NORMAL
+- en: groups = decade,
+  prefs: []
+  type: TYPE_NORMAL
+- en: data = as.data.frame(stocksBonds),
+  prefs: []
+  type: TYPE_NORMAL
+- en: pch=19,
+  prefs: []
+  type: TYPE_NORMAL
+- en: cex = 0.5,
+  prefs: []
+  type: TYPE_NORMAL
+- en: scales = list(
+  prefs: []
+  type: TYPE_NORMAL
+- en: x = list(tck=c(1,0),alternating=1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: ),
+  prefs: []
+  type: TYPE_NORMAL
+- en: layout=c(6,1),
+  prefs: []
+  type: TYPE_NORMAL
+- en: main = "S&P 500 Forward Performance vs US 10y Change in Yields",
+  prefs: []
+  type: TYPE_NORMAL
+- en: ylab = "S&P Forward Performance (100d)",
+  prefs: []
+  type: TYPE_NORMAL
+- en: xlab = "US 10y Yields - 250d Avg"
+  prefs: []
+  type: TYPE_NORMAL
+- en: ) +
+  prefs: []
+  type: TYPE_NORMAL
+- en: latticeExtra::layer(panel.abline(h=0,col="gray",lty=2)) +
+  prefs: []
+  type: TYPE_NORMAL
+- en: latticeExtra::layer(panel.abline(v=0,col="gray",lty=2)) +
+  prefs: []
+  type: TYPE_NORMAL
+- en: xyplot(
+  prefs: []
+  type: TYPE_NORMAL
+- en: sp500 ~ us10 | factor(decade),
+  prefs: []
+  type: TYPE_NORMAL
+- en: col="gray",
+  prefs: []
+  type: TYPE_NORMAL
+- en: data = as.data.frame(stocksBonds),
+  prefs: []
+  type: TYPE_NORMAL
+- en: panel = panel.lmline)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(data = data.frame(stocksBonds), aes(y=sp500, x= us10,colour=decade))+
+  prefs: []
+  type: TYPE_NORMAL
+- en: geom_point()+facet_wrap(~decade,ncol=6)+geom_smooth()
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(
+  prefs: []
+  type: TYPE_NORMAL
+- en: merge(
+  prefs: []
+  type: TYPE_NORMAL
+- en: ROC(stocksBonds[,3],n=1,type="discrete"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: ROC(stocksBonds[,3],n=1,type="discrete") * (stocksBonds[,2]>0)
+  prefs: []
+  type: TYPE_NORMAL
+- en: ),
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="S&P 500 | if Bonds - Mean(250d) > 0"
+  prefs: []
+  type: TYPE_NORMAL
+- en: )
+  prefs: []
+  type: TYPE_NORMAL

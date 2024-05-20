@@ -1,0 +1,221 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:59:17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Optimizing Performance in a CEP System'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Here are some lessons learned that helped us reduce message backup from our
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: EMS broker into our
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: Input Server.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) Make sure that you have fast networking between the
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: broker and your servers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We just happened to find out that the hardware folks gave us legacy 100MB connections
+    between our
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: EMS broker and our
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: Input Server. We asked them to upgrade us to
+  prefs: []
+  type: TYPE_NORMAL
+- en: GigE
+  prefs: []
+  type: TYPE_NORMAL
+- en: immediately. Unless you have personally installed your hardware, never assume
+    anything in your infrastructure.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) It might be helpful to turn the "
+  prefs: []
+  type: TYPE_NORMAL
+- en: AutoAcknowledge
+  prefs: []
+  type: TYPE_NORMAL
+- en: '" flag off in your'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: session.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To do this, change
+  prefs: []
+  type: TYPE_NORMAL
+- en: this.m_connection.CreateSession(false, SessionMode.AutoAcknowledge);
+  prefs: []
+  type: TYPE_NORMAL
+- en: to
+  prefs: []
+  type: TYPE_NORMAL
+- en: this.m_connection.CreateSession(false, SessionMode.NoAcknowledge);
+  prefs: []
+  type: TYPE_NORMAL
+- en: Be careful about using No
+  prefs: []
+  type: TYPE_NORMAL
+- en: Acks
+  prefs: []
+  type: TYPE_NORMAL
+- en: . What is the impact to your
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: system if you happen to drop a message?
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3) Implement threaded queues on the input from
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: to your input server, and on the output from your input server to the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: system.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you need more performance, change the single threaded queue that reads messages
+    from
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: to a load-balanced multiple queues, each with its own thread. The load
+  prefs: []
+  type: TYPE_NORMAL
+- en: balancer
+  prefs: []
+  type: TYPE_NORMAL
+- en: can partition by
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: topic, by ticker, or by
+  prefs: []
+  type: TYPE_NORMAL
+- en: OrderId
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: Of course, you can always use the built-in adapters from your
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: vendor. But that may come at an extra monetary cost, so check with your
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: vendor to see if a certain input adapter comes free of charge. Also, the more
+    of the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: vendor's infrastructure you use, the more it ties you into the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: vendor.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4) Try to do some
+  prefs: []
+  type: TYPE_NORMAL
+- en: pre
+  prefs: []
+  type: TYPE_NORMAL
+- en: -filtering of messages in your input server before passing them on to the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Recently, we were able to reduce the CPU usage of Coral8 by about 50% (according
+    to our Coral8 guy) by filtering out FIX messages that we knew that Coral8 was
+    not interested in.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 5) Continually optimize your code. Just this morning, I did a code review of
+    the input server, and I was able to suggest a change which reduced one
+  prefs: []
+  type: TYPE_NORMAL
+- en: hashtable lookup
+  prefs: []
+  type: TYPE_NORMAL
+- en: on each FIX message. I know that there are tons of other places in our code
+    that can do with some optimization. If you need to parse FIX messages into C#
+    objects, then do some investigation and benchmarking of FIX engines.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 6) Use the Server Garbage collector
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2008 Marc Adler - All Rights Reserved.
+  prefs: []
+  type: TYPE_NORMAL
+- en: All opinions here are personal, and have no relation to my employer.
+  prefs: []
+  type: TYPE_NORMAL

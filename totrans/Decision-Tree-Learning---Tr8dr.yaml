@@ -1,0 +1,77 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:38:30'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Decision Tree Learning | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: November 1, 2009 · 8:33 pm
+  prefs: []
+  type: TYPE_NORMAL
+- en: Some time ago began using bayesian networks (decision trees with conditional
+    relationships) to boost signal for strategies, the idea being that a combination
+    of related observations can be combined conditionally to provide a posterior conclusion
+    with a higher degree of confidence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In the context of trading our bayesian network tells us:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: given the coincident set of events should we trade and if so, in what direction
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: with what degree of confidence
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: My approach up until now had been to carefully construct the relationships.
+     It requires painstaking research and a lot of trial and error.   Why not use
+    an algorithm to assemble / find relationships, and classify data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**General Approaches**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The more general decision tree algorithms allow me to present many factors (even
+    with high dimension), determine which factors have the highest degree of information
+    relative to our classification targets (buy, sell, don’t-trade), and formulate
+    a classification or regression that models this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Key to the assembly on the tree are measures taken from information theory.
+     We want to make arrangements in the tree such that the “entropy” of the tree
+    is minimized or in other words information is maximized.   This is often calculated
+    with a discrete form of the [Kullback-Leibler divergence metric](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Algorithm**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In particular the “[Random Forest](http://en.wikipedia.org/wiki/Random_forest)”
+    approach is quite appealing.   Multiple decision trees are constructed against
+    training subsets drawn randomly from a larger training set.   These ultimately
+    produce many variations on the “true” model.   The approximation to the true model
+    is made by observing the mode (similar to a robust mean / expectation) across
+    the random trees.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Taking advantage of the classification ability of the algorithm is going to
+    allow me to try many new inputs in my strategies without the huge research overhead
+    and without the near-intractable multivariate optimization required in other approaches.
+      I’ll post some results on this soon.
+  prefs: []
+  type: TYPE_NORMAL

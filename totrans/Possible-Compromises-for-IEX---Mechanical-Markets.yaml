@@ -1,0 +1,268 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:42:26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Possible Compromises for IEX | Mechanical Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The most controversial aspect of IEX’s proposed design seems to be the non-uniform
+    application of their speed bump. [[1](#bottom1iexdesign)] Before the community
+    invests too much time debating this issue, I want to discuss why the unfair access
+    proposed by IEX is unnecessary. IEX could accomplish their stated goals without
+    offering an informational advantage to its peg orders or router.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Apparently, IEX doesn’t apply the speed bump to incoming market data used for
+    repricing algorithmic order types, or for communications between the exchange
+    and their router. A lot of [people](http://www.sec.gov/comments/10-222/10222-19.pdf)
+    (including [me](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/))
+    have explained how these disparities can cause problems. In short, repricing algorithmic
+    order types with market data that counterparties haven’t yet seen is equivalent
+    to “latency arbitrage.” And, it feels anti-competitive for IEX to delay communications
+    between itself and every unaffiliated router. [[2](#bottom2iexdesign)][[3](#bottom3iexdesign)]
+    In this post, I’ll explain why these two exceptions to the speed bump aren’t needed
+    to prevent “latency arbitrage” and “front-running.”
+  prefs: []
+  type: TYPE_NORMAL
+- en: Protecting Peg Orders Without Privileging Them
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: IEX wants to make it impossible for its peg orders to be “picked off” by traders
+    that process market data faster than IEX can. But that doesn’t actually require
+    IEX to reprice its peg orders with fully non-delayed market data. The [CME](http://www.cmegroup.com/confluence/display/EPICSANDBOX/New+iLink+Architecture)
+    is introducing functionality that timestamps client orders at the moment they
+    are received, then processes them in the order of those timestamps. IEX could
+    do the same, but also timestamp incoming market data. If IEX doesn’t want to subscribe
+    to wireless data feeds, it could subtract the latency difference between wireless
+    and fiber links from its market data timestamps. [[4](#bottom4iexdesign)] Once
+    IEX has levelized timestamps for all messages, all it needs to do is process the
+    messages in the correct order. This would accomplish IEX’s [goal](http://www.sec.gov/comments/10-222/10222-20.pdf)
+    of “[ensuring] that no market participants can take action on IEX in reaction
+    to changes in market prices before IEX is aware of the same price changes.”
+  prefs: []
+  type: TYPE_NORMAL
+- en: If re-ordering messages with software during the shoebox delay makes the delay
+    appear more “intentional” (which violates Reg. NMS), there are analog options
+    too. [[5](#bottom5iexdesign)] IEX could introduce smaller shoeboxes for the direct
+    feeds it processes. For example, if IEX receives market data messages from Nasdaq
+    200us before any trader can act on them, then it can add a delay coil of 200us
+    to its cable from Nasdaq. And, if it receives market data from NYSE 50us before
+    fast traders do, then it can add a 50us coil to its NYSE feed, etc.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Either of these options would prevent IEX peg orders from being repriced in
+    a “last look”-like manner. Here’s a stylized, bad diagram:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![IEX_peg_partial_fix_drawing](img/390905e46de7d71ea9078fe023824200.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/12/iex_peg_partial_fix_drawing.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Preventing Information-Leakage from IEX’s Router Without Privileging It
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: IEX [says](http://www.sec.gov/comments/10-222/10222-26.pdf) that it delays outgoing
+    messages to all subscribers, except their routing broker-dealer (IEXS), “to prevent
+    “information leakage” or “liquidity fade” when IEXS routes to other markets.”
+    Their concern is that, without this asymmetric delay, market-makers could pull
+    their quotes on other exchanges if a trader sends a large order to IEX which partially
+    executes before being routed out. However, IEX could prevent that “front-running”
+    [[6](#bottom6iexdesign)] by locating its router outside the speed bump in Secaucus,
+    with clients. The router could then maintain its view of exchanges’ visible order
+    books, including IEX’s, and time the sending of its orders so that they arrive
+    at all exchanges simultaneously.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'IEX suggests that competing routers could operate in this way, so IEX should
+    be aware that its router could do the same. [[7](#bottom7iexdesign)][[8](#bottom8iexdesign)]
+    But there is a drawback. The router would only know the visible quantity posted
+    on IEX, and wouldn’t be able to optimally interact with IEX’s hidden orders. The
+    only way a router can fully access hidden liquidity at a given exchange is by
+    operating sequentially: first sending an order to that exchange, waiting to hear
+    back, then sending any unfilled balance to other markets. The whole point of hidden
+    liquidity is that you only know it’s there after you (or others) trade with it.
+    [[9](#bottom9iexdesign)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'By allowing its router to bypass the speed bump, IEX effectively gives it exclusive
+    access to IEX’s hidden order book information. That special access only lasts
+    for the speed bump duration of 350us, but it still seems problematic. Lava was
+    [fined](http://www.sec.gov/News/PressRelease/Detail/PressRelease/1370542371114)
+    for allegedly using information from its hidden order book to help routing decisions
+    at an affiliate. Matt Levine [argues](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant)
+    that this offense was (mostly) victimless:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: What ColorBook did with the hidden orders is route its customers to those hidden
+    orders… Once they submitted an order to buy X shares at Y price, ColorBook would
+    send it toward the hidden orders. That’s exactly what you want when you submit
+    a hidden order!
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Which could certainly be true, though those hidden order users might not have
+    liked interacting with flow from the ColorBook router. [[10](#bottom10iexdesign)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: The argument to allow IEX to favorably treat its router is pretty much the same
+    as Levine’s point about Lava. Such treatment, if fully disclosed, would probably
+    improve fill rates for users of both the router and IEX hidden orders. It does,
+    however, hurt users of non-IEX routers (and non-IEX resting orders, which miss
+    fills). The question is whether exchanges should be permitted to help their users
+    via any means, or whether they have to consider the broader competitive landscape.
+    Should BATS be permitted to make routing decisions based on special access to
+    Edge’s hidden orders? The same trade-offs apply.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Regardless, IEX is perfectly capable of operating a router immune to “front-running,”
+    without giving it preferential access. This issue is not about “front-running,”
+    it’s about accessing hidden liquidity. [[11](#bottom11iexdesign)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Compromising
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: The rhetoric surrounding IEX has always been too hot for reasonable debate.
+    That’s a shame. I think that there’s room for a compromise which allows IEX to
+    accomplish its goals, while also satisfying automated traders and competitors.
+    The “Flash Boys” would just have to admit that, sometimes, people who they hate
+    make good points. Maybe that’s part of [growing up](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up).
+    [[12](#bottom12iexdesign)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[1](#1iexdesign)] This post, as always with IEX, is speculative. Their currently
+    posted [exchange application](http://www.sec.gov/rules/other/2015/investors-exchange-form-1.htm)
+    doesn’t have much information on the speed bump and when it applies. IEX’s comment
+    letters [provide](http://www.sec.gov/comments/10-222/10222-20.pdf) more [detail](http://www.sec.gov/comments/10-222/10222-26.pdf),
+    but there are still some uncertainties in my mind as to what exactly their market
+    model entails.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[2](#2iexdesign)] IEX sort of [denies](http://www.sec.gov/comments/10-222/10222-20.pdf)
+    this:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: IEXS, the routing broker‐dealer, does not route to IEX and all orders, routable
+    or otherwise, must pass through the POP, so there is no competitive disparity
+    in terms of access to IEX’s trading system.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'But also:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Following completion of routing actions, as instructed by the Exchange, any
+    unfilled balance of shares returns to the Exchange for processing in accordance
+    with applicable rules. That message does not traverse the POP
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[[3](#3iexdesign)] IEX favorably treating its router could prompt other exchanges
+    to create similar arrangements for their own routers, putting brokers’ smart order
+    routers and small exchanges at a competitive disadvantage. I don’t really understand
+    why IEX would want that to be permitted. If a larger exchange like Nasdaq were
+    to introduce a speed bump that doesn’t apply to its router, traders would be strongly
+    incentivized to use Nasdaq’s router, and nobody would use IEX’s. I’d think that
+    a startup exchange would be most supportive of Reg NMS’s spirit of fair competition.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: IEX’s peg order treatment could raise questions about fair competition as well.
+    Traders and brokers may be forced to use IEX’s algorithmic order types rather
+    than their own. [Citadel](http://www.sec.gov/comments/10-222/10222-16.pdf) expressed
+    concern that IEX could one day “charge more to execute pegged orders… that have
+    an inherent time advantage over other order types.” And perhaps IEX already does
+    — by charging a higher rate for hidden orders. My understanding is that all hidden
+    orders on IEX are effectively midpoint pegs which are repriced using non-speedbumped
+    market data. It’s not unusual for an exchange to charge extra for hidden executions,
+    but providing a latency advantage to hidden orders raises new questions about
+    their fees.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[4](#4iexdesign)] For example, if IEX receives a book update from Nasdaq at
+    10:00:00.000000 over fiber with a 1-way latency of 200us, but they know the fastest
+    wireless link has a 1-way latency of 100us, then IEX could recalibrate the timestamp
+    of that book update to 9:59:59.999900\. That would represent the time that the
+    fastest trader could have received the same market data message (100us earlier
+    than IEX). There are some wrinkles when you consider that wireless links are not
+    always operational, so if IEX were to be completely fair it would not perform
+    this subtraction when the weather is bad. Rather than deal with that issue, it
+    may be easier for IEX to just subscribe to wireless feeds from the most important
+    markets. It’d probably [cost](http://images.qnasdaqomx.com/Web/NASDAQOMX/%7Bc6c41d3b-68f7-4408-a404-20b8436209c8%7D_MMWfaqs_April_2015_-_clean.pdf)
+    a total of around $50k/mo, which doesn’t sound like a big burden.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[5](#5iexdesign)] I don’t see why it should matter whether a delay has software
+    components, but I’m also not a lawyer.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[6](#6iexdesign)] Or whatever they’re calling it these days.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[7](#7iexdesign)] Top of [p15](http://www.sec.gov/comments/10-222/10222-26.pdf).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[8](#8iexdesign)] Though I don’t understand the extent that an exchange can
+    act in a broker-like capacity. Perhaps locating their router in a different datacenter
+    and offering functionality similar to brokers’ smart order routers (SORs) crosses
+    some line? If so, that still seems better than their proposal to offer systematically-advantaged
+    SOR-like functionality?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[9](#9iexdesign)] IEX seems rather dismissive of sequential routing in a comment
+    letter ([p16](http://www.sec.gov/comments/10-222/10222-26.pdf)). But sequential
+    routing does have its advantages. Not every user wants to fully access lit quotes
+    without regard for market impact, price improvement, or fees.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[10](#10iexdesign)] This depends on many factors, including the toxicity of
+    ColorBook routed orders. If the information sharing between the Lava ECN and the
+    ColorBook router were disclosed to hidden order users, they could have taken that
+    into account before sending those hidden orders. As Levine [says](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'That wasn’t disclosed in its filings, or consistently disclosed in its advertising.
+    (Though it was sometimes: This is not so much “a fact LavaFlow kept secret” as
+    it is “a fact LavaFlow forgot to tell people.“'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'How consistently has IEX disclosed any favorable access it affords its router?
+    I don’t know, but Citadel [says](http://www.sec.gov/comments/10-222/10222-16.pdf):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: While it is not explicit in the Application, IEX has explained informally that
+    the IEX Router would not be required to go through the IEX Access Delay to access
+    the IEX trading system or when routing orders from the IEX trading system to other
+    market centers.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[[11](#11iexdesign)] There’s also an argument that allowing the IEX router
+    to skip the speed bump guarantees that any unfilled portion of a routable order
+    will be first in the queue when it returns to IEX. Ignoring the issue of whether
+    IEX should be able to offer this benefit only to clients of its router, I don’t
+    think it’s actually true. I don’t know exactly how IEX’s router works. But if
+    it submits orders so that they hit BATS at the same time as NYSE, it should be
+    possible for a trader to react to the sweep on BATS and submit an order to IEX
+    more than 350us before IEX hears back from NYSE.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[12](#12iexdesign)] [Matt Levine](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)
+    is responsible for creating the pun. I’m responsible for using it badly.'
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,129 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:58:08'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Mean-Variance Optimization and Statistical Theory | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[![dimensions and subspace](img/d1f3cd88a8d0c4830c0e745ef8e41d2f.png)](https://cssanalytics.files.wordpress.com/2013/10/dimensions-and-subspace.png)Mean-variance
+    optimization (MVO) was introduced by Markowitz as a means of compressing forecasts
+    into an expression of portfolio weights for asset allocation. The theory and mathematical
+    concepts have become central to modern finance. Views on MVO are highly polarized-
+    some feel that it is worthless while others think it is the holy grail. Somewhere
+    in the middle lies the truth. In reality the strengths and weaknesses of MVO lie
+    rooted in statistical theory. MVO suffers from a lot of different weaknesses-
+    many of which will not be addressed in this post  – for example MVO assumes that
+    the data is normally distributed (model bias). In this post, the assumption is
+    that MVO will use historical data rather than expected return/factor models. In
+    this case, MVO requires the estimation of a large number of inputs for the return
+    vector and the variance-covariance matrix. The number of different variables to
+    estimate is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**2N+1/2(N^2-N)**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*where N= the number of assets in the optimization. The first term 2N= the
+    return and risk estimates, and the second term 1/2(N^2-N) is the number of covariances
+    to estimate.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For a modest sized portfolio of 10 assets, this is 65 different estimates.
+    For the S&P500 this is 125,750 different estimates! If one is employing a dynamic
+    optimization model with small amounts of data, this presents a major problem:
+    the [curse of dimensionality](http://columbiadatascience.com/2012/09/21/curse-of-dimensionality/)
+    is a function of “combinatorial explosion”, where the volume of space increase
+    so fast that the available data becomes sparse. In this context it becomes practically
+    difficult to estimate variables. The amount of data required needs to increase
+    exponentially commensurate with the degree of dimensionality.  This is a major
+    problem since the biggest burden of computation lies with the estimation of the
+    variance covariance matrix. In this situation, a simple equal weight portfolio
+    is expected to perform comparatively well since it does not require any estimates.
+    Research in fact demonstrates that an equal weight portfolio often outperforms
+    mean-variance, minimum-variance and other heuristic methods especially on large
+    data sets. This is especially true when factoring in transaction costs. Another
+    factor is the use of historical returns which are notoriously difficult to estimate
+    (while risk/volatility remains fairly predictable). In this case, historical returns
+    represent the most unbiased estimator (which is good), but they also tend to be
+    a simplistic/poor representation of time series data since it tends to contain
+    a combination of [trend, mean-reversion, and random noise](https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/
+    "Filtering White Noise"). This leads to under-fitting since historical returns
+    tend to dominate the weights of MVO. In statistical theory, this would place MVO
+    as a “high-bias”/”low-variance” classifier.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: There have been many different attempts to address these problems. The most
+    frequent complaint about MVO is that small changes in the inputs lead to large
+    changes in the output weights. [Michaud](http://www.newfrontieradvisors.com/Research/ResearchHistory/MichaudOptimization.html)–
+    a pioneer in post-modern MVO- introduced re-sampling as a means of bagging/bootstrapping
+    to improve upon out of sample performance and reduce estimation error. Re-sampled
+    portfolios have greater diversification (their [“transition maps”](http://systematicinvestor.wordpress.com/?s=resampling)
+    look better) but their out-of-sample performance is roughly equal if not sometimes
+    inferior to traditional MVO. Where re-sampling seems to produce more benefit is
+    with [minimum variance portfolios](https://cssanalytics.wordpress.com/2013/04/01/minimum-variance-algorithm-mva/
+    "Minimum Variance Algorithm (MVA)") and the potential reason will be addressed
+    shortly. Bayesian methods that employ regularization attempt to reduce dimensionality
+    explicitly by penalizing complexity. They “shrink” the observed data to a logical
+    or well-structured prior estimate to prevent over-fitting. Ledoit-Wolf introduced
+    a pioneering method to shrink the variance-covariance matrix method with this
+    type of approach. Research shows that Ledoit-Wolf shrinkage often outperforms
+    re-sampling, but tends to add value primarily in minimum variance portfolios rather
+    than MVO.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In statistics, prediction error is a function of three factors (a good overview
+    [here](http://www.cs.umd.edu/class/spring2006/cmsc726/Lectures/EnsembleMethods.pdf)):
+    1) **bias**– or the accuracy of the predictor/model (high bias is an overly simplistic
+    predictor/under-fitting while low bias is a very close match/overfitting) 2) **variance**–
+    this is the sensitivity of the estimate given different data (low variance means
+    that a change in the data does not change the predictor very much, high variance
+    means that a change in the data will change the required predictor) 3) **noise**–
+    this is self-explanatory. High bias is associated with low variance, and low bias
+    is associated with high variance. Essentially, a model that is overfit (low bias,
+    high variance) is fragile if the future is unlike the past. In contrast, if a
+    model is underfit (high bias, low variance) it is less fragile, but also fails
+    to maximize predictive accuracy. Various methods such as bagging, boosting and
+    regularization have been created to address these problems. All of these methods
+    with the exception of boosting tend to reduce variance at the expense of raising
+    bias. Variance reduction methods will improve out-of-sample performance when a
+    predictor has high variance, and low bias, but they will have much less impact
+    when a predictor has low variance and high bias.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In MVO, the historical return estimates can be considered high bias/low variance,
+    the risk/volatility estimates are in the middle (since risk is a good linear predictor),
+    and the covariances are low bias/high variance since there are so many to estimate.
+    In terms of estimation error impact on the weights, the historical returns are
+    the most important followed by risk and then by the covariances. This implies
+    that MVO is primarily a high bias, low variance problem. Resampling is analogous
+    to bagging/bootstrapping, which is primarily a means of reducing variance-it is
+    less direct at trading off bias for lower variance than regularization/shrinkage
+    and that is why it is less successful much of the time.  Since minimum variance
+    optimization is partially a high variance/low bias problem, these methods have
+    show success in improving out of sample performance. However both re-sampling
+    and shrinkage are ill-equipped to adequately address MVO since the biggest driver
+    is the return estimates which are high bias/low variance. Reducing variance at
+    the expense of bias is the opposite of what needs to be done to improve MVO if
+    returns are still being considered. This explains the failure for both methods
+    to improve out of sample performance when used within MVO. Both re-sampling and
+    shrinkage are adequate for only one component of MVO- the VCV (variance-covariance
+    matrix). Improved estimates of returns using more complex models or more accurate
+    predictors that can then have their variance reduced by the same methods is a
+    more important direction. The same is true for risk/volatility estimates, although
+    they are already so good using historical data that the margin for improvement
+    is small.
+  prefs: []
+  type: TYPE_NORMAL

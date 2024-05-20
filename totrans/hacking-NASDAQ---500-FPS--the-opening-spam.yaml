@@ -1,0 +1,65 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:04:46'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: the opening spam'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Been poking around looking at how the market moves and thought would share a
+    "how to spam the open" session.
+  prefs: []
+  type: TYPE_NORMAL
+- en: First the plots, where everything is in "tick time" e.g one X unit is 1 tick. ..
+    we have the best bid
+  prefs: []
+  type: TYPE_NORMAL
+- en: .. and best ask
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next up is how far away from the best bid the tick is (zero if tick is a sell)
+  prefs: []
+  type: TYPE_NORMAL
+- en: .. and the other side
+  prefs: []
+  type: TYPE_NORMAL
+- en: finally the time delta between ticks (in nanosecconds)
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you can see the closer it gets to the opening bell the harder it bursts,
+    and the further away from the best bid/ask it bursts. But... is it adding or removing
+    shares at that price level?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Above is the share delta for ticks on the buy side, where positive is adding
+    shares to the book at that price level - clearly its adding.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '... and the same for the sell side, also clearly adding (positive share delta).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: So whats it doing? clearly its layering orders vertically across the entire
+    book, presumably at prices that would be very attractive should they get matched
+    - e.g. highly passive strategy. But... why so close to the opening bell? Guessing
+    theres also a spamming component to this. Where if theres 50K ticks in the queue
+    to process, all at different price levels your orderbook has no choice but to
+    update everything and thus, quite possibly, delay your snapshot of the world by
+    100`s of ticks after the first execution.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fantasy? not sure but there`s a very clear and distinct pattern/strategy going
+    on here.
+  prefs: []
+  type: TYPE_NORMAL

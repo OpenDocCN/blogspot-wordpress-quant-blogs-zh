@@ -1,0 +1,88 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:40:50'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: FX Trading Tile with Clojure/ClojureScript | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01](https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Anyone who subscribes to any of my social network feeds would have seen an increase
+    in Clojure noise over the last time period.  Clojure is interesting not just from
+    a language perspective (Lisp) but from the few financial projects that have made
+    the conferences over the last few years.  Although a niche language in many ways,
+    it has a lot going for it, if like most things, you are prepared to invest a little
+    time and effort.
+  prefs: []
+  type: TYPE_NORMAL
+- en: What follows is my FX trading work in progress hack that will hopefully offer
+    food for thought 😉
+  prefs: []
+  type: TYPE_NORMAL
+- en: The main aim of the code hack was to get a simple FX currency pair tile in a
+    browser built using [ClojureScript](http://cljs.info/cheatsheet/), backed by a
+    [Clojure](https://www.niwi.nz/cljs-workshop/#_first_steps_with_ajax) server.  Starting
+    point for the project as [lein-figwheel](https://github.com/bhauman/lein-figwheel/wiki/Quick-Start) with
+    [Reagent](https://reagent-project.github.io/index.html).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Remember the code below (client followed by server code) has been hacked up,
+    so ignore the hard coding et al.  The primary aim is as a learning tool, never
+    to enter production 🙂
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'With the pricing component as per reference above, as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Clearly the code is using [atom’s](http://clojure.org/atoms), as one would expect.
+    I had a few problems with the [JSON](http://udayv.com/clojure/2014/08/19/json-web-services-with-clojure/)
+    web service “order” method, but ended up resolving the issue with [cljs-ajax](https://github.com/JulianBirch/cljs-ajax).
+    Also using the [ring](https://github.com/ring-clojure/ring-json) server and handler
+    to handle the routing.  Had a few issues with [http-kit](http://www.http-kit.org/server.html)
+    deserialisation of the request, but I think that was partly my own silliness.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Items to work on next:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Moving the simply price generator to the Clojure server, and streaming the prices
+    via Websockets – possible using [chord](https://github.com/jarohen/chord) or [Sente](https://github.com/ptaoussanis/sente).
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Look at [agents](http://clojure.org/agents) for the server.  [Avout](http://avout.io/)
+    and [onyx](https://github.com/onyx-platform/onyx) also look interesting.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Dependency injection (e.g. [clj-di](https://github.com/nvbn/clj-di)) and MVC
+    would be nice client side.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: ~ by mdavey on July 22, 2015.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/), [Trading](https://mdavey.wordpress.com/category/trading/)
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,76 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:38:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Adaptive Asset Allocation – Sensitivity Analysis | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to continue with [Adaptive Asset Allocation](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
+    theme and examine how the strategy results are sensitive to look-back parameters
+    used for momentum and volatility computations. I will follow the sample steps
+    that were outlined by David Varadi on the [robustness of parameters of the Adaptive
+    Asset Allocation algorithm](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/)
+    post. Please see my prior [post](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/)
+    for more infromation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s start by loading historical prices for 10 ETFs using the [Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next I wrapped the Combo (Momentum and Volatility weighted) strategy and Adaptive
+    Asset Allocation (AAA) strategy into bt.aaa.combo and bt.aaa.minrisk functions
+    respectively. Following is an example how you can use them:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Now let’s evaluate all possible combinations of momentum and volatility look
+    back parameters ranging from 1 to 12 months using **Combo** strategy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Finally let’s plot the Sharpe, Cagr, DVR, MaxDD statistics for the each strategy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/f6d9ec080953b6857f787bef51e69fd9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I have also repeated the last two steps for the AAA strategy (bt.aaa.minrisk
+    function):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/45405c832b52546b437fb446cc1d5872.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results for AAA and Combo strategies are very similar. The shorter term
+    momentum and shorter term volatility produce the best results, but likely at the
+    cost of higher turnover.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.aaa.sensitivity.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

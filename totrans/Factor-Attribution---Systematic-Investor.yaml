@@ -1,0 +1,76 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:40:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Factor Attribution | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I came across a very descriptive visualization of the Factor Attribution that
+    I will replicate today. There is the [Three Factor Rolling Regression Viewer](http://mas.xtreemhost.com/)
+    at the [mas financial tools](http://mas.xtreemhost.com/) web site that performs
+    rolling window Factor Analysis of the [“three-factor model”](http://en.wikipedia.org/wiki/Fama%E2%80%93French_three-factor_model)
+    of Fama and French. The factor returns are available from the [Kenneth R French:
+    Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html).
+    I recommend reading the [Efficient Frontier: Rolling Your Own: Three-Factor Analysis
+    by W. Bernstein](http://www.efficientfrontier.com/ef/101/roll101.htm) for a step
+    by step instructions.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s start by loading historical returns for the [Vanguard Small Cap Value
+    Index (VISVX)](http://www.google.com/finance?q=VISVX) and aligning them with Fama/French
+    Monthly Factors. Please note I wrote a helper function, [get.fama.french.data()](https://github.com/systematicinvestor/SIT/blob/master/R/data.r),
+    to simplify process of loading and analyzing factor data from the [Kenneth R French:
+    Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, let’s run Factor Attribution over all available data:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: All factor loadings are significant.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s run a 36 month rolling window Factor Attribution:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Finally, let’s re-create the timeseries and histogram charts as presented by
+    [Three Factor Rolling Regression Viewer](http://mas.xtreemhost.com/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/f4c25046a1f1e4204792ce29c3b538a6.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post, I plan to replicate the Style charts and provide more examples.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [three.factor.rolling.regression() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

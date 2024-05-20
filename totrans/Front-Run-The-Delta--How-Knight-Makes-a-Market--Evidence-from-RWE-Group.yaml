@@ -1,0 +1,163 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 23:36:25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Front-Run The Delta: How Knight Makes a Market: Evidence from RWE Group'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://frontrunthedelta.blogspot.com/2011/07/how-knight-makes-market-evidence-from.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/07/how-knight-makes-market-evidence-from.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Fond of trading on the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[OTC Bulletin Board](http://www.otcbb.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', among other prominent markets,'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Knight Capital](http://www.knight.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"trades or'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[makes a market](http://www.knight.com/ourFirm/vsMVS.asp)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: in over 19,000 U.S. Equities" according to their website.  The goal of this
+    post, and I hope those going forward, is to examine the science behind Knight's
+    activities.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The example today is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[RWE Group](http://www.rwe.com/web/cms/en/10122/rwe/rwe-group/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .  What they do and how they do it is wholly unimportant for this exercise.
+     The important and relevant data points to build on today are price and time.
+     Price for RWE quoted in Euros, RWEOY quoted in US dollars, the EUR/USD interbank
+    rate, and the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[synchronized](http://www.highfrequencytraders.com/article/820/major-upgrade-fsmlabs-timekeeper-increases-time-precision-high-frequency-trading)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: time stamps for all 3 variables.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Outrights**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ': The two stocks together.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[RWE](http://www.interactivebrokers.co.uk/contract_info/v3.5/index.php?action=Details&site=IB&conid=14198&detlev=2&sess=1310425144)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (blue/red) is denominated in Euros and opens at 02:00AM while
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[RWEOY](http://www.interactivebrokers.co.uk/contract_info/v3.5/index.php?action=Details&site=IB&conid=58593713&detlev=2&sess=1310425201)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (green/purple), denominated in US dollars, does not open until 08:30AM, despite
+    a relatively tight bid/ask for the prior hour.  The chart below is April 8, 2011,
+    from left to right, 2:00AM CST to 3:00PM CST.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Currency**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ': The EUR/USD interbank currency rate available via IB''s'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Idealpro](http://www.interactivebrokers.com/en/trading/exchanges.php?exch=ibfxpro&showcategories=&ib_entity=llc)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .  The currency was recorded simultaneously with the two stocks to avoid using
+    potentially stale quotes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: EUR/USD - 8 April, 2:00AM to 3:00PM CST
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Implied Value.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using the price of the shares denominated in Euros and the live EUR/USD exchange
+    rate, a theoretical value for the USD-listed shares can be derived.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Gagnon and Karolyi (2004)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=577004)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: provide an exhaustive study into this relationship.  The authors study
+  prefs: []
+  type: TYPE_NORMAL
+- en: 589 pairs of dual-listed stocks from 39 countries using daily closing prices
+    from 1990 to 2002\.  While most pairs are found to stay within a 15 to 20 basis
+    point (.15% to .2%) range with one another, the authors note that "the premium
+    on the cross-listed shares relative to home-market shares can be as large as [66
+    percent](http://quotes.nasdaq.com/asp/SummaryQuote.asp?symbol=INFY&selected=INFY)
+    and the discounts as large as [87 percent](http://www.adrbnymellon.com/files/TN7963.pdf),"
+    but deviations of such magnitude were found to last no longer than one day.""Deviations
+    from price parity,” they suggest, “their persistence over time and the excess
+    comovements are related to country-level and firm-specific attributes that reflect,
+    not only institutional impediments to arbitrage, but also informational barriers
+    in the form of information asymmetries among different investors and the presence
+    of [noise traders](http://en.wikipedia.org/wiki/Noise_trader)."  They find that
+    "excess comovements are significantly related to the fraction of global trading
+    that takes place in the U.S. markets." [Ejara and Ghosh (2004)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1560482)
+    support their findings and provided important research into the field.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Below is the implied value of RWE priced in USD combined with the live quoted
+    price of RWEOY duly listed in USD. The market for RWEOY is most robust during
+    the overlapping hours when market making firms are able to more easily transfer
+    risk from one market to the other. The bid/ask spread of RWEOY after the European
+    closing (on the right of the chart) is evidence of this mechanism.
+  prefs: []
+  type: TYPE_NORMAL
+- en: April 8, 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: July 15, 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finding the difference between the synthetic value of RWE and the real value
+    of the RWEOY is the arbitrage. In this case, as in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[others](http://frontrunthedelta.blogspot.com/2011/07/etf-futures-arbitrage-fxb-and-gbp.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', dynamic inventory and risk management systems must be in place for the pricing
+    participants.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Overlapping Market Spreads.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: April 8, 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: July 15, 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Further Reading:'
+  prefs: []
+  type: TYPE_NORMAL

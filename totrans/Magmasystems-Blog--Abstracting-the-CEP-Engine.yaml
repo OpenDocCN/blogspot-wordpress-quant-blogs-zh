@@ -1,0 +1,216 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:02:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Abstracting the CEP Engine'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Here are two comments that I received yesterday, and my answers:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*You bought an CEP Engine that doesn''t support event clouds?*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: We feel that Coral8 does support event clouds, but we are looking for the best
+    pattern to implement it. Mark, who is the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CTO
+  prefs: []
+  type: TYPE_NORMAL
+- en: of Coral8, doesn't quite agree with the term "event cloud". His posting
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here](http://www.coral8.com/blogs/blog-entry/unclouding-and-streamlining-your-thinking-about-cep-use-cases)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: highlights his argument. According to Mark, an "event cloud" can be represented
+    as multiple event streams,
+  prefs: []
+  type: TYPE_NORMAL
+- en: something
+  prefs: []
+  type: TYPE_NORMAL
+- en: that Coral8 supports.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*How and why did you abstract the CEP engine in your system?*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, the why. We want to insulate ourselves from any uncertainties concern
+    the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine, both in terms of the product itself and of the company. In this economic
+    environment, we are concerned that some of these smallish
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: companies might be strained. Ones who are backed by Venture Capital might find
+    their
+  prefs: []
+  type: TYPE_NORMAL
+- en: VC's
+  prefs: []
+  type: TYPE_NORMAL
+- en: getting worried and thinking that we are reliving those inglorious times from
+    2002 to 2003\. Ones who are privately financed might find that the backers want
+    to move into other areas. It is no secret that most firms are cutting back or
+    delaying their software purchases, and the ones who get impacted first are the
+    smaller niche companies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We also want to have some flexibility in case the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine itself does not function as advertised. Coral8 has given us great support,
+    but we have not stressed it yet. We know other companies who have evaluated Coral8
+    who have
+  prefs: []
+  type: TYPE_NORMAL
+- en: foudn
+  prefs: []
+  type: TYPE_NORMAL
+- en: some shortcomings, things that the Coral8 staff have addressed. However, it
+    is perfectly within the realm of possibility that we may need to consider another
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine should Coral8 fall on its face.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, the how ....
+  prefs: []
+  type: TYPE_NORMAL
+- en: We are not using Coral8's native input and output adapters. We are not even
+    reading databases using Coral8's
+  prefs: []
+  type: TYPE_NORMAL
+- en: PollFromDatabase
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: ReadFromDatabase
+  prefs: []
+  type: TYPE_NORMAL
+- en: adapters. We have an input server that is used to read static and real-time
+    data and
+  prefs: []
+  type: TYPE_NORMAL
+- en: marshall
+  prefs: []
+  type: TYPE_NORMAL
+- en: that data into coral8
+  prefs: []
+  type: TYPE_NORMAL
+- en: tuples
+  prefs: []
+  type: TYPE_NORMAL
+- en: . On the other side, we have an output server that takes the derived event
+  prefs: []
+  type: TYPE_NORMAL
+- en: tuples
+  prefs: []
+  type: TYPE_NORMAL
+- en: from Coral8,
+  prefs: []
+  type: TYPE_NORMAL
+- en: marshalls
+  prefs: []
+  type: TYPE_NORMAL
+- en: them into a common format, and does various kinds of alerting and visualizations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: From the days that we did evaluations of other
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: vendors, we have layers in our input and output servers that deal with
+  prefs: []
+  type: TYPE_NORMAL
+- en: Aleri
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: Streambase
+  prefs: []
+  type: TYPE_NORMAL
+- en: . In other words, we have our own adapters! Changing from Coral8 to
+  prefs: []
+  type: TYPE_NORMAL
+- en: Streambase
+  prefs: []
+  type: TYPE_NORMAL
+- en: or
+  prefs: []
+  type: TYPE_NORMAL
+- en: Aleri
+  prefs: []
+  type: TYPE_NORMAL
+- en: involves a simple edit to our Spring-like configuration files.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In addition, we have the ability to farm out work to other engines, such as
+  prefs: []
+  type: TYPE_NORMAL
+- en: KDB
+  prefs: []
+  type: TYPE_NORMAL
+- en: +. We can then read the derived events that are generated by other systems (as
+    long as they are in our common format) and put them into the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine's "event cloud".
+  prefs: []
+  type: TYPE_NORMAL
+- en: In our architecture, we have introduced extra hops in order to abstract the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: engine. But, we are not that concerned, since we are dealing with analysis and
+    alerting rather than trading.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2008 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

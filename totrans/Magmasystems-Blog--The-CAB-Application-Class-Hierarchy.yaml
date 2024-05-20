@@ -1,0 +1,163 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:14:35'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: The CAB Application Class Hierarchy'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**CAB Application Classes**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The hierarchy of the CABApplication classes is shown in the diagram below. The
+    top three classes should never be derived from. In almost all classes, your WinForms-based
+    application will derive from FormShellApplication.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e2bb983832bd11fa12dbe0ca781cee0e.png)](http://photos1.blogger.com/x/blogger/138/258/1600/637361/CabApplication%20hierarchy.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A CAB Application will be driven by the base
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**CabApplication**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: class. This class does most of the work to get the CAB application started.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The only field that the CabApplication class has is the root
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**WorkItem**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', which as the name implies, is the root node of the entire application’s WorkItem
+    tree. I will discuss WorkItems later.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The constructor of CabApplication does nothing; it is the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Run**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '() method (which is called by your application’s Main() function) that bootstraps
+    the entire application. The Run() method will do the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Create the pre-defined services
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Authenticate the user.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Reads the config file (*ProfileCatalog.xml*) that contains a list all of the
+    plug-in modules that the app wants to load.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Each module can have an optional list of Roles. The module will be loaded only
+    if the current user belongs to that role. If a module has no role information
+    associated with it, then the module will be loaded.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'Creates the Shell (ie: the MainForm)'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Loads all of the modules that are permitted to be loaded.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: In each class in the module that derived from the ModuleInit class, all fields
+    that are tagged with the [ServiceDependency] attribute are created.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: All classes tagged with the [Service] attribute are added to the application’s
+    list of services.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: RootWorkItem.Run() is called for the applications root WorkItem.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: In the FormShellApplication class, the WinForm’s method Application.Run() is
+    called to start the WinForm app.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**The Derived Application Classes**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**CabShellApplication**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: class extends the CabApplication by
+  prefs: []
+  type: TYPE_NORMAL
+- en: Keeping a reference to the Shell (our MainForm) by adding it to the RootWorkItem’s
+    list of items.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Adding BeforeShellCreated and AfterShellCreated virtual methods. These methods
+    can be overridden in your application class.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**WindowsFormApplication**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: extends the CabShellApplication class by
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using a WindowsForm Visualizer
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Adding some UI and command-routine services
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**FormShellApplication**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: class merely overrides the Start() method and calls the familiar WinForms method
+  prefs: []
+  type: TYPE_NORMAL
+- en: Application.Run(mainform)
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2006 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

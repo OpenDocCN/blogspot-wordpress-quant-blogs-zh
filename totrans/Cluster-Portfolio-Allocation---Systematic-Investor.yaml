@@ -1,0 +1,95 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:33:57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Cluster Portfolio Allocation | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/#0001-01-01](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today, I want to continue with clustering theme and show how the portfolio weights
+    are determined in the Cluster Portfolio Allocation method. One example of the
+    Cluster Portfolio Allocation method is [Cluster Risk Parity](http://cssanalytics.wordpress.com/)
+    (Varadi, Kapler, 2012).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Cluster Portfolio Allocation method has 3 steps:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Create Clusters
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Allocate funds within each Cluster
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Allocate funds across all Clusters
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: I will illustrate below all 3 steps using “Equal Weight” and “Risk Parity” portfolio
+    allocation methiods. Let’s start by loading historical prices for the 10 major
+    asset classes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s compute “Plain” portfolio allocation (i.e. no Clustering)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s create clusters and compute portfolio allocation within each Cluster
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s compute portfolio allocation across all Clusters and compute final
+    portfolio weights
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Finally, let’s create reports and compare portfolio allocations
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![equal.weight.portfolio.plot.png.small](img/0ab498e1b63290ffdefc27697ea7dd9b.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/02/equal-weight-portfolio-plot-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The difference is most striking in the “Equal Weight” portfolio allocation method.
+    The Cluster version allocates 25% to each cluster first, and then allocates equally
+    within each cluster. The Plain version allocates equally among all assets. The
+    “Risk Parity” version below works in similar way, but instead of having equal
+    weights, the focus is on the equal risk allocations. I.e. UUP gets a much bigger
+    allocation because it is far less risky than any other asset.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![risk.parity.portfolio.plot.png.small](img/82ed6a8cac999409cfcc435b91397241.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/02/risk-parity-portfolio-plot-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next week, I will show how to back-test Cluster Portfolio Allocation methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.cluster.portfolio.allocation.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

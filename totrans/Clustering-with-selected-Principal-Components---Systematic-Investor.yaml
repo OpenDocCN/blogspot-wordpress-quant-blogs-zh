@@ -1,0 +1,78 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:35:06'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Clustering with selected Principal Components | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/12/29/clustering-with-selected-principal-components/#0001-01-01](https://systematicinvestor.wordpress.com/2012/12/29/clustering-with-selected-principal-components/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the [Visualizing Principal Components](https://systematicinvestor.wordpress.com/2012/12/22/visualizing-principal-components/)
+    post, I looked at the [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
+    of the companies in the [Dow Jones Industrial Average index](http://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)
+    over 2012\. Today, I want to show how we can use [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
+    to create [Clusters](http://home.dei.polimi.it/matteucc/Clustering/tutorial_html/)
+    (i.e. form groups of similar companies based on their distance from each other)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s start by loading the historical prices for the the companies in the [Dow
+    Jones Industrial Average index](http://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)
+    that we saved in the [Visualizing Principal Components](https://systematicinvestor.wordpress.com/2012/12/22/visualizing-principal-components/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'To create [Clusters](http://home.dei.polimi.it/matteucc/Clustering/tutorial_html/),
+    I will use the hierarchical cluster analysis, hclust function, in stats package.
+    The first argument in the hclust function is the distance (dissimilarity) matrix.
+    To compute distance matrix, let’s take the first 2 principal components and compute
+    the [Euclidean distance](http://en.wikipedia.org/wiki/Euclidean_distance) between
+    each company:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1.png.small](img/82e26295315249469d2dd252f911bc30.png)](https://systematicinvestor.wordpress.com/2012/12/29/clustering-with-selected-principal-components/plot1-png-small-69/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Similarly we can use the first three principal components:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot2.png.small](img/db8255231a001907f811bee0abe10910.png)](https://systematicinvestor.wordpress.com/2012/12/29/clustering-with-selected-principal-components/plot2-png-small-66/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another option is to use the [Correlation matrix](http://en.wikipedia.org/wiki/Correlation_and_dependence)
+    as a proxy for a distance matrix:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot3.png.small](img/bd263d06ee113fc6fddbaf0bea57fe99.png)](https://systematicinvestor.wordpress.com/2012/12/29/clustering-with-selected-principal-components/plot3-png-small-46/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please note that [Clusters](http://home.dei.polimi.it/matteucc/Clustering/tutorial_html/)
+    will be quite different, depending on the distance matrix you use.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.clustering.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

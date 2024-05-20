@@ -1,0 +1,108 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:48:05'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Expected shortfall (CVaR) and Conditional Drawdown at Risk (CDaR) risk measures
+    | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'In the [Maximum Loss and Mean-Absolute Deviation risk measures](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/)
+    post I started the discussion about alternative risk measures we can use to construct
+    [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier). Another
+    alternative risk measures I want to discuss are [Expected shortfall (CVaR)](http://en.wikipedia.org/wiki/Expected_shortfall)
+    and Conditional Drawdown at Risk (CDaR). I will use methods presented in [Comparative
+    Analysis of Linear Portfolio Rebalancing Strategies: An Application to Hedge Funds
+    by Krokhmal, P., S. Uryasev, and G. Zrazhevsky (2001)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=297639)
+    and [Portfolio Optimization Using Conditional Value-At-Risk and Conditional Drawdown-At-Risk
+    by Enn Kuutan](http://www.mie.utoronto.ca/undergrad/thesis-catalog/files/351.pdf)papers
+    to construct optimal portfolios.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
+    j= 1,…,T scenarios of returns with equal probabilities are available. I will use
+    historical assets returns as scenarios. Let us denote by r.ij the return of i-th
+    asset in the scenario j. The portfolio’s Conditional Value at Risk (CVaR) (page
+    30-32) can be written as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0, -\sum_{i=1}^{n}r_{ij}x_{i}-E\right
+    \}](img/e728bbbb0711a0c0e419b1a2cdd5a4ee.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![min_{}{} E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}w_{j}  \newline\newline  -\sum_{i=1}^{n}r_{ij}x_{i}-E\leq
+    w_{j}, j=1,...,T  \newline\newline  w_{j}\geqslant 0, j=1,...,T](img/813d08f0add8282ebc8ad139f584a9a4.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This linear programming problem can be easily implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The portfolio’s Conditional Drawdown at Risk (CDaR) (page 32-33) concept is
+    very similar to CVaR. Instead of using portfolio returns to determine shortfall,
+    we use portfolio drawdowns. The Conditional Drawdown at Risk (CDaR) can be written
+    as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0,   \max_{1\leq k\leq
+    j} \left ( \sum_{i=1}^{n} \left [ \sum_{s=1}^{k}r_{is} \right ] x_{i} \right )
+    - \sum_{i=1}^{n} \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}-E\right \}](img/a71404c3da98d48d87678911aa179d00.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![min_{}{} E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}w_{j}  \newline\newline  u_{j}-\sum_{i=1}^{n}
+    \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}-E\leq w_{j}, j=1,...,T  \newline\newline  \sum_{i=1}^{n}
+    \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}\leq u_{j}, j=1,...,T  \newline\newline  u_{j-1}\leqslant
+    u_{j} , j=1,...,T  \newline\newline  w_{j}\geqslant 0, j=1,...,T](img/c67fe74ef995e9827ad9f5db0c4d16de.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Let’s examine efficient frontiers computed under different risk measures using
+    historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5e607bbfe057fa2a854b8b60e4eef4c0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small6.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/569e3979b1e2e9f01ff815f7998c190d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small6.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The efficient frontiers constructed under Expected shortfall (CVaR) and Standard
+    Deviation risk measures look similar. The efficient frontier constructed under
+    Conditional Drawdown at Risk (CDaR) is superior to the other risk measures in
+    controlling drawdowns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post, I will discuss how to combine multiple risk measures during
+    construction of efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.cvar.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

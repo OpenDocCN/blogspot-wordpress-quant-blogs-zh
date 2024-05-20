@@ -1,0 +1,174 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:12:08'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: HPC on Wall Street - Hardware Acceleration'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01](http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Sam Brown of the University of Utah just came out with
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[some slides](http://www.chpc.utah.edu/hybrid_computing/talks/sam_brown_talk.ppt)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: on his initial forays into hardware acceleration. He contrasts the use of Cell
+    Processors,
+  prefs: []
+  type: TYPE_NORMAL
+- en: FPGAs
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', and'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multi
+  prefs: []
+  type: TYPE_NORMAL
+- en: -core processors. He was trying to speed up 2-Way Wave Equation Modeling, which
+    is not a financial application, but the lessons that he learned can be applied
+    to those of use who are doing (or exploring)
+  prefs: []
+  type: TYPE_NORMAL
+- en: HPC
+  prefs: []
+  type: TYPE_NORMAL
+- en: in Wall Street.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The big effort is in unrolling loops and
+  prefs: []
+  type: TYPE_NORMAL
+- en: parallelizing
+  prefs: []
+  type: TYPE_NORMAL
+- en: your code. Using the
+  prefs: []
+  type: TYPE_NORMAL
+- en: POSIX PThread API
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: multi
+  prefs: []
+  type: TYPE_NORMAL
+- en: -core
+  prefs: []
+  type: TYPE_NORMAL
+- en: cpus
+  prefs: []
+  type: TYPE_NORMAL
+- en: is the easiest thing to do. With 4 threads (2 dual-core 2.2
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ghz Opterons
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', 4 GB RAM), he got a 11x improvement on one set of benchmarks, and a 2x improvement
+    on the big application.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: FPGA
+  prefs: []
+  type: TYPE_NORMAL
+- en: system used the
+  prefs: []
+  type: TYPE_NORMAL
+- en: Altera Stratix
+  prefs: []
+  type: TYPE_NORMAL
+- en: II
+  prefs: []
+  type: TYPE_NORMAL
+- en: FPGA
+  prefs: []
+  type: TYPE_NORMAL
+- en: . He got about a 14x
+  prefs: []
+  type: TYPE_NORMAL
+- en: improvement
+  prefs: []
+  type: TYPE_NORMAL
+- en: on the initial set of benchmarks, but the development effort was a lot harder.
+    It took 12 hours to get the design onto the
+  prefs: []
+  type: TYPE_NORMAL
+- en: FPGA
+  prefs: []
+  type: TYPE_NORMAL
+- en: chip.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Cell systems were a Sony
+  prefs: []
+  type: TYPE_NORMAL
+- en: Playstation
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3 (!!!) and a IBM Cell Blade with 2 Cell Processors with 8
+  prefs: []
+  type: TYPE_NORMAL
+- en: SPEs
+  prefs: []
+  type: TYPE_NORMAL
+- en: each (a Cell processor has 8
+  prefs: []
+  type: TYPE_NORMAL
+- en: SPEs
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', which function as coprocessors.) The Cell results were generally disappointing,
+    with the author wondering if he programmed the Cell correctly. One thing that
+    I have heard about the Cell is that it is very difficult to program. Perhaps companies
+    like'
+  prefs: []
+  type: TYPE_NORMAL
+- en: PeakStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: can help you with this effort.
+  prefs: []
+  type: TYPE_NORMAL
+- en: (For instant gratification, the money shots are slides 28, 29, and 30)
+  prefs: []
+  type: TYPE_NORMAL
+- en: What can hardware acceleration do for you? Faster pricing of derivatives. Faster
+    generation of risk values, especially for exotics. Better overnight stressing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The problem is in acquiring the
+  prefs: []
+  type: TYPE_NORMAL
+- en: skill set
+  prefs: []
+  type: TYPE_NORMAL
+- en: to
+  prefs: []
+  type: TYPE_NORMAL
+- en: parallelize
+  prefs: []
+  type: TYPE_NORMAL
+- en: algorithms, deal with the development environments (especially debugging), learning
+    new variants of C, and getting buy-in from the business.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

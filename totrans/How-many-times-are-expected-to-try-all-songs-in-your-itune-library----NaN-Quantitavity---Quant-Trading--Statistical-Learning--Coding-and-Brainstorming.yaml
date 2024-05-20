@@ -1,0 +1,71 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 13:57:31'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: How many times are expected to try all songs in your itune library? | NaN Quantitavity
+    - Quant Trading, Statistical Learning, Coding and Brainstorming
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01](https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: How many times are expected to try all songs in your itune library?
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: 'Today, when I was very boring with all my songs in iphone libary, I suddenly
+    thought about one quick but useful math puzzle: assuming the iphone library has
+    100 songs and you use random shuffle (with re-sample) for next song, how many
+    times are expected to listen all these songs?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This is very similar as the classical [Coupon Collection](http://en.wikipedia.org/wiki/Coupon_collector''s_problem)
+    problem. Here is a quick dirty R simulations, with two plots in regular scale
+    and log scale:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: N.songs = 100
+  prefs: []
+  type: TYPE_NORMAL
+- en: temp <- function(N.songs){
+  prefs: []
+  type: TYPE_NORMAL
+- en: return ( sum(N.songs/(1:N.songs)) )
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: x <- 1:N.songs
+  prefs: []
+  type: TYPE_NORMAL
+- en: y <- sapply(x,temp)
+  prefs: []
+  type: TYPE_NORMAL
+- en: par(mfrow=c(1,2))
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(x,y,type=’l’,col=3, lty=2, lwd=2,log =’x’, xlab=’Number of New Songs’,
+    ylab = “# Trials Needed”)
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(x,y,type=’l’,col=3, lty=2, lwd=2, xlab=’Number of New Songs’, ylab = “#
+    Trials Needed”)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![songs](img/4b13d3d25644e2e3953ea6a1c10ee776.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: No comments yet.
+  prefs: []
+  type: TYPE_NORMAL

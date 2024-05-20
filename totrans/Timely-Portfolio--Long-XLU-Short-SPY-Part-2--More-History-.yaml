@@ -1,0 +1,198 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:15:45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Long XLU Short SPY Part 2 (More History)'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**THIS IS NOT INVESTMENT ADVICE.  YOU ARE RESPONSIBLE FOR YOUR OWN GAINS AND
+    LOSSES.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Fed is on a roll adding BAC ML Bond Indicies and now complete history for
+    the four primary Dow Jones Indexes, so I wanted to extend my first post [Long
+    XLU Short SPY](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy.html)
+    to add some more historical context.  Unfortunately, the Dow Jones Indicies are
+    only price return, but I think exploration still benefits the discussion.  Including
+    dividends significantly enhances the spread position.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now with the US 10y Treasury price return series.  See [Historical Sources of
+    Bond Returns-Comparison of Daily to Monthly](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html)
+    for details on the US 10y Treasury return calculations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The original discussion was as a bond manager what I can do if I do not like
+    bonds.  Let’s have a quick look at the Long DJUA Short US10y price spread to see
+    how it will work in this context.  Correlations above are certainly attractive.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get even more history'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(RQuantLib)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#first bonds'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DGS10",src="FRED") #load daily US Treasury 10y from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[1,1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10pricereturn)<-"PriceReturn-daily to monthly DGS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I know I need to vectorize this but not qualified enough yet'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please feel free to comment to show me how to do this'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(DGS10)-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  prefs: []
+  type: TYPE_NORMAL
+- en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  prefs: []
+  type: TYPE_NORMAL
+- en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#total return will be the price return + yield/12 for one month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10totalreturn)<-"Total Return-daily to monthly DGS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#now Dow Jones Indexes'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DJIA",src="FRED") #load daily Dow Jones Industrial'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DJUA",src="FRED") #load daily Dow Jones Utility'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DJUADJIA<-DJUA/DJIA
+  prefs: []
+  type: TYPE_NORMAL
+- en: retDJ<-na.omit(merge(ROC(DJUADJIA,1,type="discrete"),ROC(DJIA,1,type="discrete"),ROC(DJUA,1,type="discrete")))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(retDJ)<-c("DJIA","DJUA","DJUADJIAspread")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(retDJ,ylog=TRUE,
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="DJIA, DJUA, and DJUA/DJIA Spread Price Return Analysis",
+  prefs: []
+  type: TYPE_NORMAL
+- en: colorset=c("cadetblue","darkolivegreen3","goldenrod"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#now add bonds to analysis'
+  prefs: []
+  type: TYPE_NORMAL
+- en: retToAnalyze<-na.omit(merge(ROC(DJIA,1,type="discrete"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: ROC(DJUA,1,type="discrete"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: ROC(DJUA/DJIA,1,type="discrete"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(retToAnalyze)<-c("DJIA","DJUA","DJUADJIAspread","US10yPrice")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(retToAnalyze,ylog=TRUE,
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="DJIA, DJUA, DJUA/DJIA Spread, and US 10y Price Return Analysis",
+  prefs: []
+  type: TYPE_NORMAL
+- en: colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(retToAnalyze)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corDJUADJIAtoDJIA<-runCor(retDJ[,1],retDJ[,2],120)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corDJUADJIAtoBonds<-runCor(retToAnalyze[,3],retToAnalyze[,4],120)
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(DJUADJIA,TA="addTA(corDJUADJIAtoDJIA);addTA(corDJUADJIAtoBonds)",
+  prefs: []
+  type: TYPE_NORMAL
+- en: theme="white",
+  prefs: []
+  type: TYPE_NORMAL
+- en: name="Long DJUA and Short DJIA with Correlation Analysis")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#now let''s see how it looks as long xlu short bonds on price basis'
+  prefs: []
+  type: TYPE_NORMAL
+- en: priceBonds<-na.omit(cbind(DGS10pricereturn,rep(1,NROW(DGS10))))
+  prefs: []
+  type: TYPE_NORMAL
+- en: priceBonds<-cumprod(priceBonds[,1]+priceBonds[,2])
+  prefs: []
+  type: TYPE_NORMAL
+- en: DJUABonds<-na.omit(merge(DJUA,priceBonds))
+  prefs: []
+  type: TYPE_NORMAL
+- en: DJUABonds<-DJUABonds[,1]/DJUABonds[,2]
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(DJUABonds, log=TRUE,
+  prefs: []
+  type: TYPE_NORMAL
+- en: theme="white",
+  prefs: []
+  type: TYPE_NORMAL
+- en: name="Long DJUA and Short Bonds Price")
+  prefs: []
+  type: TYPE_NORMAL

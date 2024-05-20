@@ -1,0 +1,88 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:48:54'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: A “Simple” Tactical Asset Allocation Portfolio with Percentile Channels (for
+    Dummies) | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2015/02/08/a-simple-tactical-asset-allocation-portfolio-with-percentile-channels-for-dummies/#0001-01-01](https://cssanalytics.wordpress.com/2015/02/08/a-simple-tactical-asset-allocation-portfolio-with-percentile-channels-for-dummies/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[![For Dummies](img/bc3b4fe1ff8c791fa6bd97315ee1654b.png)](https://cssanalytics.files.wordpress.com/2015/02/for-dummies.gif)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I actually received a large volume of what could best be chararcterized as “hate
+    mail” for one of the previous [posts](https://cssanalytics.wordpress.com/2015/01/26/a-simple-tactical-asset-allocation-portfolio-with-percentile-channels/
+    "A Simple Tactical Asset Allocation Portfolio with Percentile Channels") on percentile
+    channels. In reading these comments I was reminded of Jimmy Kimmel’s funny segments
+    where celebrities read mean tweets about themselves. While I did not publish these
+    comments (I do not wish to alienate or prohibit those people who are kind enough
+    to comment on the blog), needless to say most of them implied that I had presented
+    a fraudulent strategy that badly misrepresented true performance. Since exact
+    details were not provided on the strategy this is a difficult claim to justify.
+    As a mountain of such comments piled in, I decided that it would be useful at
+    this time to clarify how the allocations were calculated. The initial strategy
+    was developed using a pre-built testing platform in VBA, so presenting the details
+    for how the strategy calculates positions is easier than taking the time to build
+    it in a spreadsheet.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'It is rare that I present a formal strategy on this blog for several good reasons:
+    1) this is a blog for **new ideas** to inspire new strategies not for sharing
+    code or spoon-feeding people with recipes 2) people actually pay money for strategies
+    in the quantitative investment business, and giving one away for free seems like
+    a pretty good deal. Who ever complains about free food? Hint: No one. 3) whenever
+    I post strategies or indicators I get flooded with demands for spreadsheets and
+    code. The tone of such emails is often terse or even desperate and implies that
+    I have some sort of obligation to assist readers with replication or implementation
+    on their end. Since the blog is free and competes for my often limited time while
+    engaging in unrelated but paid business activities, meeting such demands is difficult
+    to justify. I would comment that even the authors of academic articles to reputable
+    journals rarely provide either: a) easy instructions for replication–in fact it
+    is notoriously difficult to replicate most studies since either the instructions
+    are vague or details are missing or b) assistance/support— authors rarely if ever
+    provide assistance with replication and rarely answer such requests, even when
+    their articles are supposed to contribute to some body of research (unlike a blog).
+    I would like to think that CSSA has been considerably more generous over the years.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'As a former professor of mine used to say: “I think you are responsible for
+    doing your own homework and using your own brain”– perhaps a novel concept to
+    those who simply wish to coast of the hard work and individual thinking of others.
+    So without turning this into a prolonged rant, here is a “simple” (I will refrain
+    from using that word in the future after the latest experience) schematic of how
+    allocations are calculated for the strategy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A couple key details first- the strategy was rebalanced monthly (allocations
+    calculated and held through the month) and not daily. Also, the strategy is LONG
+    ONLY. This means that any negative positions are ignored. The channel score or
+    signals in the initial calculation can be long or short ie 1 or -1\. This is probably
+    the key reason why readers were unable to replicate since they probably used 1
+    or 0.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![tactical for dummies](img/5596c3edce5c492e24df0d60c9fd7ebb.png)](https://cssanalytics.files.wordpress.com/2015/02/tactical-for-dummies.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice that negative positions are used to calculate allocations but are ignored
+    in the final calculations. Furthermore, the cash position is allocated as an excess
+    to the total of active allocations and not included in the risk parity position
+    sizing (which would make SHY a huge position due to its low volatility). So I
+    hope that this helps reader’s implement/duplicate the strategy. Keep in mind that
+    prior to 2006, some of the ETFs used had to be extended with other data which
+    reader’s may not have access to. However, using ETF data only yields a sharpe
+    ratio of about 1.5\. Beyond this- readers are on their own. Good Luck!
+  prefs: []
+  type: TYPE_NORMAL

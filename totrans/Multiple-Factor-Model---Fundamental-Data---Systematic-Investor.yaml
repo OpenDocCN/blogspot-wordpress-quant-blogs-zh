@@ -1,0 +1,117 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:48'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multiple Factor Model – Fundamental Data | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'The [Multiple Factor Model](http://www.investopedia.com/terms/m/multifactor-model.asp)
+    can be used to decompose returns and calculate risk. Following are some examples
+    of the Multiple Factor Models:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The factors in the model are usually created using pricing, fundamental, analyst
+    estimates, and proprietary data. I will only show examples of factors using pricing
+    and fundamental data because these infromation is readily available from Yahoo
+    Fiance and ADVFN.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This is the first post in the series about Multiple Factor Models. In this
+    post I will show how to get company’s Fundamental Data into R, create a simple
+    factor, and run correlation analysis. In the next posts, I will show how to:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Build Factors and compute quantiles spreads
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Backtest Multiple Factor Model
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Calculate Risk using Multiple Factor Model
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'I created a [fund.data() function in fundamental.data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/fundamental.data.r)
+    to download company’s historical Fundamental data from ADVFN. Following code loads
+    historical quarterly fundamental data for [Wal-Mart Stores](http://www.google.com/finance?q=nyse:wmt)
+    and computes rolling annual [Earnings per share (EPS)](http://en.wikipedia.org/wiki/Earnings_per_share)
+    using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/f67eed9efe087d08c8144cbaa43e5ba0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can see a pronounced seasonality in the Quarterly EPS for Wal-Mart, the
+    Q4 always strong and stands out. The common way to deal with seasonality in the
+    income statement is to use rolling annual sum, i.e. sum last 4 quarters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s align Wal-Mart prices and EPS and plot them on the same graph.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/28c5b478be692ee204ee651cb1bff6a7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s repeat the above steps for all companies in the Dow Jones index.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: It takes a while to download historical fundamental data for all companies in
+    the Dow Jones index, so I recommend saving your results with save(data.fund, file=’data.fund.Rdata’)
+    command. Later on if you want to run code one more time, just load(file=’data.fund.Rdata’)
+    instead of downloading all data again.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s create monthly factors. EP factor = (Earnings per share) / Price.
+    VOMO factor = Volume x Momentum.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s run correlation analysis for EP factor. You can do correlation analysis
+    for VOMO factor as a homework.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/d1838aace98ae2e2673b58192daaf369.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: The correlation between EP and Next Month Returns is small, but significantly
+    different from zero. The small correlation is not a surprise and is usual for
+    this type of analysis. In the next posts, I will show that even this weak dependence
+    can be profitable.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [fm.fund.data.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,97 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:49:45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Distance Weighted Moving Averages (DWMA and IDWMA) | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'The [distance weighted moving average](http://www.encyclopediaofmath.org/index.php/Distance-weighted_mean)
+    is another [nonlinear filter](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/
+    "Combining Acceleration and Volatility into a Non-Linear Filter (NLV)") that provides
+    the basis for further research and exploration. In its traditional form, a distance
+    weighted moving average (DWMA) is designed to be a robust version of a moving
+    average to reduce the impact of outliers. Here is the calculation from the Encyclopedia
+    of Math:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![dwma](img/e496c68a920118f873f38ef508006016.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Notice in the example above that “12” is clearly an outlier relative to the
+    other data points and is therefore assigned less weight in the final average.
+    The advantage of this approach to simple winsorization (omitting outliers that
+    are identified from the calculation) is that all of the data is used and no arbitrary
+    threshold needs to be specified. This is especially valuable for multi-dimensional
+    data. By squaring the distance values in the calculation of the DWMA instead of
+    simply taking the absolute value, it is possible to make the average even more
+    insensitive to outliers. Notice that this concept can be also reversed to emphasize
+    outliers or simply larger data points. This can be done by removing the need to
+    invert the distance as a fraction and simply using the distance weights. This
+    can be called an “inverse distance moving average” or IDWMA, and is useful in
+    situations where you want to ignore small moves in time series which can be considered
+    “[white noise](https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/
+    "Filtering White Noise")” and instead make the average more responsive to breakouts.
+    Furthermore, this method may prove more valuable for use in volatility calculations
+    where sensitivity to risk is important. The chart below shows how these different
+    moving averages respond to a fictitious time series with outliers:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![dwma2](img/7640dd4f13ce3f965614366a760bb74f.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Notice that the DWMA is the least sensitive to the price moves and large jumps,
+    while the IDWMA is the most sensitive. Comparatively the SMA response is in between
+    both the DWMA and IDWMA. The key is that neither moving average is superior to
+    one another per se, but rather each is valuable for different applications and
+    can perform better or worse on different time series. With that statement, lets
+    look at some practical examples. My preference is typically to use returns rather
+    than prices, so in this case we will look at applying the different moving average
+    variations: the DWMA,IDWMA and SMA to two different time series- the S&P500 and
+    Gold. Traders and investors readily acknowledge that the S&P500 is fairly noisy-
+    especially in the short-term. In contrast, Gold tends to be unpredictable using
+    long-term measurements, but large moves tend to be predictable in the short-term.
+    Here is the performance using a 10-day moving average with the different variations
+    from 1995 to present. The rules are long if the average is above zero and cash
+    if it is below (no interest on cash is assumed in this case):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![dwma3](img/92b2c6802021ffa4f09ab46b42a4e95e.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![dwma4](img/3ff843356dc44fe193012cc54f652bb6.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Consistent with anecdotal observation, the DWMA performs the best on the S&P500
+    by filtering out large noisy or mean-reverting price movements. The IDWMA in contrast
+    performs the worst because it distorts the average by emphasizing these moves.
+    But the pattern is completely different with Gold. In this case the IDWMA benefits
+    from highlighting these large (and apparently useful trend signals), while the
+    DWMA performs the worst. In both cases the SMA has middling performance. One of
+    the disadvantages of a distance weighted moving average is that the calculation
+    ignores the position in time of each data point. An outlier is less relevant if
+    it occurs for example over 60 days ago versus one that occurs today. This aspect
+    can be addressed through clever manipulation of the calculation. However the main
+    takeaway is that it is possible to use different weighting schemes for a moving
+    average for different time series and achieve potentially superior results. Perhaps
+    an adaptive approach would yield good results. Furthermore, careful thought should
+    go into the appropriate moving average calculation for different types of applications.
+    For example, you may wish to use the DWMA instead of the median to calculate correlations-
+    which can be badly distorted by outliers. Perhaps using a DWMA for performance
+    or trade statistics makes sense as well. As mentioned earlier, using an IDWMA
+    is helpful for volatility-based calculations in many cases. Consider this a very
+    simple tool to add to your quant toolbox.
+  prefs: []
+  type: TYPE_NORMAL

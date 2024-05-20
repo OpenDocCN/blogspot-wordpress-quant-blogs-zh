@@ -1,0 +1,134 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:40:15'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility Position Sizing 2 | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I have discussed Volatility Position Sizing in the [Volatility Position Sizing
+    to improve Risk Adjusted Performance](https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/)
+    post using the [Average True Range (ATR)](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)
+    as a measure of Volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Today I want show how to use historical volatility to adjust portfolio leverage.
+    Let’s start with Buy and Hold strategy using SPY and rescale it to the target
+    volatility of 10%. I will use a 60 day rolling historical Volatility to adjust
+    portfolio leverage in order to target 10% annual Volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/56f44ea5bd653542e9e24c8aa80d8c54.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/0eb622d55816b5cd7214155e74411a5c.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/3926ec0a6c6ca833c7eb52dce3eec5cf.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: All strategies do a good job of rescaling portfolio leverage to the target 10%
+    volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next let’s investigate other volatility measures. The volatility function in
+    the [TTR](http://cran.r-project.org/web/packages/TTR/index.html) package includes
+    following volatility calculation types:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Historical volatility
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Garman and Klass
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Parkinson
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Rogers and Satchell
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Garman and Klass – Yang and Zhang
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Yang and Zhang
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: We can easily modify the algorithm above to use these different volatility calculations.
+    One of my favorite sides of [R](http://www.r-project.org/) is that there is a
+    function or package for anything you can imagine 🙂
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/3a89b82781e90899c6d7d47e0241e797.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/4dbe1746034e5201400a264053da121c.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot5-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The simple historical volatility does the best job at targeting volatility and
+    controlling drawdowns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s apply idea of Volatility Position Sizing to the strategy’s Equity
+    Curve.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/6cac13d493754cd0318a9706d5c968f9.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot6-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/97c99be60eca58ddfb3bcfbadc724b14.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot7-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Volatility Position Sizing does keep strategy’s volatility close to the
+    target 10% volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the final example, I will apply Volatility Position Sizing to the Timing
+    strategy developed by M. Faber
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/6ddcd5e3788d0f1eb33b2186052e0122.png "plot8.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot8-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/a8bf51326f629a054e4a17efe4d65e5b.png "plot9.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot9-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility Position Sizing is one of many Position Sizing algorithms that can
+    be part of your money management rules. Let me what Position Sizing scheme works
+    best for you.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.volatility.position.sizing.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

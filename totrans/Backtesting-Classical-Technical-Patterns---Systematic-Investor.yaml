@@ -1,0 +1,68 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:40:31'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Backtesting Classical Technical Patterns | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/05/29/backtesting-classical-technical-patterns/#0001-01-01](https://systematicinvestor.wordpress.com/2012/05/29/backtesting-classical-technical-patterns/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the last post, [Classical Technical Patterns](https://systematicinvestor.wordpress.com/2012/05/22/classical-technical-patterns/),
+    I discussed the algorithm and pattern definitions presented in the [Foundations
+    of Technical Analysis by A. Lo, H. Mamaysky, J. Wang (2000)](http://web.mit.edu/alo/www/Papers/1705-1765.pdf)
+    paper. Today, I want to check how different patterns performed historically using
+    SPY.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will follow the rolling window procedure discussed on pages 14-15 of the [paper](http://web.mit.edu/alo/www/Papers/1705-1765.pdf).
+    Let’s begin by loading the historical data for the SPY and running a rolling window
+    pattern search algorithm.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: There are many patterns that are found multiple times. Let’s remove the entries
+    that refer to the same pattern and keep only the first occurrence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Now we can visualize the performance of each pattern using the charts from my
+    [presentation](http://www.systematicportfolio.com/RFinance2012) about Seasonality
+    Analysis and Pattern Matching at the [R/Finance](http://www.rinfinance.com/agenda/)
+    conference.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/40911e336bef672ea1112b3067af2efd.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7135ed08cb032e1262537ff323c5f044.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/c3e902541692d1511af5a5830d106424.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Broadening bottoms (BBOT) and Rectangle tops (RTOP) worked historically
+    well for SPY.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.patterns.test() function in rfinance2012.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r).
+  prefs: []
+  type: TYPE_NORMAL

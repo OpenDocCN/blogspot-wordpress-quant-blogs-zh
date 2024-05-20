@@ -1,0 +1,111 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:34:25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tracking Number of Historical Clusters | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the prior post, [Optimal number of clusters](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/),
+    we looked at methods of selecting number of clusters. Today, I want to continue
+    with clustering theme and show historical Number of Clusters time series using
+    these methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In particular, I will look at the following methods of selecting optimal number
+    of clusters:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum number of clusters that explain at least 90% of variance
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Elbow method
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Hierarchical clustering tree cut at 1/3 height
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Let’s first load historical prices for the 10 major asset classes
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, I created 3 helper functions to automate cluster selection. In particular,
+    I used following methods of selecting optimal number of clusters:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum number of clusters that explain at least 90% of variance – cluster.group.kmeans.90
+    function
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Elbow method – cluster.group.kmeans.elbow function
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Hierarchical clustering tree cut at 1/3 height – cluster.group.hclust function
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: To view the complete source code for these functions please have a look at the
+    [startegy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s use these functions on our data set every week with 250 days look-back
+    to compute correlations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Finally, the historical number of cluster time series plots for each method:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1.png.small](img/7740aae2aca4057401aa7a292134fba6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot2.png.small](img/eb7e1bc748357107b8d26d2dd1dc9cf8.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot3.png.small](img/612df2fb5d1797ecc52896febcecc56d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: All methods selected clusters a little bit differently, as expected. The “Minimum
+    number of clusters that explain at least 90% of variance” method seems to produce
+    the most stable results. I would suggest looking at the larger universe (for example
+    DOW30) and longer period of time (for example 1995-present) to evaluate these
+    methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Takeaways: As I mentioned in the [Optimal number of clusters](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/)
+    post, there are many different methods to create clusters, and I have barely scratched
+    the surface. There is also another dimension that I have not explored yet, the
+    distance matrix. Currently, I’m using a correlation matrix as a distance measure
+    to create clusters. I was pointed out by Matt Considine that there is an R interface
+    to the [Maximal Information-based Nonparametric Exploration (MINE)](http://www.exploredata.net/)
+    metric that can be used as a better measure of correlation.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.cluster.optimal.number.historical.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

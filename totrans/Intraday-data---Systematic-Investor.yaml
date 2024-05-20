@@ -1,0 +1,128 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:30:48'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Intraday data | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01](https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the [Intraday Backtest](https://systematicinvestor.wordpress.com/2012/04/23/intraday-backtest/)
+    post I showed an example of loading and working with Forex Intraday data from
+    the [FXHISTORICALDATA.COM](http://www.fxhistoricaldata.com/). Recently, I came
+    across another interesting source of Intraday data at the [Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)
+    site. Please note that you will have to register to get access to the Intraday
+    data; the registration is free.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Today, I want examine quality of the Intraday data from the [Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)
+    and show how it can be integrated into Backtest using the [Systematic Investor
+    Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+    For the example below, please first download and save 1 minute Intraday historical
+    data for SPX and GLD. Next let’s load and plot time series for SPX.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1](img/4a786f17ed75acae006fdbe6301c22b1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot2](img/90a2158e769f5e9c6e85391992d3d08a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: It jumps right away that the data provider had changed the time scale, in 2012
+    data was recorded from 9:30 to 16:00 and in 2013 data was recorded from 13:30
+    to 20:00.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s check if there are any big gaps in the series Intraday.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Please see below the dates for GLD with gaps over 4 minutes
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: A detailed look at the Feb 19th, 2013 shows a 48 minute gap between 14:54 and
+    15:42
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: So there is definitely something going on with data acquisition at that time.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s compare Intrada data with daily data:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot3](img/3c8e765aaf3cf5da31097ccf295e4762.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot4](img/83fe56b84117406aeab92ab23355f238.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Intraday data matches Daily data very well.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Please note that the raw Intraday data comes with seconds time stamp, for back-testing
+    purposes we will also want to round date time to the nearest minute, so that we
+    can merge the Intraday data series without introducing multiple entries for the
+    same minute. For example:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: I got an impression that these Intraday data is not really authentic, but was
+    collected by running Intraday snap shoots of the quotes and later on processed
+    to create one minute bars. But I might be wrong.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s clean the Intraday data, by removing any day with time gaps over
+    4 minutes and let’s round all times to the nearest minute:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Once Intraday data is ready, we can test a simple equal weight strategy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot5](img/e20a124fef1d93f884e77c62f8a3895e.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this post, I tried to outline the basic steps you need to take if you are
+    planning to work with a new data source. Next, I plan to follow with more examples
+    of testing Intraday strategies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.intraday.thebonnotgang.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

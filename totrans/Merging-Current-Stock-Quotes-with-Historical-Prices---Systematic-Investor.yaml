@@ -1,0 +1,59 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:38:04'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Merging Current Stock Quotes with Historical Prices | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I got a question last week about going from the backtest to the trading. For
+    example, if our system is based on today’s close, we can approximate the close
+    value by the price at say 3:30pm, determine the signal and still have time enter
+    the trade. It is not perfect, but one of possible solutions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Unfortunately calling the getSymbols() function during the trading session
+    will only return closing prices for the prior session. Following is an example
+    I run today during the trading session:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: There is no information for September 4th.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To incorporate current stock quotes, we need to combine current quotes from
+    getQuote() function with historical prices from getSymbols() function. Following
+    is an example I run today during the trading session:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: The current stock quotes are now present. We can run our strategy at say around
+    3:30pm, determine the signal and still have time enter the trade.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.current.quote.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

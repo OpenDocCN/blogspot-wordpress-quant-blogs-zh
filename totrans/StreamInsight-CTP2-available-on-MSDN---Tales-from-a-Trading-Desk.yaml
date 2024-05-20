@@ -1,0 +1,238 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:09:59'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: StreamInsight CTP2 available on MSDN | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2009/08/19/streaminsight-ctp-available-on-msdn/#0001-01-01](https://mdavey.wordpress.com/2009/08/19/streaminsight-ctp-available-on-msdn/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: StreamInsight CTP2 available on MSDN
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Documentation and samples available [here](http://go.microsoft.com/fwlink/?LinkId=160598).
+    I never saw CTP1, no idea who that went to. The StreamInsight Event Flow Debugger
+    tool is included in the release.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![streaminsight](img/8db7ad7bed10c4acf74079f5ba31e3ae.png "streaminsight")'
+  prefs: []
+  type: TYPE_IMG
+- en: 'StreamInsight can either be hosted or run in standalone mode (StreamInsightHost.exe).
+    Three development models are supported – all support the definition of the query
+    logic through LINQ expressions 🙂 . The models are:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Explicit – provides a full-service complex event processing (CEP) application
+    environment by allowing the application developer to explicitly create and register
+    all of the objects required to transform and process events coming into and going
+    out of the CEP server
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Implicit – provides an easy-to-use environment that hides much of the complexity
+    associated with the explicit model
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: IObservable/IObserver – provides an alternative to using input and output adapters
+    as the producer and consumer of event sources and sinks
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'The ObjectModel sample appear to have a few issues:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Creating CEP Server
+  prefs: []
+  type: TYPE_NORMAL
+- en: Creating CEP Application
+  prefs: []
+  type: TYPE_NORMAL
+- en: Registering Event Type
+  prefs: []
+  type: TYPE_NORMAL
+- en: Registering Adapter Factories
+  prefs: []
+  type: TYPE_NORMAL
+- en: Registering LINQ query template
+  prefs: []
+  type: TYPE_NORMAL
+- en: Registering bound query
+  prefs: []
+  type: TYPE_NORMAL
+- en: Start query
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Diagnostic View for ‘cep:/Server/EventManager’:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'All Events Count: 3'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'All Events Memory (bytes): 69632'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Diagnostic View for ‘cep:/Server/PlanManager’:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Query Count: 3'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Stream Count: 17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Operator Count: 16'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Diagnostic View for ‘cep:/Server/Application/ObjectModelSample/Query/TrafficSens
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'orQuery’:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Query State: Aborted'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Start Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'End Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Query Exception: Microsoft.ComplexEventProcessing.Engine.OperatorExecutionExcep'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'tion: The adapter ‘locationInput’ of type ‘CepSamples.InputAdapters.TextFileEdge'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Input’, query ‘TrafficSensorQuery’, failed to start. —> System.FormatException
+  prefs: []
+  type: TYPE_NORMAL
+- en: ': String was not recognized as a valid DateTime.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyl
+  prefs: []
+  type: TYPE_NORMAL
+- en: es styles)
+  prefs: []
+  type: TYPE_NORMAL
+- en: at System.Convert.ToDateTime(String value, IFormatProvider provider)
+  prefs: []
+  type: TYPE_NORMAL
+- en: at CepSamples.InputAdapters.TextFileEdgeInput.CreateEventFromLine(String line
+  prefs: []
+  type: TYPE_NORMAL
+- en: ) in c:\temp\cep\Samples\InputAdapters\TextFileInputAdapter\TextFileEdgeInput.cs
+  prefs: []
+  type: TYPE_NORMAL
+- en: :line 257
+  prefs: []
+  type: TYPE_NORMAL
+- en: at CepSamples.InputAdapters.TextFileEdgeInput.ProduceEvents() in c:\temp\cep\
+  prefs: []
+  type: TYPE_NORMAL
+- en: Samples\InputAdapters\TextFileInputAdapter\TextFileEdgeInput.cs:line 144
+  prefs: []
+  type: TYPE_NORMAL
+- en: at CepSamples.InputAdapters.TextFileEdgeInput.Start() in c:\temp\cep\Samples\
+  prefs: []
+  type: TYPE_NORMAL
+- en: InputAdapters\TextFileInputAdapter\TextFileEdgeInput.cs:line 66
+  prefs: []
+  type: TYPE_NORMAL
+- en: at Microsoft.ComplexEventProcessing.Adapters.Adapter.ThreadProcStart(Object
+    t
+  prefs: []
+  type: TYPE_NORMAL
+- en: hisPtr)
+  prefs: []
+  type: TYPE_NORMAL
+- en: — End of inner exception stack trace —
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Stream Count: 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Operator Count: 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Incoming Event Count: 2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Consumed Event Count: 2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Produced Event Count: 1'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Outgoing Event Count: 1'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Last Incoming Event System Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Last Consumed Event System Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Last Produced Event System Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Last Outgoing Event System Time: 19/08/2009 07:00:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Consumed Events Latency (milliseconds): 32'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Produced Events Latency (milliseconds): 44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Outgoing Events Latency (milliseconds): 47'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Last Produced CTI Timestamp: 01/01/0001 00:00:00'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Stream Event Count: 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Stream Memory Including Events (bytes): 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Operator Index Event Count: 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Operator Event Memory (bytes): 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Operator Index Memory (bytes): 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Number of Times Operator Scheduled: 4'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Total Operator CPU Usage (milliseconds): 0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on August 19, 2009.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  prefs: []
+  type: TYPE_NORMAL

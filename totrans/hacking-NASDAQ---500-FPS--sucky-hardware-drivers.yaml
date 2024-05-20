@@ -1,0 +1,51 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:08:08'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: sucky hardware+drivers'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: What`s up with the bizzare latency? Turns out its a combination of hardware
+    + driver, most likely a shitty driver. Previous tests used a Send(Intel 823573L)
+    and Recv(Realtek RTL811/6168B) thus the logical question is, what happens if we
+    switch send and receive?
+  prefs: []
+  type: TYPE_NORMAL
+- en: First up is Send(Realtek) (above) which is still a little troubling, as It looks
+    a bit like the Send(Intel) throttle @ 1msg/10us in the previous post. Two double
+    spikes, one where you`d expect, and a second off out in the woods having a tea
+    party or something. As we see this on 2 different machiines, it llooks suspiciously
+    like something in the IP stack or NAPI... somewhere between the NIC and sendto().
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next is receive(intel) and....
+  prefs: []
+  type: TYPE_NORMAL
+- en: '...... tight, real tight. None of this bullshit spread we saw with Recv(Realtek).
+    Very low number and a very tight spread, this is good.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: And a nice closeup. As we can see, its peeking around 900ns, 2400 cycles @ 2.66Ghz(recv`s
+    machine clock) which is pretty good considering this is a user program+socket
+    user lib+network stack+driver. This however is just the time between packets,
+    its **NOT the latency  between machines,** its the latency from one message to
+    the next on a single machine - a very different but related number.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Machine to machine latency requires both machines send and receive, so will
+    have to wait until a less sucky network card+driver is put in the other box.
+  prefs: []
+  type: TYPE_NORMAL

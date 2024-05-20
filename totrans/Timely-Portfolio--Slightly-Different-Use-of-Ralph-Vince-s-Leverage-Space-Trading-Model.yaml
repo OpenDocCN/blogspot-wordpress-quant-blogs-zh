@@ -1,0 +1,386 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:17:55'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Slightly Different Use of Ralph Vince’s Leverage Space Trading
+    Model'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In honor of the press release [Dow Jones Indexes To Develop, Co-Brand Index
+    Family With LSP Partners](http://press.djindexes.com/index.php/dow-jones-indexes-to-develop-co-brand-index-family-with-lsp-partners/)
+    two days ago, I thought I would show another slightly different use of Ralph Vince’s
+    *The Leverage Space Trading Model.*
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using the R LSPM package, we can build a monthly system around the probProfit
+    calculation.  This particular system will enter long when the short term (12 month)
+    probProfit exceeds the longer term (36 month) probProfit.  It exits when the short
+    term falls below the longer term.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Feel free to substitute any index.  Some of my favorites are German Dax GDAXI,
+    Japan Nikkei N225, Korea Kospi KS11, and Signapore Straits Times STI for international
+    testing.  Additional US testing might look at NDX, RUT, CYC, XBD, HGX, REI, DJUSBK,
+    OSX or anything that you can think of to break it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results are not fantastic, but the considerable drawdown reductions is nice. 
+    Let me know how you would improve.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please see au.tra.sy blog [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#for original code and [http://www.fosstrading.com](http://www.fosstrading.com)
+    for some of the'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#other techniques'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PApages)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(LSPM)
+  prefs: []
+  type: TYPE_NORMAL
+- en: tckr<-"^GSPC"
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-"1929-01-01"
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pull tckr index data from Yahoo! Finance
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: getSymbols(tckr, from=start, to=end)
+  prefs: []
+  type: TYPE_NORMAL
+- en: GSPC<-adjustOHLC(GSPC,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: GSPC<-to.monthly(GSPC)
+  prefs: []
+  type: TYPE_NORMAL
+- en: rtn<-monthlyReturn(GSPC[,4])
+  prefs: []
+  type: TYPE_NORMAL
+- en: Define JPT function
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: jointProbTable <- function(x, n=3, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# handle case with no negative returns; use -0.01'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (sys in 1:numsys) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (min(x[,sys])> -1) x[,sys][which.min(x[,sys])]<- -0.01
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Function to bin data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: quantize <- function(x, n, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(is.character(FUN)) FUN <- get(FUN)
+  prefs: []
+  type: TYPE_NORMAL
+- en: bins <- cut(x, n, labels=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Allow for different values of ''n'' for each system in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)==1) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: n <- rep(n,NCOL(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '} else'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Bin data in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Aggregate probabilities'
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs <- rep(1/NROW(x),NROW(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Clean up output, return lsp object'
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(res) <- colnames(x)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
+  prefs: []
+  type: TYPE_NORMAL
+- en: return(res)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I know there are prettier ways to accomplish
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: but I have to live within my limits
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: numsys<-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: numbins<-12
+  prefs: []
+  type: TYPE_NORMAL
+- en: Set Walk-Forward parameters (number of periods) for short
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'optim<-9 # 9 monthly returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'wf<-1 #walk forward 1 month; we''ll set horizon separately'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calculate number of WF cycles
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: numCycles = floor((nrow(rtn)-optim)/wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 0:(numCycles-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Define cycle boundaries'
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-1+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: end<-optim+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Get returns for optimization cycle and create the JPT'
+  prefs: []
+  type: TYPE_NORMAL
+- en: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
+  prefs: []
+  type: TYPE_NORMAL
+- en: outcomes<-jpt[[1]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs<-jpt[[2]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: port<-lsp(outcomes,probs)
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProb<-probProfit(port,target=0,horizon=6)
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProbWF<-c(rep(1,wf)) %o% profitProb
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#make xts'
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProbWF<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxLossWF<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) profitProbHistory<-profitProbWF else profitProbHistory<-rbind(profitProbHistory,profitProbWF)
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) maxLossHistory<-maxLossWF else maxLossHistory<-rbind(maxLossHistory,maxLossWF)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Set Walk-Forward parameters (number of periods) for long
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'optim<-30 # 30 monthly returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'wf<-1 #walk forward 1 month; we''ll set horizon separately'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calculate number of WF cycles
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: numCycles = floor((nrow(rtn)-optim)/wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 0:(numCycles-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Define cycle boundaries'
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-1+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: end<-optim+(i*wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Get returns for optimization cycle and create the JPT'
+  prefs: []
+  type: TYPE_NORMAL
+- en: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
+  prefs: []
+  type: TYPE_NORMAL
+- en: outcomes<-jpt[[1]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs<-jpt[[2]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: port<-lsp(outcomes,probs)
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProb<-probProfit(port,target=0,horizon=3)
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProbWF<-c(rep(1,wf)) %o% profitProb
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#make xts'
+  prefs: []
+  type: TYPE_NORMAL
+- en: profitProbWFlong<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxLossWFlong<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) profitProbHistorylong<-profitProbWFlong else profitProbHistorylong<-rbind(profitProbHistorylong,profitProbWFlong)
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (i==0) maxLossHistorylong<-maxLossWFlong else maxLossHistorylong<-rbind(maxLossHistorylong,maxLossWFlong)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signalshortterm<-profitProbHistory
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#adjust the long term with maxLoss to hopefully reduce drawdown'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signallongterm<-profitProbHistorylong - maxLossHistorylong
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(signalshortterm,TA="addTA(signallongterm,on=1)", theme="white",
+    name="Short and Long Term Probability of Profit")
+  prefs: []
+  type: TYPE_NORMAL
+- en: Create the signals and enter when long term is < short term
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: sigup <- ifelse(signallongterm < signalshortterm,1,0)
+  prefs: []
+  type: TYPE_NORMAL
+- en: no need for lag since signal generated from previous months]
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'sigup <- lag(sigup,1) # Note k=1 implies a move *forward*'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Replace missing signals with no position
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: (generally just at beginning of series)
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: sigup[is.na(sigup)] <- 0
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Calculate equity curves'
+  prefs: []
+  type: TYPE_NORMAL
+- en: eq_up <- cumprod(1+(rtn)*sigup)
+  prefs: []
+  type: TYPE_NORMAL
+- en: perf_compare<-merge(sigup*rtn,rtn[(optim+1):NROW(rtn)])
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(perf_compare)<-c("LSPM probProfit System",tckr)
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(perf_compare,ylog=TRUE,legend.loc="topleft",main="LSPM
+    probProfit System Performance Comparison")
+  prefs: []
+  type: TYPE_NORMAL

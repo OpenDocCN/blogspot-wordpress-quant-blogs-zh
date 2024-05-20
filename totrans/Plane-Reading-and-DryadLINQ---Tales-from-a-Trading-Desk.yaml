@@ -1,0 +1,138 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:14:30'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Plane Reading and DryadLINQ | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01](https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: For once I wasn’t flight to New York. But as usual one has to read something
+    during these long flights.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[jQuery](http://weblogs.asp.net/jalpeshpvadgama/archive/2010/08/27/jquery-javascript-library-write-less-do-more.aspx)–
+    JavaScript Library Write less do more'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: HTML5 [Reset](http://html5reset.org/)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: HTML5 [Boilerplate](http://html5boilerplate.com/)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Azure Throughput [Analyzer](http://research.microsoft.com/en-us/downloads/5c8189b9-53aa-4d6a-a086-013d927e15a7/default.aspx)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[Orleans](http://www.zdnet.com/blog/microsoft/orleans-microsofts-next-generation-programming-model-for-the-cloud/7152):
+    Microsoft’s next-generation programming model for the cloud'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[Rx](http://blogs.msdn.com/b/jeffva/archive/2010/08/20/rx-on-the-server-part-3-of-n-writing-an-observable-to-a-stream.aspx)
+    on the server, part 3 of n: Writing an observable to a stream'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: So lets get back to DryadLINQ. Dryad has been on my radar for a long time –
+    I’ve also blogged about it a little. One of the problem I have with Dryad and
+    Windows HPC 2008 R2 is the amount of hardware you need to just do development
+    😦 I’m sure that if I could get more hardware I would have done a lot more than
+    I’ve currently been able to achieve. One think I’ve found to date is that the
+    HPC API is “painful”.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So let me get back to Dryad and Real-Time Market Risk (a topic I seem to be
+    spending a fair amount of time on from solutions to iPad UX). In DryadLINQ, I
+    can get the trades I want to process using
+  prefs: []
+  type: TYPE_NORMAL
+- en: PartitionedTable trades = PartitionedTable.Get(inputUri);
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Which lead to calculating market risk using something like:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: var result = trades.Select(t => Risk(t, curves);
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Assuming I have a function:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: TResult Risk(Trade t, Curve[] curves);
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: However the above is flawed, since I don’t want to send all the curves to every
+    trade as its network bandwidth unfriendly 🙂
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Sidebar:** The DryadLINQ Programming Guide’s samples are primarily driven
+    from a dataset within flat files which again isn’t what I typically have the luxury
+    of using as a trade repository. Given the amount of hardware/software to install
+    for Dryad development, one would have thought Microsoft would propose a simulator
+    mode to speed up development, and reduce cost?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Anyway, back to a better solution which possible comes from the Histogram sample
+    and specifically the BuildHistogram function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: return inputTable
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: .SelectMany(x => x.line.Split(‘ ‘))
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: .GroupBy(x => x)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: .Select(x => new Pair(x.Key, x.Count()))
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: .OrderByDescending(x => x.Count)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: .Take(k);
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Specifically if the trade set is a full book/portfolio, then maybe we want to
+    do a SelectMany and spit to trades by product and then maybe GroupBy currency.
+    We could then send the appropriate yield curves to the correct trades.
+  prefs: []
+  type: TYPE_NORMAL
+- en: More thought needed.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on August 27, 2010.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [HPC](https://mdavey.wordpress.com/category/hpc/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  prefs: []
+  type: TYPE_NORMAL

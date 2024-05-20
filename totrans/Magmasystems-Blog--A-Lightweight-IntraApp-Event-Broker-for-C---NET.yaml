@@ -1,0 +1,240 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:21:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: A Lightweight IntraApp Event Broker for C#/.NET'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Over the years, I have managed to write a repository of interesting classes
+    that has helped me in architecting and developing systems. Over the coming months,
+    and as time allows, I will submit some of these classes for your use.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I wrote the EventBroker about two years ago for a trading system that had Tibco
+    connectivity to a message bus that published quotes. I wanted a symmetrical processing
+    model from the back end to the front end, and also, within the front end. So,
+    I wrote a .NET/C#-based lightweight event broker that was like a min-Tibco within
+    the GUI.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Microsoft CAB has something similar, and when it came out, I took a few
+    ideas from it (such as the handling of WeakReferences) and integrated it into
+    my own Event Broker. CAB differs from mine in several respects .... namely, it
+    has the concept of Event Scope, and it also has a different way of decorating
+    code (it decorates event declarations, while mine decorates methods).
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, this event broker has been used in several trading systems and seems
+    to function well.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next several posts, I will post the code of the Event Broker. You are
+    free to use it as long as my copyright is maintained and proper acknowledgement
+    is given. Also, I am anxious to hear of any improvments, enhancements and bug
+    fixes you might make to any of the classes that I publish here. You can always
+    reach me at
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*magmasystems at yahoo dot com*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The Event Broker**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The application uses a lightweight Publish/Subscribe (PubSub) model internally
+    in order to notify the controller or UI layer of interesting events. A typical
+    interesting event is a change in the underlying data model.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The mechanism that implements PubSub within the application is called the Event
+    Broker. Event publishers and event subscribers will be automatically registered
+    with the Event Manager by the use of customized .NET attributes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The use of the Event Manager in no way precludes the application from doing
+    its own event management using the standard .NET event/delegate mechanism.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Using the EventBroker in a class**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Any class that wants to use the Pub/Sub capabilities of the EventBroker should
+    do two thing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1) Include a reference to the EventBroker''s assembly. Also, reference the
+    namespace within your class:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: using Magmasystems.TradingSystem.EventManager;
+  prefs: []
+  type: TYPE_NORMAL
+- en: '2) Register the class with the EventBroker. A good place to do this is in the
+    class'' constructor. To register the class with the Event Broker, all that needs
+    to be done is to put in the following line of code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: EventBroker.Register(this);
+  prefs: []
+  type: TYPE_NORMAL
+- en: There are several .NET attributes that can be used to decorate functions in
+    order to define them as either Event Publishers or Event Subscribers. When one
+    of these attributes is constructed, the EventTopic parameter is examined. The
+    EventTopic is added to the EventManager's internal Dictionary. A Dictionary collection
+    is used in order to provide fast access to a particular Topic/Event pairing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[EventPublisher(string EventTopic)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This registers a function or class to be an event publisher. The class will
+    publish an event with a specific name. Any subscribers to that topic will be notified.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[EventSubscriber(string EventTopic, options)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This registers a subscriber to an event. The attribute should be placed directly
+    above the function that will be used as the event handler. The options can be
+    one of the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Background**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- the handler is called asynchronously'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The string-based topic name can be the actual name of a published topic, or
+    it can be a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**wildcarded**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: topic like
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"Magmasystems.TradingSystem.Trade.*"'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: To fire an event, the static method EventManager.Fire() is called
+  prefs: []
+  type: TYPE_NORMAL
+- en: EventManager.Fire(object obj, string eventTopic, EventArgs args);
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Event handlers have the signature:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: public delegate bool EventManagerEventHandler(object sender,
+  prefs: []
+  type: TYPE_NORMAL
+- en: string topicName, EventArgs e);
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is a piece of code that publishes an event (The recipient could be a controller
+    that processes events from views and from the models):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[EventPublisher("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: private void GetTrades()
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GetTradeArgs args = new GetTradeArgs();args.CUSIP = "12345";EventBroker.Fire(this,
+    "Barcap.Gcdit.Odc.Controller.Action.GetTrades", args);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here is a piece of code from a controller that subscribes to an event
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[EventSubscriber("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: public void GetTrades(object sender, string topicName, System.EventArgs e)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GetTradesUnitOfWork.GetTradesArgs args = e as GetTradesUnitOfWork.GetTradesArgs;
+  prefs: []
+  type: TYPE_NORMAL
+- en: if (e == null)
+  prefs: []
+  type: TYPE_NORMAL
+- en: return;
+  prefs: []
+  type: TYPE_NORMAL
+- en: ExecuteAction(new GetTradesUnitOfWork(this._context.UIApplicationContext, args));
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: There is a .Net event associated with every topic that is registered. Events
+    are really Multicast Delegates. Every subscriber to an event adds an event handler
+    to the list of delegates. When an event is fired, the delegate list is traversed
+    and each delegate will be invoked either synchronously or asynchronously. The
+    options can include the Background flag. This tells the event firing mechanism
+    that the underlying delegate should be invoked asynchronously. If the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Background*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: flag is not present in the attribute declaration, then the underlying delegate
+    will be invoked synchronously.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Guidelines for Usage**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Any class can publish an event, and any class can subscribe to that event. The
+    event bus is global to the entire application.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The line of code that registers a class with the EventBroker is best put in
+    the constructor of the Base Class.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following our adoption of a namespace convention, we have also adopted a general
+    naming convention for events. This convention is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: companyname.department.application.domainobject.action
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2006 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

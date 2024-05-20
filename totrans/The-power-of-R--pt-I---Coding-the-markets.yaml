@@ -1,0 +1,104 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:51:32'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: The power of R, pt I | Coding the markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01](https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: A small illustration culled from the R intro…
+  prefs: []
+  type: TYPE_NORMAL
+- en: 30 elements in each array..
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: ..a salary and an Aussie state
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: incomes <- c(60, 49, 40, 61, 64, 60,
+  prefs: []
+  type: TYPE_NORMAL
+- en: 59, 54, 62, 69, 70, 42, 56,
+  prefs: []
+  type: TYPE_NORMAL
+- en: 61, 61, 61, 58, 51, 48, 65,
+  prefs: []
+  type: TYPE_NORMAL
+- en: 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
+  prefs: []
+  type: TYPE_NORMAL
+- en: state <- c(“tas”, “sa”,  “qld”, “nsw”,
+  prefs: []
+  type: TYPE_NORMAL
+- en: “nsw”, “nt”,  “wa”,  “wa”,  “qld”,
+  prefs: []
+  type: TYPE_NORMAL
+- en: “vic”, “nsw”, “vic”, “qld”, “qld”,
+  prefs: []
+  type: TYPE_NORMAL
+- en: “sa”,  “tas”, “sa”,  “nt”,  “wa”,
+  prefs: []
+  type: TYPE_NORMAL
+- en: “vic”, “qld”, “nsw”, “nsw”, “wa”,
+  prefs: []
+  type: TYPE_NORMAL
+- en: “sa”,  “act”, “nsw”, “vic”, “vic”, “act”)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Categorise the states and categorise the incomes
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: into buckets using cut(). Then use table() to
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: generate a table of counts for each category
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: combination…
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: statef <- factor( state)
+  prefs: []
+  type: TYPE_NORMAL
+- en: incomef <- factor( cut( incomes, breaks = 35 + 10*(0:7)))
+  prefs: []
+  type: TYPE_NORMAL
+- en: table( incomef, statef)
+  prefs: []
+  type: TYPE_NORMAL
+- en: statef
+  prefs: []
+  type: TYPE_NORMAL
+- en: incomef   act nsw nt qld sa tas vic wa
+  prefs: []
+  type: TYPE_NORMAL
+- en: (35,45]   1   1  0   1  0   0   1  0
+  prefs: []
+  type: TYPE_NORMAL
+- en: (45,55]   1   1  1   1  2   0   1  3
+  prefs: []
+  type: TYPE_NORMAL
+- en: (55,65]   0   3  1   3  2   2   2  1
+  prefs: []
+  type: TYPE_NORMAL
+- en: (65,75]   0   1  0   0  0   0   1  0
+  prefs: []
+  type: TYPE_NORMAL

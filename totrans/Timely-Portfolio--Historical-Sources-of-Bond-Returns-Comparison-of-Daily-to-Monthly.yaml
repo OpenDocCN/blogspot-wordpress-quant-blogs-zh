@@ -1,0 +1,185 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:18:19'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Historical Sources of Bond Returns-Comparison of Daily to
+    Monthly'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Thanks so much for the comment on my last post [Historical Bond Price and Total
+    Returns from 10y Yield Series](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html)
+  prefs: []
+  type: TYPE_NORMAL
+- en: “I know this might sound antithetical to a bond guy, but won't the monthly series
+    get you close enough? “
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: which proved me wrong and allowed me to get nine additional years of history. 
+    The question caused me to go one step further in proving my statement “…but monthly
+    yields from Shiller and Fed are averages of the daily yields and not month-end
+    values.  Applying this method to these month averages does not work.”  This monthly
+    averaging has caused many problems in the past for me, but in this case, it does
+    not matter.  We can see the difference in monthly averaging (GS10) and month-end
+    daily values (DGS10) in this chart.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, if we look at the price and total return series from both, the differences
+    are insignificant.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now that I have cleared that up, I can continue Bond Market as a Casino Game
+    with data back to 1953.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#do everything twice to compare monthly average to daily'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(RQuantLib)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DGS10",src="FRED") #load daily US Treasury 10y from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS10",src="FRED") # load monthly average US 10y from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Fed monthly series of yields is the monthly average of daily yields'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Shiller series also is monthly average'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#to calculate returns monthly average does not work'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#so we get daily, take monthend with to.monthly'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#and unfortunately the series does not go back as far'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10<-to.monthly(DGS10)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#set index to yyyy-mm-dd format rather than to.monthly mmm yyy for better merging
+    later'
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(DGS10)<-as.Date(index(DGS10))
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10pricereturn<-GS10
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[1,1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10pricereturn)<-"PriceReturn-daily to monthly DGS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I know I need to vectorize this but not qualified enough yet'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please feel free to comment to show me how to do this'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(DGS10)-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  prefs: []
+  type: TYPE_NORMAL
+- en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  prefs: []
+  type: TYPE_NORMAL
+- en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10pricereturn[1,1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(GS10pricereturn)<-"PriceReturn-monthly avg GS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I know I need to vectorize this but not qualified enough yet'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please feel free to comment to show me how to do this'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(GS10)-1)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=GS10[i+1,1]/100,issueDate=Sys.Date(),
+  prefs: []
+  type: TYPE_NORMAL
+- en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  prefs: []
+  type: TYPE_NORMAL
+- en: rates=GS10[i,1]/100,period=2)[1]/100-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#total return will be the price return + yield/12 for one month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(DGS10totalreturn)<-"Total Return-daily to monthly DGS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#total return will be the price return + yield/12 for one month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS10totalreturn<-GS10pricereturn+lag(GS10,k=1)/12/100
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(GS10totalreturn)<-"TotalReturn-monthly avg GS10"
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(DGS10,TA="addTA(GS10,on=1);addTA((DGS10-GS10)/100)",name="Comparison
+    of DGS10 and GS10",theme="white")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(merge(DGS10pricereturn,DGS10totalreturn,GS10pricereturn,GS10totalreturn),ylog=TRUE,colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"),main="Simulated
+    Returns from US10y Yield")
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL

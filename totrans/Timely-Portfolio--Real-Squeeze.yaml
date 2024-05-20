@@ -1,0 +1,82 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:12:17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Real Squeeze'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Real yields even out to 10 years have now been competely squeezed. Either bond
+    investors need to accept even worse negative real yields or deflation needs to
+    get ugly for additional price returns from here. If deflation is the outcome,
+    then shorts in stocks and commodities will be much more rewarding than long bonds.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: getSymbols("DGS10",src="FRED")
+  prefs: []
+  type: TYPE_NORMAL
+- en: getSymbols("DFII10",src="FRED")
+  prefs: []
+  type: TYPE_NORMAL
+- en: barplot(rbind(merge(DGS10["2010-12-31",]-DFII10["2010-12-31",],DFII10["2010-12-31",]),
+  prefs: []
+  type: TYPE_NORMAL
+- en: merge(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),],DFII10[NROW(DFII10),])),
+  prefs: []
+  type: TYPE_NORMAL
+- en: col=c("steelblue3","firebrick3"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="US 10 Year Yield Components
+  prefs: []
+  type: TYPE_NORMAL
+- en: YTD 2011 Change",
+  prefs: []
+  type: TYPE_NORMAL
+- en: ylim=c(0,4))
+  prefs: []
+  type: TYPE_NORMAL
+- en: text(y=c(coredata(DGS10["2010-12-31",])-.3,coredata(DFII10["2010-12-31",]),
+  prefs: []
+  type: TYPE_NORMAL
+- en: coredata(DGS10[NROW(DGS10),])-.02,coredata(DFII10["2010-12-31",])),
+  prefs: []
+  type: TYPE_NORMAL
+- en: x=c(0.7,0.7,1.9,1.9),
+  prefs: []
+  type: TYPE_NORMAL
+- en: c(paste("real",sprintf("%.2f",coredata(DFII10["2010-12-31",])),sep=" "),
+  prefs: []
+  type: TYPE_NORMAL
+- en: paste("inflation",sprintf("%.2f",coredata(DGS10["2010-12-31",]-DFII10["2010-12-31",])),sep="
+    "),
+  prefs: []
+  type: TYPE_NORMAL
+- en: paste("real",sprintf("%.2f",coredata(DFII10[NROW(DFII10),])),sep=" "),
+  prefs: []
+  type: TYPE_NORMAL
+- en: paste("inflation",sprintf("%.2f",coredata(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),])),sep="
+    ")),
+  prefs: []
+  type: TYPE_NORMAL
+- en: cex=0.8)
+  prefs: []
+  type: TYPE_NORMAL

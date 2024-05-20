@@ -1,0 +1,59 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:31:33'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Running Back-tests in parallel | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Once you start experimenting with many different asset allocation algorithms,
+    the computation time of running the back-tests can be substantial. One simple
+    way to solve the computation time problem is to run the back-tests in parallel.
+    I.e. if the asset allocation algorithm does not use the prior period holdings
+    to make decision about current allocation, we can run many periods in parallel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the [Update for Backtesting Asset Allocation Portfolios](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)
+    post, I show cased the [portfolio.allocation.helper() function in strategy.r at
+    github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r). The
+    [portfolio.allocation.helper() function](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)
+    is a user-friendly interface to evaluate multiple asset allocation algorithms
+    over given asset universe in a sequential fashion.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following is a sample code from the [Update for Backtesting Asset Allocation
+    Portfolios](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)
+    post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'To run the same strategies in parallel, I created the [portfolio.allocation.helper.parallel()
+    function in strategy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
+    There is one extra input that you need to specify: cores – number of CPU processors
+    used for computations.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example, the code below will use 2 CPU processors to run back-test computations.
+    It will run faster than the [portfolio.allocation.helper() function](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Hopefully, I did not ruin your prolong lunch plans 🙂
+  prefs: []
+  type: TYPE_NORMAL

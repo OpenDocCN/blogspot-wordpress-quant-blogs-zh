@@ -1,0 +1,107 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:45:51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Style Analysis | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'During the final stage of asset allocation process we have to decide how to
+    implement our desired allocation. In many cases we will allocate capital to the
+    mutual fund managers who will invest money according to their fund’s mandate.
+    Usually there is no perfect relationship between asset classes and fund managers.
+    To determine the true style of a manager one can examine its historical holdings
+    or perform a Style Analysis. Style Analysis is a procedure that tries to attribute
+    funds performance to the performance of asset classes by running the constrained
+    linear regression. For a detailed review of Style Analysis I recommend following
+    articles:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I want to examine to the style of the [Fidelity Worldwide Fund (FWWFX)](http://fundresearch.fidelity.com/mutual-funds/summary/315910505).
+    First, let’s get the historical fund and asset class prices from [Yahoo Fiance](http://finance.yahoo.com):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'To determine the Fidelity Worldwide Fund style, I will run a regression of
+    fund returns on the country asset classes over a rolling 36 months window. First,
+    let’s run the regression naively without any constraints:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/78d9f1e68c3493622e5f9c998c877eda.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small7.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The allocations jump up and down in no consistent fashion. The regression also
+    suggests that fund uses leverage (i.e. Cash -171%) which is not the case. To fix
+    these problems, I will introduce following constraints:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: All style weights are between 0% and 100%.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The sum of style weights is equal up to 100%.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/aaad74bf30b8d4da1d06eb743f13c867.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small6.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'After introducing the constraints, the allocations are more stable, but the
+    historical allocation to USA (highlighted with yellow) varies from 0% in 2000
+    to 60% in 2006\. This is very suspicious, and the only way to check if this is
+    true, is to look at the fund memorandum and historical holdings. For now, I will
+    assume that the asset class allocations can vary around the current fund’s allocations.
+    To get the current fund’s allocations, I will examine its current holdings at:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I imposed additional lower and upper bounds constrains:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/0dcfc96989f27fea2afb29287f4aaf39.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The last style allocation looks more probable. If historical fund’s holdings
+    were readily available we could have examined them to refine the upper and lower
+    boundaries. The last step is to analyze fund’s actual returns vs returns implied
+    by its style matrix.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/bd6139f5958715b6ad3569783bbfdc92.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Fidelity Worldwide Fund outperformed its proxy, implied from the style matrix,
+    consistently over the last decade. The fund’s alpha is 2.9% and standard deviation
+    of alpha is 3.9%. So if you want to invest into Worldwide Fund, the Fidelity Worldwide
+    Fund is not a bad choice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.style.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

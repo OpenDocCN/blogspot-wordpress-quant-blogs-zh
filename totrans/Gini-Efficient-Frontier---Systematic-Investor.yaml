@@ -1,0 +1,98 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:41:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Gini Efficient Frontier | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[David Varadi](http://cssanalytics.wordpress.com/) have recently wrote two
+    posts about [Gini Coefficient](http://en.wikipedia.org/wiki/Gini_coefficient):
+    [I Dream of Gini](http://cssanalytics.wordpress.com/2012/02/24/i-dream-of-gini/),
+    and [Mean-Gini Optimization](http://cssanalytics.wordpress.com/2012/02/25/mean-gini-optimization/).
+    I want to show how to use Gini risk measure to construct efficient frontier and
+    compare it with alternative risk measures I discussed previously.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will use [Gini mean difference](http://en.wikipedia.org/wiki/Mean_difference)
+    risk measure – the mean of the difference between every possible pair of returns
+    to construct Mean-Gini Efficient Frontier. I will use methods presented in “The
+    Generation of Mean Gini Efficient Sets” by J. Okunev (1991) paper to construct
+    optimal portfolios.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let x.i, i= 1,…,N be weights of instruments in the portfolio. Let us denote
+    by r.it the return of i-th asset in the time period t for i= 1,…,N and t= 1,…,T.
+    The portfolio’s Gini mean difference (page 5) can be written as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\Gamma = \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left | Y_{j} - Y_{k} \right
+    | ](img/1ac48bc2848dbee0b2375d68b559ab91.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\left | Y_{j} - Y_{k} \right | = a_{jk}^{+} - a_{jk}^{-}  \newline  \newline  min
+    \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left ( a_{jk}^{+} - a_{jk}^{-} \right
+    )  \newline  \sum_{i=1}^{N}x_{i}\left ( r_{ij} - r_{ik} \right ) - a_{jk}^{+}
+    + a_{jk}^{-} = 0  \newline   \left ( \begin{matrix} for & j=1 & to & T, & and
+    & k>j\end{matrix} \right )  \newline   a_{jk}^{+}, a_{jk}^{-}\geqslant 0 ](img/ffa9e3f15ed9be8ec07048e954bac2b1.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This linear programming problem can be easily implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Let’s examine efficient frontiers computed under Gini and Standard deviation
+    risk measures using sample historical input assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/180be18f3265d7319b5e09430bcb68f8.png "plot1g.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1g-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Gini efficient frontier is almost identical to Standard deviation efficient
+    frontier, labeled ‘Risk’. This is not a surprise because asset returns that are
+    used in the sample input assumptions are well behaved. The Gini measure of risk
+    would be most appropriate if asset returns contained large outliers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.gini.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next I added Gini risk measure to the mix of Asset Allocation strategies that
+    I examined in the [Backtesting Asset Allocation portfolios](https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/57ec3736de8f90ce9651bc2f9090e2c9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/9f988aecfd23240735b59224eeddfba8.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Gini portfolios and Minimum Variance portfolios show very similar perfromance
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.aa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

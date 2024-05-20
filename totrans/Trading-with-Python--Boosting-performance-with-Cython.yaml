@@ -1,0 +1,105 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:42:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Trading with Python: Boosting performance with Cython'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Even with my old pc (AMD Athlon II, 3GB ram), I seldom run into performance
+    issues when running vectorized code. But unfortunately there are plenty of cases
+    where that can not be easily vectorized, for example the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*drawdown*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function. My implementation of such was extremely slow, so I decided to use
+    it as a test case for speeding things up. I'll be using the SPY timeseries with
+    ~5k samples as test data. Here comes the original version of my
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*drawdown*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function (as it is now implemented in the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*TradingWithPython*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: library)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Hmm 1.2 seconds is not too speedy for such a simple function. There are some
+    things here that could be a great drag to performance, such as a list *highwatermark*
+    that is being appended on each loop iteration. Accessing Series by their index
+    should also involve some processing that is not strictly necesarry. Let's take
+    a look at what happens when this function is rewritten to work with numpy data
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Well, this is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**much**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: faster than the original function, approximately 40x speed increase. Still there
+    is much room for improvement by moving to compiled code with
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*[cython](http://cython.org/)*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now I rewrite the dd function from above, but using optimisation tips that I've
+    found on the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[cython tutorial](http://docs.cython.org/src/tutorial/numpy.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Note that this is my first try ever at optimizing functions with Cython.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Wow, this version runs in 122
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*micro*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: seconds, making it
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**ten thousand**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: times faster than my original version! I must say that I'm very impressed by
+    what the Cython and IPython teams have achieved! The speed compared with ease
+    of use is just awesome!
+  prefs: []
+  type: TYPE_NORMAL
+- en: P.S. I used to do code optimisations in Matlab using pure C and .mex wrapping,
+    it was all just pain in the ass compared to this.
+  prefs: []
+  type: TYPE_NORMAL

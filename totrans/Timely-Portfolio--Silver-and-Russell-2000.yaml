@@ -1,0 +1,101 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:21:44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Silver and Russell 2000'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: When I find a chart that looks like this, I always like to explore a little
+    further.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/5251def285910c9f45b4b2e17e5a66c7.png)](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: via [StockCharts.com](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)
+  prefs: []
+  type: TYPE_NORMAL
+- en: I pull it into R and try to find anything worthwhile.  I do not find anything,
+    except that I do not want to be trading both in the same direction and expect
+    any diversification.  But we all know the whole world is correlated.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(TTR)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: tckr<-c("GLD","SLV","IWM")
+  prefs: []
+  type: TYPE_NORMAL
+- en: start<-"2006-06-30"
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pull tckr index data from Yahoo! Finance
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: getSymbols(tckr, from=start, to=end)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#adjust for splits and dividends'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GLD<-adjustOHLC(GLD,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: SLV<-adjustOHLC(SLV,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: IWM<-adjustOHLC(IWM,use.Adjusted=T)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get daily return from prices to use PerformanceAnalytics'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GLD<-dailyReturn(GLD)
+  prefs: []
+  type: TYPE_NORMAL
+- en: SLV<-dailyReturn(SLV)
+  prefs: []
+  type: TYPE_NORMAL
+- en: IWM<-dailyReturn(IWM)
+  prefs: []
+  type: TYPE_NORMAL
+- en: RetToAnalyze<-merge(GLD,SLV,IWM)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(RetToAnalyze)<-tckr
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.RollingRegression(last(RetToAnalyze,"3 years")[,c(1,2),drop=F],last(RetToAnalyze,"5
+    years")[,3],legend.loc="topleft",width=20,main="Rolling 20-day Regression")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.RollingPerformance(RetToAnalyze,width=150,legend.loc="topleft",main="Rolling
+    150-day Performance")
+  prefs: []
+  type: TYPE_NORMAL

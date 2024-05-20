@@ -1,0 +1,682 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:47:53'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : New package "dplyrr" - Utilities
+    for comfortable use of dplyr with databases'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01](http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 1\. Overview
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '`dplyr package `'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is the most powerful package for data handling in R, and it has also the ability
+    of working with databases(
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[See Vignette](https://cran.rstudio.com/web/packages/dplyr/vignettes/databases.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ).
+  prefs: []
+  type: TYPE_NORMAL
+- en: But the functionalities of dealing with databases in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is begin developped even now.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, I'm trying to make
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: with databases more comfortable by some functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For that purpose, I've created
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: package.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'has below functions:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`load_tbls()` : Easy to load table objects for all tables in a database.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`cut()` in `mutate()` : Easy to create a case statement by using the grammar
+    like the `base::cut()`.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`count_if()` and `n_if()` in `summarise()` : Shortcut to count rows that a
+    condition is satisfied.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`filter()` : Improved `filter()` for `tbl_sql` which adds parentheses appropriately.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_mean()` in `mutate()` : Compute moving average for PostgreSQL.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_max()` in `mutate()` : Compute moving max for PostgreSQL.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_min()` in `mutate()` : Compute moving min for PostgreSQL.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_sum()` in `mutate()` : Compute moving sum for PostgreSQL.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`first_value()` in `mutate()` : Compute first value for PostgreSQL.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 2\. How to install
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: The source code for
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: package is available on GitHub at
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can install the pakage from there.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3\. Common functions for all databases
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'For illustration, we use a database file: "my_db.sqlite3".'
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you want to trace the codes below, you should create the databese file at
+    first.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3-1\. load_tbls()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Usually, when we use a database with
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', we first create database object, and we can see the tables in the databese
+    by'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`show()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, we create table objects for pulling data in some tables in the database.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: Typing this code is really a bore!
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you want to create table objects for
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**all tables in the database**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you can use'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`load_tbls()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: Check the created table objects.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE10]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3-2\. cut() in mutate()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: If you want to write case statement with like
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`base::cut()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you can use'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`cut()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`mutate()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example, there is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`air_time`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: column in the database.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE11]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE12]'
+  prefs: []
+  type: TYPE_PRE
+- en: If you want to group the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`air_time`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: by break points
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`c(0, 80, 120, 190, 900)`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you think you must write the next code.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE13]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE14]'
+  prefs: []
+  type: TYPE_PRE
+- en: When the break points increase, you are going to be tired to write more lines.
+  prefs: []
+  type: TYPE_NORMAL
+- en: By using
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`cut()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`mutate()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', it can become easy.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE15]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE16]'
+  prefs: []
+  type: TYPE_PRE
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`cut()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`mutate()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: has more arguments such as labels coming from
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`base::cut()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`cut(variable, breaks, labels, include.lowest, right, dig.lab)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: For integer break points, specially you can indicate
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`labels="-"`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE17]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE18]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3-3\. count_if() and n_if() in summarise()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: When we want to count rows that condition is satisfied, we might write like
+    this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE19]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE20]'
+  prefs: []
+  type: TYPE_PRE
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`count_if()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`n_if()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: functions are a shortcut for it merely.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`count_if(condition)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`n_if(condition)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE21]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE22]'
+  prefs: []
+  type: TYPE_PRE
+- en: Both functions do exactly the same thing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3-4\. Improved filter()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: If you use
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: with databases in pure mind, you can encounter the unintended action like below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE23]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE24]'
+  prefs: []
+  type: TYPE_PRE
+- en: Did you expect the WHERE clause to be that?
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you use
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', it becomes natural by adding parentheses.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE25]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE26]'
+  prefs: []
+  type: TYPE_PRE
+- en: 4\. Functions for PostgreSQL
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 4-1\. moving_**() in mutate()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: has four
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`moving_**()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: functions that you can use in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`mutate()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`moving_mean(variable, preceding, following)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_max(variable, preceding, following)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_min(variable, preceding, following)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`moving_sum(variable, preceding, following)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: When you want to set the same
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`preceding`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`following`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you can omit'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`following`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: For illustration, we use the test database that is PostgreSQL.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE27]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE28]'
+  prefs: []
+  type: TYPE_PRE
+- en: Compute moving average with 1 preceding and 1 following.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE29]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE30]'
+  prefs: []
+  type: TYPE_PRE
+- en: Comfirm query.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE31]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE32]'
+  prefs: []
+  type: TYPE_PRE
+- en: Compute moving mean with 1 preceding and 2 following.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE33]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE34]'
+  prefs: []
+  type: TYPE_PRE
+- en: Comfirm query.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE35]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE36]'
+  prefs: []
+  type: TYPE_PRE
+- en: Similary, you can use the other
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`moving_**()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4-2\. first_value() in mutate()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`dplyrr`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: has
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`first_value()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function that you can use in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`mutate()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`first_value(value, order_by)`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: When you want to set the same
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`value`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`order_by`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', you can omit'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`order_by`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: For illustration, we use the test database that is PostgreSQL.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE37]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE38]'
+  prefs: []
+  type: TYPE_PRE
+- en: Get the first values of x partitioned by class and ordered by x.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE39]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE40]'
+  prefs: []
+  type: TYPE_PRE
+- en: See query.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE41]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE42]'
+  prefs: []
+  type: TYPE_PRE
+- en: Get the first values of x partitioned by class and ordered by y.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE43]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE44]'
+  prefs: []
+  type: TYPE_PRE
+- en: See query.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE45]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE46]'
+  prefs: []
+  type: TYPE_PRE
+- en: Get the first values of x partitioned by class and ordered by descent of y.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE47]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE48]'
+  prefs: []
+  type: TYPE_PRE
+- en: See query.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE49]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE50]'
+  prefs: []
+  type: TYPE_PRE
+- en: 5\. Miscellaneous
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: update_dplyrr()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`update_dplyrr()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is a shortcut/syntax sugar of
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE51]'
+  prefs: []
+  type: TYPE_PRE
+- en: unload_dplyrr()
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`unload_dplyrr()`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is a shortcut/syntax sugar of
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE52]'
+  prefs: []
+  type: TYPE_PRE
+- en: 6\. Bug reports
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL

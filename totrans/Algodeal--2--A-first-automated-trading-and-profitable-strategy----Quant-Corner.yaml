@@ -1,0 +1,180 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:10:10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Algodeal (2) A first automated trading and profitable strategy! | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01](https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Introduction
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Today, we write a first automated trading strategy using the **Market Runner**
+    development environment in **Java** developed by the **Algodeal** team. Then,
+    we will send it out to the **Algodeal** servers that is we will run our strategy
+    to see how well it performs in pseudo real conditions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Beforehand, we did our homework that is we did market research seeking to understand
+    the behaviour of a stock/index/future price. Then, we determined a trading framework,
+    entry and exit rules.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There are various way one can come up with a automated trading idea depending
+    on one’s trading experience, knowledge in the field of finance, econometrics,
+    technical analysis, neural networks, support vector machine, … It is a mix of
+    science and experience (and luck ?) .
+  prefs: []
+  type: TYPE_NORMAL
+- en: For this first code, this research step is restricted to the observation of
+    common technical analysis indicators, and knowledge of the underlying.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As far as coding in **Java** is concerned, we will derive the code examples
+    given by the **Algodeal** team. The structure of our code draw from the tutorials
+    available.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The underlying and trading rules
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: We selected an **agricultural commodity future**, called *Underlying* in our
+    code.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We make use of the **RSI** (Relative Strength Index) technical indicator, coupled
+    with the drop (in %) of the underlying price on a trading day.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We determined certain levels for both the **RSI** and the price drop. More exactly,
+    we determined two different level for each indicator.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The (pseudo) pseudo code for our strategy is as follows :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: _____________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: if  x > RSI > y and  a > drop > b
+  prefs: []
+  type: TYPE_NORMAL
+- en: then buy 1 unit
+  prefs: []
+  type: TYPE_NORMAL
+- en: If y > RSI > z and drop > b
+  prefs: []
+  type: TYPE_NORMAL
+- en: then buy 1 unit
+  prefs: []
+  type: TYPE_NORMAL
+- en: If position = long then
+  prefs: []
+  type: TYPE_NORMAL
+- en: wait 3 bars and close out the position
+  prefs: []
+  type: TYPE_NORMAL
+- en: _____________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here, x < y < z , and a < b.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One can see it is really basic, somehow *heterodox*, and *a priori* risky as
+    there are no safeguards. Notice this strategy will require cash as it is of *buy
+    first then sell* type. But, it is OK for now!
+  prefs: []
+  type: TYPE_NORMAL
+- en: The code of the strategy in Java
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: We follow the general code structures showed at beta.algodeal.com.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Our code starts with fundamental instructions :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'As it is showed in the **Algodeal** code examples, we extend the AbstractStrategy
+    class:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Then, we define all our variables :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: This way it will be easy to change the values hoping to better score by trial
+    and error.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Then, we declare our variable rsi and we draw it on a graph as such :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '*Please refer to the MarketRunner API documentation for the details of the
+    parameters.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, we get to the heart of the strategy. All our conditions, loops, etc
+    … are contained in a single **onClose()** callback.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The whole code snippet looks like :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: Running the strategy
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '*Last but not least*, we run our strategy in ‘real’ conditions by sending out
+    our code towards the **Algodeal** grid of servers. In no time, we receive back
+    a series of performance indicators of our trading strategy.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The overall performance of our strategy :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/50cf2ac150597a8bb22f2697405c05dd.png "equityChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/equitychartsoybean.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/91a4c590328e5bac353b27abcf11a5a9.png "barChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/barchartsoybean1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: OK, it is far from perfect, and this strategy has many caveats as it is oversimplified.
+    But, can you believe it ? It is profitable! This should convince one that it worth
+    spending time doing market research, defining automated trading strategies and
+    coding them using the **Algodeal.**
+  prefs: []
+  type: TYPE_NORMAL
+- en: Once an author wrote that  *knowledge is all around waiting to be articulated*.
+    Now, it is tempting to derive this assertion as *wealth is all around waiting
+    to be coded*. 🙂
+  prefs: []
+  type: TYPE_NORMAL

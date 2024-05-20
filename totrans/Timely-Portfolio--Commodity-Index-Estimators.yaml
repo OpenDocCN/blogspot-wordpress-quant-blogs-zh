@@ -1,0 +1,114 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:17:38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Commodity Index Estimators'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post I will show my first try at a commodity index substitute.  Regular
+    readers know my frustration with proprietary data as I try to demonstrate various
+    techniques to users who might not have the resources to pay for the data.  I have
+    substituted US 10y Treasury Total Returns series as my bond proxy with good results,
+    but I have so far been unable to find a free and readily available substitute
+    for commodity indexes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: PPI is not real-time, but might offer one good 1-month lagged proxy for commodity
+    indexes.  If we use
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PPI data from the St. Louis Federal Reserve FRED system](http://research.stlouisfed.org/fred2/categories/31)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', I can get close, but I am unsure if it will be close enough until further
+    system testing.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#getSymbols("NAPMPRI",src="FRED") #load ISM Manufacturing Price'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("PPIACO",src="FRED") #load PPI All Commodities'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("PPICRM",src="FRED") #load PPI Crude for Further Processing'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("PPIIDC",src="FRED") #load PPI Industrial'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#unfortunately cannot get substitute for proprietary CRB data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data series from csv file'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-as.xts(read.csv("spxcrbndrbond.csv",row.names=1))[,2]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#my CRB data is end of month; could change but more fun to do in R'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-to.monthly(CRB)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(CRB)<-as.Date(index(CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#NAPMPRI_change<-ROC(NAPMPRI,1)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: PPIACO_change<-ROC(PPIACO,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: PPICRM_change<-ROC(PPICRM,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: PPIIDC_change<-ROC(PPIIDC,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#combine all Rate of Change series with CRB lag 1 month (moved forward) to
+    account for PPI delay'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRBandPPI<-merge(lag(CRB,k=1),PPIACO_change,PPICRM_change,PPIIDC_change)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(CRBandPPI)<-c("CRB","PPI All Comm","PPI Crude for Further","PPI Industrial")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.CumReturns(CRBandPPI,main="CRB Estimators through PPI",legend.loc="topleft")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.CumReturns(CRBandPPI["1990::"],main="CRB Estimators through PPI since
+    1990",legend.loc="topleft")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(CRBandPPI,main="CRB Estimators through PPI")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(CRBandPPI["1990::"],main="CRB Estimators through PPI since
+    1990")
+  prefs: []
+  type: TYPE_NORMAL

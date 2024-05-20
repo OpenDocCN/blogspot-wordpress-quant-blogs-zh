@@ -1,0 +1,167 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:31:38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Commissions | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today, I want to explain the commission’s functionality build in to [Systematic
+    Investor Toolbox(SIT)](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    “share” back-test.
+  prefs: []
+  type: TYPE_NORMAL
+- en: At each re-balance time the capital is allocated given the weight such that
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: For example, if weight is 100% (i.e. fully invested) and capital = $100 and
+    price = $10 then
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: The period return is equal to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: The total return is equal to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: The period returns constructed this way let me construct portfolio returns without
+    using loops
+  prefs: []
+  type: TYPE_NORMAL
+- en: I.e. if share, price, cash are matrices, then
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: To introduce commissions into above framework, I had to make following assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’ assume that P0 and P1 are stock prices and com is commission that is very
+    small relative to stock price then
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: Given commissions, the period return formula used in [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    is equal to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Now let’s look at the example of trade with commissions:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: In [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/),
+    these computations are equivalent to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: Hence, as long as commissions are small relative to whole trade the returns
+    produced with [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    will be very close to the true returns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: SIT currently supports following 3 types of commissions
+  prefs: []
+  type: TYPE_NORMAL
+- en: cents / share commission
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE10]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: fixed commission
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE11]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: percentage commission
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE12]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: You can mix and match these commission methods in any way,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE13]'
+  prefs: []
+  type: TYPE_PRE
+- en: and period return is equal to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE14]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s see the impact of different type of commissions. There two ways to
+    specify the commissions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE15]'
+  prefs:
+  - PREF_UL
+  type: TYPE_PRE
+- en: will be translated in
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '[PRE16]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: '[PRE17]'
+  prefs:
+  - PREF_UL
+  type: TYPE_PRE
+- en: '[PRE18]'
+  prefs: []
+  type: TYPE_PRE
+- en: To view the complete source code for this example, please have a look at the
+    [bt.commission.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

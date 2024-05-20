@@ -1,0 +1,73 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:07:19'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Passing a pandas.DataFrame on to Javascript within Ipython/Jupyter Notebook
+    | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01](https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '***Updated on Jan 3rd. 2016 – See at the bottom the code for Jupyter notebook
+    4.0.1***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I was willing to pass on data contained in a quite big dataframe  — specifically
+    a **pandas.DataFrame** object to **Javascript** within **IPython Notebook 3.2.1**
+    .
+  prefs: []
+  type: TYPE_NORMAL
+- en: Some say it is not straightforward due to security reasons, other argue it requires
+    a template engine such as **Jinja2**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'After some time (banging my head against the wall), I finally came up with
+    the following solution (see code below). Yeah .. it was  simple actually: use
+    a built-in **IPython** **widget**.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Just write these few lines of **Python** in a cell of the notebook:# Required
+    library
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: And, that’s it!
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'One can check that the data originally produced in **Python** are available
+    to **Javascript**, eg:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'One can then eg convert it (back) to **json** which makes the data easy to
+    manipulate with **Javascript**:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '***/* Update Jan 3rd. 2016 – code for Jupyter notebook 4.0.1 */***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The code above just doesn’t work with the newest version of the **IPython notebook**
+    aka **Jupyter**. Instead, use the snippet below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE

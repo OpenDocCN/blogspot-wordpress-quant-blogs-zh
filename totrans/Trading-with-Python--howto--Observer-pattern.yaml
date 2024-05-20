@@ -1,0 +1,85 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:43:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Trading with Python: howto: Observer pattern'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01](http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[observer pattern](http://en.wikipedia.org/wiki/Observer_pattern)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: comes very handy when dealing with complex systems. It allows for class-to class
+    communication with a very simple structure. Even more important is the ability
+    to separate functionality in different modules, for example running a single 'broker'
+    as a wrapper to some api and letting multiple strategies subscribe to relevant
+    broker events. There are some ready-made modules available, but the best way to
+    understand how this process works is to write the whole system from scratch. In
+    many languages this is a very tedious task, but thanks to the power of Python
+    it only takes a couple of lines to do this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The following example code creates a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Sender*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: class (named Alice). Sender keeps track of interested listeners and notifies
+    them accordingly. In more detail, this is achieved by a dictionary containing
+    a function-event mapping, Sender.listeners.
+  prefs: []
+  type: TYPE_NORMAL
+- en: A listener class can be of any type, here I make a bunch of
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*ExampleListener*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: classes, named Bob,Dave & Charlie. All of them have a method, that is that is
+    subscribed to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Sender*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '. The only special thing about the subscribed method is that it should contain
+    three parameters:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*sender, event, message*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Sender is the class reference of the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Sender*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: class, so a listener would know who sent the message. Event is an identifier,
+    for which I usually use a string. Optionally, a message is the data that is passed
+    to a function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: A nice detail is that if a listener method throws an exception, it is automatically
+    unsubscribed from further events.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

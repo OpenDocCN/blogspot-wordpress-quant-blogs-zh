@@ -1,0 +1,322 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:46:39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: The Efficient Frontier | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01](https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'No, the title of my latest blog post isn’t some obscure Star Trek reference. 
+    Rather, the Efficient Frontier is a concept at the very core of modern portfolio
+    theory.  The father of modern portfolio theory,  Harry Markowitz, defined the
+    concept as the set of all efficient portfolios, where an efficient portfolio consists
+    of that weighting of a portfolio’s assets such that the portfolio’s expected return
+    is maximized for a given level of risk, as measured by the portfolio’s standard
+    deviation of returns.  Charting the volatility of every efficient portfolio versus
+    its expected return produces the following graphic: [![efficient](img/33feeaf66b7fe4258d7e7f6744774dbe.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/05/efficient.png)
+    Why is this important? Most people are risk averse. As such, people prefer to
+    invest in those assets that generate the greatest return for the least amount
+    of risk. All portfolios on the efficient frontier satisfy that requirement.  There
+    is no  other portfolio that produces a higher return for a given amount of risk
+    than the one on the Efficient Frontier.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In many ways, modern portfolio theory and its seminal idea, the Efficient Frontier,
+    along with the Black-Scholes option pricing formula, can be credited with giving
+    birth to the field that we now call quantitative finance.  So even though there
+    is not a lot in the QuantLib library that specifically addresses the Efficient
+    Frontier, I feel I would be remiss if I didn’t cover it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As I’ve done in previous posts, I want to first motivate the C++ code that is
+    to follow by presenting an example calculated in a spreadsheet. I will then reproduce
+    the results  in C++ using QuantLib. But first, let me present a few fundamental
+    definitions and some simple equations that are necessary in order to understand
+    the analysis.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Expected Return:** E(Rp) – the percentage increase/decrease in the value
+    of a portfolio that is consistent with the historical performance of the assets
+    in the portfolio and the relative proportion, or weightings, of those assets,
+    where the total weight must sum to one.   The formula for calculating the expected
+    return of a two-asset (i.e. two stocks) portfolio is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: E(Rp) = w1*R1 + (1 – w1)*R2 . where Rp is the portfolio’s expected return, R1
+    is the mean return of asset1, w1 is the percentage weighting of asset1 in the
+    portfolio, and R2 is the mean return of asset2.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Variance:** (Vp) – the amount of deviation or dispersion of the portfolio’s
+     return from the historical mean return of the portfolio given the weighting of
+    the assets in the portfolio, their respective variances and the degree to which
+    the asset’s returns move or don’t move together, known as covariance.  The formula
+    for calculating portfolio variance for a two asset portfolio is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Vp = w1^2*V1 + (1-w1)^2*V2 + 2*w1*(1-w1)*cov(R1,R2), where Vp is the portfolio’s
+    variance, V1 is the variance of asset1’s returns, V2 is the variance of asset2’s
+    returns and cov(R1,R2) is a measure of how much or how little asset1 and asset2’s
+    returns move in the same direction at the same time.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Volatility (σ) ‘sigma’**– the most well-accepted measure of risk. It is nothing
+    more than scaled variance, calculated as: σp = sqrt(Vp)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Generating the Efficient Frontier requires maximizing the portfolio’s return
+    for a given portfolio variance or conversely minimizing the portfolio variance
+    for a given level of return.  As such, calculating the efficient portfolio amounts
+    to an optimization problem. If you read my last post on linear optimization, you
+    may recall that portfolio optimization is not a linear optimization problem.  Now
+    that you’ve seen the formulas for portfolio risk and return you may realize why.
+    The formula for calculating variance is non-linear; it is a second degree polynomial
+    function.  Therefore, we can not use the linear programming method I demonstrated
+    in my last post to find the Efficient Frontier. We could employ a non-linear,
+    quadratic programming method to solve for all efficient portfolio’s one at a time,
+    holding portfolio risk constant and maximizing the return function or, equivalently,
+    holding portfolio return constant and minimizing the portfolio variance function.
+     As alluded to in my last post, I will demonstrate this approach in a future post.
+    In this post, however, I am going to apply the classic procedure which represents
+    the problem using matrix notation and then solves a system of linear equations
+    in order to compute a table of minimum variance/maximum return values for a given
+    asset weighting.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The problem can be represented in matrix notation like so:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R – c = Sz  such that z = inverse(S) {R – c}, where R is the vector of asset
+    returns, c is a constant rate of return, S is the covariance matrix and z  is
+    a vector that leads to the solution of the efficient portfolio weightings, x,
+    defined as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: x = {x1….xn} where each xi represents the weighting of the respective asset
+    in the portfolio  such that the sum of all the xi’s equals 1; where a particular
+    weighting xi = zi/sum of all the zi’s.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Solving this problem involves a fair bit of linear algebra and matrix manipulation.
+      I created a LibreOffice spreadsheet to illustrate the procedure, which I’ve
+    uploaded to my Box account at [https://www.box.com/s/zgl8qm0ujcw0xf05rehu](https://www.box.com/s/zgl8qm0ujcw0xf05rehu).
+    A screenshot is below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![efcalc](img/0748cbd36f850a8e73d4e644d029a350.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/05/efcalc.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The specifics of the problem and the solution technique are taken from Simon
+    Benninga’s excellent book, [*Financial Modeling*, 2nd Edition](http://www.amazon.com/Financial-Modeling-2nd-Edition-Includes/dp/0262024829/ref=sr_1_1?ie=UTF8&qid=1369539924&sr=8-1&keywords=Financial+Modeling+2nd+edition),
+    which I highly recommend. I find myself coming back to it time and time again.
+     In the interest of time and space, I won’t go through the spreadsheet in any
+    detail. For that I encourage you to download the spreadsheet and go through it
+    yourself.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In summary, the spreadsheet defines the covariance matrix of returns for four
+    stocks, AAPL, IBM, ORCL and GOOG.  It also defines the mean return for each stock
+    in the Returns vector.  The constant, c, is defined somewhat arbitrarily as 5%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'NOTE: In variations of this procedure, c is equated to the risk-free rate,
+    rf, and, in this case, the efficient portfolio on the tangent line (i.e. the Capital
+    Market Line (CML) ) drawn from the risk-free rate of return to the Efficient Frontier
+    is known as the Market portfolio.  For more information regarding these concepts,
+    I again recommend Simon Benninga’s book.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The excess return vector is defined as Returns – c.  Two efficient portfolios
+    are then calculated, Portfolio A and Portfolio B.  Given these two portfolios,
+    the entire Efficient Frontier can be generated by combining these two portfolios
+    in various proportions that sum to 1 (e.g. invest 80% in portfolio A and 20% in
+    portfolio B).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Effectively, the two efficient portfolios are asset1 and asset2 defined in the
+    expected return and variance formulas defined above.  Again, for the specifics
+    of the procedure, check out my spreadsheet.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Phew! So that was a lot of work to set the stage for the real meat of this
+    post, which is to show how to generate the Efficient Frontier in C++ using QuantLib.
+    Without further delay, here is the code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The code produces the following output
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Covariance matrix of returns:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.4 0.05 0.02 0.04 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.05 0.2 0.01 -0.06 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.02 0.01 0.3 0.03 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.04 -0.06 0.03 0.15 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio return vector'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.1 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.03 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.07 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.08 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio return vector minus constant rate (c = 0.050000)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.05 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| -0.02 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.02 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.03 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio A z vector'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.150387 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.27627 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.156862 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.572366 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio B z vector'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.122915 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| -0.0977877 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.0499195 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.118124 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio A weights'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.130105 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.239012 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.135707 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.495176 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio B weights'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| 0.636303 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| -0.506224 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.258422 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 0.611499 |`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Portfolio A expected return: 0.069294'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio A variance: 0.059949'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio A standard deviation: 0.244845'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio B expected return: 0.115453'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio B variance: 0.338835'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio B standard deviation: 0.582096'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Covariance of portfolio A and B: 0.099883'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Correlation of portfolio A and B: 0.700817'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Maximum portfolio return for risk of 0.227896 is 0.060063`
+  prefs: []
+  type: TYPE_NORMAL
+- en: Towards the end of the source code listing, you can see that all of the envelope
+    portfolios are written to disk. The envelope portfolios constitute the superset
+    of all portfolios generated by this procedure, some of which are NOT efficient.
+     Lastly, the portfolios lying on the Efficient Frontier are written to disk.  I
+    do this so I can chart the Efficient Frontier with my favorite open-source charting
+    tool, [gnuplot](http://www.gnuplot.info/).  In the commented section at the end
+    of my code listing, you can find the gnuplot script I wrote to create the chart.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you may have noticed, I made heavy use of the QuantLib [Matrix](http://quantlib.org/reference/class_quant_lib_1_1_matrix.html)
+    class in this example. The Matrix class supports the most common linear algebra
+    functions including inverse, transpose, determinant and matrix multiplication/division/addition/subtraction.
+    Complementing the Matrix class is an [Array](http://quantlib.org/reference/class_quant_lib_1_1_array.html)
+    class that can be used to represent vectors, though I didn’t actually use the
+    Array class in this example. Rather, I found it easier and more consistent to
+    just use an nx1 matrix. QuantLib also provides several matrix decomposition utility
+    classes defined in `<ql/math/matrixutilities/... />`  that can operate on the
+    Matrix class, such as [SVD](http://quantlib.org/reference/class_quant_lib_1_1_s_v_d.html).
+    In addition several QuantLib namespace level functions are provided to operate
+    on instances of Matrix, such as factorReduction() and CholeskyDecomposition().
+  prefs: []
+  type: TYPE_NORMAL
+- en: With that, I’ll bring this rather lengthy post to its conclusion. I hope you
+    enjoyed it and as always please post questions, comments and suggestions. Have
+    fun with QuantLib!
+  prefs: []
+  type: TYPE_NORMAL

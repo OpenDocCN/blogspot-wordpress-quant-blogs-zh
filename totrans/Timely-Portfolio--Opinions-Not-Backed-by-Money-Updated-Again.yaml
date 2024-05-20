@@ -1,0 +1,63 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:08:01'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Opinions Not Backed by Money Updated Again'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Strange that I am updating this post for a third time and nothing really has
+    changed, but the fact that nothing has changed is incredibly interesting to me. 
+    Since it is an update, I will not duplicate the explanation, so please read the
+    last version [Opinions Not Backed by Money Are Not That Believable--Updated and
+    with R](http://timelyportfolio.blogspot.com/2011/02/opinions-not-backed-by-money-are-not.html). 
+    The basic conclusion is that we are in a bull market and AAII surveys are bullish,
+    but nobody is willing to bet money on a good stock market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Data in a Google Doc ([https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc](https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc
+    "https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc"))
+    sourced from [AAII- The American Association of Individual Investors](http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBsQFjAA&url=http%3A%2F%2Faaii.com%2F&ei=BOIDTZq_H8OB8gbe36TrAg&usg=AFQjCNH43QiLqrZG9YBv_pvV1H-0qBeJoQ&sig2=Vdg0bSGYfr3vuS7SyBVw5w)
+    and [ICI](http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBoQFjAA&url=http%3A%2F%2Fwww.ici.org%2F&ei=6eADTa-EGYOBlAfowcmuDg&usg=AFQjCNHp-bkB5qtA4VrXR6oCgdo_7jq_Tw&sig2=Mb8QzLDFXlWir56i5jOCkA).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code (not even worth putting in GIST):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: aaii_ici=read.csv("aaii-ici-noblank.csv",row.names=1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#using ggplot example from [http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/](http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: p <- ggplot(data=aaii_ici, aes(x = AAIIBULL-AAIIBEAR, y = runSum(aaii_ici[,4],3),
+    colour = Range, shape = Range, label = Range))
+  prefs: []
+  type: TYPE_NORMAL
+- en: p1 <- p + geom_point() + scale_y_continuous(limits = c(-200000, 200000),formatter=comma)
+    + geom_hline(yintercept=0) + geom_vline(xintercept=0) + stat_smooth(method="lm",
+    se=FALSE) + ylab("ICI Equity Rolling 3-mo Sum") + opts(title = "ICI Equity Flows
+    by AAII Survey")
+  prefs: []
+  type: TYPE_NORMAL
+- en: print(p1)
+  prefs: []
+  type: TYPE_NORMAL

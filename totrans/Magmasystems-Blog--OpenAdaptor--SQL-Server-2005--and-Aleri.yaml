@@ -1,0 +1,92 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:05:43'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: OpenAdaptor, SQL Server 2005, and Aleri'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This posting was made in the interests of any Aleri or OpenAdaptor users who
+    are trying to connect to a named SS2005 instance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have multiple "instances" installed of SQL Server 2005\. According to the
+    documentation at
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[http://msdn2.microsoft.com/en-us/library/ms378428.aspx](http://msdn2.microsoft.com/en-us/library/ms378428.aspx)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', this JDBC connection string should have worked:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: jdbc:sqlserver://MAGMALAPTOP\RPT;databaseName=MyDatabase;integratedSecurity=true;
+  prefs: []
+  type: TYPE_NORMAL
+- en: In Microsoft's
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[JDBC Driver 1.2 for SQL Server 2005](http://msdn2.microsoft.com/en-us/data/aa937724.aspx)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', there is a sample Java app called connectURL. With the connection string
+    above, this sample app worked fine, and was able to connect to the RPT instance
+    of my SS2005 database.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, I could not get
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[OpenAdaptor](https://www.openadaptor.org/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: to work with this connect string. In case you are wondering why I was messing
+    around with OpenAdaptor, it is because this is what
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Aleri](http://www.aleri.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: uses for its adapters to external data sources.
+  prefs: []
+  type: TYPE_NORMAL
+- en: After spending several hours this weekend trying to get Aleri to connect to
+    SQL Server using the connection string above, I finally stumbled upon an alternative
+    syntax for the connection string.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The new connection string is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: jdbc:sqlserver://MAGMALAPTOP;instanceName=RPT;databaseName=MyDatabase;integratedSecurity=true;
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice that the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*instanceName*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is specified with a separate parameter.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, there may be an issue with OpenAdaptor. Or, another theory that I have is
+    that the backslash character in the connection string is being considered as an
+    escape character.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

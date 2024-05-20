@@ -1,0 +1,145 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:53:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: A Brief Look at LINQ and Microsoft Orinoco'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01](http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This was taken from the Microsoft whitepaper on Orinoco. Thanks for the Orinoco
+    team for providing this to me.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let's assume that you have a number of power meters that you need to monitor.
+    The "InputStream" contains a stream of tuples where each tuple contains a power
+    reading from an individual meter. The reading happens to come in as the wattage
+    times 10.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We can capture each reading a project a new stream that has the normalized wattage.
+    We can also create a sliding 3-second window of meter readings that we can do
+    calculations against.
+  prefs: []
+  type: TYPE_NORMAL
+- en: var realValueStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in InputStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new MeterWattage((double)e.Consumption / 10);
+  prefs: []
+  type: TYPE_NORMAL
+- en: var windowedStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in realValueStream.SlidingWindow(TimeSpan.FromSeconds(3))
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new MeterWattage(e.wattage);
+  prefs: []
+  type: TYPE_NORMAL
+- en: We can then create a stream that has the average power reading over a sliding
+    3 second period.
+  prefs: []
+  type: TYPE_NORMAL
+- en: var averagedStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in windowedStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new OneMeterAverage(CEPAggregates.Average(e.wattage));
+  prefs: []
+  type: TYPE_NORMAL
+- en: (I think that this next query may be incorrect, as the ID field was not captured
+    in the windowedStream, but I will continue with the example anyway).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If you want to get the 3-second sliding average for each individual meter,
+    you can do the following 2 queries:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: var meterStreamGroups =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in windowedStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: group e by e.id;
+  prefs: []
+  type: TYPE_NORMAL
+- en: var groupedAveragedStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from eb in meterStreamGroups
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in eb
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new MeterAverage(eb.Key, CEPAggregates.Avg(e.wattage));
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, we want to compute the ratio of consumption for each meter over the 3-second
+    window.
+  prefs: []
+  type: TYPE_NORMAL
+- en: var sumStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in groupedAveragedStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new MeterSum(CEPAggregates.Sum(e.wattage));
+  prefs: []
+  type: TYPE_NORMAL
+- en: var ratioStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e1 in groupedAveragedStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: join e2 in sumStream on true equals true
+  prefs: []
+  type: TYPE_NORMAL
+- en: select new
+  prefs: []
+  type: TYPE_NORMAL
+- en: MeterRatio(e1.Id, e1.Wattage, e1.Wattage / e2.TotalWattage);
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finally, we just want to capture the ratio of power consumption from meter
+    #2.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: var filteredStream =
+  prefs: []
+  type: TYPE_NORMAL
+- en: from e in ratioStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: where e.id == 2
+  prefs: []
+  type: TYPE_NORMAL
+- en: select e;
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2009 Marc Adler - All Rights Reserved.
+  prefs: []
+  type: TYPE_NORMAL
+- en: All opinions here are personal, and have no relation to my employer.
+  prefs: []
+  type: TYPE_NORMAL

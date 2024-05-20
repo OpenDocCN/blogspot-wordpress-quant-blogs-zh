@@ -1,0 +1,63 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:41:17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tracking Liquidity | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01](https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: October 31, 2007 · 10:10 pm
+  prefs: []
+  type: TYPE_NORMAL
+- en: Encountered a problem in trading where we did not properly adjust the liquidity
+    (depth) level coming back from the exchange. Basically when we push down an order
+    would decrement available liquidity. The next tick from the exchange would reflect
+    the new available liquidity (or so we naively thought).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The reality is that one or more ticks can be received before a order (which
+    was filled) is reflected in the depth level. Given this, the affect of the order
+    will not be represented in the depth.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To fix this, two different approaches could be taken:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Estimate latency in hitting the depth x 2
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Hold the order impact across any ticks within this period
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Hold the order impact across ticks until trade confirm comes back
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: This is the most conservative approach. On some venues trade confirms are sent
+    back with lower priority, so can be an overly conservative method of measurement.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: The net affect of not handling this properly was that we saw more depth than
+    was actually there. This meant that for aggresive algos trying to pull some part
+    of advertised depth, ended up with partial fills based on a flawed liquidity tracking
+    model.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Have taken the conservative approach at this point.
+  prefs: []
+  type: TYPE_NORMAL

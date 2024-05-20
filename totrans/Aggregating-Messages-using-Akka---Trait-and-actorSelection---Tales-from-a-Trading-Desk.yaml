@@ -1,0 +1,58 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:54:46'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Aggregating Messages using Akka – Trait and actorSelection | Tales from a Trading
+    Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01](https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Aggregating Messages using Akka – Trait and actorSelection
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Whilst on the plane back from NY recently I began to ponder about the [aggregation](http://techblog.net-a-porter.com/2013/12/ask-tell-and-per-request-actors/)
+    pattern and [akka](http://www.akkaessentials.in/2012/03/word-count-mapreduce-with-akka.html). 
+    Luckily, it would appear that [Jamie](http://jaxenter.com/tutorial-asynchronous-programming-with-akka-actors-46220.html)
+    Allen, followed by a [few](https://vaughnvernon.co/?p=539) other [bloggers](http://s-akara.blogspot.co.uk/2013/08/an-aggregator-pattern-for-akka-actor.html)
+    have a solution that is well documented – the [aggregator](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html)
+    [trait](https://github.com/akara/samples/blob/master/aggregator/src/main/scala/org/akara/samples/aggregator/Aggregator.scala).
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, if I use the actorSelection to fire off messages to a group of identical
+    actors e.g. algo’s or some such thing;
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: I need to use the expect rather than the expectOnce to process the replies
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: In the Akka aggregator pattern [documentation](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html),
+    there is a results.size check to known when you have all the response messages
+    (or timeout), since you originally knew how many you had sent.  How do I know
+    how many messages the actorSelection sent?
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on January 22, 2014.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,108 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:18:27'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Historical Sources of Bond Returns with Shiller Data 1919-2011'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: And as usual, I always want a longer data set, so after a little playing with
+    R-Excel, we can extend our historical sources of bond returns to 1919.  If nothing
+    else, maybe you can find other uses for the [Shiller Dataset](http://www.econ.yale.edu/~shiller/data/ie_data.xls)
+    in R.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And as an added bonus, we can prepare a boxplot.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As always, please criticize or make suggestions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("BAA",src="FRED") #load Corporate for credit from Fed Fred'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Shiller data for inflation and US Treasury 10 year'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(gdata)
+  prefs: []
+  type: TYPE_NORMAL
+- en: URL <- "[http://www.econ.yale.edu/~shiller/data/ie_data.xls"](http://www.econ.yale.edu/~shiller/data/ie_data.xls%22)
+  prefs: []
+  type: TYPE_NORMAL
+- en: shillerData <- read.xls(URL,sheet="Data",pattern="Rate GS10")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#strip out date(1), CPI(5), and GS10(7)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: shillerData <- shillerData[,c(1,5,7)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data starting in January 1919 to match with BAA xts series'
+  prefs: []
+  type: TYPE_NORMAL
+- en: shillerData <- shillerData[rownames(shillerData[which(shillerData$Date==format(index(BAA)[1],"%Y.%m")):NROW(shillerData),]),2:3]
+  prefs: []
+  type: TYPE_NORMAL
+- en: shillerData <- xts(shillerData[1:NROW(BAA),1:2],order.by=index(BAA))
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondReturnSources<-merge(BAA,shillerData)
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondReturnSources[,1]<-bondReturnSources[,1]-bondReturnSources[,3]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get 12 month CPI change'
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondReturnSources[,2]<-ROC(bondReturnSources[,2],12,type="discrete")*100
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondReturnSources[,3]<-bondReturnSources[,3]-bondReturnSources[,2]
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondReturnSources<-merge(bondReturnSources,bondReturnSources[,1]+bondReturnSources[,2]+bondReturnSources[,3])
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(bondReturnSources)<-c("Credit","Inflation","Real","Total")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(bondReturnSources,legend.loc="bottom",main="Historical Sources
+    of Bond Returns",ylab="Yield as %",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#add source as caption'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Boxplot(bondReturnSources,main="Historical Sources of Bond Returns",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'
+  prefs: []
+  type: TYPE_NORMAL

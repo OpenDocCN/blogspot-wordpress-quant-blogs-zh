@@ -1,0 +1,189 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:17:29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: R Exercise with USDA Data'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: After the helpful comment by Bradley on my post [Commodity Index Estimators](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html),
+  prefs: []
+  type: TYPE_NORMAL
+- en: How about the National Agricultural Statistics Service (NASS)? Looks like they
+    have information for prices received back to 1908 for many agricultural goods
+    ([http://www.nass.usda.gov/](http://www.nass.usda.gov/)).
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I started trying to get this USDA price data in R, but after three hours struggling
+    to find historical data from start to finish in any useable format, had no success. 
+    However, I did notice some gaps in my R skills, so I decided to use some USDA
+    data for practice.  The USDA 10 year price projections for major US crops interested
+    me.  Three more hours of struggle yielded some new R skills and the following
+    graphs and R code.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And in a slightly better cumulative return format.  Strangely, my favorite set
+    of PerformanceAnalytics graphs returned a “format” error.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Looks like the dairy business might be attractive.  Maybe, I can make money
+    there.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One beneficial byproduct of the exercise was the discovery of [http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp](http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp
+    "http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp") which offers
+    monthly crop price data in graph or table form.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![](img/4b31b681e9284331a180c29ed5456e0a.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Now I need to determine how to get this monthly price data from the USDA or
+    somewhere else for R research.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Also, I thought this research piece [www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf](http://www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf)
+    was interesting but not helpful toward this objective.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(gdata)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: URL<-"[http://usda.mannlib.cornell.edu/usda/ers/94005/2011/Table39.xls"](http://usda.mannlib.cornell.edu/usda/ers/94005/2011/Table39.xls%22)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Shiller data for inflation and US Treasury 10 year'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDAprice <- read.xls(URL,sheet="Table38",pattern="2009",stringsAsFactors =
+    FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#strip out interesting information'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDAprice<-USDAprice[3:10,]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#change row names to crop names in column 1'
+  prefs: []
+  type: TYPE_NORMAL
+- en: rownames(USDAprice)<-USDAprice[,1]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#delete column 1 since now rowname'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDAprice<-USDAprice[,2:NCOL(USDAprice)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#insure numeric data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDAprice<-as.data.frame(data.matrix(USDAprice))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#switch rows and columns'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDAprice<-t(USDAprice)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get an xts version for later'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricexts<-USDAprice
+  prefs: []
+  type: TYPE_NORMAL
+- en: rownames(USDApricexts)<-paste(substr(rownames(USDAprice),2,5),rep("01-01",NROW(USDAprice)),sep
+    = "-")
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricexts<-as.xts(USDApricexts)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get dates for rownames'
+  prefs: []
+  type: TYPE_NORMAL
+- en: rownames(USDAprice)<-as.Date(paste(substr(rownames(USDAprice),2,5),rep("01-01-31",NROW(USDAprice)),sep
+    = "-"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricemelt<-melt(USDAprice)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(USDApricemelt)<-c("Date","Crop","USDA_Projected_Price")
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(USDApricemelt, stat="identity", aes(x=Date,y=USDA_Projected_Price,colour=Crop))
+    + geom_line() +
+  prefs: []
+  type: TYPE_NORMAL
+- en: scale_x_date(format = "%Y") +
+  prefs: []
+  type: TYPE_NORMAL
+- en: opts(title = "USDA Projected Crop Prices through 2020")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#standardize to get cumulative return or wealth index'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturn<-USDApricexts/lag(USDApricexts)-1
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturn[1,]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturn<-cumprod(1+USDApricereturn)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get in format that ggplot2 can use'
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturnmelt<-cbind(as.Date(index(USDApricereturn)),coredata(USDApricereturn))
+  prefs: []
+  type: TYPE_NORMAL
+- en: rownames(USDApricereturnmelt)<-USDApricereturnmelt[,1]
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturnmelt<-USDApricereturnmelt[,(2:NCOL(USDApricereturnmelt))]
+  prefs: []
+  type: TYPE_NORMAL
+- en: USDApricereturnmelt<-melt(USDApricereturnmelt)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(USDApricereturnmelt)<-c("Date","Crop","USDA_Projected_Cumulative_Return")
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(USDApricereturnmelt, stat="identity", aes(x=Date,y=USDA_Projected_Cumulative_Return,colour=Crop))
+    + geom_line() +
+  prefs: []
+  type: TYPE_NORMAL
+- en: scale_x_date(format = "%Y") +
+  prefs: []
+  type: TYPE_NORMAL
+- en: opts(title = "USDA Projected Crop Price Cumulative Returns through 2020")
+  prefs: []
+  type: TYPE_NORMAL

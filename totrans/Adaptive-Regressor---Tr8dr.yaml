@@ -1,0 +1,180 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:34:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Adaptive Regressor | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01](https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Regression is an important tool in trading (witness the number of traders that
+    rely on moving averages of various sorts).    I don’t directly use regressors
+    to generate trading signals, but I do find them useful in denoising signal output.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Aside from the obvious about past predicting the future, there are other issues
+    with regressors:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'lag: denoising necessarily involves averaging of some sort, resulting in lag
+    relative to the underlier'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'parameterization:  what parameter settings bring out the features of interest'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The simplest regressors are ARMA based FIR or IIR filters.   Lag is easy to
+    quantify as phase delay in those systems and harder in others.   Rather than focusing
+    on lag, I want to consider the parameterization.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Parameterization**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To illustrate the problem of parameterization, consider a simple exponential
+    MA in two market scenarios:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**market with strong trends**'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Long windows mask tradeable market movements.   A shorter window (or “tau”)
+    is needed to capture market movements of interest.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**market trading sideways**'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Short windowed MA oscillates on small movements.   Long window needed to reduce
+    or eliminate noise that is not tradeable.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: While I don’t use MAs for trade entry, the general problem of adapting a regressor
+    to features of interest is important.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Penalized Least Squares**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The penalized least-squares spline is known to be  the “best linear unbiased
+    predictor”  for series that can be modeled by:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/35b192c68029058b703e46976f7106af.png "Fa")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fa.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Where, f(x) is typically a polynomial based function (typically a high dimensional
+    basis function).   Characteristic of the penalized family of splines is the balance
+    between least-squares fit and curvature penalty:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/0e0cfd18c501c952cb1e3f158d9e42c1.png "Fb")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fb.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This minimization can be constructed into a matrix based system using the basis
+    design matrix.  I’m not going to go into this here, but you can find many papers
+    on this.  The formulation is straightforward, but it is very easy to run into
+    numerical instabilities with straightforward solutions (trust me I’ve tried),
+    so best bet is to use one of the tried and tested implementations (such as DeBoor’s).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Ok, the problem with the above is that the parameter λ is a free variable (i.e.
+    an input into the minimization).   λ allows us to control the degree of curvature
+    or oscillating behavior.   Here is the same series with 4 different levels of
+    λ (underlier in black):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/68d79aa7a430a4f704923962a5b6dabc.png "demo")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/demo.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Flexibility is great.  Now how do I choose λ appropriately?   And how do I define
+    appropriate?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Criteria**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As mentioned above, with the incorrect choice of regression parameters result
+    in  regressor that is either too noisy or misses features.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now before I explain the criteria (heuristics really) that I came up with, let
+    me point to some literature tackling the general concept.   Tatyana Krivobokova,
+    Ciprian M. Crainiceanu, and Goran Kauermann, “[Fast Adaptive Penalized Splines](http://www.bepress.com/jhubiostat/paper100/)”
+    (2007).   Their approach produces an evolving λ, one for each of the truncated
+    basis functions through time, chosen such as to reduce the local error, but keeping
+    enough error to be optimally cross-validated.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Though the above is interesting, and indeed produces some amazing results for
+    certain data sets, the “smoothness criteria” are fundamentally different from
+    what I am looking for.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I decided that my criteria is as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: the amplitudes between min/maxima in the spline must meet some minimum amplitude-time
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: the energy of the spline must be “close” to the energy of the original series
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The rationale for the 1st point is that we do not want small oscillations in
+    the spline (signifying that we need to tune for less noise).   The second point
+    tunes in the other direction, that is, if the spline is too stiff, missing many
+    features, the energy of the spline will be too low relative to the original series.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Algorithm**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The two above criteria break down into:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: the integral between a maximum and minimum ≥ threshold
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: the integral of f(x)^2, where f(x) is the spline
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'As I did not see an easy way of building into a system of equations took the
+    “poor mans algorithm” approach, namely:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: binary-style search between low and high values for λ
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: if amplitude/area < threshold choose higher lambda else lower
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: repeat until some granularity
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Works well!
+  prefs: []
+  type: TYPE_NORMAL

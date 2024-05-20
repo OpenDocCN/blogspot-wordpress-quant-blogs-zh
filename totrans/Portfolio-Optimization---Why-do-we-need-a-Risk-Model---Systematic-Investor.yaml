@@ -1,0 +1,112 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:31'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Portfolio Optimization – Why do we need a Risk Model | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the last post, Multiple Factor Model – Building Risk Model, I have shown
+    how to build a multiple factor risk model. In this post I want to explain why
+    do we need a risk model and how it is used during portfolio construction process.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The covariance matrix is used during the [mean-variance portfolio optimization](http://en.wikipedia.org/wiki/Modern_portfolio_theory)
+    to estimate portfolio risk. The sample covariance matrix can estimated using historical
+    asset’s returns, but the use of the sample covariance matrix becomes problematic
+    when the number of assets (N) is of the same order of magnitude or larger than
+    the number of observations (T). In typical applications, there can be over a thousand
+    stocks to choose from, but rarely more than ten years of monthly data (i.e. N
+    = 1,000 and T = 120). I recommend following references for a detailed discussion:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'One possible solution to estimating a covariance matrix is to model risk by
+    a low-dimensional multiple factor model. Another advantage of using a multiple
+    factor model to describe covariances between assets is that portfolio optimization
+    algorithm works faster because the covariance matrix is quite sparse and well
+    structured. For a detailed discussion please read: [Portfolio Optimization with
+    Factors, Scenarios, and Realistic Short Positions by B. Jacobs, K. Levy, and H.
+    Markowitz (2005)](http://www.jlem.com/articles/jlem/portfolioOptimization.pdf)
+    [In problems with a large number of securities, computation time may differ by
+    orders of magnitude between using a dense covariance matrix(sample covariance
+    matrix) and using the diagonal or nearly diagonal covariance matrices permitted
+    by a multiple factor model of covariance.]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The outline of this post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Construct minimum variance portfolio using the sample covariance matrix
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Construct minimum variance portfolio using the multiple factor risk model we
+    created in the prior post
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Let’s start by loading the multiple factor risk model we saved at the end of
+    the [prior post](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/).
+    [If you are missing risk.model.Rdata file, please execute fm.risk.model.test()
+    function first to create and save multiple factor risk model.] Next, I will construct
+    minimum variance portfolio using the historical covariance matrix.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/31fe5b5ce82d9f5b0394addc6bda0d9f.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To minimize portfolio risk computed under risk model framework we have to combine
+    specific risk and factor covariance matrix into one covariance matrix. This process
+    is described on pages 4-5 of the [Portfolio Optimization with Factors, Scenarios,
+    and Realistic Short Positions by B. Jacobs, K. Levy, and H. Markowitz (2005)](http://www.jlem.com/articles/jlem/portfolioOptimization.pdf).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let K be the number of factors in the risk model. We introduce K additional
+    variables that represent portfolio’s factor exposure to each factor. Let’s add
+    K constraints:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The new covariance matrix:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, I will construct minimum variance portfolio using the the multiple factor
+    risk model we created in the prior post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/6116fe8d260016e63dc803d1ebf11247.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The minimum variance portfolio computed under the risk model is more diversified.
+    Also for a larger stock universe (i.e. 1000-2000 stocks) solving quadratic problem
+    will take less time using a factor risk model that results in a sparse covariance
+    matrix.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [fm.risk.model.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  prefs: []
+  type: TYPE_NORMAL

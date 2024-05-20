@@ -1,0 +1,641 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:43:15'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Market Impact, Informational Efficiency, and the Value of Liquidity | Mechanical
+    Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2015/05/18/market-impact-informational-efficiency-and-the-value-of-liquidity/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/05/18/market-impact-informational-efficiency-and-the-value-of-liquidity/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: A worry many people have about HFT is that it raises market impact costs for
+    large institutional traders. Trading algorithms that [explicitly anticipate](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/)
+    order flow do exist, but does that mean an outright ban on HFT would reduce trading
+    costs? It’s hard to know the answer to that question, but it may be helpful to
+    consider how instruments receive added value from financial markets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ecosystems on secondary markets appear to be completely zero-sum. This is kind
+    of obvious when you only consider first order effects; if a short term trader
+    buys low and sells high, then the money they made has to come from their counterparties
+    somehow. By this logic, if one type of trader consistently makes money, then they
+    are doing so directly at the expense of the rest of the market. This view makes
+    less sense when markets are sufficiently mature.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Well-developed markets with widespread participation offer traders liquidity
+    and the expectation of continued liquidity. That liquidity is worth something.
+    For long-term traders, a liquid marketplace makes it easy to find a partner to
+    trade with. Imagine, for example, how much you would save when selling your home
+    if you didn’t need a broker to find buyers. Liquidity also raises the value of
+    assets themselves; in essence, something is worth more to you if you know that
+    you can readily sell it later. How much more though? If a prospective buyer knew
+    a home could be later sold without paying a 3% broker fee, then maybe they’d consider
+    bidding 1% higher for it. In financial markets, the classic example of this phenomenon
+    is the premium that on-the-run treasuries command in comparison to those that
+    are off-the-run: A 30-year bond with only 10 years left until maturity generally
+    trades at a lower price than a freshly issued 10-year bond, even though the two
+    bonds should make payments that are effectively identical. The reason suspected
+    for this discount is that the fresh 10-year is more actively traded and easier
+    to sell if desired.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Liquidity Provides Option-Value
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: One way to think of liquidity’s worth is to consider an analogy with put options.
+    A put option offers its owner the ability to sell an asset in the future at a
+    pre-determined price. Liquidity offers the owner of an asset the ability to sell
+    in the future at the prevailing market price, whatever that may be. That difference
+    is important – but even though the “option” associated with liquidity has an “exercise
+    price” that floats with the market price, it is still worth something. Consider
+    that investors pay their brokers for guaranteed executions at (or worse than)
+    the market price. Or consider the existence of [trade-at-settlement](http://www.cmegroup.com/confluence/display/EPICSANDBOX/Trade+at+Settlement+-+TAS)
+    products, where one party will pay another in order to guarantee an execution
+    at the day’s settlement price (a measure of market price). A liquid security thus
+    has an embedded put option that should increase its value. [[1](#bottom1impact)]
+    Options, of course, increase in value when volatility rises. The price of liquidity
+    appears to do the same, for instance on p.42 of [this paper](http://www.federalreserve.gov/Pubs/feds/2006/200628/200628pap.pdf),
+    you can see that the on-the-run premium tends to be higher during times of high
+    volatility. [[2](#bottom2impact)] [[3](#bottom3impact)] [[4](#bottom4impact)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Market Impact
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'The cost of liquidity is generally divided into 2 components: the bid-ask spread
+    and market impact. The spread is a measure of how much market-makers need to be
+    compensated for the risk of trading with a counterparty large enough to move the
+    price. Market impact is the change in price that occurs after a trade. Since large
+    traders often split their transactions into many small child orders, market impact
+    means that the latter part of these orders are executed at a less favorable price.
+    Very roughly speaking, small traders are expected to have the bid-ask spread as
+    their primary transaction cost and large traders are expected to have market impact
+    as theirs. One common view is that these large traders are “informed” and their
+    favorable information is why market-makers lose money when trading with them.
+    Here’s a widely cited [paper](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2580002)
+    by Fox, Glosten, and Rauterberg of Columbia:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: There are three primary kinds of private information, which we will label, respectively,
+    inside information, announcement information, and fundamental value information…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Whatever the source of an informed trader’s private information, the liquidity
+    provider will be subject to adverse selection and lose money when it buys at the
+    bid from informed sellers or sells at the offer to informed buyers. As long as
+    there are enough uninformed traders willing to suffer the inevitable expected
+    trading losses of always buying at the offer and selling at the bid, however,
+    the liquidity provider can break even. There simply needs to be a large enough
+    spread between the bid and offer that the losses accrued by transacting with informed
+    traders are offset by the profits accrued from transacting with uninformed investors…
+    [p22 of pdf]
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[T]hese informed traders buy when their superior estimate of share value suggests
+    that a stock is underpriced and sell when it indicates a stock is overpriced,
+    their activities make share prices more accurate. [p34 of pdf]'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'This is a nice story, and I think it is largely reflective of the nature of
+    markets. There’s good reason to think that large traders will often possess valuable
+    information; if you’re going to trade large size, then you have the resources
+    to spend on insightful analysis. And, conversely, if you have the resources to
+    spend on insightful analysis, then you may as well trade large size. There’s some
+    evidence that, in aggregate, managers tend to trade enough size so that their
+    costs balance out their expected profit. [[5](#bottom5impact)] This is akin to
+    the type of market efficiency that Cliff Asness and John Liew [advance](http://www.institutionalinvestor.com/Article/3315202/Asset-Management-Equities/The-Great-Divide-over-Market-Efficiency.html?ArticleId=3315202&single=true):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[I]t seems like whenever we have found instances of individuals or firms that
+    seem to have something so special (you never really know for sure, of course),
+    the more certain we are that they are on to something, the more likely it is that
+    either they are not taking money or they take out so much in either compensation
+    or fees that investors are left with what seems like a pretty normal expected
+    rate of return. (Any abnormally wonderful rate of return for risk can be rendered
+    normal or worse with a sufficiently high fee.)'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Also, it is most certainly the case that with sloppy trading you can easily
+    throw away any expected return premium — whatever its source — that might exist
+    around these strategies by paying too much to execute them
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Some Traders Have High Market Impact but Little Valuable Information
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: But, as with many nice stories, the story of “toxic traders” as “informed” traders
+    seems incomplete. Are there any participants which are generally considered “uninformed”,
+    trade large size, and have high costs from market impact? Most obvious are index
+    funds. [[6](#bottom6impact)] [[7](#bottom7impact)] When stocks are expected to
+    be incorporated into an index like the S&P 500, their prices rise in anticipation.
+    And stock prices tend to fall when they are expected to be deleted from a popular
+    index. Because these price moves occur before the actual changes in indexes are
+    made, funds that strictly follow an index will trade shares only after prices
+    change, costing them money. [[8](#bottom8impact)] Some portion of these anticipatory
+    price moves revert after the actual index changes are finalized (and large funds
+    have completed their rebalancing) – which means that at least part of this expense
+    is not in exchange for something of value, such as the added liquidity that index
+    constituents enjoy. This effect is different from the [“invisible scalp”](http://www.bloomberg.com/news/articles/2015-03-12/stock-market-s-invisible-scalp-truly-is-invisible-in-index-funds)
+    that worries some commentators. That “scalp” concerns the deviation of a fund
+    from its index benchmark, while we’re discussing underperformance of the actual
+    index. Antti Petajisto has [estimated](http://www.petajisto.net/papers/petajisto%202011%20jef%20-%20hidden%20cost%20for%20index%20funds.pdf)
+    this underperformance as costing investors in popular indexes at least a fifth
+    of a percent per year, by no means a trivial sum. [[9](#bottom9impact)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Price Inelasticity
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: If index investors really are uninformed, why should their trades (or anticipated
+    trades) move the market price at all? The standard adverse selection model would
+    say that less aggressively priced orders in the order book are from market makers
+    requiring compensation for the risk of being run over by large, informed traders.
+    If that model were complete, an informational change would be the only reason
+    a price should ever move. This view is a vestige of the Efficient Market Hypothesis
+    (EMH). In reality, prices move in response to changes in supply and demand, even
+    if those changes aren’t related to any new information. Consider a really simple
+    model, where traders each have their own point estimate for the “intrinsic value”
+    of a stock. Unless everybody has the same estimate, when somebody buys more stock
+    than traders with the lowest estimate are willing to sell, the market price will
+    rise. This is another way to think of an order book. [[10](#bottom10impact)] The
+    EMH idea that traders without any information should not be able to significantly
+    move prices is like saying that there are trillions of dollars of undeployed capital
+    backed by first-rate analysis just waiting for stocks to move a few basis points
+    before trading them. That description doesn’t sound like reality, but who knows,
+    perhaps if algorithms continue to take over our markets it could become true in
+    [the distant future](https://www.youtube.com/watch?v=mpe1R6veuBw).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Order Anticipation
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Because market impact is such an important force in our markets, detecting institutional
+    order flow could be very lucrative. Market makers moving their quotes out of the
+    way of suspected order flow is order anticipation. Trading in the direction of
+    suspected order flow is also order anticipation, though some label it “front-running”.
+    In public discourse lately, there’s been some tendency to claim that order anticipation
+    is fundamentally the domain of HFT. This is clearly wrong. The connection between
+    stock index changes and anticipatory price moves has a time scale of days, and
+    has been a measurable effect for decades. Similarly, there was [suspicion](http://www.bloombergview.com/articles/2014-04-23/predatory-traders-front-ran-bill-ackman-s-botox-buy)
+    recently that Pershing Square’s toehold purchase of Allergan shares suffered from
+    order anticipation. Again, these price moves occurred over the scale of days,
+    and as can be seen in an [analysis](http://neumann.hec.ca/cref/sem/documents/090918.pdf)
+    by Betton, Eckbo, and Throburn, there is nothing new about toehold purchases exhibiting
+    large price impact. [[11](#bottom11impact)] It’s hard to know how much of this
+    impact is due to anticipatory trading or just supply and demand. Separating these
+    two effects is particularly difficult because herding among traders is common
+    and arguably a form of order anticipation itself. Traders’ tendency to make similar
+    decisions simultaneously (herding) has an important influence on market impact,
+    as discussed (among other things) in a [wonderful empirical study](http://arxiv.org/abs/1412.2152)
+    by  Zarinelli, Treccani, Farmer, and Lillo. It’s also hard to dismiss order anticipation
+    as unhealthy for markets. If liquidity providers were not able to price the risk
+    of their counterparty being part of a takeover attempt, trading could become extremely
+    [disorderly](http://www.economist.com/node/12523898).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Information Rents
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Traders’ analyses help security prices on public capital markets reflect their
+    real-world values. And market impact is arguably the primary mechanism that connects
+    the information from research with asset prices. [[12](#bottom12impact)] At the
+    same time, if market impact costs were too high (from order anticipation, lack
+    of liquidity, or otherwise), nobody rational would [bother to trade](http://www.bloombergview.com/articles/2014-04-02/high-frequency-trading-may-be-too-efficient).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Joe Stiglitz is [worried](http://www.frbatlanta.org/documents/news/conferences/14fmc/Stiglitz.pdf)
+    that order anticipation ‘steals’ information rents from research important to
+    economic efficiency. And, also that automated pattern recognition could start
+    a wasteful arms race between computerized order anticipators and fundamental traders
+    trying to avoid them:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[T]he informed, knowing that there are those who are trying to extract information
+    from observing (directly or indirectly) their actions, will go to great lengths
+    to make it difficult for others to extract such information. But these actions
+    to reduce information disclosure are costly. And, of course, these actions induce
+    the flash traders to invest still more to figure out how to de-encrypt what has
+    been encrypted.'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: If, as we have suggested, the process of encryption and de-encryption is socially
+    wasteful — worse than a zero sum game — then competition among firms to be the
+    best de-encryptor is also socially wasteful. Indeed, flash traders may have incentives
+    to add noise to the market to disadvantage rivals, to make their de-encryption
+    task more difficult. Recognizing that it is a zero sum game, one looks for strategies
+    that disadvantage rivals and raise their costs. But of course, they are doing
+    the same.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I have some sympathy with what he’s saying here, but perhaps his analogy of
+    encryption offers some additional insight. Loosely speaking, encryption is cheap
+    and decryption is very challenging. If there’s sufficient background noise in
+    which to camouflage an “encryptor’s” signal, then probably there isn’t much a
+    “decryptor” can do to find that signal. Obviously, we can conceive of legal or
+    market structures that would tilt the balance of power completely towards the
+    “decryption” camp – like if the law required traders to announce their intentions
+    before taking action. But, for common market structures, I suspect that it isn’t
+    too hard to be almost “maximally” encrypted, that is, to have one’s orders disguised
+    to the point where investing more in encryption isn’t going to measurably affect
+    their detectability. I’m not claiming that everybody is this careful; there are
+    plenty of examples of [sloppy trading](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/).
+    But my intuition is that currently the majority of market impact comes from price
+    inelasticity, not order anticipation. That said, I think it’s worthwhile to consider
+    whether there are palatable market structures that allow orders to be better concealed.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Market Manipulation
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'To quote (again), Matt Levine’s excellent [description](http://www.bloombergview.com/articles/2015-04-02/my-dog-is-gluten-free)
+    of manipulation:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Generally it is allowed, encouraged even, for a big market participant to hide
+    its intentions. It is manipulation for a market participant to affirmatively mislead
+    people about its intentions. The space between those two things is very narrow
+    indeed.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: When traders are allowed to affirmatively mislead the market about their intentions,
+    then the space of possible “encryption” schemes becomes extremely large and complex.
+    That complexity would make it hard for institutions to reach the “maximally encrypted”
+    state we discussed. With manipulation allowed, Stiglitz’s vision of battles between
+    encryptors and decryptors who “add noise to the market” would be very much “worse
+    than a zero sum game.” [Spoofing](http://www.bloombergview.com/articles/2015-04-22/why-is-spoofing-bad-),
+    which has new laws specifically targetting it, is probably a minor nuissance in
+    comparison to other noise-adding manipulation. Momentum-ignition concerns me much
+    more than spoofing, particularly the sort where very large quantities are traded
+    in order to temporarily cause a supply (or demand) shock as well as fool order
+    anticipators. Again, these order anticipators are not just liquidity-seeking HFTs,
+    but also include execution algorithms, institutional “herding” [[13](#bottom13impact)],
+    momentum strategies, human click-traders, and market makers forced to pull their
+    quotes on one side while on the other side quoting more aggressively to exit their
+    bleeding positions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: What does momentum-ignition look like? The [allegations](http://www.cftc.gov/ucm/groups/public/@lrenforcementactions/documents/legalpleading/enfoptiveruscomplaint072408.pdf)
+    that Optiver “banged the close” on energy futures may be characteristic. Optiver
+    appears to have been a market-maker on CME trade-at-settlement (TAS) products,
+    used by participants desiring guaranteed trades at the settlement price. These
+    participants, which may pay for this guarantee, include oil ETFs (Table 2, p45
+    of [pdf](http://business.nd.edu/uploadedFiles/Faculty_and_Research/Finance/Finance_Seminar_Series/2012%20Fall%20Finance%20Seminar%20Series%20-%20Hank%20Bessembinder%20Paper.pdf)).
+    Optiver allegedly then “hedged” their position by trading very aggressively in
+    a short period of time, distorting the settlement price with a program they called
+    the “Hammer.” [[14](#bottom14impact)] This allowed them to effectively buy futures
+    near the market price and sell them to their TAS counterparties at the distorted
+    price. [[15](#bottom15impact)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This scheme is indicative of momentum-ignition’s required features: a high-impact
+    mechanism to enter a position and a low-impact mechanism to exit it. [[16](#bottom16impact)]
+    I suspect that momentum-ignition is especially easy to spot when it involves a
+    market-making service to a counterparty (or client) which guarantees a benchmark.
+    [[17](#bottom17impact)] Matt Levine [described](http://www.bloombergview.com/articles/2014-10-16/high-speed-traders-put-a-bit-too-much-gravy-on-their-meat)
+    another such scheme involving auctions in the equity market. My guess is that
+    when manipulation distorts an important benchmark like the closing price of stocks,
+    or the settlement price of crude oil (gasoline and heating oil too), somebody
+    will probably notice. [[18](#bottom18impact)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Momentum-ignition is prohibited in US equities, as described in this 2010 SEC
+    Concept Release ([p17](https://www.sec.gov/rules/concept/2010/34-61358fr.pdf)),
+    before Dodd-Frank was law. But spoofing (which the Concept Release states is a
+    type of momentum-ignition) is now punishable with multi-decade jail sentences.
+    I won’t argue that market manipulators should go to jail for life, but I think
+    it’s nice when the law treats offenses similarly if they’re of similar character.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Not everybody has a problem with momentum-ignition though. Here’s [Izabella
+    Kaminska](http://ftalphaville.ft.com/2013/06/12/1533132/trading-market-making-speculation-or-manipulation-who-knows-anymore/)
+    on the “concentration” of trading to maximize market impact in the FX scandal
+    [[19](#bottom19impact)]:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: “Concentration” tactics are normal practice for the industry. It’s the equivalent
+    of creating economies of scale and then choosing the moment to transact so that
+    the depth of the market, and it’s likely impact on the price, is most beneficial
+    to you. It’s called skillful execution.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In some sense, that’s what trading is about
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The HFT Controversy
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: When people criticize HFT, I wonder if what they really dislike is manipulative
+    trading. I don’t know of any reason to think that manipulation is more common
+    among HFTs than other traders. If so, many criticisms about HFT requiring institutional
+    traders to make wasteful technology investments are misdirected. Large institutions’
+    transaction costs pre-date automated trading and are a natural feature of markets.
+    Computer programs, even when they trade aggressively, can cheaply contribute to
+    liquidity, adding real value to assets. Instead of banishing computers from our
+    markets, society would be better served if we spent more time evaluating the harmfulness
+    of specific behaviors. With clear, consistent definitions of manipulation and
+    good enforcement, perhaps we can convince the public that our markets are safe.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[1](#1impact)] This phenomenon might appear to not add any value to an asset
+    when it’s a shortable security. If a buyer is willing to pay a bit extra because
+    they think the asset will be easier to sell in the future due to the liquidity
+    “put option,” then a short-seller should be willing to accept a lower price because
+    of the similarly embedded “call option.” There’s no reason to think these effects
+    are equal and opposite though; a security’s short interest is usually a small
+    fraction of its overall float.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[2](#2impact)] You might be especially interested in making sure financial
+    assets are liquid if you’re naturally a seller of them. Companies that make use
+    of capital markets (through bond or public stock offerings) would certainly fall
+    into this category. So do governments. Here’s FRBNY’s president, William Dudley
+    [addressing](http://www.newyorkfed.org/newsevents/speeches/2009/dud090210.html)
+    the relative illiquidity of TIPS bonds in 2009:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[I]t may make sense to structure the TIPS program in a way that would help
+    reduce the illiquidity premium associated with TIPS relative to on-the-run nominal
+    Treasuries. Some of the current illiquidity premium is likely to shrink as financial
+    markets stabilize. However, further improvements may require a change in either
+    the structure of the TIPS program or the secondary market trading environment.'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[[3](#3impact)] Francis Longstaff [estimated](http://www.anderson.ucla.edu/documents/areas/fac/finance/2-95.pdf)
+    an upper-bound on the value of liquidity by comparing it to a lookback option.
+    An omniscient investor can sell a holding at its peak, but only if its market
+    is completely liquid. If the market were completely illiquid, then the investor
+    can’t sell at all. So a lookback option, which would offer the investor the right
+    to sell at the absolute peak in a given time period, gives an upper-bound on liquidity’s
+    value. In practice, of course, there are caveats:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Returns aren’t normally-distributed.*   An investor may not have a pre-specified
+    timeframe. And this lookback option would have infinite value if it were over
+    an infinite time interval – not a very tight upper bound. On a side note, bizarrely, 
+    options like this [actually exist](http://ftalphaville.ft.com/2015/02/27/2120422/meet-the-man-who-could-own-aviva-france/)
+    in the real world.*   An omniscient investor might choose to sell a holding below
+    its peak for other reasons (like taxes, personal reasons, or because when you
+    know everything, there’s probably a better way to deploy capital).*   Omniscience
+    doesn’t exist. And if it did, I feel like markets wouldn’t make any sense.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: If you’re interested in methods to price the value of liquidity, here’s a [review](http://people.stern.nyu.edu/adamodar/pdfiles/papers/liquidity.pdf)
+    by Aswath Damodaran.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[4](#4impact)] Proprietary traders as a whole make much more money when volatility
+    is high. Those increased profits could be partly due to the higher value of liquidity
+    and a commensurate rise in demand for it. The entire financial sector is in some
+    sense engaged in the business of selling option-value. One view of banks is that
+    they make money via shorting liquidity: by holding assets (particularly fixed
+    income) to maturity and riding out fluctuations in market value, they are rewarded
+    with a small profit. And one argument against strict mark-to-market accounting
+    is that it doesn’t properly encapsulate this aspect of banking. Another perspective
+    is that when banks have shorted “too much” liquidity and the price of that liquidity
+    has risen (i.e. volatility has gone up and the “option-value” component of liquidity
+    is expensive), they tend to rely on governments and central banks to sell them
+    additional liquidity cheaply in order to survive. If you consider this government
+    backstop to be an unfair subsidy, then asking banks to mark their balance sheets
+    to market makes more sense. I always find this connection between the two “types”
+    of liquidity (the kind provided by central banks and the kind traders use every
+    day) both self-evident and surprising.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[5](#5impact)] This is the so-called fair pricing condition. See for instance
+    [this analysis](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2291720) by
+    Waelbroeck and Gomes. They used a dataset of institutional transactions with (most)
+    “cash flow” trades separately marked. “Cash flow” trades are due to client inflows
+    and outflows which are (probably) not reflective of fund managers’ decisions.
+    When they exclude these “cash flow” trades, they find that, on average, returns
+    are quite close to transaction costs for different portfolio managers (figure
+    4, p23). They also find costs and returns are roughly in balance for transactions
+    of different sizes (figures 12a and 12b, p41).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[6](#6impact)] At least, it’s a common view that index investors piggy-back
+    on the pricing provided by active traders and do not have any valuable information.
+    Maybe this is an over-simplification though; some index investors could buy when
+    they predict future index buying. In that case, would they mind overpaying slightly
+    for something that has psychological value (like index inclusion)?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Here’s](http://fortune.com/2015/01/22/slack-unicorn/) Slack CEO Stewart Butterfield
+    on investors being potentially willing to pay a premium to bolster the perceptions
+    surrounding their investment:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You have to choose some numbers… One billion is better than $800 million because
+    it’s the psychological threshold for potential customers, employees, and the press.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[And](http://bits.blogs.nytimes.com/2015/04/16/is-slack-really-worth-2-8-billion-a-conversation-with-stewart-butterfield/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[I]t increases the value of our stock and can allow potential employees to
+    take our offers, and it reinforces the perception for our larger customers that
+    we’ll be around for the long haul.'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[[7](#7impact)] The Waelbroeck and Gomes analysis in [[5](#bottom5impact)]
+    gives us another example of “uninformed” traders who still pay market impact costs,
+    if you consider “cash flow” transactions to lack informational value:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The peak impact of cash flows is statistically indistinguishable from that of
+    other metaorders and both are indistinguishable from 1.5 times the estimated shortfall.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Their analysis also finds that “cash flow” trades’ market impact has a tendency
+    to revert to the pre-trade price (or even past it). So these transactions have
+    market impact expenses, but also appear to have zero (or negative) long-term alpha.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[8](#8impact)] Some funds are more careful and will deviate from indexes a
+    bit in order to avoid paying some of this impact expense.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[9](#9impact)] I suppose this hidden cost, if real, is one way that index
+    investors are charged by the market for piggy-backing on others’ price discovery.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[10](#10impact)] Many of these “orders” will not be on any exchange’s order
+    book. But they’re somewhere in traders’ minds, which makes them like hidden orders
+    (some people call them “latent orders”).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[11](#11impact)] They anaylzed thousands of public control bids from 1980-2002,
+    a few hundred of which were accompanied by toehold purchases. The charts on p28
+    show significant pre-announcement price movement.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[12](#12impact)] Of course the price of a security can jump discontinuously
+    in response to new information, on little to no volume. But security prices move
+    continuously during the day, and presumably these price changes have informational
+    value. And, when prices change discontinuously at the open, very often they do
+    so in an auction with heavy volume. I’d imagine that, whenever a price change
+    is accompanied by substantial trading, market impact plays an important role in
+    price discovery. This could explain price volatility appearing [lower across the
+    weekend](http://www.anderson.ucla.edu/documents/areas/fac/finance/1986-3.pdf)
+    than during trading hours.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[13](#13impact)] Momentum-ignition could profit from “herding” in ways like
+    a manipulator inducing panic, triggering stop orders, or causing forced liquidations.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[14](#14impact)] In reference to a similar case in the FX market, Matt Levine
+    [predicted](http://dealbreaker.com/2013/06/everybody-always-manipulated-everything-basically/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Of course there will be emails – there are always emails
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One issue with enforcing a ban on momentum ignition (or other market manipulation)
+    is that, in order to prove it, knowledge of a trader’s intent is required. But
+    I guess there are always going to be manipulators who describe their schemes over
+    email, or just call their strategy to bang the close “the Hammer.”
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[15](#15impact)] It appears Optiver did a bit more than that, allegedly another
+    division used their foreknowledge of the price-hammering in other ways. From an
+    internal company email (p54):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Nick has made a tidy profit on his trading, close to $100k I expect. But I consider
+    the way In which he did it to be both deceitful, and reckless…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: They will tell you of course that they have noticed (after we told them), that
+    when someone sells TAS’s, the future often go down during the settlement…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Since our colleagues in Amsterdam know that we are going to do the dirty work,
+    they simply trade their futures before hand, and make a big profit on them.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[[16](#16impact)] The possibility that markets could allow asymmetric, profitable
+    impact is counterintuitive. Writing about the FX rigging case, Matt Levine explains
+    why [this is confusing](http://www.bloombergview.com/articles/2014-11-12/banks-manipulated-foreign-exchange-in-ways-you-can-t-teach):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s say that the chat room traders are selling euros to customers at the fix,
+    so they want a high fix. They want to buy a lot of euros in the few minutes right
+    before the fix, to push the price up…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Banks could further their manipulation by buying from outside banks, selling
+    to outside banks, or doing neither. This should make you suspicious. All of those
+    things can’t work equally well! If buying from other banks would push the price
+    up, or down, then selling to them should push the price down, or up. The fact
+    that the chat room traders sometimes did one, and sometimes the other, means that
+    they hadn’t found a reliable cheat, a way to take the risk out of their trading.
+    It means in some sense that their manipulation didn’t work. I mean, it worked
+    fine. But there’s a reason you “cnt teach that.” It makes no sense!
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Potentially, what these alleged manipulators did was increase their own position
+    when they suspected that their counterparty bank would hedge in a low-impact fashion.
+    When that was the case, the alleged manipulators could do their high-impact trading
+    while their counterparty, on the opposite side, would do low-impact trading. When
+    they suspected a rival bank would trade in a high-impact fashion, they might do
+    the opposite. I’m not saying they were successful at this, but our markets may
+    well allow a high-impact entrance and a low-impact exit, in contradiction with
+    a sort of efficiency. Jim Gatheral calls this type of market efficiency, which
+    renders manipulation impossible, a “[no-dynamic-arbitrage principle](https://math.nyu.edu/financial_mathematics/content/02_financial/2008-6.pdf).”
+  prefs: []
+  type: TYPE_NORMAL
+- en: It would be great if we could design a market where this principle is reality.
+    But I kind of suspect it’s impossible. Maybe the closest we can get is to [de-anonymize
+    market data](https://mechanicalmarkets.wordpress.com/2015/02/26/ending-market-abuse-limits-on-anonymous-trading/)
+    long after the sensitive information it contains is stale. That would allow private-sector
+    analysts to uncover manipulation, as well as offer victims the opportunity to
+    see how it damages them.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[17](#17impact)] Finding a low-impact exit is probably also much easier for
+    market-makers guaranteeing a benchmark price.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[18](#18impact)] It appears that NYMEX grew concerned about Optiver’s activity
+    after just a few weeks.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[19](#19impact)] Different markets have different norms. I don’t know if pushing
+    around the price is acceptable in FX markets, but it appears that regulators [may
+    want harsh penalties](http://www.reuters.com/article/2015/05/15/forex-rigging-pleas-idUSL1N0Y600420150515)
+    for any guilty banks.'
+  prefs: []
+  type: TYPE_NORMAL

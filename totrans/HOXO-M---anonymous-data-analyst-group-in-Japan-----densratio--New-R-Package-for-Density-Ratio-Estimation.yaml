@@ -1,0 +1,231 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:47:49'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : densratio: New R Package
+    for Density Ratio Estimation'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01](http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 1\. Overview
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '**Density ratio estimation** is described as follows: for given two data samples
+    $x$ and $y$ from unknown distributions $p(x)$ and $q(y)$ respectively, estimate
+    $$ w(x) = \frac{p(x)}{q(x)} $$ where $x$ and $y$ are $d$-dimensional real numbers.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The estimated density ratio function $w(x)$ can be used in many applications
+    such as the inlier-based outlier detection [1] and covariate shift adaptation
+    [2]. Other useful applications about density ratio estimation were summarized
+    by Sugiyama et al. (2012) [3].
+  prefs: []
+  type: TYPE_NORMAL
+- en: The package **densratio** provides a function `densratio()` that returns a result
+    has the function to estimate density ratio `compute_density_ratio()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: In this case, the true density ratio $w(x)$ is known, so we can compare $w(x)$
+    with the estimated density ratio $\hat{w}(x)$.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/79458d687138d0daa073b36f6fd48ae0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQdqp_r8q8fbiM4iVE7wNKdMaOKh65ZLg8hd-hsEOOA6IDjHgZvKxp-6mORmqPKN6FlzXQnAr78f6wyfuhnt8JE2EIlk0HBPi66E8jU8R56JBN70lFj3iat_P3N_U7jwrEna_IrZea9Sg/s1600/unnamed-chunk-1-1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2\. How to Install
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: You can install the **densratio** package from [CRAN](https://cran.r-project.org/web/packages/densratio/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: You can also install the package from GitHub.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: The source code for **densratio** package is available on GitHub at
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3\. Details
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 3.1\. Basics
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: The package provides `densratio()` that the result has the function to estimate
+    density ratio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For data samples `x` and `y`,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: In this case, `result$compute_density_ratio()` can compute estimated density
+    ratio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.2\. Methods
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`densratio()` has `method` parameter that you can pass `"uLSIF"` or `"KLIEP"`.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**uLSIF** (unconstrained Least-Squares Importance Fitting) is the default method.
+    This algorithm estimates density ratio by minimizing the squared loss. You can
+    find more information in Hido et al. (2011) [1].'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**KLIEP** (Kullback-Leibler Importance Estimation Procedure) is the anothor
+    method. This algorithm estimates density ratio by minimizing Kullback-Leibler
+    divergence. You can find more information in Sugiyama et al. (2007) [2].'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'The both methods assume that the denity ratio is represented by linear model:
+    $$ w(x) = \alpha_1 K(x, c_1) + \alpha_2 K(x, c_2) + ... + \alpha_b K(x, c_b) $$
+    where $$ K(x, c) = \exp\left(\frac{-\|x - c\|^2}{2 \sigma ^ 2}\right) $$ is the
+    Gaussian RBF.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`densratio()` performs the two main jobs:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, deciding kernel parameter $\sigma$ by cross validation,
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Second, optimizing kernel weights $\alpha$.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: As the result, you can obtain `compute_density_ratio()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3.3\. Result and Paremeter Settings
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`densratio()` outputs the result like as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: '**Kernel type** is fixed by Gaussian RBF.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The **number of kernels** is the number of kernels in the linear model. You
+    can change by setting `kernel_num` parameter. In default, `kernel_num = 100`.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Bandwidth(sigma)** is the Gaussian kernel bandwidth. In default, `sigma =
+    "auto"`, the algorithms automatically select the optimal value by cross validation.
+    If you set `sigma` a number, that will be used. If you set a numeric vector, the
+    algorithms select the optimal value in them by cross validation.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Centers** are centers of Gaussian kernels in the linear model. These are
+    selected at random from the data sample `x` underlying a numerator distribution
+    `p_nu(x)`. You can find the whole values in `result$kernel_info$centers`.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Kernel weights** are alpha parameters in the linear model. It is optimaized
+    by the algorithms. You can find the whole values in `result$alpha`.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**The funtion to estimate density ratio** is named `compute_density_ratio()`.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 4\. Multi Dimensional Data Samples
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: In the above, the input data samples `x` and `y` were one dimensional. `densratio()`
+    allows to input multidimensional data samples as `matrix`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: Also in this case, we can compare the true density ratio with the estimated
+    density ratio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE10]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c3a90abd9280f304c43828feee966e02.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkW1oxCEr4i3Z-Uk5ALQ70m1_sgd5_4oOwS5HQ0Jc2zg_qDHNs6HrzQbEsXmkIQo23lF7N89q-6VEWEx-1KK0-ohX6uRT9amNXqdc7CoMKhkMPzd9CUdwlQ9Ykl0RcqTjB_Wq6-7FA-nA/s1600/unnamed-chunk-6-1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The dimensions of `x` and `y` must be same.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 5\. References
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '[1] Hido, S., Tsuboi, Y., Kashima, H., Sugiyama, M., & Kanamori, T. **Statistical
+    outlier detection using direct density ratio estimation.** Knowledge and Information
+    Systems 2011.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[2] Sugiyama, M., Nakajima, S., Kashima, H., von Bünau, P. & Kawanabe, M. **Direct
+    importance estimation with model selection and its application to covariate shift
+    adaptation.** NIPS 2007.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[3] Sugiyama, M., Suzuki, T. & Kanamori, T. **Density Ratio Estimation in Machine
+    Learning.** Cambridge University Press 2012.'
+  prefs: []
+  type: TYPE_NORMAL

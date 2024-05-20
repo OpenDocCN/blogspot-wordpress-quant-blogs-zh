@@ -1,0 +1,116 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:34:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Optimal number of clusters | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the last post, [Examples of Current Major Market Clusters](https://systematicinvestor.wordpress.com/2013/01/12/examples-of-current-major-market-clusters/),
+    we looked at clustering Major Markets into 4 groups based on their correlations
+    in 2012\. Today, I want to continue with clustering theme and discuss methods
+    of selecting number of clusters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I will look at the following methods of selecting optimal number of clusters:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum number of clusters that explain at least 90% of variance
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Minimum number of clusters such that correlation among all components in each
+    cluster is at least 40%
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Let’s first load historical for the 10 major asset classes
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s iterate from 2 clusters to 2/3N clusters (where N is the number
+    of securities) and in each case compute the percentage of variance explained by
+    clusters and minimum correlation among all components in each cluster.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: In the first method, we set number of clusters equal to the minimum number of
+    clusters that explain at least 90% of variance. This is not a bad choice; the
+    downside is why 90%, why not 75%?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: In the second method, we set number of clusters equal to the minimum number
+    of clusters such that correlation among all components in each cluster is at least
+    40%. Also not a bad choice; the downside is why 40%, why not 50%?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: In the third method, we use [Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
+    to set number of clusters. The idea behind the [Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
+    is to look at the marginal gain of adding each additional cluster. And set the
+    number of clusters equal to the largest K that has positive marginal gain. Geometrically
+    thinking, if you graph the percentage of variance explained by the clusters against
+    the number of clusters, the point on the curve that is farthest from the 45 degree
+    line corresponds the optimal number of clusters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: All methods have produced similar number of clusters. Let’s visually see the
+    difference between 4 and 5 clusters
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot2](img/73ed9935a9428ffb1be6468e4cce47b7.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot1](img/e49d4757f2b004963cf967b2a0605fc4.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot11.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: It is a judgment call, what do you think is better 4 or 5 clusters in this case?
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Takeaways: I have barely scratched the surface in terms of methods that you
+    can use to select number of clusters. I highly recommend following resources,
+    if you want to get more background and/or discussion about clustering:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post I will show the transition of clusters as we move in time.
+    After that I will discuss the [Cluster Risk Parity](http://cssanalytics.wordpress.com/)
+    portfolio allocation method (Varadi, Kapler, 2012). For more details about [Cluster
+    Risk Parity](http://cssanalytics.wordpress.com/), please read David’s blog at
+    [http://cssanalytics.wordpress.com/](http://cssanalytics.wordpress.com/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.cluster.optimal.number.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,57 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:37:26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum Correlation Algorithm Speed comparison | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[The Minimum Correlation Algorithm](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)
+    is a heuristic method discovered by [David Varadi](http://cssanalytics.wordpress.com/2012/09/21/minimum-correlation-algorithm-paper-release/).
+    Below I will benchmark the execution speed of 2 versions of the Minimum Correlation
+    Algorithm versus the traditional minimum variance optimization that relies on
+    solving a quadratic programming problem.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: I have run the code above for n=10 (10 assets), n=100 (100 assets), n=500 (500
+    assets), n=1000 (1000 assets)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Please note that for n=1000 I have only run 5 replication]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: For small universe (i.e. n ~ 100) all algorithms are fast. But once we attempt
+    to solve 500 or 1000 assets portfolio allocation problem, the minimum variance
+    algorithm is many times slower than the both versions of the minimum correlation
+    algorithm.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So if we are considering a 500 assets weekly back-test for the 10 yrs the run-times
+    in seconds (i.e. 52*10*single tun-time):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: To view the complete source code for this example, please have a look at the
+    [bt.mca.speed.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

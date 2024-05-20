@@ -1,0 +1,98 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:43:40'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Time Series Matching | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: THIS IS NOT INVESTMENT ADVICE. The information is provided for informational
+    purposes only.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[If it looks like a duck, swims like a duck, and quacks like a duck, then it
+    probably is a duck.](http://en.wikipedia.org/wiki/Duck_test)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Do you want to know what S&P 500 will do in the next week, month, quarter?
+    One way to make an educated guess is to find historical periods similar to the
+    current market environment, and examine what happened. I will call this process
+    time series matching, but you could find a similar techniques referred as technical
+    patterns and fractals. To get some flavor about fractals, following are two articles
+    I read recently about fractals:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I recommend reading following article about the time series matching to understand
+    different approaches:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will use a simple method outlined in the [How to Accelerate Model Deployment
+    using Rook by Jean-Robert Avettand-Fenoel](http://www.londonr.org/Sep%2011%20LondonR_AvettandJR.pdf)
+    article to find time series matches that are similar to the most recent 90 days
+    of SPY.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following code loads historical prices from Yahoo Fiance, setups the problem
+    and computes Euclidean distance for the historical rolling window using the [Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, let’s select the best 10 matches to the ‘query’ pattern in the SPY history:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5dee5c867d45edec69dfd26e09afa1f6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/83e47dbc665ab605354e052b7f16fc09.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s overlay all matches with the ‘query’ pattern and examine their
+    historical performance after the match took place:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c8e8465556b94245dc2275402af1db60.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s summarize all matches performance in a table:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/8a6b7fc81c380088531896d772b02db8.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Time Series Matching analysis can be used to make an educated guess what
+    S&P 500 will do in the next week, month, quarter. This educated guess is based
+    on historical data and there is no guarantees that history will repeat itself.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post I will examine other distance measures for Time Series Matching
+    and I will show an example of [Dynamic time warping](http://en.wikipedia.org/wiki/Dynamic_time_warping).
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.matching.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

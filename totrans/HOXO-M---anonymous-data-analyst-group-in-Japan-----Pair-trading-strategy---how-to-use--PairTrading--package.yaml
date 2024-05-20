@@ -1,0 +1,161 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:48:47'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : Pair trading strategy :
+    how to use "PairTrading" package'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01](http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This article shows you how you can use it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The pair trading is a market neutral trading strategy and gives traders a chance
+    to profit regardless of market conditions. The idea of this strategy is quite
+    simple.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1 : Select two stocks(or any assets) moving similarly'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '2 : Short out-performing stock, buy under-performing one'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '3 : If "spread"(price difference between two stocks)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: converge, close your position.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, Let's start to explain how to use this package.
+  prefs: []
+  type: TYPE_NORMAL
+- en: (This example is in PDF manual of this package)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**0: Install & load package**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can install and load "PairTrading" package via CRAN in the same way as other
+    packages.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**1: Load sample data**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: We prepared sample stock price data in our package. You can load it by using
+    "data" command.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '**2: Estimate parameters**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, We extract two stock prices(from 31 Mar, 2008) and estimate parameters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: At the moment, we have only normal linear regression method to estimate parameters,
+    but we will develop more sophisticated method in the future.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The estimation result contains the following contents.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: The most important thing in this estimation is "spread", then we try to plot
+    it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And, you can check the stationarity of that by using "IsStationary" function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This function return the result of two types unit root test.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: ( augmented Dickey–Fuller test (ADF) and
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Phillips-Perron test) **3: Estimate parameters for back-test**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To run back-test, you have to estimate parameters historically by using "EstimateParametersHistorically
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"'
+  prefs: []
+  type: TYPE_NORMAL
+- en: function. This function do something like "rolling regression" to estimate parameters.
+    This point is different from "EstimateParameter" function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '**4: Create trading signal**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, you create trading singal using estimated spread. "Simple" function give
+    a very simple trading strategy(If The spread is more(less) than specified value,
+    you will buy(sell))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: In this case, The trading signal is drawn as below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Last, you can check the performance of pair trading by using "Return" function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: In this case, our strategy seems to work correctly :-)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**6: Conclusion and remarks**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pair trading is well-known trading strategy, and I introduced "PairTrading"
+    package in this article.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We would like to modify this package to be more useful and fit in real-market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you have any suggestion, please let me know.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And we created a presentation slide to explain the basic concept of pair trading.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It may be useful for you to understand the basic concept of pair trading if
+    you are interested in it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Enjoy!
+  prefs: []
+  type: TYPE_NORMAL

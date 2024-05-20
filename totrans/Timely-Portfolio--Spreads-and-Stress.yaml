@@ -1,0 +1,204 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:15:53'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Spreads and Stress'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Since we have the [Gifts from BAC ML and the Federal Reserve](http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html),
+    I thought I should look at another interesting element of bonds.  Bond spreads
+    act as a very strong symbol of financial stability and confidence.  The St. Louis
+    Fed Stress Index is weekly, but maybe we can use spreads as a daily proxy of stress
+    or financial instability similar to the [Bloomberg Financial Conditions Index
+    (BFCIUS)](http://www.bloomberg.com/apps/quote?ticker=BFCIUS:IND) nicely explained
+    at [http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf](http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf
+    "http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf") and [www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf](http://www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf).
+  prefs: []
+  type: TYPE_NORMAL
+- en: If we plot the values from the BAC ML Emerging Market and High Yield Spreads
+    and the St. Louis Fed Index, it is hard to distinguish the lines.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Just for the ggplot2 fans
+  prefs: []
+  type: TYPE_NORMAL
+- en: Correlations total and rolling look like this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Like volatility and [financial turbulence](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html),
+    periods of extremes are autocorrelated.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And just for fun, here is a chart of the higher moments.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you want a challenge, tie this spread data to my post [Wonderful New Blog
+    TimeSeriesIreland](http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html)
+    or [Great FAJ Article on Statistical Measure of Financial Turbulence Part 3](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html). 
+    Don’t think I have it in me before the weekend.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#thank you Bank of America Merrill Lynch and St. Louis Fed for this data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Bank of America Merrill Lynch bond index data from St. Louis Fed'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use auto.assign = FALSE so we can use shorter names'
+  prefs: []
+  type: TYPE_NORMAL
+- en: MLEmCorpSpreads<-getSymbols("BAMLEMCBPIOAS",src="FRED",auto.assign=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: MLHYCorpSpreads<-getSymbols("BAMLH0A0HYM2",src="FRED",auto.assign=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("STLFSI",src="FRED")  #get St.Louis Fed Stress Index'
+  prefs: []
+  type: TYPE_NORMAL
+- en: spreadsStress<-na.omit(merge(MLEmCorpSpreads,MLHYCorpSpreads,STLFSI))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: legend.loc="topleft",
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress Index")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#chart changes of Spreads and Stress'
+  prefs: []
+  type: TYPE_NORMAL
+- en: spreadsStress<-na.omit(merge(momentum(MLEmCorpSpreads,5),momentum(MLHYCorpSpreads,5),momentum(STLFSI,1)))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
+  prefs: []
+  type: TYPE_NORMAL
+- en: legend.loc="topleft",
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress Index")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#for the ggplot fans'
+  prefs: []
+  type: TYPE_NORMAL
+- en: spreadsStressDf<-data.frame(index(spreadsStress),coredata(spreadsStress))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(spreadsStressDf)<-c("Date",colnames(spreadsStress))
+  prefs: []
+  type: TYPE_NORMAL
+- en: spreadsStressDf<-melt(spreadsStressDf,id.var="Date")
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(spreadsStressDf)<-c("Date","Index","Value")
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(spreadsStressDf, stat="identity", aes(x=Date,y=Value,colour=Index)) +
+    geom_line() +
+  prefs: []
+  type: TYPE_NORMAL
+- en: scale_x_date(format = "%Y") +
+  prefs: []
+  type: TYPE_NORMAL
+- en: opts(title = "Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress
+    Index")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#chart correlations'
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(spreadsStress,main="Bank of America Merrill Lynch Bond Spreads
+    and St. Louis Fed Stress Index Correlation")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#explore autocorrelation lags'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'par(mfrow=c(3,1))  #3 rows and 1 column'
+  prefs: []
+  type: TYPE_NORMAL
+- en: acf(spreadsStress[,1],main=colnames(spreadsStress)[1])
+  prefs: []
+  type: TYPE_NORMAL
+- en: acf(spreadsStress[,2],main=colnames(spreadsStress)[2])
+  prefs: []
+  type: TYPE_NORMAL
+- en: acf(spreadsStress[,3],main=colnames(spreadsStress)[3])
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get rolling correlations'
+  prefs: []
+  type: TYPE_NORMAL
+- en: corHYStress<-runCor(spreadsStress[,3],spreadsStress[,1],n=20)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corEmStress<-runCor(spreadsStress[,3],spreadsStress[,2],n=20)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corAll<-merge(corHYStress,corEmStress)
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(corAll,main="Rolling 20 Week Correlation between Spreads and
+    Stress",
+  prefs: []
+  type: TYPE_NORMAL
+- en: legend.loc="topright", colorset=c("cadetblue","darkolivegreen3"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#look at the higher moments'
+  prefs: []
+  type: TYPE_NORMAL
+- en: higherMoments<-table.HigherMoments(spreadsStress[,1:2],spreadsStress[,3])
+  prefs: []
+  type: TYPE_NORMAL
+- en: higherMoments<-melt(cbind(rownames(higherMoments),higherMoments))
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(higherMoments)<-c("Moment","Index","Value")
+  prefs: []
+  type: TYPE_NORMAL
+- en: ggplot(higherMoments, stat="identity", aes(x=Moment,y=Value,fill=Index)) +
+  prefs: []
+  type: TYPE_NORMAL
+- en: geom_bar(position="dodge") + coord_flip() +
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'opts(legend.position=c(.75,0.88)) #thanks for the tip timeseriesireland'
+  prefs: []
+  type: TYPE_NORMAL

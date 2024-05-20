@@ -1,0 +1,105 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:44:52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Backtesting Rebalancing methods | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I wrote about Rebalancing in the [Asset Allocation Process Summary](https://systematicinvestor.wordpress.com/2011/11/22/asset-allocation-process-summary/)
+    post. Deciding how and when to rebalance (update the portfolio to the target mix)
+    is one of the critical steps in the Asset Allocation Process. I want to study
+    the portfolio performance and [turnover](http://wiki.fool.com/Portfolio_turnover)
+    for the following Rebalancing methods:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Periodic Rebalancing: rebalance to **the target mix** every month, quarter,
+    year.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Maximum Deviation Rebalancing: rebalance to **the target mix** when asset weights
+    deviate more than a given percentage from the target mix.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Maximum Deviation Rebalancing: rebalance **half-way to the target mix** when
+    asset weights deviate more than a given percentage from the target mix.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'I will study a very simple target mix: 50% allocation to equities ([SPY](http://www.google.com/finance?q=spy))
+    and 50% allocation to fixed income ([TLT](http://www.google.com/finance?q=tlt)).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'First, let’s examine Periodic Rebalancing. Following code implements this strategy
+    using the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/990c51c8efe0c30eb083c41e22672d42.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/76a6b1a85b14a4ef786f0afd7c7df8ad.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/86cef8059e184ff868df122c1624d6ca.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, the Buy and Hold strategy has 0 turnover, but deviates a lot from
+    the Target Mix. On the other hand, Monthly Rebalancing keeps portfolio close to
+    the Target Mix, but at the cost of the 36% annual turnover.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next to trigger Rebalancing based on the Maximum Deviation from the Target Mix,
+    I created a function, bt.max.deviation.rebalancing, that iteratively searches
+    for a violation of Maximum Deviation and forces the rebalancing once the violation
+    took place. This function can rebalance all the way to the target mix or partially
+    based on the rebalancing.ratio. For example, for rebalancing.ratio equal to 0,
+    each time the violation of Maximum Deviation is found, the portfolio is rebalanced
+    all the way to the target mix, and for rebalancing.ratio equal to 0.5, the portfolio
+    is rebalanced half way to the target mix.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Now, let’s compare 5% Maximum Deviation Rebalancing to the Periodic Rebalancing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/e8ce8a26285f4c3a3cc40e8eb97c6202.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/80e2f909415cbd2987b373bab8488d50.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot5-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/8dd517d9d1b4a283dceb2e521e022270.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot6-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, the Maximum Deviation Rebalancing keeps portfolio close to the
+    Target Mix. Moreover, the Maximum Deviation Rebalancing strategy has lower turnover
+    than the Monthly Rebalancing. So in this case the Maximum Deviation Rebalancing
+    wins over Periodic Rebalancing method.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.rebalancing.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

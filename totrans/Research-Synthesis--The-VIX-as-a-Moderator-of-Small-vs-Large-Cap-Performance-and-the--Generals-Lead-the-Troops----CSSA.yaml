@@ -1,0 +1,124 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:37:25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Research Synthesis: The VIX as a Moderator of Small vs Large Cap Performance
+    and the “Generals Lead the Troops” | CSSA'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Readers are encouraged to check out the following background reading:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'On the VIX as a moderator of short-term relative performance between large
+    and small caps: [http://www.cxoadvisory.com/blog/external/blog7-12-06/](http://www.cxoadvisory.com/blog/external/blog7-12-06/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'On the use of the S&P500 and Russell2000 relative strength relationship to
+    predict S&P500 returns: [http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/](http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Sometimes interesting findings results from combining two different ideas that
+    are both good—sort of a chocolate and peanut butter kind of thing. In this case,
+    the relationship between the S&P500 and the Russell2000 is interesting because
+    it captures the lead/lag autocorrelation effect documented in the academic literature.
+    In addition it also  captures the difference in risk premium to holding large
+    diversified companies that are more heavily tied to economic factors versus smaller
+    and more concentrated companies that have: 1) less sensitivity to economic factors
+    most of the time, but more stock-specific risk 2) a high sensitivity under times
+    of extreme stress–generally due to higher credit risk. Nonetheless, the explanantion
+    and theory is a subject for another day (or another blog), my goal is to show
+    that there is a synergistic effect by combining both. In the MarketSci post (see
+    link above), a strategy was introduced that showed that the S&P500 tended to outperform
+    when the 12-month or 1-year return was higher than the Russell2000 index. This
+    phenomenon was labelled as the “Generals Leading the Troops.” This strategy did
+    better   with less risk and less exposure than a standard buy and hold strategy.
+    In the link above from CXO Advisory they review a paper by Dean Leistikow and
+    Susana Yu who tested the significance of the relative VIX level as a signal for
+    short-term switching between the Russell2000 (small-cap) and the S&P500 (large-cap)
+    stock indexes. They found that the S&P500 outperformed the Russell2000 when the
+    VIX was high, and underperformed when the VIX was low. These high/low levels were
+    identified as being within 10-20% above or below the 75-day moving average of
+    the VIX.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So with that background, lets get down to our little experiment to see how
+    these two separate findings work together. In terms of methodology: I used the
+    S&P500 and Russell2000 index prices from Yahoo Finance to increase the sample
+    size of the dataset. I defined relative outperformance for the relative strength
+    strategy as the 252 day return of the S&P500 being greater than(less than) the
+    252 day return of the Russell2000\. For the VIX, I used the 75-day sma mentioned
+    in the article, and decided to split the difference of 10-20% as being either
+    15% above or below the sma. Lets look at the results for each strategy in isolation,
+    and in combination.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| **S&P500 Average Daily Performance Under Different Conditions (5000 bars)**
+    |   |'
+  prefs: []
+  type: TYPE_TB
+- en: '| (non-compounded–ie fixed bet) |   |   |   |'
+  prefs: []
+  type: TYPE_TB
+- en: '|   |   |   |   |'
+  prefs: []
+  type: TYPE_TB
+- en: '|   |   | avg daily ret |   |'
+  prefs: []
+  type: TYPE_TB
+- en: '|   | avg daily return | /avg daily sd | w% (next day) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Baseline (Buy and Hold the S&P500) | 0.03% | 0.17% | 53.1% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| S&P500 (SP) is leading Russell (RUT) | 0.09% | 0.71% | 55.0% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Russell (RUT) is leading S&P500 (SP) | -0.01% | -0.10% | 51.5% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| VIX/75day sma>1.15  (Vsma75>1.15) | 0.10% | 0.88% | 54.8% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| VIX/75day sma<.85 (Vsma75<.85) | -0.02% | -0.28% | 51.8% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| **SP> RUT  and (Vsma75>1.15)** | **0.22%** | **2.98%** | **58.0%** |'
+  prefs: []
+  type: TYPE_TB
+- en: '| **SP> RUT  and (Vsma75<.85)** | **0.10%** | **2.60%** | **54.60%** |'
+  prefs: []
+  type: TYPE_TB
+- en: '| RUT> SP  and (Vsma75>1.15) | -0.01% | -0.16% | 51.40% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| **RUT>SP  and (Vsma75<.85)** | **-0.11%** | **-2.10%** | **49.66%** |'
+  prefs: []
+  type: TYPE_TB
+- en: 'Conclusions: The results for combining the two studies showed  higher absolute
+    and risk-adjusted performance  than either study individually over most categories.
+    It appears that the dual screen of relative strength and relative VIX are more
+    powerful together than in isolation. On the positive side, when the S&P was leading
+    the Russell and the VIX was high, the S&P had by far its best performance in absolute
+    and risk-adjusted terms. On the opposite side, when the Russell was leading the
+    S&P and the VIX was low, the S&P put in its worst performance in absolute and
+    risk-adjusted terms. As a third note, the S&P performed well when the VIX was
+    low and the S&P was outperforming the Russell. While not shown for brevity’s sake,
+    it is clear that the S&P underperforms buy and hold in the “normal” VIX environment
+    (1.15>VIX/sma>.85) regardless of whether it is leading or lagging. Creating long
+    and long/short strategies based on these regimes is a subject for a future post.'
+  prefs: []
+  type: TYPE_NORMAL

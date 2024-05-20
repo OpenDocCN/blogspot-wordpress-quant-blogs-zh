@@ -1,0 +1,122 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:28:43'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Reinventing the Wheel | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I guess I am old enough to have seen the wheel reinvented a number of times
+    in both software infrastructure and financial technology spaces.  Unfortunately
+    the next generation’s version of the wheel is not always better, and with youthful
+    exuberance often ignores the lessons of prior “wheels”.   That said, we all know
+    that sometimes innovation is a process of 3 steps forward and 2 steps backward.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Two examples that have impacted me recently.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**HDFS**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: An example of a poorly reinvented wheel is Hadoop / HDFS in the technology space,
+    where Amdahl’s law has been ignored completely (i.e. keep the data near the computation
+    to achieve parallelism).   When one writes to HDFS, HDFS distributes blocks of
+    data across nodes, but with no explicit way to control of data / node affinity.
+      HDFS is only workable in scenarios where the data to be applied in a computation
+    is <= the block size and packaged as a unit.
+  prefs: []
+  type: TYPE_NORMAL
+- en: “Everybody and his brother” are touting big data on HDFS, S3, or something equivalent
+    as the data solution for distributed computation, in many cases, without thinking
+    deeply about it.   I was involved a company that was dealing with a big data problem
+    in the Ad space recently.  I needed to track & model 400M+ users browsing behavior
+    (url visits) based on ~4B Ad auctions daily, relate each URL to a content categories
+    (via classification & taxonomy of concepts), and for each user, then determine
+    a feature vector for each user.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I argued that using HDFS for this data would be a failure with respect to scaling.
+     The problem was that auction data, 4B records of <timestamp,user,url, …>, was
+    distributed across N nodes uniformly, rather than on userid MOD N.  HDFS does
+    not allow one to control data / node affinity.  My computation was some function
+    over all events seen in a historical period for each user.  This function:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: F( [<timestamp,user1,urlA, …>, <timestamp,user1,urlG, …>, …])
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: needed to be evaluated for each user, across all events for that user and could
+    not be decomposed into sub-functions on individual events reasonably.    The technology
+    I had to use was Spark over HDFS distributed timeseries.  I argued that to evaluate
+    this function for each user, on average, (N-1)/N of the requested data with need
+    to be transported from other nodes (as only 1/N of the data was likely to be local
+    in a uniformly distributed data-block scheme).   The (lack of) performance did
+    not “disappoint”, instead a linear speedup (N x faster), produced a linear slowdown
+    (approaching N x slower due to the dominance of communication).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Bitcoin Exchanges**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Bitcoin popularized a number of excellent ideas around decentralized clearing,
+    accounting, and trust via the blockchain ledger.  The core technology behind bitcoin
+    is very innovative and is being closely watched by traditional financial institutions.
+      The exchanges, on the other hand (with some exceptions), seem to have been built
+    with little clue as to what preceded them in the financial space.
+  prefs: []
+  type: TYPE_NORMAL
+- en: JSON / REST is popular as a web transport, but is not an efficient or precise
+    transport for market data.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'clue: provide a Nasdaq ITCH like binary stream-based feed for efficiency and
+    precision OR FIX if you insist.'
+  prefs:
+  - PREF_IND
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Some exchanges (like Bitstamp) have a super-slow matching engine
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: sweeping the book takes multiple seconds to transact
+  prefs:
+  - PREF_IND
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Provide orderbook updates as transactions and not top-K levels
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: transactions (new order, delete order, update order, traded) are more compact,
+    provide more information, & are timely.
+  prefs:
+  - PREF_IND
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Provide keyframes
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: i.e. provide an enumeration of orders in the orderbook on connection and perhaps
+    periodically in the stream to bootstrap the subscribers view of the orderbook
+    and validate later in the stream.
+  prefs:
+  - PREF_IND
+  - PREF_OL
+  type: TYPE_NORMAL

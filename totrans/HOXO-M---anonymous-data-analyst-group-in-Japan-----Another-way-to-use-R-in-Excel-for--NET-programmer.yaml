@@ -1,0 +1,161 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:48:58'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : Another way to use R in
+    Excel for .NET programmer'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2011/07/another-way-to-use-r-in-excel-for-net.html#0001-01-01](http://mockquant.blogspot.com/2011/07/another-way-to-use-r-in-excel-for-net.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: As you know,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[RExcel](http://sunsite.univie.ac.at/rcom/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: give us a way to combine R with Excel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: But, It just bothering to install some COMs and maybe not be programming but
+    excel manipulation!
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you are a .NET programmer, there is another way to call R from Excel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I would like to show you simple example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We need to two libraries to do that.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Excel-DNA](http://exceldna.typepad.com/)'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: '[R.NET](http://rdotnet.codeplex.com/)'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: First, you download ExcelDNA from
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here](http://exceldna.codeplex.com/releases/view/66405)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: And, go to "Distribution" folder.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/035fa56432ba652ffb77c2be9e8412b3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgkPZVZbyFUI-bGpjXvuS0sEecq4ULl7gk3Q1OhYcxnWKvFQNm41ojGt7UpSQ4m7ydVMLbEUeWy0aF5kHEBZ0NMDOkUWCQoNXueHn0ycHHUwBv1Rpj-nh18180QJL3WAWeYvvugrcj6a6c/s1600/20110704_1.PNG)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: you just need only three files(ExcelDna.dna, ExcelDna.xll, ExcelDna.Integration.dll)
+    in this folder.
+  prefs: []
+  type: TYPE_NORMAL
+- en: (I assume that your OS is 32bit windows.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Second, you download R.NET from
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here](http://rdotnet.codeplex.com/releases/view/61617)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: you can set(or copy) these files any folder as you like.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, you start up your IDE. I used VC# this time.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Of-course, you can use other .NET languages like a VB.NET.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Create new project, choice "Class library" as template and wrote program as
+    below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: In this case, I defined the function which generates random numbers obey standard normal
+     distribution. If you use or install another version R, modify "SetDllDirectory" function
+    call.
+  prefs: []
+  type: TYPE_NORMAL
+- en: All source code and solution files are
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here(github)](https://github.com/teramonagi/CS-EX_RDotNET_ExcelDNA)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, Add
+  prefs: []
+  type: TYPE_NORMAL
+- en: R.NET.dll
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: ExcelDna.Integration.dll
+  prefs: []
+  type: TYPE_NORMAL
+- en: to your project as reference.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, Everything is ready. Let's compile !
+  prefs: []
+  type: TYPE_NORMAL
+- en: After compile, you have to modify your ExcelDna.dna file.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Edit this file with notepad like below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/0c1d8d966b31fcf7cf0a521503a1b5a8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMdd12ZiGDdDvSQJY-xPp17hGR_dbaFi95yqJ5GzJUI6dthyphenhyphenkAGH6APz_ZuOTCGFWMogq8Wed6hlug0orHqHuwKe0kTyb6OSSuaDLGVMwJX5OHRVHA-J8KpHZOnprTLAHVhOYrVoEUbm0/s1600/201110704_3.PNG)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (v4.0 means your version of .NET framework. modify this number if you need)
+  prefs: []
+  type: TYPE_NORMAL
+- en: (If your DLL's relative-path is not "CSLib.dll" from ExcelDNA.xll, you have
+    to correct this name)
+  prefs: []
+  type: TYPE_NORMAL
+- en: (I deployed CSLib.dll, ExcelDna.xll, ExcelDna.dna in the same folder)
+  prefs: []
+  type: TYPE_NORMAL
+- en: After that, double-click your ExcelDna.xll and create new Excel sheet.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you'll see below, you can use your own function defined in C# language !
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/8f120542380f979cb13139350b277883.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzO0hUb4IGw2le-eqv3AHoh17Z4agvMzua8rKd3Pg6adc0BdBB-_G3zPoYC_Osk2yMfrxbHg46mMSOGgosTRfZ5w1a5htyQ9vLKmJLKHZdqCcc8ZcUKQHCENB0ryO2DhtQyC5TgwkMK48/s1600/20110704_2.PNG)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Enjoy !
+  prefs: []
+  type: TYPE_NORMAL

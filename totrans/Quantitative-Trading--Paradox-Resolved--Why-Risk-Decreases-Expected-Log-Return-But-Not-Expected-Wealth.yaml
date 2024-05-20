@@ -1,0 +1,307 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:56:07'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Paradox Resolved: Why Risk Decreases Expected Log Return
+    But Not Expected Wealth'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2017/05/paradox-resolved-why-risk-decreases.html#0001-01-01](http://epchan.blogspot.com/2017/05/paradox-resolved-why-risk-decreases.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I have been troubled by the following paradox in the past few years. If a stock's
+    log returns (i.e. change in log price per unit time) follow a Gaussian distribution,
+    and if its net returns (i.e. percent change in price per unit time) have mean
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: and standard distribution
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*s*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', then many finance students know that the mean log returns is'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m-s*2/2*. *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: That is, the compound growth rate of the stock is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m-s*2/2*.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This can be derived by applying Ito's lemma to the log price process (see e.g.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Hull](http://amzn.to/2m8SO5w)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ), and is intuitively satisfying because it is saying that the expected compound
+    growth rate is lowered by risk ("volatility"). OK, we get that - risk is bad for
+    the growth of our wealth.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, let's find out what the expected price of the stock is at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . If we invest our entire wealth in one stock, that is really asking what our
+    expected wealth is at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . To compute that, it is easier to first find out what the expected log price
+    of the stock is at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', because that is just the expected value of the sum of the log returns in
+    each time interval, and is of course equal to the sum of the expected value of
+    the log returns when we assume a geometric random walk. So the expected value
+    of the log price at time'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is just
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* ('
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m-s*2/2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ). But what is the expected price (not log price) at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '? It isn''t correct to say exp('
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* ('
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m-s*2/2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: )), because the expected value of the exponential function of a normal variable
+    is not equal to the exponential function of the expected value of that normal
+    variable, or E[exp(x)] !=exp(E[x]). Instead, E[exp(x)]=exp(μ
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*+*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: σ
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2/2
+  prefs: []
+  type: TYPE_NORMAL
+- en: ) where μ and σ
+  prefs: []
+  type: TYPE_NORMAL
+- en: are the mean and standard deviation of the normal variable (see
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Ruppert](https://www.amazon.com/Statistics-Data-Analysis-Financial-Engineering/dp/1493926136/ref=as_sl_pc_qf_sp_asin_til?tag=quantitativet-20&linkCode=w00&linkId=WFSJHXJMFNABLDOT&creativeASIN=1493926136)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ). In our case, the normal variable is the log price, and thus μ=
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* ('
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m-s*2/2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ), and σ
+  prefs: []
+  type: TYPE_NORMAL
+- en: '2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '='
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*s*2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Hence the expected price at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: is exp(
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*m*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ). Note that it doesn't involve the volatility
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*s.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Risk doesn't affect the expected wealth at time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . But we just argued in the previous paragraph that the expected compound growth
+    rate
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*is*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: lowered by risk. What gives?
+  prefs: []
+  type: TYPE_NORMAL
+- en: This brings us to a famous recent
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[paper](http://aip.scitation.org/doi/full/10.1063/1.4940236)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: by Peters and Gell-Mann. (For the physicists among you, this is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*the*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Gell-Mann who won the Nobel prize in physics for inventing quarks, the fundamental
+    building blocks of matter.) This happens to be the most read paper in the Chaos
+    Journal in 2016, and basically demolishes the use of the utility function in economics,
+    in agreement with John Kelly, Ed Thorp, Claude Shannon, Nassim Taleb, etc., and
+    against the entire academic economics profession. (See
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Fortune''s Formula](http://amzn.to/2mtn39y)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'for a history of this controversy. And just to be clear which side I am on:
+    I hate utility functions.) To make a long story short, the error we have made
+    in computing the expected stock price (or wealth) at time'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', is that the expectation value there is ill-defined. It is ill-defined because
+    wealth is not an "ergodic" variable: its finite-time average is not equal to its
+    "ensemble average". Finite-time average of wealth is what a specific investor
+    would experience up to time'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', for large'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Ensemble average is the average wealth of many millions of similar investors
+    up to time
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*t*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Naturally, since we are just one specific investor, the finite-time average
+    is much more relevant to us. What we have computed above, unfortunately, is the
+    ensemble average.  Peters and Gell-Mann exhort us (and other economists) to only
+    compute expected values of ergodic variables, and log return (as opposed to log
+    price) is happily an ergodic variable. Hence our average log return is computed
+    correctly - risk
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*is*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: bad. Paradox resolved!
+  prefs: []
+  type: TYPE_NORMAL
+- en: ===
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**My Upcoming Workshops**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'May 13 and 20:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Artificial Intelligence Techniques for Traders](http://epchan.com/workshops)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will discuss in details AI techniques as applied to trading strategies, with
+    plenty of in-class exercises, and with emphasis on nuances and pitfalls of these
+    techniques.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'June 5-9:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[London in-person workshops](http://www.technicalanalyst.co.uk/courses/calendar/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I will teach 3 courses there: Quantitative Momentum, Algorithmic Options Strategies,
+    and Intraday Trading and Market Microstructure.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (The London courses may qualify for continuing education credits for CFA Institute
+    members.)
+  prefs: []
+  type: TYPE_NORMAL

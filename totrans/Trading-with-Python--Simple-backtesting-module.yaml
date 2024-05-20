@@ -1,0 +1,70 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:42:10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Trading with Python: Simple backtesting module'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: My search of an ideal backtesting tool (my definition of 'ideal' is described
+    in the earlier 'Backtesting dilemmas' posts) did not result in something that
+    I could use right away. However, reviewing the available options helped me to
+    understand better what I really want. Of the options I've looked at,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[pybacktest](https://github.com/ematvey/pybacktest)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: was the one I liked most because of its simplicity and speed. After going through
+    the source code,  I've got some ideas to make it simpler and a bit more elegant.
+    From there, it was only a small step to writing my own backtester, which is now
+    available in the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[TradingWithPython library](http://www.tradingwithpython.com/?page_id=504)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have chosen an approach where the backtester contains functionality which
+    all trading strategies share and that often gets copy-pasted. Things like calculating
+    positions and pnl, performance metrics and making plots.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Strategy specific functionality, like determining entry and exit points should
+    be done outside of the backtester. A typical workflow would be:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*find entry and exits -> calculate pnl and make plots with backtester -> post-process
+    strategy data*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: At this moment the module is very minimal (take a look at the source
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here](https://code.google.com/p/trading-with-python/source/browse/trunk/lib/backtest.py)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ), but in the future I plan on adding profit and stop-loss exits and multi-asset
+    portfolios.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Usage of the backtesting module is shown in this
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[**example notebook**](http://nbviewer.ipython.org/urls/dl.dropboxusercontent.com/u/11352905/notebooks/twp_302b_backtesting.ipynb)'
+  prefs: []
+  type: TYPE_NORMAL

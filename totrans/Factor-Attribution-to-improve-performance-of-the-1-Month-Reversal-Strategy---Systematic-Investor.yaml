@@ -1,0 +1,94 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:39:26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Factor Attribution to improve performance of the 1-Month Reversal Strategy |
+    Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to show how to use [Factor Attribution](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)
+    to boost performance of the [1-Month Reversal Strategy](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/).
+    The [Short-Term Residual Reversal by D. Blitz, J. Huij, S. Lansdorp, M. Verbeek
+    (2011)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1911449) paper presents
+    the idea and discusses the results as applied to US stock market since 1929\.
+    To improve 1-Month Reversal Strategy performance authors investigate an alternative
+    position ranking metric based on the residuals from the rolling Factor Attribution
+    regression.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The base 1-Month Reversal Strategy forms portfolios each month by buying 20%
+    of loosers and short selling 20% of winners from the S&P 500 index based on the
+    prior 1-Month returns. The 1-Month **Residual** Reversal Strategy forms portfolios
+    each month by buying 20% of loosers and short selling 20% of winners from the
+    S&P 500 index based on the residuals from the rolling Factor Attribution regression.
+    Following are the steps to form 1-Month **Residual** Reversal Strategy portfolio
+    each month:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1\. for each company in the S&P 500 index, run a rolling Factor Attribution
+    regression on the prior 36 months and compute residuals: e.1, e.2, …, e.t, …,
+    e.T for t in 1:36'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 2\. alternative position ranking metric = e.T / standard deviation of (e)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 3\. form portfolios by buying 20% of loosers and short selling 20% of winners
+    from the S&P 500 index based on the alternative position ranking metric
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Let’s start by loading historical prices for all companies in the S&P 500 and
+    create SPY and Equal Weight benchmarks using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s run Factor Attribution on each the stocks in the S&P 500 index to
+    determine it’s alternative position ranking metric. I will save both e.T and e.T
+    / standard deviation of (e) metrics.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s group stocks into Quantiles based on 1-Month Reversal factors and
+    create reports.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5d763502fe01d2a233ca28b7f3ca52ba.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ae13f4c320e9a831e3d12a837ca72bc7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/c223c2aeee0aa1a5898cd733f3547816.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The 1-Month **Residual** Reversal Strategy have done well over the last 10 years
+    and handsomely outperformed the base 1-Month Reversal Strategy.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.fa.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

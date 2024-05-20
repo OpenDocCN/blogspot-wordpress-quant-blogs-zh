@@ -1,0 +1,93 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:07:28'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Pricing European equity options with Quantlib | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Below is a piece of code to price **European-style options** on **stocks** with
+    **continuous dividend**. Option value is calculated **analytically**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This is the first code C++ based on **Quantlib** on this blog site. For the
+    one familiar with C++, it clearly isn’t professional coding. But, we don’t care
+    that much for now. It is a starting point.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It provides the reader with a base structure that will later be improved and
+    derived to price other option types and/or to use other computing methods. Thus,
+    it is very important to understand well this code. Please, refer to both the **Quantlib**
+    and **Boost** documentations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We end up this post with comments on  required and possible improvements.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ________________________________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option type = call
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option strike = 40
+  prefs: []
+  type: TYPE_NORMAL
+- en: Stock Price = 47
+  prefs: []
+  type: TYPE_NORMAL
+- en: Risk-free rate = 5%
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility = 20%
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option expiration = May 27^(th), 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: ________________________________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Concluding comments
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: The code above works well, and our ‘European option calculator’ provides exact
+    calculation results. But, this code is not ‘pure’ C++ coding, and it has limitations
+    from the user’s standpoint.
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, we knew beforehand this code would work. But, what if the code contained
+    fanciful parameters, for example? Thus, we should add some lines able to check
+    some conditions that we ourselves have to define. This is called an **exception
+    mechanism**, that is – in simple terms – code that warns something went wrong,
+    what is was, and where the error in question lies in code. Exception mechanisms
+    generally take the form of **try**, **throw** and **catch** blocks. Exceptions
+    are named explicitly. For example, one might encounter a DividedByZero exception
+    in the maths and finance areas.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Second, this code is all but user-friendly. It computes the value of a unique
+    option the parameters of which are (pre)defined at the time of coding. An obvious
+    improvement is allowing the user to enter its own option parameters. The **STL
+    library** has everything one needs to do that (basically, **std::cin**). Further,
+    one might want a rich-designed user interface. In this case, one good choice is
+    using **Qt** as it allows to build good-looking **GUI** in no-time. For now, we
+    let the reader exploring those possibilities by him(her-)self.
+  prefs: []
+  type: TYPE_NORMAL

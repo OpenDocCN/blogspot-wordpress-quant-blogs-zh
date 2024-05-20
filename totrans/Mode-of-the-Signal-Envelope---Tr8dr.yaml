@@ -1,0 +1,57 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:38:11'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Mode of the Signal Envelope | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01](https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: November 6, 2009 · 8:02 am
+  prefs: []
+  type: TYPE_NORMAL
+- en: One thing that struck me as clever with the HHT was the use of projecting a
+    spline across the minima and maxima for a given harmonic.   In effect this defines
+    the envelope for the series for a given harmonic (level of decomposition).   A
+    posteri, the mean or mode should be more or less equivalent to the average of
+    the envelope splines.   Interesting!
+  prefs: []
+  type: TYPE_NORMAL
+- en: This is a very appropriate way to model the mean within the context of mean-reversion
+    (ie oscillations around the mode within an envelope).   Instead of trying to model
+    the mean directly as a stochastic process, why not model the envelope — this is
+    more appropriate as we can fit the envelope into our view of mean reversion.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Version 1** I used a regressor to estimate the mean and connected minima
+    and maxima with a spline for the envelope.  The approach has issues (such as what
+    sort of bias does the mean regressor have with respect to the data).   There are
+    some issues below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 1](img/a685cb77f7fac1c7a8a2093aa8bf3e5f.png "Picture 1")'
+  prefs: []
+  type: TYPE_IMG
+- en: '**Version 2** I took a dfference approach, estimating the inflection points
+    with a regressing “oscillator”  (in green) and determining the mid-points between
+    minima and maxima to produce a spline representing the mode (blue).   So far looks
+    good.   Edge cases, consolidation, and jumps need to be considered:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 2](img/7b2a63d722e620a508b72c391b8d37fa.png "Picture 2")'
+  prefs: []
+  type: TYPE_IMG
+- en: More on this later.
+  prefs: []
+  type: TYPE_NORMAL

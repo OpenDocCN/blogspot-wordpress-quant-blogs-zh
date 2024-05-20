@@ -1,0 +1,84 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:49:59'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'NLV2: Capturing the 3rd Derivative | CSSA'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2014/12/09/nlv2-capturing-the-3rd-derivative/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/09/nlv2-capturing-the-3rd-derivative/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[![3rd derivative](img/751386197bbcb14c138135a4057e9325.png)](https://cssanalytics.files.wordpress.com/2014/12/3rd-derivative.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In the [previous post](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/
+    "Combining Acceleration and Volatility into a Non-Linear Filter (NLV)"), I introduced
+    the concept of a non-linear filter that combines volatility and acceleration.
+    However, this is just one configuration to leverage the concept of a non-linear
+    filter. Using a traditional volatility calculation assigns each data point an
+    equal weight, when in practice some data points should logically have more weight
+    than others. To capture different weighting functions, one could use multiple
+    indicators to weight data points in the volatility calculation to make it more
+    responsive to incoming market data. Using [acceleration](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/
+    "Volatility of Acceleration Part Two") was an interesting idea to reduce lag and
+    quickly capture changes in volatility. Preliminary analysis showed some promise
+    in this regard. Acceleration is the 2nd derivative, so an interesting question
+    is whether the 3rd derivative- or the velocity of acceleration-can produce even
+    better results. I created a new framework to capture the non-linear weighting
+    that is much simpler to understand and implement:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A) Calculate the rolling series of the square of the daily log returns minus
+    their average return
+  prefs: []
+  type: TYPE_NORMAL
+- en: B) Calculate the rolling series of the absolute value of the first difference
+    in log returns (acceleration/error)
+  prefs: []
+  type: TYPE_NORMAL
+- en: C) Calculate the rolling series of the absolute value of the first difference
+    in B (the absolute acceleration/error log returns) this is the 3rd derivative
+    or velocity of acceleration.
+  prefs: []
+  type: TYPE_NORMAL
+- en: D) Weight each daily value in A by the current day’s C value divided by the
+    sum of C values over the last 10 days-
+  prefs: []
+  type: TYPE_NORMAL
+- en: F) Find the sum of the values in D- this is NLV2
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is how NLV2 performs on the S&P500 (SPY) versus the other methods previously
+    presented:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![nlv3](img/904b45f4f043f75c9a635f8a9e953a5a.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![nlv4](img/681cad7d9c2c5434958059d9f8950915.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The profile of this method is very different than the others, and while it hasn’t
+    performed as well comparatively in recent years it has been the best performer
+    over the entire period that was tested. While other people may dismiss things
+    that have underperformed recently, my own research suggests that this is a mistake-
+    many systems and methods mean-revert around some long-term average. Since this
+    method has fewer moving parts than NLV, that makes it inherently more desirable
+    and perhaps more durable. In either case the point of presenting this method is
+    not to evaluate performance or suggest that it is a superior weighting scheme.
+    It is to present an alternative way to look at the data- clearly different derivatives
+    of log returns carry different pieces of information, and combining these into
+    a calibrated forecast model or a non-linear filter may add value above and beyond
+    the standard volatility formulation.
+  prefs: []
+  type: TYPE_NORMAL

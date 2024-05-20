@@ -1,0 +1,90 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:36:57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Permanent Portfolio – Simple Tools | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I have previously described and back-tested the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy based on the series of posts at the [GestaltU](http://gestaltu.blogspot.ca/)
+    blog. Today I want to show how we can improve the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy perfromance using following simple tools:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility targeting
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Risk allocation
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Tactical market filter
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: First, let’s load the historical prices for the stocks(SPY), gold(GLD), treasuries(TLT),
+    and cash(SHY) and create a quarterly rebalanced [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Now let’s create a version of the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy that targets the 7% annual volatility based on the 21 day look back period.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Please note that allocating equal dollar amounts to each investment puts more
+    risk allocation to the risky assets. If we want to distribute risk budget equally
+    across all assets we can consider a portfolio based on the equal risk allocation
+    instead of equal capital (dollar) allocation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: We can also use market filter, for example a 10 month moving average, to control
+    portfolio drawdowns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Finally, let’s combine market filter and volatility targeting:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/1a04b1e7457539cc2501fc8910445f9b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/c0a160f45bf331bfddadefad70d00c91.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The final portfolio that combines market filter and volatility targeting is
+    a big step up from the original [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy: the returns are a bit down, but draw-downs are cut in half.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.permanent.portfolio2.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,170 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:17:48'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Monte-Carlo Calibration of the Heston Stochastic Local Volatiltiy Model – HPC-QuantLib
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://hpcquantlib.wordpress.com/2016/01/10/monte-carlo-calibration-of-the-heston-stochastic-local-volatiltiy-model/#0001-01-01](https://hpcquantlib.wordpress.com/2016/01/10/monte-carlo-calibration-of-the-heston-stochastic-local-volatiltiy-model/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Solving the Fokker-Planck equation via finite difference methods is not the
+    only way to calibrate the Heston stochastic local volatility model
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\begin{array}{rcl} d \ln{S_t} &=& \left(r_t - q_t - \frac{1}{2}L\left(S_t,
+    t\right)^2\nu_t \right)dt + L(S_t, t)\sqrt{\nu_t} dW_t^S \\ \nonumber d\nu_t &=&
+    \kappa\left(\theta - \nu_t\right)dt + \eta\sigma\sqrt{\nu_t}dW_t^\nu \\ \nonumber
+    \rho dt &=& dW_t^\nu dW_t^S \end{array} ](img/b9bc8070fcb2f2b9db972282b82e8bd9.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The basic equation to calibrate the leverage function ![L(S_t,t)](img/4341aa93bfbcc6b607534c96ed1e5870.png)
+    for a local volatility surface ![\sigma_{LV}(S_t,t)](img/1d18890ac56707a1266d816508f41e20.png)
+    and a set of Heston parameters ![\{\nu_0, \kappa, \theta, \sigma, \rho, \eta \}](img/59d80282d6b07fd94842cc046dc0fead.png)
+    is given by
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![L(S_t, t)=\frac{\sigma_{LV}(S_t, t)}{\sqrt{\mathop{\mathbb{E}}[\nu_t|S=S_t]}}=
+    \sigma_{LV}(S_t, t)\sqrt{\frac{\int_{\mathop{\mathbb{R}}^+} p(S_t,\nu, t) d\nu}{\int_{\mathop{\mathbb{R}}^+}\nu
+    p(S_t,\nu,t)d\nu}} ](img/119356653cb0c4aa9dbec471528da261.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Key problem here is to calculate the expectation value ![\mathop{\mathbb{E}}[\nu_t|S=S_t]](img/4c2203b6d9d260d8f1b17063c07e1020.png).
+    This can either be done via the Fokker-Planck equation as outlined in [3] and
+    the references in there or via Monte-Carlo simulations as shown in [2].  Getting
+    the solution of the Fokker-Planck equation via finite difference methods is anything
+    but easy if the Feller constraint is violated. In this case the Monte-Carlo approach
+    promises less numerical problems to overcome. Starting point for an efficient
+    Monte-Carlo calibration is a fast and accurate simulation scheme for a stochastic
+    local volatility (SLV) model. The variance part of the SLV can be sampled exactly
+    using the non-central ![\chi^2](img/405c44943aec8e2eac3fa488a7388bbd.png) distribution.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Pr(\nu_{t+\Delta t} < \nu | \nu_t) = F_{\chi^{\prime }2}\left(\nu \frac{4\kappa}{\eta^2\sigma^2\left(1-e^{-\kappa
+    \Delta t}\right)}; \frac{4\kappa\theta}{\eta^2\sigma^2}, \frac{4\kappa}{\eta^2\sigma^2\left(1-e^{-\kappa
+    \Delta t}\right)}\nu_t e^{-\kappa \Delta t}\right) ](img/5ec9a8ddbacc6e241f63ea23005488d5.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The boost library supports the inverse of the cumulated non-central ![\chi^2](img/405c44943aec8e2eac3fa488a7388bbd.png)
+    distribution but the calculation itself is rather slow. The Heston QE scheme outlined
+    in [1] comes with an fast and accurate sampling scheme for the square root process.
+    In the case ![\gamma_1=\gamma_2=\frac{1}{2}](img/6837df34e9bf611d6bf830275c895664.png)
+    it reads
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\begin{array}{rcl} m &=& \theta+(\nu_t - \theta)e^{-\kappa \Delta t} \\[6pt]
+    \nonumber \psi &=& \frac{\nu_t \frac{\eta^2\sigma^2 e^{-\kappa\Delta t}}{\kappa}\left(1-e^{-\kappa\Delta
+    t} \right) + \frac{\theta\eta^2\sigma^2}{2\kappa}\left(1-e^{-\kappa\Delta t}\right)^2}{m^2}\\[6pt]
+    \nonumber \beta &=& \frac{2}{\psi} - 1 + \sqrt{\frac{2}{\psi}\left(\frac{2}{\psi}-1
+    \right)} \\[6pt] \nonumber p &=& \frac{\psi-1}{\psi+1} \\[6pt] \nonumber Z_\nu
+    &\sim& \mathcal{N}(0,1) , u \sim \mathcal{U}(0,1) \\[6pt] \nonumber \nu_{t+\Delta
+    t} &=& \begin{cases} \frac{m}{1+\beta}\left(\sqrt{\beta}+Z_\nu\right)^2 & \text{if
+    } \psi < 1.5 \\[6pt] \begin{cases} 0, & \text{if } u \leq p \\[6pt] \ln{\left(\frac{1-p}{1-u}\right)}\frac{m}{1-p}
+    & \text{otherwise} \end{cases} & \text{if } \psi \geq 1.5 \end{cases} \end{array}](img/32c44e6fd57bbc2333a06f04a6003245.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The authors in [2] suggesting a sampling scheme for ![X_t = \ln{S_t}](img/548127e6409e48f8994f4adf59b9e2ef.png).
+    The scheme below is a bit closer to the original QE scheme and without a rigorous
+    proof it has shown slightly smaller discretisation  errors for the examples.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\begin{array}{rcl} X_{t+\Delta t} &=& X_t + \left(r_t - q_t - \frac{1}{4}\left(\nu_t+\nu_{t+\Delta
+    t}\right)L(S_t, t)^2 \right)\Delta t \\[6pt] \nonumber &&+ \frac{\rho}{\sigma}L(S_t,
+    t) \left(\nu_{t+\Delta t} -\nu_t - \kappa\theta\Delta t + \frac{1}{2}\left(\nu_t
+    + \nu_{t + \Delta t}\right)\kappa\Delta t\right) \\[6pt] \nonumber &&+\sqrt{\frac{1}{2}\left(1-\rho^2\right)\left(\nu_t
+    + \nu_{t+\Delta t}\right) Z_x \Delta t} \\[6pt] \nonumber Z_x &\sim& \mathcal{N}(0,1)
+    \end{array} ](img/330cdec99edf906da0fed5f46a889b90.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: To get from the Monte-Carlo paths to the leverage function the authors in [2]
+    using a binning technique in every time step. QuantLib supports two ways to generate
+    the random draws, either based on i.i.d normal variables or based on Sobol quasi
+    Monte-Carlo simulations with brownian bridges.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Test case definition: Feller constraint is violated.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\begin{array}{rcl} S_{0} &=& 100 \\ \nonumber r_t &=& 5\% \\ \nonumber q_t
+    &=& 2\% \\ \nonumber \sigma_{LV}(S_t, t) &=& 30\% \\ \nonumber \kappa &=& 1.0\\
+    \nonumber \theta &=& 0.06\\ \nonumber \rho &=& -0.75\\ \nonumber \sigma &=& 0.4\\
+    \nonumber \nu_{0} &=& 0.09 \end{array} ](img/e0b3e3481bba712a6a0c900721f9f8cb.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Effectively the leverage function ![L(S_t, t)](img/b0fac539a6cd61b506e8567fa4e0057f.png)
+    will remove the skew and term structure introduced by the Heston model and shifts
+    volatility to 30%. In order to measure the calibration quality the price mismatches
+    expressed in volatility basis point differences are calculated for OTM calls and
+    puts with prices above 0.02 and for maturity from one month until two year. The
+    SLV prices are calculated by solving the Feynman-Kac backward equation using finite
+    difference methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![avgpriceerror](img/df909422e7dfb841483d05b3beabcd9a.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The diagram above shows the average pricing error for different number of Monte-Carlo
+    calibration paths and for different bin sizes. As expected the optimal bin size
+    depends on the number of Monte-Carlo simulations. Especially deep OTM options
+    benefit from a large number of bins. The usage of Sobol quasi Monte-Carlo simulations
+    with brownian bridges does not give a significant advantage.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The average pricing error is decreasing with the square root of the number of
+    Monte-Carlo calibration paths if one always choses the optimal bin size as shown
+    in the diagram below.  Quasi Mont-Carlo path generation with brownian bridges
+    gives a small advanage.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![optimalbinsize](img/c0b3606c51c8919f7fe7b9bf6a6a7e4e.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: As expected the leverage function itself exposes some Monte-Carlo noise, see
+    diagram below. The corresponding leverage function based on the finite difference
+    method is smooth but the overall calibration error is of the same size.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![mc_leverage](img/ee4956ba4c9cea4dad81fdeb7f5f2a9e.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The calibration for different mixing factors ![\eta](img/3d744e5faf1efbb1fd86f7d17ef67fec.png)
+    is straight forward. The diagram below e.g. shows the prices of a double no touch
+    option for different distances of the (symemtric) lower and upper barriers expressed
+    in terms of the corresponding Black-Scholes prices. This diagram type is derived
+    from figure 8.8 in [4].
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![moustache](img/f7623f05775306e182fd0d3df847804f.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: The source code is available on [github](https://github.com/lballabio/QuantLib/)
+    as part of the test suite HestonSLVModelTest.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[1] Leif Andersen, [Efficient Simulation of the Heston Stochastic Volatility
+    Model](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=946405)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[2] Anthonie Van der Stoep, Lech Grzelak, Cornelis Oosterlee,'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[The Heston Stochastic-Local Volatility Model: Efficient Monte Carlo Simulation](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2278122)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[3] Johannes Goettker-Schnetmann, Klaus Spanderen, [Calibrating the Heston
+    Stochastic Local Volatility Model using the Fokker-Planck Equation](http://hpc-quantlib.de/src/slv.pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[4] Iain J. Clark, Foreign Exchange Option Pricing: A Practitioner’s Guide'
+  prefs: []
+  type: TYPE_NORMAL

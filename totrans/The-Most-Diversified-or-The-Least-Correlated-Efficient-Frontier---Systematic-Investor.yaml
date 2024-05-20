@@ -1,0 +1,91 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:48:38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Most Diversified or The Least Correlated Efficient Frontier | Systematic
+    Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/27/the-most-diversified-or-the-least-correlated-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/27/the-most-diversified-or-the-least-correlated-efficient-frontier/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'The [“Minimum Correlation Algorithm”](http://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
+    is a term I stumbled at the [CSS Analytics blog](http://cssanalytics.wordpress.com).
+    This is an Interesting Risk Measure that in my interpretation means: minimizing
+    Average Portfolio Correlation with each Asset Class for a given level of return.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: One might try to use Correlation instead of Covariance matrix in mean-variance
+    optimization, but this approach, as I will show below, will not produce the least
+    correlated portfolios.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Average Portfolio Correlation with each Asset Class:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![P = \sum_{i=1}^{n}w_{i}X_{i} = w^{T} \ast X  \newline\newline  \sigma_{P}
+    = w^{T} \ast COV \ast w  \newline\newline  COV\left ( P,X_{i} \right ) = COV\left
+    ( \sum_{i=1}^{n}w_{i}X_{i},X_{i} \right )  =w_{1}COV\left ( X_{1},X_{i} \right
+    )+...+w_{n}COV\left ( X_{n},X_{i} \right )  \newline\newline  \rho_{P,X_{i}} =
+    \frac{COV\left ( P,X_{i} \right )}{\sigma_{P}\ast\sigma_{X_{i}}}  \newline\newline  Average
+    Portfolio Correlation = \frac{1}{n}\sum_{i=1}^{n}\rho_{P,X_{i}}  ](img/852fcb71f1ba0df8b08471828476ec8d.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'This formula can be easily coded in R:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: I’m not aware of the method to transform this formula in to the linear programming,
+    so I will use a Nonlinear programming solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html),
+    which is based on donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html).
+    Following code might not properly execute on your computer because Rdonlp2 is
+    only available for R version 2.9 or below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5e1d9cfe2465ef64e4eaf1849b08215a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small8.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using Correlation instead of Covariance matrix in mean-variance optimization
+    is a very bad idea to produce the least correlated portfolios. The ‘Cor instead
+    of Cov’ efficient frontier actually increases average portfolio correlation compared
+    to the standard ‘Risk’ efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/cf855b1ea98851c89dbe169de3fd0c2d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small8.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The portfolio composition of the Average Correlation efficient frontier is split
+    between gold (GLD) and bonds (TLT) at the lower risk levels. This is not surprising
+    because both gold and bonds have positive expected returns and low correlation
+    to the other assets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/baafd04130f9f55daeec88a120c594e6.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3-small5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.avg.cor.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following is the complete source code for minimizing Average Portfolio Correlation
+    with each Asset Class function:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE

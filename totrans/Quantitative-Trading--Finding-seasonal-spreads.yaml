@@ -1,0 +1,98 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:18:33'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Finding seasonal spreads'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2009/02/finding-seasonal-spreads_18.html#0001-01-01](http://epchan.blogspot.com/2009/02/finding-seasonal-spreads_18.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I am pleased to introduce guest blogger Paul Teetor for today's article.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finding Seasonal Spreads
+  prefs: []
+  type: TYPE_NORMAL
+- en: By Paul Teetor
+  prefs: []
+  type: TYPE_NORMAL
+- en: A
+  prefs: []
+  type: TYPE_NORMAL
+- en: seasonal spread
+  prefs: []
+  type: TYPE_NORMAL
+- en: is a spread which follows a regular pattern from year to year, such as generally
+    falling in the Spring or generally rising in October. To find seasonal spreads,
+    I've been using
+  prefs: []
+  type: TYPE_NORMAL
+- en: ANOVA
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', which stands for'
+  prefs: []
+  type: TYPE_NORMAL
+- en: analysis of variance
+  prefs: []
+  type: TYPE_NORMAL
+- en: . ANOVA is a well-established statistical technique which, given several groups
+    of data, will determine if the groups have different averages. Importantly, it
+    determines if the differences are
+  prefs: []
+  type: TYPE_NORMAL
+- en: statistically significantly
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: I start with several years of spread data, compute the spread's daily changes,
+    then group the daily changes by their calendar month, giving me 12 groups. The
+    ANOVA analysis tells me if the groups (months) have significantly different averages.
+    If so, I know the spread is seasonal since it is consistently up in certain months
+    and consistently down in others.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The beauty is that I can automate the process, scanning my entire database for
+    seasonal spreads. A recent scan identified the spread between crude oil (CL) and
+    gasoline (RB), for example. The initial ANOVA analysis indicated the CL/RB spread
+    is very likely to be seasonal. This bar chart of each month's average daily change
+    demonstrates the seasonality. (Click on the graph to enlarge it.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The lines show the confidence interval for each month''s average. Notice how
+    May and June are definitely "up" months because their confidence interval is entirely
+    positive (above the axis). Likewise, November and December are definitely "down"
+    months. For all other months, we cannot be certain because the confidence interval
+    crosses zero, so the true average change could be either negative or positive.
+    The conclusion: Be long the spread during May and June; be short during November
+    and December.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For more details, please see my
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[on-line paper](http://quanttrader.info/public/findingSeasonalSpreads.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: regarding ANOVA and seasonal spreads.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Paul Teetor'
+  prefs: []
+  type: TYPE_NORMAL

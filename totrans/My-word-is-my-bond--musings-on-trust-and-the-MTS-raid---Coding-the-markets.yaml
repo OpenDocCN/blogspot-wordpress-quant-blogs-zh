@@ -1,0 +1,109 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:52:44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'My word is my bond: musings on trust and the MTS raid | Coding the markets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2006/06/14/my-word-is-my-bond-musings-on-trust-and-the-mts-raid/#0001-01-01](https://etrading.wordpress.com/2006/06/14/my-word-is-my-bond-musings-on-trust-and-the-mts-raid/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[Confused](http://www.confusedofcalcutta.com/) is [exploring](http://confusedofcalcutta.com/2006/06/12/four-pillars-further-musings-on-trust/)
+    [Harris](http://www.tradingandexchanges.com) on trustworthiness. Confused reads
+    Harris as explaining the enforcement of standards of behaviour in the market as
+    by contract, rather than covenant. I haven''t read all of Harris yet, and I''m
+    expecting him to say something on the ''my word is my bond'' market ethos, which
+    is more covenant than contract.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: So how does that ethos work in the markets ?  A buy side trader calls a dealer
+    for a quote, and the dealer says '20/25'. The buy side trader says '50 yours'
+    and the dealer says 'done'. At that point they've traded, but the deal has yet
+    to be confirmed by the back offices, so they're not bound by contract yet. If
+    either side subsequently reneges on the trade, they're violating the ethos. Dealers
+    will refuse to quote to a trader who reneges, and a dealer who doesn't honour
+    those trades won't get much business. Both parties have to trust each other until
+    the trade is confirmed. That relationship of trust allows accommodation. Some
+    time back I was on the trading floor helping one of our dealers diagnose an electronic
+    trade on a quote driven market that had RFQed at the wrong price. He called up
+    the counterparty, and they amended the trade price in our favour. Obviously the
+    counterparty valued his relationship with his dealer more than a couple of basis
+    points on the trade.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An instructive recent example of the violation of these implicit trust relationships
+    between market participants was [Citigroup](http://www.citigroup.com/citigroup/homepage/)'s
+    [MTS raid](http://www.euroweek.com/default.asp?Page=1&SID=436395&ISS=11029). They
+    drove EuroGovies down with a massive wave of selling, then bought them all back,
+    profiting by £14M in the process. They didn't breach any specific rules, but as
+    the story explains " the FSA … is likely to examine the trade with an eye on its
+    very loosely defined rules against behaviour that distorts the market".
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another quote is salient: "It seems clear, now, that Citigroup broke some kind
+    of taboo — but unlike many market conventions, this taboo was not one that anyone
+    could have described or formulated before the event."'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To understand what taboo was broken, you have to know that [MTS](http://www.euromts-ltd.com/)
+    as a market has a special position in the Euro Govt bond markets. It's an inter
+    dealer market where issuers conduct primary market operations. MTS is based in
+    Milan, and is used by the Italian, and other European governments, to issue new
+    debt to the market. Only select dealers get to participate in those auctions of
+    new debt. The right to participate in the primary market auctions is earned by
+    taking quoting obligations. That is by quoting EuroGovies five hours a day. Those
+    quoting obligations ensure that there is always dealer supplied liquidity available
+    so that European governments can conduct treasury operations; for example buying
+    debt back from the market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another thing that it's important to understand about MTS is that it's a hybrid
+    market. It's not entirely a quote driven market like [Bloomberg](http://www.bloomberg.com),
+    and not entirely a limit order book market like [Eurex](http://www.eurexchange.com/index.html).
+    Market participants are divided into market makers and market takers. Markets
+    makers send proposals, which are tradeable firm quotes, unlike the indicative
+    quotes of Bloomberg or TradeWeb. Market takers place orders, much as they would
+    on an order driven market. Proposals can cross with orders. However orders cannot
+    cross with orders, so market takers have to trade with market makers, as they
+    do in a quote driven market. Proposals can cross with proposals too.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Since market maker proposals are firm quotes, they are implemented in a transactional
+    fashion, unlike the quotes on true quote driven markets like Bloomberg. Bloomberg's
+    MPF spec specifies that quoting systems should expect an ack once every three
+    quotes, roughly. On Bloomberg, the client doesn't get a tradeable price until
+    an RFQ is initiated, and the quoting system sends a firm price. Since any market
+    taker can trade a market maker's proposal, market makers must know what they're
+    showing on the market at any given instance. Their systems can only know that
+    with certainty because of the transactional model built around getting a quote
+    on the market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That transactional model has implications. To refresh a proposal a new transaction
+    must be opened for that instrument. That can't be done until the previous transaction
+    has completed. And there's a limit on the number of open transactions a market
+    maker can have. So if a market maker is obliged to quote 300 govt bonds, and they
+    can only have 50 open transactions at any instanct, they have major bottleneck
+    if the market starts to move quickly. Market makers can be left badly exposed,
+    with stale proposals out on the market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'It seems to me that the Citigroup raid was specifically designed to exploit
+    those key features of MTS: market maker''s obligation to quote, the hybrid nature
+    of the market, and the transactional nature of proposals. But those market features
+    were all designed to support government treasury operations. The [Euroweek article](http://www.euroweek.com/default.asp?Page=1&SID=436395&ISS=11029)
+    quotes Tom Maheras of Citi as saying the raid was "an innovative transaction that
+    sought to access the liquidity in the European government bond markets". Indeed,
+    and no wonder the government treasury departments were pissed off !'
+  prefs: []
+  type: TYPE_NORMAL

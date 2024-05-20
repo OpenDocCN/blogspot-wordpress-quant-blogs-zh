@@ -1,0 +1,187 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:47:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Geometric Efficient Frontier | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: What is important for an investor? The rate of return is at the top of the list.
+    Does the expected rate of return shown on the mean-variance efficient frontier
+    paints the full picture? If investor’s investment horizon is longer than one period,
+    for example 5 years, than the true measure of portfolio performance is [Geometric
+    return](http://en.wikipedia.org/wiki/Rate_of_return), which is always less then
+    or equal to the [Arithmetic return](http://en.wikipedia.org/wiki/Rate_of_return)
+    plotted on the Y axis of the mean-variance efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There is a good discussion of Arithmetic vs Geometric returns in [A tale of
+    two returns](http://www.portfolioprobe.com/2010/10/04/a-tale-of-two-returns/)
+    blog post by Pat Burns and another good post [Why Log Returns](http://quantivity.wordpress.com/2011/02/21/why-log-returns/)
+    by Quantivity.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will use example and methods presented in [DIVERSIFICATION, REBALANCING, AND
+    THE GEOMETRIC MEAN FRONTIER by W. Bernstein and D. Wilkinson (1997)](http://www.effisols.com/basics/rebal.pdf)
+    paper to create Geometric Efficient Frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s first examine portfolios on the mean-variance efficient frontier and
+    compute their historical geometrical returns:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5935762f0534805482a6cfae8acc6d1a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The efficient frontier labeled ‘Geometric’ lies below the ‘Arithmetic’ efficient
+    frontier and has the maximum Geometric mean at 21.6% risk level. All portfolios
+    with risk greater than 21.6% are not efficient for investor with multi-period
+    investment horizon.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The [DIVERSIFICATION, REBALANCING, AND THE GEOMETRIC MEAN FRONTIER by W. Bernstein
+    and D. Wilkinson (1997)](http://www.effisols.com/basics/rebal.pdf) paper discuss
+    four methods to approximate historical geometric means calculation with arithmetic
+    means. All computations are based on the following approximation between Arithmetic
+    (R) and Geometric (G) means (page 8):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![G \approx R - \frac{aV}{2(1+bR)}  \newline \newline  R \approx \frac{2G+aV}{1-bG+\sqrt{(1+bG)^2+2abV}}  ](img/3c9a064e897357d2497af3fcf5a4c272.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: To reproduce results from the paper, I will follow the geometric efficient frontier
+    construction methods outlined on page 14\. The A(0,1) and A(1,1) geometric efficient
+    frontiers are constructed from the classical Markowitz efficient frontier which
+    use the arithmetic means as inputs. To compute portfolio geometric means I use
+    the above approximation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The G(0,1) and G(1,1) geometric efficient frontiers are constructed from the
+    classical Markowitz efficient frontier which use the individual pseudo-arithmetic
+    means as inputs. I.e. I first convert individual geometric means to the pseudo-arithmetic
+    means and use them later in the optimization. To compute portfolio geometric means
+    I use the above approximation, same as for A(0,1) and A(1,1).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/786c50fd648d8f18db9f9f1d87eeb06a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results match closely to the paper’s results on page 27.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'But we can do better, in the recent paper [On the Relationship between Arithmetic
+    and Geometric Returns by D. Mindlin (2011)](http://www.cdiadvisors.com/papers/CDIArithmeticVsGeometric.pdf)
+    the author presents a detailed review of the four approximation methods to convert
+    between Arithmetic and Geometric Returns. The overall winner is the relationship
+    (A4) (page 8):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![G \approx \frac{(1+R)}{\sqrt{1+\frac{V}{(1+R)^2}}}-1  \newline \newline  R
+    \approx (1+G)\sqrt{\frac{1+\sqrt{1+\frac{4V}{(1+G)^2)}}}{2}}-1  ](img/8798950aa5d95d8508bf0b7d01a3f25c.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'Let’s compare the geometric mean approximation given by A4 method in the same
+    framework as we did above:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/a2e2d7f7516b6311e8d4a029d3b7a5b8.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results match closely the Geometric Efficient Frontier and outperform the
+    A(1,0), A(1,1), G(1,0), G(1,1) approximations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: All discussion above was based on the Geometric Efficient Frontier that consisted
+    from portfolios on the Arithmetic Efficient Frontier. But why do we think that
+    both the Geometric Efficient Frontier and the Arithmetic Efficient Frontier will
+    have same portfolios?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s create the True Geometric Efficient Frontier. I’m not aware of the method
+    to solve this problem as the linear programming, so I will use a Nonlinear programming
+    solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html), which is based on
+    donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html).
+    Following code might not properly execute on your computer because Rdonlp2 is
+    only available for R version 2.9 or below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/a0f5ddfed533808086ed67d7e76db153.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The source code for the max.geometric.return.portfolio() function is at the
+    end of this post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The True Geometric Efficient Frontier and Geometric Efficient Frontier that
+    consisted from portfolios on the Arithmetic Efficient Frontier look identical.
+    This conclusion is also supported by the paper [On the Maximization of the Geometric
+    Mean with Lognormal Return Distribution by E. Elton, M. Gruber (1974)](http://pages.stern.nyu.edu/~eelton/papers/74-dec.pdf).
+    Following is the abstract:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[In this paper we discuss the relevancy of the geometric mean as a portfolio
+    selection criteria. A procedure for finding that portfolio with the highest geometric
+    mean when returns on portfolios are lognormally distributed is presented. The
+    development of this algorithm involves a **proof that the portfolio with maximum
+    geometric mean lies on the efficient frontier in arithmetic mean variance space**.](http://mansci.journal.informs.org/content/21/4/483.short)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The last step is to check that portfolios found by Non-Linear Optimization are
+    global maximums. I will create 1,000,000 random portfolios that satisfy constraints
+    and plot True Geometric Efficient Frontier and random portfolios on the same chart.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/60a8ac570b60bbdc39e60b2207a45a7e.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot5-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Non-Linear Optimization found global maximums: all random portfolios, black
+    dots, lie below the True Geometric Efficient Frontier, red line. To generate Random
+    Portfolios I used [randfixedsum function (Random Vectors with Fixed Sum)](http://www.mathworks.com/matlabcentral/fileexchange/9700-random-vectors-with-fixed-sum)
+    created by Roger Stafford. The randfixedsum function randomly and uniformly generates
+    vectors with a specified sum and values in a specified interval.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*The message that I want to convey in this post is to always check the Geometric
+    Efficient Frontier, constructed from the portfolios on the Arithmetic Efficient
+    Frontier, and make sure that you are compensated for the risk in your portfolios.
+    I.e. the more risk you take on, the greater the expected Geometric return of your
+    portfolios.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.arithmetic.geometric.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The source code for the max.geometric.return.portfolio() function:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE

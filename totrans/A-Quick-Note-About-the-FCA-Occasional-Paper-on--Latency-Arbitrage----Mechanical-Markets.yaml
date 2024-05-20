@@ -1,0 +1,143 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:37:48'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: A Quick Note About the FCA Occasional Paper on “Latency Arbitrage” | Mechanical
+    Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01](https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Aquilina, Budish, and O’Neill (ABO) today published a [paper](https://www.fca.org.uk/publications/occasional-papers/occasional-paper-no-50-quantifying-high-frequency-trading-arms-race-new-methodology)
+    on the “HFT Arms Race” with the [headline](https://www.wsj.com/articles/ultrafast-trading-costs-stock-investors-nearly-5-billion-a-year-study-says-11580126036)
+    that estimates a “latency arbitrage tax” on global investors of $5B/yr. The paper
+    shows some interesting statistics on a unique dataset, raw messages sent to the
+    LSE which are captured and timestamped by one of LSE’s TAPs. Unfortunately, I
+    don’t see how the activity measured in the paper resembles anything approaching
+    a “tax”. I’ve only had a short time to read the paper, so I apologize if I’ve
+    made any errors. And the paper does not necessarily reflect the views of the FCA.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Essentially ABO measure messaging activity that occurs in short bursts, particularly
+    batches of marketable orders — possibly accompanied by cancel-requests — where
+    some of the later orders or cancel-requests fail because an earlier message succeeded.
+    E.g. if 3 marketable orders (from different trader IDs) are sent in short succession
+    when the order book only has the quantity available to fill one of them, then
+    that is identified as a “race” which the first order wins and the later 2 orders
+    lose. Similarly, a “race” is also identified if the LSE receives marketable orders
+    shortly before it receives cancel requests for the matched resting orders. In
+    this case, the failed cancel-requests are the losers of the “race”. The authors
+    provide event counts, volume, and estimated profit for race-winners — where they
+    vary the duration window to identify a “race”, as well as other parameters such
+    as race-type. The headline number of a 0.42bp “tax” is the race-winners’ estimated
+    profits as a share of total volume, where the race window is set to 500us.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Figure 5.1 is a histogram (truncated at 500us) of the time-differences between
+    the first successful message in a race, and the first message to fail (either
+    by being too late to cancel, or trying to trade with liquidity that’s already
+    gone). It’s no surprise that the distribution is highly-skewed, with a mode of
+    5-10us and a 90th percentile of about 200us. And Figure 4.1 shows reaction-times
+    on the LSE for a different type of event, which the authors use to estimate LSE
+    latency at around 29us. Tables 5.5, 5.6, and Figure 5.3 also show the midpoint
+    price trajectory after race events. The authors do a very nice sensitivity analysis
+    that shows how the numbers vary if you change the race window and other parameters.
+    It’s important to note that the longer the race window, the more it will blend
+    messages stemming from different market events. The 500us window selected could
+    help include failed messages sent across Europe on slow networks, but it also
+    includes ~15 roundtrip times from the LSE — enough time for order books on correlated
+    products to react and refill multiple times. One noteworthy measurement is in
+    Table 6.3, which gives an idea of the volume that market-makers perhaps wish they
+    could avoid by being faster: the approximate “profit” that marketable orders make
+    from trading with someone who tried-and-failed to cancel within 50us. This number
+    is very low, about 0.03bp, an indicator of a pretty efficient market where market-makers
+    are not getting “picked-off” very often.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, it’s very interesting to see statistics on these types of events, but I
+    don’t see how they can be considered a “tax” in any way. All they show is that
+    trading is competitive, and that traders may send messages even if there’s a low
+    probability of success. As a real-world example, consider America’s favorite holiday,
+    Black Friday. Perhaps your local toy store is selling the new Nintendo for $100
+    off, but they only have 10 available with the discount. You know it’ll be a long
+    shot, but you really want to catch some Pokemon, so you get up early and head
+    to the store. You get there just in time to be 10th in line. A bunch of people
+    arrive a few minutes later, but they all have to pay full price.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Did you levy a tax on them? It’s hard to see how. You got there first and you
+    got the reward. Your time and transportation cost were arguably wasted. But in
+    financial markets, investments in network infrastructure which ensure the law
+    of one price have significant [economic value](https://mechanicalmarkets.wordpress.com/2016/10/04/high-speed-trading-networks-and-societal-value/).
+    I suppose Nintendo could forbid discounts, and maybe everyone else could get 0.004%
+    off, but Nintendo gets to decide how to sell their wares. It’s a silly analogy,
+    but maybe stocks aren’t so different. If a shareholder prefers to disengage from
+    this type of race, she can sell her stock in an auction if she likes. And the
+    paper appears to suggest that a way to avoid the “tax” is to have everyone trade
+    in auctions, referring to the batch auction proposal from [Budish, Cramton, and
+    Shim](https://faculty.chicagobooth.edu/eric.budish/research/HFT-FrequentBatchAuctions.pdf)
+    (BCS):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: BCS showed that even information seen and understood by many market participants
+    essentially simultaneously — e.g., a change in the price of a highly-correlated
+    asset or index, or of the same asset but on a different venue, etc. —creates arbitrage
+    rents too. These rents lead to a never-ending arms race for speed, to be ever-so-slightly
+    faster to react to new public information, and harm investors, because the rents
+    are like a tax on market liquidity. BCS showed that the problem can be fixed with
+    a subtle change to the underlying market design, specifically to discrete-time
+    batch-process auctions; this preserves the useful function of algorithmic trading
+    while eliminating latency arbitrage and the arms race.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Of course, auction prices are still partly set by proprietary traders, sometimes
+    in a latency-sensitive way. The BCS proposal claims to eliminate “latency arbitrage”
+    by having auctions every 100ms or so, with only price priority and ties broken
+    randomly. To further prevent “latency arbitrage”, BCS proposes no pre-auction
+    transparency. Normal exchange auctions have a long period of transparency before
+    the final match occurs, in order to attract liquidity and ensure a sensible price.
+    This transparency often takes the form of a partly displayed order book (e.g.
+    on many futures [exchanges](https://www.cmegroup.com/confluence/display/EPICSANDBOX/Indicative+Opening+Price+and+Quantity)),
+    or indicative pricing and order imbalances (e.g. on many equities [exchanges](https://www.nasdaqtrader.com/Trader.aspx?id=OpenClose)).
+    Pre-auction transparency does make trading somewhat latency-sensitive, but exchanges
+    in the real world know that having an auction blind can result in chaotic pricing
+    — even when auctions occur once a day on highly liquid products. Holding blind
+    auctions so frequently that they have only 0 or 1 orders of natural liquidity,
+    and where traders are rewarded with priority for aggressive pricing, is a recipe
+    for disaster. Prop traders would probably make a lot of money off of the ensuing
+    chaos, but the uproar might be so intense that few of them would recommended it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'More generally, there is a tradeoff between immediacy and liquidity. If you
+    want to have liquid auctions, they probably can’t be very frequent. [Donier and
+    Bouchaud](https://arxiv.org/abs/1506.03758) suggest that for batch auctions to
+    improve liquidity they should occur on the order of once per hour. I think most
+    traders like auctions — BCS is right about that. And since we’re discussing pet
+    market structure reforms with no chance of happening, I may as well suggest one
+    that would give us more auctions and could save something of far more significant
+    value: people’s time. The industry currently spends a lot of time keeping markets
+    open when they probably [don’t need to be](https://www.wsj.com/articles/at-closing-time-the-stock-market-heats-up-like-a-bar-at-last-call-1521038300).
+    We could reduce that time, which currently has many professionals in the office
+    for [11 hours a day](https://www.reuters.com/article/us-europe-stocks-exchange-analysis/a-90-minute-cut-shorter-trading-day-comes-with-costs-idUSKBN1XH2M0).
+    Stock exchanges could hold 2-4 sessions per day, each around 30-60 minutes long
+    and overlapping with market hours in other major financial centers. This schedule
+    could encourage working from home and a more clear demarcation of business hours
+    between offices in different timezones.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I enjoyed seeing the statistics in ABO and wish regulators would publish more
+    statistics on raw market data. The “tax” claim seems a bit strange though.
+  prefs: []
+  type: TYPE_NORMAL

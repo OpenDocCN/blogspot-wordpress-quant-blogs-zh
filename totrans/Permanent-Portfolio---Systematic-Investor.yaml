@@ -1,0 +1,66 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:37:51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Permanent Portfolio | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'First, just a quick update: I’m moving the release date of the SIT package
+    a few months down the road, probably in November.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now back to the post. Recently I came across a series of interesting posts about
+    the [Permanent Portfolio](http://gestaltu.blogspot.ca/2012/08/permanent-portfolio-shakedown-part-1.html)
+    at the [GestaltU](http://gestaltu.blogspot.ca/) blog. Today I want to show you
+    how to back-test the [Permanent Portfolio](http://en.wikipedia.org/wiki/Fail-Safe_Investing)
+    using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The simple version of the [Permanent Portfolio](http://en.wikipedia.org/wiki/Fail-Safe_Investing)
+    consists of equal allocations to stocks(SPY), gold(GLD), treasuries(TLT), and
+    cash(SHY). [25% allocation each] The portfolio is rebalanced once a year if any
+    allocation breaks out from the 15% – 35% range.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: To rebalance base on the 10% threshold (i.e. portfolio weights breaking out
+    from the 15% – 35% range) I will use bt.max.deviation.rebalancing() function introduced
+    in the [Backtesting Rebalancing methods](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/be277e611778b6b2549a34ada3baf4d6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e312dc142367874316c59d2c6ad0408a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/1a7ff643f0189edbc4741d92070abdd0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Quarterly rebalancing with 10% threshold produces an attractive portfolio
+    with top performance and low turnover.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.permanent.portfolio.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

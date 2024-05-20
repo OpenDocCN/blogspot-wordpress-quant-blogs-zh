@@ -1,0 +1,134 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:32:19'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Stop Loss | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to share and present an example of the flexible [Stop Loss](http://www.investopedia.com/articles/trading/08/trailing-stop-loss.asp)
+    functionality that I added to the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s examine a simple [Moving Average Crossover](http://www.investopedia.com/university/movingaverage/movingaverages4.asp)
+    strategy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Buy is triggered once fast moving average crosses above the slow moving average
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Sell is triggered once fast moving average crosses below the slow moving average
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Here is an example using 20 and 50 day moving averages on SPY.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, I created the [custom.stop.fn() function in bt.stop.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.r)
+    to handle user defined stop functions. Let’s have a look at 3 different flavors
+    of stops below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Each user defined stop function have 4 required inputs:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: weight – signal or weight indicating position
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: price – price for asset
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: tstart – index(time) when trade was open
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: tend – index(time) when trade is closed
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Additionally, you can provide any other required information.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For example, the fixed.stop function above, will exit the trade once price
+    falls below given % (pstop) from entry price or trade is closed. The trailing.stop.profit.target
+    function will exit the trade once either:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: trailing stop is reached. i.e. price falls below given % (pstop) from max price
+    since start of trade OR
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: profit target is reached. i.e. price rises above given % (pprofit) from entry
+    price
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Following is an example of integrating these stop losses into the back-tests.
+    Please note that I only use the Buy rule from the original strategy to open the
+    trades and to close the trades I use the stop loss logic.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1](img/8a047573eb20c920f1b6c9d551303014.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot12.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Nothing exciting to report. The fixed stop loss is not triggered often and resembles
+    the Buy and Hold. The trailing stops reduce the time strategy is in the market
+    and also reduce returns. The trailing stop with profit target is doing a bit better.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'We can see functionality of the stops more clearly in the picture below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot2](img/21314f934769342f8b029c00340cbbb1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot22.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The shaded green area indicates the times when strategy is invested. In the
+    top chart, the strategy is long once fast moving average (red line) is above the
+    slow moving average (blue line).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next chart (Fixed Stop) is fully invested because market has taken off since
+    we entered the trade and stop, which is % relative to the trade entry price, is
+    never triggered.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The last 2 charts show the trailing stop logic. Strategy is less often invested
+    once we enforce the aggressive profit target.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Have fun with creating your own customized stop loss functions and let me know
+    if you run into problems.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.stop.ma.cross.test() function in bt.stop.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.test.r).
+  prefs: []
+  type: TYPE_NORMAL

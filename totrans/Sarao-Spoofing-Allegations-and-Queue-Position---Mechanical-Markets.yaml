@@ -1,0 +1,117 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:43:36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Sarao Spoofing Allegations and Queue Position | Mechanical Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2015/04/24/sarao-spoofing-allegations-and-queue-position/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/04/24/sarao-spoofing-allegations-and-queue-position/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One of many unanswered questions about the Sarao case is whether he might be
+    able to reasonably argue that his alleged ‘spoof’ orders were actually part of
+    a market-making strategy. Bradley Hope [uploaded](https://twitter.com/bradleyhope/status/591375301537570817)
+    some more documents last night, that I think could help answer that question.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The [FBI complaint](http://www.justice.gov/sites/default/files/opa/press-releases/attachments/2015/04/21/sarao_criminal_complaint.pdf)
+    mentions how often Sarao modified his orders, without much detail on the nature
+    of those modifications. Modifying an order frequently doesn’t, on its own, suggest
+    manipulative activity. There are lots of legitimate reasons why market-makers
+    use that exchange instruction to update their quotes. And perhaps Sarao’s defense
+    could make an argument that he was actually intending to market-make, only several
+    ticks away from the BBO. He certainly would not be the only market-maker posting
+    liquidity far away from the current price, a trading strategy that could be one
+    of the oldest in existence. If so, it would be consistent with a high modification
+    rate and low fill rate. And perhaps he could claim that he tended to post more
+    quantity on the sell-side as part of his quoting strategy (remember, he appears
+    to have mostly traded during volatile times).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So, one detail I would like to know is whether Sarao used those modification
+    requests to update legitimate quotes as the market price moved, or whether he
+    used them in some other fashion more indicative of manipulation. Last night’s
+    documents may contain a hint. From p.53, which contains an email from Sarao to
+    Matt Garley of Trading Technologies:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: What i need are the following functions…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: iv) The ability for my orders to rest on a particular size, ie my order will
+    be pulled if there are not x amount of orders beneath it. Of course to make this
+    work we will have to stay at the back of the book, v) this can be done by increasing/decreasing
+    my order by a 1 lot every time a new order is detected where I am resting
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This could help explain his allegedly high modification rate and, in my view,
+    is really bizarre. If I understand it properly (and I might not), he is requesting
+    a feature to automatically send 2 modification requests to the exchange whenever
+    someone else joins his price level. The first request would be to increment his
+    order’s quantity by 1 lot and, right after, a second request would decrement it
+    by 1 lot. This would result in no net change in his order’s quantity, but would
+    have the effect of moving him to the back of the [FIFO queue](http://www.cmegroup.com/confluence/display/EPICSANDBOX/Matching+Algorithms#MatchingAlgorithms-FIFO).
+    An order at the back of the queue only gets filled when the entire price level
+    trades, usually indicating a very toxic incoming order.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Why would somebody want their order to be at the back of the queue, which almost
+    certainly has worse adverse selection characteristics than the front? [One possibility](https://twitter.com/garybasin/status/591400826574344192)
+    is that he wanted to be at the back of the queue in order for his strategy to
+    have advance notice of the price level being swept-through, because trade confirmations
+    sometimes are [sent to those who were executed prior to being distributed on the
+    public data feed](http://www.wsj.com/articles/SB10001424127887323798104578455032466082920).
+    However, it wouldn’t make sense to send large orders for this purpose, nor is
+    it consistent with the picture we have of Sarao being a low-speed trader. [Another
+    possibility](https://twitter.com/patrickrooney/status/591407223747796993) is that
+    he wanted to reduce his fill rate to avoid being filled simultaneously across
+    multiple products, but still quote large size. I’m a little skeptical that doing
+    so would improve a strategy’s profitability. But I’m not familiar with many markets,
+    and maybe on some it makes sense for capital-constrained traders.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'But there is a third possibility: that he wanted to be at the back of the queue
+    in order to minimize his chances of trading, without regard for the actual profitability
+    of trading. This would be consistent with the hypothesis that these alleged orders
+    were intended solely to deceive others. Another hint that could support this hypothesis
+    is contained in an email he sent to Joanna Jasina of the FCA (p48 of the same
+    document):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: No wonder they [HFTs] can manipulative on top of my orders without any risk,
+    for even when I change my mind and decide to sell into my buy order, the manipulative
+    orders on top of my initial buy order disappear in the 4 milliseconds it takes
+    for my buy order to be cancelled and replaced with my sell order so that I do
+    not trade with myself !!!!!!
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This quote suggests that, when he pulled his orders, those behind him in the
+    queue quickly pulled theirs. Hypothetically, if Sarao were indeed spoofing, this
+    could indicate that he sometimes hoped to trade with those who copied his ‘spoof’
+    order. In order to not trade with himself, he would either have to delete his
+    own order before trying to trade with the victims (evidently high-speed traders
+    who could quickly delete in response), or he would have to be behind the victim’s
+    order in the queue. I’m under the impression that the CME does not take kindly
+    to self-trading and this was before the days of [Self-Match Prevention](https://mechanicalmarkets.wordpress.com/2015/03/31/manipulation-using-compliance-tools-equities-analysis-inspired-by-allston-case/),
+    so, if Sarao was set on this type of spoofing, he’d have little choice but to
+    send his orders to the back of the queue.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This discussion is all hypothetical, and I’m not sure to what extent the emails
+    are actually reflective of what he was thinking, but I would like to hear more
+    from investigators on the exact details of Sarao’s trading activity.
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,160 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:44:21'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intelligent Trading: MINE: Maximal Information-based NonParametric Exploration'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: There was a lot of buzz in the blogosphere as well as the science community
+    about a new family of algorithms that are able to find non-linear relationships
+    over extremely large fields of data. What makes it particularly useful is that
+    the measure(s) it uses are based upon mutual information rather than standard
+    pearson's correlation type measures, which do not capture non-linear relationships
+    well.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The (java based) software can be downloaded here: http://www.exploredata.net/
+    In addition, there is the capability to directly run the software from R.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 1\. Typical non-linear relationship exemplified by intermarket relationships.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The algorithm seems promising as it would allow us to possibly mine very large
+    data sets (such as financial intermarket relationships) and find potentially meaningful
+    non-linear relationships. If we were to use the typical pearson's correlation
+    measures, such relationships would show very small R^2 values, and thus be discarded
+    as non significant relationships.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I decided to take it for a spin on an example of a non-linear example, taken
+    from M. Katsanos' book on intermarket trading strategies (p 25\. fig 2.3). In
+    figure 1, we can clearly see that the relationship between markets is non-linear,
+    and thus the traditional linear fit returns a low R^2 value of .143 (red line),
+    a loess fit is also shown in blue. After running the same data through MINE, the
+    results returned in a .csv file, were...
+  prefs: []
+  type: TYPE_NORMAL
+- en: MIC           (strength)    MIC-p^2          (nonlinearity)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 0.16691002    0.62445            7.129283    -0.3777441
+  prefs: []
+  type: TYPE_NORMAL
+- en: The MIC (Mutual Information Coefficient) of .167 was not much greater than theR^2
+    measure of .143 above. However, one of the mentions in the paper was that as the
+    signal becomes more obscured by noise, the MIC will degrade comparably.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next step would be too find some type of fit to minimize the noise component
+    and make updated comparisons.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In order to show a better illustration of how useful it might be, I am attaching
+    a screenshot of the reference material here.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Figure 2\. Reproduced from Fig 6\. 'www.sciencemag.org/cgi/content/full/334/6062/1518/DC1'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice the MIC Score measure outperforms other traditional methods on many non-linear
+    structural relationships.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here is the full R-Code to repeat the basic experiment.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '###############################################'
+  prefs: []
+  type: TYPE_NORMAL
+- en: MINE example from intelligenttradingtech.blogspot.com 1/31/2012
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: library(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: library(ggplot2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: getSymbols('^GSPC',src='yahoo',from='1992-01-07',to='2007-12-31')
+  prefs: []
+  type: TYPE_NORMAL
+- en: getSymbols('^N225',src='yahoo',from='1992-01-07',to='2007-12-31')
+  prefs: []
+  type: TYPE_NORMAL
+- en: sym_frame<-merge(GSPC[,6],N225[,6],all=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: names(sym_frame)<-c('GSPC','N225')
+  prefs: []
+  type: TYPE_NORMAL
+- en: p<-qplot(N225, GSPC, data=data.frame(coredata(sym_frame)),
+  prefs: []
+  type: TYPE_NORMAL
+- en: geom=c('point'), xlab='NIKKEI',ylab='S&P_500',main='S&P500 vs NIKKEI 1992-2007')
+  prefs: []
+  type: TYPE_NORMAL
+- en: fit<-lm(GSPC~ N225, data=data.frame(coredata(sym_frame)))
+  prefs: []
+  type: TYPE_NORMAL
+- en: summary(fit)
+  prefs: []
+  type: TYPE_NORMAL
+- en: fitParam<-coef(fit)
+  prefs: []
+  type: TYPE_NORMAL
+- en: p+geom_abline(intercept=fitParam[1], slope=fitParam[2],colour='red',size=2)+geom_smooth(method='loess',size=2,colour='blue')
+  prefs: []
+  type: TYPE_NORMAL
+- en: MINE results
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: library("rJava")
+  prefs: []
+  type: TYPE_NORMAL
+- en: setwd('/home/self/Desktop/MINE/')
+  prefs: []
+  type: TYPE_NORMAL
+- en: write.csv(data.frame(coredata(sym_frame)),file="GSPC_N225.csv",row.names=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: source("MINE.r")
+  prefs: []
+  type: TYPE_NORMAL
+- en: MINE("GSPC_N225.csv","all.pairs")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '##########################################################'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The referenced paper is, "Detecting Novel Associations in Large Data Sets"
+  prefs: []
+  type: TYPE_NORMAL
+- en: David N. Reshef, et al.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Science 334, 1518 (2011)
+  prefs: []
+  type: TYPE_NORMAL
+- en: As an aside, I've been hooked on a sitcom series called, "Numb3rs," playing
+    on Amazon Prime. It's about an FBI agent who gets assistance from his genius brother,
+    a professor of Mathematics at a prestigious University. So far, they've discussed
+    markov chains, bayesian statistics, data mining, econometrics, heat maps, and
+    a host of other similar concepts applied to forensics.
+  prefs: []
+  type: TYPE_NORMAL

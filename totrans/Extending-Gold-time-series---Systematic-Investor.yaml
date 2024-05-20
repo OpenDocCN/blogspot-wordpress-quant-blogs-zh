@@ -1,0 +1,66 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:38:00'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Extending Gold time series | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: While back-testing trading strategies I want all assets to have long history.
+    Unfortunately, sometimes there is no tradeable stock or ETF with sufficient history.
+    For example, I might use [GLD](http://finance.yahoo.com/q?s=GLD) as a proxy for
+    Gold allocation, but [GLD](http://finance.yahoo.com/q?s=GLD) is only began trading
+    in November of 2004.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We can extend the GLD’s historical returns with its benchmark index – London
+    Gold afternoon fixing prices. Let’s first download and plot side by side the GLD
+    and London Gold afternoon fixing prices from [http://www.kitco.com/gold.londonfix.html](http://www.kitco.com/gold.londonfix.html)
+    the convenient CSV download is provided by [Wikiposit](http://wikiposit.org/w?filter=Finance/Commodities/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/9d13faa9cda0d027b453efebc1b104f0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: There is a divergence between GLD and its benchmark index. Please read [“Gold’s
+    ‘Paper’ Price” article by B. Zigler](http://www.hardassetsinvestor.com/interviews/2091-golds-paper-price.html)
+    for a detailed discussion and explanation for this divergence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s extend the GLD’s time series with its benchmark ( I created a helper
+    function [extend.GLD() function in data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)
+    to simplify the process ) and use it for a simple equal weight strategy
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/a31952a3b393e311c6cd6bab50fe209f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/685ec05ed409ea2f0ec67f3f26f00287.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: By extending GLD’s time series, the back-test now goes back to the June 2002,
+    the TLT’s first trading date.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.extend.GLD.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

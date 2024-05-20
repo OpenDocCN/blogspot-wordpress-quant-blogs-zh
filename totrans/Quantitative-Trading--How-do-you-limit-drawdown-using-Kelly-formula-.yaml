@@ -1,0 +1,76 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:04:18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: How do you limit drawdown using Kelly formula?'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2010/04/how-do-you-limit-drawdown-using-kelly.html#0001-01-01](http://epchan.blogspot.com/2010/04/how-do-you-limit-drawdown-using-kelly.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: As many of you know, I am a fan of
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Kelly formula](http://epchan.blogspot.com/2009/02/kelly-formula-revisited.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: because it allows us to maximize long-term growth of equity while minimizing
+    the probability of ruin. However, what Kelly formula wont' prevent is a deep drawdown,
+    though we are assured that the drawdown won't be as much as 100%! This is unsatisfactory
+    to many traders and especially fund managers, since a deep drawdown is psychologically
+    painful and may cause you to panic and shut down a strategy prematurely.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There is an easy way, though, that you can use Kelly formula to limit your drawdown
+    to be much less than 100%. Suppose the optimal Kelly leverage of your strategy
+    is determined to be K. And suppose you only allow a maximum drawdown (measured
+    from the high watermark, as usual) to be D%. Then you can simply set aside D%
+    of your initial total account equity for trading, and apply a leverage of K to
+    this sub-account to determine your portfolio market value. The other 1-D% of the
+    account will be sitting in cash. You can then be assured that you won't lose all
+    of the equity of this sub-account, or equivalently, you won't suffer a drawdown
+    of more than D% in your total account. If your trading strategy is profitable
+    and the total account equity reaches a new high watermark, then you can reset
+    your sub-account equity so that it is again D% of the total equity, moving some
+    cash back to the "cash" account. Otherwise, you continue to keep the equity in
+    the cash account separate from the equity of the trading sub-account.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice that because of this separation of accounts, this scheme is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*not*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: equivalent to just using a leverage of L=K*D% on your total account equity.
+    Indeed, some of you may be too nervous to use the full K as leverage, and prefer
+    to use a leverage L smaller than K. (In fact, the common wisdom is that, due to
+    estimation errors, it is never advisable to set L to be more than K/2,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*i.e.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: half-Kelly.) The problem with using a L that is too small is that, besides not
+    achieving maximum growth, the portfolio market value will be unresponsive to gains
+    or losses and will remain relatively constant. Using the scheme I suggested above
+    will cure this problem as well, because you can apply a higher leverage L_sub
+    to the sub-account (e.g. use L_sub = L/D%) as long as L_sub < K, so that the portfolio
+    market value is much more sensitive to your P&L while still ensuring the drawdown
+    will not exceed D%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Has anyone tried this scheme in their actual trading? If so, I would be interested
+    in hearing your experience and see if practice is as good as theory.
+  prefs: []
+  type: TYPE_NORMAL

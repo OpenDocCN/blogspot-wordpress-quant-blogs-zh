@@ -1,0 +1,251 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:19:00'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Bond Market as a Casino Game Part 2'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-2.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-2.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Before starting Part 2, please see [Bonds as a Casino Game Part 1](http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-1.html).  
+    For the Monte Carlo random simulation purists, please ignore some unimportant
+    technicalities in my simulation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To spoil the fun, here is the conclusion:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Any way you look at it, the US Bond Market has been a wonderfully profitable
+    game, but the game is changing, and past performance in no way predicts similar
+    future returns.  Please lower your expectations for your bond investments.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Given the probabilities and average outcomes that we have experienced in the
+    Barclays Capital U.S. Aggregate Bond Index since 1980, let’s see what happens
+    if we turn the bond market into a game, and play it in 10,000 30 year games with
+    Microsoft Excel (sorry R, we’ll use you later).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results demonstrate how attractive this game is to play with the worst case
+    of 10,000 trials still offering a 5.6% annualized return.  The chart below shows
+    200 of the 10,000 trials (Excel limits to 255), the actual Barclays Aggregate
+    results, and the average of 10,000 trials.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Most interesting to me is how the game seems to be changing to less favorable
+    as the actual approaches the average.  This is also clearly visible in the pivot
+    table by decade as expected returns diminish with lower interest rates.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Although using just two buckets is helpful and eases the analysis, we can use
+    more buckets/bins with [Ralph Vince’s *Leverage Space Trading Model*](http://www.amazon.com/gp/product/0470455950/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=timelyp-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0470455950)
+    and the R LSPM package from [Foss Trading](http://www.fosstrading.com).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Any way you look at it, the US Bond Market has been a wonderfully profitable
+    game, but the game is changing, and past performance in no way predicts similar
+    future returns.  Please lower your expectations for your bond investments.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Please see au.tra.sy blog [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#for original code and [http://www.fosstrading.com](http://www.fosstrading.com)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I take no credit for the majority of this code'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#I simply changed a couple of things to use xts return series'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#and to do simulations of bonds'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(xts)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: numbins<-10
+  prefs: []
+  type: TYPE_NORMAL
+- en: get data series from csv file and limit to 1980 to 2010
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: rtn<-as.xts(read.csv("lbustruu.csv",row.names=1))["1980::"]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calculate number of WF cycles
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: numCycles = floor((nrow(rtn)-optim)/wf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Define JPT function
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: jointProbTable <- function(x, n=3, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Load LSPM'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(!require(LSPM,quietly=TRUE)) stop(warnings())
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Function to bin data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: quantize <- function(x, n, FUN=median, ...) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(is.character(FUN)) FUN <- get(FUN)
+  prefs: []
+  type: TYPE_NORMAL
+- en: bins <- cut(x, n, labels=FALSE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Allow for different values of ''n'' for each system in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)==1) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: n <- rep(n,NCOL(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '} else'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Bin data in ''x'''
+  prefs: []
+  type: TYPE_NORMAL
+- en: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Aggregate probabilities'
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs <- rep(1/NROW(x),NROW(x))
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '# Clean up output, return lsp object'
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(res) <- colnames(x)
+  prefs: []
+  type: TYPE_NORMAL
+- en: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
+  prefs: []
+  type: TYPE_NORMAL
+- en: return(res)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Get returns and create the JPT
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: jpt <- jointProbTable(rtn,n=numbins)
+  prefs: []
+  type: TYPE_NORMAL
+- en: outcomes<-jpt[[1]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: probs<-jpt[[2]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: port<-lsp(outcomes,probs)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Analyze drawdowns
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Use LSPM to get Probability of Drawdown > 5%
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: drawdownProb<-probDrawdown(port,DD=.05,horizon=12)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Display probability of 5% drawdown over 1 year
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: actualDraw<-sum(table.Drawdowns(rtn)$Length)/NROW(rtn)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#plot bar chart of expected vs actual'
+  prefs: []
+  type: TYPE_NORMAL
+- en: barplot(rbind(drawdownProb,actualDraw),beside=TRUE,main="Expected vs. Actual
+    Drawdown > 5%",names.arg=c("Expected", "Actual"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: Analyze gains
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Use LSPM to get Probability of Profit > 5%
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: profitProb<-probProfit(port,target=.05,horizon=12)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Get rolling 12 month period returns
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: yearReturns<-apply.rolling(rtn,width=12,by=1,FUN="Return.annualized")
+  prefs: []
+  type: TYPE_NORMAL
+- en: Get actual percentage of 12 month returns > 5%
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: actualProb<-NROW(yearReturns[which(yearReturns$calcs>.05),1])/NROW(yearReturns)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#plot bar chart of expected vs actual'
+  prefs: []
+  type: TYPE_NORMAL
+- en: barplot(rbind(profitProb,actualProb),beside=TRUE,main="Expected vs. Actual 12
+    month > 5%",names.arg=c("Expected", "Actual"))
+  prefs: []
+  type: TYPE_NORMAL

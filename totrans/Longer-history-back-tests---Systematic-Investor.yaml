@@ -1,0 +1,147 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:32:36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Longer-history back-tests | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One of the important steps of evaluating new trading idea or strategy is to
+    see how it behaved historically (i.e. create back-test and examine the equity
+    curve in different economic and market conditions)
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, creating a long back-test is usually problematic because most ETFs
+    do not have a long price history. One way to alleviate the short price history
+    is to find an appropriate proxy asset/index to extend ETF’s price history.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For example in my last post, [Update: Extending Commodity time series](https://systematicinvestor.wordpress.com/2013/07/04/update-extending-commodity-time-series/),
+    I showed howyou can extend the price history of commodity ETFs with [Thomson Reuters
+    / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I created [two functions in data.proxy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.proxy.r)
+    to help visualize and compute statistics for potential proxy time series:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: proxy.test function will create a plot and compute summary statistics over the
+    common period for all given series
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: proxy.overlay.plot function will create an overlay plot for all given series
+    (a plot where all shorter series are overlayed over the longest one)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Following is an example of using these functions for commodity ETFs and [Thomson
+    Reuters / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1](img/0dbc902fc06aed0786347627b883ab41.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot2](img/80677b52d12264bb0834979442cdd867.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot2.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The [Thomson Reuters / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389)
+    (CRB_1) looks a better fit for commodity ETFs.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Yahoo Finance contains a big collection of indices with long histories. Just
+    to give you an example, following is a list of some indices for major asset classes:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Equity Market
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Total Stock Mkt (VTSMX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Total Intl Stock (VGTSX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard 500 Index (VFINX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Emerging Mkts (VEIEX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Fixed Income Market
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Short-Term Treasury (VFISX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Long-Term Treasury (VUSTX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Total Bond Market (VBMFX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard High-Yield Corporate (VWEHX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: PIMCO Emerging Markets Bond (PEBIX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard Inflation-Protected (VIPSX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: PIMCO Total Return (PTTRX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanguard REIT (VGSIX)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Now let’s look at an example of extending real estate time ETFs:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot3](img/2f1ef9c35da3c895b9a575af3d6385b6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot3.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot4](img/ac8003a69728b413b54b34fbf48a00fc.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot4.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Vanguard REIT (VGSIX) Index looks as a good proxy for the Dow Jones U.S.
+    Real Estate Index (IYR), while Dow Jones Global Real Estate Index (RWO) does behave
+    differently.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So the next time you are faced with a task of running a long history back-test,
+    please have a look at extending your short history assets with proxies.
+  prefs: []
+  type: TYPE_NORMAL

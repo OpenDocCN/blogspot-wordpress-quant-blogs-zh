@@ -1,0 +1,229 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:04:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: CEP and SOA'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2008/01/cep-and-soa.html#0001-01-01](http://magmasystems.blogspot.com/2008/01/cep-and-soa.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: There has been a lot of activity in the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: blogs about the uses of that mythical beast, the Service Oriented Architecture
+    (
+  prefs: []
+  type: TYPE_NORMAL
+- en: SOA
+  prefs: []
+  type: TYPE_NORMAL
+- en: ). This beast means different things to different people. From my standpoint,
+    let me tell you what it means to me, and let me tell you what I need.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For my company, the possible adoption of
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: will mean a huge seed-change in the way that we develop applications and share
+    information. Right now, we have the most important information in the trading
+    and risk process going directly into huge, monolithic
+  prefs: []
+  type: TYPE_NORMAL
+- en: Gui's
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Important order and risk information is being sucked into a GUI application,
+    much like a
+  prefs: []
+  type: TYPE_NORMAL
+- en: vacuum
+  prefs: []
+  type: TYPE_NORMAL
+- en: cleaner sucks up a trail of dust.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Already, the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: effort has been able to transform the order-monitoring GUI into an Order Service,
+    publishing order information to subscribers over a message bus. If the
+  prefs: []
+  type: TYPE_NORMAL
+- en: CEP
+  prefs: []
+  type: TYPE_NORMAL
+- en: project is a total bust, then at least the one tangible is the liberation of
+    order flow information.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As all of the
+  prefs: []
+  type: TYPE_NORMAL
+- en: important
+  prefs: []
+  type: TYPE_NORMAL
+- en: data --- orders, risk, positions --- gets published out by the source systems
+    and gets consumed by other applications, we need to have a global
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*catalog*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: that developers can browse where they can find out how to access data and what
+    operations can be performed on the data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For example, if I needed to get a real-time flow of Greeks for certain vanilla
+    US equity derivatives, I might use the catalog to ask a question like this:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"Where can I find real time flows of'
+  prefs: []
+  type: TYPE_NORMAL
+- en: greeks
+  prefs: []
+  type: TYPE_NORMAL
+- en: for IBM,
+  prefs: []
+  type: TYPE_NORMAL
+- en: INTC
+  prefs: []
+  type: TYPE_NORMAL
+- en: ','
+  prefs: []
+  type: TYPE_NORMAL
+- en: MSFT
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', and DELL options? I prefer to have this flow come through as XML, but if
+    no XML is available, then give the data to me in any format. In addition, I need
+    to know if you have a remote function that I can call that calculates theta on
+    a certain security."'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The catalog service might respond:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"You can get the US Equity'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Deriv
+  prefs: []
+  type: TYPE_NORMAL
+- en: Greek flows by subscribing to a
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: EMS message bus. You need to subscribe to the
+  prefs: []
+  type: TYPE_NORMAL
+- en: Tibco
+  prefs: []
+  type: TYPE_NORMAL
+- en: broker at
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*tcp://megacorpbroker:7001*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', using functional ID "foo" and password "'
+  prefs: []
+  type: TYPE_NORMAL
+- en: baz
+  prefs: []
+  type: TYPE_NORMAL
+- en: '". This service is publishing out each'
+  prefs: []
+  type: TYPE_NORMAL
+- en: greek
+  prefs: []
+  type: TYPE_NORMAL
+- en: as a
+  prefs: []
+  type: TYPE_NORMAL
+- en: JMS MessageMap on the EMS topic *equities.derivatives.greeks.us*
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', and here is a list of properties that you can access in each message. Sorry,
+    but we don''t support XML.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Furthermore, here are a list of request/response operations that the Greeks
+    Web Service supports. If you want to generate the proxy code to use these operations,
+    the URL of the
+  prefs: []
+  type: TYPE_NORMAL
+- en: WSDL
+  prefs: []
+  type: TYPE_NORMAL
+- en: for the Greeks Web Service is at
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[*http://greekserver:8042/webservice.wsdl*](http://greekserver:8042/webservice.wsdl)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: As an added bonus, if you send this XML string as a
+  prefs: []
+  type: TYPE_NORMAL
+- en: JMS TextMessage
+  prefs: []
+  type: TYPE_NORMAL
+- en: in the following format to this the EMS queue named
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*equities.derivatives.greeks.services*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', then you will get a response on your private EMS temporary queue."'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This is like a super-charged UDDI, but knows about things like message buses
+    and JMS queues and topics. For me, this is what we need out of SOA. Everyone publishing
+    and consuming real-time flows. Everyone making services available, both as Web
+    Services and as request/responses over a message bus.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The catalog should be real-time itself. In other words, if a new flow or a new
+    service becomes available, the catalog itself should notify listeners that something
+    has changed. So, all applications might subscribe to a "catalog control" topic
+    where real-time changes to the catalog services are broadcast.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Imagine now that we have a GUI in which users can pick and choose from various
+    flows, dynamically create queries that will be registered with the CEP engine,
+    and dynamically define derived events that will be created when the queries detect
+    a situation. Most of the CEP engines support an API which makes this possible.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***Should we write this SOA catalog ourselves? Can you recommend a product
+    that already does this?***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

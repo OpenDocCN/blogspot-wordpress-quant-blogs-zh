@@ -1,0 +1,121 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:09:24'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: QuantLib, the Greeks and other useful option-related values | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01](https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post, we provide the reader with a **C++/QuantLib** code that computes
+    the most common **option sensitivities** – the **Greeks** – as well as the **elasticity**
+    of the option and its **implied volatility**. Before we recall the **Greeks**
+    formulas, as **partial derivatives** of the **Black-Scholes formula**. And, we
+    very briefly indicates how to calculate the **implied volatility**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One can read here and there that **QuantLib** is overwhelming for the beginner.
+    This post shows once again how powerful **QuantLib**. In fact, once the option
+    parameters and the Quantlib tools coming into play are defined in the code, we
+    get all our Greeks in-a-row. I mean **QuantLib** is definetely worthwhile.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Delta
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "delta")'
+  prefs: []
+  type: TYPE_IMG
+- en: Gamma
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "gamma")'
+  prefs: []
+  type: TYPE_IMG
+- en: Theta
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "theta")'
+  prefs: []
+  type: TYPE_IMG
+- en: Vega
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "vega")'
+  prefs: []
+  type: TYPE_IMG
+- en: Elasticity
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: The elasticity measures the sensitivity of an option in percent to a percent
+    change in the price of its underlying.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7bc3d53798a6b905f9fa5d04dc23dc52.png "elasticity")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/elasticity1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Implied volatility
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Obtaining the implied volatility is not straightforward. We must solve the Black-Scholes
+    equation V(S[0], t[0]; σ, r; E, T ) = known value for σ. And, the so-called Newton-Raphson
+    method is commonly used.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The C++/QuantLib code
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: To keep the things as simple as possible, we get back to the basic **European
+    option on stocks** we recently programmed. We benchmarked our calculation results
+    with the ones drawing from the **Excel** pricer accompanying **E.G.Haug**‘s handbook
+    ***The complete guide to  option pricing formulas, 2nd Ed.*** .
+  prefs: []
+  type: TYPE_NORMAL
+- en: _________________________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option type =                 put
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option strike =               50
+  prefs: []
+  type: TYPE_NORMAL
+- en: Stock Price =                  47
+  prefs: []
+  type: TYPE_NORMAL
+- en: Risk-free rate =              5%
+  prefs: []
+  type: TYPE_NORMAL
+- en: Dividend yield =            0%
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility =                      20%
+  prefs: []
+  type: TYPE_NORMAL
+- en: Option expiration =     December  10^(th), 2011
+  prefs: []
+  type: TYPE_NORMAL
+- en: __________________________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

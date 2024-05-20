@@ -1,0 +1,129 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:08:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Analytical credit exposure, an example code in C++ | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01](https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post we quickly review some concepts related to **counterparty risk**,
+    and we provide a **C++** code computing some measures of **credit exposure**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If you read Jon Gregory’s***** book **Counterparty credit risk and credit value
+    adjustment: A continuing challenge for global financial markets**, you should
+    recognize that we actually ‘ported’ to **C++ **Jon Gregory’s spreadsheets **Spreadsheet2.2**
+    and **Spreadsheet2.2b** from the workbook **chapter2.xls** available at [CVA Central](http://www.cvacentral.com
+    "CVA Central").'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'First, let’s consider a single asset (*eg* an OTC option) and let:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: – **![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png)** be the value of the
+    asset at time ![t](img/f1c9888691539079d4bb777ad80249bb.png),
+  prefs: []
+  type: TYPE_NORMAL
+- en: – **![f](img/30d01d303e41f70eef6e3f6ef54f1b89.png)** be the probability density
+    function (pdf) of ![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png) and
+  prefs: []
+  type: TYPE_NORMAL
+- en: – **![T](img/466f335a8268c61b30c4bbc675095312.png)** be the time to expiration.
+  prefs: []
+  type: TYPE_NORMAL
+- en: MARK-TO-MARKET (MtM)
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: '**MtM** represents the value that could be potentially lost if a counterparty
+    defaulted.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: REPLACEMENT COST
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Replacement cost may be different from **MtM** (*eg* on illiquid markets). Nonetheless,
+    it is standard practice to base **credit exposure** on the current **MtM** value
+    of the given transactions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: EXPOSURE and POSITIVE EXPOSURE
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: There is an asymmetry of potential losses with respect to **MtM**. That is an
+    institution loses if their **MtM** is positive. But, it does not gain if **MtM** is
+    negative. Thus, only *positive* exposure is of interest as far as **credit risk**
+    is concerned.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Exposure = Max(MtM, 0) = MtM+](img/15bd700485f02196f55964b2389e73e0.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '**POTENTIAL FUTURE EXPOSURE (PFE)**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**PFE** aims at characterising **MtM** at some point in time in the future.
+    It is the possible exposure over a given *time horizon* to a given *confidence
+    level*. **PFE** has much in common with the concept of [**value-at-risk**](https://quantcorner.wordpress.com/2012/09/12/var-with-normally-distributed-returns-using-boos/
+    "VaR with normally distributed returns using Boost").'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![PFE = \int_{-\infty}^{\infty}Max(x, 0)f(x)dx](img/bbf72fb54f1cb3f12dc16b365f951cf4.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: In practice, **credit exposure** is computed by taking the sum of all positive
+    values or replacement costs of the asset over discrete simulation horizons (![n](img/872ad603d260a26b8b46fc27a9e98c9d.png)).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![PFE = \sum_{i=0}^{i=n}Max(V(t), 0)](img/c6cc7e2876f072dacc450a280ea4135e.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: EXPECTED EXPOSURE
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: The **current exposure** is the cost of replacement of the exposures as of today. The
+    **expected exposure** at time ![t](img/f1c9888691539079d4bb777ad80249bb.png) is
+    the **mean exposure** at time ![t](img/f1c9888691539079d4bb777ad80249bb.png),
+    that is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![EE = \int_{0}^{\infty}V(t)f_tV(t)dV(t)](img/5075ce5e39a80dd7758b4d622ff3fc65.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'We are now turning fo the **C++** code that is a class definition file, a class
+    implementation file, and a test file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Eventually, the console output:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![analytical credit exposure console](img/c7648eceabbda4c6fa248889e0dea040.png)](https://quantcorner.wordpress.com/wp-content/uploads/2013/02/analytical-credit-exposure-console.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '** Thank you to Jon Gregoy for taking the time to answer my questions by email.*'
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,82 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:51:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The power of R: curve fitting | Coding the markets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01](https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'The power of R: curve fitting'
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: August 15, 2006
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: I’ve got a bunch of XY cartesian coords that I want to plot. When charted the
+    curves are jagged. Fortunately, each point has an associated weight – the number
+    of observations used to create it. So how do I fit a curve to the data, using
+    the weights to smooth and reduce the influence of the outlying points resulting
+    from fewer observations ?
+  prefs: []
+  type: TYPE_NORMAL
+- en: With R, it’s easy…
+  prefs: []
+  type: TYPE_NORMAL
+- en: x,y define straight line at 45%
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: x <- 0:19
+  prefs: []
+  type: TYPE_NORMAL
+- en: y <- 0:19
+  prefs: []
+  type: TYPE_NORMAL
+- en: make the line jagged by shifting points
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: '[down,no move, up] in a repeating group of 3'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: y <- y + (-1:1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(x,y,type=’b’)# generate vector of weights that give more
+  prefs: []
+  type: TYPE_NORMAL
+- en: weight to the unshifted points
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: w <- rep(0,20)
+  prefs: []
+  type: TYPE_NORMAL
+- en: w <- w + c(1,3,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: reconstruct the unshifted straight line
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: f <- glm.fit(x,y,w)
+  prefs: []
+  type: TYPE_NORMAL
+- en: lines(x,f$fitted.values)
+  prefs: []
+  type: TYPE_NORMAL

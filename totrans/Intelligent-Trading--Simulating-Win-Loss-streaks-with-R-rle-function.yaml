@@ -1,0 +1,135 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:44:49'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intelligent Trading: Simulating Win/Loss streaks with R rle function'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://intelligenttradingtech.blogspot.com/2011/05/simulating-winloss-streaks-with-r-rle.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/05/simulating-winloss-streaks-with-r-rle.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The following script allows you to simulate sample runs of Win, Loss, Breakeven
+    streaks based on a random distribution, using the run length encoding function,
+    rle in R. Associated probabilities are entered as a vector argument in the sample
+    function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can view the actual sequence of trials (and consequent streaks) by looking
+    at the trades result.  maxrun returns a vector of maximum number of Win, Loss,
+    Breakeven streaks for each sample run. And lastly, the prop table gives a table
+    of proportion of run transition pairs from losing streak of length n to streak
+    of all alternate lengths.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Example output (max run length of losses was 8 here):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 100*prop.table(tt)
+  prefs: []
+  type: TYPE_NORMAL
+- en: lt.2
+  prefs: []
+  type: TYPE_NORMAL
+- en: lt.1      1      2      3      4      5      6      7      8
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1 41.758 14.298  5.334  1.662  0.875  0.131  0.000  0.044
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2 14.692  4.897  1.924  0.787  0.394  0.087  0.131  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3  4.985  2.405  0.525  0.350  0.000  0.000  0.044  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4  1.662  0.875  0.306  0.087  0.000  0.000  0.000  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 5  0.831  0.219  0.175  0.000  0.000  0.044  0.000  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 6  0.087  0.131  0.044  0.000  0.000  0.000  0.000  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 7  0.087  0.087  0.000  0.000  0.000  0.000  0.000  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: 8  0.044  0.000  0.000  0.000  0.000  0.000  0.000  0.000
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxrun
+  prefs: []
+  type: TYPE_NORMAL
+- en: B  L  W
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3  8 17
+  prefs: []
+  type: TYPE_NORMAL
+- en: '-----------------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#generate simulations of win/loss streaks use rle function'
+  prefs: []
+  type: TYPE_NORMAL
+- en: trades<-sample(c("W","L","B"),10000,prob=c('.6','.35','.05'),replace=TRUE)
+  prefs: []
+  type: TYPE_NORMAL
+- en: traderuns<-rle(trades)
+  prefs: []
+  type: TYPE_NORMAL
+- en: tr.val<-traderuns$values
+  prefs: []
+  type: TYPE_NORMAL
+- en: tr.len<-traderuns$lengths
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxrun<-tapply(tr.len,tr.val,max)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#streaks of losing trades'
+  prefs: []
+  type: TYPE_NORMAL
+- en: lt<-tr.len[which(tr.val=='L')]
+  prefs: []
+  type: TYPE_NORMAL
+- en: lt.1<-lt[1:(length(lt)-1)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: lt.2<-lt[2:(length(lt))]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#simple table of losing trade run streak(n) frequencies'
+  prefs: []
+  type: TYPE_NORMAL
+- en: table(lt)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#generate joint ensemble table streak(n) vs streak(n+1)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: tt<-table(lt.1,lt.2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#convert to proportions'
+  prefs: []
+  type: TYPE_NORMAL
+- en: options(digits=2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 100*prop.table(tt)
+  prefs: []
+  type: TYPE_NORMAL
+- en: maxrun
+  prefs: []
+  type: TYPE_NORMAL

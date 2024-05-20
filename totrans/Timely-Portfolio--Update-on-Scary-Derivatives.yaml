@@ -1,0 +1,184 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:11:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Update on Scary Derivatives'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: After reading Bloomberg’s article,
+  prefs: []
+  type: TYPE_NORMAL
+- en: JPMorgan Chase & Co. and Goldman Sachs Group Inc., among the world’s biggest
+    traders of credit derivatives, disclosed to shareholders that they have sold protection
+    on more than $5 trillion of debt globally.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[http://bloom.bg/txiyuG](http://bloom.bg/txiyuG)'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I thought we should update my post [Scary Derivatives and Scary XML in R](http://timelyportfolio.blogspot.com/2011/07/scary-derivatives-and-scary-xml-in-r.html)
+    in which I said
+  prefs: []
+  type: TYPE_NORMAL
+- en: The massive damage caused in 2008-2009 by the sliver of derivatives called credit
+    default swaps seems like a faint warning siren when we see that they only represent
+    < 7% of total derivatives exposure. Interest rate and currency derivatives, also
+    where I think the next disaster occurs, are more than 10 times larger than these
+    credit contracts at $226 Trillion.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This amount of money, bilaterally netted or not, is truly unbelievable and staggering. 
+    Total debt outstanding of the sovereign nations is not the real problem.  Like
+    housing, the exponential exacerbation caused by the leverage and derivatives traded
+    on the underlying is where the real potential catastrophe occurs.  No government
+    and no central bank has the ability to counter any major damage in currencies
+    or interest rates.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[R code (click to download from Google Docs):](https://docs.google.com/open?id=0B2qp2r96khJPYjUwNDNkNTktMGFkZC00ZGViLWEyNjAtNTZiZWI2M2VlMWNi)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#read xml derivatives data from the'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#US Treasury OCC Quarterly Derivatives Report'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#2 methods'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#still way too manual since it appears the format changes'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#each reporting period'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#as far as I can tell'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#the first published example of how to read'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#Microsoft Excel xml workbooks'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(XML)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#require(ggplot2)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get 2nd Quarter of 2011 report (dq211)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: url = "[http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml"](http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml%22)
+  prefs: []
+  type: TYPE_NORMAL
+- en: doc = xmlInternalTreeParse(url)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#define namespaces'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#figuring this out took hours'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#but using getNodeSet was much cleaner than the'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#next method'
+  prefs: []
+  type: TYPE_NORMAL
+- en: namespaces = c(o="urn:schemas-microsoft-com:office:office",
+  prefs: []
+  type: TYPE_NORMAL
+- en: x="urn:schemas-microsoft-com:office:excel",
+  prefs: []
+  type: TYPE_NORMAL
+- en: ss="urn:schemas-microsoft-com:office:spreadsheet",
+  prefs: []
+  type: TYPE_NORMAL
+- en: html="[http://www.w3.org/TR/REC-html40")](http://www.w3.org/TR/REC-html40%22))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#this gets row 41 from the Table 3 worksheet for the total $ of derivatives'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[41]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: amt <- df <- as.data.frame(as.numeric(xmlSApply(ns, xmlValue))[4:11])
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#believe it or not this is $trillions of dollars'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#remove some zeros so we can label better on the graph'
+  prefs: []
+  type: TYPE_NORMAL
+- en: amt <- amt/1000000
+  prefs: []
+  type: TYPE_NORMAL
+- en: df <- df/1000000
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#this gets row 10 for labels'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[10]]
+  prefs: []
+  type: TYPE_NORMAL
+- en: lab <- as.character(xmlSApply(ns, xmlValue)[4:11])
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#combine the labels with'
+  prefs: []
+  type: TYPE_NORMAL
+- en: df <- cbind(lab,df)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#jpeg(filename="derivatives by type.jpg",quality=100,'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#    width=6.25, height = 8,  units="in",res=96)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: barplot(df[5:8,2],names.arg = factor(df[5:8,1]),main="US Bank Derivatives by
+    Type
+  prefs: []
+  type: TYPE_NORMAL
+- en: Q2 2011",ylab="$ (in trillions)",ylim=c(0,max(df[5:8,2]+50)),space=0,
+  prefs: []
+  type: TYPE_NORMAL
+- en: col=c("indianred4","darkolivegreen4","cadetblue4","goldenrod3"))
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'mtext("Source: US Dept of Treasury OCC Quarterly Derivatives Report",'
+  prefs: []
+  type: TYPE_NORMAL
+- en: side=1,line=3,cex=0.8,adj=0)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#dev.off()'
+  prefs: []
+  type: TYPE_NORMAL

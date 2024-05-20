@@ -1,0 +1,87 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:36:16'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Regime Detection | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Regime Detection comes handy when you are trying to decide which strategy to
+    deploy. For example there are periods (regimes) when Trend Following strategies
+    work better and there are periods when Mean Reversion strategies work better.
+    Today I want to show you one way to detect market Regimes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To detect market Regimes, I will fit a Hidden Markov Regime Switching Model
+    on the set of simulated data (i.e. Bull / Bear market environments) I will use
+    the excellent example from the [Markov Regime Switching Models in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)
+    post and adapt it to R.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The idea behind using the Regime Switching Models to identify market states
+    is that market returns might have been drawn from 2 or more distinct distributions.
+    As a base case, for example, we may suppose that market returns are samples from
+    one normal distribution N(mu, sigma) i.e.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next we may suppose that market returns are samples from two normal distributions
+    (i.e. returns during Bull market may be ~ N(mu.Bull, sigma.Bull) and returns during
+    Bear market may be N(mu.Bear , sigma.Bear) i.e.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Fortunately we do not have to fit regimes by hand, there is the [RHmm package
+    for Hidden Markov Models at CRAN](http://r-forge.r-project.org/projects/rhmm/)
+    that uses the Baum-Welch algorithm to fit Hidden Markov Models.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let follow the steps from the [Markov Regime Switching Models in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/aa7c8c564cd91f58c0e4f2f24540a8c7.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first chart shows states (1/2) determined by the model. The second chart
+    shows the probability of being in each state.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s generate some additional data and see if the model is able to identify
+    the regimes
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c2fdae8544fdf52b7dbc49dc360f245d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first 300 observations were used to calibrate this model, the next 300 observations
+    were used to see how the model can describe the new infromation. This model does
+    relatively well in our toy example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.regime.detection.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

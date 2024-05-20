@@ -1,0 +1,104 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:44:29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finding Low-Alpha Orders: Identifying Trader Type Pt. 1 | Mechanical Markets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: General wisdom in trading says that the best executions are to be had with humans
+    as counterparties, not computers. And by computers I mean any machine-assisted
+    execution, not just HFTs but also the various sorts of execution algorithms. The
+    HFTs will (probably) only be in the market when they think an order will make
+    money and the execution algo’s are mainly used for moving large quantities of
+    stock, so even if the algo isn’t particularly good at its job, it will still make
+    for a pretty toxic counterparty. Humans on the other hand I’d expect to be rather
+    imprecise with their chosen price (because it isn’t really worth their time),
+    even more imprecise with the timing of their orders and cancellations (slowness
+    and inattentiveness are part of being human), and be less likely to have plans
+    to keep trading in the same direction (otherwise they’d have found somebody to
+    help them get a good execution).
+  prefs: []
+  type: TYPE_NORMAL
+- en: So it’s reasonable that computerized traders seeking orders with little long
+    term alpha start by thinking about how to maximize their chances of trading with
+    humans. Probably the vast majority of manually submitted orders that ever trade
+    are marketable – and first go to internalizers, wholesalers, and dark pools. Then,
+    if nobody in those markets finds their terms favorable, they get sent on to the
+    major exchanges. There, it’s extremely difficult to selectively trade with the
+    small manual orders because of the competitive nature of the FIFO resting order
+    queue – in order to pick out a higher proportion of favorable incoming orders,
+    a trader has to have previously submitted their resting order before all the machines
+    trying to do the same thing. Given how many fast and clever programs that are
+    in the market, beating the best of them is very challenging.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Knowing marketable manual orders are highly competitive, we’ll focus for now
+    on resting manual orders. To try to identify these orders, we can just think about
+    what they are not, HFTs. HFTs are known for their very high cancellation rates,
+    meaning the vast majority of orders they send to market are canceled before they
+    execute. The below chart from a recent ESMA report shows the order lifetime statistics
+    of HFTs, investment banks, and other traders. Note that within 1 second of submission,
+    over half of HFT orders have been canceled, but only around a quarter of non-HFTs
+    have been. This chart comes from European data, but the general tendency should
+    carry over to any market with a high HFT presence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![esma_n1_2014_c3](img/e143d1e2c7250950df9fe5e5fcbc3309.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/esma_nov2014_c3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Order lifetime distribution by type of trader. Vertical axis is order lifetime
+    in seconds, horizontal axis is percentile. [[Link to Report]](//www.esma.europa.eu/content/ESMAs-Economic-Report-No-1-2014-High-frequency-trading-activity-EU-equity-markets
+    "[Link to Report]")
+  prefs: []
+  type: TYPE_NORMAL
+- en: With this correlation between trader type and order age in mind, let’s look
+    at how the market price varies before and after orders of various ages execute,
+    from the perspective of each order in question.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![toa-orderageinet-800](img/038d45cd9f0e8e05475b3889079ded87.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderageinet-13662.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Top panel: Average profit or loss per share vs distance in time from trade,
+    from the perspective of the passive side of the trade. For example 30 seconds
+    after a trade, the average Nasdaq order less than 100ms old has lost about 0.2
+    cents (20mils) compared to the price of the most recent 100 shares traded. The
+    average Nasdaq order greater than 1s old has lost about 0.5 cents by the same
+    measure. Fees and rebates are excluded. Data does not include every exchange.
+    Bottom panel: Shares traded on Nasdaq vs time from trade (including fiducial trade).
+    Note: There is a shaded region 1 standard deviation wide (computed naively) around
+    each line, that is too narrow to see. 1 “mil” = 0.01 cents per share.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![toa-orderagebatsz-800](img/5e8f7d934ebd4b5289f4d996e8fdd33b.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderagebatsz-13662.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A similar figure for Bats BZX, bottom panel is still share volume on Nasdaq
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'When I first saw this effect I was surprised at its size. In the universe of
+    algorithmic trading, a 1/4 cent difference – several times a typical HFT profit
+    margin – is significant. It’s a pretty obvious phenomenon, too, and usually when
+    an inefficiency is so evident the market will find a way to reduce it. One simple
+    application I can imagine is that many liquidity-seeking execution algo’s could
+    preferentially trade with older orders, potentially passing on a 1/4 cent cost
+    savings to their customers. Of course that doesn’t mean it’s a big enough effect
+    to form the basis of a profitable strategy all by itself, but as I’ll describe
+    in the [next post](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/
+    "Creating an HFT Strategy: Identifying Trader Type Pt. 2") it does not take all
+    that much effort to make it into one.'
+  prefs: []
+  type: TYPE_NORMAL

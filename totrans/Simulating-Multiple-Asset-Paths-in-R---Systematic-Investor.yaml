@@ -1,0 +1,94 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:36:08'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Simulating Multiple Asset Paths in R | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I recently came across the [Optimal Rebalancing Strategy Using Dynamic Programming
+    for Institutional Portfolios by W. Sun, A. Fan, L. Chen, T. Schouwenaars, M. Albota](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=639284)
+    paper that examines the cost of different rebablancing methods. For example, one
+    might use calendar rebalancing: i.e. rebalance every month / quarter / year. Or
+    one might use threshold rebalancing: i.e. rebalance only if asset weights break
+    out from a certain band around the policy mix, say 3%.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To investigate the cost of the different rebalancing methods, authors run 10,000
+    simulations. Today, I want to show how to simulate asset price paths given the
+    expected returns and covariances. I will assume that prices follow the [Geometric
+    Brownian Motion](http://en.wikipedia.org/wiki/Geometric_Brownian_motion). Also
+    I will show a simple application of Monte Carlo option pricing. In the next post
+    I will evaluate the cost of different rebalancing methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s assume that a stock price can be described by the stochastic differential
+    equation:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![dS_{t}=\mu S_{t}dt+\sigma S_{t}dW_{t} ](img/8b873af72aec176b2eff77815b47f9ae.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: where ![\mu ](img/a7b41734d1ade4e8ce41e1d911ca9401.png) is the expected annual
+    return of the underlying asset, ![\sigma ](img/8ca94d09f9b07e2091a7d34e12a0348f.png)
+    is the annualized volatility, and ![W_{t} ](img/82b4e7df581bd58834abd317140707e9.png)
+    is a Brownian Motion. This stochastic differential equation has the following
+    solution
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![S_{t}=S_{0}exp\left(\left(\mu - \frac{\sigma^{2}}{2}\right)t+\sigma W_{t}\right)
+    ](img/384ccea761b63a995a5a285233f8ad9a.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: which I implemented in the asset.paths() function. The asset.paths() function
+    is based on the [Simulating Multiple Asset Paths in MATLAB](http://www.goddardconsulting.ca/matlab-monte-carlo-assetpaths.html)
+    code in Matlab.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next let’s visualize some simulation asset paths:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5fb5f850651e21dd1876cd7b3a3de39d.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/a5a5868b95fed2c3c859973241d137e3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s look at examples of Monte Carlo option pricing using [asset.paths()
+    function in random.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/random.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Please note that Monte Carlo option pricing requireies many simulations to converge
+    to the option price. It takes longer as we increase number of simulations or number
+    of time periods or number of assets. On the positive side, it provides a viable
+    alternative to simulating difficult problems that might not be solved analytically.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post I will look at the cost of different rebalancing methods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [asset.paths.test() function in random.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/random.r).
+  prefs: []
+  type: TYPE_NORMAL

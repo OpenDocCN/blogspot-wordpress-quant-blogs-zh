@@ -1,0 +1,42 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:35:51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: LNK2019 | Coding the markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01](https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: LNK2019
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: January 30, 2011
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Every C++ dev gets bitten by unresolved symbols in their builds from time to
+    time. You can stare at code for hours, sure that your library is defining a symbol.
+    I just cracked one of these. Three methods in a lib were showing as unresolved
+    when I built the exe. This [stackoverflow entry](http://stackoverflow.com/questions/261377/lnk2001-error-when-compiling-apps-referencing-stlport-5-1-4-with-vc-2008)
+    was helpful, especially Raymond Chen’s blog entry which put me onto the undname
+    utility. I’ve known about dumpbin for years, but undname was new to me. The problem
+    turned out to be that one of my libs was built without the STLport headers on
+    the include path. Visual Studio silently picks up its own STL. Then the linker
+    complains it can’t resolve methods that return an std::string. The unresolved
+    refs all had stlp_ in the signatures. Of course, I couldn’t see that until I compared
+    methods defined in the lib using dumpbin /linkmembers:2 and undname with those
+    unresolved by the linker.
+  prefs: []
+  type: TYPE_NORMAL

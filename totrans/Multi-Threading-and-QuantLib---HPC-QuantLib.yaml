@@ -1,0 +1,89 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:13:35'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multi-Threading and QuantLib – HPC-QuantLib
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01](https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Update 23.11.2015: The [latest version](https://wordpress.com/post/hpcquantlib.wordpress.com/1376) is
+    now part of the official QuantLib Release 1.7.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Update 22.09.2015: Please find the latest version of the patch for QuantLib
+    1.6.2 [here](https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Update 28.02.2015: Please find the latest version of the patch for QuantLib
+    1.5 [here](http://hpc-quantlib.de/src/observer15.zip).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Update 11.05.2014: Please find the latest version of the patch for QuantLib
+    1.4 [here](http://hpc-quantlib.de/src/observer.zip).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: QuantLib is per se not thread-safe. The standard way to utilise more than one
+    core is to spawn several independent processes. [Riccardo’s](https://sourceforge.net/p/quantlib/patches/71/)
+    thread-safe singleton patch allows to use QuantLib within multi-threading applications
+    as long as objects aren’t explicitly shared between different threads. In fact
+    this patch turns the singleton pattern into a thread local singleton pattern.
+    One possible use case of this patch is to run the test-suite with a multi-threading
+    test runner to speed it up, e.g. on a i7@3.2Ghz with four cores plus four HT cores
+    the multi-threading test-suite runs in approx. two minutes whereas the single
+    threaded version takes around eight minutes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using QuantLib in Java/Scala/C# or F# applications via the SWIG layer violates
+    the multi-threading requirement because the garbage collector runs in a different
+    thread and therefore QuantLib objects are shared among different threads. This
+    creates problems with QuantLib’s implementation of the observer pattern and is
+    discussed in detail [here](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: An improved implementation of the observer pattern based on boost::signals2
+    together with Riccardo’s thread-safe singleton patch and the multi-threading test
+    runner can obtained from [github.](https://github.com/klausspanderen/quantlib)
+    Under Linux/MacOS use
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: to enable the thread-safe singleton and the thread-safe observer pattern. Under
+    Windows the corresponding preprocessor directives
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: are already set in the file userconfig.hpp.  In order to enable the boost shared_ptr
+    hook change the preprocessor variable BOOST_SP_ENABLE_DEBUG_HOOKS towards BOOST_SP_ENABLE_DEBUG_HOOKS_2
+    in the file
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Background: the original preprocessor variable BOOST_SP_ENABLE_DEBUG_HOOKS
+    changes the memory layout of the class boost::shared_ptr which might lead to problems
+    with other pre-compiled libraries which also use boost::shared_ptr.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The reward for this work is a stable SWIG interface for Java/Scala/C#/F# and
+    a thread local singleton implementation, which allows to use QuantLib within multi-threading
+    applications as long as SWIG/QuantLib objects aren’t explicitly shared among different
+    threads.
+  prefs: []
+  type: TYPE_NORMAL

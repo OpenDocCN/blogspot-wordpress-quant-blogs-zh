@@ -1,0 +1,66 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:03:23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: (Part 2) Time Machine Test – Non-parametric Statistical Filter – Quantum Financier
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'As promised yesterday, I tried a small change to the original “time machine”
+    strategy first introduced by CSS Analytics. Now if you still have not, please
+    go read these background articles on statistical filters and their importance
+    in a trade system:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '– [The Adaptive Time Machine: The Importance of Statistical Filters](http://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/)
+    – CSS Analytics'
+  prefs: []
+  type: TYPE_NORMAL
+- en: – [Transactional vs Confidence-based Trading Strategies](http://marketsci.wordpress.com/2009/04/01/transactional-vs-confidence-based-trading-strategies/)
+    – MarketSci
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In yesterday’s post, I used the student t-test approach to filter the significance
+    of every of the 50 strategies the algorithm can choose from. As you may know,
+    the Student’s t-distribution used to estimate the mean of a *normally distributed
+    population.* Such an assumption on the distribution contradicts the kind of fat
+    tail returns the market throws at us. To relax the normality assumption, one can
+    use a non-parametric statistical test. Non-parametric statistics make fewer assumptions
+    regarding the distribution of the underlying and therefore can be more robust,
+    thus making a prime choice for the “Time Machine” algorithm. More reading on Wilcoxon
+    signed-rank test can be found here: [http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test](http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For this test, I used the Wilcoxon signed-rank test instead of the Student’s
+    t-test to establish the significance of strategies. The results below are for
+    the strategy using a 95% significance filter on the S&P 500.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/d5304d9492aeaa27eebbd930e895cef3.png "Time Machine Test Wilcox - GSPC")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-gspc.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/6e79a84a117b535b9dea6cf1a6f7ec4b.png "Time Machine Test Wilcox - Results")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-results.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The results obtained are not very different from the previous one. It is interesting
+    to see that the maximum drawdown is smaller when using the Wilcoxon test. This
+    is probably caused by the increased robustness of the statistical test. For the
+    time being I will keep testing the algorithm on different equity indices and asset
+    class stay tuned.
+  prefs: []
+  type: TYPE_NORMAL
+- en: QF
+  prefs: []
+  type: TYPE_NORMAL

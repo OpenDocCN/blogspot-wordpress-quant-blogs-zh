@@ -1,0 +1,112 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:36:53'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Market Data – Big Data Thoughts | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2012/08/02/market-data-big-data-thoughts/#0001-01-01](https://mdavey.wordpress.com/2012/08/02/market-data-big-data-thoughts/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Exegy’s Market Data Peaks (both [European](http://www.marketdatapeaks.eu) and
+    [US](http://www.marketdatapeaks.com/)) provides a nice reminder of the quantity
+    of market data that is part of the overall financial services big data problem. 
+    Apart from market data, there is also the ever growing volume of order/trade data,
+    and risk data.  As has been blogged about before, data growth is only on an upward
+    road.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It’s thus always interesting to see new products launched in the Big Data space. 
+    Last month [Nodeable](http://www.nodeable.com/) [launched](http://techcrunch.com/2012/07/18/twitter-storm-nodeable-pivot/)
+    StreamReduce.  StreamReduce is interesting, as at its heart is Storm.  Storm exists
+    in the same space as “Complex Event Processing” (CEP) systems like [Esper](http://esper.codehaus.org/),
+    [Streambase](http://www.streambase.com/), Microsoft StreamInsight (of which I
+    have blogged about extensively a few years ago) and [S4](http://s4.io/).  StreamReduce
+    is basically [Storm](http://engineering.twitter.com/2011/08/storm-is-coming-more-details-and-plans.html) 
+    in the cloud, with a few extras such as connectors to Apache Hadoop.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Sidebar**:  To nice to see the usual suspect JavaScript libraries on Nodeable
+    “THE JAVASCRIPT PILLARS OF 2012” [posting](http://blog.nodeable.com/2012/07/27/the-javascript-pillars-of-2012/)'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'In the early days of Big Data, Hadoop was king, and batch processing was the
+    way forwards.  However, like many software engineering roads, we are passed batch
+    [processing](http://blog.nodeable.com/2012/07/02/when-hadoop-isnt-fast-enough-the-argument-for-storm/)
+    and now in a world of real-time (or Nearly Real-Time), which essentially brings
+    us to CEP’s as being a pillar in the Big Data Analysis.  Storm and S4 have gain
+    much attention in web land, with some debate as to which is the [better](http://www.quora.com/What-would-you-choose-between-Flume-Yahoo-S4-and-Backtype-Twitter-Storm-and-why)
+    of the [two](https://groups.google.com/forum/?fromgroups#!topic/s4-project/aRr-_RiB4Zc). 
+    Yahoo Labs has a somewhat old, but useful [read](http://labs.yahoo.com/node/476)
+    on S4 – Distributed Stream Computing Platform:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'S4 is a general-purpose, distributed, scalable, partially fault-tolerant, pluggable
+    platform that allows programmers to easily develop applications for processing
+    continuous unbounded streams of data. Keyed data events are routed with affinity
+    to Processing Elements (PEs), which consume the events and do one or both of the
+    following: (1) emit one or more events which may be consumed by other PEs, (2)
+    publish results. The architecture resembles the Actors model [1], providing semantics
+    of encapsulation and location transparency, thus allowing applications to be massively
+    concurrent while exposing a simple programming interface to application developers.
+    In this paper, we outline the S4 architecture in detail, describe various applications,
+    including real-life deployments. Our de- sign is primarily driven by large scale
+    applications for data mining and machine learning in a production environment.
+    We show that the S4 design is surprisingly flexible and lends itself to run in
+    large clusters built with commodity hardware.'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'So if CEP is one of the Big Data Pillars, the others are probably storage and
+    visualization/analysis.  In the Big Data storage space, Cassandra is one of the
+    many contenders.  Acunu offers a Cassandra [variant](http://www.acunu.com/2/post/2012/07/really-big-data.html),
+    which based on Acunu’s web site hints as Storm usage by clients:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Storm, MQ and other event frameworks fit together well with Acunu Reflex with
+    [Analytics](http://www.acunu.com/acunu-analytics.html). You can use them to pre-process
+    or filter incoming data, which is then processed, stored and served to a front-end
+    application using Acunu
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Metamarkets in 2010/11 clearly viewed the relational database and NoSQL technology
+    offerings at the time to be in appropriate for Big Data, and when their own way
+    with [Druid](http://metamarkets.com/2011/druid-part-i-real-time-analytics-at-a-billion-rows-per-second/),
+    leveraging a data storage schema very similar to Twitter’s [Rainbird](http://www.slideshare.net/kevinweil/rainbird-realtime-analytics-at-twitter-strata-2011). 
+    Metamarkets design architecture principles are [interesting](http://metamarkets.com/2011/druid-part-deux-three-principles-for-fast-distributed-olap/). 
+    The second and third principles are expected, with Zookeeper providing coordination. 
+    The first principle specifically around partial aggregation is most interesting.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, to end on visualization.  If we start with R, Metamarkets again provides
+    us with some [thoughts](http://metamarkets.com/2012/munging-and-visualizing-data-with-r/).
+    DataStax [and](http://www.analyticbridge.com/profiles/blogs/datastax-and-pentaho-jointly-deliver-complete-analytics-solution-)
+    Pentaho provide yet another Cassandra solution with a web-based interface to access,
+    interactively analyze, and visualize big data and then report and create [dashboards](http://www.pentahobigdata.com/ecosystem/capabilities/analytics). 
+    However its unclear how real-time the web solution is, and if its leveraging websockets
+    to facilitate internet streaming of data.  I suspect Pentaho’s visualization solution
+    will not support the usual trading desk requirements for trade/risk drill-in of
+    data in real-time.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on August 2, 2012.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [CEP](https://mdavey.wordpress.com/category/hpc/cep/), [Cloud](https://mdavey.wordpress.com/category/hpc/cloud/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [BigData](https://mdavey.wordpress.com/tag/bigdata/)'
+  prefs: []
+  type: TYPE_NORMAL

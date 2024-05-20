@@ -1,0 +1,144 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:56:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Building an Insider Trading Database and Predicting Future
+    Equity Returns'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2017/07/building-insider-trading-database-and.html#0001-01-01](http://epchan.blogspot.com/2017/07/building-insider-trading-database-and.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ===
+  prefs: []
+  type: TYPE_NORMAL
+- en: I’ve long been interested in the behavior of corporate insiders and how their
+    actions may impact their company’s stock. I had done some research on this in
+    the past, albeit in a very low-tech way using mostly Excel. It’s a highly compelling
+    subject, intuitively aligned with a company’s equity performance - if those individuals
+    most in-the-know are buying, it seems sensible that the stock should perform well.
+    If insiders are selling, the opposite is implied. While reality proves more complex
+    than that, a tremendous amount of literature has been written on the [topic](https://scholar.google.com/scholar?hl=en&q=insider+trading&btnG=&as_sdt=1%2C22&as_sdtp=),
+    and it has shown to be predictive in [prior studies](https://www.amazon.com/Investment-Intelligence-Insider-Trading-Press/dp/0262692341/ref=sr_1_1?ie=UTF8&qid=1500148884&sr=8-1&keywords=nejat+seyhun).In
+    generating [my thesis](https://urldefense.proofpoint.com/v2/url?u=https-3A__papers.ssrn.com_sol3_papers.cfm-3Fabstract-5Fid-3D3000704&d=DwMCaQ&c=yHlS04HhBraes5BQ9ueu5zKhE7rtNXt_d012z2PA6ws&r=HcdzcN9QHYqnVIfkU6GOG0i6ty8DOaZLP8DKHa427Ac&m=Q7q5j0CJlcGtx3XyIuy1mlF4VfgYniHcin8TiQRcmQE&s=4fOizzmREE5lyEOeySMpziy2xLR3UIbGR4to1_YRdJw&e=)
+    to complete Northwestern’s MS in Predictive Analytics program, I figured employing
+    some of the more prominent machine learning algorithms to insider trading could
+    be an interesting exercise. I was concerned, however, that, as the market had
+    gotten smarter over time, returns from insider trading signals may have decayed
+    as well, as is often the case with strategies exposed to a wide audience over
+    time. Information is more readily available now than at any time in the past.
+    Not too long ago, investors needed to visit SEC offices to obtain insider filings.
+    The standard filing document, the form 4 has only required electronic submission
+    since 2003\. Now anyone can obtain it freely via the [SEC’s EDGAR website](https://www.sec.gov/edgar/searchedgar/companysearch.html).
+    If all this data is just sitting out there, can it continue to offer value?I decided
+    to inquire by gathering the filings directly by scraping the EDGAR site.  While
+    there are numerous data providers available (at a cost), I wanted to parse the
+    raw data directly, as this would allow for greater “intimacy” with the underlying
+    data. I’ve spent much of my career as a database developer/administrator, so working
+    with raw text/xml and transforming it into a database structure seemed like fun.
+    Also, since I desired this to be a true end-to-end data science project, including
+    the often ugly [80% of the real effort](http://blog.revolutionanalytics.com/2014/08/data-cleaning-is-a-critical-part-of-the-data-science-process.html)
+    – data wrangling, was an important requirement.  That being said, mining and cleansing
+    the data was a monstrous amount of work. It took several weekends to work through
+    the code and finally download 2.4 million unique files. I relied heavily on Powershell
+    scripts to first parse through the files and shred the xml into database tables
+    in MS SQL Server.With data from the years 2005 to 2015, the initial 2.4 million
+    records were filtered down to 650,000 Insider Equity Buy transactions. I focused
+    on Buys rather than Sells because the signal can be a bit murkier with sells.
+    Insider selling happens for a great many innocent reasons, including diversification
+    and paying living expenses. Also, I focused on equity trades rather than derivatives
+    for similar reasons -it can be difficult to interpret the motivations behind various
+    derivative trades.  Open market buy orders, however, are generally quite clear.After
+    some careful cleansing, I had 11 years’ worth of useful SEC data, but in addition,
+    I needed pricing and market capitalization data, ideally which would account for
+    survivorship bias/dead companies. Respectively, Zacks Equity Prices and Sharadar’s
+    Core US Fundamentals data sets did the trick, and I could obtain both via [Quandl](https://www.quandl.com/)
+    at reasonable cost (about $350 per quarter.)For exploratory data analysis and
+    model building, I used the R programming language. The models I utilized were
+    linear regression, recursive partitioning, random forest and multiplicative adaptive
+    regression splines (MARS).  I intended to make use of a support vector machine
+    (SVM) models as well, but experienced a great many performance issues when running
+    on my laptop with a mere 4 cores. SVMs have trouble with scaling. I failed to
+    overcome this issue and abandoned the effort after 10-12 crashes, unfortunately.For
+    the recursive partitioning and random forest models I used functions from Microsoft’s
+    RevoScaleR package, which allows for impressive scalability versus standard tree-based
+    packages such as rpart and randomForest. Similar results can be expected, but
+    the RevoScaleR packages take great advantage of multiple cores. I split my data
+    into a training set for 2005-2011, a validation set for 2012-2013, and a test
+    set for 2014-2015\. Overall, performance for each of the algorithms tested were
+    fairly similar, but in the end, the random forest prevailed.For my response variable,
+    I used 3-month relative returns vs the Russell 3000 index. For predictors, I utilized
+    a handful of attributes directly from the filings and from related company information.
+    The models proved quite predictive in the validation set as can be seen in exhibit
+    4.10 of the paper, and reproduced below:The random forest’s predicted returns
+    were significantly better for quintile 5, the highest predicted return grouping,
+    relative to quintile 1(the lowest). Quintiles 2 through 4 also lined up perfectly
+    - actual performance correlated nicely with grouped predicted performance.  The
+    results in validation seemed very promising!However, when I ran the random forest
+    model on the test set (2014-2015), the relationship broke down substantially,
+    as can be seen in the paper’s Exhibit 5.2, reproduced below:Fortunately, the predicted
+    1^(st) decile was in in fact the lowest performing actual return grouping. However,
+    the actual returns on all remaining prediction deciles appeared no better than
+    random. In addition, relative returns were negative for every decile.  While disappointing,
+    it is important to recognize that when modeling time-dependent financial data,
+    as the time-distance moves further away from the training set’s time-frame, performance
+    of the model tends to decay. All market regimes, gradually or abruptly, end. This
+    represents a partial (yet unsatisfying) explanation for this relative decrease
+    in performance. Other effects that may have impaired prediction include the use
+    of price, as well as market cap, as predictor variables. These factors certainly
+    underperformed during the period used for the test set. Had I excluded these,
+    and refined the filing specific features more deeply, perhaps I would have obtained
+    a clearer signal in the test set.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In any event, this was a fun exercise where I learned a great deal about insider
+    trading and its impact on future returns. Perhaps we can conclude that this signal
+    has weakened over time, as the market has absorbed the informational value of
+    insider trading data. However, perhaps further study, additional feature engineering
+    and clever consideration of additional algorithms is worth pursuing in the future.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*John J Ryle, CFA lives in the Boston area with his wife and two children.
+    He is a software developer at a hedge fund, a graduate of Northwestern’s Master’s
+    in Predictive Analytics program (2017), a huge tennis fan, and a machine learning
+    enthusiast. He can be reached at john@jryle.com. *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ===
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Upcoming Workshops by Dr. Ernie Chan**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the last few years, mean reversion strategies have proven to be the most
+    consistent winner. However, not all mean reversion strategies work in all markets
+    at all times. This workshop will equip you with basic statistical techniques to
+    discover mean reverting markets on your own, and describe the detailed mechanics
+    of trading some of them.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ===
+  prefs: []
+  type: TYPE_NORMAL
+- en: Industry updates
+  prefs: []
+  type: TYPE_NORMAL
+- en: scriptmaker.net allows users to record order book data for backtesting.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[Pair Trading Lab](https://www.pairtradinglab.com/) offers a web-based platform
+    for easy backtesting of pairs strategies.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL

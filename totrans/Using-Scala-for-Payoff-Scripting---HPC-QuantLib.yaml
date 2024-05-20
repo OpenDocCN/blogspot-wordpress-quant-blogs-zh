@@ -1,0 +1,56 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-17 23:41:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using Scala for Payoff Scripting – HPC-QuantLib
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01](https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The advantages of payoff scripting based on a build-in interpreter or “on-the-fly
+    compiler” instead of implementing the payoffs in C++ are obvious. Faster time-to-market
+    because there is no need to recompile and deploy the C++ pricing library and people
+    without deep C++ knowledge are able to develop and test new structured products.
+    One disadvantage is often the execution speed of the chosen scripting language.
+    Examples of languages I have seen/used for payoff scripting are [Python](http://python.org/) 
+    (C++ interface [boost::python](http://www.boost.org/doc/libs/1_47_0/libs/python/doc/)),
+    [Lua](http://www.lua.org/), [tinycc](http://tinycc.org) and [CINT](http://root.cern.ch/drupal/content/cint).
+    When it comes to execution speed none of these are suited to build high performance
+    solutions, see. e.g. [1].  This is especially true if the Monte-Carlo scenario
+    generator is running on a GPU. The payoff scripting on the CPU can then easily
+    become the bottleneck of your pricing library.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Scala](http://www.scala-lang.org) is a modern programming language that integrates
+    object-oriented and functional language features. The Scala compiler generates
+    byte code for the Java VM. Therefore the execution speed of a Scala script is
+    comparable with Java and roughly a factor of two slower than C++ [1].'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Scala compiler itself is a Scala object and can be used at runtime to compile
+    and link new scripts or classes. In addition using [JNI](http://download.oracle.com/javase/6/docs/technotes/guides/jni/index.html)
+    it is fairly easy to attach a Java VM to a C++ process and to exchange data between
+    C++ and Scala. Also Scala offers a lot of features to design an “internal”, user-friendly
+    domain specific language (DSL) for payoff scripting.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The code for a small QuantLib/Scala Monte-Carlo simulation in action is available
+    [here](http://hpc-quantlib.de/src/scalaPayoffScripting.zip). It depends on QuantLib
+    1.0 or higher, a Java 1.6 VM and Scala 2.8/9\. Overwrite the PayoffImpl.scala
+    class to implement different payoffs without recompiling the C++ code.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[1] [Computer Language Benchmark Game](http://shootout.alioth.debian.org/u32/which-programming-languages-are-fastest.php)'
+  prefs: []
+  type: TYPE_NORMAL

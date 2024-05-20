@@ -1,0 +1,104 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:29:47'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: windbg | Coding the markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/windbg/#0001-01-01](https://etrading.wordpress.com/windbg/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**A collection of windbg links, tips and tricks**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Introductory material
+  prefs:
+  - PREF_H4
+  type: TYPE_NORMAL
+- en: Tips & tricks
+  prefs:
+  - PREF_H4
+  type: TYPE_NORMAL
+- en: 'Your PDBs must match your DLLs and EXEs. Even if you’ve built with the same
+    set of compiler switches, they won’t match if they’re not from the same build,
+    as the compiler injects a checksum that windbg checks. You can find some hacky
+    ways around this on stackoverflow. But if it’s at all possible to rebuild and
+    generate a matching set of bins and PDBs do so. You’ll find a huge amount of stuff
+    in windbg starts just working when bins and PDBs match: breakpointing on C++ method
+    names, variable inspection, automatic viewing of source code when stepping up
+    and down the stack with “.frame N” etc.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Clear down registry keys to reset windbg. For instance, if you can’t get the
+    command window to issue g, bp, bl etc, then using regedit to clear keys can help.
+    Delete everything under HKCU\Software\Microsoft\Windbg
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: If you’re debugging a 32 bit binary, use the 32 bit debugger. Don’t attempt
+    to make the 64 bit debugger work in 32 bit mode with the .effmach x86 command
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The .expr command will tell you if you’re using MASM or C++ style symbols. Use
+    “.expr /s c++” to flip into C++ symbol mode if not already in that mode. Setting
+    breakpoints and examining variables will be much easier.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Type conflict error at ‘<EOL>’: I get this sometimes setting a breakpoint when
+    I get a module name wrong. Check your ‘bp module!class::method’ syntax. The module
+    is the same as the DLL name, without the .dll suffix.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: windbg commands
+  prefs:
+  - PREF_H4
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Sys Internals
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: SysInternal’s tools Process Explorer and Process Monitor are essential debugging
+    tools. Here are some common debugging scenarios they can resolve quickly…
+  prefs: []
+  type: TYPE_NORMAL
+- en: Process Explorer
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Windows gives you “permission denied” when you attempt to overwrite a DLL. You’ve
+    got write permission, so you know some running process must have that DLL loaded.
+    But which one? Use PE’s Find/Find Handle or DLL menu option
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Process Monitor
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'DLL hell: which DLLs are loading, and why? And which are failing to load? depends.exe
+    can tell you a lot, but it won’t help with runtime behaviour. With event filters
+    set to file system and Registry, PM will show you which ProgId and ClassId entries
+    are checked in the registry, and which paths on the FS a binary is looking at.'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL

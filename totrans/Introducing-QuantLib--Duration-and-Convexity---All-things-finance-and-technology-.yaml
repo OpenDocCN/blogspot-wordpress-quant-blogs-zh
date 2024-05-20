@@ -1,0 +1,229 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:45:12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: Duration and Convexity | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01](https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post I’m going to explore QuantLib’s support for assessing the riskiness
+    of a bond. The riskiness of a bond is closely related to the magnitude of the
+    bond’s change in price given a small change in the bond’s interest rate, which
+    can be quantified to varying degrees of accuracy by calculating a bond’s duration
+    and convexity.  These interest rate sensitivity measures are fundamental to classical
+    fixed income risk management. With knowledge of a bond or bond portfolio’s duration
+    and convexity, a hedge can be executed to neutralize the effect of changes in
+    the interest rate environment.  Moreover, the riskiness of bonds with different
+    yields, coupon rates and maturities can be compared using a common set of benchmarks.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'As we’ve seen already, a bond’s price moves inversely to the bond’s interest
+    rate. When interest rates go up, a bond’s price goes down and vice versa.  This
+    relationship however, is not linear.  A bond’s price increases at an increasing
+    rate as bond yields fall and at a decreasing rate as bond yields rise as depicted
+    in the figure below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![interestratesensitivity](img/82ea13caf2ad62324f29805de77d6806.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/interestratesensitivity.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Duration and convexity seek to quantify the dynamics of the price versus yield
+    relationship.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Duration**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s dive deeper into the concept of *duration*. There are two flavors of
+    duration: Macaulay duration and modified duration. The formula for calculating
+    Macaulay duration, where C = coupon, r = interest rate, P = bond price, F = the
+    bond’s face value and n is the number of periods is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Macaulay_Duration  = ( C1/(1+r) + 2*C2/(1+r)^2 +…  n * (Cn+F)/(1+r)^n)/P**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Macaulay duration can be understood as a bond’s time-weighted average time to
+    maturity.  A bond with a higher duration pays more of its cash flows further out
+    in the future than a bond with a lower duration.  Another way of saying this is
+    that the holder of a bond with a lower duration will get repaid more quickly than
+    the holder of a bond with a higher duration.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Effectively, due to the time value of money, a bond with a higher Macaulay duration
+    is more sensitive to interest rate changes than a bond with a lower Macaulay duration.
+    This is attributable to the fact that cash flows discounted over a longer period
+    of time have more effect on the bond’s present value than near term cash flows.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Modified duration is closely related to duration and can be computed from it.
+    Conceptually, it is equivalent to the slope of the line tangent to the curve in
+    the figure above.  As such, it is a first-order sensitivity measure that is only
+    accurate for small changes in the bond’s interest rate.  Modified duration is
+    derived from Macaulay duration in accordance with the following formula:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Dmod = – Macaulay_Duration/(1+r)**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Alternatively, since the modified duration is the slope of the line tangent
+    to the bond pricing function, one can also compute modified duration by taking
+    the derivative of the bond pricing formula and dividing by the bond’s price:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Dmod = 1/P * dP/dr**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Modified duration can be applied to calculate the change in a bond’s price
+    for a given change in the bond’s interest rate like so:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Change_in_P =  Dmod * Change_in_r, **where Dmod is a negative quantity reflecting
+    the inverse relationship of bond price and yield:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Convexity**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'As previously mentioned,  duration is a linear, first-order measure of interest
+    rate sensitivity.  Consequently, it overestimates the effect of an increase in
+    rates on a bond’s price and, conversely, underestimates the price impact of a
+    drop in rates.  To more accurately quantify a bond’s pricing relationship to it’s
+    yield, the curvature of the bond pricing function must be accounted for.  This
+    is accomplished with our second measure of interest rate sensitivity, *convexity*.
+     Convexity is a second-order measure of interest rate sensitivity.  As such, convexity
+    is calculated by taking the second derivative of the bond pricing function and
+    dividing by the bond’s price:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Convexity = 1/P * dP2/dr2**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To reprice a bond using both duration and convexity use the following formula,
+    which is more accurate than using (modified) duration alone:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Change_in_P = P * ( Dmod * Change_in_r + .5 * Convexity * Change_in_r ^ 2)**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To illustrate these duration and convexity formulas and provide independent
+    verification of QuantLib’s interest rate sensitivity calculations, I used Maxima,
+    an open-source computer aided algebra (CAA) package. Maxima’s support for manipulating
+    symbolic equations is similar to the commercial software products Mathematica
+    and Maple.  At some point, I will do a series of posts on  Maxima, but for now,
+    those of you who are curious about the meaning of the Maxima code to follow will
+    have to rely on Maxima’s documentation:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Standard bond pricing formula:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: bondprice(r,c,t,f):=(‘sum(c*f/(1+r)^i,i,1,t-1) + (c*f+f)/(1+r)^t);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximabondprice](img/c1b92f97304d7710ce60e90bdcf6715a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximabondprice.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Macaulay duration – time weighted average maturity of the bond:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: duration(r,c,t,f):=(‘sum(i*c*f/(1+r)^i,i,1,t-1) + t*(c*f + f)/(1+r)^t)/bondprice(r,c,t,f);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximaduration](img/0da3c2d4808add71f5a8a25ad82b194b.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaduration.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Modified duration – calculated by dividing Macaulay duration by (1 + r) and
+    multiplying by -1:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: dmod(r,c,t,f,p):=-1* duration(r,c,t,f)/(1+r);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximadmod](img/670cad084377b87b76817ab8254fa2fc.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Modified duration (alternative derivation) – calculated by taking the derivative
+    of the bond’s pricing formula and dividing by the bond’s price:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: dbondprice:diff(bondprice(r,c,t,f),r);
+  prefs: []
+  type: TYPE_NORMAL
+- en: dmod2(r,c,t,f):=ev(dbondprice,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximadmod2](img/24912af795db8d86976227a252d797ca.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: dconvexity:diff(bondprice(r,c,t,f),r,2);
+  prefs: []
+  type: TYPE_NORMAL
+- en: convexity(r,c,t,f):=ev(dconvexity,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximaconvexity](img/50b321513dc5279da363626a2a02fabe.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaconvexity.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'QuantLib provides support for calculating duration, convexity, and several
+    other measures of interest rate sensitivity, through its [BondFunctions](http://quantlib.org/reference/struct_quant_lib_1_1_bond_functions.html)
+    class. Let’s see how to  how to calculate a bond’s duration and convexity with
+    QuantLib:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The output of this code when run is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Bond price: 105.657'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'yield to maturity: 0.03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Macaulay duration: 2.8635'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Modified duration: -2.7801'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Convexity: 10.6258'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Estimated bond price using only duration (rate up .01): 102.72'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Estimated bond price using duration and convexity (rate up .01): 102.78`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s compare the duration and convexity numbers to the what the Maxima equations
+    produce:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![maximaoutput](img/13d98ccefc37c7111b9e207cfcd3284a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaoutput.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, the Maxima calculations do indeed confirm the QuantLib duration
+    and convexity calculations, which is a good thing!
+  prefs: []
+  type: TYPE_NORMAL
+- en: That brings this post to a close. I hope you have gained a new appreciation
+    for how duration and convexity are employed to help assess the riskiness of a
+    bond and reprice a bond when interest rates change. Until next time, have fun
+    with QuantLib!
+  prefs: []
+  type: TYPE_NORMAL

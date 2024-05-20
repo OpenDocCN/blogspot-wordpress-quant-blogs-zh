@@ -1,0 +1,278 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:06:33'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Our First CEP Use Case (and thoughts on Coral8 and Aleri)'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'For the Complex Event Processing (CEP) engine evaluation, we have chosen a
+    very simple use case. This use case is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***Tell us when orders for a sector show a greater-than-normal level.***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Even though this use case seems very simplistic, and would not tend to be an
+    ideal use case to test a CEP engine, it is an ideal use case for our environment.
+    Why? It forces us to get at various data streams that have previously been inaccessible
+    to most people, and it forces the owners of these streams of data to make there
+    data clean.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*(Note: this use case is a very generic use case and test for CEP. I am not
+    giving away any special use cases that would give my company a competitve edge,
+    not will I ever do so in this blog.)*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: At the Gartner CEP Summit last September, Mary Knox of Gartner mentioned that
+    one of the obstacles for doing successful CEP projects at large organization was
+    the process of liberating all of the data sources that you need, and getting the
+    various silos to talk to each other. We have found this to be the case at our
+    organization too. We figure that if we can get this simple use case to work, then
+    we have won 50% of the battle.
+  prefs: []
+  type: TYPE_NORMAL
+- en: What kind of data do we need to implement this use case?
+  prefs: []
+  type: TYPE_NORMAL
+- en: We need to tap into the real-time order flow. Order flow comes to us through
+    FIX messages, and for older systems, through proprietary messages that will one
+    day be deprecated. Luckily, we have found a system that provides us this information.
+    Although this system is a monitoring GUI, we have identified its importance to
+    our company, and we are working with the product owner to split his app into a
+    subscribable order service and a thinner GUI.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: We need historical order data in order to determine what “normal activity” is
+    for a sector. Luckily, we have this data, and we are in the process of getting
+    access to it. We also need to understand what we mean by “abnormal activity”?
+    Does this mean “2 standard deviations above the 30-day moving average for a sector”?
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: We need to be able to get a list of sectors, and for each order, we need to
+    map each ticker symbol to its sector. Sectors are signified by something called
+    GIC codes, and there are 4 levels of GIC’s. The important thing that we need is
+    to ensure that all corporate actions get percolated down to these mapping tables.
+    So, if a company changes it ticker symbol (like SUNW to JAVA), then the new ticker
+    symbol needs to be automatically added to these mapping tables.
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Let’s say that we are able to get all of the data that we need, and that the
+    stream of data is pristine. We have to get it into the CEP engine for analysis.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If you think if writing a normal, procedural program (i.e.: a C# app) to do
+    this analysis, the steps are pretty easy.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) Read in all of the reference data. This includes the ticker-to-sector mappings
+    and the list of normal activity per sector per time-slice. We will consider a
+    timeslice to be a one-minute interval. In a 6.5 hour trading day, there are 390
+    minutes. There are also 11 “GIC0” sectors. So, a timeslice will be an integer
+    from 0 to 389.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) Subscribe to a stream of FIX orders.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3) As each order comes in, extract the ticker and map it to a sector. We are
+    also interested in the number of shares in the order and the time that the order
+    was placed. For each order, increment a running total for that sector and for
+    that timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4) Any orders that come in that are past the current timeslice are ignored.
+    Also, any orders that come outside of the normal trading day are ignored. This
+    way, we don’t consider any orders that may have been delayed through our systems.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 5) If we detect a new and later timeslice, then examine all of the sectors for
+    the previous timeslice. If any of the sectors show heightened activity, then alert
+    the user. Then, clear the totals for all of the sectors, and start accumulating
+    new totals for all of the sectors.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This looks pretty easy. I would assign this to a good C# developer, and hope
+    to get a finished program in one or two days.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, the task is to map this into a CEP engine.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Most of the CEP engines have a language that is based on SQL. So, you can imagine
+    all of the processing steps above passing through multiple streams in the CEP
+    engine. For step 1) above, we would have two input streams, one for the ticker-to-sector
+    mapping data and the other for the “normal sector activity” data. You can imagine
+    two simple SELECT statements in SQL that read this data from some external database,
+    and construct two in-memory tables in the CEP engine.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For step 2, you need to write a specialized input adapter that subscribes to
+    a communications channel (sockets or JMS) and reads and decodes the FIX orders.
+    Most orders come through as NewOrderSingle messages (FIX message type = ‘D’).
+    There are various versions of FIX, but let’s say that everything comes in as FIX
+    4.2 messages.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Most of the CEP vendors support in-process and out-of-process adapters. In-process
+    adapters are faster than out-of-process adapters, but out-of-process adapters
+    are usually easier to write. An out-of-process adapter will read data from some
+    kind of communications bus (or even from a database table or a flat file), and
+    will write a data stream to the CEP engine. It would be ideal to have the CEP
+    vendors support FIX in in-process input and output adapters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Step 4) is easy. We calculate the 0-based timeslice for an order, and if it
+    is below 0 or above 389, then we ignore this order in the stream. This can be
+    done with a simple WHERE clause in the SQL statement.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We also need to record the “current timeslice” and ignore any orders that come
+    before the current timeslice. So, we need the concept of a “global variable” and
+    when we see an order with a later timeslice, we need to update this variable.
+    This is something which is easy to do with a procedural language, but what is
+    the best way to do this in SQL?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Steps 3) and 5) are interesting. We need to keep a one minute window per sector.
+    This window should only keep running totals for the current timeslice. When a
+    new timeslice comes in, we need to analyze the sector activity in the current
+    timeslice, do any alerts, and then clear out the totals in all sectors. Again,
+    this is something that is extremely easy to do in a C# application, but translating
+    it into SQL is a bit of a challenge.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In step 3), the mapping of ticker to sector is very easy. It’s just a join of
+    the ticker in the order with the ticker in the mapping table. The interesting
+    thing is the choice of window type for the stream. Do we accumulate all orders
+    for all sectors for the one-minute timeslice, and then, when we see a new timeslice,
+    do we just take a COUNT() of the number of orders for each sector? Or, do we simple
+    have a window with one row per sector, and keep running totals for each sector
+    as an order comes in?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Coral8 supports the concepts of sliding and jumping windows. Aleri supports
+    only sliding windows right now. With Coral8, we can set a window that will hold
+    one minute’s worth of data, and we can also tell a stream that it should dump
+    its output after one minute. However, we don’t want to tie the TransactTime in
+    a FIX order message to the actual clock on the computer. We need a stream that
+    will produce output on a certain value in a column, and neither Coral8 nor Aleri
+    seem to have this yet.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is some Coral8 code that shows windows and streams:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CREATE WINDOW TickerAndSector
+  prefs: []
+  type: TYPE_NORMAL
+- en: SCHEMA (Ticker STRING, Sector STRING, SectorId INTEGER, Shares INTEGER,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TransactTimeBucket INTEGER)
+  prefs: []
+  type: TYPE_NORMAL
+- en: KEEP EVERY 60 SECONDS;
+  prefs: []
+  type: TYPE_NORMAL
+- en: INSERT INTO TickerAndSector
+  prefs: []
+  type: TYPE_NORMAL
+- en: SELECT
+  prefs: []
+  type: TYPE_NORMAL
+- en: FlattenNewOrder.Ticker,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.SectorName,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.SectorId,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TO_INTEGER(FlattenNewOrder.Qty),
+  prefs: []
+  type: TYPE_NORMAL
+- en: TimeToTimeBucket(FlattenNewOrder.TransactTime, 'HH:MI:SS AM')
+  prefs: []
+  type: TYPE_NORMAL
+- en: FROM
+  prefs: []
+  type: TYPE_NORMAL
+- en: FlattenNewOrder,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap
+  prefs: []
+  type: TYPE_NORMAL
+- en: WHERE
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
+  prefs: []
+  type: TYPE_NORMAL
+- en: OUTPUT EVERY 60 SECONDS;
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first statement defines a window that keeps one minute’s worth of order
+    data. After one minute, the window will empty its contents.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The second statement will insert a new row into the window whenever we get a
+    new order. After one minute, the window will send its output to another stream
+    further down the pipeline. (We hope that the data will be sent to the next stream
+    before the window clears itself. Otherwise, we will lose all of the data.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: So far, in my brief evaluation, I have found step 5) difficult to implement
+    in Coral8\. Aleri has implemented this by using a FlexStream. A FlexStream is
+    a stream that has procedural logic attached to it. Aleri has a custom C-like programming
+    language that you can use to implement procedural logic in a FlexStream. But,
+    if you write too much logic using FlexStreams, then wouldn’t you be better off
+    to just write a nice C# application?
+  prefs: []
+  type: TYPE_NORMAL
+- en: To validate some of the CEP engines, I ended up taking a day and writing a C#
+    application that implements this use-case. For grins, I added a tab that showed
+    some animated graphics using the very excellent ChartFX package. The head of the
+    trading business was so excited by this eye candy that he started to bring over
+    various traders for a look at my simple app. So, in addition to this little app
+    giving the traders information that they did not have before, it provided them
+    a flashy way to see real-time movement across sectors.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In addition to having SQL skills, a good CEP developer needs to readjust their
+    way of thinking in order to consider pipelined streams of SQL processing. There
+    is a big debate going on in the Yahoo CEP forum as to whether SQL is a suitable
+    language for CEP processing. So far, with this use case, I see the suitability
+    of SQL, but I also need to step out of the SQL way of thinking and apply some
+    procedural logic.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One of the things that I still need to be convinced of is that CEP engines can
+    do a better job than custom code. I am all ears. Any CEP vendor (even Streambase)
+    is invited to submit public comments to this blog to tell me how this use case
+    can be implemented with their system.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

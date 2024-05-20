@@ -1,0 +1,153 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:12:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Dissecting a Wall Street Job Posting'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/01/dissecting-wall-street-job-posting.html#0001-01-01](http://magmasystems.blogspot.com/2007/01/dissecting-wall-street-job-posting.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: A lot of you have emailed me privately with questions about working on Wall
+    Street, and how to land a job there. (I assume that the questions are coming by
+    email because everyone is afraid of their bosses tracing the IP addresses.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: I would like to take a recent job description that was on the 96Bosses.com site
+    and dissect it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here it is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: =======================================================
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***Job Description*** *Our client, a top-tier global brokerage firm, is seeking
+    multiple C++/Java Developers to work on an a real-time algo trading platform for
+    their US Equitites trading area. This is a fulltime opportunity located in New
+    York City, NY.* ****Qualifications*** *Experience in designing and implementing
+    high speed trading system that can be used for algorithmic automated trading and
+    smart order routing.* *Prior experience in US equities trading environment is
+    essential. Prior experience in US options/futures trading environment a plus.
+    Prior experience in UK/Asia markets a plus. Knowledge of building automated trading
+    systems and/or exchange connectivity is a big plus.***• Strong technical programming
+    skills is a key requirement. The Object Oriented Design and Programming is essential.
+    Knowledge of design patterns is also key. Hands on expertise in programming in
+    C++ and Java (server side programming) is necessary. In depth knowledge of multithreading,
+    exceptions, template etc.* **• Needs to have strong expertise in inter process
+    communication and event driven programming'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Projects will include:* *• Algorithmic Trading* *• Automated Market Making*
+    *• Smart Order Routing* *• Trade Analysis for Equities, Options and Futures in
+    US Domestic and International Markets* *Experience with the following products:*
+    *• TIBCO Messaging Services* *• Ticker Plant* *• Times Ten* *• GemFire* *• Transact
+    Tools (FIX Gateway)* *• Web servers (Tomcat/Weblogic)* ****Compensation****$150
+    -$300k*
+  prefs: []
+  type: TYPE_NORMAL
+- en: ========================================================
+  prefs: []
+  type: TYPE_NORMAL
+- en: The work is for an
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Algorithmic Trading](http://en.wikipedia.org/wiki/Algorithmic_trading)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: platform. This is a good thing. Wall Street is becoming more and more automated,
+    with the NYSE reducing floor space and a number of firms
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[paring their trading staffs](http://newyork.craigslist.org/mnh/sof/268486363.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: Algo trading is a very hot area. Firms want to trade large blocks of stocks
+    without affecting the marketplace. The trading has to be broken up into a lot
+    of small blocks, according to different strategies. The firm also has to be able
+    to switch strategies in mid-stream. This requires monitoring the marketplace in
+    real time, and keeping an intraday history of the stocks that you are interested
+    in.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The firm is looking for experience in high-speed, low latency trading. Latency
+    is everything. You want to get yourselves out there faster than all of your competitors.
+    Latency can be affected by many factors, from speed of the networks to inefficient
+    locking algorithms in your code. There is also a need for experience in smart
+    order routing, which means that you might get to work with some kind of rules
+    engine, like ILog Rules.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let's look at the technology stack.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Tibco is being used (either Rendevous or EMS), probably to get the spot prices
+    from the ticker plants into the algo trading server. (Watch out for those multicast
+    storms...)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- "Ticker Plant" probably means something like Reuters or Wombat. If the job
+    is for Merrill, Bear Stearns or RBC, then most likely that Wombat is being used,otherwise
+    most likely Reuters.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Times Ten is an in-memory database (now owned by Oracle) that is probably
+    being used to hold tick history. Other solutions in this area include KDB+, Vhayu,
+    StreamBase, and some of the newer players that I have talked about on this blog
+    in the past. These newer time-series databases can be used to perform complex
+    event processing on the incoming tick stream.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Gemfire (by Gemstone) is a distributed cache. This is probably being used
+    to cache queries to the reference data. The use of Times Ten may mean that you
+    will have an Oracle database.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Transact Tools TTConnect will be used to send and receive FIX messages between
+    your Algo server and the various exchanges. FIX is the standard message format
+    that is used to send equity orders to exchanges and to receive updates about the
+    status of your orders. Latency is extremely important here too. How fast can you
+    get your messages to and from the exchanges.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '- Web Servers. Perhaps for some web apps that will be used to monitor status.
+    I would expect to see a .NET front-end here. The fact that .NET is not on the
+    stack makes me believe that the job is not for Goldman nor Morgan Stanley, where
+    .NET front-ends are "de riguer".'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, onto the compensation. 150-300K ... That's a pretty wide range. The 300K
+    might lead me to believe that this position was for a hedge fund, but the first
+    line tells me that it is a top-tier global brokerage firm. If you take the word
+    "Brokerage" literally, then this would eliminate Lehman, Goldman, and Bear Stearns.
+    Base salaries go from about a low of 130K to about 160K, with 150K being the norm.
+    So, if the total comp was 150K, then you are not getting much of a bonus, are
+    you? Let's take 150K as being the base. Lehman had about 60-80% bonuses this year
+    and Morgan Stanley had about 45-55%. Except for Goldman, you are probably not
+    going to get 100% bonus for a Java/C++ developer role from one of the other firms.
+    So, I would take the 300K figure with a HUGE grain of salt, and look more at 210-225K
+    as total comp.
+  prefs: []
+  type: TYPE_NORMAL
+- en: With all of this said, my firm is also looking for top talent. If you have experience
+    in the above areas, and if you want to explore some opportunities with us, please
+    send your resume to me.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved****
+  prefs: []
+  type: TYPE_NORMAL

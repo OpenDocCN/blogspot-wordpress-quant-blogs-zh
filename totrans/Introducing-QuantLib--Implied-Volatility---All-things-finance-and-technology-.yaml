@@ -1,0 +1,201 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:46:00'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: Implied Volatility | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Welcome back! If you read my last two posts, you are now well acquainted with
+    the fundamentals of option theory and pricing. In particular, we have seen that
+    volatility (or sigma) is a key input to any option valuation formula. In fact,
+    because input variables such as strike, expiration, interest rate, and underlying
+    price are contractually specified or observable in the market and, thus, well-known,
+    volatility is the only input that must be derived or estimated. Assuming no dividends,
+    which have some uncertainty as to timing and size, the value of an option, then,
+    can be thought of as a function of one unknown.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So how does one identify the ‘correct’ level of volatility (sigma) for an option?
+    One place to start is to look at quoted market prices for an option chain and
+    back out sigma for every out-of-the money call and put. Sigma, in this case, is
+    referred to as *implied volatility* as it is the level of volatility from which
+    the market price of an option has been calculated. The resulting set of implied
+    volatilities, if charted by strike, constitute what is referred to as a *volatility
+    smile*, an example of which is depicted below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![volsmile](img/2df782b837fb71c7fca65b0518f0607c.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/volsmile.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Both the shape and level of the smile say a lot about the current market price
+    of risk for a particular underlying or asset class. Often, what one observes is
+    that the low delta options, the ‘wing’ options, are trading at a higher implied
+    volatility than the at-the-money options. Likewise, it is common that the out-of-the-money
+    puts are priced with a higher sigma than the out-of-the-money calls, a phenomenon
+    termed ‘skew’, which is manifested in the chart above.
+  prefs: []
+  type: TYPE_NORMAL
+- en: With knowledge of the implied volatilities for each strike in an option chain,
+    one can then begin to assess whether an option is fairly priced. Is the level
+    of volatility being charged for a particular option too high or too low? If the
+    option’s sigma is too high versus fair value, as determined by some independent
+    estimate of [realized volatility](http://en.wikipedia.org/wiki/Realized_variance)
+    over the life of the option, then you may want to sell it. Likewise, if sigma
+    is too low, then you may want to buy the option.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So let’s look at how to generate the ES volatility smile above with QuantLib.
+    ES is the exchange symbol for the CBOE’s E-Mini futures contract. The market as
+    of 8/26/2013 (at approximately 2:30 Chicago time) for ES options expiring on 9/20/2013
+    (ESU3) is shown below. The data comes from my Interactive Brokers paper trading
+    account.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![esoptions8262013-1430](img/1188de4898f26010c2981b89fb38231a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/esoptions8262013-1430.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The QuantLib C++ code listing below solves for the implied volatilities corresponding
+    to the ES option prices in the screen shot above:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'When run, the code produces the following output:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Time to maturity: 0.070148'
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1600.000000 put is 0.1584
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1605.000000 put is 0.1566
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1610.000000 put is 0.1532
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1615.000000 put is 0.1511
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1620.000000 put is 0.1482
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1625.000000 put is 0.1456
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1630.000000 put is 0.1430
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1635.000000 put is 0.1405
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1640.000000 put is 0.1379
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1645.000000 put is 0.1345
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1650.000000 put is 0.1324
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1655.000000 put is 0.1293
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1660.000000 call is 0.1267
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1665.000000 call is 0.1237
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1670.000000 call is 0.1211
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1675.000000 call is 0.1187
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1680.000000 call is 0.1167
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1685.000000 call is 0.1150
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1690.000000 call is 0.1119
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1695.000000 call is 0.1100
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1700.000000 call is 0.1087
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1705.000000 call is 0.1072
+  prefs: []
+  type: TYPE_NORMAL
+- en: IV of 1710.000000 call is 0.1060`
+  prefs: []
+  type: TYPE_NORMAL
+- en: My output does not exactly reproduce the IVs published by Interactive Brokers
+    but they are generally very close and the overall shape of my implied volatility
+    smile is consistent with the IB values.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Before I wrap this post up, a few comments on the code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The QuantLib [Bisection](http://quantlib.org/reference/class_quant_lib_1_1_bisection.html)
+    solver is used to back out the implied volatility of each out-of-the-money option
+    in a fashion very similar to how I demonstrated the calculation of a bond’s internal
+    rate of return in the post ‘[Introducing QuantLib: Internal Rate of Return](https://mhittesdorf.wordpress.com/2013/03/03/introducing-quantlib-internal-rate-of-return/)‘.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: As options on ES are options on futures, I employed the QuantLib [BlackCalculator](http://quantlib.org/reference/class_quant_lib_1_1_black_calculator.html),
+    which implements the [Black 76](http://www.wilmottwiki.com/wiki/index.php?title=Black_76)
+    variant of the Black-Scholes model, rather than the BlackScholesCalculator, which
+    I featured in my last post.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The interest rate of .0273% is the point on the LIBOR curve corresponding to
+    the expiration date of the option. This rate was found by interpolating between
+    the September and October Eurodollar futures contracts (symbols = EDU3, EDV3).
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The value of an option decays continuously so time to maturity was measured
+    to minute-level precision and then annualized as a year fraction.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The mid-point of the option bid/ask spread was used as the option price as the
+    market on an option is typically made some width around its theoretical value.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The bid serves as the underlying price for calls while the offer serves as the
+    underlying price for puts because options are typically delta hedged. As such,
+    a call (positive delta) would be hedged by selling futures on the bid and a put
+    would be hedged by buying futures on  the offer.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: So that’s about it for this installment of my ‘Introducing QuantLib’ series.
+    I hope that I have now equipped you with a working understanding of  implied volatility
+    and how to compute it using QuantLib.  As always, have fun with QuantLib!
+  prefs: []
+  type: TYPE_NORMAL

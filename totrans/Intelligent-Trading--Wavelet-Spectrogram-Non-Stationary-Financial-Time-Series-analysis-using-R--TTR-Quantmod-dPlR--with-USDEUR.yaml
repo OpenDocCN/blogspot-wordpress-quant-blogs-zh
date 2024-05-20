@@ -1,0 +1,144 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:45:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intelligent Trading: Wavelet Spectrogram Non-Stationary Financial Time Series
+    analysis using R (TTR/Quantmod/dPlR) with USDEUR'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I''ve been doing some research lately regarding types of spectral imaging and
+    decomposition techniques that apply to non-stationary signals. As mentioned earlier,
+    one of the major problems with the simple fourier analysis is that the basis functions
+    extend to infinity in both directions and the signals are assumed to be stationary.
+    Although, I won''t expand too much right now, one of the advantages of wavelets
+    is that they use local small windowed basis functions, allowing them to capture
+    not only non-stationary signals, but signals that are aperiodic: two large advantages
+    over fourier based methods when dealing with financial time series.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I put together a few small examples to understand how to visually understand
+    a spectrogram.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/78c2265bb524f397305c940f23f91332.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipNyBRAcp-JhdlexzpGbmJ_Fa6gY_jlm9OZ5SnWX5u3X1dk4fvWwNvAkWZRC5C1WlPGPWWHficyj4IeYQUNxuZPB42cq8R89J1_tE33XeQ2KH-jgy3sq8L4mQ7AboiFBrLy9MC3DyxCO0/s1600/58_cycle1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 1\. Simple 58 day cycle captured with 11 octaves and 2048 (2^11) data points
+  prefs: []
+  type: TYPE_NORMAL
+- en: As in earlier tutorial based posts, we use a simple 58 day cycle to show the
+    basic time series sine based waveform. Now the plot on the bottom is known as
+    a spectrogram. The type of wavelet operation for this spectrogram is known as
+    a continuous wave Morlet transform. The package is dpLR (The Dendrochronology
+    Program Library) put together by
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Andy Bunn](http://myweb.facstaff.wwu.edu/bunna/dplR.htm)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . The package was designed to analyze tree rings. Notice that there are a multitude
+    of tools utilizing this type of technology, ranging from MRIs, to climatology,
+    to speech processing. It is, IMO, the modern day version of dft type spectral
+    tools (however, for non-stationary and aperiodic signals). Now looking on the
+    spectrogram plot, please keep in mind the units are Days not Years (I need to
+    see how to alter that, hopefully Dr. Bunn is listening=).
+  prefs: []
+  type: TYPE_NORMAL
+- en: The time scales represents linear time, or a window of 2048 days that was sampled.
+    We could have used any time series, but it needs to be length=2^N; if not, there
+    is a function to pad the rest of the data with zeros to make up that length. The
+    vertical scale is a log scale that shows what are called 'octaves'. Borrowing
+    from musical vernacular, we can think of them of scales which double in magnitude
+    for every prior scale and represent localized frequency energy information at
+    such scales. The colors represent the heat or power of the signal in regions of
+    interest. Due to some issues with this transform, we ignore uncertain information
+    outside of the dark parabolic region (cone of influence). It is clear that the
+    highest power is the dark red region right at around 58 days. What is important
+    here is not so much to understand the exact value of the cycle, but the persistence
+    in the dominant cycle (s). We notice the cycle persists throughout the entire
+    spectrogram Time Series length (much as we would expect from the 2D time series
+    plot).
+  prefs: []
+  type: TYPE_NORMAL
+- en: What happens if we use different frequencies that change over time? Here we
+    notice a clear advantage over fourier based methods. A fourier based decomposition
+    would be able to locate the dominant tones, however, because it uses infinite
+    bases, the reconstructed signal would not capture the isolation of different frequencies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/c3c228db8b489bb6c4fac8a58a7af93b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvMiwdbYt3gnLtyHZwUyjluqf5b7QqxRceiv4obC_3F0h8DAq4A6FGFZL9STs3qQ-C7NQdzdWuCUEbGmXcF8YXiG-j9GLB7sI3S2F_6polCfbOqoGeJT7-SkfPLz3mdhKsHQLiMnIr7ak/s1600/composite_cycles1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 2\. Composite Stationary Time Series comprised of 3 dominant tones
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice, that we can clearly see the regions of dominant tones by following the
+    chart and looking for the most concentrated power (red) regions, which are around
+    48, 253, and 532 day cycles. We also notice that the power density can be viewed
+    in terms of time context, our eyes simply follow along in time and observe strong
+    regions of signal energy concentration.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ok, but what about if the signal itself is non-stationary?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/77085acddc4598af817d5ee95e49090f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif0Q9IJO7tqpzLe5v8a_jYu-ppqPjQrlq4SIJAXsfWd3CxU4z-nLZDc5o37dx1o1wLvmSp8_DaQQp0-KoGyRBKel0MSoQ5bk0QMVWBOGxmC4hfpTEhsQbDuNFj4bv1kygey6QdDNdbW0E/s1600/composite_exp3.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 3\. Composite signal added to exponential curve to make signal non-stationary
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice, that even though we now have a non-stationary signal, the regions of
+    underlying cyclic component stability are still detectable by eye!
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lastly, a financial time series of USDEUR was captured via TTR/Quantmod packages.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b89bdee30f42da044282ac33c2a2a180.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1tCqfF-UXhL7i13dFM0ceVkVzSAl1Jxr6cGNLFeDkGQUAxgxzbgqI7Tghh8gGqOlXsNYciDCYL6yk8jRMNpBwYx1dES7nmzz8I-K2HVNLKWpC0GaIDXLp_CPl5-RDXGzozGuc7tOakts/s1600/usdeur1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 4\. USDEUR time series spectrogram
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice even with the non-stationary financial signal, there is a very clear
+    dominant cycle pattern that is persistent at roughly 255 days (anyone familiar
+    with trading recognizes that as the approximate number of trading days per year).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Keep in mind that there are also aliases (and spreading) present in sampling
+    methods which may look like periodic signals, but are merely digital artifacts
+    of the underlying sampled signal. We also see the very short term noise present
+    in the bottom lower scales.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another interesting application of this is that it may not only be used as a
+    modern tool to augment non-stationary decomposition, but for those familiar with
+    pattern based techniques, it (and the periodogram counterpart) is often used in
+    pattern recognition and markov type modeling.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That's all for now. Hopefully, you have gained some appreciation for wavelet
+    based spectral techniques vs. Fourier spectral based analysis.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have been debating whether to break up the post, but because I was added to
+    the R bloggers thread, I wanted the post to be complete for local readers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That's it for now.
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,49 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:07:11'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: OHLC time series in Quantlib | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Below is a demo code creating a **QuantLib** (‘***QL***‘, thereafter) object with OHLC
+    (Open, High, Low, Close) data extracted from a standard *.csv file.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***QL*** provides the *QuantLib::TimeSeries* class which is a container for
+    historical data. It can be used for simple date/quote time series (eg [here](https://quantcorner.wordpress.com/2013/02/10/an-example-code-using-quantlib-timeseries/
+    "Time series & QuantLib")). Nice thing is that is can also be overloaded with
+    *QuantLib::IntervalPrice* to create OHLC objects.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For some reason, *QuantLib::IntervalPrice* returns OCHL objects (?). It is not
+    so much of a problem, yet it can cause confusion while calling methods/using inspectors.
+    We then start by making changes to the ***QL***‘ s *prices.hpp* file, essentially swapping
+    constructor parameters/variable names. Notice all changes made are not required
+    to get what we want to achieve; some are purely cosmetics.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Below is the diff *prices.hpp* file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'We can now turn to our wrapper:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE

@@ -1,0 +1,587 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:39:34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Shape of Supply and Demand Curves in Rapidly Clearing Markets | Mechanical
+    Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2017/04/10/the-shape-of-supply-and-demand-curves-in-rapidly-clearing-markets/#0001-01-01](https://mechanicalmarkets.wordpress.com/2017/04/10/the-shape-of-supply-and-demand-curves-in-rapidly-clearing-markets/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: A central challenge in economics is understanding how price affects the quantity
+    of supply and demand, a relationship often assumed to be approximately linear.
+    But there are markets where this notion of linearity, sometimes called “elasticity,”
+    may not hold. In a [paper](https://arxiv.org/abs/1506.03758) that deserves more
+    attention, Donier and Bouchaud show that supply/demand curves of rapidly clearing
+    markets (with a Brownian price process) have an average shape that is locally
+    quadratic, with no linear term.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is a classical illustration of how total supply and demand tend to vary
+    with price:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/f6223b1ea889ca4c20f69ed0299735fa.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/sd_curve11.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Total demand decreases — and total supply increases — monotonically with price.
+    The curves intersect at ![p*](img/fc13cdcdcef4fb20d1b4cedc27f9111b.png), which
+    is the volume-maximizing, market price. [[1](#bottom1localquad)] Near the market
+    price, supply and demand vary linearly with changes in price.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If we “clear” the market, so that the supply on offer at ![p^*](img/c4c67bb2dfe7cbed69d3a33c322ed3e7.png)
+    trades with the demand at ![p^*](img/c4c67bb2dfe7cbed69d3a33c322ed3e7.png), then
+    the curves will look like:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b09ea88a2e2c0f5ee33d2457f0b86aba.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/sd_curve2-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Which is the same as the first plot, just shifted downwards by the quantity
+    traded. The curves are still linear near ![p*](img/fc13cdcdcef4fb20d1b4cedc27f9111b.png).
+    And if we zoom in, the average supply/demand curves will look like [[2](#bottom2localquad)]:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ec873aaa6f9b05bc6abf56c2c382919e.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/sd_curve3-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'But, Donier and Bouchaud [[3](#bottom3localquad)] show that markets with certain
+    features will actually have *average* supply/demand curves that are locally quadratic.
+    I.e.:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/9e88e191dac7da7eb113b68a0fde9793.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/sd_curve4-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this regime, a market order will have price impact that scales with the square-root
+    of its size, on average.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Their result also raises the question whether some markets operate at saddle
+    points in their production and consumption curves, which may look like:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/f586570b4b8f21c3b55e738a84a5ab39.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/production-demandrate-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Where ![W_{saddle}](img/97077e998cba6de830f16cfd9bda6709.png) is the rough width
+    of the “saddle zone,” the region where the curves are predominantly quadratic.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This strikes me as qualitatively different from the classical economic picture.
+    It also makes sense intuitively: when an asset is volatile, it’s difficult to
+    know the exact price where supply and demand balance. Donier and Bouchaud don’t
+    speculate on the size of ![W_{saddle}](img/97077e998cba6de830f16cfd9bda6709.png),
+    but there is at least the possibility that their results apply to a wider range
+    of prices than expected. If any real markets have a large ![W_{saddle}](img/97077e998cba6de830f16cfd9bda6709.png),
+    estimating their price elasticities would be difficult or impossible. It could
+    also explain the ennui of financial markets — where headline-generating price
+    moves have little effect on real-world supply and demand. [[4](#bottom4localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Donier-Bouchaud Model
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'Donier and Bouchaud (and previous co-authors) use a reaction-diffusion model
+    to obtain this result. Briefly and roughly:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: New buy orders are created (in time interval ![dt](img/a1ecf7a8e1caa9fec2ff0bb7108ad361.png))
+    with probability ![\omega_+(y)](img/e462d03dffed871fccea6e29088b6d5d.png), where
+    ![y = p - p^*](img/25f0361152a995227d96d50d61e6adf3.png) is the difference between
+    the price of the new order (![p](img/daecc39de4dc7417beb137da548b5756.png)) and
+    the market price (![p^*](img/c4c67bb2dfe7cbed69d3a33c322ed3e7.png)). Sell orders
+    are created with probability ![\omega_-(y)](img/1851b93670d0be32312ec74798a3a40e.png).
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Existing orders are canceled with probability ![\nu_{\pm}(y)](img/d758b5468d0662c8c8a0496fadec31c7.png).
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The market clears with periodic time-interval ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png)
+    — when buy and sell orders with crossing prices are matched, and removed from
+    the market.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The underlying process of the price ![p^*](img/c4c67bb2dfe7cbed69d3a33c322ed3e7.png)
+    is Brownian.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: When ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png) is small, they show that
+    supply and demand curves are locally quadratic, for any reasonable ![\omega_{\pm}(y)](img/39b05154c0f9dcee82f5e4a5e4133f61.png)
+    and ![\nu_{\pm}(y)](img/d758b5468d0662c8c8a0496fadec31c7.png).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Of course, real-world markets do not instantly clear crossed meta-orders, even
+    when markets trade in continuous time. For example: a trader might intend to buy
+    $100M of stock at any price below $100/share, while another trader intends to
+    sell $100M of stock at any price above $90/share. The two traders might dribble
+    out their order-flow over weeks, instead of instantly trading with each other
+    at a price between $90 and $100 per share. [[5](#bottom5localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Nonetheless, it is conceivable that some markets behave as if they’re in the
+    small ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png) limit. In the Bitcoin
+    market, traders may be less inclined to hide their intentions than in traditional
+    markets, and the visible order book might represent the true levels of supply
+    and demand near the market price. The authors present the average displayed supply
+    and demand for Bitcoin in [Figure 6](https://arxiv.org/abs/1506.03758), which
+    is very close to a quadratic function for prices within 2% of the clearing price
+    (where cumulative supply/demand is typically ~400k BTC). So electronic markets’
+    “saddle zones” may be about as wide as their daily volatility, which doesn’t seem
+    surprising; few oil producers are going to increase drilling because the price
+    went up by 1%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Latent Liquidity as First-Passage Time
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Donier and Bouchaud’s result seems to be a general feature of Brownian price
+    processes, and doesn’t depend much on the specifics of the model. The spirit of
+    their model raises the question whether there’s a connection between the marginal
+    supply/demand at a given price, and the time required for the market to move through
+    that price. That is, perhaps latent liquidity has properties similar to first-passage
+    time statistics.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'A quadratic supply/demand curve is equivalent to marginal supply/demand varying
+    linearly with price. By definition, cumulative supply (![S(y)](img/d77cad39370403c182cce0cbfbf4375c.png))
+    at a price ![y](img/4d2c4d231bb45c490a6d88946970f81f.png) away from the “true”
+    price is just the sum of marginal supply (![\rho_{S}](img/d8df4abe198dbd354542c839c026f52a.png))
+    available up to that price: ![S(y) = \int_{0}^{y} \rho_{S}(y'') dy''](img/d59eb9511727548523c3c51a75182f57.png).
+    [[6](#bottom6localquad)] ![\rho_{S}(y)](img/04ad9e017f228e019ce53abe6c7516a1.png)
+    may also be called the volume of latent sell orders available at price ![y](img/4d2c4d231bb45c490a6d88946970f81f.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: One way to reach Donier and Bouchaud’s result is by assuming that ![\rho_{S}(p)](img/02e0a4f75b678b31dcd56098fa8b5435.png)
+    builds with time, after the market price moves through ![p](img/daecc39de4dc7417beb137da548b5756.png).
+    [[7](#bottom7localquad)] To be clear, the following model is different and less
+    sophisticated than what Donier and Bouchaud did, but I think it’s a good way to
+    capture the intuition.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'As an illustration, consider what happens to the latent order book after the
+    clearing price drops instantly from ![p_0](img/033eafca0af13235ff135bf1448a2ab7.png)
+    to ![p_1](img/b716c197fcad69246a31697549e730b7.png). At first, the supply on offer
+    between ![p_0](img/033eafca0af13235ff135bf1448a2ab7.png) and ![p_1](img/b716c197fcad69246a31697549e730b7.png)
+    will be zero:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/479da3b4d0cc5b974b8ffd47942a2316.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/latentliq-initialpricedrop-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Afterwards, inside this new gap, latent sell orders will start to build. Let’s
+    assume that ![\rho_{S}](img/d8df4abe198dbd354542c839c026f52a.png) grows as a function
+    only of the time ![t(p)](img/8076ca7051d09aaf0d01853db0284752.png) since the price
+    dropped through ![p](img/daecc39de4dc7417beb137da548b5756.png): ![\rho_{S}(t(p))](img/d10fd1fba1cc3d9fab4654b68163594f.png).
+    [[8](#bottom8localquad)] The precise form of the function ![\rho_{S}(t)](img/f3b4be90aded6db04193a50450f73454.png)
+    doesn’t really matter.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If the market doesn’t move after that initial price drop, time ![t_1](img/b0bdd8d763854e204ea326da89b90c52.png)
+    later, the latent order book will have replenished. Between ![p_0](img/033eafca0af13235ff135bf1448a2ab7.png)
+    and ![p_1](img/b716c197fcad69246a31697549e730b7.png), there will be quantity ![\rho_{S}(t_1)](img/a96591625366c981c3ac959c40cbd3dc.png)
+    on offer:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e46eee16ff65bd3abaed24474b7ae789.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2017/04/latentliq-pricedrop-t1later-svg.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To calculate the expected value of ![\rho_{S}(t(y))](img/d7cefb908140104e107f64adbd46389c.png),
+    we need the probability density of the time since the price last passed ![y](img/4d2c4d231bb45c490a6d88946970f81f.png)
+    away from the present price: ![\mathbf{p}_{y}^{LPT}[t]](img/261de928980b8329c9e6a5f496391ddb.png).
+    For a time-reversible process, this distribution is the same as that of the first-passage
+    time, ![\mathbf{p}_{y}^{FPT}[t]](img/8a2e1c750a61d4c6db3d27d3c63ad6e0.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For continuous-time Brownian motion, the first-passage time distribution is
+    well-known:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{p}_{y}^{FPT}[t] = \frac{y}{\sqrt{2\pi \sigma^2 t^3}} e^{-y^2 / (2
+    \sigma^2 t)}](img/78441b86de1e4e841887c53ba305cfbb.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'For ![y \ll \sigma \sqrt{t}](img/fac970cb40b09653cc6a9604f29d97e9.png), this
+    is linear in ![y](img/4d2c4d231bb45c490a6d88946970f81f.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{p}_{y}^{FPT}[t] \approx \frac{y}{\sqrt{2\pi \sigma^2 t^3}}](img/d4da148bc88a9447b2de89c72dd9ada8.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'Which gives an average marginal supply curve that’s linear in ![y](img/4d2c4d231bb45c490a6d88946970f81f.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{E}_{t}[\rho_{S}(t)] = \int_{0}^{T} \rho_{S}(t) \mathbf{p}_{y}^{FPT}[t]
+    dt \propto y](img/51ce4c322c3930c2d4cd70c8023fb147.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Where ![T](img/466f335a8268c61b30c4bbc675095312.png) is the total time that
+    the market has been operating.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Thus, the expected cumulative supply is quadratic in ![y](img/4d2c4d231bb45c490a6d88946970f81f.png):
+    ![\mathbf{E}_{t}[S(y)] = \int_{0}^{y} \mathbf{E}_{t}[\rho_{S}(y'')] dy'' \propto
+    y^2](img/63839148f2315f51fef48c14e80ba7c5.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The model should fail at sufficiently large ![t](img/f1c9888691539079d4bb777ad80249bb.png),
+    when it has been a long time since the price last reached its current level. E.g.,
+    if the price of oil rises past its high for the year to $60/bbl, then we’d expect
+    the level of marginal supply near $60 to reflect the real-world economics of oil
+    extraction. So clearly, the model shouldn’t work for ![t=1yr](img/b3ecce6eb98bc70500a679d3ab0a0320.png)
+    in the oil market. But if oil breached only its high-of-the-day, perhaps the marginal
+    supply would just be a mechanical function of that duration. We could argue that
+    the model will start to fail when ![t](img/f1c9888691539079d4bb777ad80249bb.png)
+    is long enough for businesses to react to new highs/lows, which should be about
+    the typical time between business decisions (![t_{InterDecision}](img/8f9d3c7b5673820763962f2a2dee09e5.png)).
+    [[9](#bottom9localquad)] In that case ![W_{saddle} \sim \sigma \sqrt{t_{InterDecision}}](img/76a66a7c8cb537dde8c3f27b3dc1bb0a.png),
+    which could be quite large for illiquid markets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Discretizing the Process
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: If ![\tau > 0](img/8744154aea2b2d449138379c90ee9a87.png), the market clears
+    every period ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png) in a batch auction,
+    and the price process becomes a discrete-time random walk. An infinitely long
+    ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png) should recover the uncleared,
+    classical supply/demand curves at the [top](#1localquad) of this post. So, as
+    ![\tau](img/cd658e7d265e9e2b16272c4001abe15f.png) increases, we expect a transition
+    from the quadratic supply of Brownian motion to a linear regime.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To get the average supply curve for discrete markets, we need the first-passage
+    time distribution. When a random walk has price steps that are independently drawn
+    from a symmetric, continuous probability distribution with finite second moment,
+    its first-passage time PDF is asymptotically: [[10](#bottom10localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{p}_{y}^{FPT}[n] \approx  (\frac{1}{2 \sqrt{\pi n^3}} + \frac{y}{\sqrt{2\pi
+    \sigma_{step}^{2} n^3}}) e^{-y^2 / (2 \sigma_{step}^2 n)}](img/6cd9b4061377004bfc1a4c933bb0fbde.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Where ![n](img/872ad603d260a26b8b46fc27a9e98c9d.png) is the number of steps
+    the random walk has taken, and ![\sigma_{step}^2](img/72f976b21f719e2228a60e43da249616.png)
+    is the variance of each step’s price movement. The approximation is valid in the
+    limit ![n \to \inf](img/b300deed47bdf6d8aa934d98eb894626.png) with ![\frac{y}{\sqrt{n}}](img/45c40fa45027d260186407374e4ad26b.png)
+    finite. The step count is related to continuous time via ![n = \frac{t}{\tau}](img/b64326a72cf12e5404422b3aced3dd26.png).
+    And if the underlying process is Brownian, ![\sigma_{step} = \sqrt{\tau}\sigma](img/22dbfc6e119e8748c014ec9c7e1be073.png).
+  prefs: []
+  type: TYPE_NORMAL
+- en: When the price process has a typical step size (![\sigma_{step}](img/9c1d742fbb0554d80927f4649c898870.png))
+    that’s small compared to the distance from the market price (![y](img/4d2c4d231bb45c490a6d88946970f81f.png)),
+    then the second term dominates and ![\mathbf{E}_{t}[\rho_{S}(t)]](img/485414731accd4556c0ddd7bd914c524.png)
+    is identical to the continuous Brownian case. That is, cumulative supply varies
+    quadratically with price when ![\tau \ll \frac{y^2}{\sigma^2}](img/a9da4ed55a22e8558f2a9812ef6ebac9.png).
+  prefs: []
+  type: TYPE_NORMAL
+- en: When the process is heavily discretized, ![y](img/4d2c4d231bb45c490a6d88946970f81f.png)
+    is small compared to ![\sigma_{step}](img/9c1d742fbb0554d80927f4649c898870.png)
+    and the first term dominates, which will be approximately constant in ![y](img/4d2c4d231bb45c490a6d88946970f81f.png).
+    Thus the marginal supply will be constant, and the cumulative supply linear in
+    ![y](img/4d2c4d231bb45c490a6d88946970f81f.png).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This result is the same as Donier and Bouchaud’s. In fact, if we expand ![\mathbf{p}_{y}^{FPT}[n]](img/968bf6f9ee78d0a8e70b4d7ced67883a.png)
+    to first order in ![\frac{y}{\sigma_{step}\sqrt{n}}](img/dfef04461568528262d7bf3faa7f98f4.png)
+    (near the market price), then we get:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{E}_{n}[\rho_{S}(n)] \approx L(y + u_0 \sigma \sqrt{\tau})](img/0bc43329f433839bc0908ec5461a4292.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Where ![L](img/aebd3c20fb323c2f55eac7c952322a6a.png) is some constant obtained
+    from integrating out ![t](img/f1c9888691539079d4bb777ad80249bb.png), identified
+    as a measure of liquidity by Donier and Bouchaud. And ![u_0=\sqrt{\frac{1}{2}}
+    \approx 0.71](img/88feecb53ed726b0ca900a7df4bce83e.png) is a constant not terribly
+    far from the one obtained by Donier and Bouchaud (![u_0 \approx 0.82](img/5d60983414cd6d991f420832cddaaf7a.png)).
+    [[11](#bottom11localquad)][[12](#bottom12localquad)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Thus, slowly-clearing markets — which are heavily discretized — may not have
+    a saddle zone. [[13](#bottom13localquad)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Supply/Demand Curves when the Price Process is a Lévy Flight
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'The above asymptotics apply to a broad class of random walks if their variance
+    is finite. But markets can have price fluctuations with fatter tails, particularly
+    on shorter timescales. A Lévy flight of index ![0 < \alpha < 2](img/a983c573e6853cdd3a62898010c4fec7.png)
+    has price increments (![x_{t} = p_{t} - p_{t-\Delta t}](img/9b2ada0b83ed4f3e3663173e314a85df.png))
+    with divergent variance and a power-law tail: ![\mathbf{p}[x] \sim \frac{1}{|x|^{\alpha
+    + 1}}](img/8087ff15e28058fecc89c6bbbaf539d0.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The first passage times of a Lévy flight have asymptotic PDF: [[14](#bottom14localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{p}_{y}^{FPT}[t] \sim \frac{y^{\alpha / 2}}{t^{3/2}} ](img/9c172ddb63af1bc0a192fb24a3ee71ba.png)
+    for long ![t](img/f1c9888691539079d4bb777ad80249bb.png). [[15](#bottom15localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: This distribution gives, on average, a cumulative supply curve ![S(y) \sim y^{(2+
+    \alpha) / 2}](img/2b7066f49eb91eb8d8155ddc8ff90c8e.png). And a market order will
+    have price impact ![\mathcal{I}(q)=S^{-1}(q) \sim q^{2 / (2+\alpha)}](img/fe6e3d932888a3b3194d9a021dab9197.png).
+    As an example, ![\alpha=1.5](img/1a2f860482442c4a75032d252ed42af0.png) would correspond
+    to a rather “jumpy” market, and would have ![S(y) \sim y^{1.75}](img/3b68b6f3727ca8b60fd6a5973f6da5c2.png)
+    and ![\mathcal{I}(q) \sim q^{0.57}](img/4b26e3810cc35279af1b5085d8691067.png).
+    [[16](#bottom16localquad)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: Supply/Demand Curves for a Sub-Diffusive Price Process
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'The volatility of a sub-diffusion increases with timescale more slowly than
+    the volatility of an ordinary Brownian motion. For example: ![\sigma_{\Delta t}^2
+    \sim \Delta t^{\gamma} ](img/210ee2a25d7a02d73cf3868c03689117.png). When ![\gamma
+    = 1](img/80313789978bfeab0eff804dc99ea760.png), the volatility scales in the usual
+    way for Brownian motion: linearly with the timescale. When ![0 < \gamma < 1](img/27db510be2ce2814b178c83c2d65e27f.png),
+    the process is a sub-diffusion. A sub-diffusive market is mean-reverting in the
+    sense that a price fluctuation is likely to be reversed in the future. Because
+    sub-diffusive markets have “memory,” they’re considered “inefficient.” [[17](#bottom17localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The first passage time distribution of a sub-diffusion is asymptotically: [[18](#bottom18localquad)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\mathbf{p}_{y}^{FPT}[t] \sim \frac{y}{t^{1 + \gamma / 2}} ](img/39c7c475de6b4b72d0a0a8924be8fc64.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This has linear price-dependence like ordinary Brownian motion. So the cumulative
+    supply is again quadratic, and market impact is again square-root.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Certain types of “efficiency” can [lead to square-root price impact](https://mechanicalmarkets.wordpress.com/2016/08/15/price-impact-in-efficient-markets/).
+    But if this model is approximately accurate, then “inefficient” markets like sub-diffusions
+    can also have square-root impact.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Update**: Benzaquen and Bouchaud just examined a [reaction-diffusion model
+    for sub-diffusions](https://arxiv.org/abs/1704.02638). They show that the latent
+    order book is locally linear (eq. 10), like in the crude first-passage analysis
+    here. For quickly executed meta-orders, they show ![\mathcal{I}(q) \sim \sqrt{q}](img/ee7ed672024362879bfc11aff8f62223.png).
+    But for slow meta-orders that give latent orders more time to react mid-execution,
+    they get ![\mathcal{I}(q) \sim q^{1-\gamma / 2}](img/8a2624bd6ed62e6eb4ee4746c29a0b54.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Order-of-Magnitude Scaling of Impact in Diffusions and Sub-Diffusions
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: I find this result interesting because it appears, at first glance, to contradict
+    the simplest, order-of-magnitude “derivation” of the square-root impact law. But
+    on closer inspection, I think order-of-magnitude logic is consistent with sub-diffusions
+    and ordinary diffusions having similar impact scaling.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If a market is Brownian, its price changes will scale like ![\sigma \sqrt{\Delta
+    t}](img/8d723c5f7449bbaa245936b5fab0e1f3.png). One view of price discovery is
+    that a fraction (of order 1) of those price changes come from traders’ impact.
+    Thus, a meta-order’s impact will roughly scale with the square root of its duration:
+    ![\mathcal{I} \sim \sigma \sqrt{t_{OrderDuration}}](img/1ba923f598fa26c2510f30d8e88320df.png).
+    Market-wide volume roughly accumulates at a constant rate in time (![V](img/ed31064250f2c63fd3e7e1c9be00bf8e.png)),
+    so a meta-order of size ![q](img/d5dff62051727d5390f29a8eb12a4588.png) will last
+    for a duration ![t_{OrderDuration} \sim \frac{q}{V}](img/662b405f5bd96f164ca173e68b880fd0.png).
+    This gives ![\mathcal{I}(q) \sim \sigma \sqrt{\frac{q}{V}}](img/233b9d19d455e54476d1a62b08b5f31a.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Now, if a market is sub-diffusive then its price changes scale more slowly
+    with time: ![\Delta p \sim \Delta t^{\gamma / 2} ](img/9446d8984fc3c0fc26cfd30a4576326f.png).
+    If everything else in the above argument were the same, then we’d get ![\mathcal{I}(q)
+    \sim q^{\gamma / 2} ](img/17e8eaefe995c683efebb1b5d02cfdd8.png). But there’s no
+    reason to expect that volume in a sub-diffusive market should occur at a constant
+    rate in clock-time.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Sub-diffusions can be [reformulated](https://ocw.mit.edu/courses/mathematics/18-366-random-walks-and-diffusion-fall-2006/study-materials/lec25_geraint.pdf)
+    as processes with independent increments, where the time between steps is variable
+    with a long tail. [[19](#bottom19localquad)] In this formulation, steps may correspond
+    to trading activity — with each step roughly having volume ![V_{step}](img/ee1a320b0337a7d53aaa7d6ba54d31e4.png).
+    A meta-order would then last for ![N](img/56100eb36e864722bbd3a37237be8672.png)
+    steps, with ![N \sim \frac{q}{V_{step}}](img/7ce40cffa192010b024e5a2bae39d443.png).
+    The step lengths of this sub-diffusion have finite variance ![\sigma_{step}^2](img/72f976b21f719e2228a60e43da249616.png),
+    so we can follow the same argument as in the Brownian case, with the step count
+    replacing time: ![\mathcal{I}(q) \sim \sigma_{step}\sqrt{N} \sim \sigma_{step}\sqrt{\frac{q}{V_{step}}}](img/6092eb8ffacc0cc50c2dde0285211498.png)
+    — which has the same square-root scaling.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Conclusion
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: Market-behavior is crowd-behavior, and a crowd can be more predictable than
+    the individuals inside it. Donier and Bouchaud — and the loose interpretation
+    in this post — show that that when markets are mechanical and boring, they will
+    have cumulative supply and demand curves that are roughly quadratic, on average.
+    Now, lots of us do not think markets are boring! Even if many markets do operate
+    at saddle points, they probably do not have very wide “saddle zones.” But if any
+    do, a small price change might have virtually zero effect on production and consumption,
+    and a large price change might have a giant effect. That’s different from the
+    standard intuition.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[1](#1localquad)] This picture is obviously heuristic. Supply/demand curves
+    are well known to have many shapes, may be [non-monotonic](http://www.nber.org/papers/w13243),
+    and may have more than one price that locally maximizes the exchanged volume.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[2](#2localquad)] The supply and demand curves near ![p*](img/fc13cdcdcef4fb20d1b4cedc27f9111b.png)
+    should (probably) be symmetric around ![p*](img/fc13cdcdcef4fb20d1b4cedc27f9111b.png),
+    if we average over some ensemble of situations in a given market.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[3](#3localquad)] Borrowing from their earlier work with Bonart, Deremble,
+    de Lataillade, Lempérière, Kockelkoren, Mastromatteo, and Tóth. (e.g. [2014](https://arxiv.org/abs/1412.0141)
+    and [2011](https://arxiv.org/abs/1105.1694))'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[4](#4localquad)] Even when large price changes barely affect supply and demand,
+    they could still serve an important economic function. The opinions and information
+    of traders are incorporated into prices, which — when markets are transparent
+    — provide useful signals for long-term business decisions.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[5](#5localquad)] Table 1 and Figure 13 of [Waelbroeck and Gomes](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2291720)
+    indicate that the bulk of institutional equity meta-orders are shorter than a
+    few days.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[6](#6localquad)] Demand is similar. For ease, let’s just discuss the supply
+    side.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[7](#7localquad)] Latent liquidity isn’t usually observable, so we can’t easily
+    test the hypothesis that latent liquidity at a given price builds as a function
+    of time since the market was at that price. But latent liquidity could be measured
+    via the order book — if a market is heavily financialized, transparent, and dominated
+    by traders who don’t hide their intentions. Arguably, Bitcoin is (or used to be)
+    such a market.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[8](#8localquad)] We could add an i.i.d noise term to ![\rho_{S}](img/d8df4abe198dbd354542c839c026f52a.png)
+    and it wouldn’t affect the results. The assumption that ![\rho_{S}](img/d8df4abe198dbd354542c839c026f52a.png)
+    has no explicit price-dependence is similar to Donier and Bouchaud’s example of
+    constant ![\omega](img/46911229ccd094f60644798290dc3e43.png) and ![\nu](img/79629a3448ec665de2bbf3f2c0caca1c.png).
+    This assumption is obviously wrong, but sufficiently close to the market price,
+    it may be reasonable enough.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[9](#9localquad)] The reaction time of businesses could be significantly longer
+    than the human decision-making timescale. Especially when the market in question
+    isn’t transparent or mature. E.g., if a farmer switches from growing olives to
+    almonds, it might take her grove several years to become productive again. So
+    the price of almonds may need to reach a multi-year high in order for her to be
+    confident enough to switch crops. But, if the farmer could hedge her future production,
+    she might quickly decide to switch crops after it becomes economical to do so.
+    Perhaps a well-developed futures market reduces the valid range of this model
+    from ![t \lesssim 1yr](img/f085bfdaab17a05d3ce1d796c131203a.png) to ![t \lesssim
+    1day](img/cf40ca8964b05990a0183bd9d73c018a.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[10](#10localquad)] See eq. 38 of [Majumdar](https://arxiv.org/abs/0912.2586)
+    and citations for details. I changed the CDF of eq. 38 into a PDF, and dropped
+    a non-leading term.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[11](#11localquad)] [Eq. 22](https://arxiv.org/abs/1506.03758)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[12](#12localquad)] Sparre-Andersen scaling applies to any Markov process
+    with a continuous and symmetric distribution of price movements: For large ![t](img/f1c9888691539079d4bb777ad80249bb.png),
+    first passage time distributions have to decay like ![t^{-3 / 2}](img/e61e184d019ae64b91176fb54abbe24a.png).
+    So, in order for the expectation over ![t](img/f1c9888691539079d4bb777ad80249bb.png)
+    to converge, we must have ![\rho_{S}(t) < \sqrt{t}](img/9cc74f13b81ff5816c157f0a4fbaff5f.png)
+    for large ![t](img/f1c9888691539079d4bb777ad80249bb.png) (assuming ![\rho_{S}(t)](img/f3b4be90aded6db04193a50450f73454.png)
+    is monotonically increasing). That is, the marginal supply at a given price must
+    grow more slowly than the square root of the time since the market was at that
+    price. The connection between latent liquidity and first passage times won’t hold
+    for very long ![t](img/f1c9888691539079d4bb777ad80249bb.png), but this may provide
+    a loose bound on how quickly latent liquidity can replenish.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[13](#13localquad)] According to the model, slowly-clearing supply/demand
+    curves are still dominated by the quadratic term when price movements are sufficiently
+    large (and thus last-passage times long). But the model should fail at very long
+    timescales, when businesses are able to react to price moves. Though, as discussed
+    in [[9](#bottom9localquad)], the model’s valid timescale could be longer if a
+    market is slow and opaque.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[14](#14localquad)] See, e.g., eq. 10 in [Koren, et al](https://arxiv.org/abs/0706.3641).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[15](#15localquad)] [Figure 2](https://arxiv.org/pdf/0706.3641.pdf) shows
+    pretty rapid convergence to this asymptotic result after a handful of time steps.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[16](#16localquad)] Perhaps it shouldn’t be surprising that impact is steeper
+    than in the Brownian case. Heuristically, the Lévy tails make the market more
+    “momentum-driven.” In a Lévy-type market, a trader who initiates a price movement
+    could find that the market quickly moves away from her. The Lévy process used
+    here has independent increments, but we can imagine the independence breaking
+    down in continuous-time, “mid-increment.” I.e., it’s conceivable that momentum-traders
+    could trade in the middle of a timestep.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: On a related note, [Koren et al.](https://arxiv.org/abs/0706.3641) show that
+    the mean leapover length diverges for Lévy flights. The leapover length could
+    be interpreted as the profit made by stop orders, *if* they execute in the middle
+    of a price jump and are able to hit liquidity during tail events. Those are big
+    “ifs,” but the potential to make near-infinite profit may partly explain the popularity
+    of stop orders and short-term momentum strategies. It could also explain why traders
+    are reluctant to post much liquidity far away from the current price.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[17](#17localquad)] In a sub-diffusive market with low transaction costs,
+    betting on mean-reversion is a profitable strategy. If you know of any electronic
+    markets like this, let me know.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Even if sub-diffusions are rare in electronic markets, linear combinations of
+    different assets could still be sub-diffusive. The stereotypical “pairs trade”
+    involves a mean-reverting spread between prices of two assets. Also, sub-diffusions
+    may be more common in the broader, off-exchange economy than we’d naively expect.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[18](#18localquad)] See the first non-constant term in the series expansion
+    of eq. 30 in Metzler and Klafter ([“Boundary value problems for fractional diffusion
+    equations”](http://www.agnld.uni-potsdam.de/~metz/papers/2000_MeKla_PhysA278.pdf)).
+    Eq. 30 is the survival probability (CDF of the first passage time), the PDF is
+    the time derivative. The approximation is valid for ![y \ll \sqrt{ K_{\gamma}t^{\gamma}
+    }](img/5c9684c98cf5c3091a322efdf2990d1b.png). ![K_{\gamma}](img/e9095817405a94dd5122c4df0feaa0a8.png)
+    is the “fractional diffusion coefficient,” analogous to ![\sigma^2](img/396a8a13bcae7e4896e43b01c3ddae7d.png)
+    for ![\gamma=1](img/7a86eda449c95d57b0d2975d7a7877f1.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Note that sub-diffusions are not Markov processes, so Sparre-Andersen scaling
+    [[12](#bottom12localquad)] doesn’t apply. Liquidity must replenish more slowly
+    than ![\rho_{S}(t) < t^{\gamma / 2}](img/e1b6e9b2229353c425f01984d6b1e144.png)
+    for large ![t](img/f1c9888691539079d4bb777ad80249bb.png).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[19](#19localquad)] Correlated waiting times may also [lead to sub-diffusions](https://arxiv.org/abs/0910.1194)
+    in a process with independent increments.'
+  prefs: []
+  type: TYPE_NORMAL

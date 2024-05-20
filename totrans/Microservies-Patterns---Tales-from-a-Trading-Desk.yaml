@@ -1,0 +1,75 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:38:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Microservies Patterns | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2015/11/03/microservies-patterns/#0001-01-01](https://mdavey.wordpress.com/2015/11/03/microservies-patterns/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Microservice Design Patterns [article](https://dzone.com/articles/microservice-design-patterns)
+    offer a view on the software patterns that could be used to build microservices.
+     Clearly the proxy and aggregator patterns offer some structure in avoiding REST
+    microservice’s overload from a user interface perspective.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This leads nicely to Ray Nicholus “The Future of Web Development – React, Falcor,
+    and ES6” [article](http://engineering.widen.com/blog/future-of-the-web-react-falcor/),
+    noting in particular the need to keep things “simple”, avoiding the unnecessary
+    request overhead, large number of requests, and needlessly large response payloads,
+    which in a trading application can kill performance/latency/user experience, and
+    thus the clients.  You won’t get much argument around React from myself, and likewise
+    the Falcor I find sensible, since I used such concepts on a number of projects
+    back in time (too long ago).  Webpack – agree again.  Overall a good article.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Moving on to “Do Good Microservices Architectures Spell the Death of the Enterprise
+    Service Bus?” which provides a good list of high level challenges of Microservices.
+     Its nice to see [Swagger](http://swagger.io/) mentioned around contracts.  Likewise
+    a nice callout to in-memory data [grids](https://www.voxxed.com/blog/2015/01/good-microservices-architectures-death-enterprise-service-bus-part-one/),
+    and not just the classic data cache.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Microservices are independent, scalable services. A modern architecture uses
+    a scalable platform, which allows automating deployment of different technologies
+    / services / applications independently. Use the tool(s) of your choice to define
+    service contracts, implement (micro)services and service discovery, automate independent
+    and scalable deployment. Coordinate different (micro)services and react proactively
+    in real time to events by doing event correlation in-memory. That is how you create
+    a good microservices architecture.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One of the thorny questions that needs to be decide from a software stack perspective,
+    is the language of choice that the microservices will be implemented in.  If we
+    assume for this discussion that REST+JSON are used to define the microservice
+    contract, then some may lean towards a JavaScript stack for the microservice to
+    leverage JSON.  Others may take the Java road, and incur the DTO overhead.  Time
+    to consider Falcor again?  Another option is to avoid the standard road, and consider
+    Clojure.  On the [Clojure](http://blog.juxt.pro/posts/why-clojurescript-matters.html)
+    road, you could leverage [Prismatics Schema](https://github.com/Prismatic/schema)
+    and [compojure-api](https://github.com/metosin/compojure-api) (swagger’d) to declare
+    lightweight data contracts – code is data, data is code.  At the end of the day,
+    the Clojure is still running on the well known two VM world (JavaScript and JVM)
+    and similar to one of the arguments of Node.js as the server software stack, offers
+    the developers a consistent experience from client to server, rather than requiring
+    different skillsets/teams
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on November 3, 2015.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
+  prefs: []
+  type: TYPE_NORMAL

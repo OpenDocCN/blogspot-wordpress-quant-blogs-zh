@@ -1,0 +1,190 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:47:11'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Resampling and Shrinkage : Solutions to Instability of mean-variance efficient
+    portfolios | Systematic Investor'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Small changes in the input assumptions often lead to very different efficient
+    portfolios constructed with mean-variance optimization. I will discuss Resampling
+    and Covariance Shrinkage Estimator – two common techniques to make portfolios
+    in the mean-variance efficient frontier more diversified and immune to small changes
+    in the input assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Resampling was introduced by Michaud in [Efficient Asset Management, 2nd edition](http://www.oup.com/us/catalog/general/subject/Finance/Investments/?view=usa&ci=9780195331912).
+    Please note that the Resampling procedure is patented portfolio optimization process.
+    (Richard Michaud and Robert Michaud co-inventors, December 1999, [U.S. Patent
+    # 6,003,018](http://www.patentstorm.us/patents/6003018.html), worldwide patents
+    pending) The use of this technology that includes include even personal use, requires
+    licensing or authorization.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To create Resampled Efficient Frontier:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Step 0: Estimate mean (Mu*) and covariance (Cov*), for example from historical
+    assets returns.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Step 1: Sample from multivariate normal distribution with mean=Mu* and covariance=Cov*.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Step 2: Compute sample mean and covariance, and use them to create efficient
+    frontier.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Step 3: Save portfolio weights that are on efficient frontier.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Repeat Steps 1,2,3 Number of Samples to draw times.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Step 4: Average over saved portfolio weights to obtain final portfolio weights
+    that lie on the Resampled Efficient Frontier.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '*Update: please note that due to the above patent, I cannot post the source
+    code for the resampling function and that makes examples below not reproducible.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s compare portfolios that lie on the mean-variance efficient frontier and
+    Resampled efficient frontier:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c6d396d7be76c90fde0dde67c0cd3f7d.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Resampled Efficient Frontier is visually superior to the the mean-variance
+    efficient frontier. It is better Diversified: allocation to all asset classes
+    is present and transition between portfolios is continuous and smooth, no sharp
+    changes. The Resampled Efficient Frontier is also, by construction, immune to
+    small changes in the input assumptions.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The idea of Covariance Shrinkage Estimator is nicely explained at [Honey, I
+    Shrunk the Sample Covariance matrix by Olivier Ledoit and Michael Wolf (2003)](http://www.ledoit.net/honey.pdf).
+    Here is the Abstract:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[The central message of this paper is that nobody should be using the sample
+    covariance matrix for the purpose of portfolio optimization. It contains estimation
+    error of the kind most likely to perturb a mean-variance optimizer. In its place,
+    we suggest using the matrix obtained from the sample covariance matrix through
+    a transformation called shrinkage. This tends to pull the most extreme coefficients
+    towards more central values, thereby systematically reducing estimation error
+    where it matters most. Statistically, the challenge is to know the optimal shrinkage
+    intensity, and we give the formula for that. Without changing any other step in
+    the portfolio optimization process, we show on actual stock market data that shrinkage
+    reduces tracking error relative to a benchmark index, and substantially increases
+    the realized information ratio of the active portfolio manager.](http://www.ledoit.net/honey_abstract.htm)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Ledoit-Wolf Covariance Matrix Estimator is a convex linear combination aF
+    + (1-a)S, where
+  prefs: []
+  type: TYPE_NORMAL
+- en: S is a sample covariance matrix,
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: F is a highly structured estimator,
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: a is a shrinkage constant, a number between 0 and 1.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: This technique is called shrinkage, since the sample covariance matrix is `shrunk’
+    to-wards the structured estimator. The Shrinkage Target, F, is modeled by constant
+    correlation model. The model says that all the (pairwise) correlations are identical.
+    The average of all the sample correlations is the estimator of the common constant
+    correlation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Ledoit-Wolf Covariance Shrinkage Estimator is implemented in tawny R package,
+    cov.shrink function. Here is an example of efficient frontier using the Ledoit-Wolf
+    Covariance Shrinkage Estimator:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/98457d2cb96c6c203856baaaabaae866.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Efficient Frontier constructed with Ledoit-Wolf Covariance Shrinkage Estimator
+    is better Diversified: allocation to all asset classes is present and is also,
+    by construction, immune to small changes in the input assumptions.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Shrinkage is not the only solution, there are many alternatives ways to estimate
+    Covariance matrix. For example, Pat Burns at Portfolio Probe blog, discusses estimation
+    of Covariance matrix with factor models: [A test of Ledoit-Wolf versus a factor
+    model](http://www.portfolioprobe.com/2011/04/28/a-test-of-ledoit-wolf-versus-a-factor-model/).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another interesting idea is to combine Resampling with Shrinkage was examined
+    in the [Resampling vs. Shrinkage for Benchmarked Managers by M. Wolf (2006)](http://www.iew.uzh.ch/wp/iewwp263.pdf)
+    paper. It is very easy to implement because we only need to change Step 2 in the
+    above algorithm. Instead of using sample covariance matrix, we will use it’s Shrinkage
+    Estimator.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s compare Resampled and Resampled+Shrinkage Efficient Frontiers:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c127944c7ae6d3d74adafeaba2b99033.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Both frontiers are close and have very similar portfolio composition. So it’s
+    hard to say if adding covariance shrinkage estimator to the resampling algorithm
+    is beneficial.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In conclusion, there are findings for and against that these methods will improve
+    out-of-sample returns. However, these methods will surely reduce portfolio turnover
+    and transaction cost associated with rebalancing by making portfolios on efficient
+    frontier immune to small changes in the input assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There is an interesting collection of papers on Portfolio Optimization at [Worcester
+    Polytechnic Institute](http://www.wpi.edu):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next post I will discuss the Black–Litterman model that addresses both
+    Instability and Diversification problems of the portfolios on the mean-variance
+    efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.solutions2instability.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

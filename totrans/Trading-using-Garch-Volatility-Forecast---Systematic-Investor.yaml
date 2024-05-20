@@ -1,0 +1,102 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:44:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Trading using Garch Volatility Forecast | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[Quantum Financier](http://quantumfinancier.wordpress.com) wrote an interesting
+    article [Regime Switching System Using Volatility Forecast](http://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/).
+    The article presents an elegant algorithm to switch between mean-reversion and
+    trend-following strategies based on the market volatility. Two model are examined:
+    one using the historical volatility and another using the Garch(1,1) Volatility
+    Forecast. The mean-reversion strategy is modeled with RSI(2): Long when RSI(2),
+    and Short otherwise. The trend-following strategy is modeled with SMA 50/200 crossover:
+    Long when SMA(50) > SMA(200), and Short otherwise.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I want show how to implement these ideas using the backtesting library in the
+    [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following code loads historical prices from Yahoo Fiance and compares performance
+    of the Buy and Hold, Mean-Reversion, and Trend-Following strategies using the
+    backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/721aea6f23941e481461bf232435c56a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s create a strategy that switches between mean-reversion and trend-following
+    strategies based on historical market volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/4da4f9e19ce2c5ff87b54650fcca13ec.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s create a GARCH(1,1) Volatility Forecast. I would recommend reading
+    following articles for anyone who wants to find what GARCH is all about or to
+    refresh their knowledge:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are a few R packages to fit GARCH models. I will consider garch function
+    from tseries package and garchFit function from fGarch package. The garch function
+    from tseries package is fast but does not always find solution. The garchFit function
+    from fGarch package is slower but does converge more consistently. To demonstrate
+    the speed difference between garch function and garchFit function I created a
+    simple benchmark:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: The garchFit function is on average 6 times slower than garch function. So to
+    forecast volatility I will try to use garch function whenever it can find a solution
+    and garchFit function otherwise.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Now, let’s create a strategy that switches between mean-reversion and trend-following
+    strategies based on GARCH(1,1) volatility forecast.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/03ab80ffd096a221965ceae4ba3611a0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The switching strategy that uses GARCH(1,1) volatility forecast performed slightly
+    better than the one that uses historical volatility.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There many different approaches you can take to incorporate forecasting into
+    your models and trading strategies. R has a very rich set of packages to model
+    and forecast time series. Here are some examples that I found interesting:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.volatility.garch() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

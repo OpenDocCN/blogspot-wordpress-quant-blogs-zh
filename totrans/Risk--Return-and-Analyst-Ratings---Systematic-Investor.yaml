@@ -1,0 +1,110 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:49:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Risk, Return and Analyst Ratings | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/08/risk-return-and-analyst-ratings/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/08/risk-return-and-analyst-ratings/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Today I want to discuss a connection between Risk, Return and Analyst Ratings.
+    Let’s start with defining our universe of stocks : 30 stocks from [Dow Jones Industrial
+    Average (^DJI)](http://finance.yahoo.com/q/cp?s=%5EDJI+Components) index. For
+    each stock I will compute the number of Upgrades and Downgrades, Risk, and Return
+    in 2010:2011\. I will run a linear regression and compute correlation between
+    the number of Upgrades and Downgrades and Risk and Return.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s implement this plan using R and [Systematic Investor Toolbox](https://github.com/systematicinvestor/SIT).
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, let’s load Systematic Investor Toolbox and [quantmod](http://www.quantmod.com/)
+    package
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'I will get the list of stocks in [Dow Jones Industrial Average (^DJI)](http://finance.yahoo.com/q/cp?s=%5EDJI+Components)
+    index from Yahoo Finance:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'I will get the Upgrades & Downgrades History for each stock from [Yahoo Finance](http://finance.yahoo.com/q/ud?s=IBM):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Let’s have a look at the data:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/38f440141f954e3f2e0c9fcd083e7914.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/00c22735e0ad88451d9575bd934138db.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s run a linear regression and compute correlation between the number of
+    Upgrades and Downgrades and Risk and Return:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/d8b3d1a77c1f8a9eceea74d1af90468b.png "plotRisk.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plotrisk-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: There is a positive correlation between the number of Upgrades & Downgrades
+    and Risk. The beta coefficient in linear regression is positive and significant
+    at 5% confidence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/1682175aa33841ffcd750ebb3fc677fe.png "plotReturn.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plotreturn-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: There is a negative correlation between the number of Upgrades & Downgrades
+    and Returns. The beta coefficient in linear regression is negative and significant
+    at 1% confidence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'One could conclude from these observations that as the number of Upgrades &
+    Downgrades increases the Risk goes up and Return goes down in 2010:2011 period.
+    However, I see a few problems with this analysis:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: we examined all stocks in the same way; yet companies from different sectors
+    might have naturally occurring different risk/return characteristics
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: we treated all events in the same way; yet Upgrade/Downgrade/Initiated actions
+    may have different influences on company’s stock price
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Please tell me what else do you think is wrong with my analysis.
+  prefs: []
+  type: TYPE_NORMAL

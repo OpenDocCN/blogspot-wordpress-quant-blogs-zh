@@ -1,0 +1,98 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:48:29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Maximum Loss and Mean-Absolute Deviation risk measures | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'During construction of typical [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier),
+    risk is usually measured by the standard deviation of the portfolio’s return.
+    Maximum Loss and [Mean-Absolute Deviation](http://en.wikipedia.org/wiki/Median_absolute_deviation)
+    are alternative measures of risk that I will use to construct [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier).
+    I will use methods presented in [Comparative Analysis of Linear Portfolio Rebalancing
+    Strategies: An Application to Hedge Funds by Krokhmal, P., S. Uryasev, and G.
+    Zrazhevsky (2001)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=297639)
+    paper to construct optimal portfolios.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
+    j= 1,…,T scenarios of returns with equal probabilities are available. I will use
+    historical assets returns as scenarios. Let us denote by r.ij the return of i-th
+    asset in the scenario j. The portfolio’s Maximum Loss (page 34) can be written
+    as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\max_{1\leq j \leq T}\left \{ -\sum_{i=1}^{n}r_{ij}x_i \right \}](img/0399128c0179490e5eab269b1d80a717.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\min_{}{}w\newline\newline-\sum_{i=1}^{n}r_{ij}x_j\leq w , j=1,...,T](img/410c821398b35681083b61fad919d77e.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This linear programming problem can be easily implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The portfolio’s Mean-Absolute Deviation (MAD) (page 33) can be written as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\frac{1}{T}\sum_{j=1}^{T}\left | \sum_{i=1}^{n}r_{ij}x_{i} - \frac{1}{T}\sum_{k=1}^{T}\sum_{i=1}^{n}r_{ik}x_{i}
+    \right |](img/9e043e95ddfb19db9bca319eba96a3c0.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\min_{}{}\frac{1}{T}\sum_{j=1}^{T}(u_{j}^{+}+u_{j}^{-})\newline\newline \sum_{i=1}^{n}r_{ij}x_{i}
+    - \frac{1}{T}\sum_{j=1}^{T}\sum_{i=1}^{n}r_{ij}x_{i}=u_{j}^{+}-u_{j}^{-}, j=1,...,T\newline\newline
+    u_{j}^{+},u_{j}^{-} \geq 0, j=1,...,T](img/7951917b2b376abe4aca2dc3a3102ed2.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This linear programming problem can be implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Let’s examine efficient frontiers computed under different risk measures using
+    historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/e832ce116e68ee22a872136571e96b45.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot4-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7f0a161352bfa6dac09e5fae35e61e1f.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[The Mean-Absolute Deviation and Standard Deviation risk measures are very
+    similar by construction – they both measure average deviation](http://www.leeds.ac.uk/educol/documents/00003759.htm),
+    so it is not a surprise that their efficient frontiers and transition maps are
+    close. On the other hand, the Maximum Loss measures the extreme deviation and
+    has very different efficient frontier and transition map.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

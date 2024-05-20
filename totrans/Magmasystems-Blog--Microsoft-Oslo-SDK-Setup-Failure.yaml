@@ -1,0 +1,125 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:57:45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Microsoft Oslo SDK Setup Failure'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01](http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: It looks like you need SQL Server 2008 installed in order to use Oslo. Microsoft
+    does not state this anywhere, nor does its installation program warn you of this.
+    Here is my experience in trying to install Oslo on my laptop.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) I downloaded the Oslo SDK CTP from the Microsoft site.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) I extracted the files, and ran the setup. The setup completed without any
+    warnings and error messages. So far so good.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3) I have Windows Vista SP1 with both SQL Server 2005 and SQL Server Express
+    2005 installed. I opened up SQL Server Management Studio and searched both servers
+    for any trace of the Oslo repositories. No luck.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4) In the directory
+  prefs: []
+  type: TYPE_NORMAL
+- en: C:\Users\Marc\AppData\Local\Temp
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', I found a file called'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Oslo_Repository_Setup.log
+  prefs: []
+  type: TYPE_NORMAL
+- en: '. I opened this file in Notepad and found the following lines:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Property(C): ExecuteSilentCmd = "C:\Program Files\Microsoft Repository\CreateRepository.exe"
+    /v+'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Property(C): WIXUI_EXITDIALOGOPTIONALTEXT = Warning: repository database creation
+    failed. Please see %temp%\RepositorySetup.log for more details.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'However, at the very end of the file, I found the following lines:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'MSI (c) (B0:48) [06:51:33:985]: Product: Microsoft Codename "Oslo" Repository
+    -- Installation completed successfully.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'MSI (c) (B0:48) [06:51:33:987]: Windows Installer installed the product. Product
+    Name: Microsoft Codename "Oslo" Repository. Product Version: 3.0.1342.0\. Product
+    Language: 1033\. Installation success or error status: 0.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, it looks like the installer considered the installation to be a success,
+    even though the repository could not be created.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '5) In the file RepositorySetup.log, I found the following lines:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'message: Creating repository database ...'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'error: Cannot assign a default value to a local variable.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Must declare the scalar variable "@login".
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[11/3/2008 - 6:51:24]Completed execution of: "C:\Program Files\Microsoft Repository\CreateRepository.exe"
+    /v+'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 6) We see other users who have
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[reported this](https://connect.microsoft.com/oslo/feedback/ViewFeedback.aspx?FeedbackID=378415)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Microsoft says that this is not a bug. It is "By Design".
+  prefs: []
+  type: TYPE_NORMAL
+- en: 7) At
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[this link](http://social.msdn.microsoft.com/Forums/en-US/oslo/thread/c0ee4730-4595-4971-a2f3-a988997c4616)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', we find a comment by Carlos Gomez of Microsoft:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: We do not support Sql Server 2005 at all, because some of the repository features
+    depend on Sql Server Katmai.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In other words, you need to have SQL Server 2008 installed. Well, my company
+    is still on SS 2005, so I guess that means that Oslo will be just for my personal
+    experimentation for the forseeable future.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2008 Marc Adler - All Rights Reserved.
+  prefs: []
+  type: TYPE_NORMAL
+- en: All opinions here are personal, and have no relation to my employer.
+  prefs: []
+  type: TYPE_NORMAL

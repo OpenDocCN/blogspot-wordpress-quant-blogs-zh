@@ -1,0 +1,96 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:12:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notes on AppFabric Beta 2 and Cache Notifications | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01](https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Notes on AppFabric Beta 2 and Cache Notifications
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'After successfully installing [AppFabric](http://msdn.microsoft.com/en-us/data/cc655792.aspx)
+    beta 2, I though it was time to look at hooking Velocity into a Proof Of Concept
+    (POC) I’m working on. Having played around with [Velocity](http://blogs.msdn.com/velocity)
+    during the CTP1/2 timeframe it provide painful to remember what to do to get the
+    cache running. Hence here are a few notes:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Open “Windows PowerShell Modules” from the Start menu in Windows 7
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[Use-CacheCluster](http://msdn.microsoft.com/en-us/library/ee767586(WS.10).aspx)
+    will provide a view of the cluster you have just displayed. The cluster will probably
+    have a status of DOWN.'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Start the cluster using Start-CacheCluster
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Download the Beta 2 samples from [here](http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=55a4dceb-a116-4135-b629-035e91390031)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: It’s worth reading [this](http://blogs.msdn.com/velocity/archive/2009/03/02/how-to-use-c-to-perform-cluster-administration-in-velocity.aspx)
+    posting on cluster admin.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Some Microsoft [performance](http://blogs.msdn.com/velocity/archive/2009/04/21/more-performance-numbers.aspx)
+    numbers are available here
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'The problem I now have is that I have configured the DataCacheFactoryProperties
+    for notifications:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'But I still get an exception (System.NotSupportedException: Notifications are
+    not supported because Cache is not configured to support notifications) when I
+    update the cache? Anyone know what I’ve missed? Answer appear to be [here](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Update**: There answer to the above issue as [here](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx).
+    If your running with the default settings you need to run the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Stop-CacheCluster
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Set-CacheCluster -CacheName default -NotificationsEnabled True
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Start-CacheCluster
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: ~ by mdavey on March 3, 2010.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  prefs: []
+  type: TYPE_NORMAL

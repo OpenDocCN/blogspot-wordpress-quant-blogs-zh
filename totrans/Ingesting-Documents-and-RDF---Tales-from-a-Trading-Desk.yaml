@@ -1,0 +1,70 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:31:04'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ingesting Documents and RDF | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01](https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Ingesting Documents and RDF
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Strangle, [MarkLogic](http://www.marklogic.com/) appears to have some best documentation
+    of dealing with documents and RDF in a single data hub, even though the concept
+    isn’t unique to MarkLogic.  As I’ve blogged about before, there are a number of
+    other products, and its conceivable to build your own using various open source
+    frameworks and libraries (Apache [Jena](https://jena.apache.org/index.html) etc)
+  prefs: []
+  type: TYPE_NORMAL
+- en: The BBC [News](https://developer.marklogic.com/learn/semantics-exercises/loading-data)
+    sample is probably the best I’ve found so far.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We started with each article as a single XHTML document. We then used OpenCalais
+    to analyze the articles and find the entities (real-world things) within them.
+    OpenCalais spotted entities like people, their roles, places (cities and countries)
+    and organizations. On top of this it linked individuals with their role(s) and
+    also determined the subject headings (categories) of the documents. For example,
+    for one news article, OpenCalais generated triples for us that indicated the item
+    was about war, identified the places mentioned in the article, and provided geo-location
+    information for those places
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The results can be seen in the downloadable zip, which provides a directory
+    for the source (XHTML articles), and a directory wih the generated RDF file from [OpenCalais](http://www.opencalais.com/).
+     The RDF file uses rdf:Description to reference to the original BBC URL of the
+    article.  Both the XHTML and the RDF files are then ingested into MarkLogic –
+    as expected.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, “SPARQL and XQuery [Together](https://developer.marklogic.com/learn/semantics-exercises/sparql-and-xquery)”
+    shows how to leverage both content structures.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Interested in anyones experience of MarkLogic, as the documents hints at a cool
+    product.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on June 10, 2016.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [Ontology](https://mdavey.wordpress.com/tag/ontology/)'
+  prefs: []
+  type: TYPE_NORMAL

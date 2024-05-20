@@ -1,0 +1,119 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:54:05'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Momentum Strategies and Universe Selection | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01](https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[![momentum](img/eb3ddddfe0f1975279111d1de6c64c01.png)](https://cssanalytics.files.wordpress.com/2014/06/momentum.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: It is well established that the momentum effect is robust across individual
+    stocks and broad asset classes. However, one of the biggest issues for implementation
+    at the strategy level is to choose a universe for trading. For example, one might
+    choose a broad index such as the S&P500 for an individual stock momentum strategy,
+    but is that the best choice to use to maximize returns? Or if we wanted to build
+    an asset allocation strategy with momentum, which assets should we include/exclude
+    and why? In general, these issues are rarely if ever addressed in either academic
+    papers or in the blogosphere. The consequence is that the choice of universe can
+    artificially inflate results due to data mining (finding the best universe in
+    hindsight prior to presenting the final backtest), or the choice can be too arbitrary
+    and hence sub-optimal from a strategy development standpoint.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are good reasons to believe that certain asset universes are likely to
+    be superior to others. In a subsequent post, I will attempt to de-compose mathematically
+    what makes a universe particularly well-suited for momentum strategies. But for
+    now, lets discuss some obvious factors that may drive momentum strategy performance:
+    1) universe heterogeneity/homogeneity: it stands to reason that having an investment
+    universe comprised of six different large cap ETFs will not lead to desirable
+    results because the universe is too similar (homogeneous). In contrast, choosing
+    different sectors or styles or even asset classes should provide opportunities
+    to find good-performing assets when other assets in the universe are not doing
+    as well. 2) the number of assets in the universe: fewer assets will lead to fewer
+    opportunities other things being equal. 3) co-integration/mean-reversion: choosing
+    a universe comprised of co-integrated assets such as say Coke and Pepsi, or Exxon
+    Mobil and the Energy Sector ETF will probably result in negative momentum performance
+    since deviations from a common mean will eventually revert versus continue. This
+    is not a complete description of the factors that drive momentum performance but
+    rather a list that is likely to make logical sense to most investment professionals.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Since there are good reasons to believe that some universes are simply better
+    than others, it makes sense to determine some heuristic for universe selection
+    to improve the performance of momentum strategies. One logical method to determine
+    the universe for trading/backtesting is to try selecting the best universes on
+    a walk-forward basis rather than in hindsight. In other words, we backtest at
+    each time step with a chosen momentum strategy- for example selecting the top
+    asset by 60-day return- and using another window that is much longer- say 756
+    days or more- to test each possible universe subset from a chosen universe using
+    a performance metric such as CAGR. We would then select the top n/% of universes
+    by their performance, and then apply the momentum strategy to these universes
+    to determine the assets to trade at each re-balance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'A simple example would be to use the nine different sectors in the S&P500 (sector
+    spyders). Perhaps there are sectors that are better suited to a momentum strategy
+    than using all nine? To test this assumption one might choose all universe subsets
+    that are two assets or more (between 2 and 9 in this case) which results in 502
+    different momentum portfolios. This highlights a key difficulty with this approach-
+    the computational burden grows exponentially as a function of universe size. Suppose
+    we used a 60-day momentum strategy where we chose the top sector by CAGR and re-balance
+    monthly. Looking back 756 trading days or 3 years, we test all 502 different universes
+    and select the top 10% of universes by CAGR using the momentum strategy. Now at
+    each re-balance, we choose the top asset using 60-day momentum from each of the
+    universes that are in the top 10%. The purpose of this strategy- lets call it
+    momentum with universe selection- is to hopefully enhance returns and risk-adjusted
+    returns versus using all assets in the universe. The results of this walk-forward
+    strategy are presented below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![umass sectors](img/502fbfcfbbe55639715c0ca973d0e797.png)](https://cssanalytics.files.wordpress.com/2014/06/umass-sectors.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'It appears that universe selection substantially enhances the performance of
+    a basic momentum strategy. Both returns and risk-adjusted returns are improved
+    by using rolling universe selection. There are clearly sectors that are better
+    suited to a switching strategy than just using all of them at once. What about
+    asset classes? Does the same effect hold true? We chose a 10-asset universe that
+    we have used before for testing [Adaptive Asset Allocation](https://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/):
+    S&P500/SPY,Real Estate/IYR,Gold/GLD,Long-Term Treasurys/TLT,Commodities/DBC,10-year
+    Treasurys/IEF,Emerging Markets/EEM,Europe/IEV,International Real Estate/RWX,Japan/EWJ.
+    The results of this walk-forward strategy are presented below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![umass asset class](img/4cae4154a4b4280f7ca3809d41b84d3c.png)](https://cssanalytics.files.wordpress.com/2014/06/umass-asset-class.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Once again, the returns and risk-adjusted returns are much higher when employing
+    universe selection. The differences are highly significant in this case. Clearly
+    there are subsets of asset classes that are superior to using the entire universe.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This approach to universe selection is not without flaws however, and the reasons
+    why will be clarified in a subsequent post. However it is still reasonably practical
+    as long as the backtest lookback window (756 in the above example) is much larger
+    than the momentum lookback window (60 in the above example). Furthermore, the
+    backtest lookback window would ideally cover a market cycle–using shorter lookback
+    windows could end up choosing only the best performers during say a bull market–which
+    would lead to a biased universe. In addition, it would be helpful to choose a
+    reasonable number or % of the top universes such as the top 5 or top 10 or even
+    the top 10% in the examples we used above. That helps to mitigate the effect of
+    data-mining too many different combinations and ending up with a universe that
+    simply performed well due to chance. It also improves the reliability of out-of-sample
+    performance.
+  prefs: []
+  type: TYPE_NORMAL

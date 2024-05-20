@@ -1,0 +1,106 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:39:27'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Hawkes Process & Strategies | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/10/29/hawkes-process-strategies/#0001-01-01](https://tr8dr.wordpress.com/2009/10/29/hawkes-process-strategies/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: October 29, 2009 · 10:33 pm
+  prefs: []
+  type: TYPE_NORMAL
+- en: Call me unread, but I had not encountered the Hawkes process before today. The
+    Hawkes process is a “point process” modeling event intensity incorporating empirical
+    event occurrence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The discrete form of the process is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/a25ea31ba9653b185cb2bb073f748564.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'where t[i] is the i^(th) occurrence at time t[i] < t for some t. The form of
+    the function is typically an exponential, but can be any function that models
+    decay as a counting process:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/94aa4e1de2739031ffde8e348f28a861.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ok, that’s great but what are the applications in strategies research?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Intra-day Stochastic Volatility Prediction The recent theme in the literature
+    has been to replace the quadratic-variance approach with a time-based approach.
+    The degree of movement within an interval of time is equivalent in measure to
+    the amount of time required for a given movement, and can be interchanged easily
+    as Andersen, Dobrev, and Schaumburg have shown in “Duration-Based Volatility Estimation”.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Cai, Kim, and Leduc in “A model for intraday volatility” approached the problem
+    by combining an Autoregressive Conditional Duration process and a Hawkes process
+    to model decay, showing that:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/630c63c6e8c6edfa1f0e789e9e69863d.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'and then equivalently expressed in terms of intensity (where N represents the
+    number of events of size dY):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ce50217b06b9ce2875d1d90b9c572652.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'relating back to volatility measure as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/aca9d100030896b91bbb4f5a4b3eba16.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture6.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The intensity process is comprised of an ACD part and a Hawkes part:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 1](img/4e0bcaa96d3ea98ae9073641cc736c3d.png "Picture 1")'
+  prefs: []
+  type: TYPE_IMG
+- en: '[![](img/acfa8d248bcff18070c58c57b1db791a.png)](https://tr8dr.wordpress.com/wp-content/uploads/2009/10/picture21.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: They claim to model the intra-day volatility closely and propose a long/short
+    straddle strategy to take advantage of the predictive ability.
+  prefs: []
+  type: TYPE_NORMAL
+- en: High Frequency Order Prediction Strategy The literature suggests the use of
+    Hawkes processes to model the buying and selling processes of market participants.
+  prefs: []
+  type: TYPE_NORMAL
+- en: John Carlsson in “Modeling Stock Orders Using Hawkes’s Self-Exciting Process”,
+    suggests a strategy where if the Hawkes predicted ratio of buy/sell intensity
+    exceeds a threshold (say 5) buy (sell) and exit position within N seconds (he
+    used 10).
+  prefs: []
+  type: TYPE_NORMAL
+- en: This plays on the significant autocorrelation (ie non-zero decay time) of the
+    intensity back to the mean. A skewed ratio of buy vs sell orders will surely influence
+    the market in the direction of order skew.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The strategy can be enhanced to include information about volume, trade size,
+    etc. We can also look at the buy/sell intensity of highly correlated assets and
+    use to enhance the signal.
+  prefs: []
+  type: TYPE_NORMAL

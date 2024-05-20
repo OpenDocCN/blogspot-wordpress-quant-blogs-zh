@@ -1,0 +1,255 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:44:13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Protecting Client Interests: Anonymity in US Equities | Mechanical Markets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Anonymity is the top concern for many market participants and the entire order
+    handling chain has a responsibility to protect traders’ identities. Still, there
+    are plenty of exceptions to anonymous trading in US equities. When is it OK for
+    brokers and exchanges to reveal potentially client-identifying information? In
+    this post I will discuss a few situations where trading is not fully anonymous,
+    briefly outline an HFT strategy that relies on one of these situations, as well
+    as ask some related ethical questions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Many exchanges allow Broker-Dealers to optionally identify their orders to the
+    entire market (e.g. [Nasdaq](http://www.nasdaqtrader.com/content/ProductsServices/Trading/OrderTypesG.pdf)).
+    In the previous posts, we examined order characteristics in an effort to identify
+    desirable trading partners. In keeping with that spirit, the first thing we’ll
+    explore is the performance of Nasdaq trades identifiable by counterparty MPID
+    (Market Participant ID).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here is a chart of trades’ performance grouped by MPID relative to the market
+    price. The MPID with by far the most trades is UBSS (UBS Securities).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![toa-mpid-UBSS-800](img/c7726288b7c620c30f700dbb23e31fa5.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-1366.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Top panel: Average profit or loss per share vs distance in time from trade.
+    For example 60 seconds after a trade, the average UBSS order has lost 1.05 cents
+    compared to the market and the average anonymous order has lost 0.37 cents. Market
+    price here is estimated by the average price of the most recent 100 shares traded
+    on Nasdaq, exclusive of fees and rebates. Chart is over 3 weeks in August. Bottom
+    panel: Shares traded on Nasdaq vs time from trade (including fiducial trade).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The orders marked UBSS have dramatically poorer performance over the long term
+    than those marked anonymous. This tendency is robust across stocks with different
+    liquidity profiles (e.g. price, spread, volume). We’ve discussed in earlier posts
+    why the supposedly efficient market has not eliminated this type of disparity.
+    A gut reaction might be: “Wow, UBS is handling their customers’ orders poorly
+    if they lose that much money when they trade.” I don’t know on whose behalf these
+    orders are generally sent, but it’s a reasonable guess that they’re retail-type
+    clients. Before you say: “typical bank, screwing over the least sophisticated
+    customers,” I’d argue that UBS might be doing exactly the right thing as far as
+    their clients are concerned. If these are orders from less sophisticated individuals,
+    they might well be limit orders with the price chosen by the client instead of
+    the broker; in which case all the client wants is to maximize their probability
+    of being executed at the price submitted, without regard for what happens in the
+    minutes afterward. By posting them to Nasdaq with the MPID field populated, UBS
+    is essentially putting a giant “hit me” sign on these orders, which should get
+    them a better fill rate, even if the rest of the market is making money off them.
+    Counterintuitive as it may seem, what would be more concerning would be if these
+    orders, instead of performing poorly, actually performed unusually well relative
+    to the market. That would imply that their broker was leaking information to the
+    market by flagging these orders with their MPID, presumably not in the customer’s
+    interest.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ah, you ask, but this refers to the order’s alpha only when it trades, what
+    if it actually has a poor fill rate and as soon as it’s posted to Nasdaq the price
+    starts to move away from it? Just to be sure this isn’t what’s happening, here
+    is a chart of the market price around the time of submission of said orders, when
+    they are submitted within 10 cents of the NBBO. [[1](#bottom)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![toa-mpid-UBSS-add-800](img/cee55d1d21e19210285b9ebc2e7d2327.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-add-1366.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Top panel: Average profit or loss per share (relative to order price) vs distance
+    in time from order submit time. For example 0 seconds after an order with the
+    UBSS MPID has been submitted its price is on average 3.15 cents less aggressively
+    priced than the market price. Note that these orders have about 37% of their offered
+    quantity filled, which is fairly high. Bottom panel: Shares traded on Nasdaq vs
+    time from order add. Note that it it’s not until over 100ms after the UBSS order
+    is added for 100 shares to have traded on average, suggesting there’s no immediate
+    reaction to the order being posted.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: UBS hasn’t exactly earned itself a sterling reputation lately ([Libor](http://www.reuters.com/article/2012/12/19/us-ubs-libor-idUSBRE8BI00020121219),
+    [equities](http://www.bloomberg.com/news/articles/2015-01-15/sec-fines-ubs-dark-pool-more-than-14-million-for-breaking-rules),
+    [FX](http://dealbook.nytimes.com/2014/11/12/british-and-u-s-regulators-fine-big-banks-3-16-billion-in-foreign-exchange-scandal/),
+    [taxes](http://www.bloomberg.com/news/articles/2015-02-04/ubs-said-to-be-under-new-tax-evasion-investigation-in-u-s-)),
+    but on this one I’m willing to give them the benefit of the doubt.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Unlike Nasdaq, DirectEdge does offer a financial incentive for firms to display
+    their MPID to the market (see “Edge Attribution Incentive Program” [here](http://www.bats.com/us/equities/membership/fee_schedule/edgx/)).
+    Unfortunately, DirectEdge charges extra for a subscription to its MPID attributed
+    order data, so I don’t have it available to repeat the analysis for EdgeX. But
+    I would be very curious to see if orders associated with any particular MPIDs
+    have unusual properties, particularly if they perform well versus the market.
+    If so, that would suggest (and of course this is speculation) the possibility
+    that a broker is willing to leak market-impacting client data in exchange for
+    the revenue offered by DirectEdge. Again, I’m not saying this is happening on
+    Edge, but this sort of incentive program is fraught with danger and I can’t help
+    but wonder why it’s even offered. [[2](#bottom)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: A Trading Strategy
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: I won’t bore you with too many details, since we’ve already seen strategies
+    that capitalize on analogous low-alpha orders. The basic idea here is that when
+    we see a UBSS order trade, we send orders trying to trade with any quantity remaining.
+    The below simulation simply does that, sending 1000 share orders on stocks above
+    30$/shr to mop up the quantity available. Note that the profit margins are about
+    the same if we send 100 or 1000 share orders, which does hint that these (typically
+    large) UBSS orders come from retail clients.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![toa-mpid-UBSS-sim-800](img/dcc461d10cf5c5244f2f8d29df4b3442.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-sim-1366.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Top Panel: Performance of simulated trades executed by the above strategy (during
+    9 days in July). Note this strategy is latency-sensitive and has not been run
+    in a production environment; the simulation could be optimistic if Nasdaq tends
+    to slow down around the time of a UBSS execution. Bottom Panel: Share volume on
+    Nasdaq (excluding simulated trade)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The strategy makes about 100 mils after fees on 4000 trades per day with an
+    average trade size of 250 shares, netting 10k/day (assuming minimal exit costs).
+    Another 5k/day can be had by sending identical orders to EdgeX. And there’s potential
+    for more; the volume can be scaled much higher by submitting the orders at a more
+    aggressive price. This strategy is somewhat latency-sensitive and there’s a noticeable
+    uptick in volume 50us after a UBSS order executes, suggesting that someone is
+    wise to the MPID feature.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The previous posts focused on order properties that could signal the identity
+    of their senders. Orders displaying fewer HFT-like characteristics make for desirable
+    counterparties. Now we see that knowing the broker’s identity also can tell us
+    a great deal about the client. Imagine how much we might make if we knew the broker
+    for every order we encountered!
+  prefs: []
+  type: TYPE_NORMAL
+- en: Ethical Questions
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: These examples are not the only exceptions to anonymity of the markets. Certainly
+    some dark pools openly advertise that they filter out toxic counterparties or
+    allow users to choose which sub-population of the pool they’d like to interact
+    with (and we’ve seen Barclays get into trouble over their claims of this kind
+    with respect to their dark pool). It’s my understanding that internalizers can
+    see some identifying characteristics of incoming orders. The general idea behind
+    that identification is that it can result in clients receiving a better price
+    on their executions. A market order sent via Charles Schwab may look a lot like
+    a noise trader to Getco and could get executed near the midpoint; another order
+    sent from Goldman immediately afterwards may scare them and won’t get executed
+    at all.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This does sound like good client service, but there are a few issues that deserve
+    consideration. Instead of passing on their market-making revenue to the Schwab
+    client through NBBO improvement, what if some of it were diverted to Schwab itself
+    via payments for order flow? In that case Schwab might have an incentive to share
+    information with Getco that might not always be in the client’s interest. Could
+    Schwab reveal anything that might indicate to the internalizer that the order
+    was sent not from your grandparents’ IRA, but by an executive exercising stock
+    options? Remember from our examples that even mundane information like a timestamp
+    or size can clue us in to who might have sent an order, so Schwab could even unwittingly
+    transmit sensitive data. I have no reason to believe Schwab does so, but it’s
+    a thought that could make investors uncomfortable. [[3](#bottom)]
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This hypothetical brings us to the definition of front-running. Is it front-running
+    to sell client information to outsiders? If selling the information helps the
+    client, then it seems like the answer should be no. But what if it doesn’t? Let’s
+    say hypothetically the following happens:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Broker has clients that tend to continue trading on the same side after their
+    first order
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Broker forwards such an order from Trader A to DirectEdge.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Broker tells DirectEdge to expose it’s MPID to the market. DirectEdge pays broker.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Trader B pays DirectEdge for the MPID data.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Trader B sees the newly added order and, anticipating the price to move away
+    from it, sends other orders that degrade the fill quality of Trader A’s current
+    or future orders.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: It doesn’t sound so different from a broker calling up a friend upon receiving
+    a client’s instructions, the friend using that info to make money, and then handing
+    the broker a briefcase of cash. I’m not a lawyer, but if something akin to the
+    above occurs it would reflect very poorly on any involved parties who understood
+    the consequences. I’ll stress one more time that this scenario is hypothetical;
+    for all I know DirectEdge doesn’t even have subscribers to their attributed data
+    feed.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'One final point about the broader consequences of reduced anonymity in markets:
+    even if clients’ interests are looked after meticulously, de-anonymization of
+    traders can result in a two-tiered market with heavy fragmentation. Because noise
+    traders can receive better prices with their identities partly revealed, orders
+    remaining fully anonymous will tend to come from large institutional traders.
+    You could argue that this is exactly what’s happened to today’s markets; retail
+    flow goes through internalizers and institutions are left to fight each other
+    elsewhere, with HFT connecting the two.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[1](#1)] “NBBO” here means an approximation of the real NBBO, essentially
+    an estimate based on a subset of exchanges. Note that orders with the UBSS MPID
+    do exhibit significant toxicity if they are submitted at prices more aggressive
+    than the NBBO. Perhaps this is a sign of information leakage coming from the MPID,
+    but given the large size of these orders (~10 times the size of a typical Nasdaq
+    order that improves the NBBO) and their very high fill rate near 80%, I don’t
+    find that thought particularly convincing. The posted plot includes these orders
+    in its averages.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[2](#2)] I can think of a rationale behind this attribution incentive program
+    that does not suggest any undesirable behavior. DirectEdge could simply be incentivizing
+    Broker-Dealers who had already decided to reveal their MPID to send their orders
+    to EdgeX over other exchanges. If there are any client orders among these, the
+    Broker-Dealers could have determined that posting the MPID helps clients get a
+    better execution.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[3](#3)] The company names here are just placeholders. I don’t know if Schwab
+    does business with Getco or other internalizers, or accepts payments for order
+    flow at all.'
+  prefs: []
+  type: TYPE_NORMAL

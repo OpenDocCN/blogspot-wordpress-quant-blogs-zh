@@ -1,0 +1,180 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:00:21'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: d3 Lifeline from vega and clickme'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This has been an exciting week for [d3.js](http://d3js.org) and [R](http://r-project.org)
+    with the
+  prefs: []
+  type: TYPE_NORMAL
+- en: release of [**vega**](https://github.com/trifacta/vega) by the data vis powerhouses
+    at [Trifacta](http://trifacta.com/about)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: launch of [**clickme**](https://github.com/nachocab/clickme) and already significant
+    rewrite to accommodate **vega**
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: inception of a very promising d3 templates [DexCharts](https://github.com/PatMartin/DexCharts)
+    described in [multiple posts](http://dexvis.wordpress.com).
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: I am glad to have had time to play with all three, and I have actually already
+    used them for legitimate purposes. I only understand the basics, but I thought
+    I would post how we can combine a **clickme** ractive and a **vega** template
+    to produce the [lifelines example](http://trifacta.github.com/vega/editor/) included
+    in **vega**. I like the lifelines example because it is the one with the most
+    complex data source and number of d3 elements. Fortunately, both projects are
+    well documented, especially for early releases. I strongly recommend reading through
+    both wikis to quickly progress along the learning curve. I will try to fill in
+    some gaps in [the **clickme** “**clickme** and **vega**” wiki page](https://github.com/nachocab/clickme/wiki/clickme-and-vega).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**vega** frameworks'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '**vega** frameworks are JSON objects to ease the construction of interactive
+    d3 visualizations. In the [wiki](https://github.com/trifacta/vega/wiki/Documentation),
+    the authors liken **vega** to **ggplot2** but say'
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, in service of rapid specification these systems make a number of decisions
+    on behalf of the user, and also impose limits on the type of visualizations one
+    can create. **vega** is intended to be lower-level, enabling fine-gained control
+    of the visualization design.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**ggplot2** and **lattice** users should immediately be familiar with words
+    like “axes”,“scales”, “data”, and “marks”.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**clickme** ractives'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '**clickme** ractives are a directory structure with files that provide at a
+    minimum a R markdown template (template.rmd) for a visualization and a R translator
+    (translator.r) to allow the use of R data and calculations in the finished HTML5
+    rendering. Although **clickme** was developed unaware of **vega**, the author
+    immediately saw the potential of combining both and rewrote **clickme** to allow
+    easy integration. The synergy of the two is demonstrated by the ability to create
+    7 **vega** examples with all the same template.rmd and translator.r. **vega**
+    templates now fall in the spec subdirectory of the data directory of a **clickme**
+    ractive.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**clickme** filling **vega**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: If we look at the original [lifelines **vega** spec](https://github.com/trifacta/vega/blob/master/examples/vega/lifelines.json),
+    we will see some spots where we might like R to provide the information, such
+    as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: I am guessing that some R users might stumble a little with the data section
+    of this JSON, so let's translate into lists, something I hope might be a little
+    more familiar.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Then in the translator.R part of our ractive, we can use the [rjson package](http://cran.r-project.org/web/packages/rjson/index.html)
+    to translate the list into a JSON equivalent. Most of the data for d3 and **vega**
+    can usually  just come from data.frames. The **clickme** author actually also
+    wrote **df2json** to better handle the translation of data.frames to JSON, and
+    there are numerous ractive examples using data.frames in the **clickme** package.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Now we just need to fill the **vega** spec with our data. We can replace the
+    data section with
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: When we run the **clickme_vega** function, **clickme** will use the [**knit_expand**
+    function](https://github.com/yihui/knitr/blob/master/man/knit_expand.Rd) from
+    **knitr** to expand/run the get_data_as_json function on the data supplied as
+    a parameter to **clickme_vega** and replace like a mail merge with our translated
+    JSON data representation.  With our ractive, we will also specify height, width,
+    margins, title, etc. We can produce our HTML page with just one line.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: R to clickme to vega to d3 visualization workflow
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: 'Assuming we already have a predefined **clickme** ractive and **vega** spec,
+    the workflow from R to a pretty d3 visualization becomes ridiculously easy:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Just like we would if we were creating an R graph, we get our data, clean our
+    data, and run our calculations
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: in R, we run clickme_vega(data=our_data_from_step1, ractive=nameofourractive)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: show off and use our amazing, beautiful, and interactive visualization (might
+    need a simple http server for some cases).
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: If we do not have a predefined **clickme** ractive, then we can easily borrow/steal
+    from the [unbelievable repository of d3 examples](http://biovisualize.github.com/d3visualization/)
+    or a possible future **vega** repository, and follow the instructions in the [**clickme**
+    wiki](https://github.com/nachocab/clickme/wiki/Creating-the-%22par_coord%22-ractive)
+    to convert into a ractive.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Live Example
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: if embed does not show go to [http://bl.ocks.org/timelyportfolio/5316682](http://bl.ocks.org/timelyportfolio/5316682).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Reproduce me
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Below is all the code to run this specific example. The ractive and **vega**
+    spec are in this [Git repo](https://github.com/timelyportfolio/clickme_vega_lifelines/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE

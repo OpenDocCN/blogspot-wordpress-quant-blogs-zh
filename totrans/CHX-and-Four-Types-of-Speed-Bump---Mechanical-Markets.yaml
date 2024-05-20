@@ -1,0 +1,207 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:39:38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: CHX and Four Types of Speed Bump | Mechanical Markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mechanicalmarkets.wordpress.com/2016/10/24/chx-and-four-types-of-speed-bump/#0001-01-01](https://mechanicalmarkets.wordpress.com/2016/10/24/chx-and-four-types-of-speed-bump/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Speed bumps, the latest fad in market structure, are proliferating. The Chicago
+    Stock Exchange (CHX) recently proposed a new type of speed bump in the US equities
+    market, called the “[Liquidity Taking Access Delay](http://www.chx.com/chxltad/)”
+    (LTAD). [[1](#bottom1chx)] The SEC’s decision whether to approve the LTAD could
+    have a big impact on market structure, possibly more so than the IEX decision.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To understand the consequences of approving LTAD, I think it’s helpful to consider
+    four types of asymmetric access delay: [[2](#bottom2chx)][[3](#bottom3chx)]'
+  prefs: []
+  type: TYPE_NORMAL
+- en: An exchange applies a delay to orders that are accessing resting liquidity.
+    Resting orders themselves may be modified or cancelled without delay. This is
+    the LTAD.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'The same as #1, except only resting orders that are non-displayed avoid the
+    delay.'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The delay applies to all client messages to the exchange, including cancellations
+    and marketable orders. But the exchange operates algorithmic order-types which
+    adjust their attributes without delay. In particular, a displayed order can be
+    pegged to undelayed price data, while its potential counterparties are subject
+    to the delay.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'The same as #3, except only non-displayed algorithmic order-types avoid the
+    delay. This is the IEX speed bump. [[4](#bottom4chx)]'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'Here’s a table of the speed bump combinations, split by which types of resting
+    orders have functionality similar to [last look](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| **Last look** | Can apply to displayed quotes | Can apply to non-displayed
+    quotes only |'
+  prefs: []
+  type: TYPE_TB
+- en: '| At discretion of resting order-sender | #1 (LTAD) | #2 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| At discretion of exchange algo | #3 | #4 (IEX) |'
+  prefs: []
+  type: TYPE_TB
+- en: 'In my opinion, all four types do more harm than good to market end-users (in
+    the context of Reg NMS) — each allows resting liquidity to fade in some way. But
+    many end-users disagree, and asked the SEC to approve #4\. So, now that speed
+    bumps exist and non-displayed peg orders may elide them, which of the other three
+    asymmetric delays should be allowed?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'One school of thought is that exchanges have a duty to protect their peg orders
+    to the maximum extent possible. Combining this principle with the new “de minimis”
+    [interpretation](https://www.sec.gov/news/pressrelease/2016-123.html) may imply
+    that speed bumps of types #3 and #4 should be allowed. Healthy Markets takes this
+    view. [[5](#bottom5chx)] I think it’s a bad idea for exchange algorithms to have
+    a time-advantage that isn’t offered to traders. Exchanges have neither the incentive
+    nor the expertise to optimize their pricing algorithms. [[6](#bottom6chx)] The
+    traditional role of the exchange is to provide a meeting place for buyers and
+    sellers, allowing them to transact at prices of their own choosing. Exchanges
+    offer algorithmic order-types (like pegs) mainly for convenience, and I don’t
+    think there should be any illusion that these order-types are as good as the techniques
+    used by sophisticated brokers and traders. Providing exchange algos with a time-advantage
+    will mean that they out-compete traders, who are otherwise superior in terms of
+    their pricing accuracy, stability under stress, and diversity. Traders and their
+    algorithms do make mistakes, but it’s hard to believe that an exchange algo monoculture
+    can do better. Subsidizing inferior business methods reduces an industry’s productivity,
+    and giving exchange algorithms a structural advantage would be no different.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In my view then, if #4 is allowed, then #2 should be allowed. And, if #3 is
+    allowed, then #1 should be allowed. Since #4 is already approved, the only thing
+    to consider is whether it should be permissible for delays to have asymmetries
+    in how they apply to accessing **displayed** quotes. The [comments](https://www.sec.gov/comments/sr-chx-2016-16/chx201616.shtml)
+    mostly do a good job explaining why asymmetries are problematic for displayed
+    market structure. [[7](#bottom7chx)] In short, if displayed orders are given extra
+    time to decide whether to consummate a trade, a large number of quotes will be
+    practically inaccessible, even though it’d be prohibited to lock, cross, or trade-through
+    those quotes. [[8](#bottom8chx)] Even in markets without these regulations, such
+    as FX, last look causes [difficulty](https://www.ft.com/content/875640f0-a325-11e5-bc70-7ff6d4fd203a).
+    [[9](#bottom9chx)] The consequences of combining last look with order protection
+    are unpredictable, but they seem unlikely to be good for long-term traders.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So, if we don’t want Reg NMS order protection to apply to quotes eligible for
+    last look, only options #2 and #4 should be permitted. There is a tradeoff, though.
+    Giving only hidden orders a time-advantage will incentivize dark trading. I doubt
+    that the major exchanges would become as [dark as IEX](http://meanderful.blogspot.com/2016/10/iex-dark-and-expensive.html),
+    but the equities market would probably become less transparent.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: IEX’s approval is already inspiring a dramatic increase in complexity. CHX might
+    not be the most important exchange, but like IEX, any precedent it sets applies
+    to other exchanges. [[10](#bottom10chx)] Restricting speed-bump-asymmetries to
+    hidden orders has drawbacks, but it might be the only way Reg NMS can keep limping
+    on.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[1](#1chx)] Technically, it’s not really new. The LTAD is similar to an old
+    [proposal](https://www.sec.gov/rules/sro/phlx/2012/34-67680.pdf) from Nasdaq’s
+    PSX, which was rejected by the SEC.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[2](#2chx)] In order to highlight the essential elements, I’m leaving out
+    some details.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[3](#3chx)] There are other speed bump types of course. For example, an exchange
+    could delay traders from cancelling resting orders, but allow incoming marketable
+    orders to execute without delay. That sort of delay could be used to address complaints
+    about “[fading liquidity](https://epta.fia.org/articles/liquidity-and-quote-fading)“,
+    and is similar in some respects to Nasdaq’s tentative “[Extended Life Order](http://business.nasdaq.com/marketinsite/2016/Enhancing-Long-Term-Liquidity-Nasdaq-Introduces-the-Extended-Life-Order.html)”
+    and EBS’s “[Minimum Quote Life](http://www.ebs.com/~/media/Files/I/Icap-Ebs/rulebooks/201603-05-EBS%20Dealing%20Rules%20EBS%20Market%20Appendix%20291015.pdf)“.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Delays in market data are speed bumps of an entirely different class. These
+    are prohibited (I think) in US equities markets, which require [quotes](https://www.law.cornell.edu/cfr/text/17/242.604)
+    and [trades](http://www.finra.org/industry/trade-reporting-faq#102) to be published
+    to the SIP without delay. Though perhaps this requirement doesn’t apply to “de
+    minimis” delays?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[4](#4chx)] Algorithmic order-types may also use their undelayed data feeds
+    to trade aggressively with resting orders which can’t be cancelled without going
+    through a delay. IEX’s DPEG does this via its “book recheck” [mechanism](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/#3iex2).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[5](#5chx)] From their comment [letter](https://www.sec.gov/comments/sr-chx-2016-16/chx201616-8.pdf):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Time delays should not apply to an exchange’s ability to price orders on behalf
+    of all participants (i.e. Pegging).
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Dave Lauer [clarified](https://twitter.com/DLauer/status/788021717922906112)
+    on Twitter that this principle also applies to displayed peg orders.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[6](#6chx)] CHX’s justification for the LTAD evokes a useful thought experiment.
+    CHX [argues](http://www.chx.com/_posts/rule-filings/ProposedFilings/CHX-2016-16.pdf)
+    that its ETF quotes are victims of “latency arbitrage,” and that the LTAD will
+    prevent this. If the SEC rejects the LTAD, CHX might propose another type of speed
+    bump, where CHX manages displayed orders in ETFs (e.g. SPY, QQQ, etc) by pegging
+    them to undelayed CME market data. Will CHX understand the relationship that these
+    ETFs have to futures markets as well as professional traders do? And these ETFs
+    are just the simple cases — imagine what kind of pegs an exchange might come up
+    with to prevent market makers from being “picked off” on XOM when the price of
+    crude or CVX moves. I’m sure exchanges can think of peg algos that market makers
+    would find very useful, but is that really what we want exchanges [doing](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/)?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[7](#7chx)] No discussion of the LTAD would be complete without mentioning
+    CHX’s [market data revenue sharing program](http://www.chx.com/chxshare/). This
+    post, though, isn’t intended to be a complete discussion. Many of the comment
+    [letters](https://www.sec.gov/comments/sr-chx-2016-16/chx201616.shtml) (and Matt
+    Hurd’s playful [summaries](http://meanderful.blogspot.com/2016/10/chx-price-taking-access-delay-ltad.html))
+    address this issue.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I found it interesting that Virtu [publicly supported](http://www.bloomberg.com/news/articles/2016-08-30/chicago-stock-exchange-targets-latency-arbitrage-with-speed-bump)
+    the LTAD as soon as it was announced, presumably before they had time to review
+    the filings. Was the LTAD proposed at Virtu’s request? Could Virtu’s CHX profitability
+    rely on market data revenue sharing?
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[8](#8chx)] Without using ISOs, that is. If enough displayed orders were granted
+    a last look, then the market would be clogged with inaccessible quotes. Only traders
+    with the legal infrastructure to submit ISOs would be able to navigate the equity
+    market.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[9](#9chx)] This opinion isn’t unanimous. Some long-term traders appreciate
+    last look, like Norway’s SWF, [NBIM](https://www.nbim.no/en/transparency/asset-manager-perspectives/2015/the-role-of-last-look-in-foreign-exchange-markets/).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[[10](#10chx)] James Angel’s [letter](https://www.sec.gov/comments/sr-chx-2016-16/chx201616-11.pdf)
+    argues that CHX should be given the benefit of the doubt just like IEX was. I’m
+    not a lawyer, and I think the LTAD could hurt long-term traders, but some of his
+    points are persuasive.'
+  prefs: []
+  type: TYPE_NORMAL

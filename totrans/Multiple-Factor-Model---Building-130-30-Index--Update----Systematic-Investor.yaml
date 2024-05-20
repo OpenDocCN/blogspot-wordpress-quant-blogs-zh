@@ -1,0 +1,90 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multiple Factor Model – Building 130/30 Index (Update) | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'This is just a quick update to my last post: [Multiple Factor Model – Building
+    130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/).
+    I want to introduce Market-Neutral and Minimum Variance strategies and compare
+    their performance to the 130/30 Index.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have updated the source code of the [fm.long.short.test() function in factor.model.test.r
+    at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)
+    to include Market-Neutral and Minimum Variance strategies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s start by creating a Minimum Variance strategy. I will use the same framework
+    as in the [Multiple Factor Model – Building 130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)
+    post. At each month end, I will solve for a portfolio that has minimum variance,
+    ignoring all alpha information.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s construct Market-Neutral portfolio. I will restrict portfolio weights
+    to be +/- 10% and will use portfolio construction technique that I documented
+    in the [130/30 Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s re-create all summary charts from the [Multiple Factor Model – Building
+    130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7489bb61e2554cec2400ca462d195835.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b81651b6d00636e223daaa941f1df77d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/75969bbdb93f8cdf29e97511cca4ad8b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/357bf68785489eaafd2bcaeaaf686522.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Please note that we are not comparing apples to apples here. For example, Market-Neutral
+    strategy has beta set equal to zero while 130/30 Index has beta set equal to one.
+    But at the same time there are a few interesting observations:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum Variance strategy has the smallest drawdown among all long strategies,
+    but its performance is lacking
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Market-Neutral strategy does surprisingly well in this environment and has the
+    best Sharpe ratio
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Market-Neutral strategy also has the highest portfolio turnover; hence, high
+    trading costs will make this strategy less attractive
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [fm.long.short.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  prefs: []
+  type: TYPE_NORMAL

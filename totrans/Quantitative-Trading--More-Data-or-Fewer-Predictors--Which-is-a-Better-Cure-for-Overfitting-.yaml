@@ -1,0 +1,159 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:56:12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: More Data or Fewer Predictors: Which is a Better Cure
+    for Overfitting?'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01](http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One of the perennial problems in building trading models is the spareness of
+    data and the attendant danger of overfitting. Fortunately, there are systematic
+    methods of dealing with both ends of the problem. These methods are well-known
+    in machine learning, though most traditional machine learning applications have
+    a lot more data than we traders are used to. (E.g. Google used 10 million YouTube
+    videos to train a deep learning network to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[recognize cats'' faces](http://static.googleusercontent.com/media/research.google.com/en//archive/unsupervised_icml2012.pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .)
+  prefs: []
+  type: TYPE_NORMAL
+- en: To create more training data out of thin air, we can
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*resample*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (perhaps more vividly,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*oversample*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ) our existing data. This is called bagging. Let's illustrate this using a fundamental
+    factor model described in my
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[new book](http://amzn.to/2kTMvUM)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '. It uses 27 factor loadings such as P/E, P/B, Asset Turnover, etc. for each
+    stock. (Note that I call cross-sectional factors, i.e. factors that depend on
+    each stock, "factor loadings" instead of "factors" by convention.) These factor
+    loadings are collected from the quarterly financial statements of SP 500 companies,
+    and are available from Sharadar''s Core US Fundamentals database (as well as more
+    expensive sources like Compustat). The factor model is very simple: it is just
+    a multiple linear regression model with the next quarter''s return of a stock
+    as the dependent (target) variable, and the 27 factor loadings as the independent
+    (predictor) variables. Training consists of finding the regression coefficients
+    of these 27 predictors. The trading strategy based on this predictive factor model
+    is equally simple: if the predicted next-quarter-return is positive, buy the stock
+    and hold for a quarter. Vice versa for shorts.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Note there is already a step taken in curing data sparseness: we do not try
+    to build a separate model with a different set of regression coefficients for
+    each stock. We constrain the model such that the same regression coefficients
+    apply to all the stocks. Otherwise, the training data that we use from 200701-201112
+    will only have 1,260 rows, instead of 1,260 x 500 = 630,000 rows.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The result of this baseline trading model isn''t bad: it has a CAGR of 14.7%
+    and Sharpe ratio of 1.8 in the out-of-sample period 201201-201401\. (Caution:
+    this portfolio is not necessarily market or dollar neutral. Hence the return could
+    be due to a long bias enjoying the bull market in the test period. Interested
+    readers can certainly test a market-neutral version of this strategy hedged with
+    SPY.) I plotted the equity curve below.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, we resample the data by randomly picking N (=630,000) data points
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*with replacement*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: to form a new training set (a "bag"), and we repeat this K (=100) times to form
+    K bags. For each bag, we train a new regression model. At the end, we average
+    over the predicted returns of these K models to serve as our official predicted
+    returns. This results in marginal improvement of the CAGR to 15.1%, with no change
+    in Sharpe ratio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, we try to reduce the predictor set. We use a method called "random subspace".
+    We randomly pick half of the original predictors to train a model, and repeat
+    this K=100 times. Once again, we average over the predicted returns of all these
+    models. Combined with bagging, this results in further marginal improvement of
+    the CAGR to 15.1%, again with little change in Sharpe ratio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The improvements from either method may not seem large so far, but at least
+    it shows that the original model is robust with respect to randomization.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'But there is another method in reducing the number of predictors. It is called
+    stepwise regression. The idea is simple: we pick one predictor from the original
+    set at a time, and add that to the model only if BIC  (Bayesian Information Criterion)
+    decreases. BIC is essentially the negative log likelihood of the training data
+    based on the regression model, with a penalty term proportional to the number
+    of predictors. That is, if two models have the same log likelihood, the one with
+    the larger number of parameters will have a larger BIC and thus penalized. Once
+    we reached minimum BIC, we then try to remove one predictor from the model at
+    a time, until the BIC couldn''t decrease any further. Applying this to our fundamental
+    factor loadings, we achieve a quite significant improvement of the CAGR over the
+    base model: 19.1% vs. 14.7%, with the same Sharpe ratio.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'It is also satisfying that the stepwise regression model picked only two variables
+    out of the original 27\. Let that sink in for a moment: just two variables account
+    for all of the predictive power of a quarterly financial report! As to which two
+    variables these are - I will reveal that in my talk at'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[QuantCon 2017](http://www.quantcon.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: on April 29.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ===
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**My Upcoming Workshops**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'March 11 and 18:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Cryptocurrency Trading with Python](http://epchan.com/workshops)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will be moderating this online workshop for my friend Nick Kirk, who taught
+    a similar course at CQF in London to wide acclaim.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'May 13 and 20:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Artificial Intelligence Techniques for Traders](http://epchan.com/workshops)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I will discuss in details AI techniques such as those described above, with
+    other examples and in-class exercises. As usual, nuances and pitfalls will be
+    covered.
+  prefs: []
+  type: TYPE_NORMAL

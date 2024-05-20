@@ -1,0 +1,182 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:10:46'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Asian options and C++/Quantlib | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Put simply, an **Asian option** is an option contract the payoff of which is
+    determined by the averaging of the underlying over a certain period of time. As
+    P.Wilmott (2006) and E.G.Haug (2007) both point out, Asian options are popular
+    in the OTC energy markets and in other commodity markets lacking liquidity. In
+    fact, averaging implies reduced price volatility, cheaper option prices, and market
+    manipulations are less-likely.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Now, Asian options can be classified along several dimensions, that is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: – Average strike option vs average rate option
+  prefs: []
+  type: TYPE_NORMAL
+- en: – Arithmetically vs geometrically averaging
+  prefs: []
+  type: TYPE_NORMAL
+- en: – Discrete vs continuous averaging
+  prefs: []
+  type: TYPE_NORMAL
+- en: – American vs European exercise
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Average rate/price option vs average strike option**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: 'Asian options are classified as **average rate** (**or average price**) or
+    **average strike**. For detailed discussions, please refer to P.Wilmott (2006),
+    J.C.Hull (2008), and C.Alexander’s (2008). The following table shows the possible
+    payoffs:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| **Payoffs** | Call | Put |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Average strike option | max (S-A, 0) | max (A-S, 0) |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Average rate option (or average price option) | max (A-E, 0) | max (E-S,
+    0) |'
+  prefs: []
+  type: TYPE_TB
+- en: '**S** = underlying price'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**E** = exercise (strike) price'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**A** = averaged strike price'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this article, our interest goes to average rate/price options.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Continuous vs discrete/averaging**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: In the **continuous case**, the **continuously sampled average** is modelled
+    as an **integral**. In the **discrete case,** one averages a finite number of
+    option values picked up during the life of the option. For example, we may use
+    a weekly fixing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In practice (due to legal and practical issues), **Asian options** are generally
+    monitored at **discrete time**. And, we will only consider equal time lengths between
+    fixings.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The Black-Scholes world and Asian options**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: In the **discrete case**, one can get the price of an Asian option dealing with
+    the **Black-Scholes stochastic differential equation** (**SDE**) for a defined
+    so-called **updating rule**
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the arithmetic case, one has to tackle the problem of solving the standard
+    **Black-Scholes** equation
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "normal Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)for
+    V(S, A, t) with'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/fd6b27d2e1df4cbb393a0c23a12e6886.png "v_a_t_arithmetic")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v-a-t-arithmetic.jpg)but
+    there is no **closed-form solution**.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the geometric case, the average is the exponential sum of all the logarithms
+    of the constituent prices, that we divide by the of discretely sampled prices
+    (we restrict ourselves to equal time-steps).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Again, we take the normal **Black Scholes** equation
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "normal Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)But,
+    now the jump condition becomes:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e169068c0448c643e93d818df6c39ff9.png "v_a_t_geometric")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v_a_t_geometric1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: There exist **closed-form solutions** for **geometrically averaged Asian options**,
+    as geometric averaging of lognormal random variables preserves lognormality. And,
+    this is what we are going to code using **Quantlib**. In fact, **Quantlib** is
+    endowed with a special option engine to **analytically** compute the price of
+    discretely and geometrically averaged Asian options using that is the **AnalyticDiscreteGeometricAveragePriceAsianEngine**
+    class.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We could compare our analytical calculation results with ones drawing from a
+    **Monte Carlo simulation** if we wish. And, one may wish to price a arithmetic
+    average option thanks to **MCDiscreteArithmeticAPEngine**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The C++/Quantlib code**'
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: We now turn to coding
+  prefs: []
+  type: TYPE_NORMAL
+- en: ___________________________
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Option type                      :      put'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Strike:                                 :      36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Underlying:                      :      40'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Option expiration          :      December 10, 2011'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Risk-free interest rate  :      6%'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dividend yield                 :      risk-free interest rate – (0,5 x (volatility²))'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Time step between
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'successive fixings      :    7 days'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Previous fixings         :    none'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Volatility                    :    20% ______________________'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

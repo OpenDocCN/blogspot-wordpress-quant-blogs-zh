@@ -1,0 +1,136 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multiple Factor Model – Building Risk Model | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'This is the fourth post in the series about Multiple Factor Models. I will
+    build on the code presented in the prior post, [Multiple Factor Model – Building
+    CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/),
+    and I will show how to build a multiple factor risk model. For an example of the
+    multiple factor risk models, please read following references:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The outline of this post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Run cross sectional regression to estimate factor returns
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Compute factor covariance using shrinkage estimator
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Forecast stocks specific variances using GARCH(1,1)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Compute portfolio risk using multiple factor model and compare it to the historical
+    standard deviation of portfolio returns.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Let’s start by loading the CSFB factors that we saved at the end of the [prior
+    post](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/).
+    [If you are missing data.factors.Rdata file, please execute fm.all.factor.test()
+    function first to create and save CSFB factors.] Next, I will run cross sectional
+    regression to estimate factor returns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'To estimate factor returns (betas), we solve for coefficients of the following
+    multiple factor model:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Note that we cannot include the first sector dummy variable in the regression,
+    otherwise we will get a linearly dependent relationship of the first sector dummy
+    variable with all other sector dummy variables. The sector effect of the first
+    sector dummy variable is absorbed into the intercept in the regression.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are a few alternative ways of estimating this regression. For example,
+    the robust linear model can be estimated with following code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The quantile regression can can be estimated with following code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s look at the cumulative factor returns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c7e3e2282fca559fcc74f962107e63cc.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Price Reversals(PR) and Small Size(SS) factors have done well.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s estimate the factor covariance matrix over the rolling 24 month window.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s forecast stocks specific variances using GARCH(1,1). I will use the
+    GARCH estimation routine described in the [Trading using Garch Volatility Forecast](https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Now we have all the ingredients to compute a portfolio risk:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s compare portfolio risk estimated using multiple factor risk model
+    with portfolio historical risk.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/68a50f5935a4c339fd664b57d1c73956.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The multiple factor risk model does a decent job of estimating portfolio risk
+    most of the time.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [fm.risk.model.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  prefs: []
+  type: TYPE_NORMAL

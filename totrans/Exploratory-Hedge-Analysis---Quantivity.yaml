@@ -1,0 +1,152 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 13:47:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Exploratory Hedge Analysis | Quantivity
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01](https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Previous posts on empirical [quantiles](https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection)
+    and [copulas](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk/)
+    for [proxy / cross hedge](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging)
+    illustrate the potential insight from graphical visualization. This post continues
+    the theme, illustrating *exploratory data analysis for proxy hedging* using classical
+    statistical techniques.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In a world awash with symbolic models, there is ample room for graphical exploratory
+    analysis in finance—as the fine texture of the real world differs from both mathematical
+    formalisms and standard mental models. Indeed, alpha hides in the *divergence*
+    between model and reality.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Statistician [John Tukey](http://en.wikipedia.org/wiki/John_Tukey) is one of
+    the most well-known advocates of [exploratory data analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis),
+    captured in his 1977 [book](http://books.google.com/books?id=UT9dAAAAIAAJ&q) of
+    the same title. Tukey nicely captures the essence of exploratory analysis in the
+    opening chapter of his book (p. 1):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Exploratory data analysis is detective work–numerical detective work–or counting
+    detective work–or graphical detective work.
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'This post illustrates graphical exploratory analysis, using R, specifically
+    for the proxy hedging of previous posts: well-known tech company and QQQ. Although
+    focused on a particular stock, these analysis techniques are *applicable to other
+    equities and higher frequencies*.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Begin with scatters for daily prices and returns sampled over the previous
+    5 years, overlaid with fitted OLS and dispersion ellipsoids:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/584dae921989570e8daa03a183540a29.png "explore-proxy-scatters")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-scatters1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Top left plot illustrates several distinct price regimes. Top right plot illustrates
+    ample returns well outside the dispersion ellipsoids, consistent with previous
+    posts. Bottom left plot illustrates returns split by sign, demonstrating divergence
+    in fit between positive and non-negative returns. Bottom right plot illustrates
+    divergence between returns under and over 0.5 standard deviations, whose fit is
+    quite similar.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, lag scatters for CRM:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b6901992491af557f94494e5ff919cab.png "explore-crm-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-crm-return-lags.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Illustrating moderately non-spherical returns in the tails at all lags, consistent
+    with the quantiles discussed in previous post. QQQ exhibits similar non-spherical
+    lag returns, although the shape is not consistent with CRM:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/10f38a54f4934de0324138d80925ae9a.png "explore-qqq-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-qqq-return-lags.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To understand return dynamics in more depth, the following plots consider empirical
+    density, absolute cross-correlation, difference ratios, and discrete rate of change:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Exploratory Proxy Returns](img/55a2d3ce81974e4dae03ba90483ccc92.png "explore-proxy-returns")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-returns1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Top left plot is textbook-style illustration of comparative *excess kurtosis*,
+    with CRM return tails going out to +/- 10%. Cross correlation in top right plot
+    exemplifies both forward and backward linear dependence for absolute returns,
+    consistent with previous post on autocopulas. Difference ratios in bottom left
+    plot illustrate empirical beta ranges from 1 to *several hundred*, irrespective
+    whether returns are measured daily, weekly, or monthly—*this corroborates difficulty
+    of proxy hedging with linear instruments*. These ratios provide the first evidence
+    that late-2010 was perhaps even more anomalous for this pair than 2008, which
+    is quite remarkable. Finally, bottom right plot illustrating return ROC further
+    juxtaposes the comparison, as the ROC of both CRM and QQQ was dramatically higher
+    in 2008 than 2010.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finally, visualize the *rolling* proxy variance ratio (not to be confused with
+    the standard statistical variance ratio, explored below) and correlation over
+    the sample period with different durations:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Rolling Exploratory Proxy](img/6602a8f129fb6e6044a6a55db9be24a7.png "explore-proxy-rolling")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-rolling.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Perhaps most interesting is the top plot which exemplifies that variance ratios
+    (VR) for all roll durations are maximized over the 12 months beginning in August
+    2010\. Contrast those ratios with the *nearly flat VR, at all durations, during
+    the financial crisis*. The bottom plot provides one dimension of insight into
+    this comparative behavior, illustrating that proxy correlation behaved inversely
+    during these two periods: correlation was maximized during the finance crisis
+    and minimized during 2010/2011.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another interesting effect illustrated by both plots is *temporal scaling behavior*:
+    correlation exhibits *monotonic smoothing* as lag window increases (conceptually
+    similar to low-pass filtering), as exemplified by correlation progressive decreasing
+    with black (daily), red (bi-weekly), blue (monthly), and green (quarterly). In
+    contrast, the roll variance ratio exhibits no such scaling (monotonic or not).
+    For example, early 2007 exhibits 60-day VR *exceedingly* all period periods. Similarly,
+    the monthly VR frequently exceeds the biweekly VR.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finally, consider classic unstandardized variance ratios for both CRM (top
+    plot) and QQQ (bottom plot), calculated using the *entire 5-year sample period*,
+    which illustrates mean-reversion versus trending (due to [Lo and Mackinlay (1998)](http://press.princeton.edu/books/lo/chapt2.pdf)):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Exploratory Proxy Variance Ratios](img/8e49c7fa21e3af614fac37e53bd89f8c.png
+    "explore-proxy-vr")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-vr.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Both exhibit similar qualitative behavior: strongly mean reverting for holding
+    periods under 30 days, followed by weaker reverting for longer periods. Variance
+    ratio analysis is worth further consideration, particularly more rich graphical
+    techniques (*e.g.* [Lindemann *et al.* (2004)](http://www.ljmu.ac.uk/AFE/AFE_docs/VR_AND_REGR.PDF))
+    and multivariate methods.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* * *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code to generate the preceding exploratory hedge analysis:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

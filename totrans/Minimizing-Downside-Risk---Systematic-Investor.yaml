@@ -1,0 +1,113 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:47:45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimizing Downside Risk | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/01/minimizing-downside-risk/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/01/minimizing-downside-risk/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the [Maximum Loss and Mean-Absolute Deviation risk measures](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/),
+    and [Expected shortfall (CVaR) and Conditional Drawdown at Risk (CDaR)](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/)
+    posts I started the discussion about alternative risk measures we can use to construct
+    [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier). Another
+    alternative risk measure I want to discuss is [Downside Risk](http://www.investopedia.com/terms/d/downside-deviation.asp).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In the traditional mean-variance optimization both returns above and below
+    the mean contribute to the portfolio risk (usually measured by the standard deviation
+    of the portfolio’s return). In the Downside Risk framework, only returns that
+    are below the mean or below the [target rate of return (MAR)](http://www.investopedia.com/terms/d/downside-deviation.asp)
+    contribute to the portfolio risk. I will discuss two Downside Risk measures: [Lower
+    Semi-Variance](http://www.vosesoftware.com/ModelRiskHelp/Presenting_results/Statistical_descriptions_of_model_outputs/Measures_of_spread/Semi-variance_and_semi-standard_deviation.htm),
+    and Lower Semi-Absolute Deviation. I will use methods presented in [Portfolio
+    Optimization under Lower Partial Risk Measure by H. Konno, H. Waki and A. Yuuki
+    (2002)](http://www.kier.kyoto-u.ac.jp/fe-tokyo/workingpapers/AFE-KyotoU_WP01-e.html)
+    paper to construct optimal portfolios.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
+    j= 1,…,T scenarios of returns with equal probabilities are available. I will use
+    historical assets returns as scenarios. Let us denote by r.ij the return of i-th
+    asset in the scenario j. The portfolio’s Lower Semi-Absolute Deviation (page 6)
+    can be written as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\frac{1}{T}\sum_{j=1}^{T}\left | \tau - \sum_{i=1}^{n}r_{ij}x_{i} \right
+    |_{-}  \newline\newline  =\frac{1}{T}\sum_{j=1}^{T}max\left \{ \tau - \sum_{i=1}^{n}r_{ij}x_{i},0
+    \right \}  ](img/1619004299a0972e07798ad1ab4bdfc5.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a linear programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\min_{}{}\frac{1}{T}\sum_{j=1}^{T}z_{j}  \newline\newline   \tau - \sum_{i=1}^{n}r_{ij}x_{i}
+    \leq z_{j}, j=1,...,T  \newline\newline   z_{j} \geq 0, j=1,...,T  ](img/3f6a57867a525e5de72ddf0816f1f15b.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This linear programming problem can be easily implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The portfolio’s Lower Semi-Absolute Deviation (page 7) can be written as
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\frac{1}{T}\sum_{j=1}^{T}\left | \tau - \sum_{i=1}^{n}r_{ij}x_{i} \right
+    |_{-}^{2}  \newline\newline  =\frac{1}{T}\sum_{j=1}^{T}max\left \{ \tau - \sum_{i=1}^{n}r_{ij}x_{i},0
+    \right \}^{2}  ](img/b57956bf49b1d937fa48dce2e65cef4f.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: It can be formulated as a quadratic programming problem
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\min_{}{}\frac{1}{T}\sum_{j=1}^{T}z_{j}^{2}  \newline\newline   \tau - \sum_{i=1}^{n}r_{ij}x_{i}
+    \leq z_{j}, j=1,...,T  \newline\newline   z_{j} \geq 0, j=1,...,T  ](img/bdc909d3565730a30c11121909bb6b43.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: This quadratic programming problem can be implemented
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Let’s examine efficient frontiers computed under different risk measures using
+    historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/ec32dacab7cda370444b1b0418433ed4.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/64bdcb2a2b38f9d32746e6c781140abb.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The downside risk efficient frontiers, prefixed with S-, are similar to their
+    full counterparts and have similar transition maps in our example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another way to approach minimization of the [Lower Semi-Variance](http://www.vosesoftware.com/ModelRiskHelp/Presenting_results/Statistical_descriptions_of_model_outputs/Measures_of_spread/Semi-variance_and_semi-standard_deviation.htm)
+    that I want to explore later is presented in [Mean-Semivariance Optimization:
+    A Heuristic Approach by Javier Estrada](web.iese.edu/jestrada/PDF/Research/Refereed/MSO.pdf)
+    paper.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.downside.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

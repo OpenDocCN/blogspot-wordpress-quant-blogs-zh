@@ -1,0 +1,126 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:19:24'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Free and Easy Currency Monitor in R'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/03/free-and-easy-currency-monitor-in-r.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/03/free-and-easy-currency-monitor-in-r.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Certainly not the best way to keep up with currencies, but the increasingly
+    important job of monitoring currencies can be free and easy in R using Federal
+    Reserve FRED data.  Here is a template that can be adjusted to your favorite currencies
+    with [symbols listed here](http://research.stlouisfed.org/fred2/categories/94).
+  prefs: []
+  type: TYPE_NORMAL
+- en: See my previous post on how to monitor the [potential US Dollar Collapse cheaply
+    and easily](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html). 
+    Also, currencies are important again, so do not ignore them when investing.  Don’t
+    say I did not warn you and don’t make excuses that you don’t have expensive gear.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get asian currency data from the FED FRED data series'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXKOUS",src="FRED") #load Korea'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXMAUS",src="FRED") #load Malaysia'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXSIUS",src="FRED") #load Singapore'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXTAUS",src="FRED") #load Taiwan'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXCHUS",src="FRED") #load China'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXJPUS",src="FRED") #load Japan'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXTHUS",src="FRED") #load Thailand'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXBZUS",src="FRED") #load Brazil'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXMXUS",src="FRED") #load Mexico'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DEXINUS",src="FRED") #load India'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DTWEXO",src="FRED") #load US Dollar Other Trading Partners'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DTWEXB",src="FRED") #load US Dollar Broad'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'par(mfrow=c(3, 4)) #provides 4 columns and 3 rows for charts'
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXKOUS["1995::2011"]),type="l",ylab="Korea")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXMAUS["1995::2011"]),type="l",ylab="Malaysia")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXSIUS["1995::2011"]),type="l",ylab="Singapore")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXTAUS["1995::2011"]),type="l",ylab="Taiwan")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXCHUS["1995::2011"]),type="l",ylab="China")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXJPUS["1995::2011"]),type="l",ylab="Japan")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXTHUS["1995::2011"]),type="l",ylab="Thailand")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXBZUS["1995::2011"]),type="l",ylab="Brazil")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXMXUS["1995::2011"]),type="l",ylab="Mexico")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(1/coredata(DEXINUS["1995::2011"]),type="l",ylab="India")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(coredata(DTWEXO["1995::2011"]),type="l",ylab="US Dollar Other")
+  prefs: []
+  type: TYPE_NORMAL
+- en: plot(coredata(DTWEXB["1995::2011"]),type="l",ylab="US Dollar Broad")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#if you prefer a prettier chart then you can use'
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(to.monthly(1/DEXSIUS),theme = chartTheme("white"),name="Singapore
+    Dollar/USD",TA="addBBands(10)")
+  prefs: []
+  type: TYPE_NORMAL

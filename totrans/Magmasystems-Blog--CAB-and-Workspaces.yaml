@@ -1,0 +1,152 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:14:28'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: CAB and Workspaces'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2006/11/cab-and-workspaces.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-and-workspaces.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '**Workspaces**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You might be familiar with various kinds of layout managers that automatically
+    arrange the windows that the manager contains. If you are a Java developer, you
+    might be used to layout managers like the FlowLayout manager and the GridLayout
+    manager. The layout manager works in conjunction with a container. The container
+    holds the controls, and the layout manager positions and sizes the controls as
+    they are added to the container.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In CAB, we have
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Workspaces**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: and
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**SmartParts**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . A Workspace is a container for holding SmartParts. A WorkItem contains a list
+    of zero or more Workspaces, so you can have workspaces within workspaces.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Most CAB applications will need to create a root Workspace within the main form.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The different kinds of Workspaces in CAB are:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**WindowWorkspace**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Vanilla area for holding SmartParts
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: For an MdiWorkspace, will automatically create a Form to hold a SmartPart
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**DeckWorkspace**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Stacks SmartParts in an overlapping manner
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**MdiWorkspace**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Regular MDI container, derives from WindowWorkspace
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**TabWorkspace**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Tabbed Windows
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**ZoneWorkspace**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Allows tiling of window areas, good for implementing an Outlook type layout
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: There are two ways of adding zones. One is to use the Visual Studio .Net designer,
+    and drag a workspace from the Toolbox onto a form.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/6c503ef627683a385d14b1aa152dbf98.png)](http://photos1.blogger.com/x/blogger/138/258/1600/544680/CABToolbox.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The other way is to dynamically create the workspace in the FormShellApplication’s
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*AfterShellCreate()*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: override.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is an example of creating various types of workspaces using the second
+    method (the code is “unwound” for the sake of this article):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: When you add a SmartPart to a Workspace, you can pass along hints that tell
+    the Workspace how to layout and decorate the SmartPart. The Workspace class has
+    functions for
+  prefs: []
+  type: TYPE_NORMAL
+- en: Showing a SmartPart (which also adds the SmartPart to the Workspace as well)
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Hiding a SmartPart
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Activating a SmartPart
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Closing a SmartPart
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: There are events that get fired when a SmartPart is activated within a Workspace,
+    and when a SmartPart is closing within a Workspace.
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can create new, custom workspaces in CAB, and a later article will cover
+    this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2006 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

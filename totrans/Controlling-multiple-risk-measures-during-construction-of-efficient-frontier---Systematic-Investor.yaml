@@ -1,0 +1,62 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:47:54'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Controlling multiple risk measures during construction of efficient frontier
+    | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the last few posts I introduced [Maximum Loss, Mean-Absolute Deviation](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/),
+    and [Expected shortfall (CVaR) and Conditional Drawdown at Risk (CDaR)](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/)
+    risk measures. These risk measures can be formulated as linear constraints and
+    thus can be combined with each other to control multiple risk measures during
+    construction of efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s examine efficient frontiers computed under different risk measures using
+    historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/ebc4c0ec66bc6b164dd009d535b30c37.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small7.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To construct a new mean-variance efficient frontier that only contains portfolios
+    with Max Loss less than 12%
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/26111cb11134dce42dee8db61d818684.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small7.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The new efficient frontier, labeled ‘Risk+MaxLoss’, is located between ‘Risk’
+    and ‘MaxLoss’ efficient frontiers in both Risk, measure by Standard Deviation,
+    and Maximum Loss plots. The main difference between original ‘Risk’ and new ‘Risk+MaxLoss’
+    portfolios can be seen for their Transition Maps. To control Maximum Loss during
+    mean-variance optimization, the ‘Risk+MaxLoss’ portfolios do not have allocation
+    to Emerging Markets (EEM – highlighted with green).
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example and other examples, please
+    have a look at the [aa.multiple.risk.measures.test() function in aa.test.r at
+    github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,180 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:45:36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: American Option Pricing with Dividends | All things finance
+    and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01](https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post, the last I’m planning to write on the subject of option pricing,
+    I will cover the mechanics of valuing options subject to American exercise rules,
+    taking into account dividend payments expected prior to option expiration.  Specifically,
+    I will show how to calculate the value of a series of Intel (INTC) Calls expiring
+    on Feb 21, 2014 where a dividend of .22 is expected to be paid on Feb 5, 2014.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An American option, unlike a European option, can be exercised anytime before
+    the option expires. This privilege carries with it a premium, making American
+    options generally more expensive than their European counterparts, all else being
+    equal. A dividend represents an expected future cash flow which reduces the value
+    of the underlying forward price, which in turn affects the value of the corresponding
+    options. More specifically, dividends reduce the value of a call option and increase
+    the value of a put option, again, all else being equal, compared to the same option
+    without a dividend.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In previous posts, I’ve relied on Black-Scholes as my theoretical option pricing
+    model. Black-Scholes, strictly speaking, does not support pricing American options
+    with dividends without making an adjustment to the forward price to account for
+    the drop in the underlying price on the ex-dividend date. As such, it is common
+    practice to use lattice models, such as binomial trees or finite differences to
+    price American options. Alternatively, if speed is a principal concern, one of
+    the American analytic approximations, such as [Barone-Adesi-Whaley](http://www.investopedia.com/terms/b/barone-adesi-whaley-model.asp)
+    might be a good choice. Fortunately, QuantLib provides support for many different
+    types of American option pricing models, which tend to vary along dimensions of
+    speed, numerical stability and complexity while producing very nearly the same
+    option valuations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this post, I’ll utilize the Crank-Nicolson Finite Differences lattice model
+    as the pricing engine, which is implemented by the [FDAmericanEngine<CrankNicolson>](http://quantlib.org/reference/class_quant_lib_1_1_f_d_american_engine.html)
+    class. Also, rather than presenting an overly simplified example that assumes
+    flat term structures for interest rates, dividends and volatility, I’ll bootstrap
+    the required dividend, interest rate and volatility curves from Interactive Brokers
+    market data (see screenshot below) and current LIBOR rates. This should give you
+    a good feel for what’s required to value options in the ‘real world’.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![inteloptions-11-15-2013](img/f34f449be90c90d1d5d401135b016947.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/11/inteloptions-11-15-2013.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So let’s start by building the necessary market data curves. First, I’ll present
+    a function that will be called to construct the INTC volatility smile for the
+    Feb 2014 calls. (For an introduction to volatility smiles see my earlier post
+    [here](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/).) 
+    The function relies on the QuantLib [BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)
+    class, which supports strike-level volatilities. Here is the code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, let’s bootstrap the LIBOR zero rate curve, which supplies the necessary
+    interest rates for discounting option payoffs.  The USD LIBOR rates were obtained
+    from the Web site [globalrates.com](http://www.global-rates.com/interest-rates/libor/american-dollar/american-dollar.aspx).
+    The code follows below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The final curve that we’ll need to generate provides the annualized dividend
+    yield for Intel.  Here is the code that bootstraps the dividend curve:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Now that we have the code to bootstrap all of our market data curves, the pricing
+    code to value the Intel Call options is pretty straightforward:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'When the code is run it produces the following option values and Greeks for
+    the 22 through 28 strikes:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Intel February 21st, 2014 22.00 Call value is: 2.77'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.8287'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.0883'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 23.00 Call value is: 1.94'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.7312'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.1230'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 24.00 Call value is: 1.28'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.5922'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.1486'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 25.00 Call value is: 0.78'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.4380'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.1544'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 26.00 Call value is: 0.45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.2948'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.1364'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 27.00 Call value is: 0.24'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.1835'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.1046'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intel February 21st, 2014 28.00 Call value is: 0.13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Delta: 0.1068'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Gamma: 0.0720`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The option values printed above are within or just outside the bid-ask spread
+    for each strike in the Interactive Brokers screenshot. Deviations of a penny or
+    two are likely due to differences in the model employed by Interactive Brokers
+    versus the QuantLib Crank-Nicolson model, differences in input market data, or
+    possibly even a trading opportunity (i.e. “edge”). In fact, recognizing, adjusting
+    for and/or exploiting such deviations between theoretical option values and the
+    market is at the core of modern option pricing and trading.
+  prefs: []
+  type: TYPE_NORMAL
+- en: With that, I’ll bring this somewhat lengthy post to a close. I very much hope
+    that you enjoyed it and learned something about pricing American options on dividend-paying
+    stocks using QuantLib. Please feel free to submit your comments or questions below.
+    I’ll do my best to get back to you as soon as I can. And, of course, have fun
+    with QuantLib!
+  prefs: []
+  type: TYPE_NORMAL

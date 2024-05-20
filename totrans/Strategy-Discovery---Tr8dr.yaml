@@ -1,0 +1,200 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:39:43'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Strategy Discovery | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01](https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Today I want to discuss the process of building or discovering a strategy.
+    Generally medium to high-frequency models fall into one of the following catagories:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: set of rules / heuristics on top of statistical observations
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: analysis of price signal
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: evolving state-based model of prices
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: spread or portfolio based relationships
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: technical indicators
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: some combination of these within an bayesian or amplification framework
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: These models share a common problem in that they are just crude approximations.
+    They attempt to accurately determine behavior on a macro level.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The market is the emergent behavior of the trades and order activity of all
+    of its participants. The perfect model is one that would have to be able to predict
+    the behavior of each individual participant and be aware of all external stimuli
+    affecting their behavior. This is at worst unknowable and at best would require
+    something akin to an omniscient AI.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The best we can do is have a view or views around how to model market behavior.
+    We can chose one of three approaches towards modelling:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: create models that rationalize some statistical or behavioral aspect of the
+    market
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: create models using a evolved program or regression, without a preconceived
+    rationalization
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: create models that embody a combination of the above two approaches
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Preconceived models have the advantage of being explainable, whereas, generated
+    models often are not. That said, it is intriguing to pursue evolution and/or program
+    generation as a means of discovering strategies in an automated fashion.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rationale
+  prefs: []
+  type: TYPE_NORMAL
+- en: Manual model development and testing is very time consuming. One will start
+    with a conjecture or skeleton idea for a new strategy. The parameter space or
+    variants of the idea may be large. Each has to be tested, optimized, retested.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Many of my strategies start out as models that digest raw prices and produce
+    some form of “hidden state”. This hidden state is designed to tell us something
+    useful with less noise than the original signal. This state may be multidimensional
+    and may require further regression to map to buy and sell signals.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Obtaining optimal strategies point towards a multivariate numerical or codified
+    regression approach. The testing and discovery of parameters and model variations
+    would best be automated.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Tools**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are a number of approaches used in optimization, regression, or discovery
+    problems:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Regression
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: ANN (Artificial Neural Nets), SVM (Scalable Vector Machine), RL (Reinforcement
+    Learning)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Optimization
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: GA (Genetic Algorithms), Gradient Descent, Quadratic Optimization, etc
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Discovery
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: GP (Genetic Programming), perhaps ANN as well
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**Strategy Discovery**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Thus far I have mostly used tools in the Regression and Optimization categories
+    to calibrate models. Genetic Programming represents an interesting alternative,
+    where we generate “programs” or strategies, testing for viability and performance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The “program” represents a random combination from an algebra of possible operations
+    that operates on a set of inputs to produce an output. In our case, our inputs
+    will be the digested information that our models produce. The program will map
+    this into something that can be used to generate buy/sell/out signals.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Thousands of such programs are generated and evaluated against a fitness function.
+    The fitest programs replicate, perform crossover, and mutate. This can be repeated
+    for thousands of generations until programs with strong trading performance are
+    determined.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An alternative and perhaps simpler approach is to use an ANN coupled with a
+    GA. The GA generates weights / connections between neurons to produce a model
+    between inputs and outputs.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Questions Under Consideration** ANNs and GPs differ in a number of important
+    ways. Need to think further on the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ANNs and GPs can represent an infinite number of functions
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: ANNs accomplish this, though, at the cost of numerous neurons
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ANNs and GPs may have a very different search space in terms of volume
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: We want to choose an approach that will converge more quickly (ie have a smaller
+    search space)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: How should we constrain the algebra or permutations to affect convergence
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: There are many “programs” which are equivalent, there may also be certain permutations
+    we may not want to allow.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: What sort of inputs are useful and how do we detect those that are not
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Inputs that are not useful should ultimately have very little trace through
+    the model. Will have to determine how to detect and prune these.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: More thought needed …**
+  prefs: []
+  type: TYPE_NORMAL

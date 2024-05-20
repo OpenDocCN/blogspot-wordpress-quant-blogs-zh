@@ -1,0 +1,62 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:17:39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Measuring and Combining Edges (Part 2) | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the last post I covered a generic overview of some of the issues involved
+    in time series prediction. However there are more basic issues to consider before
+    I start covering some examples. When  modeling  time series, the two key problems
+    are noise and non-stationarity. The noise is a function of the lack of complete
+    information from the  past behaviour of the time series to fully capture the dependency
+    between the future and the past. The noise in the data could lead to a persistent
+    bias towards  over-fitting or under-fitting the data. As a consequence the obtained model
+    will have a poor level of performance when applied to new data patterns. The non-stationarity
+    aspect of time series data implies that dynamics can change over time. This will
+    lead to gradual changes in the measured relationship between the input and output
+    variables. This is one of the reasons why academics favor ARCH and GARCH processes
+    to address these issues specifically. That said, in general it is hard for a single
+    prediction model  to capture such a dynamic input–output relationship inherent
+    in the data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One of the key problems facing a single model  to learn the data is that there
+    exists  inconsistencies in the  level of noise in different regions of the dependent
+    variable output. This leads to a situation that penalizes certain regions at the
+    expense of others. This is often a key reason why academics fail to see an effect
+    because the “baby is thrown out with the bathwater”- highly profitable regions
+    are smoothed in the prediction function with regions containing nothing but noise
+    or perhaps even an opposing effect. In the converse situation the distinct regions
+    may be overfitted by a function that does not generalize to the rest of the variable
+    output, and as a consequence the predictions are unstable.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The only way to adequately capture the non-linearities that exist in the data
+    is to: 1) use non-linear functions that are robust 2) use multiple linear, non-linear,
+    or discrete models using historical situational returns in combination such that
+    the underlying data is more accurately represented. The use of “Zones” by CSS
+    was one method of parsing the data to capture non-linearities, other methods include
+    using using multiple “setups” framed in a historical context, neural networks,
+    indicators and systems, and of course linear quadratic programming (ie optimization).
+    Lest one be deluded into thinking that simple data mining is sufficient for extracting
+    relationships, they are sorely mistaken. The path towards the balance between
+    robustness and rigor and creating a model of sufficient complexity that is also
+    time-varying (ie adaptive) is one without a good map. The only way to find your
+    way through the woods of the financial wilderness is with a compass, trial and
+    error, common sense, and an open mind.'
+  prefs: []
+  type: TYPE_NORMAL

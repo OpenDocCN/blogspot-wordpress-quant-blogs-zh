@@ -1,0 +1,57 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:07:35'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Thoughts about CEP Patterns'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/09/thoughts-about-cep-patterns.html#0001-01-01](http://magmasystems.blogspot.com/2007/09/thoughts-about-cep-patterns.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'One of the things that I have been wondering about:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: How do you do transactions in the context of event processing? For example,
+    if I get an event, we might trigger some units-of-work and generate some more
+    derived events from this initial event. These derived events might be put into
+    the event cloud.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If one of the units-of-work fail, how do we rollback the "transaction"? Do we
+    need to define compensating events? Do we need to suck the derived events out
+    of the event cloud? Do we need to attach "state" to the derived events which signal
+    whether they are part of a transaction?
+  prefs: []
+  type: TYPE_NORMAL
+- en: We run into a lot of the same issues here that DBMS vendors have run into. How
+    can the transactions patterns in the DBMS world be applied to CEP?
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another thing I have been interested in is the generation of recursive events.
+    If I get an event and generate a derived event, how do I know that this derived
+    event will not result in recursion? Again, DBMS vendors have run into the same
+    situation with database triggers, and some lessons can be learned.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, does this mean that we are better off considering a CEP vendor who has roots
+    in the DBMS world?
+  prefs: []
+  type: TYPE_NORMAL
+- en: (As you can see, I am just using the blog as scatchpad for some thoughts ....
+    but it gives you an idea about the things that any of you who are implementing
+    CEP might have to consider...)
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

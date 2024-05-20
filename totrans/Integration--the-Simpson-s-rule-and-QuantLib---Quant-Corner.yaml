@@ -1,0 +1,77 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:09:54'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Integration, the Simpson´s rule and QuantLib | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2011/02/14/integration-the-simpson%c2%b4s-rule-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/14/integration-the-simpson%c2%b4s-rule-and-quantlib/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '***QuantLib** provides with numerous mathematical and function-related tools,
+    and it closely works with the **Boost** library.*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Here, we deal with **integrals**. More specifically, we implement the well-known
+    **Simpson’s integral**. We keep the things concrete by calculating the value of
+    a call option from its integral representation.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The integral of a function is the area between the curve and the x-axis. Limits
+    can be defined so that we have a **definite integral**. The integral will thus
+    be computed by dividing the x-axis and the corresponding area between the curve
+    and the x-axis between the upper and the lower bound.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'We can write :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/cef1354e0af385d0bcad2788fb745360.png "integral")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/integral.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: where **a** is the lower limit, and **b** the upper limit.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The integral representation of a call is
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/621fdd7fac4ce84031e911513ed9b8cb.png "integral_call")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/integral_call.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: where f(x) is the **lognormal density** with **mean** [](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/integral_call.jpg)**[![](img/2fcb14e226b469cea449755ad0ce76cc.png
+    "mean_log_normal_density")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/mean_log_normal_density1.jpg)**
+  prefs: []
+  type: TYPE_NORMAL
+- en: And **standard deviation
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**![](img/2ad4f40d1fb4a770d20b61418cc5ee8e.png "standard_deviation_log_normal_density")****'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The **Simpson’s rule** gets numerical approximations of definite integrals
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*[![](img/44b142b2896a3b3f0d23337756e7324c.png "simpson_rule")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/simpson_rule.jpg)*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Our code uses the **boost::bind** class, which is a predefined metafunction.
+    Please, refer to the Boost documentation.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The **a**-lower limit is the strike, and the **b**-upper limit is an arbitrary
+    higher value. In this case 10 x **a**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]**'
+  prefs: []
+  type: TYPE_NORMAL

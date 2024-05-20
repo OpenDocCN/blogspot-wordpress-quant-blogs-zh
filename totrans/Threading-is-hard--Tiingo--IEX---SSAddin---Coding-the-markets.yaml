@@ -1,0 +1,60 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:30:34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Threading is hard: Tiingo, IEX & SSAddin | Coding the markets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01](https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Threading is hard: Tiingo, IEX & SSAddin'
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: May 26, 2016
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: Recently I’ve been rediscovering the fact that threading is hard. I’ve been
+    extending the [SpreadServe Addin](https://github.com/SpreadServe/SSAddin) to support
+    [Tiingo](https://www.tiingo.com/)‘s [IEX market data feed](https://api.tiingo.com/docs/iex/realtime).
+    Real live ticking market data is usually only found inside investment banks, brokers
+    and big hedge funds as it takes a lot of cash and infrastructure to connect to
+    exchanges directly or to subscribe via [Reuters](http://www.reuters.com/finance/global-market-data).
+    Even newer internet contenders like [xignite](http://www.xignite.com/products)
+    are very expensive too. Tiingo’s IEX feed provides live ticking equity top of
+    book data at an unprecedented price point. That is an exciting new development
+    that I want to support in SSAddin. Coding it up has renewed my appreciation of
+    how tricky multithreaded code can be. The SSAddin is implemented in C# packaged
+    as an [XLL](https://msdn.microsoft.com/en-us/library/office/bb687883.aspx) using
+    [ExcelDNA](https://github.com/Excel-DNA/ExcelDna). As with any Excel XLL, the
+    worksheet functions it defines are executed on the main Excel thread. If they
+    are long running, then they’ll block the GUI. So the worksheet functions pass
+    off their work to a background thread. This means that SSAddin can do [quandl](https://www.quandl.com/)
+    and tiingo historical data queries without blocking the main Excel thread. Query
+    results are cached, and there’s a set of worksheet functions to pull results out
+    of the cache. So far so good. However, adding subscriptions to Tiingo’s IEX market
+    data adds more complexity. In .net callbacks for web socket events are dispatched
+    on pool threads. Ticking data is pushed back into [Excel via RTD](https://support.microsoft.com/en-us/kb/285339).
+    So lots of lock statements are necessary to coordinate access to the queue for
+    passing work from the Excel thread to the background thread, and for coordinating
+    access to subscription management data structures and the RTDServer between the
+    background thread and the pool threads that dispatch the socket callbacks. All
+    good fun which has prompted a few thoughts. Firstly, threading is hard! Secondly,
+    I must get round to learning [Rust](http://blog.rust-lang.org/) and understanding
+    the [borrow checker](https://doc.rust-lang.org/book/ownership.html). Thirdly,
+    thanks heavens for [lock reentrancy](http://stackoverflow.com/questions/391913/re-entrant-locks-in-c-sharp)
+    in .net!
+  prefs: []
+  type: TYPE_NORMAL

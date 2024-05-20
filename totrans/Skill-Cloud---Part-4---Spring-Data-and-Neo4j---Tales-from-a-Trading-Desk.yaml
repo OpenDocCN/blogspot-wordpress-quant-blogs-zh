@@ -1,0 +1,59 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:48:44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Skill Cloud – Part 4 – Spring Data and Neo4j | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01](https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Skill Cloud – Part 4 – Spring Data and Neo4j
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'Spent the last flight banging my head against [Spring Data](http://projects.spring.io/spring-data-neo4j/)
+    and Neo4j.  I was hoping Spring Data would save me some code writing, but the
+    pain of Maven dependency hell, coupled with exceptions that are meaningless in
+    many way, has almost driven the will to live out of me.  At the moment I’m in
+    the world of:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Exception in thread “main” org.springframework.beans.factory.BeanCreationException:
+    Error creating bean with name ‘entityFetchHandler’ defined in class path resource
+    [org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]:
+    Instantiation of bean failed; nested exception is org.springframework.beans.factory.BeanDefinitionStoreException:
+    Factory method [public org.springframework.data.neo4j.support.mapping.Neo4jEntityFetchHandler
+    org.springframework.data.neo4j.config.Neo4jConfiguration.entityFetchHandler()
+    throws java.lang.Exception] threw exception; nested exception is org.springframework.beans.factory.BeanCreationException:
+    Error creating bean with name ‘nodeStateTransmitter’ defined in class path resource
+    [org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]:
+    Initialization of bean failed; nested exception is java.lang.reflect.MalformedParameterizedTypeException'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Which even after a number of google’s is still not resolved.  I did walk into
+    [LockException](https://jira.spring.io/browse/DATAGRAPH-478) compatibility issues
+    with Neo4j 2.1.1, and then the Spring Data [3.0.1](http://forum.spring.io/forum/spring-projects/data/nosql/746297-spring-data-neo4j-fails-on-upgrade-to-3-0-1)
+    issue 😦  Here’s my pom.xml, which could be the root of the issue, who knows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: ~ by mdavey on June 13, 2014.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Data](https://mdavey.wordpress.com/category/data/), [Java](https://mdavey.wordpress.com/category/languages/java/)
+  prefs: []
+  type: TYPE_NORMAL

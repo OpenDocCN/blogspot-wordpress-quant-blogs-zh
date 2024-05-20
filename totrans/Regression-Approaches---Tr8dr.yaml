@@ -1,0 +1,133 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:37:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Regression Approaches | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/11/13/probabilistic-regressors-the-mean/#0001-01-01](https://tr8dr.wordpress.com/2009/11/13/probabilistic-regressors-the-mean/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: One of the readers of this blog (skauf) suggested looking into KRLS (Kernel
+    Recursive Least Squares), which is an “online” algorithm for multivariate regression
+    closely related to SVM and Gaussian Processes approaches.    What struck me as
+    clever in the KRLS algorithm is that it incorporates an online sparsification
+    approach.  Why this is important, I will attempt to explain briefly in the next
+    section.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The sparsification approach is similar in effect to PCA in that it reduces dimension
+    and determines the most influential aspects of your system.  I had been thinking
+    about a combined PCA / basis decomposition approach for some time, and it struck
+    me that KRLS might be the way to do it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Kernal-based Learning Algorithms**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'KRLS and SVM algorithms use a common approach to classification (or regression).
+      In the simplest case, let us assume that we want to find some function f(x)
+    that will classify n-dimensional vectors as belonging to one of 2 sets (apples
+    or oranges), which we will distinguish by + and – values from f(x):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 1](img/d22b8b7ec3fd3aa5a8f55b14c02e3e87.png "Picture 1")'
+  prefs: []
+  type: TYPE_IMG
+- en: Assuming the vectors X are linearly separable, we could try to find a hyperplane
+    on the n-dimensional space that would separate the vectors such that there is
+    a balance of distance between the two categories (and one that is maximal subject
+    to some constraints).   The distance between the hyperplane (or in 2 dimensions
+    a line) and the points is determined by a **margin** function.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 2](img/13949f33cf0cd536904567375db641e6.png "Picture 2")'
+  prefs: []
+  type: TYPE_IMG
+- en: 'Optimization is accomplished by maximizing the **margins** subject to constraints.
+     The optimization solves for the weights α  such that the sum of the weighted
+    dot product of  X with each Xi yields the predicted value.  The form of f(x) is
+    the following:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![Picture 3](img/bf883c4a27e5ad16bad7bdcbe0ea64f0.png "Picture 3")'
+  prefs: []
+  type: TYPE_IMG
+- en: Now the above graph shows a very well-behaved data set, with a clear boundary
+    for classification.  Many data sets, however, will have significant noise in the
+    data and/or outliers that refuse to be categorized correctly.   This data has
+    an overall impact on the regression line.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Supposing we have N samples in our training set {{X1,Y1}, {X2,Y2}, … {Xn, Yn}}.
+      In simple terms, sparsification is the process of removing (or discounting)
+    samples that are already represented in the existing set, reducing the bias of
+    the regressor.   One approach to determining the degree of representation is to
+    observe the “degree of orthogonality” represented by a given vector with respect
+    to the existing set.   Sparsification also points to an approach to evolving the
+    regressor over time relative to new observations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The Kernel'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Above gave a brief overview of how SVM uses the notion of margin to classify
+    data.  A kernel is not necessary for data that is linearly separable.   The kernel
+    is “simply” a function that maps data from the “attribute” space to “feature”
+    space.   We design or choose the kernel function so that our data is largely linearly
+    separable in the “feature” space and with the constraint that the covariance matrix
+    of all possible vectors mapped from attribute to feature space will be positive
+    semi-definite.**
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Since our linear SVM equations are expressed in terms of inner products,
+    given a feature mapping function Φ(x) mapping X from non-linear space to “linearly
+    separable space”, we can express the kernel as a function of the inner product
+    of two vectors, later to plug in to our linear equations:**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**![Picture 5](img/54e0ea521ec9b537f4781da94b1baeb1.png "Picture 5")**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The trick is to choose a kernel function that maximizes dispersion of the
+    data into sets that are linearly separable.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '****How does this relate to an explicit probability based regression?**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: It turns out that the process of optimizing the margin function on a Gaussian
+    kernel  is equivalent to finding the unnormalized maximum likelihood, whereas
+    the Gaussian Process approach makes this explicit.**
+  prefs: []
+  type: TYPE_NORMAL
+- en: '****Which model does one choose?** The Gaussian Process approach is strictly
+    bayesian.   It has the upside of providing explicit probabilities / confidence
+    measures on predictions.  If one knows the likelihoods of the desired labels with
+    respect to the attribute vectors, the model works very well and provides more
+    information than the SVM family.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**The SVM family of approaches use a margin function to determine the similarity
+    between vectors (for the purpose of classification).   This does not explicitly
+    involve probabilities, but for the Gaussian kernel can be shown to be equivalent
+    to the Gaussian Process approach.   The SVM family has the upside that one does
+    not need to know the likelihoods.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Finally, both models allow the use of kernels to map data from a non-normal
+    or non-linear space to a linear or gaussian space.   Some have shown that there
+    is a degree of equivalence between the likelihood function in the Gaussian Process
+    algorithm and the kernel function used in SVM.**'
+  prefs: []
+  type: TYPE_NORMAL

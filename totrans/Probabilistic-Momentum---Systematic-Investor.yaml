@@ -1,0 +1,81 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:30:56'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Probabilistic Momentum | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2014/02/17/probabilistic-momentum/#0001-01-01](https://systematicinvestor.wordpress.com/2014/02/17/probabilistic-momentum/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[David Varadi](http://cssanalytics.wordpress.com) has recently discussed an
+    interesting strategy in the'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Are Simple Momentum Strategies Too Dumb? Introducing Probabilistic Momentum](http://cssanalytics.wordpress.com/2014/01/28/are-simple-momentum-strategies-too-dumb-introducing-probabilistic-momentum/)
+    post. David also provided the [Probabilistic Momentum Spreadsheet](http://cssanalytics.wordpress.com/2014/02/12/probabilistic-momentum-spreadsheet/)
+    if you are interested in doing computations in Excel. Today I want to show how
+    you can test such strategy using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The Simple Momentum strategy invests into SPY if SPY’s momentum if greater than
+    TLT’s momentum, and invests into TLT otherwise.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: The [Probabilistic Momentum](http://cssanalytics.wordpress.com/2014/01/28/are-simple-momentum-strategies-too-dumb-introducing-probabilistic-momentum/)
+    strategy is using Probabilistic Momentum measure and Confidence Level to decide
+    on allocation. Strategy invests into SPY if SPY vs TLT [Probabilistic Momentum](http://cssanalytics.wordpress.com/2014/01/28/are-simple-momentum-strategies-too-dumb-introducing-probabilistic-momentum/)
+    is above Confidence Level and invests into TLT is SPY vs TLT [Probabilistic Momentum](http://cssanalytics.wordpress.com/2014/01/28/are-simple-momentum-strategies-too-dumb-introducing-probabilistic-momentum/)
+    is below 1 – Confidence Level.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To make Strategy a bit more attractive, I added a version that can leverage
+    SPY allocation by 50%
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot1](img/87470e29b36fb47bbf1ee5e60af26815.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/02/plot1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The back-test results look very similar to the ones reported in the [Are Simple
+    Momentum Strategies Too Dumb? Introducing Probabilistic Momentum](http://cssanalytics.wordpress.com/2014/01/28/are-simple-momentum-strategies-too-dumb-introducing-probabilistic-momentum/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, I was not able to exactly reproduce the transition plots. Looks like
+    my interpretation is producing more whipsaw when desired.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![plot2](img/955902f714bc23bf6f8af99c09d2072d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/02/plot2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[David](http://cssanalytics.wordpress.com) thank you very much for sharing
+    your great ideas. I would encourage readers to play with this strategy and report
+    back.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.probabilistic.momentum.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

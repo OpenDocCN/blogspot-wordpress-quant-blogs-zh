@@ -1,0 +1,192 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:36:12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Learning a Sequence | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I had been looking at predicting durations (or the intensity) to model price
+    behavior and variance estimation.    As mentioned previously, the prevalent ACD
+    models in the literature do poorly.   Before moving on to another topic wanted
+    to revisit this, with an idea for future approach.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is a sample of durations for a high-frequency price series:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'I decided that rather than trying to regress for specific durations, where
+    there are an infinite number of possible values (theoretically), transform this
+    into a set of symbols so that there are a finite number of states say:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'where S1 might represent durations in [0, 0.25], S8 durations in [3, 3.5],
+    etc.   The sequence of states for the above durations might look like:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: This turned out to be useful.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**SVM** SVM on a radial basis kernel did a much better job of predicting the
+    next symbol (duration) in a sequence than the ACD models.   It was still not 
+    a suitable level of prediction however.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The problem with SVM and related approaches in general is that you either need
+    to have a problem that can easily be categorized in high dimensional linear vector
+    space.  A big part of this is finding the kernel that will map your (usually)
+    non-linear vectors into a linearly separable space.    Also, SVM is arguably better
+    suited to binary classification as opposed to multinary classification.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**ANNs** In theory, an ANN with enough neurons can asymptotically approximate
+    any function.  There are many problems in arriving at a general solution though:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Calibration**'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Standard techniques of backpropagation (essentially gradient descent) solve
+    for a local optimum, which depends on the starting configuration.   A global optimum
+    can be found with meta-heuristic approaches such as GAs, however, at significant
+    computational cost.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '**Overfitting**'
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: It is very difficult to come up with networks that generalize.   Part of the
+    success in doing this involves choosing training sets and configurations carefully.
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Nevertheless, this may be an approach worth exploring.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Probabalistic Graph Models** As our duration pattern is essentially a transition
+    from one state to the next, modeling as a probabalistic finite state machine appeals
+    as model.  The idea with such an approach would be:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: empirically observe all chains of length ≤ some maximum
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: determine the frequency of chains
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: factorize into the smallest graph that reproduces those chains within some error
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: 'The chains, for instance:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/6ed0abd5fbfd1137d0c1fd0e86d5a365.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: A first approach to this problem is to consider whether can be modeled as a
+    markovian state system.  It is, however, doubtful that the states {S1, S2, S3,
+    …} can be modeled in a strictly markovian setting without the use of additional
+    states.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For instance, is  P(S1|S2) the same as P(S1|S2, {prior states})?   The duration
+    data shows dependence beyond the immediate prior state.    Therefore we have to
+    expect that P(S1|S2, {S5,S1}) will differ from P(S1|S2, {S2,S3}), whereas in a
+    markovian model, the probability of S1 can be conditioned purely on the prior
+    state.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Such a markovian system might look like:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/00cbadb3eab8cde270dcd67753b38e0a.png "markov FSM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/markov-fsm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The HMM (Hidden Markov Model) combats this assumption by assuming that there
+    is a hidden markovian process (usually with more states than the observed state
+    system).   One can easily prove that a HMM of infinite size can exactly model
+    all possible state chains (sequences) amongst a finite set of states.   Of course
+    we are interested in a much smaller model that can reproduce most of the observed
+    chains with limited error.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is a sample structure, where the black lines are edges between hidden
+    states and the red edges indicate correspondence between hidden state and observed
+    state.   The red edges are not traversed:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/050ec04f298d365e0a02857dea531f6c.png "HMM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/hmm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Aliasing Issues**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Remember that we have arbitrarily subdivided durations (which are continuous)
+    into N discrete states.   The idea was that the difference between say 0.25 seconds
+    and 0.22 seconds is not important for our purposes.   One would think that less
+    granular states will allow for  easier modeling of the state sequence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The problem is that we are dividing these discretely.   We run into an **aliasing**
+    problem where a specific duration *partially* belongs to the set represented by
+    S(i) and S(i+1).   For instance for a sequence of length 3 we have 4 possible
+    true state paths, each with associated probability.   Without compensating for
+    aliasing we see the states (naively):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/943dabee4a3e8b19ca2cd6f8dcdc7b07.png "Picture 6")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-61.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'With aliasing we have the following possibilities:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/1e5807de1c43c8562802070bf18295e6.png "Picture 5")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-51.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As our path length approaches N, we will have 2^(N-1) possible paths.  One possible
+    implementation of this is train with the M highest probability paths.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Fuzzy HMM** Aliasing is a kind of fuzzy set membership.   Aside from aliasing
+    there are a number of reasons why we should consider fuzzy state membership:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The data may be noisy, obscuring the pattern
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Discretisation error (aliasing)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Not surprisingly, other people have thought of fuzzy state membership in the
+    context of HMM.   There are multiple fuzzy HMM models.   To be investigated …
+  prefs: []
+  type: TYPE_NORMAL

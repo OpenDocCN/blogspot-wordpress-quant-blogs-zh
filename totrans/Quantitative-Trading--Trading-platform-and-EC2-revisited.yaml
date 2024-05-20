@@ -1,0 +1,113 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:02:18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Trading platform and EC2 revisited'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2011/11/trading-platform-and-ec2-revisited.html#0001-01-01](http://epchan.blogspot.com/2011/11/trading-platform-and-ec2-revisited.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Recently I opened a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[discussion](http://epchan.blogspot.com/2011/09/more-on-automated-trading-platforms.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'on the various software platforms which allow the programmers among us to build
+    trading strategies easily. Here is one other addition:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Quantopian](http://www.quantopian.com/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '. It is only in alpha stage, but I did get a preview of its features:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) You can code in Python, which is an easier language to learn than Java, but
+    no less powerful. In fact, I know of a superb programmer who uses Python to backtest
+    HF strategies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) It is web-based, which means you can take advantage of collocation on a server
+    much more stable than your own desktops. (For those who worry about the confidentiality
+    of your strategies, the founder indicated to me that they can run an image of
+    the software on an Amazon EC2 account that you owned so they won't have access
+    to your codes. As for the confidentiality of codes residing on EC2 itself, please
+    see below*.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '3) It is event-driven (or for those who like the latest jargon: CEP-enabled),
+    like all the Java API''s that I discussed in the previous article.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 4) They have 1-min US equities data for backtesting. Tick-level data will be
+    available soon.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 5) Toolboxes for common technical indicators, mathematical algorithms, etc.
+    will be available soon.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 6) They will run a competition for trading models which makes it easier for
+    independent traders to become trading advisers to others, or to raise money for
+    their own funds.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Unfortunately, live walk-forward testing is not yet available.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* Some readers have wondered whether it is safe to run their trading models
+    on Amazon''s EC2\. Won''t Amazon''s employees have access to their wildly profitable
+    strategies? The answer is no: Amazon''s'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[security policy](http://media.amazonwebservices.com/pdf/AWS_Security_Whitepaper.pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ':'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Guest Operating System: Virtual instances are completely controlled by the
+    customer. Customers have full root access **'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**or administrative control over accounts, services, and applications. AWS
+    does not have any access rights to customer **'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**instances and cannot log into the guest OS....**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Thanks to a reader OL from France who provided me with this info. He also told
+    me that:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '"So, I finally deployed my momentum strategy on a Linux instance of EC2 (which
+    is free btw).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I wrote it based on the java demo application provided by Interactive Brokers
+    and some parts of Algoquant.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So far, I use a European instance of EC2 which alas doesn't have the best latency
+    to IB US servers (90 ms) but still better than my bedroom connection.
+  prefs: []
+  type: TYPE_NORMAL
+- en: A test ping from a US instance to IB US servers results in only 15 ms ..."
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So there you go: Java+Algoquant+IB+EC2=profit.'
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,136 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 17:56:10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: FTCA2 | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2013/12/05/ftca2/#0001-01-01](https://cssanalytics.wordpress.com/2013/12/05/ftca2/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The strength of [FTCA](https://cssanalytics.wordpress.com/2013/11/26/fast-threshold-clustering-algorithm-ftca/
+    "Fast Threshold Clustering Algorithm (FTCA)") is both speed and simplicity. One
+    of the weaknesses that FTCA has however, is that cluster membership is determined
+    by a threshold to one asset only at each step (either MC or LC). Asset relationships
+    can be complex, and there is no assurance that all members of a cluster have a
+    correlation to each other member that is higher than the threshold. This can lead
+    to fewer clusters, and potentially incorrect cluster membership assignments. To
+    improve upon these weaknesses, FTCA2 uses the same baseline method but computes
+    the correlation threshold to ALL current cluster members rather than just to MC
+    or LC. In this case, the average correlation to current cluster members is always
+    calculated to determine the threshold. It also selects assets in order of the
+    closest correlation to the current cluster members.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The pseudo-code is presented below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***While there are assets that have not been assigned to a cluster***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**If only one asset remaining then**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Add a new cluster**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Only member is the remaining asset**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Else**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Find the asset with the Highest Average Correlation (HC) to all assets not
+    yet been assigned to a Cluster**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Find the asset with the Lowest Average Correlation (LC) to all assets not
+    yet assigned to a Cluster**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**If Correlation between HC and LC > Threshold**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Add a new Cluster made of HC and LC**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Try adding each of the remaining assets that have not yet been assigned to
+    a Cluster in order of highest correlation to the current cluster if correlation
+    of the asset is > the average correlation of the the current cluster.**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Else**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Add a Cluster made of HC**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Try adding each of the remaining assets that have not yet been assigned to
+    a Cluster in order of highest correlation to the current cluster if correlation
+    of the asset is > the average correlation of the the current cluster.**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Add a Cluster made of LC**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Try adding each of the remaining assets that have not yet been assigned to
+    a Cluster in order of highest correlation to the current cluster if correlation
+    of the asset is > the average correlation of the the current cluster**'
+  prefs:
+  - PREF_IND
+  - PREF_IND
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**End if**'
+  prefs:
+  - PREF_IND
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**End if**'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '***End While***'
+  prefs: []
+  type: TYPE_NORMAL

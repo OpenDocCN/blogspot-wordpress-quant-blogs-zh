@@ -1,0 +1,117 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:44:28'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Rotational Trading Strategies: borrowing ideas from Engineering Returns | Systematic
+    Investor'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Frank Hassler at [Engineering Returns](http://engineering-returns.com) blog
+    wrote an excellent article [Rotational Trading: how to reduce trades and improve
+    returns](http://engineering-returns.com/2011/07/06/rotational-trading-how-to-reducing-trades-and-improve-returns/).
+    The article presents four methods to reduce trades:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Trade less frequently. I.e. weekly instead of daily rebalancing.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Different criteria for enter / exit a trade.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Smooth the rank over the last couple of bars.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Combination of above.
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: I want show how to implement these ideas using the backtesting library in the
+    [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+    I will use the 21 ETFs from the [ETF Sector Strategy](http://www.etfscreen.com/sectorstrategy.php)
+    post as the investment universe.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following code loads historical prices from Yahoo Fiance and compares performance
+    of the daily versus weekly rebalancing using the backtesting library in the [Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/6029588ec3cb57ee319da66de7d7ef5b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The number of trades falls down from 443 to 164 as we switch from daily to weekly
+    rebalancing. The additional bonus is the better returns for the weekly rebalancing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s examine different entry/exit rank. We will buy top 2 ETFs and will
+    keep them till their ranks drop below 4 /6.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/803c5f808638ad801e3a5a19ef9e6a24.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The number of trades falls down from 443 to 95 to 52 as we hold on to our selection
+    for longer periods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s examine rank smoothing. Instead of using the most recent rank, we
+    will use different averages of rank’s recent values.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/d0bd6597065db25848ba604e0002546b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The number of trades falls down as we increase the length of period used in
+    averaging. There is no big difference in using simple moving average (SMA) versus
+    exponential smoothing average (EMA).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s combine different methods to reduce number of trades.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/0c319dc34696601d4358e2cba26bf430.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The overall winner is a weekly strategy that buys top 2 ETF’s based on 10 week
+    exponential average rank and keeps them till their ranks drop below 6\. The number
+    of trades falls down from 443 to 28 and performance (CAGR) goes up from 2.4% to
+    7.3%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next step, which you can do as a homework, is to find ways to control the
+    strategy’s drawdowns. One solution is discussed in the [Avoiding severe draw downs](http://engineering-returns.com/2010/07/26/rotational-trading-system/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.rotational.trading.trades.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

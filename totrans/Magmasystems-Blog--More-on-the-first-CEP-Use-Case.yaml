@@ -1,0 +1,352 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:06:29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: More on the first CEP Use Case'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Yesterday, I had a great two-hour session with Henry and Bob from Coral8 in
+    which most of the use case was done.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Henry is our designated pre-sales engineer. His job is to do what it takes to
+    make sure that the prospective customer is happy with the product before making
+    a decision to purchase the product. Bob is the head architect of Coral8, and his
+    job (as he described it) is to make sure that the product is as easy to use as
+    possible.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Between Henry and Bob, two solutions were offered. I will go into the first
+    solution in this blog entry. The second solution revolves around custom timestamping
+    of messages by the input adapter, and this topic deserves a blog entry of its
+    own.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The main problem was to analyze the order flow for each sector over a one minute
+    timeslice, and determine if any sectors showed abnormal activity. The problem
+    that I was faced with was that the concept of “time” was determined by the TransactTime
+    field in the FIX message, and not by the “clock on the wall”. So, if for some
+    reason, I received two FIX messages in a row, one whose TransactTime field was
+    14:24:57 and one whose TransactTime field was 14:25:01, then the receipt of the
+    second FIX message should cause a new timeslice, regardless of what the wall clock
+    said.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The solution that Henry came up with was to use a pulse in a stream. Although
+    the concept of raising an event is very common is programming, it is not really
+    something that you tend to do in SQL stored procedure. The thing is that programming
+    in Coral8’s CCL (as well as the SQL-like dialects that many of the CEP vendors
+    have) is a combination of procedural and SQL programming, and the trick is to
+    find the correct “pattern” to solve your problem. This is where many of the CEP
+    vendors can improve; they can publish a listing of patterns, they can come up
+    with FAQs, etc. I mentioned this to Bob of Coral8, so expect to see some movement
+    on this front from the Coral8 folks.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is what the pulse stream looks like in Coral8’s CCL:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- LastTimeSlice holds the maximum timeslice (0 to 389) of the order stream.
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- When we see an order with a TransactTime greater than the current max timeslice,
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- then we set the new max timeslice. We also use this as a signal (pulse)
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- to one of the streams below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CREATE VARIABLE INTEGER LastTimeslice = -1;
+  prefs: []
+  type: TYPE_NORMAL
+- en: CREATE LOCAL STREAM stream_Pulse;
+  prefs: []
+  type: TYPE_NORMAL
+- en: INSERT INTO stream_Pulse
+  prefs: []
+  type: TYPE_NORMAL
+- en: SELECT
+  prefs: []
+  type: TYPE_NORMAL
+- en: TimeToTimeBucket(FlattenNewOrder.TransactTime) AS epoch
+  prefs: []
+  type: TYPE_NORMAL
+- en: FROM
+  prefs: []
+  type: TYPE_NORMAL
+- en: FlattenNewOrder
+  prefs: []
+  type: TYPE_NORMAL
+- en: WHERE
+  prefs: []
+  type: TYPE_NORMAL
+- en: TimeToTimeBucket(FlattenNewOrder.TransactTime) > LastTimeSlice;
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- When we insert a new timeslice into the stream_Pulse stream, we also
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- set the new maxmimum timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ON stream_Pulse
+  prefs: []
+  type: TYPE_NORMAL
+- en: SET LastTimeSlice = stream_Pulse.epoch;
+  prefs: []
+  type: TYPE_NORMAL
+- en: We have a global variable that keep the maximum timeslice that is flowing through
+    our system. Since there are 6.5 hours in the trading day, there are 390 minute-sized
+    timeslices that we want to consider.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the INSERT statement, if the timeslice from the incoming FIX message is greater
+    than the current maximum timeslice, then we insert a new record into the pulse
+    stream.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The ON statement functions like a trigger. When a new record is inserted into
+    a stream, you can have one or more ON statements that react to the event of inserting
+    a record into the stream. Here, we set the new maximum timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We need to maintain a Window that contains all of the orders for the current
+    timeslice. The order information includes the stock ticker, the sector that the
+    stock belongs to, the number of shares in the order, and the current timeslice.
+    In Coral8, a Window provides retention of records. You can specify a retention
+    policy on a Window, whether it been a time-based retention policy (keep records
+    in the window for 5 minutes) or a row-based retention policy (keep only the last
+    100 rows). What is missing here is a retention policy based on a boolean expression
+    or on a certain column value changing. Streambase has this, and Coral8 knows that
+    this feature should be implemented down the road.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- The TickerAndSector window holds all FIX orders for the current timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- Each row of the window contains the FIX order and the sector information.
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- When we see a new timeslice, the TickerAndSelector window is cleared
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- using a DELETE statement.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CREATE WINDOW TickerAndSector
+  prefs: []
+  type: TYPE_NORMAL
+- en: SCHEMA (Ticker STRING, SectorName STRING, SectorId INTEGER, Shares INTEGER,
+    TransactTimeBucket INTEGER)
+  prefs: []
+  type: TYPE_NORMAL
+- en: KEEP ALL;
+  prefs: []
+  type: TYPE_NORMAL
+- en: INSERT INTO TickerAndSector
+  prefs: []
+  type: TYPE_NORMAL
+- en: SELECT
+  prefs: []
+  type: TYPE_NORMAL
+- en: FlattenNewOrder.Ticker,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.SectorName,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.SectorId,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TO_INTEGER(FlattenNewOrder.Qty),
+  prefs: []
+  type: TYPE_NORMAL
+- en: TimeToTimeBucket(FlattenNewOrder.TransactTime)
+  prefs: []
+  type: TYPE_NORMAL
+- en: FROM
+  prefs: []
+  type: TYPE_NORMAL
+- en: FlattenNewOrder,
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap
+  prefs: []
+  type: TYPE_NORMAL
+- en: WHERE
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
+  prefs: []
+  type: TYPE_NORMAL
+- en: AND TimeToTimeBucket(FlattenNewOrder.TransactTime) >= LastTimeSlice;
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now that we have a list of orders that occur for the current timeslice, we need
+    to know when a new timeslice occurs. At this point, we need to analyze the orders
+    for the current timeslice, find out which sectors are showing abnormal activity,
+    and clear out the TickerAndSector window so that new orders can be accumulated
+    for the new timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- The OrdersPerSectorPerMinute window contains the aggregated totals
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- for each sector for the previous timeslice. The aggregated totals include
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- the number of orders for each sector and the total number of shares for each
+    sector.
+  prefs: []
+  type: TYPE_NORMAL
+- en: --
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- The interesting part of this is the join between the TickerAndSector window
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- and the stream_Pulse. The stream_Pulse will be triggered when we see a new
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: --
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- When we insert rows into the OrdersPerSectorPerMinute window, we will trigger
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- a deletion of the old info in the TickerAndSector window.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CREATE WINDOW OrdersPerSectorPerMinute
+  prefs: []
+  type: TYPE_NORMAL
+- en: SCHEMA (SectorName STRING, SectorId INTEGER, OrderCount INTEGER, TotalShares
+    INTEGER, Timeslice INTEGER)
+  prefs: []
+  type: TYPE_NORMAL
+- en: KEEP 2 MINUTES;
+  prefs: []
+  type: TYPE_NORMAL
+- en: INSERT INTO OrdersPerSectorPerMinute
+  prefs: []
+  type: TYPE_NORMAL
+- en: SELECT
+  prefs: []
+  type: TYPE_NORMAL
+- en: tas.SectorName, tas.SectorId, COUNT(*), SUM(tas.Shares), stream_Pulse.epoch
+  prefs: []
+  type: TYPE_NORMAL
+- en: FROM
+  prefs: []
+  type: TYPE_NORMAL
+- en: TickerAndSector tas, stream_Pulse
+  prefs: []
+  type: TYPE_NORMAL
+- en: GROUP BY
+  prefs: []
+  type: TYPE_NORMAL
+- en: tas.SectorId;
+  prefs: []
+  type: TYPE_NORMAL
+- en: ON OrdersPerSectorPerMinute
+  prefs: []
+  type: TYPE_NORMAL
+- en: DELETE FROM TickerAndSector
+  prefs: []
+  type: TYPE_NORMAL
+- en: WHERE TransactTimeBucket < LastTimeSlice;
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you can see from the above code, when a new timeslice appears, we aggregate
+    the number of orders and the total number of shares that are in the TickerAndSector
+    window. The interesting thing here, and the thing that I might not have figured
+    out on my own, was that we need to join with the pulse stream that we talked about
+    before. The pulse stream here is being used to “kick start” the calculating and
+    dumping of the records in the current timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, since we have aggregated the information for each sector for the current
+    timeslice, we want to see if any sector exceeded the maximum “normal” number of
+    orders.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- This output stream will alert the user when a sector exceeds the
+  prefs: []
+  type: TYPE_NORMAL
+- en: -- max orders for that timeslice.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '----------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: INSERT INTO AlertStream
+  prefs: []
+  type: TYPE_NORMAL
+- en: SELECT
+  prefs: []
+  type: TYPE_NORMAL
+- en: R.SectorId, R.SectorName, R.OrderCount, R.TotalShares
+  prefs: []
+  type: TYPE_NORMAL
+- en: FROM
+  prefs: []
+  type: TYPE_NORMAL
+- en: OrdersPerSectorPerMinute AS R, NormalOrdersPerSectorPerTimeslice AS H
+  prefs: []
+  type: TYPE_NORMAL
+- en: WHERE
+  prefs: []
+  type: TYPE_NORMAL
+- en: R.SectorId = H.SectorId AND R.Timeslice = H.Timeslice AND R.OrderCount > H.MaxOrders;
+  prefs: []
+  type: TYPE_NORMAL
+- en: And, that’s it! If we attach a JMS output adapter to the AlertStream, we can
+    generate a new, derived event, put that event back on the EMS bus (or we can send
+    it into another Coral8 stream), and alert some kind of monitoring application.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Thanks to the Coral8 guys for helping me slog my way through the learning process.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2007 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

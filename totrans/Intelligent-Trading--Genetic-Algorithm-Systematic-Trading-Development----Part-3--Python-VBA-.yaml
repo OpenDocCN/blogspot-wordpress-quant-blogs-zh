@@ -1,0 +1,227 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:46:39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intelligent Trading: Genetic Algorithm Systematic Trading Development -- Part
+    3 (Python/VBA)'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_20.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_20.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: As mentioned in prior posts, it is not possible to use the standard Weka GUI
+    to instantiate a Genetic Algorithm, other than for feature selection. Part of
+    the reason is that there is no generic algorithm to instantiate a fitness function.
+    The same flexibility that allows an infinite possible range of fitnesses also
+    requires custom scripting. Although it is possible to write a custom class for
+    Weka/JAVA, I chose to utilize Python for this example, along with an older VBA
+    tool I developed for the back-end results summary. Hopefully, you'll see that
+    there are many tools that may be utilized to prototype various systems and augment
+    the development process.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The essential GA uses a 17 bit string length to encode the following rule:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{if ma(m) binop ma(n) then buy}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first 8 bits are used to encode the 1st ma value. Note there are 2^n = 2^8
+    = 256 potential decimal values that can be used for the parameter argument. The
+    9th bit is a 2 bit encoded value of the > or < binary operator as discussed in
+    prior posts. The last 8 bits are used for the 2nd moving average parameter value.
+    A simple fitness of the net dollar return was used for this example (Note Sharpe
+    ratio, and other fitness metrics could have been used). The input series is SPY,
+    using the range from 1993-2005 daily to optimize.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The python script was essentially set up to run 40 generations of a population
+    of size 20 using elitism and tournament selection. Although this is by no means
+    optimal (it is quite small), it was set up using these values for illustrative
+    purposes. When you watch the video, what you'll see is the initial population
+    in binary encoded strings each time a generation is passed. In addition, the decoded
+    moving average rule is shown for each selection change. Although the video has
+    been truncated for brevity, you should notice that the fitness number is improving
+    each generation. The final solution was designed to halt after a fitness did not
+    improve over five generations. In addition, you can see the final encoded result
+    and a plot of the fitness convergence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: <param name="movie" value="http://www.youtube.com/v/Fw8TFDKk92Q&amp;hl=en&amp;fs=1"><param
+    name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed
+    src="http://www.youtube.com/v/Fw8TFDKk92Q&amp;hl=en&amp;fs=1" type="application/x-shockwave-flash"
+    allowscriptaccess="always" allowfullscreen="true">
+  prefs: []
+  type: TYPE_NORMAL
+- en: Video 1\. Optimization of MA parameters using Python GA
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/8a528cf90da5fc01e2731e82acb58832.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFCoFr3pgfTFQxH2Qg1WYRWo8XPyASyjnrM0ahpC73qHYbJn2_vodjYoT-oA3Lzo2IsVCei7zBbdc2UpCV_w0Xsh6SI6opUEaJRHQElZcQwAyY3XJbkZAyEqqqaguVlPs8fQRU1LKXgro/s1600-h/figout1.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 1\. Final Fitness result output to console
+  prefs: []
+  type: TYPE_NORMAL
+- en: In fig 1\. we see that the final rule converged to {if ma(220) > ma(221)) then
+    Buy.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In addition, the final binary string is shown along with the final fitness value.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We can decode the binary string with relative ease.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[110110111110111100] is the 17 bit string representing the optimal fitness.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ma1 is 1st 8 bits = 11011011 = 219 decimal a +1 offset was used (so as not to
+    have 0 day moving average) to get a resulting parameter argument of 220.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next bit is = 1 corresponding to >
+  prefs: []
+  type: TYPE_NORMAL
+- en: The final 8 bits represent the 221 argument by similar reasoning as the first.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So the resulting rule with parameters is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: if ma(220) > ma(221) then Buy
+  prefs: []
+  type: TYPE_NORMAL
+- en: fitness = net$gain = $316.12
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/cec9657bb63b463cee904083a79be225.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLQzQTtpoi6BTvTSJ9rrzsnAe_qGWiG_2yxzKNgPnncILqSQKnmxhW55hjkoHLsQJLR2uplZmuljQiYBgRdkZp0pklA28B3FZ7ZDXVMnRfVwHX7FLiWXDJCKXAyloFZ6jGtJM5qoEHa9Y/s1600-h/figout2.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: fig 2\. Fitness Convergence
+  prefs: []
+  type: TYPE_NORMAL
+- en: In fig 2\. We see how the fitness continued to climb over successive generations
+    until early convergence caused a halt at the fitness value that did not change
+    over the prior 5 generations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In order to verify the results, we will also show how other tools may be used.
+    In this case, I used an older VBA simulator that I wrote a few years back.
+  prefs: []
+  type: TYPE_NORMAL
+- en: <param name="movie" value="http://www.youtube.com/v/Q6SRTE-m13s&amp;hl=en&amp;fs=1"><param
+    name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed
+    src="http://www.youtube.com/v/Q6SRTE-m13s&amp;hl=en&amp;fs=1" type="application/x-shockwave-flash"
+    allowscriptaccess="always" allowfullscreen="true">
+  prefs: []
+  type: TYPE_NORMAL
+- en: Video 2\. Summary of optimized parameters using VBA/Excel
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/5fee365d7ad33d24d5c0a859de0bc73c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTmrtDbp-hdWonl0LFLbbQ1IDbIm_J1E8XxPNy8CraDdOV_cF23nQwCMML1vaoLvor8iPEGRB1gXvM8r2CVWip4ah1rldQ-Ob6EnQI_szSmwbZd_bu9gsl99En3g6PD3TDFVznv77El6Q/s1600-h/fig3summaryc.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 3\. Summary of Back Test Results
+  prefs: []
+  type: TYPE_NORMAL
+- en: Above is a capture of the summary statistics using the back test program. Total
+    net profit is slightly higher than the python results. This is due to the fact
+    that the python simulation truncated the series length of the moving average data,
+    so as to avoid zero front padded values, while the excel program did not. However,
+    they are still in close agreement. It's often useful to use several different
+    programs to force yourself to double check results.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now, as an astute commenter already pointed out... this method is indeed curve
+    fitting. What we found was the best possible pair of parameters(or at least one
+    of the best; there are superior parameters, but I didn't run the example generation
+    set too long) for our particular rule set we set out to investigate. Or as I mentioned
+    in the first thread, we zeroed in on the region of the distribution curve with
+    the most profitable candidates. Now, for those of you not familiar with curve
+    fitting, it is not a happy concept amongst developers. In fact, it suffers from
+    almost the same egregious problems as cherry picking examples, as I mentioned
+    earlier on.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That being said, however, it is not done in vain. Our goal here is to quantitatively
+    augment common development (the part where you create and verify) tools beyond
+    mere guessing, intuition, and cherry picking. Firstly, it is possible that this
+    particular rule set will not fare as well out of sample, which is true. However,
+    in the same sense that we can not just take one cherry picked example for granted,
+    we must also evaluate how things actually do perform out of sample. I say this
+    because I've used similar techniques that looked very good, and did indeed perform
+    very well out of sample for several periods out into the future. By honing in
+    on the best candidates, we help to narrow down the set of candidates that are
+    worthy of out of sample investigation. There are other additional techniques (some
+    mentioned earlier, such as ensemble methods, different objective/fitness functions,
+    and even different optimization criteria) that can be used to enhance this method,
+    and in addition, verify robustness out of sample.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'edit: Just for giggles, I decided to actually run the Out of Sample performance
+    on this optimized in sample trained rule. The following chart illustrates how
+    it performed ''out of sample'' for the years 2005-today(2010).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/48ebb4f6e2354c313f10165eab59cb61.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4vPld0sjsu-O1xiKPMd0JkjdZR2IbwkGZ99GWtqXwpWpJkGijWSsgdmLf-AOYJZOWTh_uJwAqUX-4DRjfpwVZWOC2wtV7k1NdvI1qCMRr85aGVZwnrVNK-_4Aj9p2PUkpUbikIx_ucE4/s1600-h/training_test.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 4\. Out of Sample Test Performance on optimized training rule parameters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Not all that shabby for that curve fitted simple system during the worst meltdown
+    in recent history, eh (much easier on the gut)?
+  prefs: []
+  type: TYPE_NORMAL
+- en: To be frank, I have run so many evaluations on simple SMA systems, that I would
+    say that they are not the most superior parameters to optimize around. Obviously,
+    however, it really depends on what your objective is. There are some long term
+    studies that have shown using the fitness objective of reduced volatility as the
+    goal is quite beneficial with this simple rule set (you can verify that this simple
+    system had far less volatility over the down periods, than the actual market--
+    in and out of sample) . It is up to you to find those parameters that are worthy
+    of optimizing further. See
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[commentary on A Quantitative Approach to Tactical Asset Allocation](http://blog.fosstrading.com/2010/02/updated-tactical-asset-allocation.html)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: for a related example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As always, please do your own due diligence before making any trading decisions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And please continue to give your feedback on what you like or don't like and
+    areas you want to explore.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '---------------------------------------------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'If you are new to Python and would like to order a fantastic textbook, I highly
+    recommend the following (applications geared a bit towards science and engineering):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[A Primer on Scientific Programming with Python](http://www.amazon.com/Scientific-Programming-Computational-Science-Engineering/dp/3642024742/ref=sr_1_26?ie=UTF8&s=books&qid=1266694073&sr=8-26)
+    [![](img/d7c663739d1cf49a99eb159f3cd5ad3c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbuSOutut7UL6Y3q4Bxhvs9sof5DoY020Z8KiIJsCnHpXRuRrZklXYQfJKCuH_TEJpU5VPgohqqOZ1n22Z0UiXOjHPz4-2J2f91T4LcJIRwLdK8q3ILkdJLpxmWfFj0bjhQMCtqeNSKxE/s1600-h/pythonad.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In addition, users who are interested in learning a bit more about VBA with
+    a Financial Oriented slant will find great practical examples in the text:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Financial Modeling, 3rd Edition](http://www.amazon.com/Financial-Modeling-3rd-Simon-Benninga/dp/0262026287/ref=sr_1_1?ie=UTF8&s=books&qid=1266694665&sr=1-1)
+    [![](img/d9a70b41253e9b1a75c1f96bf9a94ecd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXH-pisfW312Ck27Z04lequdoNSbAC7VqecTAk16LmLSyfJVV3sn1_JTQlwmgt0EZUK1dKPpvPqQ-ZBGWchS4sWjsKyYZwpJzdBk3ZZer8nKYYxf_BDU-AW2BzimJJWFDDGFC3wUqmS5I/s1600-h/finanialmodellingad.jpg)'
+  prefs: []
+  type: TYPE_NORMAL

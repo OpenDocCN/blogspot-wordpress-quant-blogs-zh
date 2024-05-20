@@ -1,0 +1,301 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:17:59'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Great FAJ Article on Statistical Measure of Financial Turbulence
+    Part 3'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Building on posts [Great FAJ Article on Statistical Measure of Financial Turbulence](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.html)
+    and [Great FAJ Article on Statistical Measure of Financial Turbulence Part 2](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html),
+    I will now build a system incorporating a new correlation-based measure of turbulence
+    and a simple relative strength technique.  First, the new correlation-based measure
+    looks like this
+  prefs: []
+  type: TYPE_NORMAL
+- en: Then if we build a system with just this new correlation-based turbulence, we
+    get fairly good results.  However, if we take one step extra and apply a slope-based
+    relative strength to choose S&P500 or CRB rather than equal-weight both, we get
+    even better results.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I always want more data in countries and years, but 1957 is pretty thorough. 
+    Please let me know how you would improve this system.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data from St. Louis Federal Reserve (FRED)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS20",src="FRED") #load 20yTreasury; 20y has gap 86-93; 30y has
+    gap in early 2000s'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS30",src="FRED") #load 30yTreasury to fill 20y gap 86-93'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("BAA",src="FRED") #load BAA'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("SP500",src="FRED") #load SP500'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get CRB data from a csv file'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#fill 20y gap from discontinued 20y Treasuries with 30y'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#do a little manipulation to get the data lined up on monthly basis'
+  prefs: []
+  type: TYPE_NORMAL
+- en: SP500<-to.monthly(SP500)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(SP500)<-as.Date(index(SP500))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#my CRB data is end of month; could change but more fun to do in R'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-to.monthly(CRB)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(CRB)<-as.Date(index(CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#let''s merge all this into one xts object; CRB starts last in 1956'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assets<-na.omit(merge(GS20,SP500,CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use ROC for SP500 and CRB and momentum for yield data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:3],type="discrete")))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Correlations'
+  prefs: []
+  type: TYPE_NORMAL
+- en: corrBondsSp<-runCor(assetROC[,1],assetROC[,2],n=7)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corrBondsCrb<-runCor(assetROC[,1],assetROC[,3],n=7)
+  prefs: []
+  type: TYPE_NORMAL
+- en: corrSpCrb<-runCor(assetROC[,2],assetROC[,3],n=7)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#composite measure of correlations between asset classes and roc-weighted correlations'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetCorr<-(corrBondsSp+corrBondsCrb+corrSpCrb+
+  prefs: []
+  type: TYPE_NORMAL
+- en: (corrBondsSp*corrSpCrb*assetROC[,2])+
+  prefs: []
+  type: TYPE_NORMAL
+- en: (corrBondsCrb*corrSpCrb*assetROC[,3])-
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROC[,1])/6
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#sum of ROCs of asset classes'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#finally the turbulence measure'
+  prefs: []
+  type: TYPE_NORMAL
+- en: turbulence<-abs(assetCorr*assetROCSum*100)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(turbulence)<-"Turbulence-correlation"
+  prefs: []
+  type: TYPE_NORMAL
+- en: chartSeries(turbulence,theme="white",name="Correlation and % Change as Measure
+    of Financial Turbulence")
+  prefs: []
+  type: TYPE_NORMAL
+- en: abline(h=0.8)
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.ACF(turbulence,main="Auto-correlation of Turbulence")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#wish I could remember where I got some of this code'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#most likely candidate is www.fosstrading.com'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#please let me know if you know the source'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#so I can give adequate credit'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use turbulence to determine in or out of equal-weighted sp500 and crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal<-ifelse(turbulence>0.8,0,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use slope of sp500/crb to determine sp500 or crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal<-lag(signal,k=1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Replace missing signals with no position
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: (generally just at beginning of series)
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: signal[is.na(signal)] <- 0
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get returns from equal-weighted crb and sp500 position; Return.portfolio was
+    causing problems, so did the hard way'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ret<-(assetROC[,2]+assetROC[,3])/2
+  prefs: []
+  type: TYPE_NORMAL
+- en: ret[1] <- 0
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get system performance'
+  prefs: []
+  type: TYPE_NORMAL
+- en: system_perf<-ret*signal
+  prefs: []
+  type: TYPE_NORMAL
+- en: system_eq<- cumprod(1+ret*signal)
+  prefs: []
+  type: TYPE_NORMAL
+- en: perf_comparison<-merge(lag((assetROC[,2]+assetROC[,3])/2,k=1),system_perf)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(perf_comparison)<-c("Equal-weighted","System-with-turbulence-filter")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(perf_comparison,ylog=TRUE,main="Turbulence-based System
+    vs Equal-Weighted CRB and SP500")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#let''s use basic relative strength to pick sp500 or crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#know I can do this better in R but here is my ugly code'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#to calculate 12 month slope of sp500/crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: width=12
+  prefs: []
+  type: TYPE_NORMAL
+- en: for (i in 1:(NROW(assets)-width)) {
+  prefs: []
+  type: TYPE_NORMAL
+- en: model<-lm(assets[i:(i+width),2]/assets[i:(i+width),3]~index(assets[i:(i+width)]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: ifelse(i==1,assetSlope<-model$coefficients[2],assetSlope<-rbind(assetSlope,model$coefficients[2]))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetSlope<-xts(cbind(assetSlope),order.by=index(assets)[(width+1):NROW(assets)])
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use turbulence to determine in or out of equal-weighted sp500 and crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal<-ifelse(turbulence[(width):NROW(turbulence)]>0.8,0,1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use slope of sp500/crb to determine sp500 or crb'
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal2<-ifelse(assetSlope>0,1,2)
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal<-lag(signal,k=1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal[1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal2<-lag(signal2,k=1)
+  prefs: []
+  type: TYPE_NORMAL
+- en: signal2[1]<-0
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get sp500 or crb return based on slope'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ret<-ifelse(signal2==1,assetROC[(width):NROW(assetROC),2],ifelse(signal2==2,assetROC[(width):NROW(assetROC),3],0))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get system performance'
+  prefs: []
+  type: TYPE_NORMAL
+- en: system_perf_rs<-ret*signal
+  prefs: []
+  type: TYPE_NORMAL
+- en: system_eq_rs<- cumprod(1+ret*signal)
+  prefs: []
+  type: TYPE_NORMAL
+- en: perf_comparison<-merge((assetROC[,2]+assetROC[,3])/2,assetROC[,2],assetROC[,3],system_perf,system_perf_rs)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(perf_comparison)<-c("Equal-weighted","S&P500","CRB","System-with-turbulence-filter","System-with-turbulence-filter
+    and RS")
+  prefs: []
+  type: TYPE_NORMAL
+- en: charts.PerformanceSummary(perf_comparison,ylog=TRUE,main="Turbulence-based System
+    with RS vs Equal-Weighted, CRB, and SP500")
+  prefs: []
+  type: TYPE_NORMAL

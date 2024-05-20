@@ -1,0 +1,126 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:38:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Adaptive Asset Allocation | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to highlight a whitepaper about [Adaptive Asset Allocation by Butler,
+    Philbrick and Gordillo](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
+    and the discussion by David Varadi on the [robustness of parameters of the Adaptive
+    Asset Allocation algorithm](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: In this post I will follow the steps of the [Adaptive Asset Allocation](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
+    paper, and in the next post I will show how to test the sensitivity of parameters
+    of the of the Adaptive Asset Allocation algorithm.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I will use the 10 ETFs that invest into the same asset classes as presented
+    in the paper:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: U.S. Stocks ([SPY](http://www.google.com/finance?q=SPY))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: European Stocks ([EFA](http://www.google.com/finance?q=EFA))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Japanese Stocks ([EWJ](http://www.google.com/finance?q=EWJ))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Emerging Market Stocks ([EEM](http://www.google.com/finance?q=EEM))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: U.S. REITs ([IYR](http://www.google.com/finance?q=IYR))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: International REITs ([RWX](http://www.google.com/finance?q=RWX))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: U.S. Mid-term Treasuries ([IEF](http://www.google.com/finance?q=IEF))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: U.S. Long-term Treasuries ([TLT](http://www.google.com/finance?q=TLT))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Commodities ([DBC](http://www.google.com/finance?q=DBC))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Gold ([GLD](http://www.google.com/finance?q=GLD))
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Unfortunately, most of these 10 ETFs only began trading in the end of 2004,
+    so I will only be able to replicate the recent Adaptive Asset Allocation strategy
+    performance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s start by loading historical prices of 10 ETFs using the [Systematic Investor
+    Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, let’s create portfolios as outlined in the whitepaper:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Finally let’s create the Adaptive Asset Allocation portfolio:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The last step is create reports for all models:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/bf3075185d668478aa1b4bb3770e6f1e.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/8dd5163bf85dd9a25d7d1f32c16a0a78.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e4741c164818269075d7474a398d09c2.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot3-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/63be27edcebb4ba5d3b62bc577c3ddee.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot4-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The AAA portfolio performs very well, producing the highest Sharpe ratio and
+    smallest draw-down across all strategies. In the next post I will look at the
+    sensitivity of AAA parameters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.aaa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

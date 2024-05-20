@@ -1,0 +1,167 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:46:31'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: Portfolio Optimization | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01](https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Welcome back. If you read my last two posts, you may recall that I showed how
+    to use QuantLib to do linear optimization in the context of a bond portfolio construction
+    problem and mean-variance portfolio analysis by way of the concept of the Efficient
+    Frontier, respectively.  In this installment of my ‘Introducing QuantLib’ series,
+    I will combine elements of each of these two posts in order to demonstrate how
+    QuantLib can be used to generate the Efficient Frontier in the presence of constraints
+    on a portfolio’s composition. Specifically, short sales will not be allowed.  
+    Finding the Efficient Frontier with no short sales will require the repeated solution
+    of a non-linear portfolio optimization problem in which every asset in the portfolio
+    must have a non-negative weighting.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'As in previous posts, I will first model the problem in a spreadsheet and then
+    replicate the solution in C++ using classes from the QuantLib library.  The essentials
+    of the model are borrowed from Chapter 11 of Simon Benninga’s excellent book *[Financial
+    Modeling, 2nd Edition](http://www.amazon.com/Financial-Modeling-2nd-Simon-Benninga/dp/0262024829/ref=sr_1_1?s=books&ie=UTF8&qid=1371528897&sr=1-1&keywords=financial+modeling+2nd+edition).*
+    Specifically*,* the weightings on each of four assets, AAPL, IBM, ORCL, GOOG,
+    must be determined such that [Sharpe Ratio](http://en.wikipedia.org/wiki/Sharpe_ratio)
+    of the portfolio is maximized subject to the following constraints:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The portfolio’s asset weightings must sum to 1
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Every asset weighting in the portfolio must be greater than or equal to zero
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: A screen shot of the full spreadsheet is below, which can be downloaded from
+    my Box account at [https://www.box.com/s/7w4tvfqueqqu676vhz5l](https://www.box.com/s/7w4tvfqueqqu676vhz5l)
+  prefs: []
+  type: TYPE_NORMAL
+- en: As stated in my earlier post on linear optimization, all optimization problems
+    feature a function that must be either maximized or minimized.  This function
+    is called the objective function. In this portfolio optimization problem, *Theta*
+    is the value of the objective function that is to maximized.  It is defined as
+    the ratio of excess return to portfolio standard deviation, where excess return
+    is the portfolio return over and above the risk-free rate, defined as the constant,
+    c, in the spreadsheet.  Theta, is then essentially, the same thing as the portfolio’s
+    Sharpe Ratio for a given value of c.  More intuitively, Theta is a measure of
+    reward for a given amount of risk.  In maximizing Theta, we seek to allocate our
+    capital amongst the four stocks in the portfolio such that we accrue the greatest
+    reward for the least amount of risk.  This goal is consistent with the fact that
+    most investors are risk-averse.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![efnscalc](img/8ad59a4efefdb5bbb5da278323465159.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/efnscalc.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'On a side note, you may have noticed that this spreadsheet was created using
+    OpenOffice, not LibreOffice, which I employed in previous posts.  I had to switch
+    to OpenOffice in order to install the ‘[Solver for Nonlinear Programming](http://extensions.openoffice.org/en/project/NLPSolver)‘
+    OpenOffice extension, which is currently not supported by LibreOffice on my laptop’s
+    operating system, Ubuntu 12.04.  Without the non-linear solver extension, LibreOffice
+    detects that the problem is non-linear and fails to find a solution:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![notlinear](img/2eb89004a93adaae7232e3b230c64e82.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/notlinear.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Now let’s see how to set up and solve this problem in QuantLib. The C++ code
+    is below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'When run this code solves for the optimal weightings for all values of c between
+    -.035 and .16.  For example, the ouput for c = .05 is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`————————————'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Solution type: StationaryPoint'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Constant (c): 0.0500'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'AAPL weighting: 0.5659'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'IBM weighting: 0.1047'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'ORCL weighting: 0.3294'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'GOOG weighting: 0.0000'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Theta: 0.1839'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio mean: 0.0876'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio standard deviation: 0.2046'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ————————————
+  prefs: []
+  type: TYPE_NORMAL
+- en: This solution is in very close agreement with the solution arrived at by the
+    OpenOffice spreadsheet with the non-linear solver extension.  So, it looks like
+    the QuantLib code is doing the right thing. Cool!
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Towards the end of code listing, I provide the [gnuplot](http://www.gnuplot.info/)
+    commands that render the chart for the Efficient Frontier with no short sales,
+    pictured below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![noshortsales](img/c2f40b04952857ad0201a71e4a2100b3.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/noshortsales.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lastly, I want to mention that I originally planned to use a QuantLib [OptimizationMethod](http://quantlib.org/reference/class_quant_lib_1_1_optimization_method.html)
+    class other than [Simplex](http://quantlib.org/reference/class_quant_lib_1_1_simplex.html),
+    such as [ConjugateGradient](http://quantlib.org/reference/class_quant_lib_1_1_conjugate_gradient.html),
+    because I mistakenly believed that QuantLib’s Simplex class could not handle non-linear
+    optimization problems.  However, when I looked at the comments for the Simplex
+    class in the Simplex.hpp header, I learned that it is based on the multidimensional
+    [Nelder Mead Simplex](http://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method)
+    method, which does support non-linear optimization in several variables.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That concludes this installment of my ‘Introducing QuantLib’ series. I hope
+    you enjoyed it.  In my next post, I will be steering away from portfolio theory
+    and optimization, which have been the focus of my last three posts, and transitioning
+    to a discussion of option pricing.  Check back soon and, as always, I encourage
+    you to submit comments and/or questions.  In the meantime, have fun with QuantLib!`  `##
+    About Mick Hittesdorf
+  prefs: []
+  type: TYPE_NORMAL
+- en: I'm a versatile technical leader with a passion for data analytics, data science
+    and Big Data technology. I have experience working for both large and small organizations,
+    in a variety of roles. I've been responsible for the management and operations
+    of a global data science and analytics platform, developed low latency, proprietary
+    trading systems, managed software development teams, defined enterprise architecture
+    strategies, written white papers and blogs, published articles in industry journals
+    and delivered innovative solutions to clients, both in a consulting and technical
+    sales capacity. My current areas of focus include Big Data, data engineering,
+    data science, R, and Cloud computing`
+  prefs: []
+  type: TYPE_NORMAL

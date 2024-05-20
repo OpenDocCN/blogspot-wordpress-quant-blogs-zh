@@ -1,0 +1,69 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:40:23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Volatility Quantiles | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Today I want to examine the performance of stocks in the S&P 500 grouped into
+    [Quantiles](http://en.wikipedia.org/wiki/Quantile) based on one year historical
+    Volatility. The idea is very simple: each week we will form Volatility Quantiles
+    portfolios by grouping stocks in the S&P 500 into Quantiles using one year historical
+    Volatility. Next we will backtest each portfolio and check if low historical volatility
+    corresponds to the low realized volatility.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s start by loading historical prices for all companies in the S&P 500 and
+    create SPY and Equal Weight benchmarks using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s divide stocks in the S&P 500 into Quantiles using one year historical
+    Volatility and create backtest for each quantile.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Finally let’s plot historical equity curves for each Volatility Quantile and
+    create a summary table.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/83fb5bfae52960bde4a3ca2c8984d0d1.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/a7911ea135f47c20b983a095de2f988b.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Our thesis is true for stocks in the S&P 500 index: low historical volatility
+    leads to low realized volatility. There is a one-to-one correspondence between
+    historical and realized volatility quantiles.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please note that performance numbers have to be taken with a grain of salt because
+    I used **current** components in the S&P 500 index; hence, introducing [survivorship
+    bias](http://en.wikipedia.org/wiki/Survivorship_bias).
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.volatility.quantiles.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

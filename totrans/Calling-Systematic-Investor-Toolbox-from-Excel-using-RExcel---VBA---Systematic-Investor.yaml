@@ -1,0 +1,105 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:37:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calling Systematic Investor Toolbox from Excel using RExcel & VBA | Systematic
+    Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[RExcel](http://rcom.univie.ac.at/download.html) is a great tool to connect
+    R and Microsoft Excel. With a press of a button, I can easily execute my R scripts
+    and present output interactively in Excel. This easy integration allows non-R
+    users to explore the power of the R language. As an example of this approach,
+    I want to show how to create an Efficient Frontier using [Systematic Investor
+    Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    and display it in Excel.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: First, you need to install [RExcel](http://rcom.univie.ac.at/download.html)
+    from [http://rcom.univie.ac.at/download.html](http://rcom.univie.ac.at/download.html)
+    I used the following guide to help with my installation [http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, please check that [RExcel](http://rcom.univie.ac.at/download.html) is
+    working properly by trying some examples from
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Now, we are ready to design the workbook to run mean-variance optimization
+    to create an Efficient Frontier. Following is a screen shot of the complete interface:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/5a61f51efb68df5dd2e2da0197883901.png "snapshot")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/snapshot.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can download the [AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)
+    workbook and experiment with it while you keep reading.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s put our Input Assumptions into Excel: Return, Risk, and Correlation matrix
+    in rows 1:12\. Let’s make a button at row 14 to construct an Efficient Frontier
+    and associate it with our **“create_efficient_frontier”** VBA macro.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The **“create_efficient_frontier”** VBA macro will collect our Input Assumptions
+    from Excel and send them to the R environment. It will next execute the R script
+    to construct the Efficient Frontier, and finally it will collect R calculations
+    of Risk, Return, and Weights of portfolios lying on the Efficient Frontier and
+    transfer them back to Excel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here is the R script to construct the Efficient Frontier. I created a VBA function
+    **“create_rcode”** to create this file automatically for this example. In practice
+    this can be a static file containing all the logic for your algorithm.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The **“create_efficient_frontier”** VBA macro will collect Input Assumptions
+    and send them to R environment, it will next execute the R script to construct
+    the Efficient Frontier, and finally it will collect the Risk, Return, and Weights
+    of portfolios lying on the Efficient Frontier and transfer it back to Excel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Here is the **“create_efficient_frontier”** VBA macro that automates all the
+    functionality:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Here is a complete [AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)
+    workbook that creates an Efficient Frontier with user specified Input Assumptions.
+    This workbook can be used by non-R users to explore the power of the R language,
+    as long as [RExcel](http://rcom.univie.ac.at/download.html) is installed.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please make sure that you add the RExcel library to the references. First, click
+    on the Tool->References (from the VBA IDE menu)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ac9e599a95b48829f7992ad7b21eda77.png "RExcel.ref1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next select RExcelVBAlib and press Ok
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/3d24bedb444c1dac0a765f0d3b6a6573.png "RExcel.ref2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL

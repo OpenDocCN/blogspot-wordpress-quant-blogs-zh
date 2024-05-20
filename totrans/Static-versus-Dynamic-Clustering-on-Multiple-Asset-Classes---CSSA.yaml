@@ -1,0 +1,76 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:02:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Static versus Dynamic Clustering on Multiple Asset Classes | CSSA
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2013/01/19/static-versus-dynamic-clustering-on-multiple-asset-classes/#0001-01-01](https://cssanalytics.wordpress.com/2013/01/19/static-versus-dynamic-clustering-on-multiple-asset-classes/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'In the last post we looked at the performance of [static versus dynamic clusters
+    on Dow 30 stocks](https://cssanalytics.wordpress.com/2013/01/14/dynamic-versus-static-clustering-dow-30-stocks-1995-present/
+    "Dynamic versus Static Clustering: Dow 30 Stocks 1995- Present"). It is also logical
+    to look at the same comparison on multiple asset classes. Michael Kapler of [Systematic
+    Investor](http://systematicinvestor.wordpress.com/) ran the same set of tests
+    on major market asset class ETFs for comparison.  To avoid distortion in static
+    versus dynamic clustering, the starting point for the test data was set at the
+    point when all ETF data for each asset class was available. We used the “common
+    sense” method for static clustering, which is typically how investors and traders
+    categorize assets:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![static asset class clusters](img/0ea8b69629cabc71f50d8ab3278fb483.png)](https://cssanalytics.files.wordpress.com/2013/01/static-asset-class-clusters.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The ETFs chosen cover a broad range of asset classes. For dynamic clustering,
+    we again used the  principal components clustering method which is referred to
+    as “hcluster” in “R”. Note that [Cluster Risk Parity](https://cssanalytics.wordpress.com/2013/01/03/cluster-risk-parity/
+    "Cluster Risk Parity") refers to using dynamic clustering with risk parity allocation
+    both within and across clusters–ideally with [risk parity-ERC](https://cssanalytics.wordpress.com/2012/07/19/not-equal-a-comparison-of-risk-parity-and-equal-risk-contribution/
+    "Not Equal: A Comparison of “Risk Parity” and “Equal Risk Contribution”"), or
+    equal risk contribution.The test comparisons are presented below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![clustering and multiple asset classes](img/6b757d556f1a0992e884f4bad85f4e03.png)](https://cssanalytics.files.wordpress.com/2013/01/clustering-and-multiple-asset-classes.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'While this is not a long backtest, we see that the results are consistent with
+    prior results on the Dow 30 tests and also with what we would logically expect:
+    1) Cluster Risk Parity is the best performer in terms of risk-adjusted returns
+    (and also annualized returns in this case) 2) dynamic clustering outperforms static
+    clustering in terms of both returns and risk-adjusted returns 3) static clustering
+    outperforms non-clustering and all clustering methods outperform non-clustering
+    in terms of returns and risk-adjusted returns. To further break things down, we
+    also see a logical rank progression based on the risk allocation method: 1) All
+    risk parity variants outperform equal weight in terms of returns and more importantly
+    risk-adjusted returns 2) risk parity-ERC outperforms the more basic risk parity
+    methods- which do not make use of the covariance information. In this dataset,
+    all of the rankings show a greater separation in terms of magnitude than on the
+    Dow 30 tests, which can be expected since assets are less homogenous than stocks.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In general, the purpose of these tests is to show the importance of dynamic
+    clustering and also more precise risk allocation methods in portfolio management.
+    The combination of these two methods leads to a superior risk control and risk-adjusted performance
+    than either in isolation. While the performance improvements are somewhat modest,
+    they are fairly consistent and also more importantly make the portfolio allocation
+    process less sensitive to unfavorable variation arising from universe specification.
+    In fact, it is possible (with some refinement in these methods) to avoid having
+    to carefully pre-select a universe in the first place. This leads to backtest
+    performance that is less likely to be inflated in relation to out of sample results.
+    In a perfect world, we would want to input a large universe of liquid tradeables
+    and have a self-assembing optimization and allocation process with multiple layers
+    based on a set of pre-specified constraints.
+  prefs: []
+  type: TYPE_NORMAL

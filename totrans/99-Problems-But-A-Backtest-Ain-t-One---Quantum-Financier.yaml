@@ -1,0 +1,97 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:00:13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 99 Problems But A Backtest Ain’t One – Quantum Financier
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantumfinancier.wordpress.com/2015/03/23/99-problems-but-a-backtest-aint-one/#0001-01-01](https://quantumfinancier.wordpress.com/2015/03/23/99-problems-but-a-backtest-aint-one/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Backtesting is a very important step in strategy development. But if you have
+    ever went through the full strategy development cycle, you may have realized how
+    difficult it is to backtest a strategy properly.
+  prefs: []
+  type: TYPE_NORMAL
+- en: People use different tools to implement a backtest depending on their expertise
+    and goals. For those with a programming background, [Quantstrat](https://r-forge.r-project.org/scm/viewvc.php/pkg/quantstrat/?root=blotter)
+    (R), [Zipline](https://github.com/quantopian/zipline), [PyAlgoTrade](https://github.com/gbeced/pyalgotrade)
+    (Python) or [TradingLogic](https://github.com/JuliaQuant/TradingLogic.jl) (Julia)
+    are sure to be favorite options. For those preferring a retail product that involves
+    less conventional programming, Tradestation or TradingBlox are common options.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One of the problems with using a third party solution is often the lack of flexibility.
+    This doesn’t become apparent until one tries to backtest a strategy that requires
+    more esoteric details. Obviously this will not be an issue backtesting the classics
+    like moving averages or donchian channel type strategies, but I am sure some of
+    you have hit your head on the backtest complexity ceiling more than once. There
+    is also the issue of fill assumption. Most backtests I see posted on the blogosphere
+    (including the ones present on this humble website) assume trade on the close
+    price as a simplifying assumption. While this works well for the purpose of entertaining
+    a conversation on the internet, it is not robust enough to be used as the basis
+    for decision making to deploy significant capital.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first time one can actually realize how good (bad) his chosen backtesting
+    solution is when the strategy is traded live. However I am always amazed how little
+    some traders pay attention to how closely their backtest match their live results.
+    To some, it is like the strategy is the step following the backtest. I think this
+    is missing on some crucially important part of the trading process, namely the
+    feedback loop. There is a lot to be learned in figuring out where the difference
+    between simulation and live implementation. In addition to the obvious bugs that
+    may have passed through testing, it will quickly become apparent whether your
+    backtest assumptions are any good and whether or not they must be revisited. Ideally
+    backtested results and live results for the period which the overlap should be
+    closely similar. If they are not, one should be asking serious questions and try
+    to figure out where the discrepancies come from. In a properly designed simulation
+    on slow frequency data (think daily or longer) you should be able to reconcile
+    both to the penny. If the backtester is well designed, the difference is probably
+    going to center on the fill price at the closing auction being different from
+    the last traded price which is typically what gets reported as the close price.
+    I always like to pay particular attention to the data I use to generate live signals
+    and compare it to the data fed to the simulation engine to find potential signal
+    differences as I often find that the live implementation trades off data that
+    doesn’t always match with the simulation dataset. Obviously, as the time frame
+    diminishes the problems are magnified. Backtesting intraday trading strategies
+    is notoriously difficult and beyond the scope of this blog. Let’s just say that
+    a good intraday backtester is a great competitive advantage for traders/firms
+    willing to put in the development time and money.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It would be negligent of me to complain about backtesting problem without offering
+    some of the processes that I use to improve their quality and ultimately usability.
+    First I personally chose not to use a third party backtesting solution. I use
+    software that I write, not because it is better than other solutions out there
+    but because it allows me to fully customize all aspects of the simulation in a
+    way that is intuitive to me. That way I can tune any backtest as part of the feedback
+    loop I was referring to earlier to more accurately model live trading. Furthermore,
+    as I refined the backtester over time, it slowly morphed into an execution engine
+    that could be used with proper adapters to trade live markets. Effectively I have
+    a customized backtest for each strategy but they all share a common core of code
+    that forms the base of the live trading engine. I also spend quite some time looking
+    at live fill vs simulated fills and try to reconcile the two.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please do not think that I am trying to tell you that do-it-yourself solution
+    is the best. I am simply saying that it is the one that fits me best. The point
+    I am trying to make herein is that no matter what solution you decide to use,
+    it is valuable to consider the difference between simulated and live results,
+    who knows perhaps it will make you appreciate the process even more.I would be
+    tremendously interested to hear what readers think on the subject, please share
+    some insight in the comment section below so everybody can benefit.
+  prefs: []
+  type: TYPE_NORMAL
+- en: QF
+  prefs: []
+  type: TYPE_NORMAL

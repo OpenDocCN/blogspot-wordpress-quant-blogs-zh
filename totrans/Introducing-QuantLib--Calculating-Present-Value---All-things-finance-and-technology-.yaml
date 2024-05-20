@@ -1,0 +1,120 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:46:16'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: Calculating Present Value | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In a [previous post](https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/) in
+    this series, I introduced the concept of ‘present value’. In this post, I will
+    cover some examples of calculating present value using QuantLib’s [CashFlow](http://quantlib.org/reference/class_quant_lib_1_1_cash_flow.html)
+    and [CashFlows](http://quantlib.org/reference/class_quant_lib_1_1_cash_flows.html)
+    classes.  Though certainly a simplification, it is not too much of a stretch to
+    claim that all financial instrument pricing boils down to estimating the present
+    value of a future cash flow or series of cash flows.  A cash flow can be the repayment
+    of a loan on its maturity date,  which we learned how to calculate in my last
+    post.  Or a future cash flow could be a stock dividend, an interest payment, an
+    annuity payment, the payoff from an option or a bond coupon.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So let’s start with the example from my last post – a loan with a single future
+    cash flow, the amount due on a $100 one-year loan with an interest rate of 5%
+    compounded annually.  The amount due at the end of the loan period is $105, which
+    is the sum of the principal and the accrued interest.  What is the ‘present value’
+    of the loan assuming that the loan was issued today? The code below computes the
+    answer:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#include <ql/quantlib.hpp>'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#include <iostream>'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#define BOOST_AUTO_TEST_MAIN'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#include <boost/test/unit_test.hpp>'
+  prefs: []
+  type: TYPE_NORMAL
+- en: BOOST_AUTO_TEST_CASE(testCalculatePresentValue)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Leg cashFlows;
+  prefs: []
+  type: TYPE_NORMAL
+- en: Date date = Date::todaysDate();
+  prefs: []
+  type: TYPE_NORMAL
+- en: cashFlows.push_back(boost::shared_ptr<CashFlow>(new SimpleCashFlow(105.0, date
+    + 365)));
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rate rate = .05;
+  prefs: []
+  type: TYPE_NORMAL
+- en: Real npv = CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(), Compounded,
+    Annual), true);
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'std::cout << “Net Present Value (NPV) of cash flows is: ” << npv << std::endl;'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '}'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The output of this code is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Net Present Value (NPV) of cash flows is: 100`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The first line of the test instantiates a Leg object.  Leg is defined in cashflow.hpp
+    as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`typedef std::vector<boost::shared_ptr<CashFlow> > Leg`,'
+  prefs: []
+  type: TYPE_NORMAL
+- en: which is a sequence of cash flows.  The loan repayment amount is modeled as
+    a single cash flow, which is subsquently added to the Leg.  The static `Cashflows::npv`
+    function is used to calculate the present value of the cash flow given the specified
+    interest rate, day count convention, simple compounding rule and annual compounding
+    period.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In my next post, we’ll apply what we’ve learned about present value to price
+    a bond with annual coupons. See you then and thanks for reading my blog!
+  prefs: []
+  type: TYPE_NORMAL
+- en: About Mick Hittesdorf
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: I'm a versatile technical leader with a passion for data analytics, data science
+    and Big Data technology. I have experience working for both large and small organizations,
+    in a variety of roles. I've been responsible for the management and operations
+    of a global data science and analytics platform, developed low latency, proprietary
+    trading systems, managed software development teams, defined enterprise architecture
+    strategies, written white papers and blogs, published articles in industry journals
+    and delivered innovative solutions to clients, both in a consulting and technical
+    sales capacity. My current areas of focus include Big Data, data engineering,
+    data science, R, and Cloud computing
+  prefs: []
+  type: TYPE_NORMAL

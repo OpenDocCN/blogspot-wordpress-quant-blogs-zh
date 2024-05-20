@@ -1,0 +1,232 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 13:48:06'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lag Dynamics with Autocopulas | Quantivity
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[Rakonczai *et al.* (2010)](http://bit.ly/qRAQsw) introduced *autocopulas*
+    to describe the *lag self-dependence* structure of a time series. Autocopulas
+    are superior to [autocorrelation](http://en.wikipedia.org/wiki/Autocorrelation)
+    for the same reasons as [copulas](http://en.wikipedia.org/wiki/Copula_%28probability_theory%29)
+    are superior to dependence point statistics (*e.g.* [correlation](http://en.wikipedia.org/wiki/Correlation_and_dependence)).
+    Readers unfamiliar with copulas are encouraged to review [Empirical Copulas and
+    Hedge Basis Risk](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk).
+    Generalizing this notion to arbitrary time series provides an insightful tool
+    for *analyzing and visualizing lag dynamics for both individual securities and
+    baskets*.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Autocopulas are potentially applicable to all sorts of fun problems in portfolio
+    and risk management, exemplified in this post by considering their applicability
+    to the continuing series on [proxy / cross hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging).
+    Further application to generating alpha is fairly straightforward, although left
+    an exercise for readers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To begin, generalizing autocopulas—as defined by Rakonczai *et al.*—is necessary
+    to support *arbitrary* time series (*i.e.* eliminating stationarity assumption),
+    in doing so introducing explicit dependence on ![t](img/867074ff782cf54112401c2854672245.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Definition 1.** Given a time series ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png)
+    and set of lags ![\mathcal{L} = \{ l_i \in \mathbb{Z}^+ : i = 1, ..., d \} ](img/bd8fb7bdfe663d37e857c124aadc65bf.png),
+    the *autocopula* ![C_{Y,\mathcal{L}}](img/f8a179ecadd6e47fd51a9af3b2878ca3.png)
+    is defined as the copula on the ![d + 1](img/77663dcb6b9b8c166651894ace8f0692.png)
+    dimensional random vector ![(Y_t, Y_{t - l_1}, ..., Y_{t - l_d})](img/98fe25021dfb1b3996655a837ba591c8.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Definition 2.** The *l-lag autocopula* ![C_{Y, l}](img/cb98aa3431801a1f9124f2f7ceaf7ac1.png)
+    is the autocopula with lag ![\mathcal{L} = \{ l \in \mathbb{Z}^+ \}](img/e8afa852814b36858201c3fdd7d9f76e.png).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In other words, an autocopula is the *empirical* copula composed of one or
+    more lags of the *same* data series, such as longitudinal returns for an individual
+    equity. From this definition, we can define the stationary versions from Rakonczai
+    *et al.*, suitably relaxing dependency on ![t](img/867074ff782cf54112401c2854672245.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Definition 3.** A *stationary autocopula* is an autocopula whose time series
+    ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png) is stationary.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Definition 4.** A *stationary l-lag autocopula* is an l-lag autocopula whose
+    time series ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png) is stationary.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Given these definitions, autocopulas can now be applied to [proxy / cross hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Individual Autocopulas**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The following plots illustrate fitted empirical student-t autocopula densities
+    for the daily returns of CRM with lags of 1 day, 2 days, 1 week, and 1 month:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![CRM autocopula](img/adc4f4c351001b731cb170c40c26c535.png "autocopula-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-crm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'These plots illustrate an interesting result: strong self-dependence of *conditional*
+    returns extends over all periods in the tails (in all four corners), with weak
+    dependence outside the tails. In other words, likelihood of large absolute returns
+    is high when preceded by a large absolute return—thus, exhibiting large-magnitude
+    temporal volatility clustering. As Gappy [commented](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#comments),
+    recall the *unconditional* returns are heavy tailed—as exhibited by the fitted
+    t marginals with low df in the [previous post](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Peakedness decreasing with increasing lag indicates dependence decay over time,
+    meaning probability of large absolute returns decrease over time *conditional*
+    on the previous occurrence of large absolute return (absolute due to peakedness
+    in all four corners). Thus, not only does CRM have long tails, but its tail exhibit
+    *decaying temporal tail dependence* (and thus, also, potentially self-similar
+    volatility). Thanks to Gappy for absolute returns interpretation.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Compare graphical intuition from above autocopulas versus autocorrelation (ACF)
+    and partial autocorrelation (PACF) functions for *absolute returns* of CRM, which
+    exhibit similar temporal dependence, yet do so via a pointwise dependence statistic
+    providing minimal graphical intuition:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![CRM Absolute Autocorrelation](img/064997f1073c8ddd1748d7504fa222fa.png "autocor-crm-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm-abs.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In contrast with *non-absolute* returns, which exhibit no such dependence:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![CRM Autocorrelation](img/e0b3f33d7d4b131ca921e2a152e2198e.png "autocor-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Autocopulas for QQQ with same lags:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![QQQ Autocopula](img/c5757a8801f9b5328d8983d4d07dfab7.png "autocopula-qqq")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-qqq.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Indicating that QQQ exhibits similar decaying temporal tail dependence, although
+    the temporal decay is dramatically smaller for QQQ versus CRM—as the density remains
+    strong peaked across all lags.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Proxy Autocopulas**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Given autocopulas of the individual securities, question is how to apply this
+    methodology to support intuition about inter-temporal dependence of both assets
+    in proxy hedging. Two approaches seem immediately obvious: excess returns and
+    difference in autocopulas.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'First, consider the *excess autocopula* ![EC](img/a7f5311a84fb5ff059c73d6288492a74.png)
+    which is the autocopula of the *excess returns*, defined as the linear difference
+    in (non-log) returns between individual security ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)
+    and market index ![\beta](img/e59dd600f7eb22f952e355797bceba2e.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![EC(\alpha,\beta) = C(D(\alpha) - D(\beta))](img/202b547ce7089408e913078e84c7d7f1.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'The following illustrates the excess autocopula for CRM and QQQ:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Excess Autocopula](img/c3ff3995074394a2fbfac7c96ecc1e52.png "autocopula-excess")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-excess.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Which illustrates quite different results than above autocopulas of individual
+    securities, on the *conditional* returns:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Asymmetric tail dependence**: lag-1 dependence in tails is strongly asymmetric,
+    indicating temporal dependence is stronger for the tail of inversely correlated
+    returns'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Rapid asymmetric tail decay**: tail asymmetry decays by lag-2, indicating
+    rapid decay'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '**Rapid dependence decay**: temporal dependence decays rapidly, with comparatively
+    minimal peakedness within one week (*i.e.* lag-5)'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'Compare this insight with ACF / PACF for *excess absolute returns*, which exhibit
+    similar behavior as excess autocopula, but do so using only pointwise dependence:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Absolute Proxy Excess Autocorrelation](img/50e19e650d881411548d08d0eb7bd234.png
+    "autocor-proxy-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-proxy-abs.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finally, a second approach to evaluating autocopula dynamics for proxy hedging
+    is the *proxy autocopula* ![PC](img/20c4cd2ef958c12e834c4f713d0b619c.png), which
+    is *arithmetic difference of two autocopula densities* ![C](img/e5cf91abc25ecaf404555860373f6acc.png)
+    and ![D](img/fd6081407ca943a923c743cb5596009a.png):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![PC(C(u,v),D(w,x)) = \frac{\partial^2 C(u,v)}{\partial u \partial v} - \frac{\partial^2
+    D(w,x)}{\partial w \partial x} ](img/eef617df9446c0ad7b418e4ab938930b.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'The proxy autocopulas for CRM/QQQ, with same lags as above, are plotted below:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Lag-1 proxy autocopula](img/aa1663c3c29569c4091d50073eaa765b.png "autocopula-proxy-lag1")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Illustrating lag-1 CRM autocopula has significantly less tail temporal dependence,
+    while having slightly more non-tail temporal dependence. Further, the tail dependence
+    is highly asymmetric with stronger bias to inversely correlated returns. In other
+    words, that suggests inverse return bounces are followed by reversals.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The lag-2 exhibits similar dynamics, although the asymmetric tail dependence
+    is inverted, biased in favor of directly correlated returns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Lag-2 Proxy Autocopula](img/c69d2da2aeac57067061222bf682a6f9.png "autocopula-proxy-lag-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Lag-5 exhibits similar dynamics as lag-2:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Lag-5 Proxy Autocopula](img/8a3632a5227a02657f777050966f283b.png "autocopula-proxy-lag-5")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Finally, tail dependence becomes symmetric by lag-22, but otherwise exhibits
+    similar dynamics as lower lags:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Lag-22 Proxy Autocopula](img/73dbb41787e600ff05395bf85e3afd18.png "autocopula-proxy-lag-22")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-22.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Collectively, the above proxy autocopulas clearly visualize the self-dependence
+    of proxy absolute returns with strongly decaying temporal tail dependence.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* * *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code to generate the above autocopula lag dynamic analysis:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

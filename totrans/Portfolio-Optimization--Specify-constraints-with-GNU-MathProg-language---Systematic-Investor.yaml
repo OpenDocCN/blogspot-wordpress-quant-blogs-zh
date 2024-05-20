@@ -1,0 +1,141 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:01'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Portfolio Optimization: Specify constraints with GNU MathProg language | Systematic
+    Investor'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I have previously described a few examples of portfolio construction:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I created a number of helper functions to simplify process of making the constraints(
+    i.e. minimum / maximum investment constraints, fully invested constraint – weights
+    must sum to 1, and etc.)
+  prefs: []
+  type: TYPE_NORMAL
+- en: new.constraints
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: add.constraints
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: add.variables
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'However, even with help of these functions, the process of describing the constraints
+    is not simple and user-friendly. Fortunately, there is an alternative way to specify
+    linear constraints using [GNU MathProg language](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29).
+    MathProg resembles a subset of [AMPL](//en.wikipedia.org/wiki/AMPL). To find more
+    about [GNU MathProg language](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29),
+    I recommend reading following resources:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s start by solving a simple portfolio construction problem using helper
+    functions to specify the constraints.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5d28648af470d84a25bbe589a5cb43c5.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Now let’s create a GNU MathProg language model that will impose the same constraints.
+    Please copy and save the following model description in the “model1.mod” file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s use this model to find minimum variance portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/563d9476e188d994830a244e4c5aef09.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s describe the problem from the [Minimum Investment and Number of
+    Assets Portfolio Cardinality Constraints](https://systematicinvestor.wordpress.com/2011/10/20/minimum-investment-and-number-of-assets-portfolio-cardinality-constraints/)
+    post. Please copy and save the following model description in the “model2.mod”
+    file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s use this model to find minimum variance portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/7f58a30832cb28964c2e91f3e1f427e0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I described another interesting portfolio construction problem in the [130/30
+    Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
+    post. Please copy and save the following model description in the “model3.mod”
+    file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s use this model to find minimum variance portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/3dcc68a4bd8141e9540fb3d0ecc5039d.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another interesting portfolio construction problem is limiting portfolio turnover,
+    or limiting minimum trade size and number of trades. Following model is restricting
+    the trade size to be between 5% and 20% and no more than 8 trades. Please copy
+    and save the following model description in the “model4.mod” file:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s use this model to find minimum variance portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/64fb4da6beb878a58991265d9ec40d3e.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot5-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: BA and GE are held constant at 10% and other 8 stocks are traded with trade
+    size at least 5% and no more than 20%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please let me know what other type of constraints you like to impose during
+    portfolio construction process.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [portopt.mathprog.test() function in aa.gmpl.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.gmpl.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,89 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:31:12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Averaged Input Assumptions and Momentum | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01](https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to share another interesting idea contributed by Pierre Chretien.
+    Pierre suggested using **Averaged** Input Assumptions and Momentum to create **reasonably
+    quiet** strategy. The **averaging** techniques are used to avoid over-fitting
+    any particular frequency.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To create **Averaged** Input Assumptions we combine returns over different look-back
+    periods, giving more weight to the recent returns, to form overall Input Assumptions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: To create **Averaged** Momentum we take a look-back weighted avaerage of momentums
+    computed over different look-back periods.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next let’s compare using historical Input Assumptions vs **Averaged** Input
+    Assumptions and Momentum vs **Averaged** Momentum. I will consider Absolute Momentum
+    (not cross sectional), for more information about relative and absolute momentum,
+    please see
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Above, I compared results for the following 4 cases:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1\. Adding Momentum filter: all algos perfrom better'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot3](img/effc0a1b4a834fbc0708c99e2cd99e02.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '2\. Input Assumptions vs **Averaged** Input Assumptions: returns are very similar,
+    but using **Averaged** Input Assumptions helps reduce portfolio turnover.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot2](img/a7748e985b807eb955e0847bee69a130.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '3\. Momentum vs **Averaged** Momentum: returns are very similar, but using
+    **Averaged** Momentum increases portfolio turnover.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot1](img/a55765a6e4bfd1ac54b22bec1d389782.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '4\. historical Input Assumptions + Momentum vs **Averaged** Input Assumptions
+    + **Averaged** Momentum: results are mixed, no consistent advantage of using **Averaged**
+    methods'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![plot4](img/3ac4e7b8d406f9d820d0ebe211916486.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Overall, the **Averaged** methods is a very interesting idea and I hope you
+    will experiemtn with it and share your findings, like Pierre. Pierre, again thank
+    you very much for sharing.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The full source code and example for the [bt.averaged.test() function is available
+    in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

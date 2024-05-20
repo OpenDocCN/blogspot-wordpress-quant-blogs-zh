@@ -1,0 +1,632 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:03:30'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: The Sub Tick HFT Game'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Been ranting a bit about math problems so its time for another 6am post - please
+    excuse the occasional incoherence  <g>By math I mean what probabilities a strategy
+    must hit to be profitable given the rules of the game.</g>
+  prefs: []
+  type: TYPE_NORMAL
+- en: Basic math to NASDAQ is as follows  (in units of $0.0001 per share)
+  prefs: []
+  type: TYPE_NORMAL
+- en: -30 remove liquidity
+  prefs: []
+  type: TYPE_NORMAL
+- en: +21 add liquidity
+  prefs: []
+  type: TYPE_NORMAL
+- en: -0.0000192 * dollar value of sold symbol
+  prefs: []
+  type: TYPE_NORMAL
+- en: 0 to -20 for commission
+  prefs: []
+  type: TYPE_NORMAL
+- en: + gross realized value of the trade
+  prefs: []
+  type: TYPE_NORMAL
+- en: (its a variable commission as depending who you clear with, it could be 0 e.g.
+    mega fund with its own clearing division, or say -20 for entry level algo brokers)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lets simplify this somewhat and say, its a pair of buy/sell at different price
+    but same qty, making the net realized gain
+  prefs: []
+  type: TYPE_NORMAL
+- en: Net = Qty * (SellPrice - BuyPrice + Rebate + Commission + Tax)
+  prefs: []
+  type: TYPE_NORMAL
+- en: First structure classification is what kind of entry/exit points you choose.
+    Options are
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Aggressive + Aggressive  (AA) : -30 - 30 = -60'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Aggressive + Passive     (AP) : -30 + 21 = -9'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Passive + Agressive      (PA) : +21 - 30 = -9'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Passive + Passive        (PP) : +21 + 21 = +42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: (Passive means your orders was visible on the book when it got executed)
+  prefs: []
+  type: TYPE_NORMAL
+- en: (Aggressive means your order hit something that was visible on the book e.g.
+    crossed the spread)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Simplify this a little into 3 classes
+  prefs: []
+  type: TYPE_NORMAL
+- en: AA ( -60) AP (-9) PP(+42)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Note: AA your crossing the spread thus its really -160 but for back of the
+    envelope purposes lets ignore that and enjoy Disney Land.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let say our strategy has 2 discrete poles, +100 win and -100 loss, so 1 tick
+    each side with no 0 draw result.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Below is a plot of the the trades winning probability (most left column) and
+    the realized gain/loss for 1 share @ the specified probability for each entry/exit
+    styles.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rebate Only
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -160 AP:    -109 PP:     -58'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -152 AP:    -101 PP:     -50'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -144 AP:     -93 PP:     -42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -136 AP:     -85 PP:     -34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -128 AP:     -77 PP:     -26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -120 AP:     -69 PP:     -18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -112 AP:     -61 PP:     -10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -104 AP:     -53 PP:      -2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:     -96 AP:     -45 PP:       6'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:     -88 AP:     -37 PP:      14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:     -80 AP:     -29 PP:      22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:     -72 AP:     -21 PP:      29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:     -64 AP:     -13 PP:      38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -56 AP:      -5 PP:      46'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -47 AP:       3 PP:      54'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -40 AP:      11 PP:      62'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -32 AP:      19 PP:      70'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -24 AP:      27 PP:      78'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -16 AP:      35 PP:      86'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:      -8 AP:      43 PP:      94'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:       0 AP:      51 PP:     102'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:       8 AP:      59 PP:     110'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:      16 AP:      67 PP:     118'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:      24 AP:      75 PP:     126'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:      32 AP:      83 PP:     134'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      40 AP:      91 PP:     142'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Result here is, you need a strategy > 80% wins with an AA model > 56% wins for
+    a AP model, and > 32% for a PP model.
+  prefs: []
+  type: TYPE_NORMAL
+- en: That makes sense, so lets add the tax @ say a $20symbol
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rebate + Tax @ $20
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -163 AP:    -112 PP:     -61'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -155 AP:    -104 PP:     -53'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -147 AP:     -96 PP:     -45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -139 AP:     -88 PP:     -37'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -131 AP:     -80 PP:     -29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -123 AP:     -72 PP:     -21'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -115 AP:     -64 PP:     -13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -107 AP:     -56 PP:      -5'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:     -99 AP:     -48 PP:       2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:     -91 AP:     -40 PP:      10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:     -83 AP:     -32 PP:      18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:     -75 AP:     -24 PP:      26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:     -67 AP:     -16 PP:      34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -59 AP:      -8 PP:      42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -51 AP:       0 PP:      50'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -43 AP:       7 PP:      58'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -35 AP:      15 PP:      66'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -27 AP:      23 PP:      74'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -19 AP:      31 PP:      82'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:     -11 AP:      39 PP:      90'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:      -3 AP:      47 PP:      98'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:       4 AP:      55 PP:     106'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:      12 AP:      63 PP:     114'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:      20 AP:      71 PP:     122'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:      28 AP:      79 PP:     130'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      36 AP:      87 PP:     138'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Not a huge difference, yet even $20 in tax shifts everything by a few %, which
+    could easily move your strategy into the red.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Lets up it a notch and say you want to trade SPY @ say $139 (2012/04/17)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rebate + Tax @ $139
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -186 AP:    -135 PP:     -84'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -178 AP:    -127 PP:     -76'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -170 AP:    -119 PP:     -68'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -162 AP:    -111 PP:     -60'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -154 AP:    -103 PP:     -52'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -146 AP:     -95 PP:     -44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -138 AP:     -87 PP:     -36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -130 AP:     -79 PP:     -28'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:    -122 AP:     -71 PP:     -20'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:    -114 AP:     -63 PP:     -12'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:    -106 AP:     -55 PP:      -4'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:     -98 AP:     -47 PP:       3'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:     -90 AP:     -39 PP:      11'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -82 AP:     -31 PP:      19'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -74 AP:     -23 PP:      27'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -66 AP:     -15 PP:      35'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -58 AP:      -7 PP:      43'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -50 AP:       0 PP:      51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -42 AP:       8 PP:      59'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:     -34 AP:      16 PP:      67'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:     -26 AP:      24 PP:      75'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:     -18 AP:      32 PP:      83'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:     -10 AP:      40 PP:      91'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:      -2 AP:      48 PP:      99'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:       5 AP:      56 PP:     107'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      13 AP:      64 PP:     115'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Things look a bit more "difficult", with an AA structure you need to hit >=
+    96% accuracy, PA >= 68% and PP >= 44%. Pretty clear AA for a +100/-100 trade is
+    getting near impossible and if you consider the additional -100 spread cost...
+    it is impossible.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The above has a commission of 0, so lets add say -5 commission on a $20 symbol
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rebate + Commission (-5) + Tax @ $20
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -173 AP:    -122 PP:     -71'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -165 AP:    -114 PP:     -63'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -157 AP:    -106 PP:     -55'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -149 AP:     -98 PP:     -47'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -141 AP:     -90 PP:     -39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -133 AP:     -82 PP:     -31'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -125 AP:     -74 PP:     -23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -117 AP:     -66 PP:     -15'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:    -109 AP:     -58 PP:      -7'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:    -101 AP:     -50 PP:       0'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:     -93 AP:     -42 PP:       8'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:     -85 AP:     -34 PP:      16'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:     -77 AP:     -26 PP:      24'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -69 AP:     -18 PP:      32'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -61 AP:     -10 PP:      40'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -53 AP:      -2 PP:      48'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -45 AP:       5 PP:      56'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -37 AP:      13 PP:      64'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -29 AP:      21 PP:      72'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:     -21 AP:      29 PP:      80'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:     -13 AP:      37 PP:      88'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:      -5 AP:      45 PP:      96'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:       2 AP:      53 PP:     104'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:      10 AP:      61 PP:     112'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:      18 AP:      69 PP:     120'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      26 AP:      77 PP:     128'
+  prefs: []
+  type: TYPE_NORMAL
+- en: At -5 / share (remember its on both sides) AA requires nearly 90% accuracy,
+    that`s a tough number to hit.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Rebate + Commission @ -10 / shares + Tax @ $20
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -183 AP:    -132 PP:     -81'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -175 AP:    -124 PP:     -73'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -167 AP:    -116 PP:     -65'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -159 AP:    -108 PP:     -57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -151 AP:    -100 PP:     -49'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -143 AP:     -92 PP:     -41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -135 AP:     -84 PP:     -33'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -127 AP:     -76 PP:     -25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:    -119 AP:     -68 PP:     -17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:    -111 AP:     -60 PP:      -9'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:    -103 AP:     -52 PP:      -1'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:     -95 AP:     -44 PP:       6'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:     -87 AP:     -36 PP:      14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -79 AP:     -28 PP:      22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -71 AP:     -20 PP:      30'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -63 AP:     -12 PP:      38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -55 AP:      -4 PP:      46'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -47 AP:       3 PP:      54'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -39 AP:      11 PP:      62'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:     -31 AP:      19 PP:      70'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:     -23 AP:      27 PP:      78'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:     -15 AP:      35 PP:      86'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:      -7 AP:      43 PP:      94'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:       0 AP:      51 PP:     102'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:       8 AP:      59 PP:     110'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      16 AP:      67 PP:     118'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Commissions at -10/share with a +100/-100 2 pole result, AA nearing impossible
+    requiring 95% accuracy for any return e.g. you need a time machine to make money
+    with this structure.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally lets really push it to -20/share
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.000000 : AA:    -203 AP:    -152 PP:    -101'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.040000 : AA:    -195 AP:    -144 PP:     -93'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.080000 : AA:    -187 AP:    -136 PP:     -85'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.120000 : AA:    -179 AP:    -128 PP:     -77'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.160000 : AA:    -171 AP:    -120 PP:     -69'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.200000 : AA:    -163 AP:    -112 PP:     -61'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.240000 : AA:    -155 AP:    -104 PP:     -53'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.280000 : AA:    -147 AP:     -96 PP:     -45'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.320000 : AA:    -139 AP:     -88 PP:     -37'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.360000 : AA:    -131 AP:     -80 PP:     -29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.400000 : AA:    -123 AP:     -72 PP:     -21'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.440000 : AA:    -115 AP:     -64 PP:     -13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.480000 : AA:    -107 AP:     -56 PP:      -5'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.520000 : AA:     -99 AP:     -48 PP:       2'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.560000 : AA:     -91 AP:     -40 PP:      10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.600000 : AA:     -83 AP:     -32 PP:      18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.640000 : AA:     -75 AP:     -24 PP:      26'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.680000 : AA:     -67 AP:     -16 PP:      34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.720000 : AA:     -59 AP:      -8 PP:      42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.760000 : AA:     -51 AP:       0 PP:      50'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.800000 : AA:     -43 AP:       7 PP:      58'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.840000 : AA:     -35 AP:      15 PP:      66'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.880000 : AA:     -27 AP:      23 PP:      74'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.920000 : AA:     -19 AP:      31 PP:      82'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '0.960000 : AA:     -11 AP:      39 PP:      90'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '1.000000 : AA:      -3 AP:      47 PP:      98'
+  prefs: []
+  type: TYPE_NORMAL
+- en: At this point AA is theoretically impossible with PA needing 76% of trades to
+    be correct just to break even.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Obviously its far more involved with a ton of subtle yet major pain-in-the-ass-problems
+    but gives you an idea of the level of accuracy & commissions needed to play the
+    sub-tick game.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Also this says nothing about what kind of latency/tech needed for passively
+    executed orders... or  how low the real-world probabilities are but that`s for
+    some other time.... if only that order passively unwound at that price, there
+    would be peace joy and happiness in the world :P
+  prefs: []
+  type: TYPE_NORMAL
+- en: '... the grind continues'
+  prefs: []
+  type: TYPE_NORMAL

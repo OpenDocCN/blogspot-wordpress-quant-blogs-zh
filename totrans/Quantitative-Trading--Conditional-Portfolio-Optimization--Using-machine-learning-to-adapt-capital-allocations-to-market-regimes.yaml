@@ -1,0 +1,299 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:53:51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Conditional Portfolio Optimization: Using machine learning
+    to adapt capital allocations to market regimes'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01](http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Previously on this blog, we wrote about a machine-learning-based parameter optimization
+    technique we invented, called [Conditional Parameter Optimization](https://predictnow.ai/blog/conditional-parameter-optimization-adapting-parameters-to-changing-market-regimes/)
+    (CPO). It appeared to work well on optimizing the operating parameters of trading
+    strategies, but increasingly, we found that its greatest power lies in its potential
+    to optimize portfolio allocations. We call this Conditional Portfolio Optimization
+    (which fortuitously shares the same acronym).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s recap what Conditional Parameter Optimization is. Traditionally, optimizing
+    the parameters of any business process (such as a trading strategy) is a matter
+    of finding out what parameters give an optimal outcome over past data. For example,
+    setting a stop loss of 1% gave the best Sharpe ratio for a trading strategy backtested
+    over the last 10 years. Or running the conveyor belt at 1m per minute led to the
+    lowest defect rate in a manufacturing process. Of course, the numerical optimization
+    procedure can become quite complicated based on a number of different factors.
+    For example, if the number of parameters is large, or if the objective function
+    that relates the parameters to the outcome is nonlinear, or if there are numerous
+    constraints on the parameters. There are already standard methods to handle these
+    difficulties.
+  prefs: []
+  type: TYPE_NORMAL
+- en: What concerns us at PredictNow.ai, is when the objective function is not only
+    nonlinear, but also depends on external time varying and stochastic conditions.
+    In the case of a trading strategy, the optimal stop loss may depend on the market
+    regime, which may not be clearly defined. In the case of a manufacturing process,
+    the optimal conveyor belt rate may depend on dozens of sensor readings. Such objective
+    functions mean that traditional optimization methods do not usually give the optimal
+    results under a particular set of external conditions.Furthermore, even if you
+    specify that exact set of conditions, the outcome is not deterministic. What better
+    method than machine learning to solve this problem!
+  prefs: []
+  type: TYPE_NORMAL
+- en: By using machine learning,  we can approximate this objective function using
+    a neural network, by training its many nodes using historical data. (Recall that
+    a neural network is able to [approximate almost any function](https://en.wikipedia.org/wiki/Universal_approximation_theorem),
+    but you can use many other machine learning algorithms instead of neural networks
+    for this task). The inputs to this neural network will not only include the parameters
+    that we originally set out to optimize, but also the vast set of features that
+    measure the external conditions. For example, to represent a “market regime”,
+    we may include market volatility, behaviors of different market sectors, macroeconomic
+    conditions, and many other input features. To help our clients efficiently run
+    their models, Predictnow.ai provides [hundreds of such market features](https://predictnow.ai/blog/new-additions-to-the-predictnow-ai-factor-zoo-2/).
+    The output of this neural network would be the outcome you want to optimize. For
+    example, maximizing the future 1-month Sharpe ratio of a trading strategy is a
+    typical outcome. In this case you would feed historical training samples to the
+    neural network that include the trading parameters, the market features, plus
+    the resulting forward 1-month Sharpe ratio of the trading strategy as “labels”
+    (i.e. target variables). Once trained, this neural network can then predict the
+    future 1-month Sharpe ratio based on any hypothetical set of trading parameters
+    and the current market features.
+  prefs: []
+  type: TYPE_NORMAL
+- en: With this method, we “only need” to try different sets of hypothetical parameters
+    to see which gives the best Sharpe ratio and adopt that set as the optimal. We
+    put “only need” in quotes because of course if the number of parameters is large,
+    it can take very long to try out different sets of parameters to find the optimal.
+    Such is the case when the application is portfolio optimization, where the parameters
+    represent the capital allocations to different components of a portfolio. These
+    components could be stocks in a mutual fund, or trading strategies in a hedge
+    fund. For a portfolio that holds S&P 500 stocks, for example, there will be up
+    to 500 parameters. In this case, during the training process, we are supposed
+    to feed into the neural network all possible combinations of these 500 parameters,
+    plus the market features, and find out what the resulting 5- or 20-day return,
+    or Sharpe ratio, or whatever performance metric we want to maximize. All possible
+    combinations? If we represent the capital weight allocated to each stock as w
+    ∈ [0, 1], assuming we are not allowing short positions, the search space has w500=[0,
+    1]500  combinations, even with discretization, and our computer will need to run
+    till the end of the universe to finish. Overcoming this curse of dimensionality
+    is one of the major breakthroughs the Predictnow.ai team has accomplished with
+    Conditional Portfolio Optimization.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To measure the value Conditional Portfolio Optimization adds, we need to compare
+    it with alternative portfolio optimization methods. The default method is Equal
+    Weights: applying equal capital allocations to all portfolio components. Another
+    simple method is the Risk Parity method, where the capital allocation to each
+    component is inversely proportional to its returns’ volatility. It is called Risk
+    Parity because each component is supposed to contribute an equal amount of volatility,
+    or risk, to the overall portfolio’s risk. This assumes zero correlations among
+    the components’ returns, which is of course unrealistic. Then there is the Markowitz
+    method, also known as Mean-Variance optimization. This well-known method, which
+    earned Harry Markowitz a Nobel prize, maximizes the Sharpe ratio of the portfolio
+    based on the historical means and covariances of the component returns. The optimal
+    portfolio that has the maximum historical Sharpe ratio is also called the tangency
+    portfolio. I wrote about this method in a previous [blog post](http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html).
+    It certainly doesn’t take into account market regimes or any market features.
+    It is also a vagrant violation of the familiar refrain, “Past Performance is Not
+    Indicative of Future Results”, and is known to produce all manners of unfortunate
+    instabilities (see [here](https://www.amazon.com/dp/0199959323/ref=as_sl_pc_tf_til?tag=quantitativet-20&linkCode=w00&linkId=&creativeASIN=0199959323)
+    or [here](https://amzn.to/3r7y2FA)). Nevertheless, it is the standard portfolio
+    optimization method that most asset managers use. Finally, there is the Minimum
+    Variance portfolio, which uses Markowitz’s method not to maximize the Sharpe ratio,
+    but to minimize the variance (and hence volatility) of the portfolio. Even though
+    this does not maximize its past Sharpe ratio, it often results in portfolios that
+    achieve better forward Sharpe ratios than the tangency portfolio! Another case
+    of “Past Performance is Not Indicative of Future Results”.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s see how our Conditional Portfolio Optimization method stacks up against
+    these conventional methods.  For an unconstrained optimization of the S&P 500
+    portfolio, allowing for short positions and aiming to maximize its 7-day forward
+    Sharpe ratio,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| Method | Sharpe Ratio |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 0.31 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 0.96 |'
+  prefs: []
+  type: TYPE_TB
+- en: (These results are over an out-of-sample period from July 2011 to June 2021,
+    and the universe of stocks for the portfolio are those that have been present
+    in the SP 500 index for at least 1 trailing month. The Sharpe Ratio we report
+    in this and the following tables are all annualized). CPO improves the Sharpe
+    ratio over the Markowitz method by a factor of 3.1.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Then we test our CPO performs for an ETF (TSX: MESH) given the constraints
+    that we cannot short any stock, and the weight w of each stock obeys w ∈ [0.5%,
+    10%],'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| Period | Method | Sharpe Ratio | CAGR |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 2017-01 to 2021-07 | Equal Weights | 1.53 | 43.1% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Risk Parity | 1.52 | 39.9% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 1.64 | 47.2% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Minimum Variance | 1.56 | 38.3% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 1.62 | 43.6% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 2021-08 to 2022-07 | Equal Weights | -0.76 | -30.6% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Risk Parity | -0.64 | -22.2% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | -0.94 | -30.8% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Minimum Variance | -0.47 | -14.5% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | -0.33 | -13.7% |'
+  prefs: []
+  type: TYPE_TB
+- en: CPO performed similarly to the Markowitz method in the bull market, but remarkably,
+    it was able to switch to defensive positions and has beaten the Markowitz method
+    in the bear market of 2022\. It improves the Sharpe ratio over the Markowitz portfolio
+    by more than 60% in that bear market. That is the whole rationale of Conditional
+    Portfolio Optimization - it adapts to the expected future external conditions
+    (market regimes), instead of blindly optimizing on what happened in the past.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, we tested the CPO methodology on a private investor’s tech portfolio,
+    consisting of 7 US and 2 Canadian stocks, mostly in the tech sector. The constraints
+    are that we cannot short any stock, and the weight w of each stock obeys w ∈ [0%,
+    25%],
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| Period | Method | Sharpe Ratio | CAGR |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 2017-01 to 2021-07 | Equal Weights | 1.36 | 31.1% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Risk Parity | 1.33 | 24.2% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 1.06 | 23.3% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Minimum Variance | 1.10 | 19.3% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 1.63 | 27.1% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| 2021-08 to 2022-07 | Equal Weights | 0.39 | 6.36% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Risk Parity | 0.49 | 7.51% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 0.40 | 6.37% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Minimum Variance | 0.23 | 2.38% |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 0.70 | 11.0% |'
+  prefs: []
+  type: TYPE_TB
+- en: CPO performed better than both alternative methods under all market conditions.
+    In particular, it improves the Sharpe ratio over the Markowitz portfolio by 75%
+    in the bear market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We also tested how CPO performs for some unconventional assets - a portfolio
+    of 8 crypto currencies, again allowing for short positions and aiming to maximize
+    its 7-day forward Sharpe ratio,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| Method | Sharpe Ratio |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 0.26 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 1.00 |'
+  prefs: []
+  type: TYPE_TB
+- en: (These results are over an out-of-sample period from January 2020 to June 2021,
+    and the universe of cryptocurries for the portfolio are BTCUSDT, ETHUSDT, XRPUSDT,
+    ADAUSDT, EOSUSDT, LTCUSDT, ETCUSDT, XLMUSDT). CPO improves the Sharpe ratio over
+    the Markowitz method by a factor of 3.8.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, to show that CPO doesn’t just work on portfolios of assets, we apply
+    it to a portfolio of FX trading strategies traded live by a proprietary trading
+    firm WSG. It is a portfolio of 7 trading strategies, and the allocation constraints
+    are w ∈ [0%, 40%],
+  prefs: []
+  type: TYPE_NORMAL
+- en: '| Method | Sharpe Ratio |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Equal Weights | 1.44 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| Markowitz | 2.22 |'
+  prefs: []
+  type: TYPE_TB
+- en: '| CPO | 2.65 |'
+  prefs: []
+  type: TYPE_TB
+- en: (These results are over an out-of-sample period from January 2020 to July 2022).
+    CPO improves the Sharpe ratio over the Markowitz method by 19%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In all 5 cases, CPO was able to outperform the naive Equal Weights portfolio
+    and the Markowitz portfolio during a downturn in the market, while generating
+    similar performance during the bull market.
+  prefs: []
+  type: TYPE_NORMAL
+- en: For clients of our CPO technology, we can add specific constraints to the desired
+    optimal portfolio, such as average ESG rating, maximum exposure to various sectors,
+    or maximum turnover during portfolio rebalancing. The only input we require from
+    them is the historical returns of the portfolio components (unless these components
+    are publicly traded assets, in which case clients only need to tell us their tickers).
+    Predictnow.ai will provide pre-engineered market features that capture market
+    regime information. If the client has proprietary market features that may help
+    predict the returns of their portfolio, they can merge those with ours as well.
+    Clients’ features can remain anonymized. We will be providing an API for clients
+    who wish to experiment with various constraints and their effects on the optimal
+    portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If you’d like to learn more, please join us for our Conditional Portfolio Optimization
+    webinar on Thursday, October 22, 2022, at 12:00 pm New York time. Please register
+    [here](https://www.predictnow.ai/webinar/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the meantime, if you have any questions, please email us at info@predictnow.ai.
+  prefs: []
+  type: TYPE_NORMAL

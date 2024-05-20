@@ -1,0 +1,293 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:47:41'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'HOXO-M - anonymous data analyst group in Japan - : githubinstall - New R Package
+    for Easy to Install R Packages on GitHub'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01](http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 1\. Overview
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: A growing number of R packages are created by various people in the world. A
+    part of the cause of it is the **devtools** package that makes it easy to develop
+    R packages [[1]](https://www.rstudio.com/products/rpackages/devtools/). The **devtools**
+    package not only facilitates the process to develop R packages but also provides
+    an another way to distribute R packages.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'When developers publish R packages, the CRAN [[2]](https://cran.r-project.org)
+    is commonly used. You can install the packages that are available on CRAN using
+    `install.package()`. For example, you can install **dplyr** package as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: The **devtools** package provides `install_github()` that enables installing
+    packages from GitHub.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Therefore, developers can distribute R packages that is developing on GitHub.
+    Moreover, there are some developers that they have no intention to submit to CRAN.
+    For instance, Twitter, Inc. provides **AnomalyDetection** package on GitHub but
+    it will not be available on CRAN [[3]](https://blog.twitter.com/2015/introducing-practical-and-robust-anomaly-detection-in-a-time-series).
+    You can install such packages easily using **devtools**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: There is a difference between `install.packages()` and `install_github()` in
+    the required argument. `install.packages()` takes package names, while `install_github()`
+    needs repository names. It means that when you want to install a package on GitHub
+    you must remember its repository name correctly.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The trouble is that the usernames of GitHub are often hard to remember. Developers
+    consider the package names so that users can understand the functionalities intuitively.
+    However, they often decide username incautiously. For instance, **ggfortify**
+    is a great package on GitHub, but who created it? What is the username? The answer
+    is *sinhrks* [[4]](https://github.com/sinhrks/ggfortify). It seems to be difficult
+    to remember it.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The **githubinstall** package provides a way to install packages on GitHub by
+    only the package names just like `install.packages()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`githubinstall()` suggests the GitHub repository from package names, and asks
+    whether you want to execute the installation.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Furthermore, you may succeed in installing packages from a faint memory because
+    our package automatically correct its spelling by fuzzy string search.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: 2\. Installation
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: You can install the **githubinstall** package from CRAN.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: The source code for **githubinstall** package is available on GitHub at
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3\. Details
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: The **githubinstall** package provides several useful functions.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`githubinstall()` or `gh_install_packages()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_suggest()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_suggest_username()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_list_packages()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_search_packages()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_show_source()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '`gh_update_package_list()`'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: The functions have common prefix `gh`. `githubinstall()` is an alias of `gh_install_packages()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To use these functions, first, you should load the package as follows.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3.1\. Install Packages from GitHub
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`githubinstall()` enables to install packages on GitHub by only package names.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE7]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE8]'
+  prefs: []
+  type: TYPE_PRE
+- en: The function suggests GitHub repositories. If you type ‘1’ and ‘enter’, then
+    installation of the package will begin. The suggestion is made of looking for
+    the list of R packages on GitHub. The list is provided by [Gepuro Task Views](http://rpkg.gepuro.net).
+  prefs: []
+  type: TYPE_NORMAL
+- en: If multiple candidates are found, you can select one of them.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE9]'
+  prefs: []
+  type: TYPE_PRE
+- en: '`githubinstall()` is an alias of `gh_install_packages()`.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE10]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.2\. Suggest Repositories
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`githubinstall()` prompts you to install the suggested packages. But you may
+    just want to know what will be suggestions.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`gh_suggest()` returns the suggested repository names as a vector.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE11]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE12]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE13]'
+  prefs: []
+  type: TYPE_PRE
+- en: In addition, `gh_suggest_username()` is useful if you want to know usernames
+    from a faint memory.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE14]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE15]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE16]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE17]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.3\. List the Packages
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`gh_list_packages()` returns the list of R package repositories on GitHub as
+    `data.frame`.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example, if you want to get the repositories that have been created by *hadley*,
+    run the following.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE18]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE19]'
+  prefs: []
+  type: TYPE_PRE
+- en: By using the result, you can install all packages created by hadley.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE20]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.4\. Search Packages by a Keyword
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`gh_search_packages()` returns the list of R package repositories on GitHub
+    that the titles contains a given keyword.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: For example, if you want to search packages that are relevant to *lasso*, run
+    the following.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE21]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[PRE22]'
+  prefs: []
+  type: TYPE_PRE
+- en: 3.5\. Show the Source Code of Functions on GitHub
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '`gh_show_source()` looks for the source code of a given function on GitHub,
+    and tries to open the place on Web browser.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE23]'
+  prefs: []
+  type: TYPE_PRE
+- en: If you have loaded the package that the function belongs to, you can input the
+    function directly.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE24]'
+  prefs: []
+  type: TYPE_PRE
+- en: This function may do not work well with Safari.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3.6\. Update the List of R Packages
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: The **githubinstall** package uses [Gepuro Task Views](http://rpkg.gepuro.net)
+    for getting the list of R packages on GitHub. Gepuro Task Views is crawling the
+    GitHub and updates information every day. The package downloads the list of R
+    packages from Gepuro Task Views each time it was loaded. Thus, you can always
+    use the newest list of packages on a new R session.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, you may use an R session for a long time. In such case, `gh_update_package_list()`
+    is useful.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`gh_update_package_list()` updates the downloaded list of the R packages explicitly.'
+  prefs: []
+  type: TYPE_NORMAL

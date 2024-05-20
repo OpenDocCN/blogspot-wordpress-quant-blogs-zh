@@ -1,0 +1,94 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:18:11'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: New Favorite Test of US Monetary Policy Limits'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: After a little additional thought, I discovered that my [Death Spiral Warning
+    Graph](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html)
+    post can be improved through the isolation of the expected inflation component
+    of US 10y yields provided by the US 10y yield – US 10y TIP yield.  Unfortunately,
+    it more accurately reveals the cost of aggressive US Fed monetary policy, and
+    I think offers a more dire assessment of the limits of this policy.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The gains we have experienced seem much more transitory and spurious than a
+    simple chart of the S&P 500 reveals.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data from St. Louis Federal Reserve (FRED)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DGS10",src="FRED") #load 10yTreasury'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DFII10",src="FRED") #load 10yTIP for real return'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("DTWEXB",src="FRED") #load US dollar'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("SP500",src="FRED") #load SP500'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#new FED monetary policy limit monitor'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#US10Y TIP Breakeven Inflation divided by the US Dollar'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#old favorite is US 10y Nominal divided by the US Dollar'
+  prefs: []
+  type: TYPE_NORMAL
+- en: fedpolicytest<-merge((DGS10-DFII10)/DTWEXB,DGS10/DTWEXB)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(fedpolicytest)<-c("US10yTIPInflationDivByUSDollar (new favorite)","US10yDivByDollar
+    (old favorite)")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(fedpolicytest["2003::2011"],legend.loc="topleft",
+  prefs: []
+  type: TYPE_NORMAL
+- en: main="US Monetary Policy Test-Does Bernanke Have a Limit?",colorset=c("cadetblue","darkolivegreen3"),ylab="",
+  prefs: []
+  type: TYPE_NORMAL
+- en: event.lines="2008-07-02",event.labels="July 2, 2008")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#add label to denote new recent high'
+  prefs: []
+  type: TYPE_NORMAL
+- en: text(NROW(fedpolicytest["2003::2011"])-15,fedpolicytest[NROW(fedpolicytest),1]+.001,"New
+    High")
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#label previous high'
+  prefs: []
+  type: TYPE_NORMAL
+- en: abline(h=fedpolicytest["2008-07-02",1],col="cadetblue")
+  prefs: []
+  type: TYPE_NORMAL

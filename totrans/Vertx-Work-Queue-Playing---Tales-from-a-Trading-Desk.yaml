@@ -1,0 +1,82 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:55:23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Vertx Work Queue Playing | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2014/01/04/vertx-work-queue-playing/#0001-01-01](https://mdavey.wordpress.com/2014/01/04/vertx-work-queue-playing/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Vertx Work Queue Playing
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'Got board late one night, so thought I’d muck around with Vertx [mod-work-queue](https://github.com/vert-x/mod-work-queue). 
+    The runmod feature of Vertx is nice, and avoids the madness of having to find
+    [modules](http://mvnrepository.com/artifact/io.vertx) on the web:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: vertx runmod io.vertx~mod-work-queue~2.0.0-final
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Best is to pass some conf params 🙂 and also run in cluster mode:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '{'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '“address”: “trading.test”'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '}'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: vertx runmod io.vertx~mod-work-queue~2.0.0-final -conf mod-work-queue.conf -cluster
+    matt
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'Which gives me a cluster running work-queue on a default address:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Starting clustering…
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: No cluster-host specified so using address 192.168.0.3
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'So now to my processor code.  Due to the lateness of the hour, I got stuck
+    on how the [acceptedReplyAddress](https://github.com/vert-x/mod-work-queue) should
+    work:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: ~ by mdavey on January 4, 2014.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  prefs: []
+  type: TYPE_NORMAL

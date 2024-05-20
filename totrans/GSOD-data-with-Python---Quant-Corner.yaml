@@ -1,0 +1,86 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:07:02'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: GSOD data with Python | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01](https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This one-file project fetches  [Global Surface Summary of the Day (GSOD)](https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod) from
+    the **National Oceanic and Atmospheric Administration** (**NOAA**)’s HTTP server
+    (data are also available on their FTP).
+  prefs: []
+  type: TYPE_NORMAL
+- en: See the code on [github](https://github.com/tagomatech/ETL/tree/master/gsod).
+  prefs: []
+  type: TYPE_NORMAL
+- en: station_search()
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'Whether a given weather station is part of the **GSOD** project can be checked
+    using the **station_search()** function. For instance, the station Stanton (UK)
+    can be retrieved as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'This function also allows to retrieve all weather stations in a given country
+    or US State, e.g. all stations in Iowa can be listed as folllows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: get_data()
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: 'Basic usage requires only requires (what I call) weather ***station id*** which
+    actually combines **USAF** (6-digit) and **WBAN** (5-digit) identification numbers
+    linked by a dash sign. For instance, **699604-03145** is  the ***station id***
+    for **YUMA MCAS** (US) weather station. Getting **YUMA MCAS** weather data for
+    the current year is as simple as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: The object returned is a **pandas.DataFrame()**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'User can also be willing to download **YUMA MCAS** weather data for several
+    consecutive years, with a single call to the function*:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Original data are reported in **Fahrenheit**, **miles**, **knots**, and **inches**.
+    It is possible to convert them to **Celsius**, **km**, **kph**, and **cm**, respectively.
+    To do so, one passes an extra argument *unit* with a string as value if only one
+    conversion is desired or a list of strings instead if 2+ unit conversions are
+    required, e.g.:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '* Still, behind the scene, NOAA servers are called once for each single year
+    of required data'
+  prefs:
+  - PREF_H5
+  type: TYPE_NORMAL

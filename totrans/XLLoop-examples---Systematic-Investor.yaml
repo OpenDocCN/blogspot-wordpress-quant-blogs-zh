@@ -1,0 +1,95 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:35:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: XLLoop examples | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/12/11/xlloop-examples/#0001-01-01](https://systematicinvestor.wordpress.com/2012/12/11/xlloop-examples/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today I want to follow up with the XLLoop framework post. Please read the XLLoop
+    framework post first to setup the [XLLoop](http://xlloop.sourceforge.net/) before
+    trying the examples below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: My first example is based on the [TFX Package](https://systematicinvestor.wordpress.com/2012/12/06/tfx-package/)
+    – to retrieve real-time FX quotes. To try this example, please first install the
+    [TFX Package](http://cran.r-project.org/web/packages/TFX/index.html). Please note
+    that you would need R (>= 2.15.0) to run [TFX](http://cran.r-project.org/web/packages/TFX/index.html).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s create a function to retrieve real-time FX quotes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Finally, you will need to add getFX() function to the rstart.r script. For this,
+    I created a user.r file to hold all user functions that you want to be available
+    in Excel and added source(“user.R”) to rstart.r script to load our functions.
+    I have updated the [xlloop-basic.zip](http://www.systematicportfolio.com/xlloop-basic.zip)
+    archive with this new functionality.
+  prefs: []
+  type: TYPE_NORMAL
+- en: At this point you might download [xlloop-basic.zip](http://www.systematicportfolio.com/xlloop-basic.zip)
+    archive and follow the steps in the XLLoop framework post to setup the [XLLoop](http://xlloop.sourceforge.net/).
+    Next, play with xlloop_TFX.xls
+  prefs: []
+  type: TYPE_NORMAL
+- en: If all works well, you will see following Excel spreadsheet that will update
+    every 3 seconds. You can stop/start updating by clicking Stop/Start buttons. You
+    can also change the speed of updates by entering a different number in cell J5.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot1.png.small](img/60d026264b3229593321fa5235c811c5.png)](https://systematicinvestor.wordpress.com/2012/12/11/xlloop-examples/plot1-png-small-67/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Another example that I want to share today will retrieve real-time stock quotes
+    from [BATS Exchange](http://www.batstrading.com/book/SPY/). Please first install
+    the [RJSONIO Package](http://cran.r-project.org/web/packages/RJSONIO/index.html):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s create a function to retrieve real-time stock quotes.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: I have added bats.quote() to a user.r file in the [xlloop-basic.zip](http://www.systematicportfolio.com/xlloop-basic.zip)
+    archive for this example. Next, play with xlloop_BATS.xls
+  prefs: []
+  type: TYPE_NORMAL
+- en: If all works well, you will see following Excel spreadsheet that will update
+    every 3 seconds. You can stop/start updating by clicking Stop/Start buttons. You
+    can also change the speed of updates by entering a different number in cell J5\.
+    You can also change the company by entering a different ticker in cell C2.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![plot2.png.small](img/4aae480191234b10106533a6536cbb3d.png)](https://systematicinvestor.wordpress.com/2012/12/11/xlloop-examples/plot2-png-small-64/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please let me know what problems you run into while experimenting with these
+    examples.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have noticed that FX quotes on my system do not update as often as I would
+    expect.
+  prefs: []
+  type: TYPE_NORMAL

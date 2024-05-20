@@ -1,0 +1,73 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:37:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Calling Minimum Correlation Algorithm from Excel using RExcel & VBA | Systematic
+    Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I want to show the example of calling the Minimum Correlation Algorithm from
+    Excel. I will use [RExcel](http://rcom.univie.ac.at/download.html) to connect
+    R and Excel and will create a small VBA cell array function to communicate between
+    Excel and R.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I have previously discussed the concept of connecting R and Excel in the [“Calling
+    Systematic Investor Toolbox from Excel using RExcel & VBA”](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
+    post. Please read [this](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
+    post for the instructions to setup [RExcel](http://rcom.univie.ac.at/download.html).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Following is a screen shot of the complete workbook:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/8cb6257108de859b53c49b4b8c572eee.png "snapshot")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/snapshot.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can download the [MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
+    workbook and experiment with it while you keep reading.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I created the “MinimumCorrelation” cell array function in VBA. *Do not forget
+    to use CTRL+SHIFT+ENTER to enter “MinimumCorrelation” function into your workbooks*.
+    The “MinimumCorrelation” function will send historical price information from
+    Excel to the R environment. It will next execute the R script to construct weights
+    using the Minimum Correlation Algorithm, and finally it will collect R calculations
+    of portfolio weights and transfer them back to Excel.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Here is the R script that calls min.corr.portfolio() function. I created a VBA
+    function “create_rcode” to create this file automatically for this example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, the “MinimumCorrelation” cell array function in VBA that calls min.corr.portfolio()
+    function in R:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: The complete working copy of the [MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
+    workbook.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*Please do not forget to use CTRL+SHIFT+ENTER to enter “MinimumCorrelation”
+    function into your workbooks*.'
+  prefs: []
+  type: TYPE_NORMAL

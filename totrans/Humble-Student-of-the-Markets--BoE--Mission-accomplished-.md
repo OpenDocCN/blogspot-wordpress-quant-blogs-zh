@@ -1,52 +1,0 @@
-<!--yml
-category: 未分类
-date: 2024-05-18 03:44:47
--->
-
-# Humble Student of the Markets: BoE: Mission accomplished?
-
-> 来源：[https://humblestudentofthemarkets.blogspot.com/2014/01/boe-mission-accomplished.html#0001-01-01](https://humblestudentofthemarkets.blogspot.com/2014/01/boe-mission-accomplished.html#0001-01-01)
-
-There was some hand wringing over at the WSJ about the challenges global central bankers face in exiting stimulus. In an article entitled "
-
-[Mission Accomplished? Not Yet](http://online.wsj.com/news/articles/SB10001424052702303465004579326592362526628)
-
-", Simon Nixon of the WSJ wrote:
-
-> The challenge for the Fed is to exit its bond-buying program without choking off the recovery. Its first attempt to reduce its bond purchase program in 2013 didn't go well: the markets were so spooked even by talk of "tapering" that market interest rates rose sharply, which fed through to mortgage rates, raising fears of renewed weakness in the housing market.
-> 
-> The Fed's second attempt has proved more successful: it sugared the taper pill by simultaneously committing not to raise interest rates until unemployment had fallen below the 6.5% threshold that it had previously set itself. Thus was a monetary tightening transformed into a monetary loosening: Although the US economy is expected to grow by 3% this year, the Fed has persuaded the market that the first rate hike won't come until 2015.
-> 
-> What could go wrong? One risk is that the Fed withdraws this stimulus too slowly. Even though inflation pressures currently appear low and the recovery seems fragile, asset prices are soaring, raising the specter of new bubbles that could jeopardize financial stability. U.S. stocks are trading at all-time highs, with the SP 500 up 29.6% in 2013, it's highest annual gain in 16 years. U.S. house prices rose 11.2% nationally in the year to the end of September 2013 with Las Vegas and San Francisco up 29.1% and 25.7% respectively, according to the S&P/Case-Shiller index.
-
-The Bank of England has a similar problem:
-
-> The Bank of England faces a similar challenge: it is trying to mimic the Fed's approach by using a 7% unemployment threshold to guide the market's expectations of when it will start to raise rates. But U.K. house prices are now rising by 8% a year, raising concerns the market may soon start over-heating. That means the BOE's strategy of keeping rates low until 2015 may depend on its ability to deploy so-called macroprudential tools to restrict the supply of mortgage credit.
-
-The risk of policy error is non-trivial:
-
-> But if the Fed is forced to accelerate its monetary tightening, some fear it could lead to a repeat of last year's market stress. Indeed, the potential for market volatility may have increased as a result of new bank capital rules which have made banks more reluctant to provide liquidity.
-
-**BoE: Focus on market normalization**
-
-Almost in reply, David Miles and Jochen Schanz of the Bank of England authored a
-
-[paper](http://www.bankofengland.co.uk/research/Documents/externalmpcpapers/extmpcpaper0041.pdf)
-
-that concluded that unwinding QE is likely to have limited impact. They began with a defense of QE and concluded that it had a significant impact on the economy when markets are dysfunctional:
-
-> That result does not show that central bank asset purchases (quantitative easing) do not work. And it certainly does not show that the major expansion of the balance sheets of the central banks in the US, UK, Japan and in the euro zone in recent years have been ineffective. We reach a different conclusion, which is that the main way in which such balance sheet changes have worked is probably not through the operation of a portfolio rebalancing of private sector portfolios undertaken in an environment of *normally functioning financial markets*. But large-scale asset purchases undertaken in an environment when financial markets are not working normally may well have significant effects. Indeed, there is substantial empirical evidence that they do. Such effects may reflect limits to arbitrage in stressed conditions. Vayanos and Vila (2009) focus on such limits. And there are alternative channels through which asset purchases may work. Durre and Pill (2012), for example, argue that the main way in which the central bank using its balance sheet has affected the wider economy is through providing alternatives to intermediation owing through markets that have been disrupted.
-
-They further concluded that the withdrawal of QE can be withdrawn with few market disruptions once market cease to be dysfunctional [emphasis added]:
-
-> We believe that our results are nonetheless relevant to the large-scale asset purchases under-taken by central banks since 2008\. ***Those purchases were made when financial markets were, to varying extents, dysfunctional.*** The unwinding of such asset purchases is likely to occur when financial markets are operating more normally. ***The results that we report suggest that if the unwinding of large-scale purchases happens when market conditions are more normal they may have relatively little impact on asset prices and the real economy.***
-
-Here's the caveat: The conclusions were based on a relatively simple model of old and young people in the economy, where "the young will not trade goods with the old in exchange for promises which the old will not be around to honour". They extended the model to analyze conditions "where agents cannot enter into efficient risk sharing trades with those of other generations":
-
-> We do so using an OLG model a set up that allows for heterogeneity amongst agents (some are old and some young) and limits to borrowing (the young and the old cannot borrow from each other). In the simplest OLG set up where there is no uncertainty the inefficiency in free market outcomes is because trade between generations as a means to smooth consumption over the life cycle of an agent is not feasible the young will not trade goods with the old in exchange for promises which the old will not be around to honour. But in this world the introduction of at money (or debt) by a government can remove the inefficiency. Indeed a very simple monetary policy, or debt management policy, will allow equilibria in which welfare enhancing trade between the young and old is possible (See Weill (2008) for a very clear exposition of the arguments first developed by Samuelson (1958)). As is well known, with no uncertainty optimal policy is very simple; it can be implemented with a government run PAYGO transfer system; with issuance of public debt or with the supply of fiat money; it would not seem to require the kind of asset purchases undertaken under QE and which we consider in this paper. Things are more interesting in the more realistic case where there are sources of uncertainty which cannot be traded in financial markets. We use such a model, where agents cannot enter into efficient risk sharing trades with those of other generations, to analyze what role conventional monetary policy (i.e. interest rate policy) and scale policy can have in overcoming market incompleteness and ask whether unconventional monetary policy asset purchases by the central bank can be useful in such a world and where the zero lower bound on the policy rate may be binding.
-
-Regardless, the results of the model are highly intriguing. The debate isn't just academic and history will be the final judge.
-
-*Cam Hui is a portfolio manager at [Qwest Investment Fund Management Ltd.](http://www.qwestfunds.com/) (“Qwest”). The opinions and any recommendations expressed in the blog are those of the author and do not reflect the opinions and recommendations of Qwest. Qwest reviews Mr. Hui’s blog to ensure it is connected with Mr. Hui’s obligation to deal fairly, honestly and in good faith with the blog’s readers.”
-
-None of the information or opinions expressed in this blog constitutes a solicitation for the purchase or sale of any security or other instrument. Nothing in this blog constitutes investment advice and any recommendations that may be contained herein have not been based upon a consideration of the investment objectives, financial situation or particular needs of any specific recipient. Any purchase or sale activity in any securities or other instrument should be based upon your own analysis and conclusions. Past performance is not indicative of future results. Either Qwest or I may hold or control long or short positions in the securities or instruments mentioned.*

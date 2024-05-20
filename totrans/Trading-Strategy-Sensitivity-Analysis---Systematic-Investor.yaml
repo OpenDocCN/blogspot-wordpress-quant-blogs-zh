@@ -1,0 +1,73 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:45:34'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Trading Strategy Sensitivity Analysis | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: When designing a trading strategy, I want to make sure that small changes in
+    the strategy parameters will not transform the profitable strategy into the loosing
+    one. I will study the strategy robustness and profitability under different parameter
+    scenarios using a sample strategy presented by David Varadi in the [Improving
+    Trend-Following Strategies With Counter-Trend Entries](http://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'First, let’s implement this trend-following strategy using the backtesting
+    library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/5f467642835b043c8430f58e70f0d1cd.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small9.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/d0f9f5382b45885a1fceeadb656ce6fd.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small8.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The Counter-Trend Entries (trend.following.dv1, black line) improved the performance
+    of the simple Trend-Following (trend.following, red line) strategy: both returns
+    are higher and drawdowns are smaller.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, I will examine how CAGR, Sharpe, DVR, and Maximum Drawdowns are affected
+    by varying length of the moving average from 10 to 100 and varying length of the
+    DV from 1 to 5:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/fcef1d25b0db5fca77a6cb801e00e6cc.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small6.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first column, labeled “NO”, shows the performance of the Trend-Following
+    strategy (no Counter-Trend Entries). The Counter-Trend filter improves the strategy
+    performance for most of the parameter scenarios. This is the result you want to
+    get by doing Sensitivity Analysis, the strategy is robust and profitable under
+    variety of parameters.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next step, which you can do as a homework, is to examine the strategy performance
+    with different instruments. For example, a more volatile Nasdaq (QQQ), or a Canadian
+    S&P/TSX Index (XIU.TO).
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.improving.trend.following.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

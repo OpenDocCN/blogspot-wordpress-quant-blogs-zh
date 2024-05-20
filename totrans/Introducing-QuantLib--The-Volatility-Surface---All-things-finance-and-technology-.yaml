@@ -1,0 +1,146 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:45:44'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Introducing QuantLib: The Volatility Surface | All things finance and technology…'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01](https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In this post, which largely builds upon my previous post on implied volatility,
+    I’m going to introduce the concept of a volatility surface. A volatility surface
+    renders a volatility measure, such as implied volatility or forward volatility,
+    along the dimensions of both strike and time to maturity. As such, not only does
+    it relate option volatility to strike as does a volatility smile, it also depicts
+    the term structure of volatility for an option contract, much like a yield curve
+    does for interest rates. To find the volatility for a particular option, one must
+    simply locate the point on the surface corresponding to the option’s strike and
+    expiration. The volatility can then be used to price the option with an appropriate
+    option pricing model, such as [Black-Scholes](https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/).
+  prefs: []
+  type: TYPE_NORMAL
+- en: A volatility surface can be visualized as a series of volatility smiles, one
+    for each option expiration, where the x axis is strike, y is time to maturity
+    and z is volatility (sigma). Essentially, the volatility surface is constructed
+    by computing the volatility smile for each option expiration and knitting them
+    together, filling in missing data with interpolated or extrapolated values as
+    necessary, such that the result is a continuous, smooth, 3D surface.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'An example is shown below, which was generated using implied volatility values
+    for options on the the CBOE’s S&P E-Mini futures contract (symbol: ES).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![volsurface](img/df6900fc533685bfe9b0dbda9766f7c1.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/10/volsurface.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The data used to create the volatility surface above was taken from the Implied
+    Vol. column of this Interactive Brokers screenshot:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![esoptions9302013-0903](img/b3d9cd108a56626f3ac9e451e2efcb5f.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/10/esoptions9302013-0903.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: QuantLib provides explicit support for creating and working with volatility
+    surface objects through its [BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)
+    class. The BlackVarianceSurface class requires a list of strikes, a list of maturity
+    dates and Matrix of volatilities, where the rows of the Matrix correspond to the
+    strikes and the columns correspond to the option expiration dates.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The example code below shows how to construct an instance of a BlackVarianceSurface
+    class from implied volatilities obtained from Interactive Brokers for the September,
+    2013 through December, 2014 ES future option contract expirations. Alternatively,
+    one could solve for the implied volatilities using the technique described in
+    my previous post in this series.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An important feature of the BlackVarianceSurface class that deserves mention
+    is that it allows for the interpolation algorithm to be specified by the programmer.
+    The default algorithm is [BilinearInterpolation](http://quantlib.org/reference/class_quant_lib_1_1_bilinear_interpolation.html). 
+    QuantLib provides other interpolation classes such as [BicubicSpline](http://quantlib.org/reference/class_quant_lib_1_1_bicubic_spline.html), 
+    and [Polynomial2DSpline](http://quantlib.org/reference/class_quant_lib_1_1_polynomial2_d_spline.html),
+    which all inherit from the [Interpolation2D](http://quantlib.org/reference/class_quant_lib_1_1_interpolation2_d.html)
+    base class.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the example that follows, I extract the volatility for several strikes and
+    maturities from the ES volatility surface, including strikes that must be interpolated. 
+    Then I set the  interpolator to be BicubicSpline and calculate the volatilities
+    again for the same strikes and maturities.  Lastly, I export the x, y and z volatility
+    surface values to a file so that I can generate a 3D surface plot with [gnuplot](http://www.gnuplot.info/),
+    an open-source charting tool.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The gnuplot script commands follow the C++ code at the end of the listing. I
+    encourage you to run the gnuplot script on your own machine, as gnuplot supports
+    some pretty cool features that allow you  to explore the volatility surface interactively.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'So here is the code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'When run, the program produces the following output:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`Using standard bilinear interpolation...'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1650.0 volatility: 0.156400'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1655.0 volatility (interpolated): 0.154922'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1685.0 volatility (interpolated): 0.143587'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Jun14 1655.0 volatility (interpolated): 0.163246'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Sep14 1680.0 volatility: 0.160420'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Using bicubic spline interpolation...
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1650.0 volatility: 0.156400'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1655.0 volatility (interpolated): 0.154662'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Dec13 1685.0 volatility (interpolated): 0.143587'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Jun14 1655.0 volatility (interpolated): 0.163750'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Sep14 1680.0 volatility: 0.160420`'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As you can see, the choice of interpolator can impact the shape of the volatility
+    surface which can, in turn, alter the price of options calculated with the corresponding
+    volatilities.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So that’s about it for this latest installment of my Introducing QuantLib series.
+    I hope you enjoyed it. Please do not hesitate to post any comments or questions
+    you might have. I would love to get some more feedback on these posts from my
+    readers. As always, until next time, have fun with QuantLib!
+  prefs: []
+  type: TYPE_NORMAL

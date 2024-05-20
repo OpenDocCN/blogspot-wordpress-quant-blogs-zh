@@ -1,0 +1,145 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:45:25'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 130/30 Portfolio Construction | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The [130/30 funds](http://en.wikipedia.org/wiki/130-30_fund) were getting lots
+    of attention a few years ago. The [130/30 fund](http://mutualfunds.about.com/od/typesoffunds/a/130_30_funds.htm)
+    is a long/short portfolio that for each $100 dollars invested allocates $130 dollars
+    to longs and $30 dollars to shorts. From portfolio construction perspective this
+    simple idea is no so simple to implement.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s continue with our discussion from [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post and examine effects of allowing short positions on efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/f924bebbf3b9461bf1aa10f8d08641f7.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Looking at the Transition Maps, the use of leverage increases as the portfolio’s
+    risk and return increase. At the lower risk, the optimizer wants to allocate 150%
+    to longs and 50% to shorts, and at the higher risk the optimizer wants to allocate
+    300% to longs and 200% to shorts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: This is a good starting point, but for our purposes we want all portfolios on
+    the efficient frontier to have 130% allocation to longs and 30% allocation to
+    shorts. One solution to this problem was mentioned in [Asset Allocation and Risk
+    Assessment with Gross Exposure Constraints for Vast Portfolios by J. Fan, Zhang
+    J., Yu K. (2008)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1307423)
+    ( Note 3 on Page 8 )
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first method to construct 130/30 portfolio is to note that
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![-v_{i} \leq x_{i} \leqslant v_{i}\newline\newline\sum_{i=1}^{n}v_{i} = 1.6](img/c44cd403cf272a34e4744fecdedd75ca.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: If inequality constraints are **bounding** than ![\left | x_{i} \right |=v_{i}](img/02dd82b3a87fc0815f2eb5d03f38ebd6.png)
+    and total portfolio weight is equal to 1.6 (1.3 contribution from long allocation
+    and 0.3 contribution from short allocation)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/1d436ea535dea2c4d9746df356f6e15c.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Looking at the Transition Maps, the use of leverage is constant for all portfolios
+    on the efficient frontier at 130% allocation to longs and 30% allocation to shorts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another method to construct 130/30 portfolio is to split
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![x_{i} = x_{long} - x_{short} : x_{long}, x_{short} \geq 0](img/ae03b37ae9ecb4a323d0a8dfcab4c1ed.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: and add ![\sum_{i=1}^{n}(x_{long} - x_{short}) = 1.6](img/c6087e6e15c72b5ea8732addd4fb8050.png)
+    constraint. If ![x_{long}, x_{short}](img/80b284f1707915266fcb4649ed7ceaa8.png)
+    are mutually exclusive (only one of them is greater then 0 for each i) than total
+    portfolio weight is equal to 1.6 (1.3 contribution from long allocation and 0.3
+    contribution from short allocation)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/0d7ad284335e82ab3de1eeb9f28b6e81.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Looking at the Transition Maps, the use of leverage is constant for all portfolios
+    on the efficient frontier at 130% allocation to longs and 30% allocation to shorts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'However, it is **important** to note that above two methods only work when
+    there is sufficient volatility in the covariance matrix and optimizer uses additional
+    leverage to generate optimal portfolios. To demonstrate this point, let’s imagine
+    we want to construct 200/100 portfolio : 200% allocation to longs and 100% allocation
+    to shorts. The only change required to create a new efficient frontier is to substitute
+    1.6 constraint above with 3 ( 3 = 200% allocation to longs plus 100% allocation
+    to shorts)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7b88b287f93023249905fd14c72bb0cb.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot4-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Looking at the Transition Maps, in this scenario the optimizer does not use
+    all the leverage at the lower risk region because optimal portfolios exist at
+    the lower leverage levels. If we look at the ![x_{long}, x_{short}](img/80b284f1707915266fcb4649ed7ceaa8.png)
+    at the lower risk region, they are not mutually exclusive, both ![x_{long}, x_{short}](img/80b284f1707915266fcb4649ed7ceaa8.png)
+    are grater than 0.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To enforce that ![x_{long}, x_{short}](img/80b284f1707915266fcb4649ed7ceaa8.png)
+    be mutually exclusive (only one of them is greater then 0 for each i), I will
+    add binary variables. Binary variables ![b_{i}](img/74eed72092432e9458bf2178ea983c52.png)
+    can only take 0 or 1 values. Here is the additional constraint:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![x_{i}^{long}\leq b_{i}, x_{i}^{short}\leq (1-b_{i})](img/60e738d105df709d5bc83cd4bd41a2ae.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/8ad6c77577875359b43526adce6a6e9d.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finally, looking at the Transition Maps, the use of leverage is constant for
+    all portfolios on efficient frontier at 200% allocation to longs and 100% allocation
+    to shorts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: A technical note about binary variable. The linear solver from [lpSolve](http://cran.r-project.org/web/packages/lpSolve/index.html)
+    library implements binary variables internally. The quadratic solver from [quadprog](http://cran.r-project.org/web/packages/quadprog/index.html)
+    library does not handle binary variables. To add binary variables to quadratic
+    solver I adapted binary branch and bound algorithm from [Matlab function for solving
+    Mixed Integer Quadratic Programs by Alberto Bemporad, Domenico Mignone](http://www.aut.ee.ethz.ch/~hybrid/miqp/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.long.short.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

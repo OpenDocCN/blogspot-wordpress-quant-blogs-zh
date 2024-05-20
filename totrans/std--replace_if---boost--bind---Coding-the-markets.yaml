@@ -1,0 +1,42 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:42:57'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: std::replace_if & boost::bind | Coding the markets
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://etrading.wordpress.com/2008/05/07/stdreplace_if-boostbind/#0001-01-01](https://etrading.wordpress.com/2008/05/07/stdreplace_if-boostbind/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: std::replace_if & boost::bind
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: May 7, 2008
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: I wanted to use [std::replace_if](http://www.sgi.com/tech/stl/replace_if.html)(
+    ) to substitute spaces for the tilde symbol (~) in a string. The [STL docs](http://www.sgi.com/tech/stl/replace_if.html)
+    give an example that uses [std::bind2nd](http://www.sgi.com/tech/stl/binder2nd.html).
+    MS has a [similar example](http://msdn.microsoft.com/en-us/library/te5sdkcs(VS.80).aspx)
+    in their knowledge base. This is what I came up with to do the job using [boost::bind](http://www.boost.org/doc/libs/1_35_0/libs/bind/bind.html)…
+  prefs: []
+  type: TYPE_NORMAL
+- en: '`std::string rep("one~two");'
+  prefs: []
+  type: TYPE_NORMAL
+- en: std::replace_if( rep.begin( ), rep.end( ), boost::bind( std::equal_to<char>(
+    ), _1, '~'), ' ');`
+  prefs: []
+  type: TYPE_NORMAL

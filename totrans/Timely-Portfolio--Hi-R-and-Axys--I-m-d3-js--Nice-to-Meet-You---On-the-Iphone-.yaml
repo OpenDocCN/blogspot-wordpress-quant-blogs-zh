@@ -1,0 +1,104 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:05:10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Hi R and Axys, I’m d3.js “Nice to Meet You” (On the Iphone)'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I am still definitely in the proof of concept stage, but as I progress I get
+    more excited about the prospects of combining d3.js with R and Axys through Bryan
+    Lewis’ really nice R websockets package (even nicer now that he has added the
+    daemonize function).  In this iteration, I will add a cumulative growth line chart,
+    some animation and transitions, and then javascript will ask R to calculate drawdowns. 
+    Instead of R returning a chart like last time, R will send the results of the
+    drawdown calculations through JSON through the websocket.  We will then use d3.js
+    to draw a line chart of drawdowns.  This becomes really powerful when we consider
+    the existing and [thanks to Google Summer of Code soon to be added](http://www.google-melange.com/gsoc/project/google/gsoc2012/matthieu_ensimag/26001)
+    risk/return calculations offered by the R PerformanceAnalytics package.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As one last bonus at the end of the video you will see that we can get this
+    interactive reporting experience and websocket communication all on our Iphone
+    and Ipad.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As a quick review of what is happening
+  prefs: []
+  type: TYPE_NORMAL
+- en: Axys runs a report called perhstsp.rep.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Axys calls the cdataset.xlsm testd3axys macro and sends performance information.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Excel cdataset.xlsm testd3axys macro does some very basic formatting, converts
+    the data to JSON, creates a webpage, and opens the webpage in the default browser.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Browser opens the webpage and d3.js generates a bar graph of performance and
+    then a cumulative growth line chart.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Browser provides a button to open a websocket with R and send the performance
+    information originally calculated in Axys.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: R receives the performance data through the websocket, calculates drawdown,
+    and then sends the drawdown calculations as JSON back to the browser.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Browser receives the drawdown calculations and d3.js plots them as a line chart.
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: '[http://www.youtube.com/embed/jz0cpO3Kp4Q](http://www.youtube.com/embed/jz0cpO3Kp4Q)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: VIDEO
+  prefs: []
+  type: TYPE_NORMAL
+- en: The next set of iterations will focus on cleaning up the d3.js charts and adding
+    interactivity.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So far I have received no comments.  Please let me know what you think about
+    this.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The list of acknowlegements is starting to get long. I really appreciate all
+    the fine work done by Mike Bostock on d3.js [https://github.com/mbostock/d3/wiki](https://github.com/mbostock/d3/wiki
+    "https://github.com/mbostock/d3/wiki"), the dedicated authors of the R package
+    PerformanceAnalytics [http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html](http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html
+    "http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html"), Bryan
+    the author of [http://illposed.net/websockets.html](http://illposed.net/websockets.html
+    "http://illposed.net/websockets.html") and [the example](http://bigcomputing.com/PerformanceAnalytics.R),
+    the author of RJSONIO [http://cran.r-project.org/web/packages/RJSONIO/index.html](http://cran.r-project.org/web/packages/RJSONIO/index.html
+    "http://cran.r-project.org/web/packages/RJSONIO/index.html"), and Bruce McPherson
+    at [http://excelramblings.blogspot.com/](http://excelramblings.blogspot.com/ "http://excelramblings.blogspot.com/")
+    for the inspirational idea.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To work through on your own, you will need the Excel file [cdataset.xlsm](https://www.box.com/s/ec9ddf33cefd5fd7cf10),
+    the Axys report [perhstsp.rep](https://www.box.com/s/yhdagoqpznif8248etc5), and
+    the [R code from GIST](http://bl.ocks.org/3190664).
+  prefs: []
+  type: TYPE_NORMAL

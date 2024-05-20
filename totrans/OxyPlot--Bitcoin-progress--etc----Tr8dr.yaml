@@ -1,0 +1,71 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:28:10'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: OxyPlot, Bitcoin progress, etc. | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2015/02/28/oxyplot-bitcoin-progress-etc/#0001-01-01](https://tr8dr.wordpress.com/2015/02/28/oxyplot-bitcoin-progress-etc/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: February 28, 2015 · 6:41 pm
+  prefs: []
+  type: TYPE_NORMAL
+- en: I’ve been a bit distracted recently brainstorming some blockchain-related ideas
+    with colleagues, and working on a research & trading UI.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**OxyPlot**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'First I wanted to give a plug for OxyPlot.  If you use F#/C# or the .NET ecosystem,
+    [OxyPlot](http://oxyplot.org "OxyPlot") is a well designed interactive scientific
+    plotting library.  The library renders to iOS, Android, Mono.Mac, GTK#, Silverlight,
+    and WPF.    If one is dealing with a manageable amount of data, highly recommend
+    [Bokeh](http://bokeh.pydata.org/en/latest/ "Bokeh") & python.   However if you
+    need significant interactive functionality or need to interact with large data
+    sets, OxyPlot is a great solution:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Screen Shot 2015-02-28 at 6.00.14 PM](img/45702954a6e632b207c143655825c451.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-28-at-6-00-14-pm.png)I
+    wanted to build a UI to allow me to observe and develop better intuitions around
+    order book characteristics.   OxyPlot did not have good financial charts, so contributed
+    high-performance interactive candlestick & volume charts that can handle millions
+    of bars (points) and some pane alignment controls to the project.   Here is an
+    example of the sort of UI one can put together with OxyPlot:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Screen Shot 2015-02-28 at 5.53.31 PM](img/b909cf29b08893deb11a36e022419688.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-28-at-5-53-31-pm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Feed Status**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I was awaiting a reply from BTCChina regarding their broken FIX implementation.
+      As the API issue has not been resolved, implemented the BTC China REST API and
+    deployed the feeds for the 4 exchanges of primary interest:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Screen Shot 2015-02-28 at 6.23.18 PM](img/a98a0b379c76dc0bb7e9cf36ab81effa.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-28-at-6-23-18-pm.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Though 2 of the exchanges require 4-sec sampling (due to the lack of streaming
+    APIs), all intervening trades are captured between queries.   For L2 sources,
+    order book transactions are implied by looking at the minimum sequence of transactions
+    that would produce the difference between 2 successive snapshots of the order
+    book.   All of the feeds yield a common transaction format:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![Screen Shot 2015-02-10 at 6.33.12 PM](img/629e9efedc97db92eb12acd07ca0d8de.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-10-at-6-33-12-pm.png)'
+  prefs: []
+  type: TYPE_NORMAL

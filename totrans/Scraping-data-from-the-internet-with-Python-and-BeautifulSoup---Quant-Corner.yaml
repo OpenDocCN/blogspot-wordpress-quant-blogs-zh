@@ -1,0 +1,262 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:08:21'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Scraping data from the internet with Python and BeautifulSoup | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I needed a daily time series of crude soybean oil prices in Central Illinois
+    (yes, I did …). After a bit of search, I found out that the data I needed are
+    available on the [Iowa Farm Bureau](http://www.iowafarmbureau.com "Iowa Farm Bureau") website.
+  prefs: []
+  type: TYPE_NORMAL
+- en: More specifically, there is no time series available but data are accessible
+    playing a bit with the URLs. It was a case for **Python** and **BeautifulSoup!**
+  prefs: []
+  type: TYPE_NORMAL
+- en: The snippet code provided below is straightforward and can easily modified to
+    suit specific needs. There is no optimization or exceptions mechanisms. That just
+    do the work.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![iowa Farm Bureau](img/8b97c406ff6d30de6eb2e6c3c331a626.png)](https://quantcorner.wordpress.com/wp-content/uploads/2014/03/iowa_farm_bureau.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '##################################################'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Edouard TALLENT @TaGoMa . Tech, March, 2014    #'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'Scraping Central Illinois crude soyoil prices  #'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'from http://markets.iowafarmbureau.com/        #'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'QuantCorner @ https://quantcorner.wordpress.com #'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: '##################################################'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Required headers
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'import urllib2                          # Read webpages'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'from bs4 import BeautifulSoup           # bs4 fonctions'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'import time                             # Time, time elapsed'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'import re                               # Regex, removing characters'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Arrays that will contain the desired datas
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: '#d = []      # Dates'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#l = []      # Lows'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#h = []      # Highs'
+  prefs: []
+  type: TYPE_NORMAL
+- en: URLs
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'start_urls = 4539   # Most recent webpage to start parsing'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'nb_quotes = 200     # Number of quotes desired'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'for urls in range (start_urls, start_urls - nb_quotes, -1):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Start time
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: start_time = time.time()
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: construct the URLs strings
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: url = 'http://markets.iowafarmbureau.com/pages/usdacash.php?id=' + str(urls)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Read the HTML page content
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: page = urllib2.urlopen(url)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Create a beautifulsoup object
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: soup = BeautifulSoup(page)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Search the table to be parsed in the whole HTML code
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: tables = soup.findAll('table')
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'tab = tables[1]                 # This is the table to be parsed'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Search the date
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: <option value='4539'>Mar 03, 2014</option>
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 'date = str(soup.find(''option'', {''value'' : str(urls)}).string)'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Pick up the content of the desired cells in tab
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: http://www.briancarpio.com/2012/12/02/website-scraping-with-python-and-beautiful-soup/
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: ''''''''
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: <td>Crude Soybean Oil</td>
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: <td>Processor</td>
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: <td>+40.01</td>
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: <td>+40.36</td>
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: <td>
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ''''''''
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'low_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[2].string)     #Low price'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'low = re.sub(''[+]'', '''', low_tmp)                                # Remove
+    the ''+'' sign'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'high_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[3].string)    # High
+    price'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: 'high = re.sub(''[+]'', '''', high_tmp)                              # Remoce
+    the ''+'' sign'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Stop time
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: stop_time = time.time()
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Print out to the screen
+  prefs:
+  - PREF_IND
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: print date, '\t', low , '\t', high, '(%0.1f s)' % (stop_time - start_time)
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Store values parsed in arrays for later use
+  prefs:
+  - PREF_IND
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: '#d.append(date)'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '#l.append(low)'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '#h.append(high)'
+  prefs:
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE

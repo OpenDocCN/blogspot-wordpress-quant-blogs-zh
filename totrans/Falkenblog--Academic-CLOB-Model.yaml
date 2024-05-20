@@ -1,0 +1,198 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 19:55:35'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Falkenblog: Academic CLOB Model'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://falkenblog.blogspot.com/2024/02/academic-clob-model.html#0001-01-01](http://falkenblog.blogspot.com/2024/02/academic-clob-model.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Last week, I [commented](https://falkenblog.blogspot.com/2024/02/budishs-plan-to-replace-clobs.html)
+    on the University of Chicago professor Eric Budish *et al.*'s hedge fund sniping
+    model but neglected a more significant point. To recap, Budish modeled a scenario
+    likened to a Centralized Limit Order Book (CLOB), where *liquidity providers*
+    (LPs) post bids and asks, and takers then take those orders ([link](https://ericbudish.org/wp-content/uploads/2022/03/high_frequency_trading_arms_race_slides_seminar2015.pdf)).
+    Assuming several *high-frequency traders* (HFTs) are posting the bids and asks,
+    for any resting lone bid or ask, a stale quote will generate a race between the
+    lone HFT LP and several HFTs acting as takers. If the race winner is random, the
+    odds are the LP posting the order will lose. This is the latency race deadweight
+    loss. He estimates this symmetric information adverse selection adds 0.4 basis
+    points (0.004%) to the bid-ask spread. When you apply that number to all the stocks
+    traded worldwide, you get $40B. We would save the world $40B if we switched to
+    sequential auctions. In [his words](https://www.newyorkfed.org/medialibrary/media/newsevents/events/markets/2015/A-Market-Design-Perspective-HFT-Debate.pdf),
+    "continuous markets don't 'work' in continuous time."
+  prefs: []
+  type: TYPE_NORMAL
+- en: The craziest thing about this argument is that he applies this to a novel market
+    mechanism that lowered costs by over 90% after nearly a century of stasis. In
+    the first chart, we see the spread was constant from 1900 to 1990 at around 60
+    basis points, making some think it was some fundamental equilibrium. The internet
+    enabled an alternative way to trade stocks, the electronic trading revolution
+    from firms like Island, BATS, Archipelago, Instinet, etc. The second chart shows
+    that it fell still lower from 2001 through 2006\. The second chart is in different
+    units and breaks it up by size groupings, but the point is the decline continued
+    and was permanent. The current spread is about 3 basis points. 60 to 3.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Jones Trading Costs 1900-2000](https://host.kelley.iu.edu/cholden/Jones%20(2002).pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: <shapetype coordsize="21600,21600" filled="f" id="_x0000_t75" o:preferrelative="t"
+    o:spt="75" path="m@4@5l@4@11@9@11@9@5xe" stroked="f"><stroke joinstyle="miter"><formulas></formulas><path
+    gradientshapeok="t" o:connecttype="rect" o:extrusionok="f"></path></stroke></shapetype><shape
+    alt="A graph showing the stock market
+  prefs: []
+  type: TYPE_NORMAL
+- en: Description automatically generated" id="_x0000_i1026" type="#_x0000_t75"><imagedata
+    o:title="A graph showing the stock market
+  prefs: []
+  type: TYPE_NORMAL
+- en: Description automatically generated" src="file:///C:/Users/Eric/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png"></imagedata></shape>
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Jones, Hendershott and Menkveld (2008)](https://www.econstor.eu/bitstream/10419/43255/1/599235055.pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In that context, advocating a wholesale change in market structure to eliminate
+    a remaining 0.4 basis point of that spread is a classic example of letting perfection
+    be the enemy of the good. This sort of economic ingratitude is standard, as no
+    matter how much GDP grows, someone can point out something wrong and suggest we
+    replace capitalism with a centrally planned economy, one that, unlike any of the
+    past centrally planned economies, will work better than decentralized economies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In spite of economics as seeming laissez-faire, most economists have been progressives
+    (e.g., founder of the AEA Robert T. Ely, JM Keynes), viewing competitive behavior
+    as wasteful, a criticism shared by industry leaders who appreciate it as a powerful
+    cartelization device. The essence of free markets is private property and liberty.
+    If people can make unfettered decisions about themselves and their property, it
+    promotes prosperity. There is no trade-off between freedom and prosperity; they
+    go hand in hand. Alas, most people, especially academics, don't trust decentralized
+    results. Since Plato's *Republic*, they have always thought they could design
+    a better world if given the mandate. Hubris and pride were prominent human vices
+    in the Classical and Biblical canon because of their perennial, pervasive, and
+    pernicious nature. It's a constant battle.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Back to Budish's model, he looks at some data circa 2015 on the London Stock
+    Exchange, back when they timestamped in microseconds (now nano) and focuses on
+    trades where several HFTs were taking or canceling a particular offer (e.g., bid
+    for 100 @ 99.32) within 500 microseconds of each other. He figures the takes that
+    got there before the LP canceled were unfairly robbing the poor HFT LP, which
+    happened 90% of the time. Indeed, cancel orders were not recorded most of the
+    time in these races, but if several HFTs tried to take simultaneously, he figured
+    the LP probably wanted to.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'This inference is silly for several reasons. First, It depends on who is trading
+    and why. This was highlighted by [Holmstrom and Myerson (1981)](https://www.jstor.org/stable/1912117):
+    planners do not know everything in an economy with incomplete information, something
+    economists often forget when looking down at their models like God. Many sniped
+    orders were from retail traders who thought they would post a buy order one tick
+    above the best buy instead of crossing the spread. They get up and go to the kitchen,
+    and when they come back, they are filled, though the market has moved much lower.
+    If the retail trader instead sent a market order and bought at a higher price,
+    they would have a bigger loss. This is not a deadweight loss.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another type of trader is the HFT, who merely wants to change their inventory,
+    including rectifying a short position (moving from -100 to -90). In that case,
+    they would be willing to cross the spread or post an aggressive limit order; they
+    are not trading for arbitrage, where one tries to buy below the mid, etc. When
+    one posts an aggressive resting limit order above the current best bid, one knows
+    that they are not guaranteed a fill with the price not moving, as otherwise, no
+    one would cross the spread. Marking such resting limit order trades to the mid-price
+    will make it look like a loss to the LP, but it should be marked relative to the
+    alternative, which is crossing the spread.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Another significant problem in his model is that this is not so much an exogenous
+    cost born by HFT LPs, just an intra-HFT transfer. Only a dozen firms dominate
+    HFT, as is usual in elite competitions. Those playing the game are taking and
+    posting resting limit orders probabilistically. Such an order may be taken by
+    a retail rube immediately, sniped by an HFT, and sometimes, their bid will sit
+    there, and the price will move, and then they will become the top of a large queue,
+    the perfect place for a positive expected value order. If you only count those
+    times they get picked off as a loss and consider that an exogenous expense to
+    be eliminated, you are simplifying the game in a way that mischaracterizes it
+    completely.
+  prefs: []
+  type: TYPE_NORMAL
+- en: His batch auction alternative is efficient when one thinks about a one-period
+    scenario where people have private valuations for an object. With repeated auctions
+    for equities, we must incorporate the complexity of updating valuations based
+    on other valuations, inventory situations, and time preferences. As the other
+    players are doing the same thing, we must update the priors of other people's
+    priors, *ad infinitum*. There is also the possibility of collusion, like playing
+    poker with two players sharing information, which would radically alter one's
+    interpretation of market orders. His simple model is an excellent way of illustrating
+    a particular problem, but to presume this is sufficient justification for a policy
+    suggestion, let alone a radical new regulatory mandate, is absurd. The state space
+    quickly becomes beyond any closed-form solution.
+  prefs: []
+  type: TYPE_NORMAL
+- en: He also says the market can't fix itself like it's stuck in the bad Nash equilibrium
+    and mentions two examples. First, he objects to letting the broker get two cents
+    for their trades from an HFT who processes the orders rather than an explicit
+    two-cent fee charged to the retail trader. The broker gets two cents in either
+    case, but the trader may feel like he is getting a better deal. Retail flow is
+    considered uninformed, as it will always have high latency, so HFT LPs can assume
+    it is not filled with adverse selection and charge a lower spread, creating positive
+    gains from trade. Allowing the broker to swap an explicit fee for an implicit
+    fee via the rebate given by HFTs is an efficient way to capture this. His example
+    of an HFT *problem* is the sort of fix markets make.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Budish also mentions co-location as a cost of HFTs because many millions are
+    spent by HFTs wishing to be the fastest. This is perverse because providing privileged
+    but open access, where everyone is treated the same, down to a couple of nanoseconds,
+    is undoubtedly more efficient than distributing this privilege off the books.
+    The latency advantage will exist in any modestly continuous market, so the question
+    is how to administer this. Backroom deals encourage corruption and are cancerous.
+    What Budish presents as a problem and something markets cannot fix is actually
+    an efficient market solution. He has it backward.
+  prefs: []
+  type: TYPE_NORMAL
+- en: During the 90 years of bid-ask stasis, the country was transformed by the telephone,
+    radio, and TV, which radically altered the speed of information flow across the
+    country. Yet it was only with the internet that outsiders could create an alternative
+    to the closed, heavily regulated specialist equity trading system. Consider the
+    NYSE's alternative, Nasdaq, was found to collude, quoting highly liquid stocks
+    in ¼, ½, etc., but rarely, 1/8, 3/8, etc., artificially increasing the bid-ask
+    spread. There were more Nasdaq dealers competing for quotes than on the NYSE,
+    but the NYSE was a more efficient mechanism. Those just counting the number of
+    players, as many naively do (Herfindahl index, Nakamoto number), would have never
+    guessed that. Such are the game theoretic equilibria in complicated real-world
+    games.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Instead, Budish emphasizes state coercion, ignoring the precedent of a 90-year
+    regulatory-enforced inefficient market. In his paper, [Will the Market Fix the
+    Market](https://ericbudish.org/wp-content/uploads/2022/03/afa_transcript.pdf),
+    he favorably quotes a top regulator for writing, "Without changing [the] incentives,
+    we cannot and should not expect the market to fix the market." This naïve and
+    hubristic view is natural because big institutions are not going to fly him around
+    to tell them that markets are doing well, though there's an edge case where you
+    get adverse selection without asymmetric information. He created a model that
+    theoretically *proved* a new inefficiency exists, and he also empirically *proved*
+    billions of dollars in waste.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Luckily, this policy does not look like it is gaining ground, as Taiwan recently
+    [moved away](https://www.citadelsecurities.com/wp-content/uploads/sites/2/2022/03/Market-Lens_Continuous-Trading-vs-Frequent-Batch-Auction.pdf)
+    from a batched auction market to a standard CLOB. A simple solution, liberty,
+    implies its best if we generally ignore economists when they come up with specific
+    policies.
+  prefs: []
+  type: TYPE_NORMAL

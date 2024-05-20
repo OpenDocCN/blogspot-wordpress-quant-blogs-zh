@@ -1,0 +1,67 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:02:51'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'An Elegant Measure of Diversification: The Cluster Gini Score (CGS) | CSSA'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01](https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: In the paper we wrote on [The Minimum Correlation Algorithm](https://cssanalytics.wordpress.com/2012/09/12/minimum-correlation-algorithm-mca/
+    "Minimum Correlation Algorithm (MCA)") we introduced the Composite Diversification
+    Score (CDI). The purpose of this measure was to demonstrate how well a set of
+    portfolio weights has minimized the average portfolio correlations and also balanced
+    the risk contributions from each asset as  measured using the [Gini](https://cssanalytics.wordpress.com/2012/10/22/gini-calculation-spreadsheet/
+    "Gini Calculation Spreadsheet") coefficient of inequality. The CDI can also be
+    extended in a similar manner to CGS when applied to clusters- this is beyond the
+    scope of this post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'An alternative and potentially more intuitive measure of portfolio diversification
+    uses the concepts embedded in [Cluster Risk Parity](https://cssanalytics.wordpress.com/2013/01/03/cluster-risk-parity/
+    "Cluster Risk Parity") (CRP). The logic is very simple: if CRP using ERC (equal
+    risk contributions) both within and across clusters represents the “optimally
+    diversified portfolio”, then any portfolio that deviates from that is considered
+    to be imbalanced from a risk/diversification standpoint to varying degrees. Essentially
+    a portfolio from a given universe is considered to have “factor” exposures to
+    each cluster, and also “tracking error” (risk of under-performing a benchmark)
+    to those factors.  In practice, we would like to have both a balance of risk across
+    factors/clusters and a balance the risk attributed to having exposure to a factor/cluster.
+    The Gini coefficient was used in the CDI to measure inequality in risk contribution
+    exposure. A measure where (1-Gini) of asset risk contributions would mean that
+    a value of 1 would represent perfect equality and 0 would be perfect inequality.
+    The same concept can be extended to across (inter) factor/cluster risk contributions
+     and within (intra) factor/cluster risk contributions. The formula for CGS would
+    be as follows:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '***CGS=  100x (sqrt(NC)x(inter-cluster RC (1-Gini))+(avg intra-cluster RC (1-Gini)))/(sqrt(NC)+1)***'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Essentially this is a weighting of inter-factor risk balance versus  the average
+    intra-factor risk balance, where the inter-factor (across clusters) is assigned
+    a greater weight as a function of the square root of the number of clusters available.
+    The resulting equation shows a result between 0 and 100, with 100 being a Cluster
+    Risk Parity allocation, and very low scores representing high concentration and
+    poor distribution of risk.  This score can be used to determine the degree of
+    diversification/concentration of any set of portfolio weights across a given universe.
+    In other words, if you have for example 5 assets and a set of weights that you
+    believe to be optimal, the CGS can help to determine how imbalanced you are from
+    a diversification standpoint. This can also be extended to optimization where
+    CGS can help to moderate the objective function to ensure more stable results
+    and generate portfolios that are more intuitive. In machine learning algorithms,
+    and data-mining,  CGS  can help to  produce more stable predictions and enhance
+    the capability of handling large datasets when using clustering.
+  prefs: []
+  type: TYPE_NORMAL

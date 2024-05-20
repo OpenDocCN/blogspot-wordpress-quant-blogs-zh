@@ -1,0 +1,145 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:29:39'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Smoothed UKF | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01](https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The smoothed UKF performs smoothing on the state system a-posteriori.   The
+    standard form of this filter is useful in getting an accurate view on prior states,
+    but will not provide a smoothed online state estimate for the current or next
+    period (i.e. no better estimate than the non-smoothed UKF).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'That said the smoothed UKF is still useful as:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: can be used to estimate the MLE for a stable parameter
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: a timeseries of smoothed prior states can be regressed to project a smoothed
+    forward state (but is not part of the UKF framework)
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: The form of UKF smoother that will briefly discuss is the forward-backward smoother.
+      As the name suggests, the first pass is to perform standard UKF filter, estimating
+    the distribution ![p({x_t}|{x_{t - 1}},{y_{1:t}})](img/c318ddce666c0cc424f4f8aebb8b4a06.png)
+    at each timestep.  Whereas the smoothing estimates a smoothed distribution in
+    reverse, implying ![p(x_{t - 1}^S|x_t^S,\Sigma _t^S)](img/820c608b665356d023f4991252ca4c40.png).
+      The boundary ![x_T^S,\Sigma _T^S](img/53878ace7e48ddd2cec17f7431b78c8e.png)
+    is simply the last state and covariance estimated by the forward filter.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The smoothing approach is then for each ![x_{t }^S, \Sigma _t^S](img/08ffe1a226d02cbdc69853d3b0af8051.png),
+    determine the predicted ![x_{t+1 }^-, \Sigma _{t+1}^-, \Sigma _{t,t+1}^-](img/d9b6ac121a41b388509a08f7d44d8220.png),
+    and back out an appropriate adjustment given a computed kalman gain and the difference
+    between the predicted t+1 and actual t+1 state:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\left[\mu _{t+1}^ - ,\sum _{t+1}^ - ,\sum _{t,t + 1}^ - \right] = UT\left(
+    {{X_t},\sum _{t,t}^{},f(.), \cdots } \right)](img/43dfb3127a6aa2116dc8738a9895709f.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '![K = \sum _{t,t + 1}^ - {\left( {\sum _{t + 1}^ - } \right)^{ - 1}}](img/b171992adaf275a263b4de9b8f59abc8.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '![X_t^S = X_t^{} + K\left( {X_{t + 1}^S - \mu _{t + 1}^ - } \right)](img/c6972ee4f94e65d0121a5d35b40fb157.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '![\sum _t^S = \sum _t^{} + K\left( {\sum _{t + 1}^S - \sum _{t + 1}^ - } \right){K^T}](img/020ba960a42547f89578884c03623fe1.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '**Results** A simple example of a non-linear function is the Sine function.
+      Tracking the sine function using a linearization of the sine function with standard
+    Kalman filter will perform poorly.  My test case for the UKF was the following
+    function with noise:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![y(t) = {a_t}\sin \left( {{\theta _t}} \right) + {\varepsilon _t}](img/11003d8b0fecd626f176d22f6638e3c6.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'where ![{a_t}](img/809b26324478c8cd6716386666387994.png) and ![\theta _t](img/0f7b75f318ba1c2250e26c2e7f5b189d.png)
+    are linear functions of time.  The states in the system track: ![A(t),\frac{{dA}}{{dt}},\theta
+    (t),\frac{{d\theta }}{{dt}}](img/46cd96d94ddd8ed7435ac3f2434029ae.png).   Here
+    is UKF tracking without smoothing:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/f4bfcc7bf3b42107e9218becaf640304.png "Screen shot 2011-08-03 at 11.48.18
+    AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-48-18-am.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'And here is the same with smoothing:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/597607c13583625ad846629a0c415db7.png "Screen shot 2011-08-03 at 11.49.35
+    AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-49-35-am.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Code** I’m enclosing R code for the augmented UKF and smoothed UKF.   For
+    readability I have not optimized all of the R code (i.e. there are some for loops
+    that could be vectorized).   Here is the common part (defining the Unscented Transform).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The **UKF without smoothing**:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The **UKF with smoothing**:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Finally, here is the Sine test:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: If you find the above code useful or have improvements to suggest, kindly send
+    me a note. Thanks.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Next Steps** Some next steps:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Determine state-system appropriate for market making & cycling regimes
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Determine Multi-Model switching approach
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: Evaluation & Analysis
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: I will probably make a digression onto another topic in the next posting before
+    revisiting this.  Stay tuned.
+  prefs: []
+  type: TYPE_NORMAL
+- en: p.s. if you use wordpress, they have a latex equation rendering capability I
+    just discovered (hence better inlining in this post).
+  prefs: []
+  type: TYPE_NORMAL

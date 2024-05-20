@@ -1,0 +1,84 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:45:01'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Multi-Asset Backtest : Rotational Trading Strategies | Systematic Investor'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I want to discuss the implementation of Rotational Trading Strategies using
+    the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).The
+    Rotational Trading strategy switches investment allocations throughout the time,
+    betting on few top ranked assets. For example, the ranking can be based on relative
+    strength or momentum. A few examples of the Rotational Trading Strategies (or
+    Tactical Asset Allocation) are:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I want to illustrate the Rotational Trading using the strategy introduced at
+    ETF Screen in the [ETF Sector Strategy](http://www.etfscreen.com/sectorstrategy.php)
+    post. Each month, this strategy invests into the top two of the 21 ETFs sorted
+    by their 6 month returns. To reduce the turnover, in subsequent months the ETF
+    positions are kept as long as these ETFs are in the top 6 rank.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Before we can implement this strategy, we need to create two helper routines.
+    First, let’s create a function that will select the top N positions for each period:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Next, let’s create a function that will select the top N positions for each
+    period and keep them until they drop below KeepN rank:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Now we are ready to implement this strategy using the backtesting library in
+    the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/4d415ebcb3b2fb3f6a2feaad40aa21b1.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/2c9e33d86a10c2c872661f0dd099baea.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/839301868b96026d5ab1967fad619cd5.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are many ways to improve this strategy. Here is a sample list of additional
+    ways to consider:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The only boundary is your imagination. I would also recommend to do sensitivity
+    analysis during your strategy development to make sure your are not overfitting
+    the data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.rotational.trading.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL
+- en: For more examples, please have a look at the implementation of the Timing Model
+    as presented in [A Quantitative Approach to Tactical Asset Allocation by M. Faber
+    (2006)](http://www.mebanefaber.com/timing-model/) at the [bt.timing.model.test()
+    function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

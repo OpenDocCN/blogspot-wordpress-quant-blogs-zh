@@ -1,0 +1,123 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 18:54:13'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Quantitative Trading: Metalabeling and the duality between cross-sectional
+    and time-series factors'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01](http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: By Ernest Chan and Akshay Nautiyal
+  prefs: []
+  type: TYPE_NORMAL
+- en: Features are inputs to supervised machine learning (ML) models. In traditional
+    finance, they are typically called “factors”, and they are used in linear regression
+    models to either explain or predict returns. In the former usage, the factors
+    are contemporaneous with the target returns, while in the latter the factors must
+    be from a prior period.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/5612d841760b6fbdee7c387f68f0f694.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc8mxor122uQ0HTbPae-Z7oJkQ64NmQR6YUoQUU9vM1-wFe-9qJlYVQO713ADmmIqqWgU2705v4e3X7ygpI2LZgNWL8OpwRD070QOhJCGn0uXGns-iDLnXhMnnFWTCipBUk8LPGA/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'There are generally two types of factors: cross-sectional vs time-series. If
+    you are modeling stock returns, cross-sectional factors are variables that are
+    specific to an individual stock, such as its earnings yield, dividend yield, etc.
+    In our previous [blog post](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/),
+    we described how we provide 40 such factors to our subscribers for backtesting
+    and live predictions. But as we advocate using ML for risk management and capital
+    allocation purposes (i.e. [metalabeling](https://www.predictnow.ai/blog/what-is-the-probability-of-profit-of-your-next-trade-introducing-predictnow-ai/)),
+    not for returns predictions, you may wonder how these factors can help predict
+    the returns of your trading strategy or portfolio. For example, if you have a
+    long-short portfolio of tech stocks such as AAPL, GOOG, AMZN, etc., and want to
+    predict whether the portfolio as a whole will be profitable in a certain market
+    regime, does it really make sense to have the earnings yields of AAPL, GOOG, and
+    AMZN as individual features?'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Meanwhile, time-series factors are typically market-wide or macroeconomic variables
+    such as the familiar Fama-French 3-factors:market (simply, the market index return),
+    SMB (the relative return of small cap vs large cap stocks), and HML (the relative
+    return of value vs growth stocks). These time-series factors are eminently suitable
+    for metalabeling, because they can be used to predict your portfolio or strategy’s
+    returns.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Given that there are many more obvious cross-sectional factors than time-series
+    factors available, it seems a pity that we cannot use cross-sectional factors
+    as features for metalabeling. Actually, we can –  Eugene Fama and Ken French themselves
+    showed us how. If we have a cross-sectional factor on a stock, all we need to
+    do is to use it to rank the stocks, form a long-short portfolio using the rankings,
+    and use the returns of this portfolio as a time-series factor. The long-short
+    portfolio is called a hedge portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: We show the process of creation of a hedge portfolio with the help of an example,
+    starting with Sharadar’s fundamental cross-sectional factors (which we generated
+    as shown in the [blog](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)).
+    There are 40 cross sectional factors updated at three different frequencies -
+    quarterly, yearly and twelve month trailing. In this exercise, however, we use
+    only the quarterly cross-sectional factors. Given a factor like capex (capital
+    expenditure), we consider the normalized (the normalization procedure is found
+    in the previously cited blog post) capex of approximately 8500 stocks on particular
+    dates from January 1st, 2010 till current date. There are 4 particular dates of
+    interest every year - January 15th, April 15th, July 15th and October 15th. We
+    call these the ranking dates. On each of these dates we find the percentile rank
+    of the stock based on normalized capex. The dates are carefully chosen to capture
+    change in the cross sectional factors of the maximum number of stocks post the
+    quarterly filings.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Once the capex across stocks is ranked at each ranking date (4 dates) each year
+    we obtain the stocks present in the upper quartile (i.e ranked above 75 percentile)
+    and the stocks present in the lower quartile (i.e ranked below 25 percentile).
+    We take a long position on the ones which showed highest normalized capex and
+    take a short position on the ones with the lowest. Both these sets together make
+    our long-short hedge portfolio.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Once we have the portfolio on a given ranking date we generate the daily returns
+    of the portfolio using risk parity allocation (i.e allocate proportional to inverse
+    volatility). The daily returns of each chosen stock are calculated for each day
+    till the next ranking date. The portfolio weights on each day are the normalized
+    inverse of the rolling standard deviation of returns for a two month window. These
+    weights change on a daily basis and are multiplied to the daily returns of individual
+    stocks to get the daily portfolio returns. If a portfolio stock is delisted in
+    between ranking dates we simply drop the stock and not use it to calculate the
+    portfolio returns. The daily returns generated in this process are the capex time
+    series factors. This process is repeated for all other Sharadar cross-sectional
+    factors.
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, voila! 40 cross-sectional factors become 40 time-series factors, and they
+    can be used for metalabeling any portfolio or trading strategy, whether it trades
+    stocks, futures, FX, or anything at all.
+  prefs: []
+  type: TYPE_NORMAL
+- en: What about the opposite conversion? Can we turn time-series factors into cross-sectional
+    factors suitable for predicting the returns of individual stocks? Actually, there
+    is no need. You can directly add any time-series factor to your feature set for
+    predicting individual stock’s returns. This is equivalent to building a linear
+    factor model with an individual stock’s returns as dependent variable and the
+    time-series factor as independent variable, a process well-known in traditional
+    finance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'On a side note: besides these 40 time-series (and their corresponding cross-sectional)
+    features, we have compiled an additional 197 proprietary time-series features
+    available to our [Premium subscribers](https://www.predictnow.ai/services/), and
+    available via our API.'
+  prefs: []
+  type: TYPE_NORMAL

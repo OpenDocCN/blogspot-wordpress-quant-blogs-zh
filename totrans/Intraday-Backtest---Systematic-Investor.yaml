@@ -1,0 +1,126 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:40:56'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Intraday Backtest | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/04/23/intraday-backtest/#0001-01-01](https://systematicinvestor.wordpress.com/2012/04/23/intraday-backtest/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'I came across a free source of Intraday Forex data while reading [Forex Trading
+    with R : Part 1](http://lifeanalytics.blogspot.com/2011/01/forex-trading-with-r-part-1.html)
+    post. You can download either Daily or Hourly historical Forex data from the [FXHISTORICALDATA.COM](http://www.fxhistoricaldata.com/).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The outline of this post:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Download and Import Forex data
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Reference and Plot Intraday data
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Daily Backtest
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: Intraday Backtest
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: 'First,I created a [getSymbols.fxhistoricaldata() function in data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)
+    to download Forex data from the [FXHISTORICALDATA.COM](http://www.fxhistoricaldata.com/).
+    Following code loads ‘EURUSD’ hourly data and creates a candle chart for 2012:03:06
+    from 10 to 21 hours using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/ba4d3e017975de88c7b4e98952ac62ac.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot1-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: We can reference Intraday data by specifying hours, minutes, and seconds in
+    addition to year, month, and day. I.e. YYYY:MM:DD HH:MM:SS
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s combine Daily price for SPY and Intraday quotes for EURUSD in one
+    chart.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/af92e31be3966fdefffa565443577b63.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot2-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Next, let’s create a Daily Backtest by investing into [Currency Majors](http://en.wikipedia.org/wiki/Currency_pair):
+    EUR/USD, USD/JPY, GBP/USD, AUD/USD, USD/CHF and USD/CAD. I will investigate an
+    Equal Weight portfolio and Timing portfolio as explained in the [A Quantitative
+    Approach to Tactical Asset Allocation by M. Faber (2006)](http://www.mebanefaber.com/timing-model/)
+    paper.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/20e2d5262afdb043338f468f605e825b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot3-small2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/eb5fc0c67f48cea106e50ad185c291cf.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next, let’s create an Intraday Backtest using the same strategies.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/a9b9a8600f308aeb538a9b11b6091af0.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot5-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/1d74ba35939369cd67a4f46edeef5132.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/plot6-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Please note that the code for the Daily Backtest and Intraday Backtest is identical
+    except for the line where we download the data:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Daily Backtest:'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: 'Intraday Backtest:'
+  prefs:
+  - PREF_UL
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs:
+  - PREF_IND
+  type: TYPE_PRE
+- en: It is easy to work with Intraday data and it is easy to create Intraday Backtest,
+    right?
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.intraday.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

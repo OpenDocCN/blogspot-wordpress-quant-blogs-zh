@@ -1,0 +1,95 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:42:59'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Trading with Python: Reconstructing VXX from CBOE futures data'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01](http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Many people in the blogsphere have reconstructed the VXX to see how it should
+    perform before its inception. The procedure to do this is not very complicated
+    and well-described in the VXX prospectus and on the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Intelligent Investor Blog](http://investing.kuchita.com/2011/08/16/how-the-vxx-is-calculated-and-why-backwardation-amplfies-it/)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Doing this by hand however is a very tedious work, requiring to download data
+    for each future separately, combine them in a spreadsheet etc.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The scripts below automate this process. The first one,
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*downloadVixFutures.py*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: ', gets the data from cboe, saves each file in a data directory and then combines
+    them in a single csv file,'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*vix_futures.csv*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The second script
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*reconstructVXX.py*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: parses the
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*vix_futures.csv,*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: calculates the daily returns of VXX  and saves results to
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*reconstructedVXX.csv*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: .
+  prefs: []
+  type: TYPE_NORMAL
+- en: To check the calculations, I've compared my simulated results with the SPVXSTR
+    index data, the two agree pretty well, see the charts below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Note: For a fee, I can provide support to get the code running or create
+    a stand-alone program, contact me if you are interested.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '--------------------------------source codes--------------------------------------------'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Code for getting futures data from CBOE and combining it into a single table
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*downloadVixFutures.py*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: Code for reconstructing the VXX
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*reconstructVXX.py*'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE

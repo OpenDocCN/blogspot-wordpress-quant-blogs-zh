@@ -1,0 +1,125 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 04:47:36'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Intelligent Trading: Practical Implementation of Neural Network based time
+    series (stock) prediction -PART 4'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Consider this an introduction to how we need to pre-process the data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I mentioned earlier that a financial time series is typically a unit root or
+    non-stationary signal, what this means is that if you sample statistical properties
+    over time, they will obviously change.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/3e7152806f8ef04ad58c7e58640c42f5.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhotfy3qAUStcIYh4vFvQg6syIektEMfGPOoK1OzNjs2ZLGhzrCDnistWSjsxWyMyFJFqGnM5b-sSU0xZBxtmUlxgf7njfFnxYC7CEM4PmUVMZ1NmCuCmD1JElLTtIcXsoUcyWZ47hzE9k/s1600-h/fig1sp500.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 1\. S&P 500 non-stationary signal
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can see that as we sample the average at various points it is constantly
+    changing. Another property of a unit root time series is that it is continuously
+    growing (or exploding). We need to somehow transform the time series back into
+    a stationary signal, so that the Neural Net can process and learn it. Not only
+    is it necessary for the Neural Net to see similar if not repeating data over and
+    over, but any values beyond the internal squashing function will get saturated
+    at the rails of the processing elements.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One of the things that you'll notice for many long term financial time series
+    is that they grow exponentially, so a good candidate fit might be an exponential
+    equation. However, since we will be using decomposition detrending, I prefer to
+    use a line fit. In order to accomplish this, we can take the log of the data and
+    later reverse the operation for post processing. Taking the log of exponential
+    data also transforms the exponential regression to a linear one that we can use
+    linear regression on and subtract the time series to get some stationarity .
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/91530656eb45e365ded127a4da4160cc.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWOBJZZoOLpLy1LUKrevueQlTMup3bdsl_cZl4iyk_Z6qJDMZeHhpQHRShPLDNhISuCsSwK8Dw5z0r_A4rvrDwzI5m57VJvZJYLodBG5eTzh4ppl_htsSmNw9_X9XUF_Z9_m3U9BzMSc/s1600-h/fig3logtransform.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 2\. Log Transformed Time Series
+  prefs: []
+  type: TYPE_NORMAL
+- en: Also, notice that we will be predicting the next day, so we can simply use linear
+    regression parameters updated daily to predict the next day.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If we have a sufficient amount of data, we should see that the parameters settle
+    to a stable limit, much as a coin toss converges to an asymptotic limit. If the
+    parameters settle, we have some confidence that they will not change much from
+    one sample prediction to the next.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/f83fee54932c6118af3940221d230acb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBM0jjMH9iHy8wLvcTugVzQMFP0zqwuGfXM6HxYK4a-T3VrKtZzX7-hjvfQxe5xD3V7BD3sC7Ha3QXptV555KpcfUT5-Ql5x1kDyLDyDhIZELHWbvLVCUx_yBRZAlthSrf0PtY_hoTBNI/s1600-h/fig2slopeconvergence.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: fig 3\. Dynamic Slope Settling of Linear Prediction Parameters
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice that the parameters have settled to a pretty stable value over the training
+    period, implying that we don't expect them to change too wildly from the true
+    value on the next predicted estimate.
+  prefs: []
+  type: TYPE_NORMAL
+- en: After we subtract the line regression from the log transformed signal we get
+    our detrended and stationary signal.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/949e91433d990a4a75728519d21e169e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOF2kR9yojWT8dQl9RK-fwUXanf1Cj2P7Vs2nm20chX6gyJGJ8esGola319C-tf6b0PpvWoPiKiFSxQucYXBfTeHnek8UWpOXf8Cx9EUJOoFVcxM5LTjjRrblCYtYj1e9eqnzyVJF1uiY/s1600-h/fig4detrenedseries.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: fig 4\. De-trended Log transformed signal
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice it appears much more stationary than the original time series. However,
+    because the Neural Network does not get to see a lot of repetitive high frequency
+    information over the time window, I will detrend once more with a faster smoothed
+    representation. First we will use a 100 period moving average as the new intermediate
+    trend, then subtract a 25 period moving average to get the 2nd detrended series.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/172a77968df99a9c412fcaa249b5b9a9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhn0LZl-pj8xZ7TV8WmmOAZbwxjYgYovYdWglrhJU-dtZPqPvypDpwF7lXrFEdws2-kaV_JJSTjfJMRVyDqbnDzdZb_dLZI0A0jxg5zoXl4Tq496MUWRIse7CY5RLG2s-LW7rplijU5gV8/s1600-h/fig5_2nddetrendedseries.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Fig 5\. Second de-trended series.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Notice that even this small sample shows a much better signal for the Neural
+    Network to learn subtle patterns in the time series, and that stationarity property
+    is very tame.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/19c51289558ea3c166f1784d6374c222.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijEoaJ1Zp3YrzUEmOfJk_1EV61ypK1ejaP9Y-lX6ByCOcSMBXKluXyy1xO8bxaUpMAHx9zYm4LITCxm6hC7OeSOBXn9Me-kLLs-N1ZgdVDWtvnmxsCS9D8zHGN9nH6JL4VVC-j81Gr_X4/s1600-h/fig6stockpred.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: FIg 6\. Reconstructed prediction Out of Sample
+  prefs: []
+  type: TYPE_NORMAL
+- en: The figure above shows an example of a stock series that has been decomposed
+    and smoothed then recomposed with a 100 and 25 period moving average and the out
+    of sample period. There is a very good correlation between predicted and actual
+    smoothed estimates. Such a system might be utilized in a moving average crossover
+    prediction to gain a 1 day advantage in estimating momentum. There are some very
+    small discrepancies in predicted vs actual values, however, I believe it is due
+    to one small problem I've had with Weka. The output of Weka only outputs 3 digits
+    numerical precision. On the nabble forum they have mentioned a newer option in
+    Subversion, but I haven't had a chance to play with it yet.
+  prefs: []
+  type: TYPE_NORMAL

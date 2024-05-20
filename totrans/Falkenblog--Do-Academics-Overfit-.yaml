@@ -1,0 +1,129 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 20:42:29'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Falkenblog: Do Academics Overfit?'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://falkenblog.blogspot.com/2011/10/do-academics-overfit.html#0001-01-01](http://falkenblog.blogspot.com/2011/10/do-academics-overfit.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Yes. Academics are just as susceptible to this bias as anyone else. On one hand
+    they have extra discipline from having to put their ideas out there, while on
+    the other hand they often don't pay the price for creating overfit models in the
+    way a poorly performing asset manager would. The big difference between academic
+    overfitting and that from your average quant is that when academics do it they
+    are much better at rationalizing such models.
+  prefs: []
+  type: TYPE_NORMAL
+- en: I've worked with finance professors on consulting projects, and cherry-picking
+    data recent data and pointing to something 'out of sample' when it is used iteratively
+    is quite common. An important postulate to remember is that there are no true
+    out-of-sample backtests, just tests of subsample stability. Invariably researchers
+    know about the entire dataset in question, so out-of-sample results are really
+    models that when fit on a subsample and applied to its complement generate the
+    best fit. That is, quants try models sequentially until they find one that works
+    well 'out of sample,' which means the data is not really out of sample.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'That''s not to say out-of-sample tests are meaningless, just that it takes
+    a lot of self-discipline because a lot of this is done outside the box, and the
+    easiest person to fool is often oneself because it''s very tempting to believe
+    things when they imply many self-serving benefits. This is why integrity is a
+    virtue, because it''s hard, uncommon, and helpful. It''s tempting to over-promote
+    your own pet idea as tendentious advocacy can seem necessary in the real world
+    where ''everybody does it.'' But, the biggest problem knowledge-workers make is
+    not making a logical error or not being able to solve a complicated problem, but
+    working on something that is a dead-end, because that implies you''ve just wasted
+    a large part of your career: an expert on input-output models, Keynesian macro
+    models, dynamic programming isn''t valuable for making decisions. Fooling yourself
+    into believing in a false model simply wastes your time.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Consider John Cochrane and Monika Piazzesi's
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Bond Risk Premia](http://faculty.chicagobooth.edu/john.cochrane/research/papers/cochrane_piazzesi_bond_risk_premia.pdf)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: paper that purports a model that forecasts one year bond excess returns with
+    a 44% R2\. Both are competent academics who I generally respect, as I think they
+    are smart, careful and do research with good faith. Their model suggests that
+    if you look at the current forward rates from the US Treasury yield curve, the
+    first five forwards predict year-ahead bond returns very well (to be precise,
+    these are 'excess' returns, so they subtract the 1-year bond yields).
+  prefs: []
+  type: TYPE_NORMAL
+- en: What is this model? Basically, if you run an ordinary least squares of the 10yr
+    bond return over the next year (minus the 1yr yield), on the forwards. They looked
+    at the 1964-2004 period, which has 467 monthly datapoints, but because these are
+    year-ahead returns, we really only have 39 totally independent datapoints, which
+    is not a very large sample (most year-ahead returns being highly correlated because
+    they share much of the same data). So the basic pattern they found was
+  prefs: []
+  type: TYPE_NORMAL
+- en: year ahead 10yrBondReturn-1yr Bond Yield=a+b1*f1+b2*f2+b3*f3+b4*f4+b5*f5
+  prefs: []
+  type: TYPE_NORMAL
+- en: '*here f1-f5 are the 1 through 5 year forwards.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: You can download his data
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[here](http://faculty.chicagobooth.edu/john.cochrane/research/Data_and_Programs/Bond_Risk_Premia/bondprice.dat)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '. Now, the first problem I found is that his bond data is a bit fishy. He used
+    bond data from CRSP, and 2 and 4 year USTreasury datapoints are pretty uncommon.
+    His 4 and 5 year forwards yield changes have a suspiciously low correlation. In
+    anycase, I took the H15 data using their 1, 3 and 5 year monthly bond yields,
+    and generated pretty much the same result: tent-shaped set of coefficients on
+    the forwards (approximately equal and negative for 1 and 5 year forwards, positive
+    and larger for the 3 year forward), and my R2 for the 1964-03 period was a large
+    31%. My results look like this for the same sample period Cochran and Piazzesi
+    use:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7162c11bb3abd2aaa659ceff1f4c2415.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj82OFIAn_EwTd-6LMfgD0W7yKhYxP3drglkqzes_qKS2b76flZPtJjgwSH08_3cfUhHteEP1ZW_xFfQq18ahoYgc03Jrc4H4u41JCcoAGOmIDsBULMBNaR4_onxcmC_YVFELbPNg/s1600/bond6203.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The coefficients suggest that there are higher returns the more concave the
+    forwards are, and lower returns the more convex. This doesn't really make any
+    sense, in that there's no intuition as to why this 'tent-structure' of coefficients
+    is related to risk, or utility, it just comes out of a best fit of the data.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If we look at the subsequent 7 years, that same set of coefficients that worked
+    so well in-sample for 64-03, don't work at all for 2004-2010 (last datapoint was
+    for the return from 9/2010 through 9/2011). See below.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/45f8fda3759fac6954d4a9d3378f7a02.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgeogRZoqN16E7TbWfLpjmFcsflPsVvJ3iCP59epmf5A6E8jJJTinWeB59zk-BmfKU9S5hHJ7df3VMXzxo25p7C8lyDKjbw8GpWfqRcShPz4MeVvXlp5qjxxbJ6AjkNOe0PwFd2sQ/s1600/bond0410.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: So, it seems a classic overfitting of the data. Sure, the pattern could have
+    just stopped, but given the model had no intuition, no causal mechanism, just
+    some unlikely set of coefficients, it almost surely was an overfit. Such results,
+    prior to Freakonomics and Behavioral Finance, were considered rubbish for a while,
+    as the development of CRSP into a data source led to a lot of stupid correlation
+    papers in the 1980s and 70s, but the success of other atheoretical findings (momentum)
+    has unleashed non-intutive correlations into top tier journals.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As an academic, this will always be a plus on Cochrane and Piazzesi's vitas
+    because it made a top tier journal (AEA 2005), but as a practioner this would
+    have gotten them fired. Thus for academics, overfit theories that generate publications
+    have little downside compared to a practioner.
+  prefs: []
+  type: TYPE_NORMAL

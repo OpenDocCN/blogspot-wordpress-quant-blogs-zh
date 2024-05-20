@@ -1,0 +1,70 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 06:25:47'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Cucumber and Distributed Application Testing | Tales from a Trading Desk
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://mdavey.wordpress.com/2013/05/06/cucumber-and-distributed-application-testing/#0001-01-01](https://mdavey.wordpress.com/2013/05/06/cucumber-and-distributed-application-testing/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Cucumber and Distributed Application Testing
+  prefs:
+  - PREF_H2
+  type: TYPE_NORMAL
+- en: Writing distributed applications is complex.  Testing distributed application
+    is as complex.  Throw in a distributed applications that spans a LAN/WAN with
+    latency implications, and the software engineering/testing complexities become
+    quite painful to model.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Cucumber in my view is nice from the perspective that is allows the tests to
+    be written in pain text, and in a business DSL.  Sometime ago whilst writing a
+    distributed application, and trying to code the cucumber tests, I realised that
+    I could benefit from the sequence [diagrams](http://www.cs.sjsu.edu/~pearce/modules/lectures/ooa/analysis/ecb.htm)
+    ([PlantUML](http://plantuml.sourceforge.net/sequence.html)) that I had draw to
+    allow me to visualise the message flow between the various interested parties
+    (nodes) in my Proof of Concept (PoC).
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'My idea was to get Cucumber to include the sequence diagram  as part of the
+    “Then” clause to aid in validating the messages that should have flowed between
+    nodes.  This simple and almost obvious idea,  leads to the following Cucumber
+    scenario (leveraging Eugene’s [sample](http://eprystupa.wordpress.com/2012/12/23/prototyping-a-matching-engine-with-scala-and-cucumber/)):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: As you can see, the Cucumber scenario effectively allow me to validate the completion
+    state and also the messages passed to create the state. For particular types of
+    distributed application that build on Finite-State Machines ([FSM](https://en.wikipedia.org/wiki/Finite-state_machine))
+    in a globally distributed application this scenario allows a certain level of
+    confidence based not only on state but also the messages passed on the WAN/LAN
+    to construct the state at each node.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There are a few [PlantUML](http://plantuml.sourceforge.net/sequence.html) parsers
+    available, once of which is [Intellij-puml](https://github.com/Stefku/intellij-puml),
+    which can assist if you happen to want to travel down this road.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ~ by mdavey on May 6, 2013.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Posted in [Cloud](https://mdavey.wordpress.com/category/hpc/cloud/), [Java](https://mdavey.wordpress.com/category/languages/java/)
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Tags: [Cucumber](https://mdavey.wordpress.com/tag/cucumber/)'
+  prefs: []
+  type: TYPE_NORMAL

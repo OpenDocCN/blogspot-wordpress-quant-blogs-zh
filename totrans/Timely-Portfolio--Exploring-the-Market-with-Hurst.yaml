@@ -1,0 +1,164 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:14:14'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Exploring the Market with Hurst'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Randomly trudging through PerformanceAnalytics source code, I was intrigued
+    by the [Hurst Index calculation](https://r-forge.r-project.org/scm/viewvc.php/pkg/PerformanceAnalytics/R/HurstIndex.R?view=markup&root=returnanalytics),
+    which I discovered is more commonly called [Hurst Exponent](http://en.wikipedia.org/wiki/Hurst_exponent). 
+    After quickly satisfying myself that I could actually do the rolling Hurst calculation
+    in R, I wanted to see how this small discovery might be applied to market research
+    and trading systems.  I found a couple of interesting articles through a [Google
+    Scholar search](http://scholar.google.com/scholar?hl=en&q=hurst+exponent&as_sdt=1%2C1&as_ylo=&as_vis=0),
+    and away I went.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first interesting paper Bo Qian and Khaled Rasheed ["HURST EXPONENT AND
+    FINANCIAL MARKET PREDICTABILITY](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.207&rep=rep1&type=pdf)
+    demonstrated something I have noticed but not proven over the last 10 years of
+    system building.  Based on the chart below, the Hurst exponent for 1950-1980 seems
+    very different than 1980 (especially 1990)-2004.  This would fit my unscientific
+    observation that momentum/trend-following strategies worked best 1950-1980 (Hurst
+    > 0.55) and mean reversion performed best for 1980-2004 (Hurst < 0.5).
+  prefs: []
+  type: TYPE_NORMAL
+- en: I had some trouble replicating and extending the Hurst exponent calculation
+    from the paper to the entire set 1896-2011.  The Hurst exponent should oscillate
+    mainly between 0.4 and 0.6 with an average 0.54 on a random unstructured series
+    based on the paper’s simulations and my understanding.  As seen below my results
+    are dramatically different and clearly wrong with a Hurst exponent oscillating
+    between 0.35 and 0.5.  If I change the calculation period and apply a rolling
+    average, I get more reasonable but still incorrect results.  This happens whether
+    I apply to daily, weekly, or monthly returns.  It seems that the calculation fails
+    at periods > 12 months.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'What I found is that the Hurst exponent calculation is an estimation and could
+    vary widely based on the technique.  The calculation in PerformanceAnalytics is
+    clearly not the same as that presented in the paper.  I evidently fell into the
+    same Hurst trap that has confronted many market students and described at this
+    site [http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html](http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html
+    "http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html") found by a
+    Google search:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '“Sadly things frequently are not as simple as they seem. Looking back, there
+    are a number of things that I did not understand:'
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The Hurst exponent is not so much calculated as estimated. A variety of techniques
+    exist for doing this and the accuracy of the estimation can be a complicated issue.
+  prefs:
+  - PREF_BQ
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: Testing software to estimate the Hurst exponent can be difficult. The best way
+    to test algorithms to estimate the Hurst exponent is to use a data set that has
+    a known Hurst exponent value. Such a data set is frequently referred to as *fractional
+    brownian motion* (or fractal gaussian noise). As I learned, generating fractional
+    brownian motion data sets is a complex issue. At least as complex as estimating
+    the Hurst exponent.
+  prefs:
+  - PREF_BQ
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: The evidence that financial time series are examples of long memory processes
+    is mixed. When the hurst exponent is estimated, does the result reflect a long
+    memory process or a short memory process, like autocorrelation? Since autocorrelation
+    is related to the Hurst exponent (see Equation 3, below), is this really an issue
+    or not?
+  prefs:
+  - PREF_BQ
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  - PREF_IND
+  type: TYPE_NORMAL
+- en: ''
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I found that I was not alone in thinking that the Hurst exponent might provide
+    interesting results when applied to financial data. The intuitively fractal nature
+    of financial data (for example, the 5-day return time series in Figure 5) has
+    lead a number of people to apply the mathematics of fractals and chaos analyzing
+    these time series.”
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The beautiful thing about R though is the high likelihood of another package
+    that will calculate Hurst.  I chose FGN in search of a better result.  The results
+    makes more sense but still does not match the observations in the paper.  However
+    the stronger momentum 1950-1980 and stronger mean reversion 1980-2010 still appear. 
+    This might help explain [http://www.automated-trading-system.com/turtles-just-lucky/](http://www.automated-trading-system.com/turtles-just-lucky/
+    "http://www.automated-trading-system.com/turtles-just-lucky/").
+  prefs: []
+  type: TYPE_NORMAL
+- en: I am sure that many brilliant mathematicians have applied the Hurst exponent
+    profitably, but as of now, too much vagueness and uncertainty exist for me to
+    bet my or my client’s money on it.  However, as always, I thought I would try
+    to build a system with the Hurst exponent.  In the paper, the authors imply that
+    for best results focus on times with a high Hurst exponent.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**IT IS ASHAME THAT I MUST DISCLAIM.  DO NOT TRADE THIS SYSTEM.  IT COULD LOSE
+    LOTS OF MONEY.**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[R code (click to download):](https://docs.google.com/leaf?id=0B2qp2r96khJPNDE2NDhlNGQtNWY5NS00YTQ4LWFjODEtNDc2YWU3NmYxYWY1&hl=en_US)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
+    by Pretty R at inside-R.org")'
+  prefs: []
+  type: TYPE_NORMAL

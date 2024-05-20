@@ -1,0 +1,86 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:35:56'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Regime Detection Pitfalls | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/11/15/regime-detection-pitfalls/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/15/regime-detection-pitfalls/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Today, I want to address some questions that I was getting regarding the [Regime
+    Detection](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/)
+    post. In the [Regime Detection](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/)
+    post I showed an example based on the simulated data, and some of you tried to
+    apply this example to actual stocks.
+  prefs: []
+  type: TYPE_NORMAL
+- en: There is one big problem that you have to be aware in designing the trading
+    system that uses [Regime Detection](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/).
+    Let me demonstrate with a simple example.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s say we used 10 years of daily returns of SPY to train our model (2 regimes:
+    Bull and Bear). Next let’s test a strategy that goes long in the Bull regime and
+    stays in cash in the Bear regime using the out of sample data. I thank you Michael
+    Guan at [systematicedge.wordpress.com](http://systematicedge.wordpress.com/) for
+    asking this question.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/8f0cbb7b82e732a89ce85c3cd71b4e87.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: These results are too good to be true for such a simple strategy. You have tripped
+    your investment in 10 years with minimum draw-down. So there is the problem?
+  prefs: []
+  type: TYPE_NORMAL
+- en: The [Viterbi algorithm](http://en.wikipedia.org/wiki/Viterbi_algorithm) uses
+    all data to compute the most likely sequence of states. I.e. In the code above,
+    we passed the returns for all dates to the [Viterbi algorithm](http://en.wikipedia.org/wiki/Viterbi_algorithm).
+    Hence, for example, the [Viterbi algorithm](http://en.wikipedia.org/wiki/Viterbi_algorithm)
+    might use data in 2008 to determine states in 2007\. This is a big problem, that
+    we can address using a rolling window approach. Unfortunately, the accuracy of
+    our predictions and strategy returns go down.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/e10da00d26e173e3b6461bfd5aba5b73.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small1.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The states change more often using the rolling window approach. We probably
+    can add a filter that allows the state change only it is confirmed by certain
+    number of observations. I.e. delayed state change, let’s keep it for another post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Let’s just see the impact of the rolling window approach on the back-test results:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/df54d52ff4c41a4764475929b478a61f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, it is quite hard to apply [Regime Detection](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/)
+    to stocks.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.regime.detection.pitfalls.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  prefs: []
+  type: TYPE_NORMAL

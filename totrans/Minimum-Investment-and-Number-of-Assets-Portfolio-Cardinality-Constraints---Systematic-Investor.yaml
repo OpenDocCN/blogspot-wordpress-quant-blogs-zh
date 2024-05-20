@@ -1,0 +1,97 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:48:17'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Minimum Investment and Number of Assets Portfolio Cardinality Constraints |
+    Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/10/20/minimum-investment-and-number-of-assets-portfolio-cardinality-constraints/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/20/minimum-investment-and-number-of-assets-portfolio-cardinality-constraints/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: The Minimum Investment and Number of Assets Portfolio [Cardinality Constraints](http://ieeexplore.ieee.org/Xplore/login.jsp?url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F11108%2F35623%2F01688603.pdf%3Farnumber%3D1688603&authDecision=-203)
+    are practical constraints that are not easily incorporated in the [standard mean-variance
+    optimization](http://en.wikipedia.org/wiki/Efficient_frontier) framework. To help
+    us impose these real life constraints, I will introduce extra binary variables
+    and will use mixed binary linear and quadratic programming solvers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s continue with our discussion from [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
+    post and examine range of portfolio weights and number of assets for each portfolio
+    on the efficient frontier.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/59748c31c54dd3919344778e093f0306.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/45b7ff4ac0c230b9d835e30a186879f9.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The portfolio weights range from 0% to 80%, and the number of assets range
+    from 2 to 4 assets. First, let’s consider a minimum investment constraint. Suppose
+    that if I decide to allocate to an asset class, I want to allocate at least 10%.
+    This statement can be incorporated as a constraint using binary [0/1] variables:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![0.1 * b_{i}\leq x_{i} \leq 0.8 * b_{i} \newline \newline  \left\{\begin{matrix}  b_{i}
+    = 0 \to x_{i} =0  \\   b_{i} = 1 \to 0.1 \leq x_{i} \leq 0.8  \end{matrix}\right.](img/30eedb5906ece92b343daa3da9a298d2.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/ce812839ce1d38ff08a2d1ebb845027f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3-small4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/b529673a40d17f916bcad94dd899f941.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot4-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, the portfolio weights range from 10% to 80%, and there is no allocation
+    less than 10%.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'To tackle number of assets constraint, I will also use binary [0/1] variables.
+    Let’s say I want all portfolios on the efficient frontier to have allocation to
+    exactly 3 assets, here are the additional constraints (note that for this example,
+    I assumed that the smallest allocation to any asset class is 0.001%) :'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![0.00001 * b_{i}\leq x_{i} \leq 0.8 * b_{i} \newline \newline  \left\{\begin{matrix}  b_{i}
+    = 0 \to x_{i} =0  \\   b_{i} = 1 \to 0.00001 \leq x_{i} \leq 0.8  \end{matrix}\right.  \newline
+    \newline  \sum_{i=1}^{n}b_{i}=3](img/8dffffac1f3472e3871be4bbfa08740b.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/2486fd15cade944a5f18efd6e88b0042.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5-small3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/4f15e44ae666fdecabfedbfbfdf14b2a.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot6-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: As expected, all portfolios on the efficient frontier have exactly allocation
+    to 3 assets.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Please let me know what other real-life portfolio construction constraints you
+    want me to discuss.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [aa.cardinality.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  prefs: []
+  type: TYPE_NORMAL

@@ -1,0 +1,196 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-13 00:01:16'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: Tale of two sockets'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01](http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Once upon a time in a far away place there was a socket...
+  prefs: []
+  type: TYPE_NORMAL
+- en: The term socket has different interpretations, to those on the left in the network
+    world it usually refers to a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[Berkely sockets](http://en.wikipedia.org/wiki/Berkely_sockets)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: aka socket(AF_INET, _ ... ) send/recv.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To those on the right in
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[LSI](http://en.wikipedia.org/wiki/Large_Scale_Integration#LSI)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: land it means a place where you plug in an
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[ASIC](http://en.wikipedia.org/wiki/Application-specific_integrated_circuit)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: . Today we`re talking about the latter, the space where you plug in (usually)
+    a CPU.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Recently faced an unusual timing problem - a bit of code was taking negative
+    1 to 10 usecs. Under other circumstances would have been delighted the code was
+    running so fast yet nature being the stubborn
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[SOB](http://en.wikipedia.org/wiki/Son_of_a_bitch#Son_of_a_bitch)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: that it is, prohibits such things... atleast outside the Physics department.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It got me thinking, questioning every aspect of the code and hardware with one
+    nagging question popping up.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Is the cycle counter between two sockets synchronized?
+  prefs:
+  - PREF_H3
+  type: TYPE_NORMAL
+- en: '[![](img/3d18bcd70389ac74998326da4f45344c.png)](http://www.pcper.com/files/imagecache/article_max_width/review/2011-12-14/die.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Its well known and documented that in a post Nehalam age the intel cycle counter
+    is rock solid, invariant to power states, between cores and also immune to turbo
+    boost, the latter being a pain the ass if you really want to count cycles. Why
+    does it always tick over at the frequency rate listed on the box ? seems the Nehalam
+    intel designers decided rdtsc & friends should be based on a clock in the creatively named
+    "UnCore" which sits way out near the IO logic, thus centralized and the same for
+    all cores.
+  prefs: []
+  type: TYPE_NORMAL
+- en: rdtsc on a single cpu socket machine has been a trusted friend since the good
+    ol Pentium 90 days but never tested its behaviour between cpu sockets. Yet is
+    it syncrhonized between two cpu sockets? the short answer is, yes it is very well synchronized between
+    cpu sockets as mentioned in various placed. However ... being the skeptical person
+    I am - don`t believe writings on teh itnerwebz (such as this blog!) and so.....
+     a test.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The test is simple, run 2 hardware threads(HWT) on 2 different sockets. Each
+    HWT will update a shared cycle counter in memory. The expected result is, the
+    local HWT cycle counter should *always* be greater than the memory value.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Why ? example case 1
+  prefs: []
+  type: TYPE_NORMAL
+- en: Cycle |         HWT 0     |  HWT 1
+  prefs: []
+  type: TYPE_NORMAL
+- en: 0  |  sample           |
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1  |  write to memory  |
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2  |                   |    sample
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3  |                   | write to memory
+  prefs: []
+  type: TYPE_NORMAL
+- en: Or the perverse edge case
+  prefs: []
+  type: TYPE_NORMAL
+- en: Cycle |         HWT 0     |  HWT 1
+  prefs: []
+  type: TYPE_NORMAL
+- en: 0  |  sample           |      sample
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1  |  write to memory  |   write to memory
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2  | |
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**1 - in the smallest font possible hoping no one will read this... the test
+    fails when the 64b cycle counter overflows'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**2 - yes im completely delusion to think the above is anything close to the
+    voodoo magic that goes on inside a real intel cpu'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Presuming the cycle counter is synchronized  then every time we sample the cycle
+    counter, the counter will be higher than whats written in memory - because whats
+    in memory is a past cycle count, which by definition is less than the current
+    count.
+  prefs: []
+  type: TYPE_NORMAL
+- en: in code  (g_tsc is the shared memory value)
+  prefs: []
+  type: TYPE_NORMAL
+- en: u64 memory_tsc = g_tsc;
+  prefs: []
+  type: TYPE_NORMAL
+- en: u64 tsc = rdtsc();
+  prefs: []
+  type: TYPE_NORMAL
+- en: s64 dtsc = tsc -  memory_tsc;
+  prefs: []
+  type: TYPE_NORMAL
+- en: assert(dtsc >= 0);
+  prefs: []
+  type: TYPE_NORMAL
+- en: This works if the two cycle counters (one for HWT 0, one for HWT 1) are synchronized and
+    fails otherwise. There is a problem tho... if we run this as is, it fails.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Theres 3 (possibly more?) reasons why
+  prefs: []
+  type: TYPE_NORMAL
+- en: 1) cycle counters are not perfectly synchronized
+  prefs: []
+  type: TYPE_NORMAL
+- en: 2) x86 micro architecture is re-ordering the memory operations
+  prefs: []
+  type: TYPE_NORMAL
+- en: 3) compiler re-ordered the load.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Checked the asm and 3) is not true thus suspect 2) as x86 is notorious for its
+    (very) relaxed memory ordering so we modify the above slightly by adding an lfence
+    instruction. What this does is serializes all memory loads (but not stores) with
+    respect to the current instruction fetch stream - creating a barrier of some sort.
+  prefs: []
+  type: TYPE_NORMAL
+- en: After this is added the program runs perfectly, thus conclude the cycle counter
+    between sockets is perfectly synchronized, or closely synchronized.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/4e0854b71ffa19b18771113543e157ed.png)](http://msptelemarketing.com/wp-content/uploads/2011/05/istock_000010672195xsmall-300x199.jpg)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Now we know their closely synchronized, the question is how close and does it
+    explain my negative 10usec. To do this we run a histogram on what that delta between
+    the cycle counter and the memory value which shows a range of 100-200 cycles,
+    which at 3ghz is at most 66.66nses, likely the QPI cost between sockets. All in
+    all thats pretty tight.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The down side, this was classic tunnel vision and not the cause of my negative
+    latency number. The real cause was something way up the stack and far to embarrassing to
+    write about here.!
+  prefs: []
+  type: TYPE_NORMAL

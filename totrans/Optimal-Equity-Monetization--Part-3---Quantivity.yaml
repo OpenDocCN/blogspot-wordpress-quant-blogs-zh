@@ -1,0 +1,231 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 13:49:08'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Optimal Equity Monetization: Part 3 | Quantivity'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01](https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: 'The previous post [Optimal Equity Monetization](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)
+    introduced a mathematical model for optimizing equity monetization. In the follow-up
+    post [Optimal Equity Monetization: Part 2](https://quantivity.wordpress.com/2011/07/31/optimal-equity-monetization-part-2),
+    solutions are considered which assume ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)
+    are deterministic. In this post, real-life is considered by assuming ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)
+    is a stochastic process.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Despite this topic seeming pedestrian at first glance, it turns out to be unexpectedly
+    beautiful in exemplifying quant techniques spanning finance, ML, and pure math:
+    fitting empirical returns, [monte carlo](http://en.wikipedia.org/wiki/Monte_Carlo_method),
+    [global optimization](http://en.wikipedia.org/wiki/Global_optimization), [integer
+    composition](http://en.wikipedia.org/wiki/Composition_(number_theory)), [MLE](http://en.wikipedia.org/wiki/Maximum_likelihood),
+    genetic randomization, and [portfolio theory](http://en.wikipedia.org/wiki/Portfolio_theory).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The first important question to ask in a model with stochastic future equity
+    prices is *what impact does intelligent (or dumb) choice of quantities ![q_i](img/6df37a73ab6b36be431927e481053710.png)
+    have on monetization profit*. How does perfect foresight predicting all future
+    returns compare with no foresight?
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'By framing monetization in this context, techniques from portfolio optimization
+    can be borrowed: quantities ![q_i](img/6df37a73ab6b36be431927e481053710.png) are
+    considered longitudinally (over the monetization periods), akin to cross-sectional
+    portfolio weights. Moreover, this perspective suggests an obvious prior on ![q_i](img/6df37a73ab6b36be431927e481053710.png):
+    sell equal-sized quantities in every period. By conceptual analogy, this is the
+    “equal weight portfolio” solution for monetization.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Hence, this post considers *how monetization profit compares for optimal foresight
+    versus equal-quantity*. This matters because it gives insight into whether there
+    is benefit in spending time predicting future returns. This consideration is especially
+    relevant for equity monetization, as it is most interesting for equities with
+    high vol and/or new issues for which prediction is notoriously poor.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To quantify and answer this comparison, monetization profit is calculated via
+    monte carlo of future returns. Analysis begins by looking at asymptotic densities
+    and moments for optimal and equal-weight selling strategies, followed by looking
+    at the corresponding small sample analysis. After results, the analytic and computational
+    methodology is discussed. Finally, R code is provided.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Asymptotic Results**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Cutting to the chase: the difference in profit between optimal and equal-quantity
+    is *surprisingly small*. About 5%.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The following graph illustrates the densities for optimal and equal-quantity
+    monetization profit for a representative scenario (using a well-known equity,
+    round-number ![\hat q](img/14de207c4d978f69e127c1df382d0b1a.png), and 48 periods),
+    evaluated via 2000-iteration monte carlo:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/138672b587aa6f1b694652f5a765ed95.png "optimal-equal-monetization")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'In this graph, black is optimal and red is equal-quantity. Profit distributions
+    are similar; equal-quantity has more negative skew, with larger left tail; optimal
+    has more positive skew, with larger right tail. That all makes intuitive sense.
+    Here is the unexpected part: dashed vertical lines are medians of the respective
+    densities (median is preferred to mean due to skew). The difference in median
+    profit between optimal and equal-quantity is less than 5%.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: In other words, *perfect foresight about future returns generates no more than
+    5% greater monetization profit than selling an equal-quantity of shares every
+    period*, when considered *asymptotically* over a large distribution of future
+    scenarios. Thus, there is fairly minimal benefit to spending effort trying to
+    predict the future.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Small Sample Results**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Asymptotic results are useful, but they ignore an absolutely crucial fact (often
+    overlooked): monetization is an activity that is undertaken *once*, thus looking
+    only at the distribution potentially masks *small sample risk*. Towards this end,
+    small sample dynamics are explored via monte carlo with a small number of iterations.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The following four graphs illustrate representative small sample monetization
+    simulations, each 10 iterations. Worth visually noting is both instability and
+    qualitative differences in distribution shape.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/bcb4bcd5cf2e88e1d749c73681cdaf12.png "optimal-equal-monetization-small")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/e86911e2a679e1747d4cd8b5d1f30328.png "optimal-equal-monetization-small-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-2.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ef6eae64d0df0fcfc420677c33fd8118.png "optimal-equal-monetization-small-3")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-3.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/876232661e20c61e75f1cbad7534cebb.png "optimal-equal-monetization-small-4")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-4.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Of particular interest, and potential concern, is clear evidence of [bimodality](http://en.wikipedia.org/wiki/Bimodal_distribution).
+    One potential explanation is jumps in the returns, induced by a distribution fitted
+    from a very high-vol equity which possesses large tails: a single large jump,
+    either positive or negative, will drive the price (as geometric cumulative) far
+    away from its value in the first period. Thus, converging to two modes: positive
+    jump and negative jump.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Yet, despite this prevalent bimodality, the *asymptotic median difference result
+    also holds true in small samples*: maximum difference in median between optimal
+    and equal is less than 7%. Robustness of this median difference is pleasantly
+    surprising, and suggests this result may matter in practice.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Coming full circle, this analysis informs that even perfect foresight of 4 years
+    of future returns translates into only modestly greater profit. Thus implying
+    there is even less comparative profitability in trying to *predict* the unknown
+    future returns found in real life. Beyond practical benefit, this result also
+    sheds light on results reported in the accounting literature on abnormal 10b5-1
+    returns (see research by [Jagolinzer](http://leeds-faculty.colorado.edu/alja4277/research.html),
+    for example).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* * *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Discussion of the methodology, math, and R implementation follow for those interested.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Past and Future Returns Distribution**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Begin by assuming ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png) is a stochastic
+    process. [Geometric Brownian motion](http://en.wikipedia.org/wiki/Geometric_Brownian_motion)
+    makes no sense, given high vol. Instead, assume returns following the univariate
+    [generalized hyperbolic distribution](http://en.wikipedia.org/wiki/Generalised_hyperbolic_distribution),
+    which generalizes the familiar fat-tail distributions ([Student’s *t*](http://en.wikipedia.org/wiki/Student%27s_t-distribution),
+    [Laplace](http://en.wikipedia.org/wiki/Laplace_distribution), and [Variance-gamma](http://en.wikipedia.org/wiki/Variance-gamma_distribution)).
+    Distribution parameters should be fit directly from the observable data, given
+    no *a priori* intuition on suitable values. Thus, in R:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'Assuming an unknown stochastic future of returns, one way to compare optimal-vs-equal
+    is to consider a large number ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png) of
+    potential futures via monte carlo sampling; in R:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: For each of these potential futures, monetization profit must be calculated
+    for both optimal and equal quantities and compared. Calculating profit for equal
+    quantity is easy (*i.e.* longitudinal price times quantity, subject to quantity
+    constraints).
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Optimal Profit Optimization**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For optimal quantities, calculating profit requires a bit more effort: all
+    quantities must be chosen to optimize total profit, hence optimization. Given
+    convexity of this problem is not assured, one way to calculate profit is to globally
+    optimize the objective, subject to quantity bounds:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'One optimization wrinkle is quantities must satisfy both of the following inequality
+    constraints ([Optimal Equity Monetization](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)
+    for explanation):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![\sum_i{q_i} = \hat q ](img/4d8273a82ad12a8177e5543261bd74f2.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: '![\forall i : 0 \leq q_i \leq \left( \sum\limits_{j=1}^i v_j - \sum\limits_{j=1}^{i-1}
+    q_j \right) ](img/4e01ba25d78c00a81d465c5d817eef0a.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: 'Applying the portfolio optimization methodology from [Ardia *et al*.](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1584905)
+    to equity monetization, an initial random population is generated satisfying the
+    constraints, which seeds genetic optimization. Given the above first constraint,
+    each population member is an integer composition of the total quantity ![\hat
+    q](img/14de207c4d978f69e127c1df382d0b1a.png). Yet, composition cardinality is:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '![{{n+k-1}\choose{k}} ](img/bab0b39edb6d28dde906f40a0c75da13.png)'
+  prefs: []
+  type: TYPE_IMG
+- en: Which would generate a massive matrix, given ![n ](img/2bf4d3de40f06c14df7d961bf8f673b9.png)
+    periods and ![k = \frac{1}{\hat q}](img/221e30c37dba7b941552def503d00b5f.png)
+    fractional partitions. Thus, use of `partitions::compositions()` is out due to
+    memory constraints. Instead, the random population matrix of compositions are
+    built via two-partition [genetic](http://en.wikipedia.org/wiki/Genetic_algorithm)
+    [mutation](http://en.wikipedia.org/wiki/Mutation_%28genetic_algorithm%29) in `randomPartitions()`.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '* * *'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'For those readers familiar with R, the following calculates equity monetization:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE

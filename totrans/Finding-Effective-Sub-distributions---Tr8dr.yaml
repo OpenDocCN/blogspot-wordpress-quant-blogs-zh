@@ -1,0 +1,86 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:32:38'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Finding Effective Sub-distributions | Tr8dr
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01](https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: August 29, 2010 · 7:34 pm
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'I didn’t get around to talking about dimensionality reduction in the previous
+    post.   I have a number of related problems I am interested in solving.    Setting
+    up the problem, let us say that we have a distribution **p (E | C)**, where both
+    **E** and **C** are sets of the same dimension (d):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: E = {e1, e2, e3, … e[d]}
+  prefs: []
+  type: TYPE_NORMAL
+- en: C = {c1, c2, c3, … c[d]}
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**d** is a high dimension >> 1000.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Problem 1: Sub-distributions with C and E of same dimension** In the case
+    where many of the variables in the dimension are independent, the joint probability
+    of  a specific 1000 variable state, will often be much less than the probability
+    of a lower dimensional state variable (of say 20 variables with covariance).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The question is then, what dimensional subsets of this distribution are the
+    most predictive.   Another way to state this is what subsets of **C** provide
+    the most information transfer into  **E**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It would be then of interest to look at the top N subsets of the distribution
+    that carry the most information from **C** → **E**.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Problem 2: Sub-distributions with C and E of different dimension** As in
+    problem 1, we look for subsets of **C** that carry the most predictive information
+    for subsets of **E**.   In this case, though, C and E need not be of the same
+    dimension.  Combinatorially this is a harder problem than problem #1, however
+    the math is the same.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '**Outline of Approach**'
+  prefs: []
+  type: TYPE_NORMAL
+- en: spanning graph structure is determined between variables to avoid astronomical
+    combinations
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: transfer entropy analysis is done on edges in spanning structure
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: subgraphs of depth 1, 2, 3, … are evaluated from a transfer entropy point of
+    view to determine the power of each subgraph
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: subgraphs are sorted by transfer entropy
+  prefs:
+  - PREF_OL
+  type: TYPE_NORMAL
+- en: '**Alternatives** There are undoubtedly many approaches to finding factors,
+    particularly with classification problems where E is of small dimension (often
+    1 dimension).   I’d be grateful for alternative suggestions.'
+  prefs: []
+  type: TYPE_NORMAL

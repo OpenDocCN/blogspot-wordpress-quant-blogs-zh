@@ -1,0 +1,76 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:39:18'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Introduction to Backtesting library in the Systematic Investor Toolbox | Systematic
+    Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: I wrote a simple [Backtesting](http://www.investopedia.com/terms/b/backtesting.asp)
+    library to evaluate and analyze Trading Strategies. I will use this library to
+    present the performance of trading strategies that I will study in the next series
+    of posts.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'It is very easy to write a simple Backtesting routine in R, for example:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The code I implemented in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    is a bit longer, but follows the same logic. It provides extra functionality:
+    ability to handle multiple securities, weights or shares backtesting, and customized
+    reporting. Following is a sample code to implement the above strategies using
+    the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The **bt.prep** function merges and aligns all symbols in the data environment.
+    The **bt.apply** function applies user given function to each symbol in the data
+    environment. The **bt.run** computes the equity curve of strategy specified by
+    **data$weight** matrix. The **data$weight** matrix holds weights (signals) to
+    open/close positions. The **plotbt.custom.report** function creates the customized
+    report, which can be fined tuned by the user. Here is a sample output:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'The visual performance summary:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/7333640b1670d3d316d92261194c8186.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small8.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The statistical performance summary:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/1eb1643b869f41a6d658841e3b2cd6f3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small7.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The trade summary:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/ddcef9cdae946eae0a9f4e2f507323bc.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small5.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [bt.test() function in bt.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.r).
+  prefs: []
+  type: TYPE_NORMAL

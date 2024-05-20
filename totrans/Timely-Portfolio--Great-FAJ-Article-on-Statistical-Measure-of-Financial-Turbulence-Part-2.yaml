@@ -1,0 +1,149 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 15:18:03'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Timely Portfolio: Great FAJ Article on Statistical Measure of Financial Turbulence
+    Part 2'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[![faj abstract](img/83360755bc97c4bdbc31c63f84665b6b.png "faj abstract")](http://www.cfapubs.org/doi/abs/10.2469/faj.v66.n5.3)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: I did not intend for this to be a multi-part series, but after some clear thinking
+    at the beach over the weekend, I decided that it needed some more analysis.  For
+    those of you that read the article or know [Mahalanobis distance](http://en.wikipedia.org/wiki/Mahalanobis_distance),
+    the measure I presented in my post [Great FAJ Article on Statistical Measure of
+    Financial Turbulence](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.htmlhttp://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.html)
+    was a derivative of actual Mahalanobis distance.  To close the gap between the
+    actual calculation and my measure, I thought I should show both calculations.
+  prefs: []
+  type: TYPE_NORMAL
+- en: The Mahalanobis calculation here is based on the entire dataset.  Of course,
+    we do not have the luxury of hindsight in trading, so I think my real-time measure
+    works well as displayed by the system shown in the first post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'R code:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(quantmod)
+  prefs: []
+  type: TYPE_NORMAL
+- en: require(PerformanceAnalytics)
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get data from St. Louis Federal Reserve (FRED)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS20",src="FRED") #load 20yTreasury; 20y has gap 86-93; 30y has
+    gap in early 2000s'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("GS30",src="FRED") #load 30yTreasury to fill 20y gap 86-93'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#getSymbols("BAA",src="FRED") #load BAA'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'getSymbols("SP500",src="FRED") #load SP500'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get CRB data from a csv file'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#fill 20y gap from discontinued 20y Treasuries with 30y'
+  prefs: []
+  type: TYPE_NORMAL
+- en: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#do a little manipulation to get the data lined up on monthly basis'
+  prefs: []
+  type: TYPE_NORMAL
+- en: SP500<-to.monthly(SP500)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(SP500)<-as.Date(index(SP500))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#my CRB data is end of month; could change but more fun to do in R'
+  prefs: []
+  type: TYPE_NORMAL
+- en: CRB<-to.monthly(CRB)[,4]
+  prefs: []
+  type: TYPE_NORMAL
+- en: index(CRB)<-as.Date(index(CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#let''s merge all this into one xts object; CRB starts latest in 1956'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assets<-na.omit(merge(GS20,SP500,CRB))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#use ROC for SP500 and CRB and momentum for yield data'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:3],type="discrete")))
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#get Covariances and multiply to by 100000 for 20y to sp500 and crb and 1000
+    for sp500 to crb to standardize'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '#don''t like this manual intervention; next post will use correlation instead'
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetCovar<-runCov(assetROC[,1],assetROC[,2],n=2)*100000+runCov(assetROC[,1],assetROC[,3],n=2)*100000+runCov(assetROC[,2],assetROC[,3],n=2)*1000
+  prefs: []
+  type: TYPE_NORMAL
+- en: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
+  prefs: []
+  type: TYPE_NORMAL
+- en: turbulence<-abs(assetCovar*assetROCSum)
+  prefs: []
+  type: TYPE_NORMAL
+- en: Sx <- cov(assetROC)
+  prefs: []
+  type: TYPE_NORMAL
+- en: mahalanobisturbulence <- mahalanobis(assetROC, colMeans(assetROC), Sx)
+  prefs: []
+  type: TYPE_NORMAL
+- en: mahalanobisturbulence<-as.xts(cbind(mahalanobisturbulence))
+  prefs: []
+  type: TYPE_NORMAL
+- en: turbulencecompare<-merge(mahalanobisturbulence,turbulence)
+  prefs: []
+  type: TYPE_NORMAL
+- en: colnames(turbulencecompare)<-c("Mahalanobis","MyEstimate")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.TimeSeries(turbulencecompare,main="Mahalanobis Distance Compared to My
+    Measure",
+  prefs: []
+  type: TYPE_NORMAL
+- en: colorset=c("cadetblue","darkolivegreen3"),legend.loc="topleft")
+  prefs: []
+  type: TYPE_NORMAL
+- en: chart.Correlation(turbulencecompare)
+  prefs: []
+  type: TYPE_NORMAL

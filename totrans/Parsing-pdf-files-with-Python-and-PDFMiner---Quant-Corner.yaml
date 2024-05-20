@@ -1,0 +1,48 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 08:08:05'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Parsing pdf files with Python and PDFMiner | Quant Corner
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01](https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: This time I needed a time series of cash biodiesel prices in Iowa (yes, I did
+    ….).
+  prefs: []
+  type: TYPE_NORMAL
+- en: Weekly biodiesel prices in Iowa are available in the [National Weekly Ag Energy
+    Round-Up](http://www.ams.usda.gov/mnreports/lswagenergy.pdf "National Weekly Ag
+    Energy Round-Up") report released every Friday by the The Agricultural Marketing
+    Service (AMS/USDA). This report is published in **pdf** format while we recently
+    parsed **html **with [Python and BeautifulSoup](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/
+    "Scraping data from the internet with Python and BeautifulSoup").
+  prefs: []
+  type: TYPE_NORMAL
+- en: Below is a **Python** snippet using the [PDFMiner](http://www.unixuser.org/~euske/python/pdfminer/
+    "PDFMiner") library. It gets through a certain number AMS’s online pdf files and
+    extracts the data desired.
+  prefs: []
+  type: TYPE_NORMAL
+- en: One can’t say it is robust, but it does the job quite okay. We wrote a basic
+    error handling mechanism so that the program goes on whatever happens. In fact,
+    there shall be Fridays when the weekly report in question was not released eg
+    due to  banking holidays, some reports of the US agriculture agency are missing
+    due to last November’s partial US Government shutdown, … . Other possible error
+    types would also be ignored and NAs would be output instead.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE

@@ -1,0 +1,74 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 05:18:23'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Magmasystems Blog: Thoughts on Performance in Trading Systems and .NET'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01](http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Rico has done it again with a
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[post](http://blogs.msdn.com/ricom/archive/2006/08/31/733887.aspx)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: that provides much thought.
+  prefs: []
+  type: TYPE_NORMAL
+- en: With the advent of object oriented languages (C++), and higher-level languages
+    (C#, Java), most developers try to craft elegant, object-oriented frameworks,
+    complete with reflection, heavyweight classes, lots of properties. I am one of
+    these.
+  prefs: []
+  type: TYPE_NORMAL
+- en: However, I remember the days where I had to cram all of the functionality of
+    New York Word (my very first commercial product) into 512K of ram. Pouring over
+    code, trying to see if I can save a few bytes here and a few bytes there. Looking
+    at the output of the Microsoft Linker to see if I can save space. Looking over
+    the disassembly of a crucial module, such as the one that performed wordwrapping.
+  prefs: []
+  type: TYPE_NORMAL
+- en: In the next few years, we are going to start seeing a predicted rate of 456,000
+    messages per second from some of the market data feeds. The goal is to get these
+    messages, transformed into viable data, into another, trader-facing system, with
+    as little delay as possible. There are additional needs to get this data into
+    algorithmic trading systems and black-box trading systems with the lowest possible
+    latency. The time taken to serialize and deserialize data, construct objects,
+    and perform garbage collection can mean a precious few milliseconds added onto
+    the path that your data takes. If you are writing array-handling code in a managed
+    environment, then the time it takes to perform array checking might add further
+    delay. Even the slightest delay can mean millions of dollars in lost opportunities.
+  prefs: []
+  type: TYPE_NORMAL
+- en: An incredible amount of effort has been spent in writing high-performance, low
+    latency graphics toolkits for rendering objects in video games. Has similar efforts
+    been made to "render" the flow of market data, where every market tick counts?
+  prefs: []
+  type: TYPE_NORMAL
+- en: I would love to hear about any experiences that you have had in getting market
+    data into a client as fast as possible. Things like compressing data, conflating
+    data, choice of transport, choice of GUI grids, high-performance threading, etc.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Microsoft has oodles of articles that deal with performance in .NET. I am anxious
+    to see any performance improvements throughout the entire .NET stack. I am also
+    interested to see how .NET/C#/C++ stacks up against a similar Java/Linux stack,
+    given the same hardware. The PetShop demo might work well for a typical developer,
+    but for trading systems developers, we need to see something a bit more substantial.
+  prefs: []
+  type: TYPE_NORMAL
+- en: ©2006 Marc Adler - All Rights Reserved
+  prefs: []
+  type: TYPE_NORMAL

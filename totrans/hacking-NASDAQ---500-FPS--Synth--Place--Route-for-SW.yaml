@@ -1,0 +1,66 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-12 23:45:42'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'hacking NASDAQ @ 500 FPS: Synth, Place, Route for SW'
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01](http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: Meeting timing in an fpga design can be painful at best. The pain is from the
+    long wait times between "compiles" which by itself isnt so bad. What sucks is
+    that (for myself atleast) you can not do anything else while its running (except
+    rant on a blog!).
+  prefs: []
+  type: TYPE_NORMAL
+- en: In theory you could go on and dick with the code while its running, and start
+    multiple runs with different code/config yet in practice I`ve found multitasking
+    like this usually ends in not knowing what you actually changed after all the
+    compiles have finished.
+  prefs: []
+  type: TYPE_NORMAL
+- en: As a software guy its pretty hard to imagine wtf im talking about. Timing ?
+    Routing ? Mapping ? Placing ? wtf ? A more concrete version of a complete logic
+    "compile" looks like the pic on the the left. This is a carry chain thats 1nsec
+    overbudget, meaning its a = b + c; for a specific bit in an integer. The particular
+    problem here is it takes 1nsec too long because its more than a simple addition
+    and has some other funky stuff that gives the tools problems.
+  prefs: []
+  type: TYPE_NORMAL
+- en: It got me thinking on how do you explain what modern EDA tools do to a software
+    guy?
+  prefs: []
+  type: TYPE_NORMAL
+- en: An answer is; imagine your system memory is no-longer deterministic. This means
+    if you write to address 0x1000[0] = 1; theres no guarantee a read of 0x1000[0]
+    == 1\. The only rule to getting deterministic behavior of 0x1000[0] == 1, is if
+    the read & write instructions are close to the memory data location. Meaning the
+    location of the CPU`s instructions in memory, must be close to memory location
+    0x1000 for deterministic behaviour.
+  prefs: []
+  type: TYPE_NORMAL
+- en: If that does not sound like a raving lunatic`s version of sudoku then you can
+    start to imagine how a compiler would look. First part is generating the correct
+    sequence of opcodes based on the verilog/vhdl input file. After that its an optimization
+    problem of finding the best opcodes / memory location combination to get correct
+    read/write memory behaviour - in a finite amount of time, a NP hard problem.
+  prefs: []
+  type: TYPE_NORMAL
+- en: And finally if you believe all of that, then its easy to make a program that
+    compiles no problem, but is impossible to work - thus the pain of timing closure.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '... atleast in some psudo hand wavy sudoku analogy.'
+  prefs: []
+  type: TYPE_NORMAL

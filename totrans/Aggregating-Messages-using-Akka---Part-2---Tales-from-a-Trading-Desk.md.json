@@ -1,0 +1,1 @@
+["```\n\nvar count=0\n\n...\n\ncontext.children.foreach( f => {count=count+1})\n\n```", "```\n\ndef collectResults(force: Boolean = false) {\n   if (results.size == count || force) {\n      originalSender ! results.toList // Make sure it becomes immutable\n      context.stop(self)\n   }\n}\n\n```"]

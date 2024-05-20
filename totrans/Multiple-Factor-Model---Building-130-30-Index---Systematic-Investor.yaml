@@ -1,0 +1,134 @@
+- en: <!--yml
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'category: 未分类'
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'date: 2024-05-18 14:42:22'
+  prefs: []
+  type: TYPE_NORMAL
+- en: -->
+  prefs: []
+  type: TYPE_NORMAL
+- en: Multiple Factor Model – Building 130/30 Index | Systematic Investor
+  prefs:
+  - PREF_H1
+  type: TYPE_NORMAL
+- en: 来源：[https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01)
+  prefs:
+  - PREF_BQ
+  type: TYPE_NORMAL
+- en: '[Nico](http://www.rnfc.org/ivey/) brought to my attention the [130/30: The
+    New Long-Only (2008) by A. Lo, P. Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)
+    paper in his comment to the [Multiple Factor Model – Building CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)
+    post. This paper presents a very detailed step by step guide to building 130/30
+    Index using average CSFB Factors as the alpha model and [MSCI Barra Multi-Factor
+    Risk model](http://www.alacra.com/alacra/help/barra_handbook_US.pdf). Today, I
+    want to adapt this methodology and to show how to build 130/30 Index based on
+    the CSFB Factors we created in the [Multiple Factor Model – Building CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)
+    post and the Risk Model we created in the [Multiple Factor Model – Building Risk
+    Model](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)
+    post.'
+  prefs: []
+  type: TYPE_NORMAL
+- en: Let’s start by loading the CSFB factors that we saved at the end of the [Multiple
+    Factor Model – Building CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)
+    post. [If you are missing data.factors.Rdata file, please execute fm.all.factor.test()
+    function first to create and save CSFB factors.] Next, let’s load the multiple
+    factor risk model we saved at the end of the [Multiple Factor Model – Building
+    Risk Model](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)
+    post. [If you are missing risk.model.Rdata file, please execute fm.risk.model.test()
+    function first to create and save multiple factor risk model.] Next, I will compute
+    betas over a two-year rolling window.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE0]'
+  prefs: []
+  type: TYPE_PRE
+- en: 'To construct efficient portfolio each month, I will solve mean-variance portfolio
+    optimization problem of the following form:'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE1]'
+  prefs: []
+  type: TYPE_PRE
+- en: Please read [The Effects of Risk Aversion on Optimization (2010) by S. Liu,
+    R. Xu](http://www.mscibarra.com/research/articles/2010/The%20Effects%20of%20Risk%20Aversion%20on%20Optimization%20(Feb%202010).pdf)
+    paper for the detailed discussion of this optimization problem.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'Please note that I will use risk.aversion = 0.0075 and portfolio beta = 1 as
+    discussed on the page 22 of the [130/30: The New Long-Only (2008) by A. Lo, P.
+    Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf) paper. To model portfolio
+    beta constraint, I will use the fact that [portfolio beta is equal to the weighted
+    average of the individual asset betas](http://www.duke.edu/~charvey/Classes/ba350/riskman/riskman.htm).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE2]'
+  prefs: []
+  type: TYPE_PRE
+- en: Next, let’s construct 130/30 portfolio. I will restrict portfolio weights to
+    be +/- 10% and will use portfolio construction technique that I documented in
+    the [130/30 Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
+    post.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE3]'
+  prefs: []
+  type: TYPE_PRE
+- en: At this point, we created monthly long-only and 130:30 portfolios. Let’s examine
+    their transition maps.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE4]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/86d300abb5e6f0c7f212c7c812c62f12.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The portfolio weights for the long-only portfolio (long.alpha) sum up to 100%
+    and for the 130:30 portfolio (long.short.alpha) is 130% long and 30% short as
+    expected.
+  prefs: []
+  type: TYPE_NORMAL
+- en: Next let’s create trading strategies based on these portfolios and check their
+    performance.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE5]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/c7867388085de6e897b0af4bc78173e0.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[![](img/883a28712c91733f8f7cd73aa1a68902.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The 130:30 portfolio works best, producing high returns with smaller drawdowns
+    than long-only and benchmark (1/N) portfolios.
+  prefs: []
+  type: TYPE_NORMAL
+- en: 'The note of caution: the above results are based on $0 commission rate (i.e.
+    trading is free). Also, I’m using the current Dow Jones index components through
+    out the whole history; hence, introducing [survivorship bias](http://www.investopedia.com/terms/s/survivorshipbias.asp)
+    (i.e. Dow Jones index changed its composition a few times in the last 20 years).'
+  prefs: []
+  type: TYPE_NORMAL
+- en: To see how much of the problem is my assumption of $0 commission rate, let’s
+    have a look at the annual portfolio turnovers.
+  prefs: []
+  type: TYPE_NORMAL
+- en: '[PRE6]'
+  prefs: []
+  type: TYPE_PRE
+- en: '[![](img/0d2555f19cc77eac703683ca573d1938.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small.png)'
+  prefs: []
+  type: TYPE_NORMAL
+- en: The 130:30 portfolio has a pretty high portfolio turnover; therefore, it will
+    not perform as well in the real life as in our backtest.
+  prefs: []
+  type: TYPE_NORMAL
+- en: To view the complete source code for this example, please have a look at the
+    [fm.long.short.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  prefs: []
+  type: TYPE_NORMAL
