@@ -1,43 +1,67 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:06:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:06:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Percentile Position Sizing | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应百分位持仓规模 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/03/07/adaptive-percentile-position-sizing/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/07/adaptive-percentile-position-sizing/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/03/07/adaptive-percentile-position-sizing/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/07/adaptive-percentile-position-sizing/#0001-01-01)
 - en: 'The most common method of position sizing uses a fixed percentage risk divided
     by volatility to dictate the fraction of the account size to invest. In generic
     terms this is:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最常见的持仓规模方法是使用固定百分比风险除以波动率来决定要投资的账户规模的分数。一般来说，这是：
 - en: P= F/V
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: P= F/V
 - en: where F= typically 1% and
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中F= 通常为1%，并且
 - en: V= daily volatility (non-annualized)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: V= 每日波动率（非年化）
 - en: P= portfolio position size
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: P= 投资组合持仓规模
 - en: 'example: if V=2% and F=1% then the P= 50%'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如：如果V=2%，F=1%，那么P=50%
 - en: Standard deviation represents a generic measurement of dispersion that is bi-directional
     and does not favor any portion of the distribution over the other. One standard
     deviation contains 68% of the distribution of returns, which in percentile terms
@@ -50,44 +74,64 @@
     (0) or the 2nd percentile? Perhaps the 25th or even the 65th percentile contain
     significant value. How do we capture the portions of the distribution that contain
     the most value or even more importantly, how do we combine this information?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 标准差表示一种双向分散的通用测量，不偏向于分布的任何部分。一个标准差包含了68%的收益分布，以百分位表示（假设正态分布），这相当于第84和第16百分位。但是，如果某些百分位包含了比其他百分位更多的信息用于持仓规模呢？在过去的一篇帖子（D-Var持仓规模）中，我使用第5百分位进行持仓规模以捕捉尾部风险。逻辑上来说，要复利财富，我们希望避免大损失，因此应该根据我们对极端损失的经验观察进行大小调整。但是第5百分位是相当任意的-为什么不是最坏的损失（0）或第2百分位？也许第25甚至第65百分位包含了相当多的价值。我们如何捕捉分布中包含的最有价值的部分，甚至更重要的是，如何结合这些信息呢？
 - en: 'What we need is an adaptive approach that considers the value of using different
     portions of the distribution simultaneously that may also have systematic differences
     in magnitude- for example the 2nd percentile would have a lower P than the 25th
     percentile. Here is a method that addresses these issues in a fairly compact manner:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要的是一种自适应方法，同时考虑使用不同部分的分布的价值，这些部分可能在数量上也有系统性差异-例如，第2百分位的P可能比第25百分位的P要低。以下是一种相当简洁地解决了这些问题的方法：
 - en: 1) find the percentile values using 5% increments from 0 to 1 using a trailing
     lookback of say 60-days and compute a column array of these values for some index-
     say the S&P500/SPY for at least 1000 bars
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 使用5%的增量从0到1找到百分位值，使用60天的追踪回顾计算某个指数的这些值的列数组-比如说标准普尔500/SPY至少1000根棒
 - en: 2) compute P using a 1% as a default target and create a column array of P for
     each percentile interval
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 使用1%作为默认目标计算P，并为每个百分位间隔创建一个P的列数组
 - en: 3) releverage the percentile values to a fixed target–say 100% so that they
     have the same scale
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 重新调整百分位值到一个固定的目标–比如说100%，使它们具有相同的比例
 - en: 4) each day you would compute the average P over some lookback (60-252 days)
     and take 100%/average P and re-scale
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 每天您都会计算某个追溯期内的平均P（60-252天），并且采取100%/平均P并重新缩放
 - en: 5) the current value so that all percentiles have the same average P
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 当前值，以便所有百分位具有相同的平均P
 - en: 6) compute equity curves that position size on the underlying index using P
     for each percentile interval
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 计算股票曲线，使用每个百分位间隔的P进行底层指数的持仓规模
 - en: 7) using a solver or mean-variance optimization, create a set of possible weights
     for each percentile interval that best maximizes portfolio sharpe or MAR (calmar
     ratio, or return/max dd). use a lookback of say 2-3 years
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 使用求解器或均值-方差优化，为每个百分位间隔创建一组可能的权重，这些权重最大化了组合夏普比率或MAR（卡尔玛比率，或者回报/最大回撤）。使用2-3年的追溯期
 - en: 8) the weights times the P for each percentile interval create a weighted P
     which would be the adaptive percentile position size
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 8) 每个百分位间隔的权重乘以P，创建一个加权P，这将是自适应百分位持仓规模
