@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:04:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:04:41'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Frequency Weighted Moving Average (AFWMA) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应频率加权移动平均（AFWMA）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01](https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01](https://cssanalytics.wordpress.com/2012/10/30/adaptive-frequency-weighted-moving-average-afwma/#0001-01-01)
 - en: One of the unique aspects of modelling financial time series  is that recent
     data is more important than previous data. This is because forecasts need to be
     made for the next time period, and prices compound in value over time. The other
@@ -27,8 +39,10 @@
     noise and mean-reversion that exists at shorter frequencies. This tradeoff is
     logical, and should be captured explicitly as a function in an adaptive framework
     (success-weighted) versus back-testing different weighting schemes hindsight.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 建模金融时间序列的一个独特方面是最近的数据比以前的数据更重要。这是因为需要对下一个时间段进行预测，而价格随时间的增长而复合增值。时间序列数据的另一个独特方面是往往存在随机噪声和均值回归趋势的组合（尤其是在较短的频率上）。研究人员往往面临根据最近性进行加权与放大存在于较短频率的噪声和均值回归之间的权衡。这种权衡是合乎逻辑的，并且应当被明确地捕捉为自适应框架（基于成功的权重）中的一个函数，而不是事后测试不同的加权方案。
 - en: Recency is easily captured by a weighted moving average (**wma**). In this scheme,
     prices are weighted in direct proportion to their recency (the recency rank divided
     by the sum of recency ranks times the price at time t). This link demonstrates
@@ -39,20 +53,28 @@
     moving average, which is essentially a moving average of the moving average of
     the same length. The smoothing induced by a triangular moving average creates
     maximum weighting on the middle value. The calculation is described here: [http://daytrading.about.com/od/indicators/a/Triangular.htm](http://daytrading.about.com/od/indicators/a/Triangular.htm).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近性可以很容易地通过加权移动平均（**wma**）来捕捉。在这种方案中，价格与其最近性成正比地加权（最近性排名除以最近性排名总和乘以时间t时的价格）。这个链接演示了计算过程：[http://www.investopedia.com/articles/technical/060401.asp](http://www.investopedia.com/articles/technical/060401.asp)。另外，消除由较短频率引起的干扰的最佳方法是对数据进行中间加权。也就是说，我们希望给接近中间的数据比更近期的数据更高的权重。这最好通过使用三角形移动平均来实现，它本质上是相同长度的移动平均的移动平均。三角形移动平均引入的平滑效果在中间值上产生最大权重。计算过程在这里描述：[http://daytrading.about.com/od/indicators/a/Triangular.htm](http://daytrading.about.com/od/indicators/a/Triangular.htm)。
 - en: 'To keep things consistent, we should use a weighted triangular moving average
     (**wtma**), which is exactly the same except it uses the weighted moving average
     versus the simple moving average in the calculation. Thus the Adaptive Frequency
     Weighted Moving Average can be calculated simply as:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '为了保持一致性，我们应该使用加权三角形移动平均（**wtma**），它与加权移动平均与简单移动平均在计算中完全相同。因此，自适应频率加权移动平均可以简单地计算为： '
 - en: '**AFWMA**=  *w**(**wma**)+ (1-*w*)*(**twma**)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**AFWMA**=  *w**(**wma**)+ (1-*w*)*(**twma**)'
 - en: where “w” is a constant between 0 and 1
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中“w”是一个介于0和1之间的常数
 - en: The purpose of the AFWMA is to find the optimal balance between recency and
     avoiding short-term noise. This can be found by solving for “w” to best minimize
     out of sample error in a forecast format, or to best maximize out of sample sharpe
@@ -60,5 +82,7 @@
     value/information content that differs between the weighted and triangular moving
     averages without resorting to blind optimization (or worse yet the beliefs/opinions
     of a technical analysis “guru”).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: AFWMA的目的是找到最佳平衡点，以便同时考虑最近性和避免短期噪声。这可以通过解出“w”来找到，以便在预测格式中最小化外样本误差，或者在交易策略格式中最大化外样本夏普比率。这是一种简单而合乎逻辑的方法，它通过不盲目优化（或者更糟糕地说是技术分析“大师”的信仰/观点）来压缩加权和三角形移动平均之间的价值/信息内容差异。
