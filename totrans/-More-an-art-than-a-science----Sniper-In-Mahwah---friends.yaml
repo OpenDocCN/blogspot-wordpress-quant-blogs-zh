@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:14:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:14:08'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: “More an art than a science” – Sniper In Mahwah & friends
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: “与其说是科学，不如说是艺术” – Sniper In Mahwah & 朋友们
 - en: 来源：[https://sniperinmahwah.wordpress.com/2015/07/16/more-an-art-than-a-science/#0001-01-01](https://sniperinmahwah.wordpress.com/2015/07/16/more-an-art-than-a-science/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://sniperinmahwah.wordpress.com/2015/07/16/more-an-art-than-a-science/#0001-01-01](https://sniperinmahwah.wordpress.com/2015/07/16/more-an-art-than-a-science/#0001-01-01)
 - en: I am currently classifying the thousands of thousands of pages of articles,
     academic papers, press releases, etc., I have printed since I am immersed in HFT
     (from January 2012), and I rediscover an interesting discussion I had with a high-frequency
@@ -26,8 +38,10 @@
     Twitter), and someone (not on Twitter, and anonymous) has been good enough to
     answer to some technical questions I had about different issues I am/was trying
     to understand (since then I have a better view on those issues).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我目前正在整理自2012年1月起深入研究高频交易（HFT）以来打印的成千上万页的文章、学术论文、新闻稿等，并重新发现了我与一位高频交易员之间有趣的讨论。有时，Twitter上关于HFT和市场结构的激烈讨论会促使一些匿名人士给我留言（因为我有时会在Twitter上提问），而某位（不在Twitter上，且匿名）人士非常慷慨地回答了我关于不同问题的技术性疑问，这些问题是我当时试图理解的（自那以后我对这些问题有了更清晰的认识）。
 - en: The different topics approached in the lines below (the ban on locked markets,
     the jitter in and/or around the matching engines, quote stuffing, the way you
     “make the market”, etc.) will be developed in various posts later, that’s why
@@ -39,29 +53,39 @@
     lottttt of names), these people will probably learn nothing, but others may be
     interested. (I slightly edited some parts for a better understanding; minor comments
     in [brackets] are mine.)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面探讨的不同主题（禁止锁定市场、匹配引擎附近的抖动、报价填充、做市方式等）将在后续的多个帖子中展开，因此此处不作评论。同时，以下是关于高频交易这个小世界某些部分的原始评论。我通过电子邮件或面对面与HFT行业的多位人士（或多或少匿名）进行了许多其他讨论，但下面的评论特别清晰。鉴于这个博客主要由HFT公司的人访问（我有跟踪器，所以有很多名字），这些人可能学不到什么，但其他人可能会感兴趣。（我为了更好地理解，对某些部分进行了轻微编辑；方括号中的小评论是我加的。）
 - en: THE BAN ON LOCKED MARKET
+  id: totrans-8
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: 禁止锁定市场
 - en: “[Regulation NMS] bans exchanges from displaying a quote that would lock the
     price of any other market (bid=ask) . Since the US markets have rebates, the effective
     price of passively trading (place a limit order that rests on the book, another
     trader comes along and trades with you) *versus* actively trading (your price
     crosses an order resting on the limit order book) is different.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “[Regulation NMS]禁止交易所展示锁定其他市场价格的报价（买价=卖价）。由于美国市场存在返佣，被动交易（下达限价订单并等待成交，另一交易者前来与你交易）与主动交易（你的价格与限价订单簿上的订单交叉）的实际成本是不同的。
 - en: ''
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Say BATS is showing 10.01 bid, 10.02 offer.
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 假设BATS显示的买价是10.01，卖价是10.02。
 - en: ''
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -70,10 +94,13 @@
     trade passively, I get a rebate and will effectively pay 10.0170\. Now this is
     not a huge difference to normal people, but to HFT market-makers who may earn
     something like 0.0010 a share net of costs, it’s a huge difference.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 如果我以10.02的卖价买入，由于接受者费用，我实际支付的是10.0230。如果市场扩大，变为10.01的买价，10.03的卖价，如果我在10.02处增加一个买单并等待被动交易，我将获得返佣，实际支付的将是10.0170。这对普通人来说差别不大，但对高频交易做市商而言，他们每股的净收益可能只有0.0010，这就产生了巨大差异。
 - en: ''
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -89,10 +116,13 @@
     their remainder at that price passively to buy more, which is a completely natural
     thing to do in the market. Instead their order will get rejected or slid and HFTs
     may jump into that price first.
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 现在假设BATS以10.01的买价和10.03的卖价进行交易，但[NYSE] ARCA仍然显示10.02的卖价。作为高频交易者，我的估值模型可能表明，我可以在10.0170买入获利，但不能在10.0230买入。我想在BATS上发布一个买价，但除非有人在ARCA上交易该订单，或者我自己发送一个ISO订单，否则我无法这样做。这就在市场上产生了一种摩擦，并导致了这样的订单类型：我可以在BATS上放置我的10.02订单，但它们不会显示，直到ARCA移动，这只会使市场更加复杂，并阻止其他人与我的订单进行交易，他们可能更愿意等待在另一个市场上的被动填充。这也使得某人难以说，购买所有在卖价上的股票，然后将剩余部分以该价格被动地发布以购买更多，这在市场上是完全自然的事情。相反，他们的订单将被拒绝或滑点，高频交易者可能会首先跳入那个价格。
 - en: ''
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -100,13 +130,17 @@
     that’s the case since they’re public [ahem, Mister Bodek will undoubtedly disagree],
     but it’s just a lot of unnecessary complexity [on this everyone agrees] and makes
     people think the market is unfair.”
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 有些人认为订单类型不公平地偏好了高频交易者。我不认为这是事实，因为它们是公开的[咳咳，博德克先生无疑会不同意]，但这只是很多不必要的复杂性[在这点上，每个人都同意]，并使人们认为市场是不公平的。”
 - en: MARKET MAKING
+  id: totrans-18
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: 做市策略
 - en: '“What I do is come up with a statistical forecast of a “fair value” for each
     security I trade. What goes into such models is proprietary but generally imagine
     any order book event that could affect its price in the short term: supply/demand
@@ -116,10 +150,13 @@
     ETF should not trade at a discount/premium to its constituent stocks, or a stock
     should trade around the same price on every market, [I’ll go into further details
     about arbitrage in the *Xenia of Saint Petersburg* series in September], etc.'
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “我所做的是为每种我交易的证券制定一个统计预测的‘公允价值’。这些模型中包含的内容是专有的，但一般可以想象任何可能影响其短期价格的订单簿事件：供需失衡、同一行业相关证券的变动、我在该股票或其他股票中的自有库存等。其中一些模型是统计的，我使用历史数据，而其他模型是机械的经济关系，例如，ETF不应以其成分股票的折扣/溢价交易，或者股票应在每个市场上以大致相同的价格交易，[我将在9月的*圣彼得堡的克塞尼亚*系列中进一步讨论套利]，等等。
 - en: ''
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -130,10 +167,13 @@
     variables and are driven by order book events; this is why you often hear about
     HFTs having high quote/trade ratios since they constantly adjust their prices
     in the market to reflect their views and risk tolerances.
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 一旦我确定了公允价值，我就会在它周围放置买卖订单，目的是被动地卖出卖价和买入买价，以便平均而言，我捕捉到这个价差的一部分。随着我的估值变化，我会更新这些订单以反映我的观点并控制我的风险敞口。我的模型有许多变量，并由订单簿事件驱动；这就是为什么你经常听到高频交易者有高报价/交易比率，因为他们不断调整市场价格以反映他们的观点和风险承受能力。
 - en: ''
+  id: totrans-22
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -143,10 +183,13 @@
     price fastest to win order flow in a price-time priority world, and one must use
     a smart forecasting model to cancel orders that may be hit by aggressive arbitrage
     traders [those with microwave dishes?], informed market participants, etc.
+  id: totrans-23
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 制定合理的买卖价差并决定出价和要价的大小，与其说是科学，不如说是一门艺术。我不断进行实验，以最大化我的风险调整回报和市场份额。速度至关重要，因为在价格时间优先的世界里，必须以最快的速度设定最激进的价格才能赢得订单流。同时，必须使用智能预测模型来取消可能被激进的套利交易者（那些拥有微波天线的人？）、知情市场参与者等击中的订单。
 - en: ''
+  id: totrans-24
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -160,21 +203,28 @@
     when someone elects to trade with our quote, the price moves in their favor. Our aim
     is to have it move a bit less than the spread on average, so we can make a small
     amount and do enough volume to… [censured].”
+  id: totrans-25
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 想象一下，我的模型通常在最佳买卖盘上停留，偶尔在买卖对我特别不利时，我们会尝试“避开”，这时我们会将我的买卖盘撤离。我们的目标不是对价格进行投机，而是要“不错”，因此平均而言，我们的预期胜率（即价差）略高于我的平盘（买卖同价）。尽管许多人声称高频交易（HFT）会“刮取”人们的利润，但实际上我们大部分时间只捕捉到价差的一小部分。我们的净收益是几美分的几分之一。平均而言，当有人选择与我们的报价交易时，价格会朝着他们的利益方向移动。我们的目标是让价格平均移动幅度略小于价差，这样我们就能赚取少量利润，并通过足够的交易量来实现……[已审查]。
 - en: MATCHING ENGINES AND THE JITTER
+  id: totrans-26
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: 撮合引擎与抖动
 - en: Most exchange matching engines are structured where there is a central matching
     engine for each symbol, and gateway processes for each member to send their orders
     through that handle protocol translation, maybe some safety checks, and message
     throttling to keep one member from taking the exchange down.
+  id: totrans-27
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 大多数交易所的撮合引擎结构是每个交易品种都有一个中央撮合引擎，以及为每个会员提供的网关进程，用于发送订单，处理协议转换，可能还包括一些安全检查和消息限流，以防止某个会员导致交易所崩溃。
 - en: ''
+  id: totrans-28
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -191,10 +241,15 @@
     everyone else. Most “quote stuffing” is due to software bugs or interactions between
     algorithms both trying to set the best price, etc. [some are going to scream by
     reading this point of view, but that was not the first time I heard that].'
+  id: totrans-29
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 通常，撮合引擎为每家机构提供订单入口网关，这些网关维护着一个队列，用于添加、取消或修改订单的传入消息。交易所的撮合引擎会依次检查每个网关，并按顺序处理来自每个网关的一条消息。声称“报价填充”可以为参与者带来好处是可疑的，原因有几点：1.
+    如果我们快速发送消息，这些消息将在我们自己的网关排队，因此其他参与者的订单将先被处理。2. 发送订单在计算上成本高昂；我们必须编码一条消息并通过网络发送，这比什么都不做要耗时。3.
+    每个订单簿事件都会通过多播馈送反映给所有参与者。如果我们快速发送大量消息，我们自己的软件或硬件必须像其他人一样处理所有这些消息。大多数“报价填充”是由于软件错误或算法之间的交互，这些算法都在试图设定最佳价格等。[有些人读到这里可能会大声抗议，但这不是我第一次听到这种观点]。
 - en: ''
+  id: totrans-30
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -210,26 +265,38 @@
     firms dominating now, a bunch of smaller firms are sharing the same pie. Because
     of this, I think the “arms race” in internal latency is basically over, though
     there are still gains to be had through faster network lines [and microwave dishes].
+  id: totrans-31
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 交易所软件本身存在固有的延迟和抖动。目前，即使是顶级交易所之间的网关，其抖动也比顶级高频交易公司之间的差异更大。这意味着，如果你有两家反应迅速的公司，一家对事件的响应时间为5微秒，另一家为10微秒，那么10微秒的公司有时会因为网关抖动而比5微秒的公司更快地进入交易所匹配引擎[!].
+    最终结果是，如果你有一批响应时间小于10微秒或其他低数值的公司，削减额外的微秒延迟已不足以赢得交易。这只是在统计上稍微增加了可能性。现在不再是有一两家公司占据主导地位，而是一批较小的公司在共享同一块蛋糕。因此，我认为内部延迟的“军备竞赛”基本上已经结束，尽管通过更快的网络线路[和微波天线]仍有提升空间。
 - en: CONCLUSION
+  id: totrans-32
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: 结论
 - en: Without traders like ourself, the books there would be nearly empty.
+  id: totrans-33
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 没有像我们这样的交易者，那里的订单簿几乎会空空如也。
 - en: ''
+  id: totrans-34
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Apologies if this is long. I have to keep things fuzzy since competitors are
     always looking to figure out what others are doing.
+  id: totrans-35
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 如果篇幅较长，敬请谅解。我必须保持模糊，因为竞争对手总是在试图弄清楚其他人在做什么。
 - en: No need to apologize – it was too short.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 无需道歉——篇幅太短了。
