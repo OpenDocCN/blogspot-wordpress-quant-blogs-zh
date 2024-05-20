@@ -2,32 +2,39 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:36:03'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日15:36:03
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Advances in Computing | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 计算的进步| Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/12/15/advances-in-computing/#0001-01-01](https://tr8dr.wordpress.com/2009/12/15/advances-in-computing/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/12/15/advances-in-computing/#0001-01-01](https://tr8dr.wordpress.com/2009/12/15/advances-in-computing/#0001-01-01)
 - en: December 15, 2009 · 2:21 pm
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年12月15日下午2:21
 - en: Have been watching advances in computing power for some time, since university
     really.   I did research in parallel algorithms and architecture for my first
     position at the university and later applied practically on Wall Street.   In
@@ -36,30 +43,37 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 很久以来就一直在关注计算能力的进步，实际上是从大学开始的。我在大学的第一份工作是研究并行算法和架构，后来在华尔街也实际应用了这些知识。在那些日子里，像Intel
+    Hypercube、Paragon和许多其他架构这样的超级昂贵的机器是HPC社区的支柱。
 - en: 'HPC (High Performance Computing) roughly breaks down into 4 categories:'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: HPC（高性能计算）大致分为4个类别：
 - en: Big iron supercomputers (MIMD generally)
   id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 大型铁通超级计算机（通常是MIMD）
 - en: Distributed computing (these days advertised as Cloud Computing)
   id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 分布式计算（这些天被宣传为云计算）
 - en: The emerging SIMD GPU based solutions
   id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 新兴的基于SIMD GPU的解决方案
 - en: Quantum Computing (not really here yet for the mainstream)
   id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 量子计算（对主流来说还没有真正实现）
 - en: In the machine learning and optimisation world there are massive problems, some
     of which are not computable on von-neumann architectures, as their runtime would
     be astronomical.    An (absurd) example of such a problem would be to simulate
@@ -70,17 +84,21 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在机器学习和优化领域存在大量问题，其中一些问题在冯·诺伊曼架构上是不可计算的，因为它们的运行时间将是天文数字。一个（荒谬的）这样的问题的例子是模拟大量猴子在打字机上打字，当其中一个猴子产生莎士比亚的著作时停止。产生这样一部作品所需的猴子数量是天文数字。这似乎是一个荒谬的问题，但与GP
+    / GA方法相比是可比的。
 - en: Then of course there are numerous problems with high dimensionality and/or with
     polynomial order complexity.
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，高维度和/或多项式阶数复杂度存在许多问题。
 - en: '**Supercomputing on the Cheap** The [FASTRA](http://fastra.ua.ac.be/en/index.html)
     team at the University of Antwerp has put together an inexpensive multi-teraflop
     machine with 7 gaming cards.  Check out their video.'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**廉价超级计算** 安特卫普大学的[FASTRA](http://fastra.ua.ac.be/en/index.html)团队组建了一个由7张游戏卡组成的廉价多Teraflop机器。看看他们的视频。'
 - en: Unfortunately the “easy” part of these sort of solutions is the hardware.  The
     problem is the (often) great expense to develop one’s models in a SIMD framework,
     so can be applied to for the GPU architecture.    Although there is now standardization
@@ -92,16 +110,19 @@
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，这类解决方案中“容易”的部分通常是硬件。问题在于（通常）在SIMD框架中开发自己的模型的巨大开销，因此可以应用于GPU架构。尽管现在已经有了用于编程GPU的低级C变体的标准化，但不同型号的GPU之间存在显着差异，即使你成功编写了正确的SIMD程序，也可能需要重新排列以适应特定的GPU实现。（我猜这与我过去对大型并行架构的经验并没有太大不同）。
 - en: One could have a team devoted to parallelization, tuning, and retuning / reworking
     for the new GPUs that are out periodically.   Very time consuming!
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个团队可以致力于并行化、调优和定期为新的GPU进行重新调整/重构。非常耗时！
 - en: For my work, the problems that would map well are particle filters and monte-carlo
     based models, each of which have obvious fine-grained parallel operations.
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于我的工作，可以很好地映射的问题是粒子滤波器和基于蒙特卡洛的模型，每个模型都有明显的细粒度并行操作。
 - en: '**Quantum Computing** The other notable announcement this week was Google’s
     use of [quantum computing](http://googleresearch.blogspot.com/2009/12/machine-learning-with-quantum.html)
     to solve pattern recognition problems.   I have not done the leg-work to fully
