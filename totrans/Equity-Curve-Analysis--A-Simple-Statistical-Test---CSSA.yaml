@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:44:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:44:13'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Equity Curve Analysis: A Simple Statistical Test | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 股权曲线分析：一个简单的统计测试 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01](https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01](https://cssanalytics.wordpress.com/2009/10/26/equity-curve-analysis-a-simple-statistical-test/#0001-01-01)
 - en: '**Note:** A more complex method that applies to this article  mentioned by
     one of our readers is the application of a regression which is briefly touched
     upon in the link [http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注意：** 本文提到的适用于此文章的更复杂的方法是一种回归应用，简要涉及在链接[http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)中。'
 - en: 'One method of determining when a trading strategy is breaking down is to run
     a statistical test. Conceptually when I use the term “breaking down” I am  referring
     to the recent profitability of the strategy being significantly different than
@@ -40,32 +54,48 @@
     traders would do a 5 or 10 year backtest, and would want to evaluate a strategy
     that is currently undergoing some form of drawdown or deterioration (ie you aren’t
     going to wait 5 or 10 years before you test again!):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 确定交易策略何时出现问题的一种方法是运行统计测试。概念上，当我使用术语“出现问题”时，我指的是策略的最近盈利能力与平均水平明显不同。然而，这也可能指的是一种策略相对于每笔交易的利润变得比平均水平更加波动。在股权曲线分析中，最近期与历史平均水平相比，“平均值”和“方差”分析都很重要。另一个可能的调查领域是交易赢利百分比与历史赢利百分比的比较。在本文中，我们将看看如何解决第一个问题，即平均盈利能力可能与平均水平明显不同的可能性。因此，我们将假设交易策略的方差或波动性与历史上的测量值相同。进入配对t检验，用于确定来自同一交易策略的两个样本是否与正常情况相似或统计上不同。在这种情况下，我使用了假设样本大小不等的方程，因为在大多数情况下，交易者会进行为期5或10年的回测，并且希望评估当前正在经历某种回撤或恶化的策略（即，您不会等待5或10年后再进行测试！）：
 - en: 'From wikipedia: [http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自维基百科：[http://en.wikipedia.org/wiki/T_Test](http://en.wikipedia.org/wiki/T_Test)
 - en: Unequal sample sizes, equal variance
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 样本大小不等，方差相等
 - en: 'This test is used only when it can be assumed that the two distributions have
     the same variance. (When this assumption is violated, see below.) The *t* statistic
     to test whether the means are different can be calculated as follows:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 仅当可以假设两个分布具有相同方差时才使用此检验。（当此假设被违反时，请参见下文。）用于测试均值是否不同的*t*统计量可计算如下：
 - en: '![t = \frac{\bar {X}_1 - \bar{X}_2}{S_{X_1X_2} \cdot \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}](img/0a0a010921762481f7ac482b8cce1b62.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![t = \frac{\bar {X}_1 - \bar{X}_2}{S_{X_1X_2} \cdot \sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}](img/0a0a010921762481f7ac482b8cce1b62.png)'
 - en: where
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中
 - en: '![ S_{X_1X_2} = \sqrt{\frac{(n_1-1)S_{X_1}^2+(n_2-1)S_{X_2}^2}{n_1+n_2-2}}.](img/38083eee5520e7f044247a084055a4fa.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![ S_{X_1X_2} = \sqrt{\frac{(n_1-1)S_{X_1}^2+(n_2-1)S_{X_2}^2}{n_1+n_2-2}}.](img/38083eee5520e7f044247a084055a4fa.png)'
 - en: Note that the formulae above are generalizations for the case where both samples
     have equal sizes (substitute *n*[1] and *n*[2] for *n* and you’ll see).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意上述公式是对样本大小相等的情况进行概括的（用*n*[1]和*n*[2]替换*n*，你就会看到）。
 - en: '![S_{X_1X_2}](img/316fd3b7cbb7bd464ac7ff27fbdfcf52.png) is an estimator of
     the common [standard deviation](https://cssanalytics.wordpress.com/wiki/Standard_deviation
     "Standard deviation") of the two samples: it is defined in this way so that its
@@ -74,8 +104,12 @@
     one, 2 = group two. *n* − 1 is the number of degrees of freedom for either group,
     and the total sample size minus two (that is, *n*[1] + *n*[2] − 2) is the total
     number of degrees of freedom, which is used in significance testing.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![S_{X_1X_2}](img/316fd3b7cbb7bd464ac7ff27fbdfcf52.png) 是两个样本的共同[标准差](https://cssanalytics.wordpress.com/wiki/Standard_deviation
+    "标准差")的估计量：它是这样定义的，以便其平方是一个无偏估计量，无论种群均值是否相同。在这些公式中，*n* = 参与者数量，1 = 第一组，2 = 第二组。*n* − 1
+    是任一组的自由度数目，总样本大小减去两个（即，*n*[1] + *n*[2] − 2）是总自由度数目，用于显著性检验。'
 - en: Note that this can also be applied to determine whether say two mean reversion
     systems like DV2 and RSI2 are signficantly different from eachother. There are
     some issues with the t-test and to me the assumption of normality–ie that a given
@@ -98,5 +132,8 @@
     of exposure to a shorting strategy at this point is probably better than waiting
     for a drawdown to occur to cut bait. This is also why the use of mean-reversion
     principles of overbought and oversold are valuable.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，这也可以用来确定例如两个均值回归系统如 DV2 和 RSI2 是否显著不同。t 检验存在一些问题，对我来说，正态性的假设——即给定交易策略正态分布——显然是一个问题。这种错误的假设在过去给量化交易员带来了许多问题。对你的账户最危险的是等待太久才关闭策略可能引入的延迟。可以做出的一种调整是在策略“统计显著不同于平均值”之前采取某种形式的移动止损或逐步减少策略的敞口。其他问题涉及在只有一个“体制”期间进行回测时引入的条件性偏差形式，例如上涨趋势，这自然会扰乱测试，因为交易策略在不同的“体制”中表现往往截然不同。事先知道某些策略在体制变化发生时表现不佳，可以“预警”停止使用它，从而帮助您避免回撤。一个例子是在两个上涨日后卖空，这通常表现良好，应该预期在新的“上涨趋势”开始时表现更差，也许由200日移动平均线或其他指标定义。在这方面的常识可能是一种更主动的风险管理形式，与通过交易权益曲线实现的反应性管理相比。例如，当市场低于其平均值
+    3 个标准偏差时，它最终会反弹，因此在此时减少卖空策略的敞口可能比等待回撤发生更好。这也是为什么超买和超卖的均值回归原理的使用是有价值的。
