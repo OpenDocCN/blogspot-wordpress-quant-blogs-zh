@@ -2,29 +2,35 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:39:26'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:39:26
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Factor Attribution to improve performance of the 1-Month Reversal Strategy |
     Systematic Investor
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 利用因子归因提高1个月反转策略的表现 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
 - en: Today I want to show how to use [Factor Attribution](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)
     to boost performance of the [1-Month Reversal Strategy](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/).
     The [Short-Term Residual Reversal by D. Blitz, J. Huij, S. Lansdorp, M. Verbeek
@@ -36,6 +42,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想展示如何利用[因子归因](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)来提升[1个月反转策略](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/)的表现。[Blitz,
+    J. Huij, S. Lansdorp, M. Verbeek (2011)的短期残差反转](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1911449)论文提出了这一概念，并讨论了自1929年以来应用于美国股市的结果。为了改进1个月反转策略的表现，作者们研究了一种基于滚动因子归因回归残差的替代持仓排名指标。
 - en: 'The base 1-Month Reversal Strategy forms portfolios each month by buying 20%
     of loosers and short selling 20% of winners from the S&P 500 index based on the
     prior 1-Month returns. The 1-Month **Residual** Reversal Strategy forms portfolios
@@ -46,6 +54,8 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 基础的1个月反转策略每月通过从S&P 500指数中购买20%的输家并卖空20%的赢家来形成投资组合，其依据是前一个月的回报率。1个月**残差**反转策略每月通过从S&P
+    500指数中购买20%的输家并卖空20%的赢家来形成投资组合，其依据是滚动因子归因回归的残差。以下是每月形成1个月**残差**反转策略投资组合的步骤：
 - en: '1\. for each company in the S&P 500 index, run a rolling Factor Attribution
     regression on the prior 36 months and compute residuals: e.1, e.2, …, e.t, …,
     e.T for t in 1:36'
@@ -53,22 +63,26 @@
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 1.对S&P 500指数中的每家公司，运行前36个月的滚动因子归因回归，并计算残差：e.1、e.2、…、e.t、…、e.T，其中t在1:36之间
 - en: 2\. alternative position ranking metric = e.T / standard deviation of (e)
   id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 2.替代持仓排名指标 = e.T / (e的标准差)
 - en: 3\. form portfolios by buying 20% of loosers and short selling 20% of winners
     from the S&P 500 index based on the alternative position ranking metric
   id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 3.根据替代持仓排名指标从S&P 500指数中购买20%的输家并卖空20%的赢家，形成投资组合
 - en: 'Let’s start by loading historical prices for all companies in the S&P 500 and
     create SPY and Equal Weight benchmarks using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先加载S&P 500中所有公司的历史价格，并使用[系统性投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)创建SPY和等权重基准：
 - en: '[PRE0]'
   id: totrans-12
   prefs: []
@@ -80,6 +94,7 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们对S&P 500指数中的每支股票运行因子归因，以确定其替代持仓排名指标。我将保存e.T和e.T / (e的标准差)两个指标。
 - en: '[PRE1]'
   id: totrans-14
   prefs: []
@@ -90,6 +105,7 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们根据1个月反转因子将股票分组，并创建报告。
 - en: '[PRE2]'
   id: totrans-16
   prefs: []
@@ -99,14 +115,17 @@
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5d763502fe01d2a233ca28b7f3ca52ba.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small2.png)'
 - en: '[![](img/ae13f4c320e9a831e3d12a837ca72bc7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small2.png)'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ae13f4c320e9a831e3d12a837ca72bc7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small2.png)'
 - en: '[![](img/c223c2aeee0aa1a5898cd733f3547816.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small.png)'
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c223c2aeee0aa1a5898cd733f3547816.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small.png)'
 - en: The 1-Month **Residual** Reversal Strategy have done well over the last 10 years
     and handsomely outperformed the base 1-Month Reversal Strategy.
   id: totrans-20
