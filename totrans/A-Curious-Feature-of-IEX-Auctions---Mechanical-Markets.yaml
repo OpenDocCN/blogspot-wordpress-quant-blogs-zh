@@ -220,6 +220,7 @@
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我也不确定这个功能是否被忽视了。IEX [表示](https://medium.com/boxes-and-lines/the-iex-auction-pursuing-better-price-discovery-a65cb9aeeadb)它的存在是“为了保护休眠的非显示兴趣的匿名性”。并且“IEX拍卖是在与各种市场参与者进行广泛研究和非正式讨论后进行战略设计的。”但是IEX并未认为在波动暂停或停止后进行的拍卖中使用此功能是合适的，也许是因为这些拍卖可能会混乱，并且对透明度有特殊需求。问题是，有些日子的开盘和收盘也可能波动很大，而这些时候交易所顺利进行拍卖更加重要。[[6](#bottom6iexauctions)]
 - en: To be clear, I wouldn’t say that this feature is scandalous. The behavior (I
     think) is fully disclosed, and professional traders should always read the manual
     before using any exchange. But issuers are probably not equipped to do that. And
@@ -228,6 +229,8 @@
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 明确地说，我不认为这个功能是丑闻。这种行为（我想）已经完全披露，专业交易员在使用任何交易所之前应该始终阅读手册。但是发行人可能没有做好准备。而且如果IEX
+    [希望](https://medium.com/boxes-and-lines/the-iex-auction-pursuing-better-price-discovery-a65cb9aeeadb)其拍卖“简单”，我不确定这是否是正确的方法。
 - en: '[[1](#1iexauctions)] It’s hard for me to completely understand IEX’s [documentation](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf).
     It has some clear errors in it — such as the “CLEARING PRICE EXAMPLES,” which
     say “Each example below assumes the Protected NBBO is $10.09 by $10.11 at the
@@ -237,16 +240,21 @@
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[1](#1iexauctions)] 我很难完全理解 IEX 的[文档](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)。其中有一些明显的错误
+    —— 比如“清算价格示例”，它说“下面的每个示例都假设在收盘竞价时，受保护的NBBO为$10.09至$10.11”，但“示例3”显示了IEX上的限价订单为$10.12（买入）和$10.13（卖出）——
+    所以有些地方不太对劲。即使是在文档中存在错误的情况下，我也可能在解释时出错。'
 - en: '[[2](#2iexauctions)] I don’t mean to write so much about IEX, but functionality
     like this has not gotten the attention it deserves.'
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[2](#2iexauctions)] 我并不是要写这么多关于IEX，但是像这样的功能并没有得到应有的关注。'
 - en: '[[3](#3iexauctions)] I think the auction would actually occur at $10.09 in
     this case, were it not for the [rule](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf):'
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[3](#3iexauctions)] 我认为在这种情况下，如果没有[规则](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)，拍卖实际上会以$10.09的价格进行：'
 - en: If more than one price maximizes the number of shares that will execute, resulting
     in an auction price range, the Reference Price is set to the price at or within
     such range that is not lower (higher) than the most aggressive unexecuted buy
@@ -255,6 +263,7 @@
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 如果有多个价格使得执行股票数量最大化，导致拍卖价格区间，那么参考价格被设置为不低于（高于）最具侵略性的未执行买入（卖出）订单的价格。
 - en: Which I think guarantees that even if the LOC bid at $10.10 is skipped-over
     and doesn’t receive an execution, it will still affect the auction price. I suppose
     this is better than performing the auction at $10.09, but it will still frustrate
@@ -262,35 +271,42 @@
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为这样做可以确保即使$10.10的LOC出价被跳过并且没有收到成交，它仍然会影响拍卖价格。我想这比以$10.09进行拍卖要好，但仍会使错过执行并移动收盘价格的LOC发送者感到沮丧。
 - en: '[[4](#4iexauctions)]'
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[4](#4iexauctions)]'
 - en: 'The Regular Market Continuous Book Contains the following orders:'
   id: totrans-37
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 常规市场连续订单簿包括以下订单：
 - en: Midpoint Peg order to buy 2,500 shares with a resting price of $20.20.
   id: totrans-38
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 以$20.20的休眠价格购买2,500股的中点价格订单。
 - en: 'The Closing Auction Book includes the following orders:'
   id: totrans-39
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 收盘拍卖簿包括以下订单：
 - en: LOC order to buy 500 shares with a limit price of $20.19; and
   id: totrans-40
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 以$20.19的限价买入500股的LOC订单；和
 - en: LOC order to sell 2,000 shares with a limit price of 20.18.
   id: totrans-41
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 以$20.18的限价卖出2,000股的LOC订单。
 - en: For purposes of determining the clearing price, the Midpoint Peg order is priced
     to the Protected NBB ($20.19), but remains ranked and eligible to execute at its
     resting price;
