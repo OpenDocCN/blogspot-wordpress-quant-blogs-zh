@@ -1,73 +1,116 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:37:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:37:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Calling Minimum Correlation Algorithm from Excel using RExcel & VBA | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 从 Excel 使用 RExcel & VBA 调用最小相关性算法 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/27/calling-minimum-correlation-algorithm-from-excel-using-rexcel-vba/#0001-01-01)
 - en: I want to show the example of calling the Minimum Correlation Algorithm from
     Excel. I will use [RExcel](http://rcom.univie.ac.at/download.html) to connect
     R and Excel and will create a small VBA cell array function to communicate between
     Excel and R.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想展示如何从 Excel 中调用最小相关性算法的示例。我将使用 [RExcel](http://rcom.univie.ac.at/download.html)
+    来连接 R 和 Excel，并创建一个小的 VBA 单元格数组函数来在 Excel 和 R 之间通信。
 - en: I have previously discussed the concept of connecting R and Excel in the [“Calling
     Systematic Investor Toolbox from Excel using RExcel & VBA”](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
     post. Please read [this](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
     post for the instructions to setup [RExcel](http://rcom.univie.ac.at/download.html).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我先前在 [“使用 RExcel & VBA 从 Excel 调用 Systematic Investor Toolbox”](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
+    帖子中讨论了连接 R 和 Excel 的概念。请阅读 [此](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/)
+    帖子以获取设置 [RExcel](http://rcom.univie.ac.at/download.html) 的说明。
 - en: 'Following is a screen shot of the complete workbook:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是完整工作簿的屏幕截图：
 - en: '[![](img/8cb6257108de859b53c49b4b8c572eee.png "snapshot")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/snapshot.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8cb6257108de859b53c49b4b8c572eee.png "snapshot")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/snapshot.png)'
 - en: You can download the [MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
     workbook and experiment with it while you keep reading.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以在阅读的同时下载 [MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
+    工作簿并进行实验。
 - en: I created the “MinimumCorrelation” cell array function in VBA. *Do not forget
     to use CTRL+SHIFT+ENTER to enter “MinimumCorrelation” function into your workbooks*.
     The “MinimumCorrelation” function will send historical price information from
     Excel to the R environment. It will next execute the R script to construct weights
     using the Minimum Correlation Algorithm, and finally it will collect R calculations
     of portfolio weights and transfer them back to Excel.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了 VBA 中的“MinimumCorrelation”单元格数组函数。*不要忘记使用 CTRL+SHIFT+ENTER 将“MinimumCorrelation”函数输入到您的工作簿中*。
+    “MinimumCorrelation”函数将从 Excel 发送历史价格信息到 R 环境。接下来，它将执行 R 脚本，使用最小相关性算法构建权重，最后将收集
+    R 计算的组合权重并将其传送回 Excel。
 - en: Here is the R script that calls min.corr.portfolio() function. I created a VBA
     function “create_rcode” to create this file automatically for this example.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是调用 min.corr.portfolio() 函数的 R 脚本。我创建了一个名为“create_rcode”的 VBA 函数来自动创建此文件作为示例。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, the “MinimumCorrelation” cell array function in VBA that calls min.corr.portfolio()
     function in R:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，VBA 中的“MinimumCorrelation”单元格数组函数调用 R 中的 min.corr.portfolio() 函数：
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: The complete working copy of the [MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
     workbook.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[MinimumCorrelation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/minimumcorrelation1.xls)
+    工作簿的完整工作副本。'
 - en: '*Please do not forget to use CTRL+SHIFT+ENTER to enter “MinimumCorrelation”
     function into your workbooks*.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*请不要忘记使用 CTRL+SHIFT+ENTER 将“MinimumCorrelation”函数输入到您的工作簿中*。'
