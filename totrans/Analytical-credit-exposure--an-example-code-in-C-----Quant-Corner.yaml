@@ -1,129 +1,200 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:08:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:08:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Analytical credit exposure, an example code in C++ | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 分析性信用敞口，C++中的示例代码 | 量化角
 - en: 来源：[https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01](https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01](https://quantcorner.wordpress.com/2013/02/27/analytical-credit-exposure-in-c/#0001-01-01)
 - en: In this post we quickly review some concepts related to **counterparty risk**,
     and we provide a **C++** code computing some measures of **credit exposure**.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我们快速回顾了一些与**交易对手风险**相关的概念，并提供了一些计算**信用敞口**的**C++**代码。
 - en: 'If you read Jon Gregory’s***** book **Counterparty credit risk and credit value
     adjustment: A continuing challenge for global financial markets**, you should
     recognize that we actually ‘ported’ to **C++ **Jon Gregory’s spreadsheets **Spreadsheet2.2**
     and **Spreadsheet2.2b** from the workbook **chapter2.xls** available at [CVA Central](http://www.cvacentral.com
     "CVA Central").'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您阅读了**乔恩·格雷戈里**的书**《交易对手信用风险和信用价值调整：全球金融市场的持续挑战》**，您应该会认识到我们实际上将**乔恩·格雷戈里**的电子表格**电子表格2.2**
+    和**电子表格2.2b**从工作簿**chapter2.xls**中的工作簿“CVA中心”[CVACentral](http://www.cvacentral.com
+    "CVA中心")移植到了**C++**中。
 - en: 'First, let’s consider a single asset (*eg* an OTC option) and let:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们考虑一个单一资产（*例如*，场外期权），并让：
 - en: – **![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png)** be the value of the
     asset at time ![t](img/f1c9888691539079d4bb777ad80249bb.png),
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: – **![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png)** 为时间![t](img/f1c9888691539079d4bb777ad80249bb.png)处的资产价值，
 - en: – **![f](img/30d01d303e41f70eef6e3f6ef54f1b89.png)** be the probability density
     function (pdf) of ![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png) and
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: – **![f](img/30d01d303e41f70eef6e3f6ef54f1b89.png)** 为概率密度函数（pdf）![V(t)](img/806a1b66f3a1c5381315b62d85183ae0.png) 的函数，以及
 - en: – **![T](img/466f335a8268c61b30c4bbc675095312.png)** be the time to expiration.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: – **![T](img/466f335a8268c61b30c4bbc675095312.png)** 为到期时间。
 - en: MARK-TO-MARKET (MtM)
+  id: totrans-12
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 标记为**MARK-TO-MARKET（MtM）**
 - en: '**MtM** represents the value that could be potentially lost if a counterparty
     defaulted.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**MtM** 表示如果交易对手违约可能会潜在损失的价值。'
 - en: REPLACEMENT COST
+  id: totrans-14
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '**替换成本**'
 - en: Replacement cost may be different from **MtM** (*eg* on illiquid markets). Nonetheless,
     it is standard practice to base **credit exposure** on the current **MtM** value
     of the given transactions.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 替换成本可能与**MtM**（*例如* 在不流动的市场上）不同。尽管如此，通常的做法是基于给定交易的当前**MtM**价值来计算**信用敞口**。
 - en: EXPOSURE and POSITIVE EXPOSURE
+  id: totrans-16
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '**敞口** 和 **正敞口**'
 - en: There is an asymmetry of potential losses with respect to **MtM**. That is an
     institution loses if their **MtM** is positive. But, it does not gain if **MtM** is
     negative. Thus, only *positive* exposure is of interest as far as **credit risk**
     is concerned.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在**MtM**方面存在潜在损失的不对称性。如果他们的**MtM**为正，机构会损失。但是，如果**MtM**为负，则不会获利。因此，只有*正*的敞口才关乎**信用风险**。
 - en: '![Exposure = Max(MtM, 0) = MtM+](img/15bd700485f02196f55964b2389e73e0.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![敞口 = Max(MtM, 0) = MtM+](img/15bd700485f02196f55964b2389e73e0.png)'
 - en: '**POTENTIAL FUTURE EXPOSURE (PFE)**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**潜在未来敞口（PFE）**'
 - en: '**PFE** aims at characterising **MtM** at some point in time in the future.
     It is the possible exposure over a given *time horizon* to a given *confidence
     level*. **PFE** has much in common with the concept of [**value-at-risk**](https://quantcorner.wordpress.com/2012/09/12/var-with-normally-distributed-returns-using-boos/
     "VaR with normally distributed returns using Boost").'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**PFE** 的目标是在未来某个时间点刻画**MtM**。它是在给定*时间范围*和给定*置信水平*下的可能敞口。**PFE** 在很多方面与[**风险价值**](https://quantcorner.wordpress.com/2012/09/12/var-with-normally-distributed-returns-using-boos/
+    "使用Boost计算正态分布回报的风险价值")的概念相似。'
 - en: '![PFE = \int_{-\infty}^{\infty}Max(x, 0)f(x)dx](img/bbf72fb54f1cb3f12dc16b365f951cf4.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![PFE = \int_{-\infty}^{\infty}Max(x, 0)f(x)dx](img/bbf72fb54f1cb3f12dc16b365f951cf4.png)'
 - en: In practice, **credit exposure** is computed by taking the sum of all positive
     values or replacement costs of the asset over discrete simulation horizons (![n](img/872ad603d260a26b8b46fc27a9e98c9d.png)).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在实践中，**信用敞口** 是通过在离散模拟时间段（![n](img/872ad603d260a26b8b46fc27a9e98c9d.png)）内取资产的所有正值或替换成本的总和来计算的。
 - en: '![PFE = \sum_{i=0}^{i=n}Max(V(t), 0)](img/c6cc7e2876f072dacc450a280ea4135e.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![PFE = \sum_{i=0}^{i=n}Max(V(t), 0)](img/c6cc7e2876f072dacc450a280ea4135e.png)'
 - en: EXPECTED EXPOSURE
+  id: totrans-24
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '**预期敞口**'
 - en: The **current exposure** is the cost of replacement of the exposures as of today. The
     **expected exposure** at time ![t](img/f1c9888691539079d4bb777ad80249bb.png) is
     the **mean exposure** at time ![t](img/f1c9888691539079d4bb777ad80249bb.png),
     that is
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**当前暴露**是指今天曝光的替换成本。在时间![t](img/f1c9888691539079d4bb777ad80249bb.png)的**预期暴露**是在时间![t](img/f1c9888691539079d4bb777ad80249bb.png)的**平均暴露**，即'
 - en: '![EE = \int_{0}^{\infty}V(t)f_tV(t)dV(t)](img/5075ce5e39a80dd7758b4d622ff3fc65.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![EE = \int_{0}^{\infty}V(t)f_tV(t)dV(t)](img/5075ce5e39a80dd7758b4d622ff3fc65.png)'
 - en: 'We are now turning fo the **C++** code that is a class definition file, a class
     implementation file, and a test file:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在转向**C++**代码，其中包括类定义文件、类实现文件和测试文件：
 - en: '[PRE0]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[PRE2]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Eventually, the console output:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终，控制台输出：
 - en: '[![analytical credit exposure console](img/c7648eceabbda4c6fa248889e0dea040.png)](https://quantcorner.wordpress.com/wp-content/uploads/2013/02/analytical-credit-exposure-console.jpg)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![分析信用暴露控制台](img/c7648eceabbda4c6fa248889e0dea040.png)](https://quantcorner.wordpress.com/wp-content/uploads/2013/02/analytical-credit-exposure-console.jpg)'
 - en: '** Thank you to Jon Gregoy for taking the time to answer my questions by email.*'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**感谢Jon Gregoy抽出时间通过电子邮件回答我的问题。*'
