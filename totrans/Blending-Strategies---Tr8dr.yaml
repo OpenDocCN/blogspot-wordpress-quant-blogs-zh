@@ -1,100 +1,149 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:33:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:33:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Blending Strategies | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 策略混合 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/05/28/blending-strategies/#0001-01-01](https://tr8dr.wordpress.com/2010/05/28/blending-strategies/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/05/28/blending-strategies/#0001-01-01](https://tr8dr.wordpress.com/2010/05/28/blending-strategies/#0001-01-01)
 - en: May 28, 2010 · 7:00 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年5月28日 · 下午7:00
 - en: In a number of my systematic strategies I evaluate hundreds or thousands of
     sub-strategies, using a blend of these to decide on the next period trade.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的一些系统性策略中，我评估了数百甚至数千个子策略，使用这些子策略的混合来决定下一个周期的交易。
 - en: Assume we are trading from a portfolio of possible assets, going fractionally
     long or short on a sparse subset of possible assets in the portfolio.   For example
     I may be working with an equity portfolio of 2300 possible equities.   From period
     to period I may trade anywhere from 0-40 of these.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们正在从可能的资产组合中进行交易，在资产组合的可能资产的一个稀疏子集上进行部分多头或空头交易。 例如，我可能正在处理包含2300种可能股票的股票组合。
+    从一个时期到另一个时期，我可能会交易其中的0-40只股票。
 - en: At time **t** we want to know the apriori “optimal” weights for time **t+1**
     for the 2300 assets.  Each of our sub-strategies predicts the best weights (trades)
     for time **t+1**.   We know the cumulative return, the average return, and risk
     adjusted return for each of these “paper” strategies.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在时间**t**，我们想知道下一时期**t+1**对于2300个资产的先验“最佳”权重。 我们的每个子策略都会预测下一时期**t+1**的最佳权重（交易）。
+    我们知道每个这些“纸上”策略的累积回报率、平均回报率和风险调整回报率。
 - en: '**Approaches'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方法'
 - en: Here were some approaches:**
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些方法：**
 - en: use the top N strategies by highest cumulative historical return, risk adjusted
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用累积历史回报率、风险调整的前N个策略
 - en: This works reasonably well if each strategy is trading with the same frequency.
       However, with one of my strategies, some “paper” strategies trade 85% of the
     time and other maybe 5% of the time.   The cumulative returns of the less frequently
     traded will be much lower.
+  id: totrans-13
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 如果每种策略的交易频率相同，则这种方法效果还不错。 但是，对于我的一种策略，一些“纸上”策略可能85%的时间交易，而其他可能5%的时间交易。 较低频率交易的累积回报率会低得多。
 - en: use the top N strategies by average return, risk adjusted
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用平均回报率、风险调整的前N个策略
 - en: This equalizes the trading frequency problem however the low frequency strategies
     can dominate the selection if the low frequency have much higher returns.   The
     problem is that the aggregate strategy will rarely trade because the top N are
     dominated by low frequency traded strategies.
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这样可以解决交易频率问题，但是如果低频率策略的回报率要高得多，则低频率策略可能会主导选择。问题在于聚合策略很少交易，因为前N个主要由低频率交易策略主导。
 - en: use the top N **non-zero weights** strategies by average return, risk adjusted
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用平均回报率、风险调整的前N个**非零权重**策略
 - en: This avoids the dominating non-traded strategies above.   However there may
     be periods where the best trade is no trade at all.
+  id: totrans-17
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这避免了上述主导的非交易策略。 但是可能存在最佳交易根本不交易的情况。
 - en: use the top N **non-zero weights** strategies with average return in the top
     X percent
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用前N个**非零权重**策略，其平均回报率处于前X百分位数
 - en: This fixes the above problem by just evaluating the top X percent at most in
     search of the top N trading strategies.
+  id: totrans-19
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这通过在搜索前X百分位数的最多策略中仅评估前N个交易策略来解决了上述问题。
 - en: '**A Complication**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**一个复杂性**'
 - en: One of my strategies has the following complication.  Many of the “paper” strategies
     are non-orthogonal in the sense that some of the strategies have overlapping stimuli
     and responses.   For example if 2 strategies are very similar, they may respond
     to the same events 80% of the time and have similar performance.   Including both
     of the strategies in the aggregate response will double count.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的一种策略有以下复杂性。 许多“纸上”策略在某种程度上是非正交的，即一些策略具有重叠的刺激和响应。 例如，如果2个策略非常相似，它们可能在80%的时间内对相同事件做出反应，并且表现相似。
+    在聚合响应中包含这两种策略将重复计数。
 - en: To avoid this have resorted to using a modified blending rule that discards
     strategies that are subsumed by higher performers in the selection.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了避免这种情况，我们采用了一种修改后的混合规则，舍弃了在选择中被更高表现者所取代的策略。
