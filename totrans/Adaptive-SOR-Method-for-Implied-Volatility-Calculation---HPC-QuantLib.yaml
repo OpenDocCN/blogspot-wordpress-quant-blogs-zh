@@ -1,50 +1,75 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:18:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:18:23'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive SOR Method for Implied Volatility Calculation – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应SOR方法用于隐含波动率计算 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2017/08/06/adaptive-sor-method-for-implied-volatility-calculation/#0001-01-01](https://hpcquantlib.wordpress.com/2017/08/06/adaptive-sor-method-for-implied-volatility-calculation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2017/08/06/adaptive-sor-method-for-implied-volatility-calculation/#0001-01-01](https://hpcquantlib.wordpress.com/2017/08/06/adaptive-sor-method-for-implied-volatility-calculation/#0001-01-01)
 - en: In a recent blog contribution Fabien Le Floc’h [1] suggests to combine the adaptive
     successive over-relexation method [2] with an improved explicit approximate implied
     volatility formula [3] to calculate the initial guess. The implementation of both
     algorithms is straight forward.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近Fabien Le Floc’h [1] 在一篇博客文章中建议将自适应逐次超松弛法 [2] 与改进的显式近似隐含波动率公式 [3] 结合起来计算初始猜测值。这两种算法的实现都很简单。
 - en: A large set of OTM and ITM options together with different displacement factors
     has been identified to serve as a benchmark portfolio to compare the performance
     with the original QuantLib implementation. As can be seen in the diagram below
     the new method is – depending on the accuracy – two to three times faster than
     the current QuantLib implementation.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一大批OTM和ITM期权以及不同的位移因子已被确定为基准组合，以便与原始QuantLib实现进行性能比较。从下图中可以看出，新方法的速度是当前QuantLib实现的两到三倍，具体取决于准确度。
 - en: '![sor](img/0ad3953ec0909b92efcb1e46c2821463.png)The implementation is available
     [here](https://github.com/lballabio/QuantLib/pull/286/files), the diagram above
     is derived from the test case testImpliedVolAdaptiveSuccessiveOverRelaxation in
     the class BlackFormulaTest.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '![sor](img/0ad3953ec0909b92efcb1e46c2821463.png)这里提供了实现方法 [here](https://github.com/lballabio/QuantLib/pull/286/files)，上图源自类
+    BlackFormulaTest 中的 testImpliedVolAdaptiveSuccessiveOverRelaxation 测试用例。'
 - en: '[1] Le Floc_h, F (2017) [Implied Volatility from Black Scholes Price](http://chasethedevil.github.io/post/implied-volatility-from-black-scholes-price/)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Le Floc_h, F (2017) [从Black-Scholes价格计算隐含波动率](http://chasethedevil.github.io/post/implied-volatility-from-black-scholes-price/)'
 - en: '[2] Li, M. (2008) [An Adaptive Successive Over-relaxation Method for Computing
     the](http://mpra.ub.uni-muenchen.de/6867/) [Black-Scholes Implied Volatility](http://mpra.ub.uni-muenchen.de/6867/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] Li, M. (2008) [用于计算Black-Scholes隐含波动率的自适应逐次超松弛法](http://mpra.ub.uni-muenchen.de/6867/)'
 - en: '[3] J. Gatheral, I. Matic, R. Radoicic, D. Stefanica (2017), [Tighter Bounds
     for Implied Volatility](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2922742)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] J. Gatheral, I. Matic, R. Radoicic, D. Stefanica (2017), [更紧密的隐含波动率上限](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2922742)'

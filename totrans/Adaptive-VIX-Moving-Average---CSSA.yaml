@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 17:39:32'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Adaptive VIX Moving Average | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/#0001-01-01](https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -31,6 +37,7 @@
     of VIX versus closing data will make the edge of the original strategy more consistent
     across history). I will show a new variation using this framework very soon in
     a follow-up post.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: Another way to tackle this issue is to vary the lookback length as a function
@@ -38,48 +45,61 @@
     framework](https://www.tradingtechnologies.com/xtrader-help/x-study/technical-indicator-definitions/adaptive-moving-average-ama/)
     which seeks to vary the speed or lookback of the moving average as a function
     of some volatility or trend-strength function.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/0b4ea60d704fcfe7d39b9754c7cc013e.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
 - en: 'We can easily substitute the VIX within the “VI” by looking at a standardized
     measure of how high or low volatility has been relative to past history. If it
     is higher we want to smooth more or have a longer lookback, and if it is lower
     we want to have a shorter lookback. This can be accomplished as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/b09056cb61d7be86aa5361cd59c655e0.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
 - en: 'Basically we are taking the percentile ranking using all history to date of
     1 divided by the current average VIX over the past 10-days. To visualize how this
     moving average works we can see it applied to the S&P500 (SPY) in the chart below:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/713fbde001b9c3dd9af701961848b4b1.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
 - en: Notice that the moving average tracks the price very closely during bull markets
     and then filters out noise by becoming smoother during corrections. This is exactly
     what we want to see! Now lets compare a standard 200-day sma strategy that uses
     the current price versus using the Adaptive VIX Moving Average filter.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/e7cc2193fc5ab6f542aec9936d4ae607.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
 - en: 'The result is a nice boost in gross performance (no transaction costs) that
     also happens to come with far fewer trades (48 vs 164) which would even further
     boost net performance. The results are in the table below:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/4f1061b5764c8efcfd129ce3991f80f9.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/4f1061b5764c8efcfd129ce3991f80f9.png)'
 - en: This concept can be extended in several ways including using a simple moving
     average on the AMA line to create faster crossover strategies that are more responsive
     to market conditions. Ultimately this is a very simple and intuitive way to adjust
     standard trend-following as a function of changing volatility regimes.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个概念可以通过在AMA线上使用简单移动平均来延伸多种方式，从而创建更快速的交叉策略，更能响应市场情况。最终，这是一种非常简单直观的方式，可以根据不断变化的波动率模式来调整标准的趋势跟踪。
