@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:42:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:42:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Can We Tell Who Trades on Which Dark Pools? | Mechanical Markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 我们能否知道谁在哪个暗池中交易？ | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/11/15/who-trades-on-which-dark-pools/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/11/15/who-trades-on-which-dark-pools/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/11/15/who-trades-on-which-dark-pools/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/11/15/who-trades-on-which-dark-pools/#0001-01-01)
 - en: 'Marketplace transparency ensures that investors receive a fair price and have
     accurate data to conduct their research. But, transparency can also make it harder
     for traders to conceal their intentions from competitors and counterparties. Exchanges
@@ -25,57 +37,79 @@
     customers. Dark pools, by operating with the minimal amount of transparency permitted,
     are meant to help institutions hide their order flow. They do this, roughly speaking,
     in two ways:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场透明度确保投资者获得公平价格，并获得准确数据进行研究。但是，透明度也会使交易者更难将其意图隐藏起来，以免让竞争对手和交易对手得知。交易所和监管机构的任务是平衡市场客户的透明度需求。暗池以最少的允许透明度运作，旨在帮助机构隐藏其订单流量。他们大致通过以下两种方式实现这一点：
 - en: Lack of pre-trade transparency. Orders are invisible on dark pools until they
     execute.
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 缺乏交易前透明度。在交易执行之前，暗池中的订单是不可见的。
 - en: Reduced post-trade transparency. Dark pools are required to quickly report trades
     to the consolidated tape, but this process is not instant. Subscribers to the
     public tape also don’t know which dark pool (or wholesaler/ELP) reported a given
     trade.
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易后透明度降低。暗池要求快速向综合交易报告交易，但此过程并非即时进行。公共交易数据订阅者也不知道哪个暗池（或批发商/ELP）报告了给定的交易。
 - en: 'Market structure is always changing, and there’s a new wrinkle to #2\. FINRA
     [Rule 4552](https://www.finra.org/industry/rule-filings/sr-finra-2013-042) specifies
     that weekly dark pool volume be [published](https://ats.finra.org/) per security.[*](#bottom*atsf)
     The data is made public on a 2-week delayed basis, but as we’ll see, it may still
     have some informational value.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场结构一直在变化，第2个方面有一个新的变化。FINRA [Rule 4552](https://www.finra.org/industry/rule-filings/sr-finra-2013-042)
+    规定每周暗池交易量必须[发布](https://ats.finra.org/) 每个证券。[*](#bottom*atsf) 这些数据是以2周的延迟基础上公开的，但正如我们将看到的，它可能仍然具有一些信息价值。
 - en: 13F Holdings Data
+  id: totrans-10
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 13F持仓数据
 - en: Regulation also [requires](http://www.sec.gov/answers/form13f.htm) that large
     asset managers report their end-of-quarter long positions, within 45 days. [[1](#bottom1atsf)]
     Many hedge funds wait until the last minute to file their 13Fs, which suggests
     that they consider the disclosed information to be valuable.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 监管也要求大型资产管理公司在45天内报告他们的季度末长期持仓。[[1](#bottom1atsf)] 许多对冲基金等待到最后一刻才提交他们的13F，这表明他们认为披露的信息具有价值。
 - en: 'Some hedge funds, like Greenlight Capital, publicly [promote](http://www.cnbc.com/2014/04/22/david-einhorn-takes-stake-in-hft-nemesis-iex.html)
     the dark pool IEX. Greenlight also owns a stake in IEX, so it may make sense for
     it to preferentially trade there. We can combine the 13F-reported changes in Greenlight’s
     long positions with the FINRA 4552 data to get an idea of whether it trades disproportionate
     volume on IEX. Here’s a density plot of Greenlight’s quarterly trading activity
     versus IEX’s:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些对冲基金，如Greenlight Capital，公开[推广](http://www.cnbc.com/2014/04/22/david-einhorn-takes-stake-in-hft-nemesis-iex.html)
+    暗池IEX。Greenlight还拥有IEX的股份，因此它更倾向于在那里进行交易是有道理的。我们可以将Greenlight的季度性长头寸变化与FINRA 4552数据相结合，以了解它是否在IEX上交易了不成比例的交易量。这是Greenlight季度交易活动与IEX的密度图：
 - en: 'It does look like something is going on here. The above is for the entire universe
     of NMS Tier 1 stocks. What if we limit it to stocks that we suspect Greenlight
     is more likely to trade? Here is a similar plot, restricted to stocks in which
     Greenlight reported long positions in their previous quarter’s 13F:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 确实看起来有些事情发生了。上述是NMS Tier 1股票的整个宇宙。如果我们将其限制在我们怀疑Greenlight更可能交易的股票上会怎么样？这是一个类似的图，限制在Greenlight在前一季度13F中报告了长期持仓的股票上：
 - en: '[![IEXVolumeVsPrevLongsGREENLIGHT-CAPITAL-INC](img/a3f3618bdc64eaa34e57057249df2dda.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iexvolumevsprevlongsgreenlight-capital-inc.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![IEXVolumeVsPrevLongsGREENLIGHT-CAPITAL-INC](img/a3f3618bdc64eaa34e57057249df2dda.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iexvolumevsprevlongsgreenlight-capital-inc.png)'
 - en: Similar to above. Includes a linear regression with shaded 95% confidence intervals.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 与上文类似。包括带有阴影的95%置信区间的线性回归。
 - en: Obviously, correlation is different from causation, but this relationship indicates
     that Greenlight may direct a lot of volume to IEX. IEX also reports near-realtime
     volume on its [website](http://iextrading.com/tops/), so one could potentially
@@ -84,19 +118,30 @@
     but it may be more than coincidence that IEX’s share of VRX volume was anomolously
     high when Pershing Square recently [bought](http://www.businessinsider.com/bill-ackman-buys-more-valeant-2015-10)
     2 million shares. [[2](#bottom2atsf)]
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，相关性与因果关系不同，但这种关系表明 Greenlight 可能会向 IEX 导入大量交易量。IEX 还在其[网站](http://iextrading.com/tops/)上报告了接近实时的交易量，因此可能可以发现
+    Greenlight 当前是否在交易某只股票。另一个支持 IEX 的机构 Pershing Square 交易次数太少，无法进行类似的分析，但当 Pershing
+    Square 最近[购买](http://www.businessinsider.com/bill-ackman-buys-more-valeant-2015-10)了
+    200 万股时，IEX 的 VRX 交易量异常高，这可能不仅仅是巧合。[[2](#bottom2atsf)]
 - en: It’s (almost) too easy to mention the irony if valued information has leaked
     because of Greenlight’s or Pershing Square’s support for IEX. Ackman’s paranoia
     about front-running features prominently in “Flash Boys.” [[3](#bottom3atsf)]
     And Greenlight sometimes [has felt](http://www.bloombergview.com/articles/2014-02-14/david-einhorn-will-say-what-stocks-he-owns-when-he-s-good-and-ready)
     that even 13F disclosure harms its business. [[4](#bottom4atsf)]
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 提到由于 Greenlight 或 Pershing Square 支持 IEX 而泄漏了有价值的信息几乎太容易了。Ackman 关于前置交易的偏执在《Flash
+    Boys》中占据了重要地位。[[3](#bottom3atsf)] 而 Greenlight 有时候[感觉到](http://www.bloombergview.com/articles/2014-02-14/david-einhorn-will-say-what-stocks-he-owns-when-he-s-good-and-ready)即使
+    13F 披露也会损害其业务。[[4](#bottom4atsf)]
 - en: A Broader Analysis
+  id: totrans-18
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更广泛的分析
 - en: It seemed fun to check if any other hedge funds had easily-detected dark pool
     preferences. I selected the top 100 funds listed on [Octafinance](http://www.octafinance.com/hedge-funds/top-hedge-funds/)
     and attempted to query [Jive Data](https://api.jivedata.com/documentation/) for
@@ -110,22 +155,36 @@
     the [R script](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/ats-13f-rscript.zip)
     used, as well as the [plots and tables](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/ats-13f-output.zip)
     it outputs.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 检查其他对易于检测的暗池偏好的对冲基金似乎很有趣。我选择了[Octafinance](http://www.octafinance.com/hedge-funds/top-hedge-funds/)上列出的前
+    100 家基金，并尝试查询[Jive Data](https://api.jivedata.com/documentation/)在截至 2015 年 6
+    月 30 日的前 5 个季度内的 13F 数据。然后，我对每个对冲基金的相对交易量和所有暗池的相对交易量（这些交易量度量在第一个图的说明中定义）进行了[套索回归](http://statweb.stanford.edu/~tibs/lasso.html)，使用了前
+    4 个季度的数据。第 5 个季度作为测试数据。回归仅包括给定基金在该季度内活跃于某只股票的数据点。[[5](#bottom5atsf)] 这并不是什么花哨的东西，但这个过程希望能捕捉到一些表面上的关系，比如
+    Greenlight 与 IEX 的关系。这是使用的[R 脚本](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/ats-13f-rscript.zip)，以及其输出的[图表和表格](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/ats-13f-output.zip)。
 - en: See “lassoResultsWhenFundTraded_LogHFAnomVol_on_LogAtsAnomVol.csv” (in the second
     zip file above) for a summary table of the Lasso results. [[6](#bottom6atsf)]
     Care is needed when assigning statistical significance to such a large number
     of regressions, but lots of things stick out. Mariner Investment Group appears
     to be one of the more detectable funds [[7](#bottom7atsf)], with test-set ![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)
     not much below 0.5.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 见第二个压缩文件中的“lassoResultsWhenFundTraded_LogHFAnomVol_on_LogAtsAnomVol.csv”以获取套索结果的摘要表格。[[6](#bottom6atsf)]
+    在对如此大量的回归分析进行统计显著性评估时需要谨慎，但很多事情都很明显。Mariner Investment Group 看起来是较容易被发现的基金之一[[7](#bottom7atsf)]，测试集的![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)几乎没有低于
+    0.5。
 - en: '[![PredictedWhenNonzero_MARINER-INVESTMENT-GROUP-LLC](img/1357a9e0434cbf65aff9d39743d2b928.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/predictedwhennonzero_mariner-investment-group-llc.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![预测的非零时点_MARINER-INVESTMENT-GROUP-LLC](img/1357a9e0434cbf65aff9d39743d2b928.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/predictedwhennonzero_mariner-investment-group-llc.png)'
 - en: Predicted and actual volume measures for Mariner Investment Group’s test data.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: Mariner Investment Group的测试数据的预测和实际成交量测量。
 - en: 'It appears as if Mariner likes to trade on Level ATS, and tends to avoid Sigma-X
     and the UBS dark pool. We can’t disentangle a fund’s routing decisions from other
     reasons for these correlations — e.g. a fund may be more likely to trade a stock
@@ -142,8 +201,12 @@
     they do [shady stuff](http://www.bloomberg.com/news/articles/2015-08-12/itg-pays-record-dark-pool-fine-for-running-secret-trading-desk).
     Sometimes, fixing market structure requires collective action, and we need regulators
     to effect that action on our behalf.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来 Mariner 喜欢在 Level ATS 上交易，并且倾向于避免 Sigma-X 和 UBS 的暗池。我们无法将基金的路由决策与其他原因分开
+    —— 例如，如果高零售参与者扭曲了某只股票的价格，使得该基金的活动与Interactive Brokers' ATS (IATS)的活动相关联，那么该基金可能更有可能交易该股票，即使该基金不在那里交易。[[8](#bottom8atsf)]
+    但是，似乎存在一个趋势，即对冲基金更倾向于远离UBS的ATS； Tortoise Capital Advisors 是唯一一个对UBS有正系数的基金，而许多基金的系数都是负数。我不知道这样做的原因，可能是对冲基金对执行质量不满意，或者只是他们不是UBS的客户。如果是前者，这种分析就给那些希望隐藏意图的交易者提出了一个棘手的困境：如果你不喜欢某个场所，那么你的信息泄露可能会增加，即使你避免了它。如果情况确实如此，即使你认为他们在搞[不正当的事情](http://www.bloomberg.com/news/articles/2015-08-12/itg-pays-record-dark-pool-fine-for-running-secret-trading-desk)，你可能也想路由到那里。有时，修复市场结构需要集体行动，我们需要监管机构代表我们采取行动。
 - en: 'Some highly active funds have a surprisingly large test ![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png).
     It’s possible that whenever you can make a confident prediction about a fund’s
     volume, it may turn out to be especially hard to predict the direction of that
@@ -162,63 +225,96 @@
     D.E. Shaw, and both Two Sigma entities have very weak detectability (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)
     ~ 0.03). AQR, Renaissance, and Visium probably leak little or no volume information
     this way.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些活跃度很高的基金具有令人惊讶的大测试![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)。可能每当你能对一个基金的成交量做出自信的预测时，该基金的交易方向可能特别难以预测。我想知道
+    Citadel Advisors 是否也是如此（他们的预测的![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)接近0.1），因为我真的期望
+    Citadel 足够复杂，能够隐藏他们的交易。一些表现出更容易检测到流量的高活跃度基金包括：Bridgewater (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.07)，Millenium
+    (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.05)，Royce (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.1，显然喜欢摩根士丹利的ATS，并且避免JP摩根的)，BlueMountain
+    (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.07，可能喜欢摩根士丹利，并且避免瑞银)，Tudor
+    (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.1，可能避免瑞银)，Carlson (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.13，可能更偏好ITG[[9](#bottom9atsf)]，并在Fidelity和Interactive
+    Brokers的ATS上交易更多的股票)，以及Ellington (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.2)。Highbridge、Adage、D.E.
+    Shaw，以及两家Two Sigma实体的可检测性非常弱 (![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)约为0.03)。AQR、Renaissance和Visium可能通过这种方式泄露很少或没有成交量信息。
 - en: 'Plenty of less active funds have sizable ![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)s
     too. But I do find it interesting to discuss the example where the prediction
     arguably fails most. The prediction for Magellan Asset Management does not do
     well during the test quarter:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多不太活跃的基金也有相当大的 ![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)，但我发现讨论预测最失败的例子是有趣的。Magellan
+    Asset Management 的预测在测试季度表现不佳：
 - en: '[![PredictedWhenNonzero_MAGELLAN-ASSET-MANAGEMENT-LTD](img/224baef877ae9bddbba235d1c5469ef9.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/predictedwhennonzero_magellan-asset-management-ltd.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![PredictedWhenNonzero_MAGELLAN-ASSET-MANAGEMENT-LTD](img/224baef877ae9bddbba235d1c5469ef9.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/predictedwhennonzero_magellan-asset-management-ltd.png)'
 - en: Predicted and actual volume measures for Magellan Asset Management’s test data.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: Magellan Asset Management 测试数据的预测和实际成交量测量。
 - en: 'The largest component in its regression was an apparent tendency to trade on
     IEX. This relationship suddenly reversed in the last quarter:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 其回归中最大的组成部分是一种明显的在 IEX 进行交易的倾向。这种关系在最后一个季度突然发生了逆转：
 - en: '[![IEXVolumeVsActivesMAGELLAN-ASSET-MANAGEMENT-LTD](img/5c9fac56d8b96f59b09968401a81b49c.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iexvolumevsactivesmagellan-asset-management-ltd.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![IEXVolumeVsActivesMAGELLAN-ASSET-MANAGEMENT-LTD](img/5c9fac56d8b96f59b09968401a81b49c.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iexvolumevsactivesmagellan-asset-management-ltd.png)'
 - en: Magellan’s relative volume vs anomalous IEX volume, for stocks that Magellan
     traded in the given quarter. A linear regression is shown with 95% confidence
     bands, for each quarter’s relationship.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: Magellan 在给定季度交易的股票相对成交量与异常的 IEX 成交量。线性回归显示了每个季度关系的 95% 置信带。
 - en: Was Magellan formerly a big user of IEX, but started avoiding it in Q2? We can’t
     be sure because the tendency was found via data snooping, but it is suggestive.
     If so, Magellan may have taken the easiest countermeasure of all, changing their
     behavior.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: Magellan 曾经是 IEX 的大量用户吗？但在 Q2 开始就开始避免使用了吗？我们不能确定，因为这种趋势是通过数据窥探发现的，但它是有启示性的。如果是这样，Magellan
+    可能已经采取了最简单的对策，改变他们的行为。
 - en: Unpredictable Trading
+  id: totrans-32
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 不可预测的交易
 - en: 'The key to avoiding this sort of leakage is to trade unpredictably, or at least,
     to trade in the same manner as the population norm. Which, in my view, means that
     Einhorn’s reasoning [described](https://books.google.com/books?id=AarfAgAAQBAJ&lpg=PP1&dq=editions%3A36ZaAiOcQqEC&pg=PT83#v=onepage&q=%22Why%20aren''t%20we%20all%20just%20picking%20the%20same%20exchange?%22&f=false)
     in “Flash Boys” could be almost exactly wrong:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 避免这种泄漏的关键是进行不可预测的交易，或者至少按照人口规范进行交易。在我看来，这意味着 Einhorn 在《闪 Boys》中描述的推理几乎完全是错的：
 - en: 'After listening to Brad’s pitch, Einhorn asked him a simple question: **Why
     aren’t we all just picking the same exchange?** Why don’t investors organize themselves
     to sponsor a single stock exchange entrusted with guarding their interests and
     protecting them from Wall Street predators?'
+  id: totrans-34
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 听完 Brad 的陈述后，Einhorn问了他一个简单的问题：**为什么我们不都选择同一个交易所呢？** 为什么投资者不组织起来资助一个单一的股票交易所，委托它保护他们的利益，并保护他们免受华尔街的掠食者？
 - en: Block trading can be a valuable service, but its utility has a limit. To see
     why, say that 100 high-alpha investors agree to exclusively trade on a single
     venue, and public documents show that only one of them owns Micron stock. Suddenly,
     that venue reports an unusual volume of Micron trades. With a bit of ancillary
     data (perhaps news articles or observed price impact), other traders might ascertain
     whether that investor is reducing or adding to her position.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 区块交易可以是一项有价值的服务，但其效用是有限的。要看到原因，假设100名高阿尔法投资者同意专门在一个交易场所进行交易，并且公开文件显示其中只有一位拥有微米股票。突然，那个交易场所报告了不寻常的微米交易量。通过一些辅助数据（也许是新闻文章或观察到的价格影响），其他交易者可能会确定该投资者是在减少还是增加他的持仓。
 - en: I imagine that this type of information leakage can occur on lit exchanges too.
     The major exchanges have more volume to camouflage institutional executions. But
     if a hedge fund were to preferentially trade at a minor exchange (or blacklist
@@ -226,8 +322,10 @@
     use the same [execution algorithms](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/)
     (or algorithmic order types) could perhaps even leak the side of their transactions.
     [[10](#bottom10atsf)]
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想象这种信息泄漏也可能发生在明显的交易所上。主要交易所有更多的交易量来掩盖机构的执行。但是，如果一家对冲基金更倾向于在次要交易所交易（或者列入主要交易所的黑名单），他们的活动可能会留下痕迹。坚持使用相同的[执行算法](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/)（或者算法性的订单类型）的投资者甚至可能泄漏出他们交易的一面。[[10](#bottom10atsf)]
 - en: The premise of Reg. NMS is that competition between exchanges lowers costs and
     prevents [abuses](https://www.sec.gov/news/press/2005-53.htm). If an upstart venue
     is widely seen as superior, it will rapidly attract market share. People dissatisfied
@@ -241,59 +339,82 @@
     I’m not sure it’s the answer [[11](#bottom11atsf)], but it shouldn’t be a surprise
     if market critics are wistful for the days when they traded on a single, monolithic
     exchange.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: Reg. NMS 的前提是交易所之间的竞争降低成本并防止[滥用](https://www.sec.gov/news/press/2005-53.htm)。如果一个新兴场所被广泛认为是优越的，它将迅速吸引市场份额。对主要交易所不满意的人们尚未就替代方案达成共识。这意味着，如果他们毫无保留地支持他们最喜欢的新兴场所，他们的执行质量可能会受到影响。这一定很令人沮丧。因此，如果新兴企业尝试强迫参与者使用他们的场所的方案，那是可以理解的。纽交所已经[建议](http://www.sec.gov/comments/10-222/10222-19.pdf)，IEX
+    的设计包括反竞争的路由实践和[挂单](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/)处理。除非被市场碎片化所影响的交易者停止自己的碎片化，否则他们唯一的前进道路就是攻击
+    Reg. NMS 的基本原理。我不确定这是否是答案[[11](#bottom11atsf)]，但如果市场批评家为他们在单一的、整体性的交易所上交易的日子感到留恋，那也不应该让人感到意外。
 - en: '[[1](#1atsf)] Particularly large positions have to be reported [sooner](http://www.sec.gov/answers/sched13.htm).
     Short positions do not have to reported in the US, though there is a [movement](http://www.bloomberg.com/news/articles/2015-10-21/nyse-pleads-for-rules-to-make-hedge-funds-reveal-short-positions)
     to change this. Large short positions in [European equities](https://www.esma.europa.eu/page/Short-selling)
     have to be reported quickly, and I’d be curious to see this post’s analysis repeated
     with the higher resolution European data.'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[1](#1atsf)] 特别大的头寸必须[更快](http://www.sec.gov/answers/sched13.htm)报告。在美国，空头头寸不必报告，尽管有[运动](http://www.bloomberg.com/news/articles/2015-10-21/nyse-pleads-for-rules-to-make-hedge-funds-reveal-short-positions)试图改变这一点。欧洲股票的[大量空头头寸](https://www.esma.europa.eu/page/Short-selling)必须快速报告，我很想看到这篇帖子的分析能否用更高分辨率的欧洲数据重复。'
 - en: '[[2](#2atsf)] Here’s a [screenshot](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iex-tops-screenshot-4pm-oct21.png)
     of IEX’s most traded stocks on Oct 21, shortly after the close. A very large chunk
     of this volume appeared before Pershing Square announced that they had traded
     (though I didn’t take a screenshot). This is a good opportunity for me to remind
     you that nothing on this blog is trading or investment advice.'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[2](#2atsf)] 这是 IEX 在 10 月 21 日收盘后不久最活跃的股票的[截图](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/11/iex-tops-screenshot-4pm-oct21.png)。在
+    Pershing Square 宣布他们已经交易之前，这一大部分交易量出现了（尽管我没有截图）。这是我提醒你，这个博客上没有任何交易或投资建议的好机会。'
 - en: '[[3](#3atsf)] From “[Flash Boys](http://www.nytimes.com/2014/04/06/magazine/flash-boys-michael-lewis.html)”
     (emphasis added):'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[3](#3atsf)] 来自“[闪电侠](http://www.nytimes.com/2014/04/06/magazine/flash-boys-michael-lewis.html)”（强调添加）：'
 - en: Bill Ackman runs a famous hedge fund, Pershing Square, that often buys large
     chunks of companies. In the two years before Katsuyama turned up in his office
     to explain what was happening, Ackman had started to suspect that people might
     be using the information about his trades to trade ahead of him. “I felt that
     there was a leak every time,” Ackman says. “I thought maybe it was the prime broker.
     **It wasn’t the kind of leak that I thought**.”
+  id: totrans-41
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 比尔·阿克曼经营着一家著名的对冲基金，Pershing Square，经常大量购买公司的股份。在勘弥山出现在他的办公室解释发生的事情之前的两年里，阿克曼开始怀疑人们可能正在利用他交易的信息在他之前进行交易。阿克曼说：“每次我都觉得有泄漏。”“我以为可能是首席经纪人。”“这不是我想到的那种泄漏。”
 - en: It never is, is it?
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 它从来没有，对吧？
 - en: '[[4](#4atsf)] Greenlight has also [said](http://www.cnbc.com/2014/04/22/david-einhorn-takes-stake-in-hft-nemesis-iex.html):'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[4](#4atsf)] Greenlight还[说过](http://www.cnbc.com/2014/04/22/david-einhorn-takes-stake-in-hft-nemesis-iex.html)：'
 - en: We believe that the best response for any investors that are worried about fast
     computers taking advantage of them is to ask that their orders be routed to IEX.
+  id: totrans-44
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们认为，对于任何担心快速计算机利用他们的投资者来说，最佳的应对方法是要求将他们的订单发送到IEX。
 - en: But what about investors worried about slow traders “taking advantage” of them?
     In that case, maybe they should think twice before sending all of their volume
     to IEX?
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是对于担心慢速交易者“利用”他们的投资者呢？在这种情况下，也许他们在把所有交易量发送到IEX之前应该三思？
 - en: '[[5](#5atsf)] Which means that in order to use this particular method to predict
     the volume of a fund’s activity in a given stock, you’d need to know whether they’re
     likely to be trading it at all. Perhaps that’s doable sometimes. But, in any case,
     it’s not what I’m trying to do here. This post is just to see whether funds might
     have any detectable preferences, not to determine if those preferences create
     trading opportunities.'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[5](#5atsf)] 这意味着为了使用这种特定方法来预测基金在特定股票中的活动量，您需要知道他们是否可能进行交易。也许有时候这是可能的。但是，无论如何，这不是我在这里尝试做的事情。这篇文章只是为了看看基金是否有任何可检测的偏好，而不是确定这些偏好是否会产生交易机会。'
 - en: '[[6](#6atsf)] Which contains coefficients given by the Lasso regression of
     each hedge fund’s relative volume on ATS’s anomalous volume. Each (quarter, stock)
     pair is a data point. Mean-square error is given for the training set (Total_MSE_Train)
@@ -302,41 +423,59 @@
     — note that the ![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png) is a bit unusual
     for the test set, in that it uses the mean from the training set as its “null
     prediction.” Sample sizes for each set are given by n_Train and n_Test.'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[6](#6atsf)] 其中包含由Lasso回归给出的每个对冲基金相对交易量与ATS异常交易量的系数。每个（季度，股票）对是一个数据点。均方误差分别给出了训练集（Total_MSE_Train）和测试集（Total_MSE_test）。训练集（R-Squared_MSE_Test）和测试集（R-Squared_MSE_Test）分别给出了![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)的度量，注意测试集的![R^{2}](img/4e2ecbe4ebb3f06c0ce309282435751c.png)略有不同，因为它使用训练集的平均值作为其“零预测”。每组的样本大小由n_Train和n_Test给出。'
 - en: '[[7](#7atsf)] Their equity [portfolio](http://www.nasdaq.com/quotes/institutional-portfolio/mariner-investment-group-llc-69114)
     consists mostly of ETFs and biotech, so this could be an artifact.'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[7](#7atsf)] 他们的股票[组合](http://www.nasdaq.com/quotes/institutional-portfolio/mariner-investment-group-llc-69114)主要由ETF和生物科技组成，所以这可能是一个人为因素。'
 - en: '[[8](#8atsf)] In that instance, IATS trading activity could still be a useful
     predictor of hedge fund volume.'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[8](#8atsf)] 在这种情况下，IATS的交易活动仍然可能是对对冲基金交易量的有用预测因素。'
 - en: '[[9](#9atsf)] ITG’s volume has [collapsed](http://meanderful.blogspot.com/2015/09/ubs-and-iex-gain-itg-lose-finra-ats.html)
     after being [fined](http://www.bloomberg.com/news/articles/2015-08-12/itg-pays-record-dark-pool-fine-for-running-secret-trading-desk)
     for prop trading in its own dark pool. I would imagine that they’ve lost many
     customers since the end of the last quarter in this dataset (June 30), so prediction
     accuracy may be lower for later quarters.'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[9](#9atsf)] ITG的交易量在被罚款后已经[崩溃](http://meanderful.blogspot.com/2015/09/ubs-and-iex-gain-itg-lose-finra-ats.html)，因为它在自己的暗池中进行专营交易。我想象他们自上一季度末（6月30日）结束以来，可能已经失去了许多客户，因此对于后续季度的预测准确性可能较低。'
 - en: '[[10](#10atsf)] If there’s demand for it, maybe I can look into whether any
     market data patterns are correlated with institutional flows.'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[10](#10atsf)] 如果有需求的话，也许我可以调查一下市场数据模式是否与机构资金流动相关。'
 - en: '[[11](#11atsf)] For one thing, it’s not clear why a movement to make trading
     infrastructure more utility-like should stop with exchanges. What about brokers,
     execution algorithms, and intermediaries? I think that similar game-theoretical
     dilemmas could apply to those groups too. Restructuring a competitive industry
     into a state-supervised monopoly is partly an admission that there’s no prospect
     of further value-adding innovation. As Cliff Asness [says](http://www.bloombergview.com/articles/2014-06-20/why-i-love-high-speed-trading):'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[11](#11atsf)] 首先，目前还不清楚为什么使交易基础设施更类似于公共事业的运动会在交易所止步。那么经纪人、执行算法和中间商呢？我认为类似的博弈论困境也可能适用于这些群体。将竞争激烈的行业重组为国家监督的垄断部分地是承认没有进一步增值创新的前景。正如Cliff
+    Asness所[说](http://www.bloombergview.com/articles/2014-06-20/why-i-love-high-speed-trading)：'
 - en: '[I]t’s the argument monopolists always make — that they are really only trying
     to create efficiencies and eliminate waste for the customer.'
+  id: totrans-53
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[我]它是垄断者经常提出的论点 —— 他们实际上只是在为客户创造效率，消除浪费。'
 - en: '[*](#*atsf) ATS data is provided via [http://www.FINRA.org/ATS](http://www.FINRA.org/ATS)
     and is copyrighted by FINRA 2015\.'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '[*](#*atsf) ATS 数据通过[http://www.FINRA.org/ATS](http://www.FINRA.org/ATS)提供，由
+    FINRA 2015 版权所有。'
