@@ -1,132 +1,209 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:17:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月13日 00:17:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Andreasen-Huge Volatility Interpolation – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 安德烈森-休格波动率插值 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2018/01/05/andreasen-huge-volatility-interpolation/#0001-01-01](https://hpcquantlib.wordpress.com/2018/01/05/andreasen-huge-volatility-interpolation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2018/01/05/andreasen-huge-volatility-interpolation/#0001-01-01](https://hpcquantlib.wordpress.com/2018/01/05/andreasen-huge-volatility-interpolation/#0001-01-01)
 - en: A few years ago Andreasen and Huge have introduced an efficient and arbitrage
     free volatility interpolation method [1] based on a one step finite difference
     implicit Euler scheme applied to a local volatility parametrization. Probably
     the most notable use case is the generation of a local volatility surface from
     a set of option quotes.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 几年前，安德烈森和休格提出了一种高效且无套利的波动率插值方法[1]，基于一步有限差分隐式欧拉方案应用于局部波动率参数化。可能最引人注目的用例是从一组期权报价生成局部波动率曲面。
 - en: Starting point is Dupire’s forward equation for the prices of European call
     options ![C_t(T, K)](img/aa953acb973aa0cc8e5fe2f1cec8b911.png) at time ![t](img/2000b896307ab7e1efa5069769a4fc7f.png)
     with strike ![K](img/7fbda8d36d2bb059dcc3ef722b1f7c78.png) and maturity ![T](img/6866d563ac5ae988f9a62db320fd2827.png)
     is given by
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 起点是杜皮雷（Dupire）关于欧式看涨期权价格![C_t(T, K)](img/aa953acb973aa0cc8e5fe2f1cec8b911.png)在时刻![t](img/2000b896307ab7e1efa5069769a4fc7f.png)的前向方程，其中行权价为![K](img/7fbda8d36d2bb059dcc3ef722b1f7c78.png)，到期时间为![T](img/6866d563ac5ae988f9a62db320fd2827.png)，给出如下：
 - en: '![\displaystyle \frac{\partial C_t(T, K)}{\partial T} = \frac{1}{2}\sigma_{LV}^2(T,K)K^2\frac{\partial^2
     C_t(T, K)}{\partial K^2} - \left(r(T) -q(T)\right) K\frac{\partial C_t(T, K)}{\partial
     K}-q(T)C_t(T, K)](img/0c212b75a63ba19d1060efc768ff2776.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![ \frac{\partial C_t(T, K)}{\partial T} = \frac{1}{2}\sigma_{LV}^2(T,K)K^2\frac{\partial^2
+    C_t(T, K)}{\partial K^2} - \left(r(T) -q(T)\right) K\frac{\partial C_t(T, K)}{\partial
+    K}-q(T)C_t(T, K)](img/0c212b75a63ba19d1060efc768ff2776.png)'
 - en: Define the normalized call price ![\hat{C}_t(T, \kappa)](img/6d21c2f1808041fa3ca0864a7e5b305f.png)
     in terms of the discount factor ![P(t,T)](img/c0f6965fc341ada217f5bf22294e3594.png),
     the forward price ![F(t,T)](img/e9f9693259b9db50f9dc2cd884a75941.png) and the
     moneyness ![\kappa](img/c4a59d75f76dfbea9fda1b0ae27cb387.png) as
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 用折现因子![P(t,T)](img/c0f6965fc341ada217f5bf22294e3594.png)、前向价格![F(t,T)](img/e9f9693259b9db50f9dc2cd884a75941.png)和金钱性质![\kappa](img/c4a59d75f76dfbea9fda1b0ae27cb387.png)来定义规范化看涨期权价格![\hat{C}_t(T,
+    \kappa)](img/6d21c2f1808041fa3ca0864a7e5b305f.png)，如下所示：
 - en: '![\begin{array}{rcl} \displaystyle P(t,T) &=& \displaystyle  e^{-\int_t^T r(\tau)d\tau}
     \nonumber \\ \displaystyle  F(t,T) &=&  S_t  \displaystyle  e^{\int_t^T \left(
     r(\tau)-q(\tau)\right)d\tau} \nonumber \\ \displaystyle \kappa &=& \displaystyle \frac{K}{F(t,T)}
     \nonumber \\ \displaystyle \hat{C}_t(T, \kappa) &=& \displaystyle \frac{C_t \left(
     T, \kappa F(t,T) \right) }{P(t,T)F(t,T)} \nonumber \end{array}](img/dc3370506b0b8646b551e2c6511257c9.png).'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![P(t,T) &=& e^{-\int_t^T r(\tau)d\tau} \nonumber \\ F(t,T) &=& S_t e^{\int_t^T
+    \left( r(\tau)-q(\tau)\right)d\tau} \nonumber \\ \kappa &=& \frac{K}{F(t,T)} \nonumber
+    \\ \hat{C}_t(T, \kappa) &=& \frac{C_t \left( T, \kappa F(t,T) \right) }{P(t,T)F(t,T)}
+    \nonumber](img/dc3370506b0b8646b551e2c6511257c9.png)。'
 - en: The Dupire forward equation for the normalized prices ![\hat{C}_t(T,\kappa)](img/9229078bfa8067d5f5e4215ce9cb88c8.png)
     is then given by
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 规范化价格![\hat{C}_t(T,\kappa)](img/9229078bfa8067d5f5e4215ce9cb88c8.png)的杜皮雷前向方程如下：
 - en: '![\displaystyle \frac{\partial \hat{C}_t(T, \kappa)}{\partial T} = \frac{1}{2}
     \sigma_{LV}(T, \kappa F(t,T))\kappa^2 \frac{\partial^2 \hat{C}_t(T, \kappa)}{\partial
     \kappa^2} ](img/0828f0135569c82f93d71190ebf9bfa4.png).'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![ \frac{\partial \hat{C}_t(T, \kappa)}{\partial T} = \frac{1}{2} \sigma_{LV}(T,
+    \kappa F(t,T))\kappa^2 \frac{\partial^2 \hat{C}_t(T, \kappa)}{\partial \kappa^2}
+    ](img/0828f0135569c82f93d71190ebf9bfa4.png)。'
 - en: Rewriting this equation in terms of ![u=\ln \kappa](img/4f83e20ccf571044194a3c01f256a8bb.png)
     amd ![\tilde{C}_t(T, u) = \hat{C}_t(T, \kappa)](img/0f886765f539cba48f90530fa5bbab22.png)
     yields
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 重写这个方程，用![u=\ln \kappa](img/4f83e20ccf571044194a3c01f256a8bb.png)和![\tilde{C}_t(T,
+    u) = \hat{C}_t(T, \kappa)](img/0f886765f539cba48f90530fa5bbab22.png)表示如下：
 - en: '![\displaystyle  \frac{\partial \tilde{C}_t(T,u)}{\partial T} = \frac{1}{2}
     \sigma_{LV}^2 \left( T, e^u F(t,T)\right) \left( \frac{\partial^2 \tilde{C}_t(T,
     u)}{\partial u^2} - \frac{\partial \tilde{C}_t(T, u)}{\partial u}\right) ](img/7abf43fb08bc074959655ea8550586a5.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![ \frac{\partial \tilde{C}_t(T,u)}{\partial T} = \frac{1}{2} \sigma_{LV}^2
+    \left( T, e^u F(t,T)\right) \left( \frac{\partial^2 \tilde{C}_t(T, u)}{\partial
+    u^2} - \frac{\partial \tilde{C}_t(T, u)}{\partial u}\right) ](img/7abf43fb08bc074959655ea8550586a5.png)'
 - en: The normalized put prices ![\tilde{P}_t(T, u) ](img/c494e09d27c531b12de370ab09392cc0.png)
     are fulfilling the same equation, which can easily been shown by inserting the
     call-put parity into the equation above
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 标准化的看跌期权价格![\tilde{P}_t(T, u) ](img/c494e09d27c531b12de370ab09392cc0.png)满足同样的方程，可以通过将看涨期权价格-看跌期权价格套利插入上述方程中轻松证明
 - en: '![\displaystyle \tilde{C}_t(T, u) = \tilde{P}_t(T,u) + 1 - e^u](img/d12a24877d776a9d966a47e4e25d8330.png).'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![ \displaystyle \tilde{C}_t(T, u) = \tilde{P}_t(T,u) + 1 - e^u](img/d12a24877d776a9d966a47e4e25d8330.png).'
 - en: The numerical stability of the original algorithm [1] can be enhanced for deep
     ITM options by calibrating to calls and puts instantaneously. Also the interpolation
     scheme has a significant impact on the stability. This topic has been discussed
     in [2][3]. Using concentrated meshes along the current spot level for the finite
     difference scheme is of advantage for the stability and accuracy of the algorithm.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 原算法[1]的数值稳定性可以通过立即校准看涨期权和看跌期权来增强，同时插值方案对稳定性有显著影响。这个话题已在[2][3]中讨论。对于有限差分方案，沿着当前现货水平集中网格有利于算法的稳定性和准确性。
 - en: In order to stabilize the calculation of the local volatility function
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了稳定计算局部波动率函数
 - en: '![\displaystyle \sigma_{LV}\left( T, e^uF(t,T)\right) = \sqrt{\frac{2 \frac{\partial
     \tilde{C}_t(T,u)}{\partial T}}{  \frac{\partial^2 \tilde{C}_t(T, u)}{\partial
     u^2} - \frac{\partial \tilde{C}_t(T, u)}{\partial u} }}](img/da17886fc1b8bebf10f8f6759e3e62a1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![ \displaystyle \sigma_{LV}\left( T, e^uF(t,T)\right) = \sqrt{\frac{2 \frac{\partial
+    \tilde{C}_t(T,u)}{\partial T}}{  \frac{\partial^2 \tilde{C}_t(T, u)}{\partial
+    u^2} - \frac{\partial \tilde{C}_t(T, u)}{\partial u} }}](img/da17886fc1b8bebf10f8f6759e3e62a1.png)'
 - en: one should evaluate the first order derivative of ![\tilde{C}_t(T,u)](img/6dc4e784d17d48fba3574056176e1d9e.png)
     w.r.t. time ![T](img/6866d563ac5ae988f9a62db320fd2827.png) using the fact that
     the derivative of the inverse of the matrix ![\bf{A}(t)](img/fcdf334da142a0344264f714ae64a562.png)
     is given by
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 应当评估![\tilde{C}_t(T,u)](img/6dc4e784d17d48fba3574056176e1d9e.png)相对于时间![T](img/6866d563ac5ae988f9a62db320fd2827.png)的一阶导数，利用矩阵![\bf{A}(t)](img/fcdf334da142a0344264f714ae64a562.png)的逆的导数可以得到
 - en: '![\displaystyle \frac{\partial \bf{A}(t)^{-1}}{\partial t} = -\bf{A}(t)^{-1}
     \frac{\partial \bf{A}(t)}{\partial t} \bf{A}(t)^{-1}](img/978dfe428afeba21f32d27cd4eef5765.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![\displaystyle \frac{\partial \bf{A}(t)^{-1}}{\partial t} = -\bf{A}(t)^{-1}
+    \frac{\partial \bf{A}(t)}{\partial t} \bf{A}(t)^{-1}](img/978dfe428afeba21f32d27cd4eef5765.png)'
 - en: As an example, the diagram below shows different calibrations of the Andreasen-Huge
     volatility interpolation to a SABR volatility skew at discrete strike sets
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为例子，下图展示了将Andreasen-Huge波动率插值不同标准的SABR波动率偏斜校准到离散行权价集合上
 - en: '![x \in \{ 0.02, 0.025, 0.03, 0.035, 0.04, 0.05, 0.06\} \vee x\in \{0.03, 0.035,
     0.04\}](img/925b6919960f4a1f8a1a04a7298979ec.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![x \in \{ 0.02, 0.025, 0.03, 0.035, 0.04, 0.05, 0.06\} \vee x\in \{0.03, 0.035,
+    0.04\}](img/925b6919960f4a1f8a1a04a7298979ec.png)'
 - en: for the SABR parameter
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于SABR参数
 - en: '![\alpha = 0.15, \beta = 0.8, \nu = 0.5, \rho = -0.48, \text{fwd} = 0.03, T=20](img/83e66f0426cf03419089f7fdb0671226.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_IMG
+  zh: '![\alpha = 0.15, \beta = 0.8, \nu = 0.5, \rho = -0.48, \text{fwd} = 0.03, T=20](img/83e66f0426cf03419089f7fdb0671226.png)'
 - en: '![sabr](img/55798ab77e364d9bd574abf28088240d.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![sabr](img/55798ab77e364d9bd574abf28088240d.png)'
 - en: The QuantLib implementation is part of the release [1.12](http://quantlib.org/download.shtml).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib实现是[1.12版本](http://quantlib.org/download.shtml)的一部分。
 - en: '[1] J. Andreasen, B. Huge, [Volatility Interpolation](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1694972)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] J. Andreasen, B. Huge, [波动率插值](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1694972)'
 - en: '[2] F. Le Floc’h, [Andreasen-Huge interpolation – Don’t stay flat](http://chasethedevil.github.io/post/dont-stay-flat-with-andreasen-huge-interpolation/)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] F. Le Floc’h, [Andreasen-Huge插值 – 不要保持平坦](http://chasethedevil.github.io/post/dont-stay-flat-with-andreasen-huge-interpolation/)'
 - en: '[3] J. Healy, [A spline to fill the gaps with Andreasen-Huge one-step method](https://quantsrus.github.io/post/andreasen_huge_spline/)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] J. Healy, [使用Andreasen-Huge一步法进行样条插值填补空缺](https://quantsrus.github.io/post/andreasen_huge_spline/)'
