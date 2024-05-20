@@ -88,6 +88,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一次真正意识到自己选择的回测解决方案有多好（坏）是当策略进行实时交易时。然而，我总是惊讶于一些交易员对他们的回测结果与实时结果的匹配程度如此之低。对于一些人来说，这就像策略是跟随回测的步骤一样。我认为这在交易过程的一些至关重要的部分中缺失了，即反馈循环。在弄清模拟和实时实施之间的差异的过程中可以学到很多东西。除了可能通过测试的明显错误之外，很快就会显而易见，你的回测假设是否合理，是否需要重新审视。理想情况下，回测结果和实时结果在重叠期内应该非常相似。如果不是，就应该提出严肃的问题，并尝试弄清楚差异的根源。在一个设计良好的慢频率数据模拟中（考虑日频或更长周期），你应该能够将两者精确地调和到分钱的程度。如果回测器设计良好，差异可能主要集中在收盘交易的成交价格与通常被报告为收盘价的最后成交价格不同。我总是特别关注用于生成实时信号的数据，并将其与输入模拟引擎的数据进行比较，以找出潜在的信号差异，因为我经常发现实时实施交易的数据并不总是与模拟数据集匹配。显然，随着时间框架的缩短，问题会被放大。回测日内交易策略是非常困难的，超出了本博客的范围。让我们只是说，一个好的日内回测器对于愿意投入开发时间和金钱的交易者/公司来说是一个巨大的竞争优势。
 - en: It would be negligent of me to complain about backtesting problem without offering
     some of the processes that I use to improve their quality and ultimately usability.
     First I personally chose not to use a third party backtesting solution. I use
@@ -103,6 +104,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我抱怨回测问题而不提供一些我用来改善其质量并最终提高可用性的过程，那就是我的过失。首先，我个人选择不使用第三方回测解决方案。我使用我编写的软件，不是因为它比其他解决方案更好，而是因为它允许我以符合我直觉的方式完全定制模拟的所有方面。这样，我可以调整任何回测作为我前面提到的反馈循环的一部分，以更准确地模拟实时交易。此外，随着时间的推移，随着我不断完善回测器，它慢慢地变成了一个执行引擎，可以使用适当的适配器来交易实时市场。实际上，我为每个策略都定制了一个回测，但它们都共享一个构成实时交易引擎基础的代码核心。我还花了很多时间比较实时成交与模拟成交，并尝试调和两者。
 - en: Please do not think that I am trying to tell you that do-it-yourself solution
     is the best. I am simply saying that it is the one that fits me best. The point
     I am trying to make herein is that no matter what solution you decide to use,
