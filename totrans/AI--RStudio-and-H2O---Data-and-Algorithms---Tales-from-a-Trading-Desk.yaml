@@ -1,135 +1,194 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:35:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:35:20
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'AI: RStudio and H2O – Data and Algorithms | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: AI：RStudio 和 H2O – 数据和算法 | 一个交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/03/18/ai-rstudio-and-h2o-data-and-algorithms/#0001-01-01](https://mdavey.wordpress.com/2016/03/18/ai-rstudio-and-h2o-data-and-algorithms/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：https://mdavey.wordpress.com/2016/03/18/ai-rstudio-and-h2o-data-and-algorithms/#0001-01-01
 - en: 'AI: RStudio and H2O – Data and Algorithms'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: AI：RStudio 和 H2O – 数据和算法
 - en: Having made some progress with H2O Flow, its time to leverage [R](http://www.h2o.ai/product/integration/)
     using RStudio.  As I mentioned in a previous posting, the overarching of data
     science is ensuring you have the right data, and use the right algorithms, else
     you’ll get rubbish insight 🙂
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在使用 H2O Flow 取得一些进展后，现在是利用 RStudio 使用 R 的时候了。正如我在之前的帖子中提到的，数据科学的首要任务是确保你拥有正确的数据，并使用正确的算法，否则你会得到垃圾的见解
+    🙂
 - en: I’ve found it useful to think about the questions I’m trying to answer thought
     AI before doing anything with data.  If the data your refining is the definitive
     data set, then your hands are tied 😦  If you happen to own the platform your getting
     the data from, then you can at least enhance data collection to aid the AI side
     of the equation.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在处理数据之前，我发现先通过思考与AI相关的问题会很有帮助。如果你要处理的数据是确定的数据集，那么你的手就被绑住了 😦 如果你碰巧拥有获取数据的平台，那么你至少可以增强数据收集，以帮助方程中的AI部分。
 - en: Often when you start looking at the types of questions you want to answer it
     becomes clear very quickly that you either don’t currently have the data, or the
     data isn’t shaped appropriately to be ingested by the AI model.  Sometimes creating
     a sample test data set at least allow thought to be put into the model and the
     outputs – classifications, predictions etc, prior to taking real world data, and
     continuing to refine the model.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你开始思考你想要回答的问题类型时，很快就会清楚地认识到，你要么当前没有数据，要么数据的形状不适合被AI模型摄取。有时，至少创建一个样本测试数据集可以让思考放在模型和输出上
+    - 分类、预测等，在真实世界数据到来之前，并且不断完善模型。
 - en: 'Few useful links:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 几个有用的链接：
 - en: Use H2O [directly](http://www.h2o.ai/download/h2o/r) from R – this is very cool,
     and very useful just to get going.  Further, its lighter than running H2O web
     server and Flow 🙂
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 直接从 R 中使用 H2O - 这非常酷，非常有用，只是为了开始。此外，它比运行 H2O Web 服务器和 Flow 要轻便 🙂
 - en: H2O R [package](http://h2o-release.s3.amazonaws.com/h2o/rel-turan/3/docs-website/h2o-r/h2o_package.pdf)
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: H2O R 包
 - en: Fast [Scalable](https://h2o-release.s3.amazonaws.com/h2o/rel-slater/9/docs-website/h2o-docs/booklets/R_Vignette.pdf)
     R with H2O – if you are still struggling with models, try chapter 6 of this [document](https://h2o-release.s3.amazonaws.com/h2o/rel-slater/9/docs-website/h2o-docs/booklets/R_Vignette.pdf).
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用 H2O 的快速可扩展 R - 如果你仍然在为模型而努力，请尝试这份文档的第 6 章。
 - en: R [Tutorial](http://h2o-release.s3.amazonaws.com/h2o/rel-kahan/2/docs-website/tutorial/rtutorial.html) –
     useful code extract for running models and such
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: R 教程 - 运行模型等有用代码摘录
 - en: H2O in R [Studio](http://h2o-release.s3.amazonaws.com/h2o/master/1247/docs-website/Ruser/R_studio.html)
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在 R Studio 中的 H2O
 - en: '[Diving](http://blog.revolutionanalytics.com/2014/04/a-dive-into-h2o.html)
     into H2O'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对 H2O 的深入研究
 - en: Predict Social [Network](http://thinktostart.com/predict-social-network-influence-with-r-and-h2o-ensemble-learning/)
     Influence with R and H2O Ensemble Learning
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用 R 和 H2O 集成学习预测社交网络影响
 - en: 'Recap of [models](https://h2o-release.s3.amazonaws.com/h2o/rel-slater/9/docs-website/h2o-docs/booklets/R_Vignette.pdf):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 模型的回顾：
 - en: 'Generalized Linear Models (GLM): A flexible generalization of ordinary linear
     regression for response variables that have error distribution models other than
     a normal distribution. GLM unifies various other statistical models, including
     linear, logistic, Poisson, and more. Decision trees: Used in RF; a decision support
     tool that uses a tree-like graph or model of decisions and their possible consequences.'
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '广义线性模型（GLM）: 普通线性回归的灵活推广，适用于具有非正态分布模型的响应变量。GLM统一了各种其他统计模型，包括线性、逻辑、泊松分布等。决策树:
+    在RF中使用; 一种决策支持工具，使用决策及其可能后果的树状图或模型。'
 - en: 'Gradient Boosting (GBM): A method to produce a prediction model in the form
     of an ensemble of weak prediction models. It builds the model in a stage-wise
     fashion and is generalized by allowing an arbitrary differentiable loss function.
     It is one of the most powerful methods available today.'
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Gradient Boosting (GBM): 一种以弱预测模型集成形式生成预测模型的方法。它以阶段方式构建模型，并通过允许任意可微损失函数进行泛化。这是目前最强大的方法之一。'
 - en: 'K-Means: A method to uncover groups or clusters of data points often used for
     segmentation. It clusters observations into k certain points with the nearest
     mean.'
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'K-Means: 一种用于发现数据点组或簇的方法，通常用于分割。它将观察结果聚类到k个具有最近平均值的点。'
 - en: 'Anomaly Detection: Identify the outliers in your data by invoking a powerful
     pattern recognition model, the Deep Learning Auto-Encoder.'
+  id: totrans-22
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '异常检测: 通过调用强大的模式识别模型Deep Learning Auto-Encoder来识别数据中的异常值。'
 - en: 'Deep Learning: Model high-level abstractions in data by using non-linear transformations
     in a layer-by-layer method. Deep learning is an example of supervised learning
     and can make use of unlabeled data that other algorithms cannot.'
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Deep Learning: 通过逐层非线性转换在数据中建立高级抽象模型的方法。深度学习是监督学习的一个示例，并且可以利用其他算法无法利用的未标记数据。'
 - en: 'Naıve Bayes: A probabilistic classifier that assumes the value of a particular
     feature is unrelated to the presence or absence of any other feature, given the
     class variable. It is often used in text categorization.'
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '朴素贝叶斯: 假设特定特征的值与类变量的存在或不存在无关的概率分类器。它经常用于文本分类。'
 - en: 'Grid Search: The standard way of performing hyper-parameter optimization to
     make model configuration easier. It is measured by cross-validation of an independent
     data set.'
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Grid Search: 执行超参数优化的标准方法，以使模型配置更容易。它通过独立数据集的交叉验证来衡量。'
 - en: ~ by mdavey on March 18, 2016.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由mdavey于2016年3月18日发布。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表在[数据](https://mdavey.wordpress.com/category/data/)中。
