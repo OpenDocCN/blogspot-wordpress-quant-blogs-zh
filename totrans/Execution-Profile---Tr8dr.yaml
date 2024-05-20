@@ -1,38 +1,48 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 15:31:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Execution Profile | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01](https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'I have a number of models that forecast a next period return for a portfolio
     of assets.   It is important to have a view on how the asset trades on average
     over the period.  On average:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: where are the lows & highs made
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: how much time is spent above or below the close (useful to know if close is
     your target)
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: what is the average volume profile for the asset
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
@@ -40,30 +50,36 @@
     clients to a target measure (VWAP is an example of this).  Execution algos focus
     on  how to execute size with the least amount of market impact and at the lowest
     cost (best price & transaction cost).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: I don’t have experience in the execution algo side, having focused mostly on
     signal generation (so if there any readers with suggestions please let me know).
        That said, here are some simple analyses I did on 1 year of tick data across
     2700 US equities;  Definitely gives me a better picture.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '**Up Day'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: Supposing our model predicts that an asset will close higher by a certain %
     on the next day and we enter at a price close to the prior close.   We now want
     to know when is the best point(s) to sell the position.   If the position has
     size, we may have to sell at multiple points during the day.**
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '**The following graph looks at the time of day on average where the high is
     reached, for different close-to-close % return scenarios (neutral indicates a
     close close to 0%, between +/- 0.3%):**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '**[![](img/7f938d17cb67d8a225393a37c37b6e1f.png "Screen shot 2010-09-11 at
     11.32.50 AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-32-50-am.png)**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: For very sharp close-to-close appreciation (> 2% return), the high is usually
@@ -71,70 +87,98 @@
     first 1/2 of the day, with the most weight around 10:30\.   The medium returns
     (≤ 2%) seem to be more split between the opening and closing sessions (but otherwise
     pretty uniform).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/4e678b35dfe52b669c15298914f55471.png "Screen shot 2010-09-11 at 11.33.56
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-33-56-am.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: Interestingly, we would not want to be selling near the open (9:30 – 10:30)
     for a high return target.   The other return profiles show elevated probability
     of low in the morning session, but otherwise close to a uniform distribution.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '**Down Day'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: Supposing our model predicts that an asset will close lower by a certain % on
     the next day and we short at a price close to the previous close.   We are now
     looking for the right time to close out the short.**
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '**[![](img/10c60ba36b3eeface7a3cccb2d8be5d4.png "Screen shot 2010-09-11 at
     11.34.28 AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-34-28-am.png)**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/10c60ba36b3eeface7a3cccb2d8be5d4.png "2010-09-11 上午11:34:28 的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-34-28-am.png)**'
 - en: '**The profile looks very similar to our Time Of Low (Up Day)** graph above.
      As expected the short side mirrors the long side.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**该轮廓看起来与我们上面的“低点（上涨日）”时间图非常相似。预期的是，空头方向与多头方向相反。'
 - en: '[![](img/581fed24e53ba92ee78ca1dd38b0ae2f.png "Screen shot 2010-09-11 at 11.35.08
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-35-08-am.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/581fed24e53ba92ee78ca1dd38b0ae2f.png "2010-09-11 上午11:35:08 的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-35-08-am.png)'
 - en: '**% Of Time Above (Below) Close'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**% 超过（低于）收盘价的时间'
 - en: 'If the closing price is our target then it is useful to know how much time
     and perhaps # of opportunities at or exceeding target.**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果收盘价是我们的目标，那么知道在或超过目标的时间和机会数量也是有用的。**
 - en: '**[![](img/551040c26597ac1e91471562ca6a6710.png "Screen shot 2010-09-11 at
     11.32.10 AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-32-10-am.png)**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/551040c26597ac1e91471562ca6a6710.png "2010-09-11 上午11:32:10 的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-32-10-am.png)**'
 - en: The extreme returns (> 2% in olive) and (< -2% in green) show 30-40% probability
     that the asset only spends 20% of the trading day on or above (below) the close,
     peaking in probability at 7-8% or maybe 1/2 hour of the day.   This is coincident
     with the time-of-high (low) behavior that we see above as well.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 极端回报（> 2% 在橄榄色）和（< -2% 在绿色）显示资产仅在交易日的 20% 的时间内处于或高于（低于）收盘价，概率为 30-40%，在交易日的
+    7-8% 或者也许是 1/2 小时内概率最高。这与我们上面看到的高点（低点）行为相一致。
 - en: We can also look at the number of “touches” on or above the closing price we
     realize.   This distribution seems to be more uniform.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还可以看一下我们实现的或高于收盘价的“触及”次数。这个分布似乎更加均匀。
 - en: '**Conclusion & Further Work'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结论与进一步工作'
 - en: I suspect that there are differences in price movement profiles for different
     groups of assets.   For instance the lower liquidity stocks with less frequent
     trading may have a very different profile.   I know that execution algo desks
     measure volume and other indicators on a per-asset basis, maybe with some grouping
     overlays.**
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我怀疑不同资产组的价格运动轮廓存在差异。例如，流动性较低、交易频率较低的股票可能具有非常不同的轮廓。我知道执行算法交易台根据每个资产衡量交易量和其他指标，也许还有一些分组叠加。
 - en: Another analysis that would be useful would be to see volume-weighted price
     profiles.   For example, what is the average volume weighted price path for differing
     closing return targets**.**
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个有用的分析是查看成交量加权价格轮廓。例如，不同收盘回报目标的平均成交量加权价格路径是什么**。**
