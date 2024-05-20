@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:56:56'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:56:56
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Average Correlation Shrinkage (ACS) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 平均相关收缩（ACS）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/10/27/average-correlation-shrinkage-acs/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/27/average-correlation-shrinkage-acs/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/10/27/average-correlation-shrinkage-acs/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/27/average-correlation-shrinkage-acs/#0001-01-01)
 - en: In the last post on [Adaptive Shrinkage](https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/
     "Adaptive Shrinkage"), the Average Correlation Shrinkage (ACS) model was introduced
     and compared with other standard shrinkage models.  A spreadsheet demonstrating
@@ -34,35 +46,52 @@
     respective average correlations to all other assets. This makes intuitive sense,
     and the average is less sensitive to errors than a single correlation estimate.
     It is also less restrictive than assuming that all correlations are the same.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇关于[自适应收缩](https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/
+    "自适应收缩")的文章中，介绍了平均相关收缩（ACS）模型，并将其与其他标准收缩模型进行了比较。可以在此处找到演示如何实施ACS的电子表格：[平均相关收缩](https://cssanalytics.files.wordpress.com/2013/10/average-correlation-shrinkage.xlsx)。这种方法旨在成为替代性收缩模型，可以混合使用或用于替代标准模型。最受欢迎的模型之一是“常相关模型”，它假设资产之间存在恒定的相关性。这个模型的优点是它是一个非常简单和结构良好的估计器。弱点是它过于死板，其性能取决于宇宙中相似相关与不相关资产的数量。平均相关收缩提出，资产的成对相关性的一个良好估计器是其与其他所有资产的成对相关性的平均值。对于任何一对资产，它们的新的成对相关性是它们分别与所有其他资产的平均相关性的平均值。这是直观的，并且平均值对错误不太敏感，而单个相关性估计值则更少受限制，因为它不假设所有相关性都相同。
 - en: 'The graphic below depicts the sample versus the average correlation matrix:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图描述了样本与平均相关矩阵之间的关系：
 - en: '[![average correlation shrinkage](img/352b300dc6d50b37523cd5c9e04912a8.png)](https://cssanalytics.files.wordpress.com/2013/10/average-correlation-shrinkage.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![平均相关收缩](img/352b300dc6d50b37523cd5c9e04912a8.png)](https://cssanalytics.files.wordpress.com/2013/10/average-correlation-shrinkage.png)'
 - en: 'As you can see, the average correlation matrix tends to pull down the correlations
     of the assets that have high correlations, and increases the correlations of the
     assets that have low correlations.  One can weight the average correlation matrix
     with the previous sample correlation matrix in some proportion using the following
     formula:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 由上图可见，平均相关矩阵倾向于降低高相关资产的相关性，并增加低相关资产的相关性。可以使用以下公式将平均相关矩阵与先前的样本相关矩阵以一定比例加权：
 - en: '**adjusted correlation matrix**=w*(average correlation matrix)+(1-w)*sample
     correlation matrix'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**调整后的相关矩阵**=w*（平均相关矩阵）+（1-w）*样本相关矩阵'
 - en: By using this shrinkage method to adjust the correlation inputs for optimization,
     the resulting weights are less extreme towards the assets with a low correlation
     and assets with a high correlation have a better chance of being included in the
     final portfolio. Like all shrinkage methods, this is meant to be a sort of compromise
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过使用这种收缩方法调整优化的相关性输入，得到的权重对低相关资产的倾向较小，而对高相关资产的倾向较大，这些资产更有可能被纳入最终投资组合。像所有收缩方法一样，这意味着某种妥协
 - en: 'Here is a graphic depicting the final adjusted correlation matrix using a shrinkage
     factor ![(w)](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png) of .5:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图描述了使用收缩因子![（w）](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png)为0.5的最终调整后的相关矩阵：
 - en: '[![adjusted correlation matrix](img/bef820b177ab263cc766dd00e2f270c3.png)](https://cssanalytics.files.wordpress.com/2013/10/adjusted-correlation-matrix.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![调整后的相关矩阵](img/bef820b177ab263cc766dd00e2f270c3.png)](https://cssanalytics.files.wordpress.com/2013/10/adjusted-correlation-matrix.png)'

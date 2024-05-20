@@ -2,38 +2,46 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:29:37'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:29:37
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Automated Baremetrics Spreadsheet | Coding the markets
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自动化的 Baremetrics 电子表格 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2017/06/05/automated-baremetrics-spreadsheet/#0001-01-01](https://etrading.wordpress.com/2017/06/05/automated-baremetrics-spreadsheet/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2017/06/05/automated-baremetrics-spreadsheet/#0001-01-01](https://etrading.wordpress.com/2017/06/05/automated-baremetrics-spreadsheet/#0001-01-01)
 - en: Automated Baremetrics Spreadsheet
   id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 自动化的 Baremetrics 电子表格
 - en: June 5, 2017
   id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2017 年 6 月 5 日
 - en: Back in April I read a [great post](https://blog.baremetrics.com/saas-financial-model-d2628505bd62) by
     [Jaakko Piipponen](https://blog.baremetrics.com/@jaakkopiipponen) on the SaaS
     financial model he’d built as an Excel spreadsheet. I’m interested in spreadsheet
@@ -53,16 +61,25 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到四月份，我阅读了[一篇很棒的文章](https://blog.baremetrics.com/saas-financial-model-d2628505bd62) ，作者是
+    [Jaakko Piipponen](https://blog.baremetrics.com/@jaakkopiipponen) ，关于他建立的 SaaS
+    财务模型作为 Excel 电子表格。我对电子表格财务模型很感兴趣，所以我很喜欢 Jaakko 对他的模型如何覆盖损益报告、运营费用、工资和收入的介绍。Jaakko
+    描述了您每月只需花费 30 分钟从 Baremetrics 仪表板下载报告并粘贴到 Excel 中即可保持其更新的过程。这篇文章的标题是“您实际上会更新的
+    SaaS 财务模型”，因为模型的价值是每月手动操作 30 分钟已经完全合理了。我是第一个主张将 Excel 用于业务敏捷性的人；它是一个极好的工具，使销售、市场营销和财务人员能够自行解决问题，而不需要软件开发团队的瓶颈。但是
+    Excel 的缺点是像 Jaakko 所说的下载和粘贴这样的手动操作。如果 Baremetrics 数据在电子表格中自动下载和更新会不会很棒呢？然后该模型将始终保持最新状态，并且不需要繁琐且容易出错的下载和粘贴操作。
 - en: So I built it by adding Baremetrics functions to my [open source XLL Excel Addin
     SSAddin](https://github.com/SpreadServe/SSAddin). Here’s a spreadsheet that strips
     Jaako’s model down to just the revenue parts of the model…
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我通过将 Baremetrics 函数添加到我的 [开源 XLL Excel Addin SSAddin](https://github.com/SpreadServe/SSAddin)
+    中来构建它。这是一个将 Jaako 的模型简化为模型的收入部分的电子表格...
 - en: '[https://github.com/SpreadServe/SSAddin/blob/master/xls/flight_bare_model2.xls](https://github.com/SpreadServe/SSAddin/blob/master/xls/flight_bare_model2.xls)'
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[https://github.com/SpreadServe/SSAddin/blob/master/xls/flight_bare_model2.xls](https://github.com/SpreadServe/SSAddin/blob/master/xls/flight_bare_model2.xls)'
 - en: It uses SSAddin functions to automatically download the revenue numbers every
     10 minutes into the MRR Export sheet via the [Show Summary API](https://developers.baremetrics.com/reference#show-summary) so
     the Revenue Model sheet will update every 10 minutes with the latest new customers,
@@ -71,10 +88,13 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 它使用 SSAddin 函数每 10 分钟自动下载收入数据到 MRR Export 表中，通过 [Show Summary API](https://developers.baremetrics.com/reference#show-summary)，因此每
+    10 分钟 Revenue Model 表将更新为最新的新客户、订阅、取消、升级和降级。您只需要从这里下载 SSAddin 32 或 64 位 .xll 二进制文件...
 - en: '[http://spreadserve.com/s3/downloads.html](http://spreadserve.com/s3/downloads.html)'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://spreadserve.com/s3/downloads.html](http://spreadserve.com/s3/downloads.html)'
 - en: Then install the addin in Excel and fire up the spreadsheet. Don’t forget to
     ensure that auto calc is on, and that you’ve got a copy of SSAddin.xll.config
     from the download page and put it next to SSAddin.xll on your PC. You’ll need
@@ -82,15 +102,19 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后在 Excel 中安装插件并启动电子表格。不要忘记确保自动计算已打开，并且您已从下载页面获取了 SSAddin.xll.config 的副本并将其放在您的
+    PC 上与 SSAddin.xll 旁边。您需要编辑 .config 文件以添加您的 Baremetrics 许可密钥。
 - en: You can see flight_bare_model2.xls running online and driven by spreadserve.com
     data here…
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以在这里查看 flight_bare_model2.xls 在线运行并由 spreadserve.com 数据驱动...
 - en: '[http://sscalc0.online/flight_bare_model2.xls/0](http://sscalc0.online/flight_bare_model2.xls/0)'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://sscalc0.online/flight_bare_model2.xls/0](http://sscalc0.online/flight_bare_model2.xls/0)'
 - en: '[http://sscalc0.online/flight_bare_model2.xls/MRR%20Export](http://sscalc0.online/flight_bare_model2.xls/MRR%20Export)'
   id: totrans-16
   prefs: []
