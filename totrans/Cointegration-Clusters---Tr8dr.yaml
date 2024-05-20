@@ -1,161 +1,236 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:34:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:34:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Cointegration Clusters | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 协整簇 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/#0001-01-01](https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/#0001-01-01](https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/#0001-01-01)
 - en: Previously I had written a simple clustering algorithm using correlations to
     look at rough “relationships” between equities, whether real or “accidental”.
        I had evaluated this on the S&P 500.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前，我曾编写过一个简单的聚类算法，使用相关性来查看股票之间的粗略“关系”，无论是真实的还是“偶然”的。 我曾在标普500上进行了评估。
 - en: I decided to do a much wider evaluation on all US equities with average volume
     > 200K and market cap > 500M + the ETFs.   This subset of equities results in
     about ~2800 assets or 3,780,000 pairs to be evaluated.    Evaluating this in R
     was impractical, so evaluated in Java.    The evaluation time was in seconds rather
     than the days R might have required.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定对所有美国股票进行更广泛的评估，其中平均成交量> 200K，市值> 500M + ETF。 这些股票子集大约有2800个资产，或者需要评估378万对。
+    在R中评估这个是不切实际的，所以用Java评估。 评估时间是以秒为单位而不是可能需要的几天。
 - en: To discover stronger relationships evaluated both the correlation and Augmented
     Dickey-Fuller test on all pairs,  keeping pairs with adf p-value < 0.05\.   Additionally
     did cross-validation against prior years, throwing away pairs that did not fit
     in the cross-validation period.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了发现更强的关系，对所有配对进行了相关性和增强迪基-富勒测试的评估，保留了adf p-value < 0.05 的配对。 此外，还对之前的年份进行了交叉验证，丢弃了不符合交叉验证期间的配对。
 - en: I then used my clustering algorithm (outlined in a previous post) to determine
     networks of maximally related assets.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后我使用了我之前概述的聚类算法来确定最相关的资产网络。
 - en: This resulted in ~1000 pairs (of the original ~4 million pairs).    Some portion
     of these pairs “make sense” and others are complete surprises.  That said, given
     the large number of series it would not be a surprise to find “unrelated” assets
     that are relatively cointegrated over the test period.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了大约1000个配对（原始的大约400万个配对）。 其中一部分配对“有意义”，另一部分则完全令人惊讶。 也就是说，鉴于大量系列，发现在测试期间相对协整的“不相关”资产并不奇怪。
 - en: 'It generated ~50 clusters, here is one at random:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 它生成了大约50个簇，这里随机选择一个：
 - en: '[![](img/623d78d27521f4e0df116c17cd0a6f65.png "cluster 3")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-22-at-10-25-54-pm.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/623d78d27521f4e0df116c17cd0a6f65.png "簇3")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-22-at-10-25-54-pm.png)'
 - en: '**Trading The Pairs'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**交易配对'
 - en: 'T**he beauty of cointegrated series is that they are much easier to model then
     series with heteroscedasticity or trending mean.    There are a number of approaches
     to trading pairs (or larger cointegrated portfolios).    Before getting to this,
     first want to illustrate a non-cointegrating spread:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 协整序列的美妙之处在于，它们比具有异方差性或趋势均值的序列容易建模得多。 有多种方法可以交易配对（或更大的协整投资组合）。 在开始之前，首先想要说明一个非协整的价差：
 - en: '**[![](img/9e89d292c4005ad56511d275dcc9238e.png "non-coint")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/non-coint.png)**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/9e89d292c4005ad56511d275dcc9238e.png "非协整")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/non-coint.png)**'
 - en: We can see that the spread between NI and ACG has a spread that is growing with
     time from the axis.  The ideal spread is one that oscillates around a constant
     mean (generally 0).   The above can be traded, but would involve, first a view
     that the there is a long run beta differential of ~0.25 and weighing the basket
     appropriately.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到NI和ACG之间的价差随着时间从轴上增长。 理想的价差是围绕一个恒定的均值（通常为0）波动。 上述内容可以交易，但需要首先确定存在一个长期beta差异约为0.25，并适当地权衡篮子。
 - en: Many look at the relative “beta” (i.e. the slope of the long run cumulative
     returns) for each asset and determine weights based on a linear regression.  
      That approach works well if trends follow a near linear path over the observation
     period.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多人看待每种资产的相对“beta”（即长期累积回报的斜率），并根据线性回归确定权重。 如果趋势在观察期内近似线性，则该方法效果很好。
 - en: 'A better approach is to find the weights such that the spread “spends as much
     time above the origin as below the origin” (ok, it’s a rough heuristic I came
     up with).   This can be expressed as:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 更好的方法是找到权重，使价差“在原点上方和下方花费相同的时间”（好吧，这是我想出的一个粗略的启发式方法）。 这可以表达为：
 - en: '[![](img/92257ca60b3ceaf1452f25f7835c63f4.png "Screen shot 2010-01-22 at 4.51.49
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-22-at-4-51-49-pm.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/92257ca60b3ceaf1452f25f7835c63f4.png "Screen shot 2010-01-22 at 4.51.49
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-22-at-4-51-49-pm.png)'
 - en: 'Basically the above is “saying”: find the integral of some weighting of the
     spread function such that the area is as close as possible to 0 (i.e. we have
     balanced sweep above and below the origin).   The constraints make sure that the
     weights don’t go to 0.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本上，上述内容是在“说”：找到某种价差函数的加权积分，使得该区域尽可能接近 0（即我们在原点上方和下方有平衡的扫描）。 约束条件确保权重不会变为 0。
 - en: '**If it is Cointegrated'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**如果它是协整的。'
 - en: In theory this is a much simpler scenario where we can chose equal and offset
     weights (-1, 1) and then analyse the resulting spread for entry and exit (technically
     one may still adjust the weights to adjust for drift depending on MR period one
     is focusing on).**
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论上，这是一个简化的情况，我们可以选择相等且偏移的权重（-1，1），然后分析生成的价差以进行进出（技术上，根据我们关注的 MR 期间，仍然可以调整权重以调整漂移）。**
 - en: '**Next, we want to look for mean-reversion patterns or at least identify levels
     likely to mean revert conditioned on the past.  Here is a pair that is cointegrated
     for this period:**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**接下来，我们要寻找均值回归模式，或者至少确定在过去的条件下可能均值回归的水平。 这是一个在此期间协整的配对：**'
 - en: '**[![](img/3b16f7d5529fe4bc2cad4ef08d87dd17.png "coint2")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/coint2.png)**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/3b16f7d5529fe4bc2cad4ef08d87dd17.png "coint2")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/coint2.png)**'
 - en: '**The typical approach is to normalize the spread to standard deviations and
     enter reverting trade when 2 SD or another suitable threshold is realized.   Some
     basic observations of momentum and vol can be used to decide precisely when to
     enter.**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**典型方法是将价差标准化为标准差，并在实现 2 个标准差或其他适当阈值时进行反转交易。可以使用动量和波动率的一些基本观察来决定何时精确进入。**'
 - en: Another approach used is to calibrate some descendent of the Ornstein-Uhlbleck
     MR model to the desired level of MR and use as a driver for entry.     I’m not
     trading pairs at this time, so I’m not sure whether it is worth adopting a MR
     model.   From past experience with these models, they are hard to calibrate and
     require significant modification to match empirical behavior, even loosely.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种使用的方法是校准 Ornstein-Uhlbleck MR 模型的某个后代至所需的 MR 水平，并将其用作进入的驱动器。 我现在不交易配对，所以我不确定是否值得采用
+    MR 模型。 从过去对这些模型的经验来看，它们很难校准，并且需要显著修改以匹配经验行为，即使是宽松的匹配也是如此。
 - en: '**Beyond Pairs**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**超越配对**'
 - en: We use pairs to provide a more desirable process statistically, more amenable
     to MR analysis.   There is a much wider universe of possibilities present in “spread
     baskets”.    By “spread baskets” am refering to collections of more than 2 assets
     that are fractionally long or short, producing a tightly cointegrated return.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们使用配对提供更合适的统计过程，更易于 MR 分析。 “价差篮子” 中存在更广泛的可能性。 通过“价差篮子”，我指的是多于 2 个资产的集合，这些资产是分数多头或空头的，产生紧密协整的回报。
 - en: 'Determining such baskets is very complex for a number of reasons:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于许多原因，确定这样的篮子非常复杂：
 - en: size of search grows at roughly O(N^k), where k is the size of basket and N
     the number of assets
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 搜索规模大约以 O(N^k) 的速度增长，其中 k 是篮子的大小，N 是资产数量。
 - en: one needs to determine optimal weights (expensive NLP)
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 需要确定最优权重（昂贵的 NLP）。
 - en: optimal weights need to be tested in cross-validation
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 最优权重需要在交叉验证中进行测试。
 - en: 'Mitigating the worst case is:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 缓解最坏情况的方法是：
 - en: can throw away assets with low correlations
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 可以丢弃相关性低的资产。
 - en: To give an example, if we consider the 3-asset case on 2000 stocks, the worst
     case search would involve 2.6 billion combinations to check.    The correlation
     matrix may well make this viable however.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 举个例子，如果我们考虑在 2000 支股票上进行 3 资产情况，最坏情况下的搜索将涉及到 26 亿组合来检查。相关矩阵可能会使这变得可行。
