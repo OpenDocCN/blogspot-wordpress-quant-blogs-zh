@@ -1,76 +1,109 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:35:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:35:58'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Check != Test. Discovery != Testing – Delivering Quality Software | Tales from
     a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 检查 ≠ 测试。 发现 ≠ 测试 - 提供质量软件的故事 | 交易台传说
 - en: 来源：[https://mdavey.wordpress.com/2016/03/10/check-test-discovery-testing-delivering-quality-software/#0001-01-01](https://mdavey.wordpress.com/2016/03/10/check-test-discovery-testing-delivering-quality-software/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/03/10/check-test-discovery-testing-delivering-quality-software/#0001-01-01](https://mdavey.wordpress.com/2016/03/10/check-test-discovery-testing-delivering-quality-software/#0001-01-01)
 - en: For some while there’s be discussion in the quality space of software engineering
     around [checking](http://devblog.songkick.com/2016/02/15/move-fast-but-test-the-code/)
     and [testing](http://www.satisfice.com/articles/cdt-automation.pdf).  Many of
     these discussion provide a sensible step forwards in thinking and process.  What
     is clear is that label’s come with baggage – especially in the context of “testing”
     and “automation” – an ambiguous word these days in the software engineering community.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一段时间以来，软件工程质量领域一直在讨论[检查](http://devblog.songkick.com/2016/02/15/move-fast-but-test-the-code/)和[测试](http://www.satisfice.com/articles/cdt-automation.pdf)。
+    这些讨论中的许多提供了对思维和流程的合理进步。 清楚的是，标签带有包袱 - 特别是在“测试”和“自动化”的背景下 - 这些天在软件工程社区中是一个模糊的词。
 - en: If we start at the beginning of the process of software development, we essentially
     have “discovery”, and the capture of requirements – how the feature/story will
     behave when implemented.  In many ways the capture of these requirements in BDD
     syntax offers at least a machine readable format that hopefully reduces ambiguity,
     and cuts out a degree of the issues of parse/translate from the n page requirements
     document.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们从软件开发过程的开始开始，我们基本上有“发现”和需求的捕获 - 功能/故事在实现时的行为。 在许多方面，以BDD语法捕获这些要求至少提供了一种可读格式，希望能减少歧义，并减少从n页需求文档中解析/转换的问题。
 - en: “Checking” (or old school “validation”) is an acceptable label for ensuring
     that once the code is deemed “Done”, that the code has implemented the expected
     behaviour, and passed the acceptance criteria that came out of the the discovery
     (requirements) phase for the story.  Anyone with a Kanban board might want to
     go with “In Checking” rather than “In Test” 🙂
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: “检查”（或传统上的“验证”）是确保一旦代码被认为“完成”，该代码已经实现了预期行为，并且通过了故事发现（需求）阶段提出的验收标准的可接受标签。任何使用看板的人可能会选择“正在检查”而不是“正在测试”
+    🙂
 - en: “Test Automation” (although very ambiguous) is really the reduction of manual
     “checking” by using code to perform the activity in a more efficient manor.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: “测试自动化”（尽管非常模糊）实际上是通过使用代码来执行活动以更高效的方式减少手动“检查”。
 - en: 'This leads us to “testing”.  One [view](http://devblog.songkick.com/2016/02/15/move-fast-but-test-the-code/)
     of testing is the following:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这带我们来到“测试”。 一个[观点](http://devblog.songkick.com/2016/02/15/move-fast-but-test-the-code/)是以下内容：
 - en: Testing involves exploring the system in creative ways in order to discover
     the things that you forgot about
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 测试涉及以创造性的方式探索系统，以发现您忘记的事情
 - en: In many ways, “testing” as defined above, is really a continuation of “discovery”.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 从许多方面来看，上面定义的“测试”实际上是“发现”的延续。
 - en: “Discovery” is about understanding an agile feature/story, getting into the
     detail so that the story can be implemented in code based on the requirements,
     with an agreed way to check that the requirements have actually been implemented
     (acceptance criteria).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: “发现”是关于理解敏捷特性/故事，深入细节，以便可以根据需求在代码中实现故事，并且以一种约定的方式检查实际上已经实现了需求（验收标准）。
 - en: “Testing” feels based on the definition above to be an extension of discovery,
     which is going to be confusing if we now have two words to define how to discovery
     the required behaviour of a story.  Unless a huge amount of time and effort in
     spent in the initial discovery of a stories requirements, not all the behaviour
     and acceptance criteria will be captured – its unfortunately life.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: “测试”基于上面的定义感觉像是发现的延续，如果我们现在有两个词来定义如何发现故事所需的行为，那将会很令人困惑。 除非在故事需求的初始发现中花费大量时间和精力，否则不会捕获所有行为和验收标准
+    - 这是不幸的生活。
 - en: In summary, I don’t like ambiguous labels.  Further, overloading label that
     have been around a long time, is in my view dangerous unless you have a way of
     reminding everyone of the new label definition.  My suggestion is that to improve
@@ -78,11 +111,17 @@
     the story once “done”, and then use the implemented feature to “discovery” is
     we’ve missed any edge cases, that will allow us to refine the acceptance criteria,
     and improve our automation checks.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，我不喜欢含糊不清的标签。此外，对长期存在的标签进行过度负荷，我认为是危险的，除非你有一种方法提醒每个人新标签的定义。我的建议是，为了提高软件质量，我们在“发现”中花更多时间，“完成”后检查故事，然后使用实现的功能来“发现”是否遗漏了任何边缘情况，这将使我们能够完善验收标准，并改进我们的自动化检查。
 - en: ~ by mdavey on March 10, 2016.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于2016年3月10日发布。
 - en: Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[敏捷](https://mdavey.wordpress.com/category/agile/)分类中。
