@@ -1,38 +1,55 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:04:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:04:59
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Drivers of MR Performance – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: MR性能的驱动因素 - 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/05/24/drivers-of-mr-performance/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/24/drivers-of-mr-performance/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/05/24/drivers-of-mr-performance/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/24/drivers-of-mr-performance/#0001-01-01)
 - en: A lot of the daily mean reversion strategies discussed in the blogosphere are
     designed for equity index ETFs or equity index mutual funds. Indexes being a group
     of individual stocks, if we could determine which stocks will drive the index
     returns or in this case, the behavior, we could adapt a strategy to profit from
     the prevailing market paradigm as indicated by the drivers of the index.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客圈讨论的许多日常均值回归策略都是为股票指数ETFs或股票指数共同基金设计的。指数是由个别股票组成的集团，如果我们能确定哪些股票将驱动指数收益或在这种情况下，行为，我们可以调整策略以从指数的驱动因素所指示的主导市场范式中获利。
 - en: For example if the stocks affecting the index the most are exhibit mostly mean
     reverting behavior, we can expect the index to exhibit the same behavior. The
     same conclusion holds for trending behavior. The important point here is that
     indices are not an entity in themselves; they are made to reflect a certain sector/type
     of stocks/area etc. To illustrate the concept, I performed a simple test using
     the popular unbounded DV 2.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果影响指数最多的股票主要表现出均值回归行为，我们可以预期指数也会表现出相同的行为。趋势行为也适用于相同的结论。这里的重要一点是指数本身并不是一个实体；它们是为了反映某个部门/股票类型/区域等而制定的。为了说明这个概念，我使用了流行的无界DV
+    2执行了一个简单的测试。
 - en: 'I used the Nasdaq 100 and its related ETF QQQQ to perform this test. First
     I needed a way to quantitatively identify the drivers of the market. For this
     purpose, I used a weighted r-squared. Many of you know that the r-square under
@@ -43,32 +60,48 @@
     basis. Then I looked at the volume of each individual component of the index relative
     to the total volume of all the components, and then weighted the r-squared with
     the proportion of the volume of this particular stock.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我使用纳斯达克100及其相关的ETF QQQQ来执行此测试。首先，我需要一种定量确定市场驱动因素的方法。为此，我使用了加权的r平方。你们中的许多人都知道r平方是另一个名字：决定系数。该统计量提供了一系列由另一个系列预测的水平的指示（即拟合优度）。要获得它，你只需将相关系数提高到2的幂。对于这个测试，我只看了过去21天的r平方，并且是滚动的。然后，我查看了指数的每个个体组成部分的交易量与所有组成部分的总交易量之间的比例，然后用这种特定股票的交易量的比例加权r平方。
 - en: 'In a more rigorous form:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 更严格的形式如下：
 - en: '[![](img/528a1749e5550bbb08e63b2738d6b49c.png "Drivers of MR - formulas")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr-formulas.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/528a1749e5550bbb08e63b2738d6b49c.png "MR的驱动因素 - 公式")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr-formulas.png)'
 - en: After this computation for every stock at every period n, I take the top 10
     weighted r-squared stocks and compute their DV2 values, average it and trade the
     QQQQ using the signal given by the DV2 (long/short from 0). The results below
     compare this strategy, buy & hold QQQQ, and DV2 on the QQQQ data.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于每只股票在每个时期n的计算后，我取加权r平方最高的前10只股票，并计算它们的DV2值，将其平均化，并根据DV2给出的信号交易QQQQ（从0开始做多/做空）。以下结果比较了这种策略、买入并持有QQQQ和QQQQ数据上的DV2。
 - en: '[![](img/0d06f8d654840284b12842c01e0ff80a.png "Drivers of MR")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0d06f8d654840284b12842c01e0ff80a.png "MR的驱动因素")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr.png)'
 - en: '[![](img/390fef2494e5c2853724749354dc13e1.png "Drivers of MR - res")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr-res1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/390fef2494e5c2853724749354dc13e1.png "MR的驱动因素")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/drivers-of-mr-res1.png)'
 - en: As you can see, the results are quite similar and as expected, highly correlated.
     It shows that in an index formed with 100 stocks, looking at only a select group
     with a big influence on the returns can help determine the MR performance of the
     index itself.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所见，结果相当相似，并且符合预期，高度相关。它表明，在由100只股票组成的指数中，仅查看对收益影响较大的一组股票可以帮助确定指数本身的MR表现。
 - en: QF
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: QF
