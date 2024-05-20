@@ -1,31 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 22:29:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月12日22:29:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Backtesting Errors'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：回测错误
 - en: 来源：[http://falkenblog.blogspot.com/2009/01/backtesting-errors.html#0001-01-01](http://falkenblog.blogspot.com/2009/01/backtesting-errors.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2009/01/backtesting-errors.html#0001-01-01](http://falkenblog.blogspot.com/2009/01/backtesting-errors.html#0001-01-01)
 - en: The most annoying part of backtesting is creating a database, which is problematic
     because most data is meant to show a one-off take of current information, as opposed
     to cross-sectional data as of January 14, 1998\. It's free and easy to see all
     about, say, IBM's market and financial statement data. But what good is that information
     if not put into context, and what is the context, other than a historical sense
     for the relative distributions and correlations, of the past?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 回测最烦人的部分是创建数据库，这是有问题的，因为大多数数据都是为了展示当前信息的一次性采集，而不是截止到1998年1月14日的横截面数据。看看，比如IBM的市场和财务报表数据，这些信息是免费且容易获取的。但如果不放在上下文中，这些信息有什么用呢？上下文是什么，除了对过去的相关分布和相关性有一个历史感之外？
 - en: Pulling together such data usually involves integrating data from different
     sources, splicing them together, and making sure you have 'dead' companies. Invariably
     a data provider insists they have 'all' the data, because for them, current companies
@@ -33,15 +47,19 @@
     have 'dead' companies, such as Enron, WorldCom-MCI, and Bear Stearns. Then there
     are issues about splits, dividends, that can, if not accounted for, generate illusory
     patterns.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 汇总此类数据通常涉及整合来自不同来源的数据，将它们拼接在一起，并确保你有“死去”的公司数据。不可避免地，数据提供者坚称他们拥有“所有”数据，因为对他们而言，当前公司就是他们能想象到的全部。所以你必须具体询问，问他们是否拥有“死去”的公司，比如安然、世通-美国通讯和贝尔斯登。然后还有关于拆分、股利的问题，如果不加以考虑，可能会产生虚假的模式。
 - en: Anyway, I discovered something I thought was really interesting, but then found
     it was merely an error. See if you can spot the error. I have a database with
     financial statement information available at the end of every month. With that
     record or observation, I have the month-ahead returns, and also information on
     the trading volume and market cap as of the end of the month.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论如何，我发现了一些我认为非常有趣的东西，但后来发现这只是一个错误。看看你能否发现错误。我有一个数据库，其中包含每个月末的财务报表信息。通过这个记录或观察，我可以得到未来一个月的回报，以及该月末的交易量和市值信息。
 - en: I looked at earnings day returns, the returns from the day prior to the earnings
     release date, and the close of prices the day after the earnings release date.
     To do this, I had to take the earnings report date information, and then take
@@ -49,49 +67,74 @@
     (annualized) volatility is about 150% higher than average daily returns in this
     period, which makes total sense. Just for fun, I looked at all companies with
     a market cap greater than $1B, and saw that the
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我研究了收益日的回报，收益发布日期前一天的回报，以及收益发布日期后一天的收盘价格。为了做到这一点，我不得不获取收益报告日期信息，然后将这些日期-公司ID对应到一个日收益数据的数据库。我注意到它们的每日（年化）波动率约为此期间平均每日回报的150%左右，这是完全合理的。为了好玩，我看了所有市值超过10亿美元的公司，并发现
 - en: average
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均
 - en: daily return on this date was about 0.2% or so, highly significant. On average
     the return was significantly positive, but no one noticed because for any one
     observation there is a lot of noise, and its not so large as to be totally obvious.
     I looked for companies with greater than $500MM market cap, same result, and was
     highly consistent over time.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这一天的日回报约为0.2%左右，非常显著。平均而言，回报显著为正，但没有人注意到，因为对于任何一个观察值，噪声都很大，而且并不明显到可以完全明显。我寻找市值大于5亿美元的公司，结果相同，并且随着时间的推移高度一致。
 - en: What is the error?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 错误在哪里？
 - en: Well, my size filter used market cap data from the
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 嗯，我的尺寸过滤器使用了
 - en: end of the month
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 月底
 - en: ', to look back at the earnings date returns'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 回顾一下收益日期的回报情况
 - en: from that same month
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自同一个月的
 - en: . By looking only at companies with greater than $1B or $500MM in market cap
     at the end of the month, it would include enough of those who migrated upward,
     and exclude enough of those that migrated downward, to generate the 0.2% return,
     which was entirely due to this bias. That is, there are enough companies moving
     from $975MM to $1001MM on earnings that get in, and enough going from $1001MM
     to $975 that are censored, to generate an illusory sample statistic.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 只考虑月底市值超过 $1B 或 $500MM 的公司，足以包括那些向上迁移的公司，并排除足够多向下迁移的公司，从而产生了0.2%的回报，这完全是由于这种偏差造成的。也就是说，有足够多的公司从
+    $975MM 上升到 $1001MM 获得了进入，也有足够多的公司从 $1001MM 下降到 $975MM 被剔除，以产生一种虚假的样本统计数据。
 - en: I didn't think a $1B cut-off was material, especially because
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为 $1B 的截止线并不重要，尤其是因为
 - en: usually
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 通常
 - en: this database is used to look for patterns in month-ahead returns where the
     bias does not exist, so it didn't occur to me. But in fact there was a material
     selection bias in the market cap cut-off. These things are subtle sometimes.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个数据库用于寻找月度回报中不存在偏差的模式，所以我没有意识到。但事实上，市值截止线存在实质性的选择偏差。有时这些事情很微妙。
