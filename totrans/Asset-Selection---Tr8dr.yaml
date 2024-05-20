@@ -2,32 +2,39 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:35:43'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日15:35:43
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Asset Selection | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 资产选择 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/12/28/10-years/#0001-01-01](https://tr8dr.wordpress.com/2009/12/28/10-years/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/12/28/10-years/#0001-01-01](https://tr8dr.wordpress.com/2009/12/28/10-years/#0001-01-01)
 - en: December 28, 2009 · 2:01 pm
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年12月28日下午2:01
 - en: I have a portfolio-based strategy that uses a probabalistic model to determine
     the “optimal” portfolio allocation vector for each trading period.    This can
     be applied either intra-day, daily, or across longer ranges of time. The dynamics
@@ -35,6 +42,7 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我有一个基于投资组合的策略，使用概率模型确定每个交易周期的“最优”投资组合分配向量。这可以应用于日内、每日或更长时间范围内。投资组合的动态和构成可能会根据持有期而变化。
 - en: The algorithm uses an online learning and optimization approach.   Because this
     is computationally expensive, want to do some up-front analysis to determine the
     composition of the portfolio, i.e. what set of assets will provide a good degree
@@ -42,6 +50,7 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 该算法使用在线学习和优化方法。由于这是计算密集型的，希望进行一些前期分析以确定投资组合的组成，即哪些资产组合将为权重决策提供良好的平衡和信息。
 - en: So for instance, if we chose the S&P 500 stocks as the pool from which to select,
     which of these stocks should be selected?   There are many approaches to this
     and it really depends on the characteristic of your strategy.   A “buy & hold”
@@ -51,6 +60,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果我们选择标准普尔500股票作为选择池，那么应该选择哪些股票？对此有很多方法，真正取决于您的策略特性。一个“买入并持有”风格的共同基金经理将基于基本面选择，并考虑中长期增长，并保持组合波动率在一定范围内。
 - en: In the case of this strategy, I am market neutral and look to have both appreciating
     and declining assets (provided there is sufficient liquidity).   However, as with
     buy & hold style portfolio managers I am also looking to provide a certain amount
@@ -58,16 +68,19 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种策略情况下，我是市场中性的，希望拥有升值和下跌的资产（只要有足够的流动性）。但是，与买入并持有风格的投资组合经理一样，我也希望在投资组合中提供一定程度的多样化和平衡。
 - en: '**Maximum Spanning Trees**'
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最大生成树**'
 - en: A nice way to look at the basic relationships amongst assets is via a maximum
     spanning tree on the correlations between assets.   The idea is that such a graph
     spans all assets but each asset connects to only its strongest relationship.
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 查看资产之间的基本关系的一种好方法是通过资产之间相关性的最大生成树。这样的图表跨越所有资产，但每个资产仅连接到其最强的关系。
 - en: One starts with a “seed” asset and determines the strongest relationship with
     another from the set and traverses recursively.   Additionally only include assets
     with relationships above a given correlation threshold weeding out assets with
@@ -75,20 +88,24 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 从“种子”资产开始，确定与集合中其他资产之间的最强关系，并进行递归遍历。此外，仅包括具有高于给定相关阈值的关系的资产，淘汰与弱关系的资产。
 - en: '**10 Years in FX'
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**外汇10年**'
 - en: With a small number of assets, a full graph is reasonably intelligable, though
     carrying less information than a spanning tree in terms of relationship strength.**
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于少量资产，完整图形是相当清晰的，尽管在关系强度方面比跨越树少了一些信息。**
 - en: '[![](img/6459896963a318c19318d9f105ac205c.png "Screen shot 2009-12-28 at 1.34.12
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/screen-shot-2009-12-28-at-1-34-12-pm1.png)'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6459896963a318c19318d9f105ac205c.png "2009年12月28日下午1点34分12秒的截图")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/screen-shot-2009-12-28-at-1-34-12-pm1.png)'
 - en: 'Here is a spanning tree showing the relationships for a selection of currencies
     on daily returns (with a correlation threshold of 0.4).  In the case of daily
     returns one does not see strong connections between european currencies and south
@@ -96,15 +113,18 @@
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一棵跨越树，显示了一些货币的日收益关系（相关性阈值为0.4）。在日收益情况下，欧洲货币和南美货币之间并没有很强的联系：
 - en: '[![](img/d7d7a911189b569ccd881c6679811831.png "Screen shot 2009-12-28 at 12.13.16
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/screen-shot-2009-12-28-at-12-13-16-pm1.png)'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d7d7a911189b569ccd881c6679811831.png "2009年12月28日上午12点13分16秒的截图")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/screen-shot-2009-12-28-at-12-13-16-pm1.png)'
 - en: 'The same analysis on weekly cumulative returns shows stronger relationships:'
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 对周累计收益进行相同的分析显示出更强的关系：
 - en: '[![](img/e32f9850f30d4dd4b25236af9169c5ac.png "Screen shot 2009-12-28 at 12.12.57
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/screen-shot-2009-12-28-at-12-12-57-pm.png)'
   id: totrans-20
