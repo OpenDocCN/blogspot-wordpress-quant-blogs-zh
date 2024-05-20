@@ -1,83 +1,128 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:33:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:33:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Cluster Risk Parity back-test | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 群集风险平价回测 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/03/05/cluster-risk-parity-back-test/#0001-01-01](https://systematicinvestor.wordpress.com/2013/03/05/cluster-risk-parity-back-test/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/03/05/cluster-risk-parity-back-test/#0001-01-01](https://systematicinvestor.wordpress.com/2013/03/05/cluster-risk-parity-back-test/#0001-01-01)
 - en: 'In the [Cluster Portfolio Allocation](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)
     post, I have outlined the 3 steps to construct Cluster Risk Parity portfolio.
     At each rebalancing period:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[群集投资组合分配](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)一文中，我概述了构建群集风险平价投资组合的3个步骤。在每个再平衡期间：
 - en: Create Clusters
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建群集
 - en: Allocate funds within each Cluster using Risk Parity
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用风险平价（Risk Parity）在每个群集内分配资金
 - en: Allocate funds across all Clusters using Risk Parity
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用风险平价在所有群集之间分配资金
 - en: 'I created a helper function [distribute.weights() function in strategy.r at
     github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r) to
     automate these steps. It has 2 parameters:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了一个辅助函数，[在 GitHub 上的 strategy.r 中的 distribute.weights() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)，以自动执行这些步骤。它有2个参数：
 - en: Function to allocate funds. For example, risk.parity.portfolio, will use use
     risk parity to allocate funds both within and across clusters.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 分配资金的函数。例如，risk.parity.portfolio，将使用风险平价在和群集之间分配资金。
 - en: Function to create clusters. For example, cluster.group.kmeans.90, will create
     clusters using k-means algorithm
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建群集的函数。例如，cluster.group.kmeans.90，将使用k-means算法创建群集
 - en: 'Here is the example how to put it all together. Let’s first load historical
     prices for the 10 major asset classes:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是将所有内容放在一起的示例。首先，让我们加载10个主要资产类别的历史价格：
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s run the 2 versions of [Cluster Portfolio Allocation](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)
     using Equal Weight and Risk Parity algorithms to allocate funds:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们运行2个版本的[群集投资组合分配](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)，使用等权重和风险平价算法来分配资金：
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Finally, let’s examine the results:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们来检查结果：
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot1.png.small](img/5fd1c0d2de1159e5b7664d3145cc7fa0.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot1-small.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1.png.small](img/5fd1c0d2de1159e5b7664d3145cc7fa0.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot1-small.png)'
 - en: The [Cluster Portfolio Allocation](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)
     produce portfolios with better risk-adjusted returns and smaller drawdowns.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[群集投资组合分配](https://systematicinvestor.wordpress.com/2013/02/12/cluster-portfolio-allocation/)产生了具有更好的风险调整收益和较小回撤的投资组合。'
 - en: To view the complete source code for this example, please have a look at the
     [bt.cluster.portfolio.allocation.test1() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 GitHub 上的 bt.test.r 中的 [bt.cluster.portfolio.allocation.test1()
+    函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
