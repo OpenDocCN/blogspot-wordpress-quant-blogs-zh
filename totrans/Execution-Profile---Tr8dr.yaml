@@ -2,50 +2,60 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:31:50'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 15:31:50
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Execution Profile | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 执行概况 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01](https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01](https://tr8dr.wordpress.com/2010/09/11/execution-profile/#0001-01-01)
 - en: 'I have a number of models that forecast a next period return for a portfolio
     of assets.   It is important to have a view on how the asset trades on average
     over the period.  On average:'
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我有几个模型，用于预测一系列资产的下一周期收益。重要的是要了解资产在整个周期内的平均交易情况。平均来说：
 - en: where are the lows & highs made
   id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 低点和高点在哪里产生
 - en: how much time is spent above or below the close (useful to know if close is
     your target)
   id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在收盘价上方或下方花费了多少时间（如果收盘价是您的目标，则这一点很重要）
 - en: what is the average volume profile for the asset
   id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 资产的平均交易量是多少
 - en: There is a large business on wall street built around executing large size for
     clients to a target measure (VWAP is an example of this).  Execution algos focus
     on  how to execute size with the least amount of market impact and at the lowest
@@ -53,6 +63,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 华尔街有一项重要业务是为客户执行大宗交易至目标测量值（VWAP是此类交易的一个示例）。执行算法专注于如何以最小的市场影响和最低的成本（最佳价格和交易成本）执行大宗交易。
 - en: I don’t have experience in the execution algo side, having focused mostly on
     signal generation (so if there any readers with suggestions please let me know).
        That said, here are some simple analyses I did on 1 year of tick data across
@@ -60,10 +71,12 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在执行算法方面没有经验，主要专注于信号生成（如果有读者有建议，请告诉我）。话虽如此，我对2700家美国股票的1年分时数据进行了一些简单的分析；这确实给了我一个更好的图景。
 - en: '**Up Day'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**上涨日**'
 - en: Supposing our model predicts that an asset will close higher by a certain %
     on the next day and we enter at a price close to the prior close.   We now want
     to know when is the best point(s) to sell the position.   If the position has
@@ -71,17 +84,20 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们的模型预测资产在第二天的收盘价会上涨一定的百分比，并且我们以接近前一交易日收盘价的价格进入市场。现在我们想知道什么时候是最佳的卖出点。如果头寸很大，我们可能需要在一天内的多个时段进行卖出。**
 - en: '**The following graph looks at the time of day on average where the high is
     reached, for different close-to-close % return scenarios (neutral indicates a
     close close to 0%, between +/- 0.3%):**'
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**以下图表展示了不同收盘百分比收益情况下，平均哪个时段达到了高点：**'
 - en: '**[![](img/7f938d17cb67d8a225393a37c37b6e1f.png "Screen shot 2010-09-11 at
     11.32.50 AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-32-50-am.png)**'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/7f938d17cb67d8a225393a37c37b6e1f.png "2010年9月11日上午11:32:50的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-32-50-am.png)**'
 - en: For very sharp close-to-close appreciation (> 2% return), the high is usually
     achieved in the last hour.  In the neutral case we see the high achieved in the
     first 1/2 of the day, with the most weight around 10:30\.   The medium returns
@@ -90,27 +106,33 @@
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于非常尖锐的收盘至收盘升值（> 2%的收益），高点通常在最后一个小时达到。在中性情况下，我们看到高点在第一半天达到，最大权重在大约10:30。中等收益（≤
+    2%）似乎更多地分布在开盘和收盘交易会话之间（但其他情况下基本均匀）。
 - en: '[![](img/4e678b35dfe52b669c15298914f55471.png "Screen shot 2010-09-11 at 11.33.56
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-33-56-am.png)'
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4e678b35dfe52b669c15298914f55471.png "2010年9月11日上午11:33:56的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-33-56-am.png)'
 - en: Interestingly, we would not want to be selling near the open (9:30 – 10:30)
     for a high return target.   The other return profiles show elevated probability
     of low in the morning session, but otherwise close to a uniform distribution.
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，对于高收益目标，我们不希望在开盘时（9:30 - 10:30）卖出。其他收益情况显示早上交易会话低点的概率增加，但除此之外基本均匀分布。
 - en: '**Down Day'
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**下跌日**'
 - en: Supposing our model predicts that an asset will close lower by a certain % on
     the next day and we short at a price close to the previous close.   We are now
     looking for the right time to close out the short.**
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们的模型预测资产在第二天的收盘价会下跌一定的百分比，并且我们以接近前一交易日收盘价的价格做空。我们现在正在寻找合适的时间平仓。**
 - en: '**[![](img/10c60ba36b3eeface7a3cccb2d8be5d4.png "Screen shot 2010-09-11 at
     11.34.28 AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-11-at-11-34-28-am.png)**'
   id: totrans-21
