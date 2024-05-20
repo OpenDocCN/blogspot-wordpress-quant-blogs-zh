@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:32:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:32:48'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: C++ libs & ABI compatilibilty | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: C++库和ABI兼容性 | 编写市场代码
 - en: 来源：[https://etrading.wordpress.com/2014/05/14/c-libs-abi-compatilibilty/#0001-01-01](https://etrading.wordpress.com/2014/05/14/c-libs-abi-compatilibilty/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2014/05/14/c-libs-abi-compatilibilty/#0001-01-01](https://etrading.wordpress.com/2014/05/14/c-libs-abi-compatilibilty/#0001-01-01)
 - en: C++ libs & ABI compatilibilty
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: C++库和ABI兼容性
 - en: May 14, 2014
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '`2014年5月14日`'
 - en: When you’re building a server product that will support C++ APIs you need to
     consider your ABI – the binary interface. Typically, C++ APIs are distributed
     as headers and libs. If the functions your API exports include parameters that
@@ -35,49 +51,71 @@
     products, tend not to distribute source. So how to avoid forcing dependencies
     on API client code? I went searching for some resources, and found two especially
     good ones I had to flag.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你构建一个将支持C++ API的服务器产品时，你需要考虑你的ABI——二进制接口。通常，C++ API被分发为头文件和库文件。如果你的API导出的函数包括使用std::string等参数，你立即就会遇到问题，因为你要求客户端代码使用与你相同的STL实现来构建库。如果客户端代码有源代码访问权限，并且可以重新构建，则这没问题。但是商业的专有产品通常不会分发源代码。那么如何避免强制API客户端代码依赖？我搜索了一些资源，找到了两个特别好的资源我不得不标记出来。
 - en: 'Here’s  [Thiago Macieira on binary compatibility](http://events.linuxfoundation.org/sites/events/files/slides/Binary_Compatibility_for_library_devs.pdf):
     an excellent presentation with guidelines for library authors. Here’s a summary
     of Thiago’s recommendations…'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是[Thiago Macieira关于二进制兼容性的演示](http://events.linuxfoundation.org/sites/events/files/slides/Binary_Compatibility_for_library_devs.pdf)：一个提供了库作者指南的优秀演示。这是Thiago建议的摘要...
 - en: Use pimpl idiom to hide object size
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用pimpl习惯隐藏对象大小
 - en: Use plain old data types in function signatures
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在函数签名中使用普通的旧数据类型
 - en: Don’t hand out ptrs or refs to internals
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 不要传递指针或引用给内部对象
 - en: No inline funcs
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 不要内联函数
 - en: All classes need one non inline virtual; probably the dtor
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 所有的类都需要一个非内联虚拟函数；可能是析构函数
 - en: Avoid virtuals in template classes
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 避免在模板类中使用虚拟函数
 - en: Do not reorder or remove public members, or change access levels
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 不要重新排序或删除公共成员，或更改访问级别
 - en: 2 means no STL or Boost types in function parameters. I’ll address 6 by avoiding
     templates in my API.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '`2` 表示函数参数中不使用STL或Boost类型。我将通过避免在API中使用模板来解决问题 `6`。'
 - en: '[This article](http://www.agner.org/optimize/calling_conventions.pdf) by [Agner
     Fog](http://www.agner.org) is a superb detailed survey of data sizes & alignments,
      stack alignment, call conventions for register usage and parameter handling,
     name mangling schemes and object file formats inc COFF for all the major x86 &
     x64 OSes and C++ compilers. Strongly recommended.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这篇文章](http://www.agner.org/optimize/calling_conventions.pdf)是由[Agner Fog](http://www.agner.org)撰写的，它是对数据大小和对齐方式的细致调查，堆栈对齐，寄存器使用和参数处理的调用约定，名称混淆方案以及所有主要x86和x64操作系统和C++编译器的COFF对象文件格式的调查。强烈推荐。'
