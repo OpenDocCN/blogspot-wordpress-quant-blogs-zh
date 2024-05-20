@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:45:09'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:45:09
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Backtesting with Short positions | Systematic Investor
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用空头策略进行回测 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01)
 - en: I want to illustrate Backtesting with Short positions using an interesting strategy
     introduced by [Woodshedder](http://ibankcoin.com/woodshedderblog/author/woodshedder/)
     in the [Simple, Long-Term Indicator Near to Giving Short Signal](http://ibankcoin.com/woodshedderblog/2011/08/28/simple-long-term-indicator-near-to-giving-short-signal/)
@@ -33,28 +39,37 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想说明使用 [Woodshedder](http://ibankcoin.com/woodshedderblog/author/woodshedder/)
+    在 [Simple, Long-Term Indicator Near to Giving Short Signal](http://ibankcoin.com/woodshedderblog/2011/08/28/simple-long-term-indicator-near-to-giving-short-signal/)
+    文章中介绍的一种有趣策略进行空头回测。这个策略也在 MarketSci 的 [Woodshedder’s Long-Term Indicator](http://marketsci.wordpress.com/2011/10/04/woodshedders-long-term-indicator/)
+    文章中进行了详细分析。
 - en: 'The strategy uses the 5 day rate of change (ROC5) and the 252 day rate of change
     (ROC252):'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 该策略使用了5天变化率（ROC5）和252天变化率（ROC252）：
 - en: Buy (or cover short) at the close if yesterday the ROC252 crossed above the
     ROC5 and today the ROC252 is still above the ROC5.
   id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果昨天的 ROC252 上穿 ROC5，并且今天的 ROC252 仍然高于 ROC5，则在收盘时买入（或平空仓）。
 - en: Sell (or open short) at the close if yesterday the ROC5 crossed above the ROC252
     and today the ROC5 is still above the ROC252.
   id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果昨天的 ROC5 上穿 ROC252，并且今天的 ROC5 仍然高于 ROC252，则在收盘时卖出（或开空仓）。
 - en: 'Following is a sample code to implement this strategy using the backtesting
     library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是使用 [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    中的回测库实现此策略的示例代码：
 - en: '[PRE0]'
   id: totrans-11
   prefs: []
@@ -64,14 +79,17 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/955d35d28ae9b106368dc782c36f35d6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small10.png)'
 - en: '[![](img/1fefb4667dbfed4522d4880e17f4c713.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small9.png)'
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1fefb4667dbfed4522d4880e17f4c713.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small9.png)'
 - en: '[![](img/7036b5f042dd1b5c68e2f808de638b4a.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small7.png)'
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7036b5f042dd1b5c68e2f808de638b4a.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small7.png)'
 - en: A quick comparison between the equity curve of the ROC strategy and the equity
     curve shown by Woodshedder reveals a significant discrepancy. The ROC strategy’s
     equity curve peaked in 2008-2009, while the equity curve shown by Woodshedder
@@ -80,59 +98,73 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 对比 ROC 策略的资产曲线和 Woodshedder 显示的资产曲线，可以快速发现有显著差异。ROC 策略的资产曲线在 2008-2009 年达到峰值，而
+    Woodshedder 显示的资产曲线在 2011 年达到峰值。我在 Amibroker 中重新创建了这个策略，并得到了与 Woodshedder 报告的结果相似的结果。那么问题出在哪里呢？
 - en: 'The problem lies in a way the backtest is created, I used weights, not shares
     to create the backtest. Let’s compare the backtest performance using weights or
     shares of the **long-only** strategy when prices rise 10% each period:'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题出在创建回测的方式上，我使用的是权重，而不是股票来创建回测。让我们比较当每个时期价格上涨10％时，使用权重或股票的**多头策略**的回测表现：
 - en: '| P0 | P1 | P2 |'
   id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| P0 | P1 | P2 |'
 - en: '| 100 | 110 | 121 |'
   id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| 100 | 110 | 121 |'
 - en: '|  | R1 | R2 |'
   id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '|  | R1 | R2 |'
 - en: '|  | 10% | 10% |'
   id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '|  | 10% | 10% |'
 - en: The total return using one share, [(one share) * P2] / 100 – 1 = 21% and the
     total return using weights, (1+R1)(1+R2) – 1 = 21%, are identical.
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用一份股票的总回报，[(一份股票) * P2] / 100 – 1 = 21％，使用权重的总回报，(1+R1)(1+R2) – 1 = 21％，完全相同。
 - en: 'Consider the performance using weights or shares of the **short-only** strategy
     when prices fall 10% each period:'
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑每个时期价格下跌10％时使用**空头策略**的表现：
 - en: '| P0 | P1 | P2 |'
   id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| P0 | P1 | P2 |'
 - en: '| 100 | 90 | 81 |'
   id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| 100 | 90 | 81 |'
 - en: '|  | R1 | R2 |'
   id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '|  | R1 | R2 |'
 - en: '|  | -10% | -10% |'
   id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: '|  | -10% | -10% |'
 - en: The total return using one share, [200 – (one share) * P2] / 100 – 1 = 19% and
     the total return using weights, (1+R1)(1+R2) – 1 = 21%, are different.
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用一份股票的总回报，[200 – (一份股票) * P2] / 100 – 1 = 19％，使用权重的总回报，(1+R1)(1+R2) – 1 = 21％，不同。
 - en: The difference arises because in period 1, prices have dropped 10% and hence
     we have $10 additional dollars to invest. So if the proceeds are reinvested, the
     portfolio value in period 0 is $100, in period 1 is $110 = 1.1 * $100, in period
