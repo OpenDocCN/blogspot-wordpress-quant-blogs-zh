@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 17:57:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:57:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Shrinkage | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应收缩 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/24/adaptive-shrinkage/#0001-01-01)
 - en: The covariance matrix can be quite tricky to model accurately due to the [curse
     of dimensionality](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/
     "Random Subspace Optimization (RSO)"). One approach to improving estimation is
@@ -27,19 +39,30 @@
     summer, the temperature in many states is likely to be 80 degrees and that you
     will blend your weather forecast estimate with this baseline number in some proportion
     to reduce forecast error.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于[维度灾难](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/
+    "随机子空间优化（RSO）")，协方差矩阵可能很难准确建模。改善估计的一种方法是使用“收缩”到一个结构良好的估计量。总体思想是，逻辑/理论估计量和样本估计量之间的折衷会产生比任何一种方法都更好的结果。这类似于说，在夏天，许多州的温度可能是80度，你将以某种比例将你的天气预报估计与这个基线数字混合，以减少预测误差。
 - en: 'Here are two good articles worth reading as a primer:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是两篇值得一读的好文章：
 - en: '[honey i shrunk the sample covariance matrix](https://cssanalytics.files.wordpress.com/2013/10/honey-i-shrunk-the-sample-covariance-matrix.pdf)–
     Ledoit/Wolf'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[缩小样本协方差矩阵](https://cssanalytics.files.wordpress.com/2013/10/honey-i-shrunk-the-sample-covariance-matrix.pdf)–
+    Ledoit/Wolf'
 - en: '[shrinkage-simpler is better](https://cssanalytics.files.wordpress.com/2013/10/shrinkage-simpler-is-better.pdf) 
     – Benninga'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[收缩-简单即是美](https://cssanalytics.files.wordpress.com/2013/10/shrinkage-simpler-is-better.pdf) 
+    – Benninga'
 - en: 'Michael Kapler of [Systematic Investor](http://systematicinvestor.wordpress.com/) and
     I tested a wide variety of different shrinkage approaches at the beginning of
     the year on numerous datasets. Michael is perhaps the most talented and experienced
@@ -53,8 +76,11 @@
     models (spreadsheet to follow in the next post) 2) Adaptive Shrinkage:  this chooses
     the “best” model from a number of different shrinkage models based on the version
     that delivered the best historical sharpe ratio for minimum variance allocation.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[系统性投资者](http://systematicinvestor.wordpress.com/)的Michael Kapler和我在年初对许多数据集测试了各种不同的收缩方法。Michael可能是我曾经合作过的最有才华和经验丰富的人（无论是从量化还是编程的角度），与他合作总是一种乐趣。研究中产生了两个有趣的想法：1）平均相关性收缩模型（ACS）：每种资产与所有其他资产之间的相关性，如[最小相关性算法](https://cssanalytics.wordpress.com/2012/09/27/minimum-correlation-implementation-in-excel/
+    "最小相关性：在Excel中的实现")中所用的，是一个逻辑的收缩模型，产生了非常有竞争力的表现，并且比大多数其他模型更简单实现（电子表格将在下一篇文章中发布）2）自适应收缩：根据交付最低方差分配的历史夏普比率最好的版本，从许多不同的收缩模型中选择“最佳”模型。'
 - en: 'Adaptive Shrinkage makes a lot of sense since the appropriate shrinkage estimator
     to use is different depending on the composition of the asset universe. For example
     a universe with one bond and fifty stocks will perform better with a different
@@ -72,60 +98,97 @@
     with maximum sharpe ratio.  Here are some of the different shrinkage estimators
     that we tested. Note that “Average David” refers to the ACS/Average Correlation
     Shrinkage:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 自适应收缩在很多情况下都是合理的，因为要使用的适当收缩估计量取决于资产组合的构成。例如，一个有一份债券和五十支股票的资产组合将使用不同的收缩估计器比一个完全由股票或多种不同资产类别组成的资产组合表现更好。此外，可能有一个模型是由不同估计器组合而成的，例如，该模型始终表现比其他模型更好。在我们的测试中，我们选择将成功定义为通过最小化方差获得的样本外夏普比率。这比最小化波动性更有意义——在文献中经常用于评估不同的收缩方法。更高的夏普比率意味着你可以通过将一部分投资组合持有现金来实现比样本最小方差更低的波动性
+    (假设波动性确实更高)。然而，自适应收缩的目标函数可以是任何你想实现的东西——例如最小换手率也可能是一个目标，或者最小换手率与最大夏普比率的某种组合。以下是我们测试的一些不同的收缩估计器。注意，“Average
+    David” 指的是 ACS/平均相关性收缩：
 - en: '**S = sample covariance matrix (no shrinkage)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**S = 样本协方差矩阵 (无收缩)'
 - en: '* A50= 50% average.david + 50% sample**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '* A50= 50% 平均 . 大卫 + 50% 样本'
 - en: '*** S_SA_A= 1/3*[average + sample + sample.anchored] **'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '*** S_SA_A= 1/3*[平均 + 样本 + 锚定样本] '
 - en: '*** A_S= average.david and sample using Ledoit and Wolf math'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*** A_S= 平均 . 大卫 和 采用 Ledoit 和 Wolf 数学的样本'
 - en: '* D_S= diagonal and sample using Ledoit and Wolf math'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '* D_S= 对角线 和 采用 Ledoit 和 Wolf 数学的样本'
 - en: '* CC_S=constant correlation and sample using Ledoit and Wolf math'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '* CC_S= 常相关 和 采用 Ledoit 和 Wolf 数学的样本'
 - en: '* SI_S= single index  and sample using Ledoit and Wolf math'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '* SI_S= 单一指数 和 采用 Ledoit 和 Wolf 数学的样本'
 - en: '* SI2_S=two.parameter covariance matrix  and sample using Ledoit and Wolf math'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '* SI2_S= 二参数协方差矩阵 和 采用 Ledoit 和 Wolf 数学的样本'
 - en: '* AVG_S= average and sample using Ledoit and Wolf math, where average = 1/5
     * (average.david + diagonal + constant correlation + single index + two.parameter
     covariance matrix)**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '* AVG_S= 平均 和 采用 Ledoit 和 Wolf 数学的样本，其中 平均 = 1/5 * (平均 . 大卫 + 对角线 + 常相关 + 单一指数
+    + 二参数协方差矩阵)'
 - en: '*** A= average.david'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*** A= 平均 . 大卫'
 - en: '* D= diagonal'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '* D= 对角线'
 - en: '* CC=constant correlation'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '* CC= 常相关'
 - en: '* SI= single index'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '* SI= 单一指数'
 - en: '* SI2=two.parameter covariance matrix'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '* SI2= 二参数协方差矩阵'
 - en: '* AVG= average = 1/5 * (average.david + diagonal + constant correlation + single
     index + two.parameter covariance matrix)**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '* AVG= 平均 = 1/5 * (平均 . 大卫 + 对角线 + 常相关 + 单一指数 + 二参数协方差矩阵)'
 - en: '* **Best Sharpe=Adaptive Shrinkage -invest all capital into the method (S or
     SA or A) that has the best sharpe ratio over the last 252 days**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '* **最佳夏普= 自适应收缩 - 将所有资本投资于过去 252 天内具有最佳夏普比率的方法 (S 或 SA 或 A)**'
 - en: We used a 60-day parameter to compute the variance/covariance matrix, and 252
     days as a lookback to find the shrinkage method with the best sharpe ratio. The
     report/results can be found here: [all60 comprehensive](https://cssanalytics.files.wordpress.com/2013/10/all60-comprehensive.pdf).
@@ -140,5 +203,7 @@
     in these tests. Finally, the Average Correlation Shrinkage Model is very competitive
     if not superior to most estimators and it delivers lower turnover as well. This
     is true of many of the different variants that use the ACS.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们使用了一个60天的参数来计算方差/协方差矩阵，以及252天的回溯期来找到具有最佳夏普比率的缩小方法。报告/结果可以在这里找到：[all60 comprehensive](https://cssanalytics.files.wordpress.com/2013/10/all60-comprehensive.pdf)。有趣的是，自适应缩小/最佳夏普几乎在所有数据集上产生了最高的夏普比率。这表明了一种有前景的方法，可以潜在地改进标准的缩小方法，并且消除了确定最佳模型用作基本估计器的需要。读者可以从这份广泛的报告结果中得出自己的结论。我会总结说，大多数缩小估计器产生类似的性能，并且估计器的组合似乎比单个估计器表现更好。在这些测试中，缩小并没有与仅使用样本估计器相比实现实质性的性能改进。最后，平均相关缩小模型在性能上非常有竞争力，如果不是优于大多数估计器，并且它还提供更低的换手率。许多使用ACS的不同变体都是如此。
