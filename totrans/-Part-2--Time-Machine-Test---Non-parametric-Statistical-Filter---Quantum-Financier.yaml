@@ -1,37 +1,57 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:03:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:03:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: (Part 2) Time Machine Test – Non-parametric Statistical Filter – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: (第二部分) 时间机器测试 – 非参数统计过滤器 – 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/11/part-2-time-machine-test-%e2%80%93-non-parametric-statistical-filter/#0001-01-01)
 - en: 'As promised yesterday, I tried a small change to the original “time machine”
     strategy first introduced by CSS Analytics. Now if you still have not, please
     go read these background articles on statistical filters and their importance
     in a trade system:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如昨日所承诺，我对CSS Analytics最初提出的“时间机器”策略进行了微调。若你尚未阅读，请务必查阅这些关于统计过滤器及其在交易系统中重要性的背景文章：
 - en: '– [The Adaptive Time Machine: The Importance of Statistical Filters](http://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/)
     – CSS Analytics'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: – [自适应时间机器：统计过滤器的重要性](http://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/)
+    – CSS Analytics
 - en: – [Transactional vs Confidence-based Trading Strategies](http://marketsci.wordpress.com/2009/04/01/transactional-vs-confidence-based-trading-strategies/)
     – MarketSci
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: – [交易型与基于信心的交易策略](http://marketsci.wordpress.com/2009/04/01/transactional-vs-confidence-based-trading-strategies/)
+    – MarketSci
 - en: 'In yesterday’s post, I used the student t-test approach to filter the significance
     of every of the 50 strategies the algorithm can choose from. As you may know,
     the Student’s t-distribution used to estimate the mean of a *normally distributed
@@ -41,26 +61,38 @@
     regarding the distribution of the underlying and therefore can be more robust,
     thus making a prime choice for the “Time Machine” algorithm. More reading on Wilcoxon
     signed-rank test can be found here: [http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test](http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在昨天的帖子中，我采用了学生t检验方法来过滤算法可选择的50种策略的重要性。你可能知道，学生t分布用于估计*正态分布总体*的均值。这种对分布的假设与市场抛给我们的肥尾回报相矛盾。为了放宽正态性假设，可以使用非参数统计检验。非参数统计对基础分布的假设较少，因此可能更稳健，这使得它成为“时间机器”算法的理想选择。更多关于Wilcoxon符号秩检验的阅读，请访问：[http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test](http://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)。
 - en: For this test, I used the Wilcoxon signed-rank test instead of the Student’s
     t-test to establish the significance of strategies. The results below are for
     the strategy using a 95% significance filter on the S&P 500.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于此次测试，我采用了Wilcoxon符号秩检验而非学生t检验来确定策略的重要性。以下结果是针对使用95%显著性过滤器的S&P 500策略。
 - en: '[![](img/d5304d9492aeaa27eebbd930e895cef3.png "Time Machine Test Wilcox - GSPC")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-gspc.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d5304d9492aeaa27eebbd930e895cef3.png "时间机器测试Wilcox - GSPC")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-gspc.png)'
 - en: '[![](img/6e79a84a117b535b9dea6cf1a6f7ec4b.png "Time Machine Test Wilcox - Results")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-results.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6e79a84a117b535b9dea6cf1a6f7ec4b.png "时间机器测试Wilcox - 结果")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/time-machine-test-wilcox-results.png)'
 - en: The results obtained are not very different from the previous one. It is interesting
     to see that the maximum drawdown is smaller when using the Wilcoxon test. This
     is probably caused by the increased robustness of the statistical test. For the
     time being I will keep testing the algorithm on different equity indices and asset
     class stay tuned.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 所得结果与之前相比并无太大差异。有趣的是，使用Wilcoxon检验时最大回撤更小，这可能归因于统计检验的增强稳健性。目前我将继续在不同的股票指数和资产类别上测试该算法，敬请关注。
 - en: QF
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: QF
