@@ -1,77 +1,113 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:38:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:38:30'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Decision Tree Learning | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 决策树学习 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/11/01/decision-tree-learning/#0001-01-01)
 - en: November 1, 2009 · 8:33 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年11月1日 · 下午8:33
 - en: Some time ago began using bayesian networks (decision trees with conditional
     relationships) to boost signal for strategies, the idea being that a combination
     of related observations can be combined conditionally to provide a posterior conclusion
     with a higher degree of confidence.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 不久之前，我开始使用贝叶斯网络（带有条件关系的决策树）来提升策略的信号，其想法是相关观察的组合可以以条件方式结合，以提供更高程度的后验结论。
 - en: 'In the context of trading our bayesian network tells us:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在交易的背景下，我们的贝叶斯网络告诉我们：
 - en: given the coincident set of events should we trade and if so, in what direction
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 鉴于事件的一致集合，我们应该进行交易吗？如果是，应该朝着什么方向？
 - en: with what degree of confidence
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: with what degree of confidence
 - en: My approach up until now had been to carefully construct the relationships.
      It requires painstaking research and a lot of trial and error.   Why not use
     an algorithm to assemble / find relationships, and classify data.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我到目前为止的方法是仔细构建关系。这需要大量的研究和大量的试错。为什么不使用算法来组装/找到关系，并对数据进行分类呢？
 - en: '**General Approaches**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**一般方法**'
 - en: The more general decision tree algorithms allow me to present many factors (even
     with high dimension), determine which factors have the highest degree of information
     relative to our classification targets (buy, sell, don’t-trade), and formulate
     a classification or regression that models this.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 更一般的决策树算法允许我呈现许多因素（即使维度很高），确定哪些因素相对于我们的分类目标（买入、卖出、不交易）具有最高程度的信息，并制定一个分类或回归模型来建模这些因素。
 - en: Key to the assembly on the tree are measures taken from information theory.
      We want to make arrangements in the tree such that the “entropy” of the tree
     is minimized or in other words information is maximized.   This is often calculated
     with a discrete form of the [Kullback-Leibler divergence metric](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 决策树组装的关键是来自信息论的措施。我们希望通过树中的安排使树的“熵”最小化，换句话说，信息最大化。这通常使用[Kullback-Leibler散度度量](http://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence)的离散形式计算。
 - en: '**Algorithm**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**算法**'
 - en: In particular the “[Random Forest](http://en.wikipedia.org/wiki/Random_forest)”
     approach is quite appealing.   Multiple decision trees are constructed against
     training subsets drawn randomly from a larger training set.   These ultimately
     produce many variations on the “true” model.   The approximation to the true model
     is made by observing the mode (similar to a robust mean / expectation) across
     the random trees.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是“[随机森林](http://en.wikipedia.org/wiki/Random_forest)”方法相当吸引人。从较大的训练集中随机选择训练子集构建多个决策树。最终，这些树将产生“真实”模型的许多变体。通过观察随机树之间的模态（类似于强健均值/期望）来近似真实模型。
 - en: Taking advantage of the classification ability of the algorithm is going to
     allow me to try many new inputs in my strategies without the huge research overhead
     and without the near-intractable multivariate optimization required in other approaches.
       I’ll post some results on this soon.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 利用算法的分类能力将使我能够在我的策略中尝试许多新的输入，而不需要进行大量的研究工作，也不需要在其他方法中需要近乎难以解决的多变量优化。很快我会发布一些结果。
