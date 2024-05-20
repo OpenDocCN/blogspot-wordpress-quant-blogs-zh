@@ -1,91 +1,135 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 13:47:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 13:47:42'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Exploratory Hedge Analysis | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 探索性对冲分析 | 量化
 - en: 来源：[https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01](https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01](https://quantivity.wordpress.com/2011/10/22/exploratory-proxy-cross-hedge-analysis/#0001-01-01)
 - en: Previous posts on empirical [quantiles](https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection)
     and [copulas](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk/)
     for [proxy / cross hedge](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging)
     illustrate the potential insight from graphical visualization. This post continues
     the theme, illustrating *exploratory data analysis for proxy hedging* using classical
     statistical techniques.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于实证[分位数](https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection)和[库普拉](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk/)的先前帖子对[代理
+    / 交叉对冲](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging)进行了图形可视化的潜在见解。本文延续了这一主题，使用经典统计技术说明了*代理对冲的探索性数据分析*。
 - en: In a world awash with symbolic models, there is ample room for graphical exploratory
     analysis in finance—as the fine texture of the real world differs from both mathematical
     formalisms and standard mental models. Indeed, alpha hides in the *divergence*
     between model and reality.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个充斥着象征性模型的世界中，在金融领域有充分的空间进行图形探索性分析，因为现实世界的细微纹理与数学形式主义和标准心理模型都不同。实际上，α 值隐藏在模型和现实之间的*分歧*中。
 - en: 'Statistician [John Tukey](http://en.wikipedia.org/wiki/John_Tukey) is one of
     the most well-known advocates of [exploratory data analysis](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis),
     captured in his 1977 [book](http://books.google.com/books?id=UT9dAAAAIAAJ&q) of
     the same title. Tukey nicely captures the essence of exploratory analysis in the
     opening chapter of his book (p. 1):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 统计学家[约翰·图基](http://en.wikipedia.org/wiki/John_Tukey)是最著名的[探索性数据分析](http://en.wikipedia.org/wiki/Exploratory_Data_Analysis)倡导者之一，他在
+    1977 年的[同名书籍](http://books.google.com/books?id=UT9dAAAAIAAJ&q)中对此进行了描述。图基在他的书的开篇章中很好地捕捉了探索性分析的本质（第
+    1 页）：
 - en: Exploratory data analysis is detective work–numerical detective work–or counting
     detective work–or graphical detective work.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 探索性数据分析是侦探工作——数值侦探工作——或计数侦探工作——或图形侦探工作。
 - en: 'This post illustrates graphical exploratory analysis, using R, specifically
     for the proxy hedging of previous posts: well-known tech company and QQQ. Although
     focused on a particular stock, these analysis techniques are *applicable to other
     equities and higher frequencies*.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文说明了使用 R 进行图形探索分析，特别是针对之前帖子中的代理对冲：知名科技公司和 QQQ。虽然专注于特定股票，但这些分析技术*适用于其他股票和更高频率*。
 - en: 'Begin with scatters for daily prices and returns sampled over the previous
     5 years, overlaid with fitted OLS and dispersion ellipsoids:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 从过去 5 年的每日价格和收益率的散点图开始，重叠了适配的 OLS 和离散度椭圆图：
 - en: '[![](img/584dae921989570e8daa03a183540a29.png "explore-proxy-scatters")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-scatters1.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/584dae921989570e8daa03a183540a29.png "explore-proxy-scatters")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-scatters1.png)'
 - en: Top left plot illustrates several distinct price regimes. Top right plot illustrates
     ample returns well outside the dispersion ellipsoids, consistent with previous
     posts. Bottom left plot illustrates returns split by sign, demonstrating divergence
     in fit between positive and non-negative returns. Bottom right plot illustrates
     divergence between returns under and over 0.5 standard deviations, whose fit is
     quite similar.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 左上图说明了几个不同的价格模式。右上图说明了大量收益率远超离散度椭圆图，与之前的帖子一致。左下图说明了按符号拆分的收益率，展示了正收益和非负收益之间拟合的分歧。右下图说明了收益率在
+    0.5 标准差以上和以下的分歧，其拟合非常相似。
 - en: 'Next, lag scatters for CRM:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，对 CRM 的滞后散点图：
 - en: '[![](img/b6901992491af557f94494e5ff919cab.png "explore-crm-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-crm-return-lags.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b6901992491af557f94494e5ff919cab.png "explore-crm-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-crm-return-lags.png)'
 - en: 'Illustrating moderately non-spherical returns in the tails at all lags, consistent
     with the quantiles discussed in previous post. QQQ exhibits similar non-spherical
     lag returns, although the shape is not consistent with CRM:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 描述了在所有滞后期间尾部呈现出适度非球形回报，与之前帖子中讨论的分位数一致。QQQ表现出类似的非球形滞后回报，尽管形状与CRM不一致：
 - en: '[![](img/10f38a54f4934de0324138d80925ae9a.png "explore-qqq-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-qqq-return-lags.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/10f38a54f4934de0324138d80925ae9a.png "explore-qqq-return-lags")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-qqq-return-lags.png)'
 - en: 'To understand return dynamics in more depth, the following plots consider empirical
     density, absolute cross-correlation, difference ratios, and discrete rate of change:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了更深入地了解收益动态，以下图表考虑了经验密度、绝对交叉相关性、差异比率和离散变化率：
 - en: '[![Exploratory Proxy Returns](img/55a2d3ce81974e4dae03ba90483ccc92.png "explore-proxy-returns")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-returns1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![探索性代理回报](img/55a2d3ce81974e4dae03ba90483ccc92.png "explore-proxy-returns")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-returns1.png)'
 - en: Top left plot is textbook-style illustration of comparative *excess kurtosis*,
     with CRM return tails going out to +/- 10%. Cross correlation in top right plot
     exemplifies both forward and backward linear dependence for absolute returns,
@@ -97,16 +141,22 @@
     is quite remarkable. Finally, bottom right plot illustrating return ROC further
     juxtaposes the comparison, as the ROC of both CRM and QQQ was dramatically higher
     in 2008 than 2010.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 左上角的图是比较*过度峰度*的教科书风格插图，其中CRM回报尾部延伸至+/- 10%。右上角图中的交叉相关性展示了绝对回报的前向和后向线性依赖，与前文关于自回归估计的帖子一致。左下角的差异比率图说明了经验性贝塔范围从1到*几百*，无论是日度、周度还是月度测量回报都是如此——*这证实了使用线性工具进行代理套期保值的困难性*。这些比率提供了第一个证据，即2010年末也许对这对货币甚至比2008年更异常，这相当引人注目。最后，右下角插图说明了回报ROC的进一步对比，因为CRM和QQQ的ROC在2008年比2010年要高得多。
 - en: 'Finally, visualize the *rolling* proxy variance ratio (not to be confused with
     the standard statistical variance ratio, explored below) and correlation over
     the sample period with different durations:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，可视化*滚动*代理方差比率（不要与下面探讨的标准统计方差比率混淆）和样本期间不同持续时间的相关性：
 - en: '[![Rolling Exploratory Proxy](img/6602a8f129fb6e6044a6a55db9be24a7.png "explore-proxy-rolling")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-rolling.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![滚动探索性代理](img/6602a8f129fb6e6044a6a55db9be24a7.png "explore-proxy-rolling")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-rolling.png)'
 - en: 'Perhaps most interesting is the top plot which exemplifies that variance ratios
     (VR) for all roll durations are maximized over the 12 months beginning in August
     2010\. Contrast those ratios with the *nearly flat VR, at all durations, during
@@ -114,8 +164,10 @@
     this comparative behavior, illustrating that proxy correlation behaved inversely
     during these two periods: correlation was maximized during the finance crisis
     and minimized during 2010/2011.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 或许最有趣的是顶部图表，它例示了所有滚动期间方差比率（VR）在2010年8月开始的12个月内均达到最大值。将这些比率与*金融危机期间几乎平坦的各种持续时间的VR对比一下*。底部图表提供了这种比较行为的一个维度洞见，说明了在这两个时期代理相关性的反向行为：相关性在金融危机期间最大化，在2010/2011年最小化。
 - en: 'Another interesting effect illustrated by both plots is *temporal scaling behavior*:
     correlation exhibits *monotonic smoothing* as lag window increases (conceptually
     similar to low-pass filtering), as exemplified by correlation progressive decreasing
@@ -123,30 +175,47 @@
     contrast, the roll variance ratio exhibits no such scaling (monotonic or not).
     For example, early 2007 exhibits 60-day VR *exceedingly* all period periods. Similarly,
     the monthly VR frequently exceeds the biweekly VR.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 两个图表都展示了另一个有趣的效应，即*时间尺度行为*：随着滞后窗口的增加，相关性呈现*单调平滑*（概念上类似于低通滤波）的现象，正如相关性随着黑色（每日）、红色（双周）、蓝色（每月）和绿色（每季度）而逐渐减小。相比之下，滚动方差比率没有这样的尺度（单调或非单调）效应。例如，2007年初的60天VR
+    *显著地* 超过了所有时期。类似地，每月的VR经常超过了双周的VR。
 - en: 'Finally, consider classic unstandardized variance ratios for both CRM (top
     plot) and QQQ (bottom plot), calculated using the *entire 5-year sample period*,
     which illustrates mean-reversion versus trending (due to [Lo and Mackinlay (1998)](http://press.princeton.edu/books/lo/chapt2.pdf)):'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，考虑对CRM（顶部图）和QQQ（底部图）进行经典非标准化方差比率的计算，使用*整个5年样本期间*，这说明了均值回归与趋势性（由[Lo and Mackinlay
+    (1998)](http://press.princeton.edu/books/lo/chapt2.pdf)导致）：
 - en: '[![Exploratory Proxy Variance Ratios](img/8e49c7fa21e3af614fac37e53bd89f8c.png
     "explore-proxy-vr")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-vr.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![探索性代理方差比率](img/8e49c7fa21e3af614fac37e53bd89f8c.png "explore-proxy-vr")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/explore-proxy-vr.png)'
 - en: 'Both exhibit similar qualitative behavior: strongly mean reverting for holding
     periods under 30 days, followed by weaker reverting for longer periods. Variance
     ratio analysis is worth further consideration, particularly more rich graphical
     techniques (*e.g.* [Lindemann *et al.* (2004)](http://www.ljmu.ac.uk/AFE/AFE_docs/VR_AND_REGR.PDF))
     and multivariate methods.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 两者都表现出类似的定性行为：在持有期小于30天时强烈的均值回归，随后在较长时期内回归较弱。方差比率分析值得进一步考虑，特别是更丰富的图形技术（*例如*
+    [Lindemann *et al.* (2004)](http://www.ljmu.ac.uk/AFE/AFE_docs/VR_AND_REGR.PDF)）和多变量方法。
 - en: '* * *'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'R code to generate the preceding exploratory hedge analysis:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成前述探索性对冲分析的R代码：
 - en: '[PRE0]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
