@@ -1,66 +1,101 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:28:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:28:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Bitcoin L3 Feeds: Status | Tr8dr'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 比特币 L3 数据源：状态 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2015/02/10/bitcoin-l3-feeds-status/#0001-01-01](https://tr8dr.wordpress.com/2015/02/10/bitcoin-l3-feeds-status/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2015/02/10/bitcoin-l3-feeds-status/#0001-01-01](https://tr8dr.wordpress.com/2015/02/10/bitcoin-l3-feeds-status/#0001-01-01)
 - en: February 10, 2015 · 6:49 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2015 年 2 月 10 日 · 下午 6:49
 - en: 'I have implemented 4 bitcoin exchange interfaces now that produce a live L3
     stream of orderbook updates + trades of the form:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经实现了 4 个比特币交易所接口，它们产生了一个实时的 L3 订单簿更新 + 交易流，格式如下：
 - en: '[![Screen Shot 2015-02-10 at 6.33.12 PM](img/629e9efedc97db92eb12acd07ca0d8de.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-10-at-6-33-12-pm.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Screen Shot 2015-02-10 at 6.33.12 PM](img/629e9efedc97db92eb12acd07ca0d8de.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-10-at-6-33-12-pm.png)'
 - en: 'Given the above, can reconstitute the orderbook as it moves through time, and
     can likewise be used to create BBO quotes and bars of different granularities.
       The status of the exchange implementations is:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于以上情况，可以随着时间的推移重新构建订单簿，并且同样可以用来创建不同粒度的 BBO 报价和条形图。交易所实现的状态是：
 - en: '[![Screen Shot 2015-02-10 at 6.43.40 PM](img/51ec35b3d2d84a4e7b842edbfcbacc8e.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-10-at-6-43-40-pm.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Screen Shot 2015-02-10 at 6.43.40 PM](img/51ec35b3d2d84a4e7b842edbfcbacc8e.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-10-at-6-43-40-pm.png)'
 - en: I am looking to run this on a remote machine (preferably linux) and write to
     an efficient hierarchical file-based tick DB format that I use for equities, FX,
     and other instruments.    Have not yet decided on a hosting service yet (welcome
     suggestions).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在寻找在远程机器上运行它（最好是 Linux），并写入我用于股票、外汇和其他工具的高效分层文件型刻度数据库格式。还没有决定使用哪个托管服务（欢迎建议）。
 - en: I am happy to share the collected data, though if becomes too burdensome, may
     need to find a way to host and serve it properly.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很乐意分享收集的数据，但如果变得过于繁琐，可能需要找到一种合适的方式来托管和提供它。
 - en: Once I get this running on a host, collecting data, want to get back to analysis
     of signals.  Will revisit new exchange implementations later.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我在主机上运行起来，收集数据，就想回到信号分析上。稍后将重新审视新的交易所实现。
 - en: '**Notes**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注释**'
 - en: '[1] Bitfinex does not yet have a streaming API, so am polling the orderbook
     on a 4sec sample and determining the net transactions between snapshots.   Though
     the orderbook is sampled, no trades are missed, as queries relative to the last
     trade seen.   Expect that will see a new exchange implementation from AlphaPoint
     sometime later this year.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Bitfinex 尚未拥有流式 API，因此我正在每 4 秒对订单簿进行抽样，并确定快照之间的净交易量。尽管订单簿是抽样的，但查询相对于上一次见到的交易。预计今年晚些时候将会看到来自
+    AlphaPoint 的新交易所实现。'
 - en: '[2] BTCChina is implemented, however their FIX responses are not providing
     the documented data, so awaiting a solution from them.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] BTCChina 已实施，但他们的 FIX 响应没有提供所记录的数据，因此正在等待他们的解决方案。'
