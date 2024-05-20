@@ -2,32 +2,39 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:50:27'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:50:27
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Combining Acceleration and Volatility into a Non-Linear Filter (NLV) | CSSA
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 将加速度和波动性结合为非线性滤波器（NLV）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01)
 - en: '[![nonlinear](img/b71823d163c53cc1aeeec1b199ce968b.png)](https://cssanalytics.files.wordpress.com/2014/12/nonlinear.png)'
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![nonlinear](img/b71823d163c53cc1aeeec1b199ce968b.png)](https://cssanalytics.files.wordpress.com/2014/12/nonlinear.png)'
 - en: 'The last two [posts](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/
     "A New (Better?) Measure of Risk and Uncertainty: The Volatility of Acceleration")
     presented a novel way of incorporating acceleration as an alternative measure
@@ -41,6 +48,8 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '最近的两个[帖子](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/
+    "A New (Better?) Measure of Risk and Uncertainty: The Volatility of Acceleration")介绍了一种将加速度作为替代风险度量的新方法。初步结果和直觉都表明，它值得考虑作为可以用于预测风险的另一种信息。虽然我提出了加速度是否比波动性更好的指标的问题，**更有用的问题应该是我们是否可以将这两者结合起来，或许比单独使用其中任何一个更好**。传统波动性显然更广泛地被使用，并且对解决传统投资组合优化至关重要。因此，它是作为基线指标的一个合乎逻辑的选择。'
 - en: Linear filters such as moving averages and regression generate output that is
     a linear function of input. Non-linear filters in contrast generate output that
     is non-linear with respect to input. An example of non-linear filter would be
@@ -53,6 +62,7 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 线性滤波器（如移动平均线和回归）生成的输出是输入的线性函数。相比之下，非线性滤波器生成的输出与输入呈非线性关系。非线性滤波器的示例包括多项式回归，甚至是简单的中值。非线性滤波器的目标是创建一种更优越的权衡数据的方式，以生成更准确的输出。通过使用非线性滤波器，可以大大减少滞后并增加响应速度。由于波动性是高度可预测的，因此我们希望尽可能地减少滞后并增加响应速度，以生成更优秀的结果。
 - en: 'So how would we create a volatility measure that incorporates acceleration?
     The answer is that we need to dynamically weight each squared deviation from the
     average as a function of the magnitude of acceleration- where greater absolute
@@ -62,26 +72,32 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么我们如何创建一个包含加速度的波动性指标呢？答案是我们需要动态地根据加速度的大小对每个数据点的偏差平方进行加权，其中更大的绝对加速度应该在每个数据点上产生指数级别的更高加权。以下是如何计算
+    10 天 NLV 的方法（不要惊慌，我将在下一篇帖子中发布一个电子表格）：
 - en: A) Calculate the rolling series of the square of the daily log returns minus
     their average return
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: A) 计算每日对数收益的平方偏差的滚动系列减去它们的平均收益
 - en: B) Calculate the rolling series of the absolute value of the first difference
     in log returns (acceleration/error)
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: B) 计算对数收益的第一差值的绝对值的滚动系列（加速度/误差）
 - en: C) Take the current day’s value using B and divide it by some optional average
     such as 20-days to get a relative value for acceleration
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: C) 使用 B 获取当天的值，并将其除以一些可选的平均值，如 20 天，以获得加速度的相对值。
 - en: D) Raise C to the exponent of 3 or some constant of your choosing- this is the
     rolling series of relative acceleration constants
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: D) 将 C 提升至 3 次方或您选择的某个常数- 这是相对加速度常数的滚动系列
 - en: E) Weight each daily value in A by the current day’s D value divided by the
     sum of D values over the last 10 days-
   id: totrans-14
