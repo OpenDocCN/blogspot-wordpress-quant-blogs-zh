@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:02:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:02:33'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Basic Introduction to GARCH and EGARCH (part 2) – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: GARCH 和 EGARCH 的基本介绍（第 2 部分） - 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/09/14/basic-introduction-to-garch-and-egarch-part-2/#0001-01-01](https://quantumfinancier.wordpress.com/2010/09/14/basic-introduction-to-garch-and-egarch-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/09/14/basic-introduction-to-garch-and-egarch-part-2/#0001-01-01](https://quantumfinancier.wordpress.com/2010/09/14/basic-introduction-to-garch-and-egarch-part-2/#0001-01-01)
 - en: 'As promised in last post, we will look at a popular implementation of the GARCH(1,1)
     model: the value-at-risk. I chose this implementation because it is used quite
     often in academic literature and for its educational purpose. The value-at-risk,
@@ -27,8 +39,11 @@
     loss suffered 1 percent of the time for the portfolio. A quick word of caution;
     it is only yet another risk measure for you to take in consideration when making
     investments decisions.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如上一篇文章所承诺的，我们将看一下 GARCH(1,1) 模型的一个流行实现：风险价值。我选择了这个实现，因为它在学术文献中经常被使用，且具有教育目的。风险价值，也简称
+    VaR，是一个投资组合风险的度量。简而言之，1% 的风险价值被定义为统计上有 99% 的把握超过明天任何损失的美元数，或者是投资组合中 1% 的时间内遭受的损失。需要快速提醒的是；这仅仅是在您做出投资决策时需要考虑的另一个风险度量。
 - en: For this example, let us rememorize the good ol’ days (not that good) of the
     recent crisis and test the concept using GARCH and VaR step by step. We will look
     at the VaR of a $1,000,000 portfolio of 70% stocks (SPY) and 30% bonds (AGG) for
@@ -37,21 +52,31 @@
     know it was a volatile period of great fear in the market. Then we will look at
     the VaR’s performance using the constructed GARCH model in the midst of the crisis
     for our out-of-sample period from 2008-10-06 to the end of 2009.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于这个例子，让我们回忆一下（不那么美好的）最近的危机时期，并逐步使用 GARCH 和 VaR 测试该概念。我们将查看一份由 70% 股票（SPY）和
+    30% 债券（AGG）组成的 1,000,000 美元投资组合的 VaR，样本期限为从 AGG 成立的 2003-09-27 到黑色星期之前的一天 2008-10-05。这个日期是由我亲自选择的，因为我知道这是市场上极度恐慌的波动期。然后，我们将查看在危机期间使用构建的
+    GARCH 模型的 VaR 性能，样本外期限为从 2008-10-06 到 2009 年底。
 - en: First we construct the portfolio, see below the numbers for each individual
     component and the portfolio in the last column.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们构建投资组合，下面是每个单独组成部分的数字以及最后一列中的投资组合。
 - en: '[![](img/7d86c0d208b3af91f457ca125aecf90f.png "garchVaR.table1")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-table1.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7d86c0d208b3af91f457ca125aecf90f.png "garchVaR.table1")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-table1.png)'
 - en: From the standard deviation in the table, we see that SPY is far more volatile
     than AGG. Also note the very fat tail of SPY (normal value is 3). Finally, the
     negative skewness indicates that the left tail (negative returns) is longer, translating
     into more extreme losses.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 从表中的标准偏差可以看出，SPY 比 AGG 更加波动。还请注意 SPY 的尾部非常厚（正常值为 3）。最后，负偏度表明左尾（负回报）更长，这意味着更极端的损失。
 - en: Next, we look for the presence of an ARCH effect. We fit an ARCH model of order
     1 to our sample of portfolio returns, than we compute the squared residuals. From
     the 15 lags autocorrelation values, we see that there seems to be a significant
@@ -61,8 +86,12 @@
     significance of the ARCH effect using a Ljung box test resulting in a ![\chi^2](img/486157f18ff756830d49d49434de9488.png)
     statistic of 179.4636, significant at the .05 confidence level. We are now statistically
     confident in the presence of ARCH effect in our data.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们寻找 ARCH 效应的存在。我们对投资组合回报样本拟合了一个阶数为 1 的 ARCH 模型，然后计算了残差的平方。从 15 个滞后自相关值中，我们看到我们的残差的自相关似乎存在显著的自相关效应（除了第一个值为正且相当高之外）。但是，作为纪律严明的投资者，我们并不总是相信我们得到的第一个数字。因此，我们将使用
+    Ljung Box 检验测试 ARCH 效应的显著性，其结果是 ![χ^2](img/486157f18ff756830d49d49434de9488.png)
+    统计量为 179.4636，在 0.05 的置信水平下显著。我们现在在我们的数据中统计上确信 ARCH 效应的存在。
 - en: At this point we are ready to fit our GARCH(1,1) model once we are done, we
     get the following coefficients ![\omega](img/31be2a82f5850c4b8d4e2955224eeb04.png)
     = 4.604e-06, ![\alpha](img/f5fb76ec52c44f4a8e0c177dfff13a37.png) = 3.090e-01 and
@@ -77,8 +106,12 @@
     use the empirical distribution of the error observed in my model. Simply standardize
     the model residual and observe its empirical distribution to find the 1 percent
     quantile; we obtain a result of 2.619797.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们准备拟合我们的GARCH(1,1)模型，一旦完成，我们得到以下系数 ![\omega](img/31be2a82f5850c4b8d4e2955224eeb04.png)
+    = 4.604e-06, ![\alpha](img/f5fb76ec52c44f4a8e0c177dfff13a37.png) = 3.090e-01，最后
+    ![\beta](img/f9945033638559773cc6e79ca10fea7a.png) = 6.485e-01。现在我们有了模型，我们可以预测我们的标准差（波动率）。完成此步骤后，我们想要找到我们的VaR的1%分位数。我们得到了0.003995719，现在要找到我们的VaR，我们可以选择分布假设。我们可以假设它是正态分布，并将其乘以2.327，因为正态随机变量的1%位于均值以下2.327个标准偏差。现在我不喜欢这个，因为当处理金融数据时，我通常更喜欢避开正态性假设。我宁愿使用模型中观察到的误差的经验分布。只需将模型残差标准化并观察其经验分布以找到1%分位数；我们得到了2.619797的结果。
 - en: Using this data, we can now estimate our VaR. We simply multiply our 1 percent
     quantile for our forecast (0.003995719) and our standardized residuals (2.619797)
     and the portfolio capital. We obtain a VaR of $10,467.97, compare it to the $9298.04
@@ -86,27 +119,39 @@
     for tomorrow. Just to complete the analysis, take a look at the graph below where
     the daily loss is plotted with the daily VaR. Note that the axis are reversed
     (positive numbers are a loss, negative a gain).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用这些数据，我们现在可以估计我们的VaR。我们简单地将我们的预测的1%分位数（0.003995719）与我们的标准化残差（2.619797）以及投资组合资本相乘。我们得到了10,467.97美元的VaR，将其与假设正态分布时的9,298.04美元进行比较。现在，我们可以每天重复这个过程，为明天进行预测。为了完成分析，看一下下面的图表，其中显示了每日损失与每日VaR的情况。请注意，轴已经反转（正数表示损失，负数表示盈利）。
 - en: '[![](img/d3c9aeec8f98473c3bfa5b742987b9c8.png "garchVaR.insample")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-insample.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d3c9aeec8f98473c3bfa5b742987b9c8.png "garchVaR.insample")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-insample.png)'
 - en: Now following the same methodology, we use the model (not recalculated, only
     updated with the new data) on our out-of-sample data, starting from Black week
     on Oct. 6, until the end of 2009\. Same principle applies for the axis.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，按照同样的方法，我们在我们的样本外数据上使用模型（不重新计算，只更新新数据），从10月6日的黑色星期开始，直到2009年底。轴的原理相同。
 - en: '[![](img/7449724c13671cb40864e5fe13ed02aa.png "garchVaR.outsample")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-outsample.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7449724c13671cb40864e5fe13ed02aa.png "garchVaR.outsample")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/09/garchvar-outsample.png)'
 - en: Note how the value-at-risk for the portfolio is above the suffered loss for
     almost all data points for the period (![\approx](img/1ad7ca2f294724d8448cd8502d1c1159.png)
     97%). It looks as if the VaR measure was mostly conservative for the period. There
     you have it; I hope that this step by step application post was useful and clear
     and that it sheds a bit of light on an at times obscure topic. Stay tuned for
     the last post in this series on EGARCH.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意观察到，在该期间，投资组合的风险价值（Value-at-Risk）几乎对所有数据点的损失都高于遭受的损失（约为97%）。看起来，该期间的风险价值（VaR）测量大多保守。就是这样；希望这篇逐步应用的文章对你有所帮助并且清晰易懂，对于有时晦涩的主题有所启发。敬请期待本系列的最后一篇关于EGARCH的文章。
 - en: QF
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: QF
