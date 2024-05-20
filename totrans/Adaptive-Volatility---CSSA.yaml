@@ -1,24 +1,31 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 17:44:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Adaptive Volatility | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://cssanalytics.wordpress.com/2017/11/15/adaptive-volatility/#0001-01-01](https://cssanalytics.wordpress.com/2017/11/15/adaptive-volatility/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '![](img/2d9c7ec97dd85a45ea48ce49bb78f3c0.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_IMG
 - en: One of the inherent challenges in designing strategies is the need to specify
@@ -35,6 +42,7 @@
     has the fewest parameters and inherent assumptions, and can theoretically improve
     accuracy but the data is not easily accessible, and it is more useful for individual
     equities rather than macro markets.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: An alternative  approach is to create an “adaptive” volatility measure that
@@ -48,21 +56,25 @@
     parameter or basket of multiple parameters. Furthermore, it can achieve a better
     trade-off between responsiveness and smoothness which can lead to better outcomes
     when transaction costs become an issue.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: 'How do we choose this predictor variable? There are  two observations about
     volatility that can help us determine what to use:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: Volatility can be mean-reverting within a particular market regime- this favors
     longer lookbacks for volatility to avoid making inefficient and counterproductive
     changes in position size
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: Volatility can trend higher or lower during a transition to a new market regime-
     this favors shorter lookbacks for volatility to rapidly respond by increasing
     or decreasing position size
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
@@ -76,20 +88,25 @@
     If the market is trendless or mean-reverting (r-squared is low) then we want to
     lengthen our lookbacks since we would also expect that volatility should revert
     to its historical long-term mean.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '**Transition Function:**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: In order to translate the R-squared value into a smoothing constant (SC) or
     alpha for an exponential moving average we need a mathematical transform. Since
     markets are lognormally distributed an exponential function makes the most sense.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '**SC=  EXP(-10 x (1- R-squared(price/time, length))**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '**MIN( SC, .5)**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: To get a more stable measure of R-squared we use a lookback of 20-days, but
@@ -102,6 +119,7 @@
     are limiting the smoothing period to a minimum lookback of effectively 3 days
     (2/(n+1)=SC). Therefore the adaptive volatility metric can vary its effective
     lookback window between 3 days and all history.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: 'This formula gets applied to take the exponential moving average of squared
@@ -109,9 +127,11 @@
     root of the final value and multiply by the square root of 252 trading days. 
     We can compare this to the often used 20-day realized volatility on the S&P500
     (SPY) to visualize the differences:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '![av2](img/a9b91c897efbbe3b55a0988b95349d32.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
 - en: 'Considering that the adaptive volatility uses a much longer average lookback
@@ -121,12 +141,15 @@
     Even without considering transaction costs the results are impressive (note that
     leverage in the example below has not been constrained in order to isolate the
     pure differences):'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '![av1](img/23dda009f6b4240d81b7cf36cb79be08.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
 - en: '![av3](img/ccbaa447a008aba7fdef2da1f0340360.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_IMG
 - en: The results show that adaptive volatility outperforms realized volatility, and
@@ -141,5 +164,7 @@
     formulas to research that may be superior– the purpose of using r-squared was
     that it happens to be straightforward and intuitive along with the exponential
     transition function.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果显示，自适应波动性优于实现波动性，尽管没有显示出来，但这在所有实现回看窗口中都是正确的。相对于20天的实现波动性，自适应波动性在年度表现上优于3%，而标准偏差相同。考虑交易成本后，这种收益差距会显著增加。风险调整后的收益更高，但更令人印象深刻的是，即使在相同的波动率水平下，这也伴随着更低的回撤。这是由于响应性和平滑性的更好组合。无论哪种情况，我相信自适应波动性是值得考虑的一个替代工具。人们可以提出各种不同的预测因子和转换公式进行研究，这可能更优越——使用R平方的目的是它恰好是简单直观的，加上指数转换函数。

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '分类: 未分类'
 - en: 'date: 2024-05-12 17:39:16'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:39:16
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive VIX Moving Average with Ehlers Alpha Formula | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 具有Ehlers Alpha公式的自适应VIX移动平均线 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2019/12/04/adaptive-vix-moving-average-with-ehlers-alpha-formula/#0001-01-01](https://cssanalytics.wordpress.com/2019/12/04/adaptive-vix-moving-average-with-ehlers-alpha-formula/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2019/12/04/adaptive-vix-moving-average-with-ehlers-alpha-formula/#0001-01-01](https://cssanalytics.wordpress.com/2019/12/04/adaptive-vix-moving-average-with-ehlers-alpha-formula/#0001-01-01)
 - en: In the [last post](https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/)
     I described a relatively simply method to incorporate the VIX into the well-known
     AMA or Adaptive Moving Average framework. The alpha formula requires two separate
@@ -25,33 +37,45 @@
     by the user. Ideally the fewer parameters you have to specify the better (although
     it is important to note that logical requirements for maximum lag and minimum
     responsiveness often tends to dicate the bounds).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[上一篇文章](https://cssanalytics.wordpress.com/2019/11/26/adaptive-vix-moving-average/)中，我描述了一种相对简单的方法，将VIX纳入著名的AMA或自适应移动平均框架中。Alpha公式需要两个单独的参数-短期和长期常数，这需要用户更大的规范。理想情况下，您需要指定的参数越少越好（尽管重要的是要注意，逻辑上的最大滞后和最小响应性的要求通常倾向于决定界限）。
 - en: 'Ehlers suggests in his paper on the [“Fractal Adaptive Moving Average”](http://www.stockspotter.com/Files/frama.pdf)
     using the following formula to [compute the alpha in the exponential average](https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Ehlers在他关于[“分形自适应移动平均”](http://www.stockspotter.com/Files/frama.pdf)的论文中建议使用以下公式来[计算指数平均值中的Alpha](https://www.investopedia.com/ask/answers/122314/what-exponential-moving-average-ema-formula-and-how-ema-calculated.asp):'
 - en: '**alpha= exp(- 4.6*(D -1))**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**alpha= exp(- 4.6*(D -1))**'
 - en: where D is analogous to the “VI” or trend factor in the previous post. Note
     that this formula was adapted in a different way for creating an adaptive volatility
     measure [in this post](https://cssanalytics.wordpress.com/2017/11/15/adaptive-volatility/).
     I find it to be quite useful and intuitive so it represents a viable alternative
     to the AMA framework in the last post.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中D类似于前一篇文章中的“VI”或趋势因子。请注意，这个公式是以不同的方式调整的，用于创建自适应波动率度量，[在这篇文章中](https://cssanalytics.wordpress.com/2017/11/15/adaptive-volatility/)。我发现它非常有用和直观，所以它代表了上一篇文章中AMA框架的一个可行替代方案。
 - en: 'Based on reader feedback I will simplify the percentrank function to be a rolling
     lookback of 2000 days to make it easier to avoid confusion in replication (the
     previous used an anchored lookback or “expanding time window”). We can substitute
     the percentrank of 1/(10-day sma of VIX) for “D” in the formula and calculate
     the EMA/Exponential moving average of SPY using the alpha output. Here is what
     the adaptive alpha should look like going back to 1996:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据读者反馈，我将简化百分位数函数为2000天的滚动回溯，以便更容易避免在复制中的混淆（之前使用的是锚定回溯或“扩展时间窗口”）。我们可以用VIX的10天SMA的1/(百分位数)替换公式中的“D”，并使用Alpha输出计算SPY的EMA/指数移动平均值。以下是自适应Alpha应该看起来像回溯到1996年：
 - en: '![](img/c20617e633870ec1feb8b55ea9c519c5.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/c20617e633870ec1feb8b55ea9c519c5.png)'
 - en: Note that a higher alpha means a faster moving average (less smoothing and lag)
     while a lower alpha means a slower moving average (more smoothing and lag). We
     can see in the above chart that the alpha is higher most of the time in bull markets
@@ -62,16 +86,22 @@
     What this implies is that you are smoothing more when price is noisy or mean-reverting
     and smoothing less when price is a decent estimate of tomorrow’s price. Obviously
     this is exactly what we are looking for when creating an adaptive filter.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，较高的Alpha意味着更快的移动平均（更少的平滑和滞后），而较低的Alpha意味着更慢的移动平均（更多的平滑和滞后）。我们可以看到在上图中，大多数时候Alpha在牛市中较高，在熊市中较低（90年代是一个例外）。毫无疑问，VIX和均值回归之间存在关系，在Alpha测量较低的时期，这种关系在SPY上的效果很好。事实上，我的研究显示，在这个Alpha测量较低的情况下，在下跌日购买的盈利能力是高的。这意味着在价格嘈杂或均值回归时进行更多的平滑处理，而在价格是明天价格的良好估计时进行较少的平滑处理。显然，这正是我们在创建自适应过滤器时寻找的东西。
 - en: Let’s now take a look at how this new transition calculation performs in the
     adaptive moving average framework. Once again we will compare the strategy of
     buying when the close of SPY is > 200sma versus the AMA> 200sma.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看这种新的过渡计算在自适应移动平均框架中的表现。再次比较当 SPY 的收盘价 > 200sma 时的买入策略与 AMA> 200sma 的策略。
 - en: '![](img/96df1ac24545c5ef9ebc3b36a4f12e2f.png)![](img/44287926addd4fbc58a1ea1b5ba73041.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/96df1ac24545c5ef9ebc3b36a4f12e2f.png)![](img/44287926addd4fbc58a1ea1b5ba73041.png)'
 - en: Consistent with the previous post the AMA strategy is superior to the basic
     200sma strategy with fewer trades. The Ehlers alpha method in this case leads
     to very similar results as using the classic AMA framework for calculating alpha
@@ -82,5 +112,9 @@
     for using the price. In my opinion it is logical to use an adaptive method for
     smoothing rather than using static smoothing methods or worse yet the actual price
     in a trend-following strategy.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 与之前的帖子一致，AMA 策略优于基本的 200sma 策略，交易次数更少。在这种情况下，Ehlers alpha 方法导致的结果与使用经典的 AMA
+    框架计算 alpha 非常相似，但交易次数更少。请注意，“D”为 4 对比 4.6 产生了与经典 AMA 框架相近的表现和交易次数。无论哪种情况，我希望这表明使用
+    VIX（或您可以使用历史波动率或 GARCH）作为自适应移动平均的替代品，而不是使用价格，具有较高的鲁棒性。在我看来，使用自适应方法来平滑而不是使用静态平滑方法，更糟糕的是在趋势跟踪策略中使用实际价格，这是合乎逻辑的。
