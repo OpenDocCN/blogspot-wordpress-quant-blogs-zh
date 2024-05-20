@@ -1,77 +1,120 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:29:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:29:54'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Calendar Strategy: Fed Days | Systematic Investor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 日历策略：联邦日 | 系统化投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2014/05/06/calendar-strategy-fed-days/#0001-01-01](https://systematicinvestor.wordpress.com/2014/05/06/calendar-strategy-fed-days/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'Source: [https://systematicinvestor.wordpress.com/2014/05/06/calendar-strategy-fed-days/#0001-01-01](https://systematicinvestor.wordpress.com/2014/05/06/calendar-strategy-fed-days/#0001-01-01)'
 - en: '**UPDATE**: I was pointed out a problem with original post due to look ahead
     bias introduced by prices > SMA(prices,100) statement. In the calendar strategy
     logic I did not use a usual lag of one day because important days are known before
     hand. However, the prices > SMA(prices,100) statement should be lagged by one
     day. I updated plots and source code.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**更新**：有人指出原文由于利用 prices > SMA(prices,100) 语句引入了前瞻偏差问题。在日历策略逻辑中，我没有使用通常的一天滞后，因为重要的日期是提前知道的。然而，
+    prices > SMA(prices,100) 语句应该滞后一天。我更新了图表和源代码。'
 - en: 'Today, I want to follow up with the [Calendar Strategy: Option Expiry](https://systematicinvestor.wordpress.com/2014/05/03/calendar-strategy-option-expiry/)
     post. Let’s examine the importance of the [FED meeting](http://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
     days as presented in the [Fed Days And Intermediate-Term Highs](http://quantifiableedges.blogspot.ca/search/label/Fed%20Study)
     post.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我想接着[日历策略：到期日](https://systematicinvestor.wordpress.com/2014/05/03/calendar-strategy-option-expiry/)这篇文章。让我们来检验[联邦储备会议日](http://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)的重要性，如[联邦储备日和中期高点](http://quantifiableedges.blogspot.ca/search/label/Fed%20Study)文章中所述。
 - en: 'Let’s dive in and examine historical perfromance of SPY during [FED meeting](http://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
     days:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们深入研究，并检验[联邦储备会议日](http://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)期间SPY的历史表现：
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![plot1](img/1554d47cd385da256bf86ea7cb677965.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot12.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/1554d47cd385da256bf86ea7cb677965.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot12.png)'
 - en: Please note 100 day moving average filter above. If we take it out, the performance
     deteriorates significantly.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意上方的100天移动平均线滤镜。如果我们取消它，表现会明显下降。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '**N15 Strategy:**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**N15 策略：**'
 - en: '[![plot2](img/93744b8e7b533161181fa14a2d72d920.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot22.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/93744b8e7b533161181fa14a2d72d920.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot22.png)'
 - en: '[![plot3](img/a0b1150a5f43aaeaffe1fde764ec351b.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot32.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3](img/a0b1150a5f43aaeaffe1fde764ec351b.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot32.png)'
 - en: '[![plot4](img/5695e0f6923509e48766352c22fda965.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot42.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot4](img/5695e0f6923509e48766352c22fda965.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot42.png)'
 - en: '[![plot5](img/ce00e4eb409f73430c40c00f8c6c182d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot52.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot5](img/ce00e4eb409f73430c40c00f8c6c182d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/05/plot52.png)'
 - en: With this post I wanted to show how easily we can study calendar strategy performance
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过这篇文章，我想展示如何利用[系统化投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)轻松研究日历策略的表现。
 - en: Next, I will look at the importance of the [Dividend](http://en.wikipedia.org/wiki/Dividend)
     days.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将研究[红利](http://en.wikipedia.org/wiki/Dividend)日的重要性。
 - en: To view the complete source code for this example, please have a look at the
     [bt.calendar.strategy.fed.days.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.calendar.strategy.fed.days.test()函数的bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
