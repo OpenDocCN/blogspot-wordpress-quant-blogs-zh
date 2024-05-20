@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:28:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 下午3:28:52
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Causality in observational data | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 观察数据中的因果关系 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2014/12/26/causality-in-observational-data/#0001-01-01](https://tr8dr.wordpress.com/2014/12/26/causality-in-observational-data/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2014/12/26/causality-in-observational-data/#0001-01-01](https://tr8dr.wordpress.com/2014/12/26/causality-in-observational-data/#0001-01-01)
 - en: December 26, 2014 · 10:37 am
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2014年12月26日 上午10:37
 - en: In the past had created [clusters](https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/
     "Cointegration Clusters") on assets to help identify relationships across assets.
       The resulting graphs were useful in identifying assets for use in mean-reverting
@@ -28,8 +42,11 @@
     the strength of relationships between asset pairs.   I had looked at Granger-causality,
     which is fairly limited in that expects asset relationships to follow a VECM-like
     model, and eventually settled on weighting across a number of techniques as an approximate.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 过去曾经创建[集群](https://tr8dr.wordpress.com/2010/01/22/cointegration-clusters/ "协整集群")以帮助识别资产之间的关系。结果图对于识别用于均值回归组合的资产非常有用。该方法的难点始终在于准确衡量资产对之间的关系强度。我曾经研究过
+    Granger 因果关系，但它相当受限，因为预计资产关系将遵循 VECM 类似的模型，并最终选择在一些技术中进行加权以作为近似。
 - en: 'Determining causality for more general relationships requires a very different
     approach, where Y ← f(X) + ε.   i.e. f(x) may be an (unknown) non-linear function
     on X.   I came across an interesting paper: “Distinguishing cause from effect
@@ -37,30 +54,46 @@
     which builds on work around looking at the asymmetry of the “complexity” of p(Y|X)
     versus p(X|Y), where if  Y ← X (X causes Y), p(Y|X) will tend to have lower complexity
     than p(X|Y).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 确定更一般关系的因果关系需要非常不同的方法，其中 Y ← f(X) + ε。即 f(x) 可能是 X 上的（未知的）非线性函数。我遇到了一篇有趣的论文：“使用观察数据区分因果关系：方法和基准”（[链接](http://arxiv.org/pdf/1412.3773v1.pdf)），它建立在查看
+    p(Y|X) 与 p(X|Y) 的“复杂性”的不对称性的工作基础上，如果 Y ← X（X 引起 Y），则 p(Y|X) 的复杂性倾向于低于 p(X|Y)。
 - en: 'The paper provides results on two methods: Additive Noise Methods (ANM) and
     Information Geometric Causal Inference (IGCI), where ANM generally did better
     across a variety of scenarios than IGCI.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 文章提供了两种方法的结果：加性噪声方法（ANM）和信息几何因果推断（IGCI），其中 ANM 在各种情况下通常比 IGCI 更好。
 - en: 'The algorithm for ANM in python-like pseudo-code (taken from the paper):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ANM 的 Python 伪代码算法（摘自该论文）：
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The paper recommended using a scoring of the Hilbert-Schmidt Independence Criterion
     (HSIC) as the complexity test. I will have to code the above up and see how it
     does on a broad set of assets. The paper did test the CEP benchmark which includes
     some known financial relationships.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 文章建议使用 Hilbert-Schmidt 独立准则（HSIC）的评分作为复杂性测试。我将编写上述代码，并查看其在广泛资产组合上的表现。 文章确实测试了
+    CEP 基准，其中包含一些已知的金融关系。
 - en: Addendum
+  id: totrans-13
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 附录
 - en: Am quite busy now with another investigation, but will revisit this with a proper
     implementation.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在正忙于另一项调查，但将以适当的实施方式重新访问这个问题。
