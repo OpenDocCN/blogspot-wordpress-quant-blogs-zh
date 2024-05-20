@@ -1,36 +1,52 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:01:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:01:48'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Be Careful What You Wish For – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 慎选所愿—量化金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/10/28/be-careful-what-you-wish-for/#0001-01-01](https://quantumfinancier.wordpress.com/2010/10/28/be-careful-what-you-wish-for/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/10/28/be-careful-what-you-wish-for/#0001-01-01](https://quantumfinancier.wordpress.com/2010/10/28/be-careful-what-you-wish-for/#0001-01-01)
 - en: It is in the human nature to seek the path of least resistance. While this might
     be good in some instances, when dealing with my capital I usually try to keep
     it simple but I try to always steer clear from intellectual laziness.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 追求最小阻力路径是人性所趋。虽然在某些情况下这可能是好事，但当涉及到我的资本时，我通常尝试保持简单，但我总是尽量远离知识上的懒惰。
 - en: Many top tier bloggers have mentioned the traps of assumptions and the limitations
     of parametric statistics when dealing with market data. A good thing to do before
     using a certain method or model is always to do a little research on the underlying
     assumptions. If they don’t fit our data, then we know we have to be more careful,
     however they can still be quite useful, do not automatically disregard a method
     or model when your assumptions aren’t met.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多顶尖博主都提到了处理市场数据时的假设陷阱和参数统计的局限性。在使用特定方法或模型之前，最好先对基本假设进行一些研究。如果它们不适合我们的数据，那么我们就知道我们必须更加小心，但是它们仍然可能非常有用，当你的假设不符合时，不要自动忽略一种方法或模型。
 - en: 'For example, consider the great workhorse of econometrics: the least square
     model. It is widely used in academia. It is actually quite hard to find a finance
     paper without the mention of regression in a certain way or form. That’s just
@@ -39,34 +55,50 @@
     you may know as the linear regression. I am sure that most of the readers of this
     blog used it before in some fashion. I also think that some may have used it without
     really paying attention to some of its assumptions.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，考虑计量经济学的伟大工作马：最小二乘模型。它在学术界被广泛使用。实际上很难找到一篇金融论文没有以某种方式或形式提到回归的。那就是我们做的事情，我们喜欢以简单而优雅的方式尝试建模现象。它通常以最简单的形式使用；您可能知道的最小二乘模型，即线性回归。我相信本博客的大多数读者以某种方式使用过它。我还认为一些人可能在不太注意其一些假设的情况下使用过它。
 - en: 1\. Population regression function is linear in parameters
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 1\. 总体回归函数在参数上是线性的
 - en: '2\. The independent variable and the errors are independent: ![cov(x_i, \varepsilon_i)
     = 0](img/b35240989ae5e105ee6ae46ac47ab5ca.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2\. 自变量和误差独立：![cov(x_i, \varepsilon_i) = 0](img/b35240989ae5e105ee6ae46ac47ab5ca.png)
 - en: 3\. Homoscedasticity (ie. constant variance) of the errors
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 3\. 误差同方差性（即恒定方差）
 - en: '4\. No autocorrelation: ![cov(\varepsilon_t, \varepsilon_{t-1}) = 0](img/d9bbf4381fc46813f34013abab38b3b9.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 4\. 无自相关：![cov(\varepsilon_t, \varepsilon_{t-1}) = 0](img/d9bbf4381fc46813f34013abab38b3b9.png)
 - en: 5\. The regression model is correctly specified, all relevant variables are
     included
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 5\. 回归模型正确指定，所有相关变量均已包含
 - en: 6\. The error is normally distributed
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 6\. 误差服从正态分布
 - en: Now with this in mind, we see how the ols has some assumptions that we would
     need to address before we blindly apply it. The big two for financial time series
     are number 3 and 4\. See the post series on GARCH modeling for a more specific
     discussion on the matter [here](https://quantumfinancier.wordpress.com/2010/09/12/381/).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在有了这个想法，我们看到ols在我们盲目应用之前需要解决一些假设问题。对于金融时间序列来说，最重要的两个是第3和第4\. 在此处查看有关此事的更具体讨论的[系列帖子](https://quantumfinancier.wordpress.com/2010/09/12/381/)。
 - en: The point here is not to invalidate the least squares method at all; I use it
     frequently. The point is to show that sometimes assumptions can be really restrictive
     and need to be considered regardless of what method or model you want to use,
@@ -76,8 +108,12 @@
     the assumptions you make every time you use it. It is also a nice plug for the
     non-parametric and non-linear statistical methods, who usually tends to have looser
     base assumptions.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的重点并不是要完全否定最小二乘法；我经常使用它。重点在于表明有时假设可能会非常限制性，需要考虑，无论你想使用什么方法或模型，也要记住，有时，交易中最简单的路径并不总是最好的。当你遇到一个新的有希望的工具时，为你的交易工具箱是个好习惯，要深入挖掘并理解背后的过程和你每次使用它时所做的假设。这也是对非参数和非线性统计方法的一个很好的宣传，它们通常倾向于有更宽松的基础假设。
 - en: QF
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: QF
