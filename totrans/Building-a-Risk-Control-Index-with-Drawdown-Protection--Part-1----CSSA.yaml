@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 17:41:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024年05月12日17:41:26'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Building a Risk Control Index with Drawdown Protection (Part 1) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用回撤保护构建风险控制指数（第1部分） | 中国证券学会
 - en: 来源：[https://cssanalytics.wordpress.com/2019/07/09/building-a-risk-control-index-with-drawdown-protection-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2019/07/09/building-a-risk-control-index-with-drawdown-protection-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2019/07/09/building-a-risk-control-index-with-drawdown-protection-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2019/07/09/building-a-risk-control-index-with-drawdown-protection-part-1/#0001-01-01)
 - en: '**Introduction**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Introduction**'
 - en: Both trend-following and absolute momentum are well established methods for
     managing risk. Another method for managing risk is to use volatility targeting.
     The former are superior for reducing large drawdowns in bear markets while the
@@ -30,16 +44,21 @@
     One of the concepts Rob brings up is that part of the challenge of trend-following
     and absolute momentum is that they are binary in nature– you are either “all-in”
     or “all-out” and this is suboptimal.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 追随趋势和绝对动量方法是管理风险的两种成熟方法。另一种管理风险的方法是使用波动率目标。前者优于在熊市中减少大幅回撤，而后者倾向于通过归一化每日投注规模来减少峰度。两者的结合往往会增加夏普比率，同时一般都会减少峰度和偏度。如果你想深入了解这方面内容，可以查看[Rob
+    Carver的这篇文章](https://qoppac.blogspot.com/2018/07/vol-targeting-and-trend-following.html)。Rob提出的一个概念是，追随趋势和绝对动量的一个挑战是它们本质上是二元的——你要么“全入”，要么“全出”，这是次优的。
 - en: There are no magical numbers in finance- if the 1 year excess return of the
     stock market is 1% does this mean that you should have the same conviction as
     if it is up 10% or more? Clearly the slope has some relationship with forward
     risk. Is a -1% excess return that much worse than a 1% excess return? These levels
     are more arbitrary than you think. Exiting or reducing a position can be done
     profitably at a wide range of levels.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在金融领域没有神奇的数字——如果股市的1年超额收益率为1%，这是否意味着你应该像它上涨10%或更多一样坚定？显然，斜率与未来风险之间存在一定的关系。-1%的超额收益是否真的比1%的超额收益更糟糕？这些水平比你想象的更加任意。在一定范围内，退出或减仓都是有利可图的。
 - en: Another disadvantage of binary trend/momentum systems from a variance or luck
     standpoint is that by going all-in or all-out you can be hurt a lot more by the
     arbitrary execution timing of any one trade. (One way to reduce this problem is
@@ -48,19 +67,26 @@
     In contrast a strategy that employs a continuous position size has the benefit
     of scaling exposure as a function of conviction and is less susceptible to timing
     risk.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 从方差或幸运的角度来看，二元趋势/动量系统的另一个缺点是，通过全入或全出，你可以更多地受到任何一次交易的任意执行时机的伤害。（减少这个问题的一种方法是使用多个回溯，详细内容请参阅[Newfound
+    Research的这篇文章](https://blog.thinknewfound.com/2019/01/tightening-the-uncertain-payout-of-trend-following/)。这也是我们在[“投资者智慧”中使用的“趋势强度”指标](https://cssanalytics.wordpress.com/investor-iq-etf-digest/)）相比之下，采用持续持仓规模的策略有一个好处，它可以根据信念来调整曝光，并且不太容易受到时机风险的影响。
 - en: Lastly, the biggest challenge to trend/momentum systems is that **they are not
     tied directly to any financial or risk-based objective**. There is no limit on
     how much you can lose in any given time frame given either repeated whipsaws or
     large short-term corrections that occur before your signals trigger. In high momentum
     markets or situations like 1987, this added tail-risk can be significant as the
     binary trend/momentum signals will often still be 100% invested.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，追踪/动量系统面临的最大挑战是 **它们并没有直接与任何财务或基于风险的目标挂钩**。在任何给定的时间框架内，由于重复的惩罚或在你的信号触发之前发生的大幅短期修正，你能损失多少都没有限制。在高动量市场或1987年这样的情况下，这种额外的尾部风险可能是相当大的，因为二元趋势/动量信号往往仍然是100%投资。
 - en: '**Risk Control**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Risk Control**'
 - en: The concept of risk control is used more frequently in the annuity market or
     in various programs run by insurance companies to manage equity risk. Typically
     these are exactly the same as using volatility targeting ([see this example here](http://www.annuityadvisors.com/forms/great-american/S&P-500-Risk-Control-Index.pdf)).
@@ -69,8 +95,10 @@
     layer is designed to be a form of drawdown protection. This feature is important
     given that a traditional risk control/vol targeting with a moderate risk profile
     will still have plenty of equity exposure through bear markets.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 风险控制的概念在年金市场或由保险公司运行的各种计划中更频繁地使用，用于管理股权风险。通常这些方法与使用波动率定位完全相同([见此处的示例](http://www.annuityadvisors.com/forms/great-american/S&P-500-Risk-Control-Index.pdf))。然而，还有更多的奇特策略，这些策略添加了一种动态覆盖类型，以进一步减少风险。无论使用的确切方法如何，这第二层都旨在成为一种回撤保护形式。在传统的风险控制/波动率定位具有适度风险配置的情况下，这个特性非常重要，因为它在熊市中仍然有大量股权暴露。
 - en: 'To build a risk control index with drawdown protection, I propose that investors
     use a drawdown target or “floor” that has some time frame attached to it. For
     example, many investors have a risk preference for not losing more than -20% on
@@ -81,28 +109,37 @@
     are the steps to building a risk control index with drawdown protection. For this
     example we can call this the “**Risk Control 20/20 Index**” (20% risk target,
     20% drawdown target):'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了构建一个具有回撤保护的风险控制指数，我建议投资者使用具有一定时间框架的回撤目标或“底线”。例如，许多投资者对其投资组合在一年内不要亏损超过-20%有风险偏好（此底线和回望期的选择是可选的）。您可以通过根据投资组合权益曲线的当前回撤程度来缩放头寸大小，从而直接控制此风险。这种方法大致模拟了设计用于保险20%以下亏损的合成看涨期权。以下是构建具有回撤保护的风险控制指数的步骤。以本例中我们可以称之为“**风险控制20/20指数**”（20%风险目标，20%回撤目标）：
 - en: '**STEP 1**: **Risk Exposure (RE):** Develop a volatility targeting method with
     a chosen volatility forecast or realized volatility forecast window (I chose 20-day
     realized historical in this example). Scale positions by target volatility (20%
     in this case) divided by current volatility whereby there is some maximum leverage
     permitted (no leverage in this case). Track the equity curve of this strategy
     for step #2'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 1：** **风险曝光 (RE):** 开发一个以选定的波动率预测或实现波动率预测窗口为特色的波动率定位方法（在本例中，我选择了20天的实现历史波动率）。按目标波动率（本例中为20%）除以当前波动率来缩放头寸，从而允许某些最大杠杆（在本例中不使用杠杆）。跟踪此策略的权益曲线，用于步骤＃2'
 - en: '**STEP 2**: **Drawdown Exposure (DE):** Choosing some target drawdown (I chose
     20% in this example) the equity “floor” (F) is equal to 1 minus the target drawdown.
     The current equity level (CE) is the value of yesterday’s risk control/vol target
     equity curve divided by the maximum price over the past n-days (I chose 1-year
     for this example). The formula for drawdown exposure (DE) is: **MAX((1/(1-F))
     x (CE-F)),0)**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 2：** **回撤曝光 (DE):** 选择一些目标回撤（在本例中我选择了20%），权益“底线”（F）等于1减去目标回撤。当前权益水平（CE）等于昨日风险控制/波动率目标权益曲线的价值，除以过去n天的最高价格（在本例中选择了1年）。回撤曝光
+    (DE)的公式为：**MAX((1/(1-F)) x (CE-F)),0)**'
 - en: '**STEP 3: Total Exposure (TE):** The final portfolio exposure that gets applied
     for the following day is calculated as: **TE= RE x DE**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 3: 总风险曝光 (TE):** 在次日应用的最终组合曝光计算如下：**TE= RE x DE**'
 - en: 'The advantage of this approach is that you respond in a continuous manner to
     market drawdowns while scaling by volatility to improve risk-adjusted returns.
     Keep in mind that a 20% risk target and a 20% floor is fairly generous, so we
@@ -111,18 +148,23 @@
     index can be seen in the table below using daily execution to avoid bias (the
     choice of index price data allows for observing action across a wider array of
     different market regimes):'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法的优势在于，您可以连续地对市场回撤做出响应，同时按波动率进行缩放，以提高风险调整后的回报。请记住，20%的风险目标和20%的下限是相当慷慨的，因此我们可以轻松将此风险控制20/20指数与标准绝对动量（1年回报减去国债）进行比较。将此比较结果应用于标准普尔500指数，可以在下面的表格中看到使用日执行以避免偏见（选择指数价格数据可观察到跨不同市场制度的行动）：
 - en: '![](img/f77657844c54820b9cd31317b8aadf1f.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
 - en: 'Both methods have nearly equal performance, but the Risk Control 20/20 index
     has better risk statistics with lower volatility, higher sharpe ratio and a much
     lower maximum drawdown. It is hard to see the difference between the two equity
     curves, but the rolling drawdown analysis is far more revealing:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: '![](img/8d5ce4a5713d776477e205562101dd55.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_IMG
 - en: In this chart you can clearly see that the Risk Control 20/20 Index does a much
@@ -137,5 +179,6 @@
     for investors. In the next post we will look at various methods to improve upon
     this original method along with some heuristics to make it more practical for
     real trading.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
