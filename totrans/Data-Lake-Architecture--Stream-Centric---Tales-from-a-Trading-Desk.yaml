@@ -1,82 +1,124 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:33:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 05:33:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '--> '
 - en: 'Data Lake Architecture: Stream Centric | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 数据湖架构：流为中心 | 来自交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/04/26/data-lake-architecture-stream-centric/#0001-01-01](https://mdavey.wordpress.com/2016/04/26/data-lake-architecture-stream-centric/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/04/26/data-lake-architecture-stream-centric/#0001-01-01](https://mdavey.wordpress.com/2016/04/26/data-lake-architecture-stream-centric/#0001-01-01)
 - en: 'Data Lake Architecture: Stream Centric'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 数据湖架构：流为中心
 - en: 'There are numerous mays to create and feed your data lake.  One theme that
     is particularly interesting leverages Apache Kafka, and is well documented in
     “Putting Apache Kafka To Use: A Practical Guide to Building a Stream Data [Platform](http://www.confluent.io/blog/stream-data-platform-1/)“.
      The article does a good job of explaining the ad-hoc road:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有许多种方法可以创建和填充您的数据湖。一个特别有趣的主题是利用Apache Kafka，该主题在“利用Apache Kafka：构建流数据[平台](http://www.confluent.io/blog/stream-data-platform-1/)”中得到了很好的记录。文章很好地解释了特定的方法：
 - en: “piping between systems and applications on an as needed basis and shoe-horned
     any asynchronous processing into request-response web services. “
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “根据需要在系统和应用程序之间进行管道传输，并将任何异步处理塞入请求-响应Web服务。”
 - en: Which turns into an interesting [diagram](http://cdn2.hubspot.net/hub/540072/file-3062870508-png/blog-files/data-flow-ugly.png)
     🙂
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这变成了一个有趣的[图表](http://cdn2.hubspot.net/hub/540072/file-3062870508-png/blog-files/data-flow-ugly.png)
+    🙂
 - en: 'The article then goes onto Version 2, appropriately names “Kafka stuff” which
     has an improved [architecture](http://cdn2.hubspot.net/hub/540072/file-3062870518-png/blog-files/stream_data_platform.png),
     with well defined flows and patterns – “stream-centric data architecture”, and
     benefits:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 文章随后进入了第2版，名为“Kafka 东西”，它具有改进的[架构](http://cdn2.hubspot.net/hub/540072/file-3062870518-png/blog-files/stream_data_platform.png)，具有明确定义的流和模式
+    - “流为中心的数据架构”，以及以下好处：
 - en: '**Data Integration**: The stream data platform captures streams of events or
     data changes and feeds these to other data systems such as relational databases,
     key-value stores, Hadoop, or the data warehouse.'
+  id: totrans-11
   prefs:
   - PREF_OL
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**数据集成**：流数据平台捕获事件流或数据更改流，并将其馈送到其他数据系统，如关系型数据库、键值存储、Hadoop或数据仓库。'
 - en: '**Stream processing**: It enables continuous, real-time processing and transformation
     of these streams and makes the results available system-wide.'
+  id: totrans-12
   prefs:
   - PREF_OL
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**流处理**：它实现了对这些流的持续、实时处理和转换，并将结果在整个系统范围内可用。'
 - en: In the case of leveraging [H2O](http://www.h2o.ai/), this offer the ability
     to leverage Flow through SparkingWater on top of Apache Spark and the Data Lake
     (HDFS), and also off Apache Kafka streaming using the H2O POJO’s, opening up the
     opportunity for real-time pushed business insight to the User Experience.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在利用[H2O](http://www.h2o.ai/)的情况下，这提供了通过在Apache Spark和数据湖（HDFS）上使用SparkingWater以及通过H2O
+    POJO的Apache Kafka流进行实时推送业务洞察力到用户体验的机会。
 - en: '[Both](http://www.confluent.io/blog/stream-data-platform-1/) [articles](http://www.confluent.io/blog/stream-data-platform-2/)
     are well worth a read.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[两篇](http://www.confluent.io/blog/stream-data-platform-1/) [文章](http://www.confluent.io/blog/stream-data-platform-2/)
+    都值得一读。'
 - en: Curious if any readers have found an improved approach over Apache Kafka to
     solve the Data [Lake](http://searchbusinessanalytics.techtarget.com/feature/Building-a-data-lake-architecture-can-drag-unprepared-users-under)
     data integration problem, and likewise the Machine Learning solution.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果有读者发现了比Apache Kafka更好的解决数据[湖](http://searchbusinessanalytics.techtarget.com/feature/Building-a-data-lake-architecture-can-drag-unprepared-users-under)数据集成问题的方法，以及相同的机器学习解决方案，我们会很感兴趣。
 - en: ~ by mdavey on April 26, 2016.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 作者：mdavey，2016年4月26日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)类别中。
 - en: 'Tags: [DataLake](https://mdavey.wordpress.com/tag/datalake/), [MachineLearning](https://mdavey.wordpress.com/tag/machinelearning/)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[数据湖](https://mdavey.wordpress.com/tag/datalake/)，[机器学习](https://mdavey.wordpress.com/tag/machinelearning/)
