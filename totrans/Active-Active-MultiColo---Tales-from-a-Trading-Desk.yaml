@@ -1,111 +1,159 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:37:02'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日05:37:02
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Active/Active MultiColo | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 主/备份多数据中心|交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2015/12/15/activeactive-multicolo/#0001-01-01](https://mdavey.wordpress.com/2015/12/15/activeactive-multicolo/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2015/12/15/activeactive-multicolo/#0001-01-01](https://mdavey.wordpress.com/2015/12/15/activeactive-multicolo/#0001-01-01)
 - en: Active/Active MultiColo
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 主/备份多数据中心
 - en: 'Great [presentation](http://www.infoq.com/presentations/linkedin-scalability-arch) from Erran
     Berger, Head of Content Engineering at LinkedIn.  Discussion centres around stream
     processing, personal data and cache invalidation & replication conflicts.  Take
     aways:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自领英内容工程部负责人Erran Berger的精彩[演示](http://www.infoq.com/presentations/linkedin-scalability-arch)。讨论集中在流处理、个人数据以及缓存失效和复制冲突。主要观点有：
 - en: Kafka – data is replicated (best and worst feature because it causes re-processing
     of messages)
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Kafka – 数据被复制（最好和最坏的功能，因为它会导致消息的重处理）
 - en: Kafka and DB replication turned out not to be the LinkedIn solution – due to
     duplication.
+  id: totrans-9
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Kafka和数据库复制结果并不是领英的解决方案——因为重复。
 - en: The solution was to process user notifications in the data centre in which the
     user is attached too via a sticky routing service.  Each data centre has a queue
     to route messages to other data centres.
+  id: totrans-10
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 解决方案是在用户所在的数据中心通过粘性路由服务处理用户通知。每个数据中心都有一个队列来将消息路由到其他数据中心。
 - en: Process Kafka messages only once, else you’ll go down a painful road 🙂
+  id: totrans-11
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 只处理Kafka消息一次，否则你会走上一条痛苦之路🙂
 - en: Data
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 数据
 - en: Replicate data only as required.  Personal data doesn’t need to live everywhere
     in LinkedIn.  Profile data does live everywhere.
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 仅根据需要复制数据。在领英，个人数据不需要存放在所有地方。个人资料数据确实存放在各处。
 - en: Router service decide which DB is accessed in which data centre using URN’s
     as the routing payload, and a catalog held in a DB for route the personal data
     request to the correct DB to retrieve the mailbox.
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 路由器服务决定在哪个数据中心访问哪个数据库，使用 URN 作为路由载荷，并在数据库中保存一个目录以将个人数据请求路由到正确的数据库以检索邮箱。
 - en: Data centre connectivity needs to be low latency to aid this solution
+  id: totrans-15
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 数据中心连接需要低延迟来帮助这个解决方案
 - en: DB is shard (1000’s) for the 95 TeraBytes 🙂
+  id: totrans-16
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 数据库分片（千兆字节）达到95TB🙂
 - en: Cache invalidators
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 缓存失效器
 - en: In the case of LinkedIn, the cache invalidator listens to DB writes to invalidate
     the cache, leveraging the DB [replication](https://engineering.linkedin.com/data-replication/open-sourcing-databus-linkedins-low-latency-change-data-capture-system)
     across data centres
+  id: totrans-18
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在LinkedIn的情况下，缓存失效器监听数据库写入来使缓存失效，利用跨数据中心的数据库[复制](https://engineering.linkedin.com/data-replication/open-sourcing-databus-linkedins-low-latency-change-data-capture-system)
 - en: Conflicts
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 冲突
 - en: Soft deletes
+  id: totrans-20
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 软删除
 - en: Custom conflict resolution if you can’t resolve in the data model/actors
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果无法在数据模型/参与者中解决冲突，则进行自定义冲突解决。
 - en: ~ by mdavey on December 15, 2015.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ～ 由mdavey于2015年12月15日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)中

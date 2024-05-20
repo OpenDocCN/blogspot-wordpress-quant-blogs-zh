@@ -98,6 +98,9 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在CPU上，[QuantLib](http://www.quantlib.org)支持基于[Thomas算法](http://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm)的预处理。该算法使用![O(8n)](img/43a298000360b3688212928468d6c937.png)次操作解决了一个三对角矩阵。相应的预处理器可以看作是对对角线预处理器的自然扩展。在CPU上的实验表明，三对角预处理器对我们的VPP定价问题会导致显著加速。即将发布的[CUDA
+    4.1](http://developer.nvidia.com/cuda-toolkit-41)版本的CUSPARSE库包含了GPU的三对角求解器。通过一个小的接口类，CUDA三对角求解器可以被用作cusp预处理器。源代码在[这里](http://www.hpc-quantlib.de/src/gpupred.zip)可用。该代码依赖于最新的[QuantLib](http://quantlib.org/)版本，来自[SVN
+    trunk](http://quantlib.svn.sourceforge.net/viewvc/quantlib/)。
 - en: The testbed is a VPP contract with ![t_{minUp} = t_{minDown} = 2h](img/d6f44808872ceb884bd0a8f263fe0692.png)
     and a maturity of 4 weeks (corresponds to ![4*7*24=672](img/ab93231d9b986e2e69a8253991a9a33d.png)
     exercise steps). Therefore in addition to the three dimensions for the stochastic
@@ -107,11 +110,14 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试床是一个具有![t_{minUp} = t_{minDown} = 2h](img/d6f44808872ceb884bd0a8f263fe0692.png)和4周成熟度（对应![4*7*24=672](img/ab93231d9b986e2e69a8253991a9a33d.png)个练习步骤）的VPP合同。因此，除了随机模型的三个维度之外，该问题还有一个大小为![2t_{minUp}
+    + t_{minDown} = 6](img/dd24970ae14ef6586155799831d661d0.png)的第四维度，用于通过动态规划解决优化问题。
 - en: The following diagram shows the different run-times of the algorithms on a GPU
     and a CPU.
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图显示了在GPU和CPU上算法的不同运行时间。
 - en: '[![](img/f613fb00485ad1282dad7284218ce2b8.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/01/plot.png)The
     fastest algorithm on the GPU (implicit Euler scheme with BiCGStab and tridiagonal
     preconditioner) outperforms the best CPU implementation (operator splitting based
@@ -123,12 +129,16 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f613fb00485ad1282dad7284218ce2b8.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/01/plot.png)在GPU上最快的算法（使用BiCGStab和三对角预处理器的隐式Euler方案）的性能比最佳CPU实现（基于Douglas方案的操作分裂）大约快十倍。非对称的Bridson预处理器与Lin＆More的GPU上的放弃策略是第二好的算法，但在更大的网格上会耗尽内存。对角线预处理器会降低GPU上的总体性能，而具有平滑聚合预处理器的BiCGStab算法没有收敛。'
 - en: '[1] cusp, [Generic Parallel Algorithms for Sparse Matrix and Graph Computations](http://code.google.com/p/cusp-library/)'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] cusp，[稀疏矩阵和图计算的通用并行算法](http://code.google.com/p/cusp-library/)'
 - en: '[2] [Pricing of a Virtual Power Plant on a GPU](../2011/10/03/pricing-of-a-virtual-power-plant-on-a-gpu-with-cuda-4-0/
     "Permanent Link to Pricing of a Virtual Power Plant on a GPU")'
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] [在GPU上定价虚拟电厂](../2011/10/03/pricing-of-a-virtual-power-plant-on-a-gpu-with-cuda-4-0/
+    "永久链接到在GPU上定价虚拟电厂")'
