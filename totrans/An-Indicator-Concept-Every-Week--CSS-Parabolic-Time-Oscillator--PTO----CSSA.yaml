@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:12:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:12:09'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: An Indicator Concept Every Week? CSS Parabolic Time Oscillator (PTO) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 每周一个指标概念？CSS Parabolic Time Oscillator (PTO) | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/03/17/an-indicator-concept-every-week-css-parabolic-time-oscillator-pto/#0001-01-01](https://cssanalytics.wordpress.com/2011/03/17/an-indicator-concept-every-week-css-parabolic-time-oscillator-pto/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/03/17/an-indicator-concept-every-week-css-parabolic-time-oscillator-pto/#0001-01-01](https://cssanalytics.wordpress.com/2011/03/17/an-indicator-concept-every-week-css-parabolic-time-oscillator-pto/#0001-01-01)
 - en: Hello to all of my loyal readers, it has been far too long and truthfully I
     have missed posting my musing/ideas.  My recent departure was required to ensure
     a smooth transition for strategy deployment within the fund. I have decided to
@@ -26,8 +38,11 @@
     cause a disruption in the flow of creative ideas. Paperwork isn’t too fun either………….
     The interaction with a crowd of intelligent readers always keeps me stimulated–
     you just don’t realize the impact until you stop writing.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 亲爱的忠实读者，很久不见了，说实话，我一直都想念着发布我的思考/想法。 最近的离开是为了确保基金内的战略部署顺利进行。 我决定回到博客写作，作为强制创意产出的手段——信不信由你，全天候参与运营、交易和营销的业务会影响创意思路的流畅。
+    文书工作也不是太有趣………… 与一群聪明读者的互动总是让我保持活力——直到你停止写作，你才意识到它的影响。
 - en: I have thought about how best to balance future blog posts, as I do not have
     the time or spare resources to do much backtesting these days outside of internal
     R&D. However, it occured to me that my most popular posts were not backtests,
@@ -42,13 +57,21 @@
     week. Don’t expect me to post code, don’t expect me to post backtests. However,
     I would encourage readers to code my concepts and post links for other readers
     to source that code so that everyone can benefit.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直在思考如何最好地平衡未来的博客文章，因为我现在没有时间或多余的资源在内部研发之外进行太多的回测。 但是，我意识到我最受欢迎的帖子不是回测，也不是基于复杂分析。
+    读者似乎最喜欢的是指标和系统概念，其次是我对市场性质和良好系统开发基础的冗长抱怨。 实际上，我记得我第一次与 Corey Rittenhouse 连接的时候——我的长期搭档——是因为发布了一个关于
+    Donchian 通道的系统思想。 早期读者可能注意到，我开始几篇帖子都是用我有限的 Excel 技能呈现的结果表格。 没有漂亮的图表，没有花哨的回测——感谢
+    Corey。 所以现在是回归基础知识的时候了，我计划每周呈现新的指标概念。 不要指望我发布代码，不要指望我发布回测。 但是，我鼓励读者编写我的概念代码，并发布链接给其他读者以获取那些代码，以便每个人都能受益。
 - en: One thing is for sure……I probably won’t run out of ideas, but hopefully people
     can keep up. I hope that readers can help with this process. Code for Tradestation,
     Amibroker, E-Signal, Wealth-Lab, and all other major platforms are requested.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一件事是肯定的……我可能不会想不出主意，但希望人们能够跟上。 我希望读者能帮助这个过程。 请求 Tradestation、Amibroker、E-Signal、Wealth-Lab
+    和所有其他主要平台的代码。
 - en: 'My first idea? How about a Parabolic Time Oscillator? I was thinking earlier
     this week that time is an important element of stretch but that looking at the
     time above moving averages or other measures doesn’t capture the extremity of
@@ -56,29 +79,44 @@
     ideal because it has a stop that accelerates and stays very close to the highest
     high or lowest low of the move while in a position. Thus the Parabolic Time Oscillator
     (PTO) is calculated as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的第一个想法？怎么样一个 Parabolic Time Oscillator？ 我本周早些时候想到时间是伸展的一个重要因素，但是看着时间超过移动平均线或其他措施并不能捕捉到伸展的极端性。
+    然后我想到，Welles Wilder 的 Parabolic SAR 是理想的，因为它有一个加速并且在持仓中始终非常接近移动的最高点或最低点的停止。 因此，Parabolic
+    Time Oscillator（PTO）的计算如下：
 - en: 1) Record the days in a Parabolic SAR long or short position until the trade
     reversed
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 记录 Parabolic SAR 长期或短期持仓的天数，直到交易逆转
 - en: 2) Take the 100-trade percentile ranking of the days since the current position
     was initiated versus past trades. This is the PTO.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 获取自当前仓位开始的日子排名与过去交易的百分位排名，这是PTO。
 - en: 'Alternative: you can do this separately for long trades versus short trades
     to create two oscillators PTOup and PTOdown.  Use only 50 trades to calculated
     the percentile ranking for each.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 另选项：您可以分别为多头交易和空头交易进行此操作，创建两个振荡器PTOup和PTOdown。使用50笔交易来计算每个百分位排名。
 - en: 'Applications:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 应用：
 - en: Use this as an addition to an overbought/oversold indicator such as RSI or DV2\.
     You can also use this as a trend follower or trend trader to use as a guide to
     liquidate positions. Presumably as a move becomes very stretched in time, the
     probability of further profit before a pullback declines as the PTO reaches extreme
     levels.  However, once a pullback occurs from high PTO levels, it is likely a
     sign of very high probability entries with the trend.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 将其作为超买/超卖指标（如RSI或DV2）的补充。您还可以将其用作趋势跟踪者或趋势交易者，以指导清算仓位。大概当一个行情时间变得十分拉长，再有进一步获利的概率在拉回前就会下降，随着PTO达到极端水平。
+    但是，一旦PTO水平由高位拉回，很可能是趋势中极高概率的入场信号。
