@@ -1,47 +1,75 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:31:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024 年 5 月 18 日 05:31:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Docker Toolbox and MySQL | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Docker Toolbox 和 MySQL | 来自一个交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/05/19/docker-toolbox-and-mysql/#0001-01-01](https://mdavey.wordpress.com/2016/05/19/docker-toolbox-and-mysql/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/05/19/docker-toolbox-and-mysql/#0001-01-01](https://mdavey.wordpress.com/2016/05/19/docker-toolbox-and-mysql/#0001-01-01)
 - en: Docker Toolbox and MySQL
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Docker Toolbox 和 MySQL
 - en: 'The install of Docker [Toolbox](https://docs.docker.com/mac/step_one/) is simple
     🙂  Unfortunately, either due to late nights, or other, its not clear that you
     appear to need to start a network to access the Docker instance of [MySQL](https://hub.docker.com/_/mysql/) by
     a Java process running outside of the docker environment.  Hence I found the following
     from web search solved by project:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 安装 Docker [Toolbox](https://docs.docker.com/mac/step_one/) 很简单 🙂 不幸的是，可能由于熬夜或其他原因，目前似乎需要启动一个网络才能访问
+    [MySQL](https://hub.docker.com/_/mysql/) 的 Docker 实例，而这个访问是通过运行在 docker 环境之外的
+    Java 进程实现的。因此，我从网络搜索中找到了以下解决方案：
 - en: docker network create mysqlapp_net
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: docker network create mysqlapp_net
 - en: docker run –name mysqldb –net mysqlapp_net -p 3306:3306 -e MYSQL_USER=mysql
     -e MYSQL_PASSWORD=mysql -e MYSQL_DATABASE=sample -e MYSQL_ROOT_PASSWORD=supersecret
     -d mysql
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: docker run –name mysqldb –net mysqlapp_net -p 3306:3306 -e MYSQL_USER=mysql
+    -e MYSQL_PASSWORD=mysql -e MYSQL_DATABASE=sample -e MYSQL_ROOT_PASSWORD=supersecret
+    -d mysql
 - en: ~ by mdavey on May 19, 2016.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 作者 mdavey，发表于 2016 年 5 月 19 日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于 [数据](https://mdavey.wordpress.com/category/data/) 分类。
