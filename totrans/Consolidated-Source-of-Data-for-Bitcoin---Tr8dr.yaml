@@ -2,147 +2,177 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:28:38'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:28:38
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Consolidated Source of Data for Bitcoin | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 比特币的数据整合来源 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01)
 - en: January 27, 2015 · 7:55 pm
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2015 年 1 月 27 日 · 下午 7:55
 - en: 'It seems like every other month there is a new bitcoin exchange.  For the purposes
     of trading research & backtesting it is important to have historical data across
     the most liquid exchanges.  My minimal list is:'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来每隔一个月就会出现一个新的比特币交易所。 对于交易研究和回测而言，跨越最流动交易所的历史数据至关重要。 我的最小清单是：
 - en: BTC/USD
   id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: BTC/USD
 - en: bitfinex (15%)
   id: totrans-9
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: bitfinex (15%)
 - en: bitstamp (5%)
   id: totrans-10
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: bitstamp（5%）
 - en: coinbase (new, but likely to garner market share)
   id: totrans-11
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: coinbase（新交易所，但可能会占据市场份额）
 - en: BTC/CNY
   id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: BTC/CNY
 - en: okcoin (28%)
   id: totrans-13
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: okcoin (28%)
 - en: btcn (44%)
   id: totrans-14
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: btcn (44%)
 - en: (percentage volume sourced from [http://bitcoincharts.com/charts/volumepie/](http://bitcoincharts.com/charts/volumepie/
     "bitcoincharts")).   Each of these exchanges not only has a unique protocol but
     also unique semantics that need to be normalized.
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: （百分比交易量来自 [http://bitcoincharts.com/charts/volumepie/](http://bitcoincharts.com/charts/volumepie/
+    "bitcoincharts")）。 这些交易所不仅具有独特的协议，还具有需要标准化的独特语义。
 - en: 'For example, bitstamp produces the following sequence of transactions for a
     partial sweep of the orderbook.  For example, here is a partial sweep, where a
     BUY 14 @ 250.20 was placed, crossing 4 orders on the sell side of the book:'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，bitstamp 为订单簿的部分横扫产生以下交易序列。 例如，在这里进行了部分横扫，放置了一个 BUY 14 @ 250.20 的订单，越过了订单簿卖方的
+    4 个订单：
 - en: '![Orderbook sweep](img/9189f762ecae380f6bebb699f637104d.png)In Bitstamp, would
     see the following transactions:'
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![Orderbook sweep](img/9189f762ecae380f6bebb699f637104d.png)在 Bitstamp 中，将看到以下交易：'
 - en: '**NEW BUY 14 @ 250.20, id: 43**'
   id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**NEW BUY 14 @ 250.20, id: 43**'
 - en: 'DEL  SELL 1.2 @ 250.05, id: 23'
   id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 'DEL  SELL 1.2 @ 250.05, id: 23'
 - en: '**UPDATE BUY 12.8 @ 250.20: id, 43**  (updating the size of the aggressing
     order)'
   id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**UPDATE BUY 12.8 @ 250.20: id, 43**  (更新被动订单的大小)'
 - en: TRADED 1.2 @ 250.05
   id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: TRADED 1.2 @ 250.05
 - en: 'DEL SELL 0.3 @ 250.10, id: 24'
   id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 'DEL SELL 0.3 @ 250.10, id: 24'
 - en: '**UPDATE BUY 12.5 @ 250.20: id, 43**  (updating the size of the aggressing
     order)'
   id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**UPDATE BUY 12.5 @ 250.20: id, 43**  (更新被动订单的大小)'
 - en: TRADED 0.3 @ 250.10
   id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: TRADED 0.3 @ 250.10
 - en: …
   id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: …
 - en: TRADED 8 @ 250.20
   id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: TRADED 8 @ 250.20
 - en: 'DEL BUY 0 @ 250.20, id: 43'
   id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 'DEL BUY 0 @ 250.20, id: 43'
 - en: 'The oddity here is that many market data streams & orderbook implementations
     will just transact the crossing in 1 go, so one will usually only see:  DEL, TRADE,
     DEL, TRADE, DEL TRADE (and deletes may not be sequenced between the trades either).
@@ -154,6 +184,9 @@
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的奇怪之处在于，许多市场数据流和订单簿实现将仅在 1 次交叉中进行交易，因此通常只会看到：DEL、TRADE、DEL、TRADE、DEL TRADE（删除可能也不会在交易之间排序）。
+    在重播此数据时，典型的 OB 实现将立即扫描订单簿，而不会在交叉和删除之间出现中间 UPDATE 状态。 在这样的实现中，看到交叉后的非零大小更新并完全删除订单，可能会被视为错误或遗漏
+    NEW，因为订单不再记录在 OB 中。
 - en: Another note is that Bitstamp does not indicate the side of the trade (i.e.
     which side aggressed), though this is uncommon in markets such as equities or
     FX, Bitcoin exchanges do provide this.   Fortunately because the initial crossing
@@ -163,36 +196,43 @@
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一点是，Bitstamp 不指示交易的一方（即哪一方是主动方），尽管这在股票或外汇等市场中不常见，但比特币交易所提供了这一信息。 幸运的是，因为提供了初始交叉订单，可以使用二部图（在存在多个交叉订单的情况下）来确定最可能的主动方订单，从而确定交易方向。
 - en: '**Clearing House for Data**'
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**数据结算中心**'
 - en: 'I would like to build and/or participate in the following:'
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想建立和/或参与以下事项：
 - en: build robust normalized L3 or L2 -> L3 (implied) orderbook live feeds
   id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 构建强大的标准化 L3 或 L2 -> L3（暗示）订单簿实时数据源
 - en: used to collect data into a simple binary tickdb format
   id: totrans-33
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 用于将数据收集到简单的二进制刻度数据库格式中
 - en: also can be reused as connectivity handlers for live trading
   id: totrans-34
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 还可重用作实时交易的连接处理程序
 - en: normalize transaction stream (such as issues in the example above)
   id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 标准化交易流（例如上述示例中的问题）
 - en: identify buy/sell designation on trades based on exchange specific semantics
   id: totrans-36
   prefs:
