@@ -1,24 +1,31 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 17:50:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Combining Acceleration and Volatility into a Non-Linear Filter (NLV) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '[![nonlinear](img/b71823d163c53cc1aeeec1b199ce968b.png)](https://cssanalytics.files.wordpress.com/2014/12/nonlinear.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: 'The last two [posts](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/
@@ -31,6 +38,7 @@
     two into perhaps a better indicator than either in isolation**. Traditional volatility
     is obviously more widely used, and is critical for solving traditional portfolio
     optimization. Therefore, it is a logical choice as a baseline indicator.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: Linear filters such as moving averages and regression generate output that is
@@ -42,6 +50,7 @@
     responsiveness. Since volatility is highly predictable, it stands to reason that
     we would like to reduce lag and increase responsiveness as much as possible to
     generate superior results.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: 'So how would we create a volatility measure that incorporates acceleration?
@@ -50,47 +59,65 @@
     acceleration should generate an exponentially higher weighting on each data point.
     Here is how it is calculated for a 10-day NLV. (Don’t panic, I will post a spreadsheet
     in the next post):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: A) Calculate the rolling series of the square of the daily log returns minus
     their average return
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: B) Calculate the rolling series of the absolute value of the first difference
     in log returns (acceleration/error)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: C) Take the current day’s value using B and divide it by some optional average
     such as 20-days to get a relative value for acceleration
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: D) Raise C to the exponent of 3 or some constant of your choosing- this is the
     rolling series of relative acceleration constants
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: E) Weight each daily value in A by the current day’s D value divided by the
     sum of D values over the last 10 days-
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: E) 按照最近10天D值之和除以当前日的D值来加权A的每日值-
 - en: F) Divide the calculation found in E by the sum of the weighting constants (sum
     of D values divided by their sum)– this is the NLV and is analagous to the computation
     of a traditional weighted moving average
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: F) 将E中的计算除以加权常数之和（D值之和除以它们的和） - 这就是NLV，类似于传统加权移动平均数的计算
 - en: 'And now for the punchline–here are the results versus the different alternative
     measures presented in [the last post](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/
     "Volatility of Acceleration Part Two"):'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是关键一击 - 这里是与[上一篇文章](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/
+    "Volatility of Acceleration Part Two")中提出的不同备选措施相比的结果：
 - en: '[![nlv](img/6edb420e8163303e8866687b0f9e8518.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![nlv](img/6edb420e8163303e8866687b0f9e8518.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv.png)'
 - en: '[![nlv2](img/19e127d109696bd90039fb3e57e38ffc.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv2.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![nlv2](img/19e127d109696bd90039fb3e57e38ffc.png)](https://cssanalytics.files.wordpress.com/2014/12/nlv2.png)'
 - en: The concept shows promise as a hybrid measure of volatility that incorporates
     acceleration. The general calculation can be applied many different ways but this
     method is fairly intuitive and generic. In the next post I will show how to make
     this non-linear filter even more responsive to changes in volatility.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个概念作为一个结合了加速度的波动性的混合度量显示出了潜力。一般的计算可以应用于许多不同的方式，但这种方法相当直观和通用。在下一篇文章中，我将展示如何使这个非线性滤波器对波动性的变化更加敏感。
