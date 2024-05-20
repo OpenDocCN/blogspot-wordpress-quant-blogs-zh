@@ -1,21 +1,27 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 14:39:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Factor Attribution to improve performance of the 1-Month Reversal Strategy |
     Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -27,6 +33,7 @@
     To improve 1-Month Reversal Strategy performance authors investigate an alternative
     position ranking metric based on the residuals from the rolling Factor Attribution
     regression.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: 'The base 1-Month Reversal Strategy forms portfolios each month by buying 20%
@@ -36,59 +43,79 @@
     S&P 500 index based on the residuals from the rolling Factor Attribution regression.
     Following are the steps to form 1-Month **Residual** Reversal Strategy portfolio
     each month:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: '1\. for each company in the S&P 500 index, run a rolling Factor Attribution
     regression on the prior 36 months and compute residuals: e.1, e.2, …, e.t, …,
     e.T for t in 1:36'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 2\. alternative position ranking metric = e.T / standard deviation of (e)
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 3\. form portfolios by buying 20% of loosers and short selling 20% of winners
     from the S&P 500 index based on the alternative position ranking metric
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 'Let’s start by loading historical prices for all companies in the S&P 500 and
     create SPY and Equal Weight benchmarks using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s run Factor Attribution on each the stocks in the S&P 500 index to
     determine it’s alternative position ranking metric. I will save both e.T and e.T
     / standard deviation of (e) metrics.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next let’s group stocks into Quantiles based on 1-Month Reversal factors and
     create reports.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/5d763502fe01d2a233ca28b7f3ca52ba.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/ae13f4c320e9a831e3d12a837ca72bc7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small2.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/c223c2aeee0aa1a5898cd733f3547816.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: The 1-Month **Residual** Reversal Strategy have done well over the last 10 years
     and handsomely outperformed the base 1-Month Reversal Strategy.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 过去 10 年来，1 个月**残差**反转策略表现良好，并且大幅优于基础的 1 个月反转策略。
 - en: To view the complete source code for this example, please have a look at the
     [bt.fa.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 [GitHub 上 bt.test.r 中的 bt.fa.one.month.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:40:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:40:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Factor Attribution | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 因子归因 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/#0001-01-01)
 - en: 'I came across a very descriptive visualization of the Factor Attribution that
     I will replicate today. There is the [Three Factor Rolling Regression Viewer](http://mas.xtreemhost.com/)
     at the [mas financial tools](http://mas.xtreemhost.com/) web site that performs
@@ -27,50 +39,82 @@
     I recommend reading the [Efficient Frontier: Rolling Your Own: Three-Factor Analysis
     by W. Bernstein](http://www.efficientfrontier.com/ef/101/roll101.htm) for a step
     by step instructions.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '我找到了一个非常描述性的因子归因可视化，我今天将复制它。这里有[三因子滚动回归查看器](http://mas.xtreemhost.com/)在[mas
+    financial tools](http://mas.xtreemhost.com/)网站上执行Fama和French的[“三因子模型”](http://en.wikipedia.org/wiki/Fama%E2%80%93French_three-factor_model)的滚动窗口因子分析。因子回报来自[Kenneth
+    R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)。我建议阅读[W.
+    Bernstein的《有效前沿：自己动手：三因子分析》](http://www.efficientfrontier.com/ef/101/roll101.htm)以获取一步一步的说明。'
 - en: 'Let’s start by loading historical returns for the [Vanguard Small Cap Value
     Index (VISVX)](http://www.google.com/finance?q=VISVX) and aligning them with Fama/French
     Monthly Factors. Please note I wrote a helper function, [get.fama.french.data()](https://github.com/systematicinvestor/SIT/blob/master/R/data.r),
     to simplify process of loading and analyzing factor data from the [Kenneth R French:
     Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '让我们从加载[Vanguard Small Cap Value Index (VISVX)](http://www.google.com/finance?q=VISVX)的历史回报并将其与Fama/French月度因子对齐开始。请注意，我编写了一个辅助函数，[get.fama.french.data()](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)，以简化从[Kenneth
+    R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)加载和分析因子数据的过程。'
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s run Factor Attribution over all available data:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们对所有可用数据运行因子归因：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[PRE2]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: All factor loadings are significant.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有因子加载都是显著的。
 - en: 'Next, let’s run a 36 month rolling window Factor Attribution:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们运行一个 36 个月滚动窗口的因子归因：
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Finally, let’s re-create the timeseries and histogram charts as presented by
     [Three Factor Rolling Regression Viewer](http://mas.xtreemhost.com/).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们重新创建由[三因子滚动回归查看器](http://mas.xtreemhost.com/)呈现的时间序列和直方图图表。
 - en: '[PRE4]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/f4c25046a1f1e4204792ce29c3b538a6.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f4c25046a1f1e4204792ce29c3b538a6.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1.png)'
 - en: In the next post, I plan to replicate the Style charts and provide more examples.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我计划复制样式图表并提供更多示例。
 - en: To view the complete source code for this example, please have a look at the
     [three.factor.rolling.regression() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的three.factor.rolling.regression()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

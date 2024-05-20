@@ -1,97 +1,150 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:39:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:39:55'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Factor Attribution 2 | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 因子归因 2 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/#0001-01-01)
 - en: 'I want to continue with Factor Attribution theme that I presented in the [Factor
     Attribution](https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/)
     post. I have re-organized the code logic into the following 4 functions:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想继续讨论我在[Factor Attribution](https://systematicinvestor.wordpress.com/2012/06/20/factor-attribution/)帖子中提出的因子归因主题。我已经重新组织了代码逻辑，分成以下4个函数：
 - en: factor.rolling.regression – Factor Attribution over given rolling window
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: factor.rolling.regression – 在给定滚动窗口上的因子归因
 - en: factor.rolling.regression.detail.plot – detail time-series plot and histogram
     for each factor
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: factor.rolling.regression.detail.plot – 每个因子的详细时间序列图和直方图
 - en: factor.rolling.regression.style.plot – historical style plot for selected 2
     factors
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: factor.rolling.regression.style.plot – 选定2个因子的历史风格图
 - en: factor.rolling.regression.bt.plot – compare fund’s performance with portfolios
     implied by Factor Attribution
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: factor.rolling.regression.bt.plot – 将基金表现与因子归因隐含的组合进行比较
 - en: Let’s first replicate style and performance charts from the [Three Factor Rolling
     Regression Viewer](http://mas.xtreemhost.com/) at the [mas financial tools](http://mas.xtreemhost.com/)
     web site.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先复制[Three Factor Rolling Regression Viewer](http://mas.xtreemhost.com/)网站上的风格和绩效图表，在[mas
+    financial tools](http://mas.xtreemhost.com/)网站上。
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/4e2e901de0108262a782de557780b47f.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small2.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4e2e901de0108262a782de557780b47f.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small2.png)'
 - en: '[![](img/71e5b83492f996d9e8a75310cdf7e165.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/71e5b83492f996d9e8a75310cdf7e165.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small2.png)'
 - en: '[![](img/7c131fa39aa35f8702e20683db5ba6c6.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot3-small1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7c131fa39aa35f8702e20683db5ba6c6.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot3-small1.png)'
 - en: 'Next let’s add the Momentum factor from the [Kenneth R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)
     and run Factor Attribution one more time.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '接下来，让我们再次添加来自[Kenneth R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)的动量因子，并再次运行因子归因。'
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/847e2cfcf0787fcbcf3a9df89d08fa28.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot4-small1.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/847e2cfcf0787fcbcf3a9df89d08fa28.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot4-small1.png)'
 - en: '[![](img/11dd7f195567c2f1af341423a5012aee.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot5-small1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/11dd7f195567c2f1af341423a5012aee.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot5-small1.png)'
 - en: '[![](img/82132c1199a579188ff53658754a4f47.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot7-small1.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/82132c1199a579188ff53658754a4f47.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot7-small1.png)'
 - en: To visualize style from the Momentum point of view, let’s create a style chart
     that shows fund’s attribution in the HML / Momentum space.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了从动量角度可视化风格，请创建一个显示基金在HML / 动量空间中归因的风格图。
 - en: '[PRE2]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/1b543ebde82f186d812d5ca5d0fb9817.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot6-small1.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1b543ebde82f186d812d5ca5d0fb9817.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot6-small1.png)'
 - en: 'I designed the Factor Attribution functions to take any user specified factors.
     This way you can easily run Factor Attribution on any combination of the historical
     factor returns from the [Kenneth R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)
     Or use your own historical factor returns data.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '我设计了因子归因函数，以接受任何用户指定的因子。这样，您就可以轻松地对来自[Kenneth R French: Data Library](http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html)的历史因子收益的任何组合运行因子归因，或者使用您自己的历史因子收益数据。'
 - en: To view the complete source code for this example, please have a look at the
     [three.factor.rolling.regression() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的three.factor.rolling.regression()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
