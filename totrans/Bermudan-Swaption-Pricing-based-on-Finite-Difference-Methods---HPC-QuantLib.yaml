@@ -1,70 +1,110 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:38:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月17日 23:38:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Bermudan Swaption Pricing based on Finite Difference Methods – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 基于有限差分法的百慕大式互换定价 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01](https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01](https://hpcquantlib.wordpress.com/2011/12/19/bermudan-swaption-pricing-based-on-finite-difference-methods/#0001-01-01)
 - en: Even though short rate models like the Hull-White model or the G2++ model are
     getting a bit long in the tooth these models are still used for risk management
     or as benchmark models. Since the early days QuantLib supports the pricing of
     Bermudan swaptions based on trinomial trees. It’s time to compare the performance
     and accuracy of the trinomial tree pricing algorithm with finite difference methods.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管Hull-White模型或G2++模型等短期利率模型有些老态龙钟，但这些模型仍然被用于风险管理或作为基准模型。自早期以来，QuantLib就支持基于三项式树定价百慕大式互换。现在是时候比较三项式树定价算法与有限差分法的性能和准确度了。
 - en: The G2++ model is defined by the following stochastic differential equation
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: G2++模型由以下随机微分方程定义
 - en: '![\begin{array}{rcl} dx_t &=& -ax_tdt+\sigma dW_t^1 \\ dy_t &=& -by_tdt + \eta
     dW_t^2 \\ dW_t^1 dW_t^2 &=& \rho dt \\ r_t &=& x_t + y_t+\phi_t \\ \phi_t &=&
     f^M(0,T) +\frac{\sigma^2}{2a^2}\left(1-e^{-aT} \right )^2 + \frac{\eta^2}{2b^2}\left(1-e^{-bT}
     \right )^2 \\ &+&\rho \frac{\sigma\eta}{ab}\left(1-e^{-aT} \right )\left(1-e^{-bT}
     \right ) \end{array} ](img/d57b86df847f3b070333bb2614d476ae.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} dx_t &=& -ax_tdt+\sigma dW_t^1 \\ dy_t &=& -by_tdt + \eta
+    dW_t^2 \\ dW_t^1 dW_t^2 &=& \rho dt \\ r_t &=& x_t + y_t+\phi_t \\ \phi_t &=&
+    f^M(0,T) +\frac{\sigma^2}{2a^2}\left(1-e^{-aT} \right )^2 + \frac{\eta^2}{2b^2}\left(1-e^{-bT}
+    \right )^2 \\ &+&\rho \frac{\sigma\eta}{ab}\left(1-e^{-aT} \right )\left(1-e^{-bT}
+    \right ) \end{array} ](img/d57b86df847f3b070333bb2614d476ae.png)'
 - en: where ![f^M(0,T)](img/3d2ff0de3c9d0efd0ef16ec9603dee4b.png) is denoting the
     market instantaneous forward rate at time 0 for the maturity T (see. e.g. [1]).
     The Hull-White model can be seen as a one-dimensional simplification of the G2++
     model. The corresponding partial differential equation (PDE) can be derived using
     the [Feynman-Kac](http://en.wikipedia.org/wiki/Feynman%E2%80%93Kac_formula) theorem.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 ![f^M(0,T)](img/3d2ff0de3c9d0efd0ef16ec9603dee4b.png) 表示时间0到到期T的市场瞬时远期利率（见，例如，[1]）。Hull-White模型可以看作是G2++模型的一维简化。相应的偏微分方程（PDE）可以使用[Feynman-Kac](http://en.wikipedia.org/wiki/Feynman%E2%80%93Kac_formula)定理导出。
 - en: '![\begin{array}{rcl} \frac{\partial V}{\partial t} = ax\frac{\partial V}{\partial
     x} + by\frac{\partial V}{\partial y} - \frac{\sigma}{2}\frac{\partial^2 V}{\partial
     x^2} - \frac{\eta}{2}\frac{\partial^2 V}{\partial y^2}-\rho\sigma\eta\frac{\partial^2
     V}{\partial x \partial y} + rV \end{array} ](img/53e08c58105e517fc41d36cdf44e9296.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} \frac{\partial V}{\partial t} = ax\frac{\partial V}{\partial
+    x} + by\frac{\partial V}{\partial y} - \frac{\sigma}{2}\frac{\partial^2 V}{\partial
+    x^2} - \frac{\eta}{2}\frac{\partial^2 V}{\partial y^2}-\rho\sigma\eta\frac{\partial^2
+    V}{\partial x \partial y} + rV \end{array} ](img/53e08c58105e517fc41d36cdf44e9296.png)'
 - en: QuantLib supports several operator splitting schemes to solve multi-dimensional
     PDEs.  The [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/) contains
     FDM engines to price Bermudan swaptions under the Hull-White and the G2++ model.
     Other short rate models like the CIR++ or Black-Karasinski model can be implemented
     in the same manner.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib支持多种算子分裂方案来解决多维PDE的问题。 [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/)
+    包含了基于Hull-White和G2++模型定价百慕大式互换的FDM引擎。其他短期利率模型，如CIR++或Black-Karasinski模型，可以以相同的方式实现。
 - en: As can be seen in the diagrams below the finite difference method based pricing
     engines outperform the trinomial tree based engines.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 从下面的图表可以看出，基于有限差分法的定价引擎优于三项式树定价引擎。
 - en: '[![](img/d5cc9041ef5b4fcaf929bbd2f3ab5a11.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot3.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d5cc9041ef5b4fcaf929bbd2f3ab5a11.png "绘图")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot3.png)'
 - en: '[![](img/2c3519966a0e2638417219fde1fc9372.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/2c3519966a0e2638417219fde1fc9372.png "绘图")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/12/plot2.png)'
 - en: '[1] D. Brigo, F. Mercurio, [Interest Rate Models – Theory and Practice](http://www.fabiomercurio.it/contents2nd.html)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] D. Brigo, F. Mercurio, [利率模型-理论与实践](http://www.fabiomercurio.it/contents2nd.html)'
