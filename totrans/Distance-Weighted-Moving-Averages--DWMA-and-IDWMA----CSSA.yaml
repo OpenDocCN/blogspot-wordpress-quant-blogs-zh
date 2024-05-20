@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:49:45'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:49:45
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Distance Weighted Moving Averages (DWMA and IDWMA) | CSSA
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 距离加权移动平均（DWMA和IDWMA）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01)
 - en: 'The [distance weighted moving average](http://www.encyclopediaofmath.org/index.php/Distance-weighted_mean)
     is another [nonlinear filter](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/
     "Combining Acceleration and Volatility into a Non-Linear Filter (NLV)") that provides
@@ -34,10 +40,13 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[距离加权移动平均](http://www.encyclopediaofmath.org/index.php/Distance-weighted_mean)是另一种[非线性滤波器](https://cssanalytics.wordpress.com/2014/12/03/combining-acceleration-and-volatility-into-a-non-linear-filter-nlv/
+    "Combining Acceleration and Volatility into a Non-Linear Filter (NLV)")，为进一步的研究和探索提供了基础。在其传统形式中，距离加权移动平均（DWMA）旨在成为移动平均的强健版本，以减少异常值的影响。以下是来自数学百科全书的计算：  '
 - en: '[![dwma](img/e496c68a920118f873f38ef508006016.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma.png)'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![dwma](img/e496c68a920118f873f38ef508006016.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma.png)'
 - en: 'Notice in the example above that “12” is clearly an outlier relative to the
     other data points and is therefore assigned less weight in the final average.
     The advantage of this approach to simple winsorization (omitting outliers that
@@ -58,10 +67,13 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意上面的示例中，“12”明显是相对于其他数据点的异常值，因此在最终平均值中被分配的权重较小。这种方法相对于简单的温索拉法（从计算中识别的异常值被省略）的优势在于，使用了所有的数据，而不需要指定任意的阈值。这对于多维数据尤其有价值。通过在DWMA的计算中对距离值取平方而不仅仅是取绝对值，可以使平均值对异常值的不敏感性更强。请注意，这个概念也可以被反转以强调异常值或更大的数据点。这可以通过消除将距离作为分数倒数的需要，而仅仅使用距离权重来实现。这可以称为“反向距离移动平均”或IDWMA，对于希望忽略时间序列中的小波动（可以被视为“[白噪声](https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/
+    "Filtering White Noise")”）并使平均值更加响应突破的情况非常有用。此外，这种方法在风险敏感性重要的波动率计算中可能更有价值。下面的图表显示了这些不同的移动平均如何响应具有异常值的虚构时间序列：
 - en: '[![dwma2](img/7640dd4f13ce3f965614366a760bb74f.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma2.png)'
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![dwma2](img/7640dd4f13ce3f965614366a760bb74f.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma2.png)'
 - en: 'Notice that the DWMA is the least sensitive to the price moves and large jumps,
     while the IDWMA is the most sensitive. Comparatively the SMA response is in between
     both the DWMA and IDWMA. The key is that neither moving average is superior to
