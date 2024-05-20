@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:14:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:14:49
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: CAGR and Performance Measurement | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: CAGR 和绩效评估 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/12/01/cagr-and-performance-measurement/#0001-01-01](https://cssanalytics.wordpress.com/2010/12/01/cagr-and-performance-measurement/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/12/01/cagr-and-performance-measurement/#0001-01-01](https://cssanalytics.wordpress.com/2010/12/01/cagr-and-performance-measurement/#0001-01-01)
 - en: CAGR- or the compounded annualized growth rate-  often gets a bad rap in performance
     evaluation. Truthfully for systems without leverage, the CAGR is actually one
     of the best performing optimization goal functions in terms of out-of-sample performance–better
@@ -27,8 +39,12 @@
     Furthermore, high CAGR systems often have a built in bias towards rewarding simplicity—it
     is very difficult to achieve a high CAGR with multiple rules that winnow down
     the observation set.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: CAGR- 或者年复合增长率- 在绩效评估中经常被诟病。事实上，对于没有杠杆的系统来说，CAGR 实际上是基于我们自己在多个市场上的测试结果来看是表现最好的优化目标函数之一--比基于夏普比率的更好。这一观察结果与多个回测一致，显示基于
+    ROC（即 CAGR）的相对强度策略往往优于更复杂的风险调整的 CAGR 测量。此外，高 CAGR 系统往往具有向简单性奖励的内在偏向--很难通过多个规则来获得高
+    CAGR，这些规则会减少观察集合。
 - en: Putting aside concerns about the lack of a risk-adjusted component, the CAGR
     measure itself is fraught with instability. For the experienced system developer
     that has tried Monte Carlo testing, they would recognize that the CAGR can vary
@@ -44,5 +60,10 @@
     is introduced using this method, utilizing a measure of the delta or acceleration
     in the moving average of CAGR can produce the best of both worlds. I will leave
     these suggestions for researchers to investigate.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 撇开对缺乏风险调整组成部分的担忧，CAGR 指标本身就充满了不稳定性。对于经验丰富的系统开发者来说，尝试过蒙特卡洛测试的人会意识到，CAGR 可能会根据测量窗口的不同而变化很大。如果你从一个
+    10 年的回测开始向前或向后测量甚至只有 10-20 天，CAGR 可能会因系统的不同而变化 3-5%。这是因为每日测量间隔和复利的影响。CAGR 测量中嵌入的这种噪音因素的含义是，对策略进行定性比较可能得出不正确的结论，而前向测试将不会产生期望的结果。衡量
+    CAGR 的更可靠的方法是使用诸如月度 CAGR 等较小复合收益样本的平均值。这种测量方法要平滑得多，并且无论你的起始/结束日期如何，都会产生类似的结果。虽然使用这种方法会引入滞后，但利用
+    CAGR 移动平均线中的增量或加速度的测量可以产生最佳效果。我将把这些建议留给研究人员去调查。
