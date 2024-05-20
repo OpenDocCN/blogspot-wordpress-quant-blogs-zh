@@ -252,14 +252,19 @@
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '*那么，让我们对上面的代码进行必要的更改，以生成符合学生 t 分布的随机数。这是通过 QuantLib 的 [InverseCumulativeRsg](http://quantlib.org/reference/class_quant_lib_1_1_inverse_cumulative_rsg.html)
+    类来实现的，它是一个由随机序列生成器和反函数累积分布函数参数化的模板。学生 t 分布的实现由 Boost Math 库的 [boost::math::students_t_distribution](http://www.boost.org/doc/libs/1_35_0/libs/math/doc/sf_and_dist/html/math_toolkit/dist/dist_ref/dists/students_t_dist.html)
+    类提供，它使用五个自由度进行实例化，因此分布的形状具有所需的“厚尾”，如下图中的浅蓝色密度所示。请注意，浅蓝色密度的尾部质量比黑色标准正态密度更多。'
 - en: '![](img/89023d10525872fa37096dc42af92066.png)'
   id: totrans-30
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/89023d10525872fa37096dc42af92066.png)'
 - en: 'The revised source code listing is as follows:'
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 修订后的源代码列表如下所示：
 - en: '[PRE1]'
   id: totrans-32
   prefs: []
@@ -270,14 +275,17 @@
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行测试用例时，将生成如下输出，尽管程序的运行结果会因每次运行而异：
 - en: '`Standard deviation of simulated returns (Student-T): 0.2112'
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '`模拟收益（学生 t 分布）的标准差：0.2112'
 - en: 'Price statistics: mean=24.94, min=19.44, max=30.24`'
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格统计数据：均值=24.94，最小值=19.44，最大值=30.24`
 - en: 'As depicted in the chart below, the `testGeometricBrownianMotionStudentT` test
     case generates a time series that features more relatively large up and down moves
     than that of the classic, normal model.  However, the realized volatility of the
@@ -285,24 +293,30 @@
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 如下图所示，`testGeometricBrownianMotionStudentT` 测试用例生成了一个时间序列，其中相对较大的上下波动比经典的正态模型要多。然而，学生
+    t 时间序列的实现波动性与正态分布并没有显著不同：
 - en: '[![intc_gbm_student](img/ce8a491a5c1edff21c78954d68841f16.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc_gbm_student.png)'
   id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![intc_gbm_student](img/ce8a491a5c1edff21c78954d68841f16.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc_gbm_student.png)'
 - en: There is much more to the modeling of asset price dynamics than I can present
     in this brief post, but I hope that I’ve imparted the fundamental concepts and
     explained how you can accomplish quite a lot with very little effort using QuantLib.
   id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 资产价格动态建模远比我在这篇简短的文章中所能呈现的要复杂得多，但我希望我已经传达了基本概念，并解释了如何使用 QuantLib 用很少的努力就可以取得相当大的成就。
 - en: Also, for your convenience, I have now made all of the source code from my Introducing
     QuantLib series available on GitHub at [https://github.com/mhittesdorf/allthingsfintech](https://github.com/mhittesdorf/allthingsfintech). 
     I encourage you to download and experiment with the code yourself.
   id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，为了您的方便，我现在已经将我的 Introducing QuantLib 系列的所有源代码都上传到 GitHub 上，网址为 [https://github.com/mhittesdorf/allthingsfintech](https://github.com/mhittesdorf/allthingsfintech)。我鼓励您下载并自行尝试代码。
 - en: Thanks for reading my blog and, as always, please feel free to leave your comments
     and questions below.  Have fun with QuantLib!*
   id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢您阅读我的博客，并且，如常，欢迎在下方留下您的评论和问题。享受 QuantLib 的乐趣！*

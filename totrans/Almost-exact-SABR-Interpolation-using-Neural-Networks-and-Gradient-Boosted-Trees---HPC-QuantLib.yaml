@@ -1,77 +1,114 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:14:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:14:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Almost exact SABR Interpolation using Neural Networks and Gradient Boosted Trees
     – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 几乎完全精确的SABR插值使用神经网络和梯度提升树 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2019/10/12/almost-exact-sabr-interpolation-using-neural-networks-and-gradient-boosted-trees/#0001-01-01](https://hpcquantlib.wordpress.com/2019/10/12/almost-exact-sabr-interpolation-using-neural-networks-and-gradient-boosted-trees/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2019/10/12/almost-exact-sabr-interpolation-using-neural-networks-and-gradient-boosted-trees/#0001-01-01](https://hpcquantlib.wordpress.com/2019/10/12/almost-exact-sabr-interpolation-using-neural-networks-and-gradient-boosted-trees/#0001-01-01)
 - en: '**Update 03-11-2019**: Added arbitrage free SABR calibration based on neural
     networks.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**更新 03-11-2019**：基于神经网络添加了无套利的SABR校准。'
 - en: Very efficient approximations exist for the SABR model
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: SABR模型有非常高效的近似方法
 - en: '![\begin{array}{rcl} \displaystyle dF_t &=& \alpha_t F_t^\beta dW_t \\ \nonumber
     d\alpha_t &=& \nu \alpha_t dZ_t \\ \nonumber \rho dt &=& <dW_t, dZ_t> \end{array}](img/47f376178554f45c17eb815238974e7b.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![公式图片](img/47f376178554f45c17eb815238974e7b.png)'
 - en: like the original Hagan et. al. formula [1] or variants of it [2] but these
     analytic formulas are in general not arbitrage free. Solving the corresponding
     partial differential equation leads to an arbitrage free solution
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 就像原始的Hagan等人的公式[1]或其变体[2]一样，但这些解析公式通常不是无套利的。求解相应的偏微分方程导致无套利解决方案
 - en: '![\displaystyle \frac{\partial u}{\partial t} - \frac{\nu^2}{2}\frac{\partial
     u}{\partial x} + \frac{1}{2}e^{2x}F_t^{2\beta}\frac{\partial^2 u}{\partial F^2}+\frac{\nu^2}{2}\frac{\partial^2
     u}{\partial x^2}+\rho\nu e^{x_t}F_t^\beta\frac{\partial^2 u}{\partial F \partial
     x} -ru = 0](img/718fac54cb7ea032aa8979f78a3317e6.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![公式图片](img/718fac54cb7ea032aa8979f78a3317e6.png)'
 - en: but is computationally demanding. The basic idea here is to use a neural network
     or gradient boosted trees to interpolate (predict) the difference between the
     analytic approximation and the exact result from the partial differential equation
     for a large variate of model parameters.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是计算量很大。这里的基本思想是使用神经网络或梯度提升树来插值（预测）解析近似值与大量模型参数的精确结果之间的差异。
 - en: First step is to reduce the number of dimensions of the parameter space ![\{F_0, 
     \alpha, \beta, \nu, \rho \}](img/9d37f5d47cbb44e9268dd7ab430f3ed3.png) by utilizing
     the scaling symmetry of the SABR model [3]
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一步是通过利用SABR模型的缩放对称性来减少参数空间的维数![\{F_0,  \alpha, \beta, \nu, \rho \}](img/9d37f5d47cbb44e9268dd7ab430f3ed3.png)
+    [3]
 - en: '![\begin{array}{rcl} \displaystyle F_t &\rightarrow& \lambda F_t \\ \nonumber
     \alpha_t &\rightarrow& \lambda^{1-\beta}\alpha_t. \end{array}](img/8bc11d289d7e4039210f823dad620ff5.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![公式图片](img/8bc11d289d7e4039210f823dad620ff5.png)'
 - en: so that we can focus on the case ![F_0=1.0](img/fd0e455343f5ef4517276dfe88eba1d1.png)
     without lose of generality
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我们可以将重点放在![F_0=1.0](img/fd0e455343f5ef4517276dfe88eba1d1.png)的情况上，而不失一般性
 - en: '![\displaystyle  \sigma_{BS}\left( K, F_0, T, \alpha, \beta, \nu, \rho \right)
     = \sigma_{BS}\left(\lambda K, \lambda F_0, T, \lambda^{1-\beta}\alpha, \beta,
     \nu, \rho \right)](img/9e3ce0436b0dfbc3c2313cf87a80e5f3.png).'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![公式图片](img/9e3ce0436b0dfbc3c2313cf87a80e5f3.png).'
 - en: This in turns also limits the “natural” parameter space for ![\{ \alpha, \beta,
     \nu \}](img/515001b359dfeb3b2995f485bdd73b27.png) which will be set to
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这反过来也限制了![\{ \alpha, \beta, \nu \}](img/515001b359dfeb3b2995f485bdd73b27.png)的“自然”参数空间，将被设置为
 - en: '![\displaystyle \alpha \in [0, 1], \ \beta \in [0, 1], \ \nu \in [0, 1]](img/68bd130cb6e98079add2ea6efa213183.png).'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![公式图片](img/68bd130cb6e98079add2ea6efa213183.png).'
 - en: Next on the list is to set-up an efficient PDE solver to prepare the training
     data. The QuantLib solver supports already the two standard error reduction techniques,
     namely adaptive grid refinement around important points and cell averaging around
@@ -81,27 +118,41 @@
     will ensure a smooth convergence in the time direction as well [5].  Hence the
     Richardson extrapolation can be used to improve the convergence order of the overall
     algorithm. An example pricing for
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来要做的是建立一个高效的PDE求解器以准备训练数据。QuantLib求解器已经支持两种标准的误差减少技术，即围绕重要点的自适应网格细化和围绕收益特殊点的单元平均。后者确保空间方向上平稳的二阶收敛
+    [4]。Hundsdorfer-Viewer ADI方案在时间方向上也是二阶的，并且在开始时额外的Rannacher平滑步骤也将确保时间方向上的平稳收敛 [5]。因此，Richardson外推可用于提高整体算法的收敛阶数。如下所示的例子定价为
 - en: '![F_0=1.0, K=0.466, T=0.6, \alpha = 0.825, \beta=0.299, \nu=0.410, \rho=-0.166](img/e8227a3683747f39a68836e14a387239.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![F_0=1.0, K=0.466, T=0.6, \alpha = 0.825, \beta=0.299, \nu=0.410, \rho=-0.166](img/e8227a3683747f39a68836e14a387239.png)'
 - en: is shown in the diagram below to demonstrate the efficiency of the Richardson
     extrapolation. The original grid size for scaling factor 1.0 is ![\{ T, S, v \}
     = \{20, 200, 25\}](img/b4bdaeaa7bcd5e43a55d8db36081c8d8.png).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如下图所示，对比展示了Richardson外推的效率。缩放因子为1.0的原始网格大小为![\{ T, S, v \} = \{20, 200, 25\}](img/b4bdaeaa7bcd5e43a55d8db36081c8d8.png)。
 - en: '![sabr_pde_richardson.png](img/b789b93ae65040706cc71dc283b1cf91.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![sabr_pde_richardson.png](img/b789b93ae65040706cc71dc283b1cf91.png)'
 - en: The training data was generated by a five dimensional quasi Monte-Carlo Sobol
     sequence for the parameter ranges
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 训练数据是通过五维拟随机蒙特卡洛Sobol序列生成的，适用于参数范围
 - en: '![\displaystyle \alpha \in [0, 1], \ \beta \in [0, 1], \ \rho \in [-1, 1],
     \ \nu \in [0, 1], T\in [\frac{1}{12}, 1]](img/2dd7bbbc34c6adf7d3784b69fbcd24d6.png).'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![\displaystyle \alpha \in [0, 1], \ \beta \in [0, 1], \ \rho \in [-1, 1],
+    \ \nu \in [0, 1], T\in [\frac{1}{12}, 1]](img/2dd7bbbc34c6adf7d3784b69fbcd24d6.png)。'
 - en: The strikes are equally distributed between the ![1\%](img/e06ee77a4e351f623bf0ca0e59faee83.png)
     and ![99\%](img/2510a07fbd981aba1a5e96dc697d5e7c.png) quantile of the risk neutral
     density distribution w.r.t to the ATM volatility of the SABR model. The PDE solver
@@ -111,50 +162,73 @@
     more prices with new ![K'=\lambda K](img/5e22b524da9a8248751d649875848c13.png)
     and ![\alpha'=\lambda^{1-\beta}\alpha](img/54fd5d7e061c047fbcd599b92b750162.png)
     values for ![F_0=1.0](img/fd0e455343f5ef4517276dfe88eba1d1.png).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 风险中性密度分布的![1\%](img/e06ee77a4e351f623bf0ca0e59faee83.png)和![99\%](img/2510a07fbd981aba1a5e96dc697d5e7c.png)分位上的罢工均等地分布在SABR模型的ATM波动率上。PDE求解器不仅会计算![F_0=1.0](img/fd0e455343f5ef4517276dfe88eba1d1.png)的公平价值，还将计算周围一系列现货价值的价格![F_0](img/1b951a011a7a778838d41f23aa5f65f7.png)。利用SABR模型的缩放对称性，可以利用计算新的![K'=\lambda
+    K](img/5e22b524da9a8248751d649875848c13.png)和![\alpha'=\lambda^{1-\beta}\alpha](img/54fd5d7e061c047fbcd599b92b750162.png)值下的更多价格![F_0=1.0](img/fd0e455343f5ef4517276dfe88eba1d1.png)。
 - en: The training set includes 617K samples values.  The network is trained to fit
     the difference between the correct SABR volatility from the solution of the partial
     differential equation and the Floc’h-Kennedy approximation. It does not need a
     large neural network to interpolate the parameter space, e.g. the following Tensorflow/Keras
     model definition with 46K parameters has been used in the examples below
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 培训集包括617K个样本值。网络经过训练以适应偏微分方程解的正确SABR波动率和Floc’h-Kennedy近似值之间的差异。它不需要一个大型的神经网络来插值参数空间，例如以下Tensorflow/Keras模型定义用于下面的示例中，共有46K个参数。
 - en: '[PRE0]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: As always it is important for the predictive power of the neural network to
     normalize the input data e.g. by using sklearn.preprocessing.MinMaxScaler. The
     out-of-sample mean absolute error of the neural network is around 0.00025 in annualized
     volatility, far better than the Kennedy-Floc’h or Hagan et al approximation.![sabr_vol_dist](img/4378ee5b7b081fd1106f557010f0c864.png)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于神经网络的预测能力，始终重要的是对输入数据进行归一化处理，例如使用sklearn.preprocessing.MinMaxScaler。神经网络的样本外平均绝对误差约为年化波动率的0.00025，远优于Kennedy-Floc’h或Hagan等近似值。![sabr_vol_dist](img/4378ee5b7b081fd1106f557010f0c864.png)。
 - en: The diagram below shows the difference between the correct volatility and the
     different approximations using the parameter example from the previous [post](https://hpcquantlib.wordpress.com/2019/01/11/finite-difference-solver-for-the-sabr-model/).
     ![sabr_vols](img/1b6c6d428e0994c312c08f1b764c4eb7.png)One could also used gradient
     tree boosting algorithms like XGBoost or LightGBM. For example the models
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图显示了使用来自先前[文章](https://hpcquantlib.wordpress.com/2019/01/11/finite-difference-solver-for-the-sabr-model/)的参数示例的正确波动率与不同近似之间的差异。
+    ![sabr_vols](img/1b6c6d428e0994c312c08f1b764c4eb7.png)还可以使用梯度树提升算法，如XGBoost或LightGBM。例如，模型
 - en: '[PRE1]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: result in similar out-of-sample mean absolute errors of 0.00030 for XGBoost
     and 0.00035 for LightGBM. On the first glance the interpolation looks smooth as
     can be seen in the diagram below using the same SABR model parameters, but zooming
     into it exposes non differentiable points, which defeats the object of stable
     greeks.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 导致XGBoost的样本外平均绝对误差为0.00030，LightGBM为0.00035。乍一看，插值看起来很平滑，如下图所示，使用相同的SABR模型参数，但放大后会暴露出不可微分的点，这破坏了稳定的希腊字母。
 - en: '![xgboost.png](img/70cb1ce40089df5afd11e1c160260b3b.png)The average run time
     for the different approximations is shown in the tabular below.'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '![xgboost.png](img/70cb1ce40089df5afd11e1c160260b3b.png)不同近似的平均运行时间如下表所示。'
 - en: '![\begin{tabular}{|l|c|c|} \hline \textbf{Algorithm} & \textbf{Run Time}  \\
     \hline Hagan et al & 0.16us  \\ \hline Floc''h-Kennedy & 1.86us  \\ \hline Tensorflow
     DNN & 12.39us  \\ \hline XGBoost & 4.61us \\ \hline LightGBM & 21.84 us \\ \hline
     PDE \& Richardson & 1.23s \\ \hline\end{tabular}](img/574f37f7b2bcb8065a634a3c1615a828.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{tabular}{|l|c|c|} \hline \textbf{算法} & \textbf{运行时间} \\ \hline Hagan等人
+    & 0.16微秒 \\ \hline Floc''h-Kennedy & 1.86微秒 \\ \hline Tensorflow DNN & 12.39微秒
+    \\ \hline XGBoost & 4.61微秒 \\ \hline LightGBM & 21.84 微秒 \\ \hline PDE和Richardson
+    & 1.23秒 \\ \hline\end{tabular}](img/574f37f7b2bcb8065a634a3c1615a828.png)'
 - en: With this highly efficient pricing routines calibration of the full SABR model
     can be done in a fraction of a second. To test this approach several Heston parameter
     configurations have been used to calculated the implied volatility of 15 benchmark
@@ -163,21 +237,33 @@
     using the PDE pricer or the neural network pricer. As expected the neural network
     calibration routine has only taken 0.2 seconds but the PDE calibration has taken
     over half an hour on average.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过这种高效的定价程序，可以在几分之一秒内完成完整SABR模型的校准。为了测试这种方法，已经使用了几个Heston参数配置来计算单个到期日的15个基准期权的隐含波动率。使用标准的Levenberg-Marquardt优化器通过PDE定价器或神经网络定价器校准了完整的SABR模型。如预期的那样，神经网络校准程序只花费了0.2秒，但PDE校准则平均花费了半小时以上。
 - en: '[1] P. Hagan, D. Kumar, A. Lesnieski, D. Woodward: [Managing Smile Risk.](http://web.math.ku.dk/~rolf/SABR.pdf)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] P. Hagan，D. Kumar，A. Lesnieski，D. Woodward：[管理微笑风险。](http://web.math.ku.dk/~rolf/SABR.pdf)'
 - en: '[2] F. Le Floc’h, G. Kennedy: [Explicit SABR Calibration through Simple Expansions.](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2467231)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] F. Le Floc''h，G. Kennedy：[通过简单扩展明确SABR校准。](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2467231)'
 - en: '[3] H. Park: [Efficient valuation method for the SABR model.](https://arxiv.org/pdf/1308.0665.pdf)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] H. Park：[SABR模型的高效定价方法。](https://arxiv.org/pdf/1308.0665.pdf)'
 - en: '[4] K. in’t Hout: [Numerical Partial Differential Equations in Finance explained](https://www.palgrave.com/de/book/9781137435682).'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[4] K. in''t Hout：[金融中的数值偏微分方程解释。](https://www.palgrave.com/de/book/9781137435682)。'
 - en: '[5] K. in’t Hout, M. Wyns: Convergence of the Hundsdorfer–Verwer scheme for
     two-dimensional convection-diffusion equations with mixed derivative term'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[5] K. in''t Hout，M. Wyns：Hundsdorfer–Verwer方案在具有混合导数项的二维对流扩散方程中的收敛性。'
