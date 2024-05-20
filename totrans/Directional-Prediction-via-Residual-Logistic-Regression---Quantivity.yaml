@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:55:03'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:55:03
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Directional Prediction via Residual Logistic Regression | Quantivity
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过残差逻辑回归进行方向预测 | 量化投资
 - en: 来源：[https://quantivity.wordpress.com/2009/12/27/directional-prediction-via-residual-logistic-regression/#0001-01-01](https://quantivity.wordpress.com/2009/12/27/directional-prediction-via-residual-logistic-regression/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/12/27/directional-prediction-via-residual-logistic-regression/#0001-01-01](https://quantivity.wordpress.com/2009/12/27/directional-prediction-via-residual-logistic-regression/#0001-01-01)
 - en: 'Paul Teetor wrote a nice study on [Predicting Swap Spreads](http://quanttrader.info/public/predictingSwapSpreads.pdf).
     Worth noting is his use of [logistic regression](http://en.wikipedia.org/wiki/Logistic_regression)
     to predict *probabilistic direction* of next period spreads based upon *residuals*
@@ -32,6 +38,7 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Paul Teetor写了一篇关于[预测交换价差](http://quanttrader.info/public/predictingSwapSpreads.pdf)的精彩研究。值得注意的是他使用[逻辑回归](http://en.wikipedia.org/wiki/Logistic_regression)来预测下一期价差的*概率方向*，基于从历史价差的线性模型计算的*残差*。换句话说，Paul正在评估以下逻辑假设（从第5页综合而得）：
 - en: Can the future direction of swap spreads be predicted using their historical
     mispricings from fair value, as estimated from influential market data (treasury
     notes, interest rate swaps, LIBOR, BIX, SPX).
@@ -39,19 +46,23 @@
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 可以使用从具有影响力的市场数据（国库券、利率互换、LIBOR、BIX、SPX）估计的历史错定价到公平价值来预测交换价差的未来方向。
 - en: 'Provided robust directional prediction, a profitable trading strategy can be
     defined as (p. 22):'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供了稳健的方向性预测后，可以将盈利交易策略定义为（第 22 页）：
 - en: '*Long*: if P(up) > 0.5, go long today'
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '*做多*：如果 P(上涨) > 0.5，则今天做多'
 - en: '*Short*: if P(down) > 0.5, go short today'
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '*简短*：如果 P(下跌) > 0.5，则今天做空'
 - en: This methodology is particularly interesting as it is *equally applicable to
     many other financial instruments*, provided suitable notions of “mispricings”
     and value estimators. For example, directional prediction of co-integrated pairs
@@ -59,10 +70,12 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法特别有趣，因为它对许多其他金融工具同样适用，只要提供了“错定价”和价值估计量的合适概念。例如，可以类似地估计协整对的方向性预测，延伸了[均值回归](https://quantivity.wordpress.com/2009/07/19/mean-reversion/)中介绍的分析。
 - en: 'Generic applicability arises from two aspects of this methodology:'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法的通用适用性来自两个方面：
 - en: 'Directional prediction: logistic regression is used to estimate the probability
     of spreads either rising or falling, thus a *directional change*, rather than
     numeric values'
@@ -70,17 +83,20 @@
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 方向性预测：逻辑回归用于估计价差上升或下降的概率，因此是*方向变化*，而不是数值。
 - en: 'Residuals: explanatory variable of the logistic regression are residuals from
     a linear regression, demonstrating another [wonder of residuals](https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/)'
   id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 残差：逻辑回归的解释变量是线性回归的残差，展示了残差的另一个[奇迹](https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/)
 - en: 'The following steps outline this methodology, and how to translate into a mechanical
     trading system:'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下步骤概述了这种方法，以及如何将其转化为机械交易系统：
 - en: 'Estimate fair value (p. 14): estimate the fair value of the swap spread via
     a linear regression using market data known by traders to be relevant to swap
     spreads (treasury notes, interest rate swaps, LIBOR, BIX, SPX)'
@@ -88,6 +104,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 估计公平价值（第 14 页）：使用交易员已知与交换价差相关的市场数据（国库券、利率互换、LIBOR、BIX、SPX）通过线性回归估计交换价差的公平价值
 - en: 'Calculate “mispricings” (p. 16): calculate the difference between observed
     and estimated fair value of the swap spread, generating residual series (note
     they exhibit serial dependence when plotted against time, indicating they may
@@ -96,6 +113,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算“错定价”（第 16 页）：计算交换价差的观察值与估计公平价值之间的差异，生成残差序列（注意，当绘制在时间轴上时，它们表现出序列依赖性，表明它们可能具有时间上的解释能力）
 - en: 'Estimate directional probability (p. 19): estimate two logistic regressions,
     one for “buy model” and one for “sell model”, each of whose dependent variable
     is log of the directional probability (*i.e.* increasing or decreasing spread)
@@ -104,6 +122,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 估计方向概率（第 19 页）：估计两个逻辑回归模型，一个用于“买入模型”，一个用于“卖出模型”，每个模型的因变量是方向概率的对数（*即*增加或减少的价差），自变量是“错定价”残差。
 - en: 'Evaluate significance (p. 20): evaluate significance of ![\beta](img/e59dd600f7eb22f952e355797bceba2e.png)
     for both logistic regressions; if significant, then the “mispricing” residuals
     have power in predicting future direction of spreads'
