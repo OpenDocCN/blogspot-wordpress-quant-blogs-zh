@@ -2,42 +2,51 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:30:11'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:30:11
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Detecting Price Direction in Order Flow | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在订单流中检测价格方向 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/03/04/detecting-price-direction-in-order-flow/#0001-01-01](https://tr8dr.wordpress.com/2011/03/04/detecting-price-direction-in-order-flow/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/03/04/detecting-price-direction-in-order-flow/#0001-01-01](https://tr8dr.wordpress.com/2011/03/04/detecting-price-direction-in-order-flow/#0001-01-01)
 - en: March 4, 2011 · 6:58 pm
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2011年3月4日 · 下午6:58
 - en: 'As indicated in a previous post, high-freq market data is typically in the
     form of order updates, for example:'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如前文所示，高频市场数据通常以订单更新的形式呈现，例如：
 - en: '[![](img/e31bcd48dc240928d32434fc87bb1749.png "Screen shot 2011-02-05 at 11.40.51
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-11-40-51-am.png)'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e31bcd48dc240928d32434fc87bb1749.png "屏幕截图 2011-02-05 下午11.40.51")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-11-40-51-am.png)'
 - en: This can be used to reconstruct the orderbook at any given instant, but can
     also be used to analyze movements within the orderbook.   The most primitive approaches
     look at the incidence of size being removed or hitting a given price-level.  
@@ -46,6 +55,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以用来重建任何给定时刻的订单簿，但也可以用来分析订单簿内的运动。最原始的方法是看被移除或击中给定价格水平的大小的发生率。更复杂的方法尝试确定订单流以查看订单在订单簿中的移动位置。
 - en: 'Given that we can produce a variety of measures that can add information to
     our trading decisions.   Here is an example of a USD/JPY on a downward move of
     10 pips with strong momentum.   The mid price is in the upper pane and the cumulative
@@ -53,36 +63,43 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于我们可以生成多种可以为我们的交易决策提供信息的指标。下面是一个USD/JPY的例子，价格下跌10个点且动量强劲。中间价格在上方，累积买入和卖出动向（源自订单数据）在下方：
 - en: '[![](img/1da5c0bf6cf4aedc43dd9cb4e56e62dd.png "Screen shot 2011-03-04 at 6.20.00
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-20-00-pm.png)'
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1da5c0bf6cf4aedc43dd9cb4e56e62dd.png "屏幕截图 2011-03-04 下午6.20.00")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-20-00-pm.png)'
 - en: One will note that the ask flows are more aggressive than the bid flows.   The
     above is not yet terribly useful, as the cumulative flows look to follow the price
     path more or less during a period of momentum.
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们会注意到询价流比出价流更为激进。上述内容还不是非常有用，因为在动量期间，累积流看起来或多或少地跟随价格路径。
 - en: '**Momentum**'
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**动量**'
 - en: 'More interesting is to look at what is happening in the book:'
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 更有趣的是看看书里发生了什么：
 - en: '[![](img/0e9751c391dd533fde9f54bd8cde3213.png "Screen shot 2011-03-04 at 6.23.40
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-23-40-pm.png)'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0e9751c391dd533fde9f54bd8cde3213.png "屏幕截图 2011-03-04 下午6.23.40")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-23-40-pm.png)'
 - en: 'The reds represent areas of high cancellation and blues high insertion (I amplify
     this by scaling by the size of movement from one region to another).    You’ll
     notice the following:'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 红色代表高取消区域，蓝色代表高插入区域（我通过对从一个区域到另一个区域的移动大小进行缩放来放大此效果）。您会注意到以下情况：
 - en: '**Seller Book** There is high movement into the inside (or more aggressive)
     areas of the book, in-line with the fact that the price has downward momentum.
       There are vertically “trailing” deletions from the outside price levels as traders
@@ -91,6 +108,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**卖家订单簿** 有很多流入订单簿内部（或更激进）区域的高流动性，与价格下行动量相一致。有垂直“拖尾”从外部价格水平删除，因为交易者将价格大规模移动到内部。'
 - en: '**Buyer Book** Buyers / market makers are risk adverse and are moving their
     orders deeper into the book away from the inside.  Again we see a trail of deletions
     in the inside-most levels and strong movements in a couple of deeper bands.'
@@ -98,21 +116,25 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**买家订单簿** 买家/做市商是风险厌恶的，并且将他们的订单深入到远离内部的订单簿中。再次看到在最内部水平上的删除痕迹以及在几个更深层次上的强烈移动。'
 - en: '**Sideways Movement** What does “sideways” or non-directional movement look
     like then?'
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**横向移动** 那么“横向”或非方向性的移动看起来是什么样子？'
 - en: '[![](img/48e71a66c418835c540fd316d7f7cae2.png "Screen shot 2011-03-04 at 6.44.01
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-44-01-pm.png)'
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/48e71a66c418835c540fd316d7f7cae2.png "屏幕截图 2011-03-04 下午6.44.01")](https://tr8dr.wordpress.com/wp-content/uploads/2011/03/screen-shot-2011-03-04-at-6-44-01-pm.png)'
 - en: It looks a lot more random, with some upward and downward directional patterns
     in sequence.
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 它看起来更加随机，有一些连续的向上和向下的方向性模式。
 - en: '**Cleaning It Up**'
   id: totrans-22
   prefs: []
