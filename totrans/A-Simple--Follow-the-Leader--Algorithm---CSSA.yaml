@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 18:07:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: A Simple “Follow the Leader” Algorithm | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01](https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -30,6 +36,7 @@
     and cost/penalty function to moderate the degree to which the leaders (or successful
     algorithms) are successful versus unsuccessful, in this post we will take a simplistic
     approach.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: 'Whether we think of Gold or Apple computer, the key question is how we could
@@ -41,19 +48,23 @@
     Finally, to ensure we don’t miss new leaders that start moving during other points
     in the backtest period, we must repeat this process with multiple start dates.
     The CSSA SFTL (“S” stands for simple) algorithm works as follows:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: '1) Inception: track the compound return from the start of the backtest for
     each asset and each month weight the asset according to their weighted proportion
     of CAGR with non-negative weights. (asset CAGR / sum of non-zero asset CAGR)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '2) Multiple Inception Periods: repeat the same process every 3 months and record
     a separate set of weights for each inception period'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: 3) Note that you will have a set of asset weights for each inception period
     that changes every month as the weights change.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: 4) Use a weighted moving average that weights the oldest periods more than recent
@@ -63,11 +74,14 @@
     This is the weight applied to each stock/asset. If one was invariant to the best
     asset by inception period, you could use a simple moving average that would not
     favor any one inception period.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: This method will invariably track the best asset in hindsight that one could
     have chosen during the backtest while also providing the opportunity to track
     the best asset from a variety of inception periods. It is a fairly simple but
     stable FTL method that could be developed into something more powerful.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法在回测期间始终会追踪到最佳资产，同时还提供了追踪各种成立期内最佳资产的机会。这是一种相当简单但稳定的FTL方法，可以进一步发展成为更强大的东西。

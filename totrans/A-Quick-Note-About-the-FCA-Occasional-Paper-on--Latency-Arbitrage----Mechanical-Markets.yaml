@@ -2,29 +2,35 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:37:48'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:37:48
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: A Quick Note About the FCA Occasional Paper on “Latency Arbitrage” | Mechanical
     Markets
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 有关 FCA 关于“延迟套利”的偶发性论文的快速说明 | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01](https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01](https://mechanicalmarkets.wordpress.com/2020/01/27/a-quick-note-about-the-fca-occasional-paper-on-latency-arbitrage/#0001-01-01)
 - en: Aquilina, Budish, and O’Neill (ABO) today published a [paper](https://www.fca.org.uk/publications/occasional-papers/occasional-paper-no-50-quantifying-high-frequency-trading-arms-race-new-methodology)
     on the “HFT Arms Race” with the [headline](https://www.wsj.com/articles/ultrafast-trading-costs-stock-investors-nearly-5-billion-a-year-study-says-11580126036)
     that estimates a “latency arbitrage tax” on global investors of $5B/yr. The paper
@@ -36,6 +42,10 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Aquilina、Budish 和 O’Neill（ABO）今天发表了一篇[论文](https://www.fca.org.uk/publications/occasional-papers/occasional-paper-no-50-quantifying-high-frequency-trading-arms-race-new-methodology)关于“HFT
+    赛跑”，[头条](https://www.wsj.com/articles/ultrafast-trading-costs-stock-investors-nearly-5-billion-a-year-study-says-11580126036)估计全球投资者每年要支付
+    50 亿美元的“延迟套利税”。论文展示了一些有趣的统计数据，这些数据来自一组独特的数据集，即发送到 LSE 的原始消息，由 LSE 的 TAP 之一捕获和时间戳。不幸的是，我不明白论文中衡量的活动如何类似于“税收”。我只有很短的时间来阅读论文，所以如果我有任何错误，我很抱歉。并且论文不一定代表
+    FCA 的观点。
 - en: Essentially ABO measure messaging activity that occurs in short bursts, particularly
     batches of marketable orders — possibly accompanied by cancel-requests — where
     some of the later orders or cancel-requests fail because an earlier message succeeded.
@@ -52,6 +62,9 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 本质上，ABO（Aquilina、Budish 和 O’Neill）衡量了发生在短时间内的消息活动，特别是一批可营销订单——可能伴随着取消请求——其中一些较晚的订单或取消请求失败，因为较早的消息成功了。例如，如果在订单簿仅有足以填充其中一个订单的数量时，以短时间间隔发送了
+    3 个可营销订单（来自不同的交易员 ID），那么将其识别为“比赛”，第一个订单获胜，而后来的 2 个订单失败。类似地，如果 LSE 在接到匹配的挂单之前短时间内接收到可营销订单，然后接收到取消匹配挂单的请求，也会识别为“比赛”。在这种情况下，失败的取消请求是“比赛”的输家。作者提供了事件计数、交易量和估计利润给“比赛”获胜者——他们变化了识别“比赛”的持续时间窗口，以及诸如比赛类型等其他参数。0.42bp
+    的“税收”头条数字是“比赛”获胜者的估计利润占总交易量的份额，其中“比赛”窗口设置为 500us。
 - en: 'Figure 5.1 is a histogram (truncated at 500us) of the time-differences between
     the first successful message in a race, and the first message to fail (either
     by being too late to cancel, or trying to trade with liquidity that’s already
@@ -74,6 +87,7 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 图5.1是一个直方图（截断至500us），显示了竞争中第一个成功消息与第一个失败消息（无论是由于太晚取消还是尝试与已经消失的流动性交易）之间的时间差。毫不奇怪，该分布高度倾斜，众数为5-10us，90百分位数约为200us。图4.1显示了LSE上不同类型事件的反应时间，作者用此来估计LSE的延迟约为29us。表5.5、5.6以及图5.3还展示了竞赛事件后中间价格轨迹。作者进行了一项非常好的敏感性分析，展示了如果更改竞赛窗口和其他参数时数字的变化情况。需要注意的是，竞赛窗口越长，将会混合来自不同市场事件的消息越多。所选的500us窗口可以帮助包括通过缓慢网络发送的失败消息，但也包括了来自LSE的大约15个往返时间，足以让相关产品的订单簿反应和多次补充。表6.3中的一个值得注意的测量结果给出了市场制造商可能希望通过更快速度来避免的交易量的概念：“获利”于尝试在50us内取消的交易方进行交易。这个数字非常低，约为0.03bp，表明市场相当有效，市场制造商并不经常被“击中”。
 - en: Now, it’s very interesting to see statistics on these types of events, but I
     don’t see how they can be considered a “tax” in any way. All they show is that
     trading is competitive, and that traders may send messages even if there’s a low
@@ -86,6 +100,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，看到这些类型事件的统计数据非常有趣，但我不明白它们如何能被视为任何形式的“税收”。它们只是显示交易具有竞争性，并且即使成功的可能性很低，交易者也可能发送消息。作为一个现实世界的例子，考虑美国最喜欢的假期，黑色星期五。也许你当地的玩具店正在以100美元的折扣销售新的任天堂，但他们只有10个有折扣。你知道这将是一个很小的希望，但你真的想要抓住一些宝可梦，所以你早早起床去了店里。你恰好赶上是第十个排队的人。几分钟后，一群人到达了，但他们都必须付全价。
 - en: 'Did you levy a tax on them? It’s hard to see how. You got there first and you
     got the reward. Your time and transportation cost were arguably wasted. But in
     financial markets, investments in network infrastructure which ensure the law
@@ -136,6 +151,7 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，拍卖价格仍然部分由专有交易者设定，有时是以延迟敏感的方式进行。BCS提议声称通过每100毫秒左右进行一次拍卖来消除“延迟套利”，仅具有价格优先权，并随机打破平局。为进一步防止“延迟套利”，BCS提议不进行拍卖前透明度。正常的交易所拍卖在最终匹配之前有很长一段透明度时间，以吸引流动性并确保合理的价格。这种透明度通常采取部分显示的订单簿形式（例如，在许多期货[交易所](https://www.cmegroup.com/confluence/display/EPICSANDBOX/Indicative+Opening+Price+and+Quantity)上），或者指示性定价和订单不平衡（例如，在许多股票[交易所](https://www.nasdaqtrader.com/Trader.aspx?id=OpenClose)上）。拍卖前透明度确实使交易在某种程度上对延迟敏感，但现实世界中的交易所知道进行盲目拍卖可能会导致混乱的定价，即使在高流动性产品每天只进行一次拍卖的情况下也是如此。如此频繁地进行盲目拍卖，以至于它们只有0或1个自然流动性订单，并且交易者因积极定价而获得优先权，这是一场灾难的开始。专业交易者可能会在随后的混乱中赚取大笔资金，但是骚动可能会如此激烈，以至于很少有人会推荐这样做。
 - en: 'More generally, there is a tradeoff between immediacy and liquidity. If you
     want to have liquid auctions, they probably can’t be very frequent. [Donier and
     Bouchaud](https://arxiv.org/abs/1506.03758) suggest that for batch auctions to
@@ -154,8 +170,11 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 更一般地说，即时性和流动性之间存在权衡。如果你想要有流动性的拍卖，它们可能不能太频繁。[多尼尔和布舍](https://arxiv.org/abs/1506.03758)建议批量拍卖为了提高流动性，应该每小时进行一次。我认为大多数交易者都喜欢拍卖
+    - BCS在这一点上是正确的。既然我们正在讨论几乎不可能发生的宠物市场结构改革，我也可以提出一个可以给我们带来更多拍卖并可以节省更有价值的东西的建议：人们的时间。该行业目前花费了大量时间来保持市场开放，尽管可能[并不需要](https://www.wsj.com/articles/at-closing-time-the-stock-market-heats-up-like-a-bar-at-last-call-1521038300)。我们可以减少那段时间，目前很多专业人士每天在办公室里呆上[11个小时](https://www.reuters.com/article/us-europe-stocks-exchange-analysis/a-90-minute-cut-shorter-trading-day-comes-with-costs-idUSKBN1XH2M0)。证券交易所可以每天举行2-4个会议，每个会议持续约30-60分钟，与其他主要金融中心的市场时间重叠。这种时间安排可以鼓励在家工作，并更清晰地划分不同时区办公室的营业时间。
 - en: I enjoyed seeing the statistics in ABO and wish regulators would publish more
     statistics on raw market data. The “tax” claim seems a bit strange though.
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很喜欢在ABO中看到的统计数据，并希望监管机构能够发布更多有关原始市场数据的统计数据。然而，“税收”这一说法似乎有点奇怪。
