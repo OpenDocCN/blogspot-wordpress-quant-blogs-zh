@@ -1,24 +1,31 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 19:31:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Excel | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://etrading.wordpress.com/excel/#0001-01-01](https://etrading.wordpress.com/excel/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '**Stuff you’ll need to know when coding an Excel Add In for a trader in C++**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: Excel Add Ins are a special kind of DLL – an XLL – that exports certain function
@@ -27,33 +34,40 @@
     and commands in C++. Worksheet functions can be called from Excel formulae, and
     commands can be invoked from menu items you can add to the Excel menubar in initialisation
     code. To get to grips with all this you need…
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'The MS Excel 97 SDK – get it [here](http://support.microsoft.com/default.aspx?scid=kb;EN-US;152152).
     Download Frmwrk32.exe. Essentially the SDK is two files: xlcall.h and xlcall32.lib.'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: You need a copy of Steve Dalton’s [Excel add-in development in C/C++.](http://www.amazon.co.uk/exec/obidos/ASIN/0470024690)
     Don’t skimp on spending the 40 quid, you do really need this book.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Another MS knowledgebase [article](http://support.microsoft.com/kb/178474/EN-US/)
     giving a simple example of an XLL. This will give you some boilerplate code to
     get started.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: If you want to get real time data into your worksheet, you’ll have to master
     the mysteries of DDE, or else go the Excel RTD route. I haven’t done RTD, so won’t
     comment here. I have done DDE. Here’s a [useful starting point](http://support.microsoft.com/?kbid=279721).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: Why do we need DDE ? Because you can only do this…
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: Excel4( xlSet, &xRet, 2, (LPXLOPER)&xRef, (LPXLOPER)&xValue);
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: …from Excel’s own main thread. That is, you can only make that call when Excel
@@ -66,12 +80,15 @@
     more than one thread operating inside your Excel process, executing the code in
     your add in. So long as your code is threadsafe, of course ! So your message handling
     callback will make the DDE call to post to Excel’s main thread.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: Bearing that in mind, there are some guidelines you should follow…
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: Always remember that Excel is effectively single threaded.
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
@@ -79,25 +96,35 @@
     sheet, that might mean only one futures contract. Don’t attempt to have two sheets
     driven by two futures contracts in the same Excel instance: Excel’s recalcs will
     be slower.'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: If your sheet does a lot of calcs in response to an incoming tick, you’ll need
     a throttling mechanism that’s aware of your calc cycle. Otherwise you may find
     yourself starting a new calc cycle before the last one ended !
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果你的表格在收到一个新的 tick 后进行大量的计算，你将需要一个能够意识到你的计算周期的节流机制。否则你可能会发现自己在上一个计算周期结束之前启动了一个新的计算周期！
 - en: And look out for string pooling. If you’re doing a release build with /GF, you
     may get the “not a valid add-in” message box. This [KB article](http://support.microsoft.com/kb/824459)
     desribes the issue and workaround.
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 要注意字符串池。如果你正在使用 /GF 进行发布构建，可能会收到“不是有效的插件”消息框。这个 [KB 文章](http://support.microsoft.com/kb/824459)
+    描述了这个问题和解决方法。
 - en: When you’ve got your addin and pricing or risk sheet running, and you want to
     serverize it, take a look at [SpreadServe](http://spreadserve.com).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你的插件和定价或风险表正在运行，并且你想要将其服务化时，请看看 [SpreadServe](http://spreadserve.com)。
 - en: '**Some other useful content**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**一些其他有用的内容**'
