@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 15:27:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Bitcoin, In its own Universe? | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://tr8dr.wordpress.com/2015/03/29/bitcoin-in-its-own-universe/#0001-01-01](https://tr8dr.wordpress.com/2015/03/29/bitcoin-in-its-own-universe/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -22,91 +28,116 @@
       If one looks at world indices &  equities, there is much less diversity between
     assets than there was a decade ago, indeed the cross-market correlations are remarkably
     high.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: On the other hand, from a trading perspective, generally want to be able to
     reduce the risk by hedging or spreading against related assets.   For example
     in FX, when market making the G10 currencies, one typically offsets inventory
     risk with a position in another highly correlated currency or portfolio of currencies.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: With that in mind let’s look at bitcoin (BTC) vs a variety of ETFs representing
     FX, IR, world indices, and commodities.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '**Correlations**'
+  id: totrans-9
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
 - en: Below have computed 1day, 5day, and 15day return correlations across BTC + variety
     of FX, IR, Commodities, and world indices.   To reduce the impact of outliers
     (return spikes), made use of my Minimum Covariance Determinant covariance implementation.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: '**IR & FX**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '[![IRFX 15](img/88a9db9e2ca2e6ff4794a0d845275423.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/irfx-15.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '**Commodities**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '[![Commodities 15](img/afae17d85de18d5880a373f62e90115e.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/commodities-15.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '**World Indices**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '[![Indices 15](img/71e7447ce66fd65fead465987f12db2c.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/indices-15.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '**All Together** (1day, 5days, 15days)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: '[![1min](img/d922d1869d9437efb3f55080ac2a6a43.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/1min.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '[![5min](img/71eb4da4a3cb777ec185fb417487f63c.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/5min.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: '[![15min](img/cb288a01d44007760869da0ae148c3a3.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/03/15min.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: Cointegration
+  id: totrans-21
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
 - en: 'The VECM model can be used to express the co-movement of related assets across
     time, formulated as the change in asset prices as:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: Δx[t] = δ0 + δ1 t + δ2 t² + … + Π x[t-1] + Φ1 Δx[t-1] + Φ1 Δx[t-2] + … + ε
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: 'or alternatively can be formulated as the VAR model:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
 - en: x[t] = δ0 + δ1 t + δ2 t² + … + Γ1 x[t-1] + Γ2 x[t-2] + Γ3 x[t-3] + … + ε
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
 - en: 'The two variations of cointegration will look at are:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
 - en: 'constant drift, no time trend, lag 1:'
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: x[t] = δ0 + Γ1 x[t-1] + ε
+  id: totrans-28
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: 'constant drift + time trend, lag 1:'
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: x[t] = δ0 + δ1 t + Γ1 x[t-1]  + ε
+  id: totrans-30
   prefs:
   - PREF_IND
   - PREF_OL
@@ -116,49 +147,74 @@
     trivially cointegrated assets in my sample set, however, there were a number of
     assets with strong “type 2” cointegration.  Here is one of a number that showed
     95% confidence:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '|  | trace | 90% | 95% | 99% |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
 - en: '| --- | --- | --- | --- | --- |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
 - en: '| 0 | 19.298388 | 16.1619 | 18.3985 | 23.1485 |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: '| 0 | 19.298388 | 16.1619 | 18.3985 | 23.1485 |'
 - en: '| 1 | 5.768913 | 2.7055 | 3.8415 | 6.6349 |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: '| 1 | 5.768913 | 2.7055 | 3.8415 | 6.6349 |'
 - en: '[PRE1]'
+  id: totrans-37
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '|  | 0 | 1 |'
+  id: totrans-38
   prefs: []
   type: TYPE_TB
+  zh: '|  | 0 | 1 |'
 - en: '| --- | --- | --- |'
+  id: totrans-39
   prefs: []
   type: TYPE_TB
+  zh: '| --- | --- | --- |'
 - en: '| BTC | 0.037677 | -0.019919 |'
+  id: totrans-40
   prefs: []
   type: TYPE_TB
+  zh: '| BTC | 0.037677 | -0.019919 |'
 - en: '| IEF | 0.999290 | 0.999802 |'
+  id: totrans-41
   prefs: []
   type: TYPE_TB
+  zh: '| IEF | 0.999290 | 0.999802 |'
 - en: Findings
+  id: totrans-42
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 发现
 - en: The key linkages between Bitcoin and other assets will be driven by investor
     trading patterns as opposed to fundamentals at this point.   Should Bitcoin become
     more of a transactional “currency” may start to see more fundamental linkages.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 比特币与其他资产之间的关键联系将由投资者的交易模式驱动，而不是基本面因素。如果比特币变得更像一种交易性“货币”，可能会开始看到更多的基本联系。
 - en: I am dusting off some code from a few yrs ago to create a rolling view on spread
     asset ratios.  Need to rework this and apply as pairs / basket strategy.   Will
     post some results at a later point in/out-of-sample.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在擦拭几年前的一些代码，以创建一种滚动视图来观察价差资产比率。需要重新设计并应用成对/篮子策略。稍后会发布一些结果，包括内外样本。
