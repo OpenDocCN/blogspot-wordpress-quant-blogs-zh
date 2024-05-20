@@ -1,58 +1,90 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:09:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日08时09分46秒
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Basis risk and minimum variance hedge ratio with C++ | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用C++计算基础风险和最小方差套期保值比率 | 量化角落
 - en: 来源：[https://quantcorner.wordpress.com/2011/03/04/basis-risk-and-minimum-variance-hedge-ratio-with-c/#0001-01-01](https://quantcorner.wordpress.com/2011/03/04/basis-risk-and-minimum-variance-hedge-ratio-with-c/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/03/04/basis-risk-and-minimum-variance-hedge-ratio-with-c/#0001-01-01](https://quantcorner.wordpress.com/2011/03/04/basis-risk-and-minimum-variance-hedge-ratio-with-c/#0001-01-01)
 - en: This time we leave **QuantLib** aside. We show that some basic financial calculations
     can be dealt with with C++.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这一次我们暂时不讨论**QuantLib**。我们展示一些基本的金融计算可以用C++来处理。
 - en: 'We wish to write a piece of C++ code to calculate :'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们希望编写一段C++代码来计算：
 - en: – the **basis risk** of a portfolio made of 1 **spot** contract and a certain
     number of **futures** contracts
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: – 一个由1个**现货**合约和一定数量的**期货**合约组成的投资组合的**基础风险**
 - en: – and, we define another C++ function to compute the **minimum variance hedge**.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: – 同时，我们定义另一个C++函数来计算**最小方差套期保值**。
 - en: The **hedge ratio** (**h**) is the number of **futures** contracts one should
     use to hedge his exposure in the **spot market**.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**套期保值比率**（**h**）是一个人在**现货市场**中对其敞口进行套期保值时应该使用的**期货**合约数。'
 - en: '**Basic risk** is the variance of the basis, the latter being the difference
     between the s**pot price** and the price of the **futures contract**.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**基础风险**是基础的方差，后者是**现货价格**和**期货合约**价格之间的差异。'
 - en: The **minimum variance hedge ratio** (**h***) is the hedge ratio that minimizes
     the basis risk.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最小方差套期保值比率**（**h***）是使基础风险最小化的套期保值比率。'
 - en: The guy of [http://www.bionicturtle.com](http://www.bionicturtle.com/) explains
     all that nicely in a [video](http://www.youtube.com/watch?v=Bm54Lwd-27U) . And,
     what we do is writing the C++ code corresponding to the Excel spreadsheet in this
     video. Here is a similar [spreadsheet](https://quantcorner.wordpress.com/wp-content/uploads/2011/03/basis_risk_min_var_hedge.xlsx).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.bionicturtle.com](http://www.bionicturtle.com/)的那位小伙子在一段[视频](http://www.youtube.com/watch?v=Bm54Lwd-27U)中很好地解释了这一切。而我们所做的就是编写与此视频中的Excel电子表格对应的C++代码。这里有一个类似的[电子表格](https://quantcorner.wordpress.com/wp-content/uploads/2011/03/basis_risk_min_var_hedge.xlsx)。'
 - en: Below, we show our C++ code.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面，我们展示我们的C++代码。
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
