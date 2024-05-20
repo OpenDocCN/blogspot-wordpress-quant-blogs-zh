@@ -1,91 +1,135 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:33:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:33:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Distribution Estimation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 分布估计|Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/04/07/distribution-estimation/#0001-01-01](https://tr8dr.wordpress.com/2010/04/07/distribution-estimation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/04/07/distribution-estimation/#0001-01-01](https://tr8dr.wordpress.com/2010/04/07/distribution-estimation/#0001-01-01)
 - en: April 7, 2010 · 8:49 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年4月7日 8:49 pm
 - en: 'I’ve been travelling for the last 3 weeks so have not had much time to post.
       During the trip, I’ve been thinking further about the following problem:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我过去3周一直在旅行，所以没时间发布。在旅行期间，我一直在进一步思考以下问题：
 - en: We are interested in determining a representative distribution for some financial
     factor
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我们有兴趣确定某个金融因素的代表性分布
 - en: suppose we start with start with a “universal” high-dimensional joint distribution
     of all random variables that might possibly have relevance to the probability
     of some financial factor
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 假设我们从所有可能与某些金融因素的概率有关的随机变量的“通用”高维联合分布开始
 - en: suppose that the number of variables in the universal joint distribution is
     high enough that the distribution is sparse relative to the sampled data.  We
     need to reduce the number of degrees of freedom.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 假设通用联合分布中的变量数量足够多，以至于相对于采样数据而言，分布是稀疏的。我们需要减少自由度的数量。
 - en: Is there a smaller marginal distribution (a subset of variables) that provides
     representative modes and distribution shape?
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 是否存在更小的边际分布（变量的子集）可以提供代表性的模式和分布形状？
 - en: How do we determine it?
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我们如何确定呢？
 - en: 'Some observations:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些观察：
 - en: We should expect clustering around 1 or more modes
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我们应该期望在一个或多个模式周围出现聚类
 - en: Variables with little impact will not introduce new modes or substantially alter
     the shape of the distribution
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对影响较小的变量不会引入新的模式或显著改变分布的形状
 - en: Adding a new low-impact variable (dimension) should just stretch the existing
     modes uniformly along the new dimension
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 添加一个新的影响较小的变量（维度）应该只是沿着新维度均匀地拉伸现有模式
 - en: 'This brings to mind a brute-force approach that would involve:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让人想到一种蛮力的方法，涉及到：
 - en: observing all possible marginal distributions
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 观察所有可能的边际分布
 - en: applying a measure to each, determining the degree of information within, select
     one that maximizes information and penalizes for number of variables
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对每个变量应用一种度量，确定其中的信息程度，选择最大化信息并对变量数量进行惩罚的方法
 - en: The first step can possibly be shortcut by reducing incrementally, but may not
     find the global optimum.   The notion of “information” also needs to be defined.
       I’ll post more later on this.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一步可能可以通过逐步减少来快速完成，但可能无法找到全局最优解。 “信息”的概念也需要进行定义。稍后我会在此发布更多信息。
 - en: Another approach would be to formulate as an expectation maximisation problem,
     but I have not worked out how this would be done.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个方法是将其构建为最大期望化问题，但我还没有想出如何做到这一点。
