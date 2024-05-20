@@ -1,116 +1,175 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:35:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:35:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Approximating |x| | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 近似 |x| | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/01/02/approximating-abs-x/#0001-01-01](https://tr8dr.wordpress.com/2010/01/02/approximating-abs-x/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/01/02/approximating-abs-x/#0001-01-01](https://tr8dr.wordpress.com/2010/01/02/approximating-abs-x/#0001-01-01)
 - en: 'I am changing my portfolio strategy to use an interior point optimizer for
     non-linear problems with constraints.  The approach solves nonlinear problems
     of the form:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在改变我的投资组合策略，使用内点优化器解决带约束的非线性问题。 该方法解决了以下形式的非线性问题：
 - en: '[![](img/64d63a4eafb3ce5e5178073031f39cae.png "setup")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-1-42-24-pm.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/64d63a4eafb3ce5e5178073031f39cae.png "设置")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-1-42-24-pm.png)'
 - en: where f(x) is the primary function to minimize and g(x) represents one or more
     constraints (equalities or inequalities).   There are a number of good [papers](http://www.math.kth.se/~andersf/doc/sirev41494.pdf)
     on interior point methods for solving such problems so will not go into the method
     here.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 f(x) 是要最小化的主要函数，g(x) 表示一个或多个约束（相等或不等式）。 有很多关于解决这类问题的内点方法的好 [论文](http://www.math.kth.se/~andersf/doc/sirev41494.pdf)，所以我在这里不会详细介绍该方法。
 - en: 'In my case one of the constraints is as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我这种情况下，其中一个约束如下：
 - en: '[![](img/dc3144c8201934bc7e5ba544dbeda289.png "Constraint")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-1-50-33-pm.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/dc3144c8201934bc7e5ba544dbeda289.png "约束")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-1-50-33-pm.png)'
 - en: As simple as this looks it presents a problem because the interior points algorithm
     requires that the constraints be twice differentiable.   |x| is continuous but
     not differentiable at 0\.   In formulating the solution I need to construct the
     gradient (jacobian) and hessian matrices of the constraints.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这看起来很简单，但它提出了一个问题，因为内部点算法要求约束具有两次可微性。 |x| 在 0 处连续但不可微。 在构建解决方案时，我需要构造约束的梯度（雅可比）和黑塞矩阵。
 - en: I began to think of other ways to describe the constraints.  Basically I want
     to allow my portfolio to allocate both long and short positions between trading
     periods.  The above constraint treats long and short capital as symmetrical (which
     suits my purposes).   I.e., if I have just two assets in a portfolio and allocate
     -0.75% short to one asset and 0.25% long to the other asset, I consider that to
     be fully allocated (from a risk capital point of view).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我开始考虑其他描述约束的方法。 基本上，我希望我的投资组合能够在交易期间分配多头和空头头寸。 上述约束将多头和空头资本视为对称（这符合我的目的）。 也就是说，如果我的投资组合中只有两个资产，并且将其中一个资产分配为
+    -0.75% 的空头，另一个资产分配为 0.25% 的多头，我将认为这是完全分配的（从风险资本的角度来看）。
 - en: 'I did a few thought experiments, considered variations of:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我进行了一些思想实验，考虑了以下变化：
 - en: '[![](img/45957b4d17cafdb10ef418412c6ef2d1.png "Constraint Mis-try")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-2-01-19-pm.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/45957b4d17cafdb10ef418412c6ef2d1.png "约束错误")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-02-at-2-01-19-pm.png)'
 - en: 'But this is clearly wrong, in that will allow for allocation > 100%.   I began
     to think about the derivative function of |x|.   See (in blue |x| and red the
     derivative):'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 但这显然是错误的，因为将允许分配 > 100%。 我开始思考 |x| 的导数函数。 见（蓝色为 |x|，红色为导数）：
 - en: '[![](img/9f76024cad3506a8c98d1be1e4d18361.png "abs & derivative")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/abs-derivative.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9f76024cad3506a8c98d1be1e4d18361.png "绝对值 & 导数")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/abs-derivative.png)'
 - en: 'It occurred to me that the derivative can be asymptotically approximated by
     the sigmoid function with a shift and accelerated exponent:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让我想到，导数可以通过 S 型函数进行渐近近似，带有偏移和加速指数：
 - en: '[![](img/0526b15898c1b9e1b3868843bd5b6a42.png "sigmoid")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/sigmoid.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0526b15898c1b9e1b3868843bd5b6a42.png "S 型函数")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/sigmoid.png)'
 - en: By making β large enough we can approach the derivative of |x| to arbitrary
     resolution.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过使 β 足够大，我们可以以任意分辨率逼近 |x| 的导数。
 - en: Unfortunately the integral of the sigmoid function has no solution in **R**,
     and only has a solution on the complex plane, meaning that if we are to deploy
     this approach will have to evaluate g(x) with Σ|x| and the derivatives with the
     scaled and translated sigmoid function.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，S 型函数的积分在 **R** 中没有解，只在复平面上有解，这意味着如果我们要采用这种方法，将必须用 Σ|x| 评估 g(x) 和缩放和平移的
+    S 型函数的导数。
 - en: Unfortunately, a hybrid approach with |x| for constraint evaluation and sigmoid
     for the derivatives will lead to instabilities.   One needs to have an approximation
     to the derivative that has an integral.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，将 |x| 用于约束评估，而使用 Sigmoid 用于导数的混合方法会导致不稳定性。需要有一个具有积分的导数近似。
 - en: '**Addendum**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**附录**'
 - en: 'It turns out this is a common problem in machine learning and optimisation.
       Chen and Mangasarian defined an approximation to the sigmoid integral.    The
     problem can be reformulated as follows.   Break the problem into two pieces, x
     ≥ 0 and  x ≤ 0\.    If we can solve it for x ≥ 0 then we also have a solution
     for x ≤ 0:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 原来这是机器学习和优化中的一个常见问题。Chen 和 Mangasarian 定义了对 Sigmoid 积分的近似。问题可以重新表述如下。将问题分解为两个部分，x
+    ≥ 0 和  x ≤ 0。如果我们可以解决 x ≥ 0 的问题，那么我们也有 x ≤ 0 的解：
 - en: '[![](img/3d3a3c146767293def2c8cf1129ba13a.png "Screen shot 2010-01-03 at 11.25.02
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-03-at-11-25-02-am.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3d3a3c146767293def2c8cf1129ba13a.png "2010年01月03日上午11点25分02秒的截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-03-at-11-25-02-am.png)'
 - en: 'Based on an approximation to the sigmoid integral, they determined (x)+ to
     be:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于对 Sigmoid 积分的近似，他们确定 (x)+ 为：
 - en: '[![](img/7a39ad8b9eb2271a13efb2c098d1d884.png "Screen shot 2010-01-03 at 11.28.58
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-03-at-11-28-58-am.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7a39ad8b9eb2271a13efb2c098d1d884.png "2010年01月03日上午11点28分58秒的截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/screen-shot-2010-01-03-at-11-28-58-am.png)'
 - en: As with the sigmoid function, increasing β allows us to get asymptotically close
     to |x|.   We now have a function for |x| with derivatives defined around 0.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 与 Sigmoid 函数一样，增加 β 可以使我们逼近 |x|。现在我们有一个在 0 点周围定义了导数的 |x| 函数。
