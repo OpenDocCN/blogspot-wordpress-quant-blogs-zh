@@ -1,131 +1,206 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-18 14:41:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 14:41:53'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Backtesting Asset Allocation portfolios | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 回测资产配置投资组合 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/#0001-01-01)
 - en: 'In the last post, [Portfolio Optimization: Specify constraints with GNU MathProg
     language](https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/),
     Paolo and MC raised a question: “How would you construct an equal risk contribution
     portfolio?” Unfortunately, this problem cannot be expressed as a [Linear](http://en.wikipedia.org/wiki/Linear_programming)
     or [Quadratic Programming](http://en.wikipedia.org/wiki/Quadratic_programming)
     problem.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章[投资组合优化：用 GNU MathProg 语言指定约束条件](https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/)中，Paolo
+    和 MC 提出了一个问题：“你怎样构建一个等风险贡献投资组合？”不幸的是，这个问题无法表达为[线性](http://en.wikipedia.org/wiki/Linear_programming)或[二次规划](http://en.wikipedia.org/wiki/Quadratic_programming)问题。
 - en: 'The outline for this post:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文大纲：
 - en: I will show how Equal Risk Contribution portfolio can be formulated and solved
     using a non-linear solver.
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我将展示如何使用非线性求解器制定并解决等风险贡献投资组合。
 - en: I will backtest Equal Risk Contribution portfolio and other Asset Allocation
     portfolios based on various risk measures I described in the [Asset Allocation](https://systematicinvestor.wordpress.com/?s=asset+allocation)
     series of post.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我将对基于我在[资产配置](https://systematicinvestor.wordpress.com/?s=asset+allocation)系列文章中描述的各种风险度量的等风险贡献投资组合和其他资产配置投资组合进行回测。
 - en: 'Pat Burns wrote an excellent post: [Unproxying weight constraints](http://www.portfolioprobe.com/2011/04/13/unproxying-weight-constraints/)
     that explains Risk Contribution – partition the variance of a portfolio into pieces
     attributed to each asset. The Equal Risk Contribution portfolio is a portfolio
     that splits total portfolio risk equally among its assets. (The concept is similar
     to 1/N portfolio – a portfolio that splits total portfolio weight equally among
     its assets.)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Pat Burns 写了一篇优秀的文章：[解释风险贡献-将投资组合的方差分割为归因于每个资产的部分](http://www.portfolioprobe.com/2011/04/13/unproxying-weight-constraints/)。等风险贡献投资组合是一种将总投资组合风险平均分配给其资产的投资组合。（这个概念类似于
+    1/N 投资组合 - 一种将总投资组合权重均匀分配给其资产的投资组合。）
 - en: 'Risk Contributions (risk fractions) can be expressed in terms of portfolio
     weights ![(w)](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png) and covariance matrix
     (V):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 风险贡献（风险分数）可以用投资组合权重 ![(w)](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png) 和协方差矩阵
+    (V) 表示：
 - en: '![f=\frac{w*Vw}{w''Vw}](img/754be35d560bd2b3852e5805ba6600f6.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![f=\frac{w*Vw}{w''Vw}](img/754be35d560bd2b3852e5805ba6600f6.png)'
 - en: 'Our objective is to find portfolio weights ![(w)](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png)
     such that Risk Contributions are equal for all assets. This objective function
     can be easily coded in R:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的目标是找到投资组合权重 ![(w)](img/b26a9cd9652d6f591c6ea7df09c0d8cf.png)，使得所有资产的风险贡献相等。这个目标函数可以在
+    R 中轻松编码：
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'I recommend following references for a detailed discussion of Risk Contributions:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我推荐以下参考文献以详细讨论风险贡献：
 - en: I will use a Nonlinear programming solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html),
     which is based on donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html)
     to solve for Equal Risk Contribution portfolio. [Please note that following code
     might not properly execute on your computer because Rdonlp2 package is required
     and not available on CRAN]
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用一个非线性规划求解器，[Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html)，它是基于由[Peter
+    Spellucci 博士](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html)开发并拥有版权的
+    donlp2 程序来解决等风险贡献投资组合的。[请注意，以下代码可能在您的计算机上无法正确执行，因为需要 Rdonlp2 包，但在 CRAN 上不可用]
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next, I want to expand on the [Backtesting Minimum Variance portfolios](https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/)
     post to include Equal Risk Contribution portfolio and and other Asset Allocation
     portfolios based on various risk measures I described in the [Asset Allocation](https://systematicinvestor.wordpress.com/?s=asset+allocation)
     series of post.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我想在 [Backtesting Minimum Variance portfolios](https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/)
+    文章中扩展，包括等风险贡献投资组合和其他基于我在 [Asset Allocation](https://systematicinvestor.wordpress.com/?s=asset+allocation)
+    系列文章中描述的各种风险度量的资产配置投资组合。
 - en: '[PRE2]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Next let’s backtest these portfolios and create summary statistics:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们回测这些投资组合并创建摘要统计数据：
 - en: '[PRE3]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/3ba8636523b035e67473c815839ffe8b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small3.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3ba8636523b035e67473c815839ffe8b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small3.png)'
 - en: '[![](img/689224184512447c5b5c7f053fb0c230.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small3.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/689224184512447c5b5c7f053fb0c230.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small3.png)'
 - en: '[![](img/c5fe571dbb129c9df4209bd643ff49ed.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small3.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c5fe571dbb129c9df4209bd643ff49ed.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small3.png)'
 - en: '[![](img/a71cdffd8815aa4cd6ea71d7ab500c2b.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot5-small1.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a71cdffd8815aa4cd6ea71d7ab500c2b.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot5-small1.png)'
 - en: '[![](img/c2910acecef84e0b585b3cd0fbdaf388.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot7-small.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c2910acecef84e0b585b3cd0fbdaf388.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot7-small.png)'
 - en: The minimum variance (min.risk) portfolio performed very well during that period
     with 10.5% CAGR and 14% maximum drawdown. The Equal Risk Contribution portfolio
     (find.erc) also fares well with 10.5% CAGR and 19% maximum drawdown. The 1/N portfolio
     (equal.weight) is the worst strategy with 7.8% CAGR and 45% maximum drawdown.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在那段时间内，最小方差（min.risk）投资组合表现非常好，年复合增长率为10.5%，最大回撤为14%。等风险贡献（find.erc）投资组合也表现不错，年复合增长率为10.5%，最大回撤为19%。1/N
+    投资组合（equal.weight）是最差的策略，年复合增长率为7.8%，最大回撤为45%。
 - en: One interesting way to modify this strategy is to consider different measures
     of volatility used to construct a covariance matrix. For example [TTR package](http://cran.r-project.org/web/packages/TTR/index.html)
     provides functions for the Garman Klass – Yang Zhang and the Yang Zhang volatility
     estimation methods. For more details, please have a look at the [Different Volatility
     Measures Effect on Daily MR by Quantum Financier](http://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/)
     post.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个有趣的修改策略的方法是考虑用于构建协方差矩阵的不同波动率度量。例如，[TTR package](http://cran.r-project.org/web/packages/TTR/index.html)
+    提供了 Garman Klass – Yang Zhang 和 Yang Zhang 波动率估计方法的函数。更多详情，请参阅 [Different Volatility
+    Measures Effect on Daily MR by Quantum Financier](http://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/)
+    文章。
 - en: Inspired by the [I Dream of Gini by David Varadi](http://cssanalytics.wordpress.com/2012/02/24/i-dream-of-gini/),
     I will show how to create Gini efficient frontier in the next post.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 受到 [I Dream of Gini by David Varadi](http://cssanalytics.wordpress.com/2012/02/24/i-dream-of-gini/)
+    的启发，我将在下一篇文章中展示如何创建基尼效率前沿。
 - en: To view the complete source code for this example, please have a look at the
     [bt.aa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 若要查看此示例的完整源代码，请参阅 [bt.aa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
