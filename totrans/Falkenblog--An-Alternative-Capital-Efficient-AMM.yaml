@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:56:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:56:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: An Alternative Capital Efficient AMM'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：另一种资本高效的AMM
 - en: 来源：[http://falkenblog.blogspot.com/2022/11/an-alternative-capital-efficient-amm.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/an-alternative-capital-efficient-amm.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2022/11/an-alternative-capital-efficient-amm.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/an-alternative-capital-efficient-amm.html#0001-01-01)
 - en: Uniswap v3 introduced restricted ranges to address automated market maker capital
     efficiency. An alternative way to economize capital would give liquidity providers
     leverage. I will refer to this as a leveraged v2 contract or LAMM (Leveraged Automated
     Market Maker).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Uniswap v3引入了限制范围以解决自动做市商的资本效率问题。一种经济资本的替代方法是给予流动性提供者杠杆。我将这称为杠杆化的v2合同或LAMM（杠杆化自动做市商）。
 - en: I made a prototype that works on Rinkeby [here](https://sam-ruddy.vercel.app/)
     (you can see the contract code [here](https://rinkeby.etherscan.io/address/0xc81C35Fdb2aB020cb35Eb256e480c93be7a60bb2#code)).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我制作了一个在Rinkeby上运行的原型[链接](https://sam-ruddy.vercel.app/)（你可以在[这里](https://rinkeby.etherscan.io/address/0xc81C35Fdb2aB020cb35Eb256e480c93be7a60bb2#code)看到合同代码）。
 - en: Adding leverage to an AMM has several benefits in addition to capital efficiency.
     For example, given the ability to extend leverage to LPs,  extending leverage
     to traders is straightforward. This means a leveraged swap contract can allow
@@ -38,8 +54,10 @@
     This avoids the ridiculous funding rate premium mechanism, which is simply a conspiracy
     by insiders to milk extra revenue out of users (to see why it does and cannot
     ‘arbitrage’ the perp price see [here](https://efalken.substack.com/p/perp-funding-rate-fraud)).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在AMM中增加杠杆除了资本效率外还有几个好处。例如，鉴于能够向LPs提供杠杆，向交易员提供杠杆是直接的。这意味着杠杆交换合同可以允许交易员进行做空和做多杠杆，以前只在永续合约（“永续”）市场中可用。这个永续市场的额外好处是不需要Oracle，因为价格是由套利设定的，在这种情况下，一个定价不足的代币可以在LAMM上购买，然后在另一个交易所以更高的价格卖出。这避免了荒谬的资金费率溢价机制，这只是内部人员为了从用户那里榨取额外收入而进行的阴谋（要了解为什么它无法进行永续价格的套利，请见[此处](https://efalken.substack.com/p/perp-funding-rate-fraud)）。
 - en: There are several other significant advantages to using a leveraged AMM compared
     to restricted ranges. For example, with leverage account insolvency is possible,
     there needs to be a reserve or insurance fund within the contract to prevent contract
@@ -50,68 +68,94 @@
     revenue for an essential continual service. In contrast, adding a fee to Uniswap
     going to their equity holders is simply a payment for branding, which seems quaint
     in the domain of open contracts.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用杠杆型AMM相比于限制范围有几个其他显著优点。例如，使用杠杆账户可能会导致资不抵债，合同中需要有储备金或保险基金以防止合同资不抵债。在公司财务理论中，股权通常被认为是剩余的部分，是资本结构中承受第一次损失和获得任何额外收入的部分。股权持有者有权利和责任，因此他们会被正确地激励使合同运作良好；股权为重要的持续服务而收入。相比之下，向Uniswap增加的费用给予他们的股权持有者仅仅是对品牌的支付，这在开放合同领域似乎显得古雅。
 - en: Preliminaries
+  id: totrans-10
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 预备工作
 - en: The canonical AMM is based on two formulas. First, the price is represented
     by the ratio of the tokens in the pool. For example, with 1500 USD stablecoins
     and 1 ETH, the price would be 1500, which is common sense.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 经典的AMM基于两个公式。首先，价格由池中代币的比率表示。例如，有1500美元稳定币和1 ETH，价格将是1500，这是常识。
 - en: 'Secondly, for an existing pool, a trade with ETH going in and USD going out
     is subject to the following rule: the product of both tokens must be maintained
     at its existing level, a constant.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二，对于现有池子，ETH进、USD出的交易受到以下规则的约束：两个代币的乘积必须保持在其现有水平，即常数。
 - en: While this model works, unrestricted ranges are capital inefficient. For example,
     if you wanted sufficient liquidity so that a $10K order would move the price of
     a token priced at $1500 by 0.1%, you need $40 million in ETH and USDC in the pool.
     This is insanely inefficient for stablecoins, where 99.999% of the time, prices
     are locked at parity.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这个模型有效，但无限范围是资本低效的。例如，如果您希望有足够的流动性，以便一个价值10K美元的订单将定价为1500美元的代币的价格移动0.1%，则需要在池中拥有4000万美元的ETH和USDC。对于稳定币来说，这是非常低效的，因为99.999%的时间，价格被锁定在平价水平。
 - en: In May 2021, Uniswap released v3, allowing users to provide *restricted* or
     *concentrated* ranges. I describe the mathematics of v3 in this post [here](https://efalken.substack.com/publish/post/72611169).
     With v3, you use the same foundational equations above but have to adjust individual
     LP USD and ETH pool quantities to reflect their particular ranges and also track
     the vector of total liquidity provided across all possible prices.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在2021年5月，Uniswap发布了v3，允许用户提供*受限*或*集中*范围。我在这篇文章[这里](https://efalken.substack.com/publish/post/72611169)中描述了v3的数学原理。在v3中，您使用上述相同的基础方程，但必须调整各个LP的USD和ETH池数量以反映它们的特定范围，并且还要跟踪所有可能价格的总提供流动性的向量。
 - en: One can see the capital efficiency by noting how much capital is required to
     provide the same amount of liquidity for various ranges. Below we see how much
     capital is needed as a percent of the unrestricted range (i.e., v2) for range
     sizes.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过注意所需的资本量与各种范围提供的相同流动性量之间的关系，可以看出资本效率。下面我们看到了各种范围大小所需的资本量占无限范围（即v2）的百分比。
 - en: '**Figure 1**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 1**'
 - en: '**Relative Capital For Symmetric Restricted Ranges of Various Sizes**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**各种大小的对称受限范围的相对资本**'
 - en: '**Same liquidity**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**相同的流动性**'
 - en: '* e.g., a 10% spread for a token priced at 100 would have bounds at 90 and
     111 (i.e., 100/0.9)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '* 例如，一个定价为100的代币的10%差价将在90和111处有界限（即100/0.9）'
 - en: As shown above, a stablecoin pair where an LP offers liquidity between 99.9
     and 100.1 can provide 0.05% of the capital for the same amount of ‘liquidity.’
     This v3 pool would be 2000x more capital efficient than v2.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如上所示，一个稳定币对，其中一个LP在99.9和100.1之间提供流动性，可以为相同数量的“流动性”提供0.05%的资本。这个v3池子的资本效率将比v2高2000倍。
 - en: For pairs with risky tokens, like ETH/USDC, a range covering 15% up or down
     corresponds to about a week’s volatility. An LP receives fees only while the current
     price is within its range, defined as an ‘active’ range. If one wanted to be 95%
     sure their range would be active after a week of neglect, a token like ETH with
     an annual volatility of 90% needs a 30% range, which requires only 15% of the
     capital of a v2 range.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于风险代币对，例如ETH/USDC，覆盖上下波动15%的范围相当于大约一周的波动率。只有当前价格在其范围内的情况下，流动性提供者才能收取费用，该范围被定义为“活跃”范围。如果一个人希望在一周的忽略后95%确保他们的范围仍然活跃，像ETH这样年波动率为90%的代币需要一个30%的范围，这仅需要v2范围资本的15%。
 - en: While the market price can breach all restricted ranges, such a case generates
     no risk to users; the pool would merely become irrelevant. There would be no trades
     so that the LPs would generate no trading fees, but neither LPs nor traders would
@@ -120,12 +164,16 @@
     In v3, the total absence of active ranges is rare because other LPs arise to capture
     fee revenue; the first to provide liquidity with a dynamic range would get 100%
     of fee revenue.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管市场价格可能突破所有受限范围，但这种情况对用户不构成风险；池子只会变得无关紧要。没有交易，因此流动性提供者不会产生交易费用，但是流动性提供者和交易者都不会有信用风险。如果所有LP范围都不活跃的池子就像是有一个可以以10万美元购买比特币的场所；没有人会使用它。在v3中，完全没有活跃范围的情况很少见，因为其他LP会出现来获取费用收入；第一个提供动态范围的流动性提供者将获得100%的费用收入。
 - en: '**Alternative**'
+  id: totrans-23
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**备选**'
 - en: Uniswap’s concentrated range is not the only way to economize on LP capital.
     Indeed, as a v3-style approach capital efficiency is absent off the blockchain,
     it is not the simplest way to leverage capital. While admirably clever, it is
@@ -133,21 +181,31 @@
     v2 by adding several parameters. Leverage, or its converse margin, is the common
     traditional finance method. Remember that leverage and margin are just two sides
     of the same coin, in that maximum leverage of 8 implies a 12.5% required margin.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Uniswap 的集中交易范围并不是节省 LP 资金的唯一方法。事实上，作为 v3 风格方法，资本效率在区块链之外是缺失的，这并不是利用资本的最简单方法。尽管非常聪明，但这是路径依赖的产物，旨在通过添加几个参数来保持
+    v2 的标准功能。杠杆或其相反的保证金是常见的传统金融方法。请记住，杠杆和保证金只是同一枚硬币的两面，最大杠杆为 8 意味着需要 12.5% 的保证金。
 - en: Consider the case where Alice provides liquidity for a range covering the current
     price by +/- 10% with the same liquidity as an unrestricted pool (hereafter, ‘v2’).
     Below the v2 case is presented as a special case of v3 where the range is infinite
     (zero to infinity). The capital needed for the v3 range is about 5% of that required
     for a v2 pool, consistent with Figure 1 above.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑 Alice 为范围提供流动性，涵盖当前价格的+/- 10%，并具有与无限制池相同的流动性（以下简称为‘v2’）的情况。下面以 v2 情况作为 v3
+    的特殊情况，其中范围是无限的（从零到无穷大）进行了介绍。与上述图1保持一致，v3 范围所需的资金约为 v2 池所需资金的 5%。
 - en: '**Figure 2**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图2**'
 - en: '**Alice’s v3 LP vs. a v2 LP with the Same Liquidity**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Alice 的 v3 LP 与具有相同流动性的 v2 LP**'
 - en: 'We can replicate the v3 capital savings via leverage, which implies giving
     the LP an asset and liability. Assume Bob provides 1.32 ETH and 1987 USDC in a
     leveraged v2 pool, the same token amounts Alice provided in her v3 pool. Here
@@ -156,18 +214,28 @@
     parameters corresponding to the ETH and USDC he borrowed to establish his v2 range.
     For Alice in her v3 range, and Bob in his levered v2 range, their account parameters
     look like this:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以通过杠杆来复制 v3 的资本节省，这意味着给 LP 一种资产和负债。假设 Bob 在一个杠杆 v2 池中提供了 1.32 ETH 和 1987
+    USDC，这与 Alice 在她的 v3 池中提供的代币数量相同。在这里，Bob 需要借出 '25.82 - 1.32'（24.49）ETH，还需要 36,742
+    USD。与 Alice 的额外帐户参数 pLow 和 pHigh 不同，Bob 具有对应于他借来建立 v2 范围的 ETH 和 USDC 的额外帐户参数。对于处于她的
+    v3 范围中的 Alice，以及处于他的杠杆 v2 范围中的 Bob，他们的帐户参数如下：
 - en: '**Figure 3**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图3**'
 - en: Bob borrows 24.49 ETH so that in addition to his initial ETH deposit, he has
     the right amount of ETH in the pool (and the same for USDC). This is reflected
     as a debit in his account labeled ‘vETH.’ Initially, his borrowing does not affect
     his account’s market value; it creates a symmetric asset and liability that cancels
     out. Bob’s net or ‘real’ ETH is 1.32, just like for Alice.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: Bob 借入 24.49 ETH，以便除了他的初始 ETH 存款外，他在池中有适量的 ETH（USDC 也是如此）。这反映为他帐户中标记为‘vETH’的借方。最初，他的借款不会影响他帐户的市场价值；它创建了一种对称的资产和负债，相互抵消。Bob
+    的净或‘真实’ETH 为 1.32，与 Alice 的情况相同。
 - en: They have identical net amounts of ETH and USDC in their accounts, supporting
     the exact same amount of liquidity. As the price changes, this implies changes
     to their pool amounts, which in both cases are fictive numbers representing the
@@ -175,41 +243,58 @@
     long as the price is within Alice’s range, Alice and Bob will have identical LP
     account values and thus also PnLs. This implies their **impermanent loss** (IL)
     will also be identical.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们的帐户中的 ETH 和 USDC 的净金额相同，支持完全相同数量的流动性。随着价格的变化，这意味着它们的池金额也会发生变化，在两种情况下，这些金额都是代表
+    v2 池的隐含金额的虚构数字。池金额是杠杆 LP Bob 的资产。只要价格在 Alice 的范围内，Alice 和 Bob 的 LP 帐户价值以及 PnL
+    也将相同。这意味着它们的**临时损失**（IL）也将相同。
 - en: '**Figure 4**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图4**'
 - en: The difference between the PnL and the IL is the effect of the initial 1.32
     ETH invested. Given their initial investment of $3975, Alice and Bob have an identical
     account value at the inception ETH price of $1500\. The approaches generate identical
     PnLs across Alice’s v3 price range.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: PnL 和 IL 之间的差异是初始投资的 1.32 ETH 的影响。鉴于他们的初始投资为 3975 美元，Alice 和 Bob 在 ETH 价格为 1500
+    美元时具有相同的帐户价值。这些方法在 Alice 的 v3 价格范围内产生相同的 PnL。
 - en: Over a broader price range, however, these approaches differ significantly.
     This is because Alice’s portfolio positions are static outside her price bounds.
     Bob’s levered position, however, changes continuously so that his account value
     becomes negative when prices move significantly up or down. [This all ignores
     fee revenue to make the presentation simpler.]
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，在更广泛的价格范围内，这些方法存在显着差异。这是因为Alice的投资组合仅在价格范围之外保持不变。然而，Bob的杠杆头寸会持续变化，以致当价格大幅上涨或下跌时，他的账户价值变为负值。[这完全忽略了费用收入，以使介绍更简单。]
 - en: '**Figure 5**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图5**'
 - en: While Bob’s levered position is riskier over the infinite price range, the difference
     between Alice and Bob is slight over a broad price range from $1000 to $2000\.
     Indeed, as noted for Figure 5 above, their PnLs are *identical* when the price
     is within Alice’s range of $1350 to $1667.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管Bob在无限价格范围内的杠杆头寸更加危险，但在从$1000到$2000的广泛价格范围内，Alice和Bob之间的差异很小。实际上，正如上面图5中指出的那样，当价格在Alice的$1350到$1667的范围内时，他们的盈亏是*相同的*。
 - en: Bob’s potential for a negative account value, insolvency, implies a liquidation
     method is needed to protect the levered pool because if one party has a negative
     account value, not all accounts will be able to retrieve their full account values.
     Insolvency without any insurance fund would generate a run as those with assets
     in the pool would want to withdraw early enough to get their total account value;
     with an insurance fund, the equity owners would suffer a loss.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: Bob的负账户价值，即破产，意味着需要一种清算方法来保护杠杆池，因为如果一个方有负账户价值，那么并不是所有账户都能够取回其全部账户价值。没有任何保险基金的破产将导致一场抢购，因为那些在池中拥有资产的人将希望尽早撤出以获得其总账户价值；而有了保险基金，股权所有者将遭受损失。
 - en: In the above example, we have 20x leverage given to LP Bob in that his pool
     ETH and USDC are about 20 times his initial ‘real’ ETH and USDC deposits. Leverage
     applied to an LP is very different than giving that to a trader. *LP* Bob’s account
@@ -217,33 +302,44 @@
     would lose all of his money with a mere 5% price move. As the daily volatility
     of ETH is 5%, the protocol has adequate time to anticipate and rectify potential
     insolvencies before they are realized.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上面的示例中，我们给LP Bob提供了20倍的杠杆，使他的ETH和USDC池大约是他初始“真实”的ETH和USDC存款的20倍。对LP应用的杠杆与将其提供给交易员是非常不同的。*LP*
+    Bob的账户在价格变动达到-50%和+95%时将破产，而拥有20倍杠杆的*交易员*在价格波动5%时就会失去所有资金。由于以太坊的日常波动率为5%，协议有足够的时间来预测和纠正潜在的破产风险，使其在实现之前得以解决。
 - en: As a practical matter, however, a LAMM will be more concerned with LP token
     deficits rather than insolvency. As Bob matched Alice’s 10% range with his initial
     token allocation, a +10% price move would exhaust his ETH, and a -10% move would
     drain his USDC. At the price point of $1350 in Figure 6 below, Bob has zero net
     USDC, just like Alice.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，实际上，LAMM更关心的是LP代币的赤字而不是破产。由于Bob的初始代币分配与Alice的10%范围相匹配，+10%的价格波动将耗尽他的ETH，而-10%的波动将耗尽他的USDC。在下面的图6中的$1350价格点处，Bob的净USDC为零，就像Alice一样。
 - en: '**Figure 6**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图6**'
 - en: While Bob has no more USDC to give out when the price of ETH falls to $1350,
     the value of his account is $3674, a loss of only $301, or 7.5%. Thus, well before
     the price moves that would render a LAMM LP insolvent, the protocol needs a mechanism
     for either motivating Bob to add tokens or incenting new LPs to add tokens so
     that swaps can resume.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 当以太坊价格下跌至$1350时，Bob没有更多的USDC可以提供，他的账户价值为$3674，仅损失了$301，或7.5%。因此，在价格移动使LAMM LP破产之前，协议需要一种机制，要么激励Bob添加代币，要么激励新的LP添加代币，以便交换可以恢复。
 - en: A price where the LPs have net nonpositive USDC, such as $1350 in this example,
     implies no swaps can occur below this price. As with v3, this is not a danger
     to anyone, just a lost opportunity. Unlike the v3 case, new LPs will not get all
     the fees if they rectify this situation but instead share this fee revenue pro-rata
     with the existing LPs. This weakens the incentive for providing essential additional
     liquidity in the LAMM without some extra mechanism.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: LPs在净非正USDC的价格，比如本例中的$1350，意味着在此价格以下无法进行交换。与v3一样，这对任何人都不构成危险，只是一个失去的机会。与v3情况不同的是，新的LPs不会像纠正此情况时那样获得所有费用，而是与现有LPs按比例分享这些费用收入。这削弱了在LAMM中提供必要的额外流动性的激励，除非有额外的机制。
 - en: As a practical matter, there will be several, if not hundreds, of LPs, each
     with different starting price points and so each with different net token amounts.
     One LP with a net negative USDC would probably not mean the LPs as a whole have
@@ -252,19 +348,25 @@
     net amounts of both tokens. This implies the rule for liquidation need not assume
     a single LP’s net token deficit implies a complete token deficit. For example,
     Bob could be liquidated when his net USDC fell below -1000, as opposed to 0.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，将会有几个，甚至数百个LP，每个LP都有不同的起始价格点，因此每个LP都有不同的净代币数量。一个具有净负面USDC的LP可能不意味着整体LP具有净负面USDC余额。立即清算具有负净代币头寸的LP并不是必要的，因为合同仍然可能具有两个代币的正净额。这意味着清算的规则不必假定单个LP的净代币赤字意味着完全的代币赤字。例如，当Bob的净USDC下降到-1000时，他可以被清算，而不是0。
 - en: Remember that in v3, the pool can also run out of a token if the price exceeds
     all LP ranges; historically, this has not been a significant problem. As the LAMM
     has weaker incentives for adding liquidity when the pool is out of a token, the
     key is creating incentives so this situation would be as rare as we see with v3
     pools. This is a problem with several solutions.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 请记住，在v3中，如果价格超过所有LP范围，池子也可能用完一个代币；从历史上看，这并不是一个重大问题。由于当池子用完一个代币时，LAMM对于添加流动性的激励较弱，因此关键是创造激励，使得这种情况与v3池子一样罕见。这是一个有几种解决方案的问题。
 - en: '**Mechanisms for Incenting LPs to Maintain Positive Token Positions**'
+  id: totrans-45
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**激励LP保持正代币头寸的机制**'
 - en: 'An LP liquidation would be seamless in that no large trade is needed. An LP
     liquidation simply takes the ‘pool’ ETH and USDC implied by his liquidity given
     the current contract price, adds it to his vETH and vUSDC accounts, and zeros
@@ -276,11 +378,15 @@
     his 3.24 ETH (worth $4,212). Once removed, the situation would be like when a
     v3 pool has no active ranges: no risk for anyone, just an opportunity for new
     LPs.'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: LP的清算将是无缝的，因为不需要进行大额交易。LP的清算只需将当前合同价格给定的“池子”ETH和USDC添加到他的vETH和vUSDC账户，并将其LP流动性归零。LP将留有一个带有正值但缺少一个代币的账户。合同可以要求LP在提取他的代币之前具有非负的ETH和USDC余额。在下面的示例中，价格已经下降到1300美元，导致Bob的USDC亏损了686.83美元。Bob将被激励向合同存入额外的686.83美元，从而使他能够提取他的3.24个ETH（价值4212美元）。一旦移除，情况就像一个v3池子没有活跃范围时的情况：对任何人都没有风险，只是新LP的机会。
 - en: '**Figure 7**'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图7**'
 - en: One solution would allow new LPs to remove deficient LPs when adding liquidity
     simultaneously. For example, a new LP could specify an existing LP deficient in
     one of the tokens at the time of adding liquidity. The contract would check to
@@ -289,8 +395,10 @@
     usual market value vs. required margin). This would give the new LP a greater
     incentive to rectify the problem, as it would make the situation identical to
     v3, where new LPs are incented by the lure of 100% of fee revenue.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种解决方案允许新的LP在同时添加流动性时移除不足的LP。例如，一个新的LP可以在添加流动性时指定一个存在缺陷的LP。合同将检查以验证LP是否处于违约状态，然后在添加新LP的同时清算该LP（这里，默认是由最小净代币余额触发的，而不是通常的市值与所需保证金之间的对比）。这将给新的LP更大的动力来纠正问题，因为这将使情况与v3相同，新的LP将受到100%手续费收入的诱惑。
 - en: Alternatively, one could emphasize the cost of the deficient LPs by giving keepers
     an incentive fee to liquidate LPs who are deficient in one token. This would be
     like the above condition, but with a different agent policing the contract for
@@ -298,66 +406,94 @@
     add that a liquidator must also rectify the liquidated LPs deficient token balance
     (which would require giving the liquidator an equal value of the defaulting LP’s
     surplus token).
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者，可以通过给保管者提供激励费用来强调不足的LP的成本，以清算缺少一种代币的LP。这就像上述条件一样，但是由不同的代理人监管合约中缺少的LP，并且对这些违约的LP应用更显著的成本。一个清算者还必须纠正被清算的LP的不足代币余额（这将需要给予清算者与违约LP剩余代币相等价值的代币）。
 - en: Another solution would apply a funding rate based on the total LP’s net ETH
     and USDC. This would be a profoundly different application of the funding rate
     commonly used in perps, where the perp price is compared to an external spot price.
     One could use various functions, but the gist would be that the cost applied to
     deficient LPs would increase exponentially as the contract’s net ETH or USDC approached
     zero, giving LPs an incentive to add the deficient token.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种解决方案是基于总LP的净ETH和USDC的资金费率。这将是对永续合约中通常使用的资金费率的一种根本不同的应用，其中永续价格与外部现货价格进行比较。可以使用各种函数，但其核心是，随着合约的净ETH或USDC接近零，应用于不足的LP的成本将呈指数增长，从而给LP提供添加不足代币的激励。
 - en: '**Leveraged Traders: Perps**'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '**杠杆交易者：永续合约**'
 - en: The leveraged LP has pool tokens implied by his liquidity and a corresponding
     debt reflecting his leverage so that his real or net ETH balance is the sum of
     these two accounts. If we treat his vETH account not merely as a debt but as a
     general trade account that can be negative or positive, traders could get leverage
     in the exact same way. The liquidation and accounting mechanisms would already
     be in place.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 杠杆LP的池子代币是由他的流动性暗示的，并且反映了他的杠杆，以便他的真实或净ETH余额是这两个账户的总和。如果我们将他的vETH账户不仅仅视为一种债务，而是作为一个可以是负数或正数的一般交易账户，交易者可以以完全相同的方式获得杠杆。清算和会计机制已经就位。
 - en: For example, trader Bob could deposit $750 USDC into the contract, generating
     the following account profile on contract.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，交易员Bob可以向合约存入750美元的USDC，生成以下的合约账户概况。
 - en: '**Figure 8**'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图8**'
 - en: Assume Bob then sells 1.0 ETH. Assuming no fees or price impact and a margin
     requirement of 20% (i.e., 5x leverage max), this would generate the following
     account data.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设Bob随后卖出1.0个ETH。假设没有费用或价格影响，并且保证金要求为20％（即，最大杠杆为5倍），这将生成以下账户数据。
 - en: '**Figure 9**'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图9**'
 - en: Alternatively, trader Alice could deposit $375 worth of ETH
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者，交易员Alice可以存入价值375美元的ETH
 - en: '**Figure 10**'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图10**'
 - en: If she shorted 1.375 ETH, her account would look identical to Bob’s in figure
     9\.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果她卖空了1.375个ETH，她的账户看起来与图9中的Bob的账户完全一样。
 - en: 'Or consider the case where a trader deposits 1 ETH and goes long 2 ETH, shown
     in Figure 11 below. His account would look like this:'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者考虑这样一种情况，一个交易者存入了1个ETH并且做多了2个ETH，如下图11所示。他的账户将如下所示：
 - en: '**Figure 11**'
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图11**'
 - en: One need only monitor whether the trader’s account market value exceeds his
     required margin, regardless of whether they are long or short. As long as traders
     cannot withdraw more than their required margin, and there is a mechanism and
     incentive for liquidators to liquidate defaulting accounts when they violate their
     required margin, the contract is safe.
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 只需监控交易者的账户市场价值是否超过其所需保证金，而不管他们是做多还是做空。只要交易者不能提取超过其所需保证金的金额，并且存在一种机制和激励措施，让清算者在违反其所需保证金时清算违约账户，那么合约就是安全的。
 - en: Leveraged trading would allow the contract to function in a limited sense until
     some LP rectified the pool USDC deficit by depositing USDC. That is, while the
     contract has no USDC, traders cannot sell ETH for USDC as a swap, but those with
@@ -365,12 +501,16 @@
     A liquidation rule or funding rate approach will incentivize the existing LPs
     to shore up their balances soon, at which time the trader could withdraw their
     USD credit as USDC.
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 杠杆交易将允许合约在有限的情况下运作，直到某个LP通过存入USDC来纠正池子中的USDC赤字。也就是说，当合约没有USDC时，交易者无法将ETH换成USDC进行交换，但那些有抵押品的人可以在合约上出售ETH，从而为他们的USD余额产生信用。清算规则或资金费率方法将鼓励现有的LP尽快弥补他们的余额，届时交易者可以将他们的USD信用提取为USDC。
 - en: No Oracle-based Funding Rate
+  id: totrans-64
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 没有基于Oracle的资金费率
 - en: By having both Uniswap and perp functionality, the contract price would be set
     by arbitrage, not a funding rate linked to an oracle. This would eliminate several
     problems in perp protocols. Oracles needed for standard perp funding rate calculations
@@ -378,12 +518,16 @@
     to link perp prices with spot prices is a farce in that it is profoundly different
     than the funding rates applied in traditional swap markets or the basis in futures
     markets.
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过同时拥有Uniswap和永续功能，合约价格将由套利确定，而不是与一个oracle相关联的融资费率。这将消除永续协议中的几个问题。用于标准永续融资费率计算的oracle可能会被黑客攻击和审查。更重要的是，用于将永续价格与现货价格联系起来的融资费率机制是一个笑话，因为它与传统掉期市场或期货市场中应用的融资费率有着根本的不同。
 - en: The Funding Rate Farce
+  id: totrans-66
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 融资费率闹剧
 - en: In prime broker swap accounts, the funding rate is completely independent of
     the price; the assets in these accounts trade on spot markets as if they were
     not in swap accounts (you cannot tell which trades on the NYSE were made from
@@ -391,8 +535,10 @@
     are known ex-ante, and only apply to overnight positions. There is no reason to
     apply intraday funding rates because it is a pointless extension, as the magnitudes
     are too small to incent behavior meaningfully.
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: 在主经纪人掉期账户中，融资费率与价格完全独立；这些账户中的资产在现货市场上交易，就像它们不在掉期账户中一样（你无法分辨哪些交易是从掉期账户进行的）。掉期融资费率变化缓慢，就像一般利率一样，是事先已知的，只适用于隔夜头寸。没有理由应用日内融资费率，因为这是一个毫无意义的延伸，因为其幅度太小，无法有意义地激励行为。
 - en: In futures markets, the difference between the futures and spot price is called
     the basis. It converges to zero at maturity, and as the futures moves toward the
     spot price over time, its change acts as a funding rate. This basis, however,
@@ -402,8 +548,10 @@
     of trade means almost nothing, as the funding rate is a function of the average
     perp premium over a position’s duration, not its value at the time the trade was
     initiated.
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: 在期货市场中，期货价格与现货价格之间的差异称为基差。到期时它会收敛到零，随着期货价格随着时间向现货价格移动，其变化就像融资费率一样。然而，这种基差远远大于永续市场中通常的0.03%价格溢价。这种较大的基差可以进行真正的套利，因为它涵盖了交易成本并且可以锁定。相反，在永续市场中，交易时的永续溢价几乎没有意义，因为融资费率是根据头寸持续时间内的平均永续溢价来确定的，而不是在交易发起时的价值。
 - en: 'A perp price is set by a Schelling point, in that the most obvious target is
     the spot price, and the funding rate is just there to make traders feel comfortable
     that it is not *merely* a Schelling point. The fact that there is a vague relation
@@ -411,49 +559,66 @@
     perp markets when users had only one coin in the protocol, as was the case with
     BitMex in 2016\. However, when trading ETH for USDC, this mechanism is an anachronism:
     let *real* arbitrage set the price.'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: 永续价格由谢林点确定，即最明显的目标是现货价格，融资费率只是为了让交易员感觉舒服，而不仅仅是一个谢林点。事实上，与均衡机制存在模糊关系似乎是永续市场用户在协议中只有一个币种时的必要而充分条件，就像2016年的BitMex一样。然而，当将以太币交易为USDC时，这种机制已经过时：让*真正的*套利来确定价格。
 - en: The perp premium funding rate mechanism is incoherent and used to fleece traders
     whenever they are drunk with house money. If the market has just gone up, many
     ETH holders are sitting on big gains, so they do not mind paying an extra 5% for
     a month (aka only 0.018% every 8 hours). If your perp protocol has a funding rate
     based on its perp price premium to the spot, your perp protocol managers are either
     ignorant or evil.
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: 永续溢价融资费率机制是不连贯的，并且在交易员因为获利而兴奋时用来欺诈他们。如果市场刚刚上涨，许多以太币持有者正坐拥巨大收益，因此他们不介意为一个月额外支付5%（也就是每8小时仅为0.018%）。如果你的永续协议的融资费率是基于其永续价格溢价到现货的，那么你的永续协议管理者要么是无知的，要么是邪恶的。
 - en: StableCoin
+  id: totrans-71
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 稳定币
 - en: 'An ETH-USDC contract with perp and Uniswap functionality naturally produce
     a stablecoin. Consider a user who deposits 0.375 ETH, where the ETH price is $2000\.
     Her account value and required margin would look as follows:'
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个带有永续和Uniswap功能的ETH-USDC合约自然会产生一个稳定币。考虑一个存入0.375个以太币的用户，其中以太币价格为$2000。她的账户价值和所需保证金如下所示：
 - en: '**Figure 12**'
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 12**'
 - en: 'Assume the trader goes long 0.625 ETH using leverage. Her account value would
     look like this:'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设交易员使用杠杆做多了0.625个以太币。她的账户价值将如下所示：
 - en: '**Figure 13**'
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
 - en: As she is long $2000 worth of ETH, she needs 20% of that value in her account
     to satisfy her margin requirement.
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
 - en: 'Now consider Bob, who deposits 1 ETH in the contract. His initial account value
     would look like this:'
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
 - en: '**Figure 14**'
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
 - en: He also has a $400 required margin, but as his position is not leveraged, it
     is never a concern. This is because if the value of ETH goes down, so does his
     margin requirement, and vice versa.
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
 - en: 'Bob can turn this into a MakerDao-like CDP position by withdrawing a new stablecoin,
@@ -465,9 +630,11 @@
     the contract would set the value of vUSD at parity with USDC as long as the contract
     is solvent. A withdrawal of $1250 vUSD would leave Bob’s account looking like
     Figure 15 below:'
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
 - en: '**Figure 15**'
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
 - en: Bob’s account is exactly the same as Alice’s, though they arrived via different
@@ -476,6 +643,7 @@
     stablecoins the way a donut maker makes donut holes, it’s an unavoidable complementary
     product. Just as it would be inefficient to produce donut holes but not donuts,
     it would be inefficient to produce stablecoins without a perp contract.
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
 - en: The benefit of this approach is that it creates stablecoins more efficiently
@@ -484,6 +652,7 @@
     MakerDao sold $8MM worth of ETH in March 2020 for zero USD. In a LAMM, a defaulter’s
     net ETH position is straightforward to close on the contract. Relying on oracles
     is also problematic, as these can be hacked or censored.
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
 - en: In the long run, one could have several independent contracts, each with its
@@ -496,37 +665,45 @@
     backing the token. Eliminating centralized stablecoins such as USDC from the blockchain
     is essential for long-run security. The creation of efficient decentralized stablecoin
     mechanisms is essential for that objective.
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
 - en: '**In summary**'
+  id: totrans-85
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
 - en: Leveraged AMMs can economize on capital like restricted ranges
+  id: totrans-86
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: LAMMs naturally extend to provide perps and stablecoins
+  id: totrans-87
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Current Perp Markets are Censorable and Gamed
+  id: totrans-88
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Perps on low-latency platforms are effectively centralized
+  id: totrans-89
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: The BitMex-style funding rate equilibrating mechanism is a farce; it does not
     and cannot equilibrate the perp market
+  id: totrans-90
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: funding rates are manipulated to benefit insiders
+  id: totrans-91
   prefs:
   - PREF_IND
   - PREF_IND
@@ -534,54 +711,64 @@
   type: TYPE_NORMAL
 - en: see my [prior post](https://efalken.substack.com/p/perp-funding-rate-fraud)
     for an explanation
+  id: totrans-92
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: A LAMM generates perps supported by real arbitrage
+  id: totrans-93
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Existing Stablecoins Not Sustainable
+  id: totrans-94
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Most centralized, fine for now, but not a long-run solution
+  id: totrans-95
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Decentralized stablecoins have regulatory attack surfaces
+  id: totrans-96
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Identifiable persons with control over choke points
+  id: totrans-97
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Oracles like Chainlink are censorable
+  id: totrans-98
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: Governance tokens have weak revenue endgames
+  id: totrans-99
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: incentive to embrace regulations when token growth stops
+  id: totrans-100
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
 - en: A LAMM generates stablecoins without centralized attack surfaces
+  id: totrans-101
   prefs:
   - PREF_IND
   - PREF_UL
@@ -592,6 +779,7 @@
     tokens, and it would be nice to be able to short these on-chain, not just sell
     them. It would be nice to be able to short BTC or ETH, or take a position on BTC/ETH
     on-chain. None of this is feasible with only Uniswap pool functionality.
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
 - en: Shorting would benefit the Ethereum ecosystem because Ponzi tokens are a systemic
@@ -599,6 +787,7 @@
     of new crypto investors. These crap-coins sully the reputation of everything on
     the blockchain. It is much harder for insiders to maintain the value of a Ponzi
     token when people can short.
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
 - en: Yield farming highlights how inefficient many liquidity positions are because
@@ -613,10 +802,12 @@
     equity loan and give them the cash as collateral for a car loan, allowing the
     car seller to avoid building the infrastructure to monitor and potentially seize
     a person’s house.
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
 - en: This post is already too long for most readers, so I will not outline the best
     part of this approach, which is how it facilitates a mechanism to eliminate impermanent
     loss. Maybe later.
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
