@@ -1,110 +1,168 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:36:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:36:35'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Duration Estimation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 持续时间估计 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/30/duration-estimation/#0001-01-01](https://tr8dr.wordpress.com/2009/11/30/duration-estimation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/30/duration-estimation/#0001-01-01](https://tr8dr.wordpress.com/2009/11/30/duration-estimation/#0001-01-01)
 - en: November 30, 2009 · 8:35 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年11月30日 · 下午8:35
 - en: 'In a prior post mentioned that for intra-day variance prediction it made sense
     to separate variance into 2 processes:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '在先前的帖子中提到，对于日内方差预测，将方差分为 2 个过程是有意义的:'
 - en: '**intensity process**'
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**强度过程**'
 - en: When is the next event going to occur;  lets call this Tprior + Δt.   This is
     the more complex process of the two to predict.
+  id: totrans-9
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 下一个事件将在什么时候发生;我们称之为 Tprior + Δt。这是两者中更复杂的过程来预测。
 - en: '**power process**'
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**功率过程**'
 - en: What is the amplitude of the event at time Tnow + Δt.   The power or amplitude
     process seems to be fairly well behaved.   An ARMA style process seems like a
     likely candidate.
+  id: totrans-11
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 在时间 Tnow + Δt 的事件振幅是多少。功率或振幅过程似乎相当稳定。ARMA 风格的过程看起来是一个可能的选择。
 - en: 'Towards this end, I have been exploring models for the intensity process.  
     Very often this is modeled in terms of duration.   Below is a summary of some
     results:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '为此，我一直在探索强度过程的模型。通常情况下，这是以持续时间建模的。以下是一些结果的摘要:'
 - en: '**ACD Models** ACD processes make overreaching assumptions.  In particular
     ACD models assume a constant AR decay and innovation contribution across time.
       Unfortunately this is not supported by empirical observations.   Here are some
     results for the best-fitting Wiebull ACD model on HF data:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ACD 模型** ACD 过程做出了过于宽泛的假设。特别是 ACD 模型假设时间上的常量 AR 衰减和创新贡献。不幸的是，这在经验观察中得不到支持。以下是最适合的
+    Weibull ACD 模型在 HF 数据上的一些结果:'
 - en: '[![](img/8e43ed5e9645b578e8413e07f86c8caf.png "Picture 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-116.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8e43ed5e9645b578e8413e07f86c8caf.png "图片 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-116.png)'
 - en: The R^2 level of 0.0091 does not inspire confidence.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 0.0091 的 R^2 水平并不令人信服。
 - en: '**SVR Model** I used an iterative non-parametric machine learning approach
     (SVR) with a training set of 20 prior observations and a lagged series of the
     derivatives of the prior 20 durations as the input vector.   Training across the
     entire series, one gets an in-sample prediction R^2 of 0.9980.   Unfortunately,
     incremental out of sample does not fair as well:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**SVR 模型** 我使用了一种迭代的非参数机器学习方法（SVR），训练集为 20 个先前观察值，输入向量为先前 20 个持续时间的导数的滞后序列。在整个系列上进行训练，得到的样本内预测
+    R^2 为 0.9980。不幸的是，增量外样本表现不太好:'
 - en: '[![](img/44e6ba2529cccb5d5d66a3fb3ff1c2d6.png "Picture 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-216.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/44e6ba2529cccb5d5d66a3fb3ff1c2d6.png "图片 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-216.png)'
 - en: '**Distribution of Durations**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**持续时间分布**'
 - en: 'Here are 2 views on the distribution of durations:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '以下是持续时间分布的 2 个视图:'
 - en: '[![](img/73210e438201632034a97e4e8d04c213.png "Picture 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-217.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/73210e438201632034a97e4e8d04c213.png "图片 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-217.png)'
 - en: '[![](img/4a390bf0623f4637d0e316e4c6ec1e61.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-48.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4a390bf0623f4637d0e316e4c6ec1e61.png "图片 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-48.png)'
 - en: '**Alternative Models** Some possibilities:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**替代模型** 一些可能性:'
 - en: '**markov chain** (probabalistic state system)'
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**马尔可夫链**（概率状态系统）'
 - en: We model the patterns by categorizing the durations into K separate levels.  
     To train we observe the chain of states, say {K1, K8, K1,K1,K1,K4} and determine
     a graph describing the approximate event chains, factorizing and assigning probabilities.
+  id: totrans-24
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 我们通过将持续时间分类为 K 个单独的水平来对模式进行建模。为了训练，我们观察到状态链，比如 {K1，K8，K1，K1，K1，K4} 并确定描述近似事件链，因子化和分配概率的图形。
 - en: '**ANN**'
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**ANN**'
 - en: Use a simple feed-forward network, trained with a GA or DE.   This is easy to
     implement but subject to a variety of problems such as overfitting.
+  id: totrans-26
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 使用简单的前馈网络，用 GA 或 DE 进行训练。这种方法易于实现，但容易出现各种问题，比如过拟合。
 - en: As the ANN is easy to compose, will start there.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于 ANN 易于组成，将从这里开始。

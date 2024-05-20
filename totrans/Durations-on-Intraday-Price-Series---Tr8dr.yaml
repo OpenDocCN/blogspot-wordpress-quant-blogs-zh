@@ -1,55 +1,83 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:36:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:36:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Durations on Intraday Price Series | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[一天内价格系列的持续时间 | Tr8dr'
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/27/durations-on-intraday-price-series/#0001-01-01](https://tr8dr.wordpress.com/2009/11/27/durations-on-intraday-price-series/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/27/durations-on-intraday-price-series/#0001-01-01](https://tr8dr.wordpress.com/2009/11/27/durations-on-intraday-price-series/#0001-01-01)
 - en: November 27, 2009 · 1:55 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009 年 11 月 27 日 · 下午 1:55
 - en: As mentioned in a [previous post](https://tr8dr.wordpress.com/2009/11/26/rethinking-variance/),
     I intend to model quadratic variation in terms of multiple pairings of intensity
     (duration) and return level processes.   At a minimum want a pairing for “non-jump”
     related returns and a pairing for “jump” related returns.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如在[之前的一篇文章](https://tr8dr.wordpress.com/2009/11/26/rethinking-variance/)中提到的，我打算模拟二次变化，涉及到多种强度（持续时间）和回报水平过程的多种配对。至少需要一对“非跳跃”相关回报和一对“跳跃”相关回报。
 - en: 'To do this it is necessary to partition returns into the categories based on
     threshold.   We may further want to disregard price movements below a certain
     level unless they cumulatively add up to a return with significance within a period.  
     Towards this end my duration measurement function uses a threshold to determine
     whether a return is to be considered as an event or not.  In pseudocode:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了做到这一点，需要根据阈值将回报划分为不同的类别。我们可能还希望忽略低于一定水平的价格波动，除非它们在一段时间内累积起来形成具有重要性的回报。为此，我的持续时间测量函数使用阈值来确定是否将回报视为事件或不是。伪代码如下：
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'For the diffusion portion of the process, in this 2 second sampled data set
     (EUR/USD low-liquidity period), a threshold of 3e-5 (equivalent of about 1/2 pip),
     seems to work well:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于过程的扩散部分，在这个 2 秒采样数据集（EUR/USD 低流动性时期）中，一个阈值为 3e-5（大约相当于 1/2 个点）似乎效果不错：
 - en: '[![](img/506dda25ddf63f514547cd58f28b7ac9.png "Picture 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-115.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/506dda25ddf63f514547cd58f28b7ac9.png "图片 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-115.png)'
 - en: 'The jump portion of the process should be set so as to capture desired jump
     features and not much more, here I show with a threshold of 2e-4 (equivalent to
     about 3 pips):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 过程的跳跃部分应设置为捕捉所需的跳跃特征，而不要太多，这里我显示了一个阈值为 2e-4（相当于约 3 个点）的情况：
 - en: '[![](img/7de0eed5bfc0df4c287e5c0e7cc9dc92.png "Picture 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-215.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7de0eed5bfc0df4c287e5c0e7cc9dc92.png "图片 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-215.png)'
