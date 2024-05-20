@@ -89,6 +89,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我看来，节流和批处理提供了解决整体目标的不同解决方案 - 避免 UI 被淹没。节流通常与限制每秒更新的数量相关联，例如每秒 5 次。节流通常会丢弃施加节流之外的某些更新，但仍旧旨在确保从服务器发送到客户端的数据是最新的数据。因此，节流只提供了网络应用程序仅接收受限制数量的更新的净值，这些更新应用于
 - en: Batching is a further optimization with regards to sending data from server
     to client.  Specifically, if you have 10 widgets, each updating 3-7 times a second,
     this could mean a data payload being streamed per widget every 100mns or so, with
@@ -98,6 +99,8 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 批处理是与从服务器发送数据到客户端相关的进一步优化。具体来说，如果您有 10 个小部件，每个小部件每秒更新 3-7 次，这可能意味着每 100 毫秒左右将为每个小部件流式传输一个数据负载，并进行适当的
+    DOM 更新。也许更好的考虑是将所有可用的小部件更新批处理为从服务器发送到客户端的单个有效负载，每 200 毫秒一次。
 - en: What is clear is that web application development continue to move forwards
     in the browser space, from devtools ([Canary](https://www.google.com/intl/en/chrome/browser/canary.html))
     to JavaScript VM’s.  Firefox with [OdinMonkey](http://www.extremetech.com/computing/151403-firefox-sticks-it-to-google-with-odinmonkey-which-can-boost-javascript-performance-by-1000-or-more)
@@ -109,31 +112,44 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 明显的是，网络应用程序的开发在浏览器空间继续向前发展，从开发工具（[Canary](https://www.google.com/intl/en/chrome/browser/canary.html)）到
+    JavaScript VM。Firefox 的 [OdinMonkey](http://www.extremetech.com/computing/151403-firefox-sticks-it-to-google-with-odinmonkey-which-can-boost-javascript-performance-by-1000-or-more)
+    和 Google 的 V8 在 JS VM 空间继续前进，忽略了即将发生的布局引擎 [Blink](http://blog.chromium.org/2013/04/blink-rendering-engine-for-chromium.html)
+    vs WebKit 的差异。然后是 IE11，推动 [touch](http://www.windows81.com/2013/06/microsoft-says-ie-11-offers-the-best-touch-performance-on-the-market/)
+    性能，其对世界的主要好处可能是通过自动更新选项（遵循 Google）帮助消除旧的 IE。
 - en: 'The downside of web development is still IE, as summarised by Computer World:'
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 网页开发的缺点仍然是 IE，如《计算机世界》所总结的：
 - en: IE10 supports only Windows 8 and Windows 7, leaving Windows Vista stuck with
     IE9, just as Windows XP has been frozen at IE8.
   id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: IE10 仅支持 Windows 8 和 Windows 7，使得 Windows Vista 被困在 IE9 上，就像 Windows XP 被冻结在
+    IE8 上一样。
 - en: The world will be a better place if corporations would move off Windows XP!
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果企业能够放弃 Windows XP，世界将会变得更美好！
 - en: Final thought:  Although people appears to love [tables](https://github.com/new-proimage/insanely-big-tables)
     with lots of rows, we really need to assess the ROI of the data presented, and
     if the all the data needs to be in the web application all the time – paging?
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后的想法：尽管人们似乎喜欢具有大量行的 [tables](https://github.com/new-proimage/insanely-big-tables)，但我们真的需要评估所呈现数据的投资回报率，以及是否所有数据都需要一直存在于网络应用程序中
+    - 分页？
 - en: ~ by mdavey on July 5, 2013.
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于 2013 年 7 月 5 日发布。
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [Languages](https://mdavey.wordpress.com/category/languages/)
