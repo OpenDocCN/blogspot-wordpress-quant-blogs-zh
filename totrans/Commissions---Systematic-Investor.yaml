@@ -1,167 +1,263 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:31:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:31:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Commissions | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 佣金 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/05/commissions/#0001-01-01)
 - en: Today, I want to explain the commission’s functionality build in to [Systematic
     Investor Toolbox(SIT)](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
     “share” back-test.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我想解释一下内置于[Systematic Investor Toolbox(SIT)](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)的“share”回测中的佣金功能。
 - en: At each re-balance time the capital is allocated given the weight such that
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在每次重新平衡时，资金根据权重分配，以使
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: For example, if weight is 100% (i.e. fully invested) and capital = $100 and
     price = $10 then
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果权重为100%（即全部投资）且资金= $100且价格= $10，则
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: The period return is equal to
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 期间收益等于
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The total return is equal to
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 总回报等于
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: The period returns constructed this way let me construct portfolio returns without
     using loops
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 以这种方式构造的期间收益使我能够构造投资组合收益而不使用循环
 - en: I.e. if share, price, cash are matrices, then
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 即如果share、price、cash是矩阵，则
 - en: '[PRE4]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: and
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: '[PRE5]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: To introduce commissions into above framework, I had to make following assumptions.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了将佣金引入上述框架，我必须做出以下假设。
 - en: Let’ assume that P0 and P1 are stock prices and com is commission that is very
     small relative to stock price then
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设P0和P1是股票价格，com是与股票价格相比非常小的佣金，则
 - en: '[PRE6]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: Given commissions, the period return formula used in [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
     is equal to
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定佣金，[SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中使用的期间回报公式等于
 - en: '[PRE7]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: 'Now let’s look at the example of trade with commissions:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看一个带有佣金的交易示例：
 - en: '[PRE8]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: In [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/),
     these computations are equivalent to
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中，这些计算等效于
 - en: '[PRE9]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: Hence, as long as commissions are small relative to whole trade the returns
     produced with [SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
     will be very close to the true returns.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，只要佣金相对于整个交易很小，使用[SIT](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)生成的回报将非常接近真实回报。
 - en: SIT currently supports following 3 types of commissions
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: SIT目前支持以下3种类型的佣金
 - en: cents / share commission
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 每股收费
 - en: '[PRE10]'
+  id: totrans-32
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: fixed commission
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 固定佣金
 - en: '[PRE11]'
+  id: totrans-34
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE11]'
 - en: percentage commission
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 百分比佣金
 - en: '[PRE12]'
+  id: totrans-36
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE12]'
 - en: You can mix and match these commission methods in any way,
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以以任何方式混合匹配这些佣金方法，
 - en: '[PRE13]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE13]'
 - en: and period return is equal to
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 期间回报等于
 - en: '[PRE14]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE14]'
 - en: Next let’s see the impact of different type of commissions. There two ways to
     specify the commissions.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们看看不同类型佣金的影响。 有两种指定佣金的方式。
 - en: '[PRE15]'
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_PRE
+  zh: '[PRE15]'
 - en: will be translated in
+  id: totrans-43
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 将被翻译为
 - en: '[PRE16]'
+  id: totrans-44
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE16]'
 - en: '[PRE17]'
+  id: totrans-45
   prefs:
   - PREF_UL
   type: TYPE_PRE
+  zh: '[PRE17]'
 - en: '[PRE18]'
+  id: totrans-46
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE18]'
 - en: To view the complete source code for this example, please have a look at the
     [bt.commission.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.commission.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
