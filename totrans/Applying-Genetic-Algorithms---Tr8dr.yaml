@@ -1,36 +1,54 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:41:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 15:41:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Applying Genetic Algorithms | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 应用遗传算法 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2007/10/27/applying-genetic-algorithms/#0001-01-01](https://tr8dr.wordpress.com/2007/10/27/applying-genetic-algorithms/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2007/10/27/applying-genetic-algorithms/#0001-01-01](https://tr8dr.wordpress.com/2007/10/27/applying-genetic-algorithms/#0001-01-01)
 - en: October 27, 2007 · 8:49 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2007年10月27日 · 下午8:49
 - en: I have done some experimentation with genetic algorithms in the past, but am
     now looking to incorporate as an optimization tool into my rules-based strategy
     framework.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我过去曾对遗传算法进行过一些实验，但现在希望将其作为优化工具融入到我的基于规则的策略框架中。
 - en: The behavior of our strategies are often parameterized. There can be so many
     combinations of parameters, that to arrive at a sucessful or best performing set
     can be a matter of guesswork, testing and retesting.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的策略行为通常是参数化的。参数的组合可能有很多，要找到一个成功或者表现最佳的集合可能是一种猜测、测试和反复测试的事情。
 - en: Enter Genetic Algorithms (GA). GA allows us to efficiently arrive at a (nearly)
     best fit set of parameters based on a fitness function. For those not familiar
     with genetic algorithms (GA), GA is a biology-inspired gene/generational means
@@ -38,21 +56,29 @@
     on each generation, the fittest of which are chosen and recombined with other
     genes. Successive generations will tend to be more and more fit, arriving at a
     fitness maximum.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 进入遗传算法（GA）。GA允许我们根据适应度函数高效地得到（几乎）最佳匹配的参数集。对于那些不熟悉遗传算法（GA）的人来说，GA是一种受生物学启发的基于适应度标准进化解决方案的基因/世代方式。每一代都会产生一组基因，其中适应度最高的基因将被选择并与其他基因重新组合。后续的世代将越来越适应，达到适应度最大值。
 - en: In truth GA, as exotic as it sounds, is just one of many optimization techniques
     where one is trying to minimize, maximize, or find a zero for a complex function.
     GA is easy to set up and can work with black-box functions, so is a good candidate.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，尽管GA听起来很奇特，但它只是许多优化技术中的一种，其中一个人试图最小化、最大化或找到复杂函数的零点。GA易于设置，可以处理黑盒函数，因此是一个很好的选择。
 - en: I need to set up an environment to run the optimization in parallel given the
     computation required. For each day we evaluate a strategy will be looking at 200K
     – 500K ticks or more. So to evaluate over, say, 3 months of data is 30 million
     ticks. Multiply this by 1000 or more fitness evaluations, and one is looking to
     evaluate billions of ticks and rules.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我需要建立一个环境来并行运行优化，考虑到所需的计算量。对于每天评估一种策略，我们将查看20万至50万个或更多的刻度。因此，要评估，例如，3个月的数据就是3000万个刻度。再乘以1000或更多的适应度评估，一个人就要评估数十亿个刻度和规则。
 - en: Given that we have datasynapse available on hundreds of blades, may adapt JGAP
     and the strategy engine for this infrastructure.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于我们有数百个刀片上的数据同步可用，可以针对这个基础架构调整JGAP和策略引擎。
