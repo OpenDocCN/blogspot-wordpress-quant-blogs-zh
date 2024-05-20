@@ -1,102 +1,150 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:37:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:37:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Calibrating Non-Convex Functions | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 对非凸函数进行校准 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/19/calibrating-functions-with-multiple-local-optima/#0001-01-01](https://tr8dr.wordpress.com/2009/11/19/calibrating-functions-with-multiple-local-optima/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/19/calibrating-functions-with-multiple-local-optima/#0001-01-01](https://tr8dr.wordpress.com/2009/11/19/calibrating-functions-with-multiple-local-optima/#0001-01-01)
 - en: 'Many of the calibrations I perform are on non-convex functions, functions with
     multiple local minima/maxima.    Solving a min(max)imization for this class of
     function precludes a wide range of algorithms based on gradient descent (such
     as BFGS).    There are a number of “metaheuristic” approaches to solving non-convex
     problems, such as: *simulated annealing*, *genetic algorithms*, *differential
     evolution*, *particle swarm*, and brute force *grid search*, amongst others.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我进行的许多校准都是针对非凸函数的，即具有多个局部最小值/最大值的函数。对这类函数的极小(大)化求解排除了基于梯度下降的广泛算法的使用（如BFGS）。有许多解决非凸问题的“元启发式”方法，如：*模拟退火*、*遗传算法*、*微分进化*、*粒子群*和蛮力*网格搜索*，等等。
 - en: For the last couple of years I have been using [JGAP](http://jgap.sourceforge.net/),
     a library for optimization via genetic algorithm.    For some time was under the
     impression that most GA libraries were similar in terms of core algorithm and
     just different at the API level.   I ran into some problems with the new variance
     model I am working on, where JGAP was not converging in the expected manner.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去几年里，我一直在使用[JGAP](http://jgap.sourceforge.net/)，这是一个通过遗传算法进行优化的库。有段时间我以为大多数遗传算法库在核心算法上都很相似，只是在API级别上有所不同。我在新的方差模型上遇到了一些问题，JGAP并没有按照预期的方式收敛。
 - en: I recently began using a package in R for ad-hoc calibrations ([genoud](http://sekhon.berkeley.edu/rgenoud/))
     and found that it converges quickly, whereas JGAP did very poorly in comparison.
       [DEoptim](http://cran.r-project.org/web/packages/DEoptim/DEoptim.pdf) is a very
     similar package (a straight implementation of *differential evolution).* Differential
     Evolution  a cousin of GA, but with a different approach to population evolution.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近开始在R中使用一个用于特定校准的软件包（[genoud](http://sekhon.berkeley.edu/rgenoud/)），发现它收敛得很快，而JGAP则与之相比表现很差。[DEoptim](http://cran.r-project.org/web/packages/DEoptim/DEoptim.pdf)是一个非常类似的软件包（对*differential
+    evolution*进行了直接实现）。微分进化是遗传算法的表亲，但在群体演化方法上有所不同。
 - en: '**Differential Evolution**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**微分进化**'
 - en: 'Differential Evolution is very similar to standard GA approaches in that both
     involve working towards the optimum via a randomly generated population of “trial
     vectors” (θ) and a directed evolution of those vectors towards the optimum.  
     Differential evolution is implemented as follows:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 微分进化与标准遗传算法方法非常相似，因为两者都通过随机生成的“试验向量”（θ）的群体和这些向量向最优解的定向演化来努力寻找最优解。微分进化的实现如下：
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: One of the key innovations is that the variance of the innovations (mutations)
     is dependent on the dispersion of the vectors.  At the outset the dispersion will
     be large, and as the optimization progresses, the dispersion will reduce and hence
     mutations will be more focused.   The choice of the function F(), operating on
     the difference of vectors, has various effects on the speed of convergence and
     exploration of the domain.  I will not go into it here.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中一个关键创新是创新（突变）的方差取决于向量的离散度。一开始，离散度会很大，随着优化的进行，离散度会减小，因此突变会更加集中。函数F()对向量之间的差异进行操作，对收敛速度和对领域的探索有各种影响。我在这里不会详细介绍它。
 - en: '**Improvements with Hybrid Approach**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**混合方法的改进**'
 - en: Provided one has a continuous function with derivatives within the neighborhood
     of a trial vector, the algorithm can be improved with the use of gradient descent
     (such as the BFGS algorithm) to locate the true optimum within a neighborhood.   
     Care must be taken not to optimize too early such that the diversity of trials
     is lost.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设在试验向量的邻域内具有连续的带有导数的函数，算法可以通过使用梯度下降（如BFGS算法）来提高，以在邻域内找到真正的最优解。必须注意不要过早优化，以免丧失试验的多样性。
 - en: '**Some Tests**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**一些测试**'
 - en: 'Here are some results on the two R packages mentioned above.  Ultimately I
     need to get an implementation into Java, but wanted to do a comparison with existing
     implementations first.   I ran optimizations on a particularly pathological gaussian
     mixture (taken from the examples in the genoud package):'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是关于上述两个 R 包的一些结果。最终我需要将其实现为 Java，但是我想先与现有的实现进行比较。我在一个特别病态的高斯混合模型上进行了优化（取自
+    genoud 包中的示例）：
 - en: '[![](img/9a28649d8472eca3bf328fbd13bb8f4d.png "Picture 10")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-102.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9a28649d8472eca3bf328fbd13bb8f4d.png "图片 10")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-102.png)'
 - en: 'Which looks like:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来像：
 - en: '[![](img/2ddc8e3ce35114d663ef237c0d4e5c4d.png "Picture 11")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-112.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/2ddc8e3ce35114d663ef237c0d4e5c4d.png "图片 11")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-112.png)'
 - en: It is clear that gradient descent (ascent) solvers will gravitate to one of
     the local maxima with the above function.   Testing DEoptim with a population
     of 100 and similar parameters, both arrived within 1e-4 of the answer within 10
     generations (without any BFGS optimization) and 5e-6 within 60 generations.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 很明显，使用梯度下降（上升）求解器会使得函数收敛到上述函数的其中一个局部最大值。测试 DEoptim，使用一个包含 100 个个体和类似的参数，两者都在
+    10 代内（没有任何 BFGS 优化）以 1e-4 的精度到达答案，并在 60 代内以 5e-6 的精度到达答案。
 - en: With BFGS optimization on, genoud arrived within 1e-10 within 2 generations!  
     Unfortunately genoud arrived at the wrong maximum with some other (more complex)
     mixture function, whereas the pure DE approach arrived at the proper one.    With
     appropriate parameterisation can be avoided, however.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用 BFGS 优化时，genoud 在 2 代内达到了 1e-10 的精度！不幸的是，对于一些其他（更复杂）的混合函数，genoud 达到了错误的最大值，而纯
+    DE 方法达到了正确的最大值。然而，通过适当的参数化可以避免这种情况。

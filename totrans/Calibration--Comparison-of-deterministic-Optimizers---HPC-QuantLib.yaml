@@ -1,53 +1,66 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-17 23:43:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'Calibration: Comparison of deterministic Optimizers – HPC-QuantLib'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/05/17/calibration-comparison-of-deterministic-optimizers/#0001-01-01](https://hpcquantlib.wordpress.com/2011/05/17/calibration-comparison-of-deterministic-optimizers/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: The gaol is to calibrate a time dependent Heston model defined by the following
     SDE
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/359b7941069daab5ece942e9f9440d76.png "\begin{array}{rcl} dS(t, S)
     &=& \mu_t S dt + \sqrt{v} S dW_1 \\ dv(t, S) &=& \kappa_t (\theta_t - v) dt +
     \sigma_t \sqrt{v} dW_2 \\ dW_1 dW_2 &=& \rho_t dt \end{array}")](http://www.codecogs.com/eqnedit.php?latex=%5Cbegin%7Barray%7D%7Brcl%7D%20dS%28t,%20S%29%20&=&%20%5Cmu_t%20S%20dt%20@plus;%20%5Csqrt%7Bv%7D%20S%20dW_1%20%5C%5C%20dv%28t,%20S%29%20&=&%20%5Ckappa_t%20%28%5Ctheta_t%20-%20v%29%20dt%20@plus;%20%5Csigma_t%20%5Csqrt%7Bv%7D%20dW_2%20%5C%5C%20dW_1%20dW_2%20&=&%20%5Crho_t%20dt%20%5Cend%7Barray%7D)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: The parameter set ![\{\kappa_t, \theta_t, ,\sigma_t, \rho_t\}](img/0fbc0509db71e752f7099e569e721184.png)
     is supposed to be piecewise constant in time. This model has a semi-closed solution
     for plain vanilla European put/call options based on the characteristic function
     method [1].
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: The DAX implied volatility surface based on July 5, 2002 data taken from [2]
     defines the “benchmark” calibration problem. The benchmark model parameters for
     the optimization problem are given by
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: '![\Theta = \{\nu_0, \kappa_{0\leq t < 0.25}, \kappa_{0.25 \leq t},\theta, \sigma,
     \rho\}](img/cce1c6db5ea57e29f0eb7573e76ec363.png).'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: The non-linear least square optimization problem is defined by the goodness
     of fit measure
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '![\zeta=\min_{\Theta} \sum_{i=1}^N \left( \sigma_i^{market}(K,T) - \sigma_i^{model}(K,T,
     \Theta) \right)^2](img/1fa36158722237a38f624e39f8bde452.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
 - en: where ![\sigma_i^{market}(K,T)](img/9e5e12fcb2e9f683e3a9ea424a83977a.png) is
@@ -55,106 +68,154 @@
     \Theta)](img/60e7a13f5bf3301f65f8bca7ffc8b298.png) is the corresponding Black-Scholes
     volatility implied from the model price. The optimal solution for this problem
     is
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '![\Theta_{min} = \{ 0.2231, 39.651, 7.546, 0.0954, 5.1865, -0.5004 \}](img/00211b944537773793afcdc6f092fe56.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
 - en: leading to a goodness of fit measure of ![\zeta_{min}=74.4731](img/b905c4624a6dbf040387a7307295c2b1.png)
     (Please keep in mind that this result is the outcome of a naive calibration procedure.
     Due to the large ![\kappa](img/c4a59d75f76dfbea9fda1b0ae27cb387.png) and ![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png)
     values I’d not use these parameters to price a derivative.).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/c60fd1e1c2ee1d0d4c2e72674fb89c74.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot5.png)
     [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot3.png) The
     diagram above shows the “goodness of fit”-surface for the parameter sets in'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '![\Theta = \{ 0.2231, 39.651, \kappa_{0.25 \leq t} \in [0, 16], 0.0954, \sigma
     \in [0, 16], -0.5004 \}](img/d52373188e27bca6a1db73e6254d0d80.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/d52373188e27bca6a1db73e6254d0d80.png)：**θ = { 0.2231, 39.651, $κ_{0.25
+    ≤ t} \in [0, 16]$, 0.0954, $σ \in [0, 16]$, -0.5004 }**'
 - en: To be able to compare a larger number of deterministic optimizers the model
     calibration will be carried out using [R](http://www.r-project.org/) and with
     help of the additional packages [minpack.lm](http://cran.r-project.org/web/packages/minpack.lm/index.html)
     and [minqa](http://cran.r-project.org/web/packages/minqa/index.html).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了能够比较更多的确定性优化器，模型校准将使用[R](http://www.r-project.org/)进行，并借助额外的包[minpack.lm](http://cran.r-project.org/web/packages/minpack.lm/index.html)和[minqa](http://cran.r-project.org/web/packages/minqa/index.html)进行。
 - en: '**Non-linear Least Square Optimization:**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**非线性最小二乘优化**：'
 - en: '**nls.lm**: Levenberg-Marquardt algorithm(based on [MINPACK](http://www.netlib.org/minpack),
     also available in [QuantLib](http://quantlib.org/))'
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**nls.lm**：Levenberg-Marquardt 算法（基于[MINPACK](http://www.netlib.org/minpack)，也可在[QuantLib](http://quantlib.org/)中找到）'
 - en: '**nls**: Gauss-Newton algorithm'
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**nls**：高斯牛顿算法'
 - en: '**nl2sol**:based on the [PORT](../www.bell-labs.com/project/PORT) library.'
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**nl2sol**：基于[PORT](../www.bell-labs.com/project/PORT)库。'
 - en: '**Non-linear (trusted region) Minimization**:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**非线性（信任区域）最小化**：'
 - en: '**nlm**:Newton style minizer'
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**nlm**：牛顿样式最小化器'
 - en: '**bfgs:** quasi-Newton method published by Broyden, Fletcher, Goldfarb and
     Shanno'
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**bfgs**：由 Broyden、Fletcher、Goldfarb 和 Shanno 发表的拟牛顿方法'
 - en: '**l-bfgs-b**: limited memory BFGS algorithm incl.box constraints'
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**l-bfgs-b**：包含箱式约束的有限内存 BFGS 算法'
 - en: '**cg**: conjugate gradient algorithm'
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**cg**：共轭梯度算法'
 - en: '**nm**: Nelder-Mead method'
+  id: totrans-28
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**nm**：Nelder-Mead 方法'
 - en: '**bobyqa**:trust region method that forms quadratic models by interpolation.'
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**bobyqa**：通过插值形成二次模型的信任区域方法。'
 - en: '**newuoa**: trust region method that forms quadratic models by interpolation.'
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**newuoa**：通过插值形成二次模型的信任区域方法。'
 - en: '**uobyqa**:trust region method that forms quadratic models by interpolation.'
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**uobyqa**：通过插值形成二次模型的信任区域方法。'
 - en: The particular result dependents on the starting vector but the following diagram
     shows a common outcome.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 具体结果取决于起始向量，但下图显示了一种常见结果。
 - en: '[![](img/12d3b5e86a6c6d484c95377cf524f1be.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot7.png)
     [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot6.png) The
     best methods are the non-linear least square algorithms nls.lm and nls followed
     by nl2sol. Algorithms not included in the diagram have performed even worse than
     “nm” for this problem.'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![图](img/12d3b5e86a6c6d484c95377cf524f1be.png)](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot7.png)
+    [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot6.png) 最佳方法是非线性最小二乘算法
+    nls.lm 和 nls，其次是 nl2sol。未包含在图中的算法甚至比此问题的“nm”表现更差。'
 - en: The goodness of fit measure is calculated in C++ based on the [QuantLib](http://quantlib.org)
     and exposed to [R](http://www.r-project.org/) using [RCPP](http://cran.r-project.org/web/packages/Rcpp/index.html).
     The C++ code and the R scripts to perform the optimizations and to create the
     plots can be found [here](http://hpc-quantlib.de/src/optimproblem.zip).
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 拟合优度量是基于[QuantLib](http://quantlib.org)中的 C++ 计算，并使用[RCPP](http://cran.r-project.org/web/packages/Rcpp/index.html)暴露给[R](http://www.r-project.org/)。可以在[这里](http://hpc-quantlib.de/src/optimproblem.zip)找到执行优化和创建图表的
+    C++ 代码和 R 脚本。
 - en: '1] A. Elices, [Models with time-dependent parameters using transform methods:
     application to Heston’s model](http://arxiv.org/pdf/0708.2020),'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 1] A. Elices，[使用变换方法处理具有时间相关参数的模型：Heston 模型的应用](http://arxiv.org/pdf/0708.2020)
 - en: '[2]  A. Sepp, [Pricing European-Style Options under Jump Diffusion Processes
     with Stochastic Volatility: Applications of Fourier Transform.](http://math.ut.ee/%7Espartak/papers/stochjumpvols.pdf)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2]  A. Sepp，[使用傅立叶变换处理跳跃扩散过程的随机波动性下的欧式期权定价：应用](http://math.ut.ee/%7Espartak/papers/stochjumpvols.pdf)'
