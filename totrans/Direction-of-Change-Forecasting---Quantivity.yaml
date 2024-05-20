@@ -1,30 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:45:32'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:45:32
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Direction of Change Forecasting | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 方向变化预测 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2012/01/16/sign-direction-of-change-forecasting/#0001-01-01](https://quantivity.wordpress.com/2012/01/16/sign-direction-of-change-forecasting/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2012/01/16/sign-direction-of-change-forecasting/#0001-01-01](https://quantivity.wordpress.com/2012/01/16/sign-direction-of-change-forecasting/#0001-01-01)
 - en: '[Index Return Decomposition](https://quantivity.wordpress.com/2011/12/14/index-return-decomposition/)
     prompted several readers to inquire about *forecasting the signs of returns*,
     as implied by the ![s_t](img/3d34b6bd645c53954926164c36a40ae9.png) decomposition
     variable. This is an interesting topic worth review, quick survey of intuition
     from the literature, and some R code for exploratory analysis.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[指数回报分解](https://quantivity.wordpress.com/2011/12/14/index-return-decomposition/)促使几位读者询问*预测回报符号*，如
+    ![s_t](img/3d34b6bd645c53954926164c36a40ae9.png) 分解变量所示。这是一个值得审查的有趣主题，快速查阅文献的直觉，并提供一些用于探索性分析的R代码。'
 - en: This topic is known as *direction-of-change* forecasting in the literature.
     Needless to say, successful prediction of the sign for future returns is quite
     interesting from a trading perspective. Traditionally, only univariate return
@@ -32,251 +47,389 @@
     is an exception, modeling two or more interrelated markets via dependence ratios.
     This literature tends to be a bit obtuse, due to commonly unstated stylistic assumptions
     regarding conditional return dynamics.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个主题在文献中被称为*方向变化*预测。毫无疑问，成功预测未来回报的符号对于交易是非常有趣的。传统上，只考虑单变量回报序列；[Anatolyev (2008)](http://www.nes.ru/~sanatoly/Papers/DepRatio.pdf)
+    是一个例外，通过依赖比建模两个或更多相关市场。这个文献倾向于有点晦涩，因为关于条件回报动态的常见未说明的风格假设。
 - en: 'The traditional formulation for this topic considers the estimation of the
     probabilities of returns exceeding an upper or lower threshold ![c](img/3ae8a7de5e26aa749a5cd05dcbd364f6.png),
     optionally conditioned on an information set ![I](img/bf1950d96528d52333305b3479774adf.png)
     from the previous time step:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个主题的传统公式考虑了超过上限或下限 ![c](img/3ae8a7de5e26aa749a5cd05dcbd364f6.png) 的回报的概率的估计，可选择地在前一时间步骤的信息集
+    ![I](img/bf1950d96528d52333305b3479774adf.png) 条件下：
 - en: '![U_t(c) = \text{Pr}(r_t > c | I_{t-1}) ](img/85592ce5055a22f2d78da848b30c2242.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![U_t(c) = \text{Pr}(r_t > c | I_{t-1}) ](img/85592ce5055a22f2d78da848b30c2242.png)'
 - en: '![D_t(c) = \text{Pr}(r_t < -c | I_{t-1}) ](img/b39fc6a855a65aa2e6cdc686cfa39e6f.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![D_t(c) = \text{Pr}(r_t < -c | I_{t-1}) ](img/b39fc6a855a65aa2e6cdc686cfa39e6f.png)'
 - en: 'If ![c = 0](img/cf4ecdd741860c5717767092bbcc735a.png), the probabilities reduce
     to forecasting positive or negative returns; for trading, a natural choice for
     ![c](img/3ae8a7de5e26aa749a5cd05dcbd364f6.png) is roundtrip transaction costs:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果 ![c = 0](img/cf4ecdd741860c5717767092bbcc735a.png)，则概率会减少到预测正向或负向回报；对于交易，![c](img/3ae8a7de5e26aa749a5cd05dcbd364f6.png)
+    的一个自然选择是往返交易成本：
 - en: '![U_t(c) = \text{Pr}(r_t > 0 | I_{t-1}) ](img/9e8cb98c6e8ab352cb828523f284be2d.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![U_t(c) = \text{Pr}(r_t > 0 | I_{t-1}) ](img/9e8cb98c6e8ab352cb828523f284be2d.png)'
 - en: '![D_t(c) = \text{Pr}(r_t < 0 | I_{t-1}) ](img/46b67c810797f6ff467139e1ebeef193.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![D_t(c) = \text{Pr}(r_t < 0 | I_{t-1}) ](img/46b67c810797f6ff467139e1ebeef193.png)'
 - en: 'Estimating these probabilities can be undertaken via several techniques. One
     approach is to use a logit model, based upon the logistic function:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 估计这些概率可以通过几种技术进行。一种方法是使用基于逻辑函数的logit模型：
 - en: '![U_t(c) = \frac{\exp(\boldsymbol{\theta}_t)}{1 + \exp(\boldsymbol{\theta}_t)}
     : \boldsymbol{\theta}_t = \hat{\boldsymbol{\beta}} \textbf{X}_t ](img/57a8db4346726b7de5adc8e4a07c0e25.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![U_t(c) = \frac{\exp(\boldsymbol{\theta}_t)}{1 + \exp(\boldsymbol{\theta}_t)}
+    : \boldsymbol{\theta}_t = \hat{\boldsymbol{\beta}} \textbf{X}_t ](img/57a8db4346726b7de5adc8e4a07c0e25.png)'
 - en: Where ![\textbf{X}_t \in I_{t-1}](img/3643d4701eb9f3974546065e526993e4.png)
     are explanatory variables from the previous time step. Challenge of this model
     is proper selection of explanatory variables.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 ![\textbf{X}_t \in I_{t-1}](img/3643d4701eb9f3974546065e526993e4.png) 是来自前一时间步骤的解释变量。该模型的挑战是正确选择解释变量。
 - en: 'An alternative approach is to consider the following functional decomposition
     for univariate return series:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种方法是考虑以下单变量回报序列的功能分解：
 - en: '![r_t = \mu_t + \sigma_t \epsilon_t ](img/810d8cf90426d14710af79a3ba55e4b0.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![r_t = \mu_t + \sigma_t \epsilon_t ](img/810d8cf90426d14710af79a3ba55e4b0.png)'
 - en: 'Where ![\mu_t = \text{E} (Y_t | I_{t-1})](img/cee583876897cb5f5799cffba977d54b.png)
     is the conditional expected value, ![\sigma^2 = \text{Var}(Y_t | I_{t-1})](img/b4770bd75eb308860422345fc8488509.png)
     is the conditional variance, and ![\epsilon_t](img/ccc87a8f0c111a61d84ba8cec7decac1.png)
     is a martingale with zero mean, unity variance, and conditional distribution function
     ![F_{\epsilon}(\cdot | I_{t-1})](img/980477ffc2fadd400b51a45923f125fe.png). From
     which the direction of change probabilities can be expressed:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 当![\mu_t = \text{E} (Y_t | I_{t-1})](img/cee583876897cb5f5799cffba977d54b.png)时，条件期望值为![\sigma^2
+    = \text{Var}(Y_t | I_{t-1})](img/b4770bd75eb308860422345fc8488509.png)，而![\epsilon_t](img/ccc87a8f0c111a61d84ba8cec7decac1.png)是一个零均值、单位方差、条件分布函数为![F_{\epsilon}(\cdot
+    | I_{t-1})](img/980477ffc2fadd400b51a45923f125fe.png)的鞅。由此可得变化概率的方向表达式：
 - en: '![U_t(c) = \text{Pr} \left[ (\mu_t + \sigma_t \epsilon_t) > c \right] = \text{Pr}
     \left[ \epsilon_t > \left( \frac{c - \mu_t}{\sigma_t} \right) \right] ](img/5a217bea741b4e94a59967cae9effe28.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_IMG
+  zh: '![U_t(c) = \text{Pr} \left[ (\mu_t + \sigma_t \epsilon_t) > c \right] = \text{Pr}
+    \left[ \epsilon_t > \left( \frac{c - \mu_t}{\sigma_t} \right) \right] ](img/5a217bea741b4e94a59967cae9effe28.png)'
 - en: '![D_t(c) = \text{Pr} \left[ (\mu_t + \sigma_t \epsilon_t) < -c \right] = \text{Pr}
     \left[ \epsilon_t < \left( \frac{-c - \mu_t}{\sigma_t} \right) \right] ](img/1340ed7a5fc3a9ffc00553dad4735f7b.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![D_t(c) = \text{Pr} \left[ (\mu_t + \sigma_t \epsilon_t) < -c \right] = \text{Pr}
+    \left[ \epsilon_t < \left( \frac{-c - \mu_t}{\sigma_t} \right) \right] ](img/1340ed7a5fc3a9ffc00553dad4735f7b.png)'
 - en: 'With corresponding conditional expectations:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 具有相应条件期望：
 - en: '![\text{E} \left[U_t(c) | I_{t-1} \right] = 1 - F_r(c | I_{t-1}) = 1 - F_{\epsilon}
     \left( \frac{c - \mu_t}{\sigma_t} | I_{t-1} \right) ](img/fc622942bec3329d45ee513239a781c8.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![E \left[U_t(c) | I_{t-1} \right] = 1 - F_r(c | I_{t-1}) = 1 - F_{\epsilon}
+    \left( \frac{c - \mu_t}{\sigma_t} | I_{t-1} \right) ](img/fc622942bec3329d45ee513239a781c8.png)'
 - en: '![\text{E} \left[D_t(c) | I_{t-1} \right] = F_r(c | I_{t-1}) = F_{\epsilon}
     \left( \frac{-c - \mu_t}{\sigma_t} | I_{t-1} \right) ](img/c1d512788180b38ef53d4eac92fba339.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_IMG
+  zh: '![E \left[D_t(c) | I_{t-1} \right] = F_r(c | I_{t-1}) = F_{\epsilon} \left(
+    \frac{-c - \mu_t}{\sigma_t} | I_{t-1} \right) ](img/c1d512788180b38ef53d4eac92fba339.png)'
 - en: 'These expectations simplify to the following when ![c = 0](img/cf4ecdd741860c5717767092bbcc735a.png),
     assuming ![\mu \ne 0](img/c5a30b54333d942a0808f97353959a52.png) (otherwise, expectation
     is constant and thus uninteresting):'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 当![c = 0](img/cf4ecdd741860c5717767092bbcc735a.png)时，这些期望简化为以下形式，假设![\mu \ne
+    0](img/c5a30b54333d942a0808f97353959a52.png)（否则，期望是常数，因此不是很有趣）：
 - en: '![\text{E} \left[U_t(c) | I_{t-1} \right] = 1 - F_{\epsilon} \left( \frac{-
     \mu_t}{\sigma_t} | I_{t-1} \right) ](img/bf794237745a9b7c6cb6e4611a5653d6.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![E \left[U_t(c) | I_{t-1} \right] = 1 - F_{\epsilon} \left( \frac{- \mu_t}{\sigma_t}
+    | I_{t-1} \right) ](img/bf794237745a9b7c6cb6e4611a5653d6.png)'
 - en: '![\text{E} \left[D_t(c) | I_{t-1} \right] = F_{\epsilon} \left( \frac{- \mu_t}{\sigma_t}
     | I_{t-1} \right) ](img/c1d46838dcfedbe72144d2f383e48788.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_IMG
+  zh: '![E \left[D_t(c) | I_{t-1} \right] = F_{\epsilon} \left( \frac{- \mu_t}{\sigma_t}
+    | I_{t-1} \right) ](img/c1d46838dcfedbe72144d2f383e48788.png)'
 - en: 'These expectations can be evaluated explicitly via calculating the empirical
     distribution function ![\hat{F}_{\epsilon}](img/5585e2620c4edfe3665bf1ad478a3a27.png)
     (requiring assumption of a parametric distribution), where ![\mathbb{I}](img/dc6b45e1a0f916c7e48446f6ad8fa9bd.png)
     is the indicator function:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 可通过计算经验分布函数![\hat{F}_{\epsilon}](img/5585e2620c4edfe3665bf1ad478a3a27.png)（需要对参数分布假设）来明确评估这些期望值，其中![\mathbb{I}](img/dc6b45e1a0f916c7e48446f6ad8fa9bd.png)是指示函数：
 - en: '![\hat{F}_{\epsilon} \left( \frac{- \mu_t}{\sigma_t} | I_{t-1} \right) = \frac{1}{k}
     \sum\limits_{t=1}^k \mathbb{I} \left( \frac{r_t - \mu_t}{\sigma_t} \le \frac{-\mu_k}{\sigma_k}
     \right) ](img/bfeacbd76a4713aadd44d96ba89ef3e7.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_IMG
+  zh: '![F_{\epsilon} \left( \frac{- \mu_t}{\sigma_t} | I_{t-1} \right) = \frac{1}{k}
+    \sum\limits_{t=1}^k \mathbb{I} \left( \frac{r_t - \mu_t}{\sigma_t} \le \frac{-\mu_k}{\sigma_k}
+    \right) ](img/bfeacbd76a4713aadd44d96ba89ef3e7.png)'
 - en: 'Alternatively, this decomposition suggests one potential formulation for the
     logit parameters ![\boldsymbol{\theta}_tt](img/ed415a25989679578e66f8b5e674a2b8.png)
     from the above model, where ![\hat{\mu_t}](img/f00d284d1aff652e11a2bd1135806558.png)
     is estimated by the logit and ![\sigma_t](img/cc631f912dd238054291cc0fff98a1bf.png)
     are historical observations:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者，此分解提出了上述模型中的Logit参数![\boldsymbol{\theta}_tt](img/ed415a25989679578e66f8b5e674a2b8.png)的一个潜在表述，其中![\hat{\mu_t}](img/f00d284d1aff652e11a2bd1135806558.png)由Logit估计，而![\sigma_t](img/cc631f912dd238054291cc0fff98a1bf.png)是历史观察值：
 - en: '![\boldsymbol{\theta}_t = \frac{\hat{\mu_t}}{\hat{\sigma_t}} ](img/c9f84243cecf42f6010e08ead2af7c6e.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_IMG
+  zh: '![ \boldsymbol{\theta}_t = \frac{\hat{\mu_t}}{\hat{\sigma_t}} ](img/c9f84243cecf42f6010e08ead2af7c6e.png)'
 - en: Of course, the non-trivial work is generating forecast estimates for next-step
     average conditional return ![\hat{\mu_t}](img/f00d284d1aff652e11a2bd1135806558.png)
     and conditional variance ![\hat{\sigma_t}](img/5218084578e81b7aa619a53289d96e3d.png).
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，非平凡的工作是生成下一步平均条件收益 ![\hat{\mu_t}](img/f00d284d1aff652e11a2bd1135806558.png)
+    和条件方差 ![\hat{\sigma_t}](img/5218084578e81b7aa619a53289d96e3d.png) 的预测估计。
 - en: 'An alternative way to model the logit parameters ![\boldsymbol{\theta}_t](img/e776668afd553ffe025e902680e39806.png)
     is to apply ARMA intuition with a binary autoregression (BARMA) due to [Startz
     (2006)](papers.ssrn.com/sol3/papers.cfm?abstract_id=886092), including lags for
     both autoregressive parameters and past indicator values, due to [Anatolyev (2008)](http://www.nes.ru/~sanatoly/Papers/DepRatio.pdf):'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于模型化逻辑参数 ![\boldsymbol{\theta}_t](img/e776668afd553ffe025e902680e39806.png)
+    的另一种方法是应用二元自回归（BARMA），其 ARMA 直觉归因于 [Startz (2006)](papers.ssrn.com/sol3/papers.cfm?abstract_id=886092)，包括自回归参数和过去指示器值的滞后，由
+    [Anatolyev (2008)](http://www.nes.ru/~sanatoly/Papers/DepRatio.pdf) 提出：
 - en: '![\boldsymbol{\theta}_t = w + \sum\limits_{j=1}^p \alpha_j \theta_{t-j} + \sum\limits_{j=1}^p
     \beta_j I_{t-j} ](img/04e6855ddc9f79e5bd8593ac21f3ba32.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_IMG
+  zh: '![\\(\boldsymbol{\theta}_t = w + \sum\limits_{j=1}^p \alpha_j \theta_{t-j}
+    + \sum\limits_{j=1}^p \beta_j I_{t-j}\\)](img/04e6855ddc9f79e5bd8593ac21f3ba32.png)'
 - en: A survey of estimation techniques may be considered in a subsequent post, depending
     on reader interest.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 对估计技术的调查可能会在后续的帖子中考虑，具体取决于读者的兴趣。
 - en: '* * *'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: One exploratory analysis technique relevant to sign forecasting is visualizing
     up/down runs, signed difference (*i.e.* up-down), and corresponding averages for
     a return series.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 与符号预测相关的一种探索性分析技术是可视化上涨/下跌运行、符号差异（*即* 上升-下降）以及收益系列对应的平均值。
 - en: '[PRE0]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'For example, the following plots illustrate CRM run dynamics from 2005 to present.
     First plot illustrates the running sums for both up and down returns, indicating
     negative returns are more prevalent:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，以下图表展示了从 2005 年到现在的 CRM 运行动态。第一个图表展示了上涨和下跌收益的累计和，表明负收益更为普遍：
 - en: '[![](img/e071d4cb4068b89e9ccee292fd3f4751.png "runs-signed")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-signed.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e071d4cb4068b89e9ccee292fd3f4751.png "runs-signed")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-signed.png)'
 - en: 'Second plot illustrates the difference in signed sums, showing time-dynamics
     for the difference in up and down returns. Not surprising, this difference mirrors
     the CRM price curve closely:'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个图表展示了符号累加和的差异，显示了上涨和下跌收益之间的时间动态。毫不奇怪，这种差异与 CRM 价格曲线密切相关：
 - en: '[![](img/23c3e6873804c0e541ad47068252397c.png "runs-diff")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-diff.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/23c3e6873804c0e541ad47068252397c.png "runs-diff")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-diff.png)'
 - en: 'Third plot illustrates the average probabilities for both up and down, running
     incrementally over the entire timeframe:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 第三个图表展示了整个时间范围内逐渐累积的上涨和下跌的平均概率：
 - en: '[![](img/800c7b18fc9304617a836156ea5afb3d.png "runs-avg")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-avg.png)'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/800c7b18fc9304617a836156ea5afb3d.png "runs-avg")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/runs-avg.png)'
 - en: '* * *'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'The following are representative papers from the direction-of-change literature,
     ignoring the early papers focused on evaluating market efficiency (*e.g.* run
     tests):'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是代表性的关于价格变动方向文献，忽略了早期关注评估市场效率的论文（*例如* 运行检验）：
 - en: '[Forecasting Stock Indices: A Comparison of Classification and Level Estimation
     Models](http://www.neurogest.com/papers/forecasting_stock_indices.pdf), by Leunga,
     Daoukb, and Chenc (2000)'
+  id: totrans-47
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[股票指数预测：分类与水平估计模型的比较](http://www.neurogest.com/papers/forecasting_stock_indices.pdf)，由
+    Leunga、Daoukb 和 Chenc (2000) 撰写'
 - en: '[Financial, Asset Returns, Market Timing, and Volatility Dynamics](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=306127),
     by Christoffersen and Diebold (2002)'
+  id: totrans-48
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[金融、资产回报、市场定时和波动性动态](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=306127)，由
+    Christoffersen 和 Diebold (2002) 撰写'
 - en: '[Direction-of-Change Forecasts Based on Conditional Variance, Skewness and
     Kurtosis Dynamics: International Evidence](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=908317),
     by Christoffersen *et al* (2004)'
+  id: totrans-49
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[基于条件方差、偏度和峰度动态的变动方向预测：国际证据](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=908317)，由
+    Christoffersen *等* (2004) 撰写'
 - en: '[Are the Directions of Stock Price Changes Predictable? Statistical Theory
     and Evidence](http://www.ims.nus.edu.sg/Programs/econometrics/files/ymh_paper.pdf),
     by Hong and Chung (2003)'
+  id: totrans-50
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[股票价格变动方向可预测吗？统计理论与证据](http://www.ims.nus.edu.sg/Programs/econometrics/files/ymh_paper.pdf)，由
+    Hong 和 Chung (2003) 撰写'
 - en: '[Evaluating Direction-of-change Forecasting: Neurofuzzy Models vs. Neural Networks](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=675623),
     by Bekiros and Georgoutsos (2005)'
+  id: totrans-51
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[评估变化方向预测：神经模糊模型 vs. 神经网络](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=675623)，作者：Bekiros
+    和 Georgoutsos（2005年）'
 - en: '[Modeling Financial Return Dynamics via Decomposition](http://www.cefir.ru/papers/WP95Anatolyev.pdf),
     by Anatolyev and Gospodinov (2007)'
+  id: totrans-52
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[通过分解建模金融回报动态](http://www.cefir.ru/papers/WP95Anatolyev.pdf)，作者：Anatolyev 和
+    Gospodinov（2007年）'
 - en: '[Direction-of-change Forecasts and Trading Strategy Profitability at Intra-Day
     Horizons](http://www.nes.ru/dataupload/files/programs/econ/preprints/2007/Deliya.pdf),
     by Deliya (2007)'
+  id: totrans-53
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[变化方向的日内预测与交易策略盈利能力](http://www.nes.ru/dataupload/files/programs/econ/preprints/2007/Deliya.pdf)，作者：Deliya（2007年）'
 - en: '[Multi-Market Direction-of-Change Modeling Using Dependence Ratios](http://www.nes.ru/~sanatoly/Papers/DepRatio.pdf),
     by Anatolyev (2008)'
+  id: totrans-54
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[使用依赖比例进行多市场变化方向建模](http://www.nes.ru/~sanatoly/Papers/DepRatio.pdf)，作者：Anatolyev（2008年）'
 - en: '[Forecasting the Direction of the U.S. Stock Market with Dynamic Binary Probit
     Models](http://ethesis.helsinki.fi/julkaisut/eri/hecer/disc/227/forecast.pdf),
     by Nyberg (2008)'
+  id: totrans-55
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[用动态二元概率模型预测美国股市方向](http://ethesis.helsinki.fi/julkaisut/eri/hecer/disc/227/forecast.pdf)，作者：Nyberg（2008年）'
 - en: '[Direction-of-Change Financial Time Series Forecasting using Bayesian Learning
     for MLPs](http://www.iaeng.org/publication/WCE2008/WCE2008_pp1160-1165.pdf), by
     Skabar (2008)'
+  id: totrans-56
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[贝叶斯学习用于MLP的变化方向金融时间序列预测](http://www.iaeng.org/publication/WCE2008/WCE2008_pp1160-1165.pdf)，作者：Skabar（2008年）'
 - en: '[A Kernel-Based Technique for Direction-of-Change Financial Time Series Forecasting](http://www.springerlink.com/content/f53731054u1761w7/),
     by Skabar (2008)'
+  id: totrans-57
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[基于核的技术用于变化方向金融时间序列预测](http://www.springerlink.com/content/f53731054u1761w7/)，作者：Skabar（2008年）'
 - en: '[Optimal Probabilistic and Directional Predictions of Financial Returns](http://econlab.uom.gr/econdep/images/stories/tpanag/Thomacos_seminar.pdf),
     by Thomakos and Wang (2009)'
+  id: totrans-58
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[金融回报的最优概率和方向预测](http://econlab.uom.gr/econdep/images/stories/tpanag/Thomacos_seminar.pdf)，作者：Thomakos
+    和 Wang（2009年）'
 - en: '[Directional Prediction of Returns under Asymmetric Loss: Direct and Indirect
     Approaches](http://www.cefir.ru/papers/WP136.pdf), by Anatolyev and Kryzhanovskaya
     (2009)'
+  id: totrans-59
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[非对称损失条件下收益方向的预测：直接和间接方法](http://www.cefir.ru/papers/WP136.pdf)，作者：Anatolyev
+    和 Kryzhanovskaya（2009年）'
 - en: '[Markets Change Every Day: Evidence from the Memory of Trade Direction](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1735352),
     Skouras and Axioglou (2011)'
+  id: totrans-60
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[市场每天都在变化：来自交易方向记忆的证据](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1735352)，作者：Skouras
+    和 Axioglou（2011年）'
 - en: Finally, Kinlay briefly surveyed this topic in two posts on [volatility sign
     prediction](http://jonathankinlay.com/index.php/category/volatility-sign-prediction-forecasting-engle/).
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，Kinlay在两篇关于[波动率符号预测](http://jonathankinlay.com/index.php/category/volatility-sign-prediction-forecasting-engle/)的文章中简要概述了这个主题。
