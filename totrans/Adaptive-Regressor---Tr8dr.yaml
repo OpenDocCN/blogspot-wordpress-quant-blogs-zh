@@ -1,180 +1,269 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:34:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:34:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Regressor | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应回归器 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01](https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01](https://tr8dr.wordpress.com/2010/02/07/adaptive-regressor/#0001-01-01)
 - en: Regression is an important tool in trading (witness the number of traders that
     rely on moving averages of various sorts).    I don’t directly use regressors
     to generate trading signals, but I do find them useful in denoising signal output.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 回归在交易中是一个重要的工具（见证依赖各种移动平均线的交易者数量）。我并不直接使用回归器来生成交易信号，但我发现它们在去噪信号输出方面很有用。
 - en: 'Aside from the obvious about past predicting the future, there are other issues
     with regressors:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了明显的过去预测未来之外，回归器还存在其他问题：
 - en: 'lag: denoising necessarily involves averaging of some sort, resulting in lag
     relative to the underlier'
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 滞后：去噪必然涉及某种平均化，导致相对于底层的滞后
 - en: 'parameterization:  what parameter settings bring out the features of interest'
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 参数化：什么参数设置能够突出显示感兴趣的特征
 - en: The simplest regressors are ARMA based FIR or IIR filters.   Lag is easy to
     quantify as phase delay in those systems and harder in others.   Rather than focusing
     on lag, I want to consider the parameterization.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最简单的回归器是基于ARMA的FIR或IIR滤波器。在这些系统中，滞后很容易量化为相位延迟，在其他系统中则较难。与其关注滞后，我更想考虑参数化。
 - en: '**Parameterization**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**参数化**'
 - en: 'To illustrate the problem of parameterization, consider a simple exponential
     MA in two market scenarios:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了说明参数化的问题，考虑两种市场情景中的简单指数移动平均线：
 - en: '**market with strong trends**'
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**市场趋势强劲**'
 - en: Long windows mask tradeable market movements.   A shorter window (or “tau”)
     is needed to capture market movements of interest.
+  id: totrans-14
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 长窗口掩盖了可交易的市场波动。需要较短的窗口（或“tau”）来捕捉感兴趣的市场波动。
 - en: '**market trading sideways**'
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**市场交易横向**'
 - en: Short windowed MA oscillates on small movements.   Long window needed to reduce
     or eliminate noise that is not tradeable.
+  id: totrans-16
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 短窗口移动平均线在小波动上振荡。需要长窗口来减少或消除不可交易的噪音。
 - en: While I don’t use MAs for trade entry, the general problem of adapting a regressor
     to features of interest is important.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管我不使用移动平均线进行交易入场，但调整回归器以适应感兴趣的特征的一般问题很重要。
 - en: '**Penalized Least Squares**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**惩罚最小二乘**'
 - en: 'The penalized least-squares spline is known to be  the “best linear unbiased
     predictor”  for series that can be modeled by:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 处罚最小二乘样条被认为是适用于可以通过以下模型化的系列的“最佳线性无偏预测器”：
 - en: '[![](img/35b192c68029058b703e46976f7106af.png "Fa")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fa.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/35b192c68029058b703e46976f7106af.png "Fa")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fa.png)'
 - en: 'Where, f(x) is typically a polynomial based function (typically a high dimensional
     basis function).   Characteristic of the penalized family of splines is the balance
     between least-squares fit and curvature penalty:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中，f(x) 通常是一个基于多项式的函数（通常是高维基函数）。惩罚系列样条的特点是最小二乘拟合和曲率惩罚之间的平衡：
 - en: '[![](img/0e0cfd18c501c952cb1e3f158d9e42c1.png "Fb")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fb.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0e0cfd18c501c952cb1e3f158d9e42c1.png "Fb")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/fb.png)'
 - en: This minimization can be constructed into a matrix based system using the basis
     design matrix.  I’m not going to go into this here, but you can find many papers
     on this.  The formulation is straightforward, but it is very easy to run into
     numerical instabilities with straightforward solutions (trust me I’ve tried),
     so best bet is to use one of the tried and tested implementations (such as DeBoor’s).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种最小化可以构造成一个基于基础设计矩阵的矩阵系统。我不打算在这里详细讨论，但你可以在很多论文中找到这方面的内容。该公式很简单，但很容易遇到数值不稳定性的问题（相信我，我已经尝试过了），因此最好使用经过验证的实现之一（比如DeBoor的实现）。
 - en: 'Ok, the problem with the above is that the parameter λ is a free variable (i.e.
     an input into the minimization).   λ allows us to control the degree of curvature
     or oscillating behavior.   Here is the same series with 4 different levels of
     λ (underlier in black):'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，上述问题的问题在于参数 λ 是一个自由变量（即最小化的输入）。λ 允许我们控制曲率或振荡行为的程度。这里是相同的系列，具有 4 种不同水平的 λ（黑色为底层）：
 - en: '[![](img/68d79aa7a430a4f704923962a5b6dabc.png "demo")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/demo.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/68d79aa7a430a4f704923962a5b6dabc.png "demo")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/demo.png)'
 - en: Flexibility is great.  Now how do I choose λ appropriately?   And how do I define
     appropriate?
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 灵活性很大。现在我该如何适当地选择 λ？而且我如何定义适当？
 - en: '**Criteria**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**标准**'
 - en: As mentioned above, with the incorrect choice of regression parameters result
     in  regressor that is either too noisy or misses features.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 如上所述，使用不正确的回归参数会导致回归器要么太嘈杂，要么错过了特征。
 - en: Now before I explain the criteria (heuristics really) that I came up with, let
     me point to some literature tackling the general concept.   Tatyana Krivobokova,
     Ciprian M. Crainiceanu, and Goran Kauermann, “[Fast Adaptive Penalized Splines](http://www.bepress.com/jhubiostat/paper100/)”
     (2007).   Their approach produces an evolving λ, one for each of the truncated
     basis functions through time, chosen such as to reduce the local error, but keeping
     enough error to be optimally cross-validated.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我解释我提出的标准（实际上是启发式）之前，请让我指出一些处理一般概念的文献。Tatyana Krivobokova，Ciprian M. Crainiceanu
+    和 Goran Kauermann，《快速自适应惩罚样条》（2007）。他们的方法产生了一个不断演化的 λ，针对每个截断基函数通过时间选择，以减少局部误差，但保留足够的误差以进行最佳交叉验证。
 - en: Though the above is interesting, and indeed produces some amazing results for
     certain data sets, the “smoothness criteria” are fundamentally different from
     what I am looking for.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管上述内容很有意思，确实为某些数据集产生了一些惊人的结果，但“平滑度准则”与我所寻求的基本上不同。
 - en: 'I decided that my criteria is as follows:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定我的标准如下：
 - en: the amplitudes between min/maxima in the spline must meet some minimum amplitude-time
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 样条中最小/最大值之间的振幅必须满足一定的最小振幅时间
 - en: the energy of the spline must be “close” to the energy of the original series
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 样条的能量必须“接近”原始序列的能量
 - en: The rationale for the 1st point is that we do not want small oscillations in
     the spline (signifying that we need to tune for less noise).   The second point
     tunes in the other direction, that is, if the spline is too stiff, missing many
     features, the energy of the spline will be too low relative to the original series.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个要点的理由是，我们不希望样条中出现小的振荡（表示我们需要调整以减少噪音）。第二个要点则是朝着另一个方向调整，即如果样条过于僵硬，错过了许多特征，那么样条的能量相对于原始序列将会过低。
 - en: '**Algorithm**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**算法**'
 - en: 'The two above criteria break down into:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述两个标准可以细分为：
 - en: the integral between a maximum and minimum ≥ threshold
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 最大值和最小值之间的积分 ≥ 阈值
 - en: the integral of f(x)^2, where f(x) is the spline
+  id: totrans-38
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: f(x) 是样条时，f(x)^2 的积分
 - en: 'As I did not see an easy way of building into a system of equations took the
     “poor mans algorithm” approach, namely:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我没有看到将其建立成方程系统的简单方法，所以采取了“穷人算法”的方法，即：
 - en: binary-style search between low and high values for λ
+  id: totrans-40
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在低值和高值之间进行二元式搜索以获得 λ
 - en: if amplitude/area < threshold choose higher lambda else lower
+  id: totrans-41
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 如果振幅/面积 < 阈值，则选择较高的 λ，否则选择较低的 λ
 - en: repeat until some granularity
+  id: totrans-42
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 直到某个粒度重复
 - en: Works well!
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 运行良好！
