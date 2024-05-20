@@ -1,77 +1,122 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:35:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日14:35:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Extending Commodity time series | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 延伸大宗商品时间序列 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/11/22/extending-commodity-time-series/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/22/extending-commodity-time-series/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/11/22/extending-commodity-time-series/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/22/extending-commodity-time-series/#0001-01-01)
 - en: I want to follow up with [Extending Gold time series](https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/)
     post by showing how we can extend Commodity time series. Most Commodity ETFs began
     trading in 2006, please see the [List of Commodity ETFs](http://etf.about.com/od/commodityetfs/a/List-Of-Commodity-Etfs.htm)
     page. I will use [DBC – PowerShares DB Commodity Fund](http://finance.yahoo.com/q?s=DBC),
     one on the most liquid Commodity ETFs as my proxy for Commodity time series.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想跟进 [延伸黄金时间序列](https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/)
+    帖子，展示我们如何延伸大宗商品时间序列。大多数大宗商品 ETF 于 2006 年开始交易，请参阅 [大宗商品 ETF 列表](http://etf.about.com/od/commodityetfs/a/List-Of-Commodity-Etfs.htm)
+    页面。我将使用 [DBC – PowerShares DB Commodity Fund](http://finance.yahoo.com/q?s=DBC)，作为大宗商品时间序列的代理。
 - en: Unfortunately the historical data for the underlying index for the [DBC – PowerShares
     DB Commodity Fund](http://finance.yahoo.com/q?s=DBC) is not publicly available.
     Instead I will use [Thomson Reuters/Jefferies CRB Index](http://www.jefferies.com/cositemgr.pl/html/ProductsServices/SalesTrading/Commodities/ReutersJefferiesCRB/IndexData/index.shtml)
     to extend [DBC – PowerShares DB Commodity Fund](http://finance.yahoo.com/q?s=DBC)
     time series.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，[DBC – PowerShares DB Commodity Fund](http://finance.yahoo.com/q?s=DBC)
+    的基础指数的历史数据并不公开。因此，我将使用 [汤姆森路透/杰富瑞 CRB 指数](http://www.jefferies.com/cositemgr.pl/html/ProductsServices/SalesTrading/Commodities/ReutersJefferiesCRB/IndexData/index.shtml)
+    来延伸 [DBC – PowerShares DB Commodity Fund](http://finance.yahoo.com/q?s=DBC) 的时间序列。
 - en: 'I created a helper function [get.CRB() function in data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)
     to download and extract index information. Please note that I used gdata package
     to read index data and you might need local Perl available to make it work. There
     is a great tutorial on setting everything up at [How to read an excel file (dot
     xls and dot xlsx) into a data frame with r: gdata and perl](http://www.r-bloggers.com/how-to-read-an-excel-file-dot-xls-and-dot-xlsx-into-a-data-frame-with-r/)
     post.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了一个辅助函数 [在 github 上的 data.r 中的 get.CRB() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)，用于下载和提取指数信息。请注意，我使用
+    gdata 包来读取指数数据，你可能需要本地 Perl 来使其正常工作。关于如何设置所有内容的很好的教程，请参阅 [如何使用 r 读取 excel 文件（dot
+    xls 和 dot xlsx）到数据框中：gdata 和 perl](http://www.r-bloggers.com/how-to-read-an-excel-file-dot-xls-and-dot-xlsx-into-a-data-frame-with-r/)
+    帖子。
 - en: 'Now let’s plot the CRB index and a few Commodity ETFs side by side to visual
     check the similarity:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们将 CRB 指数和几个大宗商品 ETF 并排绘制，以直观检查它们的相似性：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/1cead7f94da5951b24f1e8b62a78aada.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small2.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1cead7f94da5951b24f1e8b62a78aada.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small2.png)'
 - en: The CRB index performed similar to Commodity ETFs; its not the exact replica,
     but will do given the lack of public historical data for Commodity index.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB 指数的表现与大宗商品 ETF 相似；虽然不是完全复制，但鉴于缺乏公开的大宗商品指数历史数据，这已经足够。
 - en: 'Next let’s extend the DBC’s time series with CRB index and use it for a simple
     equal weight strategy:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们将 DBC 的时间序列与 CRB 指数延伸，并将其用于一个简单的等权策略：
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/636763494bb063aa84f1bf0b40a0d3f3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small2.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/636763494bb063aa84f1bf0b40a0d3f3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small2.png)'
 - en: '[![](img/adf34d680e3cea1b5b774b734e2cd5fa.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot3-small1.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/adf34d680e3cea1b5b774b734e2cd5fa.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot3-small1.png)'
 - en: By extending DBC’s and GLD’s time series, the back-test now goes back to the
     July 2002, the TLT’s first trading date.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过延伸 DBC 和 GLD 的时间序列，回测现在可以追溯到 2002 年 7 月，TLT 的首个交易日期。
 - en: To view the complete source code for this example, please have a look at the
     [bt.extend.DBC.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 [github 上的 bt.test.r 中的 bt.extend.DBC.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

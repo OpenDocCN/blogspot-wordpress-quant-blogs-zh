@@ -1,66 +1,105 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:38:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:38:00
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Extending Gold time series | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 扩展黄金时间序列 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/11/extending-gold-time-series/#0001-01-01)
 - en: While back-testing trading strategies I want all assets to have long history.
     Unfortunately, sometimes there is no tradeable stock or ETF with sufficient history.
     For example, I might use [GLD](http://finance.yahoo.com/q?s=GLD) as a proxy for
     Gold allocation, but [GLD](http://finance.yahoo.com/q?s=GLD) is only began trading
     in November of 2004.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在回测交易策略时，我希望所有资产都有很长的历史记录。不幸的是，有时没有具有足够历史记录的可交易股票或 ETF。例如，我可能将 [GLD](http://finance.yahoo.com/q?s=GLD)
+    用作黄金配置的代理，但是 [GLD](http://finance.yahoo.com/q?s=GLD) 只在 2004 年 11 月开始交易。
 - en: We can extend the GLD’s historical returns with its benchmark index – London
     Gold afternoon fixing prices. Let’s first download and plot side by side the GLD
     and London Gold afternoon fixing prices from [http://www.kitco.com/gold.londonfix.html](http://www.kitco.com/gold.londonfix.html)
     the convenient CSV download is provided by [Wikiposit](http://wikiposit.org/w?filter=Finance/Commodities/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以通过其基准指数 – 伦敦黄金午后定价 – 扩展 GLD 的历史收益。让我们首先从 [http://www.kitco.com/gold.londonfix.html](http://www.kitco.com/gold.londonfix.html)
+    下载并并排绘制 GLD 和伦敦黄金午后定价，方便的 CSV 下载由 [Wikiposit](http://wikiposit.org/w?filter=Finance/Commodities/)
+    提供。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/9d13faa9cda0d027b453efebc1b104f0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9d13faa9cda0d027b453efebc1b104f0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small.png)'
 - en: There is a divergence between GLD and its benchmark index. Please read [“Gold’s
     ‘Paper’ Price” article by B. Zigler](http://www.hardassetsinvestor.com/interviews/2091-golds-paper-price.html)
     for a detailed discussion and explanation for this divergence.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: GLD 与其基准指数存在差异。请阅读 B. Zigler 的 [“黄金的‘纸质’价格”](http://www.hardassetsinvestor.com/interviews/2091-golds-paper-price.html)
+    文章，详细讨论和解释这种差异。
 - en: Next let’s extend the GLD’s time series with its benchmark ( I created a helper
     function [extend.GLD() function in data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)
     to simplify the process ) and use it for a simple equal weight strategy
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们使用其基准指数扩展 GLD 的时间序列（我创建了一个辅助函数 [github 上的 extend.GLD() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)
+    来简化该过程），并将其用于简单的等权重策略。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/a31952a3b393e311c6cd6bab50fe209f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a31952a3b393e311c6cd6bab50fe209f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small.png)'
 - en: '[![](img/685ec05ed409ea2f0ec67f3f26f00287.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot4-small.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/685ec05ed409ea2f0ec67f3f26f00287.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot4-small.png)'
 - en: By extending GLD’s time series, the back-test now goes back to the June 2002,
     the TLT’s first trading date.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过扩展 GLD 的时间序列，回测现在可以追溯到 2002 年 6 月，TLT 的首个交易日期。
 - en: To view the complete source code for this example, please have a look at the
     [bt.extend.GLD.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 [github 上的 bt.extend.GLD.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
