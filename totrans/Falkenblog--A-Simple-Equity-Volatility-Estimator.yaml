@@ -1,30 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:58:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:58:41'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: A Simple Equity Volatility Estimator'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Falkenblog: A Simple Equity Volatility Estimator'
 - en: 来源：[http://falkenblog.blogspot.com/2020/02/simple-vol-estimators.html#0001-01-01](http://falkenblog.blogspot.com/2020/02/simple-vol-estimators.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2020/02/simple-vol-estimators.html#0001-01-01](http://falkenblog.blogspot.com/2020/02/simple-vol-estimators.html#0001-01-01)
 - en: While short-term asset returns are unpredictable, volatility is highly predictable
     theoretically and practically. The VIX index is a forward-looking estimate of
     volatility based on index option prices. Though introduced in 1992 it has been
     calculated back to 1986, because when released they wanted people to understand
     how it behaved.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然短期资产回报是不可预测的，但从理论上和实际上来说，波动率是非常可预测的。VIX指数是基于指数期权价格的波动率的前瞻性估计。尽管于1992年推出，但是由于当时发布时他们希望人们了解它的行为，已经计算到1986年。
 - en: Given the conditional volatility varies significantly over time it is very useful
     to generate a VIX proxy for cases where one does not have VIX prices. This includes
     pre-1986 US, countries that do not have VIX indices, and when trying to estimate
@@ -32,15 +46,19 @@
     closing VIX prices are taken from the 4:15 ET in the US while the market closes
     at 4:00, and so using VIX prices for daily strategies can generate a subtle bias
     when used in daily trading strategies.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于条件波动率随时间变化显著，为了那些没有VIX价格的情况下产生VIX代理是非常有用的。这包括美国1986年前、没有VIX指数的国家以及尝试估计收盘后的VIX。后者问题微妙但重要，因为历史收盘VIX价格是从美国东部时间下午4:15采取，而市场在下午4:00关盘，所以在日常交易策略中使用VIX价格会产生微妙的偏差。
 - en: 'First, we must understand the VIX because there''s some subtlety here. It is
     really not a volatility estimate, but a variance estimate presented as volatility.
     VIX is calculated as the square root of the par SP500 variance swap with a 30-day
     term, multiplied by 100 and annualized (ie, 19.34 means 19.34% annualized). That
     is, it would be the strike volatility in a 30-day variance swap at inception:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们必须了解VIX，因为这里有一些微妙之处。它实际上并不是波动率估计，而是以波动率呈现的方差估计。VIX是作为标准SP500方差掉期的平方根乘以100和年化（即，19.34表示年化的19.34%）计算的。也就是说，它是期权的波动率在30天的方差掉期开始时的价格：
 - en: On September 22, 2003, the CBOE changed the VIX calculation in two ways. First,
     they began to use SP500 rather than SP100 option prices. This lowered the volatility
     to about 97% of its old vol level because the SP500 is more diversified and less
@@ -48,19 +66,25 @@
     and calls, they used explicit call and put prices in a more rigorous way. This
     is because a variance swap's replicating portfolio consists of the following weights
     for out-of-the-money puts and calls.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2003年9月22日，芝加哥期权交易所以两种方式改变了VIX的计算。首先，他们开始使用SP500而非SP100的期权价格。这降低了波动率到大约其旧的波动率水平的97%，因为SP500更多样化且不太波动。其次，他们不再只取附近认购和认沽期权的平均波动率，而是更严谨地使用显式认购和认沽价格。这是因为方差掉期的复制组合包括以下关于虚值认购和认沽的权重。
 - en: '[![](img/72aecccfe4ab903a0d91fe6b7d29a0fd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix-5fnrNo1st_aYu1QP1IZKY08aIcjxviJRGFcMBjM9cUWWpnOLr-hc7GSzKhN-_tqBJm9CbRTC1Es1e0NRGJutSgbD51Q6KyD-_WMdHEICFj1zFWry1QLnBS0kcm1dvncxq6xDw/s1600/sigswap.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/72aecccfe4ab903a0d91fe6b7d29a0fd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix-5fnrNo1st_aYu1QP1IZKY08aIcjxviJRGFcMBjM9cUWWpnOLr-hc7GSzKhN-_tqBJm9CbRTC1Es1e0NRGJutSgbD51Q6KyD-_WMdHEICFj1zFWry1QLnBS0kcm1dvncxq6xDw/s1600/sigswap.png)'
 - en: The VIX futures started trading in 2004, and options on these futures started
     in 2008\. Liquid markets make index prices more efficient because nothing motivates
     like the profit motive (eg, regardless of your preferences, more money will help
     you achieve them). The net result is that one should use data since 2004 when
     analyzing the VIX even though there is data back to 1986 (which, is still useful
     for some applications).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: VIX期货从2004年开始交易，期货期权从2008年开始交易。流动的市场会使指数价格更有效，因为没有什么能像利润动机一样激励（例如，不论你的喜好如何，更多的钱都会帮助你实现它们）。总的结果是，当分析VIX时应该使用2004年以来的数据，尽管数据追溯到1986年（这对某些应用仍然有用）。
 - en: One can see that the old VIX index was significantly more biased upwards than
     after these changes. This implies abnormal volatility trading strategies prior
     to 2004 if you assumed the VIX was a true par variance swap price.  Now, there
@@ -70,66 +94,102 @@
     variance strategies have very strong correlations with being long the market.
     That is, the variance premium is not an independent priced risk factor, just a
     consequence of the equity premium given its high beta.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以看出，旧的VIX指数的偏向上显著高于这些变化之后。这意味着如果你假设VIX是一个真正的波动率对冲价格，在2004年之前存在异常的波动率交易策略。现在，由于方差溢价，VIX应该有轻微的正偏差，其中做空方差随着时间的推移会获得正收益。我个人认为这个方差溢价实际上是股权溢价的结果，因为做空方差策略与做多市场有非常强的相关性。也就是说，方差溢价不是一个独立的定价风险因子，只是股权溢价的结果，考虑到它的高贝塔。
 - en: '|  |  |  |  |  |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: 'As a liquid market price, the VIX is a good benchmark for any equity volatility
     model. The most common academic way to estimate volatility is some variant of
     a Garch(1,1) model, which is like an ARMA model of variance:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为流动市场价格，VIX是任何股票波动率模型的良好基准。估算波动性最常见的学术方法是某种形式的Garch(1,1)模型的变体，它类似于方差的ARMA模型：
 - en: The problem is that you need to estimate the parameters {
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题在于你需要估计参数{
 - en: '*w*'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '*w*'
 - en: ', α, β} using a maximum likelihood function, which is non-trivial in spreadsheets.
     Further, there is little intuition as to what these parameters should be. We know
     that α plus β should be less than 1, and that the unconditional variance is w/(1-α-β).
     That still leaves the model highly sensitive to slight deviations, in that if
     you misestimate them you often get absurd extrapolations.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ，α，β}使用最大似然函数，这在电子表格中并不容易。此外，对这些参数应该是什么没有太多直觉。我们知道α加β应该小于1，并且无条件方差是w/(1-α-β)。这仍然使模型对轻微偏差非常敏感，如果你误估它们，你经常会得到荒谬的外推。
 - en: For daily data, a simple exponentially weighted moving average (EWMA) version
     of Garch(1,1) works pretty well, with
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于每日数据，一个简单的指数加权移动平均（EWMA）版本的Garch(1,1)效果相当不错，其中
 - en: '*w*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '*w*'
 - en: =0, α=0.05, and  β=0.95\. This generates a decent R
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: =0，α=0.05，和  β=0.95。这会产生一个相当不错的R
 - en: ²
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ²
 - en: with the day and month-ahead variance.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '随着一天和一个月后的方差。  '
 - en: '**EWMA Vol Estimator on Daily Data**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**EWMA每日数据波动率估算器**'
 - en: Alas, this has two problems. First, there is a predictable bias in the EWMA
     because it ignores mean reversion in volatility. Garch models address this via
     the intercept term, but as mentioned it is tricky to estimate and creates non-intuitive
@@ -137,47 +197,75 @@
     into deciles, and take the average EWMA, where the relative difference in the
     VIX and the EWMA increases the lower the EWMA. As this bias is fairly linear,
     we can correct for this via the function
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，这有两个问题。首先，EWMA中存在可预测的偏差，因为它忽略了波动率的均值回归。Garch模型通过截距项来解决这个问题，但是如前所述，估算它是棘手的，并且会产生非直觉和高度敏感的参数。我们可以通过将数据按VIX排序成十分位，并取平均EWMA来看到这种偏差，其中VIX和EWMA的相对差异随着EWMA降低而增加。由于这种偏差相当线性，我们可以通过以下函数来纠正这一点
 - en: '**US data sorted into VIX deciles**'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**美国数据按VIX十分位排序**'
 - en: '**2004-2019**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2004-2019**'
 - en: '|  | VIX | EWMA | EWMA* |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
+  zh: '|  | VIX | EWMA | EWMA* |'
 - en: '| Low | 11.1 | 8.1 | 10.6 |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
+  zh: '| 低 | 11.1 | 8.1 | 10.6 |'
 - en: '| 2 | 12.7 | 10.2 | 13.2 |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: '| 2 | 12.7 | 10.2 | 13.2 |'
 - en: '| 3 | 14.0 | 11.4 | 14.7 |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: '| 3 | 14.0 | 11.4 | 14.7 |'
 - en: '| 4 | 15.6 | 12.4 | 15.8 |'
+  id: totrans-37
   prefs: []
   type: TYPE_TB
+  zh: '| 4 | 15.6 | 12.4 | 15.8 |'
 - en: '| 5 | 17.1 | 13.4 | 16.9 |'
+  id: totrans-38
   prefs: []
   type: TYPE_TB
+  zh: '| 5 | 17.1 | 13.4 | 16.9 |'
 - en: '| 6 | 18.7 | 15.0 | 18.7 |'
+  id: totrans-39
   prefs: []
   type: TYPE_TB
+  zh: '| 6 | 18.7 | 15.0 | 18.7 |'
 - en: '| 7 | 20.7 | 17.3 | 21.2 |'
+  id: totrans-40
   prefs: []
   type: TYPE_TB
+  zh: '| 7 | 20.7 | 17.3 | 21.2 |'
 - en: '| 8 | 23.0 | 19.1 | 23.1 |'
+  id: totrans-41
   prefs: []
   type: TYPE_TB
+  zh: '| 8 | 23.0 | 19.1 | 23.1 |'
 - en: '| 9 | 25.9 | 21.3 | 25.3 |'
+  id: totrans-42
   prefs: []
   type: TYPE_TB
+  zh: '| 9 | 25.9 | 21.3 | 25.3 |'
 - en: '| High | 40.3 | 39.5 | 39.7 |'
+  id: totrans-43
   prefs: []
   type: TYPE_TB
+  zh: '| 高 | 40.3 | 39.5 | 39.7 |'
 - en: 'Secondly, there''s the correlation between returns and VIX movements that are
     asymmetric: positive index returns decrease implied volatility while negative
     movements increase implied volatility. Further, the strength of the relationship
@@ -185,15 +273,21 @@
     contemporaneous changes in the VIX and SPY using daily returns since 2003\. I
     sorted by SPX return into 20 buckets and took the average SPX and VIX percent
     changes.'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二，收益与VIX变动之间存在着对称的相关性：正指数收益会降低隐含波动率，而负收益则会增加隐含波动率。此外，这种关系的强度是不对称的，下跌的幅度是上涨的两倍。自2003年以来，以下是VIX和SPY的当期变化，使用日回报排序。我将SPX回报分为20个桶，并取平均SPX和VIX百分比变化。
 - en: '[![](img/6f057042ba0fb4901722d79b37b973e9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOAbNoEvGuW1FUzbwOi18hy0g2CrxpwtxpMGJzL50aL4F6xqEFS3TC_I0iq0REFuw7dLRzgpZMt0OM_AdbdG-NBMAjIW78wORGgRE79_PFKv8XdYisu8BnTfXHVRWLU_vOsJBQug/s1600/volcorr.png)'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6f057042ba0fb4901722d79b37b973e9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOAbNoEvGuW1FUzbwOi18hy0g2CrxpwtxpMGJzL50aL4F6xqEFS3TC_I0iq0REFuw7dLRzgpZMt0OM_AdbdG-NBMAjIW78wORGgRE79_PFKv8XdYisu8BnTfXHVRWLU_vOsJBQug/s1600/volcorr.png)'
 - en: An EWMA would generate a symmetric U-pattern between asset returns and volatility
     as 0.01² = (-0.01)²,  a huge mismatch with real daily VIX changes.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个EWMA会在资产收益和波动率之间生成一个对称的U型模式，因为 0.01² = (-0.01)²，这与真实的日常VIX变化巨大不匹配。
 - en: There are a couple of good reasons for this asymmetric volatility response to
     price changes. As recessions imply systematic economic problems, there's always
     a chance that negative news is not just a disappointment, but reveals a flaw in
@@ -205,71 +299,110 @@
     abnormal growth rates to justify their valuations, so any decline could mean an
     inflection point back to normal growth, lowering their value by 90%. Again, this
     has no relevance for commodities.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种不对称的波动率对价格变动的响应有几个很好的原因。由于经济衰退意味着系统性的经济问题，负面新闻不仅仅是令人失望，而且可能揭示了对你最深层次假设的错误（例如，你知道现在不需要付20%的首付就能买房了吗？）。这在大宗商品市场上不会发生，因为对于许多这些市场来说，更高的价格与坏消息相关，比如石油冲击或通货膨胀增加。另一个问题是许多大市值公司主要建立在指数增长假设之上。像特斯拉和亚马逊这样的公司需要持续的异常增长率来证明它们的估值，所以任何下跌都可能意味着回归到正常增长的转折点，将它们的价值降低90%。同样，这对大宗商品没有任何影响。
 - en: One can capture this by the following function
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以用以下函数来捕捉
 - en: For example, if the return was +1%, yesterday's vol is multiplied by 0.975,
     while if it was down 1%, the adjustment factor is 1.05\. While the empirical relation
     of returns on volatility is not just asymmetric but non-linear (the absolute returns
     have a diminishing marginal impact), putting in a squared term creates problems
     as they extrapolate poorly, and so this piecewise linear approximation is applied
     to make the model more robust.
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果回报为+1%，则昨天的波动率乘以0.975，而如果下跌了1%，则调整因子为1.05。虽然回报对波动率的经验关系不仅是不对称的而且是非线性的（绝对回报具有递减的边际影响），但是输入一个平方项会产生问题，因为它们的外推效果不好，所以这个分段线性近似被应用于使模型更加健壮。
 - en: The first term captures the volatility-return correlation, the second mean reversion.
     The term 0.2 adjusts the speed to which our volatility estimate moves towards
     its long-run target given its current level. I'd like to give this a cool name
     with Latin roots but given two adjustments it would become German-sized, so I'm
     just going to call this transformed estimate of the EWMA '
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个术语捕捉到了波动率与回报之间的关联性，第二个则是均值回归。术语0.2调整了我们的波动率估计向其长期目标移动的速度，考虑到当前水平。我想给这个起一个拉丁词根的酷炫名字，但考虑到两个调整，它将变得像德国一样大，所以我只是称这个EWMA的转换估计为
+    '
 - en: '**EricVol**'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '**EricVol**'
 - en: ''' for simplicity and clarity. After this transformation, the bias to our vol
     estimate is diminished:'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了简单和清晰起见。经过这种转换后，我们对波动率的偏见被减弱了：
 - en: '**Vol Estimators sorted by VIX**'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '**按VIX排序的波动率估计器**'
 - en: '|  |  |  |  |'
+  id: totrans-54
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-55
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-56
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-57
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-58
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-59
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-60
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-61
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-62
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-63
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-64
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: As most volatility trading strategies are linear functions of variance, and
     the VIX itself is really the square root of its true essence, we predict returns
     squared and square our vol estimates in these equations.
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于大多数波动率交易策略都是方差的线性函数，而且VIX本身实际上是其真正本质的平方根，我们在这些方程中预测收益的平方并对我们的波动率估计进行平方处理。
