@@ -1,81 +1,124 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 08:09:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:09:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: American options, the Barone-Adesi & Whaley approximation and QuantLib | Quant
     Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 美国期权，Barone-Adesi & Whaley近似和QuantLib | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/20/american-options-the-barone-adesi-whaley-approximation-and-quantlib/#0001-01-01)
 - en: In this post, we shall implement the widely-used Barone-Adesi & Whaley approximation
     using the **QuantLib** library.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本文中，我们将使用**QuantLib**库实现广泛使用的Barone-Adesi & Whaley近似。
 - en: Here, our interest lies in **futures options**. For example, we would like to
     price *options on agricultural futures* quoted on the **CME** markets.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里，我们感兴趣的是**期货期权**。例如，我们想要定价在**CME**市场上报价的*农产品期货期权*。
 - en: As Barone-Adesi & Whaley (1987) explain in their seminal paper, the cost of
     carrying any futures position is equal to 0\. We thus set the cost-of-carry **b
     = 0** to work out the approximation method proposed by these authors.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如Barone-Adesi & Whaley（1987）在他们的开创性论文中所解释的那样，任何期货头寸的持有成本都等于0。因此，我们将持有成本**b
+    = 0**设置为计算这些作者提出的近似方法的基础。
 - en: Introducing remarks
+  id: totrans-9
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 引入备注
 - en: 'Most of the code used here to implement the BAW approximation is derived from
     previous posts. Nevertheles, some improvements are made:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里用于实现BAW近似的大部分代码都来自以前的帖子。尽管如此，还是做了一些改进：
 - en: '– The program gets by itself today’s date, and associates it with the date
     the option price is calculated. This is done throught :'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: – 程序会自行获取今天的日期，并将其与计算期权价格的日期关联起来。这是通过以下方式完成的：
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '– Option parameters are now set by the user at running-time. This is easily
     done by a **std::cout** and **std::cin** series:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: – 选项参数现在由用户在运行时设置。通过一系列**std::cout**和**std::cin**很容易实现这一点：
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '– The code is wrapped in an infinite loop. This way the program can be actually
     used as a simple option pricer for **American futures options**:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: – 代码被包装在一个无限循环中。这样程序实际上可以用作**美国期货期权**的简单期权定价器：
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The code that implements the BAW approximation
+  id: totrans-17
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 实现BAW近似的代码
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Concluding comments
+  id: totrans-19
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 结语
 - en: This option pricer has been written quite easily, as it grounds on previous
     codes. The point is that **QuantLib** has a large variety of classes allowing
     to implement as many **numerical** as well as **analytical schemes** to price
     options. And, it is quite straightforward to re-engineer a piece of code so that
     to implement another scheme.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个期权定价器写起来相当容易，因为它基于以前的代码。关键在于**QuantLib**有许多类可以用来实现**数值**和**分析方案**来定价期权。而且，重新设计代码片段以实现另一种方案非常简单。
