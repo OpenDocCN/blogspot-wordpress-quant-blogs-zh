@@ -1,89 +1,138 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:31:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:31:12'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Averaged Input Assumptions and Momentum | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 平均输入假设和动量 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01](https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01](https://systematicinvestor.wordpress.com/2013/12/05/averaged-input-assumptions-and-momentum/#0001-01-01)
 - en: Today I want to share another interesting idea contributed by Pierre Chretien.
     Pierre suggested using **Averaged** Input Assumptions and Momentum to create **reasonably
     quiet** strategy. The **averaging** techniques are used to avoid over-fitting
     any particular frequency.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想分享由Pierre Chretien贡献的另一个有趣的想法。 Pierre建议使用**平均**输入假设和动量来创建一个**相对安静**的策略。
+    **平均**技术用于避免过度拟合任何特定频率。
 - en: To create **Averaged** Input Assumptions we combine returns over different look-back
     periods, giving more weight to the recent returns, to form overall Input Assumptions.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了创建**平均**输入假设，我们结合不同回看期间的收益，给予最近的收益更多的权重，形成整体输入假设。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: To create **Averaged** Momentum we take a look-back weighted avaerage of momentums
     computed over different look-back periods.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 要创建**平均**动量，我们查看加权平均动量，该动量是在不同回看期间计算得出的。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next let’s compare using historical Input Assumptions vs **Averaged** Input
     Assumptions and Momentum vs **Averaged** Momentum. I will consider Absolute Momentum
     (not cross sectional), for more information about relative and absolute momentum,
     please see
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们比较使用历史输入假设与**平均**输入假设以及动量与**平均**动量。 我将考虑绝对动量（而不是横截面），有关相对动量和绝对动量的更多信息，请参见
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Above, I compared results for the following 4 cases:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面，我比较了以下4种情况的结果：
 - en: '1\. Adding Momentum filter: all algos perfrom better'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 1\. 添加动量过滤器：所有算法表现更好
 - en: '[![plot3](img/effc0a1b4a834fbc0708c99e2cd99e02.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot3.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3](img/effc0a1b4a834fbc0708c99e2cd99e02.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot3.png)'
 - en: '2\. Input Assumptions vs **Averaged** Input Assumptions: returns are very similar,
     but using **Averaged** Input Assumptions helps reduce portfolio turnover.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 2\. 输入假设 vs **平均**输入假设：收益非常相似，但使用**平均**输入假设有助于减少投资组合的周转率。
 - en: '[![plot2](img/a7748e985b807eb955e0847bee69a130.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/a7748e985b807eb955e0847bee69a130.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot2.png)'
 - en: '3\. Momentum vs **Averaged** Momentum: returns are very similar, but using
     **Averaged** Momentum increases portfolio turnover.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 3\. 动量 vs **平均** 动量：收益非常相似，但使用**平均**动量会增加投资组合的周转率。
 - en: '[![plot1](img/a55765a6e4bfd1ac54b22bec1d389782.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/a55765a6e4bfd1ac54b22bec1d389782.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/12/plot1.png)'
 - en: '4\. historical Input Assumptions + Momentum vs **Averaged** Input Assumptions
     + **Averaged** Momentum: results are mixed, no consistent advantage of using **Averaged**
     methods'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 4\. 历史输入假设 + 动量 vs **平均**输入假设 + **平均**动量：结果参差不齐，使用**平均**方法没有一致的优势
 - en: '![plot4](img/3ac4e7b8d406f9d820d0ebe211916486.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![plot4](img/3ac4e7b8d406f9d820d0ebe211916486.png)'
 - en: Overall, the **Averaged** methods is a very interesting idea and I hope you
     will experiemtn with it and share your findings, like Pierre. Pierre, again thank
     you very much for sharing.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，**平均**方法是一个非常有趣的想法，我希望你会尝试并分享你的发现，就像Pierre一样。 Pierre，再次非常感谢你的分享。
 - en: The full source code and example for the [bt.averaged.test() function is available
     in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[bt.averaged.test()函数的完整源代码和示例在github的bt.test.r中可用](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).'
