@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-17 23:41:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:41:59
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Accelerate VPP Pricing on the GPU using Preconditioner – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 利用预处理器在GPU上加速VPP定价 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/01/22/accelerate-vpp-pricing-on-the-gpu-using-preconditioner/#0001-01-01](https://hpcquantlib.wordpress.com/2012/01/22/accelerate-vpp-pricing-on-the-gpu-using-preconditioner/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/01/22/accelerate-vpp-pricing-on-the-gpu-using-preconditioner/#0001-01-01](https://hpcquantlib.wordpress.com/2012/01/22/accelerate-vpp-pricing-on-the-gpu-using-preconditioner/#0001-01-01)
 - en: As outlined in [Solving Sparse Linear Systems using CUSP and CUDA](../2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/
     "Permanent Link to Solving Sparse Linear Systems using CUSP and CUDA") a VPP pricing
     problem can be solved on a GPU using finite difference methods based on the implicit
@@ -25,8 +37,11 @@
     solver of the numerical library cusp [1]. The  optimal exercise problem for the
     VPP can be solved using dynamic programming for every time slice on the GPU (see
     [2]).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如[Solving Sparse Linear Systems using CUSP and CUDA](../2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/
+    "Solving Sparse Linear Systems using CUSP and CUDA"的永久链接)中所述，可以使用基于隐式欧拉方案的有限差分方法在GPU上解决VPP定价问题。矩阵求逆是使用数值库cusp的BiCGStab求解器在GPU上执行的[1]。VPP的最佳执行问题可以使用GPU上的动态规划来解决每个时间片（见[2]）。
 - en: The lower convergence order in ![\Delta t](img/35bff8105c8314c62070030cd46f8a1c.png)
     of the implicit Euler scheme is not a disadvantage because the hourly optimization
     step forces ![\Delta t = 1h](img/6296939544610786d448cfec9c187fd7.png) anyhow.
@@ -34,28 +49,41 @@
     good accuracy. The explicit Euler scheme is  numerically unstable, even if ![\Delta
     t = 1h](img/6296939544610786d448cfec9c187fd7.png). It converged only for large
     ![\Delta x, \Delta y](img/07df1c594f6998da3a3535c13845cf44.png) and ![\Delta u](img/c6d2976e932eb059fb1cd76754eeb4b1.png).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 隐式欧拉方案在![\Delta t](img/35bff8105c8314c62070030cd46f8a1c.png)的收敛次序较低并不是一个缺点，因为每小时的优化步骤无论如何都会强制![\Delta
+    t = 1h](img/6296939544610786d448cfec9c187fd7.png)。这个步长对于隐式欧拉方案来说足够小，以获得很高的准确性。显式欧拉方案在![\Delta
+    t = 1h](img/6296939544610786d448cfec9c187fd7.png)时甚至也是数值不稳定的。仅在大的![\Delta x, \Delta
+    y](img/07df1c594f6998da3a3535c13845cf44.png)和![\Delta u](img/c6d2976e932eb059fb1cd76754eeb4b1.png)时收敛。
 - en: Clearly the matrix inversion dominates the overall runtime of the pricing routine.
     Preconditioning is a standard technique to improve the performance of the involved
     BiCGStab algorithm. The cusp library supports a set of suited preconditioner for
     this problem.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，矩阵求逆主导着定价程序的总运行时间。预处理是改善所涉及的BiCGStab算法性能的标准技术。cusp库支持一组适合该问题的预处理器。
 - en: 'Diagonal: preconditioning is very inexpensive to use, but has often limited
     effectiveness.'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对角线：预处理非常便宜，但通常效果有限。
 - en: 'Approximate Inverse: Non-symmetric Bridson with different dropping strategies.'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 近似逆：具有不同丢弃策略的非对称布里德森。
 - en: Smoothed Aggregation: Algebraic Multi-grid preconditioner based on smoothed
     aggregation.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 平滑聚合：基于平滑聚合的代数多重网格预处理器。
 - en: On a CPU [QuantLib](http://www.quantlib.org) supports preconditioning based
     on the [Thomas algorithm](http://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm).
     This algorithm solves a tridiagonal matrix with ![O(8n)](img/43a298000360b3688212928468d6c937.png)
@@ -67,6 +95,7 @@
     class the CUDA tridiagonal solver can be used as a cusp preconditioner. The source
     code is available [here](http://www.hpc-quantlib.de/src/gpupred.zip). The code
     depends on the latest [QuantLib](http://quantlib.org/) version from the [SVN trunk](http://quantlib.svn.sourceforge.net/viewvc/quantlib/).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: The testbed is a VPP contract with ![t_{minUp} = t_{minDown} = 2h](img/d6f44808872ceb884bd0a8f263fe0692.png)
@@ -75,10 +104,12 @@
     model the problem has a fourth dimension of size ![2t_{minUp} + t_{minDown} =
     6](img/dd24970ae14ef6586155799831d661d0.png)  to solve the optimization problem
     via dynamic programming.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: The following diagram shows the different run-times of the algorithms on a GPU
     and a CPU.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/f613fb00485ad1282dad7284218ce2b8.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/01/plot.png)The
@@ -89,12 +120,15 @@
     but it ran out of memory on larger grids. The diagonal preconditioner slows down
     the overall performance on the GPU and the BiCGStab algorithm with the smoothed
     aggregation preconditioner did not converge.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '[1] cusp, [Generic Parallel Algorithms for Sparse Matrix and Graph Computations](http://code.google.com/p/cusp-library/)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '[2] [Pricing of a Virtual Power Plant on a GPU](../2011/10/03/pricing-of-a-virtual-power-plant-on-a-gpu-with-cuda-4-0/
     "Permanent Link to Pricing of a Virtual Power Plant on a GPU")'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL

@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:23:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:23:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: About timestamps and exchanges – Sniper In Mahwah & friends
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 关于时间戳和交易 - 马瓦和朋友们的狙击手
 - en: 来源：[https://sniperinmahwah.wordpress.com/2014/01/13/about-timestamps-and-exchanges/#0001-01-01](https://sniperinmahwah.wordpress.com/2014/01/13/about-timestamps-and-exchanges/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://sniperinmahwah.wordpress.com/2014/01/13/about-timestamps-and-exchanges/#0001-01-01](https://sniperinmahwah.wordpress.com/2014/01/13/about-timestamps-and-exchanges/#0001-01-01)
 - en: 'Here is the whole proposition made by [McKay Brothers](http://www.mckay-brothers.com)‘
     Stéphane Tyc at the Institut Louis Bachelier in Paris, about best execution, timestamps
     and exchanges (in this previous [post](https://sniperinmahwah.wordpress.com/2013/12/23/high-frequency-trading-liquidity-and-stability/)
     I only summarized his speech):'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是由[麦凯兄弟](http://www.mckay-brothers.com)的Stéphane Tyc在巴黎路易·巴舍利尔研究所关于最佳执行、时间戳和交易的全部建议（在之前的[帖子](https://sniperinmahwah.wordpress.com/2013/12/23/high-frequency-trading-liquidity-and-stability/)中，我只总结了他的讲话）：
 - en: '“The definition of best execution is fiendishly difficult. There are many approaches
     to the issue. In typical fashion the USA defines precisely what needs to be reported
     and also defines the mechanisms of order protection on various trading venues.
@@ -37,39 +51,58 @@
     They also identify every matched trade with a unique number. The regulators could
     define standards for this information and impose the end of day publication of
     the raw data from the exchanges. Every matched trade should have attached :'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: “最佳执行的定义非常困难。对这个问题有很多种方法。典型情况下，美国精确定义了需要报告的内容，并且还定义了各种交易场所的订单保护机制。在大西洋的另一边，欧盟赋予经纪人“采取一切合理步骤，在代表客户执行订单时获得最佳可能结果”的义务。
+    “最佳执行”的挑战没有已知的解决方案，并且订单类型的增多使得寻找完美解决方案的任务不切实际。问题的实时性使得它特别棘手。然而，有一种可能性可以阐明最佳执行之谜。交易所在匹配周期的最重要时间产生时间戳。他们还用唯一编号标识了每笔匹配的交易。监管机构可以为此信息定义标准，并强制交易所在每天结束时发布原始数据。每笔匹配的交易都应附上：
 - en: – the timestamp of the order that triggered the trade at the time of entry in
     the matching engine.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: – 在匹配引擎中输入订单并触发交易的时间戳。
 - en: – the timestamp of the publication of trade in the publicly available data stream
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: – 在公开可用的数据流中发布交易的时间戳
 - en: – the anonymous trade id number.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: – 匿名交易编号。
 - en: All timestamps should be accurate to 1µs of the atomic time, which is readily
     available with PTP (Precision Time Protocol). This way, all the issues of synchronicity
     could be studied very precisely.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有时间戳应该准确到原子时间的1微秒，这可以通过PTP（精密时间协议）轻松获得。这样，所有同步性的问题都可以被非常精确地研究。
 - en: This should be made available in the raw market format at the end of each day.
     A simple code to read this data should be provided under an open source license.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这应该以原始市场格式在每天结束时提供。应该提供一个简单的代码来读取这些数据，并且以开源许可证提供。
 - en: The incremental costs imposed on the industry would be very limited and the
     benefits for transparency very high. All dark pools, broker crossing networks
     and other alternative non public execution venues should also be required to publish
     their trades with the same mechanism.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 对行业施加的增量成本将非常有限，透明度的好处将非常高。所有黑暗池、经纪人交叉网络和其他替代非公开执行场所也应该被要求以相同的机制发布它们的交易。
 - en: Based on this information, any client of a broker could receive the collection
     of trade id numbers that constituted his execution and could go and find for himself
     if the execution was to his standards.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据这些信息，任何经纪人的客户都可以收到构成其执行的交易编号集合，并且可以自行查找执行是否符合其标准。
 - en: Open data, open formats, open source code, those would help further the debate
     and enable research to shed light on this very challenging problem.”
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 开放数据、开放格式、开放源代码，这些都将有助于推动辩论，并使研究能够阐明这个非常具有挑战性的问题。”
