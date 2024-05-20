@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:44:41'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:44:41'
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Creating an HFT Strategy: Identifying Trader Type Pt. 2 | Mechanical Markets'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 创建一个HFT策略：识别交易者类型 Pt. 2 | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/#0001-01-01)
 - en: 'We saw in [part 1](https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/
     "part 1") that orders that have been sitting on an exchange for a while don’t
     do as well versus the market price as their short-lived peers. In this post I
@@ -32,6 +38,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在[第1部分](https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/
+    "第1部分")中看到，长时间存在于交易所的订单与其短命同行相比，与市场价格的表现不佳。在这篇文章中，我讨论了这种倾向是否可以成为可行的交易策略。最显而易见的策略基础可能是执行以下操作：
 - en: When we see a sufficiently old order execute in the market data feed, immediately
     send a marketable order at the same price, attempting to trade against any liquidity
     remaining in the book.
@@ -39,6 +47,7 @@
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当我们在市场数据源中看到足够老的订单执行时，立即以相同价格发送一个市价订单，试图与订单簿中剩余的任何流动性进行交易。
 - en: While doing this sort of thing results in better executions than simply copying
     all executions, it won’t get anywhere near profitability. To do that, we need
     to know a few other things about the structure of the US equities market. Probably
@@ -50,10 +59,12 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然这样做比简单复制所有执行的效果要好，但这不会使我们达到盈利。要做到这一点，我们需要了解一些关于美国股票市场结构的其他信息。可能最重要的事实是，DirectEdge的EdgeX上的挂单在执行后的表现要比其他传统交易所差得多。我不知道原因，但每个交易所都有不同的交易者和订单流量组合。EdgeX可能会有具有异常高alpha值的传入市价订单，以及具有异常低alpha值的挂单，或者两者都有。
 - en: '[![toa-exchangesummary-1366](img/e06c511356db5156cce9a17760f1b610.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-exchangesummary-13661.png)'
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![toa-exchangesummary-1366](img/e06c511356db5156cce9a17760f1b610.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-exchangesummary-13661.png)'
 - en: Performance of visible orders executed on various exchanges. Chart is generally
     the same as those in Part 1\. Note that exchange rebates are not included, so
     the enhanced performance of the passive orders on the inverted exchanges, Nasdaq
@@ -62,6 +73,8 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在各个交易所执行的可见订单的表现。图表与第一部分中的图表基本相同。请注意，交易所回扣未包含在内，因此倒置交易所（纳斯达克 Bx（Bsx）；蝙蝠 BYX（BatsY）；DirectEdge
+    EdgeA（EdgeA））上的被动订单的增强表现在很大程度上是由于回扣的差异。
 - en: Another important fact is that trades on ‘expensive’ stocks (those with a high
     per-share price, not valuation) also have their passive side tend to perform poorly
     after execution in comparison with ‘cheap’ stocks. This is an interesting phenomenon
