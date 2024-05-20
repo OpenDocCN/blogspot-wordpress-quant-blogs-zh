@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:19:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月12日 18:19:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: CSS Bar Classification Scheme | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: CSS柱分类方案 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/08/17/css-bar-classification-scheme/#0001-01-01](https://cssanalytics.wordpress.com/2010/08/17/css-bar-classification-scheme/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/08/17/css-bar-classification-scheme/#0001-01-01](https://cssanalytics.wordpress.com/2010/08/17/css-bar-classification-scheme/#0001-01-01)
 - en: 'This idea was originally inspired by Jeff Pietsch-now hailing from the great
     new site **ETF Prophet** [http://etfprophet.com/](http://etfprophet.com/)-who
     showed me an early variant of a “pattern-match” to predict SPY returns. I have
@@ -35,8 +47,11 @@
     an indicator like DV2 which considers the close in relation to the high to low
     range helps to complement the RSI2 in this sense, but it does not permit the full
     range of permutations to be analyzed.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个想法最初是受到Jeff Pietsch（现在来自伟大的新网站**ETF先知**[http://etfprophet.com/](http://etfprophet.com/)）的启发，他向我展示了一个早期变体的“模式匹配”，用于预测SPY的回报。我还从Rob
+    Hanna的可量化边缘通讯中学到了一些特定技术图案分类的微妙之处，他是这个主题的专家：[http://quantifiableedges.blogspot.com/](http://quantifiableedges.blogspot.com/)。技术指标的一种弱点（也是一种优势）是它们未能解释这些独特的图案。它们有效地将情况视为广泛的“概念”-这是MarketSci的Michael所指出的一个很好的观点：[http://marketsci.wordpress.com/2010/08/03/indicators-as-concepts/](http://marketsci.wordpress.com/2010/08/03/indicators-as-concepts/)。例如，RSI2将最近的两天归类为“超买”或“超卖”，只看收盘价的变化。但这无法捕捉到一些有价值的信息：1）过去几天的高点和低点分别是什么，收盘价与这些点的关系怎么样？2）今天的回报与昨天相比如何？3）今天的范围比昨天大还是小？使用像DV2这样的指示器，考虑收盘价与高点与低点范围的关系有助于在这方面补充RSI2，但它不允许对各种排列进行全面分析。
 - en: 'What we need to do is to analyze the bar pattern–or pattern of the daily high,
     low, and close to dig deeper into more accurate classification. That said, overly
     specific classification amounts to walking a fine line—the more specific we are
@@ -48,16 +63,21 @@
     as possible, and I believe that it is possible to construct a simpler and more
     robust framework. For this first version, we will keep things extremely simple.
     Every bar can be classified  as having the following three qualities:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要做的是分析柱形图案-或者是每日高、低、收盘的图案，以深入挖掘更精确的分类。也就是说，过于具体的分类就像走钢丝一样-我们对某个设置越具体，这种条件就越罕见，而且可能在样本外不太可能重复。然而，我们可能会找到一些真正强大的优势，这将为更普遍的框架或诸如RSI2这样的指标增加价值。许多交易者喜欢观察蜡烛图形，这些图形倾向于具有奇怪的名称，而特定的图案对于交易者来说几乎有神话般的地位。我更喜欢以尽可能客观的方式对事物进行分类，并且我相信还有可能构建一个更简单、更鲁棒的框架。在此第一版中，我们将保持极其简单。每个柱都可以被分类为具有以下三种特质：
 - en: '1) **Bar Size:** the size of a bar can be considered as the High minus the
     Low in relation to past measures of the high minus the low. This can be normalized
     using a ranking over the past 252 days: a)  big bar- when the high minus low is
     in the 75th percentile or greater b) normal bar- when the high minus low is in
     the 26th to 74th  percentile c) small bar- the high minus low is in the 25th percentile
     or lower. In total there are 3 different bar size types.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) **条形大小**：条形的大小可以被认为是高价减去低价与过去的高低差的关系。可以使用过去252天的排名对其进行归一化处理：a) 大条- 当高价减去低价处于75th百分位数或更高时b)
+    正常条- 当高价减去低价处于26th到74th百分位数时c) 小条- 高价减去低价处于25th百分位数或更低时。总共有3种不同的条形大小类型。
 - en: '2) **Range:** the range of the bar can be measured two different ways– as the
     close in relation to the high to low range or the open in relation to the high
     to low range. to avoid complexity in our first examples, and also because the
@@ -70,8 +90,12 @@
     high to low range is in the11th to 49th percentile d) bottom of range- when the
     close relative to the high to low range is in the 10th percentile. There are 4
     possible range patterns.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) **幅度**：条形图的幅度可以用两种不同的方式来衡量- 作为收盘价与高低范围的关系，或者作为开盘价与高低范围的关系。为了避免在我们的第一个示例中出现复杂性，并且因为收盘价更重要，我们只考虑收盘范围。可以使用随机公式来衡量收盘范围-
+    （收盘价- 最低价）/（最高价-最低价）。可以使用过去252天的排名对这个收盘范围进行归一化处理：a) 范围顶部- 当收盘价相对于高低范围在90th百分位数或更高时b)
+    上部范围- 当收盘价相对于高低范围在50th到90th百分位数时c) 下部范围- 当收盘价相对于高低范围在11th到49th百分位数时d) 范围底部- 当收盘价相对于高低范围在10th百分位数时。共有4种可能的范围模式。
 - en: '3) **Price Change**: This is the change in price from the current close to
     yesterday’s close.  This can be normalized using a ranking over the past 252 days.
     For the price change we will use four quartiles: a) big up- when the price change
@@ -79,8 +103,12 @@
     (50th -74th) c) down- when the price change is in the 3rd quartile (26th to 49th)
     c) big down- when the price change is in the bottom quartile (<25th). There are
     4 possible price change patterns.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) **价格变动**：这是从当前收盘价到昨日收盘价的价格变动。可以使用过去252天的排名进行归一化处理。对于价格变动，我们将使用四分位数：a) 大涨-
+    当价格变动在前四分位数之上时（>75th）b) 上涨- 当价格变动在第二四分位数时（50th -74th）c) 下跌- 当价格变动在第三四分位数时（26th
+    到 49th）c) 大跌- 当价格变动在底四分位数时（<25th）。共有4种可能的价格变动模式。
 - en: The following classification scheme is simple and objective, and the process
     of normalization makes for easy comparisons across time. Counting the number of
     combinations leaves us with 3x4x4= 48 different possible bar patterns. This is
@@ -92,5 +120,8 @@
     combinations.  However, there are distinctions and divergence here that make sense
     and thus it is worth considering all possible combinations. Nonetheless, this
     method is best handle by genetic algorithm. We will post an example soon.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下的分类方案简单而客观，归一化处理的过程使得跨时间的比较变得容易。计算组合的数量让我们有48种不同的可能的条形图模式。这在自身上是可管理的，但是当你看多个日子时，情况会变得棘手，例如一个3天的模式可以有48x48x48=
+    110,592种模式！实际上，模式组件之间存在很强的相关性- 大幅度的价格变动，高或低的收盘范围和大条形大小通常相关，这解释了均值回归指标之间的相关性。这将限制实际组合的数量。然而，这里有一些有意义的区别和分歧，因此值得考虑所有可能的组合。尽管如此，这种方法最好由遗传算法来处理。我们将很快发布一个示例。
