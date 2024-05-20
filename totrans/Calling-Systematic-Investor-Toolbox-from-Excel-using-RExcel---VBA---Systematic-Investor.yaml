@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:37:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:37:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Calling Systematic Investor Toolbox from Excel using RExcel & VBA | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 从 Excel 使用 RExcel & VBA 调用 Systematic Investor Toolbox | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01](https://systematicinvestor.wordpress.com/2012/04/10/calling-systematic-investor-toolbox-from-excel-using-rexcel-vba/#0001-01-01)
 - en: '[RExcel](http://rcom.univie.ac.at/download.html) is a great tool to connect
     R and Microsoft Excel. With a press of a button, I can easily execute my R scripts
     and present output interactively in Excel. This easy integration allows non-R
@@ -26,80 +38,123 @@
     I want to show how to create an Efficient Frontier using [Systematic Investor
     Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
     and display it in Excel.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[RExcel](http://rcom.univie.ac.at/download.html)是一个连接 R 和 Microsoft Excel 的强大工具。只需按下按钮，我就可以轻松执行我的
+    R 脚本，并在 Excel 中交互式地呈现输出。这种简单的集成允许非 R 用户探索 R 语言的强大功能。作为这种方法的一个示例，我想展示如何使用[Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)创建一个有效前沿并在
+    Excel 中显示。'
 - en: First, you need to install [RExcel](http://rcom.univie.ac.at/download.html)
     from [http://rcom.univie.ac.at/download.html](http://rcom.univie.ac.at/download.html)
     I used the following guide to help with my installation [http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，您需要从[http://rcom.univie.ac.at/download.html](http://rcom.univie.ac.at/download.html)安装[RExcel](http://rcom.univie.ac.at/download.html)。我使用了以下指南来帮助我安装：[http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:how_to_install)
 - en: Next, please check that [RExcel](http://rcom.univie.ac.at/download.html) is
     working properly by trying some examples from
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，请检查[RExcel](http://rcom.univie.ac.at/download.html)是否正常工作，尝试一些来自
 - en: '[http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r](http://homepage.univie.ac.at/erich.neuwirth/php/rcomwiki/doku.php?id=wiki:excel_worksheet_functions_using_r)'
 - en: 'Now, we are ready to design the workbook to run mean-variance optimization
     to create an Efficient Frontier. Following is a screen shot of the complete interface:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们准备好设计工作簿以运行均值-方差优化以创建有效前沿。以下是完整界面的截图：
 - en: '[![](img/5a61f51efb68df5dd2e2da0197883901.png "snapshot")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/snapshot.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5a61f51efb68df5dd2e2da0197883901.png "快照")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/snapshot.png)'
 - en: You can download the [AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)
     workbook and experiment with it while you keep reading.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以在继续阅读的同时下载[AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)工作簿并进行实验。
 - en: 'Let’s put our Input Assumptions into Excel: Return, Risk, and Correlation matrix
     in rows 1:12\. Let’s make a button at row 14 to construct an Efficient Frontier
     and associate it with our **“create_efficient_frontier”** VBA macro.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们把我们的输入假设放入 Excel 中：在 1:12 行中的回报、风险和相关矩阵。让我们在第 14 行制作一个按钮来构建有效前沿，并将其与我们的**“create_efficient_frontier”**
+    VBA 宏关联起来。
 - en: The **“create_efficient_frontier”** VBA macro will collect our Input Assumptions
     from Excel and send them to the R environment. It will next execute the R script
     to construct the Efficient Frontier, and finally it will collect R calculations
     of Risk, Return, and Weights of portfolios lying on the Efficient Frontier and
     transfer them back to Excel.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**“create_efficient_frontier”** VBA 宏将从 Excel 收集我们的输入假设，并将它们发送到 R 环境。它将接下来执行
+    R 脚本以构建有效前沿，最后将收集风险、回报和位于有效前沿上的投资组合的权重的 R 计算结果，并将它们传输回 Excel。'
 - en: Here is the R script to construct the Efficient Frontier. I created a VBA function
     **“create_rcode”** to create this file automatically for this example. In practice
     this can be a static file containing all the logic for your algorithm.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是构建有效前沿的 R 脚本。我创建了一个名为**“create_rcode”**的 VBA 函数来自动创建此文件以供本示例使用。在实践中，这可以是一个包含算法所有逻辑的静态文件。
 - en: '[PRE0]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The **“create_efficient_frontier”** VBA macro will collect Input Assumptions
     and send them to R environment, it will next execute the R script to construct
     the Efficient Frontier, and finally it will collect the Risk, Return, and Weights
     of portfolios lying on the Efficient Frontier and transfer it back to Excel.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**“create_efficient_frontier”** VBA宏将收集输入假设并将其发送到R环境，然后执行R脚本以构建有效边界，最后收集有效边界上的投资组合的风险、收益和权重，并将其传输回Excel。'
 - en: 'Here is the **“create_efficient_frontier”** VBA macro that automates all the
     functionality:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是自动化所有功能的**“create_efficient_frontier”** VBA宏：
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Here is a complete [AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)
     workbook that creates an Efficient Frontier with user specified Input Assumptions.
     This workbook can be used by non-R users to explore the power of the R language,
     as long as [RExcel](http://rcom.univie.ac.at/download.html) is installed.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有一个完整的[AssetAllocation.xls](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/assetallocation.xls)工作簿，可以根据用户指定的输入假设创建一个有效边界。只要安装了[RExcel](http://rcom.univie.ac.at/download.html)，非R用户就可以使用这个工作簿来探索R语言的强大功能。
 - en: Please make sure that you add the RExcel library to the references. First, click
     on the Tool->References (from the VBA IDE menu)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 请确保将RExcel库添加到引用中。首先，点击工具->引用（从VBA IDE菜单）
 - en: '[![](img/ac9e599a95b48829f7992ad7b21eda77.png "RExcel.ref1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref1-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ac9e599a95b48829f7992ad7b21eda77.png "RExcel.ref1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref1-small.png)'
 - en: Next select RExcelVBAlib and press Ok
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来选择RExcelVBAlib并按下确定
 - en: '[![](img/3d24bedb444c1dac0a765f0d3b6a6573.png "RExcel.ref2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref2-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3d24bedb444c1dac0a765f0d3b6a6573.png "RExcel.ref2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/04/rexcel-ref2-small.png)'
