@@ -1,182 +1,281 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:10:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:10:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Asian options and C++/Quantlib | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 亚洲期权和C++/Quantlib | 量化角落
 - en: 来源：[https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/02/04/asian-options-and-cquantlib/#0001-01-01)
 - en: Put simply, an **Asian option** is an option contract the payoff of which is
     determined by the averaging of the underlying over a certain period of time. As
     P.Wilmott (2006) and E.G.Haug (2007) both point out, Asian options are popular
     in the OTC energy markets and in other commodity markets lacking liquidity. In
     fact, averaging implies reduced price volatility, cheaper option prices, and market
     manipulations are less-likely.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，**亚洲期权**是一种期权合同，其收益由一定时期内标的资产的平均值确定。正如P.Wilmott (2006) 和 E.G.Haug (2007)所指出的，亚洲期权在场外能源市场和其他缺乏流动性的大宗商品市场中很受欢迎。实际上，平均意味着降低的价格波动性，更便宜的期权价格，以及市场操纵的可能性更小。
 - en: 'Now, Asian options can be classified along several dimensions, that is:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '现在，亚洲期权可以根据几个维度进行分类，即:'
 - en: – Average strike option vs average rate option
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: – 平均执行期权 vs 平均利率期权
 - en: – Arithmetically vs geometrically averaging
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: – 算术平均值 vs 几何平均值
 - en: – Discrete vs continuous averaging
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: – 离散 vs 连续平均
 - en: – American vs European exercise
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: – 美式期权 vs 欧式期权
 - en: '**Average rate/price option vs average strike option**'
+  id: totrans-12
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**等利率/价格期权 vs 平均执行期权**'
 - en: 'Asian options are classified as **average rate** (**or average price**) or
     **average strike**. For detailed discussions, please refer to P.Wilmott (2006),
     J.C.Hull (2008), and C.Alexander’s (2008). The following table shows the possible
     payoffs:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '亚洲期权被分类为**等利率**（**或等价格**）或**平均执行**。有关详细讨论，请参阅P.Wilmott(2006)，J.C.Hull(2008)和C.Alexander（2008）。下表显示了可能的收益:'
 - en: '| **Payoffs** | Call | Put |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '| **收益** | 看涨期权 | 看跌期权 |'
 - en: '| Average strike option | max (S-A, 0) | max (A-S, 0) |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '| 平均执行期权 | max (S-A, 0) | max (A-S, 0) |'
 - en: '| Average rate option (or average price option) | max (A-E, 0) | max (E-S,
     0) |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '| 等利率期权（或等价格期权） | max (A-E, 0) | max (E-S, 0) |'
 - en: '**S** = underlying price'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**S** = 标的价格'
 - en: '**E** = exercise (strike) price'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**E** = 行使(执行)价格'
 - en: '**A** = averaged strike price'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**A** = 平均执行价格'
 - en: In this article, our interest goes to average rate/price options.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本文中，我们感兴趣的是平均利率/价格期权。
 - en: '**Continuous vs discrete/averaging**'
+  id: totrans-21
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**连续 vs 离散/平均**'
 - en: In the **continuous case**, the **continuously sampled average** is modelled
     as an **integral**. In the **discrete case,** one averages a finite number of
     option values picked up during the life of the option. For example, we may use
     a weekly fixing.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在**连续情况**下，**连续抽样平均值**被建模为一个**积分**。在**离散情况**下，人们在期权生命周期中平均了有限数量的期权价值。例如，我们可能使用每周的基准价格。
 - en: In practice (due to legal and practical issues), **Asian options** are generally
     monitored at **discrete time**. And, we will only consider equal time lengths between
     fixings.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上(由于法律和实际问题)，**亚洲期权**通常在**离散时间**监测。而且，我们只考虑基准价格之间的等时间长度。
 - en: '**The Black-Scholes world and Asian options**'
+  id: totrans-24
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**Black-Scholes**世界和亚洲期权'
 - en: In the **discrete case**, one can get the price of an Asian option dealing with
     the **Black-Scholes stochastic differential equation** (**SDE**) for a defined
     so-called **updating rule**
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在**离散情况**下，通过所谓的**更新规则**，人们可以得到处理**Black-Scholes**随机微分方程**（SDE）**的亚洲期权价格
 - en: In the arithmetic case, one has to tackle the problem of solving the standard
     **Black-Scholes** equation
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在算术情况下，人们必须解决解决标准**Black-Scholes**方程的问题
 - en: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "normal Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)for
     V(S, A, t) with'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "normal Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)用于
+    V(S, A, t) 方程'
 - en: '[![](img/fd6b27d2e1df4cbb393a0c23a12e6886.png "v_a_t_arithmetic")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v-a-t-arithmetic.jpg)but
     there is no **closed-form solution**.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/fd6b27d2e1df4cbb393a0c23a12e6886.png "v_a_t_arithmetic")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v-a-t-arithmetic.jpg)但是没有**封闭形式的解**。'
 - en: In the geometric case, the average is the exponential sum of all the logarithms
     of the constituent prices, that we divide by the of discretely sampled prices
     (we restrict ourselves to equal time-steps).
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在几何情况下，平均值是所有构成价格的对数的指数和，我们通过离散采样价格的和来除以(我们只限于等时间步)。
 - en: Again, we take the normal **Black Scholes** equation
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次，我们使用普通的**Black Scholes**方程
 - en: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "normal Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)But,
     now the jump condition becomes:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/10e26ab6fb7a9522788cea81d149f450.png "标准 Black-Scholes")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/normal-black-scholes.jpg)然而，现在跳跃条件变成了：'
 - en: '[![](img/e169068c0448c643e93d818df6c39ff9.png "v_a_t_geometric")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v_a_t_geometric1.jpg)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e169068c0448c643e93d818df6c39ff9.png "v_a_t_geometric")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/v_a_t_geometric1.jpg)'
 - en: There exist **closed-form solutions** for **geometrically averaged Asian options**,
     as geometric averaging of lognormal random variables preserves lognormality. And,
     this is what we are going to code using **Quantlib**. In fact, **Quantlib** is
     endowed with a special option engine to **analytically** compute the price of
     discretely and geometrically averaged Asian options using that is the **AnalyticDiscreteGeometricAveragePriceAsianEngine**
     class.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于**几何平均亚洲期权**，存在**闭合形式解**，因为对数正态随机变量的几何平均保持对数正态性质。而且，这就是我们打算使用**Quantlib**编写的内容。事实上，**Quantlib**配备了一个特殊的期权引擎，用于通过**AnalyticDiscreteGeometricAveragePriceAsianEngine**类解析地计算离散和几何平均的亚洲期权价格。
 - en: We could compare our analytical calculation results with ones drawing from a
     **Monte Carlo simulation** if we wish. And, one may wish to price a arithmetic
     average option thanks to **MCDiscreteArithmeticAPEngine**.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们愿意，我们可以将我们的解析计算结果与从**蒙特卡罗模拟**中获得的结果进行比较。而且，人们可能希望通过**MCDiscreteArithmeticAPEngine**来定价算术平均期权。
 - en: '**The C++/Quantlib code**'
+  id: totrans-35
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**C++/Quantlib 代码**'
 - en: We now turn to coding
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在转向编码
 - en: ___________________________
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: ___________________________
 - en: 'Option type                      :      put'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '期权类型                      :      看跌期权'
 - en: 'Strike:                                 :      36'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '行权价:                              :      36'
 - en: 'Underlying:                      :      40'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '底层:                            :      40'
 - en: 'Option expiration          :      December 10, 2011'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '期权到期            :      2011 年 12 月 10 日'
 - en: 'Risk-free interest rate  :      6%'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '无风险利率          :      6%'
 - en: 'Dividend yield                 :      risk-free interest rate – (0,5 x (volatility²))'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '红利收益率                    :      无风险利率 – (0,5 x (波动率²))'
 - en: Time step between
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间步长之间
 - en: 'successive fixings      :    7 days'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '连续固定              :    7 天'
 - en: 'Previous fixings         :    none'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '前期固定              :    无'
 - en: 'Volatility                    :    20% ______________________'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '波动率                    :    20% ______________________'
 - en: '[PRE0]'
+  id: totrans-48
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
