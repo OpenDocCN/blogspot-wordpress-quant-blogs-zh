@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:36:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 14:36:33
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Company Valuation using Discounted Cash Flows | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用折现现金流量进行公司估值 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/10/19/company-valuation-using-discounted-cash-flows/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/19/company-valuation-using-discounted-cash-flows/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/10/19/company-valuation-using-discounted-cash-flows/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/19/company-valuation-using-discounted-cash-flows/#0001-01-01)
 - en: 'Today I want to show a simple example of how we can value a company using [Discounted
     Cash Flow (DCF) analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow).
     The idea is to compute the company’s Intrinsic Value based on the discounted future
@@ -26,55 +38,85 @@
     9% discount rate. If you want to read more about the [Discounted Cash Flow (DCF)
     analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow), I recommend following
     references:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想展示一个简单的例子，说明我们如何使用[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)对公司进行估值。其想法是根据折现的未来现金流来计算公司的内在价值。为了计算未来的现金流，我将使用历史自由现金流的增长率。为了计算这些现金流的现值，我将使用保守的9%折现率。如果您想了解更多关于[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)的信息，我建议您参考以下参考资料：
 - en: First let’s load historical prices and fundamental data for Apple (AAPL) using
     the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)加载苹果（AAPL）的历史价格和基本数据。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s extract fundamental data for [Discounted Cash Flow (DCF) analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们提取[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)的基本数据。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next I created a simple function to estimate company’s Intrinsic Value using
     [Discounted Cash Flow (DCF) analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我创建了一个简单的函数来估算公司的内在价值，使用[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)。
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Finally, let’s compute AAPL’s Intrinsic Value and create plots
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们计算AAPL的内在价值并创建图表。
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/d3157b1b7c582bbb2e6b86aa88235d9d.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d3157b1b7c582bbb2e6b86aa88235d9d.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1.png)'
 - en: '[![](img/4e18671fe636f5a3a925db4efd2b8744.png "plot2")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4e18671fe636f5a3a925db4efd2b8744.png "plot2")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2.png)'
 - en: '[![](img/b3e9e08cf7e9533bd5aa311f3e0d5e67.png "plot3")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot3.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b3e9e08cf7e9533bd5aa311f3e0d5e67.png "plot3")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot3.png)'
 - en: The Intrinsic Value calculations are highly sensitive to your assumptions about
     the company’s Growth Rate and Discount Rate used in the [Discounted Cash Flow
     (DCF) analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于您在[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)中使用的公司增长率和折现率的假设，内在价值的计算非常敏感。
 - en: AAPL has experienced the amazing Growth Rate over the last 5 years and the big
     question is whether AAPL will be able to maintain this Growth Rate in the future.
     If yes, then the stock price can easily reach new highs as suggested by the [Discounted
     Cash Flow (DCF) analysis](http://en.wikipedia.org/wiki/Discounted_cash_flow).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去的5年中，AAPL经历了惊人的增长率，而重要的问题是AAPL是否能够在未来保持这种增长率。如果是的话，那么根据[折现现金流量（DCF）分析](http://en.wikipedia.org/wiki/Discounted_cash_flow)的建议，股价很容易达到新的高点。
 - en: To view the complete source code for this example, please have a look at the
     [fundamental.dcf.test() function in fundamental.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/fundamental.test.r).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上fundamental.test.r中的fundamental.dcf.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/fundamental.test.r)。
