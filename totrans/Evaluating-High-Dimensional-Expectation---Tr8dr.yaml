@@ -1,89 +1,132 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!-- yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:32:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日15:32:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Evaluating High Dimensional Expectation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 评估高维期望|Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/08/31/evaluating-high-dimensional-expectation/#0001-01-01](https://tr8dr.wordpress.com/2010/08/31/evaluating-high-dimensional-expectation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/08/31/evaluating-high-dimensional-expectation/#0001-01-01](https://tr8dr.wordpress.com/2010/08/31/evaluating-high-dimensional-expectation/#0001-01-01)
 - en: 'Here I am going to outline a simple approach to evaluating a high dimensional
     discrete expectation on empirical data.   For example, if one considers the evaluating
     an expectation like:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，我将概述一种简单的方法来评估高维离散期望的经验数据。例如，如果考虑评估这样的期望：
 - en: '[![](img/516614852be6411feac4909467513704.png "Screen shot 2010-08-31 at 5.33.37
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-31-at-5-33-37-pm.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/516614852be6411feac4909467513704.png "2010年8月31日下午5点33分37秒的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-31-at-5-33-37-pm.png)'
 - en: 'Let’s say X is of dimension 10 and we have a 10000 x 10 matrix of observations.
       Furthermore each of the 10 variables can take 5 possible states:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设X的维度为10，我们有一个10000 x 10的观测矩阵。此外，这10个变量每一个都能够有5种可能的状态：
 - en: X0 = { 1,4,4,1,1,1,1,3,3,2 }
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: X0 = { 1,4,4,1,1,1,1,3,3,2 }
 - en: X1 = { 1,2,2,2,1,1,1,5,5,2 }
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: X1 = { 1,2,2,2,1,1,1,5,5,2 }
 - en: ….
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '...'
 - en: The total number of possible distinct state vectors is 5^10 or over 9 million.
       A naive approach to the above integral is to consider all possible sequences
     of X, but this would be enormously expensive and will not scale as the dimension
     or number of individual states grows.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 总可能的不同状态向量的数量是5^10，超过900万。以上积分的一个天真方法是考虑X的所有可能序列，但这将是非常昂贵的，而且随着维度或个别状态的数量增加，它将不会扩展。
 - en: The distribution is going to be sparse.  We know this because 5^10 >> 10,000
     observations.   The worst case algorithm would involve a scan for a given pattern,
     calculating the frequency.   This poor approach would have complexity  **O(N S^d)**,
     where **N** is the number of samples, **S** is the number of distinct symbols,
     and **d** is the dimension.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 分布将是稀疏的。我们知道这是因为5^10 >> 10,000次观察。最坏情况下的算法将涉及扫描给定的模式，计算频率。这种糟糕的方法的复杂度为**O(N
+    S^d)**，其中**N**是样本数量，**S**是不同符号的数量，**d**是维度。
 - en: 'Some simple observations:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单观察：
 - en: It makes sense to restrict the domain of the integral to existant sequences
     (get rid of complexity S^d)
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将积分的定义域限制在现有序列上是有意义的（摆脱了复杂度的 S^d）
 - en: It makes sense to avoid multiple passes, where naively there would be a pass
     for each frequency calculation
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 避免多次遍历是明智的，天真地进行每个频率计算都需要一次遍历
 - en: Since we are dealing with a finite sample and known symbols there is an approach
     that is **O (N log N)**.   We create a binary or n-nary tree ordered lexically
     by symbol sequence.   Iterating through the samples, for each sample locate or
     insert a node in the tree, tracking its frequency.   Increment frequency.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们处理的是有限样本和已知符号，存在一个**O(N log N)**的方法。我们创建一个按符号序列进行字典排序的二进制或n进制树。通过样本迭代，对于每个样本，在树中定位或插入一个节点，跟踪其频率。增加频率。
 - en: '[![](img/950898a02e7c392e23642af4a9664465.png "Screen shot 2010-08-31 at 7.41.11
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-31-at-7-41-11-pm.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/950898a02e7c392e23642af4a9664465.png "2010年8月31日下午7点41分11秒的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-31-at-7-41-11-pm.png)'
 - en: The tree is rearranged as necessary to create balance and reduce the average
     path length to log N.  In one pass we now know both the domain of the distribution
     and the frequencies.   The expectation is now straight-forward to evaluate.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 该树根据需要进行重新排列以保持平衡，并将平均路径长度减少到 log N。在一个循环中，我们现在知道分布的域和频率。现在，评估期望是直截了当的。
 - en: Note that instead of using a tree, one can use a hash-table keyed off of sequences.
       This will result in an O(N) algorithm.   For some applications, though, it is
     useful to have a tree that places neighbors close to each other (for instance
     if we want to run a near neighbor analysis).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，我们可以使用哈希表而不是树，哈希表以序列为键。这将导致O(N)的算法。然而，对于一些应用程序，有必要使用一个将相邻元素紧密放在一起的树（例如，如果我们想运行近邻分析）。
