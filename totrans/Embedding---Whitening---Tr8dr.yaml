@@ -1,58 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:31:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:31:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Embedding & Whitening | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 嵌入与白化 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/19/embedding-whitening/#0001-01-01](https://tr8dr.wordpress.com/2010/09/19/embedding-whitening/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/09/19/embedding-whitening/#0001-01-01](https://tr8dr.wordpress.com/2010/09/19/embedding-whitening/#0001-01-01)
 - en: A reader asked about why we need to normalize differential entropy to remove
     autocorrelation (and cross-correlation).   I should have said, the whitening is
     trying to establish the difference (or ratio in this case) between the entropy
     of the series with autocorrelations / cross-correlations removed and the series
     with the correlations.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一位读者问了为什么我们需要归一化差分熵以消除自相关（和交叉相关）。我应该说，白化试图建立去除自相关/交叉相关的系列的熵与具有相关性的系列之间的差异（或比率，在这种情况下）。
 - en: In fact, we are trying to isolate the correlations because this is where the
     mutual information is, the rest is the ambient noise and variance of the data
     set.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，我们试图隔离相关性，因为这是互信息所在的地方，其余的是环境噪音和数据集的方差。
 - en: With the embedding vector we are trying to find a vector series that maximizes
     correlations.   Ok, so why do we need the normalization?
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过嵌入向量，我们试图找到最大化相关性的向量系列。那么，为什么我们需要归一化呢？
 - en: In searching for the appropriate embedding dimension and lag, we vary these
     quantities.  Increasing embedding dimension, for instance, is adding new variables
     to the system.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在寻找合适的嵌入维度和滞后时，我们变化这些数量。例如，增加嵌入维度是向系统添加新变量。
 - en: So for instance, let us say we have a system of 2 variables **A** and **B**,
     with a timeseries of {{A0,B0}, {A1,B1}, …} pairs.   Our embedding vector starts
     at dimension 2 { A[t], B[t] }.   Increasing the dimension, we have { A[t], B[t],
     A[t-1], B[t-1] } and so on.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，假设我们有一个由2个变量**A**和**B**组成的系统，具有一系列{{A0，B0}，{A1，B1}，…}对。我们的嵌入向量从维度2开始{ A[t]，B[t]
+    }。增加维度后，我们有{ A[t]，B[t]，A[t-1]，B[t-1] }等等。
 - en: Having added A[t-1], B[t-1], we may have increased the correlation between neighbors,
     but cannot be certain if we just observe the change in entropy without a relative
     measure for the same system variables.   We may have increased or decreased entropy
     just by adding a new dimensions, in addition to the correlation effect.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 添加了A[t-1]，B[t-1]后，我们可能增加了邻域之间的相关性，但如果只观察熵的变化而没有相对于同一系统变量的相对测量，就无法确定。我们可能仅通过添加新维度增加或减少熵，除了相关性效应之外。
 - en: The goal of normalization is then to determine the contribution of entropy introduced
     by the new variables, without any correlations, and compare that to the possible
     entropy reduction produced by increased correlation between neighbors.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 归一化的目标是确定由新变量引入的熵的贡献，而不考虑任何相关性，并将其与增加邻域之间的相关性可能减少的熵的可能减少进行比较。

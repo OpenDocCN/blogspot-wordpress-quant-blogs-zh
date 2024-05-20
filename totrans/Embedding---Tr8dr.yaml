@@ -1,174 +1,260 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:31:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日15:31:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Embedding | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 嵌入 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/16/embedding/#0001-01-01](https://tr8dr.wordpress.com/2010/09/16/embedding/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/09/16/embedding/#0001-01-01](https://tr8dr.wordpress.com/2010/09/16/embedding/#0001-01-01)
 - en: One of my strategies uses a nearest neighbor approach on a set of multivariate
     vectors.   I had not formalized the process of choosing the variables / composing
     the vectors in the model.  It turns out that chaos theory provides a strong grounding
     and closely relates in that both use near-neighbor analysis extensively.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的一种策略是在一组多变量向量上采用最近邻方法。我没有形式化选择变量/组合模型中的向量的过程。结果表明，混沌理论提供了强有力的基础，并且与近邻分析密切相关。
 - en: 'Given a multivariate timeseries (say 2 variables x,y), is there some “embedding”
     of:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定一个多变量时间序列（比如2个变量x，y），是否存在某种“嵌入”：
 - en: '[![](img/026882a7f8dcbf3eeb2b340cd1aa9814.png "Screen shot 2010-09-16 at 2.00.17
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-00-17-pm.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/026882a7f8dcbf3eeb2b340cd1aa9814.png "2010年09月16日下午2:00:17的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-00-17-pm.png)'
 - en: 'such that Xt+1 can be predicted by a stationary or locally stationary mapping
     θ based on the prior embedding tuple:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 使得Xt+1可以通过基于先前嵌入元组的稳定或局部稳定映射θ来预测：
 - en: '[![](img/ebcbedb739de0056a50c735905474a54.png "Screen shot 2010-09-16 at 2.03.03
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-03-03-pm.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ebcbedb739de0056a50c735905474a54.png "2010年09月16日下午2:03:03的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-03-03-pm.png)'
 - en: 'This formalism is used in non-linear dynamics to reconstruct the phase space
     of chaotic dynamic systems that have periodicity around an attractor.   In finance
     there are multiple attractors:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种形式主义用于非线性动力学中，以重构具有吸引子周围周期性的混沌动态系统的相空间。在金融领域存在多个吸引子：
 - en: the mean is an attractor
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 平均值是吸引子
 - en: In the case of returns, 0 tends to be the attractor
+  id: totrans-13
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 在收益率的情况下，0倾向于是吸引子
 - en: long run elliptical distribution
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 长期椭圆形分布
 - en: Short-term observed distributions come in various forms, but tend to revert
     to elliptical over longer periods.
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 短期观察到的分布形式各异，但在较长时间内往往会恢复到椭圆形。
 - en: With embedding one needs to determine the variable set, the number of lagged
     values (the embedding dimension **m**) and the embedding lag **τ**.  The idea
     with the embedding is that it provides exactly enough information to construct
     the reproducing function.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用嵌入时，需要确定变量集、滞后值的数量（嵌入维度**m**）和嵌入滞后**τ**。嵌入的想法是它提供了恰好足够的信息来构建再现函数。
 - en: 'Here is an example of the Rossler attractor.  Looking at the samples of one
     of its dimensions (X) we see the following timeseries:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是罗斯勒吸引子的一个例子。观察其中一个维度（X）的样本，我们可以看到以下时间序列：
 - en: '[![](img/eba97dd136c8bbcc1f22ad42c9b5af01.png "Screen shot 2010-09-16 at 2.34.47
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-34-47-pm.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/eba97dd136c8bbcc1f22ad42c9b5af01.png "2010年09月16日下午2:34:47的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-34-47-pm.png)'
 - en: 'We are able to reconstruct the phase space with an embedding of 3 and optimal
     lag of 8:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们能够通过嵌入3和最佳滞后8来重建相空间：
 - en: '[![](img/8100e2049de2dc264fcd409650312367.png "Screen shot 2010-09-16 at 2.39.24
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-39-24-pm.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8100e2049de2dc264fcd409650312367.png "2010年09月16日下午2:39:24的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-2-39-24-pm.png)'
 - en: In practice the trajectory of the embedding should have the following attributes
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在实践中，嵌入的轨迹应具有以下属性
 - en: spreads out the trajectory smoothly through its phase space hypercube
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使轨迹在其相空间超立方体中平滑传播
 - en: keeps periodic trajectories close to each other in space
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使周期轨迹在空间中彼此靠近
 - en: Most importantly reduces the entropy in its phase space
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 最重要的是减少其相空间的熵
 - en: The optimal choice of embedding makes the mapping of θ all the more effective.
       I won’t go into all of the theory of the above, would involve a text.   However,
     there are some problems to be solved.    How does one choose an optimal embedding
     (dimension and lag) and what about the mapping function?
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 最佳嵌入的选择使得θ的映射更加有效。我不会详细介绍以上的理论，这将涉及一篇文字。然而，有一些问题需要解决。如何选择最佳的嵌入（维度和滞后），以及映射函数如何？
 - en: '**Standard Approach to Determining Optimal Embedding'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**确定最佳嵌入的标准方法'
 - en: Surprisingly the standard approach seems to be rather ad-hoc.   The “false nearest
     neighbor” algorithm is usually used to determine the embedding dimension.  The
     algorithm is applied to successively higher dimensions to find the minimum “false
     neighbors”.   The nearest neighbor for a given point in time on a trajectory should
     be spacially within some epsilon, otherwise is considered not to be a true neighbor.**
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 令人惊讶的是，标准方法似乎相当临时。通常使用“虚假最近邻”算法来确定嵌入维度。该算法应用于连续更高的维度以找到最小的“虚假邻居”。在轨迹上给定时间点的最近邻居应在某些
+    epsilon 内空间，否则被认为不是真正的邻居。**
 - en: '**Rather than go into what that means and the algorithm, the problem is that
     one has to choose appropriate epsilon and also this only optimises one variable
     of the problem (embedding dimension).   Tau is not completely orthogonal to embedding
     dimension.**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**与其深入讨论其含义和算法，问题在于必须选择适当的 epsilon，而且这只优化了问题的一个变量（嵌入维度）。 Tau 与嵌入维度并不完全正交。**'
 - en: '**Tau in turn is traditionally computed using mutual information or correlation
     dimension analysis.   With precautions one can use these, but is not a good approach
     if automation is required.**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**而 Tau 传统上是使用互信息或相关维度分析来计算的。虽然可以采取预防措施来使用这些方法，但如果需要自动化则不是一个好方法。**'
 - en: '****Information Theoretic Approach'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '****信息论方法'
 - en: Gautama, Mandic, and Van Hulle provided a new approach to selecting optimal
     embedding dimension m and lag τ which optimises these together and with less subjective
     measures.   Their approach uses the Kozachenko-Leonenko estimate of differential
     entropy:****
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: Gautama、Mandic 和 Van Hulle 提供了一种选择最优嵌入维度 m 和滞后 τ 的新方法，该方法同时优化了这些因素，并且使用了较少的主观度量。他们的方法使用了
+    Kozachenko-Leonenko 对差分熵的估计：****
 - en: '****[![](img/1bd40e910e9f99bbd339de9fa9a96221.png "Screen shot 2010-09-16 at
     3.12.28 PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-3-12-28-pm.png)****'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '****[![](img/1bd40e910e9f99bbd339de9fa9a96221.png "Screen shot 2010-09-16 at
+    3.12.28 PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-3-12-28-pm.png)****'
 - en: '****where the |·| portion is the euclidean distance between the ith vector
     and its nearest neighbor.   Ce is the Euler constant 0.5772.****'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '****其中 |·| 部分是第 i 个向量与其最近邻之间的欧几里得距离。Ce 是欧拉常数 0.5772。****'
 - en: '****The notion is that the optimal choice of dimension and lag will have minimal
     entropy.   We can parameterize as H(x,m,τ) to provide a measure on the data for
     differing dimension and lag.****'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '****这个概念是最优维度和滞后的选择将具有最小熵。我们可以将其参数化为 H(x,m,τ)，以便对不同维度和滞后的数据进行测量。****'
 - en: '****Finally due to bias introduced with increasing dimension in the context
     of autocorrelation, the value needs to be normalized with an average of whitened
     (randomly shuffled) series.**** ****In their implementation they produce K=5 whitened
     series and take the average.****'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '****最后，由于在自相关的情况下引入了偏差，所以需要用经过白化（随机洗牌）的系列的平均值来归一化该值。在他们的实现中，他们产生 K=5 个白化系列并取平均值。****'
 - en: 'Ultimately the measure is as follows:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终的度量如下：
 - en: '**[![](img/7345afc4992aa0b1e0f0ce44f216d44a.png "Screen shot 2010-09-16 at
     3.24.16 PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-3-24-16-pm.png)**'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**[![](img/7345afc4992aa0b1e0f0ce44f216d44a.png "Screen shot 2010-09-16 at
+    3.24.16 PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-16-at-3-24-16-pm.png)**'
 - en: This function can then be minimized for **m** and **τ**.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个函数可以最小化**m**和**τ**。
 - en: '****Mapping Function'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '****映射函数'
 - en: I will discuss mapping functions at a later date.   For noisy data, the most
     common approach is to apply a polynomial basis across the X[t-1] near-neighbor
     successors to arrive at a next period estimate.****
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将在以后讨论映射函数。对于嘈杂的数据，最常见的方法是对 X[t-1] 的临近后继应用多项式基础，以得出下一周期的估计。****
