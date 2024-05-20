@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:06:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:06:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Derivative Optimization | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 衍生品优化 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/03/27/derivative-optimization/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/27/derivative-optimization/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/03/27/derivative-optimization/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/27/derivative-optimization/#0001-01-01)
 - en: Asset allocation receives much of the focus in the literature for optimization.
     Whether it is Minimum-Variance, Risk-Parity or Mean-Variance, we think of these
     tools as suitable primarily in the context of asset allocation. While these are key
@@ -28,8 +40,10 @@
     should be to either efficiently react or predict the time series in question,
     the concepts of portfolio optimization should be useful at all levels of an intelligent
     trading machine.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在文献中，资产配置占据了大部分关注。无论是最小方差、风险平价还是均值方差，我们认为这些工具主要适用于资产配置的情境。虽然这些是成功的关键概念，但它们代表了寻求有效α（可以说是β）产生的冰山一角。这些算法的基本逻辑和数学是许多经典预测方法的基础，如线性和非线性回归。由于所有交易的目标应该是要么有效地反应要么预测所涉及的时间序列，因此投资组合优化的概念应该在智能交易机器的所有层面上都有用。
 - en: 'What does that mean? Consider a host of simple “Level 1” examples: there are
     free parameters in any asset allocation optimization model, and in practice many
     of us will knowingly or unknowingly optimize these free parameters based on our
@@ -44,8 +58,10 @@
     Taking this a step further, I could use Risk-Parity to allocate to different moving
     averages strategies for a single asset to create one composite and unbiased signal
     (or you could use mean-variance as well).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是什么意思呢？考虑一系列简单的“一级”示例：在任何资产配置优化模型中都存在自由参数，在实践中，我们许多人会有意或无意地根据我们的回溯观察来优化这些自由参数。为什么不让同样的优化工具也用于这些目的呢？毫无疑问，我们并不尝试随时间推移来反向拟合投资组合选择，那么为什么要尝试对资产配置模型的自由参数（例如回望长度）进行同样的操作呢？我可以使用均值方差来找到最佳的自由参数（例如20天、60天、120天的回望长度等），并相应地加权。在一个更加反直觉的例子中，我可能希望使用风险平价来创建一个“无参数”的模型，该模型将不同回望长度的风险进行分配，以符合风险平价方法。通过这样做，我可以创建一个更加公正和更具鲁棒性的投资组合。再进一步，我可以使用风险平价来分配给单一资产的不同移动平均策略，从而创建一个综合且无偏见的信号（或者你也可以使用均值方差）。
 - en: The latter example is akin to a form of “derivative optimization” where the
     goal is to efficiently use a set of derivatives -indicators on the underlying
     time series- to either create a forecast or trade the time series itself. From
@@ -64,8 +80,10 @@
     the impact of information loss. In contrast, derivative optimization offers the
     promise of being able to control for some of these weaknesses and give greater
     insight into the drivers of final performance.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 后一种示例类似于一种“导数优化”形式，其目标是有效地使用一组导数-底层时间序列上的指标-来创建预测或交易时间序列本身。从系统开发者的角度来看，这听起来很像是策略分配，而事实上在某种程度上确实如此，但涉及到一些细微差别。导数优化（我自己的术语）考虑了最广泛的替代方案，并专注于同时合成时间序列的预测器。导数优化的输入是一组样本参数和指标，输出是最终的预测器。相比之下，策略分配通常表示对一系列已经被细化为最终交易系统形式的“挖掘”策略的战术分配。这些系统可以是简单的，也可以是非常复杂的，可能会交易数十个市场，甚至可能只交易一个市场。后者在有效组合方面要困难得多，因为复杂策略中存在着实质性的非线性，大量的数据挖掘偏见，更容易过度拟合的倾向，更为隐秘的是信息丢失的影响。相比之下，导数优化提供了能够控制其中一些弱点并提供更深入了解最终绩效驱动因素的承诺。
 - en: The benefits of derivative optimization are substantial– one can theoretically
     improve every area of a given model by segregating it into the  unique process
     inputs that can become adaptive. At the limit, such a model becomes increasingly
@@ -77,5 +95,8 @@
     on its own…….. The use of derivative optimization is a key step towards taking
     the “dumb” and “naaive” out of quantitative models and moving closer towards the
     “Watson” and “Big Blue” of the investment world.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 导数优化的好处是巨大的-理论上可以通过将其分割为可以自适应的独特过程输入来改进给定模型的每个领域。在极限情况下，这样的模型变得越来越自我意识，并且可以改变或修改自身以增加随时间表现良好的机会。一个高效的模型将作为并行网络运作，并根据需要共享信息以适应过程输入之间的交互。它还将使用最广泛范围的成分和数学变换/指标来创建独特的预测器。也许它最终可以自行执行后一种任务……..
+    使用导数优化是迈向将量化模型中的“愚蠢”和“天真”消除，并更接近于投资世界中的“沃森”和“大蓝”的关键一步。
