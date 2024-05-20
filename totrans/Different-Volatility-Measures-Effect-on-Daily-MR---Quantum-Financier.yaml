@@ -1,77 +1,119 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:05:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:05:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Different Volatility Measures Effect on Daily MR – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 不同波动率测量对每日 MR 的影响 - 量化金融师
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/05/different-volatility-measures-effects-on-daily-mr/#0001-01-01)
 - en: Daily swing trading strategies these days are usually inclined towards MR rather
     than trend FT. While there is a lot of factor that moderate a daily MR strategy,
     one of particular interest is volatility. Usually, higher volatility is favorable
     for short-term strategies (think RSI 2). For this bit of research I tried several
     volatility formulas on several time frames and compared the effect on RSI 2 returns.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当今的日间摇摆交易策略通常更倾向于 MR 而不是趋势 FT。虽然有很多因素可以调节每日 MR 策略，但特别感兴趣的一个因素是波动率。通常，更高的波动率对短期策略（考虑
+    RSI 2）是有利的。对于这一小研究，我尝试了几种不同的时间框架上的几种波动率公式，并比较了对 RSI 2 收益的影响。
 - en: 'Methodology: I Applied RSI 2 strategy to SPY’s returns from 2000 then classified
     volatility in percentile. I used three different methods to compute volatility
     figures, the classic standard deviation, the Garman Klass – Yang Zhang and the
     Yang Zhang method. The following formulas explain how I came up with the figures;
     I used the volatility function of the [TTR package](http://cran.r-project.org/web/packages/TTR/index.html)
     in R:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 方法论：我将 RSI 2 策略应用于 2000 年以来的 SPY 收益，然后将波动率分类为百分位数。我使用了三种不同的方法来计算波动率数字，经典标准差、加曼·克拉斯
+    - 杨张和杨张方法。以下公式解释了我如何得出这些数字；我在 R 中使用了 [TTR package](http://cran.r-project.org/web/packages/TTR/index.html)
+    中的波动率函数：
 - en: 'Garman Klass – Yang Zhang method:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 加曼·克拉斯 - 杨张方法：
 - en: '[![](img/7c4999e2c459a0e6c7efa8511836b9fd.png "GK-YZ formula")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/gk-yz-formula1.jpg)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7c4999e2c459a0e6c7efa8511836b9fd.png "GK-YZ 公式")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/gk-yz-formula1.jpg)'
 - en: 'Yang Zhang method:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 杨张方法：
 - en: '[![](img/8c53f05f5193e0ff19dfb3e39475a746.png "YZ formula")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/yz-formula.jpg)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8c53f05f5193e0ff19dfb3e39475a746.png "YZ 公式")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/yz-formula.jpg)'
 - en: 'Where:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中：
 - en: '[![](img/11f9d43a5ca19f92cdb4fc5e992df8aa.png "Symbols")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/symbols.jpg)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/11f9d43a5ca19f92cdb4fc5e992df8aa.png "符号")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/symbols.jpg)'
 - en: '*The GK-YZ method allows for opening gaps while the YZ method is independent
     of both drift and opening gaps.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '*GK-YZ 方法允许开放差距，而 YZ 方法与漂移和开放差距无关。'
 - en: The table below shows average trade result and winning percentage by percentile
     for monthly (21 days) and annual (252 days) time frames. Note that these time
     frames were arbitrarily chosen and a future post will likely expand on this with
     different time frames.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 下表显示了按百分位数分类的每月（21 天）和每年（252 天）时间框架的平均交易结果和获胜百分比。请注意，这些时间框架是任意选择的，未来的一篇文章可能会用不同的时间框架来扩展此内容。
 - en: '[![](img/c36de95189b049d72ac4d48c77052849.png "table")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/table.jpg)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c36de95189b049d72ac4d48c77052849.png "表格")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/table.jpg)'
 - en: At first glance, it seems that the added computation complexity does not significantly
     improve our system accuracy. On the monthly time frame though, the system average
     trade returns in the lower percentile was higher when mitigated by the YZ indicator.
     Regardless, the rest of the results were not significant enough for me to pronounce
     a volatility indicator better suited for a MR system. Traders might want to KISS
     and stay with the good old classic standard deviation.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 乍一看，似乎增加了计算复杂度并没有显著提高我们的系统准确性。不过，在月度时间框架下，当受 YZ 指标缓和时，系统在较低百分位数的平均交易回报率较高。无论如何，其余的结果都不足以使我宣布一种波动率指标更适合
+    MR 系统。交易员可能希望简化并坚持使用经典的标准差。
 - en: QF
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: QF
