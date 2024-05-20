@@ -2,38 +2,46 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:32:09'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月12日 19:32:09
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: DirectMatch, Market Microstructure & SDPs | Coding the markets
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: DirectMatch，市场微观结构和SDPs | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2015/01/20/directmatch-market-microstructure-sdps/#0001-01-01](https://etrading.wordpress.com/2015/01/20/directmatch-market-microstructure-sdps/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2015/01/20/directmatch-market-microstructure-sdps/#0001-01-01](https://etrading.wordpress.com/2015/01/20/directmatch-market-microstructure-sdps/#0001-01-01)
 - en: DirectMatch, Market Microstructure & SDPs
   id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: DirectMatch，市场微观结构和SDPs
 - en: January 20, 2015
   id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2015年1月20日
 - en: I’ve been heads down working on [SpreadServe](http://www.spreadserve.com/) recently,
     so haven’t paid so much attention to the [etrading](https://etrading.wordpress.com/2006/08/31/adverse-selection-and-uninformed-traders/)
     [topics](https://etrading.wordpress.com/2006/08/31/adverse-selection-and-uninformed-traders/)
@@ -55,11 +63,15 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我一直在忙于[SpreadServe](http://www.spreadserve.com/)，所以没有太关注我曾经[经常博客](https://etrading.wordpress.com/2007/05/24/rfs-vs-rfq/)
+    的[etrading](https://etrading.wordpress.com/2006/08/31/adverse-selection-and-uninformed-traders/)
+    [话题](https://etrading.wordpress.com/2006/08/31/adverse-selection-and-uninformed-traders/)。多亏了[mdavey](https://mdavey.wordpress.com/)的一则更新，我开始赶上了[jgreco一直发布的优秀而发人深省的内容](https://medium.com/@jgreco/internalization-and-adverse-selection-79f9fee8684d)，关于他计划建立一个[新的美国国债交易场所](http://directmatchx.com)，作为一个限价委托簿，买卖双方平等交易。我喜欢关于[内部化和逆向选择](https://medium.com/@jgreco/internalization-and-adverse-selection-79f9fee8684d)的帖子。他对[单一交易商平台](http://www.directmatchx.com/blog/single-dealer-platforms-and-adverse-selection)的观点也是有根据的，尽管我在利率交易中的经验是很难将客户流量引入SDPs，因为它们本质上无法提供多交易商的RFQ，这对必须出于监管原因证明最佳执行的实际资金客户至关重要。当然，如果BrokerTec，eSpeed和EuroMTS的交易商价格与主要交易所的股票价格一样公开，那么就有可能出现更多的最佳执行问题解决方案。正如jgreco所指出的，透明度是关键。
 - en: Now I want to raise a few questions prompted by jgreco’s posts, both pure tech,
     and market microstructure…
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我想提出一些问题，这些问题是由jgreco的帖子引发的，涉及纯技术和市场微观结构...
 - en: '[Java](http://www.directmatchx.com/careers)? Really? I wonder if it’s inspired
     by [LMAX’s](http://www.lmax.com) Java exchange implementation, their custom collections
     and [Disruptor](https://lmax-exchange.github.io/disruptor/). I would have expected
@@ -68,6 +80,7 @@
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Java](http://www.directmatchx.com/careers)? 真的吗？我想知道它是否受到了[LMAX](http://www.lmax.com)的Java交易实现的启发，他们的自定义集合和[Disruptor](https://lmax-exchange.github.io/disruptor/)。我本来期望是C++，但我是一个老派的C++程序员。'
 - en: '[Is that really the workflow](http://www.directmatchx.com/blog/welcome-to-interest-rates-trading)
     ? That must be a tier 2 or 3 bank. All my experience has been at tier 1 orgs where
     all pricing and RFQ handling is automated. If a trader quotes a price by voice,
