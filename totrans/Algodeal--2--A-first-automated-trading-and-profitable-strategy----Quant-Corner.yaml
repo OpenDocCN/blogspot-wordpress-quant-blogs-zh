@@ -1,180 +1,279 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:10:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:10:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Algodeal (2) A first automated trading and profitable strategy! | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Algodeal (2) A first automated trading and profitable strategy! | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01](https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01](https://quantcorner.wordpress.com/2011/06/13/algodeal-2-a-first-automated-trading-and-profitable-strategy/#0001-01-01)
 - en: Introduction
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 介绍
 - en: Today, we write a first automated trading strategy using the **Market Runner**
     development environment in **Java** developed by the **Algodeal** team. Then,
     we will send it out to the **Algodeal** servers that is we will run our strategy
     to see how well it performs in pseudo real conditions.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我们使用由 **Algodeal** 团队开发的 **Java** 中的 **Market Runner** 开发环境编写了第一个自动化交易策略。然后，我们将其发送到
+    **Algodeal** 服务器上，也就是说，我们将运行我们的策略，以查看其在伪实际条件下的表现如何。
 - en: Beforehand, we did our homework that is we did market research seeking to understand
     the behaviour of a stock/index/future price. Then, we determined a trading framework,
     entry and exit rules.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 事先，我们做了我们的功课，也就是说，我们进行了市场调研，试图了解股票/指数/期货价格的行为。然后，我们确定了一个交易框架，入场和退出规则。
 - en: There are various way one can come up with a automated trading idea depending
     on one’s trading experience, knowledge in the field of finance, econometrics,
     technical analysis, neural networks, support vector machine, … It is a mix of
     science and experience (and luck ?) .
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据一个人在金融领域的交易经验、金融知识、计量经济学、技术分析、神经网络、支持向量机等方面的知识，可以提出各种各样的自动化交易思想。这是科学和经验（和运气？）的混合。
 - en: For this first code, this research step is restricted to the observation of
     common technical analysis indicators, and knowledge of the underlying.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于这个第一段代码，这个研究步骤仅限于观察常见的技术分析指标，并了解底层知识。
 - en: As far as coding in **Java** is concerned, we will derive the code examples
     given by the **Algodeal** team. The structure of our code draw from the tutorials
     available.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 就**Java**编码而言，我们将参考 **Algodeal** 团队提供的代码示例。我们的代码结构来源于可用的教程。
 - en: The underlying and trading rules
+  id: totrans-12
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 底层和交易规则
 - en: We selected an **agricultural commodity future**, called *Underlying* in our
     code.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们选择了一个名为*底层*的**农产品期货**。
 - en: We make use of the **RSI** (Relative Strength Index) technical indicator, coupled
     with the drop (in %) of the underlying price on a trading day.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们利用了**RSI**（相对强弱指标）技术指标，结合交易日底层价格的下跌（以百分比表示）。
 - en: We determined certain levels for both the **RSI** and the price drop. More exactly,
     we determined two different level for each indicator.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们确定了**RSI**和价格下跌的某些水平。更确切地说，我们为每个指标确定了两个不同的水平。
 - en: 'The (pseudo) pseudo code for our strategy is as follows :'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们策略的（伪）伪代码如下：
 - en: _____________________
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: _____________________
 - en: if  x > RSI > y and  a > drop > b
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果 x > RSI > y 并且 a > drop > b
 - en: then buy 1 unit
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后购买 1 单位
 - en: If y > RSI > z and drop > b
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果 y > RSI > z 并且 drop > b
 - en: then buy 1 unit
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后购买 1 单位
 - en: If position = long then
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果持仓为多头则
 - en: wait 3 bars and close out the position
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 等待 3 个条形图然后平仓
 - en: _____________________
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: _____________________
 - en: Here, x < y < z , and a < b.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，x < y < z，而 a < b。
 - en: One can see it is really basic, somehow *heterodox*, and *a priori* risky as
     there are no safeguards. Notice this strategy will require cash as it is of *buy
     first then sell* type. But, it is OK for now!
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们可以看到这真的很基础，有些*异端*，*a priori*风险很大，因为没有安全保障。请注意，这种策略将需要现金，因为它是*先买后卖*类型。但是，现在还可以！
 - en: The code of the strategy in Java
+  id: totrans-27
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Java 代码中的策略
 - en: We follow the general code structures showed at beta.algodeal.com.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们遵循在 beta.algodeal.com 上展示的一般代码结构。
 - en: 'Our code starts with fundamental instructions :'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的代码从基本的指令开始：
 - en: '[PRE0]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'As it is showed in the **Algodeal** code examples, we extend the AbstractStrategy
     class:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如在 **Algodeal** 代码示例中所示，我们扩展了 AbstractStrategy 类：
 - en: '[PRE1]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Then, we define all our variables :'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们定义了所有的变量：
 - en: '[PRE2]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: This way it will be easy to change the values hoping to better score by trial
     and error.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 这样做将很容易通过反复试验改变值以希望获得更好的得分。
 - en: 'Then, we declare our variable rsi and we draw it on a graph as such :'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们声明了我们的变量 rsi 并在图上绘制如下：
 - en: '[PRE3]'
+  id: totrans-37
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '*Please refer to the MarketRunner API documentation for the details of the
     parameters.*'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '*请参考 MarketRunner API 文档了解参数的详细信息*。'
 - en: Finally, we get to the heart of the strategy. All our conditions, loops, etc
     … are contained in a single **onClose()** callback.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们来到策略的核心。我们所有的条件、循环等都包含在一个 **onClose()** 回调中。
 - en: 'The whole code snippet looks like :'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 整个代码片段看起来像：
 - en: '[PRE4]'
+  id: totrans-41
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: Running the strategy
+  id: totrans-42
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 运行策略
 - en: '*Last but not least*, we run our strategy in ‘real’ conditions by sending out
     our code towards the **Algodeal** grid of servers. In no time, we receive back
     a series of performance indicators of our trading strategy.'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '*最后但并非最不重要*，我们通过向**Algodeal**服务器网格发送我们的代码来在“真实”条件下运行我们的策略。在很短的时间内，我们就会收到一系列我们交易策略的表现指标。'
 - en: 'The overall performance of our strategy :'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们策略的整体表现：
 - en: '[![](img/50cf2ac150597a8bb22f2697405c05dd.png "equityChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/equitychartsoybean.png)'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/50cf2ac150597a8bb22f2697405c05dd.png "equityChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/equitychartsoybean.png)'
 - en: '[![](img/91a4c590328e5bac353b27abcf11a5a9.png "barChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/barchartsoybean1.png)'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/91a4c590328e5bac353b27abcf11a5a9.png "barChartSoybean")](https://quantcorner.wordpress.com/wp-content/uploads/2011/06/barchartsoybean1.png)'
 - en: OK, it is far from perfect, and this strategy has many caveats as it is oversimplified.
     But, can you believe it ? It is profitable! This should convince one that it worth
     spending time doing market research, defining automated trading strategies and
     coding them using the **Algodeal.**
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，这离完美还有很远，这种策略有很多注意事项，因为它过于简化了。但是，你能相信吗？这是有利可图的！这应该能说服一个人，值得花时间做市场调研，定义自动交易策略，并使用**Algodeal**进行编码。
 - en: Once an author wrote that  *knowledge is all around waiting to be articulated*.
     Now, it is tempting to derive this assertion as *wealth is all around waiting
     to be coded*. 🙂
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一次，一位作者写道，*知识无处不在，等待被表达*。现在，把这种说法推断为*财富无处不在，等待被编码* 是很诱人的 🙂。

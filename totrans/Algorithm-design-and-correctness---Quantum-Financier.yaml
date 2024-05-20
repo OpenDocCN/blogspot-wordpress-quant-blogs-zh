@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 13:59:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Algorithm design and correctness – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://quantumfinancier.wordpress.com/2018/02/24/algorithm-design-and-correctness/#0001-01-01](https://quantumfinancier.wordpress.com/2018/02/24/algorithm-design-and-correctness/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -26,6 +32,7 @@
     than to have incorrect software interacting with markets. It is obvious that correctness
     is a critical part of the design of an algorithm. How does one go about ensuring^([1](#fn1))
     it then?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: Abstractly, a trading algorithm is simply a set of specific actions to be taken
@@ -41,6 +48,7 @@
     different frameworks. I am confident the results would be similar for just about
     any modern language. That being said, let’s backup before we dive deeper on some
     application of the pattern.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'Per Wikipedia, a FSM is an abstract machine that can be in exactly one of a
@@ -49,19 +57,23 @@
     is called a transition. A FSM is defined by a list of its states, its initial
     state, and the conditions for each transition. We will use the Turtle trading
     system 2 rules as an example. The rules are summarized below:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '**Entry: Go long (short) when the price crosses above (below) the high (low)
     of the preceding 55 days.**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: '**Exit: Cover long (short) when the price crosses below (above) the low (high)
     of the preceding 20 days.**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: As we learned previously, to fully define a FSM we need a list of its states,
     its initial state and the conditions for each transitions. We then have to convert
     these trading rules to a proper FSM definition.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: 'From the rules above I would define the following trading states: ![TradingState\in\left\{Init,Long,Short,StopFromLong,StopFromShort\right\}](img/0726eec0c2cfe382e5aa5484cc8c4cf9.png)
@@ -70,10 +82,12 @@
     and finally ![(Low50, Low20, High50, High20)\in\mathbb{R}^{4}](img/18b51a59973f4cc785ff483798b786a3.png).
     That is to say then that the state space of our algorithm is defined by the following
     triplet ![\left\{TradingState,IndicatorStatus,\mathbb{R}^{4}\right\}](img/a3ea5d9bc6cc5cda2c7561afbea366f1.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: 'If you can forgive my abuse of notation, the following outlines the state transitions
     and their respective conditions:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '![\begin{cases} Init\rightarrow Init & IndicatorStatus=Initializing \\Init\rightarrow
@@ -90,10 +104,12 @@
     Init & \emptyset \\SFS\rightarrow Long & Prc_{t}>High50_{t} \\SFS\rightarrow Short
     & Prc_{t}<Low50_{t} \\SFS\rightarrow SFL & \emptyset \\SFS\rightarrow SFS & Low50_{t}\le
     Prc_{t}\le High50_{t} \end{cases}](img/1b7d638274224e67954875e3498a0b13.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
 - en: 'Knowing the possible state transitions, we can determine what trading actions
     are needed in each instance:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: '![\begin{cases} Init\rightarrow Init & \emptyset \\Init\rightarrow Long & Send\
@@ -110,8 +126,10 @@
     \\ \\SFS\rightarrow Init & \emptyset \\SFS\rightarrow Long & Send\ buy\ order\
     for\ N\ units \\SFS\rightarrow Short & Send\ sell\ order\ for\ N\ units \\SFS\rightarrow
     SFL & \emptyset \\SFS\rightarrow SFS & \emptyset \end{cases}](img/004e692b97d3324bb664fb7a8a48a7f4.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![状态转换矩阵1](img/004e692b97d3324bb664fb7a8a48a7f4.png)'
 - en: 'This is obviously a simplistic example meant to illustrate my point but lets
     consider the design for a moment. First it is obvious that each state is mutually
     exclusive which is a prerequisite for a valid FSM. That in plain terms means that
@@ -119,12 +137,16 @@
     algorithm was trying to do since there can only be one possible transition given
     the state at that specific point in time. That would not have been the case had
     I decided to define the following transition:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这显然是一个用来阐明我的观点的简单示例，但让我们考虑一下设计。首先，很明显每个状态是相互排斥的，这是有效有限状态机的先决条件。简单地说，这意味着在任何时间点上我都可以评估状态并清楚地了解算法试图做什么，因为在那个特定的时间点上只能有一种可能的转换。如果我决定定义以下转换，情况就不会是这样：
 - en: '![\begin{cases} \cdots \\Long\rightarrow Short & Prc_{t}<Low50_{t} \\Long\rightarrow
     SFL & Prc_{t}<Low20_{t} \\\cdots \end{cases}](img/645ae88e6f7fab2dc5c529bc076174c7.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![状态转换矩阵2](img/645ae88e6f7fab2dc5c529bc076174c7.png)'
 - en: In that case, it would be possible for both the conditions to evaluate true
     and therefore there are more than one possible state transitions. How would you
     know looking at the logs what this algorithm tried to do? In this case it is again
@@ -132,8 +154,10 @@
     the entire state space and clearly define the algorithm behavior in a similar
     fashion to the above. This might seem very long winded but it is something I do
     on paper religiously before I ever write a line of production code.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，两个条件都可能评估为真，因此可能存在多个可能的状态转换。看日志时，你怎么知道这个算法试图做什么？在这种情况下，情况再次显而易见，但在更复杂的有限状态机中，我总是觉得值得花时间仔细考虑整个状态空间，并以类似上述的方式清晰地定义算法行为。这可能看起来很啰嗦，但在我写下一行生产代码之前，我都会在纸上虔诚地做这件事。
 - en: 'The same pattern can also be used in other parts of your trading stack. For
     instance, your order management system could define orders as a FSM with the following
     states: ![\left\{Sent, Working, Rejected, CxlRequested, Cancelled, CxlRejected,
@@ -143,20 +167,29 @@
     it, you could design a whole trading stack with almost nothing but FSMs. By using
     FSMs you can design to insure correctness of your algorithms and eliminate a whole
     class of potential design flaws that might sneak in otherwise.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样的模式也可以用在交易堆栈的其他部分。例如，您的订单管理系统可以将订单定义为具有以下状态的有限状态机（FSM）：![\left\{已发送, 工作中,
+    已拒绝, 请求取消, 已取消, 取消已拒绝, 部分成交, 完全成交\right\}](img/e5c28b97a5e83ce8655bffa3bfd36168.png)。在这种情况下，转换将与接收交换订单事件有关，例如确认、拒绝消息等。如果你停下来想一想，你几乎可以用几乎没有别的东西而只是FSMs来设计整个交易堆栈。通过使用FSMs，您可以设计以确保算法的正确性，并消除可能潜入的一整类潜在设计缺陷。
 - en: The pattern fits nicely in object-oriented design where state and related behaviors
     can be grouped in nicely decoupled classes. That said, some functional languages
     provide you a type system that can provide you with additional guarantees when
     used properly and can help you build some very powerful abstractions. We will
     examine an example in  a following post. In the meantime, I would be very interested,
     as always, to hear which patterns you have found useful in your work.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种模式在面向对象设计中非常合适，其中状态和相关行为可以被组织成良好解耦的类。尽管如此，一些函数式语言提供了一种类型系统，当正确使用时可以为您提供额外的保证，并且可以帮助您构建一些非常强大的抽象。我们将在随后的文章中详细讨论一个例子。与此同时，我一如既往地很感兴趣，听听你在工作中发现了哪些模式有用。
 - en: '* * *'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: ^(1\. [Or as close as one can get to certainty anyway!][↩](#ref1 "Jump back
     to footnote 1 in the text."))
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ^(1\. 或者尽可能接近确定性！[↩](#ref1 "返回正文中的脚注 1。"))
