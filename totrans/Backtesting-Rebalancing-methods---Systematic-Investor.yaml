@@ -1,70 +1,104 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:44:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:44:52'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Backtesting Rebalancing methods | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 再平衡方法的历史回测 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/#0001-01-01)
 - en: 'I wrote about Rebalancing in the [Asset Allocation Process Summary](https://systematicinvestor.wordpress.com/2011/11/22/asset-allocation-process-summary/)
     post. Deciding how and when to rebalance (update the portfolio to the target mix)
     is one of the critical steps in the Asset Allocation Process. I want to study
     the portfolio performance and [turnover](http://wiki.fool.com/Portfolio_turnover)
     for the following Rebalancing methods:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在[资产配置流程总结](https://systematicinvestor.wordpress.com/2011/11/22/asset-allocation-process-summary/)帖子中谈到了再平衡。决定何时如何再平衡（更新投资组合至目标配置）是资产配置流程中的关键步骤之一。我想研究以下再平衡方法的投资组合表现和[周转率](http://wiki.fool.com/Portfolio_turnover)：
 - en: 'Periodic Rebalancing: rebalance to **the target mix** every month, quarter,
     year.'
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '定期再平衡: 每月、季度、年度向**目标配置**再平衡。'
 - en: 'Maximum Deviation Rebalancing: rebalance to **the target mix** when asset weights
     deviate more than a given percentage from the target mix.'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '最大偏差再平衡: 当资产权重偏离目标一定百分比时，再平衡至**目标配置**。'
 - en: 'Maximum Deviation Rebalancing: rebalance **half-way to the target mix** when
     asset weights deviate more than a given percentage from the target mix.'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '最大偏差再平衡: 当资产权重偏离目标配置一定百分比时，再平衡**一半到目标配置**。'
 - en: 'I will study a very simple target mix: 50% allocation to equities ([SPY](http://www.google.com/finance?q=spy))
     and 50% allocation to fixed income ([TLT](http://www.google.com/finance?q=tlt)).'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将研究一个非常简单的目标配置：50%配置给股票（[SPY](http://www.google.com/finance?q=spy)）和50%配置给固定收益（[TLT](http://www.google.com/finance?q=tlt)）。
 - en: 'First, let’s examine Periodic Rebalancing. Following code implements this strategy
     using the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们研究定期再平衡。以下代码使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库来实现该策略：
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/990c51c8efe0c30eb083c41e22672d42.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small3.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/990c51c8efe0c30eb083c41e22672d42.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small3.png)'
 - en: '[![](img/76a6b1a85b14a4ef786f0afd7c7df8ad.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small3.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/76a6b1a85b14a4ef786f0afd7c7df8ad.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small3.png)'
 - en: '[![](img/86cef8059e184ff868df122c1624d6ca.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small3.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/86cef8059e184ff868df122c1624d6ca.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small3.png)'
 - en: As expected, the Buy and Hold strategy has 0 turnover, but deviates a lot from
     the Target Mix. On the other hand, Monthly Rebalancing keeps portfolio close to
     the Target Mix, but at the cost of the 36% annual turnover.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 如预期的那样，买入并持有策略的周转率为0，但与目标配置相差甚远。另一方面，每月再平衡会使投资组合保持接近目标配置，但代价是36%的年度周转率。
 - en: Next to trigger Rebalancing based on the Maximum Deviation from the Target Mix,
     I created a function, bt.max.deviation.rebalancing, that iteratively searches
     for a violation of Maximum Deviation and forces the rebalancing once the violation
@@ -73,33 +107,51 @@
     each time the violation of Maximum Deviation is found, the portfolio is rebalanced
     all the way to the target mix, and for rebalancing.ratio equal to 0.5, the portfolio
     is rebalanced half way to the target mix.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步触发基于与目标配置的最大偏差再平衡，我创建了一个函数 bt.max.deviation.rebalancing，它迭代搜索最大偏差的违反，并一旦违法发生就强制再平衡。该函数可以根据再平衡比率全部或部分地将投资组合再平衡到目标配置。例如，对于再平衡比率等于0，每当发现最大偏差的违反时，投资组合都会完全再平衡到目标配置，对于再平衡比率等于0.5，投资组合会再平衡到目标配置的一半。
 - en: '[PRE1]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Now, let’s compare 5% Maximum Deviation Rebalancing to the Periodic Rebalancing.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，让我们将5%最大偏差再平衡与定期再平衡进行比较。
 - en: '[PRE2]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/e8ce8a26285f4c3a3cc40e8eb97c6202.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small1.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e8ce8a26285f4c3a3cc40e8eb97c6202.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small1.png)'
 - en: '[![](img/80e2f909415cbd2987b373bab8488d50.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot5-small1.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/80e2f909415cbd2987b373bab8488d50.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot5-small1.png)'
 - en: '[![](img/8dd517d9d1b4a283dceb2e521e022270.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot6-small1.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8dd517d9d1b4a283dceb2e521e022270.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot6-small1.png)'
 - en: As expected, the Maximum Deviation Rebalancing keeps portfolio close to the
     Target Mix. Moreover, the Maximum Deviation Rebalancing strategy has lower turnover
     than the Monthly Rebalancing. So in this case the Maximum Deviation Rebalancing
     wins over Periodic Rebalancing method.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 如预期的那样，最大偏差再平衡使投资组合保持接近目标混合。此外，最大偏差再平衡策略的换手率低于月度再平衡。因此，在这种情况下，最大偏差再平衡胜过周期性再平衡方法。
 - en: To view the complete source code for this example, please have a look at the
     [bt.rebalancing.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.rebalancing.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

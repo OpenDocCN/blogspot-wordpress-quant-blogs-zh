@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 14:45:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Backtesting with Short positions | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/02/backtesting-with-short-positions/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -24,36 +30,46 @@
     post. This strategy was also analyzed in details by MarketSci in [Woodshedder’s
     Long-Term Indicator](http://marketsci.wordpress.com/2011/10/04/woodshedders-long-term-indicator/)
     post.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: 'The strategy uses the 5 day rate of change (ROC5) and the 252 day rate of change
     (ROC252):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: Buy (or cover short) at the close if yesterday the ROC252 crossed above the
     ROC5 and today the ROC252 is still above the ROC5.
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Sell (or open short) at the close if yesterday the ROC5 crossed above the ROC252
     and today the ROC5 is still above the ROC252.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 'Following is a sample code to implement this strategy using the backtesting
     library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/955d35d28ae9b106368dc782c36f35d6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small10.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/1fefb4667dbfed4522d4880e17f4c713.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small9.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/7036b5f042dd1b5c68e2f808de638b4a.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small7.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: A quick comparison between the equity curve of the ROC strategy and the equity
@@ -61,78 +77,108 @@
     equity curve peaked in 2008-2009, while the equity curve shown by Woodshedder
     peaked in 2011\. I re-created this strategy in Amibroker and got similar results
     to the ones reported by Woodshedder. So what is wrong?
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: 'The problem lies in a way the backtest is created, I used weights, not shares
     to create the backtest. Let’s compare the backtest performance using weights or
     shares of the **long-only** strategy when prices rise 10% each period:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '| P0 | P1 | P2 |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
 - en: '| 100 | 110 | 121 |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
 - en: '|  | R1 | R2 |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
 - en: '|  | 10% | 10% |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
 - en: The total return using one share, [(one share) * P2] / 100 – 1 = 21% and the
     total return using weights, (1+R1)(1+R2) – 1 = 21%, are identical.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
 - en: 'Consider the performance using weights or shares of the **short-only** strategy
     when prices fall 10% each period:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: '| P0 | P1 | P2 |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
 - en: '| 100 | 90 | 81 |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
 - en: '|  | R1 | R2 |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
 - en: '|  | -10% | -10% |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
 - en: The total return using one share, [200 – (one share) * P2] / 100 – 1 = 19% and
     the total return using weights, (1+R1)(1+R2) – 1 = 21%, are different.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
 - en: The difference arises because in period 1, prices have dropped 10% and hence
     we have $10 additional dollars to invest. So if the proceeds are reinvested, the
     portfolio value in period 0 is $100, in period 1 is $110 = 1.1 * $100, in period
     2 is $121 = 1.1 * $110, and the total return is $121 / $100 – 1 = 21%.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 差异出现在期间1，价格下跌了10%，因此我们有额外的$10要投资。因此，如果收益重新投资，期间0的投资组合价值为$100，在期间1为$110 = 1.1
+    * $100，在期间2为$121 = 1.1 * $110，总回报为$121 / $100 – 1 = 21%。
 - en: Conclusion, if Backtesting with Short positions we cannot use weights * return
     to compute portfolio return because it assumes that all mark-to-market gains are
     reinvested right away, instead we should use shares to create the backtest.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，如果使用空头回测，我们不能使用权重*收益来计算投资组合回报，因为它假设所有的盯市盈利立即重新投资，而是应该使用股票来创建回测。
 - en: 'Here is the code that implements shares backtest (type=’share’ in bt.run function)
     :'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是实现股票回测（在`bt.run`函数中type='share'）的代码：
 - en: '[PRE1]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/f2c73da64b5fbb980addd08dc523ebe4.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small3.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f2c73da64b5fbb980addd08dc523ebe4.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small3.png)'
 - en: '[![](img/be653bfd07ba14c81970b8c28e311566.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot5-small2.png)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/be653bfd07ba14c81970b8c28e311566.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot5-small2.png)'
 - en: Finally, the equity curve of the ROC strategy using type=’share’ in backtest
     is very similar to one reported by Woodshedder.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，使用回测中的type='share'的ROC策略的股票曲线与Woodshedder报告的曲线非常相似。
 - en: To view the complete source code for this example, please have a look at the
     [bt.roc.cross.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.roc.cross.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
