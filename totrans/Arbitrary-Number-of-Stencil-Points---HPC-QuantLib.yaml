@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:16:38'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:16:38
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Arbitrary Number of Stencil Points – HPC-QuantLib
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 任意数量的模板点 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/#0001-01-01](https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/#0001-01-01](https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/#0001-01-01)
 - en: The standard finite difference implementations of derivative pricing algorithms
     based on partial differential equations have a spatial order of convergence of
     two. Reason is that these implementations are using a three point central stencil
@@ -33,6 +39,7 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于偏微分方程的标准有限差分衍生品定价算法的空间收敛阶为二。原因是这些实现使用了三点中心式模板进行一阶和二阶导数计算。三点模板导致一个三对角矩阵。这样的线性系统可以通过托马斯算法高效地求解。
 - en: Higher order of spatial accuracy relies on stencils with more points. The corresponding
     linear systems can no longer be solved by the Thomas algorithm but by the BiCGStab
     iterative solver with the classical three point stencil as a very efficient preconditioner.
@@ -41,6 +48,7 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 更高的空间准确度依赖于具有更多点的模板。相应的线性系统不再可以通过托马斯算法解决，而是可以通过BiCGStab迭代求解器以传统的三点模板作为非常有效的预处理器来解决。在任意网格上计算更大模板的系数的计算算法在[1]中概述。
 - en: Before using higher order stencils one should first make sure, that the two
     standard error reduction techniques are in place, namely adaptive grid refinement
     around important points [2] and cell averaging around special points of the payoff
@@ -49,49 +57,64 @@
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在使用更高阶模板之前，应首先确保两种标准误差缩减技术已经到位，即围绕重要点进行自适应网格细化[2]，并围绕到期收益的特殊点进行单元平均化，或者（同样适用于普通期权）将行权价放在两个网格点之间的中间位置。让我们专注于Black-Scholes-Merton
+    PDE
 - en: '![\displaystyle \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2\frac{\partial^2
     V}{\partial x^2} + \left(r-q-\frac{\sigma^2}{2}\right)\frac{\partial V}{\partial
     x} -rV = 0 \ \wedge \ x= \ln S](img/9ebd73e47b1a2f7cbb1d7347f829009a.png)'
   id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![\displaystyle \frac{\partial V}{\partial t} + \frac{1}{2}\sigma^2\frac{\partial^2
+    V}{\partial x^2} + \left(r-q-\frac{\sigma^2}{2}\right)\frac{\partial V}{\partial
+    x} -rV = 0 \ \wedge \ x= \ln S](img/9ebd73e47b1a2f7cbb1d7347f829009a.png)'
 - en: after [transforming it to the heat equation](https://quant.stackexchange.com/questions/84/transformation-from-the-black-scholes-differential-equation-to-the-diffusion-equ)
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[将其转换为热传导方程](https://quant.stackexchange.com/questions/84/transformation-from-the-black-scholes-differential-equation-to-the-diffusion-equ)之后
 - en: '![\displaystyle \frac{\partial u}{\partial \tau}=\frac{1}{2}\sigma^2\frac{\partial^2
     u}{\partial y^2} \ \wedge \ y = x + \left(r-q-\frac{1}{2}\sigma^2\right)\tau \
     \wedge \ t=T-\tau \ \wedge \ u=e^{r\tau}V](img/0e29cf6eb1659716428250d65ee14ec9.png)'
   id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\displaystyle \frac{\partial u}{\partial \tau}=\frac{1}{2}\sigma^2\frac{\partial^2
+    u}{\partial y^2} \ \wedge \ y = x + \left(r-q-\frac{1}{2}\sigma^2\right)\tau \
+    \wedge \ t=T-\tau \ \wedge \ u=e^{r\tau}V](img/0e29cf6eb1659716428250d65ee14ec9.png)'
 - en: to demonstrate the convergence improvements. The spatial pricing error is defined
     as the RMSE for a set of benchmark options. In this example the benchmark portfolio
     consists of OTM call or put options with strikes
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了展示收敛改进。空间定价误差定义为一组基准期权的均方根误差（RMSE）。在这个例子中，基准投资组合由行权价为
 - en: '![k\in \{50, 75, 90, 100, 110, 125, 150, 200\}](img/8771c3088e84821054231252b44258c8.png).'
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![k\in \{50, 75, 90, 100, 110, 125, 150, 200\}](img/8771c3088e84821054231252b44258c8.png).'
 - en: The other parameters in this example are
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 该示例中的其他参数为
 - en: '![S_0=100, r=5\%, q=2.5\%, \sigma=20\%, T=1](img/90f831d5b568521a4a73fd4d0412eb6a.png).'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![S_0=100, r=5\%, q=2.5\%, \sigma=20\%, T=1](img/90f831d5b568521a4a73fd4d0412eb6a.png).'
 - en: The Crank-Nicolson scheme with “more than enough” time steps was used to integrate
     the PDE in time direction such that only the spatial error remains.
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用“足够多”的时间步长来积分PDE，以使空间误差保持不变。
 - en: '![convergence](img/c9a12cf3086c916275fe0bb202cfa989.png)'
   id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![收敛](img/c9a12cf3086c916275fe0bb202cfa989.png)'
 - en: As can be seen in the diagram above the spatial order of convergence increases
     from second order to fourth order when moving from the standard three point to
     the five point stencil. On the other hand solving the resulting linear systems
