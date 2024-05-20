@@ -1,60 +1,75 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 15:28:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Consolidated Source of Data for Bitcoin | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/consolidated-source-of-data-for-bitcoin/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: January 27, 2015 · 7:55 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: 'It seems like every other month there is a new bitcoin exchange.  For the purposes
     of trading research & backtesting it is important to have historical data across
     the most liquid exchanges.  My minimal list is:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: BTC/USD
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: bitfinex (15%)
+  id: totrans-9
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: bitstamp (5%)
+  id: totrans-10
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: coinbase (new, but likely to garner market share)
+  id: totrans-11
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: BTC/CNY
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: okcoin (28%)
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: btcn (44%)
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_OL
@@ -62,56 +77,69 @@
 - en: (percentage volume sourced from [http://bitcoincharts.com/charts/volumepie/](http://bitcoincharts.com/charts/volumepie/
     "bitcoincharts")).   Each of these exchanges not only has a unique protocol but
     also unique semantics that need to be normalized.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: 'For example, bitstamp produces the following sequence of transactions for a
     partial sweep of the orderbook.  For example, here is a partial sweep, where a
     BUY 14 @ 250.20 was placed, crossing 4 orders on the sell side of the book:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '![Orderbook sweep](img/9189f762ecae380f6bebb699f637104d.png)In Bitstamp, would
     see the following transactions:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: '**NEW BUY 14 @ 250.20, id: 43**'
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: 'DEL  SELL 1.2 @ 250.05, id: 23'
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: '**UPDATE BUY 12.8 @ 250.20: id, 43**  (updating the size of the aggressing
     order)'
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: TRADED 1.2 @ 250.05
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: 'DEL SELL 0.3 @ 250.10, id: 24'
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: '**UPDATE BUY 12.5 @ 250.20: id, 43**  (updating the size of the aggressing
     order)'
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: TRADED 0.3 @ 250.10
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: …
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: TRADED 8 @ 250.20
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: 'DEL BUY 0 @ 250.20, id: 43'
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
@@ -123,6 +151,7 @@
     states.   In such an implementation, seeing UPDATE to non-0 size after crossing
     and deleting the order completely might be seen as an error or a missed NEW, since
     the order is no longer on record in the OB.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
 - en: Another note is that Bitstamp does not indicate the side of the trade (i.e.
@@ -131,60 +160,79 @@
     order is provided can use a bipartite graph (in the presence of multiple crossing
     orders) to determine the most likely aggressing order and therefore the trade
     sign.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
 - en: '**Clearing House for Data**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
 - en: 'I would like to build and/or participate in the following:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
 - en: build robust normalized L3 or L2 -> L3 (implied) orderbook live feeds
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: used to collect data into a simple binary tickdb format
+  id: totrans-33
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: also can be reused as connectivity handlers for live trading
+  id: totrans-34
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
 - en: normalize transaction stream (such as issues in the example above)
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
 - en: identify buy/sell designation on trades based on exchange specific semantics
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 基于交易所特定的语义来识别交易中的买入/卖出标识。
 - en: 'in addition to exchange specific tick streams / dbs, create a consolidated
     OB stream:'
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 除了交易所特定的Tick流/数据库外，创建一个统一的订单簿流：
 - en: synchronized market state to nearest ms
+  id: totrans-38
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将市场状态同步到最接近的毫秒。
 - en: normalized orderid space so that order ids do not collide and can identify order
     source
+  id: totrans-39
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 规范化订单ID空间，使订单ID不会冲突，并且可以识别订单来源。
 - en: simple means to generate bars or filter for trades from the L3 data
+  id: totrans-40
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 提供简单的方法来生成条形图或者从L3数据中筛选交易。
 - en: It takes some amount of time to develop & fairly small amount of money to run
     in terms of hosting.   Assuming there are not EULA issues in doing so, could perhaps
     provide data as a non-profit sort of arrangement.   Not looking to build a for-profit
     company around this rather a collective where can give something back to the community
     and perhaps be able to make use of donated resources and/or data.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 开发需要一定的时间，而在托管方面需要的资金相对较少。假设没有使用许可协议方面的问题，也许可以作为一种非盈利的安排提供数据。我们不打算围绕此建立营利性公司，而是希望建立一个可以回馈社区的集体，也许能够利用捐赠的资源和/或数据。
