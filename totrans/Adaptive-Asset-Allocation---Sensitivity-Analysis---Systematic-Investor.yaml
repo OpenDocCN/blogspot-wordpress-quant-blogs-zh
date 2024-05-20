@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:38:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:38:14'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Asset Allocation – Sensitivity Analysis | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应资产配置 – 敏感性分析 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/21/adaptive-asset-allocation-sensitivity-analysis/#0001-01-01)
 - en: Today I want to continue with [Adaptive Asset Allocation](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
     theme and examine how the strategy results are sensitive to look-back parameters
     used for momentum and volatility computations. I will follow the sample steps
@@ -25,52 +37,80 @@
     Asset Allocation algorithm](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/)
     post. Please see my prior [post](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/)
     for more infromation.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想继续讨论[自适应资产配置](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)主题，并检查策略结果对用于动量和波动率计算的回溯参数的敏感性。我将按照大卫·瓦拉迪在[自适应资产配置算法参数的鲁棒性](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/)帖子中概述的示例步骤进行。请参阅我之前的[帖子](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/)获取更多信息。
 - en: 'Let’s start by loading historical prices for 10 ETFs using the [Systematic
     Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)加载10个ETF的历史价格：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next I wrapped the Combo (Momentum and Volatility weighted) strategy and Adaptive
     Asset Allocation (AAA) strategy into bt.aaa.combo and bt.aaa.minrisk functions
     respectively. Following is an example how you can use them:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将Combo（动量和波动率加权）策略和自适应资产配置（AAA）策略分别封装到bt.aaa.combo和bt.aaa.minrisk函数中。以下是您如何使用它们的示例：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Now let’s evaluate all possible combinations of momentum and volatility look
     back parameters ranging from 1 to 12 months using **Combo** strategy:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们使用**Combo**策略评估从1到12个月的动量和波动率回溯参数的所有可能组合：
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Finally let’s plot the Sharpe, Cagr, DVR, MaxDD statistics for the each strategy:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后让我们为每个策略绘制夏普比率、复合年均增长率（Cagr）、动态风险调整指数（DVR）、最大回撤等统计数据：
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/f6d9ec080953b6857f787bef51e69fd9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small2.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f6d9ec080953b6857f787bef51e69fd9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small2.png)'
 - en: 'I have also repeated the last two steps for the AAA strategy (bt.aaa.minrisk
     function):'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还为AAA策略（bt.aaa.minrisk函数）重复了最后两个步骤：
 - en: '[![](img/45405c832b52546b437fb446cc1d5872.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/45405c832b52546b437fb446cc1d5872.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small2.png)'
 - en: The results for AAA and Combo strategies are very similar. The shorter term
     momentum and shorter term volatility produce the best results, but likely at the
     cost of higher turnover.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: AAA和Combo策略的结果非常相似。较短期的动量和较短期的波动率产生了最佳结果，但可能以较高的换手成本为代价。
 - en: To view the complete source code for this example, please have a look at the
     [bt.aaa.sensitivity.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.aaa.sensitivity.test()函数在bt.test.r中的代码](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

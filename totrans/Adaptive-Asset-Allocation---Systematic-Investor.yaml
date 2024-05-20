@@ -1,126 +1,195 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:38:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:38:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Adaptive Asset Allocation | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自适应资产配置 | 系统化投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/#0001-01-01)
 - en: Today I want to highlight a whitepaper about [Adaptive Asset Allocation by Butler,
     Philbrick and Gordillo](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
     and the discussion by David Varadi on the [robustness of parameters of the Adaptive
     Asset Allocation algorithm](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想强调一篇关于[巴特勒、菲尔布里克和戈迪洛提出的自适应资产配置论文](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)以及大卫·瓦拉迪关于[自适应资产配置算法参数的鲁棒性讨论](http://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/)。
 - en: In this post I will follow the steps of the [Adaptive Asset Allocation](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)
     paper, and in the next post I will show how to test the sensitivity of parameters
     of the of the Adaptive Asset Allocation algorithm.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我将按照[自适应资产配置](http://www.macquarieprivatewealth.ca/dafiles/Internet/mgl/ca/en/advice/specialist/darwin/documents/darwin-adaptive-asset-allocation.pdf)论文的步骤进行，并在下一篇文章中展示如何测试自适应资产配置算法参数的敏感性。
 - en: 'I will use the 10 ETFs that invest into the same asset classes as presented
     in the paper:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用与论文中提到的相同资产类别的 10 个 ETF：
 - en: U.S. Stocks ([SPY](http://www.google.com/finance?q=SPY))
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 美国股票（[SPY](http://www.google.com/finance?q=SPY)）
 - en: European Stocks ([EFA](http://www.google.com/finance?q=EFA))
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 欧洲股票（[EFA](http://www.google.com/finance?q=EFA)）
 - en: Japanese Stocks ([EWJ](http://www.google.com/finance?q=EWJ))
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 日本股票（[EWJ](http://www.google.com/finance?q=EWJ)）
 - en: Emerging Market Stocks ([EEM](http://www.google.com/finance?q=EEM))
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 新兴市场股票（[EEM](http://www.google.com/finance?q=EEM)）
 - en: U.S. REITs ([IYR](http://www.google.com/finance?q=IYR))
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 美国房地产投资信托基金（[IYR](http://www.google.com/finance?q=IYR)）
 - en: International REITs ([RWX](http://www.google.com/finance?q=RWX))
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 国际房地产投资信托基金（[RWX](http://www.google.com/finance?q=RWX)）
 - en: U.S. Mid-term Treasuries ([IEF](http://www.google.com/finance?q=IEF))
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 美国中期国债（[IEF](http://www.google.com/finance?q=IEF)）
 - en: U.S. Long-term Treasuries ([TLT](http://www.google.com/finance?q=TLT))
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 美国长期国债（[TLT](http://www.google.com/finance?q=TLT)）
 - en: Commodities ([DBC](http://www.google.com/finance?q=DBC))
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 商品（[DBC](http://www.google.com/finance?q=DBC)）
 - en: Gold ([GLD](http://www.google.com/finance?q=GLD))
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 黄金（[GLD](http://www.google.com/finance?q=GLD)）
 - en: Unfortunately, most of these 10 ETFs only began trading in the end of 2004,
     so I will only be able to replicate the recent Adaptive Asset Allocation strategy
     performance.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，这 10 个 ETF 中的大多数在 2004 年底才开始交易，因此我只能复制最近的自适应资产配置策略表现。
 - en: 'Let’s start by loading historical prices of 10 ETFs using the [Systematic Investor
     Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们从使用[系统化投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)加载
+    10 个 ETF 的历史价格开始：
 - en: '[PRE0]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s create portfolios as outlined in the whitepaper:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们按照白皮书中的指示创建投资组合：
 - en: '[PRE1]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Finally let’s create the Adaptive Asset Allocation portfolio:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后让我们创建自适应资产配置投资组合：
 - en: '[PRE2]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'The last step is create reports for all models:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后一步是为所有模型创建报告：
 - en: '[PRE3]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/bf3075185d668478aa1b4bb3770e6f1e.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small1.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bf3075185d668478aa1b4bb3770e6f1e.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot1-small1.png)'
 - en: '[![](img/8dd5163bf85dd9a25d7d1f32c16a0a78.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small1.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8dd5163bf85dd9a25d7d1f32c16a0a78.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot2-small1.png)'
 - en: '[![](img/e4741c164818269075d7474a398d09c2.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot3-small1.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e4741c164818269075d7474a398d09c2.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot3-small1.png)'
 - en: '[![](img/63be27edcebb4ba5d3b62bc577c3ddee.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot4-small1.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/63be27edcebb4ba5d3b62bc577c3ddee.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/08/plot4-small1.png)'
 - en: The AAA portfolio performs very well, producing the highest Sharpe ratio and
     smallest draw-down across all strategies. In the next post I will look at the
     sensitivity of AAA parameters.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: AAA投资组合表现非常出色，产生了所有策略中最高的夏普比率和最小的回撤。在下一篇文章中，我将探讨AAA参数的敏感性。
 - en: To view the complete source code for this example, please have a look at the
     [bt.aaa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.aaa.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
