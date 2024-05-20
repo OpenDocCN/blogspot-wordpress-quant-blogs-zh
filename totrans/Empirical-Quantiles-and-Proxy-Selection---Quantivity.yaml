@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 13:48:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Empirical Quantiles and Proxy Selection | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection/#0001-01-01](https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -23,9 +29,11 @@
     especially amongst several alternatives. Prior to diving into full exploratory
     data analysis for proxy hedging (in a forthcoming post), this question is worth
     careful consideration.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: One way to approach this problem is via visualization of *empirical quantiles*.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'Consider the defining characteristic of an *ideal proxy* for neutralizing price:
@@ -35,13 +43,16 @@
     period). The hard part is the requirement for arbitrarily few samples; more formally,
     the ![\epsilon](img/fa45401b4ac499b260e1f16cdc22b992.png) time series for ideal
     must satisfy:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '![\sum\limits_{i=1}^n \epsilon_i = 0 : \forall n \ge 1](img/dbab347ecf3219bce50cfee71026ba53.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
 - en: Rather than the much looser requirement that ![\epsilon \rightarrow 0](img/d3c229591e5ba42661ce7408f72e1b3e.png)
     in ![\mathbb{P}](img/f2d0e071de256bbddee88d21a6582414.png).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: Contrast this requirement with how statistics normally approaches this problem,
@@ -51,6 +62,7 @@
     in empirical distribution*. Hence, any prospective solution must be framed in
     terms of both empirical samples and the *entire* distribution of both ![u](img/3e3dc85b695f49b6073b5656627101bb.png)
     and ![h](img/1aeb683dd8e8cbb4ed875f43ce92850d.png).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: 'Thus, the question boils down to evaluating joint comparison and equality of
@@ -58,17 +70,21 @@
     instruments use different metrics. Instead, transform into *linear* returns for
     both (not log) and convert into a single returns metric. Thus, reformulating the
     proxy hedge model, using the discrete derivative operator ![D](img/fd6081407ca943a923c743cb5596009a.png):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '![D(u) - \beta D(h) = \delta](img/6a976270e6468f21bdc4d936e1fa3552.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
 - en: 'From which the empirical distributions for ![D(u)](img/e3fac9c20d90ede520cb031e75901119.png)
     and ![D(h)](img/3f48c4ff989afad3618c3678cd835c62.png) can be generated, and ideal
     proxy reformulated as:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '![\prod\limits_{i=1}^n (1+\delta_i) - 1 = 0 : \forall n \ge 1](img/ce1d91fc617aec418d6609008826e023.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
 - en: When this equality holds, the empirical distributions are strictly equal, subject
@@ -78,6 +94,7 @@
     of [stability](https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/),
     and nicely exemplified in research by [Koenker](http://www.econ.uiuc.edu/~roger/)).
     Specifically, use of [quantile-quantile (QQ) plot](http://en.wikipedia.org/wiki/Q-Q_plot).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: Consider the QQ for both empirical distributions ![D(u)](img/e3fac9c20d90ede520cb031e75901119.png)
@@ -87,26 +104,32 @@
     scaling disappears due to measurement in units of quantile. Further, this approach
     is non-parametric, obviating the need to posit distributional assumptions on either
     instrument.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: 'From this QQ, the evaluation of proxy optimality is made visible:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '**Optimality**: ideal proxy hedge will have a qq line which passes through
     all observations'
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: '**Divergence**: divergence from optimality is manifest by observations away
     from the quantile line, whose respective distance away from the (0,0) origin reflects
     its corresponding frequency of occurrence'
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 'For example, consider the following *proxy QQ plot*:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
 - en: '[![Empirical Proxy QQ Plot](img/72acdb3ae3dbf5caa62f973bc7ae8ca5.png "empirical-proxy-qq-plot")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/empirical-proxy-qq-plot.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: Which plots the *empirical quantiles* of daily returns for a well-known high
@@ -114,47 +137,64 @@
     the `(0,1)` line, reflecting distributional equality. The dotted blue and red
     ellipses are location dispersion ellipsoids for the two distributions (following
     [Meucci 2010](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1548162)).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: 'Thus, visual inspection of this plot quickly rules QQQ out as an effective
     proxy:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
 - en: Observations across all quantiles are off the line, indicating ineffectiveness
     at all quantiles
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Dispersion ellipsoids are significantly rotated, indicating the principal component
     is strong misaligned
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: Outliers in the tails demonstrate both extreme divergence and non-linearity
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: 'Thus, not only is QQQ a bad proxy, it is arguably a dangerous proxy from tail
     risk standpoint: big moves in CRM will be badly underhedged by QQQ. So much for
     the standard hedging claims of QQQ futures.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
 - en: What is particularly notable is these observations are drawn from a single plot.
     As the next post on full exploratory data analysis for proxy hedging will illustrate,
     this is further notable as numerous other more popular visualizations illustrate
     the *contrary* conclusion.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别值得注意的是，这些观察结果都来自于单个图。正如下一篇关于代理套期保值的完整探索性数据分析所将阐明的，这更值得注意，因为许多其他更受欢迎的可视化呈现了*相反*的结论。
 - en: For readers interested in further study, [Doyle (2010)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1596602)
     discusses several further mathematical nuances of empirical QQ plots.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于对进一步研究感兴趣的读者，[Doyle (2010)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1596602)
+    讨论了几个经验 QQ 图的进一步数学细微差别。
 - en: '* * *'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'R code to generate the proxy QQ plot:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成代理 QQ 图的 R 代码：
 - en: '[PRE0]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

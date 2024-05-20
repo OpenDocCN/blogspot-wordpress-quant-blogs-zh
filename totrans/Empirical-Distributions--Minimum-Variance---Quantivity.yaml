@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:51:49'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日13:51:49
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Empirical Distributions: Minimum Variance | Quantivity'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 经验分布：最小方差| Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/05/02/empirical-distribution-minimum-variance/#0001-01-01](https://quantivity.wordpress.com/2011/05/02/empirical-distribution-minimum-variance/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/05/02/empirical-distribution-minimum-variance/#0001-01-01](https://quantivity.wordpress.com/2011/05/02/empirical-distribution-minimum-variance/#0001-01-01)
 - en: 'Trading experience reminds Quantivity the distributions of security returns
     are rarely [normal](http://en.wikipedia.org/wiki/Normal_distribution) (or [log-normal](http://en.wikipedia.org/wiki/Log-normal_distribution)),
     despite ubiquitous mathematical presumptions to the contrary. Yet, this begs an
@@ -32,6 +38,7 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易经验提醒 Quantivity，证券收益的分布很少是[正态分布](http://en.wikipedia.org/wiki/Normal_distribution)（或[对数正态分布](http://en.wikipedia.org/wiki/Log-normal_distribution)），尽管数学上普遍假定其反之。然而，这引发了一个显而易见的问题（无论是对初学者还是专家而言）：*如果收益不是正态分布，那它们的分布又是什么*？
 - en: This question is particularly interesting in the context of [minimum variance
     portfolios](https://quantivity.wordpress.com/2011/04/17/minimum-variance-portfolios/)
     (MVPs), as they refute the [risk premium](https://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/)
@@ -42,11 +49,14 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[最小方差投资组合](https://quantivity.wordpress.com/2011/04/17/minimum-variance-portfolios/)（MVPs）的背景下，这个问题特别有趣，因为它们推翻了[风险溢价](https://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/)，并且展示了与标准股票基准相比的[显著绩效差异](https://quantivity.wordpress.com/2011/04/22/minimum-variance-sector-rotation-part-2/)。此外，试图建立对
+    MVP 的更高和混合阶矩的直觉，取决于对应收益分布的理解。
 - en: This post analyzes [empirical distributions](http://en.wikipedia.org/wiki/Empirical_distribution_function)
     to posit an answer, rather than theorize.
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这篇文章分析了[经验分布](http://en.wikipedia.org/wiki/Empirical_distribution_function)来提出一个答案，而不是进行理论推测。
 - en: The following posits two assumptions. First, *return distributions change over
     time*, both in central moments and shape. In other words, throw away the comforting
     assumption that all returns for an instrument are drawn from the same distribution.
@@ -56,6 +66,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下提出了两个假设。首先，*收益分布随时间变化*，既在中心矩又在形状上。换句话说，抛弃那些所有一个工具的所有收益都来自相同分布的舒适假设。其次，*忽略理论概率分布*而让数据说话。尽管交易员们不会用如此晦涩的话语，但他们不断地反响着这两种情绪。
 - en: 'Without further ado, consider the following *two* empirical [probability density
     functions](http://en.wikipedia.org/wiki/Probability_density_function) (PDF) estimated
     from [US minimum variance sector rotation](https://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)
@@ -63,14 +74,18 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 毫不拖泥带水，考虑以下从[美国最小方差部门轮换](https://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)在
+    2004 年（样本中随机选择的年份）估计出的*两个*经验[概率密度函数](http://en.wikipedia.org/wiki/Probability_density_function)（PDF）的实线：
 - en: '[![](img/77c4fcf953916576662f81458fe79c45.png "us-sector-2004-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-2004-empiricals1.png)'
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/77c4fcf953916576662f81458fe79c45.png "us-sector-2004-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-2004-empiricals1.png)'
 - en: This graph is delightfully surprising.
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这张图令人惊喜。
 - en: The solid red line is *empirical* PDF of S&P 500 log returns; solid black line
     is *empirical* PDF of log returns for minimum variance portfolio. For comparison
     with theory, the dashed lines are the standard normal distributions whose parameters
@@ -78,6 +93,7 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 实线红色是标普500对数收益的*经验*概率密度函数（PDF）；实线黑色是最小方差投资组合对数收益的*经验*概率密度函数。为了与理论进行比较，虚线代表标准正态分布，其参数等于对应的经验分布（即均值和方差）。
 - en: In other words, the observed *frequency* of returns (y-axis) is plotted against
     the return *magnitude* (x-axis). The empirical PDFs are estimated via [kernel
     density estimation](http://en.wikipedia.org/wiki/Kernel_density_estimation) (aka
@@ -89,42 +105,49 @@
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，观察到的回报频率（y轴）根据回报幅度（x轴）绘制。经验PDF是通过[核密度估计](http://en.wikipedia.org/wiki/Kernel_density_estimation)（又名Parzen窗口）使用`density`函数估计的。由于[大数定律](http://en.wikipedia.org/wiki/Law_of_large_numbers#Weak_law)的存在，经验PDF收敛于实际PDF，观测到的经验次数等于一年中的交易日（大约250天，对于LLN来说应该足够了）。
 - en: 'Recall 2004 was a trending market, with SP500 finishing up not quite 10%. Numerous
     aspects of this graph are notable (especially higher moments), demonstrating empirical
     divergence from theory:'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 回顾一下，2004年是一个趋势市场，SP500收盘涨幅不到10%。这张图的许多方面都值得注意（尤其是更高的时刻），展示了与理论的经验分歧：
 - en: 'MVP bi-modality: PDF for the MVP has two modes, nearly symmetric on both sides
     of zero (mixture of two distributions, perhaps?)'
   id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: MVP双峰性：MVP的PDF具有两个模式，几乎对称于零点的两侧（可能是两个分布的混合？）
 - en: 'MVP platykurtosis: MVP exhibits a peak which is flatter and wider than its
     corresponding normal, and thinner tails'
   id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: MVP厚尾：MVP呈现的峰值比其对应的正态分布更平坦和更宽，尾部更窄。
 - en: 'SP500 negative skew: SP500 returns are negatively skewed, with bulk of the
     skew in the (bad) far left tail'
   id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: SP500负偏态：SP500回报呈负偏态，偏度的大部分集中在（不好的）极左尾部分。
 - en: 'SP500 leptokurtosis: legendary “long tails” of SP500 returns are clearly visible,
     compared with corresponding normal'
   id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: SP500峰态：SP500回报的传说中的“长尾”与相应的正态分布相比清晰可见。
 - en: 'SP500 tail bumps: two PDF bumps are clearly visible in SP500, at -0.01 and
     +0.01; the left bump is particularly disheartening'
   id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: SP500尾部颠簸：SP500中清晰可见两个PDF颠簸，在-0.01和+0.01处；左侧颠簸尤为令人沮丧。
 - en: All of these observations are consistent with the *a priori* intuition expected
     of returns generated by smaller variance, as optimized by the MVPs criteria. More
     importantly, the above observations suggest returns generated by the MVP portfolio
@@ -132,6 +155,7 @@
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有这些观察结果都与较小方差产生的回报的*先验*直觉一致，这是由MVP标准优化的。更重要的是，以上观察结果表明，MVP投资组合产生的回报应该具有相对更好的盈利表现。
 - en: 'Now comes even more fun: consider the *difference in estimated densities* between
     MVP and SP500 distributions (calculated as the arithmetic difference between the
     linear interpolation of the two kernel density functions, evaluated over the observed
@@ -139,10 +163,12 @@
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在更有趣的事情来了：考虑MVP和SP500分布之间的*估计密度差异*（计算为两个核密度函数的线性插值之间的算术差异，评估在观察到的回报范围内），并在零起点上都画上蓝线：
 - en: '[![](img/d70bf188a9675296f8820a3d5acd08bf.png "us-sector-2004-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-2004-diff-empiricals.png)'
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d70bf188a9675296f8820a3d5acd08bf.png "us-sector-2004-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-2004-diff-empiricals.png)'
 - en: 'Shape of this differenced density also is consistent with minimizing variance:
     two peaks illustrate MVP returns have comparatively higher observed frequency
     of smaller values, for both positive and negative returns; two troughs illustrate
@@ -152,10 +178,12 @@
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种差异密度的形状也与最小化方差一致：两个峰值说明MVP回报在较小值的观察频率上有相对较高的频率，对于正向和负向回报都是如此；两个低谷说明MVP回报在较高值的观察频率上有相对较低的频率，对于正向和负向回报都是如此。作为一个意外的惊喜，右尾中的一个小的局部极小值表明了一些大的正向惊喜。
 - en: '* * *'
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'In restricting analysis to 2004, we have yet to justify the supposition that
     empirical distributions change over time. To do so now, consider the same analysis
     as above applied to the years covered by the previously considered [US Sector
@@ -164,10 +192,13 @@
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 限制分析至 2004 年，我们还未证明经验分布随时间变化的假设。现在来考虑与前面所考虑的 [美国部门轮换](https://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)（即
+    2000 年至 2010 年）相同的分析：
 - en: '[![](img/68ab6587fcce51d7efc12f7756fc157b.png "us-sector-annual-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-annual-empiricals.png)'
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/68ab6587fcce51d7efc12f7756fc157b.png "us-sector-annual-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-annual-empiricals.png)'
 - en: Note the remarkable difference in density for the *mode* of each year (as all
     plots use same y-axis), ranging from 80 in 2007 to under 40 in 2002/2008/2009\.
     This nicely illustrates kurtosis in action, with the tails expanding dramatically
@@ -176,24 +207,31 @@
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意每年 *模式* 的密度的显著差异（因为所有图都使用相同的 y 轴），从 2007 年的 80 到 2002/2008/2009 年的不到 40。这清楚地说明了峰度的作用，在市场错位期间尾部急剧扩展——与
+    CNBC 当时喜欢大肆渲染的相对较大极端值的频率增加一致。
 - en: 'And the same density differences between MVP and SP500:'
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及 MVP 和 SP500 之间的相同密度差异：
 - en: '[![](img/c6d0720769453d6dd5d38ad18215d216.png "us-sector-annual-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-annual-diff-empiricals.png)'
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c6d0720769453d6dd5d38ad18215d216.png "us-sector-annual-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/us-sector-annual-diff-empiricals.png)'
 - en: 'Towards beginning to help unravel why [Global MVP Rotation](https://quantivity.wordpress.com/2011/04/24/minimum-variance-global-rotation/)
     was comparatively less profitable than US Sector MVP, consider the corresponding
     empirical densities for the MVP generated by optimizing international ETFs:'
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了开始解开 [全球 MVP 轮换](https://quantivity.wordpress.com/2011/04/24/minimum-variance-global-rotation/)
+    相对于美国部门 MVP 的相对不盈利之谜，考虑优化国际 ETF 生成的 MVP 的相应经验密度：
 - en: '[![](img/70762fcd31f521f2de5ba23dc862fced.png "global-sector-annual-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/global-sector-annual-empiricals.png)'
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/70762fcd31f521f2de5ba23dc862fced.png "global-sector-annual-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/global-sector-annual-empiricals.png)'
 - en: 'Note the same wide variability in mode across different years, more than 3x
     difference: from 60 in 2006 to 20 in 2009\. Positive kurtosis at work, once again.
     Consistent with SPY densities above, there are large bumps in the left tail for
@@ -203,14 +241,18 @@
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意不同年份之间的模式存在着相同的广泛变异，差异超过 3 倍：从 2006 年的 60 到 2009 年的 20。正偏态再次发挥作用。与以上的 SPY
+    密度一致，2006 年、2009 年和 2010 年的全球 MVP 左尾部出现了大幅波动。最后，MVP 和 EFA 密度的形状大致更加相互一致，而不是 MVP/SPY。所有这些因素可能导致相对于美国部门的表现不佳。
 - en: 'And the corresponding density differences between MVP and EFA:'
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及 MVP 和 EFA 之间的相应密度差异：
 - en: '[![](img/60c725030c379cc581f8570f16c1c9eb.png "global-sector-annual-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/global-sector-annual-diff-empiricals.png)'
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/60c725030c379cc581f8570f16c1c9eb.png "global-sector-annual-diff-empiricals")](https://quantivity.wordpress.com/wp-content/uploads/2011/05/global-sector-annual-diff-empiricals.png)'
 - en: These distributions shed some light on the underperformance versus EFA benchmark.
     The 2010 density shows significant negative difference for positive returns larger
     than 0.02, illustrating why the MVP trailed EFA incrementally worse through the
@@ -221,6 +263,8 @@
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些分布为相对于 EFA 基准的表现不佳投下了一些光。2010 年的密度在大于 0.02 的正回报上显示出显著的负差异，说明为什么 MVP 在全年的逐步下跌中比
+    EFA 表现更差。2009 年的大幅负峰很大程度上解释了为什么 MVP 在金融危机低点时没有超过 EFA。最后，2007 年的 MVP 有一个大的负峰，并且没有以任何正峰进行补偿。
 - en: For readers interested in applying empirical distribution analysis further to
     portfolio optimization, they may wish to consider [Portfolio Selection with Robust
     Estimation](http://or.journal.informs.org/cgi/content/abstract/57/3/560) by DeMiguel
