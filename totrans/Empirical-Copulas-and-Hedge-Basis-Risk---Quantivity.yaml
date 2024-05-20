@@ -110,34 +110,41 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![F](img/19221831632e5c3c0d42a97235b400cf.png)和![G](img/50c45590b30932e6c16cbbc26766322b.png)是一维分布，![H](img/08f86bb6e2072ba520c148934f76c0bf.png)是具有边缘分布![F](img/19221831632e5c3c0d42a97235b400cf.png)和![G](img/50c45590b30932e6c16cbbc26766322b.png)的二维分布函数，![C](img/e5cf91abc25ecaf404555860373f6acc.png)是一个Copula。请注意，任何或所有的![F](img/19221831632e5c3c0d42a97235b400cf.png)、![G](img/50c45590b30932e6c16cbbc26766322b.png)和![C](img/e5cf91abc25ecaf404555860373f6acc.png)都可以经验拟合。建议对Copulas不熟悉的读者参考[Trivedi和Zimmer（2005）](http://http://bit.ly/pMjQR4)或[Cherubini
+    *et al.*（2004）](http://books.google.com/books?id=0dyagVg20XQC)。
 - en: 'Conceptually, this technique provides several useful benefits for analyzing
     proxy hedging basis risk:'
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 从概念上讲，这种技术为分析代理套期保值基础风险提供了几个有用的好处：
 - en: '**Mechanics**: Any joint distribution can be bi-directionally “glued together”
     by two marginals and a copula'
   id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**机制**：任何联合分布都可以通过两个边缘和一个Copula“粘合”双向地进行'
 - en: '**Uniqueness**: Copula is unique, under conditions reasonable for current purposes'
   id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**独特性**：在对当前目的合理的条件下，Copula是唯一的'
 - en: '**Completeness**: Joint covariation can be fully characterized by a copula,
     independent from the marginals'
   id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**完整性**：联合协变量可以完全由Copula独立地描述，与边际无关'
 - en: '**Visualization**: Copulas can graphically visualized, in both contours and
     density plots'
   id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**可视化**：Copulas可以以轮廓图和密度图形式进行图形化呈现'
 - en: 'Without further ado, the following plots visualize the daily joint covariation
     of well-known tech stock and QQQ linear returns over the longitudinal period via
     an *empirical proxy copula* (1254 daily observations), as introduced in [Empirical
@@ -147,10 +154,13 @@
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 毫不拖泥带水，以下图表通过*经验代理Copula*（1254个每日观测值）展示了知名科技股和QQQ线性收益的每日联合协变量的可视化结果，该Copula是通过[经验分位数和代理选择](https://quantivity.wordpress.com/2011/10/03/empirical-quantiles-proxy-cross-hedging-selection)引入的。注意，这些图表展示了与CRM
+    / QQQ的边际密度*无关的联合协变量*：
 - en: '[![Proxy Copula Summary](img/043619b48e4d530b9279c14a7cb70603.png "proxy-copula-all")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-copula-all2.png)'
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![代理Copula摘要](img/043619b48e4d530b9279c14a7cb70603.png "proxy-copula-all")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-copula-all2.png)'
 - en: The top left plot illustrates scatter of ranked pseudo observations; top right
     illustrates scatter of 1000 random samples from the fitted copula; bottom left
     illustrates empirical copula contour; and bottom right illustrates the empirical
@@ -159,6 +169,7 @@
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 左上角的图表展示了排名伪观测的散点图；右上角的图表展示了从拟合Copula中随机抽取的1000个样本的散点图；左下角的图表展示了经验Copula轮廓；右下角的图表展示了经验Copula的透视图。比较这种多样化的可视化方法与单一数字（*例如*相关性统计，其恰好等于`0.777`）之间的差异。
 - en: 'Diving into the marginal and copula distribution is necessary to understand
     this relationship further. Consistent with standard convention, all distributions
     are assumed to be student-t with empirically fitted degrees of freedom. The parameters
@@ -166,14 +177,17 @@
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 深入了解边际和Copula分布对于进一步理解这种关系是必要的。与标准惯例一致，假设所有分布都是带有经验拟合自由度的学生t分布。边际的参数为：
 - en: '`CRM location 0.0003 scale 0.0218 df 3.489'
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '`CRM位置0.0003，尺度0.0218，自由度3.489'
 - en: QQQ location 0.001 scale 0.0100 df 2.767`
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: QQQ位置0.001，尺度0.0100，自由度2.767`
 - en: Indicating the marginal distributions diverge strongly from normality with fat
     trails, due to small degrees of freedom. This matches the 3 df estimate by Schoeffel
     in his [recent (2011) article](http://arxiv.org/abs/1110.1006) on futures (note
@@ -181,6 +195,8 @@
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 表明边缘分布与正态分布有很大差异，存在着较宽的尾部，这是由于自由度较小所致。这与Schoeffel在他[最近（2011年）的文章](http://arxiv.org/abs/1110.1006)中对期货（注意频率和对数收益之间的差异）的3
+    df估计相匹配。
 - en: 'Similarly, the copula is assumed to be distributed student-t with estimated
     df of `3.975` and ![\rho](img/3e72a82f16831a4135a859a809b7fe10.png) of `0.6868`.
     The bivariate association measures for the empirical proxy copula are:'
