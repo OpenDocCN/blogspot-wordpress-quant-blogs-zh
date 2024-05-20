@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:42:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 19:42:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: boost::cref | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: boost::cref | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2008/05/21/boostcref/#0001-01-01](https://etrading.wordpress.com/2008/05/21/boostcref/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2008/05/21/boostcref/#0001-01-01](https://etrading.wordpress.com/2008/05/21/boostcref/#0001-01-01)
 - en: boost::cref
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: boost::cref
 - en: May 21, 2008
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2008年5月21日
 - en: I’m continuing to discover the wonder of boost. Yesterday it was [boost::lexical_cast()](http://www.boost.org/doc/libs/1_35_0/libs/conversion/lexical_cast.htm),
     a very neat way to do those peskly int to string conversions. Today, it’s [boost::cref()](http://www.boost.org/doc/libs/1_35_0/doc/html/ref.html).
     Why did I need it ?  I’m using [boost::bind()](http://www.boost.org/doc/libs/1_35_0/libs/bind/bind.html)
@@ -33,9 +49,17 @@
     til one of the parameters inherited from boost::noncopyable. Wrap the noncopyable
     in a [boost::cref()](http://www.boost.org/doc/libs/1_35_0/doc/html/ref.html) invocation,
     and all is well again.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在继续发现 boost 的奇妙之处。昨天是 [boost::lexical_cast()](http://www.boost.org/doc/libs/1_35_0/libs/conversion/lexical_cast.htm)，一个非常巧妙的方式来进行整数到字符串的转换。今天，是
+    [boost::cref()](http://www.boost.org/doc/libs/1_35_0/doc/html/ref.html)。我为什么需要它呢？我正在使用
+    [boost::bind()](http://www.boost.org/doc/libs/1_35_0/libs/bind/bind.html) 来为跨线程边界的调度参数进行编组。一切都很顺利，直到有一个参数继承自
+    boost::noncopyable。将不可复制的对象包装在 [boost::cref()](http://www.boost.org/doc/libs/1_35_0/doc/html/ref.html)
+    调用中，一切又恢复正常。
 - en: Apparently, boost::cref converts the reference to a pointer under the covers.
     Ironic, non ?
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，boost::cref 在内部将引用转换为指针。讽刺，不是吗？
