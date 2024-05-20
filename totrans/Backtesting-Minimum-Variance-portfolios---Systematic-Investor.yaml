@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 14:38:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Backtesting Minimum Variance portfolios | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/13/backtesting-minimum-variance-portfolios/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -22,67 +28,88 @@
     the series of posts about [Asset Allocation](https://systematicinvestor.wordpress.com/category/asset-allocation/)
     with backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
     I will use Minimum Variance portfolio as an example for this post.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: I recommend reading a good discussion about Minimum Variance portfolios at [Minimum
     Variance Sector Rotation](http://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)
     post by Quantivity.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'I will use the investment universe and rebalancing schedule as outlined in
     the [Forecast-Free Algorithms: A New Benchmark For Tactical Strategies](http://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
     post by David Varadi. The investment universe:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '| 1\. S&P500 ([SPY](http://www.google.com/finance?q=SPY)) |'
+  id: totrans-9
   prefs: []
   type: TYPE_TB
 - en: '| 2\. Nasdaq 100 ([QQQ](http://www.google.com/finance?q=QQQ)) |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
 - en: '| 3\. Emerging Markets ([EEM](http://www.google.com/finance?q=EEM)) |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
 - en: '| 4\. Russell 2000 ([IWM](http://www.google.com/finance?q=IWM)) |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
 - en: '| 5\. MSCI EAFE ([EFA](http://www.google.com/finance?q=EFA)) |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
 - en: '| 6\. Long-term Treasury Bonds ([TLT](http://www.google.com/finance?q=TLT))
     |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
 - en: '| 7\. Real Estate ([IYR](http://www.google.com/finance?q=IYR)) |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
 - en: '| 8\. Gold ([GLD](http://www.google.com/finance?q=GLD)) |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
 - en: The rebalancing is done on a weekly basis and quarterly data is used to estimate
     input assumptions.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: 'Following code implements this strategy using the backtesting library in the
     [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next let’s create Minimum Variance portfolios using weekly data:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE1]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/1e8fa5169596dc6cdaae707627e72d45.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small2.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/cf20676b6db5c6fcf5de8d6f6896df5e.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small2.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/d9508b3598d8e7eb5b566165f820552f.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small2.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
 - en: I find it very interesting that the Minimum Variance portfolios constructed
@@ -91,80 +118,115 @@
     One possible explanation for this discrepancy was examined by Pat Burns in the
     [The volatility mystery continues](http://www.portfolioprobe.com/2011/12/05/the-volatility-mystery-continues/)
     post.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
 - en: 'There are a few ways I suggest you can play with this code:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是我建议您可以尝试使用此代码的几种方式：
 - en: make covariance matrix estimate more stable, use the Ledoit-Wolf covariance
     shrinkage estimator from tawny package
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使协方差矩阵估计更稳定，使用tawny包中的Ledoit-Wolf协方差收缩估计器
 - en: '[PRE2]'
+  id: totrans-28
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: or
+  id: totrans-29
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 或者
 - en: '[PRE3]'
+  id: totrans-30
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: or
+  id: totrans-31
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 或者
 - en: '[PRE4]'
+  id: totrans-32
   prefs:
   - PREF_IND
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: use different investment universe
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用不同的投资范围
 - en: consider different rebalancing schedule
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 考虑不同的再平衡计划
 - en: 'consider different risk measures. for example, I discussed and implemented
     following risk measures in the series of posts about [Asset Allocation](https://systematicinvestor.wordpress.com/category/asset-allocation/):'
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 考虑不同的风险度量。例如，在关于[资产配置](https://systematicinvestor.wordpress.com/category/asset-allocation/)系列文章中，我讨论并实施了以下风险度量：
 - en: min.maxloss.portfolio
+  id: totrans-36
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小损失组合投资组合
 - en: min.mad.portfolio
+  id: totrans-37
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小绝对偏差投资组合
 - en: min.cvar.portfolio
+  id: totrans-38
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小条件VaR投资组合
 - en: min.cdar.portfolio
+  id: totrans-39
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小条件VaR投资组合
 - en: min.mad.downside.portfolio
+  id: totrans-40
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小绝对偏差下行投资组合
 - en: min.risk.downside.portfolio
+  id: totrans-41
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小风险下行投资组合
 - en: To view the complete source code for this example, please have a look at the
     [bt.min.var.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[bt.test.r中的bt.min.var.test()函数在github上的链接](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
