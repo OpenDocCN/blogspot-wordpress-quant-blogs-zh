@@ -601,26 +601,31 @@
   id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 13**'
 - en: As she is long $2000 worth of ETH, she needs 20% of that value in her account
     to satisfy her margin requirement.
   id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于她持有价值 2000 美元的 ETH，因此她需要将该价值的 20% 存入她的账户以满足保证金要求。
 - en: 'Now consider Bob, who deposits 1 ETH in the contract. His initial account value
     would look like this:'
   id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在考虑一下 Bob，他在合约中存入了 1 个 ETH。他的初始账户价值如下所示：
 - en: '**Figure 14**'
   id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 14**'
 - en: He also has a $400 required margin, but as his position is not leveraged, it
     is never a concern. This is because if the value of ETH goes down, so does his
     margin requirement, and vice versa.
   id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: 他还有 400 美元的必需保证金，但由于他的头寸没有杠杆，所以这从未成为问题。这是因为如果 ETH 的价值下跌，他的保证金要求也会下降，反之亦然。
 - en: 'Bob can turn this into a MakerDao-like CDP position by withdrawing a new stablecoin,
     vUSD. Such a coin would be worth USDC within the contract, both adding to a user’s
     USD account when deposited, subtracting from the USD when negative. Yet the stablecoin
@@ -633,10 +638,15 @@
   id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: Bob 可以通过提取新的稳定币 vUSD 来将这个头寸变成类似 MakerDao 的 CDP 头寸。这样的硬币在合约内的价值为 USDC，当存入时向用户的
+    USD 账户增加，当为负数时从 USD 中减去。然而，这种稳定币将有助于节省合约中的 USDC。通过在提取新的 vUSD 稳定币而不是 USDC 时为用户提供更便宜的费用，用户将被激励提取
+    vUSD 而不是 USDC。只要合约处于健全状态，USDC 与 vUSD 在合约中的最终可互换性将使 vUSD 的价值与 USDC 相等。提取 1250 美元的
+    vUSD 将使 Bob 的账户看起来像下面的图 15：
 - en: '**Figure 15**'
   id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 15**'
 - en: Bob’s account is exactly the same as Alice’s, though they arrived via different
     trades. A MakerDao CDP that generates a stablecoin is identical to a levered long
     position collateralized by ETH. A LAMM with swap and perp functionality makes
@@ -646,6 +656,8 @@
   id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: Bob 的账户与 Alice 的完全相同，尽管它们是通过不同的交易到达的。一个生成稳定币的 MakerDao CDP 与抵押 ETH 的杠杆多头头寸是相同的。带有交换和永续功能的
+    LAMM 使稳定币的生成方式就像甜甜圈制造商制作甜甜圈洞一样，这是一种不可避免的互补产品。正如生产甜甜圈洞而不生产甜甜圈是低效的一样，生产稳定币而没有永续合约也是低效的。
 - en: The benefit of this approach is that it creates stablecoins more efficiently
     because, unlike MakerDao, it does not rely on auctions or oracles. Auctions can
     be gamed, as [when](https://medium.com/@whiterabbit_hq/black-thursday-for-makerdao-8-32-million-was-liquidated-for-0-dai-36b83cac56b6)
@@ -655,6 +667,8 @@
   id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法的好处在于它更有效地创建稳定币，因为与 MakerDao 不同，它不依赖于拍卖或预言机。拍卖可能会被操纵，就像 MakerDao 在 2020
+    年 3 月以零美元出售了价值 800 万美元的 ETH 一样。在 LAMM 中，违约者的净 ETH 头寸很容易在合约上清算。依赖预言机也是有问题的，因为这些可以被黑客攻击或被审查。
 - en: In the long run, one could have several independent contracts, each with its
     own stablecoin. For example, a vUSD2 for a WBTC-USDC contract and a vUSD3 for
     a UNI-USDC contract. These other stablecoins would be supported solely by their
@@ -668,33 +682,41 @@
   id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: 从长远来看，人们可以拥有几个独立的合约，每个合约都有自己的稳定币。例如，一个用于 WBTC-USDC 合约的 vUSD2 和一个用于 UNI-USDC
+    合约的 vUSD3。这些其他稳定币仅由它们各自的 LAMM 合约支持，是独立的。最终，如果其中一个稳定币变得像 USDC 一样受欢迎，并且像 USDC 一样用于与其他合约或产品进行交易，它就可以像
+    USDC 一样运作。就像创造法定货币或估值新代币一样，使用最终意味着真正的价值，即使没有“真实”资产支持代币。从区块链中消除类似 USDC 的中心化稳定币对于长期安全至关重要。创建高效的去中心化稳定币机制对于实现这一目标至关重要。
 - en: '**In summary**'
   id: totrans-85
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**总结**'
 - en: Leveraged AMMs can economize on capital like restricted ranges
   id: totrans-86
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 杠杆 AMM 可以像受限范围一样节省资本
 - en: LAMMs naturally extend to provide perps and stablecoins
   id: totrans-87
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: LAMM自然延伸到提供永续合约和稳定币。
 - en: Current Perp Markets are Censorable and Gamed
   id: totrans-88
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 目前的永续市场是可审查的并且是受操纵的。
 - en: Perps on low-latency platforms are effectively centralized
   id: totrans-89
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 低延迟平台上的永续合约实际上是集中化的。
 - en: The BitMex-style funding rate equilibrating mechanism is a farce; it does not
     and cannot equilibrate the perp market
   id: totrans-90
@@ -702,6 +724,7 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 类似BitMex的资金费率均衡机制是一种笑话；它无法平衡永续市场。
 - en: funding rates are manipulated to benefit insiders
   id: totrans-91
   prefs:
@@ -709,6 +732,7 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 资金费率被操纵以使内部人受益。
 - en: see my [prior post](https://efalken.substack.com/p/perp-funding-rate-fraud)
     for an explanation
   id: totrans-92
@@ -717,29 +741,34 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 查看我[之前的帖子](https://efalken.substack.com/p/perp-funding-rate-fraud)以获取解释。
 - en: A LAMM generates perps supported by real arbitrage
   id: totrans-93
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: LAMM生成由真实套利支持的永续合约。
 - en: Existing Stablecoins Not Sustainable
   id: totrans-94
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 现有的稳定币不可持续。
 - en: Most centralized, fine for now, but not a long-run solution
   id: totrans-95
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 大多数中心化的方案目前还好，但不是长期的解决方案。
 - en: Decentralized stablecoins have regulatory attack surfaces
   id: totrans-96
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 去中心化的稳定币具有监管攻击面。
 - en: Identifiable persons with control over choke points
   id: totrans-97
   prefs:
@@ -747,6 +776,7 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 有控制点的可识别个人
 - en: Oracles like Chainlink are censorable
   id: totrans-98
   prefs:
@@ -754,12 +784,14 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 像Chainlink这样的预言机是可审查的。
 - en: Governance tokens have weak revenue endgames
   id: totrans-99
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 治理代币的收入终局较弱。
 - en: incentive to embrace regulations when token growth stops
   id: totrans-100
   prefs:
@@ -767,12 +799,14 @@
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当代币增长停止时，有动力接受监管。
 - en: A LAMM generates stablecoins without centralized attack surfaces
   id: totrans-101
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: LAMM生成稳定币，没有中心化的攻击面。
 - en: Concentrated liquidity in AMMs is a great innovation but ultimately ephemeral
     because it is inefficient. If there are ways to generate the same leverage but
     with more functionality, those will be adopted. There are many overvalued Ethereum
@@ -782,6 +816,7 @@
   id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: AMM中的集中化流动性是一项伟大的创新，但最终是短暂的，因为它是低效的。如果有办法以更多功能性生成相同的杠杆，那么这些办法将被采用。以太坊有许多被高估的代币，能够在链上做空这些代币而不仅仅是卖出将是不错的。能够在链上做空BTC或ETH，或者在链上做BTC/ETH的头寸也是不错的。但只有Uniswap池功能是不可行的。
 - en: Shorting would benefit the Ethereum ecosystem because Ponzi tokens are a systemic
     threat in that they are common and run by stupid or evil people taking advantage
     of new crypto investors. These crap-coins sully the reputation of everything on
@@ -790,6 +825,7 @@
   id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: 空头交易将使以太坊生态系统受益，因为庞氏币是一种系统性威胁，它们普遍存在，并由愚蠢或邪恶的人利用新的加密货币投资者。这些垃圾币玷污了区块链上的一切声誉。当人们可以做空时，内部人员要维持庞氏币的价值就变得困难得多。
 - en: Yield farming highlights how inefficient many liquidity positions are because
     if collateral can be used elsewhere, that implies it is not used efficiently.
     If we ignore transaction and information costs, using LP tokens as collateral
@@ -805,9 +841,11 @@
   id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: 收益农业突显了许多流动性头寸是多么低效，因为如果抵押物可以在其他地方使用，那就意味着它没有被有效利用。如果我们忽略交易和信息成本，使用LP代币作为其他平台的抵押物是有效的；在实践中，这些成本是显著的。例如，如果您可以用房子的首付作为汽车贷款的抵押物，那么您的汽车贷款人最好要求您少交现金作为抵押。这是因为贷款人专门从事某些资产，并且不擅长监控一个人可以将抵押品应用到的每个资产的价值，然后在这些其他市场上进行交易。汽车卖家希望您再申请一笔额外的房屋净值贷款，并将现金作为汽车贷款的抵押品，这样汽车卖家就可以避免建立监视并可能查封个人房屋的基础设施。
 - en: This post is already too long for most readers, so I will not outline the best
     part of this approach, which is how it facilitates a mechanism to eliminate impermanent
     loss. Maybe later.
   id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: 这篇文章对大多数读者来说已经太长了，所以我不会概述这种方法最好的部分，即它如何促进一种消除暂时损失的机制。也许以后再说。
