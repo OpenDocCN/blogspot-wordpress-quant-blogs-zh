@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:40:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:40:40
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Classical Technical Patterns | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 古典技术图案 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/05/22/classical-technical-patterns/#0001-01-01](https://systematicinvestor.wordpress.com/2012/05/22/classical-technical-patterns/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/05/22/classical-technical-patterns/#0001-01-01](https://systematicinvestor.wordpress.com/2012/05/22/classical-technical-patterns/#0001-01-01)
 - en: 'In my [presentation](http://www.systematicportfolio.com/RFinance2012) about
     Seasonality Analysis and Pattern Matching at the [R/Finance](http://www.rinfinance.com/agenda/)
     conference, I used examples that I have previously covered in my blog:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我在[R/Finance](http://www.rinfinance.com/agenda/)会议上关于季节性分析和图案匹配的[演示](http://www.systematicportfolio.com/RFinance2012)中，我使用了之前在我的博客中讨论过的示例：
 - en: The only subject in my [presentation](http://www.systematicportfolio.com/RFinance2012)
     that I have not discussed previously was about [Classical Technical Patterns](http://en.wikipedia.org/wiki/Chart_pattern).
     For example, the [Head and Shoulders](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)
@@ -30,117 +44,173 @@
     Below I implemented the algorithm and pattern definitions presented in the [Foundations
     of Technical Analysis by A. Lo, H. Mamaysky, J. Wang (2000)](http://web.mit.edu/alo/www/Papers/1705-1765.pdf)
     paper.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我[演示文稿](http://www.systematicportfolio.com/RFinance2012)中唯一没有之前讨论过的主题是关于[古典技术图案](http://en.wikipedia.org/wiki/Chart_pattern)。例如，[头肩顶](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)图案，最常见于上升趋势，并且通常被视为反转图案。以下是我在[技术分析基础](http://web.mit.edu/alo/www/Papers/1705-1765.pdf)论文中提出的算法和图案定义。
 - en: 'To identify a price pattern I will follow steps as described in the [Foundations
     of Technical Analysis](http://web.mit.edu/alo/www/Papers/1705-1765.pdf) paper:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 要识别价格图案，我将按照[技术分析基础](http://web.mit.edu/alo/www/Papers/1705-1765.pdf)论文中描述的步骤进行：
 - en: First, fit a smoothing estimator, a kernel regression estimator, to approximate
     time series.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 首先，拟合平滑估计器，即核回归估计器，以逼近时间序列。
 - en: Next, determine local extrema, tops and bottoms, using fist derivative of the
     kernel regression estimator.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 接下来，使用核回归估计器的一阶导数确定局部极值点，即顶部和底部。
 - en: Define classical technical patterns in terms of tops and bottoms.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 根据顶部和底部定义古典技术图案。
 - en: Search for classical technical patterns throughout the tops and bottoms of the
     kernel regression estimator.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在核回归估计器的顶部和底部寻找古典技术图案。
 - en: 'Let’s begin by loading historical prices for SPY:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们开始加载SPY的历史价格：
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The first step is to fit a smoothing estimator, a [kernel regression estimator](http://en.wikipedia.org/wiki/Kernel_density_estimation),
     to approximate time series. I used [sm](http://cran.r-project.org/web/packages/sm/index.html)
     package to fit kernel regression:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一步是拟合平滑估计器，即[核回归估计器](http://en.wikipedia.org/wiki/Kernel_density_estimation)，以逼近时间序列。我使用[sm](http://cran.r-project.org/web/packages/sm/index.html)软件包来拟合核回归：
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The second step is to find local extrema, tops and bottoms, using first derivative
     of the kernel regression estimator. (more details in the paper on page 15):'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二步是使用核回归估计器的一阶导数找到局部极值点，即顶部和底部。（更多细节请参阅第15页的论文）：
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: I put the logic for the first and second step into the [find.extrema()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)
     function.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将第一步和第二步的逻辑放入了[find.extrema()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)函数中。
 - en: 'The next step is to define classical technical patterns in terms of tops and
     bottoms. The [pattern.db()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)
     function implements the 10 patterns described in the paper on page 12\. For example,
     let’s have a look at the [Head and Shoulders](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)
     pattern. The [Head and Shoulders](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)
     pattern:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步是根据顶部和底部定义古典技术图案。[pattern.db()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)函数实现了论文第12页描述的10种图案。例如，让我们看一下[头肩顶](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)图案。[头肩顶](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)图案：
 - en: is defined by 5 extrema points (E1, E2, E3, E4, E5)
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 由5个极值点（E1、E2、E3、E4、E5）定义
 - en: starts with a maximum (E1)
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 以最大值（E1）开始
 - en: E1 and E5 are within 1.5 percent of their average
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: E1和E5的值与其平均值相差不超过1.5%。
 - en: E2 and E4 are within 1.5 percent of their average
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: E2和E4的值与其平均值相差不超过1.5%。
 - en: 'The R code below that corresponds to the [Head and Shoulders](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)
     pattern is a direct translation, from the pattern description in the paper on
     page 12, and is very readable:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的R代码对应于[头肩顶图](http://en.wikipedia.org/wiki/Head_and_shoulders_%28chart_pattern%29)模式，是直接翻译自论文中第12页的模式描述，非常易读：
 - en: '[PRE3]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: The last step is a function that searches for all defined patterns in the kernel
     regression representation of original time series.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后一步是一个函数，它在原始时间序列的核回归表示中搜索所有定义的模式。
 - en: 'I put the logic for this step into the [find.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)
     function. Below is a simplified version:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将这一步的逻辑放入了[find.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)函数中。以下是一个简化版本：
 - en: '[PRE4]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: 'I put the logic for the entire process in to the [plot.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)
     helper function. The [plot.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)
     function first call find.extrema() function to determine extrema points, and next
     it calls find.patterns() function to find and plot patterns. Let’s find classical
     technical patterns in the last 150 days of SPY history:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将整个过程的逻辑放入了[plot.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)辅助函数中。[plot.patterns()](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)函数首先调用find.extrema()函数来确定极值点，然后调用find.patterns()函数来查找并绘制模式。让我们在SPY历史的最后150天中找到经典的技术模式：
 - en: '[PRE5]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: It is very easy to define you own custom patterns and I encourage everyone to
     give it a try.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 定义您自己的自定义模式非常容易，我鼓励每个人都尝试一下。
 - en: '[![](img/5e142b51436062d709ac83a7bc1d3735.png "plot.pattern.matching.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot-pattern-matching-small.png)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5e142b51436062d709ac83a7bc1d3735.png "plot.pattern.matching.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot-pattern-matching-small.png)'
 - en: To view the complete source code for this example, please have a look at the
     [pattern.test() function in rfinance2012.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r).
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[GitHub上的rfinance2012.r中的pattern.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/rfinance2012.r)。
