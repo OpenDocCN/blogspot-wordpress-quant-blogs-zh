@@ -1,97 +1,156 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:32:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:32:11'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Calendar-based Sector Strategy | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 基于日历的板块策略 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/08/05/calendar-based-sector-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2013/08/05/calendar-based-sector-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/08/05/calendar-based-sector-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2013/08/05/calendar-based-sector-strategy/#0001-01-01)
 - en: 'I recently came across the [Kaeppel’s Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)
     which is described in [Kaeppel’s Corner: Sector Seasonality](http://www.optionetics.com/marketdata/article.aspx?aid=13623)
     and updated in [Kaeppel’s Corner: Get Me Back, Clarence](http://www.optionetics.com/marketdata/article.aspx?aid=18343).'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '我最近接触到了 [Kaeppel''s Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)，该策略在
+    [Kaeppel''s Corner: Sector Seasonality](http://www.optionetics.com/marketdata/article.aspx?aid=13623)
+    中有描述，并在 [Kaeppel''s Corner: Get Me Back, Clarence](http://www.optionetics.com/marketdata/article.aspx?aid=18343)
+    中进行了更新。'
 - en: 'Today I want to show how to back-test the [Kaeppel’s Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
     Following are the strategy rules:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想展示如何使用 [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    对 [Kaeppel's Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)
+    进行回测。以下是策略规则：
 - en: Buy Fidelity Select Technology (FSPTX) at the October close.
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在十月份结束时购买 Fidelity Select Technology (FSPTX)。
 - en: Switch from FSPTX to Fidelity Select Energy (FSENX) at the January close.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在一月份结束时，从 FSPTX 切换到 Fidelity Select Energy (FSENX)。
 - en: Switch from FSENX to cash at the May close.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在五月份结束时，从 FSENX 切换到现金。
 - en: Switch from cash to Fidelity Select Gold (FSAGX) at the August close.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在八月份结束时，从现金切换到 Fidelity Select Gold (FSAGX)。
 - en: Switch from FSAGX to cash at the September close.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在九月份结束时，从 FSAGX 切换到现金。
 - en: Repeat by switching from cash to FSPTX at the October close.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 通过在十月份结束时从现金切换到 FSPTX 来重复。
 - en: Let’s start by loading historical data
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们开始加载历史数据。
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next let’s create 2 benchmark strategies:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建 2 个基准策略：
 - en: Vanguard 500 Index Investor (VFINX)
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Vanguard 500 Index Investor (VFINX)
 - en: VFINX from the October close through the May close and cash otherwise (VFINX
     /Cash)
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从十月份结束到五月份结束持有 VFINX，否则持有现金（VFINX/Cash）。
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: And finally, let’s create the [Kaeppel’s Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)
     and make reports
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们创建 [Kaeppel's Sector Seasonality Strategy](http://www.cxoadvisory.com/2785/calendar-effects/kaeppels-sector-seasonality-strategy/)
+    并生成报告。
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot1](img/d3210637910d753868a98c541ce6d19c.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/08/plot1.jpg)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/d3210637910d753868a98c541ce6d19c.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/08/plot1.jpg)'
 - en: The Technology exposure is surely made a big difference from 1998 to 2000\.
     But looking at the strategy perfromance since 2002, the strategy is still doing
     better than our benchmarks.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 从 1998 年到 2000 年，技术方面的暴露肯定产生了很大的差异。但从 2002 年以来观察策略的表现，策略仍然优于我们的基准。
 - en: '[![plot2](img/c0b2e7c13964fa1a9c47cb573a1303cc.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/08/plot2.jpg)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/c0b2e7c13964fa1a9c47cb573a1303cc.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/08/plot2.jpg)'
 - en: To view the complete source code for this example, please have a look at the
     [bt.calendar.based.sector.strategy.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 [GitHub 上的 bt.test.r 中的 bt.calendar.based.sector.strategy.test()
+    函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
