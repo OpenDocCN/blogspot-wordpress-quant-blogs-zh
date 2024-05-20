@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:53:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:53:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Differential DV2 and ETF Arbitrage | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Differential DV2 和 ETF 套利 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/07/27/differential-dv2-and-etf-arbitrage/#0001-01-01](https://cssanalytics.wordpress.com/2009/07/27/differential-dv2-and-etf-arbitrage/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/07/27/differential-dv2-and-etf-arbitrage/#0001-01-01](https://cssanalytics.wordpress.com/2009/07/27/differential-dv2-and-etf-arbitrage/#0001-01-01)
 - en: One of the more useful applications for the DV2 is for pair trading or arbitrage.
     This is one of the least risky and most consistent way to take advantage of mean
     reversion. This is because co-integrated assets mean revert more strongly and
@@ -25,8 +37,11 @@
     ETFs that cover the financial sector. Or another example would be a leveraged
     ETF vs its unleveraged counterpart–ie SSO or SDS (S&P500 2x up and 2x down) vs
     the SPY.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: DV2 的更有用的应用之一是配对交易或套利。这是利用均值回归最少风险和最一致的方式之一。这是因为协整资产更强烈地回归均值，而且很少趋势，尤其是如果它们是近似替代品，比如两个覆盖金融部门的
+    ETF，或者另一个例子是一个杠杆 ETF 与其非杠杆对应物之间的对比，例如 SSO 或 SDS（标普500 2倍上升和2倍下降）与 SPY。
 - en: Most pair strategies that have been published involve taking positions that
     are longer term, such as when the pair is several standard deviations above or
     below a moving average such as the 20day or 100 day. This methodology is not suitable
@@ -43,20 +58,30 @@
     normalized. In this manner we can create all sorts of different trading strategies
     to take advantage of the low risk opportunities presented in leveraged etfs vs
     their underlying unleveraged counterparts.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数已发表的配对策略涉及采取较长期的仓位，例如当配对在移动平均线（如20日或100日）的数个标准偏差以上或以下时。这种方法不适用于套利，因为大多数差异在最多几天内就会被消除。因此，DV2
+    在识别两个资产之间的相对差异方面非常有用。Differential DV2 简单地是对配对的每一侧或非杠杆/杠杆 ETF 的无界 DV2 差异的百分位排名。对于配对，我对此进行了一些不同的计算，超出了本文的范围，但无界
+    DV2 简单地是最近两天的 C/(H+L) 的平均值。然后，我乘以一个杠杆因子来规范化每一侧的原始数据（例如 SPY 和 SSO），然后将两者相减以创建差异。然后，使用“percentrank”函数在过去的
+    252 个交易日内对此差异进行排名，以创建一个经验分布，使得差异实际上被归一化。通过这种方式，我们可以创建各种不同的交易策略，以利用杠杆 ETF 与其基础非杠杆
+    ETF 之间呈现的低风险机会。
 - en: Performance using most variations of this Differential DV2 is spectacular and
     can easily survive transacation costs by either waiting for extreme levels or
     waiting for the oscillator to reverse in the opposite direction from entry.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用大多数Differential DV2变体的性能是惊人的，可以轻松地通过等待极端水平或等待振荡器在与入市相反方向反转来生存交易成本。
 - en: Normalization and long term pair behaviour seems to be a critical component
     to pairs trading, which makes the DV2 stronger than the RSI. Furthermore the use
     of a differential which is itself is normalized further enhances this advantage.
     In the next part we will take a look at some examples and i will provide example
     spreadsheets so that calculations can be replicated.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 规范化和长期配对行为似乎是配对交易的关键组成部分，这使得 DV2 比 RSI 更强大。此外，使用一个差异，它本身被进一步归一化，进一步增强了这个优势。在下一部分中，我们将看一些例子，我将提供示例电子表格，以便可以复制计算。
 - en: ETF arbitrage is an excellent strategy to add to your market timing arsenal
     because of its lack of correlation and its high absolute returns relative to risk.
     As a cautionary note, arbitrage spreads tend to be the most tradeable net of commisions
@@ -66,5 +91,7 @@
     Im not sure if we will see numbers like that ever again, but certainly there will
     be rewarding profits going forward until enough competition reduces margins in
     this space.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ETF套利是一种极佳的策略，可以添加到您的市场定时工具库中，因为它与风险的相关性较低，相对于风险而言，其绝对回报率较高。作为一种警示，套利价差在波动期间往往是最具交易性的，扣除佣金后。事实上，2008年秋季为某些杠杆ETF的套利带来了惊人的收益（年化50-150%）。一组这些杠杆ETF的套利投资组合产生了非常高的收益，而波动性非常低。我不确定我们是否会再次看到那样的数字，但肯定会在足够的竞争降低了该领域的利润率之前，未来会有丰厚的利润。
