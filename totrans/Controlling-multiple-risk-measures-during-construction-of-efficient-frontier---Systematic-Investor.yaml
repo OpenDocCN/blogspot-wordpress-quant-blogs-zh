@@ -1,62 +1,95 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们使用[资产配置简介](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)帖子中提供的历史输入假设来检查使用不同风险度量计算的有效前沿：
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 14:47:54'
 - en: 'date: 2024-05-18 14:47:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ebc4c0ec66bc6b164dd009d535b30c37.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small7.png)'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去的几篇文章中，我介绍了[最大损失，均值绝对偏差](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/)，以及[预期损失（CVaR）和条件回撤风险（CDaR）](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/)风险度量。
+    这些风险度量可以被制定为线性约束，因此可以在有效前沿的构建过程中结合起来控制多种风险度量。
 - en: Controlling multiple risk measures during construction of efficient frontier
     | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 要查看此示例和其他示例的完整源代码，请查看 [github 上 aa.test.r 中的 aa.multiple.risk.measures.test()
+    函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。
 - en: In the last few posts I introduced [Maximum Loss, Mean-Absolute Deviation](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/),
     and [Expected shortfall (CVaR) and Conditional Drawdown at Risk (CDaR)](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/)
     risk measures. These risk measures can be formulated as linear constraints and
     thus can be combined with each other to control multiple risk measures during
     construction of efficient frontier.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/26/controlling-multiple-risk-measures-during-construction-of-efficient-frontier/#0001-01-01)
 - en: 'Let’s examine efficient frontiers computed under different risk measures using
     historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
     post:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了构建一个新的均值方差有效前沿，其中只包含最大损失小于 12% 的投资组合
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/ebc4c0ec66bc6b164dd009d535b30c37.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small7.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/26111cb11134dce42dee8db61d818684.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small7.png)'
 - en: To construct a new mean-variance efficient frontier that only contains portfolios
     with Max Loss less than 12%
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/26111cb11134dce42dee8db61d818684.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small7.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的有效前沿，标记为‘风险+最大损失’，位于风险和最大损失有效前沿之间，无论是按标准偏差衡量的风险，还是按最大损失衡量的风险图中都是如此。 原始‘风险’和新‘风险+最大损失’投资组合之间的主要区别可以从它们的过渡图中看出。
+    为了在均值方差优化期间控制最大损失，‘风险+最大损失’投资组合不分配给新兴市场（EEM - 用绿色突出显示）。
 - en: The new efficient frontier, labeled ‘Risk+MaxLoss’, is located between ‘Risk’
     and ‘MaxLoss’ efficient frontiers in both Risk, measure by Standard Deviation,
     and Maximum Loss plots. The main difference between original ‘Risk’ and new ‘Risk+MaxLoss’
     portfolios can be seen for their Transition Maps. To control Maximum Loss during
     mean-variance optimization, the ‘Risk+MaxLoss’ portfolios do not have allocation
     to Emerging Markets (EEM – highlighted with green).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: To view the complete source code for this example and other examples, please
     have a look at the [aa.multiple.risk.measures.test() function in aa.test.r at
     github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在构建有效前沿期间控制多种风险度量 | Systematic Investor
