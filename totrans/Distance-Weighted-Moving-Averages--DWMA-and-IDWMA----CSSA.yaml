@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 17:49:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: Distance Weighted Moving Averages (DWMA and IDWMA) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/18/distance-weighted-moving-averages-dwma-and-idwma/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -25,9 +31,11 @@
     weighted moving average (DWMA) is designed to be a robust version of a moving
     average to reduce the impact of outliers. Here is the calculation from the Encyclopedia
     of Math:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: '[![dwma](img/e496c68a920118f873f38ef508006016.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'Notice in the example above that “12” is clearly an outlier relative to the
@@ -47,9 +55,11 @@
     Furthermore, this method may prove more valuable for use in volatility calculations
     where sensitivity to risk is important. The chart below shows how these different
     moving averages respond to a fictitious time series with outliers:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '[![dwma2](img/7640dd4f13ce3f965614366a760bb74f.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma2.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: 'Notice that the DWMA is the least sensitive to the price moves and large jumps,
@@ -66,14 +76,21 @@
     Here is the performance using a 10-day moving average with the different variations
     from 1995 to present. The rules are long if the average is above zero and cash
     if it is below (no interest on cash is assumed in this case):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意 DWMA 对价格波动和大幅跳跃的敏感性最低，而 IDWMA 最敏感。比较而言，SMA 的响应介于 DWMA 和 IDWMA 之间。关键在于，移动平均线并非固有上优于另一种，而是每一种都适用于不同的应用，并且在不同的时间序列上可能表现更好或更糟。有了这个说法，让我们来看一些实际例子。我通常更喜欢使用收益而不是价格，所以在这种情况下，我们将以两种不同的时间序列——标准普尔500和黄金——来应用不同的移动平均变体：DWMA、IDWMA
+    和 SMA。交易者和投资者都很容易认识到标准普尔500在短期内非常嘈杂。相反，用长期测量方式来预测黄金往往是不可预测的，但大幅度波动在短期内往往是可预测的。这是是使用不同变体的10天移动平均线从1995年至今的表现。规则是，如果平均值高于零则持有，如果低于零则持有现金（在本例中假设现金无利息）：
 - en: '[![dwma3](img/92b2c6802021ffa4f09ab46b42a4e95e.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma3.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![dwma3](img/92b2c6802021ffa4f09ab46b42a4e95e.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma3.png)'
 - en: '[![dwma4](img/3ff843356dc44fe193012cc54f652bb6.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma4.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![dwma4](img/3ff843356dc44fe193012cc54f652bb6.png)](https://cssanalytics.files.wordpress.com/2014/12/dwma4.png)'
 - en: Consistent with anecdotal observation, the DWMA performs the best on the S&P500
     by filtering out large noisy or mean-reverting price movements. The IDWMA in contrast
     performs the worst because it distorts the average by emphasizing these moves.
@@ -93,5 +110,7 @@
     or trade statistics makes sense as well. As mentioned earlier, using an IDWMA
     is helpful for volatility-based calculations in many cases. Consider this a very
     simple tool to add to your quant toolbox.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 与传统观察一致，DWMA 在过滤掉大嘈杂或回归平均的价格波动时，对标准普尔500的表现最佳。相反，IDWMA 的表现最差，因为它通过强调这些波动来扭曲平均值。但在黄金这种情况下，IDWMA受益于强调这些大（看似有用的趋势信号），而DWMA的表现最差。在两种情况下，SMA的表现居中。距离加权移动平均线的一个缺点是，计算忽略了每个数据点的时间位置。如果有一个离群值，那么它发生在60天前就不那么重要了，而发生在今天则重要得多。通过巧妙地操纵计算，可以解决这个问题。然而，主要的启示是可以为不同的时间序列使用不同的加权方案来进行移动平均，并且产生潜在的更好结果。也许一个自适应的方法会产生好的结果。此外，对不同类型的应用，应该对适当的移动平均计算进行深思熟虑。例如，您可能希望使用DWMA而不是中值来计算相关性——这可能被离群值严重扭曲。也许在绩效或交易统计中使用DWMA也是有意义的。正如前面提到的那样，在许多情况下，使用IDWMA在基于波动率的计算中是有帮助的。把这看作是一种非常简单的工具，加到你的量化工具箱里。
