@@ -2,29 +2,35 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:48:05'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:48:05
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Expected shortfall (CVaR) and Conditional Drawdown at Risk (CDaR) risk measures
     | Systematic Investor
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 预期的缺失（CVaR）和条件风险降幅（CDaR）风险度量 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/25/expected-shortfall-cvar-and-conditional-drawdown-at-risk-cdar-risk-measures/#0001-01-01)
 - en: 'In the [Maximum Loss and Mean-Absolute Deviation risk measures](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/)
     post I started the discussion about alternative risk measures we can use to construct
     [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier). Another
@@ -38,6 +44,11 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 [最大损失和平均绝对偏差风险度量](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/)
+    文章中，我开始讨论我们可以用来构建[有效边界](http://en.wikipedia.org/wiki/Efficient_Frontier)的替代风险度量。我想讨论的另一种替代风险度量是[预期的缺失（CVaR）](http://en.wikipedia.org/wiki/Expected_shortfall)和条件风险降幅（CDaR）。我将使用
+    [Krokhmal, P., S. Uryasev, and G. Zrazhevsky (2001)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=297639)
+    和 [Enn Kuutan](http://www.mie.utoronto.ca/undergrad/thesis-catalog/files/351.pdf)
+    文章中介绍的方法来构建最优化投资组合。
 - en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
     j= 1,…,T scenarios of returns with equal probabilities are available. I will use
     historical assets returns as scenarios. Let us denote by r.ij the return of i-th
@@ -46,24 +57,32 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让 x.i，i = 1,…，n 为投资组合中工具的权重。我们假设有 j = 1,…，T 的等概率返回情景可用。我将使用历史资产收益作为情景。让我们用 r.ij
+    表示情景 j 中第 i 个资产的回报。该投资组合的条件价值风险（CVaR）（第 30-32 页）可以写作
 - en: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0, -\sum_{i=1}^{n}r_{ij}x_{i}-E\right
     \}](img/e728bbbb0711a0c0e419b1a2cdd5a4ee.png)'
   id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0, -\sum_{i=1}^{n}r_{ij}x_{i}-E\right
+    \}](img/e728bbbb0711a0c0e419b1a2cdd5a4ee.png)'
 - en: It can be formulated as a linear programming problem
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 它可以被表述为一个线性规划问题
 - en: '![min_{}{} E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}w_{j}  \newline\newline  -\sum_{i=1}^{n}r_{ij}x_{i}-E\leq
     w_{j}, j=1,...,T  \newline\newline  w_{j}\geqslant 0, j=1,...,T](img/813d08f0add8282ebc8ad139f584a9a4.png)'
   id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![min_{}{} E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}w_{j}  \newline\newline  -\sum_{i=1}^{n}r_{ij}x_{i}-E\leq
+    w_{j}, j=1,...,T  \newline\newline  w_{j}\geqslant 0, j=1,...,T](img/813d08f0add8282ebc8ad139f584a9a4.png)'
 - en: This linear programming problem can be easily implemented
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个线性规划问题可以很容易地实现
 - en: '[PRE0]'
   id: totrans-12
   prefs: []
@@ -76,16 +95,21 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 该投资组合的条件风险降幅（CDaR）（第 32-33 页）概念与 CVaR 非常相似。我们不是使用投资组合收益来确定缺口，而是使用投资组合的风险降幅。条件风险降幅（CDaR）可以写作
 - en: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0,   \max_{1\leq k\leq
     j} \left ( \sum_{i=1}^{n} \left [ \sum_{s=1}^{k}r_{is} \right ] x_{i} \right )
     - \sum_{i=1}^{n} \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}-E\right \}](img/a71404c3da98d48d87678911aa179d00.png)'
   id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}max\left \{ 0,   \max_{1\leq k\leq
+    j} \left ( \sum_{i=1}^{n} \left [ \sum_{s=1}^{k}r_{is} \right ] x_{i} \right )
+    - \sum_{i=1}^{n} \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}-E\right \}](img/a71404c3da98d48d87678911aa179d00.png)'
 - en: It can be formulated as a linear programming problem
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 它可以被表述为一个线性规划问题
 - en: '![min_{}{} E + \frac{1}{(1 - \alpha) J}\sum_{j=1}^{T}w_{j}  \newline\newline  u_{j}-\sum_{i=1}^{n}
     \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}-E\leq w_{j}, j=1,...,T  \newline\newline  \sum_{i=1}^{n}
     \left [ \sum_{s=1}^{j}r_{is} \right ]x_{i}\leq u_{j}, j=1,...,T  \newline\newline  u_{j-1}\leqslant
