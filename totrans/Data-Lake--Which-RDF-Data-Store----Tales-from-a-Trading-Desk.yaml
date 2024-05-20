@@ -1,43 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-18 05:32:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 05:32:46'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Data Lake: Which RDF Data Store? | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 数据湖：选择哪种 RDF 数据存储？ | 来自一个交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/05/03/which-rdf-data-store/#0001-01-01](https://mdavey.wordpress.com/2016/05/03/which-rdf-data-store/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/05/03/which-rdf-data-store/#0001-01-01](https://mdavey.wordpress.com/2016/05/03/which-rdf-data-store/#0001-01-01)
 - en: 'Data Lake: Which RDF Data Store?'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 数据湖：选择哪种 RDF 数据存储？
 - en: A number of triple stores are listed [here](https://www.w3.org/2001/sw/wiki/Java).
      GraphDB looks [interesting](http://graphdb.ontotext.com/graphdb/), but I suspect
     the enterprise edition tips the scale towards an Open Source solution.  In the
     world of big data, I suspect you really want SPARSQL over [Hadoop](https://jena.apache.org/documentation/hadoop/)?
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里列出了许多三元组存储器 [here](https://www.w3.org/2001/sw/wiki/Java)。  GraphDB 看起来 [interesting](http://graphdb.ontotext.com/graphdb/)，但我怀疑企业版会倾向于开源解决方案。
+     在大数据的世界中，我怀疑你真的想要 SPARSQL 而不是 [Hadoop](https://jena.apache.org/documentation/hadoop/)？
 - en: store data in a key value store in Hadoop [Hbase], but then index it with our
     [graph](http://www.datanami.com/2015/05/26/hadoop-triple-stores-and-the-semantic-data-lake/)
     database so that we can do these SPARQL queries
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 将数据存储在 Hadoop 的键值存储中 [Hbase]，然后用我们的 [图形](http://www.datanami.com/2015/05/26/hadoop-triple-stores-and-the-semantic-data-lake/)
+    数据库对其进行索引，以便我们可以执行这些 SPARQL 查询
 - en: 'This is echo’d by “Avoiding Three Common [Pitfalls](http://data-informed.com/avoiding-three-common-pitfalls-data-lakes/)
     of Data Lakes”:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这由“避免数据湖的三个常见 [陷阱](http://data-informed.com/avoiding-three-common-pitfalls-data-lakes/)”所引用：
 - en: Smart data technologies substantially reduce the complexity of data lake implementations
     while accelerating the time-to-value they produce. The graph-based model and detailed
     descriptions of data elements they enable substantially enhance integration efforts,
@@ -48,37 +70,57 @@
     time to a more profound form of analytics, in which users can not only ask more
     questions more expediently than before, but also determine relationships and data
     context to issue ad-hoc queries for specific needs.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 智能数据技术大大降低了数据湖实施的复杂性，同时加快了它们产生价值的时间。基于图形的模型和数据元素的详细描述大大增强了集成工作，使业务用户能够根据提供关键背景的相关属性链接数据，跨数据源和业务模型。资源描述框架（RDF）图旨在在不必重新配置现有表示的情况下纳入新数据和源。结果是大大缩短了达到更深层次分析的时间，在这种分析中，用户不仅可以比以前更迅速地提出更多问题，而且还可以确定关系和数据背景以针对特定需求发出特定的即席查询。
 - en: Although older, still of interest “Storing (and querying) RDF in [NoSQL](http://www.snee.com/bobdc.blog/2013/12/storing-and-querying-rdf-in-no.html)
     database managers”
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然较老，但仍然有趣“在 [NoSQL](http://www.snee.com/bobdc.blog/2013/12/storing-and-querying-rdf-in-no.html)
+    数据库管理器中存储（和查询）RDF”
 - en: The paper then describes the storage and querying of RDF using HBase with Jena
     for querying, HBase with Hive as the query engine (with Jena’s ARQ to parse the
     queries before converting them to HiveQL), CumulusRDF (Cassandra with Sesame),
     and Couchbase
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 然后，本文描述了使用 HBase 和 Jena 进行查询的 RDF 的存储和查询，使用 HBase 和 Hive 作为查询引擎（使用 Jena 的 ARQ
+    在将其转换为 HiveQL 之前解析查询），CumulusRDF（Cassandra with Sesame）和 Couchbase
 - en: 'Which leads to the following possible options:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了以下可能的选项：
 - en: RDF data store used to index your data lake
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 用于索引您的数据湖的 RDF 数据存储
 - en: '[D2R](http://d2rq.org/) on top of your data lake'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在您的数据湖之上使用 [D2R](http://d2rq.org/)
 - en: Anyone got a view?
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人有看法吗？
 - en: ~ by mdavey on May 3, 2016.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 作者 mdavey，2016年5月3日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [Data](https://mdavey.wordpress.com/category/data/) 中
