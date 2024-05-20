@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:52:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 17:52:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Error-Adjusted Momentum | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 误差调整动量 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/07/30/error-adjusted-momentum/#0001-01-01](https://cssanalytics.wordpress.com/2014/07/30/error-adjusted-momentum/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/07/30/error-adjusted-momentum/#0001-01-01](https://cssanalytics.wordpress.com/2014/07/30/error-adjusted-momentum/#0001-01-01)
 - en: 'In the [last post](https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/
     "VIX-Adjusted Momentum") I introduced a method to normalize returns using the
     VIX to improve upon a standard momentum or trend-following strategy. There are
@@ -35,22 +47,33 @@
     returns, I divide each return by this standard error estimate prior to taking
     a 200-day average of the re-scaled returns. The rules for the ER-MOM strategy
     are the same as in the last post (although poorly articulated):'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[上一篇文章](https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/
+    "VIX-Adjusted Momentum")中，我介绍了一种使用VIX来规范化收益以改进标准动量或趋势跟踪策略的方法。这个想法有很多可能的延伸，我鼓励读者看一下上一篇文章中的评论，可能会激发一些新的想法。这种方法的动机是提供一种替代方法，这种方法对其他资产更具普适性，而不是基于VIX的策略（这种策略更适合于股票）。该方法使用平均误差标准来调整收益，而不是使用VIX，VIX是市场噪音的代理。其逻辑是，当可预测性高时，应更加权重收益，反之，在可预测性低时应更少权重。在这种情况下，希望误差调整移动平均线比标准移动平均线更能抵抗市场噪音。为了计算标准误差，我使用10天平均收益率生成一个预测，然后取预测的10天平均绝对误差。为了规范化收益，我将每个收益除以此标准误差估计值，然后再取重新缩放后的收益的200天平均值。ER-MOM策略的规则与上一篇文章中相同（尽管表述不够清晰）：
 - en: Go LONG when the Error-Adjusted Momentum is > 0, Go to CASH if the Error-Adjusted
     Momentum is < 0
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当误差调整动量 > 0 时进行多头操作，如果误差调整动量 < 0 则转入现金。
 - en: 'Here is how this strategy compares to both the VIX-adjusted strategy and the
     other two baseline strategies:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个策略与调整后的VIX策略以及另外两个基准策略相比如何：
 - en: '[![er mom table](img/1a11a643c14ad7c647f1ef9e0d8c76dd.png)](https://cssanalytics.files.wordpress.com/2014/07/er-mom-table.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![er mom table](img/1a11a643c14ad7c647f1ef9e0d8c76dd.png)](https://cssanalytics.files.wordpress.com/2014/07/er-mom-table.png)'
 - en: '[![er mom chart](img/83d1e0f5567170bec64ca1690c229e3f.png)](https://cssanalytics.files.wordpress.com/2014/07/er-mom-chart.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![er mom chart](img/83d1e0f5567170bec64ca1690c229e3f.png)](https://cssanalytics.files.wordpress.com/2014/07/er-mom-chart.png)'
 - en: The error-adjusted momentum strategy has the best returns and risk-adjusted
     returns- edging out the previous method that used the VIX. In either case, both
     adjusted momentum strategies performed better than their standard counterparts.
@@ -62,5 +85,7 @@
     standard deviation is also a viable alternative to either using the standard error
     or the VIX, and there are a lot of other ways to measure variability/noise that
     can be used as well.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 误差调整动量策略的收益和风险调整后的收益最佳，超过了使用VIX的先前方法。无论哪种情况，都调整后的动量策略表现都优于其标准对应物。需要注意的一个概念是，调整后的动量策略的好处或优势在较长的趋势跟踪回看期间往往更为显著。这是有道理的，因为在长时间段内可能会有更广泛的方差制度比在较短的回看期内。调整这些不同的方差制度可以更清晰地描绘长期趋势。使用历史标准差也是使用标准误差或VIX的可行替代方案，还有很多其他测量变异性/噪音的方法也可以使用。
