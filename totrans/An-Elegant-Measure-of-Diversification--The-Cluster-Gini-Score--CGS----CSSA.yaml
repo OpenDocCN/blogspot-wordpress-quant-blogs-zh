@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:02:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 18:02:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'An Elegant Measure of Diversification: The Cluster Gini Score (CGS) | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 一种优雅的多样化衡量方法：聚类基尼分数（CGS）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01](https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01](https://cssanalytics.wordpress.com/2013/01/09/an-elegant-measure-of-diversification-the-cluster-gini-score-cgs/#0001-01-01)
 - en: In the paper we wrote on [The Minimum Correlation Algorithm](https://cssanalytics.wordpress.com/2012/09/12/minimum-correlation-algorithm-mca/
     "Minimum Correlation Algorithm (MCA)") we introduced the Composite Diversification
     Score (CDI). The purpose of this measure was to demonstrate how well a set of
@@ -26,8 +38,12 @@
     "Gini Calculation Spreadsheet") coefficient of inequality. The CDI can also be
     extended in a similar manner to CGS when applied to clusters- this is beyond the
     scope of this post.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们撰写的关于[最小相关算法](https://cssanalytics.wordpress.com/2012/09/12/minimum-correlation-algorithm-mca/
+    "Minimum Correlation Algorithm (MCA)")的论文中，我们介绍了复合多样化评分（CDI）。这一措施的目的是展示一组投资组合权重如何最小化平均投资组合相关性，并且平衡每个资产的风险贡献，使用[基尼](https://cssanalytics.wordpress.com/2012/10/22/gini-calculation-spreadsheet/
+    "Gini Calculation Spreadsheet")系数进行衡量不平等。当应用于集群时，CDI也可以类似地扩展到CGS-这超出了本文的范围。
 - en: 'An alternative and potentially more intuitive measure of portfolio diversification
     uses the concepts embedded in [Cluster Risk Parity](https://cssanalytics.wordpress.com/2013/01/03/cluster-risk-parity/
     "Cluster Risk Parity") (CRP). The logic is very simple: if CRP using ERC (equal
@@ -44,11 +60,16 @@
     The same concept can be extended to across (inter) factor/cluster risk contributions
      and within (intra) factor/cluster risk contributions. The formula for CGS would
     be as follows:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种替代性且潜在更直观的投资组合多样化衡量方法使用了[集群风险平价](https://cssanalytics.wordpress.com/2013/01/03/cluster-risk-parity/
+    "Cluster Risk Parity") (CRP)中蕴含的概念。逻辑非常简单：如果CRP使用ERC（等风险贡献）在集群内部和跨集群中都代表“最优多样化投资组合”，那么任何偏离这一点的投资组合都被认为在风险/多样化方面存在不同程度的不平衡。实质上，来自给定宇宙的投资组合被认为对每个集群都有“因子”敞口，并且对这些因子也有“跟踪误差”（跑输基准的风险）。在实践中，我们希望在因子/集群风险之间实现风险的平衡，以及对因子/集群敞口的风险进行平衡。Gini系数被用于CDI中度量风险贡献敞口的不平等性。一种度量方式是(1-Gini)资产风险贡献的情况下，值为1代表完美平等，0代表完美不平等。相同的概念可以扩展到跨（间）因子/集群风险贡献和内部（内）因子/集群风险贡献。CGS的公式如下：
 - en: '***CGS=  100x (sqrt(NC)x(inter-cluster RC (1-Gini))+(avg intra-cluster RC (1-Gini)))/(sqrt(NC)+1)***'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '***CGS=  100x (sqrt(NC)x(inter-cluster RC (1-Gini))+(avg intra-cluster RC (1-Gini)))/(sqrt(NC)+1)***'
 - en: Essentially this is a weighting of inter-factor risk balance versus  the average
     intra-factor risk balance, where the inter-factor (across clusters) is assigned
     a greater weight as a function of the square root of the number of clusters available.
@@ -63,5 +84,10 @@
     and generate portfolios that are more intuitive. In machine learning algorithms,
     and data-mining,  CGS  can help to  produce more stable predictions and enhance
     the capability of handling large datasets when using clustering.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 本质上，这是对因子风险平衡的加权，与平均因子内风险平衡相比，跨因子（跨集群）被分配了更大的权重，该权重是可用集群数量的平方根的函数。 结果方程显示结果介于
+    0 和 100 之间，其中 100 是集群风险平衡配置，而非常低的分数表示高度集中和风险分配不佳。 此分数可用于确定在给定宇宙中的任何一组投资组合权重的分散/集中程度。
+    换句话说，如果你例如有 5 个资产和一组你认为是最佳的权重，CGS 可以帮助确定你在分散化方面的不平衡程度。 这也可以扩展到优化，其中 CGS 可以帮助调节目标函数以确保更稳定的结果，并生成更直观的投资组合。
+    在机器学习算法和数据挖掘中，CGS 可以帮助生成更稳定的预测，并增强在使用聚类时处理大型数据集的能力。

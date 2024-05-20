@@ -93,6 +93,7 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于相对强度的一个肮脏秘密是，在熊市中它并不起作用。我经常读到这样的说法，毫不奇怪，我们的结果也显示了同样的效果。但是，相对强度的概念应该是有效的，无论您是处于牛市还是熊市……毕竟，有些股票表现优异，而其他股票则表现不佳。它们并不是瞬间到达这些点的。因此，问题必须在用来衡量相对强度的周期长度上。在经过相当多的测试后，我意识到混淆的差异在于熊市中幅度和频率的增加。购买过去12个月表现最佳的股票极大地掩盖了最近一段时间内的板块轮动。当熊市开始时，您会持有上一个牛市中表现最佳的股票。结果是它们会遭受最大的损失，因为更多的人拥有它们。随着熊市的拖累，您会持有防御性股票--它们的表现最好--只是看着它们在主要反弹时严重表现不佳，使表现最差的股票迅速上涨。最后，您会在反弹的最后阶段持有表现最差的股票（落后者），只是因为突然的纠正而被残酷对待。
 - en: The intial solution it turned out, was to have variable weightings on 12 month
     and 1 month price performance. This way, repsonsiveness could be drastically improved.
     By performing a mathematical learning procedure, the new rankings learned from
@@ -103,6 +104,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最初的解决方案是在12个月和1个月的价格表现上具有可变权重。这样，响应性可以得到大幅改善。通过执行数学学习过程，从过去的数据中学到了新的排名。最重要的是，它们只被允许从熊市中学习，当12个月平均值下降时，只能从牛市中学习，当12个月平均值上升时。权重的差异是显著的，在熊市中，12个月的回报受到的权重远远小于牛市中的权重。
 - en: I will present the results of different weighting schemes for the recent bull
     and bear market in the next post. Meanwhile, lets return to talking about how
     we can apply that to oscillators like the DVO as well as the DVI. Because these
@@ -114,6 +116,7 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将在下一篇文章中介绍最近牛市和熊市的不同权重方案的结果。与此同时，让我们回到谈论如何将这些应用于振荡器，如DVO和DVI。因为这些振荡器被设计成灵活和适应性的（不像DV2），所以它们可以通过允许它们在牛市和熊市中学习方式的不同来改进而不会过度拟合。我喜欢使用的训练过程涉及使用上升的252天（1年）平均值来区分牛市和熊市，因为我们使用的是每日数据。
 - en: Again this procedure results in different weights, as well as different optimal
     entry/exit criteria. This results in a robust, and substantial improvement in
     the raw returns, as well as sharpe ratio of using either indicator. Taking a look
@@ -125,6 +128,7 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次进行这个过程会产生不同的权重，以及不同的最佳进出条件。这导致了使用任一指标的原始收益和夏普比率的稳健和显著改善。研究较短期趋势指标，如ADX、分形效率、R平方和Hurst统计，还为单独的训练程序提供了有价值的信息。但是重要的是不要做得过火，否则我们将在测试中失去自由度。这对新因子的实用性施加了一个实际的限制。
 - en: To do this on your own, you don’t need to get that fancy. All you need to do
     is to use either common optimization, or brute force experimentation on both weighting
     schemes, lookback period, and entry/exit criteria. Of course, the only problem
