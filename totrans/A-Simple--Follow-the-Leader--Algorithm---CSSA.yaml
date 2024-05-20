@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:07:21'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:07:21
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: A Simple “Follow the Leader” Algorithm | CSSA
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 一个简单的“跟随领导者”算法 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01](https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01](https://cssanalytics.wordpress.com/2011/10/12/a-simple-follow-the-leader-algorithm/#0001-01-01)
 - en: A desirable goal of relative strength investing or any type of portfolio algorithm
     would be to track the best stock/asset from a group of stocks/assets in hindsight.
     In other words, we wish to use an approach that can “follow the leader.” This
@@ -39,6 +45,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 相对强度投资或任何类型的投资组合算法的一个可取之处是，在事后跟踪一组股票/资产中的最佳股票/资产。换句话说，我们希望使用一种可以“跟随领导者”的方法。这个目标是通用投资组合算法的一个密切相关部分（参见通用投资组合[http://www.stanford.edu/~cover/portfolio-theory.html](http://www.stanford.edu/~cover/portfolio-theory.html)  寻求跟踪事后连续重新平衡的最佳一对股票/资产。通常，“跟随领导者”（FTL）算法
+     用于在线优化问题在各种领域中具有广泛的适用性，并且优于朴素的加权方法。虽然这种算法通常使用奖励和成本/惩罚函数来调节领导者（或成功算法）成功与不成功的程度，但在这篇文章中，我们将采取一种简单的方法。
 - en: 'Whether we think of Gold or Apple computer, the key question is how we could
     have invested most of our money in such stocks by following their trends as they
     evolved? The answer to this question is that we must seek to track the winners
@@ -51,22 +59,27 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论我们是考虑黄金还是苹果电脑，关键问题是如何在它们发展的过程中通过跟随它们的趋势来投资大部分资金？对这个问题的答案是，我们必须寻求跟踪赢家的方法，不仅仅是基于滚动窗口的方式（像大多数相对强度策略一样），而是从我们回测的开始或起始期开始。此外，我们必须不断监视领先者，并根据它们的累计回报来对我们的投资组合进行加权。最后，为了确保我们不会错过在回测期间其他时间开始运动的新领导者，我们必须以多个起始日期重复这个过程。CSSA
+    SFTL（“S”代表简单）算法的工作方式如下：
 - en: '1) Inception: track the compound return from the start of the backtest for
     each asset and each month weight the asset according to their weighted proportion
     of CAGR with non-negative weights. (asset CAGR / sum of non-zero asset CAGR)'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 起始期：跟踪从回测开始时每个资产的复利回报，并在每个月根据它们的加权年复合增长率与非负权重的加权比例对资产进行加权。（资产CAGR / 非零资产CAGR之和）
 - en: '2) Multiple Inception Periods: repeat the same process every 3 months and record
     a separate set of weights for each inception period'
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 多个起始期：每隔3个月重复相同的过程，并记录每个起始期的一组单独的权重
 - en: 3) Note that you will have a set of asset weights for each inception period
     that changes every month as the weights change.
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 请注意，您将有一组资产权重，每个起始期都会随着权重的变化而变化。
 - en: 4) Use a weighted moving average that weights the oldest periods more than recent
     periods to ensure that we give more weight to tracking the best asset as recorded
     since the beginning of the backtest. ie for this month’s period use a weighted
@@ -77,6 +90,7 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 使用加权移动平均，将最老的期间的权重比最近期间更多地权重，以确保我们更多地关注自回测开始以来记录的最佳资产。即对于本月的期间，使用对所有记录的起始期的当前权重的加权平均值。这是应用于每个股票/资产的权重。如果一个始终对于起始期的最佳资产是不变的，您可以使用简单移动平均值，这不会偏向任何一个起始期。
 - en: This method will invariably track the best asset in hindsight that one could
     have chosen during the backtest while also providing the opportunity to track
     the best asset from a variety of inception periods. It is a fairly simple but
