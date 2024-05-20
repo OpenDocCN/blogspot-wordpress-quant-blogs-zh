@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:39:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:39:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Example of Factor Attribution | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 因子归因示例 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/#0001-01-01)
 - en: In the prior post, [Factor Attribution 2](https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/),
     I have shown how Factor Attribution can be applied to decompose fund’s returns
     in to Market, Capitalization, and Value factors, the [“three-factor model”](http://en.wikipedia.org/wiki/Fama%E2%80%93French_three-factor_model)
@@ -27,45 +39,69 @@
     on Value exposure and create back-test for each Quantile. I will rely on the code
     in the [Volatility Quantiles](https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/)
     post to create Quantiles.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在之前的帖子中，[因子归因 2](https://systematicinvestor.wordpress.com/2012/06/27/factor-attribution-2/)，我展示了如何将因子归因应用于分解基金的回报，包括市场、资本化和价值因子，法玛和弗伦奇的[“三因子模型”](http://en.wikipedia.org/wiki/Fama%E2%80%93French_three-factor_model)。今天，我想向你展示因子归因的另一个应用。首先，让我们对标准普尔500指数中的每支股票运行因子归因，以确定其价值敞口。接下来，让我们根据价值敞口将股票分组到分位数，并为每个分位数创建回测。我将依赖[波动率分位数](https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/)帖子中的代码来创建分位数。
 - en: Let’s start by loading historical prices for all current components of the S&P
     500 index.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先加载标准普尔500指数当前所有成分股的历史价格。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s run Factor Attribution on each the stocks in the S&P 500 to determine
     it’s Value exposure.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们对标准普尔500指数中的每支股票运行因子归因，以确定其价值敞口。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Finally, let’s group stocks into Quantiles based on Value exposure and create
     back-test for each Quantile.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们根据价值敞口将股票分组到分位数，并为每个分位数创建回测。
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/d20df7fc0cea5f7ea35f555c4fc8236e.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d20df7fc0cea5f7ea35f555c4fc8236e.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small.png)'
 - en: '[![](img/a8dc78ed7ed3a558dc711e48862ccde4.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a8dc78ed7ed3a558dc711e48862ccde4.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small.png)'
 - en: There is no linear relationship between Value Quantiles and historical performance.
     I’m also suspecting that that implied Value exposure might be quite different
     than the real Price/Book ratio for each stock. Let me know what do you think about
     this approach.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: Value Quantiles 与历史表现之间没有线性关系。我也怀疑暗示的价值敞口可能与每支股票的真实价格/账面价值比相差很大。请告诉我你对这种方法的看法。
 - en: In the next post I will show another example of Factor Attribution.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇帖子中，我将展示因子归因的另一个示例。
 - en: To view the complete source code for this example, please have a look at the
     [bt.fa.value.quantiles.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[Github 上的 bt.fa.value.quantiles.test() 函数的 bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
