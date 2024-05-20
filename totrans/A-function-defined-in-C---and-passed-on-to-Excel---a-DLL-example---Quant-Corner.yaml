@@ -1,127 +1,196 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:10:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:10:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '-->  '
 - en: 'A function defined in C++ and passed on to Excel : a DLL example | Quant Corner'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在C++中定义的函数并传递到Excel：一个DLL示例 | 量化角
 - en: 来源：[https://quantcorner.wordpress.com/2011/04/02/afunction-defined-in-c-and-used-in-excel-a-dll-exampl/#0001-01-01](https://quantcorner.wordpress.com/2011/04/02/afunction-defined-in-c-and-used-in-excel-a-dll-exampl/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/04/02/afunction-defined-in-c-and-used-in-excel-a-dll-exampl/#0001-01-01](https://quantcorner.wordpress.com/2011/04/02/afunction-defined-in-c-and-used-in-excel-a-dll-exampl/#0001-01-01)
 - en: Imagine  the function you need is not available in **Excel**, moreover you like
     better programming with  **C++** than with **Excel VBA**. In this case, you shall
     want to encapsulate the function defined by yourself into a piece of **C++** code,
     and write an interface so that to use it with **Excel**. This way you would have
     the best of both world, that is the power and fast-computing of  **C++**, and
     the user-friendliness of **Excel**.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 想象一下，你需要的函数在**Excel**中不可用，而且你更喜欢用**C++**而不是**Excel VBA**编程。在这种情况下，您将希望将自己定义的函数封装到一段**C++**代码中，并编写一个接口，以便在**Excel**中使用它。这样，您将同时拥有**C++**的强大和快速计算能力以及**Excel**的用户友好性。
 - en: This is the purpose of this post. We are going to write a **DLL** made of a
     standard ***.cpp** file containing  the definition of the function and a ***.def**
     file (that is a module-definition file). And, we will tell **Excel** about this
     **DLL** thanks to few **Excel VBA** lines of codes.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是这篇文章的目的。我们将写一个**DLL**，由标准的***.cpp**文件和一个***.def**文件（模块定义文件）组成。然后，我们将通过几行**Excel
+    VBA**代码告诉**Excel**有关这个**DLL**。
 - en: Our simple example of a **DLL** integrated together with **Excel** (version
     2007) is derived from *Options, futures and other derivatives 7^(th)*(J.C Hull),
     p.109\. The author there explains how to calculate the value of a forward contract
     on a investment asset providing no income. We are going to write the code corresponding.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们集成到**Excel**（2007版）中的一个简单**DLL**的示例源自*期权、期货和其他衍生品7^(th)*（J.C Hull）, p.109。作者在那里解释了如何计算提供无收入的投资资产的远期合同的价值。我们将编写相应的代码。
 - en: J.C Hull gives the example of an investor who entered a long forward position
     on a non-dividend-paying underlying, the delivery price being $24 (K=24). The
     time length to maturity is now 6 months (T=0,5) . The price of the underlying
     as of today is $25 (S[0]=25), and the risk-free interest (continuous compounding)
     rate is 10% per annum (R = 10%).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: J.C Hull给出了这样一个例子，一个投资者在不支付股息的标的上持有了一个长期远期头寸，交割价格为$24（K=24）。到期时间长度为6个月（T=0,5）。今天标的物的价格为$25（S[0]=25），无风险利率（连续复利）为年利率10%（R
+    = 10%）。
 - en: Let **f** be the value of a long forward contract today, f = (F[0] – K ) e ^(–rT)
     where F[0] = S[0] e^(rT)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 让**f**是今天的长期远期合同的价值，f = (F[0] – K ) e ^(–rT) 其中 F[0] = S[0] e^(rT)
 - en: _______
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: _______
 - en: S[0] = 25
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: S[0] = 25
 - en: K = 24
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: K = 24
 - en: r = 10%
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: r = 10%
 - en: T = 0,5
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: T = 0,5
 - en: _______
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: _______
 - en: Please, refer to [Creating a DLL project with MS Visual Basic 2010](https://quantcorner.wordpress.com/2011/03/28/creating-a-dll-project-with-ms-visual-basic-2010)
     to get started up with the creation of a **DLL** project with **MS Visual Studio
     2010**.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 请参考[使用MS Visual Basic 2010创建DLL项目](https://quantcorner.wordpress.com/2011/03/28/creating-a-dll-project-with-ms-visual-basic-2010)来开始创建一个**MS
+    Visual Studio 2010**的**DLL**项目。
 - en: 'First, our ***.cpp** file will contain the definition of the function that
     computes **f** is :'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们的***.cpp**文件将包含计算**f**的函数的定义是：
 - en: '[PRE0]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The keyword **_stdcall** is a function calling keyword. Here, **discountingLongForward**
     is the function to be called by **Excel**.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 关键字**_stdcall**是一个函数调用关键字。在这里，**discountingLongForward**是要由**Excel**调用的函数。
 - en: Now, the ***.def** file lists the  function that have to be passed on to **Excel**.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，***.def**文件列出了必须传递给**Excel**的函数。
 - en: This is straightforward
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 这很直接
 - en: '[PRE1]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: The line **LIBRARY** is automatically written at the time of adding the ***.def**.
     Just let it.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**LIBRARY**一行在添加***.def**时会自动写入。就让它。'
 - en: At this stage, you have both your ***.cpp** and ***.def** files. It is time
     to compile in the usual way.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个阶段，你已经有了你的***.cpp**和***.def**文件。是时候按照通常的方式进行编译了。
 - en: We are now turning to **Excel**. We have to tell it that our **DLL** exists,
     where it locates, and the nature of its inputs and output.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在转向**Excel**。我们必须告诉它我们的**DLL**存在，它位于哪里，以及其输入和输出的性质。
 - en: '[PRE2]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Notice here the **ByVal** keyword, as **ByRef** is the default mode of **Excel**.
     It is to ensure the calculations gets right. But, one can argues that it is not
     necessary for this very basic example.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意这里的**ByVal**关键字，因为**Excel**的默认模式是**ByRef**。这是为了确保计算结果正确。但是，有人可能认为对于这个非常基本的例子来说这是不必要的。
 - en: Here it is!
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 就是这样！
 - en: To conclude with, below we show our **DLL** at work. With no surprise, it gets
     the same calculation result as read in the J.C Hull’s book.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们展示了我们的**DLL**在工作中的表现。毫无意外，它得到了与J.C Hull的书中所读相同的计算结果。
 - en: '[![](img/671c61054a698133a3130686a4edf727.png "discountingLongforward_formula")](https://quantcorner.wordpress.com/wp-content/uploads/2011/04/discountinglongforward_formula.jpg)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/671c61054a698133a3130686a4edf727.png "折现长远向前合约公式")](https://quantcorner.wordpress.com/wp-content/uploads/2011/04/discountinglongforward_formula.jpg)'
 - en: '[![](img/d1cfba1769d1c7b00fc739e24f787bea.png "discountingLongforward_calculation_result")](https://quantcorner.wordpress.com/wp-content/uploads/2011/04/discountinglongforward_calculation_result.jpg)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d1cfba1769d1c7b00fc739e24f787bea.png "折现长远向前合约计算结果")](https://quantcorner.wordpress.com/wp-content/uploads/2011/04/discountinglongforward_calculation_result.jpg)'
