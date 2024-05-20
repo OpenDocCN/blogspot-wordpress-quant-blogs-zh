@@ -1,58 +1,92 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:54:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:54:46'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Aggregating Messages using Akka – Trait and actorSelection | Tales from a Trading
     Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用 Akka 进行消息聚合 - Trait 和 actorSelection | 交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01](https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01](https://mdavey.wordpress.com/2014/01/22/aggregating-messages-using-akka-trait-and-actorselection/#0001-01-01)
 - en: Aggregating Messages using Akka – Trait and actorSelection
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 使用 Akka 进行消息聚合 - Trait 和 actorSelection
 - en: Whilst on the plane back from NY recently I began to ponder about the [aggregation](http://techblog.net-a-porter.com/2013/12/ask-tell-and-per-request-actors/)
     pattern and [akka](http://www.akkaessentials.in/2012/03/word-count-mapreduce-with-akka.html). 
     Luckily, it would appear that [Jamie](http://jaxenter.com/tutorial-asynchronous-programming-with-akka-actors-46220.html)
     Allen, followed by a [few](https://vaughnvernon.co/?p=539) other [bloggers](http://s-akara.blogspot.co.uk/2013/08/an-aggregator-pattern-for-akka-actor.html)
     have a solution that is well documented – the [aggregator](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html)
     [trait](https://github.com/akara/samples/blob/master/aggregator/src/main/scala/org/akara/samples/aggregator/Aggregator.scala).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近在从纽约回来的飞机上，我开始思考[聚合](http://techblog.net-a-porter.com/2013/12/ask-tell-and-per-request-actors/)模式和[akka](http://www.akkaessentials.in/2012/03/word-count-mapreduce-with-akka.html)。幸运的是，[Jamie](http://jaxenter.com/tutorial-asynchronous-programming-with-akka-actors-46220.html)
+    Allen，以及其他一些[博主](https://vaughnvernon.co/?p=539)已经提供了一种被充分记录的解决方案 - [aggregator](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html)
+    [trait](https://github.com/akara/samples/blob/master/aggregator/src/main/scala/org/akara/samples/aggregator/Aggregator.scala)。
 - en: So, if I use the actorSelection to fire off messages to a group of identical
     actors e.g. algo’s or some such thing;
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，如果我使用 actorSelection 向一组相同的演员发送消息，例如算法或类似的东西；
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: I need to use the expect rather than the expectOnce to process the replies
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我需要使用 expect 而不是 expectOnce 来处理回复
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: In the Akka aggregator pattern [documentation](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html),
     there is a results.size check to known when you have all the response messages
     (or timeout), since you originally knew how many you had sent.  How do I know
     how many messages the actorSelection sent?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 Akka 聚合器模式的 [文档](http://doc.akka.io/docs/akka/snapshot/contrib/aggregator.html)
+    中，有一个 results.size 的检查来知道何时收到所有响应消息（或超时），因为您最初知道已发送了多少消息。我如何知道 actorSelection
+    发送了多少消息？
 - en: ~ by mdavey on January 22, 2014.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 作者 mdavey 于 2014年1月22日。
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [Languages](https://mdavey.wordpress.com/category/languages/)
