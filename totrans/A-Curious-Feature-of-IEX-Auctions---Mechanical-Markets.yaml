@@ -1,70 +1,104 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:38:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:38:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: A Curious Feature of IEX Auctions | Mechanical Markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: IEX 拍卖的一个奇怪特性 | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2017/09/20/a-curious-feature-of-iex-auctions/#0001-01-01](https://mechanicalmarkets.wordpress.com/2017/09/20/a-curious-feature-of-iex-auctions/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2017/09/20/a-curious-feature-of-iex-auctions/#0001-01-01](https://mechanicalmarkets.wordpress.com/2017/09/20/a-curious-feature-of-iex-auctions/#0001-01-01)
 - en: IEX is busy setting up its listing business and has designed an auction mechanism.
     If I understand IEX’s documentation properly — and I might not [[1](#bottom1iexauctions)]
     — their auctions may have some pretty weird functionality. [[2](#bottom2iexauctions)]
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX 正在忙着建立其上市业务，并设计了一个拍卖机制。 如果我理解 IEX 的文件正确的话，他们的拍卖可能具有一些相当奇怪的功能。
 - en: 'IEX’s auction [documentation](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)
     says:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX 的拍卖 [文档](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)
+    表示：
 - en: For the Opening/Closing Auction, non-displayed buy (sell) orders on the Continuous
     Book with a resting price within the Reference Price Range will be priced at the
     Protected NBB (NBO) for the purpose of determining the clearing price, but will
     be ranked and eligible for execution in the Opening/Closing Auction match at the
     order’s resting price.
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 对于开盘/收盘拍卖，连续订单簿上的非显示买入（卖出）订单，其休息价格位于参考价格范围内，将被定价为用于确定结算价格的受保护的 NBB（NBO），但将根据订单的休息价格进行排名并有资格参与开盘/收盘拍卖匹配。
 - en: Now, I’m not easily surprised by complex exchange logic, but this got my attention.
     Again, I may have misunderstood something, but if I haven’t, this logic could
     be controversial with long-term traders once they familiarize themselves with
     IEX auctions.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我不容易被复杂的交易所逻辑惊讶，但这引起了我的注意。 再次强调，我可能误解了一些东西，但如果我没有，一旦长期交易者熟悉了 IEX 的拍卖，这种逻辑可能会引起争议。
 - en: 'Take IEX’s “Example 1” [from](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)
     their “CLEARING PRICE EXAMPLES”:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 看看 IEX 的“示例 1” [来自](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf)
+    他们的“结算价格示例”：
 - en: 'The Closing Auction Book includes the following orders:'
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 收盘拍卖簿包括以下订单：
 - en: LOC order to buy 1,500 shares with a limit price of $10.10; and
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: LOC 订单购买 1,500 股，限价为 $10.10；以及
 - en: LOC order to sell 1,000 shares with a limit price of $10.10.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: LOC 订单出售 1,000 股，限价为 $10.10。
 - en: Shares are maximized at $10.10; therefore
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 股票最高价格为 $10.10；因此
 - en: 1,000 shares would execute at the IEX Official Closing Price of $10.10.
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 1,000 股将以 IEX 官方收盘价 $10.10 执行。
 - en: My understanding is that a hidden order submitted after these LOC orders could
     gain priority without providing a better price. If the NBBO were 10.09/10.13,
     and someone submitted a hidden bid at $10.11 100ms before the auction, I believe
@@ -75,16 +109,25 @@
     at the $10.09 “for the purpose of determining the clearing price”). And unlike
     LOC (or MOC) orders, the hidden order does not have a “no-cancel” period, so could
     be canceled even 1ms before the auction.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的理解是，在这些 LOC 订单之后提交的隐藏订单可能会优先执行而无需提供更好的价格。 如果 NBBO 是 10.09/10.13，而有人在拍卖前 100
+    毫秒提交了 $10.11 的隐藏竞价，我相信 IEX 的拍卖逻辑仍然会将拍卖定价为 $10.10 —— 但隐藏订单将被执行以取代 LOC 订单。 这可能感觉“不公平”，因为隐藏订单是在
+    LOC 订单之后提交的，并且几乎没有移动匹配价格的风险（因为隐藏竞价定价为 $10.09“用于确定结算价格”）。 与 LOC（或 MOC）订单不同，隐藏订单没有“无法取消”的期限，因此甚至可以在拍卖前
+    1 毫秒取消。
 - en: “Example 2” in “PRIORITY OF EXECUTION EXAMPLES” provides a slightly more complex
     illustration of this behavior. [[4](#bottom4iexauctions)]
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在“执行优先级示例”中的“示例 2”提供了这种行为的稍微复杂的说明。
 - en: Opaque, Non-Competitive Auctions
+  id: totrans-18
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 不透明，非竞争性拍卖
 - en: Under certain conditions, this functionality gives traders the opportunity to
     simultaneously gain priority while offering a less competitive price, a rare confluence
     in normal markets. One reason why traders submit LOC/MOC orders (and displayed
@@ -92,60 +135,80 @@
     IEX’s hidden order logic shouldn’t change that. But other auction traders only
     announce their intentions because they want priority. This latter group may find
     the advantages of hidden orders hard to resist.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在某些条件下，这种功能使交易员有机会同时获得优先权并提供一个竞争力较弱的价格，在正常市场中这种罕见的汇合。交易员提交LOC/MOC订单（和显示订单）的一个原因是因为他们想要宣布他们的意图来吸引流动性。IEX的隐藏订单逻辑不应该改变这一点。但其他拍卖交易员只是宣布他们的意图是因为他们想要优先权。后者可能会发现隐藏订单的优势难以抗拒。
 - en: 'Here is a potentially problematic example:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有一个可能有问题的例子：
 - en: 'After the final opportunity to submit LOC/MOC orders, a closing auction has
     a big sell imbalance: there is 1 LOC buy at $10.00 for 1,000 shares, and 1 LOC
     sell at $10.00 for 10,000 shares.'
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在提交LOC/MOC订单的最后机会之后，收盘拍卖存在巨大的卖出不平衡：以$10.00的价格有1个LOC买单，1000股，和1个以$10.00的价格有1个LOC卖单，10000股。
 - en: In the remaining 10 seconds of the day, traders will compete to trade with the
     sell imbalance. On IEX, the only way they can do so is by using displayed and
     undisplayed orders.
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在一天的剩余10秒钟里，交易员将竞相交易卖出不平衡。在IEX上，他们唯一的方式就是使用显示和不显示的订单。
 - en: Maybe 10ms before the close, the NBBO is $10.05/$10.07 (with all displayed quantity
     on IEX).
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 大概在收盘前10ms，NBBO是$10.05/$10.07（在IEX上所有显示数量）。
 - en: The bidder at $10.05 realizes they can get a better price and better priority
     in the auction by deleting their displayed order and resubmitting a hidden buy
     order at $10.06\. They do so, and the NBBO is now $10.04/$10.07.
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 以$10.05的出价者意识到他们可以通过删除他们的显示订单并以$10.06重新提交隐藏买单来获得更好的价格和更好的优先权。他们这样做了，NBBO现在是$10.04/$10.07。
 - en: The bidder at $10.04 does the same thing. Likewise those at $10.03, $10.02,
     and $10.01\. The NBBO is now $10.00/$10.07.
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 以$10.04的出价者也做同样的事情。同样的还有以$10.03、$10.02和$10.01的出价者。NBBO现在是$10.00/$10.07。
 - en: The auction occurs at $10.00\. The hidden orders are filled completely, but
     the LOC bid at $10.00 doesn’t receive any execution.[[*](#bottom*iexauctions)]
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 拍卖发生在$10.00。隐藏订单完全成交，但$10.00的LOC买单没有获得任何成交。[[*](#bottom*iexauctions)]
 - en: I can’t imagine that either LOC side would be happy in this circumstance. The
     LOC sell order was filled at a non-competitive price. And the LOC buy order was
     skipped-over in favor of hidden orders that were submitted after it, but effectively
     at the same price. This process could also negatively affect market stability
     by causing the NBBO to widen at the most important and volatile part of the day.
     [[5](#bottom5iexauctions)]
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我无法想象在这种情况下LOC双方会感到满意。LOC卖单以非竞争性价格成交。而LOC买单被忽略，转而选择了在其之后提交的隐藏订单，但实际上价格相同。这一过程还可能通过导致NBBO在一天中最重要和最波动的时段扩大而对市场稳定性产生负面影响。[[5](#bottom5iexauctions)]
 - en: Now, I don’t think this sort of outcome will happen most of the time. But it
     certainly could happen some of the time. And even when it doesn’t, traders in
     the final second of the day may play a guessing game, trying to determine whether
     it’s worth submitting a displayed order on top of suspected hidden orders. (In
     our example, a trader might want priority over the hidden orders and submit a
     displayed bid at $10.06.)
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我不认为这种情况大部分时候会发生。但某些时候确实可能发生。即使在不发生时，交易员在交易日最后一秒可能也会玩一个猜谜游戏，试图确定是否值得提交一个显示订单来顶替猜测中的隐藏订单。（在我们的例子中，交易员可能想要优先于隐藏订单，并以$10.06的价格提交一个显示竞价。）
 - en: I’m also not sure this functionality was an oversight. IEX [says](https://medium.com/boxes-and-lines/the-iex-auction-pursuing-better-price-discovery-a65cb9aeeadb)
     it exists “to protect the anonymity of resting non-displayed interest.” And “IEX
     Auctions were strategically designed after extensive research and informal discussion
@@ -154,6 +217,7 @@
     because those auctions can be chaotic and have a particular need for transparency.
     The thing is, some days the open and close can also be volatile, and those are
     the days when it’s most important for exchanges to run a smooth auction. [[6](#bottom6iexauctions)]
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
 - en: To be clear, I wouldn’t say that this feature is scandalous. The behavior (I
@@ -161,6 +225,7 @@
     before using any exchange. But issuers are probably not equipped to do that. And
     if IEX [wants](https://medium.com/boxes-and-lines/the-iex-auction-pursuing-better-price-discovery-a65cb9aeeadb)
     its auction to be “simple,” I’m not sure this is the right approach.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
 - en: '[[1](#1iexauctions)] It’s hard for me to completely understand IEX’s [documentation](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf).
@@ -169,20 +234,24 @@
     time of the Closing Auction,” but “Example 3” has displayed limit orders on IEX
     at $10.12 (buy) and $10.13 (sell) — so something is not quite right. Even aside
     from errors in the documentation, I may have made errors interpreting it.'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
 - en: '[[2](#2iexauctions)] I don’t mean to write so much about IEX, but functionality
     like this has not gotten the attention it deserves.'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
 - en: '[[3](#3iexauctions)] I think the auction would actually occur at $10.09 in
     this case, were it not for the [rule](https://iextrading.com/docs/IEX%20Auction%20Process%20Specification.pdf):'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
 - en: If more than one price maximizes the number of shares that will execute, resulting
     in an auction price range, the Reference Price is set to the price at or within
     such range that is not lower (higher) than the most aggressive unexecuted buy
     (sell) order.
+  id: totrans-34
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -190,77 +259,102 @@
     and doesn’t receive an execution, it will still affect the auction price. I suppose
     this is better than performing the auction at $10.09, but it will still frustrate
     the LOC-sender who missed their execution and moved the closing price.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
 - en: '[[4](#4iexauctions)]'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
 - en: 'The Regular Market Continuous Book Contains the following orders:'
+  id: totrans-37
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Midpoint Peg order to buy 2,500 shares with a resting price of $20.20.
+  id: totrans-38
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'The Closing Auction Book includes the following orders:'
+  id: totrans-39
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: LOC order to buy 500 shares with a limit price of $20.19; and
+  id: totrans-40
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: LOC order to sell 2,000 shares with a limit price of 20.18.
+  id: totrans-41
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: For purposes of determining the clearing price, the Midpoint Peg order is priced
     to the Protected NBB ($20.19), but remains ranked and eligible to execute at its
     resting price;
+  id: totrans-42
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 为了确定清算价格，中点钉单的定价为受保护的NBB（$20.19），但仍然排名并有资格以其休眠价格执行；
 - en: Accordingly, shares are maximized between $20.18 and $20.19 resulting in an
     auction price range, and $20.19 is the only price within such range that is not
     below the price of the most aggressive unexecuted buy order; therefore
+  id: totrans-43
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 因此，在$20.18和$20.19之间最大化股份，导致拍卖价格范围，并且$20.19是该范围内唯一不低于最具侵略性未执行买入订单价格的价格；因此
 - en: 2,000 shares would execute at the IEX Official Closing Price of $20.19;
+  id: totrans-44
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 2,000股将以IEX官方收盘价$20.19成交；
 - en: The Midpoint Peg buy order would receive an execution of 2,000 shares;
+  id: totrans-45
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 中点钉单的买入订单将收到2,000股的成交；
 - en: The LOC sell order would receive an execution of 2,000 shares; and
+  id: totrans-46
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: LOC卖出订单将收到2,000股的成交；
 - en: The LOC buy order would not receive an execution, because the LOC sell order
     is fully filled after matching with the Midpoint Peg buy order with superior priority.
+  id: totrans-47
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: LOC买入订单将不会收到成交，因为LOC卖出订单在优先级上与中点钉单买入订单匹配后已完全成交。
 - en: '[[5](#5iexauctions)] It also seems potentially risky to have the auction price
     depend other exchanges’ order books. If somebody submits a 100-share order on
     another exchange, they could potentially move the IEX open or close by multiple
     ticks. Even ignoring the possibility of manipulation, it might not be the best
     idea for an important cross to be sensitive to small orders that aren’t eligible
     to participate in that cross.'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[5](#5iexauctions)] 拍卖价格取决于其他交易所的订单簿也似乎存在潜在风险。如果某人在另一个交易所提交了一个100股的订单，他们有可能将IEX的开盘价或收盘价移动多个价格档。即使忽略操纵的可能性，让一个重要的交叉点对无资格参与该交叉点的小订单敏感可能也不是最佳选择。'
 - en: '[[6](#6iexauctions)] NYSE [learned](http://www.reuters.com/article/us-usa-stocks-rule48/u-s-sec-approves-nyse-request-for-new-market-volatility-rules-idUSKCN0ZM2ES)
     this the hard way after Rule 48 probably contributed to the market disruption
     on Aug. 24, 2015.'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[6](#6iexauctions)] 纽约证券交易所[从](http://www.reuters.com/article/us-usa-stocks-rule48/u-s-sec-approves-nyse-request-for-new-market-volatility-rules-idUSKCN0ZM2ES)这方面吃了苦头，因为48号规则可能导致了2015年8月24日市场动荡。'
 - en: '[[*](#*iexauctions)] I have edited this example because I made an error in
     the original version. The LOC bid in the original version was at $10.10\. In that
     circumstance, the LOC bid at $10.10 *would* get fully filled at $10.00 (because
     it’s more aggressively priced than the hidden orders), in contrast to what happens
     to the LOC bid at $10.00 in our example.'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[*](#*iexauctions)] 我编辑了这个示例，因为我在原始版本中犯了一个错误。原始版本中的LOC竞标价为$10.10。在这种情况下，以$10.10的LOC竞标价将在$10.00得到完全成交（因为它的定价比隐藏订单更具侵略性），与我们示例中LOC竞标价为$10.00的情况相反。'
