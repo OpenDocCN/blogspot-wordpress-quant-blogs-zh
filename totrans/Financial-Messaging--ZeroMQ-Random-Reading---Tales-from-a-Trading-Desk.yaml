@@ -1,76 +1,114 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:37:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024 年 5 月 18 日 06:37:01
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Financial Messaging: ZeroMQ Random Reading | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 金融消息：ZeroMQ 随机阅读 | 交易台故事
 - en: 来源：[https://mdavey.wordpress.com/2012/08/01/financial-messaging-zeromq-random-reading/#0001-01-01](https://mdavey.wordpress.com/2012/08/01/financial-messaging-zeromq-random-reading/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2012/08/01/financial-messaging-zeromq-random-reading/#0001-01-01](https://mdavey.wordpress.com/2012/08/01/financial-messaging-zeromq-random-reading/#0001-01-01)
 - en: Bit of a spaghetti posting, but possibly relevant at a future date 😉
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有点类似于意大利面的帖子，但可能在未来相关 😉
 - en: Although old, [Design and Evaluation of Benchmarks for Financial Applications
     using Advanced Message Queuing Protocol (AMQP) over InﬁniBand](ftp://ftp.cse.ohio-state.edu/pub/tech-report/2008/TR51.pdf)
     is worth a read in the context of Martin’s [comments](https://groups.google.com/forum/?fromgroups#!topic/lmax-disruptor/CFXHbAYqmIs)
     around the disruptor, Ultra Messaging and ZeroMQ (ØMQ)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管年代久远，[使用高级消息队列协议 (AMQP) 在 InfiniBand 上设计和评估金融应用基准的报告](ftp://ftp.cse.ohio-state.edu/pub/tech-report/2008/TR51.pdf)在
+    Martin 对 disruptor、Ultra Messaging 和 ZeroMQ (ØMQ) 的评论背景下仍值得一读
 - en: 0MQ did not exist when we evaluated message providers.  This was about
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们评估消息提供者时，0MQ 还不存在。这是关于
 - en: 3 years ago.  It does look interesting for some usecases.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 3 年前。对于某些用例确实很有趣。
 - en: ''
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: When going for ultra low-latency you need to pick a transport that
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 当需要极低延迟时，您需要选择一种传输方式
 - en: uses IP multicast or InfiniBand.  TCP has significant overhead, and
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 使用 IP 多播或 InfiniBand。TCP 有很大的开销，并且
 - en: buffering, which does not lend itself to low-latency.  It is also
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 缓冲，这不适合低延迟。此外
 - en: important to pick a transport that does not use daemons/brokers.
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 选择一个不使用守护程序/代理的传输方式非常重要。
 - en: These “men in the middle” add latency and can be single points of
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 这些"中间人"增加了延迟，并且可能成为单点故障。
 - en: failure.  State of the art is single digit microseconds for a hop
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 失败。一跳的时间为单个微秒数是当前最先进的技术
 - en: between two nodes.  Have you measured 0MQ?
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 两个节点之间。你测量过 0MQ 吗？
 - en: 'Which leads to Mr Fowler’s overview of the [LMAX](http://martinfowler.com/articles/lmax.html)
     architecture, and specifically the details on replication and master/slave:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了福勒先生对 [LMAX](http://martinfowler.com/articles/lmax.html) 架构的概述，以及复制和主/从的细节：
 - en: Earlier on I mentioned that LMAX runs multiple copies of its system in a cluster
     to support rapid failover. The replicator keeps these nodes in sync. All communication
     in LMAX uses IP multicasting, so clients don’t need to know which IP address is
@@ -80,30 +118,45 @@
     becomes master, starts processing input events, and starts its replicator. Each
     node has its own input disruptor and thus has its own journal and does its own
     unmarshaling.
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 早些时候我提到过，LMAX 在集群中运行其系统的多个副本以支持快速故障转移。复制器使这些节点保持同步。LMAX 中的所有通信都使用 IP 多播，因此客户端不需要知道哪个
+    IP 地址是主节点。只有主节点直接侦听输入事件并运行复制器。复制器将输入事件广播到从节点。如果主节点宕机，它的心跳丢失将被注意到，另一个节点成为主节点，开始处理输入事件，并启动其复制器。每个节点都有自己的输入
+    disruptor，因此有自己的日志和自己的反序列化操作。
 - en: ''
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Even with IP multicasting replication is still needed because IP messages can
     arrive in a different order on different nodes. The master node provides a deterministic
     sequence for the rest of the processing.
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 即使使用 IP 多播，仍然需要复制，因为 IP 消息可能以不同的顺序到达不同的节点。主节点为其余处理提供了确定的顺序。
 - en: 'Which leads to a few relevant articles over on the ZeroMQ site (assuming you
     happened to want to look at ZeroMQ in this context, and didn’t want to pay for
     Ultra Messaging):'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了 ZeroMQ 网站上的一些相关文章（假设您刚好想在这种情况下查看 ZeroMQ，而不想为 Ultra Messaging 付费）：
 - en: ~ by mdavey on August 1, 2012.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于 2012 年 8 月 1 日发布。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于 [未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [Disruptor](https://mdavey.wordpress.com/tag/disruptor/), [Messaging](https://mdavey.wordpress.com/tag/messaging/)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[Disruptor](https://mdavey.wordpress.com/tag/disruptor/)，[Messaging](https://mdavey.wordpress.com/tag/messaging/)
