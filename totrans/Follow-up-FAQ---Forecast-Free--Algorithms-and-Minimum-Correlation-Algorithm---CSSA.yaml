@@ -1,35 +1,51 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:08:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:08:24'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Follow up FAQ: “Forecast-Free” Algorithms and Minimum Correlation Algorithm
     | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 后续FAQ：“无预测”算法和最小相关性算法 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/08/15/follow-up-faq-forecast-free-algorithms-and-minimum-correlation-algorithm/#0001-01-01](https://cssanalytics.wordpress.com/2011/08/15/follow-up-faq-forecast-free-algorithms-and-minimum-correlation-algorithm/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/08/15/follow-up-faq-forecast-free-algorithms-and-minimum-correlation-algorithm/#0001-01-01](https://cssanalytics.wordpress.com/2011/08/15/follow-up-faq-forecast-free-algorithms-and-minimum-correlation-algorithm/#0001-01-01)
 - en: With so many comments and questions regarding the last post [https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/](https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
     , I decided to take the unusual but more functional approach of writing a FAQ
     to address these issues for both those that were kind enough to  make intelligent
     contributions and to new readers. Note that it was brought to my attention that
     fellow blogger Quantivity has written an excellent series of posts on a similar
     topic: [http://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/](http://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/)
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 针对上一篇文章[https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/](https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)中的诸多评论和问题，我决定采用不太常见但更实用的方法，写一篇FAQ来回答这些问题，既是为那些友善地提出了理智贡献的人，也是为了新读者。请注意，有人提醒我说，同行博客作者Quantivity在相似的主题上写了一系列非常出色的文章：[http://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/](http://quantivity.wordpress.com/2011/04/10/portfolio-theory-is-dead-now-what/)
 - en: '***What is a “Forecast-Free” Algorithm?***'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '***什么是“无预测”算法？***'
 - en: I should have clarified as this is somewhat of a misnomer. Strom Macro [http://strommacro.wordpress.com/](http://strommacro.wordpress.com/) 
     posted some comments regarding this issue on a recent blog. “Forecast-Free”  in
     CSS parlance refers to an approach that does not estimate expected returns. In
@@ -41,11 +57,15 @@
      This is why financial engineers spend so much time on the latter rather than
     the former ( engineers are generally more interested in the most predictable components
     of time series).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我应该澄清一下，因为这有点不准确。Strom Macro[http://strommacro.wordpress.com/](http://strommacro.wordpress.com/)在最近的一篇博客中对这个问题发表了一些评论。“无预测”在CSS中指的是一种不估计期望收益的方法。在投资组合算法的背景下，这意味着我们不关心关于资产类别（或股票）应该如何表现的相对或绝对结论。*这并不意味着我们不估计相关性和波动性——事实上，这些估计对算法至关重要*。实证误差表明，相关性和波动性的误差远低于收益输入的误差。这就是为什么金融工程师花了这么多时间在后者而不是前者上（工程师通常更感兴趣的是时间序列中最可预测的因素）。
 - en: 2) ***How is the algorithm constructed?***
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) ***算法是如何构建的？***
 - en: At this point, I should mention that I am in the process of compiling a white
     paper on this topic (forthcoming). The Minimum Correlation Portfolio (MCP) will
     be the topic of this article, and the benchmark construction will be laid out
@@ -54,11 +74,15 @@
     is an algorithm— it is a heuristic/computational solution designed to be faster
     and more robust, but is also proprietary. That said, the MCP performance is very
     close to MCA, and both are based on the same concept.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这一点上，我应该提到我正在编写一份关于这个主题的白皮书（即将出版）。最小相关性组合（MCP）将是本文的主题，并且基准构建将详细阐述。它使用了更传统的优化/迭代方法，并加入了一些有趣的变化。相比之下，最小相关性算法（MCA）是一个算法——它是一个旨在更快更稳健的启发式/计算解决方案，但也是专有的。也就是说，MCP的性能非常接近MCA，并且两者都基于相同的概念。
 - en: 3) ***Is the algorithm highly sensitive to the choice of asset classes or markets?***
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) ***算法对资产类别或市场的选择是否非常敏感？***
 - en: 'No. This is what differentiates a “forecast-free” approach– both the choice
     of markets and parameter lengths show substantially less variability than classic
     “GTAA” approaches. This is because: a) they produce less concentrated portfolios
@@ -67,21 +91,30 @@
     returns/ranks tend to perform best at longer intervals. So while relative strength/momentum
     and trend-following are robust approaches, I would argue that  “forecast-free”
     algorithms are even more robust.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 不是。这就是“无需预测”的方法的不同之处-市场选择和参数长度都表现出比经典的“GTAA”方法少得多的变化。这是因为：a）它们生成的投资组合更为分散，成分之间的相关性更小
+    b）波动率和相关性可以从几乎任何时间段很好地外推，而价格或收益或相对收益/排名的趋势在更长的间隔里表现最好。因此，虽然相对强度/动量和趋势跟随是稳健的方法，但我认为“无需预测”的算法更加稳健。
 - en: 4) ***Is the Minimum Correlation Algorithm a variant of risk-parity?***
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) ***最小相关性算法是风险平价的一种变体吗？***
 - en: No. A risk-parity approach assumes equal risk contributions to portfolio risk,
     it is a hybrid between a minimum variance approach and an equal weight approach.
     The MCA seeks to optimize risk contributions to reduce portfolio risk with the
     view of isolating  risk reduction associated with diversification only. That is
     the best I will say until it is explained in more detail in the paper.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 不是。风险平价方法假定组合风险的风险贡献是相等的，它是最小方差方法和等权方法的混合。最小相关性算法旨在优化风险贡献，以减少投资组合的风险，并且仅仅关注于多样化带来的风险降低。这是我在论文中更详细解释之前最好的说法。
 - en: Thank you for all the excellent comments and feedback– I will be releasing a
     paper on the topic soon enough.  For those that wish to receive the paper directly
     when it is completed I will post an email address on the blog where you can request
     a first copy.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢所有优秀的评论和反馈-很快我将发布一篇关于这个主题的论文。对于那些希望在完成后直接收到论文的人，我将在博客上发布一个邮箱地址，您可以在那里请求第一份复印件。
