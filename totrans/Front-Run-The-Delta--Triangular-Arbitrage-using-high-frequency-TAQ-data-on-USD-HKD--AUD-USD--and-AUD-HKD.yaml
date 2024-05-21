@@ -1,74 +1,112 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 23:37:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 23:37:40
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Front-Run The Delta: Triangular Arbitrage using high-frequency TAQ data on
     USD/HKD, AUD/USD, and AUD/HKD'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Front-Run The Delta：使用USD/HKD，AUD/USD和AUD/HKD上的高频TAQ数据进行三角套利
 - en: 来源：[https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html#0001-01-01)
 - en: '**Please note before reading**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**在阅读之前请注意**'
 - en: ':'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: ：
 - en: '*the watermarks (if you can call them that) on each picture in this post were
     from the original URL and authorship (a pseudonym) of this blog.  They have not
     been taken from another source and reposted - they are original works of this
     blog and this author.*'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '*这篇博文中每张图片的水印（如果你愿意这样称呼的话）都来自博客的原始URL和作者（一个化名）。它们并不是从其他来源转载的——它们是这篇博客和这位作者的原创作品。*'
 - en: Triangular arbitrage can be defined as the "price of a second currency expressed
     in terms of a third or an exchange rate calculated from two other rates." For
     instance, one can imply the synthetic AUD/HKD rate if one has the live USD/
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 三角套利可以定义为“以第三种货币表示的第二种货币的价格，或者根据其他两种货币计算出的汇率”。例如，如果有USD/
 - en: '**HKD**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**HKD**'
 - en: and
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: '**AUD**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**AUD**'
 - en: /USD exchange rates.  The arbitrage relationship is inherent between the synthetic
     AUD/HKD traded against the live, executable AUD/HKD.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: /USD汇率。合成AUD/HKD交易与实时可执行的AUD/HKD之间具有潜在套利关系。
 - en: '[Fenn, Howison, McDonald, Williams, and Johnson (2009)](http://econpapers.repec.org/article/wsiijtafx/v_3a12_3ay_3a2009_3ai_3a08_3ap_3a1105-1123.htm)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Fenn，Howison，McDonald，Williams和Johnson（2009）](http://econpapers.repec.org/article/wsiijtafx/v_3a12_3ay_3a2009_3ai_3a08_3ap_3a1105-1123.htm)'
 - en: note that "Triangular arbitrage represents one of the simplest arbitrage opportunities.
     However, there is, to our knowledge, no truly rigorous and robust study of triangular
     arbitrage in the finance literature.  We believe the main reason for this to be
     the lack of availability of datasets with prices which are sufficiently high-frequency
     and which are also executable."
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：“三角套利代表了最简单的套利机会之一。然而，据我们所知，在金融文献中没有真正严格和健壮的三角套利研究。我们相信其中主要原因是缺乏具有足够高频和可执行价格的数据集。”
 - en: '[Asynchronous data](http://www.answers.com/topic/asynchronous-data)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[异步数据](http://www.answers.com/topic/asynchronous-data)'
 - en: is a problem when trying to study any arbitrage relationship.  Be it stock to
     stock, stock to future, future to future, physical to cash, or speaking ubiquitously,
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在研究任何套利关系时都会遇到问题。无论是股票对股票，股票对期货，期货对期货，实物对现金，或者广义上说，
 - en: '*any*'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '*任何*'
 - en: arbitrage relationship.  Studies using end-of-period (days, minutes, seconds)
     data recordings suffer from this issue whereby one variable may be said to have
     "this" price at the last known recorded interval, while the second variable similarly
@@ -76,14 +114,20 @@
     the two recorded prices, while they may be the last known price, cannot reliably
     be used due to their differences in time period.  This problem can only be eliminated
     using synchronized data in the most granular form available.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 套利关系。使用期末（日，分钟，秒）数据记录进行的研究存在一个问题，即一个变量可能在最后一次已知的记录间隔中具有“这个”价格，而第二个变量同样在最后一次已知的记录间隔中具有“这个”价格。问题出在两个记录的价格，虽然它们可能是最后已知的价格，但由于它们在时间段上的差异而不能可靠地使用。只有使用最精细的同步数据才能消除这个问题。
 - en: '**The Data.**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**数据。**'
 - en: '[![](img/7a033a7a8519e8b7ea8aef2dba1396fe.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6HJ8gh-ryo1v9AKwVuezsiYVF1X-BPEYHdmSDEWltCMG6N3IE5y4lkNlJliwQ9ZwYof5tLkHaVAh7zlA_T7p_6NVXbLxK3AVIJCs42OtpwZ7Jzzj3XvEiBggoY3FzG9Dg3qHX_1YIDJE/s1600/data1.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7a033a7a8519e8b7ea8aef2dba1396fe.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6HJ8gh-ryo1v9AKwVuezsiYVF1X-BPEYHdmSDEWltCMG6N3IE5y4lkNlJliwQ9ZwYof5tLkHaVAh7zlA_T7p_6NVXbLxK3AVIJCs42OtpwZ7Jzzj3XvEiBggoY3FzG9Dg3qHX_1YIDJE/s1600/data1.png)'
 - en: 'The following data set was collected using a proprietary program developed
     by my IT team.  The software is connected to the interbank foreign exchange market
     via a direct access API.  In this case, the time and sales for the three pairs
@@ -91,72 +135,110 @@
     the entire data set was recorded as a whole.  The high frequency and synchronicity of
     the recording alleviates the problem that Fenn et al. (2009) discovered in their
     research of TriArb.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下数据集是由我的IT团队开发的专有程序收集的。 该软件通过直接访问API连接到银行间外汇市场。 在这种情况下，三种货币对的时间和成交量是同时记录和同步记录的：任何一个变量发生变化，整个数据集就被作为一个整体记录下来。
+    高频和同步性的记录缓解了Fenn等人（2009年）在他们对TriArb的研究中发现的问题。
 - en: Below is the spread between the synthetic AUD/HKD and the live AUD/HKD.  As
     you can see, the arbitrage is
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是合成AUD/HKD和实时AUD/HKD之间的价差。 正如您所见，套利是
 - en: '[remarkably consistent and very robust](http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[非常一致且非常坚固](http://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)'
 - en: .  "Although some opportunities appear to exist for in excess of 100s," writes
     Fenn et al. (2009) in their study, "for both currency groups 95% last for 5 seconds
     of less and 60% for 1 second of less."
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: “尽管一些持续时间超过100秒的机会似乎存在，”Fenn等（2009）在他们的研究中写道，“对于这两组货币，95%的机会持续时间小于5秒，60%的机会持续时间小于1秒。”
 - en: (Click to enlarge)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: （点击放大）
 - en: There is a significant
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一个显著的
 - en: '**loss of liquidity**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**流动性损失**'
 - en: beginning around 11:00 AM CST as evidenced by the increase in bid/ask spread
     of the three pairs, most notably the AUD/HKD.  The increase in bid/ask spread
     becomes evident in the construction of the synthetic/real arbitrage as referenced
     previously.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 从上午11:00 CST 开始，根据三种货币对的买卖价差增加，尤其是澳元/港币。 在之前所说的合成/实际套利构造中，买卖价差的增加变得明显。
 - en: Bid/Ask Spreads
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 买卖价差
 - en: 'USD/HKD : Blue'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: USD/HKD：蓝
 - en: (Click to enlarge)
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: （点击放大）
 - en: '**Trading the Opportunity.**'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**抓住机会。**'
 - en: At 1:33:55 AM on January 24, 2011, a small break occurs in the AUD/HKD synthetic
     and live relationship.  The break from parity is caused by an increase in the
     bid of the live AUD/USD from 0.98945 to 0.9897, an increase of .00052\.  This
     bid-up caused an increase in the bid price of the synthetic AUD/HKD to 7.7154,
     while the live AUD/HKD rate was then offered at 7.7143, an
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 在2011年1月24日凌晨1:33:55，AUD/HKD的合成和实时关系出现了小幅中断。 平价中断是由于实时AUD/USD的买价从0.98945涨至0.9897引起的，增加了0.00052。
+    这个买价因素导致合成AUD/HKD的买价调高至7.7154，而实时AUD/HKD汇率则从7.7143上涨到了7.7143。
 - en: '**arbitrage difference of .0011 AUD/HKD**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**AUD/HKD的套利差值为0.0011**'
 - en: .
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: (Click to enlarge)
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: （点击放大）
 - en: Notice
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意
 - en: ': This break lasted only a single second.  While the opportunity undoubtedly
     lasted much less than a full second, the beta software version we were using to
     collect this data was not recording at the millisecond level, a problem that has
     since been eliminated.'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: ：这个中断只持续了短短的一秒。 虽然这次机会肯定不到一秒，但我们用于收集这些数据的测试版软件并不记录毫秒级别的详细数据，这个问题已经被解决了。
 - en: The short duration of this break is an obvious barrier to entry.  Fenn et. al.
     (2009) cite "wider use of electronic trading platforms and trading algorithms"
     from 2003 to 2005 as the main cause of the opportunity's brevity.  They go on
@@ -164,13 +246,21 @@
     1 second increased from 40% to 62% for the JPY transactions and from 41% to 64%
     for the CHF transactions and the proportion of opportunities lasting in excess
     of 5 seconds halved for both sets of transactions."
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个中断的短暂持续是一个明显的入市障碍。 Fenn等（2009）引用了2003年至2005年之间电子交易平台和交易算法的“更广泛使用”作为机会持续时间缩短的主要原因。
+    他们继续指出，“从2003年至2005年，日元交易的持续时间小于1秒的机会比例从40%增加至62%，瑞士法郎交易则从41%增加至64%，持续时间超过5秒的机会的比例减少了一半。”
 - en: Further Reading
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 进一步阅读
 - en: '[Collective Dynamics of Small-World Networks](http://www.nature.com/nature/journal/v393/n6684/abs/393440a0.html)
     [Hedging Currency Risk in International Investment and Trade](http://ideas.repec.org/p/cfi/fseres/cf090.html)
     [High Frequency Trading and the New-Market Makers](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1722924)'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[小世界网络的集体动力学](http://www.nature.com/nature/journal/v393/n6684/abs/393440a0.html)
+    [国际投资和贸易中的货币风险对冲](http://ideas.repec.org/p/cfi/fseres/cf090.html) [高频交易和新市场制造者](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1722924)'
