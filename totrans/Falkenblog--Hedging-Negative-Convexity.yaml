@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 19:55:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'Falkenblog: Hedging Negative Convexity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01](http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -23,13 +29,16 @@
     but it does lower volatility. With lower cost volatility, an LP does not need
     as much capital to cover these losses, so considering capital is expensive, it
     is correct to say hedging reduces costs, though only indirectly.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: Consider the pool with a token A vs. USDC in the pool. If an LP provides 777
     units of liquidity, his initial LP position would look as in Table 1 below.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: '**Table 1**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: To model the LP's position, we can use a binomial lattice. Here, we transform
@@ -37,9 +46,11 @@
     one uses many little steps, but we will show a large 10% movement for illustrative
     purposes. One can use the following formulas to create an arbitrage-free recombining
     lattice. Here, we will assume zero drift, or an expected token A return of zero.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: '**Table 2**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: Applying these parameters to a lattice, we start at a price of 100 and then
@@ -48,12 +59,15 @@
     are not 50% as the price movements are modeled as lognormally distributed (e.g.,
     exp(x)), so the probabilities adjust these asymmetric future prices to be consistent
     with the starting prices (E(p) = 100).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '**Recombining Lattice**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/fbe9f60e23bd7f8d8e57e13c263fd262.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCFdqbc1IKQY9CRTZZLYKPMj7H83ADkYJsD8kp6Bxqq9fRX07mysi6k-ikzvIeTyqB-136lIKZ6TL76HhT2WUNyXmstxRPUY9ef20WebIKagSnw9W5y7ImRvFCQlL03Ue851qDLpn_VFSVbTZ2zwBXzjzB1vLs___mYd-3J3HdcJZVpVGV_-WROg/s290/pricePath.png)[![](img/34f0b6c4e4bbc96747be7fcefb51f1b7.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhejPVGUa3qUQdP6gIylgiUU_-i8sAL7K1_wXWnP-Vt3z39qod5UGCXrnkLDrFo9PukDVQTW6ZNavWKN2sr0avVzfv9-EPq7mhqwqofAOt5ug7QCdjXbk2oFLoksQb5jHhXXTjh044YxjzOm9UP4_TVr6HoIW0QQdbgHtfBhMCVplpUhpPtXb3s3A/s285/problattice.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: This approach is convenient because modeling the price of a derivative just
@@ -63,9 +77,11 @@
     is a lattice applied to a v2 LP position initially hedged. The token A position
     in the pool is initially 77.7, so the initial hedge is short 77.7 units of token
     A.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '**Static Hedge**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: In the final period, T=2, we see that the two tail events, each with a 1/4 probability,
@@ -73,6 +89,7 @@
     of around 1/2\. If the LP did not hedge, he would see a gain in the 'up' state
     and a loss in the 'down' state, while in the hedged case, he would lose money
     in both states.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: Looking at this in Table 3 below, we can see the expected pnl for the hedged
@@ -80,9 +97,11 @@
     by hedging). These are the payoffs and probabilities at the bottom of the lattice. However,
     the unhedged LP position varies by +/- 1500, while the hedged pnl varies by +/-
     $75.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: '**Table 3**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: A dynamic hedge would be more frequent and reduce the LP's risk. The initial
@@ -93,13 +112,16 @@
     to simplify accounting, we will realize the total pnl in period T=1\. The LP pnl
     is not actually realized, but putting the period 1 LP pnl onto the balance sheet
     makes it easy to see the effect of the hedge in the subsequent period.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: The initial hedged LP position is identical to the above static hedge case,
     as they had identical positions in T=0
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '**Dynamic Hedge Path Dependent**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
 - en: In period T=1, the hedge ratio is updated, and we realize hedge and LP pnl profits
@@ -107,12 +129,14 @@
     that the initial loss was realized in period T=1, which is just the sum of the
     probabilities of these four states times their net pnls. The total expected loss
     over both periods is 38.79, identical to the static hedge.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: 'More frequent hedging reduces pnl volatility in the same way that a static
     hedge reduces the pnl volatility: they do not change the total expected LP loss,
     totaling 38.79 whether unhedged, statically hedged, or constantly hedged. You
     multiply the pnls by their respective probabilities to get the expected value.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: If you don't hedge a negatively convex position, you will lose $*x* with probability
@@ -120,6 +144,7 @@
     each period. In the example above, the static hedge reduces the pnl variability
     from about +/- $1500 in the extreme states to +/- $75 with a static hedge, and
     the dynamic hedge reduces its variance further to a constant $20 each period.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
 - en: What about restricted ranges, as in Uniswap v3? Again, this doesn't change the
@@ -127,20 +152,27 @@
     spanning the price movement in this example, a +/- 10% price movement. The total
     LP cost would be reduced by 90%, a substantial savings. One's hedge size is also
     reduced, reducing capital requirements further.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
 - en: Given the same liquidity, the expected convexity cost is identical for an LP,
     whether the range is restricted. In the lattice below, the restricted range starts
     with token A amount of only 7.39 vs. 77.7 in the unrestricted case, so the hedge
     is only -7.39 vs. -77.7\. However, in the final state, the net LP pnls are identical.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在相同流动性下，无论范围是否受限，LP的预期凸性成本是相同的。在下图中，受限范围从仅7.39的代币A数量开始，而在无限制情况下为77.7，因此对冲仅为-7.39，相比之下为-77.7。然而，在最终状态下，净LP利润是相同的。
 - en: '**v3 restricted range**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**v3 限制范围**'
 - en: Convexity costs are purely a function of gamma times the variance, and LP gamma
     is a linear function of liquidity. It's prudent to hedge this, but also important
     to realize the limits to what hedging can do. It cannot eliminate a convexity
     cost.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 凸性成本纯粹是伽马乘以方差的函数，而LP伽马是流动性的线性函数。对冲这一风险是审慎的，但同样重要的是要认识到对冲的局限性。它无法消除凸性成本。
