@@ -1,36 +1,46 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 20:54:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'Falkenblog: High Frequency Trading Paper'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://falkenblog.blogspot.com/2011/05/high-frequency-trading-paper.html#0001-01-01](http://falkenblog.blogspot.com/2011/05/high-frequency-trading-paper.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: I'm involved in high frequency trading so I don't comment much on it anymore;
     it's good when
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: not
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: telling people all your ideas on some subject is the optimal strategy. But there's
     been a rather popular piece on a new metric of volatility by Easley, de Prado,
     and O'Hara,
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '[Flow Toxicity and Volatility in a High Frequency World](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1695596)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: ', so it''s not insider information. O''Hara has been writing on this topic
@@ -39,13 +49,16 @@
     publishing this, that highlights this information is not valuable in and of itself.
     But, lots of useful tools are not obviously translatable into money, so this is
     not a big knock.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: 'Their Volume-Synchronized Probability of Informed Trading, or the VPIN informed
     trading metric, is as follows:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/5385cd2155278f9f27c08baae138abfb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyjVVM7GkTuwEpFmXU7T1oGNEQIi-QwuE7UvnTD23KbJSIMo2VQ4GepCC-MpUr61KHra2TaJpTuhXZsyIVw_X4FsFKP41Ji8R_cdboDvQVOnW3hyphenhyphenMFebANTUPINBttYwNy-uVt_g/s1600/vpin.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: It's hard to see in the gif, but the numeration has Vb is the volume of buys,
@@ -55,14 +68,17 @@
     These all occur within the past V shares traded in any bucket. n is the number
     of number of buckets in the sample. Thus, the estimation is in transaction space,
     not time space, which the authors assert is more stable and meaningful.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: The graph below shows how this metric forecasts future trade volatility. Note
     that as the log of the VPIN goes up, the dispersion of price moves increases.
     It's not a perfect relationship, but nothing important is.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: '[![](img/a22fd45817ee0970b19b537ca4b9c6f6.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzWon0FQjajY1w08juHy8fk8XcBig9-vkX4DGPmIt5GUtjqFtcm1lqjd12oAoHOUO91go3s_0lQ1hrb4FAY-Dq8sln9LxDb3DsjI1_LBRS9SWujos9bNJSccKMYbXbRKdQD72Mgw/s1600/vpinvol.jpg)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: The point is that in fast moving markets, one needs something a little better
@@ -75,5 +91,7 @@
     this then involves syncing the trade information with quote information, and for
     academics such data are often hard to come by (further, quote information is often
     10 times as large).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在快速变动的市场中，人们需要的不仅仅是简单的历史日收盘价的移动平均值。这种方法更好，将'成交量时间'与'历史时间'的概念延伸开来是一个有趣的方向。而人们也可以直接观察买卖价差，或者观察VIX期货，或者它的交易所交易基金VXX，以及这些指标的组合，来评估盘中波动性。另外，人们可以更好地估计'买入量'，使用的是交易价格相对于当时的买卖价差，而不是价格是否有弱涨，尽管这会涉及将交易信息与报价信息同步，对于学术界来说这些数据往往难以获得（此外，报价信息往往是交易信息的十倍）。
