@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:57:35'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:57:35
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: One-Month Trading Strategies'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：一个月交易策略
 - en: 来源：[http://falkenblog.blogspot.com/2022/06/one-month-trading-strategies.html#0001-01-01](http://falkenblog.blogspot.com/2022/06/one-month-trading-strategies.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2022/06/one-month-trading-strategies.html#0001-01-01](http://falkenblog.blogspot.com/2022/06/one-month-trading-strategies.html#0001-01-01)
 - en: 'About half of Robeco’s Quantitative Investing team recently published a short
     paper on monthly trading strategies (see Blitz *et everybody* [Beyond Fama-French
     Factors: Alpha from Short-Term Signals Frequencies](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4115411)).
@@ -32,6 +38,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Robeco 的量化投资团队中约有一半最近发表了一篇关于月度交易策略的简短论文（参见 Blitz *et everybody* [Beyond Fama-French
+    Factors: Alpha from Short-Term Signals Frequencies](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4115411)）。我可以想象这些家伙一直在讨论这些事情，最终有人说，“这将成为一篇不错的论文！”'
 - en: '‘Short-Term’ refer to one-month trading horizons. Anything shorter than a month
     does not significantly overlap with standard quant factors like ‘value’ because
     they involve different databases: minute or even tick data, level 2 quotes. They
@@ -42,17 +50,20 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: “短期”指的是一个月的交易周期。任何低于一个月的周期都不会与“价值”等标准量化因素有重叠，因为它们涉及不同的数据库：分钟甚至是刻度数据，二级报价。它们的扩展性较差，交易量较大，使得它们更多地属于对冲基金而不是大型机构基金的领域。或者，超短期模式可以包含在执行桌的策略中，其中任何Alpha都会反映在较低的交易成本中。
 - en: The paper analyzes the five well-known anomalies using the MSCI World database,
     which covers the top 2000 largest traded stocks in developed countries.
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 该论文使用了MSCI World数据库对五个知名的异常情况进行了分析，该数据库涵盖了发达国家交易量最大的前2000只股票。
 - en: Monthly mean-reversion. See [Lehman (1988)](https://www.nber.org/system/files/working_papers/w2533/w2533.pdf).
     A return in month t implies a low return in month t+1.
   id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 月度均值回归。见[Lehman（1988）](https://www.nber.org/system/files/working_papers/w2533/w2533.pdf)。t月的收益意味着t+1月的低回报。
 - en: Industry momentum. See [Moskowitz and Grinblatt (1999).](http://stat.wharton.upenn.edu/~steele/Courses/956/Resource/Momentum/MoskowitzGrinblatt99.pdf)
     This motivates the authors to industry-adjust the returns in the mean-reversion
     anomaly mentioned above so it becomes more independent.
@@ -60,6 +71,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 行业动量。见[Moskowitz和Grinblatt（1999）](http://stat.wharton.upenn.edu/~steele/Courses/956/Resource/Momentum/MoskowitzGrinblatt99.pdf)。这激励作者对上面提到的均值回归异常进行行业调整，使其更加独立。
 - en: Analyst earnings revisions over the past month. See based [Van der Hart, Slagter,
     and van Dijk (2003)](https://www.econstor.eu/bitstream/10419/85812/1/01009.pdf).
     This signal uses the number of upward earnings revisions minus the number of downward
@@ -69,6 +81,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 过去一个月的分析师盈利调整。基于[Van der Hart、Slagter和van Dijk（2003）](https://www.econstor.eu/bitstream/10419/85812/1/01009.pdf)。这个信号使用了上调盈利调整次数减去下调盈利调整次数，除以过去一个月的分析师总数。这与行业动量类似，这意味着投资者的低反应。
 - en: Seasonal same-month stock return. See [Heston and Sadka (2008](https://w4.stern.nyu.edu/finance/docs/pdfs/Seminars/063f-sadka.pdf)).
     This strategy is based on the idea that some stocks do well in specific months,
     like April.
@@ -76,6 +89,7 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 同一月季节性股票回报。见[Heston和Sadka（2008）](https://w4.stern.nyu.edu/finance/docs/pdfs/Seminars/063f-sadka.pdf)。该策略基于一些股票在特定月份表现良好的观点，比如四月。
 - en: High one-month idiosyncratic volatility predicts low returns. See [Ang, Hodrick,
     Xing, and Zhang (2006](https://www.nber.org/system/files/working_papers/w10852/w10852.pdf)).
     This will generally be a long low-vol, short high-vol portfolio.
@@ -83,12 +97,14 @@
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 高一个月的特异性波动性预示着低回报。见[Ang、Hodrick、Xing和Zhang（2006）](https://www.nber.org/system/files/working_papers/w10852/w10852.pdf)。这通常会是一个长期低波动、短期高波动的组合。
 - en: All of these anomalies initially documented gross excess monthly returns of
     around 1.5%, which, as expected, are now thought to be a third of that at best;
     at least they are not zero, as is the fate for most published anomalies.
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有这些异常情况最初记录的月度超额收益约为1.5%，如预期的那样，现在被认为充其量是这个数字的三分之一；至少它们不是零，就像大多数已发表的异常情况那样。
 - en: Interestingly, Lehmann’s paper documented the negative weekly and monthly autocorrelation
     that underlay the profitable ‘pairs-trading’ strategy that flourished in the 1990s.
     [Lo and Mackinlay](https://academic.oup.com/rfs/article-abstract/1/1/41/1601244)
