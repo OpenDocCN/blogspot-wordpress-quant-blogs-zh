@@ -92,6 +92,7 @@
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在最终时期T=2，我们看到两个尾部事件，每个概率为1/4，导致LP损失，而中间情况，即价格持平，概率约为1/2。如果LP未进行对冲，他在'上涨'状态下将获利，在'下跌'状态下将亏损，而在对冲情况下，他在两种状态下都将亏损。
 - en: Looking at this in Table 3 below, we can see the expected pnl for the hedged
     and unhedged LP positions are identical (ignoring fees here, which would be unaffected
     by hedging). These are the payoffs and probabilities at the bottom of the lattice. However,
@@ -100,10 +101,12 @@
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 从下表3中可以看出，对冲与未对冲的LP持仓的预期损益相同（此处忽略费用，费用不受对冲影响）。这些是格子底部的收益和概率。然而，未对冲的LP持仓波动范围为±1500，而对冲后的损益波动范围为±75美元。
 - en: '**Table 3**'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表3**'
 - en: A dynamic hedge would be more frequent and reduce the LP's risk. The initial
     hedge is identical to the static hedge, so the LP's pnl is the same in period
     T=1 for both hedging strategies. However, in period T=1, the LP will adjust his
@@ -115,15 +118,18 @@
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 动态对冲将更加频繁，从而降低流动性提供者（LP）的风险。初始对冲与静态对冲相同，因此在T=1时期，两种对冲策略下LP的损益（pnl）相同。然而，在T=1时期，LP会调整其对冲以匹配新的代币A持仓，将其在上行状态从-77.7降至-73.91，在下行状态则增至-81.68。随着对冲的重新调整，为了简化会计处理，我们将在T=1时期实现总损益。LP的损益实际上并未实现，但将第一期的LP损益计入资产负债表，便于观察后续时期对冲的影响。
 - en: The initial hedged LP position is identical to the above static hedge case,
     as they had identical positions in T=0
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 初始对冲的LP持仓与上述静态对冲情况相同，因为在T=0时他们的持仓一致。
 - en: '**Dynamic Hedge Path Dependent**'
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**动态对冲路径依赖**'
 - en: In period T=1, the hedge ratio is updated, and we realize hedge and LP pnl profits
     (expected loss is 19.40). The expected loss in the second period is 19.38, given
     that the initial loss was realized in period T=1, which is just the sum of the
@@ -132,6 +138,7 @@
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在T=1时期，对冲比例更新，我们实现对冲和LP损益利润（预期损失为19.40）。考虑到T=1时期已实现初始损失，第二期的预期损失为19.38，这只是这四个状态的概率乘以其净损益的总和。两期总预期损失为38.79，与静态对冲相同。
 - en: 'More frequent hedging reduces pnl volatility in the same way that a static
     hedge reduces the pnl volatility: they do not change the total expected LP loss,
     totaling 38.79 whether unhedged, statically hedged, or constantly hedged. You
@@ -139,6 +146,7 @@
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 更频繁的对冲与静态对冲一样，都能降低损益波动：它们并不改变LP总预期损失，无论是否对冲、静态对冲还是持续对冲，总损失均为38.79。通过将损益与其相应概率相乘，即可得到预期值。
 - en: If you don't hedge a negatively convex position, you will lose $*x* with probability
     *p* after T periods, while if you hedge continuously, you will lose *x***p*/T
     each period. In the example above, the static hedge reduces the pnl variability
@@ -147,6 +155,7 @@
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你不对一个负凸性持仓进行对冲，T期后你将以概率p损失$x，而如果你持续对冲，你将在每个时期损失x*p/T。在上例中，静态对冲将极端状态下损益波动从约±1500美元降至±75美元，而动态对冲进一步将其方差降至每期恒定的20美元。
 - en: What about restricted ranges, as in Uniswap v3? Again, this doesn't change the
     convexity costs for a given amount of liquidity. Consider if the range had a range
     spanning the price movement in this example, a +/- 10% price movement. The total
@@ -155,6 +164,7 @@
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于Uniswap v3中的限制范围又如何呢？同样，这并不改变给定流动性量的凸性成本。设想如果范围涵盖了本例中的价格波动，即±10%的价格波动。LP的总成本将减少90%，节省显著。对冲规模也相应减小，进一步降低资本需求。
 - en: Given the same liquidity, the expected convexity cost is identical for an LP,
     whether the range is restricted. In the lattice below, the restricted range starts
     with token A amount of only 7.39 vs. 77.7 in the unrestricted case, so the hedge
