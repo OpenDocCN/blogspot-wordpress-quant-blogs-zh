@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 17:56:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日17时56分25秒
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Fast Threshold Clustering Algorithm (FTCA) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 快速阈值聚类算法（FTCA）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/11/26/fast-threshold-clustering-algorithm-ftca/#0001-01-01](https://cssanalytics.wordpress.com/2013/11/26/fast-threshold-clustering-algorithm-ftca/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/11/26/fast-threshold-clustering-algorithm-ftca/#0001-01-01](https://cssanalytics.wordpress.com/2013/11/26/fast-threshold-clustering-algorithm-ftca/#0001-01-01)
 - en: '[![cluster image](img/7ac94331c32bad9a4752e2a35a60e4ab.png)](https://cssanalytics.files.wordpress.com/2013/11/cluster-image.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![聚类图像](img/7ac94331c32bad9a4752e2a35a60e4ab.png)](https://cssanalytics.files.wordpress.com/2013/11/cluster-image.png)'
 - en: 'Often it can be surprisingly difficult to improve upon a simple and time-tested
     recipe. During  the summer of 2011, I worked with [Corey Rittenhouse](http://catallacticanalysis.com/)
     to develop algorithms for grouping asset classes. At the time, I did not have
@@ -48,130 +62,182 @@
     of each asset to all other assets as a means of determining how closely or distantly
     related an asset is to the universe of assets chosen. A graphic of how the FTCA
     creates clusters is presented below:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时候，要改进一个简单而经得起时间考验的配方竟然会令人意外地困难。2011年夏天，我与[Corey Rittenhouse](http://catallacticanalysis.com/)合作，为资产类别的分组开发算法。当时，我对常用于数据挖掘研究中的“聚类”算法一窍不通。最初创造的算法源于对简化资产分组这一复杂问题的愿望，希望只需几步就能完成，并且使计算过程简单。事实证明，无知是福。**快速阈值聚类算法（FTCA）**具有许多传统聚类算法所不具备的优点：1）它产生的聚类相当稳定，2）它速度快且确定性强，3）易于理解。与[Michael
+    Kapler](http://systematicinvestor.wordpress.com/)一起为我们的[聚类风险平价](http://www.systematicportfolio.com/rfinance2013)组合配置方法进行的聚类研究中，我们都看到的最大问题之一是产生的聚类变化太频繁，导致交易额过多。此外，像道琼斯30这样高度相关的数据集，拥有比逻辑或常识所能决定的更多的聚类。这是由于大多数聚类算法的工作方式类似于寻求最大化簇间不相似性和簇内相似性的优化例程。这意味着聚类会因为相关矩阵中的微小变化而改变，这些变化更有可能是噪声的作用。相比之下，阈值聚类使用逻辑相关阈值来代替“相似”与“不相似”。在FTCA中，我最初使用了0.5的相关阈值（大约是统计显著水平）来区分相似和不相似的资产。FTCA类似于[最小相关算法](https://cssanalytics.wordpress.com/2012/09/21/minimum-correlation-algorithm-paper-release/
+    "最小相关算法论文发布")，它使用每个资产与所选所有其他资产的平均相关性来确定资产与所选资产作为整体相近或相远相关的程度。FTCA创建聚类的图示如下：
 - en: '[![Fast Threshold Clustering](img/cc3fb3db66b7de8c92164295ed5e088f.png)](https://cssanalytics.files.wordpress.com/2013/11/fast-threshold-clustering.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![快速阈值聚类](img/cc3fb3db66b7de8c92164295ed5e088f.png)](https://cssanalytics.files.wordpress.com/2013/11/fast-threshold-clustering.png)'
 - en: 'The pseudocode for FTCA is presented below:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: FTCA的伪代码如下：
 - en: '***While there are assets that have not been assigned to a cluster***'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '***当还有未分配到簇的资产***'
 - en: '**If only one asset remaining then**'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**如果只剩下一个资产**'
 - en: '**Add a new cluster**'
+  id: totrans-12
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**添加一个新的簇**'
 - en: '**Only member is the remaining asset**'
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**唯一成员是剩下的资产**'
 - en: '**Else**'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**否则**'
 - en: '**Find the asset with the Highest Average Correlation (HC) to all assets not
     yet been assigned to a Cluster**'
+  id: totrans-15
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**找到与尚未分配到簇的所有资产的平均相关性（HC）最高的资产**'
 - en: '**Find the asset with the Lowest Average Correlation (LC) to all assets not
     yet assigned to a Cluster**'
+  id: totrans-16
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**找到与所有尚未分配到一个簇的资产的平均相关性（LC）最低的资产**'
 - en: '**If Correlation between HC and LC > Threshold**'
+  id: totrans-17
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**如果HC和LC之间的相关性 > 阈值**'
 - en: '**Add a new Cluster made of HC and LC**'
+  id: totrans-18
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**添加一个由HC和LC制成的新簇**'
 - en: '**Add to Cluster all other assets that have yet been assigned to a Cluster
     and  have an Average Correlation to HC and LC > Threshold**'
+  id: totrans-19
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**将所有其他尚未分配到一个簇且与HC和LC的平均相关性 > 阈值的资产加入到簇中**'
 - en: '**Else**'
+  id: totrans-20
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**否则**'
 - en: '**Add a Cluster made of HC**'
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**添加一个由HC制成的簇**'
 - en: '**Add to Cluster all other assets that have yet been assigned to a Cluster
     and have a Correlation to HC > Threshold**'
+  id: totrans-22
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**将所有其他尚未分配到一个簇且与HC的相关性 > 阈值的资产加入到簇中**'
 - en: '**Add a Cluster made of LC**'
+  id: totrans-23
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**添加一个由LC制成的簇**'
 - en: '**Add to Cluster all other assets that have yet been assigned to a Cluster
     and have Correlation to LC > Threshold**'
+  id: totrans-24
   prefs:
   - PREF_IND
   - PREF_IND
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**将所有其他尚未分配到一个簇且与LC的相关性 > 阈值的资产加入到簇中**'
 - en: '**End if**'
+  id: totrans-25
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**结束如果**'
 - en: '**End if**'
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**结束如果**'
 - en: '***End While***'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '***结束循环***'
 - en: 'It is interesting to look at the historical clusters using FTCA with a threshold
     of .5 on previously used datasets such as the 8 major liquid ETFs (GLD,TLT,SPY,IWM,QQQ,EFA,EEM,IYR),
     and the 9 sector Spyders (S&P500 sectors: XLP,XLV,XLU,XLK,XLI,XLE,XLB,XLY,XLF).
     The database was updated until May of 2013 and shows the historical allocations/last
     12 months of clusters generated using a 252-day lookback for correlation with
     monthly rebalancing. First the 8 major liquid ETFs:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，使用以前使用的数据集（如8个主要流动ETF（GLD、TLT、SPY、IWM、QQQ、EFA、EEM、IYR）和9个行业Spyders（标普500行业：XLP、XLV、XLU、XLK、XLI、XLE、XLB、XLY、XLF））使用FTCA和阈值为.5来查看历史簇。数据库更新至2013年5月，并显示使用252天的相关性回溯和每月再平衡生成的最后12个月的历史分配/簇。首先是8个主要的流动ETF：
 - en: '[![ETF8 FTCA](img/75980487e5c9ac112f6456f75ba6c35f.png)](https://cssanalytics.files.wordpress.com/2013/11/etf8-ftca.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![ETF8 FTCA](img/75980487e5c9ac112f6456f75ba6c35f.png)](https://cssanalytics.files.wordpress.com/2013/11/etf8-ftca.png)'
 - en: 'Notice that the clusters are very logical and do not change once within the
     12 month period. The clusters essentially represent Gold, Bonds and Equities (note
     that a 60 month period shows very little change as well). Now lets take a look
     at the clusters generated on the famously noisy S&P500 sectors:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，这些簇非常合乎逻辑，并且在12个月期间内不会发生变化。这些簇基本上代表了黄金、债券和股票（请注意，60个月的时间段显示变化也非常少）。现在让我们看看在著名的嘈杂的标普500行业上生成的簇：
 - en: '[![FTCA Spyders](img/2d7b985194592a6691ac8a436fcce9e2.png)](https://cssanalytics.files.wordpress.com/2013/11/ftca-spyders.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![FTCA Spyders](img/2d7b985194592a6691ac8a436fcce9e2.png)](https://cssanalytics.files.wordpress.com/2013/11/ftca-spyders.png)'
 - en: Again, the last 12 months of clustering shows very little change in cluster
     membership. Most of the time, the sectors are intuitively considered to be one
     cluster, while occasionally the utilities sector shows a lack of correlation to
@@ -182,5 +248,8 @@
     practicality of FTCA.  From a portfolio management standpoint, it makes using
     clusters far more practical as well for tactical asset allocation or implementing
     cluster risk parity.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，过去12个月的聚类显示聚类成员几乎没有变化。大多数情况下，行业通常被认为是一个簇，而偶尔公用事业部门显示与其他行业的相关性不足。阈值的选择将改变簇的数量和稳定性-较高的阈值显示更多的簇，而低阈值显示的成员变化更大。尽管在过去一年中我对非常复杂的聚类方法有了很多了解，但我经常回到FTCA的简单和实用性。
+    从投资组合管理的角度来看，对于战术资产配置或实施簇风险平价，也使得使用簇更加实际。
