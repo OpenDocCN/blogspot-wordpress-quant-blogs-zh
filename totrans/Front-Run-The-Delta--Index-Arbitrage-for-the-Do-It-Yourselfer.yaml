@@ -1,91 +1,145 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-12 23:37:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 23:37:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Front-Run The Delta: Index Arbitrage for the Do It Yourselfer'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 预先获取列标3：自助型指数套利
 - en: 来源：[https://frontrunthedelta.blogspot.com/2011/06/index-arbitrage-for-do-it-yourselfer.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/06/index-arbitrage-for-do-it-yourselfer.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://frontrunthedelta.blogspot.com/2011/06/index-arbitrage-for-do-it-yourselfer.html#0001-01-01](https://frontrunthedelta.blogspot.com/2011/06/index-arbitrage-for-do-it-yourselfer.html#0001-01-01)
 - en: This is the process used to construct a pseudo-
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是用于构建伪-
 - en: '[Index Arbitrage](http://en.wikipedia.org/wiki/Index_arbitrage)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[指数套利](http://en.wikipedia.org/wiki/Index_arbitrage)'
 - en: (similar to
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: (类似于
 - en: '[Delta One](http://www.efinancialnews.com/story/2011-06-10/delta-one-nomura)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[一对对冲](http://www.efinancialnews.com/story/2011-06-10/delta-one-nomura)'
 - en: ) model of the
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ) 模型
 - en: '[SPDR Dow Jones Industrial ETF](https://www.spdrs.com/product/fund.seam?ticker=dia)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[SPDR 道琼斯工业ETF](https://www.spdrs.com/product/fund.seam?ticker=dia)'
 - en: versus one of the front month ECBOT-listed
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 相对于在CBOT上列出的一个靠前月份
 - en: '[E-Mini Dow Jones Industrial](http://www.cmegroup.com/trading/equity-index/us-index/e-mini-dow_contract_specifications.html)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[迷你道琼斯工业指数期货](http://www.cmegroup.com/trading/equity-index/us-index/e-mini-dow_contract_specifications.html)'
 - en: futures contracts.  Our software is proprietary and was developed from scratch
     (not by me).  We are currently using
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货合同。我们的软件是自主的，并且是从零开始开发的（不是由我开发）。我们目前使用
 - en: '[IB''s TWS](http://www.interactivebrokers.com/ibg/main.php)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[IB的TWS](http://www.interactivebrokers.com/ibg/main.php)'
 - en: as our medium to the markets.  It is my chemistry set.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为我们进入市场的媒介。这就是我的化学试验。
 - en: '**Constructing the Spread.**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**构建利差点。**'
 - en: 'Step 1: Define your bases.  Name your series.  In this case we name the file
     "DIA_YM".  The "t13,t14" corresponds to two of the variables on the left with
     open connections.  t01 through t12 are other securities currently being referenced
     by the software.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤1：定义您的基础。给你的系列命名。在这种情况下，我们命名文件为 “DIA_YM”。 “t13,t14” 对应于左侧带有开放连接的两个变量。 t01到t12是软件当前引用的其他证券。
 - en: 'Step 2: Input your "proprietary" algorithm(s) of choice. As shown, currently
     blurred in boxes e01 through e06 (sorry, can''t give it all away).'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤2：输入您选择的 “专有” 算法。如图所示，目前在e01到e06的框中模糊显示（抱歉，不能全部透露）。
 - en: 'Step 3: Hit the LiveTrack(c)!'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤3：点击 LiveTrack(c)！
 - en: 'Step 4: Wait a few minutes and take a sample of the data.  This is very high-frequency,
     synchronized trade-and-quote data for the DIA/YM pair.  Synchronized (discussed'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤4：等待几分钟并取一份数据样本。这是DIA/YM对的非常高频、同步交易和报价数据。同步化（讨论
 - en: '[here](http://rogerenright.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这里](http://rogerenright.blogspot.com/2011/06/triangular-arbitrage-using-usdhkd.html)'
 - en: ) meaning when any predefined variable (bid, bid size, etc.) changes, a snapshot
     of the entire set is taken, time-stamped down to the millisecond
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ) 意思是，当任何预定义的变量（出价，出价大小等）发生变化时，整个集合的快照会被拍摄下来，并且时间戳精确到毫秒。
 - en: '[,](http://en.wikipedia.org/wiki/Serial_comma)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[,](http://en.wikipedia.org/wiki/Serial_comma)'
 - en: and logged.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 并记录。
 - en: 'Step 5: Finally, check the result.  159 variable changes during 2 minutes and
     13 seconds of sleepy after market trading.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤5：最后，检查结果。2分钟13秒的睡前交易中，共有159个变量发生变化。
