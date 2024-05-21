@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:56:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间：2024年5月12日 19:56:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Why Trusted Blockchains Cannot Support CLOBs'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：为什么可信的区块链无法支持CLOBs
 - en: 来源：[http://falkenblog.blogspot.com/2023/03/why-trusted-blockchains-cannot-support.html#0001-01-01](http://falkenblog.blogspot.com/2023/03/why-trusted-blockchains-cannot-support.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2023/03/why-trusted-blockchains-cannot-support.html#0001-01-01](http://falkenblog.blogspot.com/2023/03/why-trusted-blockchains-cannot-support.html#0001-01-01)
 - en: Today's most efficient and liquid exchanges are *central limit order books*
     (CLOBs). It is a computerized system that aggregates and matches buy and sell
     orders for a particular financial asset, such as a stock, currency pair, or commodity,
@@ -27,22 +39,30 @@
     sellers at the best available price, filling limit orders that arrive first (i.e.,
     price-time priority). Orders outside the current market price sit on the book
     as resting limit orders, available for traders until they are canceled.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当今最高效和流动性最强的交易所是*中央限价订单簿*（CLOBs）。这是一个计算机化系统，实时聚合和匹配特定金融资产（如股票、货币对或大宗商品）的买卖订单。在CLOB中，市场参与者可以挂出购买或出售特定资产的订单，然后这些订单根据其价格和时间优先级列在订单簿中。系统会以最佳可获得价格自动匹配买家和卖家，填满最先到达的限价订单（即价格-时间优先级）。超出当前市场价格的订单会作为挂单限价订单放在订单簿上，直到被取消。
 - en: '**A Limit Order Book**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**限价订单簿**'
 - en: '[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6397281c-982d-4ab9-9811-6dfc9188c500_419x290.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[](https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6397281c-982d-4ab9-9811-6dfc9188c500_419x290.png)'
 - en: While these represent the gold standard, they require a degree of low latency
     (i.e., speedy) that is only attainable because they are centralized (ergo, CLOB
     and not LOB). This allows market makers to physically place servers running their
     market-making algorithms next to the exchange servers, allowing communications
     within milliseconds. Any decentralized trading platform cannot directly compete
     with these platforms as a price discovery mechanism.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这些代表了金标准，但它们需要低延迟（即速度快），只有因为它们是集中化的（也就是说是CLOB而不是LOB）。这使做市商能够将运行他们市场做市算法的服务器物理放置在交易所服务器旁，从而使通信在毫秒内完成。任何分散式交易平台都无法直接与这些平台竞争作为价格发现机制。
 - en: 'To understand why a CLOB cannot work on a blockchain, it is helpful to understand
     the economics that drives its equilibrium. A CLOB has three types of traders:
     uninformed, informed, and market makers. The informed invest in data, models,
@@ -52,8 +72,10 @@
     trading on irrelevant information (unintentional noise traders). As informed and
     uninformed traders do not show up simultaneously, market makers arise to provide
     liquidity continually by posting resting limit orders to buy and sell.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 要理解为什么CLOB无法在区块链上运行，有助于了解驱动其均衡的经济原理。CLOB有三种类型的交易者：不知情的、知情的和做市商。知情的投资于数据、模型和硬件，以识别临时的错误定价并利用其比较优势偷袭陈旧的限价订单。不知情的出于理性和非理性原因而无知：他们可能想购买汽车（流动性交易者），或者是妄想并基于不相关信息交易（无意义的噪音交易者）。因为知情和不知情的交易者不会同时出现，做市商会不断提供流动性，通过挂出挂单限价订单持续地提供买卖。
 - en: In equilibrium, all groups generate benefits equal to their costs. The informed
     trader’s costs—investments in hardware and statistical algorithms—are balanced
     by revenue from adversely selecting stale market maker limit orders. Uninformed
@@ -61,8 +83,10 @@
     quick trading. Market makers post knowing they will trade with both types of traders,
     setting limit orders such that the revenue from uninformed balances that they
     lose to the informed.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在均衡状态下，所有群体产生的利益等于其成本。知情交易者的成本——硬件投资和统计算法——由于从陈旧的市场做市商限价订单中产生的营收平衡。不知情的交易者通过交易价差支付做市商，从便利快速交易中获益。做市商发布限价订单是因为他们知道自己将与两种类型的交易者交易，设置限价订单以使不知情的交易者的收入与他们支付给知情交易者的收入相平衡。
 - en: There are many scenarios where low latency is costly, but one applied to a market
     maker providing resting limit orders should suffice. A market maker places a two-sided
     order to buy or sell 100 shares of XYZ stock trading at a bid-ask price of $20.17-$20.18,
@@ -74,15 +98,19 @@
     upon getting filled, you paid too much or sold too low. It generates a loss profile
     for market makers like for those selling straddles or a liquidity provider’s impermanent
     loss.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 有许多情况下，低延迟是成本高昂的，但对于市场做市商提供等待限价订单的情况应该足够了。市场做市商下了一个双向订单，买入或卖出100股XYZ公司股票，买卖价为20.17美元-20.18美元，当前的投标价为20.17美元。假设该股票在你取消该订单之前会上涨或下跌0.05美元。如果你成交的话，那只是因为现在交易价格是20.12美元-20.13美元，这意味着你以20.17美元买入了股票，现在可以以20.12美元卖出；你损失了0.05美元；如果价格上涨了0.05美元，你可能就无法在20.17美元的买入订单上成交。这被称为“逆向选择”，意味着在成交时，你支付了太多或者卖出得太低。这为市场做市商带来了损失，就像卖跨式期权或做市商的暂时损失一样。
 - en: The effect of higher latency on a central limit order book is a classic example
     of Akerloff’s ‘[Market for Lemons](https://noemi.giszpatrick.com/econfon/lemons.pdf)’
     (*Quarterly Journal of Economics*, 1970). [1] In that paper, he analyzes markets
     where parties with asymmetric information separate, so the only viable transactions
     are those with a negative value, and the market collapses (i.e., no trades).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 高延迟对中央限价订单簿的影响是Akerloff的《[柠檬市场](https://noemi.giszpatrick.com/econfon/lemons.pdf)》（《季度经济杂志》，1970年）的一个典型例子。在那篇论文中，他分析了信息不对称的市场，使得唯一可行的交易是那些负价值的交易，市场崩溃（即，没有交易）。
 - en: The lemon’s problem applied to limit order books is the following. High latency
     leads to market makers suffering higher adverse selection as it amplifies the
     relative speed advantage of informed traders, causing market makers to increase
@@ -91,8 +119,10 @@
     adverse selection by the informed traders by making more profit per uninformed
     trade. This discourages more uninformed traders, creating a positive feedback
     loop until none are left.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 柠檬问题应用于限价订单簿的情况如下。高延迟导致市场做市商遭受更高的逆向选择，因为它放大了知情交易者相对速度优势，导致市场做市商加大报价价差。更高的价差会阻止不知情的交易者。随着不知情的交易者变少，市场做市商会进一步加大买卖价差，以保护不知情交易者免受知情交易者的逆向选择，从而从每笔不知情交易中获得更多利润。这会进一步阻止更多不知情的交易者，产生积极的反馈循环，直到没有一个不知情的交易者留下。
 - en: Another way to think about the necessity of liquidity traders focuses on the
     zero-sum nature of trading without them. With no liquidity traders, the remaining
     participants are then playing the unattractive game of trying to outsmart and
@@ -107,15 +137,19 @@
     has an incentive to put information into markets because the other rational traders
     infer what he knows via his market demand. There are no trades because every order
     is presumed to be informed and thus unprofitable for the other side.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种思考流动性交易者必要性的方法，是关注没有他们的交易的零和性质。如果没有流动性交易者，剩下的参与者就要玩一个不那么吸引人的游戏，试图比其他人更聪明、更快速。米尔格罗姆-斯托基的《[不交易定理](https://www.econstor.eu/bitstream/10419/220737/1/cmsems-dp0377R.pdf)》（《经济理论杂志》，1982年）指出，如果市场中的所有交易者都是理性的，那么所有价格都是理性的。因此，任何提出要约的人必须拥有有价值且准确的私人信息，否则他们不会提出要约。同样，格罗斯曼和斯蒂格利茨的《[信息效率市场的不可能性](https://academiccommons.columbia.edu/doi/10.7916/D8ZP4H27/download)》（《美国经济评论》，1982年）展示了，如果没有流动性交易者，没有人有动机把信息放入市场，因为其他理性交易者通过他的市场需求来推断他知道的情况。这样就不会有交易，因为每个订单都被认为是知情的，对另一方来说是没有利润的。
 - en: A deficiency of liquidity traders creates a positive feedback loop that causes
     markets to ultimately unravel. There will not be enough liquidity traders to support
     an active set of market makers, who need the uninformed retail flow to offset
     their losses to the informed traders. The high spreads and meager volume on decentralized
     limit order book exchanges are consistent with this result (e.g., Augur).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 流动性交易商的不足造成了一个正反馈循环，导致市场最终崩溃。将没有足够的流动性交易商来支持活跃的做市商，后者需要不知情的零售流量来抵消其对知情交易商的损失。去中心化限价订单簿交易所上的高点差和微薄成交量与此结果一致（例如，Augur）。
 - en: One can imagine the layer 2 blockchains will eventually become fast and secure,
     preventing this problem. However, even in this case, miners or validators can
     sequence transactions with some discretion. It takes 60 milliseconds for light
@@ -123,8 +157,12 @@
     time window. Successful market makers on modern CLOBs have reaction speeds of
     5 milliseconds, implying the feasibility of front-running such a system with impunity
     (see [Aquilina, Budish, and O’Neill, 2020](https://www.bis.org/publ/work955.pdf)).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们可以想象第二层区块链最终将变得快速和安全，避免了这一问题。然而，即使在这种情况下，矿工或验证者仍可以略微调整交易的顺序。从东京到旧金山，光需要 60
+    毫秒，形成了这种自由时间窗口的较大下界。现代限价订单簿上成功的做市商反应速度为 5 毫秒，这意味着可以毫不顾虑地利用这样的系统进行预先交易（参见[Aquilina,
+    Budish, and O’Neill, 2020](https://www.bis.org/publ/work955.pdf)）。
 - en: A CLOB has price-time priority, so it fills limit orders first by price, and
     within a given price using first-in-first-out logic. Even without a minimum tick
     size, the sequencers could front-run limit orders by posting orders conditional
@@ -133,8 +171,10 @@
     which would require a globally distributed set of validators. Given the disproportionate
     advantage of being first on limit order books, the unavoidable sequencing discretion
     makes transparent competition impossible, enabling and encouraging corruption.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 限价订单簿具有价格-时间优先权，因此它首先按价格填满限价订单，然后在给定价格下使用先进先出逻辑。即使没有最小跳动大小，定序器也可以通过提交与更新订单价格有关的条件订单来预先交易限价订单。如果配置为防止审查，第二层验证者没有办法对交易的时间顺序达成一致意见，这将需要一个全球分布的验证者集合。鉴于作为限价订单薄中第一个的巨大优势，不可避免的定序自由意味着透明的竞争不可能实现，从而促进了腐败。
 - en: Low-latency chains like Solana, meanwhile, are centralized, which invariably
     leads to corruption via Acton’s Law. This centralization is not obvious, as many
     have more validators than Bitcoin or Ethereum (e.g., EOS has 21), but this [Nakamoto
@@ -147,14 +187,22 @@
     expect every sort of malicious trading tactic (e.g., FTX pumped its Serum token
     via its low-latency Project Serum exchange on Solana). This leaves blockchain
     CLOBs only for tokens with no alternatives, like in markets for NFTs and shitcoins.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 与此同时，像 Solana 这样的低延迟区块链是中心化的，这必然会导致阿克顿定律（Acton’s Law）的腐败。这种中心化并不明显，因为许多区块链的验证者数量比比特币或以太坊还多（例如，EOS
+    有 21 个验证者），但是这个[Nakamoto系数](https://learn.bybit.com/blockchain/nakamoto-coefficient-decentralization/)是没有意义的，因为低延迟区块链上的验证者必须合作，并且它们必然是由中心机构控制的。当一个区块链代表就某个基础加密原则发表明显的谎言时，其开发者们就开始沿着不可抑制的斜坡滑下去，导致更多的谎言，最终成为一个欺骗的泥潭。在由不负责任的内部人控制的市场中，我们应该预料到各种恶意交易策略的出现（例如，FTX通过其低延迟的
+    Project Serum 交易所在 Solana 上推动了其 Serum 代币）。这使得区块链限价订单簿只适用于没有替代品的代币，比如 NFT 和垃圾币的市场。
 - en: '* * *'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: '[1] In this application, the market maker trading with informed traders generates
     a loss, like a lemon car, hoping to offset this with his trades with ‘peach’ cars
     (gains). In 70’s slang, a ‘lemon’ is a bad type, as opposed to a good type, e.g.,
     a ‘peach.’'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] 在这个应用中，与知情交易商交易的做市商会产生损失，如同一辆柠檬汽车，希望能通过与‘桃’车（收益）的交易来抵消这个损失。在 70 年代的俚语中，‘柠檬’是一个坏类型，与好类型相对应，例如‘桃’。'
