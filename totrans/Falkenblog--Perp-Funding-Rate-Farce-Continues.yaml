@@ -1,31 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:56:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:56:18'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Perp Funding Rate Farce Continues'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：Perp Funding Rate Farce Continues
 - en: 来源：[http://falkenblog.blogspot.com/2023/03/perp-funding-rate-farce-continues.html#0001-01-01](http://falkenblog.blogspot.com/2023/03/perp-funding-rate-farce-continues.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 参考：[http://falkenblog.blogspot.com/2023/03/perp-funding-rate-farce-continues.html#0001-01-01](http://falkenblog.blogspot.com/2023/03/perp-funding-rate-farce-continues.html#0001-01-01)
 - en: Recent 20% crypto movements have demonstrated again that perp markets continue
     to gouge their customers. I have written about this several times before, but
     as it is economically significant, corrupt, and continues unabated, I figured
     it would be worth revisiting. Alas, reading my old posts, I can see how I muddled
     my point, perhaps explaining why I am a lone wolf on his issue, so I hope this
     is clearer.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近20%的加密货币波动再次证明了永续市场继续欺诈其客户。我之前写过几次关于这个问题，但是由于这在经济上很重要，而且继续不受限制地腐败，所以我认为值得重温。唉，阅读我的旧帖子，我看到我模糊了我的观点，也许解释了为什么我在这个问题上孤立无援，所以我希望这次更清晰。
 - en: The funding rate mechanism used to link perp prices with spot prices is a farce
     in that it does not and cannot tie a synthetic price with a spot price via arbitrage,
     and in practice, it is used to defraud its users. As a practical matter, the perp
@@ -36,38 +50,51 @@
     for most traders, as they are happy to use centralized platforms like BitMex and
     DyDx. As in those cases, many users are happy to have access to perps as long
     as it seems fair.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 资金费率机制用于链接perp价格和现货价格是一个闹剧，因为它不可能通过套利将合成价格与现货价格联系起来，并且在实践中，它用来欺诈用户。从实际角度来看，perp价格是一个[谢林点](https://blog.ethereum.org/2014/03/28/schellingcoin-a-minimal-trust-universal-data-feed)，因为其明显的目标是现货价格，而资金费率只是为了让交易者感到舒服，以表明它不仅仅是一个谢林点。对于大多数交易者来说，与均衡机制有所关系已经足够了，因为他们乐于使用像BitMex和DyDx这样的集中式平台。在这些情况下，只要看起来公平，许多用户就会乐于使用永续合约。
 - en: One can forgive the perp funding rate scam as its foundational white lie facilitated
     a much-needed market. In 2016, short or leverage bitcoin was impossible, but there
     were no exchanges to do this. All one could do was swap one token for another
     and generate an unleveraged long position. There were no stablecoins or wrapped
     Bitcoin. BitMex, a centralized unregulated exchange that only took bitcoin deposits,
     created the first popular perpetual swap, aka ‘perp.’
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们可以原谅perp融资利率的欺诈行为，因为它的基础谎言方便了一个迫切需要的市场。2016 年，要么做空比特币要么使用杠杆是不可能的，但那时没有交易所可以操作这些。人们唯一能做的就是将一种代币与另一种互换，并生成一个非杠杆持仓。当时还没有稳定币或者wrapped比特币。BitMex
+    是一个只接受比特币存款的集中式不受监管的交易所，创建了第一个流行的永续合约，也被称为“perp”。
 - en: Instead of an expiration date and settlement in a perp market, a perp anchors
     its price to the spot via a funding rate mechanism. When the perpetual contract’s
     price exceeds the spot price, the story is that this implies longer than short
     demand. The long traders pay short traders a fee proportional to this price premium
     to equilibrate the market. Crypto funding rates prevent continuing divergence
     in the price in perp and spot markets.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 永续市场中没有到期日和结算，永续是通过资金费率机制将其价格锚定到现货。当永续合约的价格超过现货价格时，所传达的信息是这意味着比空头需求更多。多头交易者支付给空头交易者与此价格溢价成比例的费用来使市场恢复均衡。加密货币资金费率防止永续和现货市场价格的持续分歧。
 - en: 'The perp premium is the percent difference between the perp and spot prices.
     The spot price could be from external markets like Coinbase, or for centralized
     perps, from spot markets on their exchange:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: perp premium是永续与现货价格之间的百分比差异。现货的价格可以来自Coinbase等外部市场，或者来自他们交易所上的现货市场：
 - en: '*PerpPremium = PerpPrice/SpotPrice - 1*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*PerpPremium = PerpPrice/SpotPrice - 1*'
 - en: The funding rate is like the future expiring once daily, as this premium is
     applied to 24 hours based on the perp premium. One can apply it to 8-hour windows
     or anything else, but the standard is to apply the simple premium above and divide
     it by the number of periods within a day.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 资金费率就像期货每天到期一样，因为这个溢价是基于perp溢价的24小时计算的。可以将其应用到8小时窗口或其他任何框架，但标准是将简单溢价除以一天内的周期数。
 - en: For example, suppose you short a BTC perpetual future trading 10% above the
     underlying index all day. In that case, it’s perp premium—then you will receive
     a total funding payment of 10% over that day to compensate for the fact that,
@@ -75,37 +102,49 @@
     perpetual. This sounds reasonable, but to understand why this is not, you must
     first understand the theory of how funding rates work in swap markets or how basis
     rates work in futures markets.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，假设你做空一份比特币永续期货，整天都以10%高于基础指数进行交易。在那种情况下，你将在当天获得总资金支付额外的10%，以弥补这一点，就像传统期货市场不会到期或结算一样，因为它是永久的。这听起来是合理的，但要理解为什么不是，你首先必须了解资金费率在互换市场中是如何运作的，或者期货市场中的基差是如何工作的。
 - en: The basis in futures markets acts as a funding rate in swap markets, defined
     as the difference between the futures and spot prices. The chart below shows the
     horizontal time axis moving from a current futures price to its delivery/expiry
     date if the black line represents the current spot price.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货市场中的基差在互换市场中作为资金费率，定义为期货价和现货价之间的差异。下图显示了水平时间轴，从当前期货价格到交割/到期日期，如果黑线代表当前现货价格。
 - en: The **basis** is the difference between the futures and spot price. It can be
     positive or negative depending on whether the futures price is above or below
     the spot price. The funding rate is implicit in the amortization of the basis
     over time, in that, at expiration, the spot price equals the futures price, so
     the basis is sure to be zero at that time.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**基差**是期货价格和现货价格之间的差异。根据期货价格高于或低于现货价格，它可能是正的或负的。资金费率隐含在基差随时间摊销中，在到期时，现货价格等于期货价格，所以基差在那时肯定是零。'
 - en: There is no basis for swap markets; a funding rate is applied daily, acting
     precisely like the basis in futures markets. Swap accounts trade at spot prices,
     facilitated by broker margin. Here the basis goes from being implicit to explicit.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 互换市场没有基差；每日应用资金费率，其作用与期货市场中的基差几乎完全相同。互换账户以现货价格进行交易，由经纪人保证金进行交易。基差从隐性变得显性。
 - en: '*LongSwapPnL  = Notional (p(t+1)/p(t) - 1 - FundingRate)*'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*LongSwapPnL  = Notional (p(t+1)/p(t) - 1 - FundingRate)*'
 - en: '**Funding rates** in prime broker swap accounts are charged daily and determined
     independently of the spot prices, like how a bank sets interest rates. For equity
     swap accounts common among hedge funds, they are generally a fixed markup to the
     Fed Funds rate, such as adding 25 basis points when a customer borrows USD to
     go long and subtracting 25 basis points when a customer goes short (which lends
     USD to the broker).'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 对冲基金常见的**资金费率**在主要经纪人互换账户上每日收取，并独立于现货价格确定，类似银行设置利率的方式。对于对冲基金中常见的权益互换账户，它们通常是相对于联邦基金利率的固定加价，例如，当客户借款去做多时增加25个基点，当客户做空时减少25个基点（即将美元租给经纪商）。
 - en: Thus far, the similarity of swap funding rates and the futures’ basis to the
     perp funding rate seems plausible. Two academic articles are generally referenced
     when presenting perps. The first is by [Gehr (1988)](https://gwern.net/doc/economics/1988-gehr.pdf),
@@ -118,8 +157,10 @@
     on the spot vs. the funding rate; those short gold futures take delivery if they
     feel the funding rate is too low. This funding rate was added to the spot price
     to create a new closing price used in the subsequent day’s pnl.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，看起来互换资金利率和期货基差与永续合约资金费率的相似性是合理的。一般在介绍永续合约时通常会引用两篇学术文章。第一篇是由[Gehr（1988）](https://gwern.net/doc/economics/1988-gehr.pdf)所著，描述了1980年代在香港中国金银交易所（CGSE）交易黄金的情况。那时无法全天候交易，并且没有互联网，所以价格在交易日之外几乎没有波动。CGSE独特之处在于其期货市场是无限期的。市场每天结算并且进行30分钟的拍卖以确定资金费率。做多黄金的人会比较支付存储和利息与现货的费用与资金费率；做空黄金期货的人如果他们认为资金费率太低，就会交割。这个资金费率会加到现货价格上，形成新的收盘价，并用于下一天的损益计算。
 - en: The effect on prices and cash flows in the CGSE futures market was as follows.
     If the market price closed at 100.00, and the funding rate was determined to be
     0.01% over the next day, the cost basis for the next day’s PNL is 100.01\. If
@@ -128,8 +169,10 @@
     spot close, and 100.01 is the previous day’s futures close. The traded price would
     never be 100.01; it would just be used in the daily calculation of the trader’s
     pnl on the next trading day.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 在CGSE期货市场的价格和现金流方面，其影响如下。如果市场价格以100.00收盘，且确定了第二天的资金费率为0.01%，那么第二天的盈亏的成本基准价就是100.01。如果价格每天保持在100.00不变，那么多头持仓将损失0.01，因为每日盈亏将是100.00-100.01，其中100.00是现货收盘价，而100.01是前一天的期货收盘价。交易价格永远不会是100.01，它只会在下一个交易日的每日盈亏计算中使用。
 - en: Nobel laureate [Robert Shiller (1993)](https://www.nber.org/system/files/working_papers/t0131/t0131.pdf)
     proposed a perpetual futures contract for single-family homes. Unlike a stock
     index or a commodity, the underlying asset, housing, is challenging to create
@@ -139,11 +182,15 @@
     He proposed a statistical model that correlated with real estate’s average rental
     return, net of depreciation. This rental return would then be paid by the short
     to the long.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 诺贝尔奖得主[罗伯特·席勒（1993）](https://www.nber.org/system/files/working_papers/t0131/t0131.pdf)提出了用于单独家庭的永续期货合同。与股票指数或大宗商品不同，底层资产房屋很难成为一个期货商品，因为它不像商品那样是均质的。品质因地点和结构而变化很大，产生了“柠檬”问题。席勒提出使用租金指数为房价指数创建一个租金回报代理。他提出了一个与房地产平均租金回报相相关的统计模型，减去折旧。这个租金回报然后由卖方支付给买方。
 - en: '*s(t+1) = f(t+1) - f(t) + d(t+1) – r×f(t)*'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '*s(t+1) = f(t+1) - f(t) + d(t+1) – r×f(t)*'
 - en: In the equation above, *s* is the daily margin change in a trader’s account; 
     *f* is the perpetual futures price, *r* is an interest rate adjustment, and *d*
     is determined outside the market. While this is interesting, the difficulty in
@@ -153,22 +200,28 @@
     like macroeconomic profit, is challenging to estimate via macroeconomic indicators,
     and most macroeconomic models work poorly out-of-sample, generating considerable
     uncertainty for potential traders.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上述方程中，*s*是交易者账户每日保证金变动；*f*是永续期货价格，*r*是利率调整，*d*是市场外确定的值。虽然这很有趣，但是由于很难生成健壮的*d*的租金指数，这也许是为什么它从未被实现的困难所在。市场应该按照不反映每日资金费用*d*的现货价格交易，只反映它的现值折现。然而，像宏观经济利润一样，租金收入很难通过宏观经济指标进行估计，而且大多数宏观经济模型在样本外表现不佳，为潜在交易者带来了相当大的不确定性。
 - en: Nonetheless, the estimation method implied that this funding rate would move
     slowly, like interest rates. There was never the suggestion that the market price
     reflects the spot price and the funding rate, as there is no spot price in this
     hypothetical, never-realized market.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管如此，估算方法暗示着这个资金费率会像利率一样慢慢变化。从未有迹象表明市场价格反映现货价格和资金费率，因为在这个假设的、从未实现的市场中根本没有现货价格。
 - en: The perp premium funding rate charge is like Gehr’s funding rate charge added
     to the market’s spot price after trading. It is also like the *d(t+1)* term in
     Shiller’s model. Thus, at 30k feet, the connection between the perp premium and
     the funding rate seems consistent. However, the average synthetic/spot price ratio
     is not determining the funding rate in either of these mechanisms, as it is for
     perps.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 永续期货溢价资金费用类似于Gehr的资金费用，加在交易后的市场现货价格上。它也像Shiller模型中的*d(t+1)*项。因此，从30,000英尺的高度来看，永续期货溢价和资金费率之间的联系似乎是一致的。然而，在这两种机制中，平均合成/现货价格比并不决定资金费率，而对于永续期货却是如此。
 - en: In crypto perps, the modal daily funding rate and perp premium is 0.03%, which
     annualizes to 11%. This is a significant funding rate compared to interest rates
     that have been near zero over the period where perps have existed. A 0.10% perp
@@ -177,29 +230,38 @@
     than any crypto market, are estimated at around 0.1%. This is consistent with
     Gemini tic data that show a 0.15% standard deviation in the price change from
     one trade to the next (reflecting a bid-ask bounce).
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在加密货币永续期权中，模态日资金费率和永续期权溢价为0.03%，年化为11%。与永续期权存在的期间利率接近零的利率相比，这是一个显著的资金费率。0.10%的永续期权溢价将意味着多头向空头支付的资金费率达到36.5%。最流动的美国股票的平均交易成本估计约为0.1%，这比任何加密市场都更有效。这与
+    Gemini 的出票数据相一致，显示从一项交易到下一项交易价格变化的标准偏差为0.15%（反映了买卖价差的反弹）。
 - en: The perp premium incenting trades at any instant is below the transaction cost,
     given not just the fees but gas and the effective bid-ask spread, which is paid
     twice over a round trip. If one were frequently trading, as the price-setting
     arbitrageurs tend to do, extreme funding rates would be less than a round-trip
     in transaction costs. For example, a 50% funding rate would imply a 0.006% funding
     payment for a one-hour position, considerably less than their transaction costs.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 任何特定时刻激励交易的永续期权溢价均低于交易成本，不仅包括费用，还有燃气和有效的买卖价差，这在来回交易中都会支付两次。如果经常进行交易，就像定价套利者倾向于做的那样，极端的资金利率将低于交易成本的来回价格。例如，50%的资金费率意味着1小时头寸的0.006%资金支付，远远小于他们的交易成本。
 - en: Additionally, the perp premium applied to longs and shorts is based on the average
     perp premium in the future. Even if one could know exactly one’s perp premium
     at the time of trade and transaction costs were zero, it would tell the long-term
     traders little about what it would be in the future. If one targets positions
     held for a month, the current perp premium at the trade time is irrelevant.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，应用于多头和空头的永续期权溢价是基于未来平均永续期权溢价。即使一个人可以在交易时准确知道自己的永续期权溢价，且交易成本为零，这对长期交易者对未来的了解也几乎没有作用。如果一个人的目标是持有一个月的头寸，那么交易时的当前永续期权溢价就是无关紧要的。
 - en: Supposedly, with all the perp premium’s economic insignificance for motivating
     short- and long-term traders, we expect the market to determine the funding rate
     by inspiring people to buy and sell perps based on current perp/spot premium movements
     of 0.02%. This is why it is a farce; it is absurd.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 据说，由于永续期权溢价对于激励短期和长期交易者的经济意义微乎其微，我们预计市场将通过鼓励人们根据当前永续期权/现货溢价的波动来买卖永续期权来确定资金费率的变化。这就是为什么这是一场闹剧；这是荒谬的。
 - en: This leads to why the perp premium is consistently positive (payments from longs
     to shorts) and frequently rises to 40% after crypto prices jump, as it did this
     week. Market makers dominate price setting, and all perp markets are effectively
@@ -208,8 +270,11 @@
     regulate an immutable tape of trades with objective time stamps (as the once-perceived
     compliance-oriented FTX demonstrated). Anything that can be gamed will be gamed,
     and perp markets can be gamed.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了永续期权溢价始终为正值（从多头支付给空头），并且在加密货币价格上涨后经常上升至40%，就像本周发生的那样。做市商主导了价格设定，所有永续期权市场实际上都是由不知名和不负责任的内部人联盟集体控制的。他们可以将溢价目标定在当前现货指数的0.03%或0.13%以上。没有独立的审计员监管带有客观时间戳的不可变交易流水（正如曾经被认为是以合规为导向的
+    FTX 所示）。任何可以被操纵的东西都将会被操纵，而永续期权市场可以被操纵。
 - en: On average, market makers on standard CLOBs have net zero positions on their
     assets. On perp exchanges, however, the market makers are generally short because
     it is much easier for these insiders to hedge their short exchange positions with
@@ -219,8 +284,10 @@
     significant operational risk from regulatory attack surfaces and hackers. This
     allows the perp market makers a significant extra return on the capital needed
     for market making.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 在标准CLOBs上，做市商通常对其资产持有净零头寸。然而，在永续交易所上，市场制造商通常是空头，因为对这些内部人士来说，通过在交易所之外持有多头仓位来对冲他们的短头交易仓位要容易得多[根据交易所的性质和规模，不同的交易所有不同的选择，所以也有例外情况]。一个空头对冲需要在另一家交易所上投入大量资金，从而产生了监管攻击面和黑客的重大运营风险。这使得永续市场制造商在市场制造所需的资本上获得了显著的额外收益。
 - en: Theoretically, the perp funding rate should be insignificant, if not zero. Neither
     USDC nor ETH has a dividend on the blockchain. The cost of carry for USDC and
     ETH are identical. ETH may have an interest rate if one considers the benefits
@@ -232,23 +299,29 @@
     pressure generated by natural long or short ETH, the only natural positions are
     stakers and miners who are perforce long, implying a negative funding rate (they
     would pay traders to take their naturally long risk).
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论上，永续融资利率应该微不足道，甚至为零。在区块链上，USDC和ETH都没有股息。USDC和ETH的资金成本是相同的。如果考虑抵押收益，ETH可能会有一个利率，但这个利率是稳定的，大约在4%左右，意味着负的融资利率（即，多头会得到补偿以弥补放弃的利息）。没有代币供应冲击来产生期权价值，例如油轮满载时。也没有像旱灾摧毁玉米收成那样为玉米库存者产生便利收益。就自然的多或空的ETH产生的套期保值压力而言，唯一的自然头寸是抵押者和矿工，他们必然是多头，意味着负的融资利率（他们会支付交易者来承担他们自然的多头风险）。
 - en: Nothing in the theory of futures basis rates or funding rates implies the large
     and variable funding rates we observe in perp markets. Standard efficient markets
     theory, the law of iterated expectations, implies current sentiment is reflected
     in spot prices, not forward curves. This is why funding rates are generally independent
     of asset prices, as with equity swap markets or auto loans.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货基差率或融资利率理论上没有蕴含我们在永续市场中观察到的大幅和变动的融资利率。标准有效市场理论，迭代期望定律，都意味着当前情绪体现在现货价格上，而不是远期曲线上。这就是为什么融资利率通常与资产价格无关，就像股票掉期市场或汽车贷款一样。
 - en: To the extent there is a correlation between the basis and price movements on
     standard exchanges, it is unlike the perp markets. In crypto, perp funding rates
     are generally high when the price has risen, as they did this week, but generally
     do not go much below zero when the price has declined. This is the opposite of
     what occurs in commodity markets, where jumps in oil prices correspond to negative
     funding rates, and big declines correspond to positive funding rates.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 在标准交易所的基差和价格运动之间存在一定程度的相关性时，这种情况在永续市场中是不同的。在加密货币市场，永续融资利率通常在价格上涨时较高，就像本周一样，但通常在价格下跌时不会远低于零。这与大宗商品市场的情况恰恰相反，那里油价的飙升对应于负的融资利率，而大幅下跌对应于正的融资利率。
 - en: 'Crypto perp funding rates are best explained by insider manipulation. When
     prices generate windfall profits to long perp traders, they do not mind 50% annualized
     funding rates the following day, which amounts to a mere 0.14% daily charge. It’s
@@ -257,19 +330,25 @@
     CME in February 2021 reflects insiders taking what they can from abused customers.
     Market makers, generally short, receive the funding rate windfall; the game is
     rigged as heads-they-win big, tails-they-win-a-little.'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 加密永续合约资金费率最好的解释是内部操纵。当价格为多头永续合约交易者带来巨额利润时，他们并不介意第二天的年化资金费率达到50%，这相当于仅有0.14%的日费用。就像在拉斯维加斯赢得很多钱的人经常给荷官大费一顿一样：使用赌场的钱。2021年2月，相对于受监管且更透明的芝商所（CME），对永续合约的50%资金费率溢价反映了内部人员从受害客户那里获取利益。通常空头的市场制造者收取资金费率风暴，这场游戏被设计成：正面他们赢得很多，反面他们赢得一些。
 - en: The theory that explains the positive return/funding-rate correlation is a typical
     story that is clear, simple, and wrong. It makes no sense when you get into the
     details. Like the explanation that price increases come from 'more buyers than
     sellers,' the idea that long demand shows up in futures price premiums has never
     made sense.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 解释正回报/资金费率相关性的理论是一个典型的故事，它清晰、简单，但是错误的。当涉及到细节时，这一理论就不合理了。就像解释价格上涨是因为'买方多于卖方'一样，认为多头需求表现在期货价格溢价中从来就没有意义。
 - en: The perp funding rate reflects insider manipulation of customers, a crypto-crypto
     cost that, if eliminated, would create a superior exchange for those wanting leverage.
     Some of these exchanges are under quasi-regulatory control, which would be a good
     issue for regulators to rectify, as it is indefensible, and there is a lot of
     data out there.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 永续合约资金费率反映了客户的内部操纵，这是一种加密货币成本，如果消除掉，将为那些想要杠杆的人创建一个更好的交易所。其中一些交易所处于准监管控制之下，这将是监管机构需要纠正的一个良好问题，因为这是不可捍卫的，并且已经有大量的数据存在。
