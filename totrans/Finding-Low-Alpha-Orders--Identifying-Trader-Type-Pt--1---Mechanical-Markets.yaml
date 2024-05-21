@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:44:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:44:29'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Finding Low-Alpha Orders: Identifying Trader Type Pt. 1 | Mechanical Markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 寻找低阿尔法订单：识别交易者类型第一部分|机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/01/13/trader-type-and-order-age/#0001-01-01)
 - en: General wisdom in trading says that the best executions are to be had with humans
     as counterparties, not computers. And by computers I mean any machine-assisted
     execution, not just HFTs but also the various sorts of execution algorithms. The
@@ -30,8 +42,10 @@
     and inattentiveness are part of being human), and be less likely to have plans
     to keep trading in the same direction (otherwise they’d have found somebody to
     help them get a good execution).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在交易中的一般智慧说最好的交易对象是人，而不是计算机。而且，所说的计算机是指任何机器辅助执行，不仅仅是HFTs，还包括各种执行算法。HFTs只有在他们认为订单会赚钱时才会（可能）进入市场，而执行算法主要用于转移大量股票，所以即使算法在其工作上不太擅长，它依然会成为一个相当具有毒性的交易对手。而人类，我期望他们对所选的价格会相当不精确（因为这不值得他们的时间），在订单和撤销的时间上更不精确（慢和不专注是作为人的一部分），并且更不太可能有计划继续朝着同样的方向交易（否则他们会找到人帮助他们得到一个良好的成交）。
 - en: So it’s reasonable that computerized traders seeking orders with little long
     term alpha start by thinking about how to maximize their chances of trading with
     humans. Probably the vast majority of manually submitted orders that ever trade
@@ -43,8 +57,11 @@
     a trader has to have previously submitted their resting order before all the machines
     trying to do the same thing. Given how many fast and clever programs that are
     in the market, beating the best of them is very challenging.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，对于寻求长期阿尔法的计算机化交易者来说，首先要考虑的是如何最大限度地提高与人交易的机会。很可能，所有会成交的手动提交订单中，绝大多数都是市价订单——首先会成交于内部化交易商、批发商和dark
+    pools。然后，如果在这些市场中没有人对他们的条件感到满意，它们就会被发送到主要交易所。在那里，由于FIFO休息委托队列的竞争性质，要有选择性地与小额手动订单交易是极其困难的——为了挑出更高比例的有利的接收订单，交易者必须在所有试图做相同事情的机器之前先提交他们的休息委托单。鉴于市场上有如此之多又快又聪明的程序，要击败它们中的佼佼者是非常具有挑战性的。
 - en: Knowing marketable manual orders are highly competitive, we’ll focus for now
     on resting manual orders. To try to identify these orders, we can just think about
     what they are not, HFTs. HFTs are known for their very high cancellation rates,
@@ -54,24 +71,35 @@
     over half of HFT orders have been canceled, but only around a quarter of non-HFTs
     have been. This chart comes from European data, but the general tendency should
     carry over to any market with a high HFT presence.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 知道有市场价的手动订单竞争非常激烈，我们现在将重点放在休息的手动订单上。为了尝试识别这些订单，我们可以考虑它们与之不同的地方，高频交易（HFTs）。HFTs以其非常高的撤销率而闻名，这意味着它们发送到市场的绝大多数订单在执行之前都被撤销了。来自最新ESMA报告的下图显示了HFTs、投资银行和其他交易者的订单寿命统计数据。请注意，在提交后1秒内，超过一半的HFT订单已被取消，但只有大约四分之一的非HFTs订单被取消了。这张图表来自欧洲的数据，但一般趋势应该适用于任何高频交易存在的市场。
 - en: '[![esma_n1_2014_c3](img/e143d1e2c7250950df9fe5e5fcbc3309.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/esma_nov2014_c3.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![esma_n1_2014_c3](img/e143d1e2c7250950df9fe5e5fcbc3309.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/esma_nov2014_c3.png)'
 - en: Order lifetime distribution by type of trader. Vertical axis is order lifetime
     in seconds, horizontal axis is percentile. [[Link to Report]](//www.esma.europa.eu/content/ESMAs-Economic-Report-No-1-2014-High-frequency-trading-activity-EU-equity-markets
     "[Link to Report]")
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易类型的订单寿命分布。纵坐标是订单寿命（秒），横坐标是百分位数。[[报告链接]](//www.esma.europa.eu/content/ESMAs-Economic-Report-No-1-2014-High-frequency-trading-activity-EU-equity-markets
+    "[报告链接]")
 - en: With this correlation between trader type and order age in mind, let’s look
     at how the market price varies before and after orders of various ages execute,
     from the perspective of each order in question.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到交易类型和订单年龄之间的相关性，让我们看看各种年龄订单执行前后市场价格的变化，从每个订单的角度来看。
 - en: '[![toa-orderageinet-800](img/038d45cd9f0e8e05475b3889079ded87.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderageinet-13662.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![toa-orderageinet-800](img/038d45cd9f0e8e05475b3889079ded87.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderageinet-13662.png)'
 - en: 'Top panel: Average profit or loss per share vs distance in time from trade,
     from the perspective of the passive side of the trade. For example 30 seconds
     after a trade, the average Nasdaq order less than 100ms old has lost about 0.2
@@ -81,14 +109,20 @@
     Bottom panel: Shares traded on Nasdaq vs time from trade (including fiducial trade).
     Note: There is a shaded region 1 standard deviation wide (computed naively) around
     each line, that is too narrow to see. 1 “mil” = 0.01 cents per share.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：从交易时间的角度，每股平均盈利或亏损与距离的关系，从被动交易方的角度。例如，交易后30秒，不到100毫秒的平均纳斯达克订单与最近交易的100股的价格相比，已经亏损了约0.2分（20mils）。相同测量标准下，超过1秒的平均纳斯达克订单已经亏损了约0.5分。不包括费用和折扣。数据不包括每个交易所。底部面板：纳斯达克交易股数与距离（包括受托交易）。注：每条线周围都有一个（粗略计算的）标准差宽度的阴影区域，太窄了看不见。1“mil”=每股0.01分。
 - en: '[![toa-orderagebatsz-800](img/5e8f7d934ebd4b5289f4d996e8fdd33b.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderagebatsz-13662.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![toa-orderagebatsz-800](img/5e8f7d934ebd4b5289f4d996e8fdd33b.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/01/toa-orderagebatsz-13662.png)'
 - en: A similar figure for Bats BZX, bottom panel is still share volume on Nasdaq
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: Bats BZX的类似图表，底部面板仍然是纳斯达克的股票交易量
 - en: 'When I first saw this effect I was surprised at its size. In the universe of
     algorithmic trading, a 1/4 cent difference – several times a typical HFT profit
     margin – is significant. It’s a pretty obvious phenomenon, too, and usually when
@@ -100,5 +134,8 @@
     in the [next post](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/
     "Creating an HFT Strategy: Identifying Trader Type Pt. 2") it does not take all
     that much effort to make it into one.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '当我第一次看到这种效应时，它的规模让我感到惊讶。在算法交易的宇宙中，一分钱的差异——typically HFT利润率的数倍——是显著的。这也是一个相当明显的现象，通常当一个效率问题是如此显著时，市场会找到减少它的方法。我能想象的一个简单的应用是，许多寻求流动性的执行算法可能更倾向于与年龄更大的订单交易，潜在地为他们的客户节省一分钱。当然，这并不意味着它的效果足够大，可以构成一个盈利策略的基础，但正如我在[下一篇文章](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/
+    "Creating an HFT Strategy: Identifying Trader Type Pt. 2")中将描述的那样，就算这样，也不需要花费太多的精力就能将其实现。'

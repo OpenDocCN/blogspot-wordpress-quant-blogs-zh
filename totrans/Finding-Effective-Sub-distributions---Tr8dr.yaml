@@ -1,86 +1,129 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:32:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日15:32:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Finding Effective Sub-distributions | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 查找有效子分布 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01](https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01](https://tr8dr.wordpress.com/2010/08/29/finding-effective-sub-distributions/#0001-01-01)
 - en: August 29, 2010 · 7:34 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年8月29日，晚上7:34
 - en: 'I didn’t get around to talking about dimensionality reduction in the previous
     post.   I have a number of related problems I am interested in solving.    Setting
     up the problem, let us say that we have a distribution **p (E | C)**, where both
     **E** and **C** are sets of the same dimension (d):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我没把前一篇的降维讨论完成。 我对解决的相关问题很感兴趣。 设置问题，让我们说我们有一个分布**p（E | C）**，其中**E**和**C**都是相同维度（d）的集合：
 - en: E = {e1, e2, e3, … e[d]}
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: E = {e1，e2，e3，… e[d]}
 - en: C = {c1, c2, c3, … c[d]}
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: C = {c1, c2, c3, … c[d]}
 - en: '**d** is a high dimension >> 1000.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**d** 是高维度>> 1000。'
 - en: '**Problem 1: Sub-distributions with C and E of same dimension** In the case
     where many of the variables in the dimension are independent, the joint probability
     of  a specific 1000 variable state, will often be much less than the probability
     of a lower dimensional state variable (of say 20 variables with covariance).'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**问题1：具有相同维度C和E的子分布** 在维度中的许多变量相互独立的情况下，特定的1000变量状态的联合概率往往会远小于具有协方差的较低维度状态变量的概率（例如具有20个变量的状态）。'
 - en: The question is then, what dimensional subsets of this distribution are the
     most predictive.   Another way to state this is what subsets of **C** provide
     the most information transfer into  **E**.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后问题就是，该分布的哪些维度子集最具预测性。 另一种陈述方式是**C**的哪些子集提供最多的信息转移到**E**。
 - en: It would be then of interest to look at the top N subsets of the distribution
     that carry the most information from **C** → **E**.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，有必要研究分布的前N个子集，这些子集从**C** → **E**携带最多的信息。
 - en: '**Problem 2: Sub-distributions with C and E of different dimension** As in
     problem 1, we look for subsets of **C** that carry the most predictive information
     for subsets of **E**.   In this case, though, C and E need not be of the same
     dimension.  Combinatorially this is a harder problem than problem #1, however
     the math is the same.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**问题2：具有不同维度C和E的子分布** 与问题1类似，我们寻找**C**的子集，它们对**E**的子集具有最具预测能力的信息。 在这种情况下，C和E不一定是相同维度。
+    在组合上，这是比问题＃1更困难的问题，但数学是一样的。'
 - en: '**Outline of Approach**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方法概要**'
 - en: spanning graph structure is determined between variables to avoid astronomical
     combinations
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在变量之间确定了跨度图结构，以避免天文数字的组合
 - en: transfer entropy analysis is done on edges in spanning structure
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 传输熵分析在跨度结构的边缘上完成
 - en: subgraphs of depth 1, 2, 3, … are evaluated from a transfer entropy point of
     view to determine the power of each subgraph
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 深度1, 2, 3, ...的子图从传输熵的角度来评估以确定每个子图的能力
 - en: subgraphs are sorted by transfer entropy
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 子图按传输熵排序
 - en: '**Alternatives** There are undoubtedly many approaches to finding factors,
     particularly with classification problems where E is of small dimension (often
     1 dimension).   I’d be grateful for alternative suggestions.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**备选方案** 无疑有许多方法可以找到因素，特别是在分类问题中，其中E的维度很小（通常为1维）。 我将感激替代建议。'
