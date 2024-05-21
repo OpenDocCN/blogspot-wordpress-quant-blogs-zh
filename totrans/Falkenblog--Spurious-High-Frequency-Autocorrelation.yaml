@@ -1,36 +1,52 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:54:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:54:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Spurious High Frequency Autocorrelation'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Falkenblog: 似是而非的高频自相关'
 - en: 来源：[http://falkenblog.blogspot.com/2024/04/spurious-high-frequency-autocorrelation.html#0001-01-01](http://falkenblog.blogspot.com/2024/04/spurious-high-frequency-autocorrelation.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2024/04/spurious-high-frequency-autocorrelation.html#0001-01-01](http://falkenblog.blogspot.com/2024/04/spurious-high-frequency-autocorrelation.html#0001-01-01)
 - en: A curious aspect of high-frequency data is that most come from centralized limit
     order books (CLOBs) where the bid-ask spread makes the data look negatively autocorrelated
     as trades are randomly made at the bid and the ask.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频数据的一个有趣的方面是，大多数来自集中交易限价订单簿（CLOB），其中买卖价差使得数据看起来呈现负自相关，因为交易是随机发生在买盘和卖盘上。
 - en: The returns driving this pattern are well below transaction costs, so they do
     not generate an arbitrage opportunity. However, one might be tempted to use the
     high-frequency data to estimate variance for pricing options or convexity costs
     (aka impermanent loss, loss versus rebalancing). This is a problem because the
     1-minute Gemini returns generate a variance estimate 40% higher than one derived
     from daily data.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 驱动这种模式的回报远远低于交易成本，因此它们并没有产生套利机会。然而，人们可能会想要使用高频数据来估计定价期权或凸性成本（又称不确定性损失，与再平衡损失相比）。这是一个问题，因为1分钟的Gemini回报产生的方差估计比从每日数据派生的方差高40%。
 - en: Variance grows linearly over time; volatility grows with the square root of
     time. Thus for a standard stochastic process, the variance should be the same
     when divided by the frequency. If the return horizon is measured in minutes, the
@@ -41,63 +57,87 @@
     where variance is over and under-estimated. If the ratio is above 1.0, this implies
     mean-reversion at this frequency (negative autocorrelation), and if below 1.0,
     this implies momentum (positive autocorrelation).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 方差随着时间的线性增长；波动率与时间的平方根成正比增长。因此对于标准的随机过程，当除以频率时方差应保持一致。如果回报视野以分钟为单位，5分钟回报的方差应是10分钟回报方差的一半，依此类推。对于所有M，方差(ret(M分钟))/M应该是恒定的。将数据除以标准是有帮助的，对我而言，这是该样本中的1日回报的方差（1440分钟），所以我们可以清晰地识别那些被高估和低估的频率。如果比率高于1.0，这意味着在此频率上有均值回归（负自相关），如果低于1.0，这意味着有动量（正自相关）。
 - en: Here is the ratio of the m-minute return variance divided by m for various minutes,
     normalized by dividing by the 1-day return. It asymptotes to 1.0 at 300 minutes.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是m分钟回报方差除以m的比率，对各个分钟数进行标准化，除以1日回报。在300分钟时趋于1.0。
 - en: I added the ETH-USDC 5 and 30 bp pools, and we can see the effect of stasis
     created by the fee and lower transaction volume. The one-minute return variance
     ratios for AMMs are well **below** 1.0, implying momentum—positive autocorrelation—at
     that frequency. Again, the effect driving this is well below 5 basis points, so
     it’s not a pattern one can make money off.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我添加了ETH-USDC 5和30 bp池，我们可以看到由费用和较低交易量造成的稳态效应。AMM的一分钟回报方差比**1.0**明显低，暗示着根据该频率的动量—正自相关。同样，驱动该效应的效果远低于5个基点，因此这不是一个可以赚钱的模式。
 - en: A common and easy way to calculate variance is to grab the latest trade and
     update an exponentially weighted moving average. This would generate a variance
     estimate at an even higher frequency than once per minute. The perils of this
     are clear when many important data are linear in variance, such as the expected
     convexity cost, and 40% is big.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种常见而简单的计算方差的方法是获取最新的交易并更新指数加权移动平均值。这将以更高的频率生成方差估计，甚至高于每分钟一次。当许多重要数据线性增长，比如期望的凸性成本时，这样做的危险显而易见，40%是个大数字。
 - en: As a refresher, I show how the common concept for impermanent loss equaling
     a function linear in variance because it’s not obvious. We start with the original
     IL definition
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一种复习，我展示了不确定性损失等概念的常见线性函数，因为这并不明显。我们从原始的未定性损失定义开始。
 - en: This is measured as
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 此次测量
 - en: The following AMM formulas can substitute liquidity and prices into the above
     equation.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的AMM公式可以将流动性和价格代入上述方程式中。
 - en: plugging these in, we can derive the following formula.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 将这些代入方程式中，我们可以推导出以下公式。
 - en: This ‘difference in the square roots squared’ function calculates a **realized**
     IL over a period (from 0 to 1). If one estimated this using daily data over several
     months, it would equal the expected IL via the law of large numbers.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个“平方根差的差值”函数计算了一段时间（从0到1）的**实现**IL。如果一个人使用了几个月的每日数据来估计这个值，那么它将等于大数定律通过期望IL而得到的值。
 - en: One can estimate the **expected** IL using the expected variance and gamma of
     the position. The key nonlinear function on the AMM LP position is the square
     root of price, which has negative convexity. This implies a simple variance adjustment
     to the current square root to get the expected future square root.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个可以估计**预期**IL的方法是利用预期方差和仓位的gamma值。在AMM LP仓位上的关键非线性函数是价格的平方根，具有负的凸性。这意味着对当前平方根进行简单的方差调整就可以得到预期未来的平方根。
 - en: Note that in the above, the variance is for the time period from 0 to t, so
     if it’s an annualized variance applied to daily data, you would divide it by 365\.
     Returning to the above IL formulated as a function of square roots, we can substitute
     for E[sqrt(p[1])] to see how this equals the ‘**LVR**’ equation with the variance.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，在上面的情况下，方差是从0到t的时间段，因此如果将年化方差应用于每日数据，则需要除以365。回到上述以平方根为函数的IL公式，我们可以代入E[sqrt(p[1])]来看这如何等于方差的“**LVR**”方程。
 - en: Using (p[1]/p[0] - 1)² for the variance will generate the same formula as the
     difference in square roots squared if you use the same prices. We can’t measure
     expected returns, but average returns equal expected returns over time, and that’s
     all we have. One chooses some frequency to estimate the IL, regardless of the
     method. Just be careful not to use returns under a 300-minute horizon, as these
     will bias your estimate.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用(p[1]/p[0] - 1)²作为方差将产生与使用相同价格时平方根差的平方相同的公式。我们无法衡量预期收益，但平均收益随时间等于预期收益，这就是我们拥有的。无论使用什么方法，我们都可以选择一些频率来估计IL。只是要小心，不要在300分钟的时间跨度内使用收益，因为这会使你的估计产生偏误。

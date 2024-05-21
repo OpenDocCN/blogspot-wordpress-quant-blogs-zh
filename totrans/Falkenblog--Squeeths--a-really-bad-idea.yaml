@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-12 19:57:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'Falkenblog: Squeeths: a really bad idea'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -27,6 +33,7 @@
     blockchain. The reason priced-squared contracts are not traded over-the-counter
     on Wall Street is the same as why there is no peanut butter flavored toothpaste:
     no one wants it.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: Squeeths are derivatives based on the price of the underlying squared. The best
@@ -35,16 +42,19 @@
     is a chart of the best-case scenario for the squeeth. Here we see the LP’s impermanent
     loss (IL) as a sad frowning red curve, always below zero. The squeeth is the happy
     yellow curve that nets the LP’s profit to the flat green line.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: This is also presented in the table below. I have attached a spreadsheet so
     you can see how these are calculated, and you can compare these formulas to the
     text, as Clark does a good job of explaining how to derive these values.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: Note the squeeth’s value-add to the Uniswap LP is showcased in the right column,
     which shows a complete immunization of the pnl variability of the naked Uniswap
     IL in the second column from the left (‘Uniswap pnl’).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: The first problem with this application of squeeths is fundamental. If you are
@@ -52,6 +62,7 @@
     not hedge your book by buying or selling options. Hedging an option with an option
     is the tactic of a derivatives wholesaler; an options market maker delta-hedges
     their book.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: There are profitable niches for financial product wholesalers, but they generally
@@ -62,6 +73,7 @@
     for the business, and these are the types of ‘traders’ who brag about making money
     every day as if they were market wizards. Goldman Sachs does not have the resources
     to establish relationships with these little companies, so this makes sense.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: While it is a valuable job, most of these middlemen don’t even admit to themselves
@@ -72,8 +84,10 @@
     simpler than it appears and shop around. The small bank would either lose the
     business or have to charge a lower fee. Thus, overpaid regional bank trader/brokers
     are an equilibrium.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然这是一份有价值的工作，但大多数中间商甚至不承认自己在做什么，这都有道理，因为普遍的销售推销中心都围绕着“淘汰中间商”展开。虽然解雇这些昂贵的经纪人并将他们的服务外包给印度客服团队似乎很明显，但需要两个月内需要1千万欧元的客户会意识到他们的交易要比表面看上去简单得多，然后会四处比价。这些小银行要么失去生意，要么不得不收取更低的费用。因此，过度获利的区域银行交易员/经纪人将达到平衡。
 - en: Outside of that general rule, if you bought a squeeth to hedge your LP position,
     it would not make sense because it implies more delta hedging than if you didn’t
     buy a squeeth. If you are short gamma, as Uniswap LPs are, your expected cost
@@ -82,22 +96,30 @@
     your capital requirement. Hedging your delta is a straightforward problem; once
     you have coded it up, it won’t cut into your time watching the latest cat videos
     on Tik-Tok.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了那个一般性规则外，如果你买了一个squeeth来对冲你的LP头寸，这是没有意义的，因为这意味着要比如果你没有买squeeth进行更多的delta对冲。如果你是短期gamma的，正如Uniswap
+    LP是的，你的预期成本是一样的，无论你是否对冲(请参阅我之前关于此的帖子[这里](https://efalken.substack.com/p/how-and-why-to-measure-liquidity?s=w))。然而，你*应该*对冲，因为这将减少你的风险，从而降低你的资本需求。对冲你的delta是一个简单的问题；一旦你编码好，它就不会影响你观看Tik-Tok上的最新猫视频的时间。
 - en: The squeeth delta at inception is 10.59 in this example, while the LP’s delta
     is only 1.45\. Thus, the amount of delta trading needed to initiate the squeeth
     will probably be greater than the amount of delta trading needed throughout the
     life of your LP position. Further, it does not reduce your required dynamic delta
     hedging, in that as the price moves the squeeth’s delta will change just as the
     LP position does, in the same direction. This is a large addition to fees.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个例子中，squeeth初始时的delta为10.59，而LP的delta只有1.45。因此，需要进行的delta交易金额以启动squeeth可能会大于在您的LP头寸寿命期内需要进行的delta交易金额。此外，它不会减少您对动态delta对冲的需求，因为当价格变动时，squeeth的delta将会改变，就像LP头寸一样，在同一方向。这会大大增加费用。
 - en: Another issue is that the additional amount of capital needed to buy the squeeth
     would almost triple that needed for the Uniswap LP position alone. If you add
     the capital needed for the initial short delta position, you are probably using
     five times more capital compared to your initial Uniswap LP position.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个问题是，购买squeeth所需的额外资本几乎会使Uniswap LP头寸所需的资本增加两倍。如果加上初始短期对冲头寸所需的资本，你可能比初始的Uniswap
+    LP头寸使用的资本多五倍。
 - en: 'In the chart presented above, note the LP’s pnl excludes its fee revenue and
     the squeeth pnl ignores its cost. The happy curves apply to a bizarro world where
     one is trying to minimize a loss as opposed to maximizing a return. This violates
@@ -108,8 +130,10 @@
     buyer, and the squeeth buyer requires multiple more capital than the LP, the fees
     charged by the squeeth seller will be more than that of the LP in an efficient
     market. A hedged position that loses money is best avoided.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上面呈现的图表中，LP的盈亏不包括其费用收入，而squeeth的盈亏忽略了其成本。快乐的曲线适用于一个反常世界，其中一个人试图最小化损失，而不是最大化回报。这违反了博弈论家称之为[参与约束](https://en.wikipedia.org/wiki/Participation_constraint_(mechanism_design))：一个可持续的游戏不仅必须假设玩家会在游戏中发挥他们最好的策略，而且最好的回报必须大于零，否则他们将根本不玩。由于squeeth卖方至少需提供的资本是squeeth买方的两倍以上，而squeeth买方所需的资本比LP多得多，所以在一个有效的市场中，squeeth卖方收取的费用将比LP多。最好避免一个出现亏损的对冲头寸。
 - en: The only case where a squeeth helps would be cases of ‘jump risk,’ when markets
     move so quickly that you are not able to delta hedge. These extreme events are
     costly and rare. Just remember that low probability options, whether bets in sportsbooks,
@@ -118,14 +142,19 @@
     which is why governments like to monopolize them. The squeeth seller, realizing
     this, will charge more for the same amount of vega one sees in regular option
     markets.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: squeeth 有用的唯一情况是“跳跃风险”，当市场波动如此之快，以至于你无法对冲 Delta 时。这些极端事件是昂贵且罕见的。只需要记住，低概率期权，无论是体育博彩、期权还是彩票，都对买家产生最糟糕的预期回报。这些，简直就是彩票，而彩票对卖家来说赚钱很多，这就是政府喜欢垄断它们的原因。认识到这一点的
+    squeeth 卖家会对同样数量的 vega 收取更高的费用，与正常期权市场相比。
 - en: Lastly, there’s the bizarre feature where the squeeth’s theta is recalculated
     every day using the updated implied volatility. They call this method of imputing
     a time decay a normalization factor. For standard options with explicit maturities,
     the theta decay shows up in the square root of time term.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，还有一个古怪的特性，即 squeeth 的 theta 每天都会使用更新后的隐含波动率重新计算。他们称这种输入时间衰减的方法为归一化因子。对于具有明确到期日的标准期权，时间衰减会体现在时间平方根项中。
 - en: In a standard option or variance swap, your initial implied volatility is the
     cut-off where the buyer makes money if the actual volatility is higher than the
     implied volatility, and the seller makes money if it is lower. In contrast, the
@@ -134,13 +163,20 @@
     or seller is making money. This makes a squeeth held longer than a day a position
     on gamma, but neutral on volatility. Few people have an intuition for this kind
     of trade, and few would desire it if they understood it.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在标准期权或方差掉期中，你的初始隐含波动率是一个界限，如果实际波动性高于隐含波动率，买方就会赚钱，而如果低于隐含波动率，卖方就会赚钱。相反，squeeth
+    每天重置期权以产生 theta 的方法意味着在第一天之后，实际波动性对于买家或卖家赚钱毫无意义。这使得比一天更长持有的 squeeth 是一个关于 gamma
+    的头寸，但在波动性上是中性的。很少有人对这种交易有直观的认识，如果他们理解了它，也很少会去做。
 - en: If you are an LP thinking about hedging your risk, stick to delta hedging. It’s
     easy to do, and if you do it twice a day, given the law of Large Numbers, it will
     hedge your position as well as an explicit option over a couple of months. Squeeths
     generate a several-fold increase in capital and delta hedging, not to mention
     the costs implicit in the bid-ask spread of illiquid options, as well as the credit
     and operational risk lurking in these protocols. It’s a train wreck of a product.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你是一个考虑对冲风险的 LP，请坚持 Delta 对冲。这很容易做到，如果你每天做两次，根据大数定律，它将在几个月内像一个明确的期权一样对冲你的头寸。Squeeths
+    会使资本和 Delta 对冲成本几倍增加，更不用说低流动性期权的买卖价差中隐藏的成本，以及这些协议中潜在的信用和运营风险。这真是一个灾难性的产品。
