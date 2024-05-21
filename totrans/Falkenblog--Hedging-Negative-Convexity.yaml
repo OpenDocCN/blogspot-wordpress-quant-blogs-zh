@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:55:31'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:55:31
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Hedging Negative Convexity'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Falkenblog: 对冲负凸性'
 - en: 来源：[http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01](http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01](http://falkenblog.blogspot.com/2024/02/hedging-negative-convexity.html#0001-01-01)
 - en: Automated market makers (AMMs) invariably present their Liquidity Providers
     (LPs) with convexity costs. Hedging does not eliminate or even reduce these costs
     but it does lower volatility. With lower cost volatility, an LP does not need
@@ -32,15 +38,18 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 自动做市商（AMMs）总是向其流动性提供者（LPs）呈现凸性成本。对冲不会消除甚至减少这些成本，但它确实降低了波动性。由于波动性成本较低，LP不需要那么多资本来覆盖这些损失，因此考虑到资本是昂贵的，可以说对冲降低了成本，尽管只是间接地。
 - en: Consider the pool with a token A vs. USDC in the pool. If an LP provides 777
     units of liquidity, his initial LP position would look as in Table 1 below.
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑一个池子，其中包含代币A与USDC。如果流动性提供者提供777单位的流动性，他的初始LP头寸将如表1所示。
 - en: '**Table 1**'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表1**'
 - en: To model the LP's position, we can use a binomial lattice. Here, we transform
     a volatility assumption into an up-and-down move in the lattice. In practice,
     one uses many little steps, but we will show a large 10% movement for illustrative
@@ -49,10 +58,12 @@
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了模拟LP的头寸，我们可以使用二项式格子。在这里，我们将波动性假设转换为格子中的上下移动。实际上，人们使用许多小步骤，但为了说明目的，我们将展示一个大的10%的移动。可以使用以下公式创建无套利重组格子。这里，我们将假设零漂移，或预期代币A回报为零。
 - en: '**Table 2**'
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表2**'
 - en: Applying these parameters to a lattice, we start at a price of 100 and then
     move up or down. Given an up move is the reciprocal of a down move, up*down=1,
     the center node just takes one back to the starting price. Note the probabilities
@@ -62,14 +73,18 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 将这些参数应用于格子，我们从100的价格开始，然后上下移动。鉴于上移是下移的倒数，up*down=1，中心节点只是将我们带回到起始价格。注意，概率不是50%，因为价格变动被建模为对数正态分布（例如，exp(x)），因此概率调整这些不对称的未来价格以与起始价格（E(p)
+    = 100）一致。
 - en: '**Recombining Lattice**'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**重组格子**'
 - en: '[![](img/fbe9f60e23bd7f8d8e57e13c263fd262.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCFdqbc1IKQY9CRTZZLYKPMj7H83ADkYJsD8kp6Bxqq9fRX07mysi6k-ikzvIeTyqB-136lIKZ6TL76HhT2WUNyXmstxRPUY9ef20WebIKagSnw9W5y7ImRvFCQlL03Ue851qDLpn_VFSVbTZ2zwBXzjzB1vLs___mYd-3J3HdcJZVpVGV_-WROg/s290/pricePath.png)[![](img/34f0b6c4e4bbc96747be7fcefb51f1b7.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhejPVGUa3qUQdP6gIylgiUU_-i8sAL7K1_wXWnP-Vt3z39qod5UGCXrnkLDrFo9PukDVQTW6ZNavWKN2sr0avVzfv9-EPq7mhqwqofAOt5ug7QCdjXbk2oFLoksQb5jHhXXTjh044YxjzOm9UP4_TVr6HoIW0QQdbgHtfBhMCVplpUhpPtXb3s3A/s285/problattice.png)'
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/fbe9f60e23bd7f8d8e57e13c263fd262.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCFdqbc1IKQY9CRTZZLYKPMj7H83ADkYJsD8kp6Bxqq9fRX07mysi6k-ikzvIeTyqB-136lIKZ6TL76HhT2WUNyXmstxRPUY9ef20WebIKagSnw9W5y7ImRvFCQlL03Ue851qDLpn_VFSVbTZ2zwBXzjzB1vLs___mYd-3J3HdcJZVpVGV_-WROg/s290/pricePath.png)[![](img/34f0b6c4e4bbc96747be7fcefb51f1b7.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhejPVGUa3qUQdP6gIylgiUU_-i8sAL7K1_wXWnP-Vt3z39qod5UGCXrnkLDrFo9PukDVQTW6ZNavWKN2sr0avVzfv9-EPq7mhqwqofAOt5ug7QCdjXbk2oFLoksQb5jHhXXTjh044YxjzOm9UP4_TVr6HoIW0QQdbgHtfBhMCVplpUhpPtXb3s3A/s285/problattice.png)'
 - en: This approach is convenient because modeling the price of a derivative just
     involves applying the derivative formula to the various nodes with their distinct
     prices and then multiplying the derivative values in these nodes times their probability.
@@ -80,10 +95,13 @@
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法很方便，因为对衍生品价格的建模只需将衍生品公式应用于各个节点及其不同的价格，然后将这些节点中的衍生品价值乘以其概率。在每个时期（此处表现为一行），概率总和为1.0。下面是一个应用于初始对冲的v2
+    LP头寸的格子。池中代币A的头寸初始为77.7，因此初始对冲是做空77.7单位的代币A。
 - en: '**Static Hedge**'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**静态对冲**'
 - en: In the final period, T=2, we see that the two tail events, each with a 1/4 probability,
     generate an LP loss, while the middle case, where the price is flat, has a probability
     of around 1/2\. If the LP did not hedge, he would see a gain in the 'up' state
