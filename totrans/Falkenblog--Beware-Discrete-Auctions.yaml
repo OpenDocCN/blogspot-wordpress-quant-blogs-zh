@@ -1,49 +1,71 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 20:04:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 20:04:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Beware Discrete Auctions'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：警惕离散拍卖
 - en: 来源：[http://falkenblog.blogspot.com/2013/07/beware-discrete-auctions.html#0001-01-01](http://falkenblog.blogspot.com/2013/07/beware-discrete-auctions.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2013/07/beware-discrete-auctions.html#0001-01-01](http://falkenblog.blogspot.com/2013/07/beware-discrete-auctions.html#0001-01-01)
 - en: There's an interesting paper on High Frequency Trading (HFT) by
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一篇有关高频交易（HFT）的有趣论文
 - en: '[Budish, Cramton, and Shim](http://faculty.chicagobooth.edu/eric.budish/research/HFT-FrequentBatchAuctions.pdf)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Budish，Cramton和Shim](http://faculty.chicagobooth.edu/eric.budish/research/HFT-FrequentBatchAuctions.pdf)'
 - en: from the U of Chicago. They set up an interesting model, but then propose at
     the end that batching eliminates the HFT arms race, both because it reduces the
     value of tiny speed advantages and because it transforms competition on speed
     into competition on price. I think that solution is interesting, but would prefer
     the following
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自芝加哥大学。他们建立了一个有趣的模型，但最后提出了批处理消除HFT竞赛的想法，既因为它降低了微小速度优势的价值，也因为它将速度竞争转变为价格竞争。我认为这个解决方案很有趣，但更喜欢以下方案
 - en: add a 20ish millisecond randomizer to any incoming order (ie, a lag of anywhere
     from 0 to 20 milliseconds). Thus, if you know you are getting randomized, the
     marginal value of 1 millisecond is much smaller to the innovator, your place in
     the queue is noisy.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在任何传入订单上添加一个约20毫秒的随机器（即，延迟从0到20毫秒不等）。因此，如果你知道你是被随机的，那么1毫秒的边际价值对于创新者来说要小得多，你在队列中的位置是嘈杂的。
 - en: make a rule that those who receive fees (liquidity providers) must have such
     orders exist for at least 1 second. That would get rid of a lot of flash quotes
     that are trying to be too clever and simply clog the bandwidth.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 制定一个规则，要求收取费用的人（流动性提供者）必须让这样的订单存在至少1秒钟。这将摆脱许多试图过于聪明并简单地堵塞带宽的闪电报价。
 - en: 'In any case, we have several different exchanges, and so if there''s a simple
     way to increase welfare, an exchange that adds any such rule would generate more
     traffic, and ultimately, imitation. Yet, that''s how paying for liquidity provision
@@ -54,29 +76,40 @@
     that gives you the average daily price that averages out all these shenanigans,
     so I really don''t have any sympathy for those who are bothered by it: if you
     don''t like the intraday game, don''t play it!'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论如何，我们有几个不同的交易所，因此，如果有一种简单的方法可以增加福利，那么添加任何此类规则的交易所将产生更多的交易量，最终会被模仿。然而，这就是为什么支付流动性提供（被动报价）产生的，以及一堆其他策略的原因。有人认为它们是在烟雾弥漫的房间里创造的令人讨厌的特征，但实际上它们只是给予市场参与者他们想要的结果。零售交易者可以通过简单地按成交量加权平均价格（VWAP）交易来选择退出，因为这给出了平均所有这些花招的平均日价格，所以我真的对那些被此困扰的人没有任何同情心：如果你不喜欢盘中游戏，就别玩！
 - en: But, I was intrigued by the idea of batch auctions, because I've heard people
     who think discrete auctions are better than continuous ones. I think they are
     not very good, and a simple example is an extreme of this, one can look at the
     performance of closing vs. opening prices. One is at the end of continuous trading,
     one where there's no trading. What happens?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，我对批处理拍卖的想法很感兴趣，因为我听说有人认为离散拍卖比连续拍卖更好。我认为它们不是很好，一个简单的例子是极端情况，可以看看收盘价与开盘价的表现。一个是连续交易结束时，一个是没有交易时。会发生什么？
 - en: Well, I looked at over 1000 stocks, from 2000 to today.  I excluded really small,
     low-priced stocks.   The Open-Open returns have slightly higher volatility (2%
     higher), but more importantly, there's a lot more 'mean reversion'.  The graph
     below shows the future returns(O-O or C-C), sorted each day into deciles by the
     immediate prior return (O-O or C-C, respectively), then averaged over all those
     days.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 嗯，我查看了1000多只股票，从2000年到今天。 我排除了真正小的，低价股。 开盘至开盘回报的波动略高（高2％），但更重要的是，有更多的“均值回归”。
+    下面的图表显示了未来回报（O-O或C-C），每天按前一日的即时回报（O-O或C-C分别）进行分段，然后在所有这些天中进行平均。
 - en: Basically, markets open at extremes that are quickly erased, allowing the market
     makers to pocket nice premiums for these temporary imbalances (you can't make
     money off this if you aren't a specialist).  Continuous trading takes such trades
     away from monopolists, and allows competition to work.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本上，市场在迅速抹平的极端处开盘，使市场制造商能够从这些暂时的不平衡中赚取可观的溢价（如果你不是专家，就无法从中赚钱）。 连续交易将这些交易从垄断者手中夺走，并允许竞争发挥作用。
 - en: These authors propose more frequent auctions to be sure, but the logic remains.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些作者提出更频繁的拍卖，当然，逻辑仍然存在。

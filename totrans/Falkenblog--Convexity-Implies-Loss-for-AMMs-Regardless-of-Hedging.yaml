@@ -1,31 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:57:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:57:13'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Convexity Implies Loss for AMMs Regardless of Hedging'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Falkenblog: 凸性意味着对冲无论如何都会造成AMMs的损失'
 - en: 来源：[http://falkenblog.blogspot.com/2022/11/convexity-implies-loss-for-amms.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/convexity-implies-loss-for-amms.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2022/11/convexity-implies-loss-for-amms.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/convexity-implies-loss-for-amms.html#0001-01-01)
 - en: When investors are exposed to options, the hope is that somehow the exposure
     can be hedged without cost. This delusion is especially pernicious because it
     promotes the mistaken belief that somehow, a protocol can eliminate these costs
     via 'volatility arbitrage' or hedging. More importantly, understanding the hedging
     costs allows one to evaluate better the profitability of providing liquidity to
     automated market-maker (AMM) pools.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当投资者面临期权时，希望是以零成本对冲曝露。这种幻觉尤其有害，因为它促进了错误的信念，即某种协议可以通过‘波动率套利’或对冲来消除这些成本。更重要的是，了解对冲成本使人能够更好地评估提供流动性给自动市场做市商（AMM）池的盈利能力。
 - en: The essence of an option is convexity, a payoff that is a nonlinear function
     of some underlying price. Convexity can be hedged, but this just shifts the payoffs
     around; it doesn't reduce the expected cost of this option. This cost is independent
@@ -35,23 +49,29 @@
     country selling your bonds to your central bank). Further, people do not like
     risk per se, and almost everyone would take the certain expense of -2 over the
     crappy lottery where one gets either -12 or +10.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权的本质是凸性，即某些基础价格的非线性函数的回报。凸性可以对冲，但这只是将回报分配给不同地方；它并不能降低此期权的预期成本。这个成本与通过买卖报价、费用或价格冲击进行对冲的任何交易成本无关。然而，对冲很受欢迎，因为它可以减少间接成本。对冲头寸需要较少的资本，而资本有利息费用（除非你是一个G-7国家，将你的债券卖给你的央行）。此外，人们不喜欢风险本身，几乎每个人都会选择确定的-2的费用而不是糟糕的彩票，其中一个是-12，另一个是+10。
 - en: The nice thing about option theory is that you can prove things in many different
     ways. This is true for most mathematically derived results, such as how there
     are 17 ways to prove the Pythagorean theorem. The benefit of additional proofs
     is that, given our minds are different, one proof might appear more intuitive
     than the others for quirky reasons.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权理论的好处在于你可以用多种不同的方式证明。对于大多数数学推导的结果来说，这是真的，比如证明勾股定理有17种方法。额外证明的好处在于，鉴于我们的思维方式不同，其中一种证明可能因为奇特的原因而更具直观性。
 - en: 'My point is the following: The expected loss of an unhedged short option position
     is equal to that of a hedged short option position. Further, as the cost of a
     hedge can be estimated much more precisely using volatility than a specific return
     over a long time period, one should use gamma and volatility to assess liquidity
     provider profitability as opposed to looking at how much a liquidity provider
     made over the past.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的观点是：未对冲的空头期权头寸的预期损失等于对冲的空头期权头寸的预期损失。此外，由于通过波动率可以更精确地估计对冲成本而不是在长时间周期内特定回报，所以应该使用gamma和波动率来评估提供流动性的盈利能力，而不是看提供流动性者在过去赚了多少。
 - en: It is important to clarify a semantic point on *expected returns*. Expected
     returns for an individual are a constant; actual returns are a constant because
     they refer to the past and are unchanging; expected returns are a weighted average
@@ -59,104 +79,141 @@
     their number is the same, though they can be different in their distribution.
     For example, equal expected returns could be from a 100% weighting on one state,
     of the weighted average of two very different states.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要澄清一个关于*预期收益*的语义要点很重要。对于个体而言，预期收益是一个常数；实际收益也是一个常数，因为它们是指过去的而且不变的；预期收益是潜在实际收益的加权平均值。当我说预期损失相同时，这意味着它们的数值相同，尽管它们的分布可能不同。例如，相等的预期收益可能来自于对一个状态的100%加权，或者对两个非常不同状态的加权平均。
 - en: Consider the binomial option pricing model ([Cox, Ross, Rubinstein 1979](https://www.semanticscholar.org/paper/Option-pricing%3A-A-simplified-approach%E2%98%86-Cox-Ross/779b32ce32d6d1c1dd8616bb721c3b1dc7cdbd10)).
     The basic idea is to create a riskless portfolio using a combination of a stock,
     bond, and option to a simple tree of states. This allows you to derive Black-Scholes
     with simple algebra, so it is the best way to teach someone about option pricing
     if they know nothing about it. I will not derive this model, just apply it.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑二项式期权定价模型（[Cox, Ross, Rubinstein 1979](https://www.semanticscholar.org/paper/Option-pricing%3A-A-simplified-approach%E2%98%86-Cox-Ross/779b32ce32d6d1c1dd8616bb721c3b1dc7cdbd10)）。其基本思想是使用股票、债券和期权的组合来创建一个无风险投资组合，并将其投射到简单的状态树上。这样一来，你就可以用简单的代数推导出黑-斯科尔斯公式，因此这是教授关于期权定价的最佳方式，如果对此一无所知。我不会推导这个模型，只是应用它。
 - en: 'Assume a call with a strike of 100 and an initial stock price of 100; it will
     go up or down by 10%., and the riskless rate is zero. This implies the following
     future state space:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设一个行权价为100的看涨期权，初始股价为100；它将上涨或下跌10%，无风险利率为零。这意味着以下未来状态空间：
 - en: The above parameters for calculating the probability of an up and down move
     ensure the expected return equals the risk-free rate, which is what we want. In
     practice you need to get the up and down state values correct, and use many periods,
     but the gist of this approach falls out of a simple one-step model.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 用于计算上涨和下跌概率的上述参数确保了预期回报等于无风险利率，这是我们想要的。在实践中，你需要正确确定上涨和下跌状态的值，并使用许多期间，但这种方法的要义却源自一个简单的一步模型。
 - en: The portfolio is riskless if you hedge this with a stock position equal to the
     call's delta. In the binomial model, you can calculate a call option’s hedge exactly
     with the simple formula
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你用股票头寸对冲这个期权，并且头寸大小等于该期权的“德尔塔”，则该投资组合是无风险的。在二项式模型中，你可以使用简单的公式精确计算期权的对冲。
 - en: Given a delta of 0.524, this implies the call writer hedges by shorting precisely
     this amount of stock. The result is to generate the same payoff, whatever happens,
     -4.76.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于“德尔塔”为0.524，这意味着看涨期权的卖方通过准确地做空这个数量的股票来对冲。结果是，无论发生什么，都会产生相同的收益，-4.76。
 - en: Note that the expected value of the call option is just the probabilities times
     the final value
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，看涨期权的预期价值仅为概率乘以最终价值。
 - en: While the call value is the same using either the binomial model or just present
     valuing the call liability, note that in the latter case, the seller would experience
     an expected loss of 10 in one state and 0 in another. In the hedged case, it would
     be the probabilistic average for certain. Hedging does not change the expected
     loss for someone selling options; it just makes the expected loss less variable.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然无论是使用二项式模型还是仅对现值化看涨期权负债，看涨期权的价值都是相同的，但请注意，在后一种情况下，卖方会经历一个状态下的预期损失为10，另一个状态下为0。在对冲的情况下，它将是确定的概率平均值。对于卖出期权的人来说，对冲不会改变预期损失；它只是使预期损失更少变化。
 - en: Another way to see why there is an unavoidable cost of convexity, consider the
     case of a straddle, which is the combination of a put and a call with the same
     strike. In this example, your initial delta is approximately zero, with the positive
     call delta offset by the negative put delta. However, once this straddle moves,
     the deltas change, implying a hedge.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 从另一个角度来看为什么存在无法避免的凸性成本，考虑一个跨式的情况，它是具有相同行权价的看跌期权和看涨期权的组合。在这个例子中，你的初始“德尔塔”大约为零，正的看涨期权“德尔塔”被负的看跌期权“德尔塔”抵消掉。然而，一旦这个跨式移动，“德尔塔”就会变化，暗示着一个对冲。
 - en: 'Consider a straddle with a strike of 100, and it can move up 1.1 or down by
     1/1.1\. The price tree over two periods and the corresponding straddle intrinsic
     value would look like this:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑一个行权价为100的跨式期权，它可以上涨1.1或下跌1/1.1。两个期间的价格树和相应的跨式内在价值将如下所示：
 - en: 'The above prices imply the following straddle payoffs:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 以上价格意味着以下跨式期权的收益：
 - en: Given the tree parameters, we see that the delta becomes either +1 or -1 at
     step time=1 so that a hedge can be applied at time 1\. This would then hedge the
     final period payoff. Note if we add this hedge pnl to the final pnl from the straddle,
     we get a much more precise loss, as opposed to the more bimodal one in the unhedged
     case.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于树参数，我们看到“德尔塔”在步长时间=1时变为+1或-1，以便在时间1可以应用对冲。然后这会对冲最终期间的收益。请注意，如果将此对冲收益与跨式的最终收益相加，我们将得到一个更精确的损失，而不是未对冲情况下更双峰的损失。
 - en: Here it is clear that the cost of the hedge comes from the fact that the initial
     delta is off once the first state is revealed, and you cannot do anything about
     that. This is a dynamic hedge, unlike the static hedge in the earlier example,
     but the result is the same in that the expected loss (-9.52) is exactly the same.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里很明显，对冲成本来自于一旦揭示了第一个状态，初始的delta就偏离了，你无法做任何事情。这是一个动态对冲，不像前面例子中的静态对冲，但结果是一样的，即预期损失（-9.52）是完全相同的。
 - en: Another way to see this is by using a simple derivative. Consider the case where
     one hedges a derivative valued at p^2\. This derivative would be a very inefficient
     mechanism for generating convexity, which is why active options markets use strike
     prices instead of 'square' prices, but it makes for a simple example.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种看待这个问题的方式是使用简单的导数。考虑对冲一个价值为p^2的衍生品的情况。这个衍生品将是一个非常低效的机制来产生凸性，这就是为什么活跃的期权市场使用行权价而不是“平方”价格的原因，但这提供了一个简单的例子。
 - en: 'The delta of this derivative is 2*p, so a seller of this option would hedge
     it by going short 2*p units. If p=10, the initial value of the squared derivative
     would be 100, and the seller would hedge by shorting 20 units. The net payoff
     space would then be as follows:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个导数的增量是2*p，因此这个期权的卖方会通过做空2*p单位来对冲它。如果p=10，那么平方导数的初始值将为100，卖方将通过做空20单位来对冲。净收益空间将如下所示：
 - en: Note the expected loss of this squared derivative is -1, the average of +19
     and -21\. The hedged portfolio can make this expected loss certain, but it does
     not change this value.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，这个平方衍生品的预期损失是-1，即+19和-21的平均值。对冲组合可以使这个预期损失确定，但不会改变这个值。
 - en: A final way to see that hedging costs are inherent in options is via continuous-time
     mathematics. The Black-Scholes option formula was derived via a dynamic hedging
     argument. The hedge replicated the valuation of the call option, creating a riskless
     portfolio. In the Black-Scholes PDE below, V is the option value, S the stock
     price, r the risk-free interest rate, and s (sigma) the volatility.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过连续时间数学来看，证明期权的对冲成本是固有的。Black-Scholes期权定价公式是通过动态对冲论证得出的。对冲复制了看涨期权的估值，创建了一个无风险组合。在下面的Black-Scholes
+    PDE中，V是期权价值，S是股票价格，r是无风险利率，s（sigma）是波动率。
 - en: The equation shows the option's time decay (theta) plus its convexity return
     (gamma) equals the riskless return from a long position in the derivative and
     a short position and a hedged amount (*dV/dS* shares) of the underlying.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 方程显示期权的时间衰减（theta）加上其凸性回报（gamma）等于从衍生品的多头头寸和空头头寸及其对冲数量（*dV/dS*股份）的基础资产中的无风险收益。
 - en: The solution to the partial differential equation when you add the boundary
     conditions (e.g., V=max(S-K,0)) is the familiar Black-Scholes model. More importantly,
     given we know this equals the binomial model, with its clunky steps, this proves
@@ -166,23 +223,29 @@
     at the mid-price every second, you would still generate the same expected loss
     as you would with a discrete set of 2 periods, or in the case where you did not
     hedge.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你加入边界条件（例如，V=max(S-K,0)）时，偏微分方程的解就是熟悉的Black-Scholes模型。更重要的是，考虑到我们知道这等于二项模型，它具有笨拙的步骤，这证明了更频繁地对冲并不会改变直接对冲成本（即，预期损失）。这种动态复制方法假设零交易成本，并且在可以想象到的最微小步骤中进行对冲。即使你可以每秒以中间价格交易你的对冲品，你仍然会产生与2个周期的离散集合相同的预期损失，或者在你不对冲的情况下。
 - en: More interestingly, the cost of convexity here is put into a rate, which is
     called theta. If we assume the right-hand side of the above equation (the financing)
     is zero (because the riskless rate r is zero), we can see the relationship between
     theta and gamma. Theta is the expected time decay of the option price, but one
     can think of it as a funding rate or a fee rate.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 更有趣的是，这里的凸性成本被投入到一个利率中，这个利率被称为theta。如果我们假设上述方程的右边（融资）为零（因为无风险利率r为零），我们就可以看到theta和gamma之间的关系。Theta是期权价格的预期时间衰减，但可以将其视为资金费率或费率。
 - en: If you know the gamma, you will know how much a fair amount of revenue would
     be. In the Black-Scholes model, one assumes the value of the option must be such
     that the hedging cost, -½*gamma, must equal the theta for an equilibrium. If theta
     were too high, no one would buy the option, and no one would sell it if they were
     too low. The nice thing here is that estimating gamma is pretty straightforward,
     as you just need the price and volatility.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你知道gamma，你就会知道公平的收入会有多少。在Black-Scholes模型中，人们假设期权的价值必须是对冲成本，即-½*gamma，必须等于一个均衡的期限。如果theta太高，没有人会买期权，如果太低，也没有人会卖期权。这里的好处是，估算gamma相当简单，你只需要价格和波动性。
 - en: In Uniswap liquidity pools, many liquidity providers look at the fee income
     as pure revenue, ignoring the value of the option they have written. This is easy
     to do because the option is not exactly like your standard option, but instead
@@ -190,8 +253,10 @@
     can address here, but the bottom line is that this cost is present whether you
     calculate it or not, similar to how your car depreciation is costing you even
     if you don't think about it.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 在Uniswap流动性池中，许多流动性提供者将费用收入视为纯收入，忽略了他们所写的期权的价值。这很容易做到，因为该期权不完全像你标准的期权，而是这种奇怪的一篮子代币。这种心理障碍是一个比我在这里能够解决的更大的问题，但归根结底，这种成本存在，无论你是否计算它，就像你的汽车折旧成本一样，即使你没有考虑它。
 - en: More importantly, the cost of providing liquidity is poorly measured by taking
     the price path over the past year and seeing if certain option sellers made or
     lost money. One should assume the sellers were hedging, whether they were or not.
@@ -200,9 +265,13 @@
     show LPs losing a lot of money. This method is like taking the annual return as
     an estimate of the stock market's volatility over that year. If you are analyzing
     whether or not to become an LP, this is a horrible way to do it.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 更重要的是，提供流动性的成本很难通过查看过去一年的价格路径以及某些期权卖家是否赚钱来衡量。人们应该假设卖家在对冲，不管他们是否在对冲。如果你只看价格路径，那么从100到200再到100的价格变动将显示流动性提供者赚了很多钱，而100到200到300的价格路径将显示流动性提供者损失了很多钱。这种方法就像将年度收益作为对该年股票市场波动性的估计。如果你正在分析是否成为流动性提供者，这是一个糟糕的方法。
 - en: People should use volatilities to estimate the hedging or gamma costs of providing
     liquidity in AMM pools.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们应该使用波动性来估算在AMM池中提供流动性的对冲或gamma成本。

@@ -1,101 +1,149 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:56:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:56:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Deriving Uniswap v3 from v2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：从 v2 推导出 Uniswap v3
 - en: 来源：[http://falkenblog.blogspot.com/2022/11/deriving-uniswap-v3-from-v2.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/deriving-uniswap-v3-from-v2.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2022/11/deriving-uniswap-v3-from-v2.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/deriving-uniswap-v3-from-v2.html#0001-01-01)
 - en: Uniswap version 3 (v3) uses restricted ranges, such as price ranges from $1000
     to $2000 for ETH, while in version 2 (v2), the ranges are unrestricted (i.e.,
     0 to infinity). In v2, an LP supplies equal values of both tokens, while in v3,
     the relative values depend on the price bounds and the current price. LPs can
     choose a variety of price bounds called ticks. The LP ranges are defined by these
     ticks, one low and one high, bounding the LP’s range.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Uniswap 版本 3（v3）使用受限范围，例如 ETH 的价格范围从 $1000 到 $2000，而在版本 2（v2）中，范围是不受限制的（即从 0
+    到无穷大）。在 v2 中，LP 提供相等价值的两种代币，而在 v3 中，相对值取决于价格界限和当前价格。LP 可以选择各种称为 ticks 的价格界限。LP
+    范围由这些 ticks 定义，一个低位和一个高位，界定了 LP 的范围。
 - en: '**A current aggregation of v3 concentrated ranges for the ETH-USDC 0.3% pool**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ETH-USDC 0.3% 池的当前 v3 集中范围的汇总**'
 - en: I will assume a simple ETH/USDC pool for the rest of this example, as opposed
     to tokens A and B. This makes it easier to interpret and is straightforward to
     generalize.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将假设在本示例的其余部分中使用一个简单的 ETH/USDC 池，而不是代币 A 和 B。这样更容易解释，并且易于概括。
 - en: Within any set of ticks, there is a measure of pool liquidity called ‘liquidity’
     in the Uniswap documentation. While this term has an intuitive meaning, it has
     a specific definition in the context of a constant product automated market maker
     (AMM).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在任何 ticks 集合中，Uniswap 文档中有一个称为“流动性”的池流动性度量。虽然这个术语有直观的含义，但在恒定产品自动做市商（AMM）的背景下，它有一个具体的定义。
 - en: To see how this is done, consider a v2 range defined over the prices {2500,
     2601}, with a liquidity of 1000
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 要了解如何实现这一点，请考虑定义在价格 {2500, 2601} 上的 v2 范围，流动性为 1000
 - en: '**Table 1**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表格 1**'
 - en: '**LP ETH and USDC, Liquidity=1000**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**LP ETH 和 USDC，流动性=1000**'
 - en: ETH                USD
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: ETH                USD
 - en: ''
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: ETHprice = 2500        20.00               50,000
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: ETH 价格 = 2500        20.00               50,000
 - en: ''
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: ETHprice = 2601        19.61               51,000
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: ETH 价格 = 2601        19.61               51,000
 - en: ''
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Difference                   0.39                 1,000
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 差异                           0.39                 1,000
 - en: Liquidity is more intuitive than its square, *k,* because it reflects how many
     dollars are needed to move the square root of the price by 1\. In the above example,
     swapping $1000 USDC for ETH pushes the price down from 2601 to 2500, while buying
     $1000 would push the price up from 2500 to 2601\. In v3, the trick is finding
     a way to replicate this price and quantity relation while not requiring all the
     capital in a v2 pool.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 流动性比其平方 *k* 更直观，因为它反映了需要多少美元来将价格的平方根移动 1\. 在上述示例中，用 $1000 USDC 兑换 ETH 将价格从 2601
+    降低到 2500，而购买 $1000 将使价格从 2500 上升到 2601\. 在 v3 中，关键是找到一种方法来复制这种价格和数量的关系，同时不需要 v2
+    池中的所有资金。
 - en: In v2, for a given amount of liquidity, USDC in the pool is always increasing
     with price, while ETH is continuously decreasing with the price. Their product
     at any given price is constant if LPs do not add or remove liquidity, and the
     pool is merely subject to trading. Below is a simple ETH/USD pool in the unrestricted
     range over a wide interval (0 to 2500).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 v2 中，对于给定数量的流动性，池中的 USDC 随价格不断增加，而 ETH 随价格不断减少。如果 LP 不添加或删除流动性，那么在任何给定价格下，它们的乘积是恒定的，而池仅仅受到交易的影响。以下是一个简单的
+    ETH/USD 池，在宽范围内（0 到 2500）不受限制的范围内。
 - en: '**Figure 1**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 1**'
 - en: While v2 creates a nonlinear function for the token quantities over price, the
     relationship looks approximately linear within a range representing the average
     daily price change (~ 4%). If we constrain ourselves to the range 2500 to 2601,
@@ -107,18 +155,28 @@
     price and does not have to provide USDC to buy; someone selling would push the
     price down and outside of her range, so that event is irrelevant to her. Similarly,
     if the price were 2601, she would only need to provide $1000 USDC and zero ETH.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管 v2 为价格创建了一个非线性函数，但在代表平均每日价格变化的范围内（约为 4%），关系看起来大致线性。如果我们将自己限制在范围 2500 到 2601
+    内，那么 USDC 的池量从 50000 到 51000，而 ETH 则从 20.00 下降到 19.61。集中范围允许 LP 仅在该范围内提供净交换量，而不是该范围外需要的额外
+    USD 和 ETH。因此，如果当前价格为 2500，并且 LP 目标范围为 {2500, 2601}，则只需 0.39 ETH。她不需要 USDC，因为她只在当前价格之上提供流动性，不必提供
+    USDC 来购买；卖方将价格下调并将其推出范围之外，因此该事件与她无关。同样，如果价格为 2601，她只需要提供 $1000 USDC 和零 ETH。
 - en: Another way to see this is that in v2 and v3, within a particular set of ticks
     for a specific level of liquidity, the change in the pool tokens is identical;
     however, the amounts of tokens in these two contracts are not. Below in Figure
     2, we see that in both cases, the changes in USDC and ETH are 1000 and 0.39, respectively,
     though v2 requires ten times the total amount.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种看待这一点的方式是，在 v2 和 v3 中，对于特定的流动性水平的特定刻度，池代币的变化是相同的；但是，这两个合同中的代币量并不相同。在图 2 中，我们可以看到，在两种情况下，USDC
+    和 ETH 的变化分别为 1000 和 0.39，尽管 v2 需要十倍的总量。
 - en: '**Figure 2**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图 2**'
 - en: To get the math to work with fewer tokens, we need to find the necessary adjustments
     to get the slopes of the above graphs to be the same because that represents the
     amount of ETH and USDC needed for price changes in this range. Let us call the
@@ -126,168 +184,245 @@
     amount of ETH needed to satisfy traders within this restricted range. To match
     the v2 mathematics, we will call ‘virtual’ ETH, the ETH amount required to make
     the math work.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了让数学运算使用更少的令牌，我们需要找到必要的调整，使得上述图形的斜率相同，因为这代表了在此范围内价格变动所需的 ETH 和 USDC 的数量。让我们称之为
+    v3 集中范围内的 ETH 量为 ETHv3；这是满足此限制范围内交易者的实际或非负 ETH 量。为了匹配 v2 的数学，我们将称之为“虚拟”ETH，即使数学运算成立所需的
+    ETH 量。
 - en: Starting from the standard v2 logic
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 从标准的 v2 逻辑开始
 - en: We replace the ETHv2 with the new ETHv3 components
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们用新的 ETHv3 组件替换 ETHv2
 - en: Substituting, we get
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 替换后，我们得到
 - en: Given
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定
 - en: We can substitute for USD and get
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以替换 USD 并得到
 - en: Rearranging we get
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 重新排列，我们得到
 - en: 'The amount of ETH required for the v3 LP at the top of the range is zero, so
     we know:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 在范围顶部的 v3 LP 所需的 ETH 量为零，因此我们知道：
 - en: The above equations imply that for the range {2500, 2601}, our virtual ETH is
     just
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述方程意味着对于范围 {2500, 2601}，我们的虚拟 ETH 就是
 - en: 'If the price goes above 2601, Alice is unaffected. That is because she is no
     longer providing any more ETH for USD. This implies that ETH-virtual over the
     entire price range is a function of the price at the top of the range. So now
     we take the definition of v3 compared to v2:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果价格超过 2601，Alice 不受影响。这是因为她不再为 USD 提供任何更多的 ETH。这意味着整个价格范围内的 ETH-virtual 是范围顶部价格的函数。所以现在我们采用
+    v3 相对于 v2 的定义：
 - en: Given the equation above and generalizing by replacing 2601 with pHigh, we can
     solve for the ETHv3 for various prices within Alice’s range
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定上述方程，并通过用 pHigh 替换 2601 进行泛化，我们可以解出 Alice 范围内不同价格的 ETHv3
 - en: This formula, derived from v2 pool math, gives us the accounting trick needed
     for an LP supplying concentrated liquidity on a v3 pool.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个公式，从 v2 池数学推导而来，为提供 v3 池上的集中流动性的 LP 提供了所需的会计技巧。
 - en: 'Similarly, we can apply the same logic to get the amount of USDvirtual within
     a given range:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，我们可以应用相同的逻辑来获得给定范围内的 USDvirtual 量：
 - en: Given the equation above, we can calculate the USDvirtual needed to make the
     v3 math work. Here the USDvirtual is a function of the lower price bound.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定上述方程，我们可以计算使 v3 数学运算成立所需的 USDvirtual。这里 USDvirtual 是下限价格的函数。
 - en: The v3 LP token quantities, their ‘real’ amounts, are adjusted by constants
     to match v2\. As constants, they do not affect how price changes affect changes
     in the v3’s tokens within a range.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: v3 LP令牌数量，它们的‘真实’金额，通过常数调整以匹配v2。作为常数，它们不影响价格变化如何影响范围内v3令牌的变化。
 - en: '**Range Math Outside the Range**'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '**范围外的范围数学**'
 - en: Outside of the range, we need to make substitutions for the fact that the range
     is inactive; it does not supply liquidity outside the range. The LP has a simple
     position of {ETH=0.31, USDC=0} at and below 2500, and {ETH=0, USDC=$1000} at and
     above 2601\. Thus, a concentrated range LP treats all prices above its range as
     if they were the price at the top of the range, and when below the range, the
     price can be treated as if it were the bottom price point.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 在范围之外，我们需要替换的事实是范围是不活跃的；它不提供范围之外的流动性。LP在2500及以下的位置有一个简单的位置{ETH=0.31，USDC=0}，在2601及以上则有{ETH=0，USDC=$1000}。因此，集中范围LP将其范围之上的所有价格都视为范围顶部的价格，而在范围之下时，价格可以视为底部价格点。
 - en: 'One can use the following formula for a robust function within a program or
     spreadsheet:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个可以在程序或电子表格中使用的健壮函数的公式如下：
 - en: A v3 LP specifies {liquidity, pLow, pHigh} to establish a range. Combined with
     the current price, this implies a certain amount of USDC, ETH, and a specific
     USD value.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个v3 LP指定了{流动性，pLow，pHigh}来建立一个范围。与当前价格结合，这意味着一定数量的USDC、ETH和特定的USD价值。
 - en: '**Tick Fee Math**'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '**标记费用数学**'
 - en: A range of {2500, 2601} entitles the LP to a percent of the fee revenue generated
     from trades within that range. There needs to be a method for excluding trades
     below 2500 and above 2601\. The accounting mechanism for doing this is extremely
     clever.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '{2500, 2601}的范围使LP有权从该范围内的交易中产生的费用收入中获得一定百分比。需要有一种方法来排除2500以下和2601以上的交易。执行此操作的会计机制非常巧妙。'
 - en: Each initialized tick is allocated a state variable for its ETH and USD fees.
     When combined with the global ETH and USD fee state, one can back out the fees
     generated to an LP, given their lower and upper ticks.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个初始化的标记都被分配了一个状态变量，用于其ETH和USD费用。当与全局ETH和USD费用状态结合时，可以推断出生成给LP的费用，考虑到它们的下限和上限标记。
 - en: The tick fee allocation rule applies to fees for both tokens (here ETH and USDC),
     but we will focus on one token to simplify notation. Define globalETHfee as the
     global sum of the fees divided by the liquidity it experienced when applied (e.g.,
     if the user paid $10 when liquidity was 1000, globalETHfee would increment by
     0.01).
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 标记费用分配规则适用于两个令牌（这里是ETH和USDC）的费用，但我们将重点放在一个令牌上以简化表示。将globalETHfee定义为除以其应用时经历的流动性的费用的全局总和（例如，如果用户在流动性为1000时支付了10美元，则globalETHfee将增加0.01）。
 - en: The equation above makes it easy to calculate an LP’s fee revenue. For an LP
     who provided liquidity at j=4, and assuming the current j=n, we would have
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述方程使得计算LP的费用收入变得容易。对于在j=4提供流动性的LP，假设当前j=n，我们将有
 - en: In v3, we must exclude the fees derived from trades outside the LP’s range.
     We use the following rules applied to all ticks to keep track of the relevant
     fee revenues for LPs with various tick endpoints. There are six different variables
     updated each time a tick is crossed. Relevant to the tick fee math, there is an
     ETH and USDC fee parameter for each tick. Remember that any LP range uses a subset
     of these ticks.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 在v3中，我们必须排除从LP范围外的交易中产生的费用。我们使用以下规则应用于所有标记以跟踪具有各种标记端点的LP的相关费用收入。每次越过一个标记时更新六个不同的变量。与标记费用数学相关的，对于每个标记都有一个ETH和USDC费用参数。请记住，任何LP范围都使用这些标记的子集。
 - en: If crossed for the first time
+  id: totrans-51
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果第一次交叉
 - en: if crossed again
+  id: totrans-52
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果再次交叉
 - en: newTickFee= globalETHfee - oldtickFee
+  id: totrans-53
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: newTickFee= globalETHfee - oldtickFee
 - en: 'Ticks are only updated when crossed, though the global tick fee is incremented
     with each trade.When the LP withdraws her liquidity, her fee state—which will
     be multiplied by her liquidity—is then calculated using her low and high ticks
     as follows:'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 标记仅在交叉时更新，尽管全局标记费用在每笔交易中递增。当LP撤回其流动性时，她的费用状态—将被乘以她的流动性—然后使用她的低和高标记计算，如下所示：
 - en: If above range, that is, pLast>pHigh
+  id: totrans-55
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果在范围之上，即pLast>pHigh
 - en: tickFee(pHigh) - tickFee(pLow)
+  id: totrans-56
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: tickFee(pHigh) - tickFee(pLow)
 - en: If below range
+  id: totrans-57
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果在范围之下
 - en: tickFee(pLow) - tickFee(pHigh)
+  id: totrans-58
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: tickFee(pLow) - tickFee(pHigh)
 - en: If in range
+  id: totrans-59
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果在范围内
 - en: globalETHfee - tickFee(pLow) - tickFee(pHigh)
+  id: totrans-60
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: globalETHfee - tickFee(pLow) - tickFee(pHigh)
 - en: The attached worksheet shows how this works for a range with pLow=1900 and pHigh=2000
     and a fee of 0.3%. In columns G:H we see the per-trade fees, and in columns I:J
     we see the global state of the fees, which is just the cumulative sum. Columns
     K:L show how the tick fee state is updated on every cross for the 1900 tick, and
     columns M:N show how it is updated for the upper tick. This follows the ‘tick
     fee update’ rules above.
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 附上的工作表展示了如何在 pLow=1900 和 pHigh=2000 的范围内以及费率为 0.3% 的情况下进行操作。在 G:H 列中，我们看到每笔交易的费用，在
+    I:J 列中，我们看到了费用的全局状态，即累积总和。K:L 列显示了如何在每次交叉时更新 tick 费用状态，对于 1900 tick，而 M:N 列显示了如何更新上方的
+    tick。这遵循了上述‘tick 费用更新’规则。
 - en: Columns S:T shows how the ‘fee calculation’ rule is applied at various prices—above,
     below, and within one’s range—using the global and tick fee state variables. In
     this example, I calculated fees for the {1900, 2000} range, which are in yellow.
@@ -295,10 +430,17 @@
     “brute force” calculation method uses an excel if-rule to show that the logic
     generates the same results as counting all the fees generated in the yellow region
     (those are in columns g:h).
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: S 列和 T 列显示了在各种价格上如何应用‘费用计算’规则——在价格范围内部、上方和下方——使用全局和 tick 费用状态变量。在这个例子中，我计算了
+    {1900, 2000} 范围内的费用，标记为黄色。请注意，LP 只应该在黄色区域内进行的交易才能获得费用。这种“蛮力”计算方法使用 Excel 的 if
+    规则来显示逻辑生成与计算黄色区域内所有费用相同的结果（这些费用在 g:h 列中）。
 - en: The pool generates a total of 281.34 in USDC and 0.097 ETH, and of this, in
     the end, 162.25 in USDC and 0.086 ETH go to the LP supplying liquidity from 1900
     to 2000.
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 该池总共产生了 281.34 美元的 USDC 和 0.097 个 ETH，最终，其中 162.25 美元的 USDC 和 0.086 个 ETH 归
+    LP 从 1900 到 2000 提供流动性。
