@@ -1,127 +1,192 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: category：未分类
 - en: 'date: 2024-05-12 19:58:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:58:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Is the Fama-French Model Dead?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 弗雷肯博客：法玛-弗伦奇模型已死？
 - en: 来源：[http://falkenblog.blogspot.com/2020/01/is-fama-french-model-dead.html#0001-01-01](http://falkenblog.blogspot.com/2020/01/is-fama-french-model-dead.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2020/01/is-fama-french-model-dead.html#0001-01-01](http://falkenblog.blogspot.com/2020/01/is-fama-french-model-dead.html#0001-01-01)
 - en: 'When I was in graduate school at Northwestern in the early 90s the hot financial
     topics were all related to finding and estimating risk factors: Arbitrage Pricing
     Theory via latent factors  ('
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我在90年代初在西北大学读研究生时，热门的金融话题都与寻找和估计风险因素有关：通过潜在因素的套利定价理论（
 - en: '[Connor and Koraczyk](http://mural.maynoothuniversity.ie/8439/1/1-s2.0-0304405X86900279-main.pdf)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Connor和Koraczyk](http://mural.maynoothuniversity.ie/8439/1/1-s2.0-0304405X86900279-main.pdf)'
 - en: 1986), Kalman filter state-space models (eg,
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1986），卡尔曼滤波状态空间模型（如，
 - en: '[Stock and Watson](https://www.nber.org/papers/w2772.pdf)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Stock和Watson](https://www.nber.org/papers/w2772.pdf)'
 - en: 1989), and
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 1989），以及
 - en: '[method of moment](http://larspeterhansen.org/lph_research/proofs-for-large-sample-properties-of-generalized-method-of-moments-estimators/)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[MoM（矩估计法）](http://larspeterhansen.org/lph_research/proofs-for-large-sample-properties-of-generalized-method-of-moments-estimators/)的证明'
 - en: estimators (Lars Hansen 1982). These appealed to central limit theorem proofs,
     which is the academic dream, as math proofs decisively prove objective meta-knowledge,
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 估计者（Lars Hansen 1982）。这些吸引了中心极限定理证明，这是学术梦想，因为数学证明决定性地证明了客观的元知识，
 - en: '*how*'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '*如何*'
 - en: to know important things. Learning such methods involved intelligence and hard
     work, promising an instant barrier to entry, and certainly not from those boorish
     B-school students who had much better parties but didn't know statistics, let
     alone measure theory.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 知道重要的东西。学习这样的方法需要智慧和努力，承诺了即时的准入壁垒，而且肯定不是来自那些聚会更好但不懂统计学，更不用说测度理论的粗鲁的商学院学生。
 - en: Around that same time, Eugene Fama and Ken French were looking at the returns
     of low and high dividend stocks by simply sorting them and looking at the basic
     statistics of these portfolios (see
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 大约在同一时间，尤金·法玛和肯·弗伦奇正在简单地将低股息率和高股息率股票的回报进行排序，并观察这些投资组合的基本统计数据（请看
 - en: '[here](https://pdfs.semanticscholar.org/4622/4481150e76d784ca057f2cf647a64b0c9585.pdf)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这里](https://pdfs.semanticscholar.org/4622/4481150e76d784ca057f2cf647a64b0c9585.pdf)'
 - en: ). While Fama was well-respected for his theoretical work on defining efficient
     markets and his seminal 1973 paper confirming the capital asset pricing model
     (ie, the CAPM), he seemed like one of those antediluvian economists who typified
     the 1970s. Indeed, if you read those old papers, you will be amazed by how simple
     they were--you can understand them on one read--making the many inevitable false-positives
     glaringly obvious (with hindsight).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: )。尽管法玛因其关于定义有效市场的理论工作以及他的后来确认资本资产定价模型（即CAPM）的重要1973年的论文而备受尊敬，但他似乎就像是那些充斥1970年代的古老经济学家中的一个。确实,
+    如果你读那些老论文，你会惊讶地发现它们是多么简单--你可以在一读懂它们--这使得许多必然的假阳性显而易见（从后来看）。
 - en: But then in 1992 Fama and French published their
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 但后来在1992年，法玛和弗伦奇发表了他们的
 - en: '[blockbuster 3-factor model](http://home.cerge-ei.cz/petrz/gdn/Fama_French_92_tables.pdf)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[票房炸弹三因子模型](http://home.cerge-ei.cz/petrz/gdn/Fama_French_92_tables.pdf)'
 - en: documenting that if you sort stocks first by size and then by beta there is
     no correlation between beta and stocks. The previous finding was the product of
     an
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 证明，如果你首先按尺寸，然后按beta值对股票排序，样本中没有beta值与股票之间的相关性。先前的发现是
 - en: '*omitted variable*'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*被遗漏的变量*'
 - en: ', size. That is, one might look at humans and find hair length inversely correlated
     with height: longer hair correlates with shorter humans. But if you note women
     have longer hair than men and control for that, the correlation goes away; hair
     has nothing to do with height.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ，尺寸。也就是说，一个人可能看着人类，发现头发长度与身高呈负相关：头发越长，人越矮。但是如果你注意到女性比男性头发更长，并对此进行控制，相关性就消失了；头发与身高无关。
 - en: Size and value were identified in the late 70s, often in accounting journals.
     Fama and French's analysis was simple but the results were too strong to dismiss,
     especially as Fama was not some accounting noob, but rather, someone who understood
     risk and expected returns. Fama and French hypothesized size and value premiums
     implied they proxied risks that affect investors but academics can't measure,
     just as we can see the effects of dark matter but not the dark matter itself.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 大小和价值在70年代后期被发现，往往出现在会计杂志上。法马和弗伦奇的分析很简单，但结果太强大以至于不能够忽视，尤其是因为法马并不是一些会计菜鸟，而是一个能够理解风险和预期回报的人。法马和弗伦奇假设大小和价值溢价意味着它们代表了影响投资者的风险，但学者们无法测量，正如我们能够看到暗物质的效应，但无法看到暗物质本身。
 - en: Still, many researchers were burned by false findings, and value and size were
     discovered in the same naive way of simply finding a strong pattern and presuming
     it's real as opposed to an order statistic (see
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，许多研究人员误入歧途，大小和价值的发现方式也是相同，简单地找到一个强烈的模式，就认为它是真实的，而不是一个顺序统计学（见
 - en: '[here](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.3.1.189)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[在这里](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.3.1.189)'
 - en: DeBondt and Thaler's list of anomalies circa 1989). While F-F said they were
     risk proxies, it seemed
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: DeBondt和Thaler在1989年左右列出的异常情况）。虽然F-F说它们是风险代理变量，似乎
 - en: '*ad hoc*'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '*特定的目的*'
 - en: . Economic theory implies risk premiums in that the
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: .经济理论暗示了风险溢价
 - en: '*sine qua non*'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '*必不可少*'
 - en: of economics, the utility function, implies a risk premium in an
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 视角要素的经济学模型，效用函数暗示了风险溢价
 - en: '*if and only if*'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '*当且仅当*'
 - en: 'relation (which implies B ⇒ A and A ⇒ B). [my take: the error here is applying
     it to an individual''s wealth, it works great for ice cream and shoes.] Add to
     this 20 years where economists learned that the CAPM model had been proven (''a
@@ -129,21 +194,31 @@
     not going to be discarded after some simple analysis. You can identify such researchers
     in the past--many still plying their trade--by how they would introduce their
     findings via moment conditions (see'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 关系（这意味着B ⇒ A和A ⇒ B）。[我的看法：这里的错误在于将其应用于个体财富，它对冰淇淋和鞋子效果很好] 再加上20年，经济学家发现CAPM模型已经得到证明（“同行评审事实”，他们今天会这样说），然后你就会有一种强烈的偏见，这种偏见不会在一些简单的分析后被丢弃。您可以通过他们是如何通过瞬时条件引入他们的发现来识别过去--许多人仍在从事他们的工作--（见
 - en: '[Harvey and Siddique](http://pages.stern.nyu.edu/~dbackus/GE_asset_pricing/disasters/HarveySiddique%20skewness%20JF%2000.pdf)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Harvey and Siddique](http://pages.stern.nyu.edu/~dbackus/GE_asset_pricing/disasters/HarveySiddique%20skewness%20JF%2000.pdf)'
 - en: ', 1999), or factor models that identify loadings, factor returns, and the price
     of risk, λ (see'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: ， 1999)，或识别负载、因子回报和风险价格的因子模型，λ（见
 - en: '[Ang et al 2006](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.319.1161&rep=rep1&type=pdf)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Ang et al 2006](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.319.1161&rep=rep1&type=pdf)'
 - en: ).
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: )。
 - en: 'Yet size and value investing became popular. Dimensional Fund Advisers created
     a highly successful and influential quant shop, and size and value became ubiquitous
     as either fund signatures or risk factors, depending on the application. There
@@ -151,18 +226,24 @@
     or when value stocks got clobbered in the tech bubble, but they always came back:
     they were risky! The rigorous methodology of latent factors models, Kalman filters,
     and GMM, meanwhile, produced nothing practical in finance.'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，大小和价值投资变得受欢迎。Dimensional Fund Advisers创建了一个非常成功而有影响力的量化交易平台，大小和价值成为基金标志或风险因素，具体取决于具体应用。在黑暗时期，比如大小因子在80年代末和90年代中期出现问题，或者价值股在科技泡沫时期遭受重创，但它们总是反弹：它们是有风险的！而隐变量模型、卡尔曼滤波器和GMM的严格方法在金融领域却没有产生实际成效。
 - en: Simple models win in the long run, but the short run is always dominated by
     the obfuscators. Socrates and Jesus criticized the sophists and Pharisees, respectively,
     because these official intellectuals were sanctimonious hair-splitters, and missed
     the forest for the trees. Christian apologists were the foremost Medieval scholars,
     and though now
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单模型长期获胜，但短期总是被混淆者所主导。苏格拉底和耶稣分别批评了诡辩家和法利赛人，因为这些官方知识分子是假正经的吹毛求疵者，错失了大局。基督教辩护士是中世纪最重要的学者，尽管现在
 - en: '*apologist*'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '*辩护者*'
 - en: is a derogatory term for a dogmatic thinker, the key is that sophisticated reasoning
     has always been used to mask dogmatic thinking. Sophisticates use their superior
     knowledge to out-argue, not find the truth. Complex arguments that are long and
@@ -172,8 +253,10 @@
     was a fellow-believer (eg, I originally wanted to be a macroeconomist, but quickly
     discerned it was pointless and so today I cannot give a thorough critique of dominant
     macro models).
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: “精英主义者”是对教条主义者的贬义称呼，关键在于复杂的推理一直被用来掩盖教条思维。精英们利用他们的知识优势来争辩，而不是寻找真理。那些复杂、难以理解的辩论，得到了大多数其他知识分子的支持，是不可能被反驳的。如果人们认为这一切都是浪费时间，就没人会花大量时间去理解这些论点，所以所有能够和他们争辩的人都是信徒（例如，我最初想成为一个宏观经济学家，但很快就意识到这是毫无意义的，所以今天我无法对主流的宏观模型进行深入的批评）。
 - en: Simple models are better at finding the truth because they are easier for others
     to replicate and test, and this is the best evidence of something that is true
     and important, because things that work tend to be copied over time. They also
@@ -182,26 +265,35 @@
     criticized for overfitting because it's too hard to tell, and when no one is getting
     caught for the world's oldest statistical sin you can be sure it is rampant (eg,
     when the UFC had a steroid problem no one was getting caught).
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单的模型更容易发现真理，因为它们更容易被他人复制和检验，这是真理和重要性的最好证据，因为有效的事物随着时间的推移往往被复制。它们还暴露了愚蠢的推理和过度拟合，因为读者可以理解它们。复杂性并不能克服过拟合，它只是更好地隐藏了它。GMM
+    估计量很少因拟合过度而受到批评，因为很难说清楚，当没有人因为最古老的统计罪而被抓到时，你可以肯定它是猖獗的（例如，当 UFC 有类固醇问题时，没有人被抓到）。
 - en: More importantly, there just are not that many really profound financial ideas
     one would call complex. Off the top of my head, I think about how volatility is
     proportional to the square root of time, Black-Scholes, or the convexity adjustment
     in forwards vs. futures for interest-rates. Yet, these can all be communicated
     in one sitting to a person who understands basic statistics. That's not true for
     the fancy methods above.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 更重要的是，真正深刻的金融思想并不多。我的第一反应是，我考虑了波动性与时间的平方根成正比、布莱克-斯科尔斯模型，或者利率远期与期货中的凸性调整等。然而，这些内容都可以在一次交流中传达给懂基本统计学的人。对于上面那些花哨的方法来说是不可能的。
 - en: 'While the Fama-French approach thrived due to its simplicity, we are now in
     another dark time. Specifically, the 5-factor model introduced by Fama-French
     in 2015 has reported the following  monthly return averages for their factors
     (excluding the uncontroversial market risk premium):'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然法玛-弗伦奇模型因其简单性而蓬勃发展，但我们现在正处于另一个黑暗时期。具体来说，在 2015 年由法玛-弗伦奇引入的 5 因子模型已经报告了以下各因子的月平均收益（不包括无争议的市场风险溢酬）：
 - en: 'Since publication, however, the results look like this (note: they should be
     positive):'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，自出版以来，结果是这样的（注：它们应该是积极的）：
 - en: Unlike prior dark times, we now also have a boatload of factors in addition
     to Fama and French's 5.  Overfitting is a perennial problem. Unlike 'big data'
     used by Amazon and Netflix, factor data is orders of magnitude smaller and grows
@@ -213,8 +305,11 @@
     joined in, adding 2 more). There is now just as much tendentious and disingenuous
     reasoning among the factor promoters as there was with those old opaque and complex
     methods, we have just gotten used to it.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 与以往的黑暗时期不同，现在除了法玛和弗伦奇的 5 外，我们还有大量其他因子。过拟合是一个长期存在的问题。与亚马逊和 Netflix 使用的“大数据”不同，因子数据规模要小得多，增长速度非常缓慢，与此同时，成千上万的全职研究人员正在寻找同样的数据新模式。他们都极其积极地寻找新的、更好的因子，我们都知道当你长时间折磨数据时会发生什么。3
+    因子法玛-弗伦奇模型的简单性并不是一个平衡状态，因为这促使许多人忽略一些因子并创造自己的因子（甚至法玛和弗伦奇也加入进来，增加了另外 2 个因子）。现在，与以往那些复杂方法一样，因子推动者们的推理是一样倾向性的和不诚实的，我们只是已经习惯了它。
 - en: 'This especially goes for equity factors applied at hedge funds, which number
     at least 20 and include orthogonally estimated style factors but also industry
     factors that no one thinks have a return premium. Argument by authority is ubiquitous
@@ -227,8 +322,10 @@
     makes it easier for the common (ie, dumb) risk manager, senior executive, fund
     advisor, etc., to feel valuable: they know something outsiders do not understand,
     and those outsiders can''t prove it''s not blather.'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 这对在对冲基金应用的权益因子尤为重要，至少有20种，并包括正交估计的风格因子，还有没有人认为有回报溢价的行业因素。各种权威机构都普遍采用权威性论据，唯独科学家们采用这种策略是因为他们有多个微妙的假设，并通过引用多个有很好引用率的同行评议的文章来证明这些假设，而这些文章本身又是一样的做法，使得它不可能被驳斥，因为没人有那么多时间。我从未见过那些因子如何帮助管理风险的充分论据，但我了解它们在解释为什么上个月收益下降时是非常有用的。做作和地方性行话使得普通（即愚蠢的）风险管理人员、高级执行官、基金顾问等更容易感到有价值：他们知道一些外行不懂的东西，而那些外行又无法证明它不是空话。
 - en: No financial researcher agrees on the canonical set of factors or how best to
     proxy them.  While no one is suggesting Kalman filters, everyone has some subtle
     twist for their value factor, how to time factors, or their own creation. Failure
@@ -236,5 +333,7 @@
     their models in the past or would be doing so now by changing them. The risk of
     jumping off a factor just before it rebounds is symmetric to the risk of holding
     on to one that will join price, accruals, and inflation betas in the history dustbin.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有任何金融研究人员能就权威因子的规范集合或最佳代理方法达成一致意见。虽然没有人提出卡尔曼滤波器，但每个人都对他们的价值因子有一些微妙的扭曲，如何定时因子，或者他们自己的创造。目前的失败导致很多人重新审视他们的因子，担心过去他们过度拟合模型，或者现在通过改变它们来做到这一点。在因子出现回弹之前退出的风险与坚持持有即将成为历史上的价格、应计利润和通货膨胀贝塔的风险是对称的。
