@@ -1,47 +1,72 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 08:07:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日 08:07:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Fetching options data from NASDAQ website with Python | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python从NASDAQ网站获取期权数据 | 量化投资角
 - en: 来源：[https://quantcorner.wordpress.com/2015/11/02/fetching-nasdaq-options-data-with-python/#0001-01-01](https://quantcorner.wordpress.com/2015/11/02/fetching-nasdaq-options-data-with-python/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2015/11/02/fetching-nasdaq-options-data-with-python/#0001-01-01](https://quantcorner.wordpress.com/2015/11/02/fetching-nasdaq-options-data-with-python/#0001-01-01)
 - en: Below is a piece of **Python** code allowing to download option chains from
     [NASDAQ](http://www.nasdaq.com/) website. It is basically a big function relying
     heavily on **BeautifulSoup** and wrapped into a class (‘c’est chic’). User provides
     the ticker, expiry and a some other arguments. He is then returned a **pandas.DataFrame** object
     containing options data.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一段**Python**代码，可以从[NASDAQ](http://www.nasdaq.com/)网站下载期权链。它基本上是一个大函数，严重依赖于**BeautifulSoup**，并封装成一个类（‘c’est
+    chic’）。用户提供股票代码、到期日和其他一些参数。然后会得到一个包含期权数据的**pandas.DataFrame**对象。
 - en: Notice that I wrote this piece of code for some home research project. If you
     were to use it and actually download data from [NASDAQ](http://www.nasdaq.com/) website,
     make sure it is ‘fair use’ as stipulated in its [terms of use](http://www.nasdaq.com/about/terms.aspx) section.
     I will not be responsible or liable, directly or indirectly, in any way bla bla
     bla.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，我编写这段代码是为了一些家庭研究项目。如果您要使用它并实际从[NASDAQ](http://www.nasdaq.com/)网站下载数据，请确保它符合其[使用条款](http://www.nasdaq.com/about/terms.aspx)中规定的“合理使用”条件。无论以何种方式，我都不会直接或间接地对任何事情负责或承担责任。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '**Versions history**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**版本历史**'
 - en: 'v0.1 (Nov 02, 15): first release'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: v0.1 (Nov 02, 15)：首次发布
 - en: 'v0.2 (Nov 03, 15): now returns a unique dataframe for calls and puts options;
     user can now select between 4 option moneyness (all, ITM, OTM, near the money)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: v0.2 (Nov 03, 15)：现在返回唯一的看涨期权和看跌期权DataFrame；用户现在可以在4个期权价格水平（所有、实值、虚值、平值）中选择

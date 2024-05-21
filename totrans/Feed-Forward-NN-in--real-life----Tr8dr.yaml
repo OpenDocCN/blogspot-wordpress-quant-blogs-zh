@@ -1,61 +1,87 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:40:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日15:40:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Feed Forward NN in "real life" | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 现实生活中的前馈NN | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/07/27/feed-forward-nn-in-real-life/#0001-01-01](https://tr8dr.wordpress.com/2009/07/27/feed-forward-nn-in-real-life/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/07/27/feed-forward-nn-in-real-life/#0001-01-01](https://tr8dr.wordpress.com/2009/07/27/feed-forward-nn-in-real-life/#0001-01-01)
 - en: July 27, 2009 · 6:12 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年7月27日·下午6:12
 - en: Turns out that the Nematode Caenorhabditis Elegans has a nervous system that
     is similar to a feed forward network. A feed forward network is one where neurons
     have no backward feedback from neurons “downsignal” (i.e. the neurons and synapses
     can be arranged as a directed acyclic graph). This is very analogous to the feed
     forward network first envisaged for Artificial Neural Networks.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 河姆星线虫的神经系统与前馈网络类似。前馈网络是指神经元没有来自“下行信号”神经元的反馈（即神经元和突触可以构成有向无环图）。这与最初为人工神经网络设想的前馈网络非常相似。
 - en: The worm has exactly 302 neurons and ~5000 synapses, with little variation in
     connection between one worm and another. This implies on average less than 20
     synapse connections per neuron. This is in contrast to the mammalian brain, where
     most neurons have a feedback loop back from other neurons downstream of the signal.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种蠕虫确切地有302个神经元和约5000个突触，几乎没有一个蠕虫与另一个蠕虫之间的连接有变化。这意味着每个神经元平均不到20个突触连接。这与哺乳动物的大脑形成对比，那里大多数神经元都有来自信号下游其他神经元的反馈环路。
 - en: I am very enthusiastic about this area of [research](http://www.setiai.com/archives/000050.html)
     as it progresses us step-by-step closer to realizing mapping an organism brain
     onto a machine substrate. The nematode is quite tractable because of the fixed
     and very finite number of neurons.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对这个[研究](http://www.setiai.com/archives/000050.html)领域非常热情，因为它逐步使我们更接近将生物大脑映射到机器基质上。线虫非常容易处理，因为它们的神经元数量是固定的，非常有限。
 - en: ANNs are no longer in vogue, but I use feed forward ANNs for some regression
     problems. Of course my activation function is likely to be quite different from
     the biological equivalent. ANNs are not a very active area of research given their
     limitations, but one does find them convenient for massive multivariate regression
     problems where one does not understand the dynamics.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 已经不再流行ANN，但是我在一些回归问题上使用前馈ANN。当然，我的激活函数可能与生物学等效物有很大不同。由于其局限性，ANN不再是一个非常活跃的研究领域，但是人们发现它们在大规模多变量回归问题上很方便，这些问题中人们不理解动态关系。
 - en: The regressions that I solve only have sparse {X,Y} pairs if at all and can
     only be evaluated as a utility function across the whole data set. This precludes
     the various standard incremental “learning” approaches. Instead I use a genetic
     algorithm to find the synapse matrix that maximizes the utility function.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我解决的回归问题只有零散的{X，Y}对，而且只能作为整个数据集的实用函数进行评估。这排除了各种标准的增量“学习”方法。相反，我使用遗传算法来找到最大化实用函数的突触矩阵。
 - en: SVM is more likely to be used in this era than ANNs for regression. Its drawback
     is that it requires one to do much trial and error to determine an appropriate
     basis function, transforming a nonlinear data set into a reasonably hyperlinear
     dataset in another space.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个时代，SVM比ANN更有可能用于回归。它的缺点是需要进行大量的试验和误差来确定适当的基函数，将非线性数据集转换为另一个空间中的合理超线性数据集。
