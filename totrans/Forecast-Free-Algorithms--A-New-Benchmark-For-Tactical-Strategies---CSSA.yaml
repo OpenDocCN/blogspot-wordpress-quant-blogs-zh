@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:08:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:08:47'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Forecast-Free Algorithms: A New Benchmark For Tactical Strategies | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 无需预测的算法：一种新的战术策略基准 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/#0001-01-01](https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/#0001-01-01](https://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/#0001-01-01)
 - en: We all spend most of our time creating strategies with the promise of “alpha”—excess
     returns adjusted for risk to some benchmark. The most desirable strategies for
     many traders/investors are tactical asset allocation models because they are easy
@@ -38,8 +50,14 @@
     perform the best in the future.  In a sense, both models are dependent on forecasting
     either absolute or relative  returns and/or prices. If the past doesn’t predict
     the future, then such models fail to produce alpha.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们大部分时间都在制定承诺“阿尔法”——超额回报相对于某个基准风险调整的策略。对于许多交易员/投资者来说，最理想的策略是战术资产配置模型，因为它们易于实施，而且比不断变化的短期效应更可靠。战术资产配置的“奠基之父”之一是Mebane
+    Faber [http://www.mebanefaber.com/2009/02/19/a-quantitative-approach-to-tactical-asset-allocation-updated/](http://www.mebanefaber.com/2009/02/19/a-quantitative-approach-to-tactical-asset-allocation-updated/)。他展示了使用长期移动平均值来交易各种资产类别的效用。这种简单方法在样本内和样本外都表现非常良好，并且成功保留了资本。他的其他一些论文验证了其他学术工作，显示了动量/相对强度在选择资产类别方面的效用。ETF
+    Prophet的Jeff Pietsch [http://etfprophet.com/](http://etfprophet.com/) 写了几种不同类型的广泛资产类别相对强度模型，很多都值得一读。该网站还提供了一些基本模型供关注。MarketSci的Michael
+    Stokes [http://marketsci.wordpress.com/](http://marketsci.wordpress.com/) 也发布了研究，并提供了投资者可以关注的月度模型。以上所有模型都使用回报或价格输入，以便预测
+    1) 资产是否可能具有正回报或负回报，以及 2) 哪些资产将在未来表现最佳。从某种意义上讲，这些模型都依赖于预测绝对或相对的回报和/或价格。如果过去无法预测未来，那么这样的模型就无法产生阿尔法。
 - en: But what should be the benchmark for such strategies? I would argue that a fair
     benchmark would be a model that is “forecast-free”– in the sense that it does
     not extrapolate returns or prices. Such a model would be also risk neutral and
@@ -56,8 +74,10 @@
     or  b) they create beta through relative asset selection— dynamically increasing
     leverage in up markets by selecting the most volatile assets, and subsequently
     reduce leverage by selecting the least volatile assets in down markets.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，这类策略的基准应该是什么呢？我认为，一个公平的基准应该是一个“无预测”的模型——即不会外推收益或价格。这样的模型也应该是风险中性的，并且寻求最大化多样化。在没有相对收益的情况下，我们将试图对待每个资产类别一视同仁，并减少它们之间的依赖性或相关性。这种投资组合对相对收益持中立态度，理论上应该是最优的，如果市场真正高效的话。事实证明，这样的投资组合效果要比你想象的要好得多——这意味着：1）资产定价比我们想象的要高效得多；2）战术资产配置模型提供各种不同的“β”回报——a）它们可以减少下行风险（不利的β），同时保留上行（有利的β），类似于使用移动平均线和现金持有的趋势跟踪模型，以及b）它们通过相对资产选择创造β——在上涨市场通过选择最波动的资产动态增加杠杆，然后在下跌市场通过选择最不波动的资产减少杠杆。
 - en: 'I have conducted exhaustive testing on such a “forecast-free” model  and related
     variants that I like to term the “Minimum Correlation Algorithm.” It is perhaps
     the most robust model or “system” that I have ever tested– in the sense that it
@@ -67,8 +87,11 @@
     4) MSCI EAFE (Europe, Asia and Far-East) 5) Long-term Treasury Bonds 6) Real Estate
     and 7) Gold.  Note that rebalancing was done on a weekly basis and quarterly data
     was used within the algorithm to estimate correlations.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已对这种“无预测”模型及其相关变体进行了详尽的测试，我喜欢称之为“最小相关算法”。从某种意义上说，它可能是我测试过的最健壮的模型或“系统”——因为它在很大程度上不受资产或参数值选择的影响，并且它在风险调整基础上表现非常好。下面是一个简单的测试，使用了包括：1）标准普尔500指数
+    2）纳斯达克100指数 3）罗素2000指数 4）MSCI EAFE指数（覆盖欧洲、亚洲和远东地区） 5）长期国库债券 6）房地产和 7）黄金在内的8个主要资产类别/指数。请注意，投资组合重新平衡是按周频率进行的，算法内部使用季度数据来估计相关性。
 - en: '[![](img/0d6de2da9e73dab40fddae3b762b8731.png "008")](https://cssanalytics.files.wordpress.com/2011/08/008.png)Looks
     pretty good doesn’t it? Notice that this method often performs very well in difficult
     times (like this month!). It is hard to believe that this strategy is always invested
@@ -82,8 +105,10 @@
     the “forecast-free” approach in order to justify the risk, not to mention the
     fact that such strategies rely substantially on specific parameters that are constantly
     in flux (ie 10-month sma or 12 month roc).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0d6de2da9e73dab40fddae3b762b8731.png "008")](https://cssanalytics.files.wordpress.com/2011/08/008.png)看起来挺不错的，不是吗？请注意，这种方法通常在困难时期表现非常出色（就像这个月！）。难以相信这种策略始终投资于市场，并且不关心资产是上涨还是下跌。考虑到这不是任何一种“系统”，也不依赖于市场效率的多个参数或假设，这确实是一个令人印象深刻的结果。事实证明，马考维茨是对的——多样化正是它的所在。考虑到自2000年以来资产之间的相关性一直在增加，我认为这是战术资产配置策略的真正基准——这种策略的夏普比率应超过“无需预测”的方法，以证明风险，更不用说这样的策略在很大程度上依赖于持续变化的特定参数（即10个月移动平均线或12个月变化率）。'
 - en: I am not advocating against active management or tactical asset allocation.
     In fact I believe there are ways to dramatically improve upon such models using
     heuristic portfolio algorithms. This is a topic I will cover at some point in
@@ -95,5 +120,7 @@
     trading systems or investment managers. A less obvious application would be to
     use the algorithm to create  “learning ensembles” that blend different system
     signals into one composite voting mechanism or trading signal.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我并不反对积极管理或战术资产配置。事实上，我相信可以通过启发式投资组合算法显著改进这种模型。这是我将在未来的某个时候涵盖的一个话题——也许在一篇白皮书中。我只是在暗示，战术模型的回测在一定程度上并不那么令人印象深刻，因为在样本内和样本外，你可能可以采用更健壮的方法，只需明智地进行多样化，就可以做得更好。这种方法还有许多进一步的应用——其中最明显的之一是在不同的交易系统或投资经理之间进行多样化。一个不太明显的应用是使用算法创建“学习合奏”，将不同的系统信号混合成一个复合投票机制或交易信号。
