@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:57:00'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 19:57:00
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Falkenblog: Squeeths: a really bad idea'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Falkenblog：Squeeths：一个真的很糟糕的想法
 - en: 来源：[http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01](http://falkenblog.blogspot.com/2022/11/squeeths-really-bad-idea.html#0001-01-01)
 - en: 'I stumbled across a [webinar](https://app.livestorm.co/the-block/automated-market-makers-past-present-and-future-brought-to-you-by-bullish?type=detailed)
     on Automated Market Makers (AMMs) and was surprised to hear Gordan Grant from
     Genesis mention [squeeths](https://www.opyn.co/) as a way to hedge their AMM liquidity
@@ -36,6 +42,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我偶然发现了关于自动做市商（AMM）的[网络研讨会](https://app.livestorm.co/the-block/automated-market-makers-past-present-and-future-brought-to-you-by-bullish?type=detailed)，并惊讶地听到来自Genesis的Gordan
+    Grant提到[squeeths](https://www.opyn.co/)作为对冲其AMM流动性提供者（LP）头寸的一种方式。Genesis是一家标准的，KYC/AML，传统金融公司，因此可以轻松访问Deribit的流动期权市场。购买或出售squeeths的唯一原因是，如果您想获得期权曝光，但受到区块链的限制。价格平方合同未在华尔街场外交易的原因，与为什么没有花生酱味牙膏一样：没有人想要。
 - en: Squeeths are derivatives based on the price of the underlying squared. The best
     way to see how this product works is via [this December 2021 post](https://medium.com/opyn/hedging-uniswap-v3-with-squeeth-bcaf1750ea11)
     by Joseph Clarke. The application here is hedging a Uniswap LP position. Below
@@ -45,18 +53,22 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Squeeths是基于基础价格的平方的衍生品。了解这种产品运作方式的最佳方法是通过Joseph Clarke在[2021年12月发布的帖子](https://medium.com/opyn/hedging-uniswap-v3-with-squeeth-bcaf1750ea11)。此处应用的是对Uniswap
+    LP头寸进行对冲。下面是Squeeth的最佳场景图表。我们可以看到LP的无常损失（IL）呈现为悲伤的红色曲线，始终低于零。而Squeeth是愉快的黄色曲线，将LP的利润转换为平稳的绿线。
 - en: This is also presented in the table below. I have attached a spreadsheet so
     you can see how these are calculated, and you can compare these formulas to the
     text, as Clark does a good job of explaining how to derive these values.
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这也在下表中显示出来。我已经附上一个电子表格，这样您就可以看到这些是如何计算的，并且您可以将这些公式与文本进行比较，因为Clark做了很好的解释如何推导这些值。
 - en: Note the squeeth’s value-add to the Uniswap LP is showcased in the right column,
     which shows a complete immunization of the pnl variability of the naked Uniswap
     IL in the second column from the left (‘Uniswap pnl’).
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，Squeeth对Uniswap LP的增值在右侧列中展示出来，显示出对第二列（“Uniswap pnl”）中LP的裸泳池变化的完全免疫。
 - en: The first problem with this application of squeeths is fundamental. If you are
     making markets (*aka* providing liquidity) in an option-like product, you should
     not hedge your book by buying or selling options. Hedging an option with an option
@@ -65,6 +77,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 应用squeeth的第一个问题是根本的。如果您在期权类产品中做市场（即提供流动性），则不应通过购买或销售期权来对冲您的头寸。用期权对冲期权是衍生品批发商的战术；期权市场做市商应该进行带动对冲他们的头寸。
 - en: There are profitable niches for financial product wholesalers, but they generally
     involve cases where customers are ignorant of market protocols and need costly
     education. For example, when I worked at KeyBank, a regional bank in Cleveland,
@@ -76,6 +89,8 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 金融产品批发商存在盈利的利基市场，但它们通常涉及客户对市场协议的无知并且需要昂贵的教育。例如，当我在克利夫兰的KeyBank工作时，我们经常接受本地公司的外汇或利率互换订单，并立即将其转移给纽约的大型投资银行。我们会为业务收取点差，这些是那些自诩为市场巫师一样每天都能赚钱的“交易员”类型。高盛（Goldman
+    Sachs）并没有资源与这些小公司建立关系，因此这是有意义的。
 - en: While it is a valuable job, most of these middlemen don’t even admit to themselves
     what they do, and who can blame them, given the common sales pitch centered around
     “eliminating the middleman.” While it might seem obvious to fire these expensive
