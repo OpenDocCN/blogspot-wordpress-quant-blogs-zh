@@ -1,258 +1,359 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 06:49:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Valuation of CDO with equal
     amount'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01](http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Bank of Japan(BOJ) publish research paper
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: regularly. And, they issued very interesting paper about valuation of CDO recently.
     They introduced copula for pricing of CDO,and discussed how different CDO spreads
     were with using different copula for pricing.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: I would like to reproduce their result (especially,P23-Table7)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: The condition of calculation is following that
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: number of debt（NUM.REFDEBT）:=100
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: maturity(MATURITY):=5 year
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: recovery rate(RECOVERY.RATE):=40%（constant value）
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: probability of default (DEFAULT.PROBABILITY):=5％（in 5 years）
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: parameter of nomal copula ρ:=0.15
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: parameter of clayton copula α:=0.21
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: They apporoximated their valuation formula for easy calculation(equation (27))
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: (They assumed that CDO spread were paid as discounted bond at the begging.)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: I simulated valuation of CDO with their method.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: The result is following that
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: '| copula/tranche | Equity | mezzanine | senior | super senior |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
 - en: '| normal | 1,145.42 | 62.49 | 0.52 | 0.000 |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
 - en: '| t(20) | 1,055.28 | 86.07 | 2.18 | 0.004 |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
 - en: '| t(6) | 896.74 | 126.44 | 8.56 | 0.044 |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
 - en: '| t(3) | 733.31 | 165.90 | 23.56 | 0.191 |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
 - en: '| clayton | 857.64 | 135.73 | 12.83 | 0.084 |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
 - en: This table reproduce their result(P23-Table7).
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
 - en: And, In senior or super senior,you can understand that the CDO spread which
     is evaluated by normal copula is lower than the others. It means that normal copula
     is inadequate in financial crisis.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
 - en: I show you my programming code（by R language).
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
 - en: If you copy and run my source code, you can duplicate my result easily.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
 - en: Before you run, please install "copula"package.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
 - en: <fieldset>
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[library](http://inside-r.org/r-doc/base/library)(copula)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
 - en: '#function for CDO spread calculation'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
 - en: SpreadOfCDO <- function(copula, default.probability, maturity,
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
 - en: recovery.rate, attachment, detachment, num.path, num.refdebt)
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
 - en: '{'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
 - en: random.copula <- rcopula(copula,num.path)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
 - en: num.default <- rowSums(random.copula < default.probability)
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
 - en: loss.refdebt <- (1-recovery.rate)/num.refdebt*num.default
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
 - en: loss.tranche <- (pmax(loss.refdebt - attachment,0)-pmax(loss.refdebt - detachment,0))/(detachment-attachment)
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
 - en: expectation.loss.tranche <- sum(loss.tranche)/num.path
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
 - en: spread <- -1/maturity*log(1-expectation.loss.tranche)
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
 - en: return(spread)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
 - en: '}'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
 - en: '################  main  ##################'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
 - en: '#parameter'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
 - en: NUM.PATH <- 10^3
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
 - en: NUM.REFDEBT <- 100
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
 - en: DEFAULT.PROBABILITY <- 0.05
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
 - en: MATURITY <- 5
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
 - en: RECOVERY.RATE <- 0.4
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
 - en: '#copulas which I want to compare.'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
 - en: COPULA <- list(normalCopula(0.15, dim = NUM.REFDEBT),
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 20),
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 6),
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 3),
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
 - en: claytonCopula(0.21, dim = NUM.REFDEBT)
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
 - en: )
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
 - en: '#define for easy programming'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
 - en: SpreadOfCDOWithFixedParameter <- function(copula,attachment, detachment){
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
 - en: SpreadOfCDO(copula, DEFAULT.PROBABILITY, MATURITY,
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: SpreadOfCDO(copula, DEFAULT.PROBABILITY, MATURITY,
 - en: RECOVERY.RATE, attachment, detachment, NUM.PATH, NUM.REFDEBT)
+  id: totrans-63
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: RECOVERY.RATE, attachment, detachment, NUM.PATH, NUM.REFDEBT)
 - en: '}'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: result <- list()
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: result <- list()
 - en: '#tranche:equity'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '#tranche:equity'
 - en: result[[1]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.0,0.06)
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: result[[1]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.0,0.06)
 - en: '#tranche:mezzanine'
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: '#tranche:mezzanine'
 - en: result[[2]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.06,0.18)
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: result[[2]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.06,0.18)
 - en: '#tranche:senior'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '#tranche:senior'
 - en: result[[3]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.18,0.36)
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: result[[3]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.18,0.36)
 - en: '#tranche:super senior'
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: '#tranche:super senior'
 - en: result[[4]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.36,1)
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: result[[4]] <- sapply(COPULA,SpreadOfCDOWithFixedParameter,0.36,1)
 - en: '#convert to matrix, and chenge unit to "bp"'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '#convert to matrix, and chenge unit to "bp"'
 - en: result <- 10^4*do.call("cbind", result)
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: result <- 10^4*do.call("cbind", result)
 - en: colnames(result) <- c("equity","mezzanine","senior","super senior")
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(result) <- c("equity","mezzanine","senior","super senior")
 - en: rownames(result) <- c("normal","t(20)","t(6)","t(3)","clayton")
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: rownames(result) <- c("normal","t(20)","t(6)","t(3)","clayton")
 - en: result
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: result
 - en: '[PRE1]'
+  id: totrans-79
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由内部-R.org上漂亮的R创建](http://www.inside-r.org/pretty-r "由内部-R.org上漂亮的R创建")</fieldset>'
