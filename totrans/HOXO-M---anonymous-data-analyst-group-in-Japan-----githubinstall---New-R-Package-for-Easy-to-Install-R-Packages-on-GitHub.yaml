@@ -1,25 +1,32 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-18 06:47:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'HOXO-M - anonymous data analyst group in Japan - : githubinstall - New R Package
     for Easy to Install R Packages on GitHub'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01](http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 1\. Overview
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
@@ -28,37 +35,48 @@
     R packages [[1]](https://www.rstudio.com/products/rpackages/devtools/). The **devtools**
     package not only facilitates the process to develop R packages but also provides
     an another way to distribute R packages.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: 'When developers publish R packages, the CRAN [[2]](https://cran.r-project.org)
     is commonly used. You can install the packages that are available on CRAN using
     `install.package()`. For example, you can install **dplyr** package as follows:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The **devtools** package provides `install_github()` that enables installing
     packages from GitHub.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Therefore, developers can distribute R packages that is developing on GitHub.
     Moreover, there are some developers that they have no intention to submit to CRAN.
     For instance, Twitter, Inc. provides **AnomalyDetection** package on GitHub but
     it will not be available on CRAN [[3]](https://blog.twitter.com/2015/introducing-practical-and-robust-anomaly-detection-in-a-time-series).
     You can install such packages easily using **devtools**.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: There is a difference between `install.packages()` and `install_github()` in
     the required argument. `install.packages()` takes package names, while `install_github()`
     needs repository names. It means that when you want to install a package on GitHub
     you must remember its repository name correctly.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: The trouble is that the usernames of GitHub are often hard to remember. Developers
@@ -67,227 +85,344 @@
     is a great package on GitHub, but who created it? What is the username? The answer
     is *sinhrks* [[4]](https://github.com/sinhrks/ggfortify). It seems to be difficult
     to remember it.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: The **githubinstall** package provides a way to install packages on GitHub by
     only the package names just like `install.packages()`.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE3]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[PRE4]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '`githubinstall()` suggests the GitHub repository from package names, and asks
     whether you want to execute the installation.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: Furthermore, you may succeed in installing packages from a faint memory because
     our package automatically correct its spelling by fuzzy string search.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE5]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: 2\. Installation
+  id: totrans-22
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
 - en: You can install the **githubinstall** package from CRAN.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: '[PRE6]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: The source code for **githubinstall** package is available on GitHub at
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
 - en: 3\. Details
+  id: totrans-26
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
 - en: The **githubinstall** package provides several useful functions.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
 - en: '`githubinstall()` or `gh_install_packages()`'
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: '`gh_suggest()`'
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: '`gh_suggest_username()`'
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: '`gh_list_packages()`'
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
 - en: '`gh_search_packages()`'
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_search_packages()`'
 - en: '`gh_show_source()`'
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_show_source()`'
 - en: '`gh_update_package_list()`'
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_update_package_list()`'
 - en: The functions have common prefix `gh`. `githubinstall()` is an alias of `gh_install_packages()`.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些函数具有公共前缀`gh`。 `githubinstall()`是`gh_install_packages()`的别名。
 - en: To use these functions, first, you should load the package as follows.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 要使用这些函数，首先应按以下方式加载包。
 - en: 3.1\. Install Packages from GitHub
+  id: totrans-37
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.1\. 从GitHub安装包
 - en: '`githubinstall()` enables to install packages on GitHub by only package names.'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '`githubinstall()`只需输入包名称即可安装GitHub上的包。'
 - en: '[PRE7]'
+  id: totrans-39
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: '[PRE8]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: The function suggests GitHub repositories. If you type ‘1’ and ‘enter’, then
     installation of the package will begin. The suggestion is made of looking for
     the list of R packages on GitHub. The list is provided by [Gepuro Task Views](http://rpkg.gepuro.net).
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 该函数建议GitHub存储库。 如果键入‘1’并按‘enter’，则将开始安装该包。 建议是通过查找GitHub上的R包列表来进行的。 该列表由[Gepuro
+    Task Views](http://rpkg.gepuro.net)提供。
 - en: If multiple candidates are found, you can select one of them.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果发现多个候选项，则可以选择其中之一。
 - en: '[PRE9]'
+  id: totrans-43
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: '`githubinstall()` is an alias of `gh_install_packages()`.'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '`githubinstall()`是`gh_install_packages()`的别名。'
 - en: '[PRE10]'
+  id: totrans-45
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: 3.2\. Suggest Repositories
+  id: totrans-46
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.2\. 提出存储库建议
 - en: '`githubinstall()` prompts you to install the suggested packages. But you may
     just want to know what will be suggestions.'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '`githubinstall()`提示您安装建议的包。 但您可能只想知道建议的内容。'
 - en: '`gh_suggest()` returns the suggested repository names as a vector.'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_suggest()`以向量形式返回建议的存储库名称。'
 - en: '[PRE11]'
+  id: totrans-49
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE11]'
 - en: '[PRE12]'
+  id: totrans-50
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE12]'
 - en: '[PRE13]'
+  id: totrans-51
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE13]'
 - en: In addition, `gh_suggest_username()` is useful if you want to know usernames
     from a faint memory.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，如果您想从模糊记忆中了解用户名，`gh_suggest_username()`很有用。
 - en: '[PRE14]'
+  id: totrans-53
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE14]'
 - en: '[PRE15]'
+  id: totrans-54
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE15]'
 - en: '[PRE16]'
+  id: totrans-55
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE16]'
 - en: '[PRE17]'
+  id: totrans-56
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE17]'
 - en: 3.3\. List the Packages
+  id: totrans-57
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.3\. 列出包
 - en: '`gh_list_packages()` returns the list of R package repositories on GitHub as
     `data.frame`.'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_list_packages()`以`data.frame`的形式返回GitHub上的R包存储库列表。'
 - en: For example, if you want to get the repositories that have been created by *hadley*,
     run the following.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果要获取*hadley*创建的存储库，运行以下命令。
 - en: '[PRE18]'
+  id: totrans-60
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE18]'
 - en: '[PRE19]'
+  id: totrans-61
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE19]'
 - en: By using the result, you can install all packages created by hadley.
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过使用结果，您可以安装hadley创建的所有包。
 - en: '[PRE20]'
+  id: totrans-63
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE20]'
 - en: 3.4\. Search Packages by a Keyword
+  id: totrans-64
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.4\. 按关键字搜索包
 - en: '`gh_search_packages()` returns the list of R package repositories on GitHub
     that the titles contains a given keyword.'
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_search_packages()`返回包含给定关键字的标题的GitHub上的R包存储库列表。'
 - en: For example, if you want to search packages that are relevant to *lasso*, run
     the following.
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果要搜索与*lasso*相关的包，运行以下命令。
 - en: '[PRE21]'
+  id: totrans-67
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE21]'
 - en: '[PRE22]'
+  id: totrans-68
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE22]'
 - en: 3.5\. Show the Source Code of Functions on GitHub
+  id: totrans-69
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.5\. 显示GitHub上函数的源代码
 - en: '`gh_show_source()` looks for the source code of a given function on GitHub,
     and tries to open the place on Web browser.'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_show_source()`查找GitHub上给定函数的源代码，并尝试在Web浏览器中打开该位置。'
 - en: '[PRE23]'
+  id: totrans-71
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE23]'
 - en: If you have loaded the package that the function belongs to, you can input the
     function directly.
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果已加载包含该函数的包，可以直接输入函数。
 - en: '[PRE24]'
+  id: totrans-73
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE24]'
 - en: This function may do not work well with Safari.
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: 此功能可能在Safari上无法正常工作。
 - en: 3.6\. Update the List of R Packages
+  id: totrans-75
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.6\. 更新R包列表
 - en: The **githubinstall** package uses [Gepuro Task Views](http://rpkg.gepuro.net)
     for getting the list of R packages on GitHub. Gepuro Task Views is crawling the
     GitHub and updates information every day. The package downloads the list of R
     packages from Gepuro Task Views each time it was loaded. Thus, you can always
     use the newest list of packages on a new R session.
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '**githubinstall**包使用[Gepuro Task Views](http://rpkg.gepuro.net)获取GitHub上R包的列表。
+    Gepuro Task Views每天都会爬取GitHub并更新信息。 该包每次加载时都会从Gepuro Task Views下载R包的列表。 因此，您可以在新的R会话中始终使用最新的包列表。'
 - en: However, you may use an R session for a long time. In such case, `gh_update_package_list()`
     is useful.
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，您可能长时间使用R会话。 这种情况下，`gh_update_package_list()`很有用。
 - en: '`gh_update_package_list()` updates the downloaded list of the R packages explicitly.'
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_update_package_list()`显式更新下载的R包列表。'

@@ -1,231 +1,357 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:47:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:47:49
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : densratio: New R Package
     for Density Ratio Estimation'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 日本匿名数据分析小组 - ：densratio：密度比估计的新R包
 - en: 来源：[http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01](http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01](http://mockquant.blogspot.com/2016/04/densratio-new-r-package-for-density.html#0001-01-01)
 - en: 1\. Overview
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 1\. 概述
 - en: '**Density ratio estimation** is described as follows: for given two data samples
     $x$ and $y$ from unknown distributions $p(x)$ and $q(y)$ respectively, estimate
     $$ w(x) = \frac{p(x)}{q(x)} $$ where $x$ and $y$ are $d$-dimensional real numbers.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**密度比估计**描述如下：对于给定的来自未知分布$p(x)$和$q(y)$的两个数据样本$x$和$y$，估计 $$ w(x) = \frac{p(x)}{q(x)}
+    $$ 其中$x$和$y$是$d$-维实数。'
 - en: The estimated density ratio function $w(x)$ can be used in many applications
     such as the inlier-based outlier detection [1] and covariate shift adaptation
     [2]. Other useful applications about density ratio estimation were summarized
     by Sugiyama et al. (2012) [3].
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 估计的密度比函数$w(x)$可以用于许多应用，例如基于内点的异常检测[1]和协变量转移适应[2]。关于密度比估计的其他有用应用是由Sugiyama et
+    al. (2012) [3]总结的。
 - en: The package **densratio** provides a function `densratio()` that returns a result
     has the function to estimate density ratio `compute_density_ratio()`.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 包**densratio**提供了一个名为`densratio()`的函数，它返回一个具有估计密度比`compute_density_ratio()`的结果。
 - en: For example,
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: In this case, the true density ratio $w(x)$ is known, so we can compare $w(x)$
     with the estimated density ratio $\hat{w}(x)$.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，真实密度比$w(x)$是已知的，所以我们可以将$w(x)$与估计的密度比$\hat{w}(x)$进行比较。
 - en: '[PRE2]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/79458d687138d0daa073b36f6fd48ae0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQdqp_r8q8fbiM4iVE7wNKdMaOKh65ZLg8hd-hsEOOA6IDjHgZvKxp-6mORmqPKN6FlzXQnAr78f6wyfuhnt8JE2EIlk0HBPi66E8jU8R56JBN70lFj3iat_P3N_U7jwrEna_IrZea9Sg/s1600/unnamed-chunk-1-1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/79458d687138d0daa073b36f6fd48ae0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhQdqp_r8q8fbiM4iVE7wNKdMaOKh65ZLg8hd-hsEOOA6IDjHgZvKxp-6mORmqPKN6FlzXQnAr78f6wyfuhnt8JE2EIlk0HBPi66E8jU8R56JBN70lFj3iat_P3N_U7jwrEna_IrZea9Sg/s1600/unnamed-chunk-1-1.png)'
 - en: 2\. How to Install
+  id: totrans-16
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 2\. 安装方法
 - en: You can install the **densratio** package from [CRAN](https://cran.r-project.org/web/packages/densratio/).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以从[CRAN](https://cran.r-project.org/web/packages/densratio/)安装**densratio**包。
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: You can also install the package from GitHub.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 你也可以从 GitHub 安装这个包。
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: The source code for **densratio** package is available on GitHub at
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**densratio**包的源代码可在GitHub上获得'
 - en: 3\. Details
+  id: totrans-22
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 3\. 详细信息
 - en: 3.1\. Basics
+  id: totrans-23
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.1\. 基础知识
 - en: The package provides `densratio()` that the result has the function to estimate
     density ratio.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 该包提供了`densratio()`，该结果具有估计密度比的功能。
 - en: For data samples `x` and `y`,
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于数据样本`x`和`y`，
 - en: '[PRE5]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: In this case, `result$compute_density_ratio()` can compute estimated density
     ratio.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，`result$compute_density_ratio()`可以计算估计的密度比。
 - en: '[PRE6]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: 3.2\. Methods
+  id: totrans-29
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.2\. 方法
 - en: '`densratio()` has `method` parameter that you can pass `"uLSIF"` or `"KLIEP"`.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '`densratio()`有一个`method`参数，你可以传递`"uLSIF"`或`"KLIEP"`。'
 - en: '**uLSIF** (unconstrained Least-Squares Importance Fitting) is the default method.
     This algorithm estimates density ratio by minimizing the squared loss. You can
     find more information in Hido et al. (2011) [1].'
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**uLSIF**（无约束最小二乘重要度拟合）是默认方法。此算法通过最小化平方损失来估计密度比。你可以在Hido et al. (2011) [1]中找到更多信息。'
 - en: '**KLIEP** (Kullback-Leibler Importance Estimation Procedure) is the anothor
     method. This algorithm estimates density ratio by minimizing Kullback-Leibler
     divergence. You can find more information in Sugiyama et al. (2007) [2].'
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**KLIEP**（Kullback-Leibler Importance Estimation Procedure）是另一种方法。此算法通过最小化Kullback-Leibler散度来估计密度比。你可以在Sugiyama
+    et al. (2007) [2]中找到更多信息。'
 - en: 'The both methods assume that the denity ratio is represented by linear model:
     $$ w(x) = \alpha_1 K(x, c_1) + \alpha_2 K(x, c_2) + ... + \alpha_b K(x, c_b) $$
     where $$ K(x, c) = \exp\left(\frac{-\|x - c\|^2}{2 \sigma ^ 2}\right) $$ is the
     Gaussian RBF.'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 两种方法都假设密度比由线性模型表示：$$ w(x) = \alpha_1 K(x, c_1) + \alpha_2 K(x, c_2) + ... +
+    \alpha_b K(x, c_b) $$ 其中 $$ K(x, c) = \exp\left(\frac{-\|x - c\|^2}{2 \sigma ^
+    2}\right) $$ 是高斯RBF。
 - en: '`densratio()` performs the two main jobs:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '`densratio()`执行着两个主要任务：'
 - en: First, deciding kernel parameter $\sigma$ by cross validation,
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 首先，决定核权重$\alpha$，
 - en: Second, optimizing kernel weights $\alpha$.
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 其次，通过交叉验证确定核参数$\sigma$，
 - en: As the result, you can obtain `compute_density_ratio()`.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果是，你可以获得`compute_density_ratio()`。
 - en: 3.3\. Result and Paremeter Settings
+  id: totrans-38
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.3\. 结果和参数设置
 - en: '`densratio()` outputs the result like as follows:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '`densratio()`的输出结果如下所示：'
 - en: '[PRE7]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: '**Kernel type** is fixed by Gaussian RBF.'
+  id: totrans-41
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**核类型**固定为高斯RBF。'
 - en: The **number of kernels** is the number of kernels in the linear model. You
     can change by setting `kernel_num` parameter. In default, `kernel_num = 100`.
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**核的数量**是线性模型中核的数量。你可以通过设置`kernel_num`参数进行更改。默认情况下，`kernel_num = 100`。'
 - en: '**Bandwidth(sigma)** is the Gaussian kernel bandwidth. In default, `sigma =
     "auto"`, the algorithms automatically select the optimal value by cross validation.
     If you set `sigma` a number, that will be used. If you set a numeric vector, the
     algorithms select the optimal value in them by cross validation.'
+  id: totrans-43
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**带宽（sigma）**是高斯核的带宽。默认情况下，`sigma = "auto"`，算法会通过交叉验证自动选择最佳值。如果你设置`sigma`为一个数字，那么它将被使用。如果你设置一个数值向量，算法将通过交叉验证在其中选择最佳值。'
 - en: '**Centers** are centers of Gaussian kernels in the linear model. These are
     selected at random from the data sample `x` underlying a numerator distribution
     `p_nu(x)`. You can find the whole values in `result$kernel_info$centers`.'
+  id: totrans-44
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**中心**是线性模型中高斯核的中心。这些是从分子分布`p_nu(x)`下潜在数据样本`x`中随机选择的。你可以在`result$kernel_info$centers`中找到所有值。'
 - en: '**Kernel weights** are alpha parameters in the linear model. It is optimaized
     by the algorithms. You can find the whole values in `result$alpha`.'
+  id: totrans-45
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**核权重**是线性模型中的 alpha 参数。它是由算法进行优化的。你可以在`result$alpha`中找到所有值。'
 - en: '**The funtion to estimate density ratio** is named `compute_density_ratio()`.'
+  id: totrans-46
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**估计密度比的函数**被命名为`compute_density_ratio()`。'
 - en: 4\. Multi Dimensional Data Samples
+  id: totrans-47
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 4\. 多维数据样本
 - en: In the above, the input data samples `x` and `y` were one dimensional. `densratio()`
     allows to input multidimensional data samples as `matrix`.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上文中，输入数据样本`x`和`y`是一维的。`densratio()`允许输入作为`矩阵`的多维数据样本。
 - en: For example,
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，
 - en: '[PRE8]'
+  id: totrans-50
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '[PRE9]'
+  id: totrans-51
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: Also in this case, we can compare the true density ratio with the estimated
     density ratio.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，在这种情况下，我们可以比较真实密度比和估计密度比。
 - en: '[PRE10]'
+  id: totrans-53
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: '[![](img/c3a90abd9280f304c43828feee966e02.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkW1oxCEr4i3Z-Uk5ALQ70m1_sgd5_4oOwS5HQ0Jc2zg_qDHNs6HrzQbEsXmkIQo23lF7N89q-6VEWEx-1KK0-ohX6uRT9amNXqdc7CoMKhkMPzd9CUdwlQ9Ykl0RcqTjB_Wq6-7FA-nA/s1600/unnamed-chunk-6-1.png)'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c3a90abd9280f304c43828feee966e02.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkW1oxCEr4i3Z-Uk5ALQ70m1_sgd5_4oOwS5HQ0Jc2zg_qDHNs6HrzQbEsXmkIQo23lF7N89q-6VEWEx-1KK0-ohX6uRT9amNXqdc7CoMKhkMPzd9CUdwlQ9Ykl0RcqTjB_Wq6-7FA-nA/s1600/unnamed-chunk-6-1.png)'
 - en: The dimensions of `x` and `y` must be same.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '`x`和`y`的维度必须相同。'
 - en: 5\. References
+  id: totrans-56
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 5\. 参考资料
 - en: '[1] Hido, S., Tsuboi, Y., Kashima, H., Sugiyama, M., & Kanamori, T. **Statistical
     outlier detection using direct density ratio estimation.** Knowledge and Information
     Systems 2011.'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Hido, S., Tsuboi, Y., Kashima, H., Sugiyama, M., & Kanamori, T. **使用直接密度比估计的统计离群点检测**。知识与信息系统，2011年。'
 - en: '[2] Sugiyama, M., Nakajima, S., Kashima, H., von Bünau, P. & Kawanabe, M. **Direct
     importance estimation with model selection and its application to covariate shift
     adaptation.** NIPS 2007.'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] Sugiyama, M., Nakajima, S., Kashima, H., von Bünau, P. & Kawanabe, M. **具有模型选择的直接重要性估计及其在协变量转移适应中的应用**。NIPS
+    2007年。'
 - en: '[3] Sugiyama, M., Suzuki, T. & Kanamori, T. **Density Ratio Estimation in Machine
     Learning.** Cambridge University Press 2012.'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] Sugiyama, M., Suzuki, T. & Kanamori, T. **机器学习中的密度比估计**。剑桥大学出版社，2012年。'

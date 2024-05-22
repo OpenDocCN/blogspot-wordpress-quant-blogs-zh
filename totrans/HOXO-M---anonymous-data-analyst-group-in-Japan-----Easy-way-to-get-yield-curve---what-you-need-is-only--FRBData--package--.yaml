@@ -1,150 +1,248 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:49:02'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:49:02
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Easy way to get yield curve
     : what you need is only "FRBData" package !'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 日本的匿名数据分析集团 -：获取收益率曲线的简便方法：你只需要 "FRBData" 软件包！
 - en: 来源：[http://mockquant.blogspot.com/2011/04/easy-way-to-get-yield-curve-what-you.html#0001-01-01](http://mockquant.blogspot.com/2011/04/easy-way-to-get-yield-curve-what-you.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2011/04/easy-way-to-get-yield-curve-what-you.html#0001-01-01](http://mockquant.blogspot.com/2011/04/easy-way-to-get-yield-curve-what-you.html#0001-01-01)
 - en: I made
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我做
 - en: '[FRBData package](http://cran.r-project.org/web/packages/FRBData/index.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[FRBData 软件包](http://cran.r-project.org/web/packages/FRBData/index.html)'
 - en: and registerd it on CRAN.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 并在 CRAN 上注册了它。
 - en: This package allow you to download financial data from
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 此软件包允许您从中下载财务数据
 - en: '[FRB''s website](http://www.federalreserve.gov/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[FRB 的网站](http://www.federalreserve.gov/)'
 - en: .
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '[This website](http://www.federalreserve.gov/econresdata/default.htm)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[此网站](http://www.federalreserve.gov/econresdata/default.htm)'
 - en: provide many economical data such as consumer credit, money stock.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供许多经济数据，如消费者信贷、货币供应量。
 - en: This article show you how to use this package.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文向您展示了如何使用此软件包。
 - en: (But, it has only a function about interest rate now.　I will create other functions
     to download other macro-economical data in next version.)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: （但是，它目前只有一个与利率相关的功能。我将在下一个版本中创建其他功能来下载其他宏观经济数据。）
 - en: First, because some mirror-site don't update this package at this time, you
     should install it via CRAN.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，因为某些镜像站点目前没有更新此软件包，您应该通过 CRAN 安装它。
 - en: (you may need to install the R which has version more than 2.12.)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: （您可能需要安装版本大于 2.12 的 R。）
 - en: <fieldset>
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: Load library.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 加载库。
 - en: <fieldset>
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: As an example, we download treasury and swap curve from 2005 to 2011.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为示例，我们从 2005 年到 2011 年下载国库券和互换曲线。
 - en: <fieldset>
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE0]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: these data are an xts object.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些数据是 xts 对象。
 - en: <fieldset>
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE2]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: plot "10Y swap spread"
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 绘制 "10 年期互换点差"
 - en: <fieldset>
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE3]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: plot time-varying treasury term structure
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 绘制时变国库券期限结构
 - en: <fieldset>
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE4]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 上创建](http://www.inside-r.org/pretty-r "由 Pretty
+    R 在 inside-R.org 上创建")</fieldset>'
 - en: If you would like to get other interest rate data, please check
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您想获取其他利率数据，请查看
 - en: '[Reference manual](http://cran.r-project.org/web/packages/FRBData/FRBData.pdf)'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '[参考手册](http://cran.r-project.org/web/packages/FRBData/FRBData.pdf)'
 - en: .
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: I think that this package will provide you good chance of analyzing yield curve
     such as yield curve e arbitrage.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为这个软件包将为您提供分析收益率曲线的良好机会，比如收益率曲线套利。
 - en: Enjoy !
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 祝你愉快！
 - en: (...and tell me interesting quant job in secret :) )
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: （...并私下告诉我一些有趣的量化工作：））
