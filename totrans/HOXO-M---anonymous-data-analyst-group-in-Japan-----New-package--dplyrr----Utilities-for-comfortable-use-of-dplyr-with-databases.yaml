@@ -2,163 +2,203 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:47:53'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:47:53'
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : New package "dplyrr" - Utilities
     for comfortable use of dplyr with databases'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'HOXO-M - anonymous data analyst group in Japan - : New package "dplyrr" - Utilities
+    for comfortable use of dplyr with databases'
 - en: 来源：[http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01](http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01](http://mockquant.blogspot.com/2015/08/new-package-dplyrr-utilities-for.html#0001-01-01)
 - en: 1\. Overview
   id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 1\. Overview
 - en: '`dplyr package `'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyr package `'
 - en: is the most powerful package for data handling in R, and it has also the ability
     of working with databases(
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: is the most powerful package for data handling in R, and it has also the ability
+    of working with databases(
 - en: '[See Vignette](https://cran.rstudio.com/web/packages/dplyr/vignettes/databases.html)'
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[See Vignette](https://cran.rstudio.com/web/packages/dplyr/vignettes/databases.html)'
 - en: ).
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ).
 - en: But the functionalities of dealing with databases in
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: But the functionalities of dealing with databases in
 - en: '`dplyr`'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyr`'
 - en: is begin developped even now.
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: is begin developped even now.
 - en: Now, I'm trying to make
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: Now, I'm trying to make
 - en: '`dplyr`'
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyr`'
 - en: with databases more comfortable by some functions.
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: with databases more comfortable by some functions.
 - en: For that purpose, I've created
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: For that purpose, I've created
 - en: '`dplyrr`'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyrr`'
 - en: package.
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: package.
 - en: '`dplyrr`'
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyrr`'
 - en: 'has below functions:'
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 'has below functions:'
 - en: '`load_tbls()` : Easy to load table objects for all tables in a database.'
   id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`load_tbls()` : Easy to load table objects for all tables in a database.'
 - en: '`cut()` in `mutate()` : Easy to create a case statement by using the grammar
     like the `base::cut()`.'
   id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`cut()` in `mutate()` : Easy to create a case statement by using the grammar
+    like the `base::cut()`.'
 - en: '`count_if()` and `n_if()` in `summarise()` : Shortcut to count rows that a
     condition is satisfied.'
   id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`count_if()` and `n_if()` in `summarise()` : Shortcut to count rows that a
+    condition is satisfied.'
 - en: '`filter()` : Improved `filter()` for `tbl_sql` which adds parentheses appropriately.'
   id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`filter()` : Improved `filter()` for `tbl_sql` which adds parentheses appropriately.'
 - en: '`moving_mean()` in `mutate()` : Compute moving average for PostgreSQL.'
   id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`moving_mean()` in `mutate()` : Compute moving average for PostgreSQL.'
 - en: '`moving_max()` in `mutate()` : Compute moving max for PostgreSQL.'
   id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`moving_max()` in `mutate()` : Compute moving max for PostgreSQL.'
 - en: '`moving_min()` in `mutate()` : Compute moving min for PostgreSQL.'
   id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`moving_min()` in `mutate()` : Compute moving min for PostgreSQL.'
 - en: '`moving_sum()` in `mutate()` : Compute moving sum for PostgreSQL.'
   id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`moving_sum()` in `mutate()` : Compute moving sum for PostgreSQL.'
 - en: '`first_value()` in `mutate()` : Compute first value for PostgreSQL.'
   id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`first_value()` in `mutate()` : Compute first value for PostgreSQL.'
 - en: 2\. How to install
   id: totrans-31
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 2\. How to install
 - en: The source code for
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: The source code for
 - en: '`dplyrr`'
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyrr`'
 - en: package is available on GitHub at
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: package is available on GitHub at
 - en: You can install the pakage from there.
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: You can install the pakage from there.
 - en: '[PRE0]'
   id: totrans-36
   prefs: []
@@ -169,15 +209,19 @@
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 3\. Common functions for all databases
 - en: 'For illustration, we use a database file: "my_db.sqlite3".'
   id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 'For illustration, we use a database file: "my_db.sqlite3".'
 - en: If you want to trace the codes below, you should create the databese file at
     first.
   id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: If you want to trace the codes below, you should create the databese file at
+    first.
 - en: '[PRE1]'
   id: totrans-40
   prefs: []
@@ -188,27 +232,34 @@
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3-1\. load_tbls()
 - en: Usually, when we use a database with
   id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: Usually, when we use a database with
 - en: '`dplyr`'
   id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '`dplyr`'
 - en: ', we first create database object, and we can see the tables in the databese
     by'
   id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: ', we first create database object, and we can see the tables in the databese
+    by'
 - en: '`show()`'
   id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '`show()`'
 - en: .
   id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '[PRE2]'
   id: totrans-47
   prefs: []
@@ -223,6 +274,7 @@
   id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: Next, we create table objects for pulling data in some tables in the database.
 - en: '[PRE4]'
   id: totrans-50
   prefs: []
@@ -232,26 +284,32 @@
   id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: Typing this code is really a bore!
 - en: If you want to create table objects for
   id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: If you want to create table objects for
 - en: '**all tables in the database**'
   id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '**all tables in the database**'
 - en: ', you can use'
   id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: ', you can use'
 - en: '`load_tbls()`'
   id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '`load_tbls()`'
 - en: .
   id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '[PRE5]'
   id: totrans-57
   prefs: []
@@ -266,6 +324,7 @@
   id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: Check the created table objects.
 - en: '[PRE7]'
   id: totrans-60
   prefs: []
@@ -291,46 +350,57 @@
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3-2\. cut() in mutate()
 - en: If you want to write case statement with like
   id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: If you want to write case statement with like
 - en: '`base::cut()`'
   id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '`base::cut()`'
 - en: ', you can use'
   id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: ', you can use'
 - en: '`cut()`'
   id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cut()`'
 - en: function in
   id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: function in
 - en: '`mutate()`'
   id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '`mutate()`'
 - en: .
   id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: For example, there is
   id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: For example, there is
 - en: '`air_time`'
   id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: '`air_time`'
 - en: column in the database.
   id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: column in the database.
 - en: '[PRE11]'
   id: totrans-75
   prefs: []
@@ -345,22 +415,27 @@
   id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: If you want to group the
 - en: '`air_time`'
   id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '`air_time`'
 - en: by break points
   id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: by break points
 - en: '`c(0, 80, 120, 190, 900)`'
   id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: '`c(0, 80, 120, 190, 900)`'
 - en: ', you think you must write the next code.'
   id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: ', you think you must write the next code.'
 - en: '[PRE13]'
   id: totrans-82
   prefs: []
@@ -375,26 +450,32 @@
   id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: When the break points increase, you are going to be tired to write more lines.
 - en: By using
   id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: By using
 - en: '`cut()`'
   id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cut()`'
 - en: function in
   id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: function in
 - en: '`mutate()`'
   id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '`mutate()`'
 - en: ', it can become easy.'
   id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: ', it can become easy.'
 - en: '[PRE15]'
   id: totrans-90
   prefs: []
@@ -409,47 +490,58 @@
   id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: The
 - en: '`cut()`'
   id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cut()`'
 - en: in
   id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: in
 - en: '`mutate()`'
   id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: '`mutate()`'
 - en: has more arguments such as labels coming from
   id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: has more arguments such as labels coming from
 - en: '`base::cut()`'
   id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: '`base::cut()`'
 - en: .
   id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '`cut(variable, breaks, labels, include.lowest, right, dig.lab)`'
   id: totrans-99
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`cut(variable, breaks, labels, include.lowest, right, dig.lab)`'
 - en: For integer break points, specially you can indicate
   id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: For integer break points, specially you can indicate
 - en: '`labels="-"`'
   id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: '`labels="-"`'
 - en: .
   id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '[PRE17]'
   id: totrans-103
   prefs: []
@@ -465,6 +557,7 @@
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3-3\. count_if() and n_if() in summarise()
 - en: When we want to count rows that condition is satisfied, we might write like
     this.
   id: totrans-106
