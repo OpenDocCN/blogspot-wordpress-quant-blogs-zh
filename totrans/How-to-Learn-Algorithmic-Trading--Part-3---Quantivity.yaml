@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:54:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:54:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'How to Learn Algorithmic Trading: Part 3 | Quantivity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 如何学习算法交易：第三部分 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-3/#0001-01-01](https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-3/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-3/#0001-01-01](https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-3/#0001-01-01)
 - en: Third in a series on learning quantitative / algorithmic trading, this post
     focuses on financial modeling and analysis, assuming understanding of financial
     mathematics from [Part 2](https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-2/)
@@ -25,117 +37,167 @@
     After digesting these, readers should be capable of both building interesting
     systematic trading systems and understanding microstructure dynamics that drive
     modern market making (sell side) and large block trading (buy side).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这篇文章是有关学习量化/算法交易的系列文章的第三篇，着重于金融建模和分析，假定读者已经理解了来自[第二部分](https://quantivity.wordpress.com/2010/01/12/how-to-learn-algorithmic-trading-part-2/)的金融数学知识和来自[第一部分](https://quantivity.wordpress.com/2010/01/10/how-to-learn-algorithmic-trading/)的量化交易概述。在阅读完这些内容后，读者应该能够构建有趣的系统交易系统，并且理解驱动现代市场做市（卖方）和大宗交易（买方）的微观结构动态。
 - en: Thanks to [awwthor](http://awwthor.wordpress.com/), quant.this, [Josh Ulrich](http://blog.fosstrading.com/),
     [Gappy](http://www.twitter.com/gappy3000), and Bjørn for their comments and recommendations
     on the original post. As with the preceding two posts, the following is intended
     to inform *retail quantitative trading with a bias to equity, exchange-traded
     derivatives, and FX*.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢[awwthor](http://awwthor.wordpress.com/)、quant.this、[Josh Ulrich](http://blog.fosstrading.com/)、[Gappy](http://www.twitter.com/gappy3000)和Bjørn对原帖的评论和推荐。和前两篇文章一样，以下内容意在通知带有对股票、交易所衍生品和外汇偏见的*零售量化交易*。
 - en: 'Begin with standard introductory financial time series asset dynamics, volatility,
     and forecast modeling:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 从标准的金融时序资产动态、波动率和预测建模开始：
 - en: 'Analysis of Financial Time Series, by Tsay: standard applied time series text
     for financial econometrics'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《金融时序分析》，作者Tsay：金融计量的标准实际时序文本
 - en: 'Market Models: A Guide to Financial Data Analysis, by Alexander: excellent
     introduction to financial modeling and forecast'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《市场模型：金融数据分析指南》，作者Alexander：对金融建模和预测的出色介绍
 - en: 'Asset Price Dynamics, Volatility, and Prediction, by Taylor: classic text on
     financial modeling and forecast'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《资产价格动态、波动率和预测》，作者Taylor：金融建模和预测的经典文本
 - en: 'Proceed to modern portfolio theory and financial engineering:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续学习现代投资组合理论和金融工程：
 - en: 'Modern Portfolio Theory and Investment Analysis, by Elton *et al.*: standard
     text on modern portfolio theory'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《现代投资组合理论与投资分析》，作者Elton等：现代投资组合理论的标准文本
 - en: 'Options, Futures and Other Derivatives, by Hull: standard reference for introductory
     financial engineering'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《期权、期货和其他衍生品》，作者Hull：入门金融工程的标准参考资料
 - en: 'Active Portfolio Management, by Grinold & Kahn: standard introduction to quantitative
     portfolio management by the BGI guys who invented it'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《主动投资组合管理》，作者Grinold & Kahn：BGI的发明者们对定量投资组合管理的标准介绍
 - en: 'Principles of Financial Engineering, by Neftci: intermediate financial engineering'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《金融工程原理》，作者Neftci：中级金融工程
 - en: 'Continue on to volatility for options and correlation / dispersion for arb:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续研究期权的波动率和相关性/离散的套利：
 - en: 'Volatility and Correlation, by Rebonato: excellent coverage of volatility and
     correlation'
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《波动率和相关性》，作者Rebonato：对波动率和相关性的深入阐述
 - en: 'Volatility Trading, by Sinclair: volatility arbitrage by a retail practitioner'
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《波动率交易》，作者Sinclair：一个零售从业者对波动率套利的介绍
 - en: 'Volatility Surface, by Gatheral: theoretical coverage of vol models, by well-known
     researcher'
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《波动率曲面》，作者Gatheral：理论上对波动率模型的覆盖，由知名研究人员撰写
 - en: 'Options as a Strategic Investment, by McMillan: classic introductory text on
     derivative hedging and volatility trading'
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《期权作为战略投资》，作者McMillan：衍生品对冲和波动率交易的经典入门文本
 - en: 'Option Volatility & Pricing, by Natenberg: dated practitioner introduction
     to volatility trading'
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《期权波动率与定价》，作者Natenberg：对波动率交易的实用介绍
 - en: 'Finally, delve into high-frequency & market microstructure to enjoy foundations
     of modern buy and sell sides:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，深入研究高频交易和市场微观结构，了解现代买卖双方的基础：
 - en: 'Trading and Exchanges: Market Microstructure for Practitioners, by Harris:
     practitioner introduction to stylized financial microstructure effects'
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《交易与交易所：从业者的市场微结构》，作者哈里斯：从业者介绍了理想化金融微结构效应
 - en: 'An Introduction to High-Frequency Finance, by Dacorogna *et al.*: theoretical
     and dated practitioner introduction to HF, with emphasis on FX'
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 《高频金融简介》，作者达科罗格纳 * 等：理论和已过时从业者介绍高频，侧重于外汇
 - en: 'Empirical Market Microstructure, by Hasbrouck: intermediate equity market microstructure,
     with coverage of standard theoretical models'
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 实证市场微结构，作者哈斯布鲁克：中级股票市场微结构，涵盖标准理论模型
 - en: 'Microstructure Approach to Exchange Rates, by Lyons: intermediate FX market
     microstructure, covering both theory and empirical models (bit dated)'
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 汇率的微结构方法，由利昂斯编著：中级外汇市场微结构，涵盖理论与实证模型（有点过时）
 - en: 'Market Microstructure Theory, by O’Hara: classic introduction to microstructure
     theory; now dated'
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 市场微结构理论，由奥哈拉编著：微结构理论的经典介绍；现在有点过时
 - en: 'Optimal Trading Strategies, by Kissell and Glantz: practitioner introduction
     to market impact and optimal execution'
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最佳交易策略，作者基塞尔和格兰茨：从业者介绍市场影响和最佳执行
 - en: From here, readers can happily delve into the journal literature.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 从这里，读者可以愉快地深入期刊文献。
