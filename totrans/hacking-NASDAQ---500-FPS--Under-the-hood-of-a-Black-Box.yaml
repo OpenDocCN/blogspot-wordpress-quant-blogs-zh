@@ -1,20 +1,26 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
 - en: 'date: 2024-05-13 00:03:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
 - en: 'hacking NASDAQ @ 500 FPS: Under the hood of a Black Box'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -25,6 +31,7 @@
     and greeks to the trade are more complicated - at least thats what it seems. e.g
     no longer looking at the very short term micro inventory/information/latency arbitrage opportunities and
     instead stationary patterns in highly abstracted and transformed data sets.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
 - en: My mid freq strategies are not going well, it takes alot of time and I put a
@@ -32,31 +39,40 @@
     day. Thus its almost certain will be pulling the machine from colo, to regroup,
     lick my wounds, get some sleep and then march forward with a modified approach...
     just cant do this alone starting from 0.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
 - en: So less ranting about my (lack of) PnL and more on the tech side. Here`s a logical
     block diagram of my system.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
 - en: Pretty simple eh?
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
 - en: First up NIC`s
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
 - en: NIC0 -> ssh / management interface
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
 - en: NIC1 -> Order Enter
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
 - en: NIC2 -> not used
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
 - en: NIC3 -> Market Data
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
 - en: Next is HWT`s
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
 - en: Conventional wisdom says you should disable hyper threading as it has significant
@@ -70,6 +86,7 @@
     CPU and maximize the utilization of the CPU. HW threads work in a similar way
     but at the ISA (instruction set architecture) level ontop of a processors micro
     architecture.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
 - en: The theory for both time sliced OS and hyper threading is, for a significant
@@ -77,105 +94,148 @@
     Thus some other program can utilize the hw resource while waiting for the blocked
     IO to complete and you get higher execution occupancy & more throughput... but
     at the cost of increased latency.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
 - en: 'OS Example:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
 - en: while a thread is blocked waiting for Keyboard/Disk/Network input, some other
     thread runs
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
 - en: 'HW Example:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: a memory read missed L1/L2/L3 and has to be fetched from DDR (100cycles), some
     other program runs for those cycles.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
 - en: Have been coding for 8 core asynchronous systems since 2001 so designing for
     wide processing is quite natural these days - have suffered that transition pain.
     Thus have plenty of process/threads but not enough cores, so have to eat the latency
     cost and enable hyperthreading.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 自2001年以来一直在编写8核异步系统，所以最近为宽处理而设计是相当自然的 - 曾经经历过那个转变的痛苦。因此有足够的进程/线程，但核心不够，所以必须承担延迟成本并启用超线程。
 - en: Short description of each HWT. All processes/threads are locked to their respective
     HWT.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个HWT的简短描述。所有进程/线程都锁定到各自的HWT上。
 - en: HWT0
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT0
 - en: This is the general purpose, everything runs on this. To linux the system looks
     like a 1 HWT machine. bash sshd etc etc.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是通用的，所有东西都在这上面运行。对于linux系统来说，该系统看起来像是一个HWT机器。bash sshd等等。
 - en: 'HWT1:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT1：
 - en: nothing pre-defined. depends what im doing with the machine for what is assigned
     to this. e.g. live strategies, back testing, backup/crunching.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 未定义任何内容。具体取决于我对机器做什么来分配什么。例如实时策略、回测、备份/计算。
 - en: 'HWT2:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT2：
 - en: FIFO scheduled (e.g. not time sliced) for all strategies to run. Processing
     is setup so 1 cycle of a strategy is run, the round robbin(via linux scheduler)
     to the next strategy and so. Can be dangerous as the strategies can effect each
     other but the core strategy logic is usually very simple and light.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有策略的FIFO调度（如非分时切片）运行。处理设置为执行一轮策略的一个周期，然后通过轮询（通过linux调度程序）切换到下一个策略等。可能会很危险，因为策略可能会互相影响，但核心策略逻辑通常非常简单和轻便。
 - en: 'HWT3:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT3：
 - en: For HF/UHF the amount of brute force number crunching is not so high, thus a
     single HWT is sufficient. The thread has a job queue where anyone can submit something
     to be crunched.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于HF/UHF，暴力数值计算的数量并不太高，因此单个HWT就足够了。线程有一个工作队列，任何人都可以提交要进行计算的东西。
 - en: 'HWT4:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT4：
 - en: Market Data Feed handler. You might ask why only 1 HWT for this? The answer
     is the more queue`s you add the higher the latency. My system only has 1 Queue
     and thats the Socket`s Rx Buffer which is massive. The 2nd answer is, i`m not
     keeping a book for all ~6.5K symbols on nasdaq thus dont need the additional throughput.
     As mentioned way back in 2010, the key here is extremely fast trivial reject`s
     to filter out all the crap you dont need.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场数据源处理程序。您可能会问为什么只有1个HWT？答案是添加的队列越多，延迟越高。我的系统只有1个队列，那就是套接字的Rx缓冲区，它是庞大的。第二个答案是，我没有为纳斯达克的所有~6.5K个符号保留账本，因此不需要额外的吞吐量。正如2010年提到的那样，关键在于极快的琐碎拒绝来过滤掉所有不需要的垃圾。
 - en: 'HWT5:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT5：
 - en: This is the disk io core who`s sole purpose in life is to copy blocks of shared
     memory to the SSD.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是磁盘io核心，它唯一的目的是将共享内存块复制到SSD。
 - en: 'HWT6:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT6：
 - en: The Gateway + Active Risk checks. This translates internal order requests (new/mod/can/exe)
     into native protocol versions and performs basic risk check / position management
     / fat finger checks before sending it into the market. Gateway or OMS as some
     call it has hooks to external programs which can enable/disable the sending of
     orders. The risk checks are minimal as its on the critical latency path, thus
     the more elaborate checks are done passively post trade.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 网关+主动风险检查。这将内部订单请求（new/mod/can/exe）转换为本机协议版本，并在发送到市场之前执行基本风险检查/头寸管理/手误检查。网关或一些人称为OMS，具有启用/禁用订单发送的外部程序挂接。风险检查很少，因为它处于关键的延迟路径上，因此更复杂的检查会在交易后被动进行。
 - en: 'HWT7:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: HWT7：
 - en: Networking utils / passive risk checking. Part one of this HWT is capture and
     logs everything on the wire in all directions going everywhere, think NSA style
     layer2 snooping - yes I see you knocking on the door 192.168.42.1\. The other
     part is to digest and analyze the captured data pseudo realtime. There are soft
     latency limits here, ideally all these functions would be running on an independent machine
     but... didnt want to spend the cash for that.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 网络工具/被动风险检查。此HWT的第一部分是捕获和记录所有方向的数据，类似NSA风格的第二层窃听 - 是的，我看见你在门口敲门192.168.42.1。另一部分是伪实时地消化和分析捕获的数据。这里有软延迟限制，理想情况下，所有这些功能将在独立的机器上运行，但是...不想为此花费现金。
 - en: .. and so the quest continues as digging thru terrabytes of data, racing a 500HP
     golf cart on the screaming edge of technology down some sketchy back alleyway
     in Hong Kong... is so my thing :P
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '...因此探索继续挖掘大量数据，驾驶一辆500HP的高尔夫球车，在香港一些不靠谱的小巷上面试技术的极限...这就是我的风格: P'

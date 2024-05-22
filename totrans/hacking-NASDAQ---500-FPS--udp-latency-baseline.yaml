@@ -2,92 +2,112 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:07:49'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:07:49
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: udp latency baseline'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在NASDAQ的500 FPS：udp延迟基线中进行黑客攻击
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/space-time-continum.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/space-time-continum.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/01/space-time-continum.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/space-time-continum.html#0001-01-01)
 - en: Now that the NIC`s are sorted, we can look into the round trip latency numbers.
     The guesstimate based on the previous post was around 3450ns, or 3.5us which is
     ... err.. "slightly" off..
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在NIC已经整理好了，我们可以看一下往返延迟数字。基于上一篇文章的估计约为3450ns，或3.5微秒，可能...呃.."稍微"有点偏差..
 - en: First up we`ll go flat out so A sends as many packets to B, and B tries to relay
     them back to A. When A gets the packet, its got a send time stamp, so we can log
     the time delta into a histogram(below)
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们将全力以赴，所以A发送尽可能多的数据包到B，而B尽可能将它们传递回A。当A收到数据包时，它有一个发送时间戳，因此我们可以将时间差记录到直方图（下面）
 - en: Sending at full rate
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以全速发送
 - en: Yes, that{s 200
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 是的，这有200
 - en: '**microsecconds**'
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**微秒**'
 - en: 'at the end, just a bit longer than 3500ns. What a mess.. Simplifying it down
     to a serial round trip latency histogram, translates to:'
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，比3500ns多一点点。真是一团糟..将其简化为串行往返延迟直方图，转换为：
 - en: 1) A Send
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 1）A发送
 - en: 2) B recv
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 2）B接收
 - en: 3) B Send back to A
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 3）B返回到A
 - en: 4 A Recv
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 4）A接收
 - en: 5) A Next message
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 5）A下一条消息
 - en: So the system is on a minimum work loading thus, should get the minimum round
     trip latency. We get the following graph(below) which is alot cleaner, even if
     highly disturbing
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，系统正处于最低工作负载，因此应该是最小的往返延迟。我们得到了下面的图表（下面），这样会干净得多，即使非常令人不安。
 - en: Serial Round Trip
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 串行往返
 - en: As you can see, it clocked in around 100,000ns ! that`s 96550ns longer than
     expected, and with a razor thin spread.
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如您所看到的，它的时钟速度大约为100,000ns！比预期的时间长了96550ns，而且波动非常小。
 - en: So whats going on? For one a razor thin profile centered almost exactly on 100,000ns
     is extremely suspicious of a timer at work. With a little bit of digging, lo and
     behold there is, called Interrupt Coalescing - in the Intel Network card drivers
@@ -99,11 +119,13 @@
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 发生了什么？首先，一个几乎准确集中在100,000ns的薄剃刀锋线非常可疑，表明有一个计时器正在工作。通过一点挖掘，原来是有的，被称为中断协同 - 在英特尔网络卡驱动程序中一般为NAPI的一部分。它的目的是通过将中断分批到组中来减少CPU负载，因此每32个数据包只有1个中断，因此所有32个数据包*可能*在该单个中断处理程序中被处理。这很好，提高了网络吞吐量，是一个很好的通用解决方案，但正在耗尽我们的低延迟系统。
 - en: On page 19 on Intels "Interrupt Moderation Using GbE Controllers" manual there`s
     a fantastic graph.
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在英特尔的"使用GbE控制器的中断调节"手册的第19页上，有一个很好的图表。
 - en: If you check the area circled, its the default parameter setting for intel drivers
     and looks... around 50,000ns which conveniently (round trip) adds up to what were
     seeing in our histogram 100,000ns. Thus lets mess with the parameter. First up
@@ -111,29 +133,35 @@
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您检查了圈着的区域，那是英特尔驱动程序的默认参数设置，看起来...大约是50,000ns，方便的（来回）加起来是我们直方图中看到的100,000ns。因此，让我们尝试修改参数。首先更改机器B为InterruptThrottleRate=8000（英特尔的旧默认值）
 - en: Machine B InterruptThrottleRate=8000
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器B中断节流速率=8000
 - en: And great, our latency number moves (in the wrong direction) but none the less
     a very direct correlation. Thus lets disable all throttling on Machine B
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 太好了，我们的延迟数字变了（方向是错误的），但还是非常直接的相关性。因此，让我们在机器B上停用所有节流。
 - en: Machine B Interrupt Throttle Rate = OFF
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器B中断节流速率 = 关
 - en: And bang, we just reduced the latency by half! Not bad for a one liner. The
     Spikes are still extremely tall and thin, suggesting theres still a timer element
     in there. Next up, disable throttling for Machine A too.
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 砰，我们只需减少一半的延迟！一句话做得不错。尖峰仍然非常高而薄，这表明里面仍然有一个计时器元素。接下来，也要为机器A禁用节流。
 - en: Machine A & B Interrupt Throttle Rate = OFF
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器A和B中断节流速率 = 关
 - en: And finally we have somthing that has a fairly small spread, but not so thin
     that it looks like a timer, and must be close to our baseline round trip number.
     App -> Lib -> Kernel -> NIC -> Wire -> Switch -> Wire -> NIC -> Kernel -> Lib
@@ -141,6 +169,7 @@
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们有了一个相当小的扩散，但并不是看起来像计时器的这么薄，必须接近我们的基线往返数字。应用程序->库->内核->网络接口卡->电线->交换机->电线->网络接口卡->内核->库->应用程序B然后返回。
 - en: Machine A & B, Interrupt Throttling Rate = OFF
   id: totrans-29
   prefs: []
