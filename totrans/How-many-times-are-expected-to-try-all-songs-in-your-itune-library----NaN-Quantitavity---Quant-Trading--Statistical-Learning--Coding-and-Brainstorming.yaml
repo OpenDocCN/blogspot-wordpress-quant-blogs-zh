@@ -1,71 +1,111 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:57:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:57:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: How many times are expected to try all songs in your itune library? | NaN Quantitavity
     - Quant Trading, Statistical Learning, Coding and Brainstorming
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在您的itunes库中，预计尝试所有歌曲多少次？| NaN数量 - 数量交易，统计学习，编程和头脑风暴
 - en: 来源：[https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01](https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01](https://quantlife.wordpress.com/2013/03/20/how-many-times-are-expected-to-try-all-songs-in-your-itune-library/#0001-01-01)
 - en: How many times are expected to try all songs in your itune library?
+  id: totrans-6
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 在您的itunes库中，预计尝试所有歌曲多少次？
 - en: 'Today, when I was very boring with all my songs in iphone libary, I suddenly
     thought about one quick but useful math puzzle: assuming the iphone library has
     100 songs and you use random shuffle (with re-sample) for next song, how many
     times are expected to listen all these songs?'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，当我对iphone音乐库中的所有歌曲感到非常无聊时，我突然想到一个快速但有用的数学难题：假设iphone库中有100首歌曲，你使用随机播放（重新取样）下一首歌，预计需要听多少次才能听完所有这些歌曲？
 - en: 'This is very similar as the classical [Coupon Collection](http://en.wikipedia.org/wiki/Coupon_collector''s_problem)
     problem. Here is a quick dirty R simulations, with two plots in regular scale
     and log scale:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这与经典的[优惠券收集](http://en.wikipedia.org/wiki/Coupon_collector's_problem)问题非常相似。这是一个快速而简单的R模拟，包括两个常规比例和对数比例的图表：
 - en: N.songs = 100
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[N.songs = 100'
 - en: temp <- function(N.songs){
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: temp <- function(N.songs){
 - en: return ( sum(N.songs/(1:N.songs)) )
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: return ( sum(N.songs/(1:N.songs)) )
 - en: '}'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: x <- 1:N.songs
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: x <- 1:N.songs
 - en: y <- sapply(x,temp)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: y <- sapply(x,temp)
 - en: par(mfrow=c(1,2))
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(1,2))
 - en: plot(x,y,type=’l’,col=3, lty=2, lwd=2,log =’x’, xlab=’Number of New Songs’,
     ylab = “# Trials Needed”)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(x,y,type=’l’,col=3, lty=2, lwd=2,log =’x’, xlab=’新增歌曲数量’, ylab = “所需尝试次数”)
 - en: plot(x,y,type=’l’,col=3, lty=2, lwd=2, xlab=’Number of New Songs’, ylab = “#
     Trials Needed”)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(x,y,type=’l’,col=3, lty=2, lwd=2, xlab=’新增歌曲数量’, ylab = “所需尝试次数”)
 - en: '![songs](img/4b13d3d25644e2e3953ea6a1c10ee776.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![songs](img/4b13d3d25644e2e3953ea6a1c10ee776.png)'
 - en: No comments yet.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 暂无评论。
