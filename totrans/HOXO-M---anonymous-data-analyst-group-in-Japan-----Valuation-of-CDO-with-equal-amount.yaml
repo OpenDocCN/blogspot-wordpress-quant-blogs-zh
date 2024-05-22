@@ -2,143 +2,175 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类： 未分类
 - en: 'date: 2024-05-18 06:49:10'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:49:10
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Valuation of CDO with equal
     amount'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 匿名数据分析小组 - ：等量CDO估值
 - en: 来源：[http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01](http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01](http://mockquant.blogspot.com/2011/01/valuation-of-cdo-with-equal-amount.html#0001-01-01)
 - en: Bank of Japan(BOJ) publish research paper
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 日本银行(BOJ)发表研究论文
 - en: regularly. And, they issued very interesting paper about valuation of CDO recently.
     They introduced copula for pricing of CDO,and discussed how different CDO spreads
     were with using different copula for pricing.
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 定期发布。他们最近发表了一篇有关CDO估值的非常有趣的论文。他们引入了用于定价CDO的copula，并讨论了使用不同copula进行定价时不同的CDO利差。
 - en: I would like to reproduce their result (especially,P23-Table7)
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想重现他们的结果（尤其是，P23-Table7）
 - en: The condition of calculation is following that
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 计算条件如下
 - en: number of debt（NUM.REFDEBT）:=100
   id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 债务数量（NUM.REFDEBT）:=100
 - en: maturity(MATURITY):=5 year
   id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 成熟期（MATURITY）:=5 年
 - en: recovery rate(RECOVERY.RATE):=40%（constant value）
   id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 恢复率（RECOVERY.RATE）:=40%（固定值）
 - en: probability of default (DEFAULT.PROBABILITY):=5％（in 5 years）
   id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 违约概率 (DEFAULT.PROBABILITY):=5％（在5年内）
 - en: parameter of nomal copula ρ:=0.15
   id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 正态Copula的参数 ρ:=0.15
 - en: parameter of clayton copula α:=0.21
   id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 克莱顿copula的参数 α:=0.21
 - en: They apporoximated their valuation formula for easy calculation(equation (27))
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们为了简化计算，近似了他们的估值公式（方程式（27））
 - en: (They assumed that CDO spread were paid as discounted bond at the begging.)
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: （他们假设CDO的利差是按折现债券支付的。）
 - en: I simulated valuation of CDO with their method.
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 我用他们的方法模拟了CDO的价值。
 - en: The result is following that
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果如下
 - en: '| copula/tranche | Equity | mezzanine | senior | super senior |'
   id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| copula/tranche | Equity | mezzanine | senior | super senior |'
 - en: '| normal | 1,145.42 | 62.49 | 0.52 | 0.000 |'
   id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '| 正态 | 1,145.42 | 62.49 | 0.52 | 0.000 |'
 - en: '| t(20) | 1,055.28 | 86.07 | 2.18 | 0.004 |'
   id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| t(20) | 1,055.28 | 86.07 | 2.18 | 0.004 |'
 - en: '| t(6) | 896.74 | 126.44 | 8.56 | 0.044 |'
   id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| t(6) | 896.74 | 126.44 | 8.56 | 0.044 |'
 - en: '| t(3) | 733.31 | 165.90 | 23.56 | 0.191 |'
   id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| t(3) | 733.31 | 165.90 | 23.56 | 0.191 |'
 - en: '| clayton | 857.64 | 135.73 | 12.83 | 0.084 |'
   id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '| 克莱顿 | 857.64 | 135.73 | 12.83 | 0.084 |'
 - en: This table reproduce their result(P23-Table7).
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个表格复制了他们的结果(P23-Table7)。
 - en: And, In senior or super senior,you can understand that the CDO spread which
     is evaluated by normal copula is lower than the others. It means that normal copula
     is inadequate in financial crisis.
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 而且，在senior或super senior中，你可以理解使用正态copula评估的CDO利差要低于其他类型。这意味着在金融危机中，正态copula是不适当的。
 - en: I show you my programming code（by R language).
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我展示我的编程代码（使用R语言）。
 - en: If you copy and run my source code, you can duplicate my result easily.
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你复制并运行我的源代码，你可以轻松复制我的结果。
 - en: Before you run, please install "copula"package.
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在你运行之前，请先安装"copula"包。
 - en: <fieldset>
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE0]'
   id: totrans-32
   prefs: []
@@ -148,118 +180,147 @@
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[库](http://inside-r.org/r-doc/base/library)(copula)'
 - en: '#function for CDO spread calculation'
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '#CDO利差计算函数'
 - en: SpreadOfCDO <- function(copula, default.probability, maturity,
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: SpreadOfCDO <- function(copula, default.probability, maturity,
 - en: recovery.rate, attachment, detachment, num.path, num.refdebt)
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 恢复率，附着，分离，路径数，参考债务数）
 - en: '{'
   id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: random.copula <- rcopula(copula,num.path)
   id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 随机copula <- rcopula(copula,num.path)
 - en: num.default <- rowSums(random.copula < default.probability)
   id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: num.default <- rowSums(random.copula < default.probability)
 - en: loss.refdebt <- (1-recovery.rate)/num.refdebt*num.default
   id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 亏损参考债务 <- (1-恢复率)/num.refdebt*num.default
 - en: loss.tranche <- (pmax(loss.refdebt - attachment,0)-pmax(loss.refdebt - detachment,0))/(detachment-attachment)
   id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 亏损类别 <- (pmax(亏损参考债务 - 附着,0)-pmax(亏损参考债务 - 分离,0))/(分离-附着)
 - en: expectation.loss.tranche <- sum(loss.tranche)/num.path
   id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 预期损失类别 <- sum(亏损类别)/num.path
 - en: spread <- -1/maturity*log(1-expectation.loss.tranche)
   id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 利差 <- -1/成熟度*log(1-预期损失类别)
 - en: return(spread)
   id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: return(spread)
 - en: '}'
   id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '################  main  ##################'
   id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '################  主要  ##################'
 - en: '#parameter'
   id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '#参数'
 - en: NUM.PATH <- 10^3
   id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: NUM.PATH <- 10^3
 - en: NUM.REFDEBT <- 100
   id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: NUM.REFDEBT <- 100
 - en: DEFAULT.PROBABILITY <- 0.05
   id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: DEFAULT.PROBABILITY <- 0.05
 - en: MATURITY <- 5
   id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: MATURITY <- 5
 - en: RECOVERY.RATE <- 0.4
   id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: RECOVERY.RATE <- 0.4
 - en: '#copulas which I want to compare.'
   id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我想要比较的copula。'
 - en: COPULA <- list(normalCopula(0.15, dim = NUM.REFDEBT),
   id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: COPULA <- list(normalCopula(0.15, dim = NUM.REFDEBT),
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 20),
   id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: tCopula(0.15, dim = NUM.REFDEBT, df = 20),
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 6),
   id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: tCopula(0.15, dim = NUM.REFDEBT, df = 6),
 - en: tCopula(0.15, dim = NUM.REFDEBT, df = 3),
   id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: tCopula(0.15, dim = NUM.REFDEBT, df = 3),
 - en: claytonCopula(0.21, dim = NUM.REFDEBT)
   id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: claytonCopula(0.21, dim = NUM.REFDEBT)
 - en: )
   id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: )
 - en: '#define for easy programming'
   id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '#用于简化编程的定义'
 - en: SpreadOfCDOWithFixedParameter <- function(copula,attachment, detachment){
   id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: SpreadOfCDOWithFixedParameter <- function(copula,attachment, detachment){
 - en: SpreadOfCDO(copula, DEFAULT.PROBABILITY, MATURITY,
   id: totrans-62
   prefs: []

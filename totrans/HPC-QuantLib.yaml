@@ -1,83 +1,124 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:43:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月17日 23:43:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com#0001-01-01](https://hpcquantlib.wordpress.com#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com#0001-01-01](https://hpcquantlib.wordpress.com#0001-01-01)
 - en: 'Aim: Develop an exponentially-fitted Gauss-Laguerre quadrature rule to price
     European options under the Heston model, which outperforms given Gauss-Lobatto,
     Gauss-Laguerre and other pricing method implementations in QuantLib.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标：开发一种指数适配的高斯-拉盖尔积分规则，用于在Heston模型下定价欧式期权，优于给定的Gauss-Lobatto、Gauss-Laguerre和QuantLib中的其他定价方法实现。
 - en: 'Status quo: Efficient pricing routines for the Heston model'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 现状：Heston模型的高效定价例程
 - en: '![\begin{array}{rcl} d \ln S_t&=& \left(r_t - q_t - \frac{\nu_t}{2}\right)dt
     + \sqrt\nu_t dW^{S}_t \nonumber \\ d\nu_t&=& \kappa\left(\theta-\nu_t \right )
     dt + \sigma\sqrt\nu_t dW^{\nu}_t \nonumber \\ \rho dt &=& dW^{S}_tdW^{\nu}_t \end{array}](img/7bb998b60af889698cbc7da23e39455e.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/7bb998b60af889698cbc7da23e39455e.png)'
 - en: are based on the integration over the normalized characteristic function in
     the Gatheral formulation
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于Gatheral公式中标准化特征函数的积分
 - en: '![\phi_t(z) = \exp\left\{\frac{v_0}{\sigma^2}\frac{1-e^{-Dt}}{1-Ge^{-Dt}}\left(\kappa-i\rho\sigma
     z-D\right) + \frac{\kappa\theta}{\sigma^2}\left(\left(\kappa-i\rho\sigma z-D\right)t-2\ln\frac{1-Ge^{-Dt}}{1-G}\right)
     \right\}](img/579b82b565b9de252e33440e65e2414a.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/579b82b565b9de252e33440e65e2414a.png)'
 - en: '![\begin{array}{rcl} D&=&\sqrt{\left(\kappa - i\rho\sigma z\right)^2+\left(z^2+iz\right)\sigma^2}
     \nonumber \\ G&=&\displaystyle\frac{\kappa -i\rho\sigma z-D}{\kappa -i\rho\sigma
     z + D}\end{array}](img/e77612059b60e5dc57ad01a117bfe2f4.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/e77612059b60e5dc57ad01a117bfe2f4.png)'
 - en: in combination with a Black-Scholes control variate to improve the numerical
     stability of Lewis’s formula [1][2][3]. The normalized characteristic function
     of the Black-Scholes model is given by
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 结合Black-Scholes控制变量，以改善对Lewis公式的数值稳定性[1][2][3]。 Black-Scholes模型的标准化特征函数如下给出
 - en: '![\phi^{BS}_T(z)=e^{-\frac{1}{2}\sigma_{BS}^2 T (z^2 + iz)} ](img/af848a6610ddd0dcd89bc0f92e65175c.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/af848a6610ddd0dcd89bc0f92e65175c.png)'
 - en: and the price of a vanilla call option can then be calculated based on
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后可以基于下述进行计算普通看涨期权的价格
 - en: '![\begin{array}{rcl} C(S_0, K, T)&=&BS\left(S_0, K, T, \sigma_{BS}\right) \nonumber
     \\ &+& \frac{\sqrt{Se^{(r-q)T}K}e^{-rT}}{\pi}\displaystyle\int\limits_{0}^{\infty}{\Re\left(
     \frac{\phi^{BS}_T\left(u-\frac{i}{2}\right) - \phi_T\left(u-\frac{i}{2}\right)}{u^2+\frac{1}{4}}
     e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) } \right)  \mathrm{d}u}\end{array}](img/a29f81e4c4761634ab7b01cd74092f2a.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/a29f81e4c4761634ab7b01cd74092f2a.png)'
 - en: where ![BS\left(S_0, K, T, \sigma_{BS}\right)](img/7a540b78e38573509ae5522e932ac68c.png)
     is the corresponding Black-Scholes price. Different choices for the volatility
     of the control variate are discussed in the literature. For the following examples
     the volatility will be defined by either
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![BS\left(S_0, K, T, \sigma_{BS}\right)](img/7a540b78e38573509ae5522e932ac68c.png)是相应的Black-Scholes价格。
+    文献中讨论了对控制变量的波动率不同的选择。 在以下示例中，波动率将由以下之一来定义
 - en: '![\sigma_{BS}^2 = \frac{1}{\kappa T}\left(1-e^{-\kappa T}\right)\left(\nu_0-\theta\right)
     + \theta](img/789c0caab2971ab81c62176376e538cc.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/789c0caab2971ab81c62176376e538cc.png)'
 - en: or
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 或
 - en: '![\displaystyle \sigma_{BS}^2 = -\frac{8}{T} \ln{\Re\left(\phi_T\left(-i/2\right)\right)}](img/51ac91fa5db2e8bbe7beb5d4cbb63e69.png).'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![公式](img/51ac91fa5db2e8bbe7beb5d4cbb63e69.png)'
 - en: The first one matches the overall variance for ![\sigma=0](img/34a8165faaaa3fe8484c329f7064507e.png)
     whereas the latter one matches the values of the characteristic functions at the
     starting point ![z=-i/2](img/06d58b4dcf2b1cfce97f5c0d674c61a2.png) of the integration.
@@ -85,55 +126,68 @@
     one can directly spot a weak point in the algorithm for deep in the money/deep
     out of the money options. In this case the integrand becomes a highly oscillating
     function due to the term
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
 - en: '![e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) }](img/c95782add722b2cd78bc791fc29f32c0.png).'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
 - en: Second, when using Gauss-Laguerre quadrature the overlap of the weight function
     ![e^{-x}](img/a7b767139add140fb7f9e058e1b2c60c.png) with the characteristic function
     becomes sub-optimal for very short maturities or small effective volatilities
     as can be seen with the Black-Scholes characteristic function already.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
 - en: Third, for very small ![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png) the
     integrand becomes prone to subtractive cancellation errors.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
 - en: The last issue is easy to overcome by using the second order Taylor expansion
     of the normalized characteristic for small ![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png).
     The corresponding mathematica script can be seen [here](https://github.com/klausspanderen/HestonExponentialFitting/blob/master/mathematica/heston_expansion.nb).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
 - en: Rescaling the integrand improves the second issue by rewriting the integral
     in terms of ![x = \eta u](img/aaa4b05fd0f4251b2e8b4322a68243d5.png) with
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
 - en: '![\eta = \max\left(0.01, \min\left(10, \frac{1}{\sqrt{8(1-e^{-\kappa t})(v_0-\theta)/\kappa
     + \theta t}}\right)\right)](img/37a3840bc771ff92fefd01cd3710538c.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
 - en: The first problem, the highly oscillating integrand, can be tackled with the
     exponentially fitted Gauss-Laguerre quadrature rule [4]. The numerical integration
     of two smooth functions ![f_1(x)](img/d26f9fea14d5215d3872120b2ef2e310.png) and
     ![f_2(x)](img/1aaf37be720215aa70469f5af7a0b725.png) with
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
 - en: '![I = \displaystyle \int_0^\infty e^{-x} \left(f_1(x) \sin(\mu x) + f_2(x)\cos(\mu
     x)\right)\mathrm{dx} = \int_0^\infty f(x)\mathrm{dx}](img/23ee0cb51a20b23dd34c239da90cec50.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_IMG
 - en: is approximated by a Gauss-Laguerre quadrature rule of the form
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
 - en: '![I \approx \sum_i^N w_i(\mu) f(x_i(\mu))](img/463444e759b201ec9eb8e38a920b7406.png).'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
 - en: In this use case the frequency ![\mu](img/9490e276005995b211909e54b860be4f.png)
     is
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
 - en: '![\mu =\ln\frac{S}{K}+(r-q)T](img/4ac3514d108ed8c8a2811a2f135cacdf.png),'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
 - en: and the weights ![w_i](img/fc546c6cc29bfda565ce1c16bbda3848.png) and nodes ![x_i](img/8f45c962de64c5d9724b2cce9f75df2f.png)
@@ -148,30 +202,47 @@
     and nodes for ![\mu](img/9490e276005995b211909e54b860be4f.png) instead of ![\mu_j](img/a075e75d60cc4f53293bd6afce89bbcb.png)
     but it is far, far better than assuming ![\mu=0](img/bb64a3927666587e35cae58f72986038.png)
     as it is done within the conventional Gauss-Laguerre quadrature rule.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 高斯-拉盖尔积分规则的权重 ![w_i](img/fc546c6cc29bfda565ce1c16bbda3848.png) 和节点 ![x_i](img/8f45c962de64c5d9724b2cce9f75df2f.png)
+    变为频率 ![μ](img/9490e276005995b211909e54b860be4f.png) 的函数。[4] 中概述的算法在运行时太慢，而且在原始形式下仅能用于
+    ![N=8](img/0713bd8b396423b556897fa9d49a54b1.png)。为了将其用于 Heston 模型，我们对一组定义的频率![\{0
+    \leq μ_i\ \leq 50\}](img/62ec5a82721242219a2e00f6e98f72e9.png)进行预计算权重和节点。对于给定的频率
+    ![μ](img/9490e276005995b211909e54b860be4f.png)，使用最接近的预计算值 ![μ_j](img/a075e75d60cc4f53293bd6afce89bbcb.png)
+    来评估积分。当然，最好使用 ![μ](img/9490e276005995b211909e54b860be4f.png) 的权重和节点而不是 ![μ_j](img/a075e75d60cc4f53293bd6afce89bbcb.png)，但这远比假设
+    ![μ=0](img/bb64a3927666587e35cae58f72986038.png) 好得多，就像传统的高斯-拉盖尔积分规则中所做的那样。
 - en: 'Two techniques are key to get to larger N for the pre-calculated weights and
     nodes:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 有两种技术对于预计算权重和节点的扩展至更大的 N 是关键的：
 - en: Start the algorithm with ![\mu=0](img/bb64a3927666587e35cae58f72986038.png)
     to get the standard Gauss-Laguerre weights/nodes and gently increase ![\mu](img/9490e276005995b211909e54b860be4f.png)
     afterwards. Use the old weights and nodes from the previous up to 20 steps to
     generate the next starting vector for the Newton solver based on the Lagrange
     interpolating polynomials.
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 以 ![μ=0](img/bb64a3927666587e35cae58f72986038.png) 开始算法，以获取标准的高斯-拉盖尔权重/节点，然后逐渐增加
+    ![μ](img/9490e276005995b211909e54b860be4f.png)。使用前20步的旧权重和节点来生成基于拉格朗日插值多项式的牛顿求解器的下一个起始向量。
 - en: Increase “numerical head room” by using the [boost multi-precision](https://www.boost.org/doc/libs/1_73_0/libs/multiprecision/doc/html/index.html)
     package instead of double precision. This is only relevant for the pre-calculation.
     The resulting weights and nodes are stored as normal double precision values.
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 通过使用[boost多精度](https://www.boost.org/doc/libs/1_73_0/libs/multiprecision/doc/html/index.html)包而不是双精度来增加“数值余地”。这只与预计算有关。生成的权重和节点存储为正常的双精度值。
 - en: The source code to generate the weights and nodes for the exponential fitted
     Gauss-Laguerre quadrature rule is available [here](https://github.com/klausspanderen/HestonExponentialFitting/blob/master/exponential_fitting/ef_laguerre.cpp).
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成指数拟合的高斯-拉盖尔积分规则的权重和节点的源代码在[这里](https://github.com/klausspanderen/HestonExponentialFitting/blob/master/exponential_fitting/ef_laguerre.cpp)。
 - en: The reference results for the comparison with the other Heston pricing methods
     are generated using a [boost multi-precision version](https://github.com/klausspanderen/HestonExponentialFitting/tree/master/ql/pricingengines/vanilla)
     of the Gauss-Laguerre pricing algorithm of order *N=2000*. Comparison with the
@@ -179,35 +250,51 @@
     exponentially fitted Gauss-Laguerre quadrature rule is always carried out using
     *N=48* nodes, corresponding to only 48 valuations of the characteristic function.
     First example model is
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 与其他 Heston 定价方法进行比较的参考结果是使用* N=2000 *的高斯-拉盖尔定价算法的[boost多精度版本](https://github.com/klausspanderen/HestonExponentialFitting/tree/master/ql/pricingengines/vanilla)生成的。与*N=1500*和*N=2500*的结果进行比较可以确保结果的正确性。指数拟合的高斯-拉盖尔积分规则始终使用*N=48*节点进行，对应于对特征函数的仅仅48次估值。第一个示例模型是
 - en: '![\displaystyle s=1.0, t=1,v_0=0.04, \kappa=2.5,\theta=0.06, \sigma=0.75,\rho=-0.1](img/fc92c2c5ac5ac355b3324dcdf80f6f03.png)'
+  id: totrans-39
   prefs: []
   type: TYPE_IMG
+  zh: '![显示样式为s=1.0, t=1, v_0=0.04, κ=2.5,θ=0.06, σ=0.75, ρ=-0.1](img/fc92c2c5ac5ac355b3324dcdf80f6f03.png)'
 - en: '![expfit1](img/e294e1d4d28df38f78f17053ab9b2ecd.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_IMG
+  zh: '![expfit1](img/e294e1d4d28df38f78f17053ab9b2ecd.png)'
 - en: Exponential fitting outperforms the other methods especially when taking the
     total number of characteristic function valuations into consideration. As expected
     the method works remarkable well for deep OTM/ITM options and ensures that the
     absolute pricing error stays below ![10^{-15}](img/b76a7a9e0092f8a1913e4d5d37865b4f.png)
     for an extremely large range of option strikes. Next round, same model but ![t
     =10, \rho=-0.75](img/754f2fb61d8e11bf7428bb3041e6c452.png).
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 指数拟合在特征函数估值总数方面表现优异，特别是在深度虚值/实值期权方面。如预期的那样，此方法在一系列期权行权价位下，确保绝对定价误差保持在![10^{-15}](img/b76a7a9e0092f8a1913e4d5d37865b4f.png)以下。下一轮，相同的模型但![t
+    =10, \rho=-0.75](img/754f2fb61d8e11bf7428bb3041e6c452.png)。
 - en: '![expfit2](img/7f84095748fe9957bf88ec99a5d85089.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_IMG
+  zh: '![expfit2](img/7f84095748fe9957bf88ec99a5d85089.png)'
 - en: Again the pricing error for exponential fitting stays below ![10^{-14}](img/cf2338e02a673f39f00df3fce4773674.png)
     for all moneynesses between -15 and 15 and well below the other methods. Next
     test, same model but very short maturity with ![t=\frac{1}{365}](img/78da107c5367e1a2a9c4c741ed684464.png).
     The COS-method with 250 calls of the characteristic function and exponential fitting
     with *N=48* are close together and outperform all other methods.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次，指数拟合的定价误差在所有行权价位在-15到15之间均保持在![10^{-14}](img/cf2338e02a673f39f00df3fce4773674.png)以下，远低于其他方法。下一个测试，相同的模型但到期日非常短，![t=\frac{1}{365}](img/78da107c5367e1a2a9c4c741ed684464.png)。
+    带特征函数调用250次的COS方法和*N=48*的指数拟合表现相近，且优于所有其他方法。
 - en: '![expfit3](img/233adb00d52b683757a5db0d172aeaef.png)'
+  id: totrans-44
   prefs: []
   type: TYPE_IMG
+  zh: '![expfit3](img/233adb00d52b683757a5db0d172aeaef.png)'
 - en: The same graphs are shown for a variety of different Heston parameters being
     used in the literature in the following [document](https://hpcquantlib.wordpress.com/wp-content/uploads/2020/05/heston_catalog-3.pdf).
     The exponentially fitted Gauss-Laguerre quadrature rule with only 64 nodes solves
@@ -216,23 +303,37 @@
     and outperforms the other methods, especially when taking the number of characteristic
     function calls needed into consideration. This method can also be extend to larger
     number of nodes.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样的图表展示了在文献中使用的各种不同Heston参数，详见下面的[文档](https://hpcquantlib.wordpress.com/wp-content/uploads/2020/05/heston_catalog-3.pdf)。仅使用64个节点的指数拟合牛顿-拉盖尔求积法几乎总是能解决问题，对于行权价位在-20到20之间的期权和在一天到10年之间的到期日，![\epsilon
+    < 10^{-13}](img/3fa7f83a92a6d80baab287cade1b3b38.png)，且在特征函数调用次数考虑时，性能优于其他方法。该方法还可扩展到更多节点。
 - en: The QuantLib implementation of the algorithm is part of the [PR#812](https://github.com/lballabio/QuantLib/pull/812).
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 该算法的QuantLib实现是[PR#812](https://github.com/lballabio/QuantLib/pull/812)的一部分。
 - en: '[1] Lewis, A. [A simple option formula for general jump-diffusion and other
     exponential Lévy processes](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=282110)'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Lewis, A. [一种适用于一般跳跃扩散和其他指数Lévy过程的简单期权定价公式](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=282110)'
 - en: '[2] F. Le Floc’h, [Fourier Integration and Stochastic Volatility Calibration.](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2362968)'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] F. Le Floc’h, [傅里叶积分与随机波动率校准](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2362968)'
 - en: '[3] L. Andersen, and V. Piterbarg, 2010,  Interest Rate Modeling, Volume I:
     Foundations and Vanilla Models,  Atlantic Financial Press London.'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] L. Andersen, 和 V. Piterbarg, 2010,  利率建模, 第I卷: 基础与香草模型,  Atlantic Financial
+    Press London.'
 - en: '[4] D. Conte, L. Ixaru, B. Paternoster, G. Santomauro, [Exponentially-fitted
     Gauss–Laguerre quadrature rule for integrals over an unbounded interval.](https://www.sciencedirect.com/science/article/pii/S0377042713003385)'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '[4] D. Conte, L. Ixaru, B. Paternoster, G. Santomauro, [用于无界区间上积分的指数拟合牛顿-拉盖尔求积法](https://www.sciencedirect.com/science/article/pii/S0377042713003385)'
