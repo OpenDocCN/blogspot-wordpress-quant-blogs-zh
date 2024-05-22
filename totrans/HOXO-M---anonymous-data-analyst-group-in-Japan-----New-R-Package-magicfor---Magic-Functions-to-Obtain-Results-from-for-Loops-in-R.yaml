@@ -1,314 +1,494 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:47:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 06:47:33
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : New R Package magicfor -
     Magic Functions to Obtain Results from for Loops in R'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 匿名日本数据分析小组 - ：新的 R 包 magicfor - 用于在 R 中通过 for 循环获得结果的魔法函数
 - en: 来源：[http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01](http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01](http://mockquant.blogspot.com/2016/12/new-r-package-magicfor-magic-functions.html#0001-01-01)
 - en: What is inconvenience of for loops in R? It is that results you get will be
     gone away. So we have created a package to store the results automatically. To
     do it, you only need to cast one line spell `magic_for()`. In this text, we tell
     you about how to use the magic.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: R 中for循环的不便之处是什么？那就是您得到的结果会消失。因此，我们创建了一个包来自动存储结果。要做到这一点，您只需要施展一行咒语`magic_for()`。在本文中，我们将告诉您如何使用这种魔法。
 - en: 1\. Overview
+  id: totrans-7
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 1\. 概述
 - en: '`for()` is one of the most popular functions in R. As you know, it is used
     to create loops.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '`for()` 是 R 中最流行的函数之一。如您所知，它用于创建循环。'
 - en: For example, let’s calculate squared values for 1 to 3.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，让我们计算1到3的平方值。
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: It is very easy.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这非常容易。
 - en: However, it becomes too much hassle to change such codes to store printed results.
     You must prepare some containers with correct length for storing results and change
     `print()` to assignment statements.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，将这些代码改成存储打印结果就会变得太麻烦。您必须准备一些具有正确长度的容器来存储结果，并将`print()`更改为赋值语句。
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Moreover, you may want to store results as a data.frame with iteration numbers.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，您可能希望在数据框中以迭代编号存储结果。
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: What a bother!
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 真是麻烦！
 - en: In such or more troublesome situations like that you have to store many variables,
     codes will grow more complex.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在像您必须存储许多变量的这样或更麻烦的情况下，代码将变得更加复杂。
 - en: The **magicfor** package makes to resolve the problem being kept readability.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**magicfor** 包使得保持可读性的问题得到解决。'
 - en: You just add two lines before for loops. First, load the library. Second, call
     `magic_for()`. Notice that the main for loop is kept intact.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在for循环之前只需添加两行。首先，加载库。第二，调用`magic_for()`。请注意，主for循环保持不变。
 - en: '[PRE3]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '`magic_for()` takes a function name, and reconstructs `for()` to remember values
     passed to the specified function in for loops. We call it *magicalization*. Once
     you call `magic_for()`, as you just exectute `for()` as usual, the result will
     be stored in memory automatically.'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '`magic_for()`接受函数名，并重新构造`for()`以记住在for循环中传递给指定函数的值。我们称之为*魔法化*。一旦调用`magic_for()`，就像通常一样执行`for()`，结果将自动存储在内存中。'
 - en: Here, let’s use `magic_result_as_vector()` to access the stored values.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，让我们使用`magic_result_as_vector()`来访问存储的值。
 - en: '[PRE4]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: This is one of the functions to obtain results from *magicalized for loops*,
     and means to take out the results as a vector.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是从*魔法化的for循环*获取结果的函数之一，意味着以向量的形式取出结果。
 - en: Even if the number of observed variables increases, you can do it the same way.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使观察变量数量增加，您也可以以相同的方式完成。
 - en: '[PRE5]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '`put()` is the default function to store values in magicalized for loops. It
     allows to take any number of variables and can display them.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '`put()`是在魔法化的for循环中存储值的默认函数。它允许接受任意数量的变量，并且可以显示它们。'
 - en: 2\. Installation
+  id: totrans-28
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 2\. 安装
 - en: You can install the **magicfor** package from CRAN.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以从 CRAN 安装**magicfor** 包。
 - en: '[PRE6]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: The source code for **magicfor** package is available on GitHub at
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**magicfor** 包的源代码可在 GitHub 上找到'
 - en: 3\. Details
+  id: totrans-32
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 3\. 详细信息
 - en: 'The **magicfor** package provides the functions as follows:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**magicfor** 包提供以下函数：'
 - en: '`magic_for()`: Magicalize for.'
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`magic_for()`: 魔法化for。'
 - en: '`magic_free()`: Cancel magicalization.'
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`magic_free()`: 取消魔法化。'
 - en: 'Get results:'
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 获取结果：
 - en: '`magic_result()`: as a list.'
+  id: totrans-37
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`magic_result()`: 作为列表。'
 - en: '`magic_result_as_vetor()`: as a vector.'
+  id: totrans-38
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`magic_result_as_vetor()`: 作为向量。'
 - en: '`magic_result_as_dataframe()`: as a data.frame.'
+  id: totrans-39
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`magic_result_as_dataframe()`: 作为数据框。'
 - en: '`put()`: Display values.'
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`put()`: 显示值。'
 - en: In the following, we assume that the library is loaded to use the functions.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下文中，我们假设已加载库以使用这些函数。
 - en: '[PRE7]'
+  id: totrans-42
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: 3.1 Basics
+  id: totrans-43
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.1 基础知识
 - en: The main function `magic_for()` magicalize for loops. *Magicalize* means to
     change the behavior of `for()` to store values outputted via target functions.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 主函数`magic_for()`将for循环进行魔法化。 *魔法化* 意味着更改`for()`的行为以存储通过目标函数输出的值。
 - en: '[PRE8]'
+  id: totrans-45
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: 'The default target function is `put()`. It displays input values, for example:'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 默认的目标函数是`put()`。它显示输入值，例如：
 - en: '[PRE9]'
+  id: totrans-47
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'
 - en: You can take out stored values using `magic_result_**()` when for loops have
     finished.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 当for循环完成时，您可以使用`magic_result_**()`取出存储的值。
 - en: '[PRE10]'
+  id: totrans-49
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE10]'
 - en: 3.2 `magic_for()`
+  id: totrans-50
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.2 `magic_for()`
 - en: '`magic_for()` has several options.'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '`magic_for()`有几个选项。'
 - en: Specify the first argument `func`, you can change target functions.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 指定第一个参数`func`，你可以更改目标函数。
 - en: '[PRE11]'
+  id: totrans-53
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE11]'
 - en: If `progress = TRUE`, show progress bar.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果`progress = TRUE`，显示进度条。
 - en: '[PRE12]'
+  id: totrans-55
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE12]'
 - en: '[PRE13]'
+  id: totrans-56
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE13]'
 - en: If you set `test` a number, the iteration is limited to that number of times.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你设置`test`为一个数字，那么迭代将被限制在这个次数。
 - en: '[PRE14]'
+  id: totrans-58
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE14]'
 - en: If `silent = TRUE`, target function will be not executed but only the values
     will be stored.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果`silent = TRUE`，目标函数将不会被执行，但只有值将被存储。
 - en: If `temp = TRUE`, the effect of magicalization will be lost after once execution
     of for loop.
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果`temp = TRUE`，魔法化效果将在for循环执行一次后丢失。
 - en: '[PRE15]'
+  id: totrans-61
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE15]'
 - en: 3.3 `magic_free()`
+  id: totrans-62
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.3 `magic_free()`
 - en: You can use `magic_free()` to cancel magicalization.
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以使用`magic_free()`来取消魔法化。
 - en: '[PRE16]'
+  id: totrans-64
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE16]'
 - en: The function also clear the stored values.
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 该函数还清除了存储的值。
 - en: '[PRE17]'
+  id: totrans-66
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE17]'
 - en: 3.4 `magic_result_**()`
+  id: totrans-67
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.4 `magic_result_**()`
 - en: You can use `magic_result_**()` to obtain results from magicalized for loops.
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以使用`magic_result_**()`从魔法化的for循环中获取结果。
 - en: '[PRE18]'
+  id: totrans-69
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE18]'
 - en: '`magic_result()` returns results as a list.'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '`magic_result()`以列表的形式返回结果。'
 - en: '[PRE19]'
+  id: totrans-71
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE19]'
 - en: '`magic_result_as_vector()` returns results as a vector.'
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: '`magic_result_as_vector()`以向量的形式返回结果。'
 - en: '[PRE20]'
+  id: totrans-73
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE20]'
 - en: '`magic_result_as_dataframe()` returns results as a data.frame.'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '`magic_result_as_dataframe()`以data.frame的形式返回结果。'
 - en: '[PRE21]'
+  id: totrans-75
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE21]'
 - en: 3.5 `put()`
+  id: totrans-76
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 3.5 `put()`
 - en: '`put()` displays input values with high flexibility.'
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: '`put()`以高度灵活的方式显示输入值。'
 - en: '[PRE22]'
+  id: totrans-78
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE22]'
 - en: It is very useful for **magicfor**.
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: 它对**magicfor**非常有用。
 - en: '[PRE23]'
+  id: totrans-80
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE23]'
 - en: 4\. Miscellaneous
+  id: totrans-81
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 4\. 其他
 - en: Whenever you put just variables in magicalized for loops, their values will
     be stored regardless of target functions.
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你只在魔法化的for循环中放置变量时，它们的值将被存储，而不管目标函数如何。
 - en: '[PRE24]'
+  id: totrans-83
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE24]'
 - en: When you write trarget functions inside of if statements without else, `NA`
     will be inserted to represent missing.
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你在if语句内部写入目标函数而没有else时，会插入`NA`表示缺失。
 - en: '[PRE25]'
+  id: totrans-85
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE25]'
 - en: Target functions work only top level lines or inside of if statements in magicalized
     for loops. For example, it does not work inside nested for loops.
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标函数仅适用于魔法化的for循环中的顶层行或if语句内部。例如，在嵌套的for循环中不起作用。
 - en: '[PRE26]'
+  id: totrans-87
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE26]'
 - en: 5\. Bug Reports
+  id: totrans-88
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 5\. Bug报告
 - en: https://github.com/hoxo-m/magicfor/issues
+  id: totrans-89
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: https://github.com/hoxo-m/magicfor/issues

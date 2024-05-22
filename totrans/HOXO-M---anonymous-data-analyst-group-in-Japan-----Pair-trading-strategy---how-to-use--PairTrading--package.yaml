@@ -1,161 +1,259 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:48:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日06:48:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Pair trading strategy :
     how to use "PairTrading" package'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'HOXO-M - 日本匿名数据分析小组 - : 对倒交易策略：如何使用“PairTrading”包'
 - en: 来源：[http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01](http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01](http://mockquant.blogspot.com/2011/10/introduction-to-pairtrading-package.html#0001-01-01)
 - en: This article shows you how you can use it.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文向您展示了如何使用它。
 - en: The pair trading is a market neutral trading strategy and gives traders a chance
     to profit regardless of market conditions. The idea of this strategy is quite
     simple.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对倒交易是一种市场中性交易策略，让交易者有机会在任何市场情况下获利。这种策略的理念非常简单。
 - en: '1 : Select two stocks(or any assets) moving similarly'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1：选择两只（或任何资产）走势相似的股票
 - en: '2 : Short out-performing stock, buy under-performing one'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2：做空表现优异的股票，买入表现不佳的股票
 - en: '3 : If "spread"(price difference between two stocks)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3：如果“价差”（两只股票之间的价格差异）
 - en: converge, close your position.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 收敛，请平仓。
 - en: So, Let's start to explain how to use this package.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，让我们开始解释如何使用这个包。
 - en: (This example is in PDF manual of this package)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: （这个例子在该包的PDF手册中）
 - en: '**0: Install & load package**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**0：安装和加载包**'
 - en: You can install and load "PairTrading" package via CRAN in the same way as other
     packages.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以像加载其他包一样通过CRAN安装和加载“PairTrading”包。
 - en: '**1: Load sample data**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**1：加载样本数据**'
 - en: We prepared sample stock price data in our package. You can load it by using
     "data" command.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在包中准备了样本股价数据。您可以使用“data”命令加载它。
 - en: '[PRE0]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '**2: Estimate parameters**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2：估计参数**'
 - en: Next, We extract two stock prices(from 31 Mar, 2008) and estimate parameters.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们提取两只股票价格（从2008年3月31日）并估计参数。
 - en: '[PRE1]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: At the moment, we have only normal linear regression method to estimate parameters,
     but we will develop more sophisticated method in the future.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 目前，我们只有正常的线性回归方法来估计参数，但将来我们将开发更复杂的方法。
 - en: The estimation result contains the following contents.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 估计结果包括以下内容。
 - en: '[PRE2]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The most important thing in this estimation is "spread", then we try to plot
     it.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个估计中最重要的是“价差”，然后我们尝试绘制它。
 - en: And, you can check the stationarity of that by using "IsStationary" function.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 而且，您可以使用“IsStationary”函数检查其平稳性。
 - en: This function return the result of two types unit root test.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个函数返回两种单位根检验的结果。
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: ( augmented Dickey–Fuller test (ADF) and
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: （增广迪基-福勒检验（ADF）和
 - en: 'Phillips-Perron test) **3: Estimate parameters for back-test**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**3：为回测估计参数**'
 - en: To run back-test, you have to estimate parameters historically by using "EstimateParametersHistorically
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 要运行回测，您必须使用“EstimateParametersHistorically”（菲利普斯-佩隆检验）历史估计参数。
 - en: '"'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '"'
 - en: function. This function do something like "rolling regression" to estimate parameters.
     This point is different from "EstimateParameter" function.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 方法。这个函数做了类似“滚动回归”的事情来估计参数。这一点与“EstimateParameter”函数不同。
 - en: '[PRE4]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '**4: Create trading signal**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**4：创建交易信号**'
 - en: Next, you create trading singal using estimated spread. "Simple" function give
     a very simple trading strategy(If The spread is more(less) than specified value,
     you will buy(sell))
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，您可以使用估计的价差创建交易信号。“Simple”函数提供了一个非常简单的交易策略（如果价差高于（低于）指定值，则买入（卖出））。
 - en: '[PRE5]'
+  id: totrans-37
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: In this case, The trading signal is drawn as below.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，交易信号如下图所示。
 - en: Last, you can check the performance of pair trading by using "Return" function.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，您可以使用“Return”函数检查对倒交易的绩效。
 - en: '[PRE6]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: In this case, our strategy seems to work correctly :-)
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，我们的策略似乎工作正常:-)
 - en: '**6: Conclusion and remarks**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**6：结论和备注**'
 - en: Pair trading is well-known trading strategy, and I introduced "PairTrading"
     package in this article.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 对倒交易是一个众所周知的交易策略，在本文中介绍了“PairTrading”包。
 - en: We would like to modify this package to be more useful and fit in real-market.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们希望修改这个包，使其更实用，并适用于真实市场。
 - en: If you have any suggestion, please let me know.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您有任何建议，请告诉我。
 - en: And we created a presentation slide to explain the basic concept of pair trading.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还创建了一个演示幻灯片来解释对倒交易的基本概念。
 - en: It may be useful for you to understand the basic concept of pair trading if
     you are interested in it.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您对此感兴趣，了解对倒交易的基本概念可能会对您有帮助。
 - en: Enjoy!
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 祝您愉快！
