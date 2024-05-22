@@ -2,34 +2,42 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:47:41'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:47:41
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : githubinstall - New R Package
     for Easy to Install R Packages on GitHub'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'HOXO-M - 日本匿名数据分析小组 - : githubinstall - New R Package for Easy to Install R
+    Packages on GitHub'
 - en: 来源：[http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01](http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01](http://mockquant.blogspot.com/2016/06/githubinstall-new-r-package-for-easy-to.html#0001-01-01)
 - en: 1\. Overview
   id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 1\. 概述
 - en: A growing number of R packages are created by various people in the world. A
     part of the cause of it is the **devtools** package that makes it easy to develop
     R packages [[1]](https://www.rstudio.com/products/rpackages/devtools/). The **devtools**
@@ -38,12 +46,16 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 越来越多的R软件包是由世界各地的各种人创建的。 其部分原因是 **devtools** 软件包，它使得开发R软件包变得容易 [[1]](https://www.rstudio.com/products/rpackages/devtools/)。
+    **devtools** 软件包不仅简化了开发R软件包的流程，还提供了另一种分发R软件包的方法。
 - en: 'When developers publish R packages, the CRAN [[2]](https://cran.r-project.org)
     is commonly used. You can install the packages that are available on CRAN using
     `install.package()`. For example, you can install **dplyr** package as follows:'
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 开发人员发布R软件包时，通常会使用CRAN [[2]](https://cran.r-project.org)。 您可以使用`install.package()`安装可以在CRAN上获得的软件包。
+    例如，您可以按照以下方式安装**dplyr**软件包：
 - en: '[PRE0]'
   id: totrans-9
   prefs: []
@@ -54,6 +66,7 @@
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**devtools** 软件包提供了`install_github()`，可以从GitHub安装软件包。'
 - en: '[PRE1]'
   id: totrans-11
   prefs: []
@@ -67,6 +80,9 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，开发人员可以在GitHub上开发R软件包，并进行分发。 此外，还有一些开发人员，他们并没有打算提交到CRAN。 例如，Twitter, Inc.
+    在GitHub上提供了**AnomalyDetection**软件包，但它将不会在CRAN上提供 [[3]](https://blog.twitter.com/2015/introducing-practical-and-robust-anomaly-detection-in-a-time-series)。
+    您可以使用**devtools**轻松安装这样的软件包。
 - en: '[PRE2]'
   id: totrans-13
   prefs: []
@@ -79,6 +95,8 @@
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '`install.packages()` 和 `install_github()` 在所需参数上有所不同。 `install.packages()`
+    需要软件包名称，而`install_github()` 需要仓库名称。 这意味着当您想要在GitHub上安装一个软件包时，您必须正确记住其仓库名称。'
 - en: The trouble is that the usernames of GitHub are often hard to remember. Developers
     consider the package names so that users can understand the functionalities intuitively.
     However, they often decide username incautiously. For instance, **ggfortify**
@@ -88,11 +106,15 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 麻烦的是GitHub的用户名经常很难记住。 开发人员考虑软件包名称，以便用户可以直观地理解其功能。 但是，他们常常粗心地决定用户名。 例如，**ggfortify**
+    是GitHub上一个很棒的软件包，但是谁创建了它？用户名是什么？答案是 *sinhrks* [[4]](https://github.com/sinhrks/ggfortify)。
+    似乎很难记住它。
 - en: The **githubinstall** package provides a way to install packages on GitHub by
     only the package names just like `install.packages()`.
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**githubinstall** 软件包提供了一种方式，可以仅凭借软件包名称就像`install.packages()`一样在GitHub上安装软件包。'
 - en: '[PRE3]'
   id: totrans-17
   prefs: []
@@ -108,11 +130,13 @@
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '`githubinstall()` 会根据软件包名称建议GitHub仓库，并询问您是否要执行安装。'
 - en: Furthermore, you may succeed in installing packages from a faint memory because
     our package automatically correct its spelling by fuzzy string search.
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，您可能会成功安装软件包，即使只是凭借模糊的字符串搜索也能自动纠正其拼写，因为我们的软件包会自动纠正其拼写，从而对模糊的字符串搜索进行模糊查询。
 - en: '[PRE5]'
   id: totrans-21
   prefs: []
@@ -123,10 +147,12 @@
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 2\. 安装
 - en: You can install the **githubinstall** package from CRAN.
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以从CRAN安装**githubinstall**软件包。
 - en: '[PRE6]'
   id: totrans-24
   prefs: []
@@ -136,35 +162,42 @@
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**githubinstall** 软件包的源代码可以在GitHub上找到'
 - en: 3\. Details
   id: totrans-26
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 3\. 详情
 - en: The **githubinstall** package provides several useful functions.
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**githubinstall** 软件包提供了几个有用的函数。'
 - en: '`githubinstall()` or `gh_install_packages()`'
   id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`githubinstall()` 或 `gh_install_packages()`'
 - en: '`gh_suggest()`'
   id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_suggest()`'
 - en: '`gh_suggest_username()`'
   id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_suggest_username()`'
 - en: '`gh_list_packages()`'
   id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '`gh_list_packages()`'
 - en: '`gh_search_packages()`'
   id: totrans-32
   prefs:

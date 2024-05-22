@@ -1,106 +1,170 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:47:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:47:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : githubinstall 0.1.0: New
     Feature for A Helpful Way to Install R Packages Hosted on GitHub'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 日本的匿名数据分析师团队 - ：githubinstall 0.1.0：安装在 GitHub 上托管的 R 包的新功能
 - en: 来源：[http://mockquant.blogspot.com/2016/08/githubinstall-010-new-feature-for.html#0001-01-01](http://mockquant.blogspot.com/2016/08/githubinstall-010-new-feature-for.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2016/08/githubinstall-010-new-feature-for.html#0001-01-01](http://mockquant.blogspot.com/2016/08/githubinstall-010-new-feature-for.html#0001-01-01)
 - en: We have updated our **githubinstall** package. It is now on [CRAN](https://cran.rstudio.com/web/packages/githubinstall/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们已经更新了我们的**githubinstall**软件包。现在它在[CRAN](https://cran.rstudio.com/web/packages/githubinstall/)
+    上了。
 - en: Basics
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 基础知识
 - en: Using the package, you can install R packages hosted on GitHub without usernames.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用该软件包，您可以在 GitHub 上安装 R 包而不需要用户名。
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: We introduced the package in [the previous entry](http://mockquant.blogspot.jp/2016/06/githubinstall-new-r-package-for-easy-to.html).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在[之前的条目](http://mockquant.blogspot.jp/2016/06/githubinstall-new-r-package-for-easy-to.html)
+    中介绍了该软件包。
 - en: You can install or update the package as follows.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以按照以下方式安装或更新软件包。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: New Feature
+  id: totrans-13
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 新功能
 - en: We have added a new feature to the new version of the package.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在新版本的软件包中添加了一个新功能。
 - en: Now, you can install packages with specifying Git references (branch, tag, commit
     and pull request).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，您可以通过指定 Git 引用（分支、标签、提交和拉取请求）来安装软件包。
 - en: Developers are divided in policy to manage R packages on GitHub. If a package
     is going to be developed in "develop" branch, you may want to install the package
     from the branch.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 开发者们在 GitHub 上管理 R 包的政策上存在分歧。如果一个软件包将在“develop”分支开发，您可能希望从该分支安装软件包。
 - en: '`gh_install_packages()` has `ref` argument to specify Git references. For instance,
     you can install **awaptools** from the ["develop" branch](https://github.com/swish-climate-impact-assessment/awaptools/tree/develop)
     as follows:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '`gh_install_packages()` 有 `ref` 参数以指定 Git 引用。例如，您可以按照以下方式从 ["develop" 分支](https://github.com/swish-climate-impact-assessment/awaptools/tree/develop)
+    安装**awaptools**：'
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'You may sometimes encounter failing to install packages because its repository
     HEAD is broken. In such case, you can specify a tag or commit to `ref`. In almost
     cases, tags are added on an unbroken commit. For instance, you can install **densratio**
     from the [“v0.0.3” tag](https://github.com/hoxo-m/densratio/releases/tag/v0.0.3)
     as follows:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '有时您可能遇到安装软件包失败的情况，因为其存储库 HEAD 已经损坏。在这种情况下，您可以指定一个标签或提交到 `ref`。在几乎所有情况下，标签是添加到未损坏提交中的。例如，您可以从
+    [“v0.0.3” 标签](https://github.com/hoxo-m/densratio/releases/tag/v0.0.3) 安装**densratio**
+    如下： '
 - en: '[PRE3]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'Even if you cannot find such tags, you can install packages from any commit
     that is not broken. For instance, you can install **densratio** from the [“e8233e6”
     commit](https://github.com/hoxo-m/densratio/commit/e8233e651dbef2b34a8c9c2e4432594a13ea8de7)
     as follows:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使您找不到这样的标签，也可以从未损坏的任何提交中安装软件包。例如，您可以按照以下方式从 [“e8233e6” 提交](https://github.com/hoxo-m/densratio/commit/e8233e651dbef2b34a8c9c2e4432594a13ea8de7)
+    安装**densratio**：
 - en: '[PRE4]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: 'Finally, you may find a patch for fixing bugs as a pull request. In such case,
     you can specify pull requests to `ref` using `github_pull()`. For instance, you
     can install **dplyr** from the [pull request #2058](https://github.com/hadley/dplyr/pull/2058)
     as follows:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，您可以作为拉取请求找到修复错误的补丁。在这种情况下，您可以使用 `github_pull()` 指定拉取请求到 `ref`。例如，您可以按照以下方式从
+    [拉取请求＃2058](https://github.com/hadley/dplyr/pull/2058) 安装**dplyr**：
 - en: '[PRE5]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: Bug Fixes
+  id: totrans-25
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 修复的 Bug
 - en: We have fixed some bugs reported on [Issues](https://github.com/hoxo-m/githubinstall/issues).
     It has detailed on [NEWS](https://github.com/hoxo-m/githubinstall/releases/tag/v0.1.0).
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们已经修复了一些在 [Issues](https://github.com/hoxo-m/githubinstall/issues) 上报告的错误。这些已在
+    [NEWS](https://github.com/hoxo-m/githubinstall/releases/tag/v0.1.0) 上有详细说明。
 - en: If you find some bugs or need new features, we would appreciate reporting it.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您发现了一些错误或需要新功能，我们将不胜感激。
