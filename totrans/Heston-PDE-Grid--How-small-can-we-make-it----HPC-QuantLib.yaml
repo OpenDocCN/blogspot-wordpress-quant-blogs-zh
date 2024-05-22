@@ -1,70 +1,109 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:12:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:12:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Heston PDE Grid: How small can we make it? – HPC-QuantLib'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Heston PDE Grid: How small can we make it? – HPC-QuantLib'
 - en: 来源：[https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01](https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 源自：[https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01](https://hpcquantlib.wordpress.com/2021/05/25/heston-pde-grid-how-small-can-we-make-it/#0001-01-01)
 - en: The aim is to apply the techniques used in [Arbitrary Number of Stencil Points](https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/)
     to the partial differential equation (PDE) of the Heston model with ![x_t = \ln
     S_t](img/16f746d6b95837f7e9cfec20abd14a6d.png)
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标是将用在[任意数目的差分点](https://hpcquantlib.wordpress.com/2018/06/05/arbitrary-number-of-stencil-points/)的技巧应用到具有![x_t
+    = \\ln S_t](img/16f746d6b95837f7e9cfec20abd14a6d.png)的Heston模型的偏微分方程（PDE）中。
 - en: '![\displaystyle  0 = \frac{\partial u}{\partial t} +\frac{1}{2}\nu\frac{\partial^2
     u}{\partial x^2}  + \left(r_t-q_t -\frac{\nu}{2}\right)\frac{\partial u}{\partial
     x} + \rho\sigma\nu \frac{\partial^2 u}{\partial \nu \partial x} +\frac{1}{2}\sigma^2\nu\frac{\partial^2
     u}{\partial \nu^2} + \kappa(\theta - \nu) \frac{\partial u}{\partial \nu}-r_tu](img/f384ae2a09f7838f35121cd7463a761b.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_IMG
+  zh: '![\\displaystyle  0 = \\frac{\\partial u}{\\partial t} +\\frac{1}{2}\\nu\\frac{\\partial^2
+    u}{\\partial x^2}  + \\left(r_t-q_t -\\frac{\\nu}{2}\\right)\\frac{\\partial u}{\\partial
+    x} + \\rho\\sigma\\nu \\frac{\\partial^2 u}{\\partial \\nu \\partial x} +\\frac{1}{2}\\sigma^2\\nu\\frac{\\partial^2
+    u}{\\partial \\nu^2} + \\kappa(\\theta - \\nu) \\frac{\\partial u}{\\partial \\nu}-r_tu](img/f384ae2a09f7838f35121cd7463a761b.png)'
 - en: to get – for a given accuracy – to the smallest possible lattice grids. The
     Heston model parameters at hand are
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了在给定的精度下得到最小可能的网格。手头上的Heston模型参数是
 - en: '![\displaystyle S_0 = 100, v_0 = 0.04, \kappa = 1, \theta = v_0, \sigma=0.2,
     \rho=-0.75, r=5\%, q=0\%](img/4e5ac95d235d554373299178312a9555.png),'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![\\displaystyle S_0 = 100, v_0 = 0.04, \\kappa = 1, \\theta = v_0, \\sigma=0.2,
+    \\rho=-0.75, r=5\\%, q=0\\%](img/4e5ac95d235d554373299178312a9555.png),'
 - en: the strikes of the benchmark options are given by
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 基准期权的行权价为
 - en: '![\displaystyle k\in \{50, 75, 90, 100, 110, 125, 150, 200\}](img/f566faea1dfbb25956061e577152528b.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\\displaystyle k\\in \\{50, 75, 90, 100, 110, 125, 150, 200\\}](img/f566faea1dfbb25956061e577152528b.png)'
 - en: and the maturity of the options should be one year. First let’s use a five point
     stencil in ![x](img/a02ca3461b38d94f9ca87463267dd179.png) direction. As expected
     the order of convergence is increasing from second to fourth order.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 而期权的到期日应该为一年。首先让我们在![x](img/a02ca3461b38d94f9ca87463267dd179.png)方向上使用五点差分。如预期的那样，收敛阶在从二阶到四阶递增。
 - en: The same experiment but now with five point stencil also in ![\nu](img/cafd388c0e801cfe79db6142b0511d49.png)
     direction is shown below. Finite lattice effects show-up already at relatively
     small lattices due to the high convergence speed.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是同样的实验，但现在在![\\nu](img/cafd388c0e801cfe79db6142b0511d49.png)方向也使用五点差分。由于收敛速度较快，即使是在相对较小的格点上，也已经出现了有限格效应。
 - en: In time direction Richardson extrapolation can be used to increase the order
     of convergence from two to three.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间方向上可以使用Richardson外推将收敛阶从二阶外推到三阶。
 - en: So finally for this parameter set if the aim is to get the average pricing error
     below ![\displaystyle 10^{-3}](img/b2b9278c24f8abb4e84a51e1c228657d.png) then
     a lattice size of
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以最终，对于这组参数，如果目标是使平均定价误差低于![\\displaystyle 10^{-3}](img/b2b9278c24f8abb4e84a51e1c228657d.png)，那么网格大小为
 - en: '![\displaystyle x\times\nu\times T = 50\times 10 \times 20](img/4b95ce8ce708afea17a46786bafa25e6.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![\\displaystyle x\\times\\nu\\times T = 50\\times 10 \\times 20](img/4b95ce8ce708afea17a46786bafa25e6.png)'
 - en: seems to be sufficient when using five point stencil operators in ![x](img/a02ca3461b38d94f9ca87463267dd179.png)
     and ![\nu](img/cafd388c0e801cfe79db6142b0511d49.png) direction and Richardson
     extrapolation in time direction. Unfortunately for a given accuracy this technique
@@ -72,8 +111,12 @@
     inversion for the Crank-Nicolson scheme has to be carried out by an iterative
     solver, namely by BiCGstab. The code for the numerical experiments can be found
     in the test case
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 似乎使用![x](img/a02ca3461b38d94f9ca87463267dd179.png)和![\\nu](img/cafd388c0e801cfe79db6142b0511d49.png)方向的五点差分算子和时间方向的Richardson外推就足够了。不幸的是，对于给定的精度，这一技术比通常的技术要慢，如算子分裂，因为Crank-Nicolson格式的矩阵求逆必须由一个迭代求解器完成，也就是BiCGstab。数值实验的代码可以在测试用例
 - en: '[`NthOrderDerivativeOpTest::testHigerOrderHestonOptionPricing()`](https://github.com/lballabio/QuantLib/blob/master/test-suite/nthorderderivativeop.cpp).'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[`NthOrderDerivativeOpTest::testHigerOrderHestonOptionPricing()`](https://github.com/lballabio/QuantLib/blob/master/test-suite/nthorderderivativeop.cpp)中找到。'

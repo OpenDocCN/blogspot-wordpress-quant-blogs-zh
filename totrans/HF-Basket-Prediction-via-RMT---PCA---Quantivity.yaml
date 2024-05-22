@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:53:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:53:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: HF Basket Prediction via RMT / PCA | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过RMT / PCA进行HF篮子预测 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2010/08/22/high-frequency-prediction-via-rmt-pca/#0001-01-01](https://quantivity.wordpress.com/2010/08/22/high-frequency-prediction-via-rmt-pca/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2010/08/22/high-frequency-prediction-via-rmt-pca/#0001-01-01](https://quantivity.wordpress.com/2010/08/22/high-frequency-prediction-via-rmt-pca/#0001-01-01)
 - en: What if *robust* principal components could be identified for arbitrary baskets
     *in real-time* and used for HF *intra-day* prediction? Such would be an essence
     of high-frequency [market regimes](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果*稳健的*主要成分可以在实时中为任意篮子进行识别，并用于HF*日内*预测呢？这将是高频[市场制度](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/)的精髓。
 - en: '[Tanaka-Yamawaki](http://irene.ike.tottori-u.ac.jp/mieko/profile_e.html) posits
     the emerging existence of such a methodology in an [abstract](http://www.phys.sinica.edu.tw/~socioecono/econophysics2010/pdf/TanakaYamawakiAbstract.pdf)
     for upcoming [KES2010](http://kes2010.kesinternational.org/) and [Econophysics
@@ -30,16 +44,22 @@
     This work builds upon Plerou *et al.*, who pioneered applying [random matrix theory](http://en.wikipedia.org/wiki/Random_matrix)
     (RMT, aka stochastic eigenanalysis) to analysis of cross-correlations of equity
     price changes in [Random Matrix Approach to Cross Correlation in Financial Data](http://arxiv.org/abs/cond-mat/0108023).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[田中山胁](http://irene.ike.tottori-u.ac.jp/mieko/profile_e.html)提出了这种方法的新兴存在，并在即将举行的[KES2010](http://kes2010.kesinternational.org/)和[经济物理学研讨会2010年](http://www.phys.sinica.edu.tw/~socioecono/econophysics2010/)的[摘要](http://www.phys.sinica.edu.tw/~socioecono/econophysics2010/pdf/TanakaYamawakiAbstract.pdf)中论证了这一点。这项工作依托了Plerou等人的研究，他们首次将[随机矩阵理论](http://en.wikipedia.org/wiki/Random_matrix)（RMT，又名随机特征分析）应用于[金融数据中交叉相关性的随机矩阵方法](http://arxiv.org/abs/cond-mat/0108023)。'
 - en: 'While the concept of applying real-time PCA is hardly new, what may be new
     is: use of RMT for rigorously separating correlation signal from noise, doing
     so in real-time, and focus on intra-day prediction.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管实时PCA的应用概念并不新鲜，但可能新颖的是：使用RMT来严格地分离相关信号和噪音，在实时中这样做，并且专注于日内预测。
 - en: 'More specifically, Tanaka-Yamawaki introduces:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 更具体地讲，Tanaka-Yamawaki介绍了：
 - en: Some stocks exhibit strong correlation to other stocks…However, the networks
     of such correlation are unstable and the patterns are only temporal. In such a
     condition, a detailed description of the network may not be very useful, since
@@ -48,23 +68,33 @@
     short time, major components that characterize the motion of the market, it should
     give us a powerful tool to describe temporal characteristics of the market** and
     help us to set up a time varying model to predict the future move of such market
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 一些股票与其他股票存在强烈的相关性……然而，这种相关性的网络不稳定，模式只是临时的。在这种情况下，对网络的详细描述可能并不是非常有用，因为情况很快变化，过去的知识在新环境下已不再有效。然而，如果我们有**一个方法，在很短的时间内提取出表征市场运动主要成分的方法，那么这将给我们提供一个强大的工具来描述市场的时间特征**，并帮助我们建立一个预测这种市场未来走势的时变模型。
 - en: 'This analysis seems potentially fruitful along two dimensions:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种分析在两个方面似乎有潜在的成果：
 - en: 'HF dynamics: Plerou focused on lower-frequency (30-minute and daily) returns,
     thus missing out on high-frequency dynamics'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HF动态：Plerou专注于较低频率（30分钟和日常）收益，因此错过了高频动态。
 - en: 'HFT: interesting to identify which (if any) types of high-frequency trading
     effects are visible, as some are unlikely to be visible (*e.g.* single instrument
     front-running) while others may be visible (*e.g.* index arb)'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HFT：有趣的是识别哪些（如果有的话）高频交易类型的影响是可见的，因为一些影响不太可能可见（*例如*单个工具的前置交易），而其他一些影响可能是可见的（*例如*指数套利）。
 - en: Will be interesting to read the proceedings, when they are published.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当它们被发布时，阅读这些论文将会很有趣。
