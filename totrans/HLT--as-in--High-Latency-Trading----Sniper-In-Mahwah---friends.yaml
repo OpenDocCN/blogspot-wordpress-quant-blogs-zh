@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:14:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 14:14:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: HLT, as in “High Latency Trading” – Sniper In Mahwah & friends
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HLT, as in “High Latency Trading” – Sniper In Mahwah & friends
 - en: 来源：[https://sniperinmahwah.wordpress.com/2015/06/01/hlt-as-in-high-latency-trading/#0001-01-01](https://sniperinmahwah.wordpress.com/2015/06/01/hlt-as-in-high-latency-trading/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://sniperinmahwah.wordpress.com/2015/06/01/hlt-as-in-high-latency-trading/#0001-01-01](https://sniperinmahwah.wordpress.com/2015/06/01/hlt-as-in-high-latency-trading/#0001-01-01)
 - en: 'Some weeks ago I was interviewed by two Dutch journalists from VPRO about high-frequency
     trading. They wanted to talk about the microwave networks between London and Frankfurt
     and what they call “latency arbitrage”. The first part of the program is [here](http://argos.vpro.nl/seizoenen/2015/afleveringen/09-05-2015)
@@ -26,8 +38,10 @@
     case I I had never heard of: a study made by a Dutch broker named DeGiro discussing a
     Dutch smart order routing system named TOM which is supposed to provide “best
     execution”.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 数周前，我接受了VPRO的两名荷兰记者关于高频交易的采访。他们想要谈谈伦敦和法兰克福之间的微波网络及他们所说的“延迟套利”。节目的第一部分在[这里](http://argos.vpro.nl/seizoenen/2015/afleveringen/09-05-2015)（仅限荷兰语），第二部分在[这里](https://www.youtube.com/watch?v=6QO9DFUsA7U)（有视频和英文字幕）。后者侧重于我之前从未听说过的“延迟套利”：一项由荷兰经纪商DeGiro进行的研究，讨论了一个名为TOM的荷兰智能订单路由系统，该系统据说可以提供“最佳执行”。
 - en: The DeGiro findings were published in a fierce [report](https://www.degiro.nl/data/pdf/DEGIRO_Research_TOM.pdf),
     and one of the TOM co-owners, Binck (a DeGiro competitor as a broker), responded
     to the report, and then DeGiro responded to the Binck answer, and then the affair was
@@ -41,8 +55,12 @@
     there is something odd with the timestamps published by DeGiro. I don’t want to
     participate in the debate, but geography and information transmission are always
     interesting issues.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: DeGiro的研究结果发表在一份激烈的[报告](https://www.degiro.nl/data/pdf/DEGIRO_Research_TOM.pdf)中，TOM的联合所有者之一Binck（作为经纪商与DeGiro竞争对手）对报告进行了回应，然后DeGiro对Binck的回应进行了回应，随后这一事件被荷兰报纸报道，amsterdamtrader.com撰写了“[DeGiro
+    trashes TOM](http://www.amsterdamtrader.com/2014/12/degiro-trashes-tom.html)”文章，该案件可能在荷兰相关领域（阿姆斯特丹公司Optiver和IMC持有TOM的股份）中得到了广泛讨论，最后VPRO的记者们就这个案件问了我的看法。当他们来时，我没有时间安静地阅读它，但电台节目的第二部分大部分内容都是关于这个案件，荷兰学者Albert
+    Menkveld、Nanex的Eric Hunsader、IEX CEO Brad Katsuyama及其他荷兰行业人士对此发表了评论。最后，我决定查看这些文件，随后我意识到DeGiro发布的时间戳存在一些奇怪之处。我不想参与这场争论，但地理和信息传输总是有趣的问题。
 - en: 'Let’s keep it simple: DeGiro acts as a broker; a broker sends orders to various
     exchanges (exchanges may be Euronext, Chi-X or one of the multilateral trading
     facilities [MTF] who popped up in Europe after the MIFID regulations in 2007)
@@ -59,11 +77,15 @@
     SOR needs to be “smart” – it has to be efficient and to find the best price without
     leaking information while being as fast as possible. Here is a chart from the
     DeGiro research (slightly simplified and modified by me, with locations added):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们保持简单：DeGiro充当经纪人；经纪人向各个交易所发送订单（交易所可能是Euronext，Chi-X或2007年MiFID法规之后在欧洲出现的多边交易设施[MTF]之一），这些订单必须以最佳价格在一个（或多个）交易所中执行。交易所地理分布广泛，有时订单是针对不同交易所上相同产品的（DeGiro研究中的Solvay股票），因此经纪人需要良好的联通性，以在正确位置以*正确时间*找到产品的最佳价格。在这里，DeGiro决定将他们的订单发送到TOM智能订单路由器（SOR），这样他们就可以测试路由器如何在这里或那里找到最佳价格。智能订单路由器是一种旨在在多个交易场所上部署订单的系统，现在是市场微观结构技术的关键部分。在新的HFT生态系统中，订单簿（以及事务，*实际上*）是不同交易者的信息，这就是为什么SOR需要是“聪明的”——它必须是高效的，并且在尽可能快的情况下找到最佳价格而不泄露信息。下面是DeGiro（我稍微简化和修改并添加了位置）的研究图表：
 - en: '![Tom SOR](img/4464fd6eea70d2e617b3a929d1d72035.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![Tom SOR](img/4464fd6eea70d2e617b3a929d1d72035.png)'
 - en: Thanks to this chart we can see that TOM is not only a router but also a [MTF](http://www.tommtf.eu)
     – an exchange. That means the TOM router probably tries to match orders at the
     TOM MTF before routing them elsewhere. Before discussing the DeGiro findings,
@@ -71,11 +93,17 @@
     to the TOM routing system from Amsterdam (two Dutch newspapers were invited to
     look at the tests), probably from their office (Rembrandt Tower, Amstelplein 1, 1096
     HA Amsterdam). Note in the map below that DeGiro is a neighbor of the TOM Holding offices.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了这张图表，我们可以看到TOM不仅是路由器，还是一个[MTF](http://www.tommtf.eu)——一个交易所。这意味着TOM路由器可能在将订单路由到其他地方之前尝试在TOM
+    MTF中匹配订单。在讨论DeGiro的发现之前，让我们从地理位置开始。DeGiro的研究表明，他们将他们的订单从阿姆斯特丹发送到TOM路由系统（两家荷兰报纸被邀请参观测试），很可能是从他们的办公室（阿姆斯特丹的Rembrandt
+    Tower，Amstelplein 1，1096 HA）发送的。请注意在下图中，DeGiro是TOM Holding办公室的邻居。
 - en: '![DeGiro-Amsterdam](img/4ab3b5def9b0446d245daf86e78ecf4b.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![DeGiro-阿姆斯特丹](img/4ab3b5def9b0446d245daf86e78ecf4b.png)'
 - en: 'But if TOM is [said to be](http://www.marketswiki.com/mwiki/The_Order_Machine_(TOM))
     “located” in Amsterdam, the MTF (and probably the router) is not in Amsterdam:
     the TOM “[Connectivity Guidelines](http://tommtf.eu/media/55691/tom-connectivity-guidelines-july-2014docx.pdf)”
@@ -87,11 +115,15 @@
     Basildon (if you want to know more about the geography of the exchanges in Europe,
     check out my previous [posts](https://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/)
     about how HFTs invaded my backyard):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是如果TOM据说位于阿姆斯特丹，那么MTF（以及可能的路由器）并不在阿姆斯特丹：2014年发布的TOM“[连接指南]
 - en: '![Slough-London](img/30212abe2d916bc2e904d61babe937e1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![斯拉夫-伦敦](img/30212abe2d916bc2e904d61babe937e1.png)'
 - en: 'So… DeGiro sent orders from Amsterdam to the TOM router in Slough; then the
     TOM router tries to fill them at the TOM MTF (in Slough), or at the Chi-X MTF (in
     Slough too, same data center), or at the Euronext exchange (in Basildon), etc.,
@@ -111,43 +143,65 @@
     (in blue) joining other cables the firm leases (in red) –  kmz files are [publicly](http://www.zayo.com/network/file-downloads)
     available. One of the Zayo fibers, in Amsterdam, is probably used by TOM, Optiver
     and IMC:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以... DeGiro从阿姆斯特丹发送订单到斯劳的TOM路由器;然后TOM路由器试图在TOM MTF（在斯劳）或Chi-X MTF（在斯劳，同一数据中心）或Euronext交易所（在贝辛登）等处填充它们，这取决于这里或那里的最优价格（和量）。DeGiro（在阿姆斯特丹）需要技术将订单发送到TOM（在斯劳）。他们可能使用信鸽（但这是过时的），信使（但他们将不得不乘船穿越北海-太慢了）或最后可用的技术：微波。但据我所知，阿姆斯特丹和伦敦之间没有微波网络。从阿姆斯特丹发送消息到斯劳的唯一可用技术是光纤-老旧的电缆。我问过在这个行业工作的人关于阿姆斯特丹-伦敦路径上最快的光纤电缆，似乎穿越北海的最快的是[Circe
+    North](http://www.submarinecablemap.com/#/submarine-cable/circe-north)电缆（由VTLWavenet/Viatel和euNetworks拥有）。这个电缆似乎被[Zayo](http://www.zayo.com/network/file-downloads)（一家提供“金融低延迟路由”的网络提供商）使用，并且Zayo建立了额外的专有电缆，以连接交易公司或交易所的不同场所。这是一个Zayo专有电缆在阿姆斯特丹（蓝色）连接其它公司租赁的电缆（红色）的地图-
+    kmz文件是[公开](http://www.zayo.com/network/file-downloads)可用的。Zayo的一根光纤，在阿姆斯特丹，可能被TOM，Optiver和IMC使用：
 - en: '[![Zayo-Amsterdam](img/bc9ed97bc290ac312a9ca6acce10f540.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/zayo-amsterdam1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Zayo-阿姆斯特丹](img/bc9ed97bc290ac312a9ca6acce10f540.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/zayo-amsterdam1.png)'
 - en: 'Here is another map showing how Zayo has built a fiber (in blue) from a cable
     they lease (in red) to Basildon in order to beat another existing (but longer)
     fiber (in pink):'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里是另一张地图，显示Zayo如何建立了一条光纤（蓝色）从他们租赁的电缆（红色）到贝辛登，以打败另一条现有的（但更长的）光纤（粉色）：
 - en: '[![Basildon](img/89b81b948414cb30baa03bda23e8d1fe.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/basildon.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![贝辛登](img/89b81b948414cb30baa03bda23e8d1fe.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/basildon.png)'
 - en: 'Of course, Zayo also has a lot of different fiber connections between Slough
     and Basildon (but now good HFT firms have new kind of networks – with millimeter
     waves the round-trip time between the two locations is 0,167 millisecond, that
     is far less than 1 millisecond):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，Zayo在斯劳和贝辛登之间有很多不同的光纤连接（但现在好的HFT公司有一种新型的网络-通过毫米波之间的往返时间在这两个位置之间为0.167毫秒，远远小于1毫秒）：
 - en: '[![London](img/16aef439581dd2a9b0cacd98d709ad40.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/london.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![伦敦](img/16aef439581dd2a9b0cacd98d709ad40.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/london.png)'
 - en: 'I don’t know if DeGiro and/or the TOM router are clients of Zayo, but anyway
     – we can see there are a lot of fibers available, and I suppose they offer good
     latencies. Here is a global map of the case:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不知道DeGiro和/或TOM路由器是否是Zayo的客户，但是无论如何-我们可以看到有很多光纤可用，我想它们提供了很好的延迟。这里是案例的全局图：
 - en: '[![Amsterdam-Slough-Basildon](img/17e86dda58d2e2c268e4fb0a384db075.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/amsterdam-slough-basildon2.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![阿姆斯特丹-斯劳-巴西尔登](img/17e86dda58d2e2c268e4fb0a384db075.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/05/amsterdam-slough-basildon2.png)'
 - en: 'Now let’s have a look to the timestamps of DeGiro study (read the reasearch to
     know more about the tests they have made, I don’t go into the details here):'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们来看一下DeGiro的时间戳研究（阅读研究以了解更多关于他们所做的测试的细节，这里我不进行细节描述）：
 - en: '[![DGiro-Numbers](img/6f0c953cb7c541da05c0ff8eb671e1ce.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/06/dgiro-numbers1.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![DGiro-Numbers](img/6f0c953cb7c541da05c0ff8eb671e1ce.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2015/06/dgiro-numbers1.png)'
 - en: As TOM is both a router and a MTF, the study is sometimes confusing – when the
     report says “the order is sent to TOM at 978 ms” we should understand “the order
     is sent by the TOM router to the TOM MTF at 978 ms”. At the beginning I thought
@@ -158,8 +212,12 @@
     Amsterdam and Slough. According to the DeGiro study, “the exact timestamps are
     given by TOM’s Smart Order Router”, meaning that the TOM router is definitively
     in Slough (and that would be logical).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于TOM既是路由器又是MTF，所以有时该研究会令人困惑 - 当报告称“订单在978 ms时发送到TOM”时，我们应该理解为“订单由TOM路由器发送到TOM
+    MTF的时间为978 ms”。一开始我以为TOM路由器在阿姆斯特丹（就像[这里](http://www.marketswiki.com/mwiki/The_Order_Machine_(TOM)）所说的那样），所以我试图找到关于阿姆斯特丹-伦敦之间光纤和延迟的数据。但TOM路由器不能在阿姆斯特丹，因为最快的光纤来回时间为±5.4毫秒-这就不可能在阿姆斯特丹和斯劳的间有3毫秒的来回时间（978
+    -> 981）。根据DeGiro的研究，“确切的时间戳由TOM的智能订单路由器提供”，这意味着TOM路由器肯定在斯劳（这是合乎逻辑的）。
 - en: At 974 all the DeGiro orders were in Slough, and then they were split;  at 978
     the TOM router send an order to the TOM MTF, resulting in a transaction at 979.5, notified
     at 981\. Both the router and the MTF being in the same data center in Slough,
@@ -169,8 +227,10 @@
     by TOM (the router) to send an order from Slough to Basildon (Euronext). Here
     the timestamps show that the round-trip time between Slough (974) and Basildon
     (991) is 17 milliseconds. Is this a joke?
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在974时，所有的DeGiro订单都在斯劳，然后它们被分开； 在978时，TOM路由器发送了一个订单到TOM MTF，导致在979.5时进行交易，通知在981时。由于路由器和MTF都在斯劳的同一数据中心，它们可能是共存的（或者至少彼此相隔不远），所以3毫秒是相当长的，不是吗？（根据技术，订单可能匹配时间少于1毫秒）。然而，TOM（路由器）从斯劳发送订单到巴西尔登（Euronext）所需的时间最令人惊讶。在此，时间戳显示斯劳（974）和巴西尔登（991）之间的来回时间为17毫秒。这是一个玩笑吗？
 - en: When I visited the Basildon data center two years ago, I left with a document
     about the connectivity between Basildon and London downtown, where there is (among
     others) a data center named Interxion LON1 (by the way, this is the second site of
@@ -189,8 +249,16 @@
     Well, a 17-millisecond round-trip between two areas around London is faster than
     a blink of an eye, but in a world where every microsecond counts now, the TOM
     router really has a very poor connectivity.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 两年前当我参观 Basildon 数据中心时，我带走了一份关于 Basildon 和伦敦市中心连接性的文件，其中包括一个名为 Interxion LON1
+    的数据中心（顺便说一句，这是 TOM MTF 的第二个站点，“作为备用站点，系统和流程可以升级为主站”）；根据我的文件，至少在 2013 年，Basildon
+    和 Interxion 之间的往返时间为 534 微秒；由于 Interxion 位于 Basildon-Slough路径的中间，我们可以估计 Slough
+    和 Basildon 之间的往返时间会超过 1 毫秒。现在，借助毫米波技术，有可能实现 0.67 毫秒的往返时间——即 670 微秒。所以，TOM 路由器提供的
+    17 毫秒往返时间比可用的最佳延迟时间高出 25 倍，并且比伦敦和法兰克福之间的光纤往返时间多一倍。在这里我们不再讨论高频交易。“*为了能够保证客户订单的最佳执行，TOM
+    开发了一个搜索引擎【TOM 路由器】，能够比**眨眼**更快的速度在市场之间比较价格*” TOM 的[网站](http://tommtf.eu/about/news/tom-the-order-machine-has-moved-to-london/?page=2)说道。嗯，在伦敦周围两个地区之间的
+    17 毫秒往返时间比眨眼更快，但在现在每微秒都非常重要的世界里，TOM 路由器的连接性确实非常差。
 - en: 'That’s because those 17 milliseconds are so high that I thought TOM the router
     was in Amsterdam – but we saw that the router can’t be in Amsterdam as it’s impossible
     to have a 3-millisecond round-trip time between TOM the MTF located in Slough
@@ -210,5 +278,9 @@
     the opportunity to “steal” the price at 979.835 in Basildon, 2.665 milliseconds
     before the DeGiro order arrived there, thanks to the poor connectivity of TOM
     the router. Welcome in the High Latency Trading world.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 那是因为这17毫秒如此之高，以至于我以为路由器TOM位于阿姆斯特丹 - 但我们看到路由器不可能位于阿姆斯特丹，因为在斯劳和阿姆斯特丹之间不可能有3毫秒的往返时间。DeGiro发布了这项研究，以证明TOM路由器故意设计成为最快交易者的“延迟套利”可能性。这是下面图表的目的：根据DeGiro，斯劳（TOM）979.5的交易被一个快速交易者作为信息（通过ITCH
+    feeds）使用，该交易者在欧洲交易所（Basildon）发起了“闪电交易”，“窃取”了TOM路由器应该给DeGiro订单提供的最佳价格/执行（一些[推测](http://www.amsterdamtrader.com/2015/05/hft-on-tom-whodunnit.html)谁是这个坏的掠食性高频交易者）。这就是IEX闪电男孩的故事，他们在加拿大皇家银行工作时设计了一个名为Thor的路由器
+    - 这就是为什么布拉德卡特斯亚马在VPRO记者面前被问及TOM事件。假设现在大多数高频交易者都使用毫米波从斯劳到巴西尔登（反之亦然）传输数据，鉴于这里的最佳延迟是0.335微秒（单程），这意味着各种高频交易者有机会在DeGiro订单到达之前的2.665毫秒在巴西尔登的979.835价位“窃取”价格，这要归因于TOM路由器的差劲连通性。欢迎来到高延迟交易世界。
