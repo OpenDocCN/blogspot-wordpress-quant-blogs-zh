@@ -129,10 +129,12 @@
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*第一个与总方差![\sigma=0](img/34a8165faaaa3fe8484c329f7064507e.png)匹配，而后一个匹配积分起始点![z=-i/2](img/06d58b4dcf2b1cfce97f5c0d674c61a2.png)处的特征函数值。通常，后一种选择效果更好。从上面的被积函数中可以直接发现算法在深度入金/深度出金期权中存在一个缺点即被积函数由于术语*'
 - en: '![e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) }](img/c95782add722b2cd78bc791fc29f32c0.png).'
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*![e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) }](img/c95782add722b2cd78bc791fc29f32c0.png)*'
 - en: Second, when using Gauss-Laguerre quadrature the overlap of the weight function
     ![e^{-x}](img/a7b767139add140fb7f9e058e1b2c60c.png) with the characteristic function
     becomes sub-optimal for very short maturities or small effective volatilities
@@ -140,27 +142,32 @@
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '*当使用高斯-拉盖尔（Gauss-Laguerre）求积法时，权重函数![e^{-x}](img/a7b767139add140fb7f9e058e1b2c60c.png)与特征函数的重叠在非常短的到期日或小的有效波动率时变得不太理想，就像在Black-Scholes特征函数中已经可以看到的那样。*'
 - en: Third, for very small ![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png) the
     integrand becomes prone to subtractive cancellation errors.
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*第三，对于非常小的![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png)，被积函数容易受到减法抵消错误的影响。*'
 - en: The last issue is easy to overcome by using the second order Taylor expansion
     of the normalized characteristic for small ![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png).
     The corresponding mathematica script can be seen [here](https://github.com/klausspanderen/HestonExponentialFitting/blob/master/mathematica/heston_expansion.nb).
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '*最后一个问题很容易通过对小的![\sigma](img/d2e0f91b4f9ab5cb8554a898295d118c.png)使用标准化特征的二阶泰勒展开来克服。相关的mathematica脚本可以在[这里](https://github.com/klausspanderen/HestonExponentialFitting/blob/master/mathematica/heston_expansion.nb)看到。*'
 - en: Rescaling the integrand improves the second issue by rewriting the integral
     in terms of ![x = \eta u](img/aaa4b05fd0f4251b2e8b4322a68243d5.png) with
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '*通过重新缩放被积函数改善第二个问题，将积分重写为![x = \eta u](img/aaa4b05fd0f4251b2e8b4322a68243d5.png)，其中*'
 - en: '![\eta = \max\left(0.01, \min\left(10, \frac{1}{\sqrt{8(1-e^{-\kappa t})(v_0-\theta)/\kappa
     + \theta t}}\right)\right)](img/37a3840bc771ff92fefd01cd3710538c.png)'
   id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/37a3840bc771ff92fefd01cd3710538c.png)'
 - en: The first problem, the highly oscillating integrand, can be tackled with the
     exponentially fitted Gauss-Laguerre quadrature rule [4]. The numerical integration
     of two smooth functions ![f_1(x)](img/d26f9fea14d5215d3872120b2ef2e310.png) and
@@ -168,28 +175,34 @@
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '*第一个问题，高度振荡的被积函数，可以用指数拟合的高斯-拉盖尔（Gauss-Laguerre）求积法[4]来解决。对两个平滑函数![f_1(x)](img/d26f9fea14d5215d3872120b2ef2e310.png)和![f_2(x)](img/1aaf37be720215aa70469f5af7a0b725.png)进行数值积分，其中*'
 - en: '![I = \displaystyle \int_0^\infty e^{-x} \left(f_1(x) \sin(\mu x) + f_2(x)\cos(\mu
     x)\right)\mathrm{dx} = \int_0^\infty f(x)\mathrm{dx}](img/23ee0cb51a20b23dd34c239da90cec50.png)'
   id: totrans-28
   prefs: []
   type: TYPE_IMG
+  zh: '![公式](img/23ee0cb51a20b23dd34c239da90cec50.png)'
 - en: is approximated by a Gauss-Laguerre quadrature rule of the form
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '*通过形式为高斯-拉盖尔（Gauss-Laguerre）的求积规则近似*'
 - en: '![I \approx \sum_i^N w_i(\mu) f(x_i(\mu))](img/463444e759b201ec9eb8e38a920b7406.png).'
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '![公式](img/463444e759b201ec9eb8e38a920b7406.png)。'
 - en: In this use case the frequency ![\mu](img/9490e276005995b211909e54b860be4f.png)
     is
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '*在这种使用情况下频率![\mu](img/9490e276005995b211909e54b860be4f.png)是*'
 - en: '![\mu =\ln\frac{S}{K}+(r-q)T](img/4ac3514d108ed8c8a2811a2f135cacdf.png),'
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '*![\mu =\ln\frac{S}{K}+(r-q)T](img/4ac3514d108ed8c8a2811a2f135cacdf.png)*，'
 - en: and the weights ![w_i](img/fc546c6cc29bfda565ce1c16bbda3848.png) and nodes ![x_i](img/8f45c962de64c5d9724b2cce9f75df2f.png)
     of the Gauss-Laguerre quadrature rule become functions of the frequency ![\mu](img/9490e276005995b211909e54b860be4f.png).
     The algorithm outlined in [4] is too slow to be used at runtime and in the original
