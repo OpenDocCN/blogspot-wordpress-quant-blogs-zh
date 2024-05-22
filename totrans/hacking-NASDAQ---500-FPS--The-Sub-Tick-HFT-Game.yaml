@@ -2,218 +2,269 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:03:30'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:03:30
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: The Sub Tick HFT Game'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 500 FPS下的黑客纳斯达克：亚速高频游戏
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/sub-tick-hft-game.html#0001-01-01)
 - en: Been ranting a bit about math problems so its time for another 6am post - please
     excuse the occasional incoherence  <g>By math I mean what probabilities a strategy
     must hit to be profitable given the rules of the game.</g>
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于数学问题我发牢骚有点多了，所以是时候发一篇6点文章了-请原谅偶尔的无逻辑性  <g>我说的数学指的是一个策略必须达到什么样的概率才能盈利，考虑到游戏的规则。</g>
 - en: Basic math to NASDAQ is as follows  (in units of $0.0001 per share)
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 到纳斯达克的基本数学如下（以每股0.0001美元的单位）
 - en: -30 remove liquidity
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: -30移除流动性
 - en: +21 add liquidity
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: +21 添加流动性
 - en: -0.0000192 * dollar value of sold symbol
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: -0.0000192 * 卖出品种的美元价值
 - en: 0 to -20 for commission
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 0到-20的佣金
 - en: + gross realized value of the trade
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: + 交易的实现总值
 - en: (its a variable commission as depending who you clear with, it could be 0 e.g.
     mega fund with its own clearing division, or say -20 for entry level algo brokers)
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: （这是一个变动的佣金，取决于你和谁结算，可能是0，比如拥有自己清算部门的大型基金，或者初级算法经纪商收取-20）
 - en: Lets simplify this somewhat and say, its a pair of buy/sell at different price
     but same qty, making the net realized gain
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们简化一下，可以说是以不同价格但相同数量的买入/卖出的一对，产生的净实现收益
 - en: Net = Qty * (SellPrice - BuyPrice + Rebate + Commission + Tax)
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 净值 = 数量 * （卖出价格 - 买入价格 + 返利 + 佣金 + 税）
 - en: First structure classification is what kind of entry/exit points you choose.
     Options are
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个结构分类是你选择什么样的入场/出场点。选项有
 - en: 'Aggressive + Aggressive  (AA) : -30 - 30 = -60'
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 攻击性 + 攻击性 （AA）：-30 - 30 = -60
 - en: 'Aggressive + Passive     (AP) : -30 + 21 = -9'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 攻击性 + 被动（AP）：-30 + 21 = -9
 - en: 'Passive + Agressive      (PA) : +21 - 30 = -9'
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 被动 + 攻击性（PA）：+21 - 30 = -9
 - en: 'Passive + Passive        (PP) : +21 + 21 = +42'
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 被动 + 被动（PP）：+21 + 21 = +42
 - en: (Passive means your orders was visible on the book when it got executed)
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: （被动意味着你的订单在执行时在订单簿上可见）
 - en: (Aggressive means your order hit something that was visible on the book e.g.
     crossed the spread)
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: （攻击性意味着你的订单命中了订单簿上可见的东西，例如越过了报价差）
 - en: Simplify this a little into 3 classes
   id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 将这简化一点分为3类
 - en: AA ( -60) AP (-9) PP(+42)
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: AA ( -60) AP (-9) PP(+42)
 - en: 'Note: AA your crossing the spread thus its really -160 but for back of the
     envelope purposes lets ignore that and enjoy Disney Land.'
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：AA你越过了报价差，因此实际上是-160，但为了快速计算，让我们忽略并且享受迪士尼乐园吧。
 - en: Let say our strategy has 2 discrete poles, +100 win and -100 loss, so 1 tick
     each side with no 0 draw result.
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们的策略有2个离散的极点，+100 胜和-100 负，所以每边1个tick，没有0的结果。
 - en: Below is a plot of the the trades winning probability (most left column) and
     the realized gain/loss for 1 share @ the specified probability for each entry/exit
     styles.
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是交易获胜概率的图表（最左边的列）和每种入场/出场方式的1股@ 特定概率下的实现收益/亏损。
 - en: Rebate Only
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 仅返利
 - en: '0.000000 : AA:    -160 AP:    -109 PP:     -58'
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.000000 : AA:    -160 AP:    -109 PP:     -58'
 - en: '0.040000 : AA:    -152 AP:    -101 PP:     -50'
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.040000 : AA:    -152 AP:    -101 PP:     -50'
 - en: '0.080000 : AA:    -144 AP:     -93 PP:     -42'
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.080000 : AA:    -144 AP:     -93 PP:     -42'
 - en: '0.120000 : AA:    -136 AP:     -85 PP:     -34'
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.120000 : AA:    -136 AP:     -85 PP:     -34'
 - en: '0.160000 : AA:    -128 AP:     -77 PP:     -26'
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.160000 : AA:    -128 AP:     -77 PP:     -26'
 - en: '0.200000 : AA:    -120 AP:     -69 PP:     -18'
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.200000 : AA:    -120 AP:     -69 PP:     -18'
 - en: '0.240000 : AA:    -112 AP:     -61 PP:     -10'
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.240000 : AA:    -112 AP:     -61 PP:     -10'
 - en: '0.280000 : AA:    -104 AP:     -53 PP:      -2'
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.280000 : AA:    -104 AP:     -53 PP:      -2'
 - en: '0.320000 : AA:     -96 AP:     -45 PP:       6'
   id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.320000 : AA:     -96 AP:     -45 PP:       6'
 - en: '0.360000 : AA:     -88 AP:     -37 PP:      14'
   id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.360000 : AA:     -88 AP:     -37 PP:      14'
 - en: '0.400000 : AA:     -80 AP:     -29 PP:      22'
   id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.400000 : AA:     -80 AP:     -29 PP:      22'
 - en: '0.440000 : AA:     -72 AP:     -21 PP:      29'
   id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.440000 : AA:     -72 AP:     -21 PP:      29'
 - en: '0.480000 : AA:     -64 AP:     -13 PP:      38'
   id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.480000 : AA:     -64 AP:     -13 PP:      38'
 - en: '0.520000 : AA:     -56 AP:      -5 PP:      46'
   id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.520000 : AA:     -56 AP:      -5 PP:      46'
 - en: '0.560000 : AA:     -47 AP:       3 PP:      54'
   id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.560000 : AA:     -47 AP:       3 PP:      54'
 - en: '0.600000 : AA:     -40 AP:      11 PP:      62'
   id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.600000 : AA:     -40 AP:      11 PP:      62'
 - en: '0.640000 : AA:     -32 AP:      19 PP:      70'
   id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.640000 : AA:     -32 AP:      19 PP:      70'
 - en: '0.680000 : AA:     -24 AP:      27 PP:      78'
   id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.680000 : AA:     -24 AP:      27 PP:      78'
 - en: '0.720000 : AA:     -16 AP:      35 PP:      86'
   id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.720000 : AA:     -16 AP:      35 PP:      86'
 - en: '0.760000 : AA:      -8 AP:      43 PP:      94'
   id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.760000 : AA:      -8 AP:      43 PP:      94'
 - en: '0.800000 : AA:       0 AP:      51 PP:     102'
   id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.800000 : AA:       0 AP:      51 PP:     102'
 - en: '0.840000 : AA:       8 AP:      59 PP:     110'
   id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '0.840000 : AA:       8 AP:      59 PP:     110'
 - en: '0.880000 : AA:      16 AP:      67 PP:     118'
   id: totrans-51
   prefs: []
