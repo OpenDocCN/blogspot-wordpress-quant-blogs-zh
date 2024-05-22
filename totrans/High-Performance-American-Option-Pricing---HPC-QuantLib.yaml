@@ -1,82 +1,121 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:10:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:10:52'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: High Performance American Option Pricing – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 高性能美式期权定价 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01](https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01](https://hpcquantlib.wordpress.com/2022/10/09/high-performance-american-option-pricing/#0001-01-01)
 - en: A couple of years ago Andersen, Lake and Offengenden have introduced a new high
     performance algorithm to price American options for the Black-Scholes-Merton model
     [1][2]. Basis of the algorithm is an interpolation of the early exercise boundary
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 几年前，Andersen, Lake和Offengenden推出了一种针对Black-Scholes-Merton模型定价美式期权的新型高性能算法[1][2]。这一算法的基础是对提前行权边界进行插值
 - en: '![S^\star(t) = B(\tau),\ \tau=T-t](img/66b9727f713efa7f4225c1dece238c43.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_IMG
+  zh: '![S^\star(t) = B(\tau),\ \tau=T-t](img/66b9727f713efa7f4225c1dece238c43.png)'
 - en: for a time reversed boundary function ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)
     with ![B(0)=K](img/6d22988c0bf4137d530e38e501eecc45.png). Knowing the boundary
     function ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png), the value of an
     American put option is given by
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于一个时间反转边界函数![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)，其中![B(0)=K](img/6d22988c0bf4137d530e38e501eecc45.png)。知晓边界函数![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)后，美式看跌期权的价值由以下公式给出
 - en: '![\begin{array}{rcl}\displaystyle V(\tau, S)&=& \displaystyle e^{-r\tau}K\Phi\left(-d_-(\tau,S/K)\right)-Se^{-qt}\Phi\left(-d_+(\tau,
     S/K)\right) \\[5pt] &&\displaystyle + \int_0^\tau r K e^{-r(\tau - u)} \Phi(-d_-(\tau-u,
     S/B(u) )) du \\[11pt] &&\displaystyle - \int_0^\tau q S e^{-q(\tau - u)} \Phi(-d_+(\tau-u,
     S/B(u))) du \\[10pt] d_\pm(\tau, x) &=& \displaystyle \frac{\ln{x}+(r-q)\tau \pm\frac{1}{2}\sigma^2\tau}{\sigma\sqrt{\tau}}\end{array}](img/3c84587f6f8fb858cb50cb743e7faa61.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl}\displaystyle V(\tau, S)&=& \displaystyle e^{-r\tau}K\Phi\left(-d_-(\tau,S/K)\right)-Se^{-qt}\Phi\left(-d_+(\tau,
+    S/K)\right) \\[5pt] &&\displaystyle + \int_0^\tau r K e^{-r(\tau - u)} \Phi(-d_-(\tau-u,
+    S/B(u) )) du \\[11pt] &&\displaystyle - \int_0^\tau q S e^{-q(\tau - u)} \Phi(-d_+(\tau-u,
+    S/B(u))) du \\[10pt] d_\pm(\tau, x) &=& \displaystyle \frac{\ln{x}+(r-q)\tau \pm\frac{1}{2}\sigma^2\tau}{\sigma\sqrt{\tau}}\end{array}](img/3c84587f6f8fb858cb50cb743e7faa61.png)'
 - en: and the value of an American call option can be evaluated via the call-put symmetry
     [3]. The algorithm consists of four separate tasks and the precision of each task
     is steered by a separate parameter and the choice of an integration algorithm.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个美式看涨期权的价值可以通过看涨-看跌对称性[3]进行评估。该算法包括四个独立的任务，每个任务的精度由独立的参数和积分算法的选择控制。
 - en: The early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)
     is interpolated on ![n](img/17deaa124310c647ec1dd85566e7b1e5.png) Chebyshev nodes
     [4].
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 提前行权边界![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)以![n](img/17deaa124310c647ec1dd85566e7b1e5.png)个切比雪夫节点[4]进行插值。
 - en: The early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)
     is approximated using *m* fixed point iteration steps. The first iteration is
     a partial Jacobi-Newton step, the other *m*-1 steps are ordinary fixed point iterations.
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 提前行权边界![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)采用*m*次固定点迭代步骤进行近似。第一次迭代是部分Jacobi-Newton步骤，其余的*m*-1步是普通的固定点迭代。
 - en: Integrations during the fixed point iterations are either carried out using
     Gauss-Legendre integration of order *l* or a tanh-sinh integration with given
     tolerance *ε*.
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 固定点迭代过程中的积分可采用*λ*阶的高斯-勒让德积分或具有给定公差*ε*的双曲正弦积分。
 - en: A last integration along the early exercise boundary ![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)
     to get the American option value is using Gauss-Legendre integration of order
     *p* or a tanh-sinh integration with given tolerance *ν*.
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '最后，沿着提前行权边界![B(\tau)](img/809cdab9fe2821d7da6bf44dbf187e2c.png)积分得到美式期权价值，可使用*ν*公差的双曲正弦积分或*ρ*阶高斯-勒让德积分。 '
 - en: It is important for the overall performance that all sub steps lead to a similar
     accuracy. The parameter space may be best explored with help of a benchmark portfolio,
     e.g. following [1]
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于整体性能而言，确保所有子步骤都达到相似的精度至关重要。可以通过基准组合（例如[1]中的方法）来最好地探索参数空间
 - en: '![\begin{array}{rcl} T&\in& \{ 30, 91, 182, 273, 365 \} \\ r &\in&  \{2\%,
     4\%, 6\%, 8\%, 10\% \} \\ q&\in&\{ 0\%, 4\%, 8\%, 12\%\} \\ S&\in& \{25, 50, 80,
     90, 100, 110, 120, 150, 175, 200\} \\ \sigma&\in&\{10\%, 20\%, 40\%, 60\%\}\end{array}](img/e6509237dc04248ff9bc7a7b3f7d2bc8.png),'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![\begin{array}{rcl} T&\in& \{ 30, 91, 182, 273, 365 \} \\ r &\in&  \{2\%,
+    4\%, 6\%, 8\%, 10\% \} \\ q&\in&\{ 0\%, 4\%, 8\%, 12\%\} \\ S&\in& \{25, 50, 80,
+    90, 100, 110, 120, 150, 175, 200\} \\ \sigma&\in&\{10\%, 20\%, 40\%, 60\%\}\end{array}](img/e6509237dc04248ff9bc7a7b3f7d2bc8.png),'
 - en: and the best accuracy per runtime ratios for different parameter configurations.
     Each dot in the diagram below corresponds to the root mean square error (RMSE)
     of a different parameter configuration. The RMSE is calculated for all 6000 option
@@ -84,44 +123,68 @@
     option pricing. For comparison the results of the finite difference method have
     been added but PDEs can not compete with this algorithm (nor can the tree based
     algorithms in QuantLib).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 和不同参数配置的每个点在下图中对应于不同参数配置的均方根误差（RMSE）。RMSE是针对基准组合中所有6000个期权价格计算的，并绘制为一个期权定价的运行时间。为了进行比较，添加了有限差分方法的结果，但偏微分方程无法与该算法竞争（QuantLib中也无法与基于树的算法竞争）。
 - en: This data set can be used to define the efficient parameter frontiers and take
     optimal parameter configurations from the frontiers. A fast configuration is Legendre
     integration for step 3 and 4 and
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个数据集可以用于定义高效参数边界，并从边界中取得最佳参数配置。步骤3和4中的快速配置是Legendre积分
 - en: '![(l, n, m, p) = (7,2,7,27)](img/fecfa5fbcb735fbbf2422d1a0c70136c.png),'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![(l, n, m, p) = (7,2,7,27)](img/fecfa5fbcb735fbbf2422d1a0c70136c.png),'
 - en: accurate is Legendre integration for step 3 and tanh-sinh integration for step
     4 with
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 精确的是在步骤3中使用Legendre积分和在步骤4中使用tanh-sinh积分
 - en: '![(l, n, m, \nu) =(25, 5, 13, 10^{-8})](img/1852f6d21ad68209e65a311b31444d11.png),'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![(l, n, m, \nu) =(25, 5, 13, 10^{-8})](img/1852f6d21ad68209e65a311b31444d11.png),'
 - en: high precision is achieved with tanh-sinh for step 3 and 4 with
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 高精度通过tanh-sinh在步骤3和4中实现
 - en: '![(\epsilon, n, m, \nu) = (10^{-10}, 10, 30, 10^{-10})](img/da8f2efc54f0d2ed0f97f0de3d677032.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![(\epsilon, n, m, \nu) = (10^{-10}, 10, 30, 10^{-10})](img/da8f2efc54f0d2ed0f97f0de3d677032.png)'
 - en: The implementation of this algorithm is not always straight forward and part
     of the [PR#1495](https://github.com/lballabio/QuantLib/pull/1495).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个算法的实施并不总是一帆风顺，部分实施在[PR#1495](https://github.com/lballabio/QuantLib/pull/1495)。
 - en: '[1] L. Andersen, M. Lake and D. Offengenden: [High Performance American Option
     Pricing](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2547027)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] L. Andersen, M. Lake and D. Offengenden: [高性能美式期权定价](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2547027)'
 - en: '[2] L. Andersen and M. Lake: [Fast American Option Pricing: The Double Boundary
     Case](https://onlinelibrary.wiley.com/doi/abs/10.1002/wilm.10969)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] L. Andersen and M. Lake: [American Option Pricing(快速美式期权定价：双重边界情况)](https://onlinelibrary.wiley.com/doi/abs/10.1002/wilm.10969)'
 - en: '[3] R. McDonald and M. Schroder: [A parity Result for American Options](https://www.researchgate.net/publication/243657048_A_Parity_Result_for_American_Options)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] R. McDonald and M. Schroder: [美式期权的奇偶结果](https://www.researchgate.net/publication/243657048_A_Parity_Result_for_American_Options)'
 - en: '[4]. S.A. Sarra: [Chebyshev Interpolation: An Interactive Tour](https://www.maa.org/sites/default/files/images/upload_library/4/vol6/Sarra/Chebyshev.html)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[4]. S.A. Sarra: [Chebyshev插值：交互式导览](https://www.maa.org/sites/default/files/images/upload_library/4/vol6/Sarra/Chebyshev.html)'
