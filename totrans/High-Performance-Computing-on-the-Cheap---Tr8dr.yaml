@@ -2,60 +2,72 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-18 15:40:10'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 15:40:10'
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: High Performance Computing on the Cheap | Tr8dr
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 便宜的高性能计算 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/07/27/high-performance-computing-on-the-cheap/#0001-01-01](https://tr8dr.wordpress.com/2009/07/27/high-performance-computing-on-the-cheap/#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/07/27/high-performance-computing-on-the-cheap/#0001-01-01](https://tr8dr.wordpress.com/2009/07/27/high-performance-computing-on-the-cheap/#0001-01-01)
 - en: I have a couple of trading strategies in research that require extremely compute
     intensive calibrations that can run for many days or weeks on a multi-cpu box.
     Fortunately the problem lends itself to massive parallelism.
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我有一些正在研究的交易策略需要进行非常计算密集的校准，可能需要在多核计算机上运行多天甚至几周。幸运的是，这个问题适合大规模并行计算。
 - en: 'I am starting my own trading operation, so it is especially important to determine
     how to maximize my gflops / $. Some preliminaries:'
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正准备启动自己的交易操作，因此确定如何最大化我的 gflops/$ 尤为重要。一些初步方案：
 - en: my calibration is not amenable to SIMD (therefore GPUs are not going to help
     much)
   id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我的校准不具有 SIMD 特性（因此 GPU 不会有太大帮助）
 - en: I need to have a minimum of 8 GB memory available
   id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我需要至少有 8GB 内存可用
 - en: my problem performance is best characterized by the SPECfprate benchmark
   id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我的问题的性能最好由 SPECfprate 基准来描述
 - en: I started by investigating grid solutions. Imagine if I could use a couple of
     thousand boxes on one of the grids for a few hours. How much would that cost?
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我开始调查网格解决方案。如果我可以在几个小时内使用数千台服务器，会花费多少？
 - en: Commercial Grids So I investigated Amazon EC2 and the Google app engine. Of
     the two only Amazon looked to have higher performance servers available. Going
     through the cost math for both Amazon and Google revealed that neither of these
@@ -63,6 +75,7 @@
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 商业性网格平台 我调查了亚马逊 EC2 和谷歌应用引擎。在这两者当中，只有亚马逊似乎有更高性能的服务器。对于亚马逊和谷歌的成本核算后，发现这两个平台对于高性能计算的成本均不合理。
 - en: Amazon charges 0.80 cents per compute hour, $580 / month or $7000 / compute
     year on one of their “extra-large high cpu” boxes. This configuration of box is
     a 2007 spec Opteron or Xeon. This would imply a dual Xeon X5300 family 8 core
@@ -71,12 +84,15 @@
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 亚马逊按每个计算小时收费 0.80 美分，一个“额外大型高性能 CPU” 服务器的月租是 $580 或者每年 $7000。这款服务器的配置是2007年的
+    Opteron 或 Xeon。这意味着是双路Xeon X5300系列、8核心服务器，SPECfprate 最高才能达到 66。$7000 每年的计算费用太贵了，一定有更便宜的选择。
 - en: Hosting Services It turns out that there are some inexpensive hosting services
     that can provide SPECfprate ~70 machines for around $150 / month. That works out
     to $1800 / year. Not bad, but can we do better?
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 主机服务 原来有一些便宜的主机服务可以提供 SPECfprate 约70的服务器，月租约为 $150。这样每年的花费是 $1800。还不错，但我们能找到更好的方案吗？
 - en: Just How Expensive Is One of these “High Spec” boxes? The high-end MacPro 8
     core X5570 based box is the least expensive high-end Xeon based server . It does
     not, however, offer the most !/$ if your computation can be distributed. The X5500
@@ -84,6 +100,8 @@
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些“高规格”服务器有多昂贵？基于Xeon的服务器中，高端的 MacPro 8核 X5570 价格最低。然而，如果可以进行分布式计算，它并不提供性价比最高！X5500家族的性能在
+    140-180 SPECfprates，至少需要花费 $2000 只买 2组CPU。
 - en: There is a new kid on the block, the Core i7 family. The Core i7 920, priced
     at $230 generates ~80 SPECfprates and can be overclocked to around 100\. A barebones
     compute box can be built for around $550\. I could build 2 of these and surpass
@@ -92,51 +110,62 @@
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在出现了新的配置，Core i7家族。售价为 $230 的 Core i7 920 可以产生约80 SPECfprates 的性能，超频后可达 100。一个裸机计算服务器的成本约为
+    $550。如果我建造 2 台这样的服务器，就能超过双CPU X5500系统的性能，节省 $2000（最便宜的 X5500 系统约 $3000）。
 - en: Cost Comparison Summary
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 成本比较总结
 - en: Here is a comparison of cost / 100 SPECfprate compute year, for the various
     alternatives. We will assume 150 watt power comsumption per cpu at 0.10 / Kwh,
     in addition to system costs.
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是各种替代方案的100 SPECfprate 计算年度成本比较。我们将假设每个CPU的功耗为150瓦，电价为0.10美元/千瓦时，还有系统成本。
 - en: Amazon EC2
   id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 亚马逊 EC2
 - en: $10,600 / year. 100/66 perf x 0.80 / hr x 365 x 24
   id: totrans-20
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: $10,600 / 年。100/66 性能 x 0.80 / 小时 x 365 x 24
 - en: Hosting Service
   id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 主机服务
 - en: $2,700 / year. 100/70 perf x $150 x 12
   id: totrans-22
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: $2,700 / 年。100/70 性能 x $150 x 12
 - en: MacPro 2009 8 core dual X5570
   id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: MacPro 2009 8核双路X5570
 - en: $1070 / year. 100 / 180 perf x $3299 / 2 + $160 power
   id: totrans-24
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: $1070 / 年。100 / 180 性能 x $3299 / 2 + $160 电费
 - en: Core i7 920 Custom Build
   id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Core i7 920 自定义配置
 - en: $430 / year. 100 / 80 perf x $550 / 2 + $88 power
   id: totrans-26
   prefs:
