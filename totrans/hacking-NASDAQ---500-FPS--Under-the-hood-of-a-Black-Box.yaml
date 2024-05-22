@@ -2,28 +2,34 @@
   id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
   id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:03:38'
   id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月13日00:03:38
 - en: -->
   id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: Under the hood of a Black Box'
   id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS黑客纳斯达克：黑匣子内部
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01)
   id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/under-hood-of-black-box.html#0001-01-01)
 - en: Building Mid-freq strategies is alot more involved than HF/UHF strategies, atleast
     so far. With HF/UHF your looking for a simple pattern with a simple data transform
     that`s consistent enough you can build a strategy to exploit. With the mid-freq
@@ -34,6 +40,8 @@
   id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 构建中频策略比HF/UHF策略更加复杂，至少目前是这样。使用HF/UHF，你要寻找的是一个简单的模式，带有简单的数据转换，足够一致，你就可以建立一个可利用的策略。而使用中频策略，它仍是一个简单的模式，不同的是抽象级别和交易的greeks更加复杂
+    - 至少看起来是这样。例如，不再关注非常短期微观库存/信息/延迟套利机会，而是关注高度抽象化和转换后的数据集中的静态模式。
 - en: My mid freq strategies are not going well, it takes alot of time and I put a
     hard deadline of end-of-the-month to have something... which gets closer each
     day. Thus its almost certain will be pulling the machine from colo, to regroup,
@@ -42,39 +50,48 @@
   id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的中频策略进展不顺利，需要很长时间，我设定了月底截止的严格期限……这个期限每天都在逼近。因此，几乎可以肯定的是要将机器从cololocation中拔出，重新调整，舔舐伤口，好好休息一下，然后带着修改后的方法前进……但是从0开始我无法完成这些。
 - en: So less ranting about my (lack of) PnL and more on the tech side. Here`s a logical
     block diagram of my system.
   id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以不再抱怨我的（缺乏的）盈利，更多地关注技术方面。这是我的系统的逻辑块图。
 - en: Pretty simple eh?
   id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 相当简单吧？
 - en: First up NIC`s
   id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是NIC`s
 - en: NIC0 -> ssh / management interface
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC0 -> ssh /管理接口
 - en: NIC1 -> Order Enter
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC1 -> 订单输入
 - en: NIC2 -> not used
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC2 -> 未使用
 - en: NIC3 -> Market Data
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC3 -> 市场数据
 - en: Next is HWT`s
   id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是 HWT`s
 - en: Conventional wisdom says you should disable hyper threading as it has significant
     impact on the performance of the other HWT for the core, which can be true. Hyper
     threading works by having separate "contexts" e.g. register block & program counter
@@ -89,6 +106,7 @@
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 传统智慧说你应该关闭超线程，因为它对核心的性能有重大影响，这可能是真的。超线程是通过在硬件中拥有独立的“上下文”来工作，例如在同一个执行管线中共享相同的执行管线。在概念上类似于一个分时操作系统，其中每个进程/线程在其时间切片开始时拥有所有用户态寄存器的副本，线程执行一段时间，寄存器被复制回内存，然后新的线程被切换进来。这允许多个程序共享单个CPU，并最大化CPU的利用率。硬件线程以类似的方式工作，但在处理器微体系结构的ISA（指令集架构）层上。
 - en: The theory for both time sliced OS and hyper threading is, for a significant
     % of time the execution units are idle as the program is blocked waiting for IO.
     Thus some other program can utilize the hw resource while waiting for the blocked
@@ -97,24 +115,29 @@
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 分时操作系统和超线程的理论都是，对于大部分时间的情况下，执行单元都是空闲的，因为程序正在等待IO。因此，一些其他的程序可以利用硬件资源，同时等待阻塞IO的完成，你可以获得更高的执行占用率和更高的吞吐量，但代价是增加的延迟。
 - en: 'OS Example:'
   id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 操作系统示例：
 - en: while a thread is blocked waiting for Keyboard/Disk/Network input, some other
     thread runs
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 当一个线程被阻塞，等待键盘/磁盘/网络输入时，其他的线程就会运行。
 - en: 'HW Example:'
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: HW示例：
 - en: a memory read missed L1/L2/L3 and has to be fetched from DDR (100cycles), some
     other program runs for those cycles.
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 一次内存读取未命中L1/L2/L3缓存，必须从DDR中取出（100个周期），其他程序在这些周期内运行。
 - en: Have been coding for 8 core asynchronous systems since 2001 so designing for
     wide processing is quite natural these days - have suffered that transition pain.
     Thus have plenty of process/threads but not enough cores, so have to eat the latency
