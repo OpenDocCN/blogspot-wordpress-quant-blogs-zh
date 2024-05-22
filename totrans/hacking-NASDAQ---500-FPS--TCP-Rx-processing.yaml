@@ -1,75 +1,119 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '分类: 未分类'
 - en: 'date: 2024-05-13 00:06:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-13 00:06:22'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: TCP Rx processing'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '利用 FPS @ 500: TCP Rx 处理'
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/tcp-rx-processing.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/tcp-rx-processing.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '来源: [http://hackingnasdaq.blogspot.com/2010/01/tcp-rx-processing.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/tcp-rx-processing.html#0001-01-01)'
 - en: Previous post looked at things in a more macro level so lets dig a bit deeper
     into the stack to find out whats going on. We break the plots up in driver / ip
     / tcp / user and we get the following
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前的帖子在更宏观的层面查看了事物，所以让我们深入一点到栈中去找出发生了什么。我们分析了驱动程序 / IP / TCP / 用户进行了拆分，我们得到了下面的结果
 - en: TCP 128B round trip total
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP 128B 往返总时间
 - en: '[![](img/14cddf19c611dcec4447d7ba3013084a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ37UGr46X26bvickQPyTTT1JFSXTm_2P3wuolxhwOp8evfZykRZigl8IpBOeKrdrWH26sVV_4vpw9U32WPgUmzk7RvcvWE1El-nWBvhe6K2jGY4hzSIaI13OsHT2lgPLvR_05hBheYQ/s1600-h/tcp_Rx.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/14cddf19c611dcec4447d7ba3013084a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ37UGr46X26bvickQPyTTT1JFSXTm_2P3wuolxhwOp8evfZykRZigl8IpBOeKrdrWH26sVV_4vpw9U32WPgUmzk7RvcvWE1El-nWBvhe6K2jGY4hzSIaI13OsHT2lgPLvR_05hBheYQ/s1600-h/tcp_Rx.png)'
 - en: NIC Driver time
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC 驱动程序时间
 - en: IP processing time
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: IP 处理时间
 - en: '[![](img/9c70a25d0749fbfcb241d59366c1f49f.png)](http://3.bp.blogspot.com/_wI0x7e0fUck/S1hzAPxgaMI/AAAAAAAAASk/nXr8cDOS-5s/s1600-h/tcp_TCP_Total.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9c70a25d0749fbfcb241d59366c1f49f.png)](http://3.bp.blogspot.com/_wI0x7e0fUck/S1hzAPxgaMI/AAAAAAAAASk/nXr8cDOS-5s/s1600-h/tcp_TCP_Total.png)'
 - en: TCP processing time
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP 处理时间
 - en: Kernel -> User switch
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 内核 -> 用户 切换
 - en: 'Which is the expected result, TCP processing time becomes the bottleneck, but
     what is it actually doing? Digging down a bit further we get:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '这是预期的结果，TCP 处理时间成为瓶颈，但它实际上在做什么？再深入挖掘一下，我们得到:'
 - en: '[![](img/071c4d0d6cf25034eb6e47fb0f078fd9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcUoWR-k5TM0Psdbo3Xa_W7A3fvcSe0DXeCiVu5KpcwSJg2tC81r832AkIwywKIh891li0JeNpp1Z4N2QWnXLm5WXvy2YyldEv2ibJDvL_mKe8XcbipWZWhZBTYH3meOuyIfTD0iuNvQ/s1600-h/tcp_TCP_Top.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/071c4d0d6cf25034eb6e47fb0f078fd9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgcUoWR-k5TM0Psdbo3Xa_W7A3fvcSe0DXeCiVu5KpcwSJg2tC81r832AkIwywKIh891li0JeNpp1Z4N2QWnXLm5WXvy2YyldEv2ibJDvL_mKe8XcbipWZWhZBTYH3meOuyIfTD0iuNvQ/s1600-h/tcp_TCP_Top.png)'
 - en: TCP top level processing + prequeue
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP 顶层处理 + 预排队
 - en: '[![](img/c6c57481e1d5052172956f4f1882dd5a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8TlXa2BBOpLZTkm-9Ut4FRSzdbZR1IJwjo6vCurdqubXfOFFpfWfc53Ec54ptedH4iP0Xh0gxc5AaYc9XPRxGNsFXiMBRSkdwrUFDLGhXZWitzdu8Cxa8HvZ4yx7XRihv5zVj1S9OQ/s1600-h/tcp_TCP_Recv.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c6c57481e1d5052172956f4f1882dd5a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8TlXa2BBOpLZTkm-9Ut4FRSzdbZR1IJwjo6vCurdqubXfOFFpfWfc53Ec54ptedH4iP0Xh0gxc5AaYc9XPRxGNsFXiMBRSkdwrUFDLGhXZWitzdu8Cxa8HvZ4yx7XRihv5zVj1S9OQ/s1600-h/tcp_TCP_Recv.png)'
 - en: TCP tcp_rcv_established()
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP tcp_rcv_established()
 - en: Which is rather surprising, it appears the top level processing in tcp_v4_rcv()
     is where the bulk of the time goes! Not what you expect when tcp_rcv_established()
     is the main work horse. However.. its gets stranger.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 相当令人惊讶的是，看起来 tcp_v4_rcv() 中的顶层处理是大部分时间的去处！这不是你预期的 tcp_rcv_established() 是主要的工作代码所在。然而…情况变得更奇怪。
 - en: TCP  before prequeue -> tcp_rcv_establish()
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP 预排队之前 -> tcp_rcv_establish()
 - en: Turns out most of the time goes somewhere between pushing the packet onto the
     tcp prequeue and actually processing it in tcp_rcv_established(). Not sure whats
     going on there, but surprisingly its where all the action is.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果显示，大多数时间都消耗在将数据包推送到 tcp 预排队和实际在 tcp_rcv_established() 中处理数据包之间。我不确定那儿发生了什么，但令人惊讶的是，那才是所有活动的发生地。

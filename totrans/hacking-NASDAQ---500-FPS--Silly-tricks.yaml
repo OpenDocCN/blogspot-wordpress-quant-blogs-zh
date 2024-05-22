@@ -1,93 +1,144 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:04:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:04:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: Silly tricks'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS黑客纳斯达克：愚蠢的技巧
 - en: 来源：[http://hackingnasdaq.blogspot.com/2011/10/silly-tricks.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/10/silly-tricks.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2011/10/silly-tricks.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/10/silly-tricks.html#0001-01-01)
 - en: '... and the long grind forward continues abeit slowly. This week found some
     weirdness with the exchange and problems with my strategies using end of day tick
     data aka non realtime paper trading. Was using slightly stale 3-4Month old data
     and figured it should be close enough but dam.... how much things have changed
     in a few months. Will post about this when ive got some spare cycles.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: …并且缓慢但稳步地前进。这个星期我在交易所发现了一些奇怪的事情，以及在使用以日为结束点的滴水不实时交易数据时我策略出现的问题。使用了稍微过时的3-4个月前的数据，觉得应该足够接近了，但是……几个月内变化了多少啊。在我有时间的时候会写篇关于这个的博文。
 - en: Im a huge fan of autonomic computing, which means hardware&software systems
     that do integrity checking and automatic recovery, with the obvious examples being
     RAID for disk and ECC for ram. Once upon a time I worked for and with (insert
     huge megacorps you all know) <insert all="" know="" megacorp="" you="">and had
     a fascinating discussion with one of their hardware engineers.</insert>
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我非常喜欢自主计算，这意味着硬件和软件系统进行完整性检查并自动恢复，显而易见的例子是硬盘的RAID和内存的ECC。曾经我在（插入所有都知道的大公司）和他们的一位硬件工程师进行了一次迷人的讨论。
 - en: 'HW Dude: hmm thats a weird problem, whats the value of register at offset 0xbeefbabe?'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: HW 伙计：嗯，那是一个奇怪的问题，0xbeefbabe偏移量处的寄存器值是多少？
 - en: 'Hacking Nasdaq: register 0xbeefbabe reads out to be ... 0x01234567.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 黑客纳斯达克：注册编号0xbeefbabe实际上是……0x01234567。
 - en: (silence)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: （沉默）
 - en: 'HW Dude: are you sure thats correct?'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: HW 伙计：你确定那是正确的吗？
 - en: 'Hacking Nasdaq: ... yes'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 黑客纳斯达克：…是的
 - en: 'HW Dude: thats impossible, are you on crack?'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: HW 伙计：那是不可能的，你疯了吧？
 - en: .
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: .
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: .
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: What he was referring to is the MSB of that register was the logical OR of the
     other 30bits. Making a value of 0x01234567 impossible with the only correct value
     being  0x**8**1234567\. Moral of the story is encoding self integrity checks into
     everything makes it easy to catch and not waste time on dumb ass errors - the
     "oh woops the cable isnt plugged in, sorry" kind
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 他指的是该寄存器的最高有效位是其他30位的逻辑或。这使得0x01234567的值不可能出现，唯一正确的值是0x**8**1234567。故事的道理是把自我完整性检查编码到一切中，可以轻而易举地捕捉到并且不浪费时间处理愚蠢的错误
+    - “哦哦，糟了，电缆没接上，抱歉”的那种
 - en: '... which leads us to OUCH and the 14byte identifier token. What Ive done is
     reserve the last byte as an integrity check such that the 32bit sum of the previous
     13bytes modulo 26 is its value.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: …这导致了 OUCH 和长度为14字节的标识符 token。我所做的是将最后一个字节作为完整性检查，使得前面13个字节的32位和模26的值成为它的值。
 - en: e.g.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如
 - en: u32 Sum = 0;
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: u32 Sum = 0;
 - en: for (int i=0; i < 13; i++) Sum += P->Msg.OrderAdd.Token[i]
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: for (int i=0; i < 13; i++) Sum += P->Msg.OrderAdd.Token[i];
 - en: P->Msg.OrderAdd.Token[13] = 'A' + Sum % 26;
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: P->Msg.OrderAdd.Token[13] = 'A' + Sum % 26;
 - en: This way its trivial to check if the OrderToken you looking at is actually real
     or corrupt without any effort. So far ive caught this a few times, usually when
     some bit of code has gone rouge and pissing all over memory.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这样很容易检查你目前查看的OrderToken是真实的还是损坏的，完全不费力。到目前为止，我已经发现了几次，通常是当一些代码出了问题并在内存中乱跑的时候。
 - en: '...and yes thats only in development, no errors in prod... yet :)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: …是的，这只是在开发阶段，生产中没有错误……至少目前还没有 :)

@@ -1,98 +1,153 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:41:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日14:41:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Gini Efficient Frontier | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Gini有效前沿|系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/24/gini-efficient-frontier/#0001-01-01)
 - en: '[David Varadi](http://cssanalytics.wordpress.com/) have recently wrote two
     posts about [Gini Coefficient](http://en.wikipedia.org/wiki/Gini_coefficient):
     [I Dream of Gini](http://cssanalytics.wordpress.com/2012/02/24/i-dream-of-gini/),
     and [Mean-Gini Optimization](http://cssanalytics.wordpress.com/2012/02/25/mean-gini-optimization/).
     I want to show how to use Gini risk measure to construct efficient frontier and
     compare it with alternative risk measures I discussed previously.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[David Varadi](http://cssanalytics.wordpress.com/)最近写了两篇关于[Gini系数](http://en.wikipedia.org/wiki/Gini_coefficient)的博文：[我梦见了Gini](http://cssanalytics.wordpress.com/2012/02/24/i-dream-of-gini/)，和[均值Gini优化](http://cssanalytics.wordpress.com/2012/02/25/mean-gini-optimization/)。
+    我想展示如何利用Gini风险度量构建有效前沿，并将其与我之前讨论的替代风险度量进行比较。'
 - en: I will use [Gini mean difference](http://en.wikipedia.org/wiki/Mean_difference)
     risk measure – the mean of the difference between every possible pair of returns
     to construct Mean-Gini Efficient Frontier. I will use methods presented in “The
     Generation of Mean Gini Efficient Sets” by J. Okunev (1991) paper to construct
     optimal portfolios.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用[Gini均值差异](http://en.wikipedia.org/wiki/Mean_difference)风险度量-每对收益的差异的均值来构建Mean-Gini有效前沿。
+    我将使用“Mean Gini有效集的生成”中J. Okunev（1991）论文中提出的方法来构建最优投资组合。
 - en: 'Let x.i, i= 1,…,N be weights of instruments in the portfolio. Let us denote
     by r.it the return of i-th asset in the time period t for i= 1,…,N and t= 1,…,T.
     The portfolio’s Gini mean difference (page 5) can be written as:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让x.i，i= 1,…，N 分别表示组合中工具的权重。 我们用r.it表示第i个资产在t时期的收益，其中i= 1,…，N，t= 1,…，T。 组合的Gini均值差异（第5页）可表示为：
 - en: '![\Gamma = \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left | Y_{j} - Y_{k} \right
     | ](img/1ac48bc2848dbee0b2375d68b559ab91.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![\Gamma = \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left | Y_{j} - Y_{k} \right
+    | ](img/1ac48bc2848dbee0b2375d68b559ab91.png)'
 - en: It can be formulated as a linear programming problem
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 它可以被表述为一个线性规划问题
 - en: '![\left | Y_{j} - Y_{k} \right | = a_{jk}^{+} - a_{jk}^{-}  \newline  \newline  min
     \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left ( a_{jk}^{+} - a_{jk}^{-} \right
     )  \newline  \sum_{i=1}^{N}x_{i}\left ( r_{ij} - r_{ik} \right ) - a_{jk}^{+}
     + a_{jk}^{-} = 0  \newline   \left ( \begin{matrix} for & j=1 & to & T, & and
     & k>j\end{matrix} \right )  \newline   a_{jk}^{+}, a_{jk}^{-}\geqslant 0 ](img/ffa9e3f15ed9be8ec07048e954bac2b1.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\left | Y_{j} - Y_{k} \right | = a_{jk}^{+} - a_{jk}^{-}  \newline  \newline  min
+    \frac{1}{T^2}\sum_{j=1}^{T}\sum_{k>j}^{T}\left ( a_{jk}^{+} - a_{jk}^{-} \right
+    )  \newline  \sum_{i=1}^{N}x_{i}\left ( r_{ij} - r_{ik} \right ) - a_{jk}^{+}
+    + a_{jk}^{-} = 0  \newline   \left ( \begin{matrix} 对于 & j=1 & 到 & T, & 并且 & k>j\end{matrix}
+    \right )  \newline   a_{jk}^{+}, a_{jk}^{-}\geqslant 0 ](img/ffa9e3f15ed9be8ec07048e954bac2b1.png)'
 - en: This linear programming problem can be easily implemented
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个线性规划问题可以很容易地实现
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Let’s examine efficient frontiers computed under Gini and Standard deviation
     risk measures using sample historical input assumptions.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们查看使用样本历史输入假设计算的Gini和标准差风险度量下的有效前沿。
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/180be18f3265d7319b5e09430bcb68f8.png "plot1g.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1g-small.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/180be18f3265d7319b5e09430bcb68f8.png "plot1g.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1g-small.png)'
 - en: The Gini efficient frontier is almost identical to Standard deviation efficient
     frontier, labeled ‘Risk’. This is not a surprise because asset returns that are
     used in the sample input assumptions are well behaved. The Gini measure of risk
     would be most appropriate if asset returns contained large outliers.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: Gini有效边界几乎与标准差有效边界相同，标记为‘风险’。 这并不令人意外，因为用于样本输入假设的资产收益表现良好。 如果资产收益包含大的异常值，则Gini风险度量将是最合适的。
 - en: To view the complete source code for this example, please have a look at the
     [aa.gini.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的aa.test.r中的aa.gini.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。
 - en: Next I added Gini risk measure to the mix of Asset Allocation strategies that
     I examined in the [Backtesting Asset Allocation portfolios](https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/)
     post.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将基尼风险测度添加到了我在[回测资产配置组合](https://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/)文章中考察的资产配置策略中。
 - en: '[![](img/57ec3736de8f90ce9651bc2f9090e2c9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small4.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/57ec3736de8f90ce9651bc2f9090e2c9.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small4.png)'
 - en: '[![](img/9f988aecfd23240735b59224eeddfba8.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small4.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9f988aecfd23240735b59224eeddfba8.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small4.png)'
 - en: The Gini portfolios and Minimum Variance portfolios show very similar perfromance
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 基尼配置组合和最小方差配置组合表现非常相似
 - en: To view the complete source code for this example, please have a look at the
     [bt.aa.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.aa.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

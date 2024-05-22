@@ -1,147 +1,222 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:06:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:06:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: Life and times of Reliable Tx'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'hacking NASDAQ @ 500 FPS: Life and times of Reliable Tx'
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-reliable-tx.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-reliable-tx.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-reliable-tx.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-reliable-tx.html#0001-01-01)
 - en: For our on-going investigation into the bowels of the networking stack, we looked
     at the w latency of  the UDP stack, thus the next logical step is TCP. Alot of
     people turn their nose up at TCP for low latency connections, saying it buffers
     too much, the latency is too high, your better off using UDP which is great for
     a certain class of communications, say lossy network game physics. However in
     finance dropping a few updates is death, and not an option.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们对网络堆栈的调查中，我们看到 UDP 堆栈的延迟，因此下一个逻辑步骤是 TCP。很多人看不起 TCP 用于低延迟连接，说它的缓冲太多，延迟太高，最好使用
+    UDP ，它非常适合一定类别的通信，比如丢包网络游戏物理。然而在金融领域，错过几次更新就是灾难，不是个选择。
 - en: 'Theres  2 general approachs:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有两种一般的方法：
 - en: 1) build a shitty version of TCP ontop of UDP. This is the classic "not invented
     here" syndrome many developers fall into.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 在 UDP 之上构建糟糕的 TCP 版本。这是许多开发人员陷入的经典“非自行发明”综合症。
 - en: 2) use TCP and optimize it for the situation.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 使用 TCP 并针对情况进行优化。
 - en: In graphics, OpenGL / Direct3D theres a "fast path" for the operations/state/driver
     that's typically the application bottleneck, which the driver/stack engineers
     aggressively optimize for. If you change the state such that its no longer on
     the fast path, it goes though the slower generic code path, produces correct results,
     but is significantly slower. This approach is to have the best of both worlds,
     a nice feature rich API but has lightning fast performance for specific use cases.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在图形学中，OpenGL / Direct3D存在一个“快速路径”，用于通常是应用程序瓶颈的操作/状态/驱动程序，驱动程序/堆栈工程师会对其进行积极优化。如果更改状态，使其不再处于快速路径上，则通过慢速通用代码路径进行操作，会产生正确的结果，但速度会慢得多。这种方法是为了兼顾两者，既具有丰富功能的API，又能在特定用例下拥有闪电般的性能。
 - en: If we take this philosophy and apply it to the network stack, theres no reason
     you cant get UDP or better level performance for a specific use case, say short
     128B low latency sends but fall back to the more generic/slower code path when
     it occasionally drops a packet. Resulting in a dam fast, low latency protocol,
     thats reliable, in-order and most importantly the de-facto standard. And with
     that...lets put on the rubber gloves and delve into the TCP stack.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们将这种思想应用到网络堆栈上，就没有理由不可以为特定用例获得 UDP 或更好级别的性能，比如短 128B 低延迟的发送，但当它偶尔丢包时，能够回到更通用/更慢的代码路径。从而产生一个快速的、低延迟的协议，可靠、有序，最重要的是事实上的标准。接下来...让我们戴上橡胶手套，深入到
+    TCP 堆栈中去。
 - en: First up, lets take a high level view and compare the round trip latency of
     128B message of UDP vs TCP. Keep in mind this is all on an un-loaded system, the
     UDP numbers arent exactly 128B messages but close, so is more a guide than absolute
     comparison. The trick here, is assuming a 0% packet loss, and an already established
     TCP connection, then each send() will generate its own TCP segment and thus we
     can poke data into the payload. Hacky ... yes but easy and does the job for now.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们从高层次来比较 UDP 和 TCP 的128B消息的往返延迟。请记住，这一切都是在一个未加载的系统上进行的，UDP 的数字并不完全是128B的消息，但接近，因此更多的是作为指南而不是绝对的比较。事关这里的诀窍在于假设0%的数据包丢失，并且已经建立了
+    TCP 连接，那么每个发送()都将生成自己的 TCP 段，因此我们可以将数据插入负载中。虽然有些粗糙，但易于做，现在做得很好。
 - en: round trip UDP A->B->A
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 往返 UDP A->B->A
 - en: '[![](img/0a08e1ff33b4f2e828d0063ad82732f1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7o0d1hzX7hglSwggdFH98dcfy-OF2tlyZUdKL2sVjBNoxKky4H6hdstWK95cy2eZy_e0CXQhzeiVG264hKh59pwUeZlmsEaKtAdd8cq0Wnrcyl4RMZ_2AlcuDJN-0O6OjngyNNjsrzA/s1600-h/tcp_round_default.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0a08e1ff33b4f2e828d0063ad82732f1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7o0d1hzX7hglSwggdFH98dcfy-OF2tlyZUdKL2sVjBNoxKky4H6hdstWK95cy2eZy_e0CXQhzeiVG264hKh59pwUeZlmsEaKtAdd8cq0Wnrcyl4RMZ_2AlcuDJN-0O6OjngyNNjsrzA/s1600-h/tcp_round_default.png)'
 - en: round trip TCP A->B->A
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 往返 TCP A->B->A
 - en: Keep in mind the TCP time scale is x2 the UDP plot and it clocks in around say
     35,000ns vs 50,000ns with TCP significantly slower - proving conventional wisdom.
     Where does the time go? First step is look at the time from application -> NIC
     on both Tx and Rx sides for Machine A.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请记住，TCP的时间范围是 UDP 图的两倍，大约是 35,000ns 对比 50,000ns，TCP明显慢得多-证明了传统智慧。时间去哪了？第一步是看看来自应用程序
+    -> NIC 在机器 A 的 Tx 和 Rx 两侧的时间。
 - en: UDP sendto() -> Tx descriptor
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: UDP sendto() -> Tx描述符
 - en: '[![](img/83f3992d50cce20540bed96a8d68d4d6.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5hyGFl4s31Tascn7w5QhT1uf6243XLXjVEu1OJgf6nA5fgC5FOOPc-dZxCcdDqOjSPfpDguHAxHKR4uKvIEpHM893-LyvkWyz9OwasjGQgWRUQTq0cVOuBfaYwYKh57e2FpYdcc86kA/s1600-h/tcp_a_user2tx.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/83f3992d50cce20540bed96a8d68d4d6.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5hyGFl4s31Tascn7w5QhT1uf6243XLXjVEu1OJgf6nA5fgC5FOOPc-dZxCcdDqOjSPfpDguHAxHKR4uKvIEpHM893-LyvkWyz9OwasjGQgWRUQTq0cVOuBfaYwYKh57e2FpYdcc86kA/s1600-h/tcp_a_user2tx.png)'
 - en: TCP send() -> Tx descriptor
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP send() -> Tx描述符
 - en: Above plots are on the Tx side of the equation, which is pretty good, not a
     huge difference considering the UDP vs TCP delta in round trip. So it must be
     in the Rx logic where TCP has problems?
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面的图表是等式的Tx一方，这是相当不错的，考虑到往返的UDP与TCP之间的差异并不是很大。所以问题可能出在了Rx的逻辑，TCP出了问题？
 - en: UDP Rx Intr -> recvfrom()
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: UDP Rx Intr -> recvfrom()
 - en: '[![](img/18034acf5647030db08492078b38fa06.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCnqXvQnCvGL_lgYofCl2wCLLPr_ll1ZTaX_KP-CHopdoYOVGeV_9TeWkjUFesS_g_gBH6iBZzTcGF_JZeOb6gXlWx9Otm8X_vaWeWDNMTxppzYSFash2Y27Lj9Bh7cTLD7VzQdgRh0A/s1600-h/tcp_a_rx2user.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/18034acf5647030db08492078b38fa06.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCnqXvQnCvGL_lgYofCl2wCLLPr_ll1ZTaX_KP-CHopdoYOVGeV_9TeWkjUFesS_g_gBH6iBZzTcGF_JZeOb6gXlWx9Otm8X_vaWeWDNMTxppzYSFash2Y27Lj9Bh7cTLD7VzQdgRh0A/s1600-h/tcp_a_rx2user.png)'
 - en: TCP Rx Intr -> recv()
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: TCP Rx Intr -> recv()
 - en: '... and we see the Rx is about x2 slower in TCP than UDP, around 2,500ns vs
     1,200ns. Not sure whats going on there, obviously related to ACKing each TCP segment
     its received, but x2 slower ? we can do better for this use case.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '...我们看到TCP的Rx速度比UDP慢了大约两倍，大约是2,500ns对1,200ns。不太清楚这里发生了什么，显然与收到的每个TCP分段的ACK相关，但慢了两倍？我们应该对这种情况做出改善。'
 - en: Comparing the round trip latency, we are missing about 15,000ns. Machine A is
     say, a generous 3,000ns so where did 12,000ns go? Onto Machine B. Remember Machine
     A NIC is directly wired to the SouthBridge vs Machine B has to go via PCIexpress, 
     thus the latency differences between the machines.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 比较往返延迟，我们差约15,000ns。机器A大约3,000ns，那剩下的12,000ns去哪了呢？是机器B。请记住，机器A的NIC直接连线到南桥，而机器B必须通过PCIexpress传输，因此机器之间的延迟差异。
 - en: UDP Machine B Rx Intr -> recvfrom()
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: UDP机器B Rx Intr -> recvfrom()
 - en: Machine B TCP Rx Intr -> recv()
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器B的TCP Rx Intr -> recv()
 - en: On the Rx side its kind of interesting, having a peek almost exactly on 5,000ns
     is a bit suspicious, yet its slightly faster than UDP - which is ... a little
     strange. Then a large chunk, over half the transfers around 8,000ns, so another
     say 3,000ns or so just for Machine B Rx.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 在Rx的一边是挺有趣的，几乎在5,000ns附近的一瞥有些可疑，但比UDP略快 - 这有点奇怪。然后有个大块，超过一半的传输是在8,000ns附近，所以再说3,000ns左右是机器B的Rx。
 - en: '[![](img/a757b2a09c12516e075c667116dc49fd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhrJm1iviPf-dk0MoG4qgKSeguLraGWmj24czezMJvvkq2OwFIylChj8m7p_YC2LYbD2nD50gDWjEMDueY7Sep5Yx9KpJl4maCOX7p6y12tsDlipS_sSPkWJpDXnT5b0j2mVLB-x1lWw/s1600-h/bapp2tx_latency_stock.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a757b2a09c12516e075c667116dc49fd.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhrJm1iviPf-dk0MoG4qgKSeguLraGWmj24czezMJvvkq2OwFIylChj8m7p_YC2LYbD2nD50gDWjEMDueY7Sep5Yx9KpJl4maCOX7p6y12tsDlipS_sSPkWJpDXnT5b0j2mVLB-x1lWw/s1600-h/bapp2tx_latency_stock.png)'
 - en: Machine B UDP sendto() -> Tx descriptor
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器B的UDP sendto() -> Tx描述符
 - en: Machine B send() -> Tx Descriptor
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器B的send() -> Tx描述符
 - en: As with Machine A, the Tx side is fairly consistent with UDP, even to the point
     of peeks roughly of the same pitch, if slightly translated. Its interesting TCP
     is somehow slightly faster to hit the NIC -likely differences in datasize.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 与机器A一样，Tx的一侧与UDP相当一致，甚至在几乎完全相同的位置有一些高峰，虽然略有偏移。有趣的是TCP在某种程度上竟然比UDP稍快地到达NIC -
+    可能是数据大小上的差异。
 - en: So we have accounted for a bit over half of the time delta between TCP vs UDP,
     but where did the rest of the time go? hardware ? seems unlikely. More likely
     is the UDP vs TCP test data is different enough? Or maybe after many kernel and
     driver rebuilds the settings are slightly different?
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们已经探讨过了TCP与UDP之间的时间差的一半多，但剩下的时间去哪了呢？硬件？看起来不太可能。更可能的是UDP与TCP的测试数据足够不同？或者经过多次内核和驱动程序的重建后，设置稍有不同？
 - en: In anycase its surprusing how close the performance is for small sends. Next
     task is to look into TCP Rx side and see why its not competitive with UDP.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论如何，小发送的性能表现非常接近。下一步的任务是查看TCP的Rx端，并看看为什么它与UDP的性能水平不相上下。

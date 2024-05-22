@@ -1,51 +1,77 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:08:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:08:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: sucky hardware+drivers'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS攻击纳斯达克：烂硬件+烂驱动
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/all-software-isnt-equal.html#0001-01-01)
 - en: What`s up with the bizzare latency? Turns out its a combination of hardware
     + driver, most likely a shitty driver. Previous tests used a Send(Intel 823573L)
     and Recv(Realtek RTL811/6168B) thus the logical question is, what happens if we
     switch send and receive?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 古怪的延迟出了什么问题？原来是硬件+驱动器的组合，很可能是一个糟糕的驱动器。之前的测试使用了Send(Intel 823573L)和Recv(Realtek
+    RTL811/6168B)，因此合乎逻辑的问题是，如果我们交换发送和接收会发生什么？
 - en: First up is Send(Realtek) (above) which is still a little troubling, as It looks
     a bit like the Send(Intel) throttle @ 1msg/10us in the previous post. Two double
     spikes, one where you`d expect, and a second off out in the woods having a tea
     party or something. As we see this on 2 different machiines, it llooks suspiciously
     like something in the IP stack or NAPI... somewhere between the NIC and sendto().
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是Send(Realtek)（上面的），这还有点令人不安，因为它看起来有点像前一篇文章中的Send(Intel)节流@ 1msg/10us。两次双峰，一个在你期望的地方，第二个在树林中开茶会或其他什么地方。当我们在两台不同的机器上看到这个时，它看起来可疑，像是在网卡和sendto()之间的IP协议栈或NAPI中的某些东西......
 - en: Next is receive(intel) and....
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是接收（intel）和......
 - en: '...... tight, real tight. None of this bullshit spread we saw with Recv(Realtek).
     Very low number and a very tight spread, this is good.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '......严格，非常严格。没有我们在Recv(Realtek)看到的那些狗屎一样的散播。非常低的数字和非常紧凑的分散，这很好。'
 - en: And a nice closeup. As we can see, its peeking around 900ns, 2400 cycles @ 2.66Ghz(recv`s
     machine clock) which is pretty good considering this is a user program+socket
     user lib+network stack+driver. This however is just the time between packets,
     its **NOT the latency  between machines,** its the latency from one message to
     the next on a single machine - a very different but related number.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一个好的特写。正如我们所看到的，它在900ns左右，2400个周期@ 2.66Ghz（接收端机器时钟），考虑到这是一个用户程序+套接字用户库+网络堆栈+驱动程序，这个表现相当不错。然而，这只是数据包之间的时间，**而不是机器之间的延迟**，这是一条消息到另一条消息在一台机器上的延迟
+    - 一个非常不同但相关的数字。
 - en: Machine to machine latency requires both machines send and receive, so will
     have to wait until a less sucky network card+driver is put in the other box.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器到机器的延迟需要两台机器发送和接收，所以必须等到将另一台机箱放入一个少吸引人的网络卡+驱动器。

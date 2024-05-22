@@ -1,65 +1,98 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:03:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:03:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: HFT Postmortem - Round 1'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: NASDAQ 黑客 @500 FPS：HFT事后检验 - 第 1 轮
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/05/hft-postmortem-round-1.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/05/hft-postmortem-round-1.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/05/hft-postmortem-round-1.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/05/hft-postmortem-round-1.html#0001-01-01)
 - en: Its always good to reflect and understand the positive and negative points of
     a project even for a negative result as you learn the most from your failures
     than successes... or at least you *should.*
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 反思并了解项目的正面和负面点总是很好的，即使是负面结果也一样，因为你从失败中学到的东西比从成功中学到的多... 或者至少*应该如此*。
 - en: The Round 1 Score
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 第1轮得分
 - en: '1 : NASDAQ'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 1：纳斯达克
 - en: '0 : Hacking NASDAQ'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 0：黑客 NASDAQ
 - en: No KO or TKO with the decision based entirely on points. Kinda sucks ass things
     haven`t gone as planned but such is life. Lets start with the positive
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 决定仅基于得分而不是 KO 或 TKO。由于事情并没有像计划的那样进行，这有点糟糕，但这就是生活。我们先从正面开始
 - en: What Went Right
+  id: totrans-11
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 正面因素
 - en: '[![](img/521651c98807c3ada85a0035ec770a8b.png)](http://www.k-1fightclub.com/script/resimler/3.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/521651c98807c3ada85a0035ec770a8b.png)](http://www.k-1fightclub.com/script/resimler/3.jpg)'
 - en: Which stands for "Just Fucking Do It". Also known as Analysis Paralysis meaning
     over thinking and over analyzing the situation to the point where whichever direction
     you want to go there`s a ton of arguments for it but also against it.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 它代表“只是*该死的做*”。也称为分析瘫痪，意思是过于深思熟虑，对情况进行过分分析，以致于无论你想要采取哪个方向都有大量论点，也同样有反对的论点。
 - en: What happened is I reached the point where the behaviour of the exchange or
     more precisely the behaviour of my orders to/from/on the exchange became a significant
     factor in profitability. Thus one of the goals was to test my assumptions on this
     vs what happens in the real world... which turned out to be very wrong. None the
     less it is extremely valuable info to know.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发生的问题是，我到了交易所行为或更精确地说是我在交易所上/下订单的行为成为盈利的一个重要因素的那一点。因此，一个目标是测试我的假设和在现实世界中发生的事情之间的差异...
+    结果证明是非常错误的。但是，这是非常有价值的信息。
 - en: 2) Real Trading.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 真实交易。
 - en: Its all to easy to code up some system, back test it, do whatever feel smug
     about how much paper money you`ve made...  but is completely different to trading
     with real money on the real exchange with real consequences if you seriously fuck
@@ -70,21 +103,32 @@
     wrong and when it does, its not that bad. At this point, I`m quite comfortable
     running fully automated strategies on the exchange that puts 1000`s of orders
      into the book each day.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 编写某些系统、回测它、对于你赚到的夸张纸币感到自鸣得意是很容易的... 但是在真实交易所使用真实资金进行真实交易，如果你犯了重大错误会产生真正的后果则是完全不同的。最初的几周真的让人感到恐惧，如果
+    X 发生了怎么办，如果 Y 发生了怎么办，如果 X 导致 Y 从而意味着我需要清算我所拥有的一切，搬进帐篷，乞讨找零钱。事实是，如果你有多个独立的积极和被动安全阀，那么就不会有太多事情出错，即使发生了，也不是那么糟糕。到了这一步，我可以非常舒适地在交易所运行完全自动化的策略，每天把
+    1000 条订单放到订单簿中。
 - en: 3) Building Real Trading System.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 建立真实交易系统。
 - en: Learnt alot when building my system. Its one thing to build tools & simulators,
     completely different to have prod systems that are live and constantly evolving.
     Ended up writing a bunch of tools adding new components, doing new analysis and
     quite a few things that are simple but did not anticipate. All very valuable info
     for Round 2.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在构建系统时学到了很多。构建工具和模拟器是一回事，但拥有实时不断发展的实际系统完全是另一回事。最终我写了一堆工具，添加了新组件，进行了新分析，还有很多简单但没有预料到的事情。所有这些对第
+    2 轮都是非常有价值的信息。
 - en: 4) Watching the Market
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 观察市场
 - en: Before prod, I almost never looked at what the market did day-to-day, quite
     oblivious infact as was focusing on historical data. I think your perspective
     & pattern matching radically changes when your no longer in back test time. When
@@ -92,29 +136,41 @@
     some intuition about how the market moves in the mid-freq time frame. Guess you
     could say, had no connection to the  market, as it was just numbers and stats
     - it had no personality.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 在产品发布之前，我几乎从不关注市场的日常表现，事实上，我完全没有注意，因为我在关注历史数据。我认为当你不再处于回测时间时，你的视角和模式匹配会发生根本性的变化。当一天是5秒变成1天是6.5小时的上下波动时，我对市场如何在中频时间框架内运动有了一些直觉。你可能会说，对市场毫无联系，因为它只是数字和统计数据——它没有个性。
 - en: 5) Bite sized Risk
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 5）一口口大的风险
 - en: Had a choice of going all out with a significant % of net worth deposit, 5 figure
     monthly infra costs the hole 9 yards. Or a chunk of change deposit that's a small
     % of net worth and infra thats good but not on the edge. Chose the latter, my
     reasoning was have 0 experience trading and I should not risk my current assets on
     something thats unproven and un-tested. e.g. Do a test first before committing more
     cash, and I think this was the correct choice.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 是否选择了全力以赴，在存款中占有相当大比例，每月数以万计的基础设施成本，以及全方位的完善。还是进行了一笔小额存款，占净资产的少部分比例，然后采取了不那么极端的基础设施。我选择了后者，我的理由是我没有交易经验，不应该把目前的资产押在未经证实和未经测试的事情上。比如，在投入更多资金之前先做一个测试，我认为这是一个正确的选择。
 - en: What Went Wrong
+  id: totrans-23
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 出了什么岔子？
 - en: 1) No Strategy
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 1）没有策略
 - en: '[![](img/bf93c91c4bb4dfd1665a94fd5931fd94.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6atBh4PcdAPNZW0gQZjyRnVsm2LoM5-ap1jVi5EdBicQMsUn0bA4y44yW3bTALGL_n8Zon4562FZuVqLaPZtxfMxUFkwuqx8IEr2xhbW6eCOESRWePNl4ZbHugmkTmahMr_RdgJbcq2VR/s1600/Punch+In+The+Face.jpg)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bf93c91c4bb4dfd1665a94fd5931fd94.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6atBh4PcdAPNZW0gQZjyRnVsm2LoM5-ap1jVi5EdBicQMsUn0bA4y44yW3bTALGL_n8Zon4562FZuVqLaPZtxfMxUFkwuqx8IEr2xhbW6eCOESRWePNl4ZbHugmkTmahMr_RdgJbcq2VR/s1600/Punch+In+The+Face.jpg)'
 - en: Its kind of a fib to say there were no strategies, perhaps a better wording
     is had no clearly profitable strategy. The strategies I wanted to run are all
     highly skewed by the infrastructure/comissions and behaviour of the exchange.
@@ -122,36 +178,52 @@
     on a large unknown factor. The end result was after realizing the first batch
     of strategies wasn't going to work had to start from 0 on a completely different
     style of trading which there wasn't enough time to get up to speed on.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 说没有策略有点虚伪，也许更好的措辞是没有清晰的有利可图的策略。我想运行的策略都受基础设施/佣金和交易所的行为极大的影响。因此事后看来，风险实际上很高，因为结果高度依赖一个大的未知因素。最后的结果是，意识到第一批策略行不通后，不得不完全更换交易风格，而现在没有足够的时间来适应。
 - en: 2) Going it Alone
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 2）单打独斗
 - en: One of the problems when trading in a bubble is you have no one to bounce ideas
     off, no one is there to point out the obvious and most importantly no one is there
     to slap you in the face and say
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 在泡沫中交易时的一个问题是没有人可以与你交换意见，没有人会指出显而易见的事情，最重要的是没有人会扇你一巴掌说
 - en: '*what the fuck man?*'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '*靠！老兄？*'
 - en: Self reflection and transitioning between abstraction levels is really hard,
     especially when you eat/breath/sleep at one level its not easy to step back and
     look at the wider picture and realize your spending time in the wrong place.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 自我反思和在抽象水平之间过渡是非常困难的，尤其是当你在一个水平上进行生活、呼吸和睡眠时，很难退后一步看更广阔的画面，并意识到自己在错误的地方花费时间。
 - en: 3) Wrong Infrastructure
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 3）错误的基础设施
 - en: The infrastructure/commissions was clearly a bad choice for the kinds of strategies
     I was testing. Yet its hard to say it was wrong given the cost & risk of more
     appropriate infra. In the end it was just an incorrect matching of strategy and infrastructure,
     given the goal is to make a profit. If the goal was to understand the exchange
     / market it was a good choice but.... in the real world one needs to make money.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，基础设施/佣金对我正在测试的策略类型是一个错误的选择。然而，考虑到更合适的基础设施的成本和风险，很难说这是错误的。最后，这只是策略和基础设施的不正确匹配，因为目标是赚钱。如果目标是了解交易所/市场，那这是一个好选择，但在现实世界中，人们需要赚钱。
 - en: Theres a bunch of smaller things but I think that summarized the main points.
      Round 1 was fun, exciting, learnt an absolute ton but need to re-calibrate before
     entering the ring again for Round 2.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里还有一堆小事情，但我认为总结了主要的要点。第一轮很有趣，令人兴奋，学到了很多，但在第二轮开始之前需要重新校准。

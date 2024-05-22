@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:46:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:46:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Geometric and Arithmetic Mean Return Divergence Oscillator (GAMDO) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 几何平均回报和算术平均回报分歧振荡器（GAMDO）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/09/25/geometric-and-arithmetic-mean-divergence-oscillator-gamdo/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/25/geometric-and-arithmetic-mean-divergence-oscillator-gamdo/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/09/25/geometric-and-arithmetic-mean-divergence-oscillator-gamdo/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/25/geometric-and-arithmetic-mean-divergence-oscillator-gamdo/#0001-01-01)
 - en: '*Note: the post on using cumulative momentum as a price proxy will be reserved
     for later due to its complexity.*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '*注：使用累积动量作为价格代理的帖子将由于其复杂性而保留到以后。*'
 - en: 'The geometric mean is the average derived by compounding different momentums
     or price returns. In contrast the arithmetic mean is simple the average of different
     momentums or price returns. The geometric return is often quite different from
@@ -33,44 +47,70 @@
     the opposite effect occurs with longer term price series–where a positive divergence
     is actually favorable for future stock prices.. This excerpt is derived from wikipedia
     [http://en.wikipedia.org/wiki/Arithmetic-geometric_mean](http://en.wikipedia.org/wiki/Arithmetic-geometric_mean):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 几何平均是由不同的动量或价格回报复合得出的平均数。相比之下，算术平均只是不同动量或价格回报的平均数。几何回报通常与算术平均回报有很大不同，这种分歧是宝贵信息的来源。在极限情况下，几何平均和算术应该收敛。这意味着如果一个偏离另一个太远，它很可能会恢复正常。这在短期系列中尤其真实，那里几何平均和算术平均之间的正分歧对未来股价是负面的。相比之下，在长期价格系列中出现正分歧则实际上对未来股价是有利的。这段摘录来源于维基百科
+    [http://en.wikipedia.org/wiki/Arithmetic-geometric_mean](http://en.wikipedia.org/wiki/Arithmetic-geometric_mean)
+    ：
 - en: 'From [inequality of arithmetic and geometric means](https://cssanalytics.wordpress.com/wiki/Inequality_of_arithmetic_and_geometric_means
     "Inequality of arithmetic and geometric means") we can conclude that:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过[算术和几何均值不等式](https://cssanalytics.wordpress.com/wiki/Inequality_of_arithmetic_and_geometric_means
+    "Inequality of arithmetic and geometric means")我们可以得出：
 - en: '![g_i\leqslant a_i](img/00ed21178f35245a0ea69c4bcdb90943.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![g_i\leqslant a_i](img/00ed21178f35245a0ea69c4bcdb90943.png)'
 - en: and thus
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此
 - en: '![g_{i+1}=\sqrt{g_i\cdot a_i}\geqslant \sqrt{g_i\cdot g_i}=g_i](img/f32fe33c592114c9dd10ff0294dc76b6.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![g_{i+1}=\sqrt{g_i\cdot a_i}\geqslant \sqrt{g_i\cdot g_i}=g_i](img/f32fe33c592114c9dd10ff0294dc76b6.png)'
 - en: 'that is, the sequence *g[i]* is nondecreasing. Furthermore, it is easy to see
     that it is also bounded above by the larger of *x* and *y* (which follows from
     the fact that both arithmetic and geometric means of two numbers both lie between
     them). Thus, from Bolzano-Weierstrass theorem, there exists a convergent subsequence
     of *g[i]*. However, since the sequence is nondecreasing, we can conclude that
     the sequence itself is convergent, so there exists a *g* such that:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 即 *g[i]* 序列是非递减的。此外，很容易看出它也被 *x* 和 *y* 中较大的一个上界所限制（这是由两个数字的算术平均数和几何平均数都在它们之间这一事实得出的）。因此，根据玻尔查诺-魏尔斯特拉斯定理，*g[i]*
+    存在一个收敛子序列。然而，由于该序列是非递减的，我们可以得出该序列本身是收敛的，因此存在一个 *g* 使得：
 - en: '![\lim_{n\to \infty}g_n=g](img/d24dd6622b4140b28ff40458e2632ad6.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![\lim_{n\to \infty}g_n=g](img/d24dd6622b4140b28ff40458e2632ad6.png)'
 - en: 'However, we can also see that:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我们也可以看到：
 - en: '![a_i=\frac{g_{i+1}^2}{g_i}](img/ead52f008c9da810ae2f4e2bb016f73d.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![a_i=\frac{g_{i+1}^2}{g_i}](img/ead52f008c9da810ae2f4e2bb016f73d.png)'
 - en: 'and so:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以：
 - en: '![\lim_{n\to \infty}a_n=\lim_{n\to \infty}\frac{g_{n+1}^2}{g_{n}}=\frac{g^2}{g}=g](img/c7878a4e882f723ff1d75c1fbda9702b.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![\lim_{n\to \infty}a_n=\lim_{n\to \infty}\frac{g_{n+1}^2}{g_{n}}=\frac{g^2}{g}=g](img/c7878a4e882f723ff1d75c1fbda9702b.png)'
 - en: Surprisingly, this simple concept underlies a short-term oscillator that actually outperforms 
     buying into weakness and selling into strength for the S&P500 all the way back
     to 1955 not including the 1997-2009 period!   The average weekly return prior
@@ -78,8 +118,11 @@
     .42%.  **When the oscillator was below .5 (oversold), the market returned 6% compounded
     from 1955-2009 not including dividends. When the oscillator was above .5 (overbought),
     the market made 0.0016%**!
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 令人惊讶的是，这个简单的概念支撑着一个短期振荡器，实际上在1955年以来的S&P500指数中表现优异，但不包括1997-2009年！在买入信号之前的平均每周回报为-0.3%，在卖出信号时，每周回报为0.42%。
+    **当振荡器低于0.5（超卖时），市场从1955年至2009年的复合回报率为6%，不包括股息。当振荡器高于0.5（超买时），市场的回报率为0.0016%**！
 - en: The creation of the oscillator involves taking the arithmetic average of the
     percentage returns (or 1-day ROCs) over the last 5 days.  A geometric return is
     created by simply adding 1 to the percentage returns and taking the product of
@@ -90,8 +133,14 @@
     smooth signals*(note that the raw divergence produces signals in the same direction).
     Finally this smoothed divergence is “bounded,” by taking the PERCENTRANK of the
     series going back 1-year.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 振荡器的创建涉及对过去5天的百分比回报（或1日ROC）进行算术平均。 通过简单地将1加到百分比回报，并在过去的5天内获取该系列的乘积（累积回报），创建了几何回报。
+    通过从累积回报中减去1来得到该振荡器的几何回报。 然后我们通过几何回报减去算术回报来找到差距。 该差距平滑两次，使用3天平均值来创建平滑信号（请注意，原始差距会产生相同方向的信号）。
+    最后，通过取1年回溯的系列的PERCENTRANK来“限制”该平滑差距。
 - en: '*to be continued tommorow ……………………….*'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*明天继续……*'

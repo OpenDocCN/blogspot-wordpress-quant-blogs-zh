@@ -1,74 +1,117 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:07:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:07:59
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: rock on intel'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在 500 FPS 下黑客纳斯达克：向英特尔致敬
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/rock-on-intel.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/rock-on-intel.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/rock-on-intel.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/rock-on-intel.html#0001-01-01)
 - en: Ok now that all the new year boozing is done, lets get back to it. First up,
     a new intel NIC was put into Machine B, so we`re now
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 好了，现在新年的狂欢已经结束了，让我们回归正轨。首先，新的英特尔网卡被放入了 Machine B，所以我们现在
 - en: Machine A (Intel 82573L) Xeon 2.6Ghz
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine A（英特尔 82573L）Xeon 2.6Ghz
 - en: Machine B (Intel 82574L) i7 2.6Ghz
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine B（英特尔 82574L）i7 2.6Ghz
 - en: Thus the Machine A is a generation or two behind Machine B in both CPU and NIC
     but thats what we have to work with.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，Machine A 在 CPU 和 NIC 方面比 Machine B 落后一两代，但这就是我们要处理的情况。
 - en: First up is the Send histograms, in both directions A->B and B->A
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是发送直方图，在 A 到 B 方向和 B 到 A 方向
 - en: Machine A send
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine A 发送
 - en: Machine B send
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine B 发送
 - en: As you can see Machine B kicks Machine A`s ass by the tune of say, 5-600ns.
     How much of this is NIC generation and how much is CPU generation is unclear,
     no doubt both contribute.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所见，Machine B 以大约 5-600ns 的速度击败了 Machine A。其中有多少是 NIC 生成的，有多少是 CPU 生成的还不清楚，毫无疑问，两者都在起作用。
 - en: And on the other side, Recv first  B->A and A->B look like(below)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一边，收到首先 B 到 A，然后 A 到 B 看起来如下（以下）
 - en: '[![](img/66a201d4cc8c19924dfd2b97f8756984.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7afBInegnJreMFQZ5SB1VfMU8FjvSpb_nCL-QuGb0_0Rg_cRDvLrfYG_LJKvr-xAMNcwTce3_P_n6txx7faknOqmszzXw8OALWR-eYJ8bXh4S5PMk-iIJfEMx1jQQ4eiL6oHvy0yFTw/s1600-h/recv_latency_82573.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/66a201d4cc8c19924dfd2b97f8756984.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7afBInegnJreMFQZ5SB1VfMU8FjvSpb_nCL-QuGb0_0Rg_cRDvLrfYG_LJKvr-xAMNcwTce3_P_n6txx7faknOqmszzXw8OALWR-eYJ8bXh4S5PMk-iIJfEMx1jQQ4eiL6oHvy0yFTw/s1600-h/recv_latency_82573.png)'
 - en: Machine A recv
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine A 收到
 - en: Machine B recv
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine B 收到
 - en: And again we see Machine B kicking Machine A`s ass not quite x2 improvement
     but not far off!.  In anycase it looks far better than the Realtek histograms
     which were... just abysmal and we`ve now got a baseline to work with.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次，我们看到 Machine B 几乎是 Machine A 的两倍提高，但并非完全达到两倍！无论如何，它看起来比 Realtek 的直方图要好得多，那些......实在是糟糕，而且我们现在有了一个基准线来工作。
 - en: Next up is looking at the round trip latency meaning A->B->A which assuming
     the network switch dosent suck(too much.... its old) we should expect around 1300ns(A
     send) + 500ns(B recv) + 750ns(B send) + 900ns(A recv) totaling in ... around 3450
     round trip - quite a long time really.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来要看的是来回延迟，即 A->B->A，假设网络交换机没问题（不会太多......它旧了），我们应该期望约1300ns（A 发送）+ 500ns（B
+    收到）+ 750ns（B 发送）+ 900ns（A 收到）总计...约3450ns 来回延迟 - 真的是相当长的时间。
 - en: Lets see what it clocks in as.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看看它的性能如何。

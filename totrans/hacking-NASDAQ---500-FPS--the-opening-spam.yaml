@@ -1,55 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:04:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:04:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: the opening spam'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS攻击纳斯达克：开盘垃圾邮件
 - en: 来源：[http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/opening-spam.html#0001-01-01)
 - en: Been poking around looking at how the market moves and thought would share a
     "how to spam the open" session.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一直在研究市场的走势，并想分享一个“如何在开盘时进行垃圾邮件”会话。
 - en: First the plots, where everything is in "tick time" e.g one X unit is 1 tick. ..
     we have the best bid
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是绘图，其中所有内容都以“滴答时间”表示，例如X单位为1滴答声。..我们有最佳要约
 - en: .. and best ask
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ..最好询问
 - en: Next up is how far away from the best bid the tick is (zero if tick is a sell)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是滴答声距离最佳要约的距离（如果滴答声是卖出，则距离为零）
 - en: .. and the other side
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ..和另一边
 - en: finally the time delta between ticks (in nanosecconds)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后是秒表之间的时间差（以纳秒为单位）
 - en: As you can see the closer it gets to the opening bell the harder it bursts,
     and the further away from the best bid/ask it bursts. But... is it adding or removing
     shares at that price level?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如您所看到的，它越接近开盘铃声，它就越难爆发，离最佳买价/卖价越远。但是...它是在该价格水平上增加还是减少股份？
 - en: Above is the share delta for ticks on the buy side, where positive is adding
     shares to the book at that price level - clearly its adding.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面是买方滴答声的份额差值，其中正数是在该价格水平上向订单簿添加股份 - 显然是在添加。
 - en: '... and the same for the sell side, also clearly adding (positive share delta).'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '...以及卖出一方，增加的也明显（正数份额差值）。'
 - en: So whats it doing? clearly its layering orders vertically across the entire
     book, presumably at prices that would be very attractive should they get matched
     - e.g. highly passive strategy. But... why so close to the opening bell? Guessing
@@ -57,9 +87,13 @@
     to process, all at different price levels your orderbook has no choice but to
     update everything and thus, quite possibly, delay your snapshot of the world by
     100`s of ticks after the first execution.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么它在做什么？显然它是在整个订单簿垂直分层，可能是以非常有吸引力的价格，如果它们被匹配 - 例如高度被动的策略。但是...为什么这么接近开盘铃声？猜测这也是一种垃圾邮件的组成部分。如果队列中有50K个需要处理的滴答声，都在不同的价格水平上，你的订单簿别无选择，只能更新所有东西，因此，很可能在第一个执行后延迟您对世界的视图100多个滴答声。
 - en: Fantasy? not sure but there`s a very clear and distinct pattern/strategy going
     on here.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 梦幻？不确定，但是这里有一个非常明确和独特的模式/策略。

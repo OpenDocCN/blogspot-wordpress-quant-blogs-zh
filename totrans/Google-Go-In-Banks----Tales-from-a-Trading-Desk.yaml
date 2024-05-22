@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:24:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024年05月18日 06:24:18'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Google Go In Banks? | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 谷歌 Go 在银行里？ | 来自一个交易员的故事
 - en: 来源：[https://mdavey.wordpress.com/2013/06/04/google-go-in-banks/#0001-01-01](https://mdavey.wordpress.com/2013/06/04/google-go-in-banks/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2013/06/04/google-go-in-banks/#0001-01-01](https://mdavey.wordpress.com/2013/06/04/google-go-in-banks/#0001-01-01)
 - en: Google Go In Banks?
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 谷歌 Go 在银行里？ | 来自一个交易员的故事
 - en: Investment banks have historically been quite restricted on what languages can/can’t
     be used within the software development stack – Java/C#/Flex/JavaScript possibly
     being the main choices.  This has opened up a little in the last time period,
@@ -30,82 +44,128 @@
     and even smaller jumps into Clojure.  With the recent release of Go [1.1](http://blog.golang.org/2013/05/go-11-is-released.html),
     the usual spike on the web to accompany such an event, is it time to investment
     in this language?
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资银行在软件开发堆栈内部使用哪些语言/不能使用哪些语言方面一直限制较大——Java/C#/Flex/JavaScript可能是主要选择。最近一段时间这种情况有所改变，一些银行大举进入
+    Python 阵营，也有一些小规模进入到 Scala ([Scala vs Go](http://www.cs.colorado.edu/~kena/classes/5828/s12/presentation-materials/smithbrentgibsonleon.pdf))
+    并且更小规模地接触到Clojure。随着 Go [1.1](http://blog.golang.org/2013/05/go-11-is-released.html)
+    的发布，这一事件所带来的典型网络热情也随之兴起，现在是时候投资于这种语言了吗？
 - en: 'First off, if you’re not familiar with Google Go, try these links:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，如果你对谷歌 Go 不太熟悉，请尝试这些链接：
 - en: The Go Programming [Language](http://golang.org/doc/effective_go.html#web_server)
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Go 编程[语言](http://golang.org/doc/effective_go.html#web_server)
 - en: 'Rob Pike on Google Go: Concurrency, Type System, Memory [Management](http://www.infoq.com/interviews/pike-google-go)
     and GC'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Rob Pike 谈谷歌 Go：并发性，类型系统，内存[管理](http://www.infoq.com/interviews/pike-google-go)
+    和 GC
 - en: “My favorite programming language:” Google’s Go has some [coders](http://arstechnica.com/information-technology/2013/05/my-favorite-programming-language-googles-go-has-some-coders-raving/)
     raving
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: “我最喜欢的编程语言：” 谷歌的 Go 令一些[程序员](http://arstechnica.com/information-technology/2013/05/my-favorite-programming-language-googles-go-has-some-coders-raving/)大呼过瘾
 - en: 'Google Go: A [Primer](http://www.infoq.com/articles/google-go-primer)'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 谷歌 Go：[入门](http://www.infoq.com/articles/google-go-primer)
 - en: Go [Projects](http://code.google.com/p/go-wiki/wiki/Projects)
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Go [项目](http://code.google.com/p/go-wiki/wiki/Projects)
 - en: 'A few obvious observations about Go:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 对 Go 的一些明显的观察：
 - en: Go’s main aim appears on the server side
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Go 的主要目的出现在服务器端
 - en: Performance, [concurrency](http://blog.golang.org/2013/01/concurrency-is-not-parallelism.html)
     (language primitive), and simplicity are a few of the attributes that Go offers
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 性能，[并发性](http://blog.golang.org/2013/01/concurrency-is-not-parallelism.html)（语言原语）以及简单性是
+    Go 提供的一些属性
 - en: The compiler is quick
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 编译器速度很快
 - en: 'Everyone has their IDE preference, I’m using the Intellij [golang](http://plugins.jetbrains.com/plugin?pluginId=5047)
     IDE plug-in.  Prior to writing any server application in Go, you may want to look
     at the Wiki Go projects.  Of interest 😉 are:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个人都有自己喜欢的 IDE，我正在使用 Intellij [golang](http://plugins.jetbrains.com/plugin?pluginId=5047)
+    IDE 插件。在用 Go 编写任何服务器应用程序之前，你可能希望查看 Wiki Go 项目。兴趣点😉包括：
 - en: memcache and Redis
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 内存缓存和Redis
 - en: MongoDB and Neo4j
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: MongoDB 和 Neo4j
 - en: ZeroMQ, Kafka and RabbitMQ
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: ZeroMQ，Kafka 和 RabbitMQ
 - en: 'If you prepared to stretch the Go solution you are considering, and the architecture
     would benefit, then you might want to glance 😉 at:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你愿意扩展你所考虑的 Go 解决方案，并且体系架构会受益，你可能想一睹😉：
 - en: Today I suspect nobody is really considering Go within the investment banking
     arena.  Thus if nothing else, Go is an interesting language to PoC a few idea
     with if you happen to have a bit of spare time
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我怀疑没有人真的在投资银行领域考虑过 Go。因此即使其他方面没有，如果你碰巧有一点空余时间，Go 是一个有意思的语言来验证一些想法
 - en: ~ by mdavey on June 4, 2013.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于2013年6月4日发布。
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表在[语言](https://mdavey.wordpress.com/category/languages/)中
 - en: 'Tags: [Concurrency](https://mdavey.wordpress.com/tag/concurrency/), [Go](https://mdavey.wordpress.com/tag/go/),
     [Scala](https://mdavey.wordpress.com/tag/scala/)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Tags: [并发性](https://mdavey.wordpress.com/tag/concurrency/)，[Go](https://mdavey.wordpress.com/tag/go/)，[Scala](https://mdavey.wordpress.com/tag/scala/)'

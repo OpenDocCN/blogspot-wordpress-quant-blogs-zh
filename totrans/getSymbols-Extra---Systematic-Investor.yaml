@@ -1,105 +1,167 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-18 14:31:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:31:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: getSymbols Extra | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: getSymbols Extra | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/11/26/getsymbols-extra/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/26/getsymbols-extra/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/11/26/getsymbols-extra/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/26/getsymbols-extra/#0001-01-01)
 - en: 'The [getSymbols](http://www.quantmod.com/documentation/getSymbols.html) function
     from the quantmod package is an easy and convenient way to bring historical stock
     prices into your R environment. You need to specify the list of tickers, the source
     of historical prices and dates. For example following commands will download historical
     stock prices from yahoo finance for ‘RWX’, ‘VNQ’, ‘VGSIX’ symbols:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: quantmod 包中的 [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
+    函数是将历史股价带入 R 环境的一种简单方便的方式。你需要指定股票代号列表、历史价格来源和日期。例如，以下命令将从雅虎财经下载‘RWX’、‘VNQ’、‘VGSIX’
+    符号的历史股价：
 - en: '[PRE0]'
+  id: totrans-7
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Now, the **data** environment contains the historical stock prices. For example,
     create plot for RWX using the code below:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，**data** 环境包含了历史股价。例如，使用以下代码为 RWX 创建图表：
 - en: '[PRE1]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Sometimes, I find that [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
     functionality can be extended. For example, it would be nice to rename the series.
     I.e. RWX is a real estate ETF, so we could ask [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
     function to get RWX, but call output Real.Estate. Another useful feature would
     be ability to specify how to extend the data. I.e. RWX is only started trading
     in 2007, it would be convenient to extend RWX time series with VNQ and VGSIX.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时，我发现 [getSymbols](http://www.quantmod.com/documentation/getSymbols.html) 功能可以扩展。例如，将系列重命名会很不错。即
+    RWX 是一只房地产 ETF，所以我们可以要求 [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
+    函数获取 RWX，但输出为 Real.Estate。另一个有用的功能是指定如何扩展数据的能力。即 RWX 只在 2007 年开始交易，将 RWX 时间序列方便地扩展为
+    VNQ 和 VGSIX。
 - en: 'I created the [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
     function to address these features. The [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
     function allows you to specify tickers in the following format:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了 [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
+    函数来解决这些功能。[getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
+    函数允许你以以下格式指定股票代号：
 - en: 'RWX : the original functionality. i.e get historical stock prices for RWX and
     it can be accessed with data$RWX'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: RWX：原始功能，即获取 RWX 的历史股价，可以通过 data$RWX 访问
 - en: 'Real.Estate = RWX : get historical stock prices for RWX, rename it to Real.Estate,
     and it can be accessed with data$Real.Estate'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Real.Estate = RWX：获取 RWX 的历史股价，将其重命名为 Real.Estate，并且可以通过 data$Real.Estate 访问
 - en: 'RWX + VNQ + VGSIX : get historical stock prices for RWX, VNQ, VGSIX and extend
     RWX with VNQ, next extend it with VGSIX, and it can be accessed with data$RWX'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: RWX + VNQ + VGSIX：获取 RWX、VNQ、VGSIX 的历史股价，将 RWX 与 VNQ 扩展，然后再用 VGSIX 扩展，可以通过 data$RWX
+    访问
 - en: 'Real.Estate = RWX + VNQ + VGSIX : mix and match above functionality'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Real.Estate = RWX + VNQ + VGSIX: 混合和匹配以上功能'
 - en: 'Let’s look at the example:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看一个例子：
 - en: '[PRE2]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot1](img/2ae809a8309bd312e25409f106e1ccfd.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/11/plot1.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/2ae809a8309bd312e25409f106e1ccfd.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/11/plot1.png)'
 - en: The REIT.LONG is RWX extended using VNQ and next using VGSIX.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: REIT.LONG 是使用 VNQ 扩展的 RWX，然后使用 VGSIX 扩展。
 - en: There is also a possibility to provide custom data into the [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
     function. I.e. the data which is not available through the [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
     function.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一种可能性，可以向 [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
+    函数提供自定义数据。即，那些不能通过 [getSymbols](http://www.quantmod.com/documentation/getSymbols.html)
+    函数获得的数据。
 - en: 'For example, to extend GLD time series we might used historical Gold prices
     from Bundes Bank:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，为了扩展 GLD 时间序列，我们可能使用德国联邦银行的历史黄金价格。
 - en: '[PRE3]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![plot2](img/b0f3993552da610c043925fd465a8e08.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/11/plot2.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/b0f3993552da610c043925fd465a8e08.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/11/plot2.png)'
 - en: The main goal of the [getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)
     function is to simplify your data acquisition/preparation step. Please let me
     know if you run into any problems or have suggestions.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[getSymbols.extra](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)函数的主要目标是简化数据获取/准备步骤。如果遇到任何问题或有建议，请告诉我。'
 - en: To view the complete source code for this example, please have a look at the
     [getSymbols.extra.test() function in utils.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上utils.r中的getSymbols.extra.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/utils.r)。

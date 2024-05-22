@@ -1,54 +1,83 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:09:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:09:45'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: birds eye view'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 黑客攻击纳斯达克 @ 500 FPS：俯视图
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/message-rate.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/message-rate.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/message-rate.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/message-rate.html#0001-01-01)
 - en: So what kind of message rates is this? For 700M msg / day, its not that interesting,
     peeking at around 100k messages / second translating to 4100 cycles @ 4.1ghz or
     1000ns / message ... which is *alot*. Heres the plot of a single days order add/del/execute/cancel
     for all symbols. Whats interesting is how spiky it is with some very clear patterns
     - assuming "time bins" from VWAP / TWAP algos.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么这是什么样的消息速率？对于每天700M条消息，不是很有趣，大约在100k条/秒左右，相当于在4.1ghz上的4100个周期或者每1000ns/条消息......这*太多了*。这里是所有符号的单日订单添加/删除/执行/取消的绘图。有趣的是它是多么尖锐，一些非常明确的模式
+    - 假设是从VWAP/TWAP算法中的“时间区间”。
 - en: Green  = Number of Order deletes
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 绿色  = 订单删除数量
 - en: Blue    = Number of Order Adds
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 蓝色    = 订单添加数量
 - en: Orange = Number of Order Execute
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 橙色 = 订单执行数量
 - en: Red     = Number of Order Cancel
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 红色     = 订单取消数量
 - en: 1 horz pixel = 1sec of orders
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1 横向像素 = 1秒的订单
 - en: 'Obviously quote data is an order of magnitude larger than executed trades so
     breaking out just the order exeuction data looks somthing like (note: vertical
     scale is an order of magnitude less). Which at a glance dosent have the same cyclic
     time bins.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 很明显，报价数据的量级比执行交易要大得多，只把订单交易数据分解出来看起来就像（注意：垂直刻度是数量级较少）。乍一看并没有相同的周期时间区间。
 - en: 1 horz pixel = 1sec of executed orders
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 1 横向像素 = 1秒的已执行订单
 - en: Drilling down to get a more mico level view the next shot is sampled every 10ms,
     e.g. every x pixel is a 10ms slice and runs for about 11minutes. What occurs around
     the 20000ms mark is quite interesting as it appears some algo gets triggered and
@@ -56,14 +85,20 @@
     with vertical axis measured in message count NOT aggregate order volume. Whats
     fascinating is, (i assume)the spikes before 20,000ms are some other algo/symbol/firm(s)
     and the spikes after is some other algo/symbol/firm(s), in essence a digital signature.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 再深入了解一个更微观水平的视图，下一个图像是每10ms采样一次，即每个像素是10ms的切片，运行大约11分钟。在大约20000ms标记处发生了一些有趣的事情，似乎触发了某种算法，一大堆订单涌入市场。请记住，这些是所有符号的图表，垂直轴以消息数为单位，而不是总订单量。有趣的是（我假设）在20000ms之前的尖峰代表某种其他算法/符号/公司，而之后的尖峰代表其他种类算法/符号/公司，本质上是一种数字签名。
 - en: '[![](img/6ca114bb24566f2c6f66228d8409883e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBqynBUfafjnXBRQLk57jgMvFJGa7sd2Wozkv4k08_YLfvh6zeAHBfvgZ1YKXw-AZ09LDuQetHrn7Uz8htdqtY4NYP2RSEcnN-Oo_L2fCO4NVYeoHY4k9v4sv-JV4XoWkFC5wln1ZHmg/s1600-h/stack_10ms.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6ca114bb24566f2c6f66228d8409883e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBqynBUfafjnXBRQLk57jgMvFJGa7sd2Wozkv4k08_YLfvh6zeAHBfvgZ1YKXw-AZ09LDuQetHrn7Uz8htdqtY4NYP2RSEcnN-Oo_L2fCO4NVYeoHY4k9v4sv-JV4XoWkFC5wln1ZHmg/s1600-h/stack_10ms.png)'
 - en: 1 horz pixel = 10ms worth of orders
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 1 横向像素 = 10ms的订单价值
 - en: drilling down further to the 1ms level it gets more chaotic and extracting some
     signal from the noise gets harder. This chart shows each horizontal pixel as 1ms
     worth of orders, which is the resolution limit of ITCH3.1 spec. ITCH4 time stamps
@@ -71,15 +106,22 @@
     accuracy... or maybe not. The spikey patterns are still faily visible, yet what
     they represent could be VWAP/TWAP or might even be how the exchange processes
     orders. Probably the former but none the less its a clear signature of some sort.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续向1ms级别细分，数据变得更加混乱，从噪音中提取信号变得更加困难。该图表显示每个横向像素代表1ms的订单价值，这是ITCH3.1规范的分辨率限制。ITCH4的时间戳是纳秒级别的，因此也许增加准确性后就能看清楚同一张图片......或者也许不行。尖刺状的图案仍然相当明显，但它们所代表的可能是VWAP/TWAP，也可能是交易所如何处理订单。可能是前者，但无论如何，这是某种明显的特征。
 - en: 1 horz pixel = 1ms worth of orders
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 1 横向像素 = 1ms的订单价值
 - en: Its kind of weird, its like dejavu looking at these graphs, as its similar to
     the work Ive done with hardware performance trace logic - think a cycle level
     logic analyizer which dumps out counters every 100ns or so into dedicated ddr/ram.
     You end up with this massive chunk of data that needs analysis on wtf is going
     on, and how to improve chip performance - fun stuff.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这有些奇怪，看这些图像就像在看我之前做过的硬件性能跟踪逻辑 - 想象一个以循环级逻辑分析器，每100ns左右就向专用ddr/ram转储计数器。你最终得到了一大堆数据，需要分析到底发生了什么，以及如何提高芯片性能
+    - 有趣的东西。

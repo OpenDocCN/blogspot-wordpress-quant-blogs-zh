@@ -1,32 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:03:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:03:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: HFT Strategy'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS速度黑客纳斯达克：HFT策略
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/04/hft-strategy.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/hft-strategy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/04/hft-strategy.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/04/hft-strategy.html#0001-01-01)
 - en: Two posts in one day... yes, have too much free time. Colo box is heading back,
     lost this round but just one of many to come. Decided to target pure FPGA strategies
     as it plays to my strengths  - hardcore tech (yes can code verilog) & need team
     up for that,  but more on that later.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一天发了两篇帖子……是的，有太多的空闲时间。Colo盒即将回来，这一轮输了，但只是众多来临的其中之一。决定以纯FPGA策略作为目标，因为它符合我的优势
+    - hardcore技术（是的，可以编写verilog）&需要合作，但稍后再谈。
 - en: So what does the return on a HFT strategy look like? Somethings like this.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频交易策略的回报是什么样的？大概像这样。
 - en: 'Above is March 2012 worth of accumulated PnL, horizontal axis is # trades,
     vertical axis is accumulated dollars. In this case it makes about $4K / month
     on a single symbol on roughly 4M shares / month of volume, which is about $80MM/month
@@ -34,89 +51,132 @@
     doing about 100-200 trades per day - keep in mind this is only 1 symbol out of
     many. Its simulated with full trade & quote data + liquidity rebates, commissions and
     latency discussed later.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面是2012年3月份的累积PnL，横轴是交易数，纵轴是累积美元。在这种情况下，单个符号的交易量大约为每月4美元 / 20万股，约8000万美元/月的交易量。在日常基础上，90%的时间PnL是平的或正的，每天大约做100-200次交易
+    - 请记住这只是众多符号中的1个。它是使用完整的交易和报价数据+流动性回扣，佣金和延迟模拟的，稍后讨论。
 - en: How real is it? Its not live thus 100% BS :) In reality my model of the nasdaq
     queue is fairly simple and there`s some weirdness in the matching engine I haven`t
     worked out thus isn`t modeled. The only way to know is trade it for real... which
     I dont have the infra for.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 它有多真实？它不是实时的，因此100%胡说八道 :) 实际上，我的纳斯达克队列模型相当简单，匹配引擎有些怪异，还没有被模拟。唯一的办法是为真实交易……而我没有这样的基础设施。
 - en: The theory goes $4K/month for 1 symbol,  find 10 symbols makes it $40K/month,
     20 symbols $80K/month etc all is good. Thus go out, signup for an eTrade/IB account
     and trade your way to $100M return in a year... or NOT.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论上讲，一个符号每月4K美元，找到10个符号就是每月40K美元，20个符号就是每月80K美元等等都是很好的。因此，出去，注册一个eTrade/IB账户，一年内用你的交易方式赚回10亿美元……或者不是。
 - en: HFT strategies are either highly sensitive to latency, commissions or both,
     so lets explore. First up latency.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频交易策略对延迟或佣金高度敏感，所以让我们来探讨一下。首先是延迟。
 - en: The above plots show the monthly PnL with a -1.25 commission at various levels
     of simulated latency. From top to bottom its, 0usec, 100usec, 250usec, 500usec, 1msec, 2msec, 5msec, 10msec, 100msec.
     Thats a pretty broad spectrum. Whats clear is the variance dramatically changes
     from a 100usec latency to a 100msec latency aka the return gets very "lumpy" something
     you really don`t want.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面的图表展示了不同模拟延迟水平下的月度PnL，在-1.25的佣金下。从上到下是，0usec, 100usec, 250usec, 500usec, 1msec, 2msec, 5msec, 10msec, 100msec。这是一个相当广泛的光谱。很明显，方差在100usec延迟到100msec延迟之间剧烈变化，回报变得非常“波动”，这是你真的不希望发生的。
 - en: In pure dollar terms, 0usec latency returns $3,942 with 100usec $3,179, 1msec
     $2,341, 100msec $1,978.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 以纯美元来说，0usec延迟返回$3,942，100usec $3,179，1msec $2,341，100msec $1,978。
 - en: Or put another way,
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者换个说法，
 - en: 100usec  $3942 - $3179 =  $763/mo @ 10 symbols thats  $7,630/mo
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 100usec  $3942 - $3179 =  每月763美元 @ 10个符号即每月7630美元
 - en: +900usec $3942 - $2341 = $1601/mo @ 10 symbols thats $16,010/mo
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: +900usec $3942 - $2341 = 每月1601美元 @ 10个符号即每月16010美元
 - en: +90msec  $3942 - $1978 = $1964/mo @ 10 symbols thats $19,640/mo
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: +90msec  $3942 - $1978 = 每月1964美元 @ 10个符号即每月19640美元
 - en: '... 90msec costs $20,000/mo. Which can be interpreted in a variety of ways.
     e.g. dont trade on 100msec of latency!'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: …90msec的成本是每月20,000美元。这可以以各种方式解释。例如，不要在100msec的延迟上交易！
 - en: If you look closely the number of trades slightly decreases then increases with
     the higher latency, the reason? Its a passive strategy thus if your too slow when
     the world moves you get hit by a bus because your sleeping in the middle of the
     road... instead of running to the other side. Resulting in a alot of unfavorable
     trades. In tennis I guess this is called "unforced errors".
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你仔细观察，交易数量会随着更高的延迟略微减少，然后增加，原因？这是一种被动策略，如果在世界移动时你太慢，你会被公交车撞倒，因为你在路中间睡觉……而不是跑到另一边。导致很多不利的交易。在网球上我想这被称为“非受迫失误”。
 - en: So even @ 100msec latency its profitable making a hypothetical Tech setup of
     IB account hooked up to say Amazon EC2 & even if the everything is Java(.. ducks..)
     we should be well under 100msec tick to trade.. all good.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以即使在100毫秒的延迟下，这是盈利的，假设的技术设置是IB账户连接到亚马逊EC2，即使一切都是Java(鸭子..)我们应该在100毫秒的tick到交易下..
+    一切顺利。
 - en: The other axis is per trade commission's as discussed in a previous post. Whats
     the PnL look like? ......
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个轴是每笔交易的佣金，如前一篇文章中所讨论的。PnL是什么样的？......
 - en: '... and there`s alot of red ink on the plot. The above plot has commission''s from
     top to bottom of 0, -1, -5, -10, -15, -20 per share. As you can see @ -1 myri
     / share its a solid green, -5 its a bit shaky yet still firmly in the green.  At
     -10 myri/share its in trouble and it just goes down hill from there.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '... 图表上有很多红色的墨水。上图从上到下的佣金是0、-1、-5、-10、-15、-20 per share。正如你所看到的，@ -1 myri /
+    share是稳定的绿色，-5是有点摇晃但仍然坚定地保持在绿色。  在-10 myri/share就有麻烦了，然后情况就一落千丈。'
 - en: So whats a reasonable commission/latency estimate? It depends at what level
     of the game your playing. For IB something like 100msec & -20myri / share which
     gives...
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么一个合理的佣金/延迟估计是多少？这取决于你玩这个游戏的水平。对于IB来说，大约是100毫秒和-20myri/share，这就是...
 - en: '... a really red and nasty picture.. it loses about -$10,000/month. Same strategy
     just different latency & commissions.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '...一个真的很糟糕的情况。它每个月亏损约10,000美元。同样的策略，只是不同的延迟和佣金。'
 - en: Whats do you need and what is realistic ? 100usec & -1.25myri/share if you have
     $250K - $1MM to invest and doing alot of volume every day... which looks like.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 你需要什么，现实情况是什么？如果你有25万美元 - 100万美元要投资，每天要做大量的交易......看起来是什么样子。
 - en: '... a nice picture indeed.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '...确实是一幅不错的图片。'
 - en: As has been said by many people before HFT is half strategies, half technology,
     you need both or you will lose.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 就像许多人之前所说的，HFT是一半策略，一半技术，你需要两者都有，否则就会失败。

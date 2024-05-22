@@ -1,88 +1,133 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:40:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:40:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: FX Trading Tile with Clojure/ClojureScript | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Clojure/ClojureScript进行的FX交易图块 | 交易台奇谭
 - en: 来源：[https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01](https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01](https://mdavey.wordpress.com/2015/07/22/fx-trading-tile-with-clojureclojurescript/#0001-01-01)
 - en: Anyone who subscribes to any of my social network feeds would have seen an increase
     in Clojure noise over the last time period.  Clojure is interesting not just from
     a language perspective (Lisp) but from the few financial projects that have made
     the conferences over the last few years.  Although a niche language in many ways,
     it has a lot going for it, if like most things, you are prepared to invest a little
     time and effort.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 任何订阅了我任何社交网络信息源的人都会看到克鲁格尔（Clojure）在过去一段时间内的增加。  克鲁格尔不仅仅是一种语言（Lisp）的兴趣，还有在过去几年参加会议的一些金融项目。
+    尽管在许多方面是一种小众语言，但如果像大多数事物一样愿意投入一点时间和精力的话，它有很多优点。
 - en: What follows is my FX trading work in progress hack that will hopefully offer
     food for thought 😉
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是我进行中的FX交易测试，希望能提供一些思路😉
 - en: The main aim of the code hack was to get a simple FX currency pair tile in a
     browser built using [ClojureScript](http://cljs.info/cheatsheet/), backed by a
     [Clojure](https://www.niwi.nz/cljs-workshop/#_first_steps_with_ajax) server.  Starting
     point for the project as [lein-figwheel](https://github.com/bhauman/lein-figwheel/wiki/Quick-Start) with
     [Reagent](https://reagent-project.github.io/index.html).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 代码修改的主要目的是在浏览器中创建一个简单的FX货币对图块，使用[ClojureScript](http://cljs.info/cheatsheet/)支持，由[Clojure](https://www.niwi.nz/cljs-workshop/#_first_steps_with_ajax)服务器支持。  项目的起点是[lein-figwheel](https://github.com/bhauman/lein-figwheel/wiki/Quick-Start)，采用[Reagent](https://reagent-project.github.io/index.html)。
 - en: Remember the code below (client followed by server code) has been hacked up,
     so ignore the hard coding et al.  The primary aim is as a learning tool, never
     to enter production 🙂
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 请忽略下面的代码（客户端以及服务器端的代码）已被修改，因此忽略硬编码等。 主要目的是作为一种学习工具，永远不会进入生产 🙂
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'With the pricing component as per reference above, as follows:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 与上面的参考相同的定价组件，如下：
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Clearly the code is using [atom’s](http://clojure.org/atoms), as one would expect.
     I had a few problems with the [JSON](http://udayv.com/clojure/2014/08/19/json-web-services-with-clojure/)
     web service “order” method, but ended up resolving the issue with [cljs-ajax](https://github.com/JulianBirch/cljs-ajax).
     Also using the [ring](https://github.com/ring-clojure/ring-json) server and handler
     to handle the routing.  Had a few issues with [http-kit](http://www.http-kit.org/server.html)
     deserialisation of the request, but I think that was partly my own silliness.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，代码正在使用[atom’s](http://clojure.org/atoms)，这是预期的。 我在[JSON](http://udayv.com/clojure/2014/08/19/json-web-services-with-clojure/)
+    web服务“order”方法上遇到了一些问题，但最终通过[cljs-ajax](https://github.com/JulianBirch/cljs-ajax)解决了问题。
+    还使用了[ring](https://github.com/ring-clojure/ring-json)服务器和处理程序来处理路由。 我在[http-kit](http://www.http-kit.org/server.html)对请求的反序列化中遇到了一些问题，但我认为这部分原因是我自己愚蠢的行为。
 - en: '[PRE2]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Items to work on next:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步要解决的问题：
 - en: Moving the simply price generator to the Clojure server, and streaming the prices
     via Websockets – possible using [chord](https://github.com/jarohen/chord) or [Sente](https://github.com/ptaoussanis/sente).
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 将简单价格生成器移动到Clojure服务器，并通过Websockets流式传输价格—可能使用[chord](https://github.com/jarohen/chord)或[Sente](https://github.com/ptaoussanis/sente)。
 - en: Look at [agents](http://clojure.org/agents) for the server.  [Avout](http://avout.io/)
     and [onyx](https://github.com/onyx-platform/onyx) also look interesting.
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 查看[agents](http://clojure.org/agents)用于服务器。 [Avout](http://avout.io/) 和 [onyx](https://github.com/onyx-platform/onyx)也看起来有趣。
 - en: Dependency injection (e.g. [clj-di](https://github.com/nvbn/clj-di)) and MVC
     would be nice client side.
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 依赖注入（例如[clj-di](https://github.com/nvbn/clj-di)）和MVC在客户端方面将是不错的。
 - en: ~ by mdavey on July 22, 2015.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于2015年7月22日发布
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/), [Trading](https://mdavey.wordpress.com/category/trading/)
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表在[语言](https://mdavey.wordpress.com/category/languages/)，[交易](https://mdavey.wordpress.com/category/trading/)中

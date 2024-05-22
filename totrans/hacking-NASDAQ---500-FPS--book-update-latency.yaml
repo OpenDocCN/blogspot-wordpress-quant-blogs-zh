@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '分类: 未分类'
 - en: 'date: 2024-05-13 00:08:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-13 00:08:34'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: book update latency'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以每秒 500 帧的速度入侵纳斯达克：书的更新延迟
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/rejection.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/rejection.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/rejection.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/rejection.html#0001-01-01)
 - en: The code for updating the book is quite simple, the interesting question is
     how fast can this be done as it adds latency to the trading algo, and this space
     is all about latency. My initial thoughts is you want to update the book for every
@@ -25,11 +37,16 @@
     around 100k msg / second which translates to around 10,000ns or 41000 cycles @4.1ghz
     per message... which it a huge chunk of time and no problem to process. What makes
     it interesting is optimizing for latency.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新书籍的代码非常简单，有趣的问题是它能多快完成，因为这会给交易算法增加延迟，而这个空间都在讨论延迟。我的初步想法是，您希望在单台机器上为每个订单操作的每个符号更新书籍，因此需要每秒约
+    100k 条消息的吞吐量，这相当于每条消息约 10,000ns 或者约 41000 个周期 @4.1ghz... 这是一个很大的时间段，并且处理问题也不难。有趣的是优化延迟。
 - en: '[![](img/1d2d5f9a0497c3977755c1c9adb28740.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRug6conN-A3nYyVXAKoOizf3idGKJ79zx_BL3iGT7uYioUzBO03W1QK0kYGSjcEga9MdC6AMoakhDDlo6ZZ1KNXVACRSAJH8OX-HovgGfjW7g1yg2_K07g_yZcduHXSVeJ5OoO59LIg/s1600-h/highlevel_latency.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1d2d5f9a0497c3977755c1c9adb28740.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiRug6conN-A3nYyVXAKoOizf3idGKJ79zx_BL3iGT7uYioUzBO03W1QK0kYGSjcEga9MdC6AMoakhDDlo6ZZ1KNXVACRSAJH8OX-HovgGfjW7g1yg2_K07g_yZcduHXSVeJ5OoO59LIg/s1600-h/highlevel_latency.jpg)'
 - en: Why is latency so important? because the response time from when the exchange
     sends out the order operation, to the time the exchange receives your order request
     is what matters. So from the exchange, over ethernet to your servers NIC, through
@@ -39,8 +56,12 @@
     to update the book is important. How important? not so sure at this point but
     if your dumb arse code is taking 10,000 nanosec to just update the book, your
     going to get your ass kicked in the market.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为什么延迟如此重要？因为交易所发送订单操作的响应时间，到交易所接收您的订单请求的时间才是重要的。因此，从交易所，经过以太网到您的服务器网卡，通过 Linux
+    网络堆栈，进入您的黑匣子交易算法，然后再通过 Linux 网络堆栈，到以太网卡，通过电线，返回给交易所。构建书籍是“黑匣子”的一部分，因此更新书籍所需的时间很重要。重要吗？这一点我不太确定，但是如果您的愚蠢代码仅仅更新书籍就需要
+    10,000 纳秒，那么您将在市场上吃大亏。
 - en: How to minimize the book update latency? pretty simple really - keep 1 symbols`s
     book per cpu, or just a few books per cpu if your say, pair trading. And duplicate
     machines for however many symbols your trading on. Why does it help? because on
@@ -50,8 +71,12 @@
     Translation - because the memory access patterns are fairly random keep the working
     data set as small as possible, thus only process a few symbols on a single core/cpu
     socket so all the data stays on chip, in the cache.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 如何最小化书籍更新的延迟？实际上非常简单 - 每个 CPU 保留 1 个符号的书籍，或者如果您的交易是成对的，每个 CPU 保留几本书籍。如果您进行交易，可以为几个符号复制机器。为什么这有帮助？因为在比如说
+    Intel i7 处理器上，每个核心有 32KB x2（指令/数据）L1 缓存，每个核心有 256KB 的 L2 缓存，共享 8MB 的 L3。当执行延迟非常重要时，L1
+    缓存非常重要，L2 缓存接近至关重要，L3 缓存是你的神父，DDR 则是致命的。翻译 - 因为内存访问模式是相当随机的，尽量使工作数据集尽可能小，因此只在单个核心/CPU插槽上处理几个符号，以便所有数据都留在芯片上，在缓存中。
 - en: What are the numbers? an L1 miss is reportedly 10cycles(2.44ns @ 4.1Ghz), L2
     miss is 30-40 cycles(9.76ns @ 4.1Ghz) and if you miss the L3 and go to DDR your
     in the 100`s of cycles say 400 cycles(97.6ns @ 4.1Ghz). However the intel engineers
@@ -60,8 +85,13 @@
     there`s TLB miss costs or god forbid... hitting the virtual page file. Moral of
     the story is to keep the memory footprint as small as possible, and access order
     as predictable as possible - this is x86 optimization 101.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些数字是什么？据报道，L1 缺失需要 10 个周期（2.44ns @ 4.1Ghz），L2 缺失需要 30-40 个周期（9.76ns @ 4.1Ghz），如果你错过了
+    L3 并到达 DDR，你需要数百个周期，比如 400 个周期（97.6ns @ 4.1Ghz）。然而，英特尔工程师一直在努力让糟糕的代码在他们的硬件上快速运行，所以情况更复杂了，因为数据可以被预取，硬件可以在缺失时调度命中，还有
+    TLB 缺失的成本，或者可怕的是... 命中虚拟页面文件。故事的 morale 是尽可能保持内存占用尽可能小，并尽可能可预测地访问订单- 这是 x86 优化
+    101。
 - en: So thats err... cool but how is it relevant? Simple. If your code is busy spending
     1000ns processing the book for symbol X, and your trading on symbol Y, then you`ve
     just pissed away 1000ns of latency while symbol Y`s message is sitting in a buffer
@@ -69,12 +99,18 @@
     the wire en-route to the exchange and you - FAIL. Thus the problem can be re-stated
     as "*the fastest way to reject messages*" and only process what your interested
     in.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么... 这很酷，但它与什么有关吗？简单。如果你的代码忙于花费 1000ns 处理符号 X 的订单簿，而你又在交易符号 Y，那么你刚刚浪费了 1000ns
+    的延迟，而符号 Y 的消息正在等待在缓冲区中被处理！那个时候，你的竞争对手已经在路上向交易所发送订单了，而你- 失败。因此，问题可以重新表述为“*拒绝消息的最快方法*”并且只处理你感兴趣的消息。
 - en: My first thought was, great just do a 64b compare on the stock symbol for all
     messages and we`re done, cool.. too easy. However its not that simple as everything
     revolves around a unique OrderID, meaning you only have the symbol on the order
     add message, and all other order types you need to work backwards from the orderid
     to decide if its a relevant message - a nice fun problem.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的第一个想法是，很棒，只需对所有消息的股票符号进行 64 位比较，我们就完成了，太酷了.. 太容易了。然而，事情并不像那么简单，因为一切都围绕着唯一的
+    OrderID，这意味着你只有在订单添加消息中才能看到符号，而在所有其他订单类型中，你需要从 orderid 往回推断是否是相关的消息- 一个有趣的问题。

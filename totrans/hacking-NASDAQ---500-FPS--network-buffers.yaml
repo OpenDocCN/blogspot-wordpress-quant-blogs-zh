@@ -1,90 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:08:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:08:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: network buffers'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以 500 FPS 的速度黑掉纳斯达克：网络缓冲区
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/network-buffers.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/network-buffers.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/network-buffers.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/network-buffers.html#0001-01-01)
 - en: Next interesting part is looking at the interconnect fabric, which in this case
     is 1Gigabit Ethernet NIC x2  + Switch, using UDP at the protocol level. Test is
     conducted using a stock 2.6.30 kernel + socket library and standard Rx/Tx socket
     buffers. What were testing here is the time it takes to send each message in its
     own UDP frame, so sendto() on each ITCH message. The results are quite (in a bad
     way) surprising.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一个有趣的部分是查看互连结构，这里是 1Gbps 以太网网卡 x2 + 交换机，使用 UDP 作为协议级别。测试使用的是一个常规的 2.6.30 内核
+    + 套接字库和标准的 Rx/Tx 套接字缓冲区。我们这里测试的是每条消息在其自己的 UDP 帧中发送所需的时间，因此对每条 ITCH 消息进行 sendto()。结果相当（以不好的方式）令人惊讶。
 - en: Here we see that send is well behaved with an average around the 1200-1300ns
     mark with a fairly small standard deviation. Translates to 3300 cycles @ 2.6Ghz(test
     machines freq) which is alot... but considering how many libraries and theres
     a kernel call in there not that unreasonable.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，我们可以看到发送端的行为良好，平均在 1200-1300 纳秒的位置，标准偏差相当小。转换为 2.6Ghz（测试机频率）的 3300 个周期，这很多......但考虑到有多少库以及其中包含了一个内核调用，这并不是不合理的。
 - en: OTOH recv is pretty bad. If send send`s at full rate, then it drops a huge clusterfuck
     of packets so we throttle send to 1 message every 10,000ns(10us) enabling send
     to receive every packet.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一方面，接收端非常糟糕。如果发送端以最快速率发送，则会丢失大量数据包，因此我们将发送端限制为每 10,000 纳秒（10 微秒）发送 1 条消息，使发送端能够接收到每个数据包。
 - en: Thus on the send side,(above) we get the expected peek around the 10us mark,
     with a fairly small stdev, but whats up with that second spike? In contrast, the
     recv histogram is a mess.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此在发送端（上文），我们看到预期的峰值约在 10 纳秒处，标准偏差相当小，但是那第二个峰值是怎么回事？相比之下，接收直方图一团糟。
 - en: There`s some clear reciprocal send behavior here - the 2 spikes around 10us,
     but the spread is all over the map. Obviously something we really don't want when
     latency is so critical.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有一些明显的相互关联的发送行为 - 大约在 10 纳秒处出现了 2 个峰值，但是分布到处都是。毫无疑问，这是在延迟如此关键的情况下我们绝对不想要的情况。
 - en: Using 1msg / 10us isn't a luxury we can afford, so what does it look like when
     send runs flat out?
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用 1 条消息 / 10 微秒的间隔不是我们可以承受的奢 luxo，那么当发送运行时看起来如何？
 - en: 'Answer: quite interesting. The huge spike is centered around 500ns, 1335 cycles
     @ 2.67Ghz(test machine freq) which is promising, however the large flat chunk
     from 5000-10000ns would appear to be the problem. e.g. why its taking so long
     is hmm wtf? Looking at the network stack stats, the send machine drops 0 UDP packets
     while the recv machine drops a ton. On the order of about 40% of the message volume
     so its pretty certain this is an Rx problem.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 回答：非常有趣。巨大的峰值集中在 500 纳秒，1335 个周期 @ 2.67Ghz（测试机频率），这很有希望，但从 5000-10000 纳秒的平缓区域似乎是问题所在。例如，为什么花费的时间这么长是
+    hm，看起来像什么鬼？查看网络堆栈统计信息，发送端丢弃了 0 个 UDP 数据包，而接收端丢弃了大量数据包。约占消息量的 40%，因此可以确定这是一个 Rx
+    问题。
 - en: 'Changing the hisogram to graph messages dropped against time(above) doesn''t
     help much. Basically the same graph, a little flatter in parts but not very informative.
     Digging a bit deeper, plotting the ratio of # packets dropped for each time bin,
     the above graph makes more sense.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 修改直方图以确定时间间隔内的丢包比例（上文）并没有什么帮助。基本上是相同的图表，其中某些部分略微平坦但信息含量不高。深挖一点，绘制每个时间段内丢包数量的比率，上述图表就更有意义了。
 - en: Green = sequential
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 绿色 = 顺序
 - en: Red = 1 missing packets
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 红色 = 1 个丢失的数据包
 - en: Blue = 2 missing packets
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 蓝色 = 2 个丢失数据包
 - en: Orange = 3 missing packets
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 橙色 = 3 个丢失的数据包
 - en: White = 4 ore more missing packets.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 白色 = 4 个或更多的丢包。
 - en: So its easy to see theres little correlataion between recv time and the number
     of packets dropped, which... is not what I expected. e.g. longer recv takes, the
     higher the number of dropped packets. The one unknown factor here is UDP packet
     re-ordering, as by definition order isnt gaurenteed. However, as the network topology
     is trivial, nic->router->nic find it hard to beleive this would be a major factor.
     Next question is why this is occouring and what can be done about it.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此很容易看出接收时间与丢包数量之间几乎没有关联，这...与我的预期不符。例如，接收时间越长，丢包数量越多，我没有预料到会出现这种情况。这里的一个未知因素是
+    UDP 数据包重新排序，根据定义，顺序无法保证。但是，由于网络拓扑非常简单，网卡->路由器->网卡，我很难相信这会是一个主要因素。接下来的问题是为什么会发生这种情况以及该怎么解决。

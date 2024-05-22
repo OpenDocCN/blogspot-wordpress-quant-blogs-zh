@@ -1,74 +1,116 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:01:16'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:01:16
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: Tale of two sockets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500 FPS攻击纳斯达克：两个插座的故事
 - en: 来源：[http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01](http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01](http://hackingnasdaq.blogspot.com/2013/03/tale-of-two-sockets.html#0001-01-01)
 - en: Once upon a time in a far away place there was a socket...
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 从前，有一个远离的地方有一个插座...
 - en: The term socket has different interpretations, to those on the left in the network
     world it usually refers to a
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 术语“套接字”有不同的解释，对于网络世界中的左侧人员，它通常指的是
 - en: '[Berkely sockets](http://en.wikipedia.org/wiki/Berkely_sockets)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Berkely sockets](http://en.wikipedia.org/wiki/Berkely_sockets)'
 - en: aka socket(AF_INET, _ ... ) send/recv.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 即socket(AF_INET, _...) 发送/接收。
 - en: To those on the right in
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于右侧的人来说
 - en: '[LSI](http://en.wikipedia.org/wiki/Large_Scale_Integration#LSI)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[LSI](http://en.wikipedia.org/wiki/Large_Scale_Integration#LSI)'
 - en: land it means a place where you plug in an
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 路上的意思是插入一个地方
 - en: '[ASIC](http://en.wikipedia.org/wiki/Application-specific_integrated_circuit)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[ASIC](http://en.wikipedia.org/wiki/Application-specific_integrated_circuit)'
 - en: . Today we`re talking about the latter, the space where you plug in (usually)
     a CPU.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: . 如今，我们要谈的是后者，即CPU通常插入的空间。
 - en: Recently faced an unusual timing problem - a bit of code was taking negative
     1 to 10 usecs. Under other circumstances would have been delighted the code was
     running so fast yet nature being the stubborn
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近面临了一个不寻常的时间问题——某些代码已经消耗了1到10微秒。在其他情况下，代码运行的如此之快本应让人高兴，但自然的顽固保证了
 - en: '[SOB](http://en.wikipedia.org/wiki/Son_of_a_bitch#Son_of_a_bitch)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[SOB](http://en.wikipedia.org/wiki/Son_of_a_bitch#Son_of_a_bitch)'
 - en: that it is, prohibits such things... atleast outside the Physics department.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 那就是，禁止这样的事情...至少在物理系之外。
 - en: It got me thinking, questioning every aspect of the code and hardware with one
     nagging question popping up.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 它让我思考，质疑代码和硬件的每个方面，一个令人不安的问题突然浮现。
 - en: Is the cycle counter between two sockets synchronized?
+  id: totrans-19
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 两个插座之间的周期计数器是否同步？
 - en: '[![](img/3d18bcd70389ac74998326da4f45344c.png)](http://www.pcper.com/files/imagecache/article_max_width/review/2011-12-14/die.jpg)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3d18bcd70389ac74998326da4f45344c.png)](http://www.pcper.com/files/imagecache/article_max_width/review/2011-12-14/die.jpg)'
 - en: Its well known and documented that in a post Nehalam age the intel cycle counter
     is rock solid, invariant to power states, between cores and also immune to turbo
     boost, the latter being a pain the ass if you really want to count cycles. Why
@@ -76,121 +118,186 @@
     intel designers decided rdtsc & friends should be based on a clock in the creatively named
     "UnCore" which sits way out near the IO logic, thus centralized and the same for
     all cores.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 众所周知并记录，在尼哈拉姆时代后，英特尔周期计数器非常可靠，对于功率状态、核心之间的变化也是稳定的，而且还能抵抗着奔腾，如果你确实想计数的话，后者是件让人烦恼的事情。为什么它总是以盒子上标示的频率频率率率（列表那个？）而全部趋于零？尼哈拉姆英特尔设计者决定rdtsc及其姐妹产品应该基于“UnCore”中的一个时钟，这个时钟位于IO逻辑附近，因此是中央集中式的，对所有核心来说是一样的。
 - en: rdtsc on a single cpu socket machine has been a trusted friend since the good
     ol Pentium 90 days but never tested its behaviour between cpu sockets. Yet is
     it syncrhonized between two cpu sockets? the short answer is, yes it is very well synchronized between
     cpu sockets as mentioned in various placed. However ... being the skeptical person
     I am - don`t believe writings on teh itnerwebz (such as this blog!) and so.....
      a test.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在单个CPU插座机器上，rdtsc自从好旧的奔腾90时代以来就一直是一个值得信赖的朋友，但从未测试过它在CPU插座之间的行为。然而，它在两个CPU插座之间同步吗？简短的答案是，根据各地的说法，它在CPU插座之间非常良好地同步。然而...作为我所说的一个怀疑论者——不要相信互联网上的文字（比如本博客！），所以...  一个测试。
 - en: The test is simple, run 2 hardware threads(HWT) on 2 different sockets. Each
     HWT will update a shared cycle counter in memory. The expected result is, the
     local HWT cycle counter should *always* be greater than the memory value.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试很简单，运行2个不同插座上的硬件线程（HWT）。每个HWT都会更新内存中的共享周期计数器。预期结果是，本地HWT的周期计数器应该*始终*大于内存值。
 - en: Why ? example case 1
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 为什么？例如案例1
 - en: Cycle |         HWT 0     |  HWT 1
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 周期 |         HWT 0     |  HWT 1
 - en: 0  |  sample           |
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 0  |  样本           |
 - en: 1  |  write to memory  |
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 1  |  写入内存  |
 - en: 2  |                   |    sample
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 2  |                   |    样本
 - en: 3  |                   | write to memory
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 3  |                   | 写入内存
 - en: Or the perverse edge case
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者反常的极端案例
 - en: Cycle |         HWT 0     |  HWT 1
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 周期 |         HWT 0     |  HWT 1
 - en: 0  |  sample           |      sample
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 0  |  样本           |      样本
 - en: 1  |  write to memory  |   write to memory
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 1  |  写入内存  |   写入内存
 - en: 2  | |
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 2  | |
 - en: '**1 - in the smallest font possible hoping no one will read this... the test
     fails when the 64b cycle counter overflows'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**1 - 以最小的字体希望没有人会读到...当64位周期计数器溢出时，测试失败。'
 - en: '**2 - yes im completely delusion to think the above is anything close to the
     voodoo magic that goes on inside a real intel cpu'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2 - 是的，我完全错觉，认为上面的东西与真正的英特尔cpu内部发生的巫术魔法有一些接近'
 - en: Presuming the cycle counter is synchronized  then every time we sample the cycle
     counter, the counter will be higher than whats written in memory - because whats
     in memory is a past cycle count, which by definition is less than the current
     count.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设周期计数器是同步的，那么每次我们对周期计数器进行采样时，计数器都将高于写入内存中的值 - 因为内存中的值是过去的周期计数，根据定义，比当前计数小。
 - en: in code  (g_tsc is the shared memory value)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 在代码中（g_tsc是共享内存值）
 - en: u64 memory_tsc = g_tsc;
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: u64 memory_tsc = g_tsc;
 - en: u64 tsc = rdtsc();
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: u64 tsc = rdtsc();
 - en: s64 dtsc = tsc -  memory_tsc;
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: s64 dtsc = tsc -  memory_tsc;
 - en: assert(dtsc >= 0);
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: assert(dtsc >= 0);
 - en: This works if the two cycle counters (one for HWT 0, one for HWT 1) are synchronized and
     fails otherwise. There is a problem tho... if we run this as is, it fails.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果两个周期计数器（一个用于HWT 0，一个用于HWT 1）是同步的，则此操作将起作用，否则会失败。然而这儿有一个问题...如果我们按照此方式运行程序，将会失败。
 - en: Theres 3 (possibly more?) reasons why
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 有3（可能更多？）个原因
 - en: 1) cycle counters are not perfectly synchronized
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 周期计数器不是完全同步的
 - en: 2) x86 micro architecture is re-ordering the memory operations
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) x86 微架构正在重新排序内存操作
 - en: 3) compiler re-ordered the load.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 编译器重新排序了加载。
 - en: Checked the asm and 3) is not true thus suspect 2) as x86 is notorious for its
     (very) relaxed memory ordering so we modify the above slightly by adding an lfence
     instruction. What this does is serializes all memory loads (but not stores) with
     respect to the current instruction fetch stream - creating a barrier of some sort.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 检查了汇编代码和3)不成立，所以怀疑2)因为x86以其非常松散的内存排序而臭名昭著，所以稍微修改了上面的内容，添加了一个lfence指令。这样做的作用是将所有内存加载（但不是存储）串行化，与当前指令提取流相关
+    - 形成某种障碍。
 - en: After this is added the program runs perfectly, thus conclude the cycle counter
     between sockets is perfectly synchronized, or closely synchronized.
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 添加了这个后程序运行得非常完美，因此得出结论，套接字之间的周期计数器是完全同步的，或者非常接近同步。
 - en: '[![](img/4e0854b71ffa19b18771113543e157ed.png)](http://msptelemarketing.com/wp-content/uploads/2011/05/istock_000010672195xsmall-300x199.jpg)'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4e0854b71ffa19b18771113543e157ed.png)](http://msptelemarketing.com/wp-content/uploads/2011/05/istock_000010672195xsmall-300x199.jpg)'
 - en: Now we know their closely synchronized, the question is how close and does it
     explain my negative 10usec. To do this we run a histogram on what that delta between
     the cycle counter and the memory value which shows a range of 100-200 cycles,
     which at 3ghz is at most 66.66nses, likely the QPI cost between sockets. All in
     all thats pretty tight.
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们知道它们非常接近同步，问题是有多接近，它是否能解释我的负10微秒。为了解决这个问题，我们对周期计数器和内存值之间的差值运行直方图，显示出100-200个周期的范围，在3ghz时最多为66.66ns，可能是套接字之间的QPI成本。总的来说这非常紧凑。
 - en: The down side, this was classic tunnel vision and not the cause of my negative
     latency number. The real cause was something way up the stack and far to embarrassing to
     write about here.!
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 不利的一面是，这是典型的目光狭窄，并不是负的延迟数字的原因。真正的原因是堆栈上方的某个地方，很尴尬，不好在这里写出来。

@@ -1,66 +1,96 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 23:45:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月12日23:45:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: Synth, Place, Route for SW'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以**500 FPS**的速度黑入纳斯达克：用于软件的合成、布局、路由
 - en: 来源：[http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01](http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01](http://hackingnasdaq.blogspot.com/2014/06/synth-place-route-for-sw.html#0001-01-01)
 - en: Meeting timing in an fpga design can be painful at best. The pain is from the
     long wait times between "compiles" which by itself isnt so bad. What sucks is
     that (for myself atleast) you can not do anything else while its running (except
     rant on a blog!).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在FPGA设计中满足时序在最好的情况下可能是痛苦的。痛苦来自于“编译”之间的长等待时间，单独来看这并不算什么问题。糟糕在于（至少对我来说），在运行时你什么都做不了（除了在博客上吐槽！）。
 - en: In theory you could go on and dick with the code while its running, and start
     multiple runs with different code/config yet in practice I`ve found multitasking
     like this usually ends in not knowing what you actually changed after all the
     compiles have finished.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 从理论上讲，你可以在代码运行时进行修改，并使用不同的代码/配置启动多个运行，但实际上，我发现这样的多任务通常会导致在所有编译完成后并不知道你到底改变了什么。
 - en: As a software guy its pretty hard to imagine wtf im talking about. Timing ?
     Routing ? Mapping ? Placing ? wtf ? A more concrete version of a complete logic
     "compile" looks like the pic on the the left. This is a carry chain thats 1nsec
     overbudget, meaning its a = b + c; for a specific bit in an integer. The particular
     problem here is it takes 1nsec too long because its more than a simple addition
     and has some other funky stuff that gives the tools problems.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个软件人员，很难想象我在说什么。时序？路由？映射？布局？到底在说什么？一个更具体的“编译”逻辑的完整版本看起来像左边的图片。这是一个传输链，它比预算多了1纳秒，这意味着它是一个
+    = b + c; 针对整数中的特定位。这里特别的问题是它花费的时间比简单的加法长1纳秒，并且具有其他一些让工具出问题的东西。
 - en: It got me thinking on how do you explain what modern EDA tools do to a software
     guy?
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 它让我思考现代EDA工具如何向软件人员解释？
 - en: An answer is; imagine your system memory is no-longer deterministic. This means
     if you write to address 0x1000[0] = 1; theres no guarantee a read of 0x1000[0]
     == 1\. The only rule to getting deterministic behavior of 0x1000[0] == 1, is if
     the read & write instructions are close to the memory data location. Meaning the
     location of the CPU`s instructions in memory, must be close to memory location
     0x1000 for deterministic behaviour.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个答案是：想象一下你的系统内存不再是确定性的。这意味着如果你写入地址0x1000[0] = 1;就不能保证读取0x1000[0] == 1。要获得0x1000[0]
+    == 1的确定性行为的唯一规则是，如果读写指令靠近内存数据位置。这意味着CPU在内存中的指令位置必须接近内存位置0x1000，才能实现确定性行为。
 - en: If that does not sound like a raving lunatic`s version of sudoku then you can
     start to imagine how a compiler would look. First part is generating the correct
     sequence of opcodes based on the verilog/vhdl input file. After that its an optimization
     problem of finding the best opcodes / memory location combination to get correct
     read/write memory behaviour - in a finite amount of time, a NP hard problem.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果这听起来不像狂热的数独爱好者的版本，那么你可以开始想象编译器会是什么样子。第一部分是根据verilog/vhdl输入文件生成正确的操作码序列。之后，这是一个优化问题，找到最佳的操作码/内存位置组合，以在有限的时间内获得正确的读/写内存行为-一个NP难问题。
 - en: And finally if you believe all of that, then its easy to make a program that
     compiles no problem, but is impossible to work - thus the pain of timing closure.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，如果你相信所有这些，那么制作一个可以编译但无法正常工作的程序是很容易的-这就是时序闭合的痛苦。
 - en: '... atleast in some psudo hand wavy sudoku analogy.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '...至少在某种伪手势数独类比中。'

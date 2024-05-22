@@ -1,158 +1,229 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:01:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:01:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: SVD of HFT'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以每秒500帧速度黑掉纳斯达克：HFT的SVD
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/12/svd-of-hft.html#0001-01-01)
 - en: Cant believe it, first post on this blog was exactly 3 years ago wow... seems
     like such a long time. 3 years ago I couldn`t tell you the difference between
     buy, sell, bid, ask, long or short yet some how the projects and code I`ve written
     during this time now checks or trades, millions, tens of millions, hundreds of
     millions and sometimes billions of dollars every single day. The depressing part?
     all the time and effort in finance has not translated into
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 无法相信，这个博客的第一篇帖子竟然正好是3年前，哇... 似乎已经很久了。 3年前我还不能告诉你买入、卖出、出价、叫价、多头还是空头之间的区别，但在这段时间里我写的项目和代码现在每天检查或交易数百万、几千万、数亿，有时甚至十亿美元。令人沮丧的是？在金融领域的所有时间和精力都没有转化为...
 - en: '[George Washingtion`s](http://en.wikipedia.org/wiki/United_States_one-dollar_bill)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[乔治·华盛顿](http://en.wikipedia.org/wiki/United_States_one-dollar_bill)'
 - en: . in my bank account.... bugger.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: . 在我的银行账户里... 讨厌。
 - en: So when your imagination and reality are so divergent its a good  times to step
     back and work out **what** your missing and not even consider the how or where
     of the equation - just focus on the what. Lets take a high level look at the game
     from the top down.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以当你的想象力和现实如此不同，这是一个很好的时机退后一步，弄清楚**你**缺少了什么，而不要考虑方程的如何或何地 - 只注重于是什么。让我们从高层次来看看这个游戏。
 - en: HFT game has 5 major components
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: HFT游戏有5个主要组成部分
 - en: 1) Speed / Deterministic / Technology
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1）速度/确定性/技术
 - en: 2) Commissions / cost structure
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 2）佣金/费用结构
 - en: 3) Influence with the exchange
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 3）对交易所的影响
 - en: 4) Capital
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 4）资本
 - en: 5) Strategy
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 5）策略
 - en: Speed / Deterministic / Technology
+  id: totrans-16
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 速度/确定性/技术
 - en: This is the classic arms race, bigger faster, better. Its very true technology
     is a large component of any HF strategy however the trap technologist (like myself)
     fall into is, they believe technology alone can beat the market. What we dont
     realize is our technology edge starts and ends at the cable plugged into our box/switch.
     Theres so many other moving parts that are out of our control that tips the balance
     way into the red.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是经典的武器竞赛，变得更大、更快、更好。这是非常真实的，技术是任何高频交易策略的重要组成部分，然而我们技术人员（比如我自己）掉进的陷阱是，他们认为单靠技术就能战胜市场。我们没有意识到的是，我们的技术优势只从我们的盒子/交换机插入的电缆开始，到那里结束。还有许多其他我们无法控制的运动部分，使平衡倾向于失败。
 - en: In Round 1 any technology edge I had ended when it entered at the brokers pre-trade
     risk checks let alone entering the exchanges infra. In Round 2 have best in class
     access to the market but the edge is gone once the packet has left the NIC. Net
     result, speed/technology is important but you cant win a trade with it alone.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第1轮，我的任何技术优势都在进入经纪人的交易前风险检查时结束，更不用说进入交易所的基础设施。在第2轮，能够以最佳状况进入市场，但一旦数据包离开网络接口卡，优势就消失了。最后的结果是，速度/技术很重要，但你不能仅凭它赢得交易。
 - en: Commissions / cost structure
+  id: totrans-19
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 佣金/费用结构
 - en: HF strategies are unique because the per trade profit is very small, which makes
     it extremely sensitive to the per trade and monthly recurring costs. For example
     if your trade makes +100 cents on a win and -100cents on a loss with say 100 shares
     eg. 1cent/share. Say your broker, the exchange, the SEC takes 25 cents or 1/4
     of the profit.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频交易策略是独特的，因为每笔交易的利润非常小，这使得它对每笔交易和每月重复成本非常敏感。例如，如果你的交易赚了+100美分，亏损了-100美分，每股1美分，例如100股。比如你的经纪人，交易所，SEC收取25美分或利润的1/4。
 - en: This means you need a 15% edge (65% of the trades profitable) just to break
     even.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这意味着你需要一个15%的优势（65%的交易有利可图）只是将它打平而已。
 - en: Yet if your total fees is 5 cents vs 25 cents you need only a 3% edge (53%)
     of trades to break even.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，如果你的总费用是5美分与25美分，你只需有3%的优势（53%）的交易才能打平。
 - en: A delta of 12% profitable trades, means you need a really good signal, which
     is extremely difficult. Thats just to break even!
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 12%的有利可图的交易差距意味着你需要一个非常好的信号，这是非常困难的。这只是打平而已！
 - en: Influence with the exchange
+  id: totrans-24
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 对交易所的影响
 - en: This one is probably a bit surprising to many as in theory an exchange is equal
     access for all participants. Thats the theory, yet in practice an exchange has
     finite manpower and equipment which results in the dude trading $100 / day vs
     the dude trading $100MM / day gets vastly different levels of service.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可能对许多人来说有些令人惊讶，因为理论上交易所对所有参与者都是平等的准入。这是理论，但实际上，交易所拥有有限的人力和设备，这导致每天交易100美元的人与每天交易1亿美元的人获得非常不同的服务水平。
 - en: Aside from man-power theres always political / boys club games and really is
     a catch-22 situation. To join the club you need to trade massive volumes, but
     to trade (profitably) massive volumes you need A class access into the matching
     engine.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了人力外，还有政治/男性俱乐部游戏，这真的是一个进退两难的局面。要加入这个俱乐部，你需要交易大量交易，但要（有利润地）交易大量交易，你需要A级准入进入匹配引擎。
 - en: Why is it important? Your technology edge ends at the BGP endpoint (your router/switch)
     with a shit ton of other crap between that endpoint and a trade thats in the exchanges
     control.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 为什么重要？你的技术优势止步于BGP端点（你的路由器/交换机），在这个端点和交易所控制的交易之间有一堆其他东西。
 - en: Capital
+  id: totrans-28
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 资本
 - en: For the HF game capital is usually not a problem. The true believers are flat
     at the end of the day with no overnight / borrowing costs. Intraday your capital just
     limits the sizes of your position. The one thing capitial does give you is, market
     access and influence with an exchange. Any tier one prime broker will want a few
     million dollars deposit before they will even talk to you. Next step down requires
     a few $100K and so on. For now capital is not an issue.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于高频交易而言，资本通常不是问题。真正的*信徒*在一天结束时没有隔夜/借贷成本，资本只是在当天限制你的头寸大小。资本确实给你的是市场准入和对交易所的影响力。任何一级主要经纪人在愿意与你交谈之前都需要几百万美元的存款。次一级则需要几十万美元，如此类推。目前资本并不是问题。
 - en: Strategy
+  id: totrans-30
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 策略
 - en: And finally strategy, this is the true leveler. If you have excellent strategy
     then all the above can become noise. Yet the inverse is not true - you can have
     the best technology in the world but it will never make a bad strategy good.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，战略，这才是真正的平等者。如果你有出色的战略，那么上面所有的都会变成噪音。然而反之并不成立 - 即使你拥有世界上最好的技术，也永远不会使一项糟糕的战略变得出色。
 - en: This is by far my biggest weakness and the skill I need to develop further,
     but what exactly needs to be learnt? The *what* is not an easy question. The first
     6months of this expedition was largely wasted doing essentially some form of technical
     analysis - if signal X crossed signal Y then buy/sell kind of strategy development.
     Im sure it works for someone but thats not the HF game to play.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 这绝对是我最大的弱点，也是我需要进一步发展的技能，但究竟需要学到什么？*什么*并不是一个容易的问题。这次探险的头6个月基本上都浪费在进行某种形式的技术分析上
+    - 如果信号X穿过信号Y，那么买入/卖出的策略开发。我确定这对某些人有效，但这并不是高频交易的游戏。
 - en: So what`s missing? its how to mine the data and what to mine to gain a statistical
     edge. The how to mine is an easy technology problem, the what to mine is not.
     Im convinced machine learning is the way forward as its the next logical step
     beyond stat arb. After all isnt stat arb a form of the most basic machine learning?
     guess it all depends on your definite of learning.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么什么缺失了？如何挖掘数据以及何时挖掘以获得统计优势。如何挖掘是一个简单的技术问题，而何时挖掘则不是。我相信机器学习是未来的发展方向，因为它是超越统计套利的下一个合乎逻辑的步骤。毕竟，统计套利难道不是最基本的机器学习形式吗？我想这一切都取决于你对学习的定义。
 - en: Whats next? Bayes, Markov, Kernels, Boosting and Kaggle mmmm Kaggle lol
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步是什么？贝叶斯、马尔科夫、核函数、提升和Kaggle 嗯嗯嗯 Kaggle 哈哈

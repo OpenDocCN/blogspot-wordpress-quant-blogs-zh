@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:47:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:47:22'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Geometric Efficient Frontier | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 几何有效前沿 | 系统化投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/09/geometric-efficient-frontier/#0001-01-01)
 - en: What is important for an investor? The rate of return is at the top of the list.
     Does the expected rate of return shown on the mean-variance efficient frontier
     paints the full picture? If investor’s investment horizon is longer than one period,
@@ -25,163 +37,244 @@
     return](http://en.wikipedia.org/wiki/Rate_of_return), which is always less then
     or equal to the [Arithmetic return](http://en.wikipedia.org/wiki/Rate_of_return)
     plotted on the Y axis of the mean-variance efficient frontier.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于投资者来说什么是重要的？ 回报率是榜单上最重要的部分。 在均值-方差有效前沿上显示的预期回报率能完整呈现图景吗？ 如果投资者的投资周期长于一个周期，比如
+    5 年，那么投资组合绩效的真实度量是 [几何收益率](http://zh.wikipedia.org/wiki/收益率)，它始终小于或等于均值-方差有效前沿
+    Y 轴上画出的[算术收益率](http://zh.wikipedia.org/wiki/收益率)。
 - en: There is a good discussion of Arithmetic vs Geometric returns in [A tale of
     two returns](http://www.portfolioprobe.com/2010/10/04/a-tale-of-two-returns/)
     blog post by Pat Burns and another good post [Why Log Returns](http://quantivity.wordpress.com/2011/02/21/why-log-returns/)
     by Quantivity.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有关算术与几何收益的详细讨论请参阅 Pat Burns 的[两种回报的故事](http://www.portfolioprobe.com/2010/10/04/a-tale-of-two-returns/)
+    博客文章以及 Quantivity 的[为什么使用对数收益率](http://quantivity.wordpress.com/2011/02/21/why-log-returns/)
+    博客文章。
 - en: I will use example and methods presented in [DIVERSIFICATION, REBALANCING, AND
     THE GEOMETRIC MEAN FRONTIER by W. Bernstein and D. Wilkinson (1997)](http://www.effisols.com/basics/rebal.pdf)
     paper to create Geometric Efficient Frontier.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用 [W. Bernstein 和 D. Wilkinson(1997) 的《分散化、再平衡和几何平均值前沿》](http://www.effisols.com/basics/rebal.pdf)
+    论文中提出的例子和方法来创建几何有效前沿。
 - en: 'Let’s first examine portfolios on the mean-variance efficient frontier and
     compute their historical geometrical returns:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先让我们检查有效前沿的均值-方差组合，并计算它们的历史几何收益率：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/5935762f0534805482a6cfae8acc6d1a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small2.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5935762f0534805482a6cfae8acc6d1a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small2.png)'
 - en: The efficient frontier labeled ‘Geometric’ lies below the ‘Arithmetic’ efficient
     frontier and has the maximum Geometric mean at 21.6% risk level. All portfolios
     with risk greater than 21.6% are not efficient for investor with multi-period
     investment horizon.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 标记为“几何”的有效前沿位于“算术”有效前沿下方，并且在 21.6% 风险水平处拥有最大的几何均值。 所有风险大于 21.6% 的投资组合对于多周期投资的投资者来说是非有效的。
 - en: 'The [DIVERSIFICATION, REBALANCING, AND THE GEOMETRIC MEAN FRONTIER by W. Bernstein
     and D. Wilkinson (1997)](http://www.effisols.com/basics/rebal.pdf) paper discuss
     four methods to approximate historical geometric means calculation with arithmetic
     means. All computations are based on the following approximation between Arithmetic
     (R) and Geometric (G) means (page 8):'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[W. Bernstein 和 D. Wilkinson(1997) 的《分散化、再平衡和几何平均值前沿》](http://www.effisols.com/basics/rebal.pdf)
+    论文讨论了用算术均值近似历史几何均值计算的四种方法。 所有计算都基于算术（R）和几何（G）均值之间的以下近似关系（第 8 页）：'
 - en: '![G \approx R - \frac{aV}{2(1+bR)}  \newline \newline  R \approx \frac{2G+aV}{1-bG+\sqrt{(1+bG)^2+2abV}}  ](img/3c9a064e897357d2497af3fcf5a4c272.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![G \approx R - \frac{aV}{2(1+bR)}  \newline \newline  R \approx \frac{2G+aV}{1-bG+\sqrt{(1+bG)^2+2abV}}  ](img/3c9a064e897357d2497af3fcf5a4c272.png)'
 - en: To reproduce results from the paper, I will follow the geometric efficient frontier
     construction methods outlined on page 14\. The A(0,1) and A(1,1) geometric efficient
     frontiers are constructed from the classical Markowitz efficient frontier which
     use the arithmetic means as inputs. To compute portfolio geometric means I use
     the above approximation.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了复制论文中的结果，我将遵循第 14 页上概述的几何有效前沿构建方法。 A(0,1) 和 A(1,1) 几何有效前沿是由使用算术均值作为输入的经典马科维茨有效前沿构建的。
+    为了计算投资组合的几何均值，我使用上述近似公式。
 - en: The G(0,1) and G(1,1) geometric efficient frontiers are constructed from the
     classical Markowitz efficient frontier which use the individual pseudo-arithmetic
     means as inputs. I.e. I first convert individual geometric means to the pseudo-arithmetic
     means and use them later in the optimization. To compute portfolio geometric means
     I use the above approximation, same as for A(0,1) and A(1,1).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: G(0,1) 和 G(1,1) 几何有效前沿是从传统的马科维茨有效前沿构建的，它使用单个伪算术平均值作为输入。换句话说，我先将单个几何平均数转换为伪算术平均数，然后再将它们用于优化。计算组合几何平均数时，我使用上述近似值，与
+    A(0,1) 和 A(1,1) 一样。
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/786c50fd648d8f18db9f9f1d87eeb06a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small2.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/786c50fd648d8f18db9f9f1d87eeb06a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small2.png)'
 - en: The results match closely to the paper’s results on page 27.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果与论文第27页的结果非常接近。
 - en: 'But we can do better, in the recent paper [On the Relationship between Arithmetic
     and Geometric Returns by D. Mindlin (2011)](http://www.cdiadvisors.com/papers/CDIArithmeticVsGeometric.pdf)
     the author presents a detailed review of the four approximation methods to convert
     between Arithmetic and Geometric Returns. The overall winner is the relationship
     (A4) (page 8):'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 但我们可以做得更好，在最近的一篇论文[《关于D. Mindlin（2011）所著《算术与几何回报之间的关系》》](http://www.cdiadvisors.com/papers/CDIArithmeticVsGeometric.pdf)中，作者对四种近似方法进行了详细评估以实现算术回报和几何回报之间的转换。最终的优胜者是关系（A4）（第8页）：
 - en: '![G \approx \frac{(1+R)}{\sqrt{1+\frac{V}{(1+R)^2}}}-1  \newline \newline  R
     \approx (1+G)\sqrt{\frac{1+\sqrt{1+\frac{4V}{(1+G)^2)}}}{2}}-1  ](img/8798950aa5d95d8508bf0b7d01a3f25c.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![G \approx \frac{(1+R)}{\sqrt{1+\frac{V}{(1+R)^2}}}-1  \newline \newline  R
+    \approx (1+G)\sqrt{\frac{1+\sqrt{1+\frac{4V}{(1+G)^2)}}}{2}}-1  ](img/8798950aa5d95d8508bf0b7d01a3f25c.png)'
 - en: 'Let’s compare the geometric mean approximation given by A4 method in the same
     framework as we did above:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们比较在同样的框架下 A4 方法给出的几何平均值近似值：
 - en: '[PRE2]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/a2e2d7f7516b6311e8d4a029d3b7a5b8.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small1.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a2e2d7f7516b6311e8d4a029d3b7a5b8.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small1.png)'
 - en: The results match closely the Geometric Efficient Frontier and outperform the
     A(1,0), A(1,1), G(1,0), G(1,1) approximations.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果与几何有效前沿非常接近，并且优于 A(1,0), A(1,1), G(1,0), G(1,1) 的近似值。
 - en: All discussion above was based on the Geometric Efficient Frontier that consisted
     from portfolios on the Arithmetic Efficient Frontier. But why do we think that
     both the Geometric Efficient Frontier and the Arithmetic Efficient Frontier will
     have same portfolios?
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 以上所有讨论都是基于由算术有效前沿构成的几何有效前沿。但是我们为什么认为几何有效前沿和算术有效前沿将拥有相同的组合呢？
 - en: Let’s create the True Geometric Efficient Frontier. I’m not aware of the method
     to solve this problem as the linear programming, so I will use a Nonlinear programming
     solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html), which is based on
     donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html).
     Following code might not properly execute on your computer because Rdonlp2 is
     only available for R version 2.9 or below.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们创建真实的几何有效前沿。我不知道解决此问题的线性规划方法，所以我将使用一个基于[Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html)开发的
+    donlp2 示例开发和版权的非线性规划求解器[Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html)。以下代码可能在您的计算机上无法正常执行，因为
+    Rdonlp2 只适用于 R 版本 2.9 或更低版本。
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/a0f5ddfed533808086ed67d7e76db153.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a0f5ddfed533808086ed67d7e76db153.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small.png)'
 - en: The source code for the max.geometric.return.portfolio() function is at the
     end of this post.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: max.geometric.return.portfolio() 函数的源代码在本文的末尾。
 - en: 'The True Geometric Efficient Frontier and Geometric Efficient Frontier that
     consisted from portfolios on the Arithmetic Efficient Frontier look identical.
     This conclusion is also supported by the paper [On the Maximization of the Geometric
     Mean with Lognormal Return Distribution by E. Elton, M. Gruber (1974)](http://pages.stern.nyu.edu/~eelton/papers/74-dec.pdf).
     Following is the abstract:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 真实的几何有效前沿和由算术有效前沿组成的几何有效前沿看起来是相同的。这一结论也得到了论文[Elton, M. Gruber (1974)关于《利用对数正态回报分布最大化几何平均数》](http://pages.stern.nyu.edu/~eelton/papers/74-dec.pdf)的支持。以下是摘要内容：
 - en: '[In this paper we discuss the relevancy of the geometric mean as a portfolio
     selection criteria. A procedure for finding that portfolio with the highest geometric
     mean when returns on portfolios are lognormally distributed is presented. The
     development of this algorithm involves a **proof that the portfolio with maximum
     geometric mean lies on the efficient frontier in arithmetic mean variance space**.](http://mansci.journal.informs.org/content/21/4/483.short)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[在本文中，我们讨论了几何平均数作为投资组合选择标准的相关性。在投资组合回报呈对数正态分布时，提出了寻找具有最高几何平均数的投资组合的程序。该算法的发展涉及**证明在算术平均值方差空间中，具有最大几何平均值的投资组合位于有效前沿上**。](http://mansci.journal.informs.org/content/21/4/483.short)'
 - en: The last step is to check that portfolios found by Non-Linear Optimization are
     global maximums. I will create 1,000,000 random portfolios that satisfy constraints
     and plot True Geometric Efficient Frontier and random portfolios on the same chart.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后一步是检查通过非线性优化找到的投资组合是否为全局最大值。我将创建1,000,000个满足约束条件的随机投资组合，并在同一图表上绘制真正的几何有效前沿和随机投资组合。
 - en: '[PRE4]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/60a8ac570b60bbdc39e60b2207a45a7e.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot5-small.png)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/60a8ac570b60bbdc39e60b2207a45a7e.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot5-small.png)'
 - en: 'The Non-Linear Optimization found global maximums: all random portfolios, black
     dots, lie below the True Geometric Efficient Frontier, red line. To generate Random
     Portfolios I used [randfixedsum function (Random Vectors with Fixed Sum)](http://www.mathworks.com/matlabcentral/fileexchange/9700-random-vectors-with-fixed-sum)
     created by Roger Stafford. The randfixedsum function randomly and uniformly generates
     vectors with a specified sum and values in a specified interval.'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 非线性优化找到了全局最大值：所有随机投资组合（黑点）都位于真正的几何有效前沿（红线）下方。为了生成随机投资组合，我使用了[Roger Stafford创建的randfixedsum函数（具有固定和的随机向量）](http://www.mathworks.com/matlabcentral/fileexchange/9700-random-vectors-with-fixed-sum)。randfixedsum函数随机均匀地生成具有指定总和和指定区间内的值的向量。
 - en: '*The message that I want to convey in this post is to always check the Geometric
     Efficient Frontier, constructed from the portfolios on the Arithmetic Efficient
     Frontier, and make sure that you are compensated for the risk in your portfolios.
     I.e. the more risk you take on, the greater the expected Geometric return of your
     portfolios.*'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '*我在这篇文章中想传达的信息是始终要检查几何有效前沿，该前沿由算术有效前沿上的投资组合构成，并确保你在投资组合风险中得到补偿。也就是说，你承担的风险越大，你的投资组合的几何回报就会越大。*'
 - en: To view the complete source code for this example, please have a look at the
     [aa.arithmetic.geometric.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的aa.test.r中的aa.arithmetic.geometric.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。
 - en: 'The source code for the max.geometric.return.portfolio() function:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: max.geometric.return.portfolio()函数的源代码：
 - en: '[PRE5]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'

@@ -1,56 +1,82 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!-- yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:04:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:04:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: "The Wall"'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'hacking NASDAQ @ 500 FPS: "The Wall"'
 - en: 来源：[http://hackingnasdaq.blogspot.com/2011/08/wall.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/wall.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2011/08/wall.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/wall.html#0001-01-01)
 - en: Found a just classic example of the problem currently fighting with, an uptick
     which all signals says GO but has the crap beaten out of it by some freight train.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 发现了一个典型的例子，目前正在与这个问题做斗争，出现了一个所有信号都预示会上涨的情况，但却在遇到某个货运列车时被打败了。
 - en: Below is the best bid
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是最佳出价
 - en: Red circle is where the strategy correctly predicts an uptick, but as you can
     see it promptly gets hammered down. So lets look at the qty open at the best bid,
     first thing you notice is this massive bid qty spike, kind of like a train heading
     towards a brick wall.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 红圈是策略正确预测出上涨的位置，但你可以看到它很快就被打压下去了。所以我们来看看最佳出价处的开放数量，你首先会注意到的是这个巨大的出价数量波动，有点像一列开往一堵墙的火车。
 - en: Above is the open qty at the best bid, where its clearly visible at the previous
     valley(hmm whats the lingo for this?) someone adds another 10K shares at that
     price level adding a nice amount of support. Then as expected market uses that
     support level pushing the price up again.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 上方是最佳出价处的开放数量，可以清楚地看到在先前的低谷（嗯，这里有关于这个的行话吗？）有人在这一价格级别上再添加了10,000股股票，为其提供了很好的支撑。随后，市场使用了这个支撑水平，将价格再次推高。
 - en: Above is open bid at levels 1, 2, 3 away from the best bid. As the best bid
     price moves up can clearly see "The Wall" moving away then returning until it
     becomes the best bid again.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 上方是离最佳出价1、2、3个级别的开放出价。随着最佳出价上涨，可以清楚地看到“墙”移开然后返回，直到重新成为最佳出价。
 - en: At this point would expect the price to bounce back up as there`s support, but
     what actually happens is this.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个时候，希望价格会因为有支撑而反弹，但实际上发生了这样的情况。
 - en: Above plots are 4 signals, best bid price(one close + really closeup) with red
     circle where expect the price to bounce back up. 2nd is the open quantity at the
     best bid, and 3rd is the cumulative execution qty at that price level.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 上图显示4个信号，最佳出价价格（一个近距离和一个非常近距离）用红圈标出，预计价格将会反弹。第二个是最佳出价的开放数量，第三个是该价格级别的累积成交量。
 - en: This is whats frustrating, whats happening is "The Wall" returns (in red), price
     jumps 1 tick then.. someone decides to hit the entire best bid, knocking the price
     down again, then continues to eat chunks of 10K shares at that price level (red,
@@ -58,16 +84,21 @@
     interesting thing is not that someone hit the bid, but whoever is buying continues
     to replenish with 10k shares! And thus the reason half my orders just beat the
     spread, with gross PnL 0/net PnL neagtive hmm...
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '令人沮丧的是，这里发生着“墙”的回归（用红色标注），价格上涨1个点，然后...有人决定击中整个最佳出价，再次将价格压下来，然后继续以10,000股的量在那个价格水平上卖出（红色，蓝色，紫色）-
+    这个价格我原本认为没有人感兴趣...或许最有趣的事情不是有人出价收底，而是购买者继续以10,000股补满！这也就是为什么我有一半的订单刚好击败了价差，而总体盈利为0/净盈利为负... '
 - en: If you read all the trading books and what not, the less technical ones really
     push "whos on the other side of your trade" e.g. who are you trading against and
     whats their psychology/motives/brand of coffee/star sign/phase of the moon or
     whatever. So with that said, probably the most important question here is, is
     it man or machine? e.g. is this some crazy ass trader thumping 10k shares buy/sell
     button on a workstation? or is this algos at play.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你读过所有的交易书籍等等，那些不太技术的书籍特别强调“谁在你交易的另一端”，例如，你正在与谁进行交易，他们的心理/动机/喝的咖啡牌子/星座/月相或其他什么。因此，可以说，这里最重要的问题可能是，是人还是机器？也就是说，是某个疯狂的交易员在工作站上猛击了1万股的买/卖按钮？还是有算法在起作用。
 - en: Above is the delta time between quotes for the above sequence, where vertical
     axis is time in nanosecconds. As you can see theres this huge chunk of black in
     the middle with some fairly high peeks, one  goes all the way to around 500msec.
@@ -75,14 +106,21 @@
     the seller is human but would have to be really quick to pull this off, i mean
     *really* fast, which is possible but I think unlikely seller is clicking some
     GUI button here. The buyer on the otherhand is clearly an algo.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 上方是以上序列的报价之间的时间差，其中纵轴为纳秒时间。你可以看到在中间有一大段黑色，然后一些相当高的峰值，其中一个达到了大约500毫秒。但整个序列的时间大约为1秒左右。我猜卖家可能是人类，但必须非常迅速才能做到这一点，我是说*非常*快，这是可能的，但我认为卖家点击了一些图形界面按钮是不太可能的。而买家显然是算法。
 - en: Above is zommed in time delta between quotes/trades in the same time series
     as the above, 100K on vertical is 100usec. Where we can see the bid qty for "The
     Wall Part2 & Part3" happens within in a few MSec of the executed order... which
     has to be a machine.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面是在同一时间序列中报价/交易之间的时间差，竖直上的100K代表100微秒。我们可以看到，“The Wall Part2 & Part3”的买单数量发生在执行订单的几毫秒内...
+    必须是机器在操作。
 - en: '... hmm so how to model this...'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '... 嗯，如何对这个建模呢...'

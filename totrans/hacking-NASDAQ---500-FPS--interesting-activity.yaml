@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:09:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日00：09：18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: interesting activity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 以500FPS黑客NASDAQ：有趣的活动
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/interesting-activity.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/interesting-activity.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/interesting-activity.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/interesting-activity.html#0001-01-01)
 - en: the last post was randomly selected snippets of the market which was sometimes
     interesting, sometimes not. Was curious at what is going on at the highest order
     rate in the day which turns out to be.... just after the first 30secconds of market
     open. Around 10k (mostly add) orders are put on the books in a very interesting
     pattern.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 上一篇帖子是随机选择的市场片段，有时有趣，有时没有。好奇的是，当天最高订单率是什么情况，结果是...就在市场开盘后的第30秒左右。大约有10k（主要是新增）订单以非常有趣的模式放置在订单簿上。
 - en: '[![](img/7be322d8a5db92bd3e647b9775fb6b41.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNUQb4wnZ78rAeEy0-f9wAhELFbIR-d8lPYGhQcpLPgBkoLSoEpu-8JkVOy9IUtJ83Uu6PmYDcEy6rpFOY2ySJE4P9xzC87CpXKVkoPdwLQZOJ9zf1jj21JvBp8-kNCVXqDAVSxsA09w/s1600-h/msft_stack1ms_marketopen.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7be322d8a5db92bd3e647b9775fb6b41.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNUQb4wnZ78rAeEy0-f9wAhELFbIR-d8lPYGhQcpLPgBkoLSoEpu-8JkVOy9IUtJ83Uu6PmYDcEy6rpFOY2ySJE4P9xzC87CpXKVkoPdwLQZOJ9zf1jj21JvBp8-kNCVXqDAVSxsA09w/s1600-h/msft_stack1ms_marketopen.png)'
 - en: 'As you can see theres this cresendo of orders which suddently flatlines. Its
     quite bizzare the # orders in every 1ms slice never exceeds 100 - double checked
     the data as its a highly artifical pattern. So whats going on here? my guess,
@@ -38,20 +54,30 @@
     are placed everything settles down and its business as usual. Whats the takeaway?
     probably if you flood the exchange with > 100 orders / 1ms its going to get severly
     clogged up, so maybe you can slow down your compeitors orders.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的，这里有一系列的订单，然后突然变得平稳。非常奇怪的是，每个1ms片段内的订单数从未超过100个-再次检查了数据，因为这是一个高度人为的模式。那么这里到底发生了什么？我的猜测是，由于几乎完全是新增订单，这是交易所软件的一个人为现象。例如，在交易所开张时，所有参与者同时发送他们的订单，这些订单在交易所排队，并以每1ms
+    100个订单/的有限速度处理，或者每秒100k个/（假设是每个符号）。一旦每个人的初始订单都放置好，一切就会稳定下来，就像往常一样。结论是什么？很可能如果你向交易所灌输>
+    100个订单/ 1ms，它会严重阻塞，所以也许你可以减缓竞争对手的订单。
 - en: The seccond interesting point is a bit of an anti-climax, portion of the session
     with the highest number of executed orders, which turns out to be just after the
     6H mark.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个有趣的点有点让人扫兴，是在当天执行订单数量最多的一段时间，结果是就在6H之后的时间。
 - en: 1 horz = 1ms
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 1水平=1ms
 - en: 'Nothing too interesting here. 2 huge spikes, followed by a chunk of activity.
     Remember, this is # orders executed not share volume executed. So its a lot of
     activity for 1ms slice maybe some big dumb algo snapping up a chunk of the book?
     followed by watcher algos thinking something bigger is going to happen. But...
     just guesses at this point.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 没什么特别有趣的东西。2个巨大的波峰，然后是一大片活动。记住，这是#执行的订单，而不是交易量。所以对于1ms的时间片来说，这是很多的活动，也许是一些大型愚蠢的算法大量吸收了一部分订单？接着是监视算法认为会发生某些更大的事情。但...目前只是猜测。

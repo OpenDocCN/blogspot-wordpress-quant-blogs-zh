@@ -1,35 +1,53 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-13 00:07:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:07:29'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: The life and Times of a Tx Packet'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在500 FPS下黑客攻击纳斯达克：一个Tx数据包的生活和时代
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-tx-packet.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-tx-packet.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-tx-packet.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/life-and-times-of-tx-packet.html#0001-01-01)
 - en: Finally.. got some time to spend on this. We got a rough high level view last
     time on where all the time went, so lets dig a bit deeper into the SW stack to
     find out what is going on. So.... lets get started using a stock kernel 2.6.30.10,
     build it, install it, run it  and boom the first plot.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后..有一些时间可以用在这个上面。上次我们对时间消耗的大致高层视图，所以让我们深入挖掘一下软件堆栈，看看到底发生了什么。所以...让我们开始使用一个标准的2.6.30.10内核，构建它，安装它，运行它，然后第一个图出现了。
 - en: '[![](img/bf54b7ed757c87a197dd31db2d2b7918.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPuVzSCZitEgZPy9EOC8AGrnx4nlhaWNAW2QbrAciLkscR49PFg7TQhq8rJ7Qa3Tuq9AN9ojhWy6PElbaphir3nYmk3_Pg4ap8A5KiRNSe-hYUZ-mTGYSyN0vDlQZp1EgfAqZVi_bdDg/s1600-h/send_latency_base.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bf54b7ed757c87a197dd31db2d2b7918.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPuVzSCZitEgZPy9EOC8AGrnx4nlhaWNAW2QbrAciLkscR49PFg7TQhq8rJ7Qa3Tuq9AN9ojhWy6PElbaphir3nYmk3_Pg4ap8A5KiRNSe-hYUZ-mTGYSyN0vDlQZp1EgfAqZVi_bdDg/s1600-h/send_latency_base.png)'
 - en: Machine A sendto() -> Tx desc
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: A机sendto（）-> Tx描述符
 - en: Which is our toplevel latency reference, of around 1500ns or so from the userlevel
     function call, to the NIC driver incrementing the Tx Descriptor ring. Not bad,
     and surprisingly quite a bit faster than our previous tests(2000-3000ns). Why
@@ -37,47 +55,69 @@
     parameters. Other strange thing is the "shadow graph"**,** possible due to increasing
     the resolution of our histogram bin size (100ns -> 10ns) **all timing is based
     on an old 2.6Ghz Xeon**.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的最高层的延迟参考值大约为1500ns，从用户级函数调用到网卡驱动程序增加 Tx 描述符环的时间。不错，意外地比我们先前的测试（2000-3000ns）要快得多。我不知道为什么，但很可能是由于稍有不同的内核版本和构建参数。另一个奇怪的事情是“阴影图”**，可能是由于增加我们直方图箱尺寸的分辨率（100ns
+    -> 10ns）**，所有时间都是基于一个旧的2.6Ghz Xeon处理器。
 - en: Hacking the networking core is a royal pain in the ass, theres no easy module
     to build, which means rebuilding the kernel and rebooting each time... paaaaaainfully
     slow dev cycle. But lets start by looking at glibc code, for sendto(), which does
     basically nothing - invoke a kernel command so first plot is kernel call overhead.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 黑客攻击网络核心真是一件非常讨厌的事情，没有一个容易构建的模块，这意味着每次都要重新构建内核并重新启动...开发周期极其缓慢。但让我们从查看glibc代码开始，对于sendto（）来说，基本上什么都不做-调用一个内核命令，因此第一个图是内核调用开销。
 - en: '[![](img/14b7254fc3cc9bdbc82336f55a824f22.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQnWn2Et2rloBvepk8lE3zh_VkdYu-Jsc6ezJivhK2LVosOUhpyWOxqGY61wdDZsy6fjs2Gc88mgfcGK1oFh_-9AGLWRTjr92qxYqAogtSliQm-XC8KjQ2aP9QhtZwrN5FdW3jPWRDvg/s1600-h/send_latency_kernel.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/14b7254fc3cc9bdbc82336f55a824f22.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQnWn2Et2rloBvepk8lE3zh_VkdYu-Jsc6ezJivhK2LVosOUhpyWOxqGY61wdDZsy6fjs2Gc88mgfcGK1oFh_-9AGLWRTjr92qxYqAogtSliQm-XC8KjQ2aP9QhtZwrN5FdW3jPWRDvg/s1600-h/send_latency_kernel.png)'
 - en: userland -> kernel overhead
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 用户区-> 内核开销
 - en: Looks around 250ns on average. The double peeks are most likely due to the 2
     hardware threads on the machine, so around 700cycles. One side note thats not
     evident in the plot is, the kernel overhead time drops from about 1200cycles at
     the start to averaging 700cycles quickly ~ 1000 calls.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均大约250ns。双峰很可能是由于该机器上2个硬件线程，所以大约700个周期。在图中并不明显的一点是，内核开销时间从开始的大约1200个周期快速下降到平均700个周期左右，约1000个调用。
 - en: The packet then arrives at udp_sendmsg() in the ipv4 udp code, where it does
     some misc packet header/buffer allocation and a few checks, finds the cached route
     and acquires a lock on the socket. General house keeping stuff.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据包然后到达ipv4 udp代码中的udp_sendmsg（），在这里进行一些杂项数据包头/缓冲区分配和一些检查，找到缓存的路由并在套接字上获取锁。一般维护工作。
 - en: '[![](img/118e823a30cc7effecadbdbaf257598a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhStcK0WHBz6zDqmCXEnetHhS99_BtJHi9hW9e5rQ6jt4ljqvR7GFZIa7hyphenhyphen6lfAlDgr7vncXLgGRPcuqjzVHBNY_IMpVlafX0DIh8Tm6kb4D6nrYLIV6Fqo4QjbgTykQ99mdSN6buy-cg/s1600-h/send_latency_prep.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/118e823a30cc7effecadbdbaf257598a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhStcK0WHBz6zDqmCXEnetHhS99_BtJHi9hW9e5rQ6jt4ljqvR7GFZIa7hyphenhyphen6lfAlDgr7vncXLgGRPcuqjzVHBNY_IMpVlafX0DIh8Tm6kb4D6nrYLIV6Fqo4QjbgTykQ99mdSN6buy-cg/s1600-h/send_latency_prep.png)'
 - en: kernel socket/packet house keeping
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 内核套接字/数据包维护
 - en: Housekeeping clocks in around the same as the kernel switch, 6-700cycles or
     about 250ns. After the packets has been checked, its copied into the sockets send
     buffer - this is what ppl generally think of when discussing socket buffers. Where
     it it memcpys the packet from userland into kernel space and enbales/maps PCI/DMA
     access from the NIC.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统清理钟大约与内核切换一样多，大约 6-700 次循环或大约 250 纳秒。在数据包被检查后，它被复制到套接字发送缓冲区中 - 当人们讨论套接字缓冲区时，这是人们通常想到的，它将数据包从用户空间复制到内核空间，并允许/映射网络接口卡的
+    PCI/DMA 访问。
 - en: Userspace -> Kernelspace Packet copy
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 用户空间 -> 内核空间数据包复制
 - en: Histogram is a bit prickly for some reason, possibly due to PCI dma map commands,
     as the amount of data we:re copying is tiny - 128B and it should be in the L1
     and definitely in L2 cache so not sure whats going on there. Its possible the
@@ -85,41 +125,62 @@
     the destination mem cache line, instead of a driect write (no read) thus we pay
     the latency cost of an uncached memory fetch. Or... its just kernel dma/pci mapping
     code, not sure.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 直方图因某种原因有些棘手，可能是由于 PCI DMA 映射命令，因为我们要复制的数据量很小 - 128B，它应该在 L1 和绝对在 L2 缓存中，所以不确定发生了什么。有可能是旧硬件和非对齐写操作的组合意味着
+    CPU 在读取修改写入目标内存缓存行，而不是直接写入（无需读取），因此我们要支付未缓存内存提取的延迟成本。或者... 它只是内核 DMA/PCI 映射代码，不确定。
 - en: IP/UDP header write
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: IP/UDP 头部写
 - en: After the payload is copied, the stack adds the appropriate IP/UDP headers(above)
     Nothing too interesting here, but is surprising how long it takes, ~150ns which..
     is alot. Packet checksums are all offloaded onto the hardware, so its doing something
     else here.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在复制有效载荷之后，堆栈添加了适当的 IP/UDP 头部（上文）这里没有什么特别有趣的，但让人惊讶的是这需要很长时间，大约150纳秒，这... 太多了。数据包校验和都被卸载到硬件上，所以它在这里做了别的事情。
 - en: Now it gets interesting, almost all stock kernel builds have netfilter enabled,
     to allow packet filter / routing  / firewalls / vpns etc etc - very core usecases
     for linux. Theres a ton of books and documents on how to use netfilter/ipchains
     but in our case its entirely pass thru, in fact we should disable netfilter to
     reduce latency.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在变得越来越有趣，几乎所有标准内核版本都启用了 netfilter，以允许数据包过滤 / 路由 / 防火墙 / VPN 等等 - 这些都是 Linux
+    的非常核心的用例。有大量关于如何使用 netfilter/ipchains 的书籍和文档，但在我们的案例中，它完全是经过传递的，实际上我们应该禁用 netfilter
+    以减少延迟。
 - en: '[![](img/969d12ca655297680d8740f2ba5c680a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEuTCMD0KX-14MwVZvmkdCWUieSBDPM-Tqo3SyPJL7aHoxfGArBs2u39GRDK6myDjWJP8ThJJm6jy_Pe1iJMLSJEO_r2PSVX3JB3K5XUokM6PojI6pv3szKxLIlvaSnTRT48MfNOXjdg/s1600-h/send_latency_nf_local.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/969d12ca655297680d8740f2ba5c680a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEuTCMD0KX-14MwVZvmkdCWUieSBDPM-Tqo3SyPJL7aHoxfGArBs2u39GRDK6myDjWJP8ThJJm6jy_Pe1iJMLSJEO_r2PSVX3JB3K5XUokM6PojI6pv3szKxLIlvaSnTRT48MfNOXjdg/s1600-h/send_latency_nf_local.png) '
 - en: netfilter LOCAL passthru
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: netfilter 本地经过
 - en: '[![](img/6a53947ebd17dd64b89306edebd5915f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEMk-X93c2i01d4F9shAsaj7SwB3deU8OhqVX2r6lD2JBhG7NuYBH8npHvSIV0lLwJcLV1CMvxOpTOBxOemiaNMcmj5t7QHWNTCpzsLLsY6GDaKosWCBXDqG0VCI8d8WkHIyRnzaaG2g/s1600-h/send_latency_nf_post.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6a53947ebd17dd64b89306edebd5915f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEMk-X93c2i01d4F9shAsaj7SwB3deU8OhqVX2r6lD2JBhG7NuYBH8npHvSIV0lLwJcLV1CMvxOpTOBxOemiaNMcmj5t7QHWNTCpzsLLsY6GDaKosWCBXDqG0VCI8d8WkHIyRnzaaG2g/s1600-h/send_latency_nf_post.png)'
 - en: netfilter POST pass thru
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: netfilter 后经过
 - en: As you can see(above) its still quite fast, 80ns or so all up, but think its
     safe to assume the exchange isnt trying to h4x0r your machine and its all quite
     un-necessary.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的（上文），它仍然非常快，整体大约80纳秒，但我认为可以肯定交换不会尝试入侵你的机器，这都是多余的。
 - en: After netfilter approves the packet, its sent to the NIC driver, using another
     buffering system, qdisc - queuing disciplines. This is MAC level now, typically
     a single fast priority FIFO per MAC but its completely configurable using the
@@ -127,11 +188,17 @@
     enabling various buffering, scheduling and filters to be applied but they all
     add latency, - not particularity helpful  for low latency systems. In fact I intend
     to completely disable qdisc to reduce latency.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 netfilter 批准数据包后，其被发送到网卡驱动程序，使用另一个缓冲系统，即 qdisc - 排队规则。这是 MAC 层级的，通常每个 MAC
+    只有一个单一的快速优先级 FIFO ，但完全可以使用 "tc" 交通控制命令和可能其他工具进行配置。Qdisc 是一个功能强大的系统，可以应用各种缓冲、调度和过滤，但它们都会增加延迟，对于低延迟系统而言不是特别有帮助。实际上，我打算完全禁用
+    qdisc 以减少延迟。
 - en: qdisc packet enqueue
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: qdisc 数据包排队
 - en: Queing is fairly fast (above) around 130ns or so, the 2nd hump in the histogram
     is interesting.Guessing its wait time for a atomic lock. Now that our packet is
     on the queue for eth0, all that's left is for the net scheduler to issue it to
@@ -141,63 +208,95 @@
     another hardware thread is running the net scheduler thus pushing data to the
     driver, e.g. we have a small fifo here to avoid dropping packets, but it does
     add another source of latency.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 排队速度相当快（上面）大约为130ns左右，直方图中的第二个波峰很有趣。猜测这是等待原子锁的等待时间。现在我们的数据包已经在eth0的队列中，唯一剩下的就是网络调度器将其发送到NIC驱动程序。然而，有一个很好的优化，就在数据包入队之后，立即尝试发送到驱动程序，而且通常可以成功。它不能立即发送的唯一原因是，如果另一个硬件线程正在运行网络调度程序，因此将数据推送到驱动程序，例如在这里我们有一个小的fifo用来避免丢包，但它确实增加了另一个延迟来源。
 - en: '[![](img/d967d81247c451b6fd4051677efe3e91.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv5s23fNho5WhHGVIWeOkxFoRqkFygqeOv67oav_iAlmSVHDbLaumUcQr0tpMA5oofVPYDnvpXj1nY0yIS5v8anY09oKznN2sLTcVb3nsebcerH8Qg1se5hOYFycijxGwRrE1mLRewtw/s1600-h/send_latency_soft.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d967d81247c451b6fd4051677efe3e91.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjv5s23fNho5WhHGVIWeOkxFoRqkFygqeOv67oav_iAlmSVHDbLaumUcQr0tpMA5oofVPYDnvpXj1nY0yIS5v8anY09oKznN2sLTcVb3nsebcerH8Qg1se5hOYFycijxGwRrE1mLRewtw/s1600-h/send_latency_soft.png)'
 - en: qdisc queue -> driver xmit
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: qdisc queue -> driver xmit
 - en: As expected (above), the latency from qdisc queue, to issuing a driver call
     is  small 100ns or so. Whats interesting is the double spikes, assuming it misses
     the initial scheduling pass, and hits on the 2nd try.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如预期的（上面），从排队队列到发出驱动程序调用的延迟很小，大约为100ns左右。有趣的是双重峰值，假设它错过了初始调度传递，并在第二次尝试时碰巧成功。
 - en: '[![](img/620e4d410a05953b7a41eb785b6e9a47.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnCeUreqhYUu4u2w3eltrdVjR1nW0Sd_Rkil9zJHjg3T14pczX0BU8d-i8k8jAFM1F4S1kbwGS8PlJgRUJ-ptv-4k8yA1ufnlkqneRVHI8vksqYxbY1Adz80gxPtK9N9lK-CmE_Q6jVA/s1600-h/send_latency_driver.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/620e4d410a05953b7a41eb785b6e9a47.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnCeUreqhYUu4u2w3eltrdVjR1nW0Sd_Rkil9zJHjg3T14pczX0BU8d-i8k8jAFM1F4S1kbwGS8PlJgRUJ-ptv-4k8yA1ufnlkqneRVHI8vksqYxbY1Adz80gxPtK9N9lK-CmE_Q6jVA/s1600-h/send_latency_driver.png)'
 - en: NIC driver 1 Tx packet process time
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC驱动程序1 Tx数据包处理时间
 - en: And finally(above) our trusty e1000e NIC driver processing cost, which fills
     our the Tx descriptor and moves the ring buffer forward. Then frees the packet
     and is fairly quick to process 400ns. Note, this is the time from driver entry
     point, to exit point, which is longer than driver entry -> Tx update(below)/hardware
     hand off, due to cleanup code.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后（上面）我们可靠的e1000e NIC驱动程序处理成本，填充了我们的Tx描述符并将环形缓冲区向前移动。然后释放数据包，处理速度相当快，大约为400ns。注意，这是从驱动程序入口点到出口点的时间，这比驱动程序入口->
+    Tx更新（下文）/硬件移交的时间长，因为有清理代码。
 - en: '[![](img/a25e6be8fa324f26d020bbd780b22bb0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyZUtnz_nqpmkRLzT_QdO8OKLS6W5Xve75ARnyi-wOAGUOn1GBi9b32DFCWjUsjcICL8Xh28YTrTnrFL2Hw3Vm17yR513LTwuzlfb0GxRUiQjQUQI71jjW2141U1uEMWAjh8Yel1D-vw/s1600-h/send_latency_qdq_tx.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a25e6be8fa324f26d020bbd780b22bb0.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyZUtnz_nqpmkRLzT_QdO8OKLS6W5Xve75ARnyi-wOAGUOn1GBi9b32DFCWjUsjcICL8Xh28YTrTnrFL2Hw3Vm17yR513LTwuzlfb0GxRUiQjQUQI71jjW2141U1uEMWAjh8Yel1D-vw/s1600-h/send_latency_qdq_tx.png)'
 - en: qdisc enqueue -> NIC Tx descriptor write
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: qdisc enqueue -> NIC Tx descriptor write
 - en: The question is, if the NIC driver is only taking 3-400ns to kick a Tx descriptor,
     then the rest of the time must be spent in the  linux kernels networking stack?
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题是，如果NIC驱动程序只需要3-400ns来启动一个Tx描述符，那么其余的时间必须花在Linux内核的网络堆栈中？
 - en: sendto() -> the start of NIC driver handoff
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: sendto() -> NIC驱动程序移交的开始
 - en: Answer -> yes, most of the time is spent in the kernel.. Plot above shows the
     entire SW latency excluding the NIC driver where the shape matches the first high
     level plot (green one) except shifted slightly to the left.  This is good as we
     have quite a few options to reduce the kernels processing time, to make that packet
     hit the MAC in < 1,000ns!
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 答案-> 是的，大部分时间花费在内核中。上图显示了除NIC驱动程序外的整个软件延迟，形状与第一个高级图（绿色的那个）匹配，只是稍微向左偏移。这很好，因为我们有很多选项来减少内核处理时间，从而使数据包在<1,000ns内到达MAC！
 - en: '[![](img/7b644150585cf91c67d1411ab73fe20b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinv_rWdWtW4EZDmmtqD_iRZ8IudjSisRWOgi-idK62xQI5erVZNRvRA_n4Mf4x024pcAe4V9SK2kSkLmETuNZIt2XfjGyCbMdWjdoWxwO1a7NBLkHXK7P14bczf32x5v_vEn5FQCqcOg/s1600-h/tx_send_highlevel.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7b644150585cf91c67d1411ab73fe20b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinv_rWdWtW4EZDmmtqD_iRZ8IudjSisRWOgi-idK62xQI5erVZNRvRA_n4Mf4x024pcAe4V9SK2kSkLmETuNZIt2XfjGyCbMdWjdoWxwO1a7NBLkHXK7P14bczf32x5v_vEn5FQCqcOg/s1600-h/tx_send_highlevel.png)'
 - en: typical high level Tx hw/sw flow @ 2.6Ghz old Xeon machine
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 典型的高级Tx硬件/软件流程 @ 2.6Ghz 旧款Xeon机器
 - en: In summary, the above flow chart shows our current latency estimates. We can
     only guesstimate the hardware latency due to lack of tools but you can clearly
     see the HW latency is far greater than the software. As  we are using a typical
     (old) consumer/server hardware layout thats designed for high throughput NOT ultra
     low latency. Which is why anyone serious about  ultra low latency... has a very
     different hardware topology :)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，上面的流程图显示了我们当前的延迟估计。由于缺乏工具，我们只能大致估计硬件延迟，但你可以明显看到硬件延迟远远大于软件。因为我们正在使用一个典型的（旧款）消费者/服务器型号的硬件布局，这款硬件设计用于高吞吐量而不是超低延迟。这就是为什么任何严肃对待超低延迟的人……会有一个完全不同的硬件拓扑结构
+    :)

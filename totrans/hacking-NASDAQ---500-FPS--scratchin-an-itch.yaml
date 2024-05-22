@@ -1,29 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:08:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:08:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: scratchin an itch'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在500 FPS下黑客NASDAQ：挠痒
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/scratchin-itch.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/scratchin-itch.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/scratchin-itch.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/scratchin-itch.html#0001-01-01)
 - en: Next up is converting to ITCH4 to get rid of all those nasty ascii -> int conversions
     and the results are, quite surprising. Book update goes from 98 cycles -> around
     60-61 cycles! so full book update for MSFT now clock in around 15ns @ 4.1GHz.
     Things are starting to get interesting!
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是转换为ITCH4以摆脱所有那些讨厌的ascii -> int转换，结果令人惊讶。书籍更新从98周期 -> 大约60-61个周期！所以MSFT的完整书籍更新现在在15ns
+    @ 4.1GHz左右。事情开始变得有趣起来了！
 - en: Next up is using the shitty SSE isa to speed searching the 8 entry set. First
     attempt on order add resulting in a *slower* implementation, clocking in above
     the 15ns mark. Why so? because 99% of order adds are placed at entry 0\. e.g.
@@ -31,8 +46,11 @@
     - gcc unrolls it completely, so we`re touching way less memory(2B vs 16B) and
     intels scalar integer code runs dam fast, faster than the 9 or so SSE instructions.
     Thus scalar wins.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来就是使用糟糕的SSE ISA来加速搜索8个条目集。首次试图在订单添加时导致实现更*慢*，超过15ns标记。为何会这样呢？因为99%的订单添加是在条目0处。例如标量代码只需要执行1次循环迭代。这实际上也不算是迭代
+    - GCC完全展开了它，因此我们触及的内存要少得多（2B vs 16B），而英特尔的标量整数代码运行速度非常快，比9个SSE指令快得多。因此标量获胜。
 - en: However... we already know if the set is empty or not, via the 20b bit array.
     If its 0 then its empty, 1 for non empty(1-8 entries). Thus we can use this value
     to trivially accept an entry and not even read the 8x16b WayID - just write, woot!
@@ -40,8 +58,12 @@
     amortized processing time. Considering order add is only 1% of all message volume,
     its a significant speedup and we`re down to 56 or so cycles which is 13.7ns @
     4.1Ghz to update the book.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而……我们已经知道集合是空还是非空，通过20位位阵列。如果为0，则为空，1表示非空（有1-8个条目）。因此我们可以使用这个值通过一个简单的接受条目甚至无需读取8x16位的
+    WayID - 只需写入，太棒了！再加上SSE的免费插槽搜索，我们将平均处理时间削减了约6个周期。考虑到订单添加只占消息量的1%，这是一个显著的加速，我们已经降到了大约56个周期，这是13.7ns
+    @ 4.1Ghz更新记录簿的时间。
 - en: Next is order del / order search, SSEing the order delete code. Which unfortunuately
     didnt improve overall performance much. Best result is 53.2 cycles, so  about
     12.9ns @ 4.1Ghz..However at this level OS jitter is a significant problem, making
@@ -49,5 +71,8 @@
     Theres still plenty to get that number down, mostly in the outer processing loop
     but its fast enough for now, next interesting task will be looking at the full
     latency from the exchange, thru the os stack, black box and back. Shall be interesting!
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来是订单删除 / 订单搜索，执行订单删除代码。非常不幸的是并没有对整体性能有太大改善。最佳结果是53.2个周期，所以大约12.9ns @ 4.1Ghz..然而在这个水平上，操作系统抖动是一个重大问题，使得一致的时间值变得困难
+    - Linux在即时、实时问题上非常糟糕.... 还有许多方法可以将这个数字降下来，主要是在外部处理循环中，但是现在已经足够快了，下一个有趣的任务将是审查从交换、经过操作系统堆栈、黑盒的完整延迟。应该会很有趣！

@@ -1,42 +1,64 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:04:56'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月13日 00:04:56
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: the bb fuzzzzz'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在500 FPS速度下入侵纳斯达克：bb fuzzzzz
 - en: 来源：[http://hackingnasdaq.blogspot.com/2011/08/bb-fuzzzzz.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/bb-fuzzzzz.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2011/08/bb-fuzzzzz.html#0001-01-01](http://hackingnasdaq.blogspot.com/2011/08/bb-fuzzzzz.html#0001-01-01)
 - en: Previously, we did a highlevel overview of market data burst rates, which is
     kinda cool but how does that translate to bids/offers/price/blah? the answer...
     it depends but does give an general feel for how fast the market moves.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前，我们对市场数据突发速率进行了高层次概述，这有点酷，但这如何转化为出价/报价/价格/等等呢？答案是……这取决于情况，但确实能够让人对市场的快速变化有一个大致了解。
 - en: First up an overview of my symbol for the day.. MSFT... so bring it on.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是当天我关注的一个符号的概述.. 微软… 所以带上来。
 - en: First up best bid over the day (yeah.. dont think its trading at $38.. got some
     sort of bug there)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先是当天的最佳出价概述（是的……我不认为它在38美元交易……那里出现了一些bug）
 - en: Time delta between new best bids
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的最佳出价之间的时间间隔
 - en: And cumulative time over the trading session, which isnt so intuitive - horizontal
     axis is change in best bid, vertical axis is time since midnight in nanosecconds
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易时间内的累积时间，这并不那么直观 - 水平轴是最佳出价的变化，垂直轴是从午夜开始的时间（以纳秒为单位）
 - en: Its kind of interesting as can see the general shape of the level ticks, the
     constant fuzzz on the best bid. Probably the most interesting thing at this level
     is the clearly visible steps and curve of the cumulative time. With the pre open
@@ -45,42 +67,63 @@
     the end. What i find interesting is the bursting near the close is quite different
     than the open - seems theres less changes in the best bid/offer but needs further
     investigation.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 看到价格水平刻度的一般形状，以及最佳出价处不断变化的模糊。在这个水平上最有趣的事情可能就是看到了累积时间的明显步进和曲线。有着市场开盘前的步进，接近开盘时的一些步进，市场开盘时的长时间的活动，然后在中午慢慢减缓，最后你可以看到接近收盘时的轻微曲线。我发现有趣的是收盘时的激增和开盘时是完全不同的
+    - 似乎最佳出价/报价的变化要少一些，但还需要进一步的调查。
 - en: At the micro level it gets far more interesting, as can start to see micro structure
     algos at play,, how fascinating! Lets zoom in on some fuzzzzzzz
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在微观层面，情况变得更加有趣，因为可以开始看到微结构算法的运作，多么迷人啊！让我们放大一些模糊区域
 - en: (note, these are all aligned horizontally in time, eg left bars are all the
     same tick for all 3 plots)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: （注意，这些都在时间上是对齐的，例如左边的柱状图在3个图中都是相同的刻度）
 - en: Where its pretty obvious the best bid is oscillating by 1cent
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当最佳出价明显波动1美分时
 - en: '...and the time delta between price level changes.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: …以及价格水平变化之间的时间间隔。
 - en: where can see the fuzz in the middle has new price levels every ~50usec (vertical
     axis is in nanoseconds), which is pretty dam quick. Remember these are *new* best
     bid on the horizontal axis and not the raw ticks. e.g. when a new better price
     level is seen, or an existing price level is destroyed.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以看到在中间的模糊区域，每50微秒左右都有新的价格水平变化（纵轴以纳秒为单位），这相当迅速。请记住这些是水平轴上的*新*最佳出价，而不是原始的数据。例如，当出现新的更好的价格水平，或者现有的价格水平被删除时。
 - en: .. and to give it a bit more color heres the cumualtive time which puts it more
     into perspective.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: …并且为了更生动地展示一下，这是累积时间，这样更让人有所思考。
 - en: '...the fuzzzzz plateu is clearly visible - remember vertical axis is time.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: …模糊区域显然可见 - 请记住垂直轴是时间。
 - en: So whats the fuzz doing? either generating noise on the best bid/offer in an
     attempt to fool other algos theres a new price level? possibly. Or could be the
     famous iceburg/pegged orders where you only display a fraction of shares, then
     replenish the bid/offer when someone grabs em. My guess is the latter here, easy
     test is add executed quantity but..fun for some other  day.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么模糊的变化是什么意思？是在试图在最佳出价/报价上产生噪音，以欺骗其他算法认为有新的价格水平吗？可能。或者可能是著名的冰山/固定订单，其中只显示部分股份，然后在有人抓住它们时补充出价/报价。我猜这里是后者，易测是增加已执行的数量，但是……这是另一个有趣的测试。
 - en: .. and dam need to fix those axis bugz.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: … 需要修复这些轴的bug。

@@ -1,61 +1,93 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:07:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日 00:07:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: nick to nick, whats the time?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 黑客入侵纳斯达克 @ 500 FPS：NIC之间，现在几点？
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/nick-to-nick-nicknacks.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/nick-to-nick-nicknacks.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/01/nick-to-nick-nicknacks.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/nick-to-nick-nicknacks.html#0001-01-01)
 - en: The topology of the previous test was NIC -> switch -> NIC and we assumed the
     switch was causing un-due latency. Turns out this is true, but not to the extent
     anicipated.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前测试的拓扑结构是NIC -> switch -> NIC，我们假设交换机造成了不必要的延迟。结果证明是真的，但并不像预期的那样。
 - en: NIC <-> switch <-> NIC fabric time
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC <-> switch <-> NIC的传输时间
 - en: NIC <-> NIC fabric time
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC <-> NIC的传输时间
 - en: As you can see, ditching the switch gained about 7,000ns, not bad but there`s
     still 23,000ns going somewhere. First thing to always do is back-of-the-envelope
     calculation and multiply by two.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 如你所见，摆脱交换机可以节省约7,000ns，还算不错，但总共23,000ns仍然有所花费。首先要做的事情是简单估算一下，然后乘以两倍。
 - en: GigE throughput is 1e9 bits / second, so on average the frame is say 160B (minus
     PHY framing) so that's 160 * 8 / 1e9  - roughly 1,280ns to encode one way. We`re
     doing this x4 (encode->decode->encode->decode) so we`re up to 5,120ns or so to
     encode the thing, and lets be generous and double it, resulting in around 10,000ns
     to account for GigE PHY framing. and  other junk, but we`re still missing 13,000ns!
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: GigE的吞吐量为1e9比特/秒，因此每一帧的平均大小约为160B（减去PHY结构），所以一侧编码大约需要1,280ns。我们进行了x4次（编码->解码->编码->解码），所以我们大概需要5,120ns左右来编码这个东西，再慷慨地翻倍，结果约为10,000ns来解释GigE
+    PHY结构和其他内容，但还是缺少13,000ns！
 - en: Taking a detour, the 82573L NIC we`ve used so far is... slightly incorrect.
     Seems I assumed NICx2 on a blade would use the same controller, however this is
     incorrect. The 82573L NIC we`ve been assuming, is in fact a Intel 82566DC-2 NIC.
     If we change it to *really* use the 82573L the picture ain`t pretty.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便说一句，到目前为止我们使用的82573L NIC有点不对。看起来我假设一个机架上的两个NIC使用相同的控制器，但这是不正确的。实际上，我们一直假定的82573L
+    NIC实际上是英特尔82566DC-2 NIC。如果我们*真的*使用82573L，情况就不那么美好了。
 - en: NIC <-> NIC real intel 82573
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC <-> NIC实际英特尔82573
 - en: And when its compared with using the Intel 82566DC its quite interesting.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 当与使用英特尔82566DC进行比较时，令人感兴趣。
 - en: NIC <-> NIC Intel 82566DC
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC <-> NIC英特尔82566DC
 - en: Its true the 82573L is about a year older than the 82566DC, 2005 vs 2006 but
     that alone cant explain the huge 15,000ns or so difference. Digging a bit deeper,
     there`s significant difference in host interface between the two cards, the 82573L
@@ -64,26 +96,41 @@
     5,000ns is improved hardware design, leaving around 5,000ns each way, spent in
     the PCIe encode/decode/hub/and largish staging buffers, which conveniently is
     near our missing 13,000ns number (remember only 1 NIC is on PCIe).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 其实，82573L比82566DC大约早一年，2005年对比2006年，但这本身不足以解释巨大的大约15,000ns的差异。再深入挖掘一点，两张卡的主机接口有显著差异，82573L采用PCIe，而82566DC采用英特尔专有的LCI*/*GLC总线-它直接线接到南桥。让我们假设5,000ns是改进的硬件设计，留下来每个方向大约5,000ns，花在PCIe编码/解码/集线器/和大型缓冲区周围，这恰好是我们失踪的13,000ns数字的附近（记住只有1个NIC是在PCIe上）。
 - en: 'And we have some ideas on where the time has gone:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们对时间去向有一些想法：
 - en: '- 10,000ns for GbE encode/decode/transport'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '- GbE编码/解码/传输需要10,000ns'
 - en: '- 10,000ns for PCIe encode/decode/forward/transport.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '- PCIe编码/解码/转发/传输需要10,000ns'
 - en: '- 3,000ns'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 3,000ns'
 - en: LCI/GLC encode/decode/transport (whats left)
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: LCI/GLC编码/解码/传输（还有剩下的）
 - en: How realistic these guesstimates are I`ve no idea and further digging requires
     hardware tools which are expensive, thus aren`t available. So we`ll leave it at
     23,000ns in the interconnect fabric, and average HW time as 23,000ns / 4 = 5,740ns
     or so in one direction.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不知道这些猜测有多现实，继续深入需要昂贵的硬件工具，因此不可用。所以我们就把互连布线中的23,000ns和一个方向的平均硬件时间23,000ns/4
+    = 5,740ns左右放到这儿。

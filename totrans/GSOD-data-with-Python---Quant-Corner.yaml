@@ -1,86 +1,132 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:07:02'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日08:07:02
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: GSOD data with Python | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python获取GSOD数据 | 数量角
 - en: 来源：[https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01](https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01](https://quantcorner.wordpress.com/2016/10/02/gsod-data-with-python/#0001-01-01)
 - en: This one-file project fetches  [Global Surface Summary of the Day (GSOD)](https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod) from
     the **National Oceanic and Atmospheric Administration** (**NOAA**)’s HTTP server
     (data are also available on their FTP).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个单文件项目从**国家海洋和大气管理局**（**NOAA**）的HTTP服务器上获取了[全球每日地面摘要（GSOD）](https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod)
+    数据（数据也可以在他们的FTP上找到）。
 - en: See the code on [github](https://github.com/tagomatech/ETL/tree/master/gsod).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 查看 [github](https://github.com/tagomatech/ETL/tree/master/gsod) 上的代码。
 - en: station_search()
+  id: totrans-8
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: station_search()
 - en: 'Whether a given weather station is part of the **GSOD** project can be checked
     using the **station_search()** function. For instance, the station Stanton (UK)
     can be retrieved as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个给定的气象台是否参与了**GSOD** 项目，可以使用**station_search()** 函数进行检查。例如，可以按照以下方式检索英国斯坦顿（UK）的气象台：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'This function also allows to retrieve all weather stations in a given country
     or US State, e.g. all stations in Iowa can be listed as folllows:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个函数还允许检索给定国家或美国州的所有气象台，例如，可以列出爱荷华州所有的气象台如下：
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: get_data()
+  id: totrans-13
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: get_data()
 - en: 'Basic usage requires only requires (what I call) weather ***station id*** which
     actually combines **USAF** (6-digit) and **WBAN** (5-digit) identification numbers
     linked by a dash sign. For instance, **699604-03145** is  the ***station id***
     for **YUMA MCAS** (US) weather station. Getting **YUMA MCAS** weather data for
     the current year is as simple as:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本用法只需要（我称之为）**气象台id**，它实际上是由**USAF**（6位数字）和**WBAN**（5位数字）识别号组合而成，通过破折号连接。例如，**699604-03145**
+    是美国**YUMA MCAS** 气象台的**气象台id**。获取**YUMA MCAS** 当年的气象数据就像这样简单：
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The object returned is a **pandas.DataFrame()**.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 返回的对象是一个**pandas.DataFrame()** 。
 - en: 'User can also be willing to download **YUMA MCAS** weather data for several
     consecutive years, with a single call to the function*:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 用户也可能想要通过单次调用函数下载多年的**YUMA MCAS** 的气象数据：
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'Original data are reported in **Fahrenheit**, **miles**, **knots**, and **inches**.
     It is possible to convert them to **Celsius**, **km**, **kph**, and **cm**, respectively.
     To do so, one passes an extra argument *unit* with a string as value if only one
     conversion is desired or a list of strings instead if 2+ unit conversions are
     required, e.g.:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 原始数据是**华氏度**、**英里**、**结**和**英寸**报告的。可以将它们分别转换为**摄氏度**、**千米**、**公里每小时**和**厘米**。为此，如果只需要一个转换，可以传入一个额外的参数*unit*，用字符串作为值；如果需要2个或更多单位的转换，则传入一个字符串列表，例如：
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '* Still, behind the scene, NOAA servers are called once for each single year
     of required data'
+  id: totrans-21
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: '* 然而，在幕后，NOAA服务器将会针对每个所需数据的单年调用一次'

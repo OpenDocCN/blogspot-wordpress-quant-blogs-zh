@@ -1,67 +1,99 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:05:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:05:20'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: read free'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在纳斯达克进行500 FPS的黑客活动：读取免费
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/02/read-free.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/02/read-free.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/02/read-free.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/02/read-free.html#0001-01-01)
 - en: If we profile the Rx side, its basically the cost of register read + some cold
     ddr fetch + a bit of fluffing around, thus the next logical step is to ditch all
     register reads. Its quite easy as the MAC will dma descriptor status and the contents
     directly into DDR thus... lets just poll the Rx Descriptor Status instead of reading
     the Rx head register.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们对Rx端进行性能分析，基本上就是寄存器读取的成本+一些冷DDR获取+一些杂乱的工作，因此下一个逻辑步骤就是放弃所有寄存器读取。这相当简单，因为MAC将dma描述符状态和内容直接写入DDR，因此...让我们只是轮询Rx描述符状态，而不是读取Rx头寄存器。
 - en: 128B TCP round trip no register reads
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 128字节TCP往返时间没有寄存器读取
 - en: '[![](img/656aac2e0d7b1b90a14eb16726a516b3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUFOVl2tACzkD5I_Z1A6JHXPkkxA8zKRBRrpsOqi8xuDNTTxx-ZPGxXaUcszvqIb86QGBXE0Mxe2y7Ic_a6A5_fL_rraRnr35Ufm582zewNXBGTaKE1N8LEroU8hWNJ6CKZj6Ruh-uKQ/s1600-h/round_tcp_metal.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/656aac2e0d7b1b90a14eb16726a516b3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUFOVl2tACzkD5I_Z1A6JHXPkkxA8zKRBRrpsOqi8xuDNTTxx-ZPGxXaUcszvqIb86QGBXE0Mxe2y7Ic_a6A5_fL_rraRnr35Ufm582zewNXBGTaKE1N8LEroU8hWNJ6CKZj6Ruh-uKQ/s1600-h/round_tcp_metal.png)'
 - en: 128B TCP round trip register reads
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 128B TCP往返寄存器读取
 - en: 128B TCP round trip mental -> linux metal (with reg reads)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 128B TCP往返精神-> linux金属（带有寄存器读取）
 - en: As you can see we`re now a respectable 4-5,000ns faster than the linux stack!
     However care must be taken with this register free approach as im not certain
     what the memory ordering rules are here, e.g. if PCIe/SB writes are committed
     in-order or can be scheduled out of order. Its highly unlikely that by the time
     you`ve read the Rx Desc Status the payload data has not reached DDR. However,
     if you`ve got billions of dollars running through it you *really* want to be certain.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如您所见，我们现在比linux堆栈快4-5,000ns，这是令人尊敬的！不过，必须谨慎使用这种无寄存器的方法，因为我不确定这里的内存顺序规则是什么，例如，如果PCIe/SB写入是有序提交还是可以乱序调度。如果您读取了Rx描述符状态，载荷数据很可能还没有到达DDR。不过，如果你的数十亿美元经过这里，你*真的*想要确定。
 - en: Finally the bulk of the speedup is from Machine B`s long ass register read times,
     thus the full NIC to NIC time on machine B for a 128B TCP packet is...
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，大部分加速来自B机器的长寄存器读取时间，因此B机器的128B TCP数据包的全NIC到NIC时间是...
 - en: Machine B, NIC(CPU Rx) -> NIC(CPU Tx) latency
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: B机器，NIC（CPU Rx）-> NIC（CPU Tx）延迟
 - en: '... around 410ns and thats with SW checksums. To put that in perspective, my
     shitty FIX Fast(Arcabook compact) SW decoder runs around 140ns/packet assuming
     its hot in the cache. So we can clearly speed up TCP loopback code, but whats
     the point when hw latency is the bottleneck?'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '...大约410ns，即使有软件校验和。从这个角度来看，我糟糕的FIX Fast（Arcabook compact）软件解码器在热的情况下大约每个包运行大约140ns。因此，我们显然可以加速TCP环回代码，但是当硬件延迟成为瓶颈时有什么意义呢？'
 - en: Obviously the wire-wire time is a few microsecconds.. e.g. its going to take
     1,000+ ns just for the MAC to write into DDR and conversely the a CPU write to
     hit the MAC... but it underscores how at this level the problem is all hardware/topology,
     as hw latency is an order of magnitude larger than sw... no fun... so time to
     get back my day job.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 很明显，线对线时间是几微秒...例如，MAC要花费1,000多纳秒才能写入DDR，而相反，CPU的写入要到达MAC...但这强调了在这个层次上问题都是硬件/拓扑，因为硬件延迟比软件大一个量级...不好玩...所以是时候回到我的工作去了。

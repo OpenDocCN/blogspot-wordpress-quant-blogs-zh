@@ -1,120 +1,179 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:33:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024 年 5 月 18 日 05:33:20
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: H2OFrame – Loading Data | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: H2OFrame - 加载数据 | 交易台传奇
 - en: 来源：[https://mdavey.wordpress.com/2016/04/20/h2oframe-loading-data/#0001-01-01](https://mdavey.wordpress.com/2016/04/20/h2oframe-loading-data/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/04/20/h2oframe-loading-data/#0001-01-01](https://mdavey.wordpress.com/2016/04/20/h2oframe-loading-data/#0001-01-01)
 - en: H2OFrame – Loading Data
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: H2OFrame - 加载数据
 - en: '“Apache [Spark](http://spark.apache.org/) is a fast and general engine for
     large-scale data processing”.  Clearly this is the reason H2O has been married
     to Spark through [Sparkling](http://www.h2o.ai/product/sparkling-water/) Water.
      This [integration](https://github.com/h2oai/sparkling-water) offers:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: “Apache [Spark](http://spark.apache.org/) 是一个用于大规模数据处理的快速通用引擎”。很明显这就是为什么 H2O
+    通过 [Sparkling](http://www.h2o.ai/product/sparkling-water/) Water 与 Spark 结合。这种
+    [集成](https://github.com/h2oai/sparkling-water) 提供：
 - en: Utilities to publish Spark data structures (RDDs, DataFrames) as H2O’s frames
     and vice versa
+  id: totrans-8
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 将 Spark 数据结构（RDD、DataFrame）发布为 H2O 的 frames，反之亦然的工具
 - en: DSL to use Spark data structures as input for H2O’s algorithms
+  id: totrans-9
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用 DSL 将 Spark 数据结构作为 H2O 算法的输入。
 - en: Basic building blocks to create ML applications utilizing Spark and H2O APIs
+  id: totrans-10
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 利用 Spark 和 H2O API 创建 ML 应用程序的基本构建模块
 - en: Python interface enabling use of Sparkling Water directly from pySpark
+  id: totrans-11
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Python 接口，允许直接从 pySpark 使用 Sparkling Water
 - en: '“How-to: Build a Machine-Learning App Using Sparkling Water and Apache Spark”
     provides insight into the conversation of data between Spark and H2O – from Spark resilient
     distributed dataset (RDD)  to H2OFrame and vice versa.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: “如何：使用 Sparkling Water 和 Apache Spark 构建一个机器学习应用程序” 提供了在 Spark 和 H2O 之间转换数据的见解
+    - 从 Spark 的弹性分布式数据集 (RDD) 到 H2OFrame，反之亦然。
 - en: 'H2OFrame offers a few other ways to load data into H2OFrame’s as provided by
     [this](http://h2o-release.s3.amazonaws.com/h2o/master/3384/docs-website/h2o-docs/booklets/SparklingWaterVignette.pdf)
     documentation page:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: H2OFrame 提供了另外一些将数据加载到 [这里](http://h2o-release.s3.amazonaws.com/h2o/master/3384/docs-website/h2o-docs/booklets/SparklingWaterVignette.pdf)
+    文档页面所提供的 H2OFrame 的方法：
 - en: local filesystems
+  id: totrans-14
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 本地文件系统
 - en: HDFS
+  id: totrans-15
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HDFS
 - en: S3
+  id: totrans-16
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: S3
 - en: HTTP/HTTPS
+  id: totrans-17
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HTTP/HTTPS
 - en: I’m therefore wondering, if the data set is relatively small, its probably easier
     to expose the data through a REST endpoint rather than downloading to CVS just
     to load the file into H2OFrame.  Maybe in the scenario were at the end of a time
     period, I want a snap of data?  I can see the advantage of SparklingWater when
     I’ve got data in hdfs or I need the Spark cluster power on a particular problem.
      However, for small datasets, I’m not sure one needs SparklingWater ?
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此我在想，如果数据集相对较小，那么可能更容易通过 REST 端点公开数据，而不是下载到 CVS 文件中再加载到 H2OFrame 中。也许在时间段结束时，我想要一个快照数据，我可以看到SparklingWater在我有数据在
+    hdfs 中或者我需要 Spark 集群在某个特定问题上的强大作用时的优势。然而，对于小数据集，我不确定是否需要SparklingWater？
 - en: 'Which leads to the following thought process:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了以下的思考过程：
 - en: If your streaming data, then decide where the POJO model is going to run – its
     Java, so this should be easy – data subscriber.
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果你的流数据，就要决定 POJO 模型将在何处运行 - 这是 Java，所以应该很容易 - 数据订阅者。
 - en: If you are have lots of data, SparklingWater and cluster is needed to ensure
     performance
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果你有大量数据，需要 SparklingWater 和集群来确保性能。
 - en: If your spiking, RStudio of similar for accessing H2O is good enough
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果你的应用需要，RStudio 或类似的东西用于访问 H2O 就足够了
 - en: Hooking in streaming data to Apache Spark and H2O doesn’t seem to be required,
     given the first bullet point above.
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 将流数据进行挂钩到 Apache Spark 和 H2O 似乎是不必要的，鉴于上面的第一个要点。
 - en: ~ by mdavey on April 20, 2016.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由 mdavey 于 2016 年 4 月 20 日发布。
 - en: Posted in [Agile](https://mdavey.wordpress.com/category/agile/)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [Agile](https://mdavey.wordpress.com/category/agile/)
 - en: 'Tags: [MachineLearning](https://mdavey.wordpress.com/tag/machinelearning/)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[机器学习](https://mdavey.wordpress.com/tag/machinelearning/)

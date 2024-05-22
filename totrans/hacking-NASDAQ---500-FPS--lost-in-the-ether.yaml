@@ -1,99 +1,153 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:07:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:07:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '--> '
 - en: 'hacking NASDAQ @ 500 FPS: lost in the ether'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在纳斯达克进行黑客攻击 @ 500 FPS：迷失在以太网中
 - en: 来源：[http://hackingnasdaq.blogspot.com/2010/01/lost-in-ether.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/lost-in-ether.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2010/01/lost-in-ether.html#0001-01-01](http://hackingnasdaq.blogspot.com/2010/01/lost-in-ether.html#0001-01-01)
 - en: 'Ok... so where did that 37,500ns go? I`ve got my suspicions but lets go hack
     the sauce and get some numbers. First thing to try is any other dials and knobs
     in the driver, namely:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 好... 那 37,500 纳秒去哪了? 我有些怀疑，但让我们深入了解一下并得到一些数字。首先要尝试的是驱动程序中的任何其他拨号和旋钮，即：
 - en: '- disable NAPI'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 禁用 NAPI'
 - en: '- separate Rx & Tx interrupts'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 分离的 Rx 和 Tx 中断'
 - en: Starting with our baseline from the last post, except using the latest driver
     from the intel site vs whats in 2.6.30 kernel we get the following plot(below).
     Did not expect anything major and.. it looks quite similar.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 从上一篇文章的基线开始，除了使用英特尔网站上的最新驱动程序而不是 2.6.30 内核中的驱动程序之外，我们得到以下情节（下图）。 意料之外的是.. 它看起来非常相似。
 - en: Stock intel 1.1.2 NAPI driver
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔 1.1.2 NAPI 驱动
 - en: Next up is to disable NAPI. Resulting in higher CPU loading but potentially
     lower latency. Plot looks a bit different, but roughly the same, there's some
     fairly clear changes and the latency increases.. doh.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来要做的是禁用 NAPI。导致 CPU 负载增加，但潜在减少延迟。情节看起来有点不同，但大致相同，有一些相当明显的变化，延迟增加了.. 糟糕。
 - en: Disable NAPI
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 禁用 NAPI
 - en: The other builtin knob is, seperate Rx and Tx interrupts, so it uses unique
     irq`s  per queue instead of shared. Interestingly the histogram`s shape becomes
     significantly more clear, assuming due to less jitter on interrupt latency.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个内置的旋钮是，分离 Rx 和 Tx 中断，因此它使用每个队列的唯一中断，而不是共享的。有趣的是，直方图的形状变得更加清晰，假设可能是由于中断延迟减少。
 - en: Disable NAPI, Rx/Tx interrupts separate (+64bx8 header)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 禁用 NAPI，分离 Rx 和 Tx 中断（+64bx8 标头）
 - en: Which is all good but has done nothing for total latency, and actually made
     it worse, so its time to put the rubber gloves on and hack the driver.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这一切都很好，但对总延迟毫无帮助，实际上使情况变得更糟，所以现在是时候戴上橡胶手套并修改驱动程序了。
 - en: While we`re prepping, lets go back and look at whats actually going on. The
     diagram(left) shows a high level view of the major components we need to test.
     Namely,
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们做准备时，让我们回过头来查看实际发生了什么。图表（左侧）显示了我们需要测试的主要组件的高层视图。即，
 - en: '- Machine A Application'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 机器 A 应用程序'
 - en: '- Machine A Kernel + Driver'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 机器 A 内核 + 驱动程序'
 - en: '- Fabric / Ethernet / Hardware'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 织物 / 以太网 / 硬件'
 - en: '- Machine B Kernel + Driver'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 机器 B 内核 + 驱动程序'
 - en: '- Machine B Application'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 机器 B 应用程序'
 - en: '... and back again.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '... 然后又回来了。'
 - en: 'There`s 2 interesting points in the NIC drive, namely:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC 驱动中有 2 个有趣的要点，即：
 - en: '- Rx interrupt dispatch'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '- Rx 中断分派'
 - en: '- Tx descriptor write'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '- Tx 描述符写'
 - en: These events are the first and final contact points between SW and HW. Rx Interrupt
     dispatch gives a timestamp when the entire sw/os stack is first aware of there
     is a new UDP packet.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些事件是软件和硬件之间的第一次和最后一次接触点。 Rx 中断分派在整个软件/操作系统栈首次感知到存在新的 UDP 数据包时给出时间戳。
 - en: On the other side, Intels network cards use a hardware structure in memory known
     as a *descriptor* which contains the location, size and a few other attributes
     about a raw ethernet frame. To send data onto the network the driver builds this
@@ -102,8 +156,10 @@
     descriptor(s) + associated memory and eventually push  onto the physical layer/wire.
     Essentially the hw/sw contact point is when the driver hands off the packet for
     HW processing.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一方面，英特尔网络卡使用内存中的硬件结构，称为*描述符*，其中包含有关原始以太网帧的位置、大小和其他一些属性。为了将数据发送到网络上，驱动程序在环形缓冲区中构建此结构，然后推进硬件环形缓冲区的位置。这种推进告诉硬件有待处理的新描述符，因此它可以获取描述符和相关内存，最终将其推送到物理层/电线上。基本上，硬件/软件接触点是驱动程序将数据包交给硬件处理的时候。
 - en: Using these two events + time stamps at sendto() and recvfrom() we can re-construct
     a time profile and also look at HW <-> App latency  The timestamps are stored
     in a, umm... rather rude and amusing way. We added a 64b x 8 header to every ITCH4
@@ -111,79 +167,119 @@
     we simply check the UDP header for our magic port number and if it matches, write
     out the time stamps in unique 64b header slot. Yeah rather nasty.. but this is
     an holiday hack project - meh..
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用这两个事件+sendto()和recvfrom()的时间戳，我们可以重构时间配置文件，并查看HW <-> App延迟 时间戳以一种有点粗鲁又有趣的方式存储。我们在每个ITCH4消息中添加了一个64b
+    x 8的头部，这几乎增加了消息大小的一倍，但使事情变得容易。在驱动程序中，我们只需检查UDP头部的魔术端口号，如果匹配，则在唯一的64b头部插槽中写入时间戳。是的，相当讨厌..
+    但这是一个假日的黑客项目 - 唉..
 - en: Ok all the prep is done, so how does it look? Lets follow a single packet in
     chronological order. First we send the raw ITCH4 packet + header from A in userland.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 好了，所有的准备工作都做好了，那看起来如何？让我们按时间顺序跟踪一个数据包。首先，我们在机器A的用户空间发送原始的ITCH4数据包 + 头部。
 - en: Latency from Userland -> NIC (Machine A)
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 从用户空间到NIC的延迟（机器A）
 - en: Here(above) we see the time it takes from userland sendto() to the driver updating
     the Tx descriptor ring - full SW latency of sendto(). After this point, the packet
     journeys across the network fabric from NIC HW + Switch + NIC HW arriving at Machine
     B`s NIC.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里（上面）我们看到了从用户空间sendto()到驱动程序更新Tx描述符环的时间 - sendto()的完整软件延迟。在这一点之后，数据包穿越网络织物从NIC
+    HW + Switch + NIC HW到达Machine B的NIC。
 - en: Latency NIC Rx Interrupt -> User Land (Machine B)
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: NIC Rx中断延迟 -> 用户空间（机器B）
 - en: After the packet has been decoded by the NIC, it generates an Rx interrupt on
     Machine B, telling it, there's some data ready. The above plot shows the time
     between when the Rx interrupt arrives on the CPU, to recvfrom() call returning
     in userland - full recvfrom() SW latency. Why are there 2 spikes? its not clear.
     One possible cause is a packet size threshold causes a split code path, and thus
     the profile into two bins.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据包被NIC解码后，在机器B上生成一个Rx中断，告诉它，有一些数据准备好了。上图显示了Rx中断到达CPU的时间，再到recvfrom()在用户空间返回的时间
+    - 完整的recvfrom()软件延迟。为什么有两个峰值？目前还不清楚。一个可能的原因是数据包大小阈值导致分割代码路径，因此将配置文件拆分为两个垃圾桶。
 - en: Machine B`s user land code is trivial. It sets a header timestamp, then does
     sendto() of the exact same packet e.g. echo`ing the packet, resulting in the full
     SW latency from sendto() to NIC  for Machine B.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: Machine B的用户空间代码是微不足道的。它设置一个头部时间戳，然后对确切的相同数据包执行sendto()，从而得到从sendto()到NIC的完整软件延迟。
 - en: sendto() -> Tx descriptor update (Machine B)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: sendto() -> Tx描述符更新（机器B）
 - en: Again we see these 2 spikes, which hmm... needs investigation. One other thing
     to notice is  sendto() latency on MachineB is quite a bit slower than MachineA.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次看到这两个峰值，嗯... 需要调查。还有一件事要注意的是，MachineB上的sendto()延迟比MachineA要慢得多。
 - en: After the packet is at Machine B`s NIC, it goes back to the switch, to MachineA`s
     NIC and generates an Rx interrupt - full recvfrom() SW latency on Machine A (below)
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据包在Machine B的NIC上之后，返回交换机，到达MachineA的NIC并生成一个Rx中断 - 机器A上recvfrom()的完整软件延迟（下面）
 - en: Rx ISR -> recvfrom() (Machine A)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: Rx ISR -> recvfrom()（机器A）
 - en: Which is unusually fast, and also a single profile - hmmm... suspicious. In
     any case we`ve now got everything to fill in the blanks. Whats troubling is we`re
     a long way off a total latency of 40,000ns! Its good but also bad. So with a few
     lines of code we get top level MachineA/B full SW latency plots.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 这非常快，也是一个单独的配置文件 - 嗯... 可疑。无论如何，我们现在有了填补空白的一切。令人困扰的是，我们离总延迟40,000ns还有很长的路要走！这是好事，但也是坏事。所以，通过几行代码，我们得到了顶级MachineA/B全软件延迟图。
 - en: Total SW Latency (Machine A)
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 总软件延迟（机器A）
 - en: '[![](img/6a177acc5074cbed3a2fbc657f481cc8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpVnMicYLqiy6dTQG9hovaeWaXvq_CDtFiMVOZoOdiFhcwSx1NyQLInRHFFcm28kzNnJWJfUjyNTb0DhYWTr9IhyK0XyOTilg9kN0Q8OWscY4_M-UbS9EaY-L71FdL6iKQVmgJj3FrQw/s1600-h/b_latency_stock.png)'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6a177acc5074cbed3a2fbc657f481cc8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpVnMicYLqiy6dTQG9hovaeWaXvq_CDtFiMVOZoOdiFhcwSx1NyQLInRHFFcm28kzNnJWJfUjyNTb0DhYWTr9IhyK0XyOTilg9kN0Q8OWscY4_M-UbS9EaY-L71FdL6iKQVmgJj3FrQw/s1600-h/b_latency_stock.png)'
 - en: Total SW latency (Machine B)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 总软件延迟（机器B）
 - en: Which is Rx+Tx latency for a single packet, and plotting that number on a histogram.
     Whats really strange is Machine B is *slower* than Machine A, something rather
     surprising. One possible latency source is is MachineA has 2 HW threads, while
     Machine B has 8 HW threads. I'm not familiar enough with the linux scheduling
     algo to know if this changes the profile, but worth checking out.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是单个数据包的Rx+Tx延迟时间，并将该数字绘制在直方图上。真的很奇怪的是，机器B比机器A*慢*，这有点令人惊讶。一个可能的延迟来源是，机器A有2个硬件线程，而机器B有8个硬件线程。我对Linux调度算法的了解不够深，无法确定这是否会改变配置文件，但值得进一步检查。
 - en: '.... and doing the math you get a plot(below) for fabric time.'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: …… 然后进行数学计算，你会得到一个时延时间的图表（下方）。
 - en: Fabric time (NIC->Switch->NIC)
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 时延时间（NIC->交换机->NIC）
 - en: Which is a huge.. huge... chunk of time, say 30,000ns! The good news is, SW
     latency is around 10,000ns  which is close(ish) to our throughput number of 3,500ns
     (x3) so we`re 1/3 thoughput/latency.  Seccond good thing is, the GigE switch is
@@ -191,5 +287,9 @@
     not bad  given the price but aint cisco. Its Corega which is equivelent to Netgear
     in Asia, does the job, its cheap but your average LAN dosent need sub 10,000ns
     latency and so the switch is our prime suspect err...... device of interest.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个巨大的…… 巨大的…… 时间块，比如说30,000纳秒！好消息是，SW的延迟时间大约是10,000ns，接近我们的吞吐量数值3,500ns（x3），所以我们的吞吐量/延迟时间是1/3。第二个好消息是，这个GigE交换机是我花$100买的便宜老旧的二手货
+    - 24口、机架式GigE，考虑到价格还不错，但不是思科的。它是日本的Corega品牌，在亚洲等同于Netgear，性能还可以，价格便宜，一般的局域网不需要低于10,000ns的延迟，所以交换机是我们的主要怀疑对象……
+    感兴趣的设备。

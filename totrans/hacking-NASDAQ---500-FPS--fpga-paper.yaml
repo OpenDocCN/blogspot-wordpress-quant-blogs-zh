@@ -1,107 +1,159 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:01:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:01:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: fpga paper'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'hacking NASDAQ @ 500 FPS: fpga 论文'
 - en: 来源：[http://hackingnasdaq.blogspot.com/2012/10/fpga-paper.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/10/fpga-paper.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2012/10/fpga-paper.html#0001-01-01](http://hackingnasdaq.blogspot.com/2012/10/fpga-paper.html#0001-01-01)
 - en: Ran into this advertisement^H^H^H^H^H peer reviewed IEEE paper today
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天碰到了这篇广告^H^H^H^H^H 《由 IEEE 审查的》论文。
 - en: Its quite well written and covers alot of ground yet contains some pretty bad
     assumptions. Lets deconstruct
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 它写得很好，内容很全面，但包含一些非常糟糕的假设。让我们一一解析
 - en: 'In the abstract:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 摘要：
 - en: '"The application sustains 10Gb/s Ethernet line rate with a fixed end-toend
     latency of 1µs  – up to two orders of magnitude lower than comparable software
     implementations."'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '"该应用程序以固定的端到端延迟1微秒维持10Gb/s以太网线速率 - 比可比较的软件实现低了两个数量级。"'
 - en: What they are saying is software latency for a brain dead strategy is 100usec?
     This is complete and utter bullshit, yes if you write shitty code your wire-wire
     latency will be 100usec +/- 25usec jitter. If you write tight code using standard
     hardware and know what your doing... can get under 10usec wire-to-wire no problem.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们在说用脑残策略的软件延迟是100微秒？这完全是废话，是的，如果你写烂代码，你的端到端延迟将是100微秒，再加上25微秒的抖动。如果你使用标准硬件编写紧凑的代码并且知道你在做什么...绝对可以轻松在10微秒以下的端到端延迟问题。
 - en: 'Next point:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一点：
 - en: '"An initial line handling stage uses redundancy in the streams to replace any information
     temporarily missed due to packet losses in order to reconstruct the necessary
     parts of the  order book of the exchange."'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '"初始的数据处理阶段使用流中的冗余信息替换由于数据包丢失而暂时丢失的任何信息，以便重构交易所订单簿的必要部分。"'
 - en: This is pure magic, have nfi what their talking about here. How is it possible
     when you drop a market data packet you can reconstruct its symbol/price/side/qty/operation,
     in less than 1usec, in RTL on an fpga. Will concede given say 100msec or more
     AND significant delay in the stream e.g. you dropped a new quote X, but received the
     cancel quote X msg, its possible to take a good guess what was in the packet....
     maybe they are talking about using the *cough cough* market data recovery channels.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是纯魔术，不知道他们在这里谈论什么。当市场数据包丢失时，如何能够在少于1微秒内在 FPGA 的 RTL 上重新构建其标识/价格/买入与卖出/数量/操作。承认如果给予约100毫秒或更多时间，并且在数据流中存在显著的延迟，e.g.
+    你丢失了一个新的报价X，但收到了取消报价X的消息时，也许能够很好地猜测数据包中存在的内容... 也许他们在谈论使用 *咳咳*市场数据恢复通道。
 - en: 'Next point:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一点：
 - en: '"Prices for all 8000 securities traded on U.S. Exchanges fit within the FPGA’s
     on-chip memory. The table size is scalable to support more symbols as required."'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '"美国交易所中交易的所有8000种证券的价格均可容纳在FPGA芯片上的内存中。表的大小可扩展以支持更多所需的符号。"'
 - en: 'This is great but wtf? Guessing they are talking about a 8000 * 4bytes(32bit
     fixed point price only) * 2 (bid/ask) * number of venues to store the best bid/offer
     for a symbol. That easily fits in the block ram of a Xilinx V5 240T (note: block
     ram is memory on the die of the fpga and not to be confused with external memory
     e.g. DDR/QDR/SRAM)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这很棒，但是什么鬼？猜想他们在谈论8000 * 4字节（32位固定点价格）* 2（买入/卖出）* 信号存储最佳买入/卖出的价格。这在赛灵思 V5 240T
+    的块 RAM 内(注意：块 RAM 是 FPGA 芯片上的内存，不要与外部内存（比如 DDR/QDR/SRAM）混淆)很容易就能够存储。
 - en: Great but... how do they calculate what the BBO is? You need to store the entire
     book, which has to be stored in external memory because the working set is atleast
     1GB.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 很好，但是...他们怎么计算 BBO 呢？你需要存储整个订单簿，至少需要在外部存储器中存储工作集因为工作集至少为1GB。
 - en: Why store the entire book?
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为什么要存储整个订单簿？
 - en: 1) When you get an quote cancel message exchanges rarely have the price/qty/side/symbol
     in the cancel message. Typically its just the order id and/or quantity canceled,
     so you need to keep price/qty/side/symbol/orderid and more around to correctly
     process e.g. what qty is currently open for this order after Y quote cancel messages.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 当你收到报价取消消息时，交易所很少会在取消消息中包含价格/数量/买入与卖出/标识。通常只有订单号和/或取消的数量，因此需要保留价格/数量/买入与卖出/标识/订单号等信息才能正确处理，如处理Y个报价取消消息后此订单的当前开放数量。
 - en: 2) when a quote is deleted you need to remove it from the book, then iterate
     through the book to find the best price - read you need to keep the book in memory
     somewhere. The trick here is being smart in how and when you iterate to find the
     best price, e.g. sorting a mostly sorted list can be pretty dam fast.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 当一个报价被删除时，需要从订单簿中将其移除，然后遍历订单簿以找到最佳价格 - 读取需要在内存中保留订单簿。关键在于智能地以及何时遍历以找到最佳价格，如对大部分排序的列表进行排序可能非常快。
 - en: 3) .... and more but wasted too much time on this today.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) .... 但今天在这上面浪费了太多时间。
 - en: '... so are saying, we can store 8000 bid/ask prices ondie in the fpga for the
     rtl coded algo to use? hmm..'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ……所以，你是在说，我们可以在fpga中存储8000个买入/卖出价格，供rtl编码的算法使用？嗯……
 - en: Its a great well written technical paper, probably one of the best papers on
     the subject however glosses over some more important details... as doe all academic papers
     on the subject.. aka yes just sit and hold that 30% draw down for 3 months and
     the pnl is beautiful.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一篇很好的、写得很技术的论文，也许是关于这个主题最好的论文之一，但是忽略了一些更重要的细节……就像所有关于这个主题的学术论文一样……也就是说，只需坐着忍受那30%的账户回撤3个月，而盈利是漂亮的。
 - en: /rant
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: /抱怨

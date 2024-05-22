@@ -1,75 +1,111 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:35:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日05时35分24秒
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: H2o Flow – Diving into the Deep End | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: H2o Flow – Diving into the Deep End | Tales from a Trading Desk
 - en: 来源：[https://mdavey.wordpress.com/2016/03/16/h2o-flow-diving-into-the-deep-end/#0001-01-01](https://mdavey.wordpress.com/2016/03/16/h2o-flow-diving-into-the-deep-end/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/03/16/h2o-flow-diving-into-the-deep-end/#0001-01-01](https://mdavey.wordpress.com/2016/03/16/h2o-flow-diving-into-the-deep-end/#0001-01-01)
 - en: '[H2o](http://www.h2o.ai/resources/) and [Flow](https://github.com/h2oai/h2o-3/blob/master/h2o-docs/src/product/flow/README.md)
     are simple to [install](https://github.com/h2oai/h2o-3).  Once installed, just
     run the following command to start H2o, and thus get access to Flow via localhost:54321:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[H2o](http://www.h2o.ai/resources/)和[Flow](https://github.com/h2oai/h2o-3/blob/master/h2o-docs/src/product/flow/README.md)安装简单，只需要运行以下命令即可启动H2o，然后通过localhost:54321获得对Flow的访问：'
 - en: java -jar build/h2o.jar
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: java -jar build/h2o.jar
 - en: 'There are numerous samples available with the install, such as:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 安装时有许多可用的示例，比如：
 - en: Million Song Binary Classification Demo
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 百万首歌二进制分类演示
 - en: GLM Tutorial
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: GLM 教程
 - en: KDDCup 2009 Churn Prediction Demo
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: KDDCup 2009 流失预测演示
 - en: Predicting Airline Delays
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 预测航班延误
 - en: There is a lot of test data available on H2o’s public tests [S3](http://s3.amazonaws.com/h2o-public-test-data).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在H2o的公共测试[S3](http://s3.amazonaws.com/h2o-public-test-data)上有大量的测试数据可用。
 - en: If you’ve made it though various demos and [tutorials](http://blog.h2o.ai/2014/11/introducing-flow/),
     its now time to crunch some of your own data.  Correctly (or not), I’ve gone down
     the road of creating some sample data tests in .CSV files which I then load into
     Flow using the Help/Assist Me/importFiles function.  With a number of samples
     data .CSV files loaded, I can execute Help/Assist Me/getFrames to see the data
     files loaded, and a Frame for each.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您已经通过各种演示和[tutorials](http://blog.h2o.ai/2014/11/introducing-flow/)，现在是时候开始处理一些您自己的数据了。我已经（或者没有）选择了创建一些样本数据测试，将其保存在.CSV文件中，然后使用Help/Assist
+    Me/importFiles功能将其加载到Flow中。加载了多个样本数据.CSV文件后，我可以执行Help/Assist Me/getFrames来查看加载的数据文件，以及每一个Frame。
 - en: 'Next up, the Model.  There are a number of algorithm to select for your model:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，模型。有多种算法可供选择：
 - en: Use GLM when the variable of interest relates to predictions or inferences about
     a rate, an event, or a continuous measurement or for questions about how a set
     of environmental conditions influence the dependent variable.Here are some examples:“What
     attributes determine which customers will purchase, and which will not?”,“Given
     a set of specific manufacturing conditions, how many units produced will fail?”,“How
     many customers will contact help support in a given time frame?”
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 当感兴趣的变量涉及对速率、事件或连续测量的预测或推理，或者涉及一组环境条件如何影响因变量的问题时，请使用GLM。以下是一些例子：“什么属性决定哪些客户会购买，哪些不会？”，“在给定一组特定的制造条件下，将会有多少个单位出现故障？”，“在给定的时间范围内，有多少客户会联系帮助支持？”
 - en: ''
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -78,10 +114,13 @@
     tree. Each of these trees generates a classification for a given set of attributes.
     The classification from each H2O tree can be thought of as a vote; the most votes
     determines the classification.
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 随机森林（RF）是一个强大的分类工具。在给定一组数据时，RF生成一系列分类树，而不是单个分类树。每棵树都为给定一组属性生成一个分类。H2O树的每个分类可以被看作是一次投票；得票最多的决定分类。
 - en: ''
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -90,15 +129,20 @@
     do competitors differ from one another on critical dimensions?  How is a particular
     market segmented?  Which dimensions are most important to differentiating between
     members of a population of interest?
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 当数据是一组在人群中可能不同的属性时，且目标是分类时，使用K-Means。以下是一些例子：竞争对手在关键维度上有什么不同？ 一个特定的市场是如何分割的？
+    哪些维度对于区分目标人群的成员最重要？
 - en: Once you’ve decide on the algorithm to use for your model (possibly based on
     a lot of reading and learning if your not a skilled data scientist), you then
     need to configure your model with the n [options](http://h2o-release.s3.amazonaws.com/h2o-dev/rel-shannon/2/docs-website/h2o-docs/index.html#%E2%80%A6%20Building%20Models)
     available.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦您决定了模型的算法（可能是基于大量阅读和学习，如果您不是一个熟练的数据科学家），接下来您需要用可用的n [options](http://h2o-release.s3.amazonaws.com/h2o-dev/rel-shannon/2/docs-website/h2o-docs/index.html#%E2%80%A6%20Building%20Models)配置您的模型。
 - en: Flow appears to only offer the import of a data file into a Frame, and the splitting
     of a Frame into 2 or more Frames.  Given a Model appears to only take a training
     and validation frame, I don’t see a way to combine Frame similar to the [code](http://blog.cloudera.com/blog/2015/10/how-to-build-a-machine-learning-app-using-sparkling-water-and-apache-spark/)
@@ -106,20 +150,32 @@
     that shows joining of tables using Spark and then publishing a Spark RDD as an
     H2O Frame.  Therefore its important to ensure you only have a single Frame loaded
     from a file when playing in Flow land – or maybe I missed a feature in Flow?
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: Flow 似乎只提供了将数据文件导入到数据框架的功能，以及将数据框架拆分为2个或更多个数据框架的功能。由于模型似乎只能接受一个训练数据框架和一个验证数据框架，我没有找到一种可以像“使用Sparkling
+    Water和Apache Spark构建机器学习应用”的[代码](http://blog.cloudera.com/blog/2015/10/how-to-build-a-machine-learning-app-using-sparkling-water-and-apache-spark/)中所示的使用Spark进行表格合并，然后将Spark
+    RDD发布为H2O数据框架的方法。所以，当在Flow land中操作时，确保只从文件中加载了一个数据框架是很重要的，或者可能我错过了Flow中的某个功能？
 - en: At this point, I’m now in model option land.  I’m also going to go back and
     have another go with R-Studio and H2O.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我进入了模型选项的领域。我也打算回去再试试R-Studio和H2O。
 - en: “‘Ask Craig’- Determining Craigslist Job Categories with Sparkling Water” offers
     a 2 part [article](http://blog.h2o.ai/2015/06/ask-craig-sparkling-water/) which
     is worth a read.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: “‘Ask Craig’- 使用Sparkling Water确定Craigslist的职位类别”提供了一篇分为2部分的[文章](http://blog.h2o.ai/2015/06/ask-craig-sparkling-water/)，是值得一读的。
 - en: ~ by mdavey on March 16, 2016.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: ～ 由mdavey于2016年3月16日发布。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表于[数据](https://mdavey.wordpress.com/category/data/)

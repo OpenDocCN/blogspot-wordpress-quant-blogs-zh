@@ -1,34 +1,52 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:09:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月13日00：09：50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'hacking NASDAQ @ 500 FPS: the feed'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 黑客纳斯达克@ 500 FPS：数据源
 - en: 来源：[http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01](http://hackingnasdaq.blogspot.com/2009/12/feed.html#0001-01-01)
 - en: Looks like there`s a variety of datafeeds to receive quote and tick data for
     trading US equities, with the primary feeds being
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来有多种数据源可以接收美国股票的报价和逐笔交易数据，其中主要数据源是
 - en: For those curious the exchange provides free sample data
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些好奇的人，交易所提供了免费的示例数据
 - en: They provide full historical data but costs in the region of $1000 USD/month
     or 1 user. The question is which feed to choose?
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们提供完整的历史数据，但费用约为每月$1000美元或1个用户。问题是选择哪一种数据源？
 - en: The ArcaBook multicast data is just shockingly bad. its a raw tcpdump which
     is great but seems the exchange people kept the udp socket buffer to their default
     64KB size.. so when the traffic bursts it drops a awfully large number of packets.
@@ -37,13 +55,19 @@
     messages) dropped out of around 8.8M total packets... how can you verify bookeeping
     with this? Yes ArcaBookTCP dump should contain everything however dropping that
     many packets on a low < 100KB/s average stream dosen`t inspire confidence.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: ArcaBook的多播数据实在是太糟糕了。这是一个原始的tcpdump，但似乎交易所的人员将udp套接字缓冲区保留在默认的64KB大小... 所以当流量爆发时，会丢失大量数据包。由于ArcaBook协议具有递增的序列号（耶），所以轻松计算示例数据中8.2%的数据包丢失！这相当于在大约880万个数据包中丢失了726K个数据包（而非消息）...
+    如何验证这种情况？是的，ArcaBookTCP转储应该包含所有内容，但是在低于100KB/s平均速度的流量中丢失那么多数据包并不能激发信心。
 - en: OTOH the Itch3.1 sample data weighs in at around 17GB raw and about 700M msgs
     for a single trading day (2008/11), volume levels that are actually interesting!
     Also major points for reporting trades on the same feed - Arca is pure quote data.
     The spec dosent provide a sequentially increasing number to check against, and
     its tcp data so in theory is complete but the books add up and the volume is 2
     orders of magnitude more. So... guess thats where the action is!
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一方面，Itch3.1的示例数据原始大小约为17GB，总共约有7亿条消息，针对单个交易日（2008年11月）的交易量水平实际上很有意思！在同一数据源上报告交易的重要点-
+    Arca仅为纯报价数据。该规范没有提供用于检查的递增序号，并且是tcp数据，因此理论上是完整的，但是账簿相加的总和和交易量是上百倍关系。那么...猜想这就是行动的地方！

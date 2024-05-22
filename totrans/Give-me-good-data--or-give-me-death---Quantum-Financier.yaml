@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:00:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 14:00:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Give me good data, or give me death – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 给我好的数据，或者让我死去 – 量化金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2016/01/10/give-me-good-data-or-give-me-death/#0001-01-01](https://quantumfinancier.wordpress.com/2016/01/10/give-me-good-data-or-give-me-death/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2016/01/10/give-me-good-data-or-give-me-death/#0001-01-01](https://quantumfinancier.wordpress.com/2016/01/10/give-me-good-data-or-give-me-death/#0001-01-01)
 - en: Based on that quick and dirty analysis HDF seems to do better. Read performance
     is much more important to me as the data should only be written once but will
     definitely be read more than that. Please not that I did not intend portray this
@@ -27,29 +39,42 @@
     as it meets all my requirements and looks to be fairly fast, at least for medium
     size data. It should also enable the R homies to use it through the excellent
     rhdf5 library.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于快速而粗糙的分析，HDF 似乎表现更好。读取性能对我来说更重要，因为数据只需要写入一次，但肯定会被读取多次。请注意，我并不打算把这个测试描绘成最终的讨论证据。而只是看看有什么选择，并评估它们的相对性能。基于我初步的结果，包括但不限于此分析，我选择使用
+    HDF 格式存储数据，因为它符合我的所有要求，并且对于中等规模数据来说看起来相当快。这也应该使得 R 同伴们可以通过出色的 rhdf5 库来使用它。
 - en: 'So at this point I have decided on a format. The question that remains to be
     answered is how to organize it. I was thinking of something like this:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 到这个时候，我已经决定了一个格式。剩下要回答的问题是如何组织它。我在想类似于这样的东西：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Personally not too sure how to best do this. It would seem to me that it would
     be rather difficult to design a clean polymorphic API to access the data with
     such a structure but I can’t seem to find a better way.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于如何最好地做这一点，我个人也不太确定。对我来说，设计一个干净的多态 API 来访问这样的结构化数据似乎相当困难，但我似乎找不到更好的方法。
 - en: I would like to hear what readers have come up with to address those problems.
     In addition to how you store and organize your data, I am very keen to hear how
     you would handle automating the creation of perpetual contracts without having
     to manually write a rule for the roll of each product. This has proven to be a
     tricky task for me and since I use those contracts a lot in my analysis I am looking
     for a good solution.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想听听读者是如何解决这些问题的。除了如何存储和组织数据之外，我非常想知道你们如何处理自动创建永久合同，而不必手动编写每种产品的规则。对我来说，这已经被证明是一项棘手的任务，因为我在分析中经常使用这些合同，我正在寻找一个好的解决方案。
 - en: Hopefully this discussion will be of interest to readers that manage their own
     data in-house.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 希望这个讨论会引起那些在内部管理他们自己数据的读者的兴趣。
