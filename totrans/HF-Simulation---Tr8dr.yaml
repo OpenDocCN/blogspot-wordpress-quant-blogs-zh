@@ -1,236 +1,351 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:30:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日15点30分39秒
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: HF Simulation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HF 模拟 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/02/05/hf-simulation/#0001-01-01](https://tr8dr.wordpress.com/2011/02/05/hf-simulation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/02/05/hf-simulation/#0001-01-01](https://tr8dr.wordpress.com/2011/02/05/hf-simulation/#0001-01-01)
 - en: Simulation for high-frequency strategies is, at best, a decent way to take one’s
     strategy through its paces, perhaps giving a view on profitability.   In no way
     can it present an accurate view on profitability, rather at best can look at the
     strategy’s performance under various synthetic assumptions.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频策略的模拟，充其量是一个很好的方式，可以让我们的策略通过各种合成假设的情况。 它无法准确展示盈利能力，最好是可以看到策略在各种合成假设下的表现。
 - en: 'Naturally our simulator must reflect:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，我们的模拟器必须反映：
 - en: typical order event latency (perhaps with some jitter)
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 典型订单事件延迟（或许带有些抖动）
 - en: typical market event latency
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: typical market event latency
 - en: accurate orderbook
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 准确的订单簿
 - en: view on trade fills
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易完成的视图
 - en: view on impact (icing on the cake, perhaps not necessary)
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 冲击视图（或许不是必要的东西）
 - en: The Data
+  id: totrans-13
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 数据
 - en: 'There is just not enough information presented in market data to model with
     complete accuracy nor can we predict with certainty, the effects of our own trades
     on subsequent market events.   With access to a HF feed, we receive events such
     as:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场数据中呈现的信息不足以完全准确地建立模型，我们也不能确定我们交易对后续市场事件的影响。 通过访问HF feed，我们会收到以下事件：
 - en: '[![](img/e31bcd48dc240928d32434fc87bb1749.png "Screen shot 2011-02-05 at 11.40.51
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-11-40-51-am.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e31bcd48dc240928d32434fc87bb1749.png "2011年2月5日上午11点40分的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-11-40-51-am.png)'
 - en: 'We are able to see most individual order activity.  Primarily, the operations
     are New, Update, and Delete order.    The exceptions are:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到大多数单独订单的活动。 主要的操作是新订单，更新订单和删除订单。 例外情况是：
 - en: hidden orders
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 隐藏订单
 - en: orders that immediately cross
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 立即交叉的订单
 - en: IOC orders (immediate or cancel)
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: IOC 订单（即时或取消）
 - en: What is shown or not shown may vary from venue to venue.   With the above we
     can reconstruct the orderbook as a set of price levels on the bid and another
     set on the ask.  Each price-level represents a queue of orders against which executions
     will occur on a FIFO basis.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 所显示或未显示的内容可能因场所而异。 通过上述内容，我们可以重建订单簿，将其维护为要约和供约的价格水平集合。 每个价格水平代表一个队列，根据FIFO原则进行交易。
 - en: 'The orderbook (abbreviated) might look something like this:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单簿（缩写）可能看起来像这样：
 - en: '[![](img/1fccf63705a02d3d6527f3af1503b3ae.png "Screen shot 2011-02-05 at 12.29.37
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-12-29-37-pm.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1fccf63705a02d3d6527f3af1503b3ae.png "2011年2月5日下午12点29分的屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-12-29-37-pm.png)'
 - en: 'A simulator using historical data needs to reconstruct the orderbook, maintaining
     proper FIFO behavior.   The two biggest problems in simulation are:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用历史数据的模拟器需要重建订单簿，保持适当的FIFO行为。 模拟中最大的两个问题是：
 - en: determining when / if a trade happened
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定贸易何时/是否发生
 - en: determining market impact of strategy trades on historical data
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定战略交易对历史数据的市场影响
 - en: With the various FX venues trades are shown selectively, and at that, with significant
     lag to the actual event.   Order (New or Update) events that would have crossed
     are also not shown.   This leaves us to guess when a trade is likely to have happened.
       We can execute our strategy under various scenarios of trade fill.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过各个外汇交易场所，交易被选择性地展示，并且有显著的滞后。 新订单（或更新）可能的交叉订单也不会显示。 这使我们能够猜测交易可能发生的时间。 我们可以在各种交易完成的假设下执行我们的策略。
 - en: Possible Trade Events
+  id: totrans-27
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 可能的交易事件
 - en: 'Let’s look at some possible signals that a trade may have occurred:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看一些可能表明交易发生的信号：
 - en: all orders on our level are removed
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我们水平上的所有订单都被移除
 - en: due to trade or cancellation?
+  id: totrans-30
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 由于交易还是取消？
 - en: inside order level(s) removed
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 内部订单水平已移除
 - en: due to trade(s) or cancellation?
+  id: totrans-32
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 由于交易还是取消？
 - en: one of the above + our level has moved within epsilon of crossing
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: the above的一种 + 我们的水平已经接近穿越的𝜖
 - en: our level is now crossing
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我们的水平现在正在穿越
 - en: None of these except (4) can indicate a trade with certainty, however without
     some assumptions about the first three scenarios would only leave us with aggressive
     crossing or waiting for price levels to collide.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了（4）之外，所有这些情况都不能确定地表示有交易发生，然而，如果不对前三种情况进行一些假设，只会让我们得到进攻性的交叉或等待价格水平碰撞。
 - en: All orders on our level removed
+  id: totrans-36
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 我们级别上的所有订单都已移除
 - en: 'Consider the above orderbook and the transformed below (where the removed orders
     are in red):'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑上述的订单簿和下面的变换（删除的订单标为红色）：
 - en: '[![](img/8856f28b890eb71e1bda5cc860a4d63e.png "Screen shot 2011-02-05 at 1.06.37
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-06-37-pm.png)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8856f28b890eb71e1bda5cc860a4d63e.png "Screen shot 2011-02-05 at 1.06.37
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-06-37-pm.png)'
 - en: 'All orders on our orderlevel of 82.709 on the ask have been removed in the
     historical events (except our synthetic order from the strategy we are testing).
       The likelihood that a trade happened is higher if the # of orders on the level
     and/or the maximum size historically for the life of the level is high.   With
     one order on the level removed it may well have been a cancellation.'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们要测试的策略的合成订单除外，我们要求的价格82.709水平上的所有订单在历史事件中都已被移除。如果历史上该水平上的订单数量和/或最大尺寸很高，可能已发生交易。如果水平上的订单数量减少了一个，可能是取消订单。
 - en: In this particular case we see the order on our level and the first order on
     the next level removed.   This strengthens a view that a trade may have occurred.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种特定情况下，我们看到我们级别上的订单和下一个级别的第一个订单被移除了。这加强了一个交易可能已经发生的观点。
 - en: We can assign a probability of trade based on evidence like this (though if
     using a random / probability approach, ones results will differ with every run).
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于这样的证据，我们可以给交易分配一个概率（尽管如果使用随机/概率方法，每次运行的结果都会不同）。
 - en: Deeper Inside Level removed
+  id: totrans-42
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 更深的内部水平被移除
 - en: 'Consider the orderbook below:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑下面的订单簿：
 - en: '[![](img/37215328fabba5a6955dd7d5e9e642da.png "Screen shot 2011-02-05 at 1.17.00
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-17-00-pm.png)'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/37215328fabba5a6955dd7d5e9e642da.png "Screen shot 2011-02-05 at 1.17.00
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-17-00-pm.png)'
 - en: 'Our order is on the inside level and the level(s) above it is either cancelled
     or taken out.  This is an even stronger indication of trade if more than one level
     taken out.   Levels can disappear quickly from a number of possible stimuli:'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的订单在内部水平上，其上面的水平要么被取消，要么被吞噬。这是交易的更强迹象，如果超过一个水平被吞噬。水平可以迅速消失，可能有多种可能的刺激因素：
 - en: 'traded: large buying algorithm buys in size (this happens quite often during
     the day)'
+  id: totrans-46
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易：大买入算法以规模购买（这在白天经常发生）
 - en: 'moved: level primarily lead by market makers and activity elsewhere demands
     changing the offering'
+  id: totrans-47
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 移动：市场制造商主要引导并在其他地方的活动需求下改变报价
 - en: 'risk aversion: pending event or volatility cause pullback'
+  id: totrans-48
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 风险厌恶：未决事件或波动引起回撤
 - en: '#2 is harder to gauge perhaps, but #1 and #3 are relatively easy to see in
     retrospect.'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '#2或许更难判断，但#1和#3回顾起来相对容易看到。'
 - en: Order Moves Close to Crossing
+  id: totrans-50
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 订单接近交叉点
 - en: 'We may have a passive order that drifts towards crossing (or is placed very
     close to crossing):'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可能会有一个被动订单朝着交叉点漂移（或者非常接近交叉点）：
 - en: '[![](img/da72f1ecbb5148f09f4e3a74c4baf1c8.png "Screen shot 2011-02-05 at 1.28.03
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-28-03-pm.png)'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/da72f1ecbb5148f09f4e3a74c4baf1c8.png "Screen shot 2011-02-05 at 1.28.03
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-05-at-1-28-03-pm.png)'
 - en: We see that our order is 2/10ths pips away from the cross.  On some venues there
     may be inside-of-inside hidden orders (for venues that don’t require partial exposure
     of size).  In those cases, a move that tight is likely to get executed right away.
       Market makers with inventory may find a cross of 2/10ths appealing as well.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到我们的订单离交叉点有2/10个点。在一些交易场所，可能会有内部-内部的隐藏订单（对于不需要部分敞口大小的交易场所）。在这种情况下，这样紧密的移动很可能会立即执行。有存货的市场制造商可能也会觉得2/10点的交叉点很吸引人。
 - en: Other Trade Signals?
+  id: totrans-54
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 其他交易信号？
 - en: We did not look at what was happening on the other side of the book, but could
     possibly correlate activity on the other side and activity in the above scenarios
     to determine a stronger likelihood of a trade.   I’d appreciate ideas.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们没有观察书本另一面的情况，但可能可以将书本另一面的活动和上述情景中的活动相互关联，以确定交易更有可能发生。我会感激任何建议。
