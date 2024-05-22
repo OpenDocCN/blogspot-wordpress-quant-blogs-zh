@@ -91,15 +91,20 @@
   id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有在伦敦和法兰克福之间建立网络的高频交易公司（如Vigilant、Optiver等）或微波提供商（如Custom Connect）至少需要处理伦敦的两个不同地点（除了LHC和Interxion）：巴斯尔登（ICE/NYSE/Euronext交易所所在地）和斯劳（Equinix
+    LD4，例如BATS (ex-)Chi-X的匹配引擎所在地）。在伦敦地铁区域，波段不是微波而是毫米波（MMW）。毫米波比微波更快，但由于信号损失更高，不适用于长距离传输，因此两点之间的路径仅为数公里（与微波可以达到100公里的路径相比）。这意味着在斯劳和巴斯尔登之间有*大量*的毫米波接收器。这也意味着每个位置都很重要，如果需要，比如说，建立一个杆塔。根据McKay
+    Brothers的[网站](http://www.quincy-data.com/product-page/)，毫米波信号在两个数据中心之间传输不到*一毫秒*（确切地说是273微秒）。每微秒都很重要。
 - en: '[![Capture d’écran 2016-07-26 à 09.47.26](img/01f923bf7e7429b688b68efcea383098.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-09-47-26.png)'
   id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![屏幕截图2016-07-26 09.47.26](img/01f923bf7e7429b688b68efcea383098.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-09-47-26.png)'
 - en: Microwave networks in London. Straight paths are in white. (Note that this map
     is not up to date)
   id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 伦敦的微波网络。直线路径是白色的。（请注意，此地图不是最新的）
 - en: "Back in February 2013, Equinix decided to erect a 25-meter mast next to their\
     \ data centre. The planning application is [there](http://www.sbcplanning.co.uk/sbcp/slough01/planapp/A27C89E7/A27C89E7.pdf#pagemode=thumbs)\
     \ and this part is interesting: “*The Equinix worldwide network of data centres\
@@ -123,24 +128,29 @@
   id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到2013年2月，Equinix决定在他们的数据中心旁边修建一个25米的杆塔。规划申请在[这里](http://www.sbcplanning.co.uk/sbcp/slough01/planapp/A27C89E7/A27C89E7.pdf#pagemode=thumbs)，其中一部分很有趣：“*Equinix全球数据中心和国际业务交流目前通过光纤电缆连接。然而，在英国，金属和电缆盗窃在近年来几乎蔓延成流行病。在过去的几年里，这已经成为增长最快的国家威胁之一，据内政大臣和英国财政部估计，仅金属/电缆替换的年度成本大约为10亿英镑。这些无数的光纤切割不仅给Equinix及其客户，特别是在英国金融服务部门，造成了服务速度大幅下降，而且由于英国是世界上全球化程度最高的经济体之一，而伦敦市更是全球三大经济指挥中心之一，这是不可接受的。事实上，由于金融服务对英国GDP的贡献占据较大比例，任何服务的减缓或潜在的中断都属于国家重要事项。因此，Equinix的许多客户现在正在实施无线网络以避免任何此类故障和随后的重要服务丢失和GDP减少*。”如果我理解正确，高频交易商决定使用无线网络，因为一些恶棍电缆小偷减少了英国的国内生产总值...好故事。
 - en: '![Capture d’écran 2016-07-26 à 10.35.32](img/72479b0ad56adfa28a1e73c6ceb96ec4.png)'
   id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![截屏2016-07-26，10.35.32](img/72479b0ad56adfa28a1e73c6ceb96ec4.png)'
 - en: High-speed traders on the Equinix/LD4 data centre mast
   id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: Equinix/LD4数据中心支架上的高速交易者
 - en: 'The application includes an interesting document I missed when I started to
     investigate the HFT networks, a document with the names of the different “operators”
     who put (or were supposed to) dishes on the Equinix mast:'
   id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 该应用程序包括了我在开始调查HFT网络时错过的一个有趣的文档，其中列出了在Equinix支架上安装（或应该安装）天线的不同“运营商”的名字：
 - en: '![Capture d’écran 2016-07-26 à 11.09.01](img/6bc6a679961f205cf05ec7b4f17ea1de.png)'
   id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![截屏2016-07-26，11.09.01](img/6bc6a679961f205cf05ec7b4f17ea1de.png)'
 - en: 'As expected we meet familiar names: Vigilant Global, Jump Trading, Global Connect/Flow
     Traders, Getco – now KCG –, Custom Connect, and Virtu Financial – but it seems
     Virtu never built a proprietary wireless network in Europe. I don’t know who is
@@ -165,35 +175,50 @@
   id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 如预期的那样，我们遇到了一些熟悉的名字：Vigilant Global、Jump Trading、Global Connect/Flow Traders、Getco
+    - 现在是KCG -、Custom Connect 和 Virtu Financial，但似乎 Virtu 在欧洲从未建立过专有无线网络。我不知道 TTX
+    是谁 - TTX Trading LLP，一个在2015年被 [解散](https://beta.companieshouse.gov.uk/company/OC366902/filing-history)的英国公司？或者另一个
+    [TTX Trading](https://offshoreleaks.icij.org/nodes/10140705) ？不管怎样，这张表格日期是2013年，没有包括其他熟悉的名字/运营商/公司，比如McKay
+    Brothers、Optiver或Tixos。Tixos 是一个有趣的例子。他们只在Slough-Basildon路线上运行，没有完整的伦敦-法兰克福网络，所以我怀疑
+    Tixos 对股票比对衍生品更感兴趣。当我开始弄清楚是谁在我们头上传送超低延迟的波时，Tixos 是唯一一个我无法识别的网络。Tixos 似乎既不是一个交易公司，也不是一个公开的微/毫/波提供商。我怀疑
+    Tixos 是一个为单一市场制造商/高频交易者提供服务的私人无线提供商（我是对的）。但关于这个英国公司的 [公开数据](https://beta.companieshouse.gov.uk/company/08659771/filing-history)
+    中并没有提到与交易相关的名字。由于 *tixos* 在希腊语中的意思是“墙”，我认为 Tixos 背后的公司来自 *华尔* 街（我错了）。我向我的行业联系人打听，有些人知道答案，但不想告诉我（这是他们和我的常规有趣的游戏：我得自己找到信息
+    ;）。在某个时候，我从伦敦得到了线索，说：“看看 [Modern Markets 的人](http://modernmarketsinitiative.org/about/about-modern-markets-initiative/)”。有趣。
 - en: 'So, Equinix erected a mast and rented spaces to different HFT-related companies.
     But some other exchanges didn’t, perhaps because they have high roofs (pure speculation)
     like the Deutsche Börse one in Frankfurt:'
   id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，Equinix建立了一个支架，并出租空间给不同的HFT相关公司。但一些其他交易所可能没有，也许是因为它们有高屋顶（纯属猜测），就像法兰克福的德国证券交易所。
 - en: '[![](img/1641c7da950a634bab778d7741fd376f.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/cdlvpnkwoaawcs-large.jpg)'
   id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1641c7da950a634bab778d7741fd376f.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/cdlvpnkwoaawcs-large.jpg)'
 - en: The roof of the Deutsche Börse data centre in Frankfurt at night. Thanks to
     [censured] for the photo.
   id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 夜晚法兰克福德国证券交易所数据中心的屋顶。感谢 [censured] 提供照片。
 - en: BASILDON
   id: totrans-23
   prefs:
   - PREF_H6
   type: TYPE_NORMAL
+  zh: 巴西尔登
 - en: 'It is the same in Basildon, as can be seen in this photography twetted by a financial
     engineers (there are far more dishes on this roof now):'
   id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如在巴西尔登看到的那样，可以通过一位金融工程师的推特看到（现在这个屋顶上有更多的天线）：
 - en: '[![Capture d’écran 2016-07-26 à 13.43.42](img/9c5862a93da3ee0bb2b2dcdce62f2cc0.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-13-43-42.png)'
   id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Capture d’écran 2016-07-26 à 13.43.42](img/9c5862a93da3ee0bb2b2dcdce62f2cc0.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-13-43-42.png)'
 - en: 'I visited Basildon twice but the array is at the center of the roof – once I
     was there with (bad French) TV journalists and I asked them if they could bring
     a drone so that they could shoot the dishes, but they refused – too bad. Now let’s
@@ -202,10 +227,13 @@
   id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我两次去了巴西尔登，但天线阵列位于屋顶中央 — 一次是和（法语不好的）电视记者一起去的，我问他们能否带一架无人机，这样他们就可以拍摄碟子，但他们拒绝了
+    — 太糟糕了。现在让我们谈谈体育。因为高频交易公司喜欢体育。以下是欧洲期权交易所周围区域的地图：
 - en: '[![Capture d’écran 2016-07-26 à 14.47.31](img/8b071a0d22e73f6d6f0431239d82c66f.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-14-47-31.png)'
   id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Capture d’écran 2016-07-26 à 14.47.31](img/8b071a0d22e73f6d6f0431239d82c66f.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-14-47-31.png)'
 - en: 'Two sport centres are in this area: the [Basildon Sport & Leisure Club](https://www.facebook.com/Basildon-Sport-and-Leisure-Club-166215233431941/) and
     the [Basildon Rugby Football Club](http://www.pitchero.com/clubs/basildon/contact/).
     Back in August 2013, Jump Trading filed a [planning application](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=MODTE0CQ32000) to
@@ -218,24 +246,32 @@
   id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个区域有两个体育场：[巴西尔登运动与休闲俱乐部](https://www.facebook.com/Basildon-Sport-and-Leisure-Club-166215233431941/)和[巴西尔登橄榄球俱乐部](http://www.pitchero.com/clubs/basildon/contact/)。回到2013年8月，Jump
+    Trading提交了一份[规划申请](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=MODTE0CQ32000)，在巴西尔登运动与休闲俱乐部的一个场地上建造一座20米高的支架
+    — 如果你找不到恰好在你需要的地方有建筑物或塔，你只需建造自己的设施。“*提议安装碟子的方向将反映微波传输链路的方向，并促进跨英国境外的高速数据传输，使英国企业在全球经济中更具竞争力*”。
 - en: '[![](img/ac0859b07d0da0a271d2e99087516a7e.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-19-12-29.png)'
   id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ac0859b07d0da0a271d2e99087516a7e.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-19-12-29.png)'
 - en: The Jump Trading 20-meter mast in Basildon
   id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 巴西尔登的Jump Trading 20米高的支架
 - en: 'The [Ofcom licences](http://spectruminfo.ofcom.org.uk/spectrumInfo/licences?service=Fixed+Links&code=301010&freqStart=&freqStop=&unit=GHz&ngrloc=&offset=&nw=%2851.58944283871291%2C+0.4777336120605469%29&ne=%2851.58944283871291%2C+0.4799652099609375%29&se=%2851.58805634325151%2C+0.4799652099609375%29&sw=%2851.58805634325151%2C+0.4777336120605469%29&googloc=%2851.58874959627155%2C+0.4788494110107422%29&googoffset=0.1&submit=Submit+search)
     granted to Jump in 2013 (and to New Line Networks in 2015) shows the path from
     this new mast to the Euronext data centre, and three possible paths going to Slough:'
   id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Ofcom授权](http://spectruminfo.ofcom.org.uk/spectrumInfo/licences?service=Fixed+Links&code=301010&freqStart=&freqStop=&unit=GHz&ngrloc=&offset=&nw=%2851.58944283871291%2C+0.4777336120605469%29&ne=%2851.58944283871291%2C+0.4799652099609375%29&se=%2851.58805634325151%2C+0.4799652099609375%29&sw=%2851.58805634325151%2C+0.4777336120605469%29&googloc=%2851.58874959627155%2C+0.4788494110107422%29&googoffset=0.1&submit=Submit+search)在2013年授予Jump（并于2015年授予New
+    Line Networks），显示从这个新支架到欧洲期权交易所数据中心的路径，以及到斯劳的三条可能路径：'
 - en: '[![](img/9db12a34d6edd5548cbb5b6d41e178fc.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-57-24.png)'
   id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9db12a34d6edd5548cbb5b6d41e178fc.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-57-24.png)'
 - en: '“*The site owner has future plans to re-develop the site, and therefore only
     a 2 year lease has been agreed for the proposed telecommunications equipment*”
     Jump stated. That’s true: the firm filed a new [application](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=NOEEF0CQ06B00)
@@ -244,6 +280,7 @@
   id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: “*网站所有者计划未来重新开发该网站，因此，拟议的电信设备只签定了为期2年的租约*” Jump说。没错：该公司在2015年7月提交了新的[申请](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=NOEEF0CQ06B00)（“*更新规划许可*”等），并再次表示“*物业所有者计划未来有可能重新开发该网站*”。
 - en: In the meantime, in October 2014, another HFT firm showed interest for the local
     sport centres and filed an [application](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=NCRD61CQFUQ00)
     to build a 35-meter mast (15 meters higher than the Jump one) on the Basildon
@@ -265,27 +302,37 @@
   id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 与此同时，2014年10月，另一家高频交易公司对当地的体育中心表现出兴趣，并提交了一份[申请](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=NCRD61CQFUQ00)，计划在巴西尔登橄榄球俱乐部的场地上建造一座高达35米的铁塔（比Jump的高15米）。这家竞争对手的名字是谁？Vigilant
+    Global。现在Richborough正在发生的事情只是 Basildon 之前发生的事情的续集 - 不过这次更高的塔。Vigilant在文件中表示，“*通过这个站点，Vigilant
+    Global致力于通过对当地橄榄球俱乐部进行补偿来为社区做出贡献*... *如果这个申请被拒绝，对于 Vigilant Global 的财务回报的负面影响将通过经济效应对当地社区产生类似的影响*...
+    *在该站点的北部约300米处，Selex体育休闲俱乐部的场地内已经存在一个类似性质的20米格栅塔” - * 你好Jump - 但Vigilant补充说Jump的塔是“*不适合此提议的结构，因为它太低，无法达到所需的网络路径的视线*”（注意Vigilant从未写过不适合的塔是竞争对手的所有权
+    - 需谨慎）。带着这座新的35米高的塔，在巴西尔登，Vigilant离巴西尔登和斯劳之间的完美直线越来越近。做得好。
 - en: '[![](img/802c28f5986e49d75b5a932b3302a015.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-58-312.png)'
   id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/802c28f5986e49d75b5a932b3302a015.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-58-312.png)'
 - en: Jump and Vigilant in Basildon. Straight line between Basildon and Slough in
     white.
   id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: Jump和Vigilant在巴西尔登。巴西尔登和斯劳斯之间的直线是白色的。
 - en: 'The local landscape should look like this now:'
   id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 当地的景观现在应该是这样的：
 - en: '[![Capture d’écran 2016-07-26 à 16.52.18](img/554c2ade2bee427f303a78f2d8b2349c.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-52-18.png)'
   id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Capture d’écran 2016-07-26 à 16.52.18](img/554c2ade2bee427f303a78f2d8b2349c.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2016/07/capture-d_c3a9cran-2016-07-26-c3a0-16-52-18.png)'
 - en: Before HFT. After HFT.
   id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频交易（HFT）之前。高频交易之后。
 - en: '(Compared to the high and very elegant guyed tower, this little tower is quite
     ugly but it’s a matter of personal taste). But this is not the end. In January 2016 Jump
     decided to fight back and filed a new [application](http://planning.basildon.gov.uk/online-applications/applicationDetails.do?activeTab=documents&keyVal=O1KHV0CQJJ100) (through
