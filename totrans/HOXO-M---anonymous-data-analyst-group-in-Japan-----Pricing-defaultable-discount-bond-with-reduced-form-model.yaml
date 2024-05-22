@@ -1,180 +1,276 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: category：未分类
 - en: 'date: 2024-05-18 06:48:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: date：2024-05-18 06:48:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Pricing defaultable discount
     bond with reduced form model'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: HOXO-M - 日本的匿名数据分析团队 - ：用减少形式模型定价违约贴现债券
 - en: 来源：[http://mockquant.blogspot.com/2012/02/pricing-defaultable-discount-bond-with.html#0001-01-01](http://mockquant.blogspot.com/2012/02/pricing-defaultable-discount-bond-with.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 源自：[http://mockquant.blogspot.com/2012/02/pricing-defaultable-discount-bond-with.html#0001-01-01](http://mockquant.blogspot.com/2012/02/pricing-defaultable-discount-bond-with.html#0001-01-01)
 - en: I often use R language to write "prototype" program. As you know, It has very
     high productivity and smart grammar. In this article, I would like to show you
     how to write the program to evaluate the price of defaultable bond by "reduced-form
     model".
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我经常使用R语言编写“原型”程序。你知道，它具有非常高的生产率和智能的语法。在这篇文章中，我想向你展示如何按“减少形式模型”编写程序来评估违约债券的价格。
 - en: Before write a program, we need to understand how to price these bond.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在编写程序之前，我们需要了解如何定价这些债券。
 - en: Under risk neutral measure, we can evaluate the price of defaultable (discount)
     bond as below.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在风险中性度量下，我们可以评估违约（贴现）债券的价格如下。
 - en: '[![](img/5373f254cbaede93a0b731d5e2caa4cf.png)](http://cdn-ak.f.st-hatena.com/images/fotolife/t/teramonagi/20120103/20120103211719.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5373f254cbaede93a0b731d5e2caa4cf.png)](http://cdn-ak.f.st-hatena.com/images/fotolife/t/teramonagi/20120103/20120103211719.png)'
 - en: In this equation, I set variables as below.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个方程中，我设置了以下变量。
 - en: 'v(t,T) : The price of defaultable bond  with maturity T at time t'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: v(t,T)：时间t时到期T的违约债券的价格
 - en: 'r(t) : Short rate at time t'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: r(t)：时间t的短期利率
 - en: 'delta_(t) : Recovery rate at time t'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: delta_(t)：时间t的追还率
 - en: 'tau : default time'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: tau：默认时间
 - en: '1{} : Indicator function'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 1{}：指示函数
 - en: And the second term in this equation means usual pay back of principal, on the
     other hand, the first term means the value you can get when this bond will default.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个方程中的第二项意味着通常的本金偿还，另一方面，第一项意味着当这种债券违约时你可以获得的价值。
 - en: For montecarlo simulation, we need to model short rate and default intensity
     process, I modeled default intensity process and short rate as CIR model.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于蒙特卡洛模拟，我们需要对短期利率和违约强度过程进行建模，我将违约强度过程和短期利率建模为CIR模型。
 - en: CIR model assume that some stochastic process obey below Stochastic differential
     equation.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: CIR模型假设某些随机过程遵循以下随机微分方程。
 - en: Each variables have following meaning.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个变量的含义如下。
 - en: 'x(t) : The value of stochastic variable obeying CIR process at time t.'
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: x(t)：遵循CIR过程的随机变量在时间t的值。
 - en: 'kappa : The speed of adjustment'
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: kappa：调整速度
 - en: 'theta : The mean of  stochastic variable'
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: theta：随机变量的均值
 - en: 'sigma : The volatility of  stochastic variable'
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: sigma：随机变量的波动率
 - en: 'W_t : Standard Brownian motion'
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: W_t：标准布朗运动
 - en: And next, I set the simulation condition as below.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将仿真条件设置如下。
 - en: '-------------------------------- Simulation condition -------------------------------'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '-------------------------------- 仿真条件 -------------------------------'
 - en: 'The number of path : 500'
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 路径数：500
 - en: 'The number of grid per year : 250'
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 每年的格点数：250
 - en: 'Recovery rate : 0.7'
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 追还率：0.7
 - en: 'Maturity of bond : 2'
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 债券到期：2
 - en: 'The correlation between interest rate and default intensity : 0.3'
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 利率和违约强度之间的相关性：0.3
 - en: '-------------------------------- Interest rate parameter ----------------------------'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '-------------------------------- 利率参数 ----------------------------'
 - en: 'kappa : 0.6'
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: kappa：0.6
 - en: 'theta : 0.05'
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: theta：0.05
 - en: 'sigma : 0.05'
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: sigma：0.05
 - en: 'initial value : 0.05'
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 初始值：0.05
 - en: '-------------------------------- Default intensity parameter -------------------------'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '-------------------------------- 违约强度参数 -------------------------'
 - en: 'kappa : 0.6'
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: kappa：0.6
 - en: 'theta : 0.2'
+  id: totrans-39
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: theta：0.2
 - en: 'sigma : 0.5'
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: sigma：0.5
 - en: 'initial value : 0.2'
+  id: totrans-41
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 初始值：0.2
 - en: '---------------------------------------------------------------------------------'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '---------------------------------------------------------------------------------'
 - en: After these settings, we can write simulation program. The entire of program
     is folloing that.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些设置之后，我们可以编写仿真程序。整个程序如下所示。
 - en: (Sorry for the comment written in Japanese, To tell the truth, this article
     is posted in other site in Japanese...)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: （抱歉，注释是用日文写的，事实上，这篇文章是用日文在其他站点发布的…）
 - en: (If you have any question, don't hesitate to ask me :))
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: （如果你有任何问题，请毫不犹豫地向我提问：））
 - en: The result of this program is about 0.830±0.005(It depends on the seed of random
     number generator).
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个程序的结果是大约0.830±0.005（取决于随机数生成器的种子）。
 - en: Enjoy !
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 祝好！

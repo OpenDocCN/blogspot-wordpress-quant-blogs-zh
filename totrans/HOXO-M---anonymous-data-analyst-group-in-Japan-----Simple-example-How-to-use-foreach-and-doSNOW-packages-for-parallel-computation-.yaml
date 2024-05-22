@@ -1,110 +1,178 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:49:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:49:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'HOXO-M - anonymous data analyst group in Japan - : Simple example:How to use
     foreach and doSNOW packages for parallel computation.'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'HOXO-M - 日本匿名数据分析团队 - : 简单示例：如何使用 foreach 和 doSNOW 包进行并行计算。'
 - en: 来源：[http://mockquant.blogspot.com/2011/02/simple-examplehow-to-use-foreach-and.html#0001-01-01](http://mockquant.blogspot.com/2011/02/simple-examplehow-to-use-foreach-and.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://mockquant.blogspot.com/2011/02/simple-examplehow-to-use-foreach-and.html#0001-01-01](http://mockquant.blogspot.com/2011/02/simple-examplehow-to-use-foreach-and.html#0001-01-01)
 - en: '**update**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**更新**'
 - en: '************************************************************************************************'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '************************************************************************************************'
 - en: I checked whether this example was run collectly or not in **Windows XP(32bit)
     only** !
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我检查了这个例子是否在**仅限 Windows XP (32位)** 上正确运行了！
 - en: '************************************************************************************************'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '************************************************************************************************'
 - en: In R language, the members at Revolution R provide foreach and doSNOW packages
     for parallel computation. these packages allow us to compute things in parallel.
     So, we start to install these packages.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 R 语言中，Revolution R 的成员们提供了用于并行计算的 foreach 和 doSNOW 包。这些包允许我们并行计算。因此，我们开始安装这些包。
 - en: <fieldset>[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r
     "Created by Pretty R at inside-R.org")</fieldset>
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>[由 Pretty R 在 inside-R.org 创建](http://www.inside-r.org/pretty-r "由
+    Pretty R 在 inside-R.org 创建")</fieldset>
 - en: In foreach package, you can write the codes which are run not only in parallel
     but also in sequence. And, these are as following.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 foreach 包中，你可以编写不仅可以并行运行还可以顺序运行的代码。以下是这些代码。
 - en: <fieldset>
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 创建](http://www.inside-r.org/pretty-r "由 Pretty R
+    在 inside-R.org 创建")</fieldset>'
 - en: Next, we make clusters by doSNOW package for the purpose of parallel computation.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们使用 doSNOW 包来创建集群，以进行并行计算。
 - en: Because I have dual core machine, I specify two as the number of clusters.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 因为我有双核机器，所以我将集群数指定为两个。
 - en: <fieldset>
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")</fieldset>'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由 Pretty R 在 inside-R.org 创建](http://www.inside-r.org/pretty-r "由 Pretty R
+    在 inside-R.org 创建")</fieldset>'
 - en: Now, We are ready to compute things in parallel. It is easy for us to do that
     by foreach package. You only have to change "%do%" into "%dopar%". I compared
     the performance of parallel comutation to single computation as following.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们已经准备好进行并行计算了。通过 foreach 包，我们很容易做到这一点。你只需要将 "%do%" 改为 "%dopar%"。我将并行计算的性能与单一计算进行了比较，如下所示。
 - en: <fieldset>[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r
     "Created by Pretty R at inside-R.org")</fieldset>
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: <fieldset>[由 Pretty R 在 inside-R.org 创建](http://www.inside-r.org/pretty-r "由
+    Pretty R 在 inside-R.org 创建")</fieldset>
 - en: (I'm sorry that some terms are written in Japanese!)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: （对不起，一些术语是用日语写的！）
 - en: You can understand the result of parallel computation is about twice as fast
     as single computation do !!!
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以理解并行计算的结果大约比单个计算快近一倍！！！
 - en: Reference（including PDF）
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 参考（包括 PDF）
 - en: '-'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '-'
 - en: '[http://cran.r-project.org/web/packages/foreach/foreach.pdf](http://cran.r-project.org/web/packages/foreach/foreach.pdf)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://cran.r-project.org/web/packages/foreach/foreach.pdf](http://cran.r-project.org/web/packages/foreach/foreach.pdf)'
 - en: '-'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '-'
 - en: '[http://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf](http://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf](http://cran.r-project.org/web/packages/foreach/vignettes/foreach.pdf)'
 - en: '-'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '-'
 - en: '[http://cran.r-project.org/web/packages/foreach/vignettes/nested.pdf](http://cran.r-project.org/web/packages/foreach/vignettes/nested.pdf)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://cran.r-project.org/web/packages/foreach/vignettes/nested.pdf](http://cran.r-project.org/web/packages/foreach/vignettes/nested.pdf)'
