@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:02:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:02:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Stop loss, profit cap, survivorship bias, and black swans'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：止损，利润上限，生存偏差和黑天鹅
 - en: 来源：[http://epchan.blogspot.com/2011/09/stop-loss-profit-cap-survivorship-bias.html#0001-01-01](http://epchan.blogspot.com/2011/09/stop-loss-profit-cap-survivorship-bias.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2011/09/stop-loss-profit-cap-survivorship-bias.html#0001-01-01](http://epchan.blogspot.com/2011/09/stop-loss-profit-cap-survivorship-bias.html#0001-01-01)
 - en: I have long espoused the view that we should not impose stop-losses on mean-reverting
     strategies, nor profit caps on momentum strategies. My view on the latter has
     not changed, but it has evolved on the former.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我长期以来一直主张，我们不应该对均值回归策略施加止损，也不应该对动量策略施加利润上限。我对后者的看法没有改变，但前者有所演变。
 - en: My original reason for opposing stop-losses on mean-reverting strategy is this.
     Say you believe your specific price series is mean-reverting, and say you have
     entered into a long position when the price is low. Now, however, the price gets
@@ -31,20 +45,26 @@
     you backtest the effect of stop-losses on mean-reverting strategies, you will
     almost inevitably find that they decrease the overall returns and even Sharpe
     ratios.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最初反对在均值回归策略中使用止损的原因就在这里。假设你认为特定的价格序列是均值回归的，并且你在价格低时建立了多头仓位。然而现在，价格却大幅下跌，你正在遭受巨大的未实现损失。既然如此，基于你对均值回归的信念，你应当增持而不是平仓！事实上，如果你对均值回归策略中止损的效果进行回测，你几乎肯定会发现它们降低了整体回报甚至夏普比率。
 - en: 'But what this simplistic view ignored is 1) survivorship bias, and 2) black
     swan events. (Hat tip: Ben, who prompted me to consider these two issues.)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 但这种简单观点所忽略的是1）生存偏差，和2）黑天鹅事件。（致谢：Ben，他促使我考虑这两个问题。）
 - en: 1) We normally would only trade those price series with a mean-reverting strategy
     only if we see that the prices did eventually revert. No one would bother to trade
     those price series that used to mean-revert, but suddenly stopped doing so. But
     saying that stop-losses are harmful to mean-reverting strategies is ignoring the
     fact that some mean-reverting will stop working altogether and would not survive
     our strategies selection process.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 1）我们通常只交易那些用均值回归策略交易的价格序列，前提是我们看到价格最终确实回归了。没有人会去交易那些曾经均值回归，但突然停止这样做序列。但说止损对均值回归策略有害，却忽略了这样一个事实：一些均值回归最终会完全失效，并且不会在我们的策略选择过程中生存下来。
 - en: 2) Let's define black swan events as those that did not occur in your backtest
     period. For example, let's say you never had a loss of 20% in a single day. So
     if you backtest a stop-loss of 20%, it will have no effect whatsoever on your
@@ -52,14 +72,19 @@
     the future. So if you or your investors simply cannot tolerate a 20% loss, you
     should impose this as a stop-loss. (After all, your brokerage has already imposed
     a stop-loss of 100% on you whether you like it or not.)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2）让我们将黑天鹅事件定义为那些在你的回测期间没有发生的事件。例如，假设你从未在一天之内遭受过20%的损失。所以如果你回测了20%的止损，它将对你回测表现产生丝毫影响。然而，没有人能确切地说它将来不会发生。所以如果你或你的投资者简单地无法承受20%的损失，你应该将其作为止损。
+    （毕竟，你的券商已经在你喜欢与否的情况下对你施加了100%的止损。）
 - en: 'We can in fact turn point 2) around when deciding what stop-loss to use: a
     stop-loss should be loose enough so that it should have no effect on the backtest
     performance, and of course tight enough so that it will not result in the demise
     of your trading career.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 事实上，在决定使用什么止损时，我们可以将观点2)反转：止损应该足够宽松，以至于它应该对回测表现产生任何影响，当然，也要足够紧，以避免导致你的交易生涯的终结。
 - en: There is also the issue of whether to use stop-loss on the intraday drawdown,
     or to use it on the multiple-day drawdown. I would argue that only intraday stop-loss
     is important to prevent a black-swan loss. In practice, when a strategy has a
@@ -69,23 +94,35 @@
     it could theoretically be avoided. This is almost like a multi-day stop-loss strategy,
     as we stop an old strategy and start a new, modified, one. (Though the modified
     strategy might still recommend that you keep holding the current position!)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一个问题是在盘中跌幅使用止损，还是在多日跌幅使用止损。我认为只有盘中止损重要，以防止黑天鹅损失。在实际操作中，当一个策略在连续多日发生非灾难性损失，导致一个大型的、前所未有的跌幅时，交易员通常会重新审视该策略，考虑最近的表现，并调整策略，理论上可以避免这种情况。这几乎就像是一种多日止损策略，因为我们停止了一个旧的策略，开始了一个新的、修改过的策略。（尽管修改后的策略可能仍然建议你持有当前头寸！）
 - en: Now why am I still holding dear to the principle that one should not impose
     profit-caps on momentum strategies? Why, the possibility of black swan events
     again! But this time, any black swan can only result in unprecedented one-day
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么我为什么还执着于不应该对动量策略设定利润上限的原则呢？原因又回到了黑天鹅事件的可能性！但这次，任何黑天鹅事件只能导致前所未有的单日
 - en: '*gain*'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '*收益*'
 - en: instead of loss, since we should
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 而不是损失，因为我们应该
 - en: '[always](http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[总是](http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html)'
 - en: have stop-losses on momentum strategies. We certainly don't want to impose a
     profit-cap to rule out this possibility!
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在动量策略上设定止损。我们当然不希望为了排除这种可能性而设定利润上限！

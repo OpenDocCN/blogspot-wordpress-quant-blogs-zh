@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:03:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:03:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Big Issue with System Backtests'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 时机投资组合：系统回测的大问题
 - en: 来源：[http://timelyportfolio.blogspot.com/2012/09/big-issue-with-system-backtests.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/09/big-issue-with-system-backtests.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2012/09/big-issue-with-system-backtests.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/09/big-issue-with-system-backtests.html#0001-01-01)
 - en: Almost always, when I see a system backtested, the backtest assumes a static
     portfolio with no contributions or withdrawals.  This assumption only covers an
     extremely limited subset of my clients.  Cash flows in and out of a portfolio
@@ -26,8 +38,10 @@
     for demonstration purposes on this blog have suffered from this unrealistic assumption. 
     I thought I should show how contributions similar to those in a 401k can affect
     a simple moving average system.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 几乎总是，当我看到一个系统被回测时，回测假设一个静态的投资组合，没有贡献或提取。这个假设只涵盖了我客户的一个非常有限的子集。投资组合或系统中的现金流入和流出对最终净资产的影响可能比系统的几何性能或基金经理的资金管理表现要大得多。我在这个博客上为了演示目的所展示的绝大多数系统都受到了这种不切实际的假设的影响。我认为我应该展示贡献如何影响一个简单的移动平均系统。
 - en: In a roaring bull market, any momentum system will underperform so significantly
     that potential abandonment of the system due to lack of confidence is highly likely. 
     As shown below, there was very little discussion of moving average strategies
@@ -37,13 +51,17 @@
     moves entirely to $ value of the portfolio.  Below is a comparison of buy and
     hold versus a 200 day moving average system with no additions or withdrawals. 
     As discussed, 1990-2000 was not kind to the moving average.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在疯狂的牛市中，任何动量系统都会表现得如此之差，以至于由于信心不足而放弃系统的可能性非常高。如下面所示，在1990-2000年，关于移动平均策略的讨论非常少，这很简单，因为买入持有绝对打败了它们。尽管像回报/风险和对数刻度这样的正常调整可以在屏幕上减轻影响，但对客户的心理学影响可能是非常有害的，因为关注点完全转移到了投资组合的美元价值上。下面是买入持有与没有增加或减少的200天移动平均系统的比较。如讨论所述，1990-2000年对移动平均线并不友好。
 - en: However, if we add a simple framework similar to a 401k investor starting with
     $100,000 and adding $10,000 per year ($2,500 per quarter), the results differ
     significantly.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，如果我们加入一个类似于401k投资者的简单框架，起始资金为10万美元，每年增加1万美元（每个季度增加2500美元），结果会有显著不同。
 - en: I intentionally played a little trick by changing the y axis to a log scale. 
     Clients don’t think in log scale when evaluating performance.  They simply look
     at $ value of the portfolio.  If we look at the results without a log scale, underperformance
@@ -51,13 +69,19 @@
     of the post, and outperformance after the 2008-2009 collapse is very healthy. 
     I actually think a client could accept this profile much more readily than that
     shown with a static portfolio.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我故意玩了一个小把戏，把y轴改成了对数刻度。客户在评估表现时不会用对数刻度思考。他们只是看看投资组合的美元价值。如果我们不使用对数刻度来看结果，2000年的表现不佳是明显的，但这远没有文章第一张图表显示的那么严重，2008-2009年崩溃后的表现超额是相当健康的。实际上，我认为一个客户可能更容易接受这种配置文件，而不是静态投资组合的配置文件。
 - en: Of course, this test was not perfect, and all sorts of assumptions and simulations
     can be added, but we can start to see how inflows and outflows can impact a portfolio
     whether it is buy/hold, discretionary, or systematic.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，这个测试并不完美，可以添加各种各样的假设和模拟，但我们可以开始看到，流入和流出会对投资组合产生影响，无论是买入持有、主观还是系统化。
 - en: '[R code from GIST ( do raw for copy/paste ):](https://gist.github.com/3669823)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码来自GIST（复制/粘贴时请启用原始格式）：](https://gist.github.com/3669823)'

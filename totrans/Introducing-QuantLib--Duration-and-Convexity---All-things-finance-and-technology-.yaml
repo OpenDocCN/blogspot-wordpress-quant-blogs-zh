@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:45:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:45:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Duration and Convexity | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：持续期和凸度 | 金融与科技事事…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01](https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01](https://mhittesdorf.wordpress.com/2013/03/12/introduction-to-quantlib-duration-and-convexity/#0001-01-01)
 - en: In this post I’m going to explore QuantLib’s support for assessing the riskiness
     of a bond. The riskiness of a bond is closely related to the magnitude of the
     bond’s change in price given a small change in the bond’s interest rate, which
@@ -27,76 +39,110 @@
     and convexity, a hedge can be executed to neutralize the effect of changes in
     the interest rate environment.  Moreover, the riskiness of bonds with different
     yields, coupon rates and maturities can be compared using a common set of benchmarks.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我将探讨QuantLib对评估债券风险的支持。债券的风险与债券价格对利率的小幅变化的变化幅度密切相关，这可以通过计算债券的持续期和凸度以不同程度的精度量化。这些利率敏感性度量是经典固定收益风险管理的基础。了解债券或债券投资组合的持续期和凸度，可以执行对冲以抵消利率环境变化的影响。此外，可以使用一组共同的基准来比较不同收益率、票息率和到期日的债券的风险。
 - en: 'As we’ve seen already, a bond’s price moves inversely to the bond’s interest
     rate. When interest rates go up, a bond’s price goes down and vice versa.  This
     relationship however, is not linear.  A bond’s price increases at an increasing
     rate as bond yields fall and at a decreasing rate as bond yields rise as depicted
     in the figure below:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如我们之前所见，债券的价格与债券的利率成反比。当利率上升时，债券的价格下降，反之亦然。然而，这种关系并不是线性的。随着债券收益率的下降，债券的价格以 increasing
+    rate 增加，随着债券收益率的上升，以 decreasing rate 增加，如下图所示：
 - en: '[![interestratesensitivity](img/82ea13caf2ad62324f29805de77d6806.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/interestratesensitivity.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![interestratesensitivity](img/82ea13caf2ad62324f29805de77d6806.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/interestratesensitivity.png)'
 - en: Duration and convexity seek to quantify the dynamics of the price versus yield
     relationship.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 持续期和凸度试图量化价格与收益率关系动态。
 - en: '**Duration**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**持续期**'
 - en: 'Let’s dive deeper into the concept of *duration*. There are two flavors of
     duration: Macaulay duration and modified duration. The formula for calculating
     Macaulay duration, where C = coupon, r = interest rate, P = bond price, F = the
     bond’s face value and n is the number of periods is:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们更深入地了解持续期的概念。持续期有两种口味：麦考利持续期和修正持续期。计算麦考利持续期的公式，其中C = 票息，r = 利率，P = 债券价格，F
+    = 债券的面值，n 是期间数是：
 - en: '**Macaulay_Duration  = ( C1/(1+r) + 2*C2/(1+r)^2 +…  n * (Cn+F)/(1+r)^n)/P**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**麦考利持续期 = (C1/(1+r) + 2*C2/(1+r)^2 +… n * (Cn+F)/(1+r)^n)/P**'
 - en: Macaulay duration can be understood as a bond’s time-weighted average time to
     maturity.  A bond with a higher duration pays more of its cash flows further out
     in the future than a bond with a lower duration.  Another way of saying this is
     that the holder of a bond with a lower duration will get repaid more quickly than
     the holder of a bond with a higher duration.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 麦考利持续期可以理解为债券的时间加权平均到期时间。具有更高持续期的债券比具有更低持续期的债券在未来更远的时期支付更多的现金流。另一种说法是，持有具有更低持续期的债券的人比持有具有更高持续期的债券的人更快地得到偿还。
 - en: Effectively, due to the time value of money, a bond with a higher Macaulay duration
     is more sensitive to interest rate changes than a bond with a lower Macaulay duration.
     This is attributable to the fact that cash flows discounted over a longer period
     of time have more effect on the bond’s present value than near term cash flows.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，由于货币的时间价值，具有更高麦考利持续期的债券对利率变化的敏感度高于具有更低麦考利持续期的债券。这归因于现金流折现于更长期间对债券现值的影响大于近期现金流。
 - en: 'Modified duration is closely related to duration and can be computed from it.
     Conceptually, it is equivalent to the slope of the line tangent to the curve in
     the figure above.  As such, it is a first-order sensitivity measure that is only
     accurate for small changes in the bond’s interest rate.  Modified duration is
     derived from Macaulay duration in accordance with the following formula:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 修改后的久期与久期密切相关，可以通过久期计算得出。从概念上讲，它等价于图中所示曲线的切线斜率。因此，它是一种一阶敏感度度量，仅适用于债券利率的小幅变化。修改后的久期是根据麦考利久期得出的，公式如下：
 - en: '**Dmod = – Macaulay_Duration/(1+r)**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Dmod = – Macaulay_Duration/(1+r)**'
 - en: 'Alternatively, since the modified duration is the slope of the line tangent
     to the bond pricing function, one can also compute modified duration by taking
     the derivative of the bond pricing formula and dividing by the bond’s price:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 另外，由于修改后的久期是切线到债券定价函数的斜率，因此可以通过对债券定价公式求导并除以债券价格来计算修改后的久期：
 - en: '**Dmod = 1/P * dP/dr**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Dmod = 1/P * dP/dr**'
 - en: 'Modified duration can be applied to calculate the change in a bond’s price
     for a given change in the bond’s interest rate like so:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 修改后的久期可以用于计算给定债券利率变化时债券价格的变化，如下所示：
 - en: '**Change_in_P =  Dmod * Change_in_r, **where Dmod is a negative quantity reflecting
     the inverse relationship of bond price and yield:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Change_in_P =  Dmod * Change_in_r, **其中 Dmod 是一个负量，反映了债券价格和收益率之间的反比关系：'
 - en: '**Convexity**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**凸度**'
 - en: 'As previously mentioned,  duration is a linear, first-order measure of interest
     rate sensitivity.  Consequently, it overestimates the effect of an increase in
     rates on a bond’s price and, conversely, underestimates the price impact of a
@@ -106,18 +152,26 @@
      Convexity is a second-order measure of interest rate sensitivity.  As such, convexity
     is calculated by taking the second derivative of the bond pricing function and
     dividing by the bond’s price:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如前所述，久期是利率敏感性的线性一阶度量。因此，它高估了利率上升对债券价格的影响，反之亦然，低估了利率下降对价格的影响。为了更准确地量化债券定价与其收益率之间的关系，必须考虑债券定价函数的曲率。这是通过我们的第二个利率敏感度度量——*凸度*来实现的。凸度是利率敏感性的二阶度量。因此，凸度是通过取债券定价函数的二阶导数并除以债券价格来计算的：
 - en: '**Convexity = 1/P * dP2/dr2**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Convexity = 1/P * dP2/dr2**'
 - en: 'To reprice a bond using both duration and convexity use the following formula,
     which is more accurate than using (modified) duration alone:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用以下公式重新定价债券，该公式结合了久期和凸度，比仅使用（修改后）久期更为精确：
 - en: '**Change_in_P = P * ( Dmod * Change_in_r + .5 * Convexity * Change_in_r ^ 2)**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Change_in_P = P * ( Dmod * Change_in_r + .5 * Convexity * Change_in_r ^ 2)**'
 - en: 'To illustrate these duration and convexity formulas and provide independent
     verification of QuantLib’s interest rate sensitivity calculations, I used Maxima,
     an open-source computer aided algebra (CAA) package. Maxima’s support for manipulating
@@ -125,105 +179,167 @@
     and Maple.  At some point, I will do a series of posts on  Maxima, but for now,
     those of you who are curious about the meaning of the Maxima code to follow will
     have to rely on Maxima’s documentation:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了说明这些久期和凸度公式并提供对QuantLib利率敏感度计算的独立验证，我使用了Maxima，一个开源的计算机辅助代数（CAA）包。Maxima对符号方程的操纵支持与商业软件产品Mathematica和Maple相似。在某个时候，我会写一系列关于Maxima的文章，但现在，那些对下面要给出的Maxima代码的含义感到好奇的人必须依靠Maxima的文档：
 - en: 'Standard bond pricing formula:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 标准债券定价公式：
 - en: bondprice(r,c,t,f):=(‘sum(c*f/(1+r)^i,i,1,t-1) + (c*f+f)/(1+r)^t);
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: bondprice(r,c,t,f):=(‘sum(c*f/(1+r)^i,i,1,t-1) + (c*f+f)/(1+r)^t);
 - en: '[![maximabondprice](img/c1b92f97304d7710ce60e90bdcf6715a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximabondprice.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximabondprice](img/c1b92f97304d7710ce60e90bdcf6715a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximabondprice.png)'
 - en: 'Macaulay duration – time weighted average maturity of the bond:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 麦考利久期——债券的时间加权平均到期日：
 - en: duration(r,c,t,f):=(‘sum(i*c*f/(1+r)^i,i,1,t-1) + t*(c*f + f)/(1+r)^t)/bondprice(r,c,t,f);
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: duration(r,c,t,f):=(‘sum(i*c*f/(1+r)^i,i,1,t-1) + t*(c*f + f)/(1+r)^t)/bondprice(r,c,t,f);
 - en: '[![maximaduration](img/0da3c2d4808add71f5a8a25ad82b194b.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaduration.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximaduration](img/0da3c2d4808add71f5a8a25ad82b194b.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaduration.png)'
 - en: 'Modified duration – calculated by dividing Macaulay duration by (1 + r) and
     multiplying by -1:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: -1乘以Macaulay持续期除以（1+r）得到修改后的持续期：
 - en: dmod(r,c,t,f,p):=-1* duration(r,c,t,f)/(1+r);
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: dmod(r,c,t,f,p):=-1* duration(r,c,t,f)/(1+r);
 - en: '[![maximadmod](img/670cad084377b87b76817ab8254fa2fc.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod.png)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximadmod](img/670cad084377b87b76817ab8254fa2fc.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod.png)'
 - en: 'Modified duration (alternative derivation) – calculated by taking the derivative
     of the bond’s pricing formula and dividing by the bond’s price:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 对债券定价公式求导，除以债券价格，得到修改后的持续期（另一种推导方法）：
 - en: dbondprice:diff(bondprice(r,c,t,f),r);
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: dbondprice:diff(bondprice(r,c,t,f),r);
 - en: dmod2(r,c,t,f):=ev(dbondprice,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: dmod2(r,c,t,f):=ev(dbondprice,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
 - en: '[![maximadmod2](img/24912af795db8d86976227a252d797ca.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod2.png)'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximadmod2](img/24912af795db8d86976227a252d797ca.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximadmod2.png)'
 - en: dconvexity:diff(bondprice(r,c,t,f),r,2);
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: dconvexity:diff(bondprice(r,c,t,f),r,2);
 - en: convexity(r,c,t,f):=ev(dconvexity,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: convexity(r,c,t,f):=ev(dconvexity,r=r,c=c,t=t,f=f)/bondprice(r,c,t,f);
 - en: '[![maximaconvexity](img/50b321513dc5279da363626a2a02fabe.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaconvexity.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximaconvexity](img/50b321513dc5279da363626a2a02fabe.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaconvexity.png)'
 - en: 'QuantLib provides support for calculating duration, convexity, and several
     other measures of interest rate sensitivity, through its [BondFunctions](http://quantlib.org/reference/struct_quant_lib_1_1_bond_functions.html)
     class. Let’s see how to  how to calculate a bond’s duration and convexity with
     QuantLib:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib通过其[BondFunctions](http://quantlib.org/reference/struct_quant_lib_1_1_bond_functions.html)类提供支持，用于计算持续期、凸度以及其他几种利率敏感性的度量。让我们看看如何使用QuantLib计算债券的持续期和凸度：
 - en: '[PRE0]'
+  id: totrans-44
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The output of this code when run is:'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行此代码时，输出结果为：
 - en: '`Bond price: 105.657'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Bond price: 105.657'
 - en: 'yield to maturity: 0.03'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 'yield to maturity: 0.03'
 - en: 'Macaulay duration: 2.8635'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Macaulay duration: 2.8635'
 - en: 'Modified duration: -2.7801'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 修改后的持续期：-2.7801
 - en: 'Convexity: 10.6258'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Convexity: 10.6258'
 - en: 'Estimated bond price using only duration (rate up .01): 102.72'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 仅使用持续期估算的债券价格（利率上升0.01）：102.72
 - en: 'Estimated bond price using duration and convexity (rate up .01): 102.78`'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用持续期和凸度估算的债券价格（利率上升0.01）：102.78`
 - en: 'Let’s compare the duration and convexity numbers to the what the Maxima equations
     produce:'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们将持续期和凸度数值与Maxima方程式产生的结果进行比较：
 - en: '[![maximaoutput](img/13d98ccefc37c7111b9e207cfcd3284a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaoutput.png)'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![maximaoutput](img/13d98ccefc37c7111b9e207cfcd3284a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/03/maximaoutput.png)'
 - en: As expected, the Maxima calculations do indeed confirm the QuantLib duration
     and convexity calculations, which is a good thing!
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如预期，Maxima的计算确实确认了QuantLib的持续期和凸度计算，这是件好事！
 - en: That brings this post to a close. I hope you have gained a new appreciation
     for how duration and convexity are employed to help assess the riskiness of a
     bond and reprice a bond when interest rates change. Until next time, have fun
     with QuantLib!
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文就到此结束。我希望你对于如何使用持续期和凸度来帮助评估债券的风险性以及当利率变化时重新定价债券有了新的认识。下次再见，祝你在QuantLib中玩得开心！

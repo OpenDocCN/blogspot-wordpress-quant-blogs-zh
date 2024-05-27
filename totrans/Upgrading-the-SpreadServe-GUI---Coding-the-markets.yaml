@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:31:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:31:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Upgrading the SpreadServe GUI | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 升级SpreadServe GUI | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2015/09/19/upgrading-the-spreadserve-gui/#0001-01-01](https://etrading.wordpress.com/2015/09/19/upgrading-the-spreadserve-gui/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2015/09/19/upgrading-the-spreadserve-gui/#0001-01-01](https://etrading.wordpress.com/2015/09/19/upgrading-the-spreadserve-gui/#0001-01-01)
 - en: Upgrading the SpreadServe GUI
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 升级SpreadServe GUI
 - en: September 19, 2015
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2015年9月19日
 - en: 'Recently I’ve been updating [SpreadServe](http://spreadserve.com)‘s JavaScript
     web GUI. The edit facility presented on the livesheet page was quite crude. It
     used a [bootstrap-editable](https://vitalets.github.io/x-editable/) to pop up
@@ -49,5 +65,9 @@
     I was a Firefox advocate for a long time, as Firebug was the first JavaScript
     debugger I used. The Chrome debugger is just faster, snappier, breakpointing is
     easier, and examining the DOM and variables seems better too.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我一直在更新[SpreadServe](http://spreadserve.com)的JavaScript网络GUI。 livesheet页面上的编辑功能相当原始。它使用了一个[bootstrap-editable](https://vitalets.github.io/x-editable/)在消息框中弹出一个编辑字段。并不是真正的无缝用户体验，所以我升级到了支持现场编辑的JavaScript网格。最终结果是用户体验更接近Excel本身。我选择使用[webismymind的editablegrid](https://github.com/webismymind/editablegrid)，因为它可以附着到现有的HTML表格上。在SpreadServe的情况下，HTML表格是在运行中的电子表格发布到[RealTimeWebServer](http://spreadserve.readthedocs.org/en/latest/config.html?highlight=realtimewebserver)时，由C++代码在[SpreadServeEngine](http://spreadserve.readthedocs.org/en/latest/guide.html)内生成的。我将C++代码更改为给表格和tr元素添加属性，editablegrid使用这些属性来锁定。我对editablegrid的JavaScript做了一些小修改，使isEditable和modelChanged回调传递更多信息。我的isEditable实现需要获取DOM元素以及行列地址，以便检查是否有ssedit属性。
+    modelChanged需要元素ID，以便它可以带有唯一ID将更改后的数据发送回RealTimeWebServer。 RealTimeWebServer将更新后的值发送回SpreadServeEngine。我在[github上](https://github.com/osullivj/editablegrid)分叉了带有我更改的editablegrid。在做这个JS开发时，我发现了两个非常有用的资源：
+    [Oscar Rotero的jQuery速查表](http://oscarotero.com/jquery/)，以及[Chrome调试器](https://developer.chrome.com/devtools)。我曾经是Firefox的倡导者很长时间，因为Firebug是我使用的第一个JavaScript调试器。Chrome调试器就是更快，更敏捷，设置断点更容易，检查DOM和变量也更好。

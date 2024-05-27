@@ -1,69 +1,103 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:39:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:39:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Intraday volatility prediction and estimation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 日内波动预测与估计 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/10/30/intraday-volatility-prediction-and-estimation/#0001-01-01](https://tr8dr.wordpress.com/2009/10/30/intraday-volatility-prediction-and-estimation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/10/30/intraday-volatility-prediction-and-estimation/#0001-01-01](https://tr8dr.wordpress.com/2009/10/30/intraday-volatility-prediction-and-estimation/#0001-01-01)
 - en: October 30, 2009 · 8:21 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年10月30日 · 8:21 pm
 - en: GARCH has been shown to be a reasonable estimator of variance for daily or longer
     period returns. Some have adapted GARCH to use intraday returns to improve daily
     returns. GARCH does very poorly in estimating intra-day variance, however.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: GARCH已经被证明是日收益或更长期收益方差的合理估计器。有些人将GARCH适应于日内收益以改善日收益。然而，GARCH在估计日内方差方面表现非常糟糕。
 - en: The GARCH model is based on the empirical observation that there is strong autocorrelation
     in the square of returns for lower frequencies (such as daily). This can be easily
     seen by observing clustering and “smooth” decay of squared returns on daily returns
     for many assets.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: GARCH模型是基于低频（如日频）收益的平方值存在强烈的自相关的经验观察。这一点可以通过观察许多资产的日收益的平方值呈现聚类和“平滑”衰减趋势轻易看出。
 - en: '![Picture 1](img/0b01fd0f4404fd0e57a180e10da7ad54.png "Picture 1")'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![图1](img/0b01fd0f4404fd0e57a180e10da7ad54.png "图1")'
 - en: where the second equation is the ML optimization for the parameters.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个方程式是参数的最大似然估计。
 - en: 'Here is an example for daily Canadian 2Y CMT yield.  The red is the GARCH(1,1)
     variance, the black is the series, and the grey is the log return, and the green
     circle is the predicted variance for the next period:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是加拿大2年期CMT收益的日例。红色是GARCH(1,1)方差，黑色是序列，灰色是对数收益，绿色圆圈是下一期的预测方差：
 - en: '![Picture 1](img/39cf34c5700595d57425ca172b9a33f5.png "Picture 1")'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![图1](img/39cf34c5700595d57425ca172b9a33f5.png "图1")'
 - en: Contact me if you would like to get the R source code for the above.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您想要上述内容的R源代码，请与我联系。
 - en: Intra-day squared returns, however, have many jumps, with little in the way
     of autocorrelated decay pattern. Looking at the EUR/USD series, the squared returns
     have jumps that reduce the ML to the point where GARCH parameterization does not
     converge.  There does appear to be a longer-term pattern, though, allowing for
     a model, though not GARCH.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，日内平方收益存在许多跳跃，几乎不存在自相关的衰减模式。以EUR/USD系列为例，其平方收益的跳跃将最大似然估计（ML）降低到GARCH参数估计无法收敛的程度。尽管如此，似乎还是存在一种更长期的模式，这使得可以构建一种模型，尽管不是GARCH模型。
 - en: With expanded processing power and general access to tick data, research has
     begun to focus on intra-day variance estimation. In particular, expressing variance
     in terms of price duration has become an emergent theme. Andersen, Dobrev, and
     Schaumburg are among a growing community developing this in a new direction.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着计算能力的提升和逐笔数据的普及，研究已经开始集中于日内方差估计。特别是，将方差用价格持续时间来表示已经成为一个新兴的主题。安徒生（Andersen）、多布雷夫（Dobrev）和舒姆堡（Schaumburg）等越来越多的研究群体正在以新的方向发展这一模型。
 - en: At this point have disqualified GARCH as a useful measure for my intra-day strategies
     but am planning to use for a daily strategy. I am investigating a formulation
     of a duration based measure for intra-day volatility.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 至此，我已经排除了GARCH作为我日内策略的有用指标，但计划用于日策略。我正在研究一种基于持续时间的日内波动度量公式。

@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:36:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:36:24'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: LMAX Disrupter | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: LMAX Disrupter | Coding the markets
 - en: 来源：[https://etrading.wordpress.com/2011/01/21/lmax-disrupter/#0001-01-01](https://etrading.wordpress.com/2011/01/21/lmax-disrupter/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2011/01/21/lmax-disrupter/#0001-01-01](https://etrading.wordpress.com/2011/01/21/lmax-disrupter/#0001-01-01)
 - en: LMAX Disrupter
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: LMAX Disrupter
 - en: January 21, 2011
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: January 21, 2011
 - en: 'This [presentation](http://www.infoq.com/presentations/LMAX) from two LMAX
     guys was recommended to me by a couple of friends. I watched it last night, and
     was very impressed. The topic is high throughput, low latency server engineering.
@@ -36,15 +52,23 @@
     executing the same logic and using locking. It’s an approach I’ve had success
     with in hybrid C++ Python server processes: put all the biz logic on a single
     Python thread, and handle pub/sub messaging and persistence on C++ threads.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 两位LMAX人的这个[演讲](http://www.infoq.com/presentations/LMAX)是我一些朋友向我推荐的。我昨晚看了，印象深刻。主题是高吞吐量，低延迟的服务器工程。有很多关于如何让Java变得非常快的内容，以及如何以一种同情硬件的方式与硬件工作。他们推荐为一个业务逻辑使用一个线程，为消息传递和持久化使用专用线程。这与传统的Java智慧相悖，传统Java智慧通常涉及执行相同逻辑的工作线程池和锁。这是一种我在混合C++
+    Python服务器进程中所取得成功的做法：将所有的业务逻辑放在一个Python线程上，然后在C++线程上处理发布/订阅消息和持久化。
 - en: What I found really new and exciting about the LMAX Disrupter pattern they advocate
     was the use of ring buffers for lock free cross thread comms. I used queues for
     thread to thread comms in my C++ Python processes. As the LMAX guys point out,
     those queues use locking. LMAX Disrupter uses atomic CAS instructions for cross
     thread comms, so that the comms done with the ring buffer are lock free.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们所倡导的LMAX Disrupter模式，真正让我感到新颖和激动人心的是，它使用了环形缓冲区来实现线程间的无锁通信。我在我的C++和Python进程之间使用队列来进行线程间的通信。正如LMAX的人所指出的，这些队列使用了锁。LMAX
+    Disrupter使用原子CAS指令来实现线程间的通信，因此使用环形缓冲区的通信是锁免费的。
 - en: All in all it’s a brilliant and insightful presentation…
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，这是一个精彩而富有洞察力的演讲……

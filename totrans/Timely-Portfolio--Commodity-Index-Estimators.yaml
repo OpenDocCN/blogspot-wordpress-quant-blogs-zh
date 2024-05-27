@@ -1,114 +1,182 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:17:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:17:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Commodity Index Estimators'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：商品指数估算器
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html#0001-01-01)
 - en: In this post I will show my first try at a commodity index substitute.  Regular
     readers know my frustration with proprietary data as I try to demonstrate various
     techniques to users who might not have the resources to pay for the data.  I have
     substituted US 10y Treasury Total Returns series as my bond proxy with good results,
     but I have so far been unable to find a free and readily available substitute
     for commodity indexes.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本文中，我将展示我第一次尝试使用商品指数替代品。 regular读者知道我在尝试向可能没有资源支付数据的用户展示各种技术时感到沮丧。我已经用美国10年期国债总回报系列作为我的债券代理取得了良好的结果，但到目前为止，我还没有找到一个免费且易于获得的替代商品指数。
 - en: PPI is not real-time, but might offer one good 1-month lagged proxy for commodity
     indexes.  If we use
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: PPI不是实时的，但可能提供一个好的1个月滞后代理，用于商品指数。 如果我们要使用
 - en: '[PPI data from the St. Louis Federal Reserve FRED system](http://research.stlouisfed.org/fred2/categories/31)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[来自圣路易斯联邦储备银行FRED系统的PPI数据](http://research.stlouisfed.org/fred2/categories/31)'
 - en: ', I can get close, but I am unsure if it will be close enough until further
     system testing.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我可以接近，但我不知道它是否足够接近，直到进一步的系统测试。
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(PerformanceAnalytics)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要（性能分析）
 - en: require(quantmod)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要（量化模块）
 - en: '#getSymbols("NAPMPRI",src="FRED") #load ISM Manufacturing Price'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取符号（"NAPMPRI"，来源="FRED"）#加载ISM制造业价格'
 - en: 'getSymbols("PPIACO",src="FRED") #load PPI All Commodities'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号（"PPIACO"，来源="FRED"）#加载PPI所有商品
 - en: 'getSymbols("PPICRM",src="FRED") #load PPI Crude for Further Processing'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号（"PPICRM"，来源="FRED"）#加载PPI粗略进一步处理
 - en: 'getSymbols("PPIIDC",src="FRED") #load PPI Industrial'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号（"PPIIDC"，来源="FRED"）#加载PPI工业
 - en: '#unfortunately cannot get substitute for proprietary CRB data'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#不幸的是，无法为专有CRB数据找到替代品'
 - en: '#get data series from csv file'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从csv文件获取数据系列'
 - en: CRB<-as.xts(read.csv("spxcrbndrbond.csv",row.names=1))[,2]
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-as.xts（读取.csv（"spxcrbndrbond.csv"，行名=1）[，2]）
 - en: '#my CRB data is end of month; could change but more fun to do in R'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我的CRB数据是月底；可以更改，但R中更有趣'
 - en: CRB<-to.monthly(CRB)[,4]
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-to.monthly（CRB）[，4]
 - en: index(CRB)<-as.Date(index(CRB))
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB指数<-as.Date（CRB指数）
 - en: '#NAPMPRI_change<-ROC(NAPMPRI,1)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#NAPMPRI_change<-ROC（NAPMPRI，1）'
 - en: PPIACO_change<-ROC(PPIACO,1)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: PPIACO_change<-ROC（PPIACO，1）
 - en: PPICRM_change<-ROC(PPICRM,1)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: PPICRM_change<-ROC（PPICRM，1）
 - en: PPIIDC_change<-ROC(PPIIDC,1)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: PPIIDC_change<-ROC（PPIIDC，1）
 - en: '#combine all Rate of Change series with CRB lag 1 month (moved forward) to
     account for PPI delay'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将所有变化率系列与CRB 1个月滞后（向前移动）结合，以考虑PPI延迟'
 - en: CRBandPPI<-merge(lag(CRB,k=1),PPIACO_change,PPICRM_change,PPIIDC_change)
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: CRBandPPI<-合并（CRB滞后（k=1），PPIACO_change，PPICRM_change，PPIIDC_change）
 - en: colnames(CRBandPPI)<-c("CRB","PPI All Comm","PPI Crude for Further","PPI Industrial")
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名（CRBandPPI）<-c（"CRB"、"PPI所有商品"、"PPI粗略进一步处理"、"PPI工业"）
 - en: chart.CumReturns(CRBandPPI,main="CRB Estimators through PPI",legend.loc="topleft")
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.累积回报（CRBandPPI，主="通过PPI的CRB估算器"，图例.位置="顶部左")
 - en: chart.CumReturns(CRBandPPI["1990::"],main="CRB Estimators through PPI since
     1990",legend.loc="topleft")
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.累积回报（CRBandPPI["1990::"]，主="自1990年以来通过PPI的CRB估算器"，图例.位置="顶部左")
 - en: chart.Correlation(CRBandPPI,main="CRB Estimators through PPI")
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.相关性（CRBandPPI，主="通过PPI的CRB估算器"）
 - en: chart.Correlation(CRBandPPI["1990::"],main="CRB Estimators through PPI since
     1990")
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.相关性（CRBandPPI["1990::"]，主="自1990年以来通过PPI的CRB估算器"）

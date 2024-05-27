@@ -1,52 +1,79 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:54:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:54:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: US nonfarm employment prediction using RIWI Corp. alternative
     data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 定量交易：使用RIWI Corp.替代数据预测美国非农就业情况
 - en: 来源：[http://epchan.blogspot.com/2019/12/us-nonfarm-employment-prediction-using.html#0001-01-01](http://epchan.blogspot.com/2019/12/us-nonfarm-employment-prediction-using.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2019/12/us-nonfarm-employment-prediction-using.html#0001-01-01](http://epchan.blogspot.com/2019/12/us-nonfarm-employment-prediction-using.html#0001-01-01)
 - en: The monthly US nonfarm payroll (NFP) announcement by the United States Bureau
     of Labor Statistics (BLS) is one of the most closely watched economic indicators,
     for economists and investors alike. (When I was teaching a class at a well-known
     proprietary trading firm, the traders suddenly ran out of the classroom to their
     desks on a Friday morning just before 8:30am EST.) Naturally, there were many
     efforts in the past trying to predict this number, ranging from using other
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 每月美国非农就业人数（NFP）报告是美国劳工统计局（BLS）最受关注的的经济指标之一，无论是经济学家还是投资者都在密切关注。当我在一知名 proprietary
+    trading firm 教授课程时，周五早上8:30 EST前，交易员们突然从教室冲出去回到自己的办公桌。自然而然，过去有很多努力尝试预测这个数字，从使用其他
 - en: '[macroeconomic indicators](https://www.cmegroup.com/education/featured-reports/our-model-forecasts-may-non-farm-payroll-and-junes-too.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[宏观经济指标](https://www.cmegroup.com/education/featured-reports/our-model-forecasts-may-non-farm-payroll-and-junes-too.html)'
 - en: such as credit spreads to using
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如信用利差，使用
 - en: '[Twitter sentiment](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2783520)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Twitter情感分析](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2783520)'
 - en: as predictive features. In this article, I will report on research conducted
     by Radu Ciobanu and I using the unique and proprietary continuous survey data
     provided by
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为预测特征。在本文中，我将报告Radu Ciobanu和我进行的研究，该研究使用了RIWI Corp.提供的独特且专有的连续调查数据。
 - en: '[RIWI Corp.](file:///C:/QTS%20Capital%20Dropbox/Backtests/RIWI/riwi.com)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[RIWI Corp.](file:///C:/QTS%20Capital%20Dropbox/Backtests/RIWI/riwi.com)'
 - en: to predict this important number.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 预测这个重要数字。
 - en: 'RIWI is an alternative data provider that conducts online surveys and risk
     measurement monitoring in all countries of the world anonymously, without collecting
     any personally identifiable information or providing incentives to respondents.
@@ -57,21 +84,29 @@
     be as representative of the general online population as possible, without the
     usual bias towards the loud social media voices. This is important in predictive
     data for financial markets, where it is vital to separate noise from signal.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: RIWI Corp. 是一家替代数据提供商，在全球所有国家进行在线调查和风险测量监测，无需收集任何可识别个人身份的信息或向受访者提供激励。RIWI的技术已经在全球收集和分析了超过15亿个回应。重要的是，在他们进行的调查中，他们能够接触到通常隐藏的群体：全球四分之一以上的受访者在过去的月份内没有回答过任何类型的调查。他们的调查努力尽可能代表一般在线人口，而不像通常的社会媒体声音那样有偏见。这在预测金融市场的数据中非常重要，因为在金融市场中，将噪音与信号分离至关重要。
 - en: The financial market reacts mainly to
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 金融市场主要对
 - en: '*surprise*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*惊喜*'
 - en: ', i.e. the difference between the actual announced NFP number and the Wall
     Street consensus. This surprise can move not only the US financial markets, but
     international markets as well. Case in point: I watched the German DAX index moved
     sharply higher last week (December 6, 2019 ) due to the huge positive surprise
     (adding 266K jobs instead of the Wall Street consensus of 183K).'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ，即实际宣布的NFP数字与华尔街共识之间的差异。这个惊喜不仅能够推动美国金融市场，也能够推动国际市场。例如：我注意到德国DAX指数在上周（2019年12月6日）因巨大的正面惊喜而急剧上涨（增加了266K个就业岗位，而不是华尔街共识的183K）。
 - en: Therefore the surprise is what we want to predict. We compared predicting the
     sign of this surprise using machine learning with the RIWI score as the only feature
     vs. a number of other benchmarks that do not include the RIWI score, and found
@@ -81,24 +116,32 @@
     smallest averaged cross-validated mean squared error (MSE) than otherwise. Limited
     out-of-sample results indicate the RIWI score continues to have significant power
     for both sign and magnitude predictions.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，惊喜是我们想要预测的。我们将使用机器学习预测这种惊喜的符号与仅使用RIWI得分作为特征与不包括RIWI得分的其他几个基准进行比较，发现在交叉验证测试期间，RIWI得分产生的预测准确性高于所有其他基准。我们还预测了NFP惊喜的大小和符号。包括RIWI得分作为特征之一，在交叉验证的平均均方误差（MSE）最小，否则则不然。有限的样本外结果表明，RIWI得分在预测符号和大小方面仍然具有显著的力量。
 - en: The historical NFP monthly numbers were seasonally adjusted by the BLS. These
     numbers were released on the first Friday of every month, at 8:30 am ET (except
     on certain national holidays when they are released one day before or delayed
     by one week.) To compute the surprise, we subtract the Wall Street consensus on
     the day before the announcement from the actual NFP number.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 历史上NFP的月度数据由BLS进行季节性调整。这些数据每个月的第一个星期五上午8:30 ET（除了一些特定的国家假日，那时数据会提前一天发布或延迟一周）发布。为了计算惊喜，我们从实际NFP数字中减去发布前一天华尔街的共识。
 - en: 'The RIWI data were based on their online surveys of US consumers, and consist
     of two datasets. The first one is dated December 2013 - October 2017 and the second
     one is dated Sep 2018 - Sep 2019\. The former dataset is based on the yes/no answer
     to the following survey question:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: RIWI数据基于他们的在线美国消费者调查，由两个数据集组成。第一个数据集的时间范围是从2013年12月到2017年10月，第二个数据集的时间范围是从2018年9月到2019年9月。前一个数据集基于对以下调查问题的肯定/否定回答：
 - en: '*‘Are you working for more than 35 hours per week?’*'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*“你每周工作时间是否超过35小时？”*'
 - en: . The latter dataset is based on several survey questions related to opinions
     regarding US companies or products, along with respondents’ personal background,
     such as their employment status (full-time/part-time/student/retired), marital
@@ -107,36 +150,54 @@
     hours per week”. If we were to count only the “full-time” respondents, a significant
     structural break in the time series would be observed between the two time periods,
     as seen in Figure 1 below.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 。后一个数据集基于几个与受访者对美国公司或产品的看法有关的调查问题，以及受访者的个人背景，如他们的就业状况（全职/兼职/学生/退休）、婚姻状况等。为了合并这两个数据集，我们将那些说他们工作“全职”或“兼职”的受访者视为等同于“每周工作超过35小时”。如果我们只计算“全职”受访者，两个时期之间的时间序列将观察到显著的结构断裂，如图1所示。
 - en: '[![](img/6f106f8da3b0d050e7dbf917e03973cf.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixY_jXDZRTSryrW-0GYuOM71qxQ7Mnpftrqgn-8ShG5MFmf3C5r_yUJZcvA3fxA9jQgC3YiAsYMcYR0uC9orefhjSuE7Q3FgibGz6P8te3UTrmsbVBTH3CUinpoU7JvqsrR8QvtQ/s1600/full_time_magnify.png)**Figure
     1**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6f106f8da3b0d050e7dbf917e03973cf.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEixY_jXDZRTSryrW-0GYuOM71qxQ7Mnpftrqgn-8ShG5MFmf3C5r_yUJZcvA3fxA9jQgC3YiAsYMcYR0uC9orefhjSuE7Q3FgibGz6P8te3UTrmsbVBTH3CUinpoU7JvqsrR8QvtQ/s1600/full_time_magnify.png)**图1**'
 - en: ': Weighted monthly RIWI score, without seasonal adjustments, including only
     “Full-Time” respondents'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ：未经季节调整的加权月度RIWI得分，仅包括“全职”受访者
 - en: ', for Dec 2013-Oct 2017 and Sep 2018-Sep 2019'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ，对于2013年12月至2017年10月以及2018年9月至2019年9月
 - en: .
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: If we include both “Full-time” and “Part-Time” respondents, we obtain Figure
     2 below, which clearly doesn’t have that structural break.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们同时包括“全职”和“兼职”受访者，我们可以得到下面的图2，这个图并没有显示出那种结构性的断裂。
 - en: '**Figure 2:** Weighted monthly RIWI score,'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图2：**加权月度RIWI得分'
 - en: without seasonal adjustments,
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 未经季节调整的
 - en: including “Full-time + part-time” respondents, for Dec 2013-Oct 2017 and Sep
     2018-Sep 2019.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 包括“全职+兼职”受访者，对于2013年12月至2017年10月以及2018年9月至2019年9月。
 - en: 'RIWI provides a weight for each respondent in order to transform the data so
     that it can reflect the demographics of the general US population, hence the adjective
     “Weighted” in the figure captions. Note that the survey is conducted such that
@@ -148,20 +209,28 @@
     over the same month that the NFP number measures. We call this the “RIWI score”.
     As the NFP data were seasonally adjusted, we need to do the same to the monthly
     differences of the RIWI score. We employ the same adjustment that the BLS uses:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: RIWI 为每个受访者提供权重，以便转换数据，使其能够反映一般美国人口的统计特征，因此在图标题中使用了形容词“加权”。请注意，调查的进行方式是，每个受访者可以回过头来更改他们的答案，但他们不会在数据集中显示为多个样本。为了在每月非农就业报告（NFP）公布之前提取一个总结性得分，我们计算受访者权重和受访者全职或兼职的指标（0或1）的月平均值乘积。月平均值是在衡量NFP数字的同一月份计算的。我们称这为“RIWI得分”。由于NFP数据已经过季节调整，我们需要对RIWI得分的月差异做同样的调整。我们使用劳工统计局（BLS）所使用相同的调整：
 - en: '[X12-ARIMA](https://www.bls.gov/ces/)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[X12-ARIMA](https://www.bls.gov/ces/)'
 - en: . But for comparison purposes, we did not apply seasonal adjustment to Figures
     1 and 2.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 但出于比较的目的，我们没有对图1和图2进行季节调整。
 - en: Our classification models were used to predict whether the sign of the NFP surprisewas
     positive or negative (there were no zero surprises in the data.) The models were
     trained on the data on
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的分类模型用于预测NFP惊喜的符号是否为正面或负面（数据中没有零惊喜。）模型在
 - en: 'Dec 2013 – Oct 2017 (“train set”), where cross validation testing also took
     place. Out-of-sample testing was done on the data Sep 2018-Oct 2019 (“test set”).
     As mentioned above, the test set’s RIWI survey questions were somewhat different
@@ -181,77 +250,120 @@
     Spread Index as the “credit spreads” feature.Since machine learning can only be
     performed on stationary features, we will use the monthly differences in the RIWI
     score and other features.The benchmarks models we tested are:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 2013年12月 – 2017年10月（“训练集”），其中也进行了交叉验证测试。样本外测试在2018年9月-2019年10月（“测试集”）的数据上进行。如上所述，测试集的RIWI调查问题与训练集问题略有不同。因此，测试集结果是对分类模型在样本外是否有效以及RIWI数据的微小差异是否显著降低预测准确性的联合测试。为了提供与RIWI得分相比的基准，我们还研究了几种其他标准特征，其中一些被发现对NFP预测有用：·
+    前1个月NFP惊喜· 前12个月NFP惊喜· 彭博巴克莱美国企业高收益平均期权调整利差指数（又名信用利差）· 消费者情绪指数（密歇根大学）彭博巴克莱美国企业高收益平均期权调整利差指数表示所有高收益企业债券计算的期权调整利差指数与即期美国国债曲线的利差。期权调整利差指数是使用构成债券的期权调整利差，按市值加权计算的。在下面，我们将彭博巴克莱美国企业高收益平均期权调整利差指数简称为“信用利差”特征。
 - en: Logistic regression* on Previous surprise.
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对前一个惊喜进行逻辑回归*。
 - en: Trend-following model predicts next sign(surprise)=sign(previous surprise).
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 逆向趋势模型预测下一个惊喜的符号=前一个惊喜的符号。
 - en: Contrarian model predicts next sign(surprise)=-sign(previous surprise).
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 逆向模型预测下一个惊喜的符号=-前一个惊喜的符号。
 - en: Logistic regression on credit spreads.
+  id: totrans-38
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对信用利差进行逻辑回归。
 - en: Logistic regression on Index of Consumer Sentiment.
+  id: totrans-39
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对消费者情绪指数进行逻辑回归。
 - en: '*All logistic regressions were L2-regularized.'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '*所有逻辑回归都是L2正则化的。'
 - en: 'Here are the results, compared to applying Random Forest to the RIWI score
     alone:'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是结果，与仅将随机森林应用于RIWI得分相比：
 - en: '|  |  |  |  |'
+  id: totrans-42
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-43
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-44
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-45
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-46
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-47
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-48
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-49
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '**Table 1**: Classification benchmarks and other features'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表1**：分类基准和其他特征'
 - en: Based on the predictive accuracy on the cross validation data, the best machine
     learning model is one that uses the RIWI score as the
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于交叉验证数据的预测准确度，最好的机器学习模型是使用RIWI得分作为
 - en: '*only*'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '*仅限*'
 - en: feature. This model applied the random forest classifier to the RIWI score to
     predict sign(NFP surprise). It obtained an average cross-validated (CV) accuracy
     of 63%
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 特征的模型。此模型将随机森林分类器应用于RIWI得分，以预测NFP惊喜的符号。它在平均交叉验证（CV）准确度上获得了63%
 - en: +/- 0.03
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: ±0.03
 - en: (using 10-fold cross-validation on Dec 2013 – Oct 2017 data) and a 58.3% +/-
     0.04 out-of-sample accuracy. As the out-of-sample data consists only of 12 data
     points, we view that as a test of whether the random forest classifier overfitted
@@ -261,115 +373,177 @@
     no overfitting was likely, and the new RIWI data did not differ significantly
     from that which we trained on. We have also applied random forest to all the features
     including the RIWI score, and found lower CV (53%) and out-of-sample (58%)
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: （使用2013年12月-2017年10月的数据进行10折交叉验证）并且外部样本准确度为58.3%±0.04。由于外部样本数据仅包含12个数据点，我们认为这是测试随机森林分类器是否在训练数据上过拟合，以及略有不同的RIWI数据是否影响了预测，但不是各种模型的公平比较。由于在外部样本数据上的预测准确度没有显著下降，我们得出结论，不太可能出现过拟合，并且新的RIWI数据与我们训练的数据没有显著差异。我们还应用随机森林处理所有特征，包括RIWI得分，并发现交叉验证（53%）和外部样本（58%）
 - en: accuracies than using the RIWI score alone.
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 比仅使用RIWI得分具有更高的准确度。
 - en: Our regression models were used to predict the actual NFP surprise (sign + magnitude).
     The train vs. test data were the same as for the classification models, and features
     set were also the same.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的回归模型用于预测实际NFP惊喜（符号+大小）。训练和测试数据与分类模型相同，特征集合也相同。
 - en: 'To provide benchmark comparisons against the RIWI score, we studied the following
     models:'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了与RIWI得分提供基准比较，我们研究了以下模型：
 - en: ARMA (2,1) model* that uses past NFP surprises.
+  id: totrans-59
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: ARMA（2,1）模型*使用过去的NFP惊喜。
 - en: Trend-following model predicts next surprise=(previous surprise).
+  id: totrans-60
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 趋势跟踪模型预测下一个惊喜=（前一个惊喜）。
 - en: Contrarian model predicts next surprise=-(previous surprise).
+  id: totrans-61
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 逆向模型预测下一个惊喜= -（前一个惊喜）。
 - en: '*The lags and coefficients were optimized based on AIC minimization on the
     train set.'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: '*滞后和系数基于训练集上的AIC最小化进行优化。'
 - en: 'Here are the results, compared to applying Random Forest to the RIWI score
     alone:'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是结果，与仅将随机森林应用于RIWI得分相比：
 - en: '|  |  |  |  |'
+  id: totrans-64
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-65
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-66
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-67
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '| Linear regression (Ridge) | Prev 1mth surprise +prev 12mth surprise |  |  |'
+  id: totrans-68
   prefs: []
   type: TYPE_TB
+  zh: '| 线性回归（岭回归） | 前1个月和前12个月的惊喜 |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-69
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-70
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-71
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  |  |  |  |'
+  id: totrans-72
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|  | **RIWI score + prev 1mth surprise + prev 12mth surprise** |  |  |'
+  id: totrans-73
   prefs: []
   type: TYPE_TB
+  zh: '|  | **RIWI得分 + 前1个月惊喜 + 前12个月惊喜** |  |  |'
 - en: '**Table 2**: Regression benchmarks'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '**表2**：回归基准'
 - en: Based on the mean squared error (MSE) of predicted surprises on the cross validation
     data, the best machine learning model is one that
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于交叉验证数据上预测惊喜的平均平方误差（MSE），最好的机器学习模型是使用
 - en: '*includes*'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '*包括*'
 - en: the RIWI score as a feature. It applied the random forest classifier to the
     RIWI score
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: 将RIWI得分作为特征。它将随机森林分类器应用于RIWI得分
 - en: ', previous 1-month and 12-month surprises in order to predict actual NFP surprise'
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: ，以前1个月和12个月的惊喜为预测实际NFP惊喜
 - en: . It obtained an average cross-validated MSE of
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: 。它获得了平均交叉验证MSE为
 - en: 3249.35 +/- 70
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: 3249.35±70
 - en: and a
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及
 - en: 7269.2+/- 134
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: 7269.2±134
 - en: out-of-sample accuracy. It marginally outperformed all benchmarks in cross-validation.
     As with all other benchmarks, including the Contrarian model which requires no
     training, out-of-sample MSE increased significantly over the CV MSE. But again,
     as the out-of-sample data consists only of 12 data points, we don’t view it as
     a fair comparison of the various models.
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: 样本外准确度。它在交叉验证中略微超过了所有基准。与其他所有基准一样，包括不需要训练的反向模型在内的所有基准，样本外MSE显著高于交叉验证MSE。但再次强调，由于样本外数据仅包含12个数据点，我们认为这不是各种模型公平比较。
 - en: We also applied random forest to all the features including the RIWI score,
     and found somewhat higher CV MSE (and hence a worse model) than using the RIWI
     score alone, but the difference is within error bounds.**Conclusion and Future
     Work**
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还对包括RIWI得分在内的所有特征应用了随机森林，发现比单独使用RIWI得分时的交叉验证MSE更高（因此模型更差），但差异在误差范围内。**结论和未来工作**
 - en: Using the technique of cross validation on RIWI data from
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用来自
 - en: December 2013 - October 2017, we found that the RIWI score (after weighting,
     seasonal adjustment, and differentiation), has outperformed all other benchmarks
     in predictive accuracy for the sign of the NFP surprises. We also found that the
@@ -380,62 +554,98 @@
     beyond predicting NFP surprises, RIWI’s data have the potential to be a more accurate
     gauge of the actual U.S. employment situation, and therefore economic growth,
     than the NFP number. T
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: 2013年12月 - 2017年10月，我们发现经过加权、季节调整和区分的RIWI得分在预测NFP惊喜的符号方面超过了所有其他基准。我们还发现，如果将其他指标与同样转换的RIWI得分相结合，其表现与所有其他基准一样好或更好。尽管这种绝对优势需要通过更广泛的样本外测试来确认，但我们相信使用RIWI得分预测至关重要的非农就业人数具有巨大潜力。但除了预测NFP惊喜之外，RIWI的数据还有可能比NFP数字更准确地衡量实际的美国就业状况，从而衡量经济增长。
 - en: he “gig economy” is employing more workers whose data do not easily find their
     way into the official BLS count. (Here is an
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: “零工经济”正在雇佣更多数据不容易进入官方BLS统计的工人。（这里有一个
 - en: '[article](https://www.aspeninstitute.org/blog-posts/bls-data-on-platform-work-reflects-challenges-of-measurement/)'
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: 文章](https://www.aspeninstitute.org/blog-posts/bls-data-on-platform-work-reflects-challenges-of-measurement/)
 - en: on why BLS’ effort to count these workers has been a failure. This Bank of Canada
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于为什么BLS努力统计这些工人的工作失败的原因。加拿大银行
 - en: '[report](http://conference.iza.org/conference_files/Statistic_2019/kostyshyna_o28235.pdf)'
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: '[报告](http://conference.iza.org/conference_files/Statistic_2019/kostyshyna_o28235.pdf)'
 - en: also concluded that official numbers were undercounting gig workers.) Undocumented
     workers are not counted in the NFP but they do contribute to the economy. Even
     illegal activities could have contributed more than 1% to the U.S. GDP, according
     to this
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: 还发现官方数字低估了零工工人。）无证工人没有被计算在NFP中，但他们确实为经济做出了贡献。据这份
 - en: '[Wall Street Journal report](https://www.wsj.com/articles/gdp-doesnt-include-proceeds-of-crime-should-it-11575628201)'
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: '[华尔街日报报告](https://www.wsj.com/articles/gdp-doesnt-include-proceeds-of-crime-should-it-11575628201)'
 - en: . In contrast, RIWI’s survey methodology was cited in this
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: 。相比之下，RIWI的调查方法在这
 - en: '[paper](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002879)'
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: 论文](https://journals.plos.org/plosmedicine/article?id=10.1371/journal.pmed.1002879)
 - en: by Harvard researchers among others as the
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: 由哈佛研究人员等人认为是
 - en: '*preferred*'
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: 首选
 - en: method of collecting data on hard-to-reach populations. One can imagine an ambitious
     researcher using RIWI data to directly predict GDP growth and achieving better
     results than using the traditional economic indicators such as NFP.
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: 难以接触人群的数据收集方法。可以想象一个雄心勃勃的研究者使用RIWI数据直接预测GDP增长，并取得比使用传统的经济指标如NFP更好的结果。
 - en: We thank Jason Cho, Head of Data Operations at
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们感谢Jason Cho，数据运营部门负责人
 - en: '[RIWI](http://www.riwi.com/)'
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: '[RIWI](http://www.riwi.com/)'
 - en: ', for providing us the Company’s proprietary data for our evaluation purposes.'
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: 为我们提供公司的专有数据以供我们评估。
 - en: '*Note a PDF version of this article can be downloaded from'
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文的PDF版本可以从此
 - en: '[www.epchan.com](http://www.epchan.com/)'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '[www.epchan.com](http://www.epchan.com/)'
 - en: .
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: 。

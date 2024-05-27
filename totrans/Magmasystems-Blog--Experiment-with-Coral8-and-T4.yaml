@@ -1,123 +1,199 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 04:53:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:53:46'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Experiment with Coral8 and T4'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: Coral8和T4的实验'
 - en: 来源：[http://magmasystems.blogspot.com/2009/05/experiment-with-coral8-and-t4.html#0001-01-01](http://magmasystems.blogspot.com/2009/05/experiment-with-coral8-and-t4.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2009/05/experiment-with-coral8-and-t4.html#0001-01-01](http://magmasystems.blogspot.com/2009/05/experiment-with-coral8-and-t4.html#0001-01-01)
 - en: Scott was a big believer in a tool called
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 斯科特非常信仰一个叫做
 - en: CodeSmith
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: CodeSmith
 - en: to automatically generate code. In our group, he used it to take a Coral8 schema
     and generate
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 自动产生代码工具。在我们的团队中，他用它来修改Coral8 schema并产生
 - en: serializers
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 反序列化器
 - en: ','
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: deserializers
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 反序列化器
 - en: ', and something that we call "'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ，还有我们称之为"
 - en: ServiceAgents
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 服务代理
 - en: '". The problem was that Scott had the only'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '". 问题在于斯科特是唯一的'
 - en: CodeSmith
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: CodeSmith
 - en: license, so only Scott's machine was able to do the code generation. A few months
     ago, I had stumbled upon the T4 tool in a blog post, and I had asked Scott to
     switch over from
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 许可证，所以只有斯科特的机器能生成代码。几个月前，我在一篇博客文章中偶然发现了T4工具，并且向斯科特要求转换
 - en: CodeSmith
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: CodeSmith
 - en: to T4\. Now, the code generation is done by a free tool that Microsoft includes
     in Visual Studio, so now everyone can experiment with automatic code generation.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: to T4\.上生成空检查代码。现在，代码生成由Microsoft在Visual Studio中免费包含的工具完成，现在每个人都可以尝试自动代码生成。
 - en: A few weeks ago, I found an article in Visual Studio magazine about T4, and
     then I saw that Chris
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 几周前，我在Visual Studio杂志上看到了T4的一篇文章，然后我发现克里斯
 - en: Donnan
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: Donnan
 - en: was experimenting with T4.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 正在尝试T4。
 - en: So, I decided to spend an hour last weekend and code up my own T4 Coral8 class
     generator. I did not bother to read the T4 manual, but I was impressed with what
     I could rig up in a very short time. This generates a class for every Coral8
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我决定在上周末花一个小时编写我的T4 Coral8类生成器。我没打算阅读T4手册，但我印象深刻的是我在非常短的时间内可以搞出的东西。这为每一个Coral8
 - en: CCS
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: CCS
 - en: file in a certain directory.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在特定目录中的文件。
 - en: This isn't world-class code .... I generated
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这不是世界级的代码.... 我生成
 - en: nullable
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 可空
 - en: types and I did not bother to generate null-checking code on the
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 类型，我没打算在
 - en: nullable
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 可空
 - en: fields. But, feel free to modify it.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 领域。但是，随意修改它。
 - en: I will certainly use T4 to generate classes and
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我肯定会使用T4来生成类和
 - en: serializers
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 反序列化器
 - en: /
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: /
 - en: derserializers
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: derserializers
 - en: for Orinoco.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 为Orinoco。
 - en: '[PRE0]'
+  id: totrans-35
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: ©2009 Marc Adler - All Rights Reserved.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2009 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有意见均为个人观点，与我雇主无关。

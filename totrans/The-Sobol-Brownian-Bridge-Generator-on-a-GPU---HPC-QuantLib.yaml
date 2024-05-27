@@ -1,38 +1,56 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:41:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:41:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The Sobol Brownian Bridge Generator on a GPU – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: GPU上的Sobol Brownian桥生成器 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/09/23/the-sobol-brownian-bridge-on-a-gpu/#0001-01-01](https://hpcquantlib.wordpress.com/2012/09/23/the-sobol-brownian-bridge-on-a-gpu/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/09/23/the-sobol-brownian-bridge-on-a-gpu/#0001-01-01](https://hpcquantlib.wordpress.com/2012/09/23/the-sobol-brownian-bridge-on-a-gpu/#0001-01-01)
 - en: The biggest mistake that can be made with quasi random numbers is to just use
     them in the same way as one uses pseudo random numbers. The real advantage of
     quasi Monte-Carlo shows up only after
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用准随机数最大的错误是只是像使用伪随机数一样使用它们。只有在
 - en: '![N\sim e^d](img/4e1909acc69e727d36b8989d4f220db9.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_IMG
+  zh: '![N∼e^d](img/4e1909acc69e727d36b8989d4f220db9.png)'
 - en: samples, where ![d](img/273cdf8ceac56930a332c6f5d6265f3a.png) is the number
     of dimensions of the problem. If one is using significantly less samples then
     it becomes very likely that the results are totally wrong. Therefore a dimensional
     reduction of the problem is often the first step when applying quasi Monte-Carlo
     methods.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 样本数量，其中![d](img/273cdf8ceac56930a332c6f5d6265f3a.png)是问题的维度。如果使用的样本数量显著较少，那么结果很可能是完全错误的。因此，在应用准Monte-Carlo方法时，问题维度的减少通常是第一步。
 - en: The Brownian bridge is tailor-made to reduce the number of significant dimensions
     of a Monte-Carlo integration of a stochastic differential equation  In his recent
     text-book [1] Mark Joshi shows how to use Brownian bridges efficiently for quasi
@@ -41,8 +59,11 @@
     has been reduced by a factor of three when switching from a pseudo random number
     generator to a Sobol Brownian bridge generator, which in turn means a speed-up
     factor of nine leaving the Monte Carlo error unchanged.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Brownian桥是为了减少随机微分方程的Monte-Carlo积分的重要维度而定制的。在最近的教材[1]中，Mark Joshi展示了如何高效地使用Brownian桥进行准Monte-Carlo定价，并且他还概述了QuantLib的实现。在[3]中已经表明，当从伪随机数生成器切换到Sobol
+    Brownian桥生成器时，结构化股票组合的整体统计误差减少了三倍，这意味着速度提高了九倍，而Monte Carlo误差保持不变。
 - en: An efficient implementation of a Sobol Brownian bridge generator is therefore
     a standard building block for quasi Monte-Carlo option pricing. A [CUDA 4.2](http://www.nvidia.com/object/cuda_home_new.html)
     implementation for nVIDIA GPUs based on [QuantLib 1.2](http://quantlib.org) is
@@ -51,21 +72,36 @@
     CPUs. The memory layout of the results on the GPU is CURAND_ORDERING_QUASI_DEFAULT.
     The zip file also contains a validation program, which checks that both versions
     of the Sobol Brownian bridge are generating the same results.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，一个有效的Sobol Brownian桥生成器是准Monte-Carlo期权定价的标准构建块。一个基于nVIDIA GPU的[CUDA 4.2](http://www.nvidia.com/object/cuda_home_new.html)实现，基于[QuantLib
+    1.2](http://quantlib.org)，可在此处获得[这里](http://hpc-quantlib.de/src/gpubrownianbridge.zip)。接口和使用方式与QuantLib的Sobol
+    Brownian桥生成器非常相似。GPU上结果的内存布局是CURAND_ORDERING_QUASI_DEFAULT。压缩文件还包含一个验证程序，该程序检查Sobol
+    Brownian桥的两个版本是否生成了相同的结果。
 - en: '[![](img/8045cb92ae77163cc4fc26e6f1369a81.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/09/plot.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8045cb92ae77163cc4fc26e6f1369a81.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/09/plot.png)'
 - en: As the diagram above shows, the GPU (GTX 560) out-performance the CPU (i3@3.0GHz)
     on average by a factor of 50 for single precision and by a factor of 12 for double
     precision.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 如图所示，GPU（GTX 560）在单精度下的平均性能比CPU（i3@3.0GHz）高出50倍，在双精度下高出12倍。
 - en: '[1] Mark Joshi, [More Mathematical Finance](http://www.markjoshi.com/more/)
     [2] Sebasien Gurrieri, [An Analysis of Sobol Sequence and the Brownian Bridge](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1951886)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Mark Joshi, [More Mathematical Finance](http://www.markjoshi.com/more/)
+    [2] Sebasien Gurrieri, [An Analysis of Sobol Sequence and the Brownian Bridge](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1951886)'
 - en: '[3] Andre Bernemann, Raplh Schreyer, Klaus Spanderen, [Accelerating Exotic
     Option Pricing and Model Calibration Using GPUs](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1753596)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] Andre Bernemann, Raplh Schreyer, Klaus Spanderen, [Accelerating Exotic
+    Option Pricing and Model Calibration Using GPUs](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1753596)'

@@ -1,118 +1,191 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:16:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:16:54'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Bank of America Merrill Lynch Bond Returns on St. Louis Fed'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Bank of America Merrill Lynch Bond Returns on St. Louis Fed'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html#0001-01-01)
 - en: After all my complaining about proprietary data, the St. Louis Federal Reserve
     announced today the [availability of Bank of America Merrill Lynch Bond Indicies
     on their FRED site](http://research.stlouisfed.org/fred2/release?rid=209&filter%5B0%5D=units&filter%5B1%5D=Index). 
     The data is limited in scope and duration, but accessibility especially through
     R is wonderful.  Thanks to people I normally don’t thank--Bank of America and
     the Federal Reserve.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管我抱怨过专有数据，但圣路易斯联邦储备银行今天宣布了[在其FRED网站上提供美国银行梅隆债券指数](http://research.stlouisfed.org/fred2/release?rid=209&filter%5B0%5D=units&filter%5B1%5D=Index)。这些数据在范围和持续时间上有限，但通过R语言的获取尤其令人赞叹。感谢一些人——美国银行和联邦储备银行。
 - en: I will show a short example with the Bank of America Corp Master and High Yield
     Master II Indexes.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将用美国银行公司主债券指数和高级债券指数做一个简短的示例。
 - en: I am really excited about figuring out this ggplot2 of PerformanceAnalytics
     tables, so here are two other examples for those who might not have seen this
     technique in my earlier posts.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我真的很兴奋地想弄清楚这个PerformanceAnalytics表格的ggplot2，所以这里为那些可能在之前的帖子中没有看到这个技巧的人提供另外两个例子。
 - en: Every time I look at bond indicies, I marvel at their unbelievable 30 year run. 
     2 down years and 12 up years on the BAC ML Corporate Master truly amazes me. 
     For more on the 30 year secular bull run in bonds, please see my earlier posts.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 每次我看到债券指数，我都会对它们惊人的30年走势感到惊讶。BAC ML Corporate Master的2个下跌年和12个上涨年真正令我惊叹。关于债券这30年的牛市走势，请参见我之前的帖子。
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: '#thank you Bank of America Merrill Lynch and St. Louis Fed for this data'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#感谢美国银行梅隆和圣路易斯联邦提供这些数据'
 - en: require(quantmod)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(ggplot2)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: '#get Bank of America Merrill Lynch bond index data from St. Louis Fed'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从圣路易斯联邦获取美国银行梅隆债券指数数据'
 - en: '#use auto.assign = FALSE so we can use shorter names'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用auto.assign = FALSE，这样我们可以使用更短的名字'
 - en: MLCorpMaster<-getSymbols("BAMLCC0A0CMTRIV",src="FRED",auto.assign=FALSE)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: MLCorpMaster<-getSymbols("BAMLCC0A0CMTRIV", src="FRED", auto.assign=FALSE)
 - en: MLHYMaster<-getSymbols("BAMLHYH0A0HYM2TRIV", src="FRED", auto.assign=FALSE)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: MLHYMaster<-getSymbols("BAMLHYH0A0HYM2TRIV", src="FRED", auto.assign=FALSE)
 - en: MLBondIndexes<-na.omit(merge(ROC(MLCorpMaster,1,type="discrete"),ROC(MLHYMaster,1,type="discrete")))
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: MLBondIndexes<-na.omit(merge(ROC(MLCorpMaster, 1, type="discrete"), ROC(MLHYMaster,
+    1, type="discrete")))
 - en: colnames(MLBondIndexes)<-c("BAC ML Corporate Master","BAC ML High Yield Master
     II")
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(MLBondIndexes)<-c("BAC ML Corporate Master", "BAC ML High Yield Master
+    II")
 - en: charts.PerformanceSummary(MLBondIndexes,ylog=TRUE,
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(MLBondIndexes, ylog=TRUE,
 - en: colorset=c("cadetblue","darkolivegreen3"),
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: colorset=c("cadetblue", "darkolivegreen3"),
 - en: main="Bank of America Merrill Lynch Bond Indicies from St. Louis Fed")
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: main="来自圣路易斯联邦的Bank of America Merrill Lynch债券指数"
 - en: '#do some downside analysis on monthly returns'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#对月回报进行一些下行分析'
 - en: MLBondIndexes<-merge(monthlyReturn(MLCorpMaster),monthlyReturn(MLHYMaster))
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: MLBondIndexes<-merge(monthlyReturn(MLCorpMaster),monthlyReturn(MLHYMaster))
 - en: colnames(MLBondIndexes)<-c("BAC ML Corporate Master","BAC ML High Yield Master
     II")
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(MLBondIndexes)<-c("BAC ML Corporate Master", "BAC ML High Yield Master
+    II")
 - en: downsideTable<-melt(cbind(rownames(table.DownsideRisk(MLBondIndexes)),table.DownsideRisk(MLBondIndexes)))
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: downsideTable<-melt(cbind(rownames(table.DownsideRisk(MLBondIndexes)), table.DownsideRisk(MLBondIndexes)))
 - en: colnames(downsideTable)<-c("Statistic","BondIndex","Value")
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(downsideTable)<-c("Statistic", "BondIndex", "Value")
 - en: ggplot(downsideTable, stat="identity", aes(x=Statistic,y=Value,fill=BondIndex))
     + geom_bar(position="dodge") + coord_flip()
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(downsideTable, stat="identity", aes(x=Statistic, y=Value, fill=BondIndex))
+    + geom_bar(position="dodge") + coord_flip()
 - en: yearReturns<-na.omit(table.CalendarReturns(MLBondIndexes)[,(13:NCOL(table.CalendarReturns(MLBondIndexes)))])
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: yearReturns<-na.omit(table.CalendarReturns(MLBondIndexes)[, (13:NCOL(table.CalendarReturns(MLBondIndexes)))])
 - en: yearReturns<-melt(cbind(rownames(yearReturns),yearReturns))
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: yearReturns<-melt(cbind(rownames(yearReturns), yearReturns))
 - en: colnames(yearReturns)<-c("Year","BondIndex","Return")
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(yearReturns)<-c("Year", "BondIndex", "Return")
 - en: ggplot(yearReturns, stat="identity", aes(x=Year,y=Return,fill=BondIndex)) +
     geom_bar(position="dodge")
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(yearReturns, stat="identity", aes(x=Year, y=Return, fill=BondIndex))
+    + geom_bar(position="dodge")

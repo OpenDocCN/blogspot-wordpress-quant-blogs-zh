@@ -1,57 +1,83 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:40:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:40:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Price Path Probability | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 价格路径概率 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2007/12/09/price-path-probability/#0001-01-01](https://tr8dr.wordpress.com/2007/12/09/price-path-probability/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2007/12/09/price-path-probability/#0001-01-01](https://tr8dr.wordpress.com/2007/12/09/price-path-probability/#0001-01-01)
 - en: December 9, 2007 · 2:35 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2007年12月9日 · 2:35 pm
 - en: What is the probable path of a security over the next 1 second, 5 seconds, 30
     seconds?
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个证券在接下来1秒、5秒、30秒内的可能路径是什么？
 - en: I attended a quantitative algorithmic trading seminar 3 weeks ago where one
     presenter was discussing fill probability (in general terms). The presenter claimed
     that their model predicts the price path over the next few minutes to determine
     how best to read a VWAP strategy.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 三周前我参加了一个定量算法交易研讨会，其中一个演讲者正在讨论成交概率（一般术语）。演讲者声称他们的模型预测接下来几分钟的价格路径，以确定如何最好地解读VWAP策略。
 - en: While I don’t believe it is possible to predict a specific price path, it is
     possible to determine the probability of any given price path. If we can determine
     the probability of any given path through time from the current price to some
     final price in N seconds or minutes, we can compute the expected probability of
     going through a price level within some period of time.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然我不相信能够预测一个特定的价格路径，但是确定任何给定价格路径的概率是可能的。如果我们能够确定从当前价格到某个最终价格在N秒或分钟内的时间序列中任何给定路径的概率，那么我们可以计算在某个时间段内穿过某个价格水平的预期概率。
 - en: The expected probability through a node at time Tn at price level Pa on a multinomial
     tree will simply be the sum of the probability of all sub-paths from Ts to Tn
     going through Pa. That part may be simple, but accurately determining the likely
     paths / probabilities is a hard research problem.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在多元树上的时间Tn时价格水平Pa的节点通过Ts到Tn的所有子路径的概率之和，这就是通过节点的预期概率。这部分可能简单，但准确确定可能的路径/概率是一个困难的研究问题。
 - en: Given that the number of paths is exponential with time, the farther out we
     look the more time it takes to compute a precise expectation. We must use a monte
     carlo analysis, sampling a calibrated timeseries equation, to approximate the
     expectation function.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到路径的数量随时间呈指数增长，我们看得越远，计算精确期望所需要的时间就越长。我们必须使用蒙特卡洛分析，采样一个校准的时序方程，来近似期望函数。
 - en: Determining the timeseries function that accurately reflects the market is a
     very hard research problem. Alas, if I told you my approach would have to kill
     you 😉
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 确定一个能够准确反映市场的时序函数是一个非常困难的研究问题。唉，如果我告诉你我的方法，恐怕得让你灭口😉

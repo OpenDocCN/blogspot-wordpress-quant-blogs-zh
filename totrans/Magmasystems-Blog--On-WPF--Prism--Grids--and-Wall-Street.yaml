@@ -1,30 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:49:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:49:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: On WPF, Prism, Grids, and Wall Street'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems Blog：关于WPF、Prism、网格和华尔街
 - en: 来源：[http://magmasystems.blogspot.com/2011/08/on-wpf-prism-grids-and-wall-street.html#0001-01-01](http://magmasystems.blogspot.com/2011/08/on-wpf-prism-grids-and-wall-street.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2011/08/on-wpf-prism-grids-and-wall-street.html#0001-01-01](http://magmasystems.blogspot.com/2011/08/on-wpf-prism-grids-and-wall-street.html#0001-01-01)
 - en: I am taking this time off to try to learn some technology that I have been planning
     on learning, but have not had much time to dive into. Two of these technologies
     are WPF and Prism. For the past few years, I have been managing teams that have
     been using WPF and Prism, but when I have had to write GUIs myself, I have fallen
     back to the old comfort zone of Winforms.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我利用这次休假尝试学习一些我一直计划学习，但一直没有太多时间深入研究的技术。其中两项技术是WPF和Prism。在过去的几年里，我一直管理着使用WPF和Prism的团队，但当我自己需要编写GUI时，我总是退回到熟悉的Winforms舒适区。
 - en: When I was Chief Architect for Equities at Citi, I was asked to make a call
     on the future GUI technology of the Citigroup Investment Bank. After a lot of
     thought, I recommended the use of WPF. The recommendation was certainly not made
@@ -37,20 +51,26 @@
     them technically. So, in order to preserve the “forward moving outlook” that I
     was trying to promote in Equities, I chose WPF for the future direction. But I
     wasn’t convinced.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我担任花旗集团股票业务的首席架构师时，我被要求对花旗投资银行的下一代GUI技术做出判断。经过深思熟虑，我推荐使用WPF。这个建议绝不是因为性能原因，也不是因为WPF相比Winforms有任何额外的功能。选择WPF是为了让花旗能够留住它的开发者。作为一名技术员，我们希望参与到最新最伟大的技术中。我们不想在换工作时被认为是一群恐龙。我见过那些没有转向最新技术公司的开发者的影响。开发者自然会流向那些能技术上挑战他们的公司。因此，为了保留我在股票业务中试图推广的“向前看”的态度，我选择了WPF作为未来的发展方向。但我并不确信。
 - en: However, now I see that almost everyone in Capital Markets has moved to WPF.
     A lot of the time, you have a WPF shell that contains Winforms-based grids. WPF-based
     grids just can’t match the performance of Winforms grids. And, grids are everything.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，现在我注意到资本市场的大多数人已经转向了WPF。很多时候，你有一个包含基于Winforms的网格的WPF外壳。基于WPF的网格的性能根本无法与基于Winforms的网格相比。而且，网格就是一切。
 - en: I have never been totally comfortable with the thought of marrying WPF and trader
     workstations. Most trader workstations that I have seen are just a bunch of grids.
     Traders use the grids to monitor the market and put in the trades. Research and
     analytics are mostly done on Bloomberg. If you want to look at some charts, you
     will use your Bloomberg workstation.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我从未完全适应将WPF与交易工作站结合在一起的想法。我见过的大多数交易工作站其实就是一堆网格。交易员使用这些网格来监控市场并下注。研究和分析主要在彭博上完成。如果你想要查看一些图表，你将使用你的彭博工作站。
 - en: The main difficulty in writing quote blotters is how to handle a large number
     of quotes. If you have a trader who is dealing with ETFs, the trader needs to
     be able to monitor the ETFs as well as the components in the underlying basket.
@@ -58,8 +78,10 @@
     tab, and several thousand quotes being monitored simultaneously. It would be interesting
     to see if a totally WPF-based workstation could be written that would keep up
     with this kind of flow.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在编写报价单时，主要困难在于如何处理大量的报价。如果你有一个处理ETF的交易员，那么这个交易员需要能够监控ETF以及底层篮子中的组件。这意味着每个标签中可能潜在有数百个报价，同时还有数千个报价正在监控中。如果能够写出一个完全基于WPF的工作站来应对这种流程，那将会很有趣。
 - en: In order to learn WPF and Prism, I have started to write a POC from scratch.
     I wrote a level 1 quote simulator that can push quotes out at varying speeds,
     and I have the quote collection data-bound to a standard Microsoft WPF DataGrid
@@ -70,24 +92,34 @@
     the use of small objects and garbage collection. All of these improvements are
     standard when writing GUIs to process real-time data. But I want to dive deep
     into WPF before going horizontally and writing these optimization.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了学习WPF和Prism，我已从零开始编写一个POC。我编写了一个一级报价模拟器，它可以以不同的速度推送报价，并且报价收藏数据与微软WPF DataGrid控件绑定。在小范围内，速度似乎可以接受。我还没有探索加速网格和处理大量报价的方法。我需要开始使用未绑定列，实现一个最后值缓存的环形缓冲区，使用更智能的更新，使用虚拟网格，并开始研究使用小型对象和垃圾回收。所有这些改进在编写处理实时数据的GUI时都是标准的。但在横向编写这些优化之前，我想深入研究WPF。
 - en: Next up is to write a Level 2 quote simulator and to write a depth-of-book control.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来要编写一个二级报价模拟器，并编写一个订单簿控制。
 - en: Should Wall Street give up on WPF? No, not at all. I have seen some beautiful
     applications written totally in WPF. The old Lighthouse CEP system at Citi is
     one example of a beautiful and compelling GUI that is totally WPF-based. And,
     there were enough challenges overcome in writing the GUI where I feel that the
     GUI developers on this Lighthouse team are some of the very best WPF developers
     on Wall Street.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 华尔街应该放弃WPF吗？不，一点也不。我见过一些完全用WPF编写的漂亮应用。花旗银行的老灯塔CEP系统就是一个完全基于WPF的漂亮且引人注目的GUI的例子。而且，在编写GUI时克服了足够的挑战，我觉得这个灯塔团队的GUI开发者是华尔街最好的WPF开发者之一。
 - en: I would love to find out what everyone’s experiences with WPF have been in your
     work in Capital Markets. Please take the time to send some comments here.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我非常想知道在资本市场工作中，大家与WPF相处的经历如何。请花点时间在这里留下一些评论。
 - en: ©2011 Marc Adler - All Rights Reserved. All opinions here are personal, and
     have no relation to my employer.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2011 Marc Adler - 版权所有。此处所有观点均为个人观点，与我的雇主无关。

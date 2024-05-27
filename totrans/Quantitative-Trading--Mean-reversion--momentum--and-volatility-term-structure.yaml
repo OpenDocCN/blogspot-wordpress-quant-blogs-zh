@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:56:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Mean reversion, momentum, and volatility term structure'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：均值回归、动量和波动性术语结构
 - en: 来源：[http://epchan.blogspot.com/2016/04/mean-reversion-momentum-and-volatility.html#0001-01-01](http://epchan.blogspot.com/2016/04/mean-reversion-momentum-and-volatility.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2016/04/mean-reversion-momentum-and-volatility.html#0001-01-01](http://epchan.blogspot.com/2016/04/mean-reversion-momentum-and-volatility.html#0001-01-01)
 - en: 'Everybody know that volatility depends on the measurement frequency: the standard
     deviation of 5-minute returns is different from that of daily returns. To be precise,
     if z is the log price, then volatility, sampled at intervals of τ, is  volatility(τ)=√(Var(z(t)-z(t-τ)))
@@ -46,13 +58,18 @@
     log(Var(τ)) against log(τ). The fit, shown below,  is excellent. (Click figure
     to enlarge). The slope, divided by 2, is the Hurst exponent, which turns out to
     be 0.494±0.003, which is very slightly mean-reverting.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 众所周知，波动性取决于测量频率：5分钟回报的标准差与日回报的标准差不同。精确地说，如果z是日志价格，那么间隔τ采样的波动性为 volatility(τ)=√(Var(z(t)-z(t-τ)))，其中Var表示在许多样本时间上取方差。如果价格真的遵循几何随机游走，那么Var(τ)≡Var((z(t)-z(t-τ))
+    ∝ τ，波动性仅仅是采样间隔的平方根。这就是为什么如果我们测量日回报，需要将日波动性乘以√252以获得年化波动性的原因。交易员也知道价格并不真的遵循几何随机游走。如果价格是均值回归的，我们会发现它们并没有像随机游走那样迅速离开其初始值。如果价格是趋势性的，它们*更快*地偏离。总的来说，我们可以写成H被称为“Hurst指数”，对于真正的几何随机游走等于0.5，但对于均值回归的价格小于0.5，对于趋势性价格大于0.5。如果我们对一个均值回归的价格序列的年化波动性进行年化，即使两者在5分钟柱上测量的波动性完全相同，它最终的年化波动性也会低于几何随机游走。对于趋势性价格序列则正好相反。例如，如果我们对AUDCAD这个明显均值回归的时间序列进行测试，我们会得到H=0.43。所有上述内容许多交易员都知道，实际上在我的[书](http://www.amazon.com/Algorithmic-Trading-Winning-Strategies-Rationale-ebook/dp/B00CY5HC0U/ref=as_sl_pc_qf_sp_asin_til?tag=quantitativet-20&linkCode=w00&linkId=OKVO7DYTPENVN5Y7&creativeASIN=B00CY5HC0U)中有讨论。但更有趣的是，Hurst指数本身在某些时间尺度上可以发生变化，这种变化有时意味着从均值回归到动量市场的转变，反之亦然。为了看到这一点，让我们将波动性（或更方便的是，方差）作为τ的函数绘图。这通常被称为（实际）波动性的期限结构。从熟悉的SPY开始，我们可以使用从1分钟到2^10分钟（~17小时）的中点价格计算日内回报，并将log(Var(τ))对log(τ)绘图。下面显示的拟合非常好。（点击图表以放大）。斜率除以2就是Hurst指数，结果为0.494±0.003，这非常轻微地倾向于均值回归。
 - en: But if we do the same for daily returns of SPY, for intervals of 1 day up to 2^8
     (=256) days, we find that H is now 0.469±0.007, which is *significantly* mean
     reverting.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 但如果我们为SPY的日回报执行相同的操作，对于1天到2^8（=256）天的间隔，我们发现H现在是0.469±0.007，这*显著*地倾向于均值回归。
 - en: 'Conclusion: mean reversion strategies on SPY should work better interday than
     intraday. We can do the same analysis for USO (the WTI crude oil futures ETF).
     The intraday H is 0.515±0.001, indicating significant trending behavior. The daily
@@ -65,9 +82,11 @@
     that at around 16-32 days, the volatilities depart from straight line extrapolated
     from intraday frequencies. That''s where we should switch from momentum to mean
     reversion strategies.'
+  id: totrans-8
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 我们可以看到，在大约16-32天的时间范围内，波动率与从日内频率外推的直线分离。那里我们应该从动量策略转向均值回归策略。
 - en: 'One side note of interest: when we compute the variance of returns over periods
     that straddle two trading days and plot them as function of log(τ), should τ include
     the hours when the market was closed? It turns out that the answer is yes, but
@@ -76,13 +95,20 @@
     count 1 trading day as equivalent to 10 trading hours. Not 6.5 (for the US equities/ETF
     markets), and not 24\. The precise number of equivalent trading hours, of course,
     varies across different instruments.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个有趣的侧注：当我们计算跨越两个交易日的回报期间的方差并将它们作为对数(τ)的函数绘图时，τ应该包括市场关闭时的小时数吗？结果证明答案是是的，但并不完全。为了产生上面提到的图表，其中日方差最初与日内方差落在同一直线上，我们必须将1个交易日视为相当于10个交易小时。不是6.5（对于美国股票/ETF市场），也不是24。当然，不同工具的等效交易小时数是不同的。
 - en: ===
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 结论：SPY上的均值回归策略在日内交易应该比日内交易更有效。我们可以对USO（WTI原油期货ETF）做同样的分析。日内H值为0.515±0.001，表明有明显的趋势行为。日H值为0.56±0.02，甚至更有明显的趋势。所以，在任何合理的
+    时间尺度上，动量策略都应对原油期货有效。现在让我们转向GLD，黄金ETF。日内H=0.505±0.002，略有趋势。但日H=0.469±0.007：明显均值回归！动量策略在黄金日内可能有效，但均值回归策略在多日肯定更有效。转变发生在哪里？我们可以仔细检查期限结构：
 - en: There are a lot more to mean reversion strategies than just pairs trading. Find
     out how to thrive in the current low volatility environment favorable to this
     type of strategies.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值回归策略不仅仅是配对交易。找出如何在当前有利于这类策略的低波动率环境中蓬勃发展。

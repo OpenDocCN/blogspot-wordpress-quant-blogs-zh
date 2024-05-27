@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:56:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Predicting volatility'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：预测波动性
 - en: 来源：[http://epchan.blogspot.com/2015/11/predicting-volatility.html#0001-01-01](http://epchan.blogspot.com/2015/11/predicting-volatility.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/11/predicting-volatility.html#0001-01-01](http://epchan.blogspot.com/2015/11/predicting-volatility.html#0001-01-01)
 - en: 'Predicting volatility is a very old topic. Every finance student has been taught
     to use the GARCH model for that. But like most things we learned in school, we
     don''t necessarily expect them to be useful in practice, or to work well out-of-sample.
@@ -29,8 +41,10 @@
     with reality on the test set from December 6, 2011 to November 25, 2015\. (One-day
     change in realized volatility is defined as the change in the absolute value of
     the 1-day return.) A pleasant surprise: the agreement is 58% of the days.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 预测波动性是一个非常古老的话题。每个金融学生都被教导使用GARCH模型来进行预测。但是，像我们在学校学到的大多数事情一样，我们并不一定期望它们在实际中是有用的，或者在样本外表现良好。（你上次在工作中需要使用微积分是什么时候？）但是出于好奇，我快速调查了它在预测SPY日收盘回报波动性方面的能力。我在2005年12月21日至2011年12月5日之间的训练数据上使用Matlab的Econometric工具箱估计了一个GARCH模型的参数，并测试了在2011年12月6日至2015年11月25日之间的测试集上，预测的1日波动性变化符号与现实情况相符的频率。（1日波动性变化定义为1日回报绝对值的变化。）一个愉快的惊喜：这种一致性在58%的日子里出现。
 - en: If this were the accuracy for predicting the sign of the SPY return itself,
     we should prepare to retire in luxury. Volatility is easier to predict than signed
     returns, as every finance student has also been taught. But what good is a good
@@ -38,8 +52,10 @@
     implied volatilities instead of directional returns? The answer is yes, realized
     volatility prediction is useful for implied volatility prediction, but not in
     the way you would expect.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果这是预测SPY回报本身符号的准确性，我们应该准备好退休时过上奢侈的生活。波动性比有符号回报更容易预测，正如每个金融学生也被教导的那样。但是好的波动性预测有什么好处呢？这对于可以交易隐含波动性而不是方向性回报的期权交易员来说有用吗？答案是肯定的，实现波动性预测对隐含波动性预测有用，但方式可能让你感到意外。
 - en: 'If GARCH tells us that the realized volatility will increase tomorrow, most
     of us would instinctively go out and buy ourselves some options (i.e. implied
     volatility). In the case of SPY, we would probably go buy some VXX. But that would
@@ -50,86 +66,128 @@
     in implied volatility in this case. But what is really strange is that this anti-correlation
     between change in realized volatility and change in implied volatility also holds
     when the return is negative (57% of the days with negative returns). A'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果GARCH模型告诉我们明天的实现波动性将增加，我们大多数人会本能地出去买一些期权（即隐含波动性）。在SPY的情况下，我们可能会去买一些VXX。但那将是一个巨大的错误。记住，我们预测的波动性是一个无符号回报：预测波动性增加可能意味着明天是一个非常看涨的日子。SPY的高正回报通常伴随着VXX的急剧下降。换句话说，实现波动性的增加通常伴随着隐含波动性的下降。但真正奇怪的是，实现波动性和隐含波动性变化之间的这种负相关性在回报为负时也成立（负回报的日子中有57%）。
 - en: '*very*'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**非常**'
 - en: negative return in SPY is indeed usually accompanied by an increase in implied
     volatility or VXX, inducing positive correlation. But on average, an increase
     in realized volatility due to negative returns is still accompanied by a decrease
     in implied volatility.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 的确，SPY的负回报通常伴随着隐含波动性或VXX的增加，产生正相关。但平均而言，由于负回报导致的实现波动性增加仍然伴随着隐含波动性的下降。
 - en: The upshot of all these is that if you predict the volatility of SPY will increase
     tomorrow, you should short VXX instead.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有这些结果的结论是，如果你预测SPY的波动性明天会增加，你应该做空VXX。
 - en: ====
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: '**Industry Update**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**行业动态**'
 - en: '**[Quantiacs.com](http://quantiacs.com/)'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**[Quantiacs.com](http://quantiacs.com/)'
 - en: just launched a trading system competition with guaranteed investments of $2.25M
     for the best three trading systems. (
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 刚刚启动了一项交易系统竞赛，为最佳的三种交易系统提供225万美元的保障投资。（
 - en: Quantiacs helps Quants get investments for their trading algorithms and helps
     investors find the right trading system.)**
+  id: totrans-16
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: Quantiacs帮助量化交易员为他们的交易算法获得投资，同时也帮助投资者找到合适的交易系统。）**
 - en: Another new book called "[Algorithmic and High-Frequency Trading](http://amzn.to/1PQSOlv)"
     by 3 mathematical finance professors describes the sophisticated mathematical
     tools that are being applied to high frequency trading and optimal execution.
     Yes, calculus is required here.
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 另一本新书，名为 "[算法和高频交易](http://amzn.to/1PQSOlv)"，由三位数学金融教授撰写，描述了正在应用于高频交易的复杂数学工具以及最优执行。是的，这里需要微积分。
 - en: '**My Upcoming Workshop**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我即将举办的研讨会**'
 - en: January 27-28: Algorithmic Options Strategies
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 1月27日-28日：算法期权策略
 - en: This is a new online [course](http://epchan.com/workshops) that is different
     from most other options workshops offered elsewhere. It will cover how one can
     backtest intraday option strategies and portfolio option strategies.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个新的在线[课程](http://epchan.com/workshops)，与大多数其他选项研讨会不同。它将涵盖如何对日内期权策略和组合期权策略进行回测。
 - en: These courses are highly intensive training sessions held in London for a full
     week. I typically need to walk for an hour along the Thames to rejuvenate after
     each day's class.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些课程是在伦敦举行的一周密集训练。通常我需要沿着泰晤士河走一个小时才能在每个课程结束后恢复精力。
 - en: The AI course is new, and to my amazement, some of the improved techniques actually
     work.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: AI课程是新的，令我惊讶的是，其中一些改进的技术实际上是有用的。
 - en: '**My Upcoming Talk**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我即将发表的演讲**'
 - en: I will be speaking at [QuantCon](http://www.quantcon.com/)[ 2016](http://www.quantcon.com/)
     on April 9 in New York. The topic will be "The Peculiarities of Volatility". I
     pointed out one peculiarity above, but there are others.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将在[QuantCon](http://www.quantcon.com/) [2016](http://www.quantcon.com/) 4月9日在纽约发表演讲。题目是"波动性的奇特之处"。我上面指出了一个奇特之处，但还有其他的。
 - en: ====
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: 'QTS Partners, L.P. has a net return of +1.56% in October (YTD: +11.50%). Details
     available to Qualified Eligible Persons as defined in CFTC Rule 4.7.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: QTS Partners, L.P.十月份净收益为+1.56%（年初至今：+11.50%）。详细信息可供符合CFTC规则4.7定义的合格参与者获取。
 - en: ====
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我Twitter: @chanep'

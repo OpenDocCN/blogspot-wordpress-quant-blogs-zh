@@ -1,95 +1,140 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:47:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:47:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Resampling and Shrinkage : Solutions to Instability of mean-variance efficient
     portfolios | Systematic Investor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 重采样和收缩：解决均值-方差有效组合的不稳定性 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/11/resampling-and-shrinkage-solutions-to-instability-of-mean-variance-efficient-portfolios/#0001-01-01)
 - en: Small changes in the input assumptions often lead to very different efficient
     portfolios constructed with mean-variance optimization. I will discuss Resampling
     and Covariance Shrinkage Estimator – two common techniques to make portfolios
     in the mean-variance efficient frontier more diversified and immune to small changes
     in the input assumptions.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 输入假设的小幅变化通常会导致使用均值-方差优化构建的有效组合有很大不同。我将讨论重采样和协方差收缩估计器——两种常见的技术，使均值-方差有效前沿的组合更加多样化，并对输入假设的小幅变化具有免疫力。
 - en: 'Resampling was introduced by Michaud in [Efficient Asset Management, 2nd edition](http://www.oup.com/us/catalog/general/subject/Finance/Investments/?view=usa&ci=9780195331912).
     Please note that the Resampling procedure is patented portfolio optimization process.
     (Richard Michaud and Robert Michaud co-inventors, December 1999, [U.S. Patent
     # 6,003,018](http://www.patentstorm.us/patents/6003018.html), worldwide patents
     pending) The use of this technology that includes include even personal use, requires
     licensing or authorization.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '重采样是由Michaud在《有效的资产管理系统》（第二版）中引入的。[Efficient Asset Management, 2nd edition](http://www.oup.com/us/catalog/general/subject/Finance/Investments/?view=usa&ci=9780195331912)请注意，重采样程序是一个专利组合优化过程。（Richard
+    Michaud 和 Robert Michaud 共同发明人，1999年12月，[美国专利 # 6,003,018](http://www.patentstorm.us/patents/6003018.html)，全球专利申请中）使用包括个人使用在内的这项技术，需要许可或授权。'
 - en: 'To create Resampled Efficient Frontier:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建重采样有效前沿：
 - en: 'Step 0: Estimate mean (Mu*) and covariance (Cov*), for example from historical
     assets returns.'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 步骤 0：估计均值（Mu*）和协方差（Cov*），例如从历史资产回报中估计。
 - en: 'Step 1: Sample from multivariate normal distribution with mean=Mu* and covariance=Cov*.'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 步骤 1：从均值=Mu*和协方差=Cov*的多变量正态分布中抽样。
 - en: 'Step 2: Compute sample mean and covariance, and use them to create efficient
     frontier.'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 步骤 2：计算样本均值和协方差，并利用它们创建有效前沿。
 - en: 'Step 3: Save portfolio weights that are on efficient frontier.'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 步骤 3：保存位于有效前沿的组合权重。
 - en: Repeat Steps 1,2,3 Number of Samples to draw times.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 重复步骤 1、2、3 绘制次数的样本。
 - en: 'Step 4: Average over saved portfolio weights to obtain final portfolio weights
     that lie on the Resampled Efficient Frontier.'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 步骤 4：计算保存的组合权重的平均值，以获得位于重采样有效前沿的最终组合权重。
 - en: '*Update: please note that due to the above patent, I cannot post the source
     code for the resampling function and that makes examples below not reproducible.*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新：请注意，由于上述专利，我无法发布重采样功能的源代码，这使得下面的示例无法复现。
 - en: 'Let’s compare portfolios that lie on the mean-variance efficient frontier and
     Resampled efficient frontier:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们比较位于均值-方差有效前沿和重采样有效前沿的组合：
 - en: '[PRE0]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/c6d396d7be76c90fde0dde67c0cd3f7d.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small3.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small3.png)'
 - en: 'The Resampled Efficient Frontier is visually superior to the the mean-variance
     efficient frontier. It is better Diversified: allocation to all asset classes
     is present and transition between portfolios is continuous and smooth, no sharp
     changes. The Resampled Efficient Frontier is also, by construction, immune to
     small changes in the input assumptions.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 重采样有效前沿在视觉上优于均值-方差有效前沿。它更加多样化：所有资产类别的分配存在，组合之间的过渡连续平滑，没有剧烈变化。重采样有效前沿还具有构造上的免疫力，对输入假设的小幅变化免疫。
 - en: 'The idea of Covariance Shrinkage Estimator is nicely explained at [Honey, I
     Shrunk the Sample Covariance matrix by Olivier Ledoit and Michael Wolf (2003)](http://www.ledoit.net/honey.pdf).
     Here is the Abstract:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 协方差收缩估计器的想法在Olivier Ledoit和Michael Wolf（2003年）的《Honey, I Shrunk the Sample Covariance
+    matrix》中很好地解释了。[Honey, I Shrunk the Sample Covariance matrix by Olivier Ledoit
+    and Michael Wolf (2003)](http://www.ledoit.net/honey.pdf)以下是摘要：
 - en: '[The central message of this paper is that nobody should be using the sample
     covariance matrix for the purpose of portfolio optimization. It contains estimation
     error of the kind most likely to perturb a mean-variance optimizer. In its place,
@@ -101,90 +146,131 @@
     the portfolio optimization process, we show on actual stock market data that shrinkage
     reduces tracking error relative to a benchmark index, and substantially increases
     the realized information ratio of the active portfolio manager.](http://www.ledoit.net/honey_abstract.htm)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[本文的中心论点是，没有人应该用样本协方差矩阵来进行投资组合优化。它包含了最可能扰动均值-方差优化器的估计误差。为此，我们建议使用通过称为收缩的变换从样本协方差矩阵得到的矩阵。这通常会将最极端的系数拉向更集中的值，从而系统地减少在最重要的地方估计误差。从统计学的角度来看，挑战在于知道最优的收缩强度，我们给出了那个公式的。在不改变投资组合优化过程中的其他任何步骤的情况下，我们在实际股票市场数据上显示，收缩相对于基准指数减少了跟踪误差，并且大大增加了积极投资组合经理的实际信息比率。](http://www.ledoit.net/honey_abstract.htm)'
 - en: The Ledoit-Wolf Covariance Matrix Estimator is a convex linear combination aF
     + (1-a)S, where
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: Ledoit-Wolf 协方差矩阵估计器是一个凸线性组合 aF + (1-a)S，其中
 - en: S is a sample covariance matrix,
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: S 是一个样本协方差矩阵。
 - en: F is a highly structured estimator,
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: F 是一个高度结构化的估计器。
 - en: a is a shrinkage constant, a number between 0 and 1.
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: a 是一个收缩常数，介于 0 和 1 之间的一个数字。
 - en: This technique is called shrinkage, since the sample covariance matrix is `shrunk’
     to-wards the structured estimator. The Shrinkage Target, F, is modeled by constant
     correlation model. The model says that all the (pairwise) correlations are identical.
     The average of all the sample correlations is the estimator of the common constant
     correlation.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种技术被称为收缩，因为样本协方差矩阵被`收缩’到结构化估计器。收缩目标 F，由常数相关模型建模。该模型认为所有的（成对）相关性都是相同的。所有样本相关性的平均值是共同常数相关性的估计器。
 - en: 'The Ledoit-Wolf Covariance Shrinkage Estimator is implemented in tawny R package,
     cov.shrink function. Here is an example of efficient frontier using the Ledoit-Wolf
     Covariance Shrinkage Estimator:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: Ledoit-Wolf 协方差收缩估计器在 tawny R 包中实现，cov.shrink 函数。以下是使用 Ledoit-Wolf 协方差收缩估计器的有效前沿示例：
 - en: '[PRE1]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/98457d2cb96c6c203856baaaabaae866.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small3.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/98457d2cb96c6c203856baaaabaae866.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small3.png)'
 - en: 'The Efficient Frontier constructed with Ledoit-Wolf Covariance Shrinkage Estimator
     is better Diversified: allocation to all asset classes is present and is also,
     by construction, immune to small changes in the input assumptions.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用 Ledoit-Wolf 协方差收缩估计器构建的有效前沿更好：对所有资产类别的分配都存在，并且由于构建方式，对输入假设的小变化具有免疫力。
 - en: 'Shrinkage is not the only solution, there are many alternatives ways to estimate
     Covariance matrix. For example, Pat Burns at Portfolio Probe blog, discusses estimation
     of Covariance matrix with factor models: [A test of Ledoit-Wolf versus a factor
     model](http://www.portfolioprobe.com/2011/04/28/a-test-of-ledoit-wolf-versus-a-factor-model/).'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 收缩不是唯一的解决方案，还有许多其他方法可以估计协方差矩阵。例如，Portfolio Probe 博客的 Pat Burns 讨论了使用因子模型估计协方差矩阵：[Ledoit-Wolf
+    与因子模型的比较](http://www.portfolioprobe.com/2011/04/28/a-test-of-ledoit-wolf-versus-a-factor-model/)。
 - en: Another interesting idea is to combine Resampling with Shrinkage was examined
     in the [Resampling vs. Shrinkage for Benchmarked Managers by M. Wolf (2006)](http://www.iew.uzh.ch/wp/iewwp263.pdf)
     paper. It is very easy to implement because we only need to change Step 2 in the
     above algorithm. Instead of using sample covariance matrix, we will use it’s Shrinkage
     Estimator.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个有趣的想法是将重采样与收缩结合在一起，这在 M. Wolf (2006) 的论文[重采样 vs. 收缩对于基准管理人员](http://www.iew.uzh.ch/wp/iewwp263.pdf)中得到了研究。这个想法很容易实现，因为我们只需要改变上面算法中的第二步。不是使用样本协方差矩阵，我们将使用它的收缩估计器。
 - en: 'Let’s compare Resampled and Resampled+Shrinkage Efficient Frontiers:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们比较重采样和重采样+收缩有效前沿：
 - en: '[PRE2]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/c127944c7ae6d3d74adafeaba2b99033.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small2.png)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c127944c7ae6d3d74adafeaba2b99033.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small2.png)'
 - en: Both frontiers are close and have very similar portfolio composition. So it’s
     hard to say if adding covariance shrinkage estimator to the resampling algorithm
     is beneficial.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 两个前沿非常接近，且投资组合构成非常相似。所以很难说在再抽样算法中增加协方差收缩估计器是否有益。
 - en: In conclusion, there are findings for and against that these methods will improve
     out-of-sample returns. However, these methods will surely reduce portfolio turnover
     and transaction cost associated with rebalancing by making portfolios on efficient
     frontier immune to small changes in the input assumptions.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，有研究支持这些方法将提高样本外的回报，也有研究反对。然而，这些方法肯定可以通过使有效前沿的投资组合免疫于输入假设的小变化，从而减少投资组合的换手率和与再平衡相关的交易成本。
 - en: 'There is an interesting collection of papers on Portfolio Optimization at [Worcester
     Polytechnic Institute](http://www.wpi.edu):'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[伍斯特理工学院](http://www.wpi.edu)有一个关于投资组合优化的有趣论文集：
 - en: In the next post I will discuss the Black–Litterman model that addresses both
     Instability and Diversification problems of the portfolios on the mean-variance
     efficient frontier.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将讨论Black-Litterman模型，该模型解决了均值-方差有效前沿投资组合的不稳定性和多样化问题。
 - en: To view the complete source code for this example, please have a look at the
     [aa.solutions2instability.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看github上的[aa.solutions2instability.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。

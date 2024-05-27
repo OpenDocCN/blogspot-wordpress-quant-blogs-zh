@@ -1,114 +1,171 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:59:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:59:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Nonlinear Trading Strategies'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：非线性交易策略
 - en: 来源：[http://epchan.blogspot.com/2013/05/nonlinear-trading-strategies.html#0001-01-01](http://epchan.blogspot.com/2013/05/nonlinear-trading-strategies.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2013/05/nonlinear-trading-strategies.html#0001-01-01](http://epchan.blogspot.com/2013/05/nonlinear-trading-strategies.html#0001-01-01)
 - en: I have long been partial to
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直偏爱
 - en: '[linear strategies](http://epchan.blogspot.ca/2011/04/many-facets-of-linear-regression.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[线性策略](http://epchan.blogspot.ca/2011/04/many-facets-of-linear-regression.html)'
 - en: 'due to their simplicity and relative immunity to overfitting. They can be used
     quite easily to profit from mean-reversion. However, there is a serious problem:
     they are quite'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于它们的简单性和相对不易过拟合，它们可以很容易地用来从均值回归中获利。然而，有一个严重的问题：它们非常
 - en: '[fragile](http://epchan.blogspot.ca/2013/03/what-can-quant-traders-learn-from.html)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[脆弱](http://epchan.blogspot.ca/2013/03/what-can-quant-traders-learn-from.html)'
 - en: ','
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ，
 - en: '*i.e.*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*即*'
 - en: vulnerable to tail risks. As we move from mean-reverting strategies to momentum
     strategies, we immediately introduce a nonlinearity (stop losses), but simultaneously
     remove certain tail risks (except during times when markets are closed). But if
     we want to enjoy anti-fragility and are going to introduce nonlinearities anyway,
     we might as well go full-monty, and consider options strategies. (It is no surprise
     that Taleb was an options trader.)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 容易受到尾部风险。当我们从均值回归策略转向动量策略时，我们立即引入了非线性（止损），但同时移除了某些尾部风险（除非市场关闭）。但如果你想享受抗脆弱性，并且无论如何都要引入非线性，我们不妨全力以赴，考虑期权策略。
+    (毫不奇怪，塔勒布是一名期权交易员。)
 - en: 'It is easy to see that options strategies are nonlinear, since options payoff
     curves (value of an option as function of underlying stock price) are plainly
     nonlinear. I personally have resisted trading them because they all seem so complicated,
     and I abhor complexities. But recently a reader recommended a little book to me:
     Jeff Augen''s "'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 很明显，期权策略是非线性的，因为期权的收益曲线（期权价值作为标的股票价格的函数）显然是非线性的。我个人一直抵制交易它们，因为它们看起来都很复杂，我厌恶复杂性。但最近一位读者向我推荐了一本小书：杰夫·奥根的《
 - en: '[Day Trading Options](http://www.amazon.com/dp/0137029039/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0137029039&adid=13WZN3EAQWT423HNK9FD&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[日交易期权](http://www.amazon.com/dp/0137029039/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0137029039&adid=13WZN3EAQWT423HNK9FD&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
 - en: '" where the Black-Scholes equation (and indeed any equation) is mercifully
     absent from the entire treatise. At the same time, it is suffused with qualitative
     ideas. Among the juicy bits:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 》中，布莱克-舒尔斯方程（以及任何方程）在整篇文章中幸运地缺席。同时，它充满了定性思想。其中美味的内容包括：
 - en: 1) We can find distortions in the 2D implied volatility surface (implied volatility
     as z-axis, expiration months as x, and strike prices as y) which may mean revert
     to "smoothness", hence presenting arbitrage opportunities. These distortions are
     present for both stock and stock index options.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 我们可以在二维隐含波动率曲面（隐含波动率作为z轴，到期月份作为x轴，执行价格作为y轴）中发现扭曲，这些扭曲可能会回归到“平滑性”，从而呈现出套利机会。这些扭曲在股票和股指期权中都存在。
 - en: '2) Options are underpriced intraday and overpriced overnight: hence it is often
     a good idea to buy them at the market open and sell them at market close (except
     on some special days! See 4 below.). In fact, there are certain days of the week
     where this distortion is the most drastic and thus favorable to this strategy.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 期权在白天被低估，在夜间被高估：因此，在市场开盘时买入它们，在市场收盘时卖出它们通常是个好主意（除了一些特殊的日子！见下文4）。实际上，每周有一些日子，这种扭曲最为剧烈，因此有利于这种策略。
 - en: 3) Certain cash instruments have unusually high kurtosis, but their corresponding
     option prices consistently underprice such tail risks. Thus structures such as
     strangles or backspreads can often be profitable without incurring any left tail
     risks.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 某些现金工具的峰度异常高，但它们相应的期权价格却一致地低估了这种尾部风险。因此，诸如宽跨式或熊市价差等结构往往可以盈利，而不必承担任何左尾风险。
 - en: 4) If there is a long weekend before expiration day (e.g. Easter weekend), 
     the time decay of the options value over 3 days is compressed into an intraday
     decline on the last trading day before the weekend.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 如果到期日之前有一个长周末（例如复活节周末），期权价值在三天的衰减被压缩到周末最后交易日的日内下跌。
 - en: Now, as quantitative traders, we have no need to take his word on any of these
     assertions. So, onward to backtesting!
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，作为量化交易员，我们没有必要对他的任何这些断言采取行动。所以，前进到回测！
 - en: (For those who may be stymied by the lack of affordable historical intraday
     options data, I recommend Nanex.net.)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些可能因为缺乏负担得起的历史日内期权数据而受阻的人来说，我推荐Nanex.net。
 - en: ===
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: There are still 2 slots available in my online
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的在线研讨会中仍有2个名额可用。
 - en: '[Mean Reversion Strategies](http://www.epchan.com/my-workshops/)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[均值回归策略](http://www.epchan.com/my-workshops/)'
 - en: workshop in May. The workshop will be conducted
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 将在五月份举行研讨会。研讨会将由
 - en: '*live*'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '*实时*'
 - en: via Adobe Connect, and is limited to a total of 4 participants. Part of the
     workshop will focus on how to avoid getting hurt when a pair or a portfolio of
     instruments stop cointegrating.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过Adobe Connect进行，且最多限制为4名参与者。研讨会的一部分将重点讨论当一对或多只工具停止协整时如何避免受伤。

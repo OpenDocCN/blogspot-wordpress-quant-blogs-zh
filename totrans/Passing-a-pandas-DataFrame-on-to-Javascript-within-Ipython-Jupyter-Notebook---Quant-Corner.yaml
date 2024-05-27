@@ -1,73 +1,114 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 08:07:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 08:07:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Passing a pandas.DataFrame on to Javascript within Ipython/Jupyter Notebook
     | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过 Ipython/Jupyter Notebook 在 Javascript 中传递 pandas.DataFrame | 量化角落
 - en: 来源：[https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01](https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01](https://quantcorner.wordpress.com/2014/10/13/from-a-python-dataframe-to-javascript-within-ipython-notebook/#0001-01-01)
 - en: '***Updated on Jan 3rd. 2016 – See at the bottom the code for Jupyter notebook
     4.0.1***'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '***更新于2016年1月3日 - 在底部查看适用于 Jupyter notebook 4.0.1 的代码***'
 - en: I was willing to pass on data contained in a quite big dataframe  — specifically
     a **pandas.DataFrame** object to **Javascript** within **IPython Notebook 3.2.1**
     .
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想要将一个相当大的数据帧（特别是一个 **pandas.DataFrame** 对象）中的数据传递给 **IPython Notebook 3.2.1**
+    中的 **Javascript**。
 - en: Some say it is not straightforward due to security reasons, other argue it requires
     a template engine such as **Jinja2**.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人说由于安全原因这并不直接，其他人则认为这需要像 **Jinja2** 这样的模板引擎。
 - en: 'After some time (banging my head against the wall), I finally came up with
     the following solution (see code below). Yeah .. it was  simple actually: use
     a built-in **IPython** **widget**.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 经过一段时间（撞墙）后，我终于想出了以下解决方案（见下面的代码）。是的...其实很简单：使用内置的 **IPython** **小部件**。
 - en: Just write these few lines of **Python** in a cell of the notebook:# Required
     library
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 只需在笔记本的一个单元格中写入这几行 **Python** 代码：# 必需的库
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: And, that’s it!
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 就是这样！
 - en: 'One can check that the data originally produced in **Python** are available
     to **Javascript**, eg:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以检查 **Python** 中最初生成的数据是否可用于 **Javascript**，例如：
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'One can then eg convert it (back) to **json** which makes the data easy to
     manipulate with **Javascript**:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后可以将其转换（回）为 **json**，这样可以方便使用 **Javascript** 进行数据操作：
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '***/* Update Jan 3rd. 2016 – code for Jupyter notebook 4.0.1 */***'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '***/* 2016年1月3日更新 - 适用于 Jupyter notebook 4.0.1 的代码 */***'
 - en: 'The code above just doesn’t work with the newest version of the **IPython notebook**
     aka **Jupyter**. Instead, use the snippet below:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述代码在最新版本的 **IPython notebook**（即 **Jupyter**）中不起作用。相反，请使用下面的片段：
 - en: '[PRE3]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'

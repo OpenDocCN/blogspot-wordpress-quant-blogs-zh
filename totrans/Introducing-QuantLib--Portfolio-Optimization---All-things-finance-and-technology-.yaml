@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:46:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Portfolio Optimization | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：组合优化 | 金融与科技一切事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01](https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01](https://mhittesdorf.wordpress.com/2013/06/20/introducing-quantlib-portfolio-optimization/#0001-01-01)
 - en: Welcome back. If you read my last two posts, you may recall that I showed how
     to use QuantLib to do linear optimization in the context of a bond portfolio construction
     problem and mean-variance portfolio analysis by way of the concept of the Efficient
@@ -28,8 +40,10 @@
     Finding the Efficient Frontier with no short sales will require the repeated solution
     of a non-linear portfolio optimization problem in which every asset in the portfolio
     must have a non-negative weighting.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 欢迎回来。如果您阅读了我的最后两篇帖子，您可能还记得我展示了如何使用QuantLib在债券组合构建问题中进行线性优化以及通过有效前沿概念进行均值-方差组合分析。在我“介绍QuantLib”系列的这一部分中，我将结合这两篇帖子中的每个元素，以展示在组合构成存在约束的情况下，QuantLib如何生成有效前沿。特别是，不允许进行卖空。在没有卖空的情况下找到有效前沿将需要反复解决一个非线性组合优化问题，其中组合中的每个资产都必须有非负权重。
 - en: 'As in previous posts, I will first model the problem in a spreadsheet and then
     replicate the solution in C++ using classes from the QuantLib library.  The essentials
     of the model are borrowed from Chapter 11 of Simon Benninga’s excellent book *[Financial
@@ -37,20 +51,30 @@
     Specifically*,* the weightings on each of four assets, AAPL, IBM, ORCL, GOOG,
     must be determined such that [Sharpe Ratio](http://en.wikipedia.org/wiki/Sharpe_ratio)
     of the portfolio is maximized subject to the following constraints:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '像之前的帖子一样，我首先会在电子表格中建模问题，然后使用QuantLib库中的类在C++中复制解决方案。该模型的基本要素借鉴了Simon Benninga
+    excellent book *[Financial Modeling, 2nd Edition](http://www.amazon.com/Financial-Modeling-2nd-Simon-Benninga/dp/0262024829/ref=sr_1_1?s=books&ie=UTF8&qid=1371528897&sr=1-1&keywords=financial+modeling+2nd+edition).*
+    特别是，必须确定四个资产（AAPL，IBM，ORCL，GOOG）的权重，以便在以下约束条件下最大化组合的[夏普比率](http://en.wikipedia.org/wiki/Sharpe_ratio):'
 - en: The portfolio’s asset weightings must sum to 1
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 组合中资产的权重必须总和为1
 - en: Every asset weighting in the portfolio must be greater than or equal to zero
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 组合中每个资产的权重必须大于或等于零
 - en: A screen shot of the full spreadsheet is below, which can be downloaded from
     my Box account at [https://www.box.com/s/7w4tvfqueqqu676vhz5l](https://www.box.com/s/7w4tvfqueqqu676vhz5l)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是完整电子表格的屏幕截图，您可以通过我的Box账户下载：[https://www.box.com/s/7w4tvfqueqqu676vhz5l](https://www.box.com/s/7w4tvfqueqqu676vhz5l)
 - en: As stated in my earlier post on linear optimization, all optimization problems
     feature a function that must be either maximized or minimized.  This function
     is called the objective function. In this portfolio optimization problem, *Theta*
@@ -63,79 +87,122 @@
     capital amongst the four stocks in the portfolio such that we accrue the greatest
     reward for the least amount of risk.  This goal is consistent with the fact that
     most investors are risk-averse.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如我在线性优化方面的早期帖子所述，所有优化问题都包含一个必须最大化或最小化的函数，这个函数称为目标函数。在投资组合优化问题中，*θ*是要最大化的目标函数的值。它被定义为超额回报与投资组合标准差的比率，其中超额回报是投资组合回报减去无风险利率，在电子表格中定义为常数c。θ本质上与投资组合的Sharpe比率相同，对于给定的c值。更直观地说，θ是给定风险量的一种回报度量。在最大化θ时，我们寻求将资本分配给投资组合中的四只股票，以便以最小的风险获得最大的回报。这个目标与大多数投资者都是风险厌恶的事实一致。
 - en: '[![efnscalc](img/8ad59a4efefdb5bbb5da278323465159.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/efnscalc.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![efnscalc](img/8ad59a4efefdb5bbb5da278323465159.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/efnscalc.png)'
 - en: 'On a side note, you may have noticed that this spreadsheet was created using
     OpenOffice, not LibreOffice, which I employed in previous posts.  I had to switch
     to OpenOffice in order to install the ‘[Solver for Nonlinear Programming](http://extensions.openoffice.org/en/project/NLPSolver)‘
     OpenOffice extension, which is currently not supported by LibreOffice on my laptop’s
     operating system, Ubuntu 12.04.  Without the non-linear solver extension, LibreOffice
     detects that the problem is non-linear and fails to find a solution:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便说一下，您可能已经注意到这个电子表格是使用OpenOffice创建的，而不是我之前帖子中使用的LibreOffice。我不得不切换到OpenOffice，以便安装“[非线性规划求解器](http://extensions.openoffice.org/en/project/NLPSolver)”OpenOffice扩展，而这个扩展目前在我笔记本电脑的Ubuntu
+    12.04操作系统上不被LibreOffice支持。没有非线性求解器扩展，LibreOffice会检测到问题是非线性的，并无法找到解决方案：
 - en: '[![notlinear](img/2eb89004a93adaae7232e3b230c64e82.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/notlinear.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![notlinear](img/2eb89004a93adaae7232e3b230c64e82.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/notlinear.png)'
 - en: 'Now let’s see how to set up and solve this problem in QuantLib. The C++ code
     is below:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看如何在QuantLib中设置和解决此问题。以下是C++代码：
 - en: '[PRE0]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'When run this code solves for the optimal weightings for all values of c between
     -.035 and .16.  For example, the ouput for c = .05 is:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行此代码时，它会为c的-0.035和0.16之间的所有值求解最优权重。例如，当c=0.05时的输出结果为：
 - en: '`————————————'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: —————————————
 - en: 'Solution type: StationaryPoint'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决方案类型：固定点
 - en: 'Constant (c): 0.0500'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 常数（c）：0.0500
 - en: 'AAPL weighting: 0.5659'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: AAPL权重：0.5659
 - en: 'IBM weighting: 0.1047'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: IBM权重：0.1047
 - en: 'ORCL weighting: 0.3294'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ORCL权重：0.3294
 - en: 'GOOG weighting: 0.0000'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: GOOG权重：0.0000
 - en: 'Theta: 0.1839'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: θ：0.1839
 - en: 'Portfolio mean: 0.0876'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资组合平均值：0.0876
 - en: 'Portfolio standard deviation: 0.2046'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资组合标准差：0.2046
 - en: ————————————
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: ————————————
 - en: This solution is in very close agreement with the solution arrived at by the
     OpenOffice spreadsheet with the non-linear solver extension.  So, it looks like
     the QuantLib code is doing the right thing. Cool!
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个解决方案与使用非线性求解器扩展的OpenOffice电子表格得到的解决方案非常接近。所以，看起来QuantLib代码正在做正确的事情。太酷了！
 - en: 'Towards the end of code listing, I provide the [gnuplot](http://www.gnuplot.info/)
     commands that render the chart for the Efficient Frontier with no short sales,
     pictured below:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在代码列表的末尾，我提供了生成无空头销售的Efficient Frontier图表的[gnuplot](http://www.gnuplot.info/)命令，如下所示：
 - en: '[![noshortsales](img/c2f40b04952857ad0201a71e4a2100b3.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/noshortsales.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![noshortsales](img/c2f40b04952857ad0201a71e4a2100b3.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/06/noshortsales.png)'
 - en: Lastly, I want to mention that I originally planned to use a QuantLib [OptimizationMethod](http://quantlib.org/reference/class_quant_lib_1_1_optimization_method.html)
     class other than [Simplex](http://quantlib.org/reference/class_quant_lib_1_1_simplex.html),
     such as [ConjugateGradient](http://quantlib.org/reference/class_quant_lib_1_1_conjugate_gradient.html),
@@ -144,16 +211,23 @@
     class in the Simplex.hpp header, I learned that it is based on the multidimensional
     [Nelder Mead Simplex](http://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method)
     method, which does support non-linear optimization in several variables.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我想提一下，我最初计划使用除了[Simplex](http://quantlib.org/reference/class_quant_lib_1_1_simplex.html)之外的QuantLib
+    [OptimizationMethod](http://quantlib.org/reference/class_quant_lib_1_1_optimization_method.html)类，比如[ConjugateGradient](http://quantlib.org/reference/class_quant_lib_1_1_conjugate_gradient.html)，因为我错误地认为QuantLib的Simplex类无法处理非线性优化问题。然而，当我查看Simplex类的注释时，在Simplex.hpp头文件中，我了解到它基于多维[Nelder
+    Mead Simplex](http://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method)方法，该方法支持在多个变量中的非线性优化。
 - en: That concludes this installment of my ‘Introducing QuantLib’ series. I hope
     you enjoyed it.  In my next post, I will be steering away from portfolio theory
     and optimization, which have been the focus of my last three posts, and transitioning
     to a discussion of option pricing.  Check back soon and, as always, I encourage
     you to submit comments and/or questions.  In the meantime, have fun with QuantLib!`  `##
     About Mick Hittesdorf
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就结束了我的“介绍QuantLib”系列文章的这一部分。希望您喜欢。在我的下一篇文章中，我将偏离投资组合理论和优化，这是我的最后三篇文章的重点，转向讨论期权定价。很快就会更新，如往常一样，我鼓励您提交评论和/或问题。与此同时，请尽情享受QuantLib带来的乐趣！`关于Mick
+    Hittesdorf`##
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -163,5 +237,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing`
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一个多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我负责管理一个全球数据科学和分析平台，开发了低延迟的、专有的交易系统，管理软件开发团队，制定了企业架构策略，撰写了白皮书和博客，在行业期刊上发表文章，并以咨询和技术销售的身份向客户提供创新解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R和云计算。

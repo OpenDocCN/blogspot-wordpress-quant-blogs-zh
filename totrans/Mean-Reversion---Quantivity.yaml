@@ -1,40 +1,61 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:56:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:56:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mean Reversion | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[均值回归](https://quantivity.wordpress.com/2009/07/19/mean-reversion/#0001-01-01)
+    | 量化性'
 - en: 来源：[https://quantivity.wordpress.com/2009/07/19/mean-reversion/#0001-01-01](https://quantivity.wordpress.com/2009/07/19/mean-reversion/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/07/19/mean-reversion/#0001-01-01](https://quantivity.wordpress.com/2009/07/19/mean-reversion/#0001-01-01)
 - en: Continuing introduction of fundamental phenomena, or stylized facts of financial
     markets, underlying quantitative trading.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续介绍金融市场的基本现象，或量化交易的底层风格事实。
 - en: 'Mean reversion is the second, of two, force driving prices:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值回归是推动价格的两大力量中的第二股：
 - en: “A price will tend to average over time.” ([Wikipedia](http://en.wikipedia.org/wiki/Mean_reversion_(finance)))
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “价格倾向于随时间平均。”([维基百科](http://en.wikipedia.org/wiki/Mean_reversion_(finance)))
 - en: 'One intellectual challenge in understanding financial markets is internalizing,
     what appears at first to be, fundamental contradiction: prices are *simultaneously*
     driven by the *counteracting* forces of both momentum and mean reversion. Up is
     down, and left is right.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 理解金融市场的一个智力挑战是内化看似基本的矛盾：价格同时受到动量和均值回归的*相反*力量的*同时*推动。上升就是下降，左就是右。
 - en: Mean reversion is one of the most generic phenomena, manifesting in myriad beautiful
     ways across diverse subjects. For example, [Ornstein–Uhlenbeck processes](http://en.wikipedia.org/wiki/Ornstein%E2%8%93Uhlenbeck_process)
     are continuous-time stochastic processes for modeling mean-reversion. [Cointegration](http://en.wikipedia.org/wiki/Cointegration)
@@ -44,43 +65,61 @@
     Mean reversion also forms the basis for entire trading disciplines such as [statistical
     arbitrage](http://en.wikipedia.org/wiki/Statistical_arbitrage) and [volatility
     arbitrage](http://en.wikipedia.org/wiki/Volatility_arbitrage).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值回归是最普遍的现象之一，在各个不同的主题中以无数美丽的方式展现。例如，[奥恩斯坦-乌伦贝克过程](http://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process)是用于模拟均值回归的连续时间随机过程。[协整](http://en.wikipedia.org/wiki/Cointegration)来自时间序列计量经济学是线性组合系列的一个平稳性属性。[布林带](http://en.wikipedia.org/wiki/Bollinger_bands)是一个基于[标准差](http://en.wikipedia.org/wiki/Standard_deviation)的上下边界技术指标。均值回归也是[统计套利](http://en.wikipedia.org/wiki/Statistical_arbitrage)和[波动率套利](http://en.wikipedia.org/wiki/Volatility_arbitrage)等整个交易学科的基础。
 - en: 'Mean reversion is nicely illustrated via [pairs trading](http://en.wikipedia.org/wiki/Pairs_trading),
     a classic statistical arbitrage trading strategy. For simplicity, consider closing
     prices of [SPY](http://finance.yahoo.com/q?s=SPY) and [PRF](http://finance.yahoo.com/q?s=PRF)
     during 2007 – 2008\. This relationship is potentially interesting, as both are
     large-cap indices; their difference lies in weighting: PRF is weighted by fundamentals,
     while SPY is weighted by market capitalization. Price graph over this period is:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值回归很好地通过[配对交易](http://en.wikipedia.org/wiki/Pairs_trading)来展示，这是一种经典的统计套利交易策略。为了简单起见，考虑2007-2008年期间[SPY](http://finance.yahoo.com/q?s=SPY)和[PRF](http://finance.yahoo.com/q?s=PRF)的收盘价。这一关系潜在地很有趣，因为两者都是大型市值指数；它们的区别在于权重：PRF是通过基本面加权，而SPY是通过市值加权。这一时期的股价图表是：
 - en: '![pair-spy-prf](img/c186cbd2286453a00e18ef4fece8c9c3.png "pair-spy-prf")'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![pair-spy-prf](img/c186cbd2286453a00e18ef4fece8c9c3.png "pair-spy-prf")'
 - en: 'Estimation via [OLS regression](http://en.wikipedia.org/wiki/Least_squares)
     indicates the following relationship:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过[最小二乘法回归](http://en.wikipedia.org/wiki/Least_squares)估算表明以下关系：
 - en: '`PRF = -7.356 + (0.455 * SPY)`'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '`PRF = -7.356 + (0.455 * SPY)`'
 - en: 'Which explains 98.8% of the observed variance (adjusted R²), with both terms
     significant (p-values << 0.05). Note standard cointegration tests and related
     analysis are deliberately being glossed over, for sake of brevity. Graph of estimated
     versus actual closing prices for PRF, indicates decent fitness:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这解释了观察到的98.8%的方差（调整R²），两项都是显著的（p值<< 0.05）。请注意，标准的协整测试和相关分析有意被略过，以节省篇幅。PRF的估计与实际收盘价图表表明相当好的拟合度：
 - en: '![pair-spy-prf-estimated-actual](img/e8f25d75a1104f48926160de3da96f1a.png "pair-spy-prf-estimated-actual")'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![pair-spy-prf-estimated-actual](img/e8f25d75a1104f48926160de3da96f1a.png "pair-spy-prf-estimated-actual")'
 - en: 'From this graph, calculate the difference between actual and estimated closing
     prices for PRF (or, use residuals from above OLS), which can be visualized as
     the vertical difference between two lines on the preceding graph:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 从这张图中，计算PRF实际和预测收盘价之间的差异（或者，使用上述OLS的残差），这可以被看作在前一张图上两条线之间的垂直差异：
 - en: '![pair-spy-prf-residuals](img/7d85c7aebe39c15307b2d8d41996cdcc.png "pair-spy-prf-residuals")'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![pair-spy-prf-residuals](img/7d85c7aebe39c15307b2d8d41996cdcc.png "pair-spy-prf-residuals")'
 - en: 'This residuals graph illustrates mean reversion beautifully: SPY and PRF have
     a long-term relationship whose residual difference reverts to zero (subject to
     the offset captured by the -7.356 intercept value, which represents the capital
@@ -88,28 +127,40 @@
     myriad trading strategies can be devised. For example, go long the SPY/PRF basket
     when the residual difference exceeds -2; conversely, go short the basket when
     the residual difference exceeds +1.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个残差图美丽地展示了均值回归：SPY和PRF之间有一个长期关系，其残差差异会回归到零（受限于由-7.356截距值捕捉的偏移量，这代表了交易头寸每股的资本成本）。根据均值回归的知识，可以设计出许多交易策略。例如，当残差差异超过-2时，做多SPY/PRF组合；相反，当残差差异超过+1时，做空该组合。
 - en: 'This example illustrates several attributes which are common across strategies
     which rely upon mean reversion:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个例子说明了几个在依赖均值回归的策略中普遍存在的属性：
 - en: 'Multiple instruments: stability relationship amongst two or more instruments
     is being exploited'
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 多 instrument 策略：两个或更多 instrument 之间的稳定性关系被利用
 - en: 'Residual series: use of a statistical technique, classically OLS (modern techniques
     range from state space models to Bayesian estimators), to generate a residual
     time-series composed of a combination of the instruments (either linear or non-linear)'
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 残差系列：使用一种统计技术（经典的是OLS，现代技术从状态空间模型到贝叶斯估计器不等），生成由多种 instrument 组合（线性或非线性）组成的残差时间序列。
 - en: 'Statistical tendency: strategy is motivated by statistical likelihood of convergence,
     given dynamic historical data'
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 统计倾向：策略是由动态历史数据的统计概率收敛所驱动的
 - en: Many algorithms exploit mean reversion, whether explicitly or implicitly.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多算法利用均值回归，无论是明确地还是隐含地。

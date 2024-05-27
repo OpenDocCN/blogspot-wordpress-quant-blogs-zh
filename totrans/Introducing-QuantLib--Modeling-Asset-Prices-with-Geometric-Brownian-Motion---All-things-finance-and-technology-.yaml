@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:45:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:45:28'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Modeling Asset Prices with Geometric Brownian Motion
     | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：用几何布朗运动模型化资产价格 | 金融与科技的一切事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/12/29/introducing-quantlib-modeling-asset-prices-with-geometric-brownian-motion/#0001-01-01](https://mhittesdorf.wordpress.com/2013/12/29/introducing-quantlib-modeling-asset-prices-with-geometric-brownian-motion/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/12/29/introducing-quantlib-modeling-asset-prices-with-geometric-brownian-motion/#0001-01-01](https://mhittesdorf.wordpress.com/2013/12/29/introducing-quantlib-modeling-asset-prices-with-geometric-brownian-motion/#0001-01-01)
 - en: Welcome back! In this post, I’ll show how classes from QuantLib’s [Monte Carlo
     framework](http://quantlib.org/reference/group__mcarlo.html) can be utilized to
     model the path an asset’s price can take over a period of time, such as that depicted
@@ -31,11 +43,15 @@
     such as Value at Risk (VaR). And thirdly, simulated prices that conform to historical
     asset return parameters (e.g. annualized mean and standard deviation) can be employed
     as market data for back-testing trading strategies.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 欢迎回来！在本文中，我将展示如何使用QuantLib的[蒙特卡洛框架](http://quantlib.org/reference/group__mcarlo.html)中的类来模拟资产价格随一段时间内可能走过的路径，例如下面所示的一年期英特尔（INTC）股票图表。我们为什么需要资产价格模型呢？有很多很好的理由。其中之一是资产价格动态模型对于衍生品的估值是必不可少的，比如股票和指数期权。其次，这样的模型是一个强大的风险管理工具。模拟的资产价格可以用来创建一系列的假设情景，用以计算投资组合的整体市场风险敞口，如价值在风险（VaR）等指标所示。第三，符合历史资产回报参数（例如，年化平均值和标准差）的模拟价格可以作为市场数据用于回测交易策略。
 - en: '[![intc-stock-chart](img/52fbaac27a2649f3e70ca47edcb13252.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc-stock-chart.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![intc-stock-chart](img/52fbaac27a2649f3e70ca47edcb13252.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc-stock-chart.png)'
 - en: So now that we appreciate the why, let’s look at the how. To start, let’s briefly
     address the theoretical foundations of asset price dynamics- the s*tochastic process*.
      Informally, a stochastic process is a function of one or more time varying parameters
@@ -43,15 +59,21 @@
     to a sequence of independent random variables drawn from a selected probability
     distribution.  More precisely, the particular stochastic process that describes
     the evolution of stock prices is termed Geometric Brownian Motion (GBM).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以现在既然我们已经明白了为什么，那就让我们来看看如何操作。首先，让我们简要地讨论一下资产价格动态的理论基础——随机过程。非正式地说，随机过程是一个依赖于一个或多个随时间变化的参数的函数，其中至少有一个参数是非确定性的；它的值对应于一串从选定的概率分布中独立抽取的随机变量。更精确地说，描述股票价格演化的特定随机过程被称为几何布朗运动（GBM）。
 - en: 'Geometric Brownian Motion can be formulated as a Stochastic Differential Equation
     (SDE) of the form:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 几何布朗运动可以被表述为一个形式为：
 - en: '![](img/68c2d37e8366208dcc744b07dabcb19c.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/68c2d37e8366208dcc744b07dabcb19c.png)'
 - en: where *S* is the stock price at time *t*, μ (*mu)* represents the constant drift
     or trend (i.e. annual return) of the process and σ (*sigma) *represents the amount
     of random variation around the trend (i.e. annualized standard deviation of log
@@ -63,12 +85,18 @@
     provides random numbers in accordance with a given (usually Gaussian) probability
     distribution. For more information on Geometric Brownian Motion,  I encourage
     you to check out the Wikipedia entry [here](http://en.wikipedia.org/wiki/Geometric_Brownian_motion).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 *S* 是在时间 *t* 的股票价格，μ (*mu)* 表示过程的常数漂移或趋势（即年回报），而 σ (*sigma)* 表示围绕趋势的随机变化量（即对数回报的年化标准差）。直观地说，*mu*
+    可以被视为GBM随机过程的“信号”，而*sigma* 是该过程的“噪声”。这个方程告诉我们，股票价格在一个小的离散时间增量 (*dt*) 内的变化是股票回报
+    (*mu*) 和股票波动性 (*sigma*) 的函数，其中波动性被Wiener过程的输出 (*dWt*) 缩放。Wiener过程本质上提供符合给定（通常是高斯）概率分布的随机数。关于几何布朗运动，我鼓励你查看维基百科条目[这里](http://en.wikipedia.org/wiki/Geometric_Brownian_motion)。
 - en: Normally Distributed Model of Asset Returns
+  id: totrans-12
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 资产回报的正态分布模型
 - en: With that brief exposition of the theory of Geometric Brownian Motion behind
     us, let’s proceed with the QuantLib C++ code.  First, I’ll present code that implements
     the classical model, in which stock returns are assumed to be normally distributed,
@@ -77,35 +105,53 @@
     ‘rallies’ than a strictly normal model of stock returns would suggest.  Shortly,
     I will show how the classical model can be extended to explicitly account for
     fat-tailed returns.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在简短地介绍了几何布朗运动理论之后，我们继续来看QuantLib的C++代码。首先，我会展示实现经典模型的代码，该模型假设股票回报是正态分布的，尽管实证证据表明资产回报实际上是“厚尾”的。这意味着实际上，比严格正态分布模型所建议的更多股票市场“崩盘”和“反弹”。不久，我将展示如何将经典模型扩展到明确地考虑厚尾回报。
 - en: 'Here is the QuantLib C++ code to generate a  single stock price path under
     the assumption of normally distributed asset returns:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是在假设资产回报正态分布的情况下生成单个股票价格路径的QuantLib C++代码：
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'When executed, this code will produce output similar to the following, though
     the statistics will vary with each run of the program:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 当执行此代码时，它将产生类似于以下输出，尽管每次程序运行的统计数据会有所不同：
 - en: '`Standard deviation of simulated returns (Normal): 0.2105'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '`模拟回报的标准差（正态分布）：0.2105'
 - en: 'Price statistics: mean=24.99, min=19.87, max=29.02`'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格统计：平均值=24.99，最小值=19.87，最大值=29.02`
 - en: 'The resulting simulated stock price data, when charted, will look something
     like this:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 当绘制时，生成的模拟股票价格数据将类似于以下图表：
 - en: '[![intc_gbm](img/7cbc16a2b52119faf7f842d98f8ba3ab.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc_gbm.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '![intc_gbm](img/7cbc16a2b52119faf7f842d98f8ba3ab.png)'
 - en: 'A few comments:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 几点说明：
 - en: The code produces a time series of 255 daily closing prices (one for each trading
     day in the U.S. equity markets), using QuantLib’s [PathGenerator](http://quantlib.org/reference/class_quant_lib_1_1_path_generator.html)
     class, which is a C++ template parameterized by a [RandomSequenceGenerator](http://quantlib.org/reference/class_quant_lib_1_1_random_sequence_generator.html).
@@ -117,13 +163,17 @@
     Intel as of 12/7/2012\. The *mu* parameter is bound to INTC’s annualized return,
     while the *sigma* parameter is equated to INTC’s annualized historical volatility
     for the period from 12/7/2012 through 12/7/2013.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 代码生成一个包含255个每日收盘价的时间序列（美国股票市场的每个交易日都有一个），使用QuantLib的[PathGenerator](http://quantlib.org/reference/class_quant_lib_1_1_path_generator.html)类，这是一个C++模板，通过一个[RandomSequenceGenerator](http://quantlib.org/reference/class_quant_lib_1_1_random_sequence_generator.html)进行参数化。RandomSequenceGenerator需要一个随机性的来源，这由QuantLib的[MersenneTwisterUniformRng](http://quantlib.org/reference/class_quant_lib_1_1_mersenne_twister_uniform_rng.html)类提供。PathGenerator还需要一个StochasticProcess作为其第一个构造函数参数，传递一个[GeometricBrownianMotionProcess](http://quantlib.org/reference/class_quant_lib_1_1_geometric_brownian_motion_process.html)实例的（共享）指针。该过程的起始价格是2012年12月7日英特尔的收盘价。*mu*参数绑定到INTC的年化回报，而*sigma*参数等于从2012年12月7日至2013年12月7日INTC的年化历史波动性。
 - en: The Box-Muller transformation is employed to convert a sequence of uniformly
     distributed random numbers to a sequence of normally distributed random numbers.
     You can read more about the Box-Muller transformation [here](http://en.wikipedia.org/wiki/Box_Muller).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Box-Muller转换被用来将一系列均匀分布的随机数转换为一系列正态分布的随机数。您可以在[这里](http://en.wikipedia.org/wiki/Box_Muller)了解更多关于Box-Muller转换的信息。
 - en: QuantLib’s [GeneralStatistics](http://quantlib.org/reference/class_quant_lib_1_1_general_statistics.html)
     class is applied to collect some process statistics in order to measure how accurately
     the simulated asset path approximates the INTC time series. By design, the simulated
@@ -132,18 +182,24 @@
     path-dependent trading strategies or evaluating certain risk management scenarios,
     we might also like the simulated minimum, maximum and mean stock prices to fall
     within a desired range.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib的[GeneralStatistics](http://quantlib.org/reference/class_quant_lib_1_1_general_statistics.html)类被应用于收集一些过程统计数据，以测量模拟资产路径如何准确地近似INTC时间序列。按照设计，模拟资产路径的年化回报和波动性应分别类似于*mu*和*sigma*过程参数。对于某些应用，例如回测路径依赖的交易策略或评估某些风险管理场景，我们也希望模拟的股票价格最低值、最高值和平均值落在期望的范围内。
 - en: Towards the end of the listing, the data points of the simulated asset price
     path are written to a file so that they can be charted with gnuplot, an open-source
     charting package. The gnuplot script is included at the end of the source code
     listing as a comment.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在列表的末尾，模拟的资产价格路径的数据点被写入一个文件，以便可以使用gnuplot（一个开源的绘图包）进行绘图。gnuplot脚本作为注释包含在源代码列表的末尾。
 - en: Leptokurtic Model of Asset Returns
+  id: totrans-26
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Leptokurtic Model of Asset Returns
 - en: Now let’s revisit a concept I mentioned earlier regarding the distribution of
     asset returns. It’s well known that asset returns are ‘fat-tailed’, which is an
     intuitive way of stating that daily returns are observed in practice to fall more
@@ -152,8 +208,10 @@
     asset returns can be characterized as *leptokurtic*, meaning that their frequency
     distribution exhibits *excess* *kurtosis *compared to the normal distribution,
     which has a kurtosis value of 3.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们重新回顾一下我之前提到的关于资产回报分布的概念。众所周知，资产回报是“厚尾”的，这是一种直观的说法，意思是实际观察到的日回报更多地出现在它们频率分布的低尾和高尾中，而不是按照正态概率分布函数（pdf）预测的那样。因此，资产回报可以被描述为*leptokurtic*，这意味着它们的频率分布与正态分布相比显示出*过度**峰度*，而正态分布的峰度值为3。
 - en: How can we improve our model of asset prices to incorporate the leptokurtic
     nature of asset returns that we see in the real-world?  Essentially, we would
     like the simulated asset price paths to exhibit more days with higher volatility
@@ -168,8 +226,10 @@
     of freedom.* The greater the number of degrees of freedom, the more the Student’s
     t distribution resembles the normal distribution, the smaller the ‘fatter’ the
     tails.*
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 如何改进我们的资产价格模型，以体现实际世界中资产回报的厚尾特性？本质上，我们希望模拟的资产价格路径相较于遵循经典正态分布模型的价格路径，有更多波动性更高的日子，同时实现与正态模型相同的年化波动率*。为了实现这一点，我们需要从具有超额峰度的非正态分布中抽样随机数。常用于此目的的一种分布是[t分布](http://en.wikipedia.org/wiki/Student%27s_t-distribution)，它属于稳定分布族中的[柯西分布](http://en.wikipedia.org/wiki/Cauchy_distribution)，这种分布以均值为中心但具有“厚尾”。t分布的形状由一个参数*v*决定，该参数定义为*自由度*。自由度数越大，t分布越类似于正态分布，尾巴越“厚”*。
 - en: '*So let’s make the necessary changes to the code above to generate random numbers
     distributed in accordance with the Student’s t distribution.  This is accomplished
     with QuantLib’s [InverseCumulativeRsg](http://quantlib.org/reference/class_quant_lib_1_1_inverse_cumulative_rsg.html)
@@ -180,47 +240,72 @@
     has the desired ‘fat tails’, as illustrated by the light blue density in the image
     below. Note that there is more mass in the tails of the light blue density than
     the black, standard normal density.'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '*所以让我们对上面的代码进行必要的修改，以生成符合学生t分布的随机数。这可以通过QuantLib的[InverseCumulativeRsg](http://quantlib.org/reference/class_quant_lib_1_1_inverse_cumulative_rsg.html)类实现，该类是一个由随机序列生成器和反累积分布函数参数化的模板。学生t分布的实现由Boost
+    Math库类[boost::math::students_t_distribution](http://www.boost.org/doc/libs/1_35_0/libs/math/doc/sf_and_dist/html/math_toolkit/dist/dist_ref/dists/students_t_dist.html)提供，该类使用五个自由度实例化，因此分布的形状具有所需的“厚尾”，如下图中的浅蓝色密度所示。注意，浅蓝色密度在尾巴上的质量比黑色标准正态密度更多。'
 - en: '![](img/89023d10525872fa37096dc42af92066.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/89023d10525872fa37096dc42af92066.png)'
 - en: 'The revised source code listing is as follows:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 修订后的源代码如下：
 - en: '[PRE1]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The test case, when run, will produce output such as the following, though
     again, the statistics will vary from run to run of the program:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行测试用例时，将产生如下输出，尽管如此，由于程序每次运行的统计数据都会有所不同，统计数据将会有所变化：
 - en: '`Standard deviation of simulated returns (Student-T): 0.2112'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '`模拟回报的标准差(Student-T)：0.2112'
 - en: 'Price statistics: mean=24.94, min=19.44, max=30.24`'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格统计：平均值=24.94，最小值=19.44，最大值=30.24`
 - en: 'As depicted in the chart below, the `testGeometricBrownianMotionStudentT` test
     case generates a time series that features more relatively large up and down moves
     than that of the classic, normal model.  However, the realized volatility of the
     Student’s t time series is not significantly different than the normal:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 如下图所示，`testGeometricBrownianMotionStudentT`测试案例生成的时间序列相较于经典的正态模型具有更多的相对大幅上涨和下跌动作。然而，学生t时间序列的实际波动性与正态模型没有显著差异：
 - en: '[![intc_gbm_student](img/ce8a491a5c1edff21c78954d68841f16.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc_gbm_student.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![intc_gbm_student](img/ce8a491a5c1edff21c78954d68841f16.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/12/intc_gbm_student.png)'
 - en: There is much more to the modeling of asset price dynamics than I can present
     in this brief post, but I hope that I’ve imparted the fundamental concepts and
     explained how you can accomplish quite a lot with very little effort using QuantLib.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 资产价格动态建模的内容远比我在这篇简短帖子中能呈现的要多，但我希望我已经传达了基本概念，并解释了如何使用QuantLib以非常小的努力实现很多功能。
 - en: Also, for your convenience, I have now made all of the source code from my Introducing
     QuantLib series available on GitHub at [https://github.com/mhittesdorf/allthingsfintech](https://github.com/mhittesdorf/allthingsfintech). 
     I encourage you to download and experiment with the code yourself.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，为了方便您，我现在已将我在《Introducing QuantLib》系列中的所有源代码放到了GitHub上，网址为[https://github.com/mhittesdorf/allthingsfintech](https://github.com/mhittesdorf/allthingsfintech)。我鼓励您下载并亲自实验这些代码。
 - en: Thanks for reading my blog and, as always, please feel free to leave your comments
     and questions below.  Have fun with QuantLib!*
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢阅读我的博客，如往常一样，请随时在下面留下您的评论和问题。祝您使用QuantLib愉快！*

@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:30:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:30:40
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Starting out with RethinkDB | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: RethinkDB 入门 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2016/04/21/starting-out-with-rethinkdb/#0001-01-01](https://etrading.wordpress.com/2016/04/21/starting-out-with-rethinkdb/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2016/04/21/starting-out-with-rethinkdb/#0001-01-01](https://etrading.wordpress.com/2016/04/21/starting-out-with-rethinkdb/#0001-01-01)
 - en: Starting out with RethinkDB
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: RethinkDB 入门
 - en: April 21, 2016
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2016年4月21日
 - en: I’ve been wanting to use [RethinkDB](https://rethinkdb.com/) for the cloud based
     [SpreadServe](http://spreadserve.com/) service offering for sometime, so when I
     heard the Windows version had gone into beta there was no excuse for further delay.
@@ -47,41 +63,68 @@
     which I’m also using in SpreadServe. And thirdly, I liked the fact that RethinkDB’s
     core implementation is in C++, and is open source. Like RethinkDB, and like JP’s
     Athena for that matter, SpreadServe is C++ on the inside with Python APIs.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直想为基于云的 [SpreadServe](http://spreadserve.com/) 服务使用 [RethinkDB](https://rethinkdb.com/)，所以当我听说
+    Windows 版本已经进入 beta 阶段时，就没有理由再延迟了。现在，NoSQL 数据库非常流行，有 [Mongo](https://www.amon.cx/blog/rethinkdb-reviewed-by-a-mongo-fan/)、[Cassandra、Couch
+    和 Redis](http://kkovacs.eu/cassandra-vs-mongodb-vs-couchdb-vs-redis) 等供选择。对我来说，RethinkDB
+    有几个突出的原因。首先，它的 [changefeeds](https://rethinkdb.com/docs/changefeeds/python/)。所有分布式系统都必须解决将进程缓存与数据库同步的挑战。我在过去几年里在一些大型银行见过两种高质量的手动解决方案。一个基于
+    SQL Server 触发器，导致以 XML 格式广播更新或插入的行。而在 [JP Morgan's Athena](http://techcareers.jpmorgan.com/cm/BlobServer/athena_jpmc.pdf)
+    项目中，我看到使用 [Twisted](https://github.com/twisted/twisted) 对象序列化来更新套接字订阅者的最近更改的对象。两种方法都很好地扩展了。RethinkDB
+    的特殊之处在于，它通过 changefeeds 为您解决了这个问题。RethinkDB 对我吸引的第二个特性是，Python API 是一流的公民，而不是事后想到的。Python
+    API 的事件处理和协程实现风格与我也在 SpreadServe 中使用的 [Tornado](http://www.tornadoweb.org/en/stable/)
+    很好地集成在一起。第三，我喜欢的是 RethinkDB 的核心实现是用 C++ 编写的，并且是开源的。像 RethinkDB 一样，JP 的 Athena，SpreadServe
+    在内部也是 C++，具有 Python API。
 - en: So I’ve been working with the [RethinkDB 2.3.0 beta build for Windows](https://rethinkdb.com/docs/install/windows/)
     for a few days now. I’ve been delighted by several aspects of Rethink, and I’ve
     hit a few gotchas. I’ve also realised that the shift to coroutine based coding
     is a big, big deal. So let me lay that out here, for the record. First, the things
     that have delighted me…
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经在几天内使用 [RethinkDB 2.3.0 beta build for Windows](https://rethinkdb.com/docs/install/windows/)。
+    Rethink 的几个方面让我感到高兴，但也遇到了一些问题。我也意识到，转向基于协程的编码是一件大事。所以让我在这里记录一下。首先是让我感到高兴的事情...
 - en: Very simple install process
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 安装过程非常简单
 - en: Nice docs
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 不错的文档
 - en: 'Great admin UI: the data explorer is very good.'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 良好的管理 UI：数据浏览器非常好。
 - en: And here are the gotchas that I hit…
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是我遇到的问题...
 - en: When coding in Python, don’t forget a .run( ) on the end of your r.table( ).get(
     ) or r.table( ).insert( )
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在 Python 中编码时，不要忘记在 r.table( ).get( ) 或 r.table( ).insert( ) 后面加上 .run( )
 - en: Method names aren’t consistent across APIs. For instance getAll( ) in JS is
     get_all( ) in Python. Even if you’re coding in Python, as I am, you’ll still find
     yourself using JS in the admin GUI’s data explorer, so this is an irritation.
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 方法名称在不同的 API 中不一致。例如，在 JS 中是 getAll( )，而在 Python 中是 get_all( )。即使你像我一样在 Python
+    中编码，你仍然会发现自己在管理界面的数据浏览器中使用 JS，所以这是一个烦恼。
 - en: You need tornado 4 or better as RethinkDB’s Tornado integration imports tornado.tcpclient, which
     isn’t in 3.x. It took me a while to track down as the server process which I was connecting
     to RethinkDB was exiting silently, with no trace of an import error in log or
@@ -89,9 +132,12 @@
     ) can throw ImportError. Once I got a try/except clause around r.set_loop_type(
     ) I caught the exception and realised I needed to upgrade from Tornado 3.2 to
     4.2.1.
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 你需要tornado 4或更高版本，因为RethinkDB的Tornado集成导入了tornado.tcpclient，这在3.x中是没有的。我花了一段时间才追踪到这个问题，因为与我连接的RethinkDB的服务器进程默默退出，日志或控制台没有任何导入错误的信息。然而，Python文档确实提到，im.load_module()，像在r.set_loop_type()中使用，可能会抛出ImportError。一旦我在r.set_loop_type()周围加上try/except语句，我就捕获了异常，并意识到我需要从Tornado
+    3.2升级到4.2.1。
 - en: 'Once I was past the gotchas I realised I needed to upgrade my coding style
     to embrace coroutines. They’ve been in Python since 2.7, and Tornado has adopted
     them. They’re all over the RethinkDB examples. I’ve been coding in a single or
@@ -104,13 +150,19 @@
     based code in the same style. Now I need to combine that with RethinkDB code written
     in a coroutine style. I found this fantastic blog post with detailed commentary on
     refactoring a bunch of callback style Tornado code to use coroutines: [https://emptysqua.re/blog/refactoring-tornado-coroutines/](https://emptysqua.re/blog/refactoring-tornado-coroutines/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我解决了这些陷阱，我意识到我需要升级我的编程风格来拥抱协程。它们自Python 2.7起就已经存在，Tornado也已经采用了它们。RethinkDB示例中到处都是协程。过去的十年里，我一直以单线程或低线程异步回调风格进行编程，意识到多线程阻塞工作线程方法效率低下，且容易导致死锁和竞态条件。但我的所有代码都非常依赖于回调，协程与那是一个很大的转变。过去几天我面临的一个大挑战就是弄清楚如何结合这两种风格。我自己的C++和Python框架使用单线程异步风格。而且我还有一堆与这种风格相同的基于Tornado的代码。现在我需要将这个与以协程风格编写的RethinkDB代码结合起来。我找到了一篇关于如何将回调风格的Tornado代码重构为使用协程的精彩博客文章：[https://emptysqua.re/blog/refactoring-tornado-coroutines/](https://emptysqua.re/blog/refactoring-tornado-coroutines/)
 - en: It’s been invaluable. One mistake I’ve made is thinking that Rethink/Tornado
     coroutines can be invoked directly like generators. They can’t, you must use loop.add_callback(
     ) to schedule them. I’ll be back with more as I explore RethinkDB and coroutines
     more, and I aim to post more code samples like this [gist of a minimal, complete
     Tornado Web Server](https://gist.github.com/osullivj/e0faf2348528285a388b74e398307bae)
     with RethinkDB changefeed.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这对我帮助极大。我所犯的一个错误是认为Rethink/Tornado协程可以直接像生成器那样调用。它们不能，你必须使用loop.add_callback()来调度它们。我会在更深入探索RethinkDB和协程后带来更多内容，我计划分享更多像这样的[Tornado
+    Web服务器的最小化、完整Gist](https://gist.github.com/osullivj/e0faf2348528285a388b74e398307bae)与RethinkDB
+    changefeed的代码样本。

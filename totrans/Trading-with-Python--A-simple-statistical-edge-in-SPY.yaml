@@ -1,131 +1,199 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:42:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:42:01'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: A simple statistical edge in SPY'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python进行交易：标准普尔500ETF中的简单统计优势
 - en: 来源：[http://tradingwithpython.blogspot.com/2016/02/a-simple-statistical-edge-in-spy.html#0001-01-01](http://tradingwithpython.blogspot.com/2016/02/a-simple-statistical-edge-in-spy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2016/02/a-simple-statistical-edge-in-spy.html#0001-01-01](http://tradingwithpython.blogspot.com/2016/02/a-simple-statistical-edge-in-spy.html#0001-01-01)
 - en: I've recently read a great post by the turinginance blog on
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近阅读了 turinginance 博客上的一篇很棒的文章
 - en: '[how to be a quant](http://www.turingfinance.com/how-to-be-a-quant/)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[如何成为量化交易员](http://www.turingfinance.com/how-to-be-a-quant/)'
 - en: .  In short, it describes a scientific approach to developing trading strategies.
     For me personally, observing data, thinking with models and forming hypothesis
     is a second nature, as it should be for any good engineer.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: .  简而言之，它描述了一种开发交易策略的科学方法。对我个人而言，观察数据、用模型思考并形成假设是一种第二天性，也应该是任何优秀工程师的素质。
 - en: In this post I'm going to illustrate this approach by explicitly going through
     a number of steps (just a couple, not all of them) involved in development of
     a trading strategy.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本文中，我将通过明确介绍开发交易策略所涉及的一些步骤（只是一部分，而不是全部）来说明这种方法。
 - en: Let's take a look at the most common trading instrument, the S&P 500 ETF  'SPY'
     . I'll start with observations.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们来看看最常见的交易工具，标准普尔500ETF 'SPY' 。我将从观察开始。
 - en: '**Observations**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**观察**'
 - en: It occurred to me that most of the time that there is much talk in the media
     about the market crashing (after big losses over several days timespan), quite
     a significant rebound sometimes follows.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我意识到，媒体经常谈论市场崩盘的时候（在几天内出现大幅下跌），有时会紧随着相当大的反弹。
 - en: In the past I've made a couple of mistakes by closing my positions to cut losses
     short, just to miss out a recovery in the following days.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去，我曾犯过几次错误，为了及时止损而平仓，结果错过了随后几天的复苏。
 - en: '**General theory**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**通用理论**'
 - en: After a period of consecutive losses, many traders will liquidate their positions
     out of fear for even larger loss. Much of this behavior is governed by fear, rather
     than calculated risk. Smarter traders come in then for the bargains.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在连续损失一段时间后，许多交易员会出于对更大损失的恐惧而清仓。这种行为大部分受到恐惧的驱使，而不是计算的风险。更聪明的交易者会在那时来寻找便宜货。
 - en: '**Hypothesis:**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**假设：**'
 - en: Next-day returns of SPY will show an upward bias after a number of consecutive
     losses.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在连续多次损失后，SPY 的次日回报将呈现向上偏差。
 - en: To test the hypothesis, I've calculated the number of consecutive 'down' days
     . Everything under -0.1% daily return qualifies as a 'down' day.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了验证假设，我计算了连续“下跌”天数。每日回报低于-0.1%都算作“下跌”日。
 - en: '[![](img/2d041b9b2f7818bc2e93be66320168ea.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglZ80s1NRCXsvZJ_eMreZq-z6r-a4R2gMtLGTlsFT8rNIXkkhBzNkYvH8SgmagSu1mMGsHxDFr4O9ZszldTV2cX0k_cQ_KjEYqjqLqM18THKkzxZGTgliO-CogJTzH7I-DoL629AlLZOS5/s1600/nr_days.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/2d041b9b2f7818bc2e93be66320168ea.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglZ80s1NRCXsvZJ_eMreZq-z6r-a4R2gMtLGTlsFT8rNIXkkhBzNkYvH8SgmagSu1mMGsHxDFr4O9ZszldTV2cX0k_cQ_KjEYqjqLqM18THKkzxZGTgliO-CogJTzH7I-DoL629AlLZOS5/s1600/nr_days.png)'
 - en: The return series are near-random, so as one would expect, the chances of 5
     or more consecutive down days are low, resulting in a very limited number of occurrences.
     Low number of occurrences will result in unreliable statistical estimates, so
     I'll stop at 5.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 回报系列接近随机，因此预期连续 5 天或更多的下跌日的机会很低，导致发生次数非常有限。发生次数低会导致不可靠的统计估计，所以我会停在 5。
 - en: Below is a visualisation of nex-tday returns as a function of number of down
     days.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是 nex-tday 回报作为连续下跌天数的函数的可视化。
 - en: '[![](img/cf976d945b189b5630f5cc925aa1c46d.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRjlKAIb6XAX0iArK7A3U0XhSBDr0gvj7Ye65mIedRaAU5Gw8bykmbrQiPRPP3qHk-r6-TpUC-RJylJpaZAIhDmMQCy0gAWiHFus3_MwyALP3_p3Nsq59LVtmSZqveXUv7B5ZT6Ltlly1v/s1600/next_day_return.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/cf976d945b189b5630f5cc925aa1c46d.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRjlKAIb6XAX0iArK7A3U0XhSBDr0gvj7Ye65mIedRaAU5Gw8bykmbrQiPRPP3qHk-r6-TpUC-RJylJpaZAIhDmMQCy0gAWiHFus3_MwyALP3_p3Nsq59LVtmSZqveXUv7B5ZT6Ltlly1v/s1600/next_day_return.png)'
 - en: I've also plotted 90% confidence interval of the returns between the lines.
     It turns out that the average return *is* positively correlated with the number
     of down days. Hypothesis
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还绘制了回报的90%置信区间。结果表明，平均回报与下跌天数呈正相关。假设
 - en: '**confirmed**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**已确认**'
 - en: .
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: However, you can clearly see that this extra
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，您可以清楚地看到这种额外
 - en: '*alpha*'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '*alpha*'
 - en: is very small compared to the band of the probable return outcomes. But even
     a tiny edge can be exploited (find a statistical advantage and repeat as often
     as possible). Next step is to investigate if this edge can be turned in a trading
     strategy.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 与可能的回报结果的区间相比，这个优势非常小。但是即使是一个微小的优势也可以被利用（找到一个统计优势，并尽可能多地重复）。下一步是调查这个优势是否可以转化为一个交易策略。
 - en: 'Given the data above, a trading strategy can be forumlated:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据上述数据，可以制定一个交易策略：
 - en: '**After consectutive 3 or more losses, go long. Exit on next close.**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在连续3次或更多次亏损之后，做多。在下一个收盘时退出。
 - en: Below is a result of this strategy compared to pure buy-and-hold.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是这个策略与纯粹的买入持有策略相比的结果。
 - en: '[![](img/d5d7f2843b0527b1da66f4b8a59066da.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_c6B0NkDQaq9wSLvhNe05hO5KSY8p9wzpwmUoEpWutDUWCeb_mj0VZqP4XQJXBumAenkDy4pcyo2YRIVPHd56pQ0EAUVMkmdAGT194ZZ8_AvkCpMlhcAoW5PDjFIqITA31NofOWQ4ZoUr/s1600/strat.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![策略](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_c6B0NkDQaq9wSLvhNe05hO5KSY8p9wzpwmUoEpWutDUWCeb_mj0VZqP4XQJXBumAenkDy4pcyo2YRIVPHd56pQ0EAUVMkmdAGT194ZZ8_AvkCpMlhcAoW5PDjFIqITA31NofOWQ4ZoUr/s1600/strat.png)'
 - en: This does not look bad at all! Looking a the sharpe ratios the strategy scores
     a descent 2.2 versus 0.44 for the B&H.  This is actually pretty good!  ( don't
     get too excited though, as I did not account for commision costs, slippage etc
     ).
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这看起来一点也不糟糕！看看夏普比率，这个策略得分为2.2，而B&H为0.44。这实际上相当不错！（不过别太兴奋，因为我没有考虑到佣金成本、滑点等）。
 - en: 'While the strategy above is not something that I would like to trade simply
     because of the long time span, the theory itself provokes futher thoughts that
     could produce something useful. If the same principle applies to intraday data,
@@ -133,9 +201,13 @@
     the world a bit by only counting the *number* of down days, without paying attention
     to the depth of the drawdown. Also, position exit is just a basic ''next-day-close''
     . There is much to be improved, but the essence in my opinion is this:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然上述策略由于时间跨度较长，并不是我想要交易的，但这个理论本身引起了进一步的思考，可能会产生有用的东西。如果同样的原则适用于日内数据，可以构建一种抢帽子策略。在上述例子中，我稍微简化了世界，只计算了*下跌天数*的数量，而没有关注回调的深度。此外，头寸退出只是基本的“次日收盘”。还有许多可以改进的地方，但我的看法是本质在于：
 - en: '*future returns of SPY are ifluenced by drawdown and drawdown duration over
     the previous 3 to 5 days.*'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 过去3至5天内SPY的*未来回报受回调和回调持续时间的影响*。

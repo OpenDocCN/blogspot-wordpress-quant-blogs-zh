@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:24:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:24:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The Skewness Stochastic | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 偏度随机 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/06/07/the-skewness-stochastic/#0001-01-01](https://cssanalytics.wordpress.com/2010/06/07/the-skewness-stochastic/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/06/07/the-skewness-stochastic/#0001-01-01](https://cssanalytics.wordpress.com/2010/06/07/the-skewness-stochastic/#0001-01-01)
 - en: My initial inclination was to write a long and perhaps boring article on distributions.
     Later this week we will be returning to the all-important subject of equity curve
     management–and this topic will guide much of the theory.  Unfortunately I am well
@@ -28,8 +40,10 @@
     systems dramatically. While I would like to broaden the scope of this blog, I
     felt that an indicator provides a more tangible/practical example of how to apply
     general knowledge.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最初的打算是一篇长篇且或许有些枯燥的文章，讨论各种分布。本周稍后，我们将回到一个至关重要的话题—— equity curve 管理，这个主题将指导大部分理论。不幸的是，我非常清楚交易员往往会忽略长篇理论著作，因为他们过于专注于“底线”。在Twitter和20秒注意力世界的背景下，回测和漂亮的图表无疑更有趣。然而，理解几个关键观点将节省你大量随机的回测时间，并显著改善你的系统。尽管我希望扩大这个博客的范围，但我觉得指标提供了将一般知识应用到实践中的更具体/实用的例子。
 - en: Skewness and kurtosis are statistical measurements of the shape of the distribution
     of returns or prices.  Today we will look at one of these terms. Skewness is a
     way of looking at where the average of the distribution is positioned relative
@@ -43,8 +57,10 @@
     see a negatively skewed distribution since mathematically this will mean that
     we have a greater than 50% chance of a given return, with the average return being
     higher than most of the observed returns.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 偏度和峰度是用来衡量收益率或价格分布形状的统计测量。今天，我们将讨论这两个术语中的一个。偏度是查看分布的平均值相对于中位数在标准化术语中的位置的一种方法。实际上，它告诉我们观察值的幅度是如何相对于频率分布的。如果平均值大于中位数，那么基本上分布是向右倾斜的，为了造成不必要的混淆，这被称为负偏（尽管大多数人可能会直观地认为它是正偏）。相反，如果平均值小于中位数，那么分布是向左倾斜的，这被称为正偏。基本上，我们希望看到负偏的分布，因为从数学上讲，这意味着我们有超过50%的机会获得给定的回报，而平均回报高于大多数观察到的回报。
 - en: How do we merge this concept to make an indicator more accurate? Well as the
     current conditions remind us all, mean-reversion indicators function more reliably
     on the long side in either up-trends, or in stable but volatile conditions.  The
@@ -59,8 +75,12 @@
     the SPY over the last 2000 bars. As you can clearly see, the skewness stochastic
     has substantially higher accuracy/reliability and lower downside risk. More to
     follow……….
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 如何将这个概念结合起来以使指标更加准确呢？正如当前情况所提醒我们的，均值回归指标在上升趋势中或在稳定但波动的条件下，在长仓方面运作得更为可靠。问题是，价格的移动平均线对于短期指标来说太长了，不够可靠。我们真正需要的是能够告诉我们胜率是否在我们有利的一方转变的东西——尤其是在长仓方面，市场上大部分的风险调整回报都是在这里实现的。因此，查看短期价格历史是否表现出负偏度是有意义的。在这个版本中，我使用了Excel中的样本偏度函数，表示为=SKEW()。我将在后续文章中或提供一个电子表格链接来计算。这个例子比较了一个标准的2日（H,L,C）随机指标与过去2000根K线的2日偏度随机指标。正如您清晰看到的，偏度随机指标的准确性和可靠性要高得多，且下行风险更低。更多内容请关注后续………
 - en: '[![](img/f364485e997873c8912b8b918ced8b78.png "0000")](https://cssanalytics.files.wordpress.com/2010/06/00001.jpg)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![0000](https://cssanalytics.files.wordpress.com/2010/06/00001.jpg)'

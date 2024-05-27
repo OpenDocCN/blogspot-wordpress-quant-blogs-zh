@@ -1,42 +1,64 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:11:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:11:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Normalized Gap/Lap Indicator (NGIu/NGId, NLIu, NLId) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 标准化跳空/跌落指标（NGIu/NGId，NLIu，NLId）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/03/21/normalized-gaplap-indicator-ngiungid-nliu-nlid/#0001-01-01](https://cssanalytics.wordpress.com/2011/03/21/normalized-gaplap-indicator-ngiungid-nliu-nlid/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/03/21/normalized-gaplap-indicator-ngiungid-nliu-nlid/#0001-01-01](https://cssanalytics.wordpress.com/2011/03/21/normalized-gaplap-indicator-ngiungid-nliu-nlid/#0001-01-01)
 - en: 'Gaps and Laps were formerly popularized by TradingMarkets: [http://www.tradingmarkets.com/](http://www.tradingmarkets.com/).
     They represent a means of identifying a type of market pattern that isn’t explicitly
     captured by other indicators.  Gaps or laps up or down are large price moves that
     originate on the open and occur on very positive or negative news that catches
     the market off guard. The following set of definitions apply:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 跳空和跌落以前由TradingMarkets普及：[http://www.tradingmarkets.com/](http://www.tradingmarkets.com/)。它们代表了一种识别其他指标未能明确捕捉到的市场模式的方法。跳空或跌落上涨或下跌是在开盘时由非常积极或消极的新闻引发的，这使市场措手不及。以下是一套适用定义：
 - en: 'gap down:  today’s open<yesterday’s low'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 跌落：今日开盘<昨日最低
 - en: 'lap down: today’s open< yesterday’s close'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 跌落：今日开盘<昨日收盘
 - en: 'gap up: today’s open> yesterday’s high'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 跳空上涨：今日开盘>昨日最高
 - en: 'lap up: today’s open>yesterday’s close'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 上涨：今日开盘>昨日收盘
 - en: 'Originally much of the research done on gaps/laps used very specific percentage
     criteria which was to be used across a wide variety of stocks. Generally speaking
     the results suggested that one should fade the direction of the gap/lap over the
@@ -48,32 +70,48 @@
     even for large caps, while the equivalent gap for a small/volatile stock would
     be -50% or more. Thus, this method is begging to be normalized, and this can be
     done several different ways but we will stick to a simpler example for this post:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最初，关于缺口/跌落的研究使用了非常具体的百分比标准，这些标准适用于各种不同股票。一般来说，研究建议在接下来的几天内对缺口/跌落的方向进行淡化。也就是说，缺口/跌落存在均值回归效应。我发现研究中存在的问题是，像“跌落<-10%，然后买入”这样的百分比标准没有对证券进行标准化，这往往会造成扭曲。对于一家小型生物技术公司，这实际上是一个较小的缺口，而对于一家大型市值股票，这是一个大型的缺口。此外，2008年的跌落-10%对大型市值股票来说很常见，而对于小盘/波动性股票，相应的缺口可能是-50%或更多。因此，这种方法亟待标准化，而且可以通过几种不同的方式进行，但我们在这篇文章中将坚持使用一个更简单的例子：
 - en: 'NGIup:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: NGIup：
 - en: '1) normalized the gap: take the current gap divided by the 10-day ATR as of
     yesterday’s close and compare it to all other up gaps divided by their 10-day
     ATR as at t-1 days from the gap.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 标准化跳空：取当前跳空除以昨天的收盘价的10日ATR，并与所有其他跳空除以它们在t-1日的10日ATR进行比较。
 - en: 2) rank the current normalized gap in relation to at least 50 prior up gaps,
     this is the NGIup
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 将当前标准化缺口与至少50个之前的上涨缺口进行排名，这就是NGIup。
 - en: 'NGIdown: do the same thing just compare to prior down gaps instead'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 跌落NGIdown：做同样的事情，只是与之前的跌落缺口相比
 - en: 'NLIup: do the same thing just compare to prior laps up instead'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: NLIup：做同样的事情，只是与之前的上涨跌落相比
 - en: 'NLIdown: do the same thing but just compare to prior laps down instead'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: NLIdown：做同样的事情，只是与之前的跌落缺口相比
 - en: 'Applications:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 应用：
 - en: The normalized gap/lap indicators are ideal for use in identifying how to trade
     for different types of gap setups. It is recommended that you look at extremes
     such as >80th percentile, or at the very least>50th percentile/median to conduct
@@ -83,5 +121,7 @@
     should be a mean-reversion effect, but this will vary depending on whether you
     are looking at up or down gaps/laps and also the magnitude of the gap/lap and
     the longer-term trend etc.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 标准化跳空/跌落指标非常适合用于识别不同跳空设置的交易方法。建议您查看极端情况，例如>80百分位，或者至少>50百分位/中位数来进行您的分析。不要有任何关于跳空或跌落应该如何表现的先入之见。研究表明，这可能非常股票特定，也可能是类别特定（例如小盘股对防御性大盘股）。总的来说，应该有一个均值回归效应，但这将取决于您是看上涨还是下跌跳空/跌落，以及跳空/跌落的幅度和长期趋势等。

@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:58:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:58:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mating and Uniform Crossover | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 配对与均匀交叉 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/09/05/mating-and-uniform-crossover/#0001-01-01](https://cssanalytics.wordpress.com/2013/09/05/mating-and-uniform-crossover/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/09/05/mating-and-uniform-crossover/#0001-01-01](https://cssanalytics.wordpress.com/2013/09/05/mating-and-uniform-crossover/#0001-01-01)
 - en: '[![mating process](img/8b610cf2a62e624e7134a28431499692.png)](https://cssanalytics.files.wordpress.com/2013/09/mating-process.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '![配对过程](https://cssanalytics.files.wordpress.com/2013/09/mating-process.png)'
 - en: 'In the last post, we showed a basic blueprint for [Micro Genetic Algorithms](https://cssanalytics.wordpress.com/2013/09/03/micro-genetic-algorithm-schematic/
     "Micro Genetic Algorithm Schematic"). It is worthwhile clarifying the process
     for mating to produce offspring. The picture to the left demonstrates a basic
@@ -34,11 +48,16 @@
     below, we are trying to predict the success rate of being accepted to business
     school by examining different criteria across candidates. After performing tournament
     selection, we find two parents and now wish to produce new offspring:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上篇文章中，我们展示了一种[微遗传算法](https://cssanalytics.wordpress.com/2013/09/03/micro-genetic-algorithm-schematic/
+    "微遗传算法示意图")的基本蓝图。阐明配对以产生后代的流程是值得的。左边的图片展示了遗传算法中配对的基本蓝图。但该图片并未描述选择要交换哪些特征以及如何执行选择的过程。有一个具体的例子总是有帮助的。更改两个父母特征以产生后代的最简单方法是均匀交叉。在这个方法中，使用均匀随机数来确定要交换哪些特征。产生后代的目的是希望产生比原始种群中最优个体/染色体更好的目标函数。在下面的例子中，我们试图通过检查候选人不同的标准来预测被商业学校录取的成功率。在执行锦标赛选择后，我们找到了两个父母，现在希望产生新的后代：
 - en: '[![uniform crossover excel](img/6717bc6de076e47a0e7b2a17495f6232.png)](https://cssanalytics.files.wordpress.com/2013/09/uniform-crossover-excel.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '![均匀交叉Excel](https://cssanalytics.files.wordpress.com/2013/09/uniform-crossover-excel.png)'
 - en: 'This is a very simple but effective way to produce offspring. There are a lot
     of more complex variations such as weighting the probability of switching features
     based upon the expected value for a particular feature: in other words, we may
@@ -46,18 +65,26 @@
     the probability of selecting an inferior feature. For example, if we believe that
     quintile order is predictive we may for example say that quintile 1 GMAT scores
     are better than quintile 2 scores. For this feature we may use the following rule:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是产生后代的一种非常简单但有效的方法。还有许多更复杂的变体，例如根据特定特征的期望值来加权交换特征的概率：换句话说，我们可能希望为均匀随机数选择一个特定的断点，以反映选择劣质特征的概率。例如，如果我们认为五分位数顺序具有预测性，我们可以说例如第一分位数的GMAT分数比第二分位数的分数好。对于这个特征，我们可以使用以下规则：
 - en: if RAND()> .25 then quintile 1 GMAT,  if not then quintile 2
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果RAND()> .25，则选择第一分位数GMAT，如果不是，则选择第二分位数
 - en: where RAND() is a uniform random number between 0 and 1
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中RAND()是0到1之间的均匀随机数
 - en: This reflects a probability of 75% that quintile 1 will be selected, and 25%
     that quintile 2 will be selected. It is possible to extend this concept in multiple
     ways, but the caveat is that you may restrict the search from finding a unique
     or counter-intuitive combination. A little a priori knowledge is useful, but too
     much can leave you trapped in a local optimum.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这反映了第一五分位数被选中的概率为75%，第二五分位数被选中的概率为25%。可以以多种方式扩展此概念，但警告是，你可能会限制搜索找到唯一或违反直觉的组合。一些先验知识是有用的，但太多可能会让你陷入局部最优。

@@ -1,40 +1,58 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，以上只是部分翻译内容，如果需要更多翻译或者有其他需求，请告知。
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:06:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:06:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: 'Magmasystems Blog: More on the first CEP Use Case'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 关于第一个CEP用例的更多内容'
 - en: 来源：[http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/more-on-first-cep-use-case.html#0001-01-01)
 - en: Yesterday, I had a great two-hour session with Henry and Bob from Coral8 in
     which most of the use case was done.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨天，我与Coral8的Henry和Bob进行了一场两个小时的会议，其中完成了大多数用例。
 - en: Henry is our designated pre-sales engineer. His job is to do what it takes to
     make sure that the prospective customer is happy with the product before making
     a decision to purchase the product. Bob is the head architect of Coral8, and his
     job (as he described it) is to make sure that the product is as easy to use as
     possible.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Henry是我们的指定预销售工程师。他的工作是要确保潜在客户在决定购买产品之前对产品感到满意。Bob是Coral8的首席架构师，他的工作（正如他描述的）是要确保产品尽可能容易使用。
 - en: Between Henry and Bob, two solutions were offered. I will go into the first
     solution in this blog entry. The second solution revolves around custom timestamping
     of messages by the input adapter, and this topic deserves a blog entry of its
     own.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在亨利和鲍勃之间，提出了两个解决方案。我将在本文中介绍第一个解决方案。第二个解决方案涉及输入适配器自定义消息时间戳，这个话题值得单独一篇博客文章。
 - en: The main problem was to analyze the order flow for each sector over a one minute
     timeslice, and determine if any sectors showed abnormal activity. The problem
     that I was faced with was that the concept of “time” was determined by the TransactTime
@@ -43,8 +61,10 @@
     14:24:57 and one whose TransactTime field was 14:25:01, then the receipt of the
     second FIX message should cause a new timeslice, regardless of what the wall clock
     said.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 主要问题是要分析每个部门在一分钟时间片内的订单流程，并确定是否有任何部门显示出异常活动。我所面临的问题是“时间”的概念由FIX消息中的TransactTime字段决定，而不是由墙上的“时钟”决定。所以，如果出于某种原因，我连续收到两个FIX消息，其中一个的TransactTime字段是14:24:57，另一个的TransactTime字段是14:25:01，那么收到第二个FIX消息应该会导致一个新的时间片，而不管墙上的时钟显示什么。
 - en: The solution that Henry came up with was to use a pulse in a stream. Although
     the concept of raising an event is very common is programming, it is not really
     something that you tend to do in SQL stored procedure. The thing is that programming
@@ -54,83 +74,131 @@
     vendors can improve; they can publish a listing of patterns, they can come up
     with FAQs, etc. I mentioned this to Bob of Coral8, so expect to see some movement
     on this front from the Coral8 folks.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 亨利提出的解决方案是在流中使用脉冲。尽管在编程中 raising 事件的概念非常普遍，但在 SQL 存储过程中并不是真正要做的事情。事情在于，Coral8的CCL（以及许多CEP供应商的SQL样式的方言）编程是一种过程编程和SQL编程的组合，找到解决您问题的正确“模式”是关键。这是许多CEP供应商可以改进的地方；他们可以发布模式列表，他们可以制定常见问题解答等。我将这一点告诉了Coral8的Bob，所以期待Coral8方面在这方面有一些进展。
 - en: 'Here is what the pulse stream looks like in Coral8’s CCL:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是Coral8的CCL中脉冲流的显示方式：
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: -- LastTimeSlice holds the maximum timeslice (0 to 389) of the order stream.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: LastTimeSlice 保持订单流的最大时间片（0到389）。
 - en: -- When we see an order with a TransactTime greater than the current max timeslice,
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们看到一个 TransactTime 大于当前最大时间片的订单时，
 - en: -- then we set the new max timeslice. We also use this as a signal (pulse)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后我们设置新的最大时间片。我们还将此用作一个信号（脉冲）
 - en: -- to one of the streams below.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 将文本输入到以下流之一中。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: CREATE VARIABLE INTEGER LastTimeslice = -1;
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建变量整数 LastTimeslice = -1；
 - en: CREATE LOCAL STREAM stream_Pulse;
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建本地流 stream_Pulse；
 - en: INSERT INTO stream_Pulse
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 插入到 stream_Pulse
 - en: SELECT
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择
 - en: TimeToTimeBucket(FlattenNewOrder.TransactTime) AS epoch
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 按时间时间桶(FlattenNewOrder.TransactTime) AS 时间戳
 - en: FROM
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 从
 - en: FlattenNewOrder
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 扁平化新订单
 - en: WHERE
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: WHERE
 - en: TimeToTimeBucket(FlattenNewOrder.TransactTime) > LastTimeSlice;
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 按时间时间桶(FlattenNewOrder.TransactTime) > LastTimeSlice；
 - en: -- When we insert a new timeslice into the stream_Pulse stream, we also
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 当我们向stream_Pulse流中插入一个新的时间片时，我们也
 - en: -- set the new maxmimum timeslice.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 设置新的最大时间片。
 - en: ON stream_Pulse
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在流stream_Pulse上
 - en: SET LastTimeSlice = stream_Pulse.epoch;
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 设置 LastTimeSlice = stream_Pulse.epoch;
 - en: We have a global variable that keep the maximum timeslice that is flowing through
     our system. Since there are 6.5 hours in the trading day, there are 390 minute-sized
     timeslices that we want to consider.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们有一个全局变量，用于记录通过我们系统的时间片中最大的时间片。由于交易日是6.5小时，所以我们想要考虑390个分钟大小的 时间片。
 - en: In the INSERT statement, if the timeslice from the incoming FIX message is greater
     than the current maximum timeslice, then we insert a new record into the pulse
     stream.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 在INSERT语句中，如果来自FIX消息的时间片大于当前的最大时间片，那么我们在脉冲流中插入一条新记录。
 - en: The ON statement functions like a trigger. When a new record is inserted into
     a stream, you can have one or more ON statements that react to the event of inserting
     a record into the stream. Here, we set the new maximum timeslice.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: ON语句像一个触发器。当一条新记录插入到一个流中时，你可以有一个或多个ON语句对记录插入流的事件做出反应。在这里，我们设置新的最大时间片。
 - en: We need to maintain a Window that contains all of the orders for the current
     timeslice. The order information includes the stock ticker, the sector that the
     stock belongs to, the number of shares in the order, and the current timeslice.
@@ -140,213 +208,344 @@
     100 rows). What is missing here is a retention policy based on a boolean expression
     or on a certain column value changing. Streambase has this, and Coral8 knows that
     this feature should be implemented down the road.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要维护一个包含当前时间片所有订单的窗口。订单信息包括股票代码，股票所属的行业，订单中的股票数量和当前的时间片。在Coral8中，一个窗口提供了记录的保留。您可以在窗口上指定一个保留策略，无论是基于时间的时间保留策略（在窗口中保留记录5分钟）还是基于行的保留策略（只保留最后100行）。这里缺失的是基于布尔表达式或基于某些列值变化的保留策略。Streambase具有这个功能，Coral8知道这个特性应该在未来实现。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: -- The TickerAndSector window holds all FIX orders for the current timeslice.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: -- TickerAndSector窗口包含了当前时间片的所有FIX订单。
 - en: -- Each row of the window contains the FIX order and the sector information.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 窗口的每一行都包含FIX订单和行业信息。
 - en: -- When we see a new timeslice, the TickerAndSelector window is cleared
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 当我们看到一个新的时间片时，TickerAndSector窗口被清空
 - en: -- using a DELETE statement.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 使用DELETE语句。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: CREATE WINDOW TickerAndSector
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建TickerAndSector窗口
 - en: SCHEMA (Ticker STRING, SectorName STRING, SectorId INTEGER, Shares INTEGER,
     TransactTimeBucket INTEGER)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 表结构如下：（股票代码 STRING, 行业名称 STRING, 行业ID INTEGER, 股票数量 INTEGER, 交易时间桶 INTEGER）
 - en: KEEP ALL;
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 保留所有记录；
 - en: INSERT INTO TickerAndSector
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 向TickerAndSector表中插入数据
 - en: SELECT
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择
 - en: FlattenNewOrder.Ticker,
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: FlattenNewOrder.Ticker,
 - en: TickerToSectorMap.SectorName,
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.SectorName,
 - en: TickerToSectorMap.SectorId,
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.SectorId,
 - en: TO_INTEGER(FlattenNewOrder.Qty),
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 插入 FlattenNewOrder.Qty 的整数形式，
 - en: TimeToTimeBucket(FlattenNewOrder.TransactTime)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: TimeToTimeBucket(FlattenNewOrder.TransactTime)
 - en: FROM
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 从
 - en: FlattenNewOrder,
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: FlattenNewOrder,
 - en: TickerToSectorMap
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap
 - en: WHERE
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中
 - en: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
 - en: AND TimeToTimeBucket(FlattenNewOrder.TransactTime) >= LastTimeSlice;
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: AND TimeToTimeBucket(FlattenNewOrder.TransactTime) >= LastTimeSlice;
 - en: Now that we have a list of orders that occur for the current timeslice, we need
     to know when a new timeslice occurs. At this point, we need to analyze the orders
     for the current timeslice, find out which sectors are showing abnormal activity,
     and clear out the TickerAndSector window so that new orders can be accumulated
     for the new timeslice.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 如今我们已经有了一个当前时间片内发生的订单列表，我们需要知道何时会出现新的时间片。在此时，我们需要分析当前时间片内的订单，找出哪些行业显示出异常活动，并清空TickerAndSector窗口，以便新的订单可以积累到新的时间片。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: -- The OrdersPerSectorPerMinute window contains the aggregated totals
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 每个行业每分钟订单窗口包含聚合总数
 - en: -- for each sector for the previous timeslice. The aggregated totals include
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 针对上一个时间片每个行业。聚合总数包括
 - en: -- the number of orders for each sector and the total number of shares for each
     sector.
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 每个部门订单数量以及每个部门股票总数。
 - en: --
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: --
 - en: -- The interesting part of this is the join between the TickerAndSector window
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 这段代码的有趣之处在于TickerAndSector窗口
 - en: -- and the stream_Pulse. The stream_Pulse will be triggered when we see a new
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 以及stream_Pulse。当看到新的
 - en: -- timeslice.
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 时间片时触发。
 - en: --
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: --
 - en: -- When we insert rows into the OrdersPerSectorPerMinute window, we will trigger
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 当我们在OrdersPerSectorPerMinute窗口中插入行时，我们将触发
 - en: -- a deletion of the old info in the TickerAndSector window.
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: -- TickerAndSector窗口的旧信息删除。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: CREATE WINDOW OrdersPerSectorPerMinute
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: CREATE WINDOW OrdersPerSectorPerMinute
 - en: SCHEMA (SectorName STRING, SectorId INTEGER, OrderCount INTEGER, TotalShares
     INTEGER, Timeslice INTEGER)
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: SCHEMA (SectorName STRING, SectorId INTEGER, OrderCount INTEGER, TotalShares
+    INTEGER, Timeslice INTEGER)
 - en: KEEP 2 MINUTES;
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: KEEP 2 MINUTES;
 - en: INSERT INTO OrdersPerSectorPerMinute
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: INSERT INTO OrdersPerSectorPerMinute
 - en: SELECT
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: SELECT
 - en: tas.SectorName, tas.SectorId, COUNT(*), SUM(tas.Shares), stream_Pulse.epoch
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: tas.SectorName, tas.SectorId, COUNT(*), SUM(tas.Shares), stream_Pulse.epoch
 - en: FROM
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: FROM
 - en: TickerAndSector tas, stream_Pulse
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerAndSector tas, stream_Pulse
 - en: GROUP BY
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: GROUP BY
 - en: tas.SectorId;
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: tas.SectorId;
 - en: ON OrdersPerSectorPerMinute
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: ON OrdersPerSectorPerMinute
 - en: DELETE FROM TickerAndSector
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: DELETE FROM TickerAndSector
 - en: WHERE TransactTimeBucket < LastTimeSlice;
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: WHERE TransactTimeBucket < LastTimeSlice;
 - en: As you can see from the above code, when a new timeslice appears, we aggregate
     the number of orders and the total number of shares that are in the TickerAndSector
     window. The interesting thing here, and the thing that I might not have figured
     out on my own, was that we need to join with the pulse stream that we talked about
     before. The pulse stream here is being used to “kick start” the calculating and
     dumping of the records in the current timeslice.
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如您从上面的代码中看到的，当一个新的时间片出现时，我们对TickerAndSector窗口中的订单数量和股票总数进行了汇总。这里有趣的是，也是我可能自己没有想出来的事情，那就是我们需要与之前提到的脉冲流进行连接。这里的脉冲流用于“启动”当前时间片的记录计算和倾倒。
 - en: Finally, since we have aggregated the information for each sector for the current
     timeslice, we want to see if any sector exceeded the maximum “normal” number of
     orders.
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，由于我们已经对当前时间片内的每个部门的信息进行了汇总，所以我们想看看是否有任何部门超过了最大“正常”订单数量。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: -- This output stream will alert the user when a sector exceeds the
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 这个输出流将在部门超过
 - en: -- max orders for that timeslice.
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: -- 该时间片最大订单数。
 - en: '----------------------------------------------------------------------------------'
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '----------------------------------------------------------------------------------'
 - en: INSERT INTO AlertStream
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: INSERT INTO AlertStream
 - en: SELECT
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: SELECT
 - en: R.SectorId, R.SectorName, R.OrderCount, R.TotalShares
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: R.SectorId, R.SectorName, R.OrderCount, R.TotalShares
 - en: FROM
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: FROM
 - en: OrdersPerSectorPerMinute AS R, NormalOrdersPerSectorPerTimeslice AS H
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: OrdersPerSectorPerMinute AS R, NormalOrdersPerSectorPerTimeslice AS H
 - en: WHERE
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: WHERE
 - en: R.SectorId = H.SectorId AND R.Timeslice = H.Timeslice AND R.OrderCount > H.MaxOrders;
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: R.SectorId = H.SectorId AND R.Timeslice = H.Timeslice AND R.OrderCount > H.MaxOrders;
 - en: And, that’s it! If we attach a JMS output adapter to the AlertStream, we can
     generate a new, derived event, put that event back on the EMS bus (or we can send
     it into another Coral8 stream), and alert some kind of monitoring application.
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，就这样！如果我们给AlertStream添加一个JMS输出适配器，我们可以生成一个新的、派生的事件，将该事件放回EMS总线（或者我们可以将其发送到另一个Coral8流），并警报某种监控应用程序。
 - en: Thanks to the Coral8 guys for helping me slog my way through the learning process.
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢Coral8的同事们帮助我艰难地走过了学习过程。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

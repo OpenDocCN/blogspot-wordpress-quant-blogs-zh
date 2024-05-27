@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:04:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日14:04:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volatility Forecasting Using GARCH(1,1) – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用GARCH(1,1)进行波动率预测- 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/08/26/volatility-forecasting-using-garch11/#0001-01-01](https://quantumfinancier.wordpress.com/2010/08/26/volatility-forecasting-using-garch11/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/08/26/volatility-forecasting-using-garch11/#0001-01-01](https://quantumfinancier.wordpress.com/2010/08/26/volatility-forecasting-using-garch11/#0001-01-01)
 - en: 'Continuing on the current series of post, I was at the point of forecasting
     volatility. There is several ways to just that; this very topic is the subject
     of a lot of research in finance. Different models to model volatility are available
@@ -29,16 +41,22 @@
     I will not go into to much detail on the GARCH process (ie this is not meant to
     be an introduction post), if you would like to hear more about it, please let
     me know in the comment section.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在继续当前一系列的帖子时，我正在预测波动率的点。有几种方法可以做到这一点；这个话题在金融领域进行了大量研究。有各种不同的模型可以模拟波动率，涵盖了从简单到复杂的整个范围。我将使用我认为是最流行的之一：GARCH(1,1)。不过，我认为这并不是最好的模型，但我确实认为它的简单性使其非常吸引人。对于更复杂的量化分析人群来说，在GARCH家族中，EGARCH似乎比其他模型更好地预测市场波动率。我不打算详细介绍GARCH过程（即这不是一篇介绍性的文章），如果你想了解更多，请在评论部分告诉我。
 - en: For SPY since 2000, here is what a GARCH(1,1) model looks like, plotted vs the
     21 day standard deviation with the residuals at the bottom. Results have been
     created using the tseries and quantmod libraries for R.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于自2000年以来的SPY股票，这是一个GARCH(1,1)模型的情况，与21天标准偏差一起绘制在底部的残差。结果是使用R的tseries和quantmod库创建的。
 - en: '[![](img/de07b3d8f5203d3b407dd8c6a75372ec.png "garch(1,1)")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/garch11.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/de07b3d8f5203d3b407dd8c6a75372ec.png "garch(1,1)")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/garch11.png)'
 - en: In terms of significance, the model significantly filtered the ARCH effect and
     the conditional normality assumption does not seem to be violated (using Jarque
     Bera and Box-Ljung tests). Regardless of the textbook testing, eyeballing the
@@ -47,8 +65,12 @@
     model on volatility of volatility once it has been stripped of its correlation
     with the actual volatility to see if we can improve our trading results and especially
     our regime switching strategies.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在显著性方面，该模型明显地过滤了ARCH效应，条件正态性假设似乎没有被违反（使用Jarque Bera和Box-Ljung测试）。不管是照本宣科的测试，还是用眼睛观察图表，我们看到该模型在预测SPY的波动率方面相当不错。现在我们已经建立了模型，下一篇文章应该是如何在波动率被剥离与实际波动率的相关性后使用类似的模型，以查看我们是否可以改善交易结果，特别是我们的制度切换策略。
 - en: QF
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

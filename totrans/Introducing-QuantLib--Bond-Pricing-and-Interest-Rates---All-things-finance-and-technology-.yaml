@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:45:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:45:52
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Bond Pricing and Interest Rates | All things finance
     and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：债券定价和利率 | 所有关于金融和科技的事物……
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/20/introducing-quantlib-bond-pricing-and-interest-rates/#0001-01-01)
 - en: 'In my last post I demonstrated how to calculate the present value of a future
     cash flow. Specifically, we used QuantLib to back out the principal amount of
     a $100 one year loan with a 5% interest rate compounded annually given the amount
@@ -27,66 +39,105 @@
     of 3% that pays annual coupons of 5% compounded annually.  The code, as you might
     expect, is very similar to the code to calculate the loan principal as the basic
     concept is the same:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我上一篇文章中，我展示了如何计算未来现金流现值的方法。具体来说，我们使用了QuantLib来计算一个面值为$100、年利率为5%、每年复利一次的一年期贷款的本金金额，该贷款到期时应还金额为$105。在这篇文章中，我们将使用同样的技术来定价一个面值为$100、利率为3%、每年支付5%复利的一年期固定利率债券。代码，如您所预期的，与计算贷款本金金额的代码非常相似，因为基本概念是一样的：
 - en: '#include <ql/quantlib.hpp>'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#include <ql/quantlib.hpp>`'
 - en: '#include <iostream>'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#include <iostream>`'
 - en: '#define BOOST_AUTO_TEST_MAIN'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#define BOOST_AUTO_TEST_MAIN`'
 - en: '#include <boost/test/unit_test.hpp>'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#include <boost/test/unit_test.hpp>`'
 - en: BOOST_AUTO_TEST_CASE(testCalculateBondPrice) {
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '`BOOST_AUTO_TEST_CASE(testCalculateBondPrice) {`'
 - en: Leg cashFlows;
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Leg cashFlows;`'
 - en: Date date = Date::todaysDate();
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期 `date` = 今天的日期();
 - en: cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date+365)));
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date+365)));`'
 - en: cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date + 2*365)));
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(5.0, date + 2*365)));`'
 - en: cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(105.0, date + 3*365)));
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '`cashFlows.push_back(boost::shared_ptr(new SimpleCashFlow(105.0, date + 3*365)));`'
 - en: Rate rate = .03;
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率 `rate` = 0.03;
 - en: Real npv =
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际净现值 `npv` =
 - en: CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(ActualActual::Bond),
     Compounded, Annual), true);
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '`CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(ActualActual::Bond),
+    Compounded, Annual), true);`'
 - en: 'std::cout << “Price of 3 year bond with annual coupons is: ” << npv << std::endl;'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '`std::cout << “Price of 3 year bond with annual coupons is: ” << npv << std::endl;`'
 - en: '}'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '`}`'
 - en: 'When run, this code produces the output:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行此代码时，会产生以下输出：
 - en: '`Price of 3 year bond with annual coupons is: 105.657`'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Price of 3 year bond with annual coupons is: 105.657`'
 - en: Now that we’ve seen a couple examples of computing present value, I’d like to
     focus specifically on the interest rate component of these calculations. In the
     examples we’ve seen thus far, the interest rate has been an annual rate compounded
     annually. What does this mean exactly?
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们已经看到了几个计算现值的例子，我想特别关注这些计算中的利率部分。在我们迄今为止看到的例子中，利率是一个年利率，每年复利一次。这究竟是什么意思？
 - en: Let’s first talk about the concept of an interest rate period.  An interest
     rate period is the time duration over which interest accrues on a loan or other
     cash flow. My first loan example had only one time period, at the end of which,
@@ -102,8 +153,10 @@
     be made so short that the interest accrued is constantly rolling over.  The interest
     rate, in this case, is subject to continuous compounding. The formula for continuous
     compounding is Pe^RT.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先讨论一下利率周期的概念。利率周期是贷款或其他现金流上利息累积的时间跨度。我第一个贷款例子中只有一个时间段，在结束时，本金和利息到期。这是一个“简单利息”的例子，计算公式为P(1+RT)，其中P=本金，R=利率，T=时间。如果贷款期限分解为多个时间段，并且一个时间段内累积的利息自动再投资或滚入下一个时间段，那么就说利息进行了复利。复利计算的公式是P(1+R)^T。上面债券定价例子中的每一个年度息票，在支付时，都假设按债券利率3%进行再投资。所以，债券的利率是一个年利率，每年复利。复利期间不必是年度的，它们可以是半年、月度、周度、日度等。实际上，期间可以设得如此之短，以至于利息不断滚动。在这种情况下，利率受到连续复利的影响。连续复利的公式是Pe^RT。
 - en: QuantLib implements all of these interest rate concepts in its [InterestRate](http://quantlib.org/reference/class_quant_lib_1_1_interest_rate.html)
     class. The non-default InterestRate constructor takes a Rate, a DayCounter, a
     Compounding type and a Frequency.  The DayCounter specifies the convention for
@@ -112,25 +165,34 @@
     to holiday and business calendars, which vary by market, financial instrument
     and locality.  Day count conventions can be quite difficult to implement correctly
     in practice. Thankfully, QuantLib’s InterestRate class shields us from this complexity.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib在其[InterestRate](http://quantlib.org/reference/class_quant_lib_1_1_interest_rate.html)类中实现了所有这些利率概念。非默认的InterestRate构造函数接受一个Rate、一个DayCounter、一个复利类型和一个频率。DayCounter指定了确定贷款期间应“计数”哪些天的惯例，这些天用于确定利息率的期间开始和结束的时间，受假期和商业日历的影响，这些日历因市场、金融工具和地区而异。日计数惯例在实际操作中可能很难正确实施。幸运的是，QuantLib的InterestRate类使我们免于这种复杂性。
 - en: So that’s it until my next post, where I’ll show how to calculate equivalent
     rates. Thus, we will be able to compare, for example, a 5% rate compounded semi-annually
     to a 4.9% rate compounded continuously to determine which one is actually a higher
     effective rate.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，下次发文之前就聊到这里，届时我会展示如何计算等效利率。这样，我们就能比较，例如，一个半年复利的5%利率和一个连续复利的4.9%利率，以确定哪一个实际的Effective
+    Rate更高。
 - en: I hope also to introduce a slightly more elaborate method of pricing bonds that
     relies on a separate  [Schedule](http://quantlib.org/reference/class_quant_lib_1_1_schedule.html)
     class to generate the bond’s coupons. Moreover, this method provides for a more
     flexible and realistic way of modeling the ‘term structure’ of interest rates.
      So please come back soon and check out the next installment of my blog. Thanks!
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我也希望介绍一个稍微复杂一点的债券定价方法，该方法依赖于一个独立的[Schedule](http://quantlib.org/reference/class_quant_lib_1_1_schedule.html)类来生成债券的息票。此外，这种方法为建模利率的“期限结构”提供了更加灵活和现实的方式。所以请随时关注我的博客下一期的内容。谢谢！
 - en: About Mick Hittesdorf
+  id: totrans-29
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于Mick Hittesdorf
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -140,5 +202,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一位多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我曾负责管理一个全球数据科学和分析平台，开发了低延迟的、专有的交易系统，管理过软件开发团队，制定了企业架构策略，撰写了白皮书和博客，在行业期刊上发表过文章，并以咨询和技术销售的身份向客户提供了创新的解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R语言和云计算。

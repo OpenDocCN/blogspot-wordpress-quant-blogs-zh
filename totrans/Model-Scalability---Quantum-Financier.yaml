@@ -1,30 +1,48 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:00:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:0-39'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Model Scalability – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Model Scalability – Quantum Financier
 - en: 来源：[https://quantumfinancier.wordpress.com/2011/02/15/models-scalability/#0001-01-01](https://quantumfinancier.wordpress.com/2011/02/15/models-scalability/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2011/02/15/models-scalability/#0001-01-01](https://quantumfinancier.wordpress.com/2011/02/15/models-scalability/#0001-01-01)
 - en: 'When designing a model, an aspect that I often overlook is scalability. First
     a definition from Investopedia: “A characteristic of a system, model or function
     that describes its capability to cope and perform under an increased or expanding
     workload. A system that scales well will be able to maintain or even increase
     its level of performance or efficiency when tested by larger operational demands.”'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 'When designing a model, an aspect that I often overlook is scalability. First
+    a definition from Investopedia: “A characteristic of a system，model or function
+    that describes its capability to cope and perform under an increased or expanding
+    workload. A system that scales well will be able to maintain or even increase
+    its level of performance or efficiency when tested by larger operational demands.”'
 - en: Now most of you probably wonder why I would overlook such a crucial aspect of
     model building. The reason is very simple; I never had to. Most of the models
     I design are for my personal trading and since I don’t have millions of dollar
@@ -34,8 +52,18 @@
     I place my orders since the effect of the order book are negligible. However,
     chances are I am not going to design models solely for my personal trading during
     my career.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Now most of you probably wonder why I would overlook such a crucial aspect of
+    model building. The reason is very simple; I never had to. Most of the models
+    I design are for my personal trading and since I don’t have millions of dollar
+    in capital to trade (yet!), the scalability requirements are very insignificant.
+    Most of my trading is on the mini futures and I only trade a few contracts per
+    symbol. Keeping this in mind, I don’t have to worry too much about slippage when
+    I place my orders since the effect of the order book are negligible. However，
+    chances are I am not going to design models solely for my personal trading during
+    my career.
 - en: The scalability requirement for a hedge fund for example is however, very different.
     Imagine trading a high-turnover strategy on a single symbol, for the sake of example,
     consider a RSI2 strategy. It is a very short term strategy that has a relatively
@@ -48,8 +76,11 @@
     at the ask and therefore we would expect some slippage effect. Presumably, it
     would be quite significant and would significantly change our expectation of return
     for our RSI2 strategy.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 对对冲基金而言，可扩展性的要求实际上是非常不同的。例如，想象一下在一个单一的符号上进行高交易量的策略，为了说明方便，我们考虑一个RSI2策略。这是一个非常短期的策略，对于一个日终策略来说，交易量相对较高。现在用50k来交易这个策略是可行的（不是最优的，但也不算太差），现在想象一下用100mm来在单一符号上交易RSI2信号；这是非常不切实际的。想想滑点会对策略产生多大的影响。在撰写本文时，SPY开盘价为133.02，交易100mm最终会在开盘报价时大约是751,654股。承认吧，我没有确切的数字，但我怀疑订单簿在卖价处几乎深度达到了百万级，因此我们预计会有一些滑点效应。
+    presumably，这将会非常显著，并且会显著改变我们对RSI2策略回报的预期。
 - en: Now I know that few hedge funds would trade a RSI2 on the SPY alone, it is only
     a conceptual example to support understanding, and I want to point out that I
     am not saying that RSI2 is non-scalable (nor that it isn’t). To evaluate scalability,
@@ -61,14 +92,20 @@
     per symbol is decreasing when we diversify across assets). However, that effect
     is not necessary a linear one as nicely explained by Joshua in the comment section
     below.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我知道，很少有对冲基金会仅在SPY上交易RSI2，这只是为了支持理解的一个概念性例子，我想指出我并不是说RSI2不具备可扩展性（也不是说它不具备）。要评估可扩展性，我们需要健壮的回测，清楚地估计订单簿、延迟（如果是日内的话）以及其他相关因素对回报的影响。另一个需要考虑的角度是跨资产的可扩展性，以我们的RSI2为例，如果我们将50%分配给SPY和QQQQ，从理论上讲，我们可以减少给定符号上的滑点和其他交易成本的加权影响（即当我们跨资产分散时，每个符号的边际交易成本在降低）。然而，正如Joshua在下面的评论部分很好地解释的那样，这种效果并不一定是线性的。
 - en: Other avenues to consider in scalability are left to the interested reader who
     can always contact me via email if they desire since I have recently paid closer
     attention to the issue myself. Furthermore, for readers with similar career desires
     to mine, remember that models scalability is directly related to employability!
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于可扩展性的其他途径留给感兴趣的读者，他们总是可以通过电子邮件联系我，因为我最近更关注这个问题。此外，对于与我有着相似职业愿望的读者，要记住模型的可扩展性与就业能力直接相关！
 - en: QF
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化基金（QF）

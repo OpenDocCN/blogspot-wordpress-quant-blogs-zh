@@ -1,69 +1,110 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:21:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:21:21'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Note To Self - Traversing Rows in a Single Band'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 给自己的一条笔记 - 在单带中遍历行'
 - en: 来源：[http://magmasystems.blogspot.com/2006/04/note-to-self-traversing-rows-in-single.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/note-to-self-traversing-rows-in-single.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/04/note-to-self-traversing-rows-in-single.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/note-to-self-traversing-rows-in-single.html#0001-01-01)
 - en: I am not really a hardcore Infragistics person. I find it amazing that some
     of the features that I consider essential in their Ultra
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: I am not really a hardcore Infragistics person. I find it amazing that some
+    of the features that I consider essential in their Ultra
 - en: '**WEB**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**WEB**'
 - en: Grid offering are not found in their Ultra
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Grid offering are not found in their Ultra
 - en: '**WIN**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**WIN**'
 - en: Grid product.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Grid product.
 - en: I am writing a prototype of an app that has multiple levels of grouping. I need
     to be able to double-click on the column header of a band, and have it do something
     to only the rows in that band. For instance, if the user double-clicks on the
     column that says 'Selected', then I want every checkbox in that group to be toggled
     without affecting the rows in any other group.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: I am writing a prototype of an app that has multiple levels of grouping. I need
+    to be able to double-click on the column header of a band, and have it do something
+    to only the rows in that band. For instance, if the user double-clicks on the
+    column that says 'Selected', then I want every checkbox in that group to be toggled
+    without affecting the rows in any other group.
 - en: '[![](img/92aecef58007639a64c37d37fcd549c7.png)](http://photos1.blogger.com/blogger/138/258/1600/ManualConfs.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/92aecef58007639a64c37d37fcd549c7.png)](http://photos1.blogger.com/blogger/138/258/1600/ManualConfs.jpg)'
 - en: Sounds easy, right? Find out which header you double-clicked on, and then get
     the child rows that are associated with that header. The problem is that headers
     are not considered true rows within UltraWinGrid. They are "UI Elements". They
     do not have references to the rows that are directly beneath them.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 听起来很简单，不是吗？找出你双击了哪个标题，然后获取与该标题相关联的子行。问题是，在UltraWinGrid中，标题并不是真正的行。它们是“UI元素”。它们没有引用直接下面的行。
 - en: After a while of messing around with the HeaderDoubleClicked event, I finally
     decided to base my procesing off of the MouseDoubleClick event.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 折腾了好一会儿HeaderDoubleClicked事件之后，我最终决定基于MouseDoubleClick事件来处理。
 - en: Here is what I finally came up with after a few hours of tinkering around. (By
     the way, the function 'ToggleSelected' is a good way of walking down the entire
     tree of rows in a grouped grid.)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 经过几小时的鼓捣，我最终想出了这个方法。（顺便说一下，函数'ToggleSelected'是在分组网格中遍历整棵树行的一个好方法。）
 - en: '[PRE0]  It works. The key was the UIElement.GetContext() function, which I
     finally found by reading a two sentence Knowledge Base article on the Infragistics
     website.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[PRE0]  这方法有效。关键在于UIElement.GetContext()函数，我最终是在Infragistics网站上的一个两句话的知识库文章中找到的。'
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - All Rights Reserved

@@ -1,128 +1,205 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yaml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:01:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:01:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: 的命令行应用程序。
 - en: 'Magmasystems Blog: The Importance of Tibco EMS Monitoring'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: Tibco EMS监控的重要性'
 - en: 来源：[http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01](http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01](http://magmasystems.blogspot.com/2008/06/importance-of-tibco-ems-monitoring.html#0001-01-01)
 - en: If you are using
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你正在使用
 - en: Tibco
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: EMS, you should be aware that there is a decent tool that comes with the
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: EMS，你应该知道有一个不错的工具随
 - en: Tibco SDK
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco SDK
 - en: that allows you to monitor all activity that goes on in your broker. In the
     directory
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 允许你监控在你经纪人中进行的所有活动。在目录
 - en: '***c:\tibco\ems\bin***'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '***c:\tibco\ems\bin***'
 - en: ', you will find a command-line application called'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ，你会发现一个名为
 - en: '***tibemsmonitor.exe***'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '***tibemsmonitor.exe***'
 - en: . If you run this utility, you can see every connect/disconnect, every creation
     and destruction of a
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 。如果你运行这个实用程序，你可以看到每一个连接/断开，每一个主题或队列的创建和销毁的
 - en: MessageProducer
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 消息生产者
 - en: and
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: MessageConsumer
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: MessageConsumer
 - en: ', every creation of a topic or queue.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: ，每一个主题或队列的创建。
 - en: In a quest to optimize our code, I started spying on the interaction between
     EMS and our application. I found that we were creating
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了优化我们的代码，我开始监视EMS和我们的应用程序之间的交互。我发现我们正在创建
 - en: MessageProducers
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: MessageProducers
 - en: too many times ... way too many times for an application that did a lot of real-time
     message processing.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 太多次了...对于一个做大量实时消息处理的程序来说，次数太多。
 - en: I was curious to see what went on behind the act of creating a message producer
     and consumer. So, I fired up the invaluable Reflector (from
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很好奇地想看看创建消息生产者和消费者的背后发生了什么。所以，我启动了非常有价值的Reflector（来自
 - en: Lutz Roeder
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Lutz Roeder
 - en: ) and peeked into the
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ）并窥视了
 - en: '***Tibco.EMS.dll***'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '***Tibco.EMS.dll***'
 - en: assembly. What I found was that, every time a message producer or consumer is
     created, the
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 汇编。我发现的是，每次创建一个消息生产者或消费者时，该
 - en: '***Tibco.EMS._CreateMessageProducer***'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '***Tibco.EMS._CreateMessageProducer***'
 - en: function constructs a message, sends it into the broker, and synchronously waits
     for a response. This takes a lot of time and produces a lot of overhead.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 函数构建消息，将其发送到经纪人，并同步等待响应。这需要花费大量的时间并产生大量的开销。
 - en: I changed our code so that we now cache and reuse
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我修改了我们的代码，现在我们缓存并重复使用
 - en: MessageProducers
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: MessageProducers
 - en: . I have to say that our code looks like it runs a lot faster now. A lot faster....
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 。我必须说，我们的代码看起来现在运行得快多了。快得多....
 - en: Since the code in question was something I wrote two years ago, I took it for
     granted that it was working fine, since about a dozen groups in our company use
     this code. And, it was working fine, except that it produced a lot of needless
     overhead. I will gladly accept 10 lashes with a wet noodle for this one ....
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于这个问题中的代码是我两年前写的，我以为它没问题，因为咱们公司有大约十几个小组在使用这个代码。而且，它确实运行良好，除了产生了大量不必要的开销。对于这个错误，我愿意接受十下湿面条的鞭刑
+    ....
 - en: 'The lessons learned are:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 学到的教训是：
 - en: 1) Optimize, optimize, optimize
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 优化，优化，优化
 - en: 2) That old code that you are using that forms the basis of your framework probably
     can do with monitoring.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 那些你正在使用的构成你框架基础的旧代码可能需要监控。
 - en: 3) Use Reflector to see what the underlying libraries are doing.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 使用Reflector来查看底层库正在做什么。
 - en: '***©2008 Marc Adler - All Rights Reserved.*** ***All opinions here are personal,
     and have no relation to my employer.***'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '***©2008 Marc Adler - All Rights Reserved.*** ***所有在这里的意见都是个人的，与我雇主无关。***'

@@ -1,213 +1,356 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:58:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:58:04'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Stocks and Bonds Behavior by Decade'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Stocks and Bonds Behavior by Decade'
 - en: 来源：[http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/08/stocks-and-bonds-behavior-by-decade.html#0001-01-01)
 - en: I struggled with whether or not I should even post this.  It is raw and ugly,
     but it might help somebody out there.   I might use this as a basis for some more
     gridSVG posts, but I do not think I have the motivation to finish the analysis.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: I struggled with whether or not I should even post this.  It is raw and ugly,
+    but it might help somebody out there.   I might use this as a basis for some more
+    gridSVG posts, but I do not think I have the motivation to finish the analysis.
 - en: '[![ggplot stocks bonds by decade](img/5d3c0ceacf1f7d8813161f88062199e1.png
     "ggplot stocks bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrCsCFbFk6Zjet8fvsyr3CNxBtzhKJyys5mNjSiQGtmyYXNmU3wnOoqjIUStmZBhLh-izt3bK00u1eUcEp4xu0YS2UXF0AKNOd3Bs_8uJQGeiMEbrp6AF5g2V-2-yH-AbF3VxDzm1hAg/s1600-h/ggplot%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![performance
     by time](img/e4f3801a25b505faba37a84790a4361e.png "performance by time")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9gHHO1I1AGxFyCQrvLHu5rB-npQdAXdpe3xEQq8Tycgq-QlAftguhN4LVrXg6LWU4B6RuGusqqbvxtRFcgP_xIWkgmLjCTm5bi3RK2tPKHXLdy6kBpfnLEC4laM4s4KZZLgWF7tuuRw/s1600-h/performance%252520by%252520time%25255B1%25255D.jpg)[![lattice
     stocks bonds by decade](img/ee68c6ee6abc05248e6eb7e67169c196.png "lattice stocks
     bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6Rl5cXmXgJgw_79t1iyXEFaqBOkSAt2S4cT4-GIwc465L1w-XoY9ZrKFKEbcGfdWotQ06NH9O80YarIQdIwcSa4K6z4la0UJKcEHQ0930VAt9DfTSw5tVU9_ikSTKeiBlpkeoRI3VA/s1600-h/lattice%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![perf
     summar](img/7f3684e643a73b391382a117096c0b25.png "perf summar")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1Ych6jFeXNO_IVC6p1p0wK34ILPlIneKh2rYvcMq7f7meGS38fBlKrU5so92d4_qF-U_qMuGlZZ3xvLG0SA7idMTkkaWuqskdWhx-9oPa3Ns-V8iyHc8nYzBVrEa926nquw881MMTEw/s1600-h/perf%252520summar%25255B1%25255D.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![ggplot stocks bonds by decade](img/5d3c0ceacf1f7d8813161f88062199e1.png
+    "ggplot stocks bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrCsCFbFk6Zjet8fvsyr3CNxBtzhKJyys5mNjSiQGtmyYXNmU3wnOoqjIUStmZBhLh-izt3bK00u1eUcEp4xu0YS2UXF0AKNOd3Bs_8uJQGeiMEbrp6AF5g2V-2-yH-AbF3VxDzm1hAg/s1600-h/ggplot%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![performance
+    by time](img/e4f3801a25b505faba37a84790a4361e.png "performance by time")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9gHHO1I1AGxFyCQrvLHu5rB-npQdAXdpe3xEQq8Tycgq-QlAftguhN4LVrXg6LWU4B6RuGusqqbvxtRFcgP_xIWkgmLjCTm5bi3RK2tPKHXLdy6kBpfnLEC4laM4s4KZZLgWF7tuuRw/s1600-h/performance%252520by%252520time%25255B1%25255D.jpg)[![lattice
+    stocks bonds by decade](img/ee68c6ee6abc05248e6eb7e67169c196.png "lattice stocks
+    bonds by decade")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjY6Rl5cXmXgJgw_79t1iyXEFaqBOkSAt2S4cT4-GIwc465L1w-XoY9ZrKFKEbcGfdWotQ06NH9O80YarIQdIwcSa4K6z4la0UJKcEHQ0930VAt9DfTSw5tVU9_ikSTKeiBlpkeoRI3VA/s1600-h/lattice%252520stocks%252520bonds%252520by%252520decade%25255B1%25255D.jpg)[![perf
+    summar](img/7f3684e643a73b391382a117096c0b25.png "perf summar")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1Ych6jFeXNO_IVC6p1p0wK34ILPlIneKh2rYvcMq7f7meGS38fBlKrU5so92d4_qF-U_qMuGlZZ3xvLG0SA7idMTkkaWuqskdWhx-9oPa3Ns-V8iyHc8nYzBVrEa926nquw881MMTEw/s1600-h/perf%252520summar%25255B1%25255D.jpg)'
 - en: 'Code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Code:'
 - en: require(latticeExtra)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: require(latticeExtra)
 - en: require(quantmod)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: getSymbols("SP500",src="FRED")
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols("SP500",src="FRED")
 - en: US10 <- na.omit(getSymbols("DGS10",src="FRED",auto.assign=FALSE))
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: US10 <- na.omit(getSymbols("DGS10",src="FRED",auto.assign=FALSE))
 - en: stocksBonds <- na.omit(
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: stocksBonds <- na.omit(
 - en: merge(
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: merge(
 - en: 'lag(SP500,k=-100)/SP500-1,  #forward 100 day sp500 perf'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'lag(SP500,k=-100)/SP500-1,  #forward 100 day sp500 perf'
 - en: 'US10 / runMean(US10,n=250) - 1,       #us10 yield - 250 day average'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'US10 / runMean(US10,n=250) - 1,       #us10 yield - 250 day average'
 - en: SP500
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: SP500
 - en: )
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: )
 - en: )
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: )
 - en: '#get the decade'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#get the decade'
 - en: stocksBonds$decade = as.numeric(substr(index(stocksBonds),1,3)) * 10
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: stocksBonds$decade = as.numeric(substr(index(stocksBonds),1,3)) * 10
 - en: '#name columns'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#name columns'
 - en: colnames(stocksBonds) <- c("sp500","us10","SP500","decade")
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(stocksBonds) <- c("sp500","us10","SP500","decade")
 - en: '#get a color ramp for our change in us10 year yields'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '#get a color ramp for our change in us10 year yields'
 - en: linecolors <- colorRamp(
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: linecolors <- colorRamp(
 - en: c("red","green"),
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: c("红色","绿色"),
 - en: interpolate="linear",
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: interpolate="linear",
 - en: space="rgb"
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: space="rgb"
 - en: )((stocksBonds[,2]+0.5))
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: )((stocksBonds[,2]+0.5))
 - en: xyplot(
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: xyplot(
 - en: stocksBonds[,1],
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: stocksBonds[,1],
 - en: col=rgb(linecolors,max=255),
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: col=rgb(linecolors,max=255),
 - en: type="p",pch=19,cex=0.5,
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: type="p",pch=19,cex=0.5,
 - en: main = "Stocks 100d Forward Performance"
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: main = "Stocks 100d Forward Performance"
 - en: )
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: )
 - en: xyplot(
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: xyplot(
 - en: sp500 ~ us10 | factor(decade),
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: sp500 ~ us10 | factor(decade),
 - en: groups = decade,
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: groups = decade,
 - en: data = as.data.frame(stocksBonds),
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: data = as.data.frame(stocksBonds),
 - en: pch=19,
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: pch=19,
 - en: cex = 0.5,
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: cex = 0.5,
 - en: scales = list(
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: scales = list(
 - en: x = list(tck=c(1,0),alternating=1)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: x = list(tck=c(1,0),alternating=1)
 - en: ),
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: ),
 - en: layout=c(6,1),
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: layout=c(6,1),
 - en: main = "S&P 500 Forward Performance vs US 10y Change in Yields",
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '`main = "S&P 500 Forward Performance vs US 10y Change in Yields",`'
 - en: ylab = "S&P Forward Performance (100d)",
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ylab = "S&P Forward Performance (100d)",`'
 - en: xlab = "US 10y Yields - 250d Avg"
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '`xlab = "US 10y Yields - 250d Avg"`'
 - en: ) +
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '`) +`'
 - en: latticeExtra::layer(panel.abline(h=0,col="gray",lty=2)) +
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '`latticeExtra::layer(panel.abline(h=0,col="gray",lty=2)) +`'
 - en: latticeExtra::layer(panel.abline(v=0,col="gray",lty=2)) +
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '`latticeExtra::layer(panel.abline(v=0,col="gray",lty=2)) +`'
 - en: xyplot(
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '`xyplot(`'
 - en: sp500 ~ us10 | factor(decade),
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '`sp500 ~ us10 | factor(decade),`'
 - en: col="gray",
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '`col="gray",`'
 - en: data = as.data.frame(stocksBonds),
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '`data = as.data.frame(stocksBonds),`'
 - en: panel = panel.lmline)
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '`panel = panel.lmline)`'
 - en: require(ggplot2)
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '`require(ggplot2)`'
 - en: ggplot(data = data.frame(stocksBonds), aes(y=sp500, x= us10,colour=decade))+
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ggplot(data = data.frame(stocksBonds), aes(y=sp500, x= us10,colour=decade))+`'
 - en: geom_point()+facet_wrap(~decade,ncol=6)+geom_smooth()
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '`geom_point()+facet_wrap(~decade,ncol=6)+geom_smooth()`'
 - en: charts.PerformanceSummary(
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '`charts.PerformanceSummary(`'
 - en: merge(
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: '`merge(`'
 - en: ROC(stocksBonds[,3],n=1,type="discrete"),
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ROC(stocksBonds[,3],n=1,type="discrete"),`'
 - en: ROC(stocksBonds[,3],n=1,type="discrete") * (stocksBonds[,2]>0)
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ROC(stocksBonds[,3],n=1,type="discrete") * (stocksBonds[,2]>0)`'
 - en: ),
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: '`),`'
 - en: main="S&P 500 | if Bonds - Mean(250d) > 0"
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '`main="S&P 500 | if Bonds - Mean(250d) > 0"`'
 - en: )
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: '`)`'

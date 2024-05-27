@@ -1,69 +1,106 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:40:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:40:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volatility Quantiles | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 波动率分位数 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/05/volatility-quantiles/#0001-01-01)
 - en: 'Today I want to examine the performance of stocks in the S&P 500 grouped into
     [Quantiles](http://en.wikipedia.org/wiki/Quantile) based on one year historical
     Volatility. The idea is very simple: each week we will form Volatility Quantiles
     portfolios by grouping stocks in the S&P 500 into Quantiles using one year historical
     Volatility. Next we will backtest each portfolio and check if low historical volatility
     corresponds to the low realized volatility.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想要检验标普500指数中股票的表现，将其分组为[分位数](http://en.wikipedia.org/wiki/Quantile)，基于一年的历史波动率。这个想法非常简单：每周我们将根据一年的历史波动率将标普500指数中的股票分组为波动率分位数投资组合。接下来我们将对每个投资组合进行回测，并检查低历史波动率是否对应低实现波动率。
 - en: 'Let’s start by loading historical prices for all companies in the S&P 500 and
     create SPY and Equal Weight benchmarks using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先加载标普500指数中所有公司的历史价格，并使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)创建
+    SPY 和 Equal Weight benchmarks：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s divide stocks in the S&P 500 into Quantiles using one year historical
     Volatility and create backtest for each quantile.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们根据一年的历史波动率将标普500指数中的股票分成分位数，并为每个分位数创建回测。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Finally let’s plot historical equity curves for each Volatility Quantile and
     create a summary table.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后让我们为每个波动率分位数绘制历史股票曲线并创建一个总结表格。
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/83fb5bfae52960bde4a3ca2c8984d0d1.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/83fb5bfae52960bde4a3ca2c8984d0d1.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small.png)'
 - en: '[![](img/a7911ea135f47c20b983a095de2f988b.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a7911ea135f47c20b983a095de2f988b.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small.png)'
 - en: 'Our thesis is true for stocks in the S&P 500 index: low historical volatility
     leads to low realized volatility. There is a one-to-one correspondence between
     historical and realized volatility quantiles.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的论点适用于标普500指数中的股票：低历史波动率导致低实现波动率。历史波动率分位数与实现波动率分位数一一对应。
 - en: Please note that performance numbers have to be taken with a grain of salt because
     I used **current** components in the S&P 500 index; hence, introducing [survivorship
     bias](http://en.wikipedia.org/wiki/Survivorship_bias).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，性能数字必须经过一定程度的怀疑，因为我使用了标普500指数中的**当前**成分；因此，引入了[存活偏见](http://en.wikipedia.org/wiki/Survivorship_bias)。
 - en: To view the complete source code for this example, please have a look at the
     [bt.volatility.quantiles.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github 上 bt.test.r 中的 bt.volatility.quantiles.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

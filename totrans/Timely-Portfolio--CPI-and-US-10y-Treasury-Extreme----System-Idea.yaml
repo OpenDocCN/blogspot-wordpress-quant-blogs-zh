@@ -1,200 +1,327 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:17:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:17:34'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: CPI and US 10y Treasury Extreme –> System Idea'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时组合：CPI和US 10年期国债的极端情况 –> 系统想法
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/cpi-and-us-10y-treasury-extreme-system.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/cpi-and-us-10y-treasury-extreme-system.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/cpi-and-us-10y-treasury-extreme-system.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/cpi-and-us-10y-treasury-extreme-system.html#0001-01-01)
 - en: When I see extremes, I feel compelled to explore. The US 10y Treasury yield
     is at an extreme versus the annualized 3 month CPI rate of change.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我看到极端情况时，我会感到有必要进行探索。美国10年期国债收益率与年化的3个月CPI变化率相比处于极端水平。
 - en: Of course, I have to try to build a system around the idea.  While this 3 month
     CPI rate of change generates a decent signal of entry and exit for the S&P 500,
     it appears the 6 to 12 month rate of change works better.  Let’s just use US 10y
     Treasury minus the lagged (since CPI released middle of following month) 9 month
     rate of change on CPI.  If the 9 month S&P 500 rate of change exceeds this US10y-9monthCPI
     rate by –5%, then enter a long S&P 500 position.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，我必须尝试围绕这个想法构建一个系统。尽管这个3个月的CPI变化率为S&P 500的进出产生了一个不错的信号，但似乎6到12个月的变化率效果更好。我们只需使用US
+    10年期国债减去（自CPI发布之后的次月中旬）9个月的CPI变化率。如果9个月的S&P 500变化率超过这个US10y-9个月CPI率，则进入多头S&P 500头寸。
 - en: Results are better than I would have expected, and the degrees of freedom are
     fairly robust.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果比我预期的要好，而且自由度相当稳健。
 - en: For some hindsight optimization, we can add an exit on upside extremes. Magically,
     1987 disappears. I don't recommend this hindsight optimization approach unless
     the concept works on multiple other markets, but the upside extreme would have
     you out of the S&P 500 currently also.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于一些事后的优化，我们可以在上行极端情况上加一个退出信号。神奇的是，1987年的情况消失了。我不建议这种事后优化的方法，除非这个概念在其他多个市场上都行之有效，但上行极端情况也会使您退出S&P
+    500。
 - en: I use these for illustrative purposes. In no way am I providing financial advice. 
     You are responsible for your own profits and losses.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我用这些只是为了举例说明。我并不提供金融建议。你要对自己的盈亏负责。
 - en: 'R code:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(PerformanceAnalytics)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(quantmod)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: 'getSymbols("CPIAUCNS",src="FRED") #load CPI from Fed Fred'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("CPIAUCNS",src="FRED") #从联邦储备系统（Fed Fred）加载CPI'
 - en: 'getSymbols("GS10",src="FRED") #load US Treasury 10y from Fed Fred'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS10",src="FRED") #从联邦储备系统（Fed Fred）加载US Treasury 10年期'
 - en: 'getSymbols("GS20",src="FRED") #load US Treasury 20y from Fed Fred'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS20",src="FRED") #从联邦储备系统（Fed Fred）加载US Treasury 20年期'
 - en: 'getSymbols("GS30",src="FRED") #load US Treasury 30y from Fed Fred'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS30",src="FRED") #从联邦储备系统（Fed Fred）加载US Treasury 30年期'
 - en: 'getSymbols("SP500",src="FRED") #load SP500 from Fed Fred'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("SP500",src="FRED") #从联邦储备系统（Fed Fred）加载SP500'
 - en: '#fill 20y gap from discontinued 20y Treasuries with 30y'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用30年期替代20年期中断的债券'
 - en: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
 - en: SP500<-to.monthly(SP500)[,4]
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: SP500<-to.monthly(SP500)[,4]
 - en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将格式转换为yyyy-mm-dd的月度格式，以每个月的第一天为准'
 - en: index(SP500)<-as.Date(index(SP500))
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: index(SP500)<-as.Date(index(SP500))
 - en: '#subtract the annualized 3mo ROC of CPI from US 10y'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将CPI的年化3个月变化率从US 10年期中减去'
 - en: US10yMinus3moCPI<-GS10/100-((1+ROC(CPIAUCNS,3))^4-1)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: US10yMinus3moCPI<-GS10/100-((1+ROC(CPIAUCNS,3))^4-1)
 - en: chartSeries(US10yMinus3moCPI,theme="white.mono")
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: chartSeries(US10yMinus3moCPI,theme="white.mono")
 - en: '#get the 12 month rate of change on CPI'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取CPI的12个月变化率'
 - en: '#subtract the lagged amount from the 10y Treasury'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将10年期国债的滞后金额减去'
 - en: '#I retrieved the 20y series also if you would like to use that here'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我也检索了20年的数据，如果您想在这里使用的话'
 - en: '#it does not make much difference'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#这没有太大的区别'
 - en: US10yMinusCPI<-GS10/100-lag(ROC(CPIAUCNS,9,type="discrete"),k=1)
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: US10yMinusCPI<-GS10/100-lag(ROC(CPIAUCNS,9,type="discrete"),k=1)
 - en: signal<-ifelse(ROC(SP500,n=9)-lag(US10yMinusCPI) > -0.05,1,0)
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-ifelse(ROC(SP500,n=9)-lag(US10yMinusCPI) > -0.05,1,0)
 - en: signal<-lag(signal,k=1)
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-lag(signal,k=1)
 - en: signal[is.na(signal)]<-0
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: signal[is.na(signal)]<-0
 - en: 'SPreturn<-ROC(SP500,1,type="discrete")  # 1 month SP500 rate of change'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 'SPreturn<-ROC(SP500,1,type="discrete")  # 1个月的S&P 500变化率'
 - en: SPreturn[1]<-0
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: SPreturn[1]<-0
 - en: SystemReturn<-signal*SPreturn
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: SystemReturn<-signal*SPreturn
 - en: SystemEquity<-cumprod(1+signal*SPreturn)*coredata(SP500)[1]
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: SystemEquity<-cumprod(1+signal*SPreturn)*coredata(SP500)[1]
 - en: return_compare<-merge(SystemReturn,SPreturn)
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: return_compare<-merge(SystemReturn,SPreturn)
 - en: colnames(return_compare)<-c("SP500 System based on US10y & CPI","SP500")
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(return_compare)<-c("基于US10y & CPI的SP500系统","SP500")
 - en: charts.PerformanceSummary(return_compare,ylog=TRUE,
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(return_compare,ylog=TRUE,
 - en: main="Performance Comparison of SP500 and System",
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: main="SP500和系统的绩效比较",
 - en: colorset=c("cadetblue","darkolivegreen3"))
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 颜色设置 = c("海军蓝","深橄榄绿3")
 - en: chartSeries(SystemEquity,theme="white.mono",log=TRUE,
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表系列(系统股权,主题="白色.单色",对数=TRUE,
 - en: TA="addTA(SP500,on=1);addTA(ROC(SP500,n=9)-lag(US10yMinusCPI))",
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 技术分析="添加技术分析(SP500,开启=1);添加技术分析(ROC(SP500,n=9)-滞后(US10yMinusCPI))"，
 - en: name="Performance Comparison of SP500 and System with Signal")
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 名称="SP500和带信号系统的表现比较")
 - en: '#now with some hindsight optimization to really limit the drawdown'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在通过一些事后优化来真正限制回撤'
 - en: '#add an extreme upside filter and 1987 magically disappears'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '#添加一个极端上升过滤器，1987年神奇地消失了'
 - en: '#don''t recommend this approach but a good example'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '#不推荐这种方法，但这是一个好例子'
 - en: signal<-ifelse(ROC(SP500,n=9)-lag(US10yMinusCPI) > -0.05 & ROC(SP500,n=9)-lag(US10yMinusCPI)
     < 0.2,1,0)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 信号 <- ifelse(ROC(SP500,n=9)-滞后(US10yMinusCPI) > -0.05 & ROC(SP500,n=9)-滞后(US10yMinusCPI)
+    < 0.2,1,0)
 - en: signal<-lag(signal,k=1)
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 信号 <- 滞后(信号,k=1)
 - en: signal[is.na(signal)]<-0
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 信号[is.na(信号)]<-0
 - en: 'SPreturn<-ROC(SP500,1,type="discrete")  # 1 month SP500 rate of change'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 'SP回报 <- ROC(SP500,1,类型="离散") # 1个月SP500的变化率'
 - en: SPreturn[1]<-0
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: SP回报[1]<-0
 - en: SystemReturn<-signal*SPreturn
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统回报 <- 信号 * SP回报
 - en: SystemEquity<-cumprod(1+signal*SPreturn)*coredata(SP500)[1]
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统股权 <- 累积乘积(1+信号 * SP回报) * SP500的核心数据[1]
 - en: return_compare<-merge(SystemReturn,return_compare)
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 回报比较 <- 合并(系统回报, 回报比较)
 - en: colnames(return_compare)[1]<-"System with Upside filter"
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 回报比较的列名[1]<-"带上升过滤器的系统"
 - en: charts.PerformanceSummary(return_compare,ylog=TRUE,
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.性能摘要(回报比较,对数=TRUE,
 - en: main="Performance Comparison of SP500 and System with Upside Extreme Limit",
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: 主标题="SP500和带极端上升限制系统的表现比较",
 - en: colorset=c("gray70","darkolivegreen3","cadetblue"))
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 颜色设置 = c("灰色70","深橄榄绿3","海军蓝"))

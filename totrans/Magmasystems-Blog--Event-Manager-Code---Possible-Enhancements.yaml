@@ -1,86 +1,132 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yaml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:20:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:20:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'Magmasystems Blog: Event Manager Code - Possible Enhancements'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: Event Manager Code - Possible Enhancements'
 - en: 来源：[http://magmasystems.blogspot.com/2006/04/event-manager-code-possible.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/event-manager-code-possible.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/04/event-manager-code-possible.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/event-manager-code-possible.html#0001-01-01)
 - en: 'Now that I have posted the code for the Event Manager that I have used in several
     projects, I would like to list some possible enhancements that I have considered:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我已经发布了我在几个项目中使用的Event Manager的代码，我想列出一些我已经考虑过的可能的改进：
 - en: '**Precompile regular expressions**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**预编译正则表达式**'
 - en: The Event Manager supports wildcards. The .NET RegularExpression classes are
     used to perform matching of a published topic with a wildcarded subscription.
     Howver, I do not pre-compile the regexps. This is a very simple change to make.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件管理器支持通配符。.NET正则表达式类用于匹配带有通配符的发布主题和订阅。然而，我没有预编译正则表达式。这是一个非常简单的更改。
 - en: '**Enhanced regular expressions**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**增强的正则表达式**'
 - en: 'We can expand the regular expressions that wildcarded subscriptions will accept.
     For example, to subscribe to an insert or delete action for a trade, we should
     be able to have a wildcard topic that looks like this:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以扩展通配符订阅将接受的正则表达式。例如，为了订阅交易的插入或删除操作，我们应该能够有一个像这样的通配符主题：
 - en: Magmasystems.TradingSystem.Trade.[InsertedDeleted] **Stronger typing of args
     for event declarations**
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Magmasystems.TradingSystem.Trade.[InsertedDeleted] **事件声明中args的更强类型**
 - en: The third argument of EventManager.Fire() is anything that derives from EventManagerArgs.
     We can add more type safety by specifying the subclass of EventManagerArgs that
     a publisher expects to send and that the corresponding subscribers expect to receive.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: EventManager.Fire()的第三个参数是继承自EventManagerArgs的任何东西。我们可以通过指定发布者期望发送和相应订阅者期望接收的EventManagerArgs的子类来增加类型安全性。
 - en: '**Scoping**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**作用域**'
 - en: Microsoft's CAB has the notion of event scoping. We can limit a published event
     to subscribers that run in the same thread (or a certain thread) as the publisher.
     We can limit the scope to a named "applet". Otherwise, by default, the event is
     published globally.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 微软的CAB有事件作用域的概念。我们可以限制一个发布事件仅限于在同一个线程（或特定的线程）中运行的订阅者。我们可以将作用域限制在一个名为“applet”的命名空间中。否则，默认情况下，事件是全局发布的。
 - en: '**EventManager.Register(this)**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**EventManager.Register(this)**'
 - en: I am not totally thrilled with the fact that, for every object that publishes
     or subscribes, a call to EventManager.Register(this) is called. The Register()
     function will examine the passed class, using reflection on the class to build
     up a dictionary of publishers and subscribers to a topic.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我并不是特别兴奋，因为对于每个发布或订阅的对象，都会调用EventManager.Register(this)。注册函数将检查传递的类，使用类反射来构建发布者和订阅者到主题的字典。
 - en: '**Dynamically register the publisher and subscriber**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**动态注册发布者和订阅者**'
 - en: 'Instead of using the static way of decorating a method, we may want to add
     publications and subscriptions dynamically. For instance, we should be able to
     say something liek this:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'instead of using the static way of decorating a method, we may want to add
+    publications and subscriptions dynamically. For instance, we should be able to
+    say something liek this:'
 - en: EventManager.Subscribe("Magmasystems.TradingSystem.Trade.*", this.OnTradeEvent);**Sinks
     for event publishing**
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: EventManager.Subscribe("Magmasystems.TradingSystem.Trade.*", this.OnTradeEvent);**事件发布的水槽**
 - en: Implement Sinks so a class can have a crack at an event args before it is sent
     to the subscribers.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 实现水槽，以便类在事件参数被发送给订阅者之前有机会处理事件参数。
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

@@ -1,144 +1,229 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:42:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:42:51'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Building an indicator from short volume data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用 Python 进行交易：从短期成交量数据构建指标
 - en: 来源：[http://tradingwithpython.blogspot.com/2013/08/building-indicator-from-short-volume.html#0001-01-01](http://tradingwithpython.blogspot.com/2013/08/building-indicator-from-short-volume.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2013/08/building-indicator-from-short-volume.html#0001-01-01](http://tradingwithpython.blogspot.com/2013/08/building-indicator-from-short-volume.html#0001-01-01)
 - en: Price of an asset or an ETF is of course the best indicator there is, but unfortunately
     there is only only so much information contained in it. Some people seem to think
     that the more indicators (rsi, macd, moving average crossover etc) , the better,
     but if all of them are based at the same underlying price series, they will all
     contain a subset of the same limited information contained in the price.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 资产或 ETF 的价格当然是最好的指标，但不幸的是，它所包含的信息有限。有些人似乎认为指标越多（rsi、macd、移动平均线交叉等），越好，但如果它们都基于相同的基础价格序列，它们将都包含在价格中包含的有限信息的子集中。
 - en: We need more information
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要更多信息
 - en: '*additional*'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '*额外的*'
 - en: to what is contained the price to make a more informed guess about what is going
     to happen in the near future. An excellent example of combining all sorts of info
     to a clever analysis can be found on the
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 从所包含的价格中获取更多信息，以便对将来发生的事情作出更明智的猜测。结合各种信息进行聪明分析的绝佳例子可以在
 - en: '[The Short Side of Long blog](http://theshortsideoflong.blogspot.nl/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[长期博客的短面](http://theshortsideoflong.blogspot.nl/)'
 - en: . Producing this kind of analysis requires a great amount of work, for which
     I simply don't have the time as I only trade part-time.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 。进行这种分析需要大量工作，我只是个兼职交易员，没有足够的时间。
 - en: So I built my own 'market dashboard' that automatically collects information
     for me and presents it in an easily digestible form. In this post I'm going to
     show how to build an indicator based on short volume data. This post will illustrate
     the process of data gathering and processing.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我建立了自己的“市场仪表板”，它会自动为我收集信息并以易于理解的形式呈现出来。在这篇文章中，我将展示如何基于短期成交量数据构建指标。本文将说明数据收集和处理的过程。
 - en: '**Step 1: Find data source. **'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 1: 查找数据源。 **'
 - en: BATS exchange provides daily volume data for free on their
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: BATS 交易所免费提供每日成交量数据
 - en: '[site](http://www.batstrading.com/market_data/shortsales/)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[站点](http://www.batstrading.com/market_data/shortsales/)'
 - en: .
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: '**Step 2: Get data manually & inspect**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 2: 手动获取数据并检查**'
 - en: 'Short volume data of the BATS exchange is contained in a text file that is
     zipped. Each day has its own zip file. After downloading and unzipping the txt
     file, this is what''s inside (first several lines):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: BATS 交易所的短期成交量数据包含在一个文本文件中，该文本文件被压缩。每天都有自己的 zip 文件。下载并解压缩 txt 文件后，其中包含以下内容（前几行）：
 - en: '[PRE0]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '....'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '....'
 - en: In total a file contains around 6000 symbols.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 总共一个文件包含大约 6000 个符号。
 - en: This data is needs quite some work before it can be presented in a meaningful
     manner.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些数据需要进行相当多的处理，才能以有意义的方式呈现出来。
 - en: '**Step 3: Automatically get data**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 3: 自动获取数据**'
 - en: What I really want is not just the data for one day, but a ratio of short volume
     to total volume for the past several years, and I don't really feel like downloading
     500+ zip files and copy-pasting them in excel manually.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '我真正想要的不仅仅是一天的数据，而是过去几年的短期成交量与总成交量的比率，而且我不太想手动下载 500 多个 zip 文件并将它们粘贴到 Excel
+    中。 '
 - en: 'Luckily, full automation is only a couple of code lines away:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 幸运的是，完全自动化只需要几行代码：
 - en: 'First we need to dynamically create an url from which a file will be downloaded:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们需要动态创建一个 url，从中将下载一个文件：
 - en: '[PRE1]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Output:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 输出：
 - en: '[PRE2]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Now we can download multiple files at once:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们可以一次下载多个文件：
 - en: '[PRE3]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'Output:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 输出：
 - en: '[PRE4]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '**Step 4\. Parse downloaded files**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**步骤 4\. 解析下载的文件**'
 - en: 'We can use zip and pandas libraries to parse a single file:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以使用 zip 和 pandas 库解析单个文件：
 - en: '[PRE5]'
+  id: totrans-36
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: 'It returns a ratio of Short Volume/Total Volume for all symbols in the zip
     file:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 它返回一个 Short Volume/Total Volume 的比率，适用于 zip 文件中的所有符号：
 - en: '[PRE6]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '[PRE7]'
+  id: totrans-39
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: '[PRE8]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '[PRE9]'
+  id: totrans-41
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE9]'

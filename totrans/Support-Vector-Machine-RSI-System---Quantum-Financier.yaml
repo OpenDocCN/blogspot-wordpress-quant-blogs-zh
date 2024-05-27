@@ -1,594 +1,965 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:04:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:04:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Support Vector Machine RSI System – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 支持向量机RSI系统-量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/06/26/support-vector-machine-rsi-system/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/26/support-vector-machine-rsi-system/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/06/26/support-vector-machine-rsi-system/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/26/support-vector-machine-rsi-system/#0001-01-01)
 - en: Better late than never, as promised, the R code for the SVM system discussed
     in a [previous post](https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 宁愿晚一点，就像承诺的那样，在[先前的帖子](https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/)中讨论的SVM系统的R代码。
 - en: For the record this code is based on the [random forest system created by Max
     Dama.](http://www.maxdama.com/2009/05/decision-tree-bagging-system-r-code.html)
     I thought that it would make it easier for common reader to compare and evaluate.
     I also want to state that this isn’t anywhere close to optimal programming, I
     did that I long time ago and I was only starting with R at the time.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 供记录，此代码基于[Max Dama创建的随机森林系统。](http://www.maxdama.com/2009/05/decision-tree-bagging-system-r-code.html)
+    我认为这将使普通读者更容易比较和评估。我还想声明这与最佳编程方式相去甚远，我很久之前就写过了，当时我才刚开始学习R。
 - en: 'Here is the system :'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就是系统：
 - en: '`SVMClassifModel = function(data, targets, returns, lookback = 252, ktype =
     "C-svc", crossvalid = 10, C = 10) {'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '`SVMClassifModel = function(data, targets, returns, lookback = 252, ktype =
+    "C-svc", crossvalid = 10, C = 10) {'
 - en: Construct a predictive model using support vector machine
+  id: totrans-10
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用支持向量机构建预测模型
 - en: Input data must be lagged one period to avoid look-ahead bias
+  id: totrans-11
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 输入数据必须滞后一期，以避免前瞻性偏差
 - en: Print predictions and confidence, accuracy, equity curves plot, and performance
     statistics v.s. benchmark`
+  id: totrans-12
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 打印预测结果和置信度、准确度、资产曲线图以及性能统计与基准对比`
 - en: Libraries
+  id: totrans-13
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 库
 - en: require(kernlab)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(kernlab)
 - en: require(quantmod)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: Make sure targets is a factor (for classification)
+  id: totrans-16
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 确保目标是一个因子（用于分类）
 - en: targets = as.factor(targets)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: targets = as.factor(targets)
 - en: data$targets = as.factor(data$targets)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: data$targets = as.factor(data$targets)
 - en: Generate indexes for backtest
+  id: totrans-19
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 生成回测指数
 - en: idx = data.frame(targets = lookback:(nrow(data)-1))
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: idx = data.frame(targets = lookback:(nrow(data)-1))
 - en: Isolate index to be used later
+  id: totrans-21
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 隔离后续使用的指数
 - en: inx = index(returns[idx$targets])
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: inx = index(returns[idx$targets])
 - en: Prediction function to be used for backtesting
+  id: totrans-23
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用于回测的预测函数
 - en: pred1pd = function(t) {
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: pred1pd = function(t) {
 - en: Train model
+  id: totrans-25
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 训练模型
 - en: model = trainSVM(data[(t-lookback):t, ], ktype, C, crossvalid)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: model = trainSVM(data[(t-lookback):t, ], ktype, C, crossvalid)
 - en: Prediction
+  id: totrans-27
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 预测
 - en: pred = predict(model, data[t+1, -1], type="prob")
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: pred = predict(model, data[t+1, -1], type="prob")
 - en: Print for user inspection
+  id: totrans-29
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用户检查打印
 - en: print(pred)
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 打印预测结果
 - en: '}'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: backtest by looping over the calendar previously generated
+  id: totrans-32
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 循环遍历先前生成的日历进行回测
 - en: preds = sapply(idx$targets, pred1pd)
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: preds = sapply(idx$targets, pred1pd)
 - en: print output
+  id: totrans-34
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 打印输出
 - en: print(preds)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 打印预测结果
 - en: print(max.col(preds))
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 打印(max.col(preds))
 - en: preds = data.frame(t(rbind(mle = max.col(t(preds)), preds)))
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: preds = data.frame(t(rbind(mle = max.col(t(preds)), preds)))
 - en: print(preds)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 打印预测结果
 - en: print(summaryStats((returns[idx$targets] * (preds$mle*2-3)), returns[idx$targets],
     comp = TRUE))
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 打印摘要统计信息((returns[idx$targets] * (preds$mle*2-3)), returns[idx$targets], comp
+    = TRUE))
 - en: '#Equity curves'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '#资产曲线'
 - en: equity = xts(cumprod((returns[idx$targets] * (preds$mle*2-3))+1), inx)
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: equity = xts(cumprod((returns[idx$targets] * (preds$mle*2-3))+1), inx)
 - en: Benchmark = xts(cumprod(returns[idx$targets] + 1), inx)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: Benchmark = xts(cumprod(returns[idx$targets] + 1), inx)
 - en: y axis values range
+  id: totrans-43
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: y轴值范围
 - en: yrngMin = abs(min(equity, Benchmark))
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: yrngMin = abs(min(equity, Benchmark))
 - en: yrngMax = abs(max(equity, Benchmark))
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: yrngMax = abs(max(equity, Benchmark))
 - en: Plot curves
+  id: totrans-46
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 绘制曲线
 - en: chartSeries(equity, log.scale = TRUE, name='Equity Curves', yrange=c(yrngMin,
     yrngMax))
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: chartSeries(equity, log.scale = TRUE, name='Equity Curves', yrange=c(yrngMin,
+    yrngMax))
 - en: addTA(Benchmark, on=1, col='gold')
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: addTA(Benchmark, on=1, col='gold')
 - en: '}'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: trainSVM = function(data, ktype, C, crossvalid) {
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: trainSVM = function(data, ktype, C, crossvalid) {
 - en: Return a trained svm model
+  id: totrans-51
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 返回一个训练好的支持向量机模型
 - en: trainedmodel = ksvm(targets ~ ., data = data, type = ktype, kernel="rbfdot",
     kpar=list(sigma=0.05), C = C, prob.model = TRUE, cross = crossvalid)
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: trainedmodel = ksvm(targets ~ ., data = data, type = ktype, kernel="rbfdot",
+    kpar=list(sigma=0.05), C = C, prob.model = TRUE, cross = crossvalid)
 - en: '}'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: featureGen = function(sym, returns) {
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 特征生成函数(sym, returns) {
 - en: Return a data frame to be used as input by the SVM system
+  id: totrans-55
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 返回一个数据框，供支持向量机系统使用
 - en: Targets vector
+  id: totrans-56
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 目标向量
 - en: targets = coredata(returns)
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: targets = coredata(returns)
 - en: targets[targets>=0] = 1
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: targets[targets>=0] = 1
 - en: targets[targets<0] = -1
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: targets[targets<0] = -1
 - en: targets = as.factor(targets)
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: targets = as.factor(targets)
 - en: '#RSIs'
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '#RSIs'
 - en: rsi2 = RSI(Cl(sym), 2 )
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi2 = RSI(Cl(sym), 2 )
 - en: rsi3 = RSI(Cl(sym), 3 )
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi3 = RSI(Cl(sym), 3 )
 - en: rsi4 = RSI(Cl(sym), 4 )
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi4 = RSI(Cl(sym), 4 )
 - en: rsi5 = RSI(Cl(sym), 5 )
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi5 = RSI(Cl(sym), 5 )
 - en: rsi6 = RSI(Cl(sym), 6 )
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi6 = RSI(Cl(sym), 6 )
 - en: rsi7 = RSI(Cl(sym), 7 )
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi7 = RSI(Cl(sym), 7 )
 - en: rsi8 = RSI(Cl(sym), 8 )
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi8 = RSI(Cl(sym), 8 )
 - en: rsi9 = RSI(Cl(sym), 9 )
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi9 = RSI(Cl(sym), 9 )
 - en: rsi10 = RSI(Cl(sym), 10 )
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi10 = RSI(Cl(sym), 10 )
 - en: rsi11 = RSI(Cl(sym), 11 )
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi11 = RSI(Cl(sym), 11 )
 - en: rsi12 = RSI(Cl(sym), 12 )
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi12 = RSI(Cl(sym), 12 )
 - en: rsi13 = RSI(Cl(sym), 13 )
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi13 = RSI(Cl(sym), 13 )
 - en: rsi14 = RSI(Cl(sym), 14 )
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi14 = RSI(Cl(sym), 14 )
 - en: rsi15 = RSI(Cl(sym), 15 )
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi15 = RSI(Cl(sym), 15 )
 - en: rsi16 = RSI(Cl(sym), 16 )
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi16 = RSI(Cl(sym), 16 )
 - en: rsi17 = RSI(Cl(sym), 17 )
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi17 = RSI(Cl(sym), 17 )
 - en: rsi18 = RSI(Cl(sym), 18 )
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi18 = RSI(Cl(sym), 18 )
 - en: rsi19 = RSI(Cl(sym), 19 )
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi19 = RSI(Cl(sym), 19 )
 - en: rsi20 = RSI(Cl(sym), 20 )
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi20 = RSI(Cl(sym), 20 )
 - en: rsi21 = RSI(Cl(sym), 21 )
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi21 = RSI(Cl(sym), 21 )
 - en: rsi22 = RSI(Cl(sym), 22 )
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi22 = RSI(Cl(sym), 22 )
 - en: rsi23 = RSI(Cl(sym), 23 )
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi23 = RSI(Cl(sym), 23 )
 - en: rsi24 = RSI(Cl(sym), 24 )
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi24 = RSI(Cl(sym), 24 )
 - en: rsi25 = RSI(Cl(sym), 25 )
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi25 = RSI(Cl(sym), 25 )
 - en: rsi26 = RSI(Cl(sym), 26 )
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi26 = RSI(Cl(sym), 26 )
 - en: rsi27 = RSI(Cl(sym), 27 )
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi27 = RSI(Cl(sym), 27 )
 - en: rsi28 = RSI(Cl(sym), 28 )
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi28 = RSI(Cl(sym), 28 )
 - en: rsi29 = RSI(Cl(sym), 29 )
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi29 = RSI(Cl(sym), 29 )
 - en: rsi30 = RSI(Cl(sym), 30 )
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi30 = RSI(Cl(sym), 30 )
 - en: lagged RSIs to correspond RSI with target period
+  id: totrans-91
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 延迟的RSI以对应于目标周期的RSI
 - en: rsi2 = Lag(rsi2, 1)
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi2 = Lag(rsi2, 1)
 - en: rsi3 = Lag(rsi3, 1)
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi3 = Lag(rsi3, 1)
 - en: rsi4 = Lag(rsi4, 1)
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi4 = Lag(rsi4, 1)
 - en: rsi5 = Lag(rsi5, 1)
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi5 = Lag(rsi5, 1)
 - en: rsi6 = Lag(rsi6, 1)
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi6 = Lag(rsi6, 1)
 - en: rsi7 = Lag(rsi7, 1)
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi7 = Lag(rsi7, 1)
 - en: rsi8 = Lag(rsi8, 1)
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi8 = Lag(rsi8, 1)
 - en: rsi9 = Lag(rsi9, 1)
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi9 = Lag(rsi9, 1)
 - en: rsi10 = Lag(rsi10, 1)
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi10 = Lag(rsi10, 1)
 - en: rsi11 = Lag(rsi11, 1)
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi11 = Lag(rsi11, 1)
 - en: rsi12 = Lag(rsi12, 1)
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi12 = Lag(rsi12, 1)
 - en: rsi13 = Lag(rsi13, 1)
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi13 = Lag(rsi13, 1)
 - en: rsi14 = Lag(rsi14, 1)
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi14 = Lag(rsi14, 1)
 - en: rsi15 = Lag(rsi15, 1)
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi15 = Lag(rsi15, 1)
 - en: rsi16 = Lag(rsi16, 1)
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi16 = Lag(rsi16, 1)
 - en: rsi17 = Lag(rsi17, 1)
+  id: totrans-107
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi17 = Lag(rsi17, 1)
 - en: rsi18 = Lag(rsi18, 1)
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi18 = Lag(rsi18, 1)
 - en: rsi19 = Lag(rsi19, 1)
+  id: totrans-109
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi19 = Lag(rsi19, 1)
 - en: rsi20 = Lag(rsi20, 1)
+  id: totrans-110
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi20 = Lag(rsi20, 1)
 - en: rsi21 = Lag(rsi21, 1)
+  id: totrans-111
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi21 = Lag(rsi21, 1)
 - en: rsi22 = Lag(rsi22, 1)
+  id: totrans-112
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi22 = Lag(rsi22, 1)
 - en: rsi23 = Lag(rsi23, 1)
+  id: totrans-113
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi23 = Lag(rsi23, 1)
 - en: rsi24 = Lag(rsi24, 1)
+  id: totrans-114
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi24 = Lag(rsi24, 1)
 - en: rsi25 = Lag(rsi25, 1)
+  id: totrans-115
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi25 = Lag(rsi25, 1)
 - en: rsi26 = Lag(rsi26, 1)
+  id: totrans-116
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi26 = Lag(rsi26, 1)
 - en: rsi27 = Lag(rsi27, 1)
+  id: totrans-117
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi27 = Lag(rsi27, 1)
 - en: rsi28 = Lag(rsi28, 1)
+  id: totrans-118
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi28 = Lag(rsi28, 1)
 - en: rsi29 = Lag(rsi29, 1)
+  id: totrans-119
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi29 = Lag(rsi29, 1)
 - en: rsi30 = Lag(rsi30, 1)
+  id: totrans-120
   prefs: []
   type: TYPE_NORMAL
+  zh: rsi30 = Lag(rsi30, 1)
 - en: Data frame
+  id: totrans-121
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 数据框
 - en: data = data.frame(targets, rsi2, rsi3, rsi4, rsi5, rsi6, rsi7, rsi8, rsi9, rsi10,
     rsi11, rsi12, rsi13, rsi14, rsi15, rsi16, rsi17, rsi18, rsi19, rsi20, rsi21, rsi22,
     rsi23, rsi24, rsi25, rsi26, rsi27, rsi28, rsi29, rsi30)
+  id: totrans-122
   prefs: []
   type: TYPE_NORMAL
+  zh: data = data.frame(targets, rsi2, rsi3, rsi4, rsi5, rsi6, rsi7, rsi8, rsi9, rsi10,
+    rsi11, rsi12, rsi13, rsi14, rsi15, rsi16, rsi17, rsi18, rsi19, rsi20, rsi21, rsi22,
+    rsi23, rsi24, rsi25, rsi26, rsi27, rsi28, rsi29, rsi30)
 - en: names(data) = c("targets", "data")
+  id: totrans-123
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: names(data) = c("目标", "数据")
 - en: Results
+  id: totrans-124
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 结果
 - en: return(data)
+  id: totrans-125
   prefs: []
   type: TYPE_NORMAL
+  zh: 返回数据
 - en: '}'
+  id: totrans-126
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: summaryStats = function(x, bmk, comp = FALSE) {
+  id: totrans-127
   prefs: []
   type: TYPE_NORMAL
+  zh: summaryStats = function(x, bmk, comp = FALSE) {
 - en: '#Required library'
+  id: totrans-128
   prefs: []
   type: TYPE_NORMAL
+  zh: '#所需库'
 - en: require(PerformanceAnalytics)
+  id: totrans-129
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#Compute stats of interest for strategy'
+  id: totrans-130
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算策略的感兴趣的统计数据'
 - en: cumRetx = Return.cumulative(x)
+  id: totrans-131
   prefs: []
   type: TYPE_NORMAL
+  zh: cumRetx = Return.cumulative(x)
 - en: annRetx = Return.annualized(x, scale=252)
+  id: totrans-132
   prefs: []
   type: TYPE_NORMAL
+  zh: annRetx = Return.annualized(x, scale=252)
 - en: sharpex = SharpeRatio.annualized(x, scale=252)
+  id: totrans-133
   prefs: []
   type: TYPE_NORMAL
+  zh: sharpex = SharpeRatio.annualized(x, scale=252)
 - en: winpctx = length(x[x > 0])/length(x[x != 0])
+  id: totrans-134
   prefs: []
   type: TYPE_NORMAL
+  zh: winpctx = length(x[x > 0])/length(x[x != 0])
 - en: annSDx = sd.annualized(x, scale=252)
+  id: totrans-135
   prefs: []
   type: TYPE_NORMAL
+  zh: annSDx = sd.annualized(x, scale=252)
 - en: maxDDx = maxDrawdown(x)
+  id: totrans-136
   prefs: []
   type: TYPE_NORMAL
+  zh: maxDDx = maxDrawdown(x)
 - en: avDDx = mean(Drawdowns(x))
+  id: totrans-137
   prefs: []
   type: TYPE_NORMAL
+  zh: avDDx = mean(Drawdowns(x))
 - en: if(comp == TRUE) {
+  id: totrans-138
   prefs: []
   type: TYPE_NORMAL
+  zh: if(comp == TRUE) {
 - en: '#Compute stats of interest for benchmark'
+  id: totrans-139
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算基准的统计数据'
 - en: cumRetbmk = Return.cumulative(bmk)
+  id: totrans-140
   prefs: []
   type: TYPE_NORMAL
+  zh: cumRetbmk = Return.cumulative(bmk)
 - en: annRetbmk = Return.annualized(bmk, scale=252)
+  id: totrans-141
   prefs: []
   type: TYPE_NORMAL
+  zh: annRetbmk = Return.annualized(bmk, scale=252)
 - en: sharpebmk = SharpeRatio.annualized(bmk, scale=252)
+  id: totrans-142
   prefs: []
   type: TYPE_NORMAL
+  zh: sharpebmk = SharpeRatio.annualized(bmk, scale=252)
 - en: winpctbmk = length(bmk[bmk > 0])/length(bmk)
+  id: totrans-143
   prefs: []
   type: TYPE_NORMAL
+  zh: winpctbmk = length(bmk[bmk > 0])/length(bmk)
 - en: annSDbmk = sd.annualized(bmk, scale=252)
+  id: totrans-144
   prefs: []
   type: TYPE_NORMAL
+  zh: annSDbmk = sd.annualized(bmk, scale=252)
 - en: maxDDbmk = maxDrawdown(bmk)
+  id: totrans-145
   prefs: []
   type: TYPE_NORMAL
+  zh: maxDDbmk = maxDrawdown(bmk)
 - en: avDDbmk = mean(Drawdowns(bmk))
+  id: totrans-146
   prefs: []
   type: TYPE_NORMAL
+  zh: avDDbmk = mean(Drawdowns(bmk))
 - en: '#Return result vectors'
+  id: totrans-147
   prefs: []
   type: TYPE_NORMAL
+  zh: '#返回结果向量'
 - en: Benchmark = c(cumRetbmk, annRetbmk, sharpebmk, winpctbmk, annSDbmk, maxDDbmk,
     avDDbmk)
+  id: totrans-148
   prefs: []
   type: TYPE_NORMAL
+  zh: Benchmark = c(cumRetbmk, annRetbmk, sharpebmk, winpctbmk, annSDbmk, maxDDbmk,
+    avDDbmk)
 - en: Strategy = c(cumRetx, annRetx, sharpex, winpctx, annSDx, maxDDx, avDDx)
+  id: totrans-149
   prefs: []
   type: TYPE_NORMAL
+  zh: Strategy = c(cumRetx, annRetx, sharpex, winpctx, annSDx, maxDDx, avDDx)
 - en: nms = c("Cumulative Return", "Annualized Return", "Annualized Sharpe Ratio",
     "Winning Percentage", "Annualized Volatility", "Maximum Drawdown", "Average Drawdown")
+  id: totrans-150
   prefs: []
   type: TYPE_NORMAL
+  zh: nms = c("累积回报", "年化回报", "年化夏普比率", "获胜百分比", "年化波动率", "最大回撤", "平均回撤")
 - en: result = data.frame(Strategy, Benchmark, row.names = nms)
+  id: totrans-151
   prefs: []
   type: TYPE_NORMAL
+  zh: result = data.frame(Strategy, Benchmark, row.names = nms)
 - en: '} else {'
+  id: totrans-152
   prefs: []
   type: TYPE_NORMAL
+  zh: '} else {'
 - en: '#Return result vectors'
+  id: totrans-153
   prefs: []
   type: TYPE_NORMAL
+  zh: '#返回结果向量'
 - en: nms = c("Cumulative Return", "Annualized Return", "Annualized Sharpe Ratio",
     "Winning Percentage", "Annualized Volatility", "Maximum Drawdown", "Average Drawdown")
+  id: totrans-154
   prefs: []
   type: TYPE_NORMAL
+  zh: nms = c("累积回报", "年化回报", "年化夏普比率", "获胜百分比", "年化波动率", "最大回撤", "平均回撤")
 - en: Strategy = c(cumRetx, annRetx, sharpex, winpctx, annSDx, maxDDx, avDDx)
+  id: totrans-155
   prefs: []
   type: TYPE_NORMAL
+  zh: 策略 Strategy = c(累积回报, 年回报, 夏普比率, 胜率, 年标准差, 最大回撤, 平均回撤)
 - en: result = data.frame(Strategy, row.names = nms)
+  id: totrans-156
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果 = 数据框(策略, 行名 = nms)
 - en: '}'
+  id: totrans-157
   prefs: []
   type: TYPE_NORMAL
+  zh: ']}'
 - en: return(result)
+  id: totrans-158
   prefs: []
   type: TYPE_NORMAL
+  zh: 返回(结果)
 - en: '}'
+  id: totrans-159
   prefs: []
   type: TYPE_NORMAL
+  zh: ']}'
 - en: Here is the harness used to use the system. Don’t forget to change the first
     two line of the code and replace with your directory.
+  id: totrans-160
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是要使用的系统 harness。别忘了修改代码的第一行，将其替换为你的目录。
 - en: 'For example:'
+  id: totrans-161
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '例如:'
 - en: setwd(“C:\Users\John Doe\Documents”)
+  id: totrans-162
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 设置工作目录 setwd("C:\Users\John Doe\Documents")
 - en: source(“SVM System”)
+  id: totrans-163
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 源("SVM 系统")
 - en: '`setwd("INPUT DIRECTORY")'
+  id: totrans-164
   prefs: []
   type: TYPE_NORMAL
+  zh: '`setwd("INPUT DIRECTORY")`'
 - en: source("NAME OF THE RSI SYSTEM FILE IN THE FOLDER")
+  id: totrans-165
   prefs: []
   type: TYPE_NORMAL
+  zh: 源("RSI 系统文件名")
 - en: require(quantmod)
+  id: totrans-166
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(PerformanceAnalytics)`
+  id: totrans-167
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(PerformanceAnalytics)
 - en: Load data with quantmod
+  id: totrans-168
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用 quantmod 加载数据
 - en: getSymbols('SPY', from='2000-06-01')
+  id: totrans-169
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取 SPY 数据 getSymbols('SPY', from='2000-06-01')
 - en: returns = dailyReturn(Cl(SPY), type='log')
+  id: totrans-170
   prefs: []
   type: TYPE_NORMAL
+  zh: 返回值 returns = dailyReturn(Cl(SPY), type='log')
 - en: Generate data frame of data and targets
+  id: totrans-171
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 生成数据框 data 和目标值 targets
 - en: data = featureGen(SPY, returns)
+  id: totrans-172
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据 = featureGen(SPY, returns)
 - en: targets = coredata(returns)
+  id: totrans-173
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标值 targets = coredata(returns)
 - en: targets[targets>=0] = 1
+  id: totrans-174
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标值 targets[targets>=0] = 1
 - en: targets[targets<0] = -1
+  id: totrans-175
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标值 targets[targets<0] = -1
 - en: targets = as.factor(targets)
+  id: totrans-176
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标值 targets = as.factor(targets)
 - en: Run the system
+  id: totrans-177
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 运行系统
 - en: SVMClassifModel(data[30:nrow(data),], targets[30:length(targets)], returns,
     lookback = 252, ktype = "C-svc", crossvalid = 10, C = 60)
+  id: totrans-178
   prefs: []
   type: TYPE_NORMAL
+  zh: SVMClassifModel(数据[30:nrow(数据),], 目标值[30:length(目标值)], 返回值, lookback = 252,
+    ktype = "C-svc", crossvalid = 10, C = 60)
 - en: Lastly I would like to know if anyone has a better idea to share code. This
     is not very good way and I would like to improve it. I also welcome suggestions
     to make the code more efficient. I also want to make clear that I do not think
     that this is a good system and I know that it could be improved by adding predictors
     and all, it is only to give an example to follow-up on the post mentioned above.
+  id: totrans-179
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后我想知道是否有人有更好的方法可以分享代码。这并不是一个很好的方法，我希望能改进它。我也欢迎建议来提高代码的效率。我还想明确指出，我认为这不是一个很好的系统，我知道通过添加预测因子等可以改进，这只是为了提供一个例子，以便在上面的帖子中跟进。
 - en: QF
+  id: totrans-180
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化因子 QF

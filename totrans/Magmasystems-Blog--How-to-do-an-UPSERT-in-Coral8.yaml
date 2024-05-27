@@ -1,65 +1,107 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: →yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:03:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:03:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: 'Magmasystems Blog: How to do an UPSERT in Coral8'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：如何在Coral8中进行插入更新
 - en: 来源：[http://magmasystems.blogspot.com/2008/04/how-to-do-upsert-in-coral8.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/how-to-do-upsert-in-coral8.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/04/how-to-do-upsert-in-coral8.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/how-to-do-upsert-in-coral8.html#0001-01-01)
 - en: Assume that the LastTrades window has the retention policy of KEEP LAST PER
     Symbol.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设LastTrades窗口的保留策略是KEEP LAST PER Symbol。
 - en: Here is some code (provided by Mark of Coral8) to do an upsert.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些代码（由Coral8的Mark提供），用于进行插入更新。
 - en: '**INSERT INTO****LastTrades******SELECT** SPC.symbol, SPC.price, **If** LT.volume
     **Is Null Then** 0 **Else** LT.volume **End If****FROM** StreamPriceCorrections
     SPC **Left Outer Join** LastTrades LT **ON** SPC.Symbol = LT.Symbol;'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**INSERT INTO****LastTrades******SELECT** SPC.symbol, SPC.price, **如果** LT.volume
+    **为空，则** 0 **否则** LT.volume **结束如果** FROM StreamPriceCorrections SPC **左外连接**
+    LastTrades LT **ON** SPC.Symbol = LT.Symbol;'
 - en: 'If we need to do an update rather than an upsert, this piece of code works:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们需要进行更新而不是插入更新，这段代码可以工作：
 - en: '`**INSERT INTO**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '`**INSERT INTO**'
 - en: LastTrades
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后交易
 - en: '**SELECT**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**SELECT**'
 - en: SPC.symbol,
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: SPC.symbol,
 - en: SPC.price,
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: SPC.price,
 - en: LT.volume
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: LT.volume
 - en: '**FROM**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**FROM**'
 - en: StreamPriceCorrections SPC, LastTrades LT
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 流价格修正SPC，最后交易LT
 - en: '**ON** SPC.Symbol = LT.Symbol;`'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ON** SPC.Symbol = LT.Symbol;`'
 - en: ©2008 Marc Adler - All Rights Reserved**
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有**

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:40:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:40:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VPP Pricing IV: Variance Reduction for Perfect Foresight – HPC-QuantLib'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VPP 定价 IV：对完全预见性的方差缩减 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/08/12/vpp-pricing-iv-variance-reduction-for-perfect-foresight/#0001-01-01](https://hpcquantlib.wordpress.com/2011/08/12/vpp-pricing-iv-variance-reduction-for-perfect-foresight/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/08/12/vpp-pricing-iv-variance-reduction-for-perfect-foresight/#0001-01-01](https://hpcquantlib.wordpress.com/2011/08/12/vpp-pricing-iv-variance-reduction-for-perfect-foresight/#0001-01-01)
 - en: Even though *perfect foresight* provides only an upper bound to the real VPP
     value the differences are often neglectable and the implementation efforts  are
     small compared with “exact” pricing based on finite difference methods or least
@@ -28,8 +40,12 @@
     a Brownian Bridge. Both methods are explained in [1], antithetic sampling in chapter
     4.2 and quasi Monte-Carlo in section 5\. Randomized QMC is used to calculate the
     error estimates for QMC as it is outlined in chapter 5.4.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管*完全预见性*仅提供了真实 VPP 价值的上限，但差异通常可以忽略不计，并且与基于有限差分方法或最小二乘蒙特卡罗的“精确”定价相比，实施工作量较小。
+    *完全预见性*是在问题包含时间积分约束时与线性规划优化器结合使用的方法选择。因此，值得测试两种标准方差缩减技术的效率，即对偶抽样和准蒙特卡罗（QMC）与布朗桥一起。这两种方法在[1]中有详细解释，对偶抽样在第4.2章，准蒙特卡罗在第5节。随机化
+    QMC 用于计算 QMC 的误差估计，如在第5.4章中概述的那样。
 - en: Using the parameterization of the previous section [VPP Pricing III](https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/),
     QMC in conjunction with a Brownian Bridge clearly out-performance the other algorithms
     for a 6 month contract as can be seen in the diagrams below. The code is available
@@ -39,8 +55,17 @@
     also need [R.](http://www.r-project.org/) [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot1.png)
     [![](img/c50da8a07283b891c7956cc0446913a0.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot2.png)[![](img/c3ce6d94d079a43d093c0bd6da21c64c.png
     "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot3.png)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用上一节[VPP 定价 III](https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/)的参数化，QMC
+    结合布朗桥在 6 个月合同中明显优于其他算法，如下图所示。 代码可在[此处](http://hpc-quantlib.de/src/vpp5.zip)获取。它依赖于最新的[QuantLib](http://www.quantlib.org/)版本，源自[SVN
+    主干](http://sourceforge.net/p/quantlib/code/HEAD/tree/)或即将发布的 QuantLib 1.2 版本。如果您想生成图表，还需要[R。](http://www.r-project.org/)
+    [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot1.png) [![](img/c50da8a07283b891c7956cc0446913a0.png
+    "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot2.png)[![](img/c3ce6d94d079a43d093c0bd6da21c64c.png
+    "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot3.png)
 - en: '[1] P. Glasserman, Monte Carlo Methods in Financial Engineering.  ISBN-0387004513'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] P. Glasserman，《金融工程中的蒙特卡罗方法》。 ISBN-0387004513'

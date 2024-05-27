@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:00:07'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:00:07'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: The Pseudo-science of Hypothesis Testing'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：假设检验的伪科学
 - en: 来源：[http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01](http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01](http://epchan.blogspot.com/2013/01/the-pseudo-science-of-hypothesis-testing.html#0001-01-01)
 - en: Backtesting trading strategies necessarily involves a very limited amount of
     historical data. For example, I seldom test strategies with data older than 2007\.
     Gathering longer history may not improve predictive accuracy since the market
@@ -26,8 +38,11 @@
     we may have obtained is just due to luck. Many academic researchers try to address
     this issue by running their published strategies through  standard statistical
     hypothesis testing.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 回测交易策略必然涉及到非常有限的历史数据。例如，我很少测试比2007年更早的数据。收集更长的历史数据可能不会提高预测准确性，因为市场结构可能已经发生了重大变化。鉴于如此有限的数据，我们有理由质疑我们可能获得的好回测结果（例如，高年化回报
+    R）是否只是运气。许多学术研究人员试图通过将他们发表的策略通过标准统计假设检验来解决这个问题。
 - en: 'You know the drill: the researchers first come up with a supposedly excellent
     strategy. In a display of false modesty, they then suggest that perhaps a null
     hypothesis can produce the same good return R. The null hypothesis may be constructed
@@ -36,59 +51,86 @@
     that such random constructions are highly unlikely to generate a return equal
     to or better than R. Thus the null hypothesis is rejected, and thereby impressing
     you that the strategy is somehow sound.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 你知道这个过程：研究人员首先提出一个看似优秀的策略。他们以一种虚假的谦逊姿态提出，可能零假设可以产生同样的良好回报 R。零假设可以通过对原始策略运行一些随机模拟的历史数据来构建，或者通过随机化交易入场日期来构建。然后研究人员会展示这样的随机构建产生等于或优于
+    R 的回报的可能性非常小。因此，零假设被拒绝，从而让你相信这个策略在某种程度上是可靠的。
 - en: As statistical practitioners in fields outside of finance will tell you, this
     whole procedure is quite meaningless and often misleading.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如金融领域以外的统计从业人员会告诉你的，这个过程毫无意义，而且常常是误导性的。
 - en: 'The probabilistic syllogism of hypothesis testing has the same structure as
     the following simple example (devised by Jeff Gill in his paper "The Insignificance
     of Null Hypothesis Significance Testing"):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设检验的概率三段论与以下简单示例的结构相同（由Jeff Gill在他的论文《零假设显著性检验的无关性》中设计）：
 - en: 1) If a person is an American then it is highly unlikely she is a member of
     Congress.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 如果一个人是美国公民，那么她成为国会成员的可能性非常小。
 - en: 2) The person is a member of Congress.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 这个人国会成员。
 - en: 3) Therefore it is highly unlikely she is an American.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 因此，她很可能不是美国人。
 - en: 'The absurdity of hypothesis testing should be clear. In mathematical terms,
     the probability we are really interested in is the conditional probability that
     the null hypothesis is true given an observed high return R: P(H0|R). But instead,
     the hypothesis test merely gives us the conditional probability of a return R
     given that the null hypothesis is true: P(R|H0). These two conditional probabilities
     are seldom equal.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设检验的荒谬应该很清楚。在数学术语中，我们真正感兴趣的概率是我们真正感兴趣的条件概率，即零假设为真时观察到高回报 R 的条件概率：P(H0|R)。但是，假设检验只是给我们一个条件概率，即零假设为真时产生回报
+    R 的条件概率：P(R|H0)。这两个条件概率很少相等。
 - en: But even if we can somehow compute P(H0|R), it is still of very little use,
     since there are an infinite number of potential H0. Just because you have knocked
     down one particular straw man doesn't say much about your original strategy.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，即使我们 somehow 计算出 P(H0|R)，它仍然非常有用，因为潜在的 H0 有无限多个。仅仅因为你推翻了一个特定的稻草人并不意味着你了解你的原始策略。
 - en: If hypothesis testing is both meaningless and misleading, why do financial researchers
     continue to peddle it? Mainly because this is *de rigueur* to get published. But
     it does serve one useful purpose for our own private trading research. Even though
     a rejection of the null hypothesis in no way shows that the strategy is sound,
     a failure to reject the null hypothesis will be far more interesting.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果假设检验既没有意义又具有误导性，那为什么金融研究者还在继续推销它？这主要是因为这是*出版必备*。但它确实为我们私人交易研究提供了一个有用的目的。即使拒绝零假设并不能证明策略是可行的，但未能拒绝零假设将会更有趣。
 - en: (For other references on criticism of hypothesis testing, read Nate Silver's
     bestseller "
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: (对于关于假设检验批评的其他参考资料，请阅读 Nate Silver 的畅销书 "
 - en: '[The Signal and The Noise](http://www.amazon.com/dp/159420411X/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=159420411X&adid=1T2D70JWEBA1DVTW0MQD&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[信号与噪声](http://www.amazon.com/dp/159420411X/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=159420411X&adid=1T2D70JWEBA1DVTW0MQD&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
 - en: '". Silver is of course the statistician who correctly predicted the winner
     of all 50 states + D.C. in the 2012 US presidential election. The book is highly
     relevant to anyone who makes a living predicting the future. In particular, it
     tells the story of one Bob Voulgaris who makes $1-4M per annum betting on NBA
     outcomes. It makes me wonder whether I should quit making bets on financial markets
     and move on to sports.)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '". Silver 当然就是那位在2012年美国总统选举中准确预测了所有50个州加上华盛顿特区的统计学家。这本书对于任何靠预测未来谋生的人来说都非常相关。特别是，它讲述了一个名叫
+    Bob Voulgaris 的人，他每年通过赌 NBA 结果赚取100-400万美元的故事。这让我开始思考是否应该放弃对金融市场的赌博，转而投向体育博彩。)'

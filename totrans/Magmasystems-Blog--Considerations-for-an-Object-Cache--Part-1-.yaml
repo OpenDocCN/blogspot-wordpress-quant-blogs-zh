@@ -1,76 +1,110 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:15:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:15:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Considerations for an Object Cache (Part 1)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 对象缓存考虑因素（第一部分）'
 - en: 来源：[http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/considerations-for-object-cache-part-1.html#0001-01-01)
 - en: Let’s say that we wanted to write our own multi-platform, distributed, subscription-based
     object cache. What would we need to do to write the ultimate object cache?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们想要编写一个多平台、分布式、基于订阅的对象缓存。要编写终极对象缓存，我们需要做些什么？
 - en: Let’s consider a variety of issues that we would have to consider when writing
     caching middleware. I am sure that vendors like Gemstone have gone through this
     exercise already, but why not go through it again!
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们考虑编写缓存中间件时需要考虑的各种问题。我相信像Gemstone这样的供应商已经过这个过程了，但为什么不再次进行呢！
 - en: '**Multiplatform support**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**多平台支持**'
 - en: Most Investment Banks have a combination of C++ (both Win32 and Unix), C#/.Net
     and Java (both Win32 and Unix) applications. It is common to have a .Net front-end
     talking to a Java server, which in turn, communicates to a C++-based pricing engine.
     We need to be able to represent the object data is some sort of form that can
     be easily accessed by applications in all of the various platforms.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数投资银行都有C++（包括Win32和Unix）、C#/.Net和Java（包括Win32和Unix）应用程序的组合。常见的是.Net前端与Java服务器通信，进而与基于C++的定价引擎进行通信。我们需要以某种形式表示对象数据，以便所有这些不同平台上的应用程序都能轻松访问。
 - en: The most universal representation would be to represent the object as pure text,
     and to send it across the wire as text. What kind of text representation would
     we use?
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最普遍的表示方式是将对象表示为纯文本，并作为文本发送。我们会使用哪种文本表示？
 - en: '**XML**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**XML**'
 - en: – quasi-universal. We would have to ensure that XML written by one system is
     readable by other systems. XML serialization is well-known between Java and C#
     apps, but what about older C++ apps. For C++, would we use Xerces? Also, there
     is the cost of serialization and deserialization, not to mention the amount of
     data that is sent over the wire.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: – 准通用型。我们必须确保一个系统生成的XML能被其他系统读取。XML序列化在Java和C#应用程序中广为人知，但古老的C++应用程序呢？对于C++，我们会使用Xerces吗？此外，还有序列化和反序列化的成本，更不用说通过网络发送的数据量了。
 - en: '**Name/Values Pairs**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**名称/值对**'
 - en: – easy to generate and parse. Same costs as XML. We would have to write our
     own serialization and deserialization schemes for each system. How about complex,
     hierarchical data? Can simple name/value pairs represent complex data efficiently?
     Or would we just end up rewriting the XML spec?
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: – 易于生成和解析。与XML相同的成本。我们必须为每个系统编写自己的序列化和反序列化方案。复杂、层次化的数据怎么办？简单的名称/值对能有效表示复杂数据吗？或者我们最终要重写XML规范？
 - en: Instead of text, we can store objects as true binary objects. What kind of binary
     object do we store? Native or system-agnostic? If you have a variety of platforms
     writing into the object cache, do we store the object in the binary format of
     the system that created the object, or do we pick one platform and use that as
     master?
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以将对象以真正的二进制对象形式存储，而不是文本。我们存储哪种类型的二进制对象？原生对象或系统无关对象？如果您有多种平台向对象缓存写入，我们是以创建对象的系统的二进制格式存储对象，还是选择一个平台作为主系统？
 - en: '**Master Format**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**主格式**'
 - en: – We pick one format, either C++, C#, or Java binary objects. We would need
     a series of adapters to transform between binary formats. We would also need an
     indication of the platform that is doing the reading or writing. Let’s say that
@@ -81,49 +115,72 @@
     Java 1.5-specific types or classes be read by a Java 1.4 app?). If a C# app wants
     to read the Java object, then we must perform some translation. (Do we use something
     like
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: – 我们选择一种格式，比如C++、C#或Java二进制对象。我们需要一系列适配器来转换二进制格式。我们还需要一个指示，表明是哪个平台在进行读取或写入操作。假设我们选择将所有对象以二进制Java对象的形式存储。如果一个Java应用程序读取一个对象，那么与对象转换相关的成本就不存在了，因此我们只需要沿着链路发送一个二进制Java对象（尽管我们可能需要担心Java各个版本之间的差异……一个具有Java
+    1.5特定类型或类的Java 1.5对象能被一个Java 1.4应用程序读取吗？）。如果一个C#应用程序想要读取Java对象，那么我们必须进行一些翻译。（我们应该使用类似
 - en: '[CodeMesh](http://www.codemesh.com/)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[CodeMesh](http://www.codemesh.com/)'
 - en: to do this?) We also need to ensure that the adaptors can support all of the
     features of the various languages. For example, let’s say that Java came up with
     a new data type that C# did not support … would we try to find some representation
     of that type in C#, or would we just not translate that particular data type?
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 的东西来做到这一点吗？）我们还需要确保适配器能够支持各种语言的所有特性。例如，假设Java提出了一种C#不支持的新数据类型……我们会尝试在C#中找到该类型的某种表示，还是根本不翻译这种特定的数据类型？
 - en: '**Native Format**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**原生格式**'
 - en: – We store pure binary objects, without regards to the system that is reading
     or writing the object. There is no translation layer. Apps are responsible for
     doing translation themselves. This is the fastest, most efficient way of storing
     objects. However, different teams might end up writing their own versions of the
     translation layer.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: – 我们存储纯二进制对象，不考虑读取或写入对象的系统。没有转换层。应用程序需要自己负责进行转换。这是存储对象最快、最高效的方法。然而，不同的团队可能会编写他们自己的转换层版本。
 - en: What other factors might we consider when choosing a native object format?
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择原生对象格式时我们还要考虑哪些其他因素？
 - en: How about deltas in subscriptions? If we are storing large objects, then we
     might only want to broadcast changes to the object instead of resending the entire
     object. Delta transmission favors sending the changes out in text, and we can
     save the cost of translating the binary into text if we were just to store the
     objects as text. And, in this case, name/value pairs are favored.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 订阅中的增量更新怎么样？如果我们存储的是大对象，那么我们可能只想广播对象的变化，而不是重新发送整个对象。增量传输有利于以文本形式发送变化，如果我们只是将对象以文本形式存储，我们就可以节省将二进制转换为文本的成本。在这种情况下，名称/值对是被优先考虑的。
 - en: Large sets of name/value pairs can be compressed if necessary, but we have to
     consider the time needed to compress and decompress.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果需要，大量的名称/值对可以被压缩，但我们必须考虑压缩和解压缩所需的时间。
 - en: Can our object cache store both text and binary? Sure, why not. We can tag a
     cache region as supporting binary or text, and have appropriate plugins for various
     operations on each.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的对象缓存能同时存储文本和二进制吗？当然，为什么不呢。我们可以将缓存区域标记为支持二进制或文本，并为每种操作提供适当的插件。
 - en: As always, comments are welcome.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 如往常一样，欢迎发表评论。
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

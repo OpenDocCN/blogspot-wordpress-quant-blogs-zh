@@ -1,122 +1,184 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，以下内容为注释，不应翻译：<!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:20:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:20:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantifiable Edges: Tweaking The Nasdaq/S&P Lead/Lag Model'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化边缘：调整纳斯达克/标普领先/落后模型
 - en: 来源：[http://quantifiableedges.blogspot.com/2009/06/tweaking-nasdaqs-leadlag-model.html#0001-01-01](http://quantifiableedges.blogspot.com/2009/06/tweaking-nasdaqs-leadlag-model.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://quantifiableedges.blogspot.com/2009/06/tweaking-nasdaqs-leadlag-model.html#0001-01-01](http://quantifiableedges.blogspot.com/2009/06/tweaking-nasdaqs-leadlag-model.html#0001-01-01)
 - en: Last week I discussed an indicator designed by Gerald Appel and published in
     his book
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 上周我讨论了一个由杰拉德·阿佩尔（Gerald Appel）设计的指标，并发表在他的书中
 - en: '[“Technical Analysis – Power Tools for Active Investors”.](http://www.amazon.com/Technical-Analysis-Power-Active-Investors/dp/0131479024)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '["技术分析 - 积极投资者的力量工具"](http://www.amazon.com/Technical-Analysis-Power-Active-Investors/dp/0131479024)'
 - en: He refers to it as the Nasdaq/NYSE Relative Strength Indicator (not to be confused
     with RSI). I changed it slightly for my purposes and instead of tracking the Nasdaq
     vs. the NYSE, I instead tracked the Nasdaq vs. the S&P 500\.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 他称其为纳斯达克/
 - en: '[In last week’s post](http://quantifiableedges.blogspot.com/2009/05/simple-powerful-timing-indicator.html)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[上周的帖子](http://quantifiableedges.blogspot.com/2009/05/simple-powerful-timing-indicator.html)中
 - en: I demonstrated that the S&P had performed much better over time when the Nasdaq
     was in a leading position.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我证明了当纳斯达克处于领先地位时，标普500的表现要好得多。
 - en: I also provided a spreadsheet with the calculation and a model based on the
     indicator on the free downloads section of the website.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还提供了一个包含计算和基于指标的模型的电子表格，这个模型可以在网站的免费下载部分找到。
 - en: When conducting research or designing models it’s important to avoid just looking
     at it from one angle. Today I’m going to explore a couple of other ideas that
     the indicator / model may have invoked in many of you. I’ve also updated the spreadsheet
     so that you can see how these ideas were tested as well.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在进行研究或设计模型时，从多个角度出发是非常重要的。今天我将探索指标/模型可能引发的一些其他想法。我还更新了电子表格，这样你就可以看到这些想法是如何进行测试的。
 - en: First, a quick refresher chart of last week’s results.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们来看一下上周结果的快速回顾图表。
 - en: '[![](img/4e043bca2dfb4d6aded1f6ed7094046d.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgfZO3pcK9U520D2LD5Bet3H1MYYbRHny456dzLwb_tXJ1kzVkCmojw30GoOkBPDqdtxeAQ7PexwQqSFnky77aPzQFGuP8txjCB2Ip8N5rS9X8FBOiZ7edOmVQcW7A7HZZvjnGcFxCaZEo/s1600-h/2009-5-25+png2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![但是，如果在我们买入标普500时，纳斯达克领先，那我们为什么不买入纳斯达克呢？毕竟它是领先者。](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgfZO3pcK9U520D2LD5Bet3H1MYYbRHny456dzLwb_tXJ1kzVkCmojw30GoOkBPDqdtxeAQ7PexwQqSFnky77aPzQFGuP8txjCB2Ip8N5rS9X8FBOiZ7edOmVQcW7A7HZZvjnGcFxCaZEo/s1600-h/2009-5-25+png2.png)'
 - en: As you can see, utilizing the indicator would have greatly enhanced your returns
     over time. So if owning the S&P when the Nasdaq is leading is so favorable, does
     that mean you should short the S&P when the Nasdaq is lagging?
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的，利用这个指标会在很长时间内大幅提高你的回报。所以，如果当纳斯达克领先时拥有标普500（S&P）是如此有利，那么这意味着当纳斯达克落后时你应该做空标普500吗？
 - en: Below is an equity curve of a $100,000 investment doing exactly that. (Interest
     and dividends are not included.)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一个10万美元投资的确切回报曲线，做了那样的事情。（利息和股息不包括在内。）
 - en: '[![](img/c6497c971a20eefcac9446ede8cf4211.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6aRjsN45WdT4hzFExaCtzHOoMKrMyh7JK22pkZeeGcM-jABDbfy3FL22xB_SbXr8tgW4LbAov22Gs8eXUPlNT_WbqNSay5olNf2x9J-AHRzqpWLH0WZ7JNPjtekbUi8VhVfoWmg9JwVZy/s1600-h/2009-6-3+png2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![量化边缘：调整纳斯达克/标普领先/落后模型](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6aRjsN45WdT4hzFExaCtzHOoMKrMyh7JK22pkZeeGcM-jABDbfy3FL22xB_SbXr8tgW4LbAov22Gs8eXUPlNT_WbqNSay5olNf2x9J-AHRzqpWLH0WZ7JNPjtekbUi8VhVfoWmg9JwVZy/s1600-h/2009-6-3+png2.png)'
 - en: After almost 40 years the current (recent?) bear market just got you back into
     the black. Certainly this isn’t an equity curve that suggests an edge. While some
     may be surprised based on how positive the previous results were, it makes complete
     sense. The strategy in this chart calls for shorting the leading index. I don’t
     believe I’ve ever seen anyone who has suggested that to be a good idea.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在几乎40年后，当前（最近？）的熊市刚刚使你回到了盈亏平衡点。这肯定不是一个表明有优势的股票曲线。虽然有些人可能会根据之前的结果有多积极而感到惊讶，但这完全是有道理的。这个图表中的策略是做空领先指数。我不相信我曾经看到过有人建议这样做是一个好主意。
 - en: But what if instead of buying the S&P when the Nasdaq leads, we buy the Nasdaq?
     It is the leader after all.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，如果在我们买入标普500时，纳斯达克领先，那我们为什么不买入纳斯达克呢？毕竟它是领先者。
 - en: Equity chart below. Hold on to your hats.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是股票曲线。请系好安全带。
 - en: '[![](img/f11669e938354e2ec28cb0e8e31bcf91.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9VCmKL97xJoPaR7cVBZhEtjkokqZrXRGDMBKiQw_kzJ0YvrvJ6cqsoEaSPPd2e-J6nExZPhCGrUM6QL2KYdC77vttQU6b7vhODVLKZwa8nzlJsLExw7pseG1HQHunG_Hv_IvYuTqtgBeC/s1600-h/2009-6-3+png3.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9VCmKL97xJoPaR7cVBZhEtjkokqZrXRGDMBKiQw_kzJ0YvrvJ6cqsoEaSPPd2e-J6nExZPhCGrUM6QL2KYdC77vttQU6b7vhODVLKZwa8nzlJsLExw7pseG1HQHunG_Hv_IvYuTqtgBeC/s1600-h/2009-6-3+png3.png)'
 - en: Like the original test, dividends are not included. The annual growth rate if
     you earn 2.5% interest on your cash balance is about 13%. This is more than twice
     the S&P 500 annual growth rate of under 6% for the period. There’s also lower
     drawdown and you’d only be in the market a little more than half the time.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 与原始测试一样，股息不包括在内。如果你在你的现金余额上获得2.5%的利息，你的年增长率大约是13%。这个数字是标普500在这段时间内不到6%的年增长率的两倍还要多。此外，回撤更低，你只在市场中的时间会多于一半。
 - en: Last week we saw how timing the market with this simple indicator can make a
     big difference. Here you see that a small tweak to ensure you’re in the leading
     index can juice returns much, much more. There are numerous other tweaks you could
     add to the model to improve performance or reduce drawdowns further. This is as
     far as I’m going to take it, though. The spreadsheet is still available and updated
     with the above tests and charts. You may download the updated version
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 上周我们看到使用这个简单指标来时机市场可以产生很大的不同。这里你可以看到对领先指数进行微调可以极大地提高回报率。你还可以添加许多其他的微调来提高性能或进一步减少回撤。不过，我就讲到这里。电子表格仍然可以下载，并附上了上述测试和图表的更新。你可以下载更新后的版本
 - en: '[on the free downloads page](http://www.quantifiableedges.com/members/freedownload.php)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[免费下载页面](http://www.quantifiableedges.com/members/freedownload.php)
 - en: . I’d suggest anyone who downloads it should use it as a starting point – not
     a finished product.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 。我建议下载它的人应该把它作为一个起点——而不是一个成品。
 - en: For more ideas on using Excel for historical analysis I’d recommend buying
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于使用Excel进行历史分析的想法，我建议购买
 - en: '[Dr. Steenbarger’s Daily Trading Coach book](http://www.amazon.com/s?ie=UTF8&search-type=ss&index=books&field-author=Brett%20N.%20Steenbarger&page=1)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[斯蒂尔巴格博士的《每日交易教练》书籍](http://www.amazon.com/s?ie=UTF8&search-type=ss&index=books&field-author=Brett%20N.%20Steenbarger&page=1)'
 - en: . A few weeks ago I created a sample spreadsheet based on the lessons in that
     book. You may download that spreadsheet
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 。几周前我根据那本书的内容创建了一个示例电子表格。你可以下载那个电子表格
 - en: '[on the free download page](http://www.quantifiableedges.com/members/freedownload.php)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[免费下载页面](http://www.quantifiableedges.com/members/freedownload.php)
 - en: as well. Registration is required for the Nasdaq/S&P Lead/Lag Model. Registration
     is NOT required for the Daily Trading Coach Spreadsheet.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 也需要注册纳斯达克/标普领先/落后模型。每日交易教练电子表格的注册则不是必须的。

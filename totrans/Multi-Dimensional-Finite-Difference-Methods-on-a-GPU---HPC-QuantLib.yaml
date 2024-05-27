@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-17 23:41:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-17 23:41:11'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multi-Dimensional Finite Difference Methods on a GPU – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: GPU 上的多维有限差分方法 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/#0001-01-01](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/#0001-01-01](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/#0001-01-01)
 - en: One key aspect for the performance of multi-dimensional finite difference methods
     based on operator splitting is the performance of the underlying tridiagonal system
     solver [1]. The authors in [2] have analysed different solver strategies and they
@@ -26,39 +38,57 @@
     library cuSPARSE contains a routine to solve tridiagonal systems based on cyclic
     reduction. nVIDIA claims a speed-up factor of  around ten compared against Intel’s
     MKL library [3].
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于算子分裂的多维有限差分方法性能的一个关键方面是基础三对角系统求解器的性能 [1]。 [2] 中的作者分析了不同的求解器策略，并报告了在非常大的系统上最佳求解器策略（循环约简）的
+    GPU 和 CPU 之间约 15 倍的加速比。CUDA 的稀疏矩阵库 cuSPARSE 包含一个基于循环约简的求解三对角系统的例程。nVIDIA 声称与英特尔的
+    MKL 库相比，速度提高了约十倍 [3]。
 - en: These factors are smaller than the speed-up factors reported for pure Monte-Carlo
     pricing algorithms. Main reason is that a tridiagonal system solver can not be
     parallelised by a simple divide and conquer approach like many Monte-Carlo pricing
     algorithms.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些因素小于纯蒙特卡洛定价算法报告的速度提高因素。主要原因是三对角系统求解器不能像许多蒙特卡洛定价算法那样通过简单的分治方法进行并行化。
 - en: 'Main classes of the GPU implementation of the Hundsdorfer-Verwer operator splitting
     scheme are:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Hundsdorfer-Verwer 算子分裂方案的 GPU 实现的主要类包括：
 - en: '**GPUFdmLinearOp**: implements the FdmLinearOp interface and can be initialized
     from any instance of FdmLinearOp/FdmLinearOpComposite via the *toMatrix()/toMatrixDecomp()*
     methods.'
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**GPUFdmLinearOp**：实现 FdmLinearOp 接口，并可通过 *toMatrix()/toMatrixDecomp()* 方法从
+    FdmLinearOp/FdmLinearOpComposite 的任何实例初始化。'
 - en: '**GPUTripleBandLinearOp**: GPU based implementation of TripleBandLinearOp.
     This linear operator can be initialized from any instance of the classes FdmLinearOp/FdmLinearOpComposite
     via the toMatrix/toMatrixDecomp() methods. The solver for the tridiagonal system
     is based on cuSPARSE.'
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**GPUTripleBandLinearOp**：TripleBandLinearOp 的基于 GPU 的实现。该线性算子可以通过 toMatrix/toMatrixDecomp()
+    方法从 FdmLinearOp/FdmLinearOpComposite 类的任何实例初始化。三对角系统的求解器基于 cuSPARSE。'
 - en: '**GPUHundsdorferScheme**: GPU based implementation of the Hundsdorfer-Verwer
     operator splitting scheme.'
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**GPUHundsdorferScheme**：基于 GPU 的 Hundsdorfer-Verwer 算子分裂方案的实现。'
 - en: '[![plot](img/6a732664c417eae00ef5930537e650e5.png)](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/plot-50/)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot](img/6a732664c417eae00ef5930537e650e5.png)](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/plot-50/)'
 - en: '[![plot](img/bec9afb55c4e1df4f8e94ac113444613.png)](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/plot-51/)The
     code is available [here](http://hpc-quantlib.de/src/gpuopsplitting.zip) and it
     is based on the latest [QuantLib](http://quantlib.org) version from the [trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/),
@@ -68,17 +98,30 @@
     factors above ten can only be achieved for very large two-dimensional or for medium-sized
     three-dimensional problems. The GPU precision is defined in cudatypes.hpp by the
     typedef for the type “real”.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot](img/bec9afb55c4e1df4f8e94ac113444613.png)](https://hpcquantlib.wordpress.com/2012/12/27/multi-dimensional-finite-difference-methods-on-a-gpu/plot-51/)代码可在此处获得
+    [here](http://hpc-quantlib.de/src/gpuopsplitting.zip)，它基于来自 [trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/)
+    的最新 [QuantLib](http://quantlib.org) 版本、[CUDA 4.1](https://developer.nvidia.com/category/zone/cuda-zone)
+    或更高版本以及 [Cusp 0.3](http://code.google.com/p/cusp-library/) 或更高版本。如上图所示，速度提升系数取决于问题的大小。只有在非常大的二维问题或中等大小的三维问题中才能实现超过十倍的速度提升因子。GPU
+    精度在 cudatypes.hpp 中通过对类型 “real” 的 typedef 定义。'
 - en: '[1] Karel in ’t Hout, [ADI finite difference schemes for the Heston model with
     correlation.](http://win.ua.ac.be/%7Ekihout/ADI_Heston_lecture.pdf)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Karel in ’t Hout，《ADI finite difference schemes for the Heston model with
+    correlation.》（http://win.ua.ac.be/%7Ekihout/ADI_Heston_lecture.pdf）'
 - en: '[2] Pablo Quesada-Barriuso, Julián Lamas-Rodríguez, Dora B. Heras, Montserrat
     Bóo, Francisco Argüello, [Selecting the Best Tridiagonal System Solver Projected
     on Multi-Core CPU and GPU Platforms.](http://weblidi.info.unlp.edu.ar/worldcomp2011-mirror/pdp8294.pdf)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] 帕ablo·奎萨达-巴里奥斯，朱利安·拉马斯-罗德里格斯，多拉·B·埃拉斯，蒙塞拉特·布尔，弗朗西斯科·阿古埃略，[选择最佳的三对角系统求解器——基于多核CPU和GPU平台。](http://weblidi.info.unlp.edu.ar/worldcomp2011-mirror/pdp8294.pdf)'
 - en: '[3] nVIDIA, [cuSPARSE](https://developer.nvidia.com/cusparse)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] 英伟达，[cuSPARSE](https://developer.nvidia.com/cusparse)'

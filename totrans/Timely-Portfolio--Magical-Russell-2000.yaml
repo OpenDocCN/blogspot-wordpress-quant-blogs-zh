@@ -1,89 +1,145 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:10:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:10:46'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Magical Russell 2000'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：神奇的罗素2000
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/11/i-have-marveled-at-magical-russell-2000.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/11/i-have-marveled-at-magical-russell-2000.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/11/i-have-marveled-at-magical-russell-2000.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/11/i-have-marveled-at-magical-russell-2000.html#0001-01-01)
 - en: I have marveled at the magical Russell 2000 in [Crazy RUT](http://timelyportfolio.blogspot.com/2011/07/crazy-rut.html),
     but I am still surprised at its behavior through this selloff.  With a 20-day
     move of 30% (6% in one hour) and big outperformance to the developed and developing
     world, the Russell 2000 continues its magical display.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: I在[疯狂RUT](http://timelyportfolio.blogspot.com/2011/07/crazy-rut.html)中惊叹于神奇的罗素2000，但我仍然对它在这次抛售中的表现感到惊讶。在一个20天的30%的移动（在一个小时内6%）以及相对于发达和发展中世界的巨大超额表现下，罗素2000继续展示着它的魔法。
 - en: 'R code:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: '#look at distance from the 3 month minimum'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '#查看从3个月最低点的距离'
 - en: '#to compare the magical US Russell 2000'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '#比较神奇的美国罗素2000'
 - en: '#to the world'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '#到世界各地'
 - en: require(quantmod)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: tkrs <- c("^W2DOW","^RUT")
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: tkrs <- c("^W2DOW","^RUT")
 - en: getSymbols(tkrs,from="1896-01-01",to=Sys.Date())
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols(tkrs,from="1896-01-01",to=Sys.Date())
 - en: '#merge the closing values'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#合并收盘价'
 - en: markets <- na.omit(merge(W2DOW[,4],RUT[,4]))
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: markets <- na.omit(merge(W2DOW[,4],RUT[,4]))
 - en: '#this is ugly but it works'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#这很丑，但管用'
 - en: altitude <- function(x) x/min(x)-1
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: altitude <- function(x) x/min(x)-1
 - en: mins <- as.xts(apply(markets[(NROW(markets)-250):NROW(markets),1:2],
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: mins <- as.xts(apply(markets[(NROW(markets)-250):NROW(markets),1:2],
 - en: MARGIN=2,FUN=
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: MARGIN=2,FUN=
 - en: altitude))
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: altitude))
 - en: plot.zoo(mins,screens=1,
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: plot.zoo(mins,screens=1,
 - en: col=c("cadetblue4","darkolivegreen3"),
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: col=c("cadetblue4","darkolivegreen3"),
 - en: lwd=2,ylab="% from 250 day minimum",xlab=NA,
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: lwd=2,ylab="% from 250 day minimum",xlab=NA,
 - en: main="Russell 2000 and DJ World ex US
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: main="罗素2000和道琼斯世界除美国
 - en: Distance from 250 Day Minimum")
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 距250天最低点的距离")
 - en: legend("bottom",c("DJ World ex US","Russell 2000"),lty=1,lwd=2,
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: legend("bottom",c("道琼斯世界除美国","罗素2000"),lty=1,lwd=2,
 - en: col=c("cadetblue4","darkolivegreen3"),horiz=TRUE)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: col=c("cadetblue4","darkolivegreen3"),horiz=TRUE)

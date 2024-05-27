@@ -1,118 +1,183 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:08:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:08:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: US Treasury notes and QuantLib | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: US Treasury notes and QuantLib | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2011/01/31/us-treasury-notes-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/01/31/us-treasury-notes-and-quantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/01/31/us-treasury-notes-and-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/01/31/us-treasury-notes-and-quantlib/#0001-01-01)
 - en: Here, we deal with **US debt securities**, and more specifically with **US Treasury
     note****s**. Before turning to the **C++/QuantLib** code itself, we remind the
     reader with some bond-related terminology. And, we will conclude with short comments
     on our code.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，我们处理的是**美国债务证券**，更具体地说是**美国国债票据**。在转向**C++/QuantLib**代码本身之前，我们提醒读者一些与债券相关的术语。最后，我们对代码进行简短的评论。
 - en: '**Bond terminology refresh**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**债券术语回顾**'
 - en: '**Principal** or **face value**: the amount invested in the bond.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**本金**或**面值**：投资于债券的金额。'
 - en: '**Coupon**: the periodic payment until the bond expires. It is a financial
     flow from the issuer toward the holder of the bond. The payments can occur at
     different time interval, it is generally **annual** or **semi annual** coupon.
     And, a bond can pay a **fixed coupon** or much less frequently a **variable coupon**.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**息票**：直到债券到期为止的定期支付。这是发行方向债券持有人方向的金融流动。支付可以在不同的时间间隔发生，通常为**年度**或**半年**支付。而且，债券可以支付**固定息票**，或者更少见的是**浮动息票**。'
 - en: '**Redemption value**: a bond can be repurchased by the issuing company before
     expiration. That is redemption. And, the redemption value often is equal to the
     bond principal, but not always.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**赎回价值**：在到期前，发行公司可以回购债券。这就是赎回。并且，赎回价值通常等于债券本金，但并不总是如此。'
 - en: '**Clean price**: the bond quoted without any accrued interest.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**干净价格**：不包含任何应计利息的债券报价。'
 - en: '**Accrued interest**: the amount of interest built up since the last coupon
     payment.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**应计利息**：自上次息票支付以来积累的利息金额。'
 - en: '**Dirty price**: it equals clean price + accrued interest. It is the actual
     payment received by the bond holder.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**脏价格**：等于干净价格加上应计利息。这是债券持有人实际收到的支付。'
 - en: C++/QuantLib code
+  id: totrans-14
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: C++/QuantLib代码
 - en: We now turn to the code.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们来看代码。
 - en: __________________________
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: __________________________
 - en: '**US Treasury security type**:    note'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**美国国债证券类型**：票据'
 - en: '**Principal**:                                            100'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**本金**：100'
 - en: '**Issuing date**:                                     January 27th, 2011'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**发行日**：2011年1月27日'
 - en: '**Settlement**:                                       January 28th, 2011'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结算日**：2011年1月28日'
 - en: '**Maturity**:                                            August 31th, 2020'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**到期日**：2020年8月31日'
 - en: '**Coupon rate**:                                    3,625%'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**息票率**：3,625%'
 - en: '**Yield**:                                                     3,4921%'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**收益率**：3,4921%'
 - en: ________________________________
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ________________________________
 - en: '[PRE0]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '**QuantLib** has powerful tools to handle dates (date calculations, formatting,
     …) . A simple example in our code is :'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**QuantLib**拥有强大的工具来处理日期（日期计算、格式化等）。我们代码中的一个简单例子是：'
 - en: '[PRE1]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '**settlementDate** will be adjusted to the appropriate near business day according
     to the given convention, thanks to **calendar.adjust(settlementDate)**.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据给定的约定，**结算日**将调整为适当最近的营业日，得益于**calendar.adjust(settlementDate)**。
 - en: Thus, **QuantLib** allows to value ‘for real’ in this case a US Treasury note.
     That implies it requires a precise knowledge of convention dates. *How does the
     US Treasury cope with bank holidays ?*
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，**QuantLib**允许在此例中真实地估值美国国债票据。这暗示它需要对约定日期有精确的知识。*美国国债如何应对银行假期？*
 - en: The reader may have noticed the **try**,  **catch** and **throw** statements
     that we introduced in a recent post. Here, the **exception mechanism** doesn’t
     actually do a great deal for us. But, coding **exception mechanisms** is a good
     practice to make.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 读者可能已经注意到我们在最近的一篇文章中引入的**try**、**catch**和**throw**语句。在这里，**异常机制**实际上对我们并没有多大帮助。但是，编写**异常机制**是一个好的实践。
 - en: Finally, we introduced the **RelinkableHandle** handles, even if we don’t take
     much advantage of them in this code example. One benefit is that values  passed
     in relinkable handles can then be relinked to some other data source later on.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们引入了**RelinkableHandle**句柄，即使在这个代码示例中我们并没有充分利用它们。一个好处是，通过 relinkable handles
+    传递的值可以在稍后重新链接到其他数据源。

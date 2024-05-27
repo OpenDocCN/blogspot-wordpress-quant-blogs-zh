@@ -1,75 +1,113 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:34:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:34:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Optimal number of clusters | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最优聚类数 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/#0001-01-01)
 - en: In the last post, [Examples of Current Major Market Clusters](https://systematicinvestor.wordpress.com/2013/01/12/examples-of-current-major-market-clusters/),
     we looked at clustering Major Markets into 4 groups based on their correlations
     in 2012\. Today, I want to continue with clustering theme and discuss methods
     of selecting number of clusters.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章中，[当前主要市场聚类的例子](https://systematicinvestor.wordpress.com/2013/01/12/examples-of-current-major-market-clusters/)，我们根据2012年的相关性将主要市场聚类为4组。今天，我想继续讨论聚类主题，并讨论选择聚类数的方法。
 - en: 'I will look at the following methods of selecting optimal number of clusters:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将探讨以下选择最优聚类数的方法：
 - en: Minimum number of clusters that explain at least 90% of variance
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 至少解释90%方差的最小聚类数
 - en: Minimum number of clusters such that correlation among all components in each
     cluster is at least 40%
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 至少使每个聚类中所有组件之间的相关性为40%的最小聚类数
 - en: '[Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[肘部方法](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)'
 - en: Let’s first load historical for the 10 major asset classes
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先让我们加载10大资产类的历史数据
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next, let’s iterate from 2 clusters to 2/3N clusters (where N is the number
     of securities) and in each case compute the percentage of variance explained by
     clusters and minimum correlation among all components in each cluster.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们从2个聚类迭代到2/3N个聚类（其中N是证券的数量），并在每次计算聚类解释的方差百分比和每个聚类中所有组件之间的最小相关性。
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: In the first method, we set number of clusters equal to the minimum number of
     clusters that explain at least 90% of variance. This is not a bad choice; the
     downside is why 90%, why not 75%?
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第一种方法中，我们将聚类数设置为解释至少90%方差的最小聚类数。这不是一个坏选择；那么为什么是90%，而不是75%呢？
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: In the second method, we set number of clusters equal to the minimum number
     of clusters such that correlation among all components in each cluster is at least
     40%. Also not a bad choice; the downside is why 40%, why not 50%?
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第二种方法中，我们将聚类数设置为使每个聚类中所有组件之间的相关性至少为40%的最小聚类数。这也不是一个坏选择；那么为什么是40%，而不是50%呢？
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: In the third method, we use [Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
     to set number of clusters. The idea behind the [Elbow method](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)
     is to look at the marginal gain of adding each additional cluster. And set the
@@ -77,40 +115,60 @@
     thinking, if you graph the percentage of variance explained by the clusters against
     the number of clusters, the point on the curve that is farthest from the 45 degree
     line corresponds the optimal number of clusters.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第三种方法中，我们使用[肘部方法](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)来设置聚类数。[肘部方法](http://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set)背后的想法是观察添加每个额外聚类的边际收益。设置聚类数等于具有正边际收益的最大K值。从几何角度来看，如果你将聚类解释的方差百分比与聚类数绘制在图表上，曲线最远离45度线的点对应于最优聚类数。
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: All methods have produced similar number of clusters. Let’s visually see the
     difference between 4 and 5 clusters
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有方法都产生了类似的聚类数。让我们直观地看看4个和5个聚类之间的区别
 - en: '[PRE5]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '[![plot2](img/73ed9935a9428ffb1be6468e4cce47b7.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/73ed9935a9428ffb1be6468e4cce47b7.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2.png)'
 - en: '[![plot1](img/e49d4757f2b004963cf967b2a0605fc4.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot11.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/e49d4757f2b004963cf967b2a0605fc4.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot11.png)'
 - en: It is a judgment call, what do you think is better 4 or 5 clusters in this case?
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个判断问题，你觉得在这种情况下4个或5个聚类哪个更好？
 - en: 'Takeaways: I have barely scratched the surface in terms of methods that you
     can use to select number of clusters. I highly recommend following resources,
     if you want to get more background and/or discussion about clustering:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我只是略微触及了表面，关于聚类的方法，你还可以使用资源来选择聚类的数量。我强烈建议关注关于聚类的背景和/或讨论：
 - en: In the next post I will show the transition of clusters as we move in time.
     After that I will discuss the [Cluster Risk Parity](http://cssanalytics.wordpress.com/)
     portfolio allocation method (Varadi, Kapler, 2012). For more details about [Cluster
     Risk Parity](http://cssanalytics.wordpress.com/), please read David’s blog at
     [http://cssanalytics.wordpress.com/](http://cssanalytics.wordpress.com/).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将展示随着时间的推移集群的变化。之后，我将讨论[集群风险平价](http://cssanalytics.wordpress.com/)投资组合分配方法（Varadi，Kapler，2012年）。关于[集群风险平价](http://cssanalytics.wordpress.com/)的更多详细信息，请阅读David在[http://cssanalytics.wordpress.com/](http://cssanalytics.wordpress.com/)的博客。
 - en: To view the complete source code for this example, please have a look at the
     [bt.cluster.optimal.number.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看github上的[bt.cluster.optimal.number.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

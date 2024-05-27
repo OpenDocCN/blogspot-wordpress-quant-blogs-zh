@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:15:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:15:57'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Wonderful New Blog TimeSeriesIreland'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Timely Portfolio：Wonderful New Blog TimeSeriesIreland
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html#0001-01-01)
 - en: I returned from Scotland to find a wonderful new blog from Ireland [http://timeseriesireland.wordpress.com](http://timeseriesireland.wordpress.com). 
     To highlight his work, I thought I would apply his most recent post [AIB Stock
     Price, EGARCH-M, and rgarch](http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/)
@@ -26,250 +38,412 @@
     or perfect the model.  Rather I will use his model specifications for AIB daily
     data for S&P 500 weekly data.  This should be fun; maybe this will provoke some
     comments.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我从苏格兰回来发现了一个来自爱尔兰的精彩新博客[http://timeseriesireland.wordpress.com](http://timeseriesireland.wordpress.com)。为了突出他的工作，我想我会将他最近的一篇文章[AIB股价、EGARCH-M和rgarch](http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/)应用于标普500。显然，TimeSeriesIreland的作者对时间序列统计有着比我更好的把握，所以我不会尝试更改滞后顺序或完善模型。相反，我将使用他的AIB日数据的模型规范来处理标普500的周数据。这应该会很有趣；也许这会引发一些评论。
 - en: And, it is a shame that I need to disclaim, but **THIS IS FOR ILLUSTRATIVE PURPOSES
     ONLY AND SHOULD NOT BE CONSIDERED INVESTMENT ADVICE.  YOU ARE RESPONSIBLE FOR
     YOUR OWN GAINS AND LOSSES.**  I built a very basic system around the fittedmodel$z
     just for fun.  Here are the results.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 另外，遗憾的是我需要声明，但**这仅供说明目的，不应视为投资建议。您对自己的收益和损失负责。**我基于fittedmodel$z构建了一个非常基本的系统，只是为了好玩。以下是结果。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: '#all credit for this code goes to the very insightful author'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '#此代码的所有信用归功于非常有洞察力的作者'
 - en: '#of [http://timeseriesireland.wordpress.com](http://timeseriesireland.wordpress.com)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '#来自[http://timeseriesireland.wordpress.com](http://timeseriesireland.wordpress.com)'
 - en: '#based on the first couple of posts I look forward to following him'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#根据最初的几篇文章，我期待着关注他'
 - en: '#for explanation of the statistics and their use, please see'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#对于统计数据及其使用的解释，请参见'
 - en: '#[http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/#more-295](http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/#more-295)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#[http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/#more-295](http://timeseriesireland.wordpress.com/2011/05/17/aib-stock-price-egarch-m-and-rgarch/#more-295)'
 - en: '#I change the code to use SP500 weekly xts data instead of AIB daily tseries
     data'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我更改了代码，使用SP500的周xts数据，而不是AIB的每日tseries数据'
 - en: require(rgarch)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: require(rgarch)
 - en: require(urca)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: require(urca)
 - en: require(ggplot2)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: require(quantmod)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#define start and end dates'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#定义开始和结束日期'
 - en: start<-"1929-01-01"
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: start<-"1929-01-01"
 - en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
 - en: tckr<-"^GSPC"
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: tckr<-"^GSPC"
 - en: '#use quantmod to get SP500 data'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用quantmod获取SP500数据'
 - en: getSymbols(tckr,from=start,to=end)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols(tckr,from=start,to=end)
 - en: GSPC<-to.weekly(GSPC)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: GSPC<-to.weekly(GSPC)
 - en: '#get log returns, could also use ROC with type = "continuous"'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取对数收益，也可以使用type="continuous"的ROC'
 - en: LGSPC<-log(GSPC[,4])
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: LGSPC<-log(GSPC[,4])
 - en: retGSPC<-diff(LGSPC)
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: retGSPC<-diff(LGSPC)
 - en: '#data frame allows us to use ggplot with date data from xts'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#数据框允许我们使用来自xts的日期数据进行ggplot'
 - en: '#I have not found any better way to ggplot xts data'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我还没有找到更好的方式来ggplot xts数据'
 - en: df1<-data.frame(index(GSPC),coredata(GSPC[,4]))
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: df1<-data.frame(index(GSPC),coredata(GSPC[,4]))
 - en: colnames(df1)<-c("dates","sp500")
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(df1)<-c("dates","sp500")
 - en: 'Plot sp500 price:'
+  id: totrans-34
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 绘制标普500价格：
 - en: gg1.1<-ggplot(df1,aes(dates,sp500)) + xlab(NULL) + ylab("SP500 log Price") +
     scale_y_log10()
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: gg1.1<-ggplot(df1,aes(dates,sp500)) + xlab(NULL) + ylab("SP500 log Price") +
+    scale_y_log10()
 - en: gg1.2<-gg1.1+geom_line(colour="darkblue") + opts(title="Weekly SP500 Price 1950-current")
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: gg1.2<-gg1.1+geom_line(colour="darkblue") + opts(title="Weekly SP500 Price 1950-current")
 - en: gg1.2
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: gg1.2
 - en: '#set first return to 0'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将第一个回报设置为0'
 - en: retGSPC[1]<-0
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: retGSPC[1]<-0
 - en: df2<-data.frame(index(retGSPC),coredata(retGSPC))
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: df2<-data.frame(index(retGSPC),coredata(retGSPC))
 - en: colnames(df2)<-c("dates","sp500")
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(df2)<-c("dates","sp500")
 - en: gg2.1<-ggplot(df2,aes(dates,sp500)) + xlab(NULL) + ylab("Log Changes")
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: gg2.1<-ggplot(df2,aes(dates,sp500)) + xlab(NULL) + ylab("Log Changes")
 - en: gg2.2<-gg2.1+geom_line(colour="darkred") + opts(title="Weekly SP500 Price Return")
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: gg2.2<-gg2.1+geom_line(colour="darkred") + opts(title="Weekly SP500 Price Return")
 - en: gg2.2
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: gg2.2
 - en: ACFs and PACFs
+  id: totrans-45
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: ACFs和PACFs
 - en: par(mfrow=c(2,1))
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(2,1))
 - en: acf(retGSPC, main="ACF of SP500 Log Returns", lag = 50)
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: acf(retGSPC, main="ACF of SP500 Log Returns", lag = 50)
 - en: pacf(retGSPC, main="PACF of SP500 Log Returns", lag = 50)
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: pacf(retGSPC, main="PACF of SP500 Log Returns", lag = 50)
 - en: ar9<-arima(retGSPC, order=c(9,0,0))
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: ar9<-arima(retGSPC, order=c(9,0,0))
 - en: acf(ar9$residuals)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: acf(ar9$residuals)
 - en: ressq<-(ar9$residuals)^2
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: ressq<-(ar9$residuals)^2
 - en: Box.test(ressq, lag = 8, type = "Ljung-Box")
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: Box.test(ressq, lag = 8, type = "Ljung-Box")
 - en: pacf(ressq, main="PACF of Squared Residuals", lag = 30)
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: pacf(ressq, main="PACF of Squared Residuals", lag = 30)
 - en: Note that the GARCH order is revered from what I have discussed above
+  id: totrans-54
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Note that the GARCH order is revered from what I have discussed above
 - en: specm1 <- ugarchspec(variance.model=list(model="eGARCH", garchOrder=c(2,4),
     submodel = NULL),
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: specm1 <- ugarchspec(variance.model=list(model="eGARCH", garchOrder=c(2,4),
+    submodel = NULL),
 - en: mean.model=list(armaOrder=c(9,0), include.mean=TRUE, garchInMean = TRUE))
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: mean.model=list(armaOrder=c(9,0), include.mean=TRUE, garchInMean = TRUE))
 - en: '#this might take a while'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '#this might take a while'
 - en: fitm1 <- ugarchfit(data = retGSPC, spec = specm1)
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: fitm1 <- ugarchfit(data = retGSPC, spec = specm1)
 - en: fitm1
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: fitm1
 - en: '#plot(fitm1) #use option 8'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '#plot(fitm1) #use option 8'
 - en: fittedmodel <- fitm1@fit
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: fittedmodel <- fitm1@fit
 - en: sigma1<-fittedmodel$sigma
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: sigma1<-fittedmodel$sigma
 - en: df2<-data.frame(index(retGSPC),coredata(retGSPC),sigma1)
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: df2<-data.frame(index(retGSPC),coredata(retGSPC),sigma1)
 - en: colnames(df2)<-c("dates","sp500","sigma1")
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(df2)<-c("dates","sp500","sigma1")
 - en: gg3.1<-ggplot(df2,aes(dates)) + xlab(NULL) + ylab("Log Changes")
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: gg3.1<-ggplot(df2,aes(dates)) + xlab(NULL) + ylab("Log Changes")
 - en: gg3.2<-gg3.1+geom_line(aes(y = sp500, colour="Log Returns")) + opts(title="Weekly
     Log Return with 2 Conditional Standard Deviations")
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: gg3.2<-gg3.1+geom_line(aes(y = sp500, colour="Log Returns")) + opts(title="Weekly
+    Log Return with 2 Conditional Standard Deviations")
 - en: gg3.3<-gg3.2 + geom_line(aes(y = sigma1*2, colour="2 S.D.")) + geom_line(aes(y
     = sigma1*-2, colour="2 S.D.")) + scale_colour_hue("Series:") + opts(legend.position=c(.18,0.8))
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: gg3.3<-gg3.2 + geom_line(aes(y = sigma1*2, colour="2 S.D.")) + geom_line(aes(y
+    = sigma1*-2, colour="2 S.D.")) + scale_colour_hue("Series:") + opts(legend.position=c(.18,0.8))
 - en: gg3.3
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: gg3.3
 - en: fitm2 <- ugarchfit(data = retGSPC,out.sample = 10, spec = specm1)
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: fitm2 <- ugarchfit(data = retGSPC,out.sample = 10, spec = specm1)
 - en: fitm2
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: fitm2
 - en: pred <- ugarchforecast(fitm2, n.ahead = 10,n.roll = 0)
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: pred <- ugarchforecast(fitm2, n.ahead = 10,n.roll = 0)
 - en: pred.fpm <- fpm(pred)
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: pred.fpm <- fpm(pred)
 - en: pred.fpm
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: pred.fpm
 - en: '#just because I cannot stand it'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '#just because I cannot stand it'
 - en: '#I''ll play with a system'
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: '#I''ll play with a system'
 - en: '#not something I would bet my money on'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '#not something I would bet my money on'
 - en: signal<-runMean(as.xts(fittedmodel$z,order.by=index(retGSPC)),50)
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-runMean(as.xts(fittedmodel$z,order.by=index(retGSPC)),50)
 - en: '#chartSeries(signal)'
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '#chartSeries(signal)'
 - en: signal<-lag(signal,k=1)
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-lag(signal,k=1)
 - en: signal[is.na(signal)]<-0
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: signal[is.na(signal)]<-0
 - en: ret<-ifelse(signal > 0,ROC(GSPC[,4],1,type="discrete"),0)
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: ret<-ifelse(signal > 0,ROC(GSPC[,4],1,type="discrete"),0)
 - en: returnCompare<-merge(ret,ROC(GSPC[,4],1,type="discrete"))
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: returnCompare<-merge(ret,ROC(GSPC[,4],1,type="discrete"))
 - en: colnames(returnCompare)<-c("ZSystem","SP500")
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(returnCompare)<-c("ZSystem","SP500")
 - en: charts.PerformanceSummary(returnCompare,ylog=TRUE,main="Just for Fun Z System")
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(returnCompare,ylog=TRUE,main="Just for Fun Z System")

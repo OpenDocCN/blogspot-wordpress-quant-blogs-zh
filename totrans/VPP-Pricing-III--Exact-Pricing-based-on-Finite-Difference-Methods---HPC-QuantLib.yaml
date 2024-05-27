@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:39:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:39:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VPP Pricing III: Exact Pricing based on Finite Difference Methods – HPC-QuantLib'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VPP 定价 III：基于有限差分方法的精确定价 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/#0001-01-01](https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/#0001-01-01](https://hpcquantlib.wordpress.com/2011/08/07/vpp-pricing-iii-exact-pricing-based-on-finite-difference-methods/#0001-01-01)
 - en: 'The total value of a virtual power pant (VPP) can be decomposed in an intrinsic
     part plus an extrinsic part. The intrinsic value is given by the cash-flows that
     the VPP would generate based on the current power and gas forward curve. Therefore
@@ -29,20 +41,33 @@
     "Permanent Link to VPP Pricing I: Stochastic Processes & Partial Integro Differential Equation")
     Exact pricing can  be done using least square Monte-Carlo or finite difference
     methods using dynamic programming for the local optimization [1].'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 虚拟发电厂（VPP）的总价值可以分解为内在部分和外在部分。内在价值由 VPP 基于当前电力和天然气远期曲线产生的现金流组成。因此，可以使用线性或动态优化方法计算内在价值，而不需要为电力和天然气价格定义随机模型。计算外在价值意味着精确定价以计算给定随机过程的总价值。此处使用的模型在文章[VPP
+    定价 I：随机过程与偏积分微分方程。](../2011/06/13/vpp-pricing-i-stochastic-processes-partial-integro-differential-equation/
+    "VPP 定价 I：随机过程与偏积分微分方程。")中概述。可以使用最小二乘蒙特卡罗或有限差分方法使用动态规划进行局部优化[1]来进行精确定价。
 - en: The focus is on the finite difference method, which involves solving the three-dimensional
     partial integro differential equation
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 焦点是有限差分法，它涉及解决三维偏积分微分方程
 - en: '![\begin{array}{rcl} rV&=&\frac{\partial V}{\partial t}+\frac{\sigma_x^2}{2}\frac{\partial^2
     V}{\partial x^2}-\alpha x\frac{\partial V}{\partial x}-\beta y \frac{\partial
     V}{\partial y} \\[6pt]&+&\frac{\sigma_u^2}{2}\frac{\partial^2 V}{\partial u^2}-
     \kappa u\frac{\partial V}{\partial u} +\rho\sigma_x\sigma_u\frac{\partial^2 V}{\partial
     x\partial u}\\[6pt] &+&\lambda\int_\mathbb{R}\left(V(x,y+z,u,t)-V(x,y,u,t) \right
     )\omega(z)dz \\ \end{array}](img/7f253ce1b580c8eb2d310af36b53214c.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} rV&=&\frac{\partial V}{\partial t}+\frac{\sigma_x^2}{2}\frac{\partial^2
+    V}{\partial x^2}-\alpha x\frac{\partial V}{\partial x}-\beta y \frac{\partial
+    V}{\partial y} \\[6pt]&+&\frac{\sigma_u^2}{2}\frac{\partial^2 V}{\partial u^2}-
+    \kappa u\frac{\partial V}{\partial u} +\rho\sigma_x\sigma_u\frac{\partial^2 V}{\partial
+    x\partial u}\\[6pt] &+&\lambda\int_\mathbb{R}\left(V(x,y+z,u,t)-V(x,y,u,t) \right
+    )\omega(z)dz \\ \end{array}](img/7f253ce1b580c8eb2d310af36b53214c.png)'
 - en: 'An additional fourth dimension is needed to keep track of the different states
     of the VPP. Based on the characteristics of the VPP type outlined in the article
     [VPP Pricing II: Mixed Integer Linear Programming](../2011/06/23/vpp-pricing-ii-mixed-integer-linear-programming/
@@ -50,18 +75,30 @@
     load levels ![P \in \{0, P_{min}, P_{max} \}](img/ee6af483697e20b7607a7f2c2c2297e0.png)
     has ![2 t_{up} + t_{down}](img/8a6df971fab9ac57a983d3f4b00cccb5.png) different
     states.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要额外的第四维来跟踪 VPP 的不同状态。基于文章[VPP 定价 II：混合整数线性规划](../2011/06/23/vpp-pricing-ii-mixed-integer-linear-programming/
+    "VPP 定价 II：混合整数线性规划")中概述的 VPP 类型的特征，具有三种可能负载水平的 VPP ![P \in \{0, P_{min}, P_{max}
+    \}](img/ee6af483697e20b7607a7f2c2c2297e0.png) 具有 ![2 t_{up} + t_{down}](img/8a6df971fab9ac57a983d3f4b00cccb5.png)
+    不同状态。
 - en: Pricing via Monte-Carlo and *perfect foresight* involves simulating the stochastic
     process
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过蒙特卡罗和*完美预见*进行定价涉及模拟随机过程
 - en: '![\begin{array}{rcl} P_t &=& \exp(p_t + X_t + Y_t) \\ dX_t &=& -\alpha X_tdt
     + \sigma_x dW_t^x \\ dY_t &=& -\beta Y_{t-}dt+J_tdN_t \\ \omega(J) &=& \eta e^{-\eta
     J} \\ G_t &=& \exp(g_t + U_t) \\ dU_t &=& -\kappa U_tdt+\sigma_udW_t^u \\ \rho
     &=& \mathrm{corr} (dW_t^x, dW_t^u) \end{array}](img/2a9dbd260842a43d2ea5b28be84ce7af.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} P_t &=& \exp(p_t + X_t + Y_t) \\ dX_t &=& -\alpha X_tdt
+    + \sigma_x dW_t^x \\ dY_t &=& -\beta Y_{t-}dt+J_tdN_t \\ \omega(J) &=& \eta e^{-\eta
+    J} \\ G_t &=& \exp(g_t + U_t) \\ dU_t &=& -\kappa U_tdt+\sigma_udW_t^u \\ \rho
+    &=& \mathrm{corr} (dW_t^x, dW_t^u) \end{array}](img/2a9dbd260842a43d2ea5b28be84ce7af.png)'
 - en: 'and optimize the power plant load schedule for each path separately in the
     same way the intrinsic value is calculated. This procedure will result in an upper
     bound for the exact price of the VPP. The prices for a 4 weeks VPP contract based
@@ -69,24 +106,38 @@
     "VPP Pricing II: Mixed Integer Linear Programming") show almost no differences
     between the “exact” finite difference method and the *perfect foresight * upper
     bound value beside the Monte-Carlo error (s. diagram below, compare with [1]).'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '并且分别针对每条路径优化电厂负荷时间表，方式与计算固有价值相同。该过程将导致VPP的确切价格的上限。根据这两种方法和[VPP定价II](../2011/06/23/vpp-pricing-ii-mixed-integer-linear-programming/
+    "VPP Pricing II: Mixed Integer Linear Programming")中概述的参数，基于4周VPP合同的价格几乎没有差异，除了蒙特卡洛误差（参见下图，与[1]对比）。'
 - en: '[![](img/50dc78984bf9faed24a5ed6e025d0880.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/50dc78984bf9faed24a5ed6e025d0880.png "绘图")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/08/plot.png)'
 - en: The size of the lattice for the finite difference method was
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 有限差分法的栅格大小为
 - en: '![(t, nPower, nJump, nGas, nStates) = (672, 101, 51, 20, 14)](img/c9f3d7032a202ebf2d781c8674245d18.png).'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![(t, nPower, nJump, nGas, nStates) = (672, 101, 51, 20, 14)](img/c9f3d7032a202ebf2d781c8674245d18.png)。'
 - en: The code is available [here](http://hpc-quantlib.de/src/vpp4.zip). It depends
     on the latest [QuantLib](http://www.quantlib.org/) version from the [SVN trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/)
     or the upcoming QuantLib 1.2 release. If you want to generate the plot you’ll
     also need [R](http://www.r-project.org/)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 该代码可在[这里](http://hpc-quantlib.de/src/vpp4.zip)获取。它依赖于最新的[QuantLib](http://www.quantlib.org/)版本来自[SVN
+    trunk](http://sourceforge.net/p/quantlib/code/HEAD/tree/)或即将发布的QuantLib 1.2版本。如果要生成绘图，您还需要[R](http://www.r-project.org/)。
 - en: '[1] H. van Dijken,  D. van Abbena, H.S. Los, C. de Jong, [The value of starting
     up the power plant.](http://www.erasmusenergy.com/articles/192/1/The-value-of-starting-up-the-power-plant/Page1.html)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] H. van Dijken,  D. van Abbena, H.S. Los, C. de Jong, [启动电厂的价值。](http://www.erasmusenergy.com/articles/192/1/The-value-of-starting-up-the-power-plant/Page1.html)'

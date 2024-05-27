@@ -1,134 +1,210 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:40:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 14:40:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volatility Position Sizing 2 | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 波动率仓位调整 2 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01](https://systematicinvestor.wordpress.com/2012/06/12/volatility-position-sizing-2/#0001-01-01)
 - en: I have discussed Volatility Position Sizing in the [Volatility Position Sizing
     to improve Risk Adjusted Performance](https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/)
     post using the [Average True Range (ATR)](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)
     as a measure of Volatility.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在 [波动率仓位调整以改善风险调整绩效](https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/)
+    文章中讨论了使用 [真实波动范围 (ATR)](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)
+    作为波动率衡量的波动率仓位调整。
 - en: Today I want show how to use historical volatility to adjust portfolio leverage.
     Let’s start with Buy and Hold strategy using SPY and rescale it to the target
     volatility of 10%. I will use a 60 day rolling historical Volatility to adjust
     portfolio leverage in order to target 10% annual Volatility.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想展示如何使用历史波动率调整投资组合杠杆。我们从使用 SPY 的买入并持有策略开始，并将其重新缩放为目标波动率为10%。我将使用一个60天滚动的历史波动率来调整投资组合杠杆，以便将年度波动率定位为10%。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/56f44ea5bd653542e9e24c8aa80d8c54.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small1.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/56f44ea5bd653542e9e24c8aa80d8c54.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot1-small1.png)'
 - en: '[![](img/0eb622d55816b5cd7214155e74411a5c.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small1.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0eb622d55816b5cd7214155e74411a5c.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot2-small1.png)'
 - en: '[![](img/3926ec0a6c6ca833c7eb52dce3eec5cf.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot3-small.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3926ec0a6c6ca833c7eb52dce3eec5cf.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot3-small.png)'
 - en: All strategies do a good job of rescaling portfolio leverage to the target 10%
     volatility.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有策略都很好地将投资组合杠杆重新缩放到目标10%的波动率。
 - en: 'Next let’s investigate other volatility measures. The volatility function in
     the [TTR](http://cran.r-project.org/web/packages/TTR/index.html) package includes
     following volatility calculation types:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来我们来研究其他波动率指标。 [TTR](http://cran.r-project.org/web/packages/TTR/index.html)
+    包中的波动率函数包括以下波动率计算类型：
 - en: Historical volatility
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 历史波动率
 - en: Garman and Klass
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 加曼和克拉斯
 - en: Parkinson
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 帕金森
 - en: Rogers and Satchell
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 罗杰斯和萨切尔
 - en: Garman and Klass – Yang and Zhang
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 加曼和克拉斯 – 杨和张
 - en: Yang and Zhang
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 杨和张
 - en: We can easily modify the algorithm above to use these different volatility calculations.
     One of my favorite sides of [R](http://www.r-project.org/) is that there is a
     function or package for anything you can imagine 🙂
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以很容易地修改上述算法以使用这些不同的波动率计算方法。我最喜欢 [R](http://www.r-project.org/) 的一点是，你可以想象到的任何东西都有相应的函数或包
+    🙂
 - en: '[PRE1]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/3a89b82781e90899c6d7d47e0241e797.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot4-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3a89b82781e90899c6d7d47e0241e797.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot4-small.png)'
 - en: '[![](img/4dbe1746034e5201400a264053da121c.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot5-small.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4dbe1746034e5201400a264053da121c.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot5-small.png)'
 - en: The simple historical volatility does the best job at targeting volatility and
     controlling drawdowns.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单的历史波动率在定位波动率和控制回撤方面做得最好。
 - en: Next let’s apply idea of Volatility Position Sizing to the strategy’s Equity
     Curve.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们将波动率仓位调整的思想应用到策略的权益曲线上。
 - en: '[PRE2]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/6cac13d493754cd0318a9706d5c968f9.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot6-small.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6cac13d493754cd0318a9706d5c968f9.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot6-small.png)'
 - en: '[![](img/97c99be60eca58ddfb3bcfbadc724b14.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot7-small.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/97c99be60eca58ddfb3bcfbadc724b14.png "plot7.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot7-small.png)'
 - en: The Volatility Position Sizing does keep strategy’s volatility close to the
     target 10% volatility.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率仓位调整确实可以使策略的波动率接近目标10%的波动率。
 - en: In the final example, I will apply Volatility Position Sizing to the Timing
     strategy developed by M. Faber
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在最终的示例中，我将应用于M. Faber开发的Timing策略的波动率仓位调整。
 - en: '[PRE3]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/6ddcd5e3788d0f1eb33b2186052e0122.png "plot8.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot8-small.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6ddcd5e3788d0f1eb33b2186052e0122.png "plot8.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot8-small.png)'
 - en: '[![](img/a8bf51326f629a054e4a17efe4d65e5b.png "plot9.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot9-small.png)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a8bf51326f629a054e4a17efe4d65e5b.png "plot9.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/06/plot9-small.png)'
 - en: Volatility Position Sizing is one of many Position Sizing algorithms that can
     be part of your money management rules. Let me what Position Sizing scheme works
     best for you.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率仓位调整是许多仓位调整算法之一，可以成为您的资金管理规则的一部分。让我知道哪种仓位调整方案对您最有效。
 - en: To view the complete source code for this example, please have a look at the
     [bt.volatility.position.sizing.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.volatility.position.sizing.test()函数的bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

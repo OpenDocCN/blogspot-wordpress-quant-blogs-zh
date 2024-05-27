@@ -1,30 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:51:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 18:51:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using Contingent Probabilities and the Kelly Criterion for Trade Management
     | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用“条件概率”和“凯利准则”进行交易管理 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/08/07/using-contingent-probabilities-and-the-kelly-criterion-for-trade-management/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/07/using-contingent-probabilities-and-the-kelly-criterion-for-trade-management/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/08/07/using-contingent-probabilities-and-the-kelly-criterion-for-trade-management/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/07/using-contingent-probabilities-and-the-kelly-criterion-for-trade-management/#0001-01-01)
 - en: The Kelly Criterion is truly a hidden gem, largely because it directly contradicts
     the mean-variance utility framework of Modern Portfolio Theory (MPT). The high
     priests of modern finance have suppressed this practical decision tool to protect
     their own devices, which is good –because it gives you an edge on the competition.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 凯利准则实际上是一个隐藏的宝石，主要是因为它直接与现代投资组合理论（MPT）的均值方差效用框架相矛盾。现代金融的高级祭司们压制了这个实用的决策工具，以保护他们自己的利益，这是好事——因为它给了你竞争对手的优势。
 - en: 'The purpose of the Kelly Criterion is to maximize the compound return, while
     leaving the probability of going broke equal to zero. Initially, it was used by
     blackjack players to determine how much to bet when they counted cards. When the
@@ -36,37 +50,54 @@
     on an up day after a down day and vice versa)  are nearly identical, while the
     payoff is much smaller than doubling your bet every day. The Kelly Criterion is
     as follows:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 凯利准则的目的是最大化复利回报，同时保持破产的概率为零。最初，它被用于21点玩家确定计数卡时要下注多少。当计数高时，他们会有更高的期望，并下更多的赌注。但下注的金额至关重要，因为实际上，计数卡者的优势实际上相当小。它可以在玩家和庄家之间变化为52/48，当牌堆装满十和A时，可能会变为55/45（取决于牌堆数量、21点赔率等）。具有讽刺意味的是，股票市场每日跟进的赔率（在下跌后押注上涨日，反之亦然）几乎相同，而赔率要比每天加倍下注小得多。凯利准则如下：
 - en: 'For simple bets with two outcomes, one involving losing the entire amount bet,
     and the other involving winning the bet amount multiplied by the payoff [odds](https://cssanalytics.wordpress.com/wiki/Odds
     "Odds"), the Kelly bet is (from Wikpedia [http://en.wikipedia.org/wiki/Kelly_criterion](http://en.wikipedia.org/wiki/Kelly_criterion))
     :'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于两个结果的简单下注，一个涉及输掉下注的全部金额，另一个涉及赢得下注金额乘以赔率的倍数[赔率](https://cssanalytics.wordpress.com/wiki/Odds
+    "Odds")，凯利赌注是（来自Wikpedia [http://en.wikipedia.org/wiki/Kelly_criterion](http://en.wikipedia.org/wiki/Kelly_criterion)）：
 - en: '![ f^{*} = \frac{bp - q}{b} , \! ](img/d5e682d6639bc209433d36ffef663a7a.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![ f^{*} = \frac{bp - q}{b} , \! ](img/d5e682d6639bc209433d36ffef663a7a.png)'
 - en: where
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中
 - en: '*f** is the fraction of the current bankroll to wager;'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '*f** 是当前资金的一部分，用于下注的比例；'
 - en: '*b* is the net odds received on the wager (that is, odds are usually quoted
     as “*b* to 1″)'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '*b* 是下注所得的净赔率（即，赔率通常被引用为“*b*比1”）'
 - en: '*p* is the probability of winning;'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '*p* 是获胜的概率；'
 - en: '*q* is the probability of losing, which is 1 − *p*.'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '*q* 是失败的概率，即 1 − *p*。'
 - en: 'Note that one of the important hitches in applying the kelly criterion to the
     market is that it was designed assuming that if you lose the entire wager is lost.
     From this perspective, it can be applied directly to options, but it  must be
@@ -79,51 +110,80 @@
     we are in a bear market. I compute the average daily price return and the probability
     of winning versus losing for each state. Here are the results on the SPY for the
     last 4000 bars:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，在将凯利准则应用于市场时一个重要的难题是，它是在假设如果你输掉整个赌注就丢失的情况下设计的。从这种角度来看，它可以直接应用于期权，但必须进行修改以实际使用。理论上，投资标普500指数明天永远不可能输掉所有的钱。在我进入条件概率之前，让我们讨论一下我喜欢如何进行这种修改。首先，我把市场分为两种状态：1)
+    牛市 2) 熊市。我通过确定252天平均值是否上升来确定这一点，即如果标普500的252天平均价格高于前一天，我们处于牛市。如果平均值正在下降，我们处于熊市。我为每个状态计算平均每日价格回报和赢与输的概率。以下是过去4000根标普500(SPY)柱状图的结果：
 - en: '|   | % Positive | ADR* |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '|  | 正面百分比 | ADR* |'
 - en: '| Bull Market (rising 1-year MA) | 53.50% | 0.05% |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| 牛市（1年期上升移动平均）| 53.50% | 0.05% |'
 - en: '| Bear Market (falling 1-year MA) | 51.76% | -0.02% |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| 熊市（1年期下降移动平均）| 51.76% | -0.02% |'
 - en: '| *average daily return |   |   |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| 平均每日回报率 |  |  |'
 - en: 'I assume that in bear markets you will be short as a baseline, and long in
     bull markets. Note that in bear markets, you need to take (1-51.76%)=48.24% as
     your winning percentage and, -1*.02%= .02% as your average profit. Now we need
     to take a look at avg wins versus average losses:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我假设在熊市中你将以做空为基准，而在牛市中做多。请注意，在熊市中，你需要将（1-51.76%）=48.24%作为你的赢率，和-1*.02%= .02%作为你的平均利润。现在我们需要看看平均赢利与平均亏损之间的比较：
 - en: '|   | Avg Win | Avg Loss | Net Odds |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '|  | 平均赢利 | 平均亏损 | 净赔率 |'
 - en: '| Bull Market (rising 1-year MA) | 0.70% | -0.70% | 1.00 |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| 牛市（1年期上升移动平均）| 0.70% | -0.70% | 1.00 |'
 - en: '| Bear Market (falling 1-year MA) | 1.34% | -1.21% | 1.11 |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| 熊市（1年期下降移动平均）| 1.34% | -1.21% | 1.11 |'
 - en: From here we can start to calculate a modified Kelly for the stock market– lets
     call it MDVK because i am known for my judicious use/abuse of acronyms.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 从这里我们可以开始计算股票市场的修改凯利公式——让我们称它为MDVK，因为我以我的缩略词的慎重使用/滥用而闻名。
 - en: '***B***= ***T ***x *20/(the current vix level)*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '***B***= ***T ***x *20/(当前VIX水平)*'
 - en: '***MDVK***= (B x 1/2 x (100/(1-Kelly Criterion)))*max(300%)*'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '***MDVK***= (B x 1/2 x (100/(1-凯利准则)))*max(300%)*'
 - en: '*where **T**= *100% trend bet going long in bull markets/short in bear markets**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中**T**= *在牛市中做多/在熊市中做空的100%趋势赌注*
 - en: '*where **B**=  *baseline bet going long in bull markets/short in bear markets**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中**B**= *在牛市中做多/在熊市中做空的基准赌注*
 - en: Our standard opening bet ***T***  is basically 100% in the direction of the
     long term trend times the relative VIX (volatility index) level. This is designed
     to normalize our bets under the assumption of a long-term VIX of 20\. It also
@@ -133,8 +193,10 @@
     us to bet with the long-term trend, and therefore avoiding the fat-tails 2) it
     normalizes our bet-sizing so that we can use the same “wager”  which minimizes
     the effects of any one bad bet.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的标准开盘赌注***T***基本上是在长期趋势方向上做多100%乘以相对VIX（波动指数）水平。这是在假设长期VIX为20的情况下规范我们的赌注。它还迫使我们在熊市中下注更少，因为它们本质上是更具波动性的。2008年10月当VIX为80时，你的赌注只能是组合的25%（20/80）。本质上***B***通过1)迫使我们跟随长期趋势下注，从而避免肥尾效应2)规范我们的赌注大小，使我们能够使用相同的“赌注”，从而最小化任何单一坏赌注的影响。
 - en: 'The formula in the MDVK can be explained as follows: 1/2 represents the fact
     that we are betting 50% of the normal kelly recommendation. This is due to the
     fact that the true probabilities in the stock market are unknown, whereas in poker
@@ -147,42 +209,67 @@
     maximum allocation is 300%—which in my opinion should not be exceeded to avoid
     crippling the account via a rare event. In the above example, assuming no other
     information, the MDVK would be calculated as follows:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在MDVK中的公式可以这样解释：1/2代表我们下注的是正常凯利推荐的一半。这是由于股市中的真实概率是未知的，而在扑克或黑杰克中它们是确切的。这避免了过度下注的问题，使用1/2的调整通常是最优的。这个系统非常保守，但它主要是为了在强优势不存在时最小化下注额。回到方程，100/(1-kelly)表示我们需要考虑到我们不会在一次投注中损失100%的赌注。请注意MDVK已经调整，最大分配是300%——在我看来，这不应该超过，以避免通过罕见事件
+    crippling账户。在上述例子中，假设没有其他信息，MDVK的计算如下：
 - en: 'Scenario 1) Assuming a bear market with a VIX of 30:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 场景1) 假设市场熊市，VIX为30：
 - en: for the kelly criterion:  net odds=1.1   p(winning)=48% p(losing)=52%
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于凯利准则：净赔率=1.1   获胜概率=48% 失败概率=52%
 - en: f = (1.1*.48-.52)/1.1 = .73%
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: f = (1.1*.48-.52)/1.1 = .73%
 - en: MDVK= 20/30*.5*(100%-.73%) or .6666*.5*.96= **31%**
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: MDVK= 20/30*.5*(100%-.73%) or .6666*.5*.96= **31%**
 - en: Therefore, our optimal bet is 31% of capital.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们的最佳下注额是31%的资本。
 - en: 'for bull markets:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于牛市：
 - en: 'Scenario 2) Assuming a bull market with a VIX of 20:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 场景2) 假设市场牛市，VIX为20：
 - en: for the kelly criterion:  net odds=1   p(winning)=53.5% p(losing)=46.5%
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于凯利准则：净赔率=1   获胜概率=53.5% 失败概率=46.5%
 - en: f= (1*53.5%-47.5%)/1= 6%
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: f= (1*53.5%-47.5%)/1= 6%
 - en: MDVK=20/20*.5*(100%-6%) or .5*(94%)= 47%
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: MDVK=20/20*.5*(100%-6%) or .5*(94%)= 47%
 - en: Therefore in bull markets under scenario 1 our optimal allocation is 47%– this
     is a very conservative allocation, a full kelly would dicate being 94% invested,
     but that gives little leeway to increasing bet sizes under the prescence of strong 
     additional edges. This is the subject of enhancement using contingent analysis,
     and will be completed during the weekend.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，在场景1的牛市中，我们的最佳分配是47%——这是一个非常保守的分配，完整的凯利准则会要求投资94%，但这在强额外的优势下几乎没有余地增加下注额。这是使用条件分析进行改进的主题，将在周末完成。

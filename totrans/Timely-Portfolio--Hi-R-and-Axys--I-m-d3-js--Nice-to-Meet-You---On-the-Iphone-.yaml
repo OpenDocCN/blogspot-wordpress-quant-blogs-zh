@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:05:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:05:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'Timely Portfolio: Hi R and Axys, I’m d3.js “Nice to Meet You” (On the Iphone)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Hi R and Axys, I’m d3.js “Nice to Meet You” (On the Iphone)'
 - en: 来源：[http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/07/hi-r-and-axys-im-d3js-nice-to-meet-you.html#0001-01-01)
 - en: I am still definitely in the proof of concept stage, but as I progress I get
     more excited about the prospects of combining d3.js with R and Axys through Bryan
     Lewis’ really nice R websockets package (even nicer now that he has added the
@@ -28,62 +40,92 @@
     to draw a line chart of drawdowns.  This becomes really powerful when we consider
     the existing and [thanks to Google Summer of Code soon to be added](http://www.google-melange.com/gsoc/project/google/gsoc2012/matthieu_ensimag/26001)
     risk/return calculations offered by the R PerformanceAnalytics package.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我仍然处于概念验证阶段，但随着我取得进展，我越来越对将d3.js与R和Axys结合起来的前景感到兴奋，这是通过Bryan Lewis的非常好的R websockets包实现的（现在他增加了daemonize函数，变得更加出色）。在这个迭代中，我将添加一个累计增长折线图，一些动画和过渡效果，然后JavaScript将要求R计算回撤。上次R返回的是一个图表，这次R将通过JSON通过websocket发送回撤计算的结果。然后我们使用d3.js绘制回撤的折线图。当我们考虑到现有的以及[感谢Google
+    Summer of Code很快将增加的](http://www.google-melange.com/gsoc/project/google/gsoc2012/matthieu_ensimag/26001)风险/回报计算，由R
+    PerformanceAnalytics包提供的计算，这变得非常强大。
 - en: As one last bonus at the end of the video you will see that we can get this
     interactive reporting experience and websocket communication all on our Iphone
     and Ipad.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 视频的最后还有一个额外的奖励，那就是我们可以通过iPhone和iPad获得这种交互式的报告体验和websocket通信。
 - en: As a quick review of what is happening
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个简单的回顾，正在发生的事情
 - en: Axys runs a report called perhstsp.rep.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Axys运行一个名为perhstsp.rep的报告。
 - en: Axys calls the cdataset.xlsm testd3axys macro and sends performance information.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Axys调用cdataset.xlsm testd3axys宏并发送性能信息。
 - en: Excel cdataset.xlsm testd3axys macro does some very basic formatting, converts
     the data to JSON, creates a webpage, and opens the webpage in the default browser.
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Excel cdataset.xlsm testd3axys宏进行一些非常基本的格式化，将数据转换为JSON，创建一个网页，然后在默认浏览器中打开该网页。
 - en: Browser opens the webpage and d3.js generates a bar graph of performance and
     then a cumulative growth line chart.
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 浏览器打开网页，然后d3.js生成一个性能条形图，然后是一个累计增长折线图。
 - en: Browser provides a button to open a websocket with R and send the performance
     information originally calculated in Axys.
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 浏览器提供了一个按钮，用于打开与R的websocket连接，并发送最初在Axys中计算的性能信息。
 - en: R receives the performance data through the websocket, calculates drawdown,
     and then sends the drawdown calculations as JSON back to the browser.
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: R通过websocket接收性能数据，计算回撤，然后将回撤计算结果作为JSON发送回浏览器。
 - en: Browser receives the drawdown calculations and d3.js plots them as a line chart.
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 浏览器接收到回撤计算，然后d3.js将它们绘制成折线图。
 - en: '[http://www.youtube.com/embed/jz0cpO3Kp4Q](http://www.youtube.com/embed/jz0cpO3Kp4Q)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.youtube.com/embed/jz0cpO3Kp4Q](http://www.youtube.com/embed/jz0cpO3Kp4Q)'
 - en: VIDEO
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: VIDEO
 - en: The next set of iterations will focus on cleaning up the d3.js charts and adding
     interactivity.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一组迭代将重点关注清理d3.js图表并添加交互性。
 - en: So far I have received no comments.  Please let me know what you think about
     this.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止，我还没有收到任何评论。请告诉我你们对这方面的看法。
 - en: The list of acknowlegements is starting to get long. I really appreciate all
     the fine work done by Mike Bostock on d3.js [https://github.com/mbostock/d3/wiki](https://github.com/mbostock/d3/wiki
     "https://github.com/mbostock/d3/wiki"), the dedicated authors of the R package
@@ -95,10 +137,22 @@
     "http://cran.r-project.org/web/packages/RJSONIO/index.html"), and Bruce McPherson
     at [http://excelramblings.blogspot.com/](http://excelramblings.blogspot.com/ "http://excelramblings.blogspot.com/")
     for the inspirational idea.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 致谢名单越来越长了。我非常感谢 Mike Bostock 在 d3.js 上的出色工作[https://github.com/mbostock/d3/wiki](https://github.com/mbostock/d3/wiki
+    "https://github.com/mbostock/d3/wiki")，R 包 PerformanceAnalytics 的 dedicated 作者们[http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html](http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html
+    "http://cran.r-project.org/web/packages/PerformanceAnalytics/index.html")，Bryan，他撰写了[http://illposed.net/websockets.html](http://illposed.net/websockets.html
+    "http://illposed.net/websockets.html")以及[示例](http://bigcomputing.com/PerformanceAnalytics.R)，RJSONIO
+    作者[http://cran.r-project.org/web/packages/RJSONIO/index.html](http://cran.r-project.org/web/packages/RJSONIO/index.html
+    "http://cran.r-project.org/web/packages/RJSONIO/index.html")，以及为这个灵感提供支持的 Bruce
+    McPherson 在[http://excelramblings.blogspot.com/](http://excelramblings.blogspot.com/
+    "http://excelramblings.blogspot.com/")。
 - en: To work through on your own, you will need the Excel file [cdataset.xlsm](https://www.box.com/s/ec9ddf33cefd5fd7cf10),
     the Axys report [perhstsp.rep](https://www.box.com/s/yhdagoqpznif8248etc5), and
     the [R code from GIST](http://bl.ocks.org/3190664).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了独立完成工作，你需要 Excel 文件[cdataset.xlsm](https://www.box.com/s/ec9ddf33cefd5fd7cf10)，Axys
+    报告[perhstsp.rep](https://www.box.com/s/yhdagoqpznif8248etc5)，以及来自 GIST 的[R 语言代码](http://bl.ocks.org/3190664)。

@@ -1,62 +1,98 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:36:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:36:24'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Logstash: Geoip for Internal Networks – Part 2 | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Logstash: 内部网络的Geoip – 第二部分 | 交易桌上的故事'
 - en: 来源：[https://mdavey.wordpress.com/2016/01/20/logstash-geoip-for-internal-networks-part-2/#0001-01-01](https://mdavey.wordpress.com/2016/01/20/logstash-geoip-for-internal-networks-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/01/20/logstash-geoip-for-internal-networks-part-2/#0001-01-01](https://mdavey.wordpress.com/2016/01/20/logstash-geoip-for-internal-networks-part-2/#0001-01-01)
 - en: 'Logstash: Geoip for Internal Networks – Part 2'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 'Logstash: 内部网络的Geoip – 第二部分'
 - en: 'Continuing with logstash.  If your doing anything with TopBeat, then consider
     the dashboards, available [here](https://www.elastic.co/guide/en/beats/libbeat/1.0.1/getting-started.html#load-kibana-dashboards).
      Using FileBeats and TopBeats to feed logstash, will effectively mean logstash
     receives both streams via port 5044\.  In your logstash config, your may want
     to insert the data into different ElasticSearch index’s.  One way tot do this
     is to check the input type of data from Beats:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续讲解logstash。如果你的工作涉及到TopBeat，那么请考虑这些仪表板，它们[在这里](https://www.elastic.co/guide/en/beats/libbeat/1.0.1/getting-started.html#load-kibana-dashboards)可用。使用FileBeats和TopBeats来喂养logstash，实际上意味着logstash通过端口5044接收两个数据流。在你的logstash配置中，你可能希望将数据插入到不同的ElasticSearch索引中。做到这一点的一种方法是检查来自Beats的数据的输入类型：
 - en: filter {
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: filter {
 - en: if [type] == “system” or [type] == “filesystem” or [type] == “process” {
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: if [type] == “system” or [type] == “filesystem” or [type] == “process” {
 - en: mutate {
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: mutate {
 - en: add_field => { “_IndexName” => “%{type}” }
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: add_field => { “_IndexName” => “%{type}” }
 - en: '}'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: 'And then in the output section, change the index name as appropriate:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'And then in the output section, change the index name as appropriate:'
 - en: elasticsearch {
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: elasticsearch {
 - en: index => “%{_IndexName}-%{+YYYY.MM.dd}”
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: index => “%{_IndexName}-%{+YYYY.MM.dd}”
 - en: ~ by mdavey on January 20, 2016.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ by mdavey on January 20, 2016.
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: Posted in [数据](https://mdavey.wordpress.com/category/data/)

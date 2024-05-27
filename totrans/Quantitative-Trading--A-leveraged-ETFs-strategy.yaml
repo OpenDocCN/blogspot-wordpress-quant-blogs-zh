@@ -1,52 +1,83 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: （此处为注释，不翻译）
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:00:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:00:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: 由约克大学的Pauline Shum教授及其合作者完成。这是策略的最简单版本：如果一个股票市场指数自前一个交易日的收盘以来至少经历了2%的回报，直到东部时间下午2:15，那么立即购买这个指数（通过其期货、ETF或股票成分），并在收盘时以市场收盘订单退出。反之，如果回报
+    <= -2%。从2006年6月至2011年7月的年化平均回报被发现高于100%。
 - en: 'Quantitative Trading: A leveraged ETFs strategy'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: （发布链接：[http://ssrn.com/abstract=2161057](http://ssrn.com/abstract=2161057)
 - en: 来源：[http://epchan.blogspot.com/2012/10/a-leveraged-etfs-strategy.html#0001-01-01](http://epchan.blogspot.com/2012/10/a-leveraged-etfs-strategy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 帖子（省略，不翻译）
 - en: In a
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个
 - en: '[post](http://epchan.blogspot.ca/2009/07/are-triple-leveraged-etfs-suitable-for.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: （此处为省略，不翻译）
 - en: some years ago, I argued that leveraged ETF (especially the triple leveraged
     ones) are unsuitable for long-term holdings. Today, I want to present research
     that suggests leveraged ETF can be very
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化交易：杠杆化ETF策略
 - en: '*suitable*'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '*适宜*'
 - en: for
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 几年前，我曾主张杠杆化ETF（尤其是三倍杠杆的）不适合长期持有。今天，我想介绍一些研究表明杠杆化ETF可以非常
 - en: '*short*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: （此处为省略，不翻译）
 - en: -term trading.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: -期限交易。
 - en: The research in question was just
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: （此处为省略，不翻译）
 - en: '[published](http://ssrn.com/abstract=2161057)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 据估计，如果市场波动1%，重新平衡可能占到收盘时市场成交量的16.8%，所以引发的动量可能是巨大的。那么，这些动量交易者的利润是谁支付的呢？当然是那些持有不动的投资者。ETF的这种损失表现为它们的跟踪误差，对于持有不动的投资者来说，这可能导致高达5%的年成本。这是我们不应该成为那种投资者的另一个原因！
 - en: 'by Prof. Pauline Shum and her collaborators at York University. Here is the
     simplest version of the strategy: if a stock market index has experienced a return
     >= 2% since the previous day''s close up to the current time at 2:15pm ET, then
@@ -54,8 +85,10 @@
     at the close with a market-on-close order. Vice versa if the return is <= -2%.
     The annualized average return from June 2006 to July 2011 was found to be higher
     than 100%.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*短期*'
 - en: 'Now this strategy is actually quite well-known among institutional traders,
     although this is the first time I see the backtest results published. The reason
     why it works is also quite well-known: it has to do with the fact that every leveraged
@@ -66,77 +99,114 @@
     amount of stocks that need to be bought or sold will be correspondingly larger,
     resulting in momentum in all those stocks near the close. This strategy aims to
     front-run this rebalancing to take advantage of the anticipated momentum.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: It has been estimated that if the market moves by 1%, the rebalancing could
     account for up to 16.8% of the market-on-close volume, so the induced momentum
     can be substantial. Now who is paying for this profits for those momentum traders?
     Why, the buy-and-hold investors, of course. This loss for the ETFs shows up as
     their tracking errors, resulting in a cost of as much as 5% per annum for the
     buy-and-hold investors. Yet another reason we should not be one of those investors!
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在这种策略在机构交易者中实际上相当知名，尽管这是我第一次看到发布的回测结果。它之所以有效也是众所周知的：这与每个杠杆化ETF在市场收盘时必须重新平衡以保持其杠杆常数（取决于基金是2倍还是3倍）的事实有关。如果市场指数上涨，基金需要购买成分股；否则，需要卖出股票。如果自前一个收盘价以来市场有重大波动（绝对回报
+    >= 2%），那么需要购买或卖出的股票数量相应会增加，导致所有这些股票在收盘时都有动量。这种策略旨在抢先利用这种重新平衡的好处。
 - en: 'As Prof. Shum pointed out, if you trade this strategy live today, you will
     likely get a lower return, because of all those momentum traders who drove up
     the price way before the close. However, there may be an ameliorating factor at
     work here: this momentum is proportional to the NAVof the ETFs. As their NAV goes
     up with time (either due to additional subscriptions or positive market returns),
     the returns of this strategy should also increase.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如Shum教授指出的，如果你今天实时交易这个策略，你可能会得到较低的回报，因为所有那些在收盘前很久就推高价格的动量交易者。然而，这里可能有一个缓解因素在起作用：这种动量与ETF的净资产值（NAV）成比例。随着它们净资产值随着时间的推移而上升（无论是由于额外的订阅还是正面的市场回报），这种策略的回报也应该增加。
 - en: ===
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2012/10/a-leveraged-etfs-strategy.html#0001-01-01](http://epchan.blogspot.com/2012/10/a-leveraged-etfs-strategy.html#0001-01-01)
 - en: 'Now for some public service announcements:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在是一些公共服务公告：
 - en: 1) A company called Level 3 Data Corp sells proprietary data indicating buying
     and selling pressure on stocks. Their internal backtests show that adding these
     data to some common stock trading strategies essentially double their returns.
     An explanatory
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 一家公司名为Level 3 Data Corp出售显示股票买入和卖出压力的专有数据。他们的内部回测显示，将这些数据添加到一些常见的股票交易策略中，基本上可以翻倍他们的收益。一个解释性
 - en: '[video](http://www.youtube.com/watch?v=me1g3PU7nzI)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[视频](http://www.youtube.com/watch?v=me1g3PU7nzI)'
 - en: is available, and I heard they are offering 3-month free trials.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 可用，我听说他们提供3个月的免费试用。
 - en: 2) The London Systematic Traders (LST) Club has asked me to say a few words
     about their new initiative to build a London centric collaborative community of
     traders, developers and researchers.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 伦敦系统交易者俱乐部（LST）邀请我就他们建立一个以伦敦为中心的交易者、开发者和研究者协作社区的新举措发表几句评论。
 - en: LST aims to be at the intersection of traders, developers and quants with a
     strong emphasis community building and on knowledge exchange, providing a trading
     networks with a very specific focus on systematic, algorithmic (i.e. automated)
     or quantitative trading.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: LST旨在将交易者、开发者和量化分析师聚集在一起，重点是社区建设和知识交流，为系统化、算法（即自动化）或量化交易提供一个具有特定焦点的交易网络。
 - en: Membership is free and open to everybody with an interest in the above topics.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 会员免费，并向所有对上述话题感兴趣的人开放。
 - en: '[http://www.meetup.com/London-Systematic-Traders/](http://www.meetup.com/London-Systematic-Traders/)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.meetup.com/London-Systematic-Traders/](http://www.meetup.com/London-Systematic-Traders/)'
 - en: On Friday, Nov 23, I expect to be hosting a Q&A session with members of the
     LST (see 2 above) at the Apex Hotel in London. All are welcome. Please visit their
     website for details.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 11月23日周五，我预计将在伦敦的阿佩克斯酒店与LST（见上文2）的成员主持一个问答环节。欢迎大家参加。请访问他们的网站了解详情。
 - en: 3) I will be conducting my
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 我将主持我的
 - en: '[Backtesting](http://www.technicalanalyst.co.uk/training/backtestingEC.htm)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[回测](http://www.technicalanalyst.co.uk/training/backtestingEC.htm)'
 - en: and
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 并且
 - en: '[Statistical Arbitrage](http://www.technicalanalyst.co.uk/training/statarb.htm)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[统计套利](http://www.technicalanalyst.co.uk/training/statarb.htm)'
 - en: workshops in London, Nov 19-22, and look forward to seeing some of our readers
     there!
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 在伦敦举办的研讨会，11月19日至22日，期待在那里见到一些我们的读者！

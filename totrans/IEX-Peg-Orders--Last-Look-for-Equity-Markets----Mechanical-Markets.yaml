@@ -1,39 +1,59 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:42:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:42:49
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'IEX Peg Orders: Last Look for Equity Markets? | Mechanical Markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[IEX PEG订单：股票市场的最后一眼？](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/#0001-01-01)
+    | 机械市场'
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/10/05/iex-peg-orders-last-look-for-equity-markets/#0001-01-01)
 - en: 'Matt Levine recently [challenged](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)
     his readers to describe how IEX’s speedbump might be gamed:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近，Matt Levine [挑战](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)了他的读者描述IEX的速度障碍如何可能被操纵：
 - en: It’s hard for ***me*** to figure out a way to game it. You all are smart, tell
     me how to game it. The prize is maybe you get to game it.
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 对于***我***来说，很难想出一种操纵它的方法。你们都很聪明，请告诉我如何操纵它。奖品也许是你可以操纵它。
 - en: I’ve [discussed](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/)
     some issues with the IEX platform. In this post, I’ll add detail for a few of
     those issues. And, while labeling an exchange “gameable” is subjective, IEX peg
     orders remind me of controversies from other markets. I haven’t seen IEX’s source
     code or system design, so this post is speculative.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我曾经[讨论过](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/)IEX平台的一些问题。在这篇文章中，我将为其中一些问题添加详细说明。虽然将一个交易所标记为“可以操纵”的说法是主观的，但IEX
+    PEG订单让我想起了其他市场的争议。我没有看过IEX的源代码或系统设计，因此这篇文章是一种推测。
 - en: All orders sent to IEX go through the 350us “shoebox” delay, at the time of
     entry. However, the exchange does not apply the delay to algorithmic order types
     such as peg orders. This behavior is designed to prevent nefarious traders who,
@@ -41,12 +61,17 @@
     to IEX, hoping to hit an order pegged at the now-stale price. [[1](#bottom1iexpeg)]
     IEX’s intention is a good one. But, if the shoebox delay is not fine-tuned, there
     can be some undesirable side effects.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有发送到IEX的订单都经过350微秒的“鞋盒”延迟，即录入时。但是，交易所不会对诸如PEG订单之类的算法订单类型应用延迟。这种行为旨在防止邪恶的交易者在看到其他交易所的报价变化后，迅速向IEX提交侵略性订单，希望击中定价在现在过时价格的订单。[[1](#bottom1iexpeg)]
+    IEX的意图是好的。但是，如果鞋盒延迟没有精细调整，可能会产生一些不良的副作用。
 - en: Last Look
+  id: totrans-10
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最后一眼
 - en: Orders on many spot FX exchanges are subject to what’s called “last look,” where
     the resting side, after a match, may briefly wait before deciding to proceed with
     the trade. Last look helps bank liquidity-providers avoid being “picked off,”
@@ -55,8 +80,10 @@
     why the practice is [controversial](http://www.bloomberg.com/news/articles/2015-03-03/barclays-last-look-at-currency-trades-said-to-face-u-s-review).
     BlackRock, for instance, has [said](http://www.bloomberg.com/news/articles/2015-02-24/eliminate-phantom-liquidity-in-currency-markets-blackrock-says)
     that last look causes “phantom liquidity.”
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多现货外汇交易所的订单受到所谓的“最后一眼”的约束，在匹配后，休息方可能会在决定是否进行交易之前稍作等待。最后一眼有助于银行提供流动性的提供商避免被“抢购”，并通过让他们在市场不利时退出填充来给他们提供选择价值。它可能为合法的商业目的提供服务，但很容易理解为什么这种做法是[有争议的](http://www.bloomberg.com/news/articles/2015-03-03/barclays-last-look-at-currency-trades-said-to-face-u-s-review)。例如，BlackRock已经[表示](http://www.bloomberg.com/news/articles/2015-02-24/eliminate-phantom-liquidity-in-currency-markets-blackrock-says)最后一眼导致了“幻觉流动性”。
 - en: 'IEX peg orders offer something like a ‘conditional’ last look. Instead of becoming
     non-firm at the trader’s discretion, peg orders opt-out of executions only if
     the NBBO moves away within 350us of the incoming order’s reception. [[2](#bottom2iexpeg)]
@@ -64,11 +91,16 @@
     is still very significant. How significant? I would estimate that it’s worth around
     half a tick. To give a rough idea, here is a plot of trades on Nasdaq, grouped
     by whether Nasdaq still had a quote present at the same price 350us later:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX PEG订单提供了类似“条件”的最后一眼。与交易员自行决定取消订单不同，PEG订单只有在收到订单后350微秒内NBBO移动时才会选择退出执行。[[2](#bottom2iexpeg)]
+    这种限制使它们比真正的最后一眼不那么有价值，但它们的选择价值仍然非常重要。有多重要？我估计值约为半个滴答。为了给一个大致的想法，这里是纳斯达克交易的交易情况，根据纳斯达克是否在350微秒后以相同价格提供报价进行分组：
 - en: '[![aug2X_inet_vsInetBbo350usPostFill_800](img/d0df82b0706e2510a9f90c108c40650c.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_inet_vsinetbbo350uspostfill_800.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![aug2X_inet_vsInetBbo350usPostFill_800](img/d0df82b0706e2510a9f90c108c40650c.png)'
 - en: 'Top panel: Average market-priced profit or loss per share vs distance in time
     from trade, from the perspective of the passive side of the trade. Trades are
     grouped by how their price compared to the (round lot) Nasdaq BBO, 350us post-trade.
@@ -80,26 +112,38 @@
     of the most recently traded 100 shares. Chart is over 8 days in August 2014 and
     excludes fees and rebates. Bottom panel: Shares traded on Nasdaq vs time from
     trade (including fiducial trade).'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：与交易时间的距离相比，每股平均市场定价利润或损失，从交易的被动方的角度来看。交易按其价格与（整数股）纳斯达克BBO 350us后交易的价格比较分组。简而言之，如果纳斯达克在类似IEX取消其peg订单的情况下撤回其订单，纳斯达克将防止所有“优于350us后交易纳斯达克BBO”组的交易。剩下的组（“等于或低于350us后交易纳斯达克BBO”）在收到约3000万美元的退款后将非常盈利。只有可见执行。
+    “市场价格”是最新的100股的平均价格。图表是在2014年8月的8天内，不包括费用和退款。底部面板：纳斯达克交易的股票与交易时间（包括基准交易）。
 - en: 'Here is the same for colocated trades on Nasdaq BX, again grouped by how they
     compared to the Nasdaq (Inet) BBO 350us post-trade:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是纳斯达克BX上同质交易的情况，同样按其与纳斯达克（Inet）BBO 350us后交易的价格比较分组：
 - en: '[![aug2X_bsx_vsInetBbo350usPostFill_800](img/7913a87857b1a5ca508519bbd601b0bf.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_bsx_vsinetbbo350uspostfill_800.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![aug2X_bsx_vsInetBbo350usPostFill_800](img/7913a87857b1a5ca508519bbd601b0bf.png)'
 - en: Other, non-colocated exchanges (like [BatsZ](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_batsz_vsinetbbo350uspostfill.png)
     or [EdgeX](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_edgex_vsinetbbo350uspostfill.png))
     that I checked are similar.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 其他非托管交易所（如[BatsZ](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_batsz_vsinetbbo350uspostfill.png)或[EdgeX](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/10/aug2x_edgex_vsinetbbo350uspostfill.png)）我所检查的类似。
 - en: These charts are just hints at the option-value offered by IEX and are closest
     in spirit to IEX primary peg orders, which (I think) only trade at the 350us ex-post
     NBBO. [[3](#bottom3iexpeg)] The edge that midpoint pegs and D-Pegs receive from
     the head start is much harder to estimate, but I expect that it’s sizable.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些图表只是对IEX提供的期权价值的暗示，并且在精神上最接近IEX主要的peg订单，这些订单（我认为）只在350us后交易的NBBO交易。 [[3](#bottom3iexpeg)]
+    中点peg和D-Peg从领先优势中获得的边缘更难以估计，但我预计它相当可观。
 - en: It might seem like the edge I’ve described is solely due to IEX successfully
     preventing peg orders from being “picked off.” It isn’t. A peg order is “picked
     off” when its counterparty has reacted to an event which should have previously
@@ -108,57 +152,84 @@
     markets are decentralized, and partly unsynchronized — IEX claims to have fixed
     all race conditions, but they have only fixed one, and by doing so they’ve created
     others. [[4](#bottom4iexpeg)]
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 可能有人认为我描述的边缘效应只是因为IEX成功地防止了peg订单被“挑选”。并非如此。当一个订单的对立面对于本应导致该订单重新定价的事件做出反应时，该订单就会被“挑选”。IEX使用对立面在提交订单时所没有的信息来重新定价peg订单。股票市场是去中心化的，部分不同步——IEX声称已经解决了所有竞争条件，但他们只解决了一个，并且通过这样做，他们创造了其他问题。
+    [[4](#bottom4iexpeg)]
 - en: Sources of Peg Orders’ Edge
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: peg订单边缘的来源
 - en: Sophisticated traders might take advantage of the option-value offered by IEX
     by simply sending peg orders instead of normal, firm orders. If they’re fast enough
     to be the first peg orders received by IEX, the estimated 50mil edge could make
     losing strategies wildly profitable.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 高级交易员可能会通过简单地发送peg订单而不是正常坚定的订单，利用IEX提供的期权价值。如果他们足够快，成为IEX接收的第一批peg订单，那么估计的5000万美元的边缘可能会使亏损策略变得极具盈利性。
 - en: 'Where does this money come from? I think it’s mostly from two populations:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些资金来自哪里？我认为主要来自两个群体：
 - en: '**1)** All resting orders on other exchanges:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**1)** 其他交易所上的所有挂起订单：'
 - en: '**A)** IEX pegs are priced using other exchanges’ quotes. Peg orders that would
     have been unviable economically will now be profitable, through their use of information
     about the future state of those quotes.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**A)** IEX的挂单价格使用其他交易所的报价。原本在经济上不可行的挂单订单现在通过使用关于这些报价未来状态的信息变得有利可图。'
 - en: '**B)** These peg orders will proliferate on IEX.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**B)** 这些挂单将在IEX上广泛传播。'
 - en: '**C)** Orders sent to IEX that would otherwise have been routed out to other
     exchanges will now trade with these proliferated peg orders.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**C)** 发送到IEX的订单本可以路由到其他交易所，但现在将与其他传播的挂单交易。'
 - en: '**D)** That will lead to fewer, more toxic fills for passive orders on every
     other exchange.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**D)** 这将导致在其他每个交易所的被动订单获得更少、更有毒的成交。'
 - en: '**E)** Market makers may widen their quotes to compensate for this adverse
     selection.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**E)** 市场制造商可能会放宽他们的报价以补偿这种逆向选择。'
 - en: '**2)** High-alpha aggressive orders on IEX:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2)** IEX上的高阿尔法激进订单：'
 - en: '**A)** Aggressive traders may cause or predict the movement of prices on other
     exchanges.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**A)** 激进的交易员可能会引起或预测其他交易所上的价格变动。'
 - en: '**B)** IEX will see these price movements, which occur *after* they receive
     aggressive orders, and pull posted peg orders which would have executed. This
     [fading](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/#2iex2)
     of liquidity could harm the same traders that Michael Lewis wanted to protect.'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**B)** IEX会看到在这些收到激进订单之后发生的价格变动，并撤销那些本来可以执行的挂单。这种流动性的枯竭可能会伤害到迈克尔·刘易斯想要保护的同一群交易员。[流动性枯竭](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/#2iex2)可能会对交易造成损害，将交易从赢/输的情况转变为赢/修正的情况。'
 - en: '**C)** Aggressive traders could send their orders to IEX 350us before sending
     orders to other exchanges, in the spirit of Thor. That would prevent IEX from
     using future information to pull peg orders. Delaying orders is not always an
@@ -167,12 +238,17 @@
     execution algorithm (or HFT) might clear out the available liquidity. Thor-style
     delays may work for human traders, but are not helpful for the vast majority of
     volume executed by computers.'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**C)** 激进的交易员可以在将订单发送到其他交易所之前，提前350微秒将订单发送到IEX，以泰尔的精神进行操作。这将防止IEX利用未来的信息来撤销挂单。推迟订单并不总是一个选项；如果激进的交易员是一个对交易做出反应的执行算法，它不能推迟任何订单。如果它这样做，一个竞争性的执行算法（或HFT）可能会清除可用的流动性。泰尔式的延迟可能适合人类交易员，但对于绝大多数由计算机执行的成交量来说并不
+    helpful。'
 - en: Unintended Usage
+  id: totrans-33
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 非预期使用
 - en: Knowing exactly how these orders will behave, sophisticated traders can integrate
     them into their strategies more effectively than other users. I bet it’s profitable
     to simply copy quotes posted on other exchanges onto IEX with peg orders. IEX
@@ -182,17 +258,23 @@
     capture the profit. A 50 mil per share edge is very enticing to HFTs, and I’d
     expect that many will soon be competing in a race to be first in the ‘peg order
     queue’ (if they aren’t already).
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 精确地知道这些订单将如何表现，先进的交易员可以比其他用户更有效地将它们整合到他们的策略中。我敢打赌，简单地将其他交易所发布的报价复制到IEX上并用挂单进行操作是有利可图的。IEX允许交易员从其他交易所复制流动性，而不必承担通常伴随的风险。而且，这种收入的大部分将由高速交易员赚取。当存在这种结构性效率时，最快的订单会抓住利润。对于HFT来说，每股50美元的边缘是非常有吸引力的，我预计许多交易员将很快参与到争夺“挂单队列”第一名的竞争中（如果他们还没有的话）。
 - en: I’m sure there are many other examples where conditional executions allowed
     by the speedbump change the circumstances of trading from win/lose to win/scratch.
     [[5](#bottom5iexpeg)][[6](#bottom6iexpeg)]
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 我相信还有很多其他例子，条件执行通过速度障碍改变了交易的状况，将交易从赢/输转变为赢/修正。 [[5](#bottom5iexpeg)][[6](#bottom6iexpeg)]
 - en: Understanding Timescales of Trading
+  id: totrans-36
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 理解交易的时序
 - en: Put a certain way, IEX’s speedbump doesn’t sound very significant; 350us is
     less than 1% of the time it takes to blink. But, like it or not, computers do
     the majority of trading these days, including on behalf of fundamental traders.
@@ -200,68 +282,95 @@
     speed advantage of that magnitude can guarantee profit. IEX knows this too. Cofounder
     Dan Aisen [says](http://blog.quantopian.com/the-genesis-of-an-order-type-by-daniel-aisen/)
     that “350 microseconds is an enormous head start.”
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 从某种角度看，IEX的速度障碍听起来并不那么显著；350微秒不及眨眼时间的一百分之一。但是，不管喜欢与否，如今大部分交易都是由计算机完成的，包括代表基本交易者的交易。市场专业人士知道，在数百微秒内可以发生很多事情，而这样的速度优势可以保证盈利。IEX也清楚这一点。联合创始人丹·艾森（Dan
+    Aisen）[表示](http://blog.quantopian.com/the-genesis-of-an-order-type-by-daniel-aisen/)，“350微秒是一个巨大的领先优势。”
 - en: Selective application of a speedbump is economically equivalent to an exchange
     distributing a secret data feed, providing anointed traders advance notice about
     changes in the order book. A simple system update would resolve this issue. IEX
     could keep its peg orders from executing at stale prices, without using information
     their counterparties don’t yet have.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择性应用速度障碍在经济上等同于交易所分发一个秘密数据流，为选定的交易员提供关于订单簿变化的提前通知。一个简单的系统更新可以解决这个问题。IEX可以使自己的挂单不会以过时的价格执行，而不使用对手方尚不知道的信息。
 - en: FX traders understand the consequences of interacting with last look liquidity,
     and can route their orders elsewhere. Equity markets are different. Maybe last
     look would tighten spreads for retail traders. But we should think hard before
     bringing it to our stock market.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 外汇交易员理解与最后查看流动性互动的后果，并将他们的订单路由到其他地方。股票市场则不同。或许最后查看会缩小零售交易员的价差。但在我们将它引入我们的股票市场之前，我们应该仔细考虑。
 - en: '[[1](#1iexpeg)] A crude example of what IEX hopes to avoid:'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[1](#1iexpeg)] 一个粗略的例子，展示了IEX希望避免的情况：'
 - en: Nasdaq has set the NBBO of a stock, which is 10.00/10.01.
+  id: totrans-41
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 纳斯达克为一只股票设定了最佳买卖报价（NBBO），为10.00/10.01。
 - en: IEX has a primary peg order on its bid, currently resting at 10.00.
+  id: totrans-42
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: IEX在其买入价上有一个主要挂单，目前休息在10.00。
 - en: Somebody sends a large sell order to Nasdaq, clearing out the bid and leaving
     some quantity resting at 10.00\. The new NBBO is 9.99/10.00.
+  id: totrans-43
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 有人向纳斯达克发送了一个大额卖出订单，清除了买入价并在10.00留下了部分数量。新的NBBO是9.99/10.00。
 - en: High-speed Trader A sees that and quickly sends an order to IEX to sell at 10.00.
+  id: totrans-44
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 高速交易员A看到这一点后，迅速向IEX发送了一个以10.00卖出的订单。
 - en: If IEX were to receive Trader A’s sell order before they knew that the NBBO
     had changed, then they’d execute it against the peg order at 10.00\. That’d be
     bad for the peg order. So, IEX delays the high-speed trader’s order for 350us,
     which is more than enough time for them to see that the NBBO has changed and reprice
     the peg order to 9.99, preventing it from being “picked off.”
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果IEX在得知NBBO改变之前就收到了交易员A的卖出订单，那么它们将以10.00的价格执行该订单对抗挂单。这对挂单来说将是坏事。因此，IEX将高速交易者的订单延迟了350微秒，这足以让它们看到NBBO已经改变，并将挂单价格重新调整为9.99，防止它被“抓取”。
 - en: '[[2](#2iexpeg)] Mostly. D-Peg orders adjust their price in response to the
     number of quotes at the NBBO, 350us after reception of an incoming order. If you’re
     interested, the mechanics of the D-Peg are now disclosed. They’re on p210 of this
     [pdf](http://www.sec.gov/rules/other/2015/investors-exchange-form-1-exhibits-a-e.pdf)
     from IEX’s exchange [application](http://www.sec.gov/rules/other/2015/investors-exchange-form-1.htm).'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[2](#2iexpeg)] 大部分情况下是这样的。D-Peg订单在其收到传入订单后350微秒调整价格，以响应NBBO的报价数量。如果你感兴趣，D-Peg的机制现在已经公开。它们在这份[PDF](http://www.sec.gov/rules/other/2015/investors-exchange-form-1-exhibits-a-e.pdf)的第210页，这是IEX交易所[申请](http://www.sec.gov/rules/other/2015/investors-exchange-form-1.htm)的一部分。'
 - en: '[[3](#3iexpeg)] A few ways the figures differ from IEX primary pegs:'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[3](#3iexpeg)] 以下是一些与IEX主要挂单不同的数据差异：'
 - en: The NBBO is different from the Nasdaq BBO. Adding in venues with inverted pricing
     (Bx,EdgeA,BatsY) should make this edge larger.
+  id: totrans-48
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: NBBO与纳斯达克BBO不同。包括具有反转定价的交易所（Bx, EdgeA, BatsY）在内，这应该会使这一优势更大。
 - en: Different exchanges and different order types have different populations of
     traders.
+  id: totrans-49
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 不同的交易所和不同的订单类型有不同的交易者群体。
 - en: A market data message takes time to get from Nasdaq to IEX’s system. The details
     may bore you, but IEX’s speed advantage will vary by exchange. Messages from Carteret
     to Weehawken on commodity [fiber](http://hudsonfiber.com/downloads/HFN_world-map-8.5x11.pdf)
@@ -276,12 +385,17 @@
     getting its market data over wireless, which would give them the full head start
     for messages from every exchange, and would be a tiny [expense](http://images.qnasdaqomx.com/Web/NASDAQOMX/%7B7a771fbc-7e3f-4ec7-9bb0-fba9938b7fb9%7D_MMWfaqs_August_2015_-_clean.pdf)
     by their [standards](http://www.bloomberg.com/news/articles/2014-09-03/steve-wynn-joins-bain-capital-in-financing-iex-dark-pool).
+  id: totrans-50
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 纳斯达克到IEX系统的市场数据消息需要一定时间传输。细节可能会让你感到无聊，但IEX的速度优势会因交易所而异。从Carteret到Weehawken的商品[光纤](http://hudsonfiber.com/downloads/HFN_world-map-8.5x11.pdf)消息单程大约需要180微秒。在[无线](http://www.nasdaqtrader.com/content/Productsservices/trading/CoLo/ExpressConnectFS.pdf)网络上，从Carteret到IEX在Secaucus的POP的消息可能需要大约90微秒。因此，高频交易可能比IEX提前90微秒收到纳斯达克的消息，这意味着IEX在响应纳斯达克方面可能有260微秒的领先优势（350微秒
+    - 90微秒）。对于在Secaucus的4个Bats交易所，IEX将基本上有完整的350微秒领先优势。对于NYSE交易所，IEX应该有较小的优势。如果任何高频交易者愿意将市场数据无线发送到NJ，那么IEX从芝加哥的CHX接收市场数据可能会比他们晚很多。如果IEX通过无线网络获取其市场数据，这将使它们对来自每个交易所的消息有完整的领先优势，并且根据他们的标准，这将是一个微小的[费用](http://images.qnasdaqomx.com/Web/NASDAQOMX/%7B7a771fbc-7e3f-4ec7-9bb0-fba9938b7fb9%7D_MMWfaqs_August_2015_-_clean.pdf)。
 - en: '[[4](#4iexpeg)] For readers who have experience with software, here’s an analogy:'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[4](#4iexpeg)] 对于有软件经验的读者，这里有一个类比：'
 - en: Let’s say that you have some multi-threaded software. The software processes
     a stream of two types of events, A and B. Sometimes, events of Type A occur slightly
     before those of Type B, but the Type A event processing tends to be slower. Because
@@ -292,8 +406,10 @@
     that will make sure they can never beat any Type A events which occurred first.
     You’re very proud of yourself, and tell your customers that their synchronization
     problems are over.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设你有一些多线程软件。软件处理两类事件的流，A和B。有时，类型A的事件稍微在类型B之前发生，但类型A的事件处理往往较慢。由于这种缓慢，软件经常先完成类型B的事件。这导致事件被处理顺序错乱，后果不堪设想。你的测量显示，类型A的处理通常比类型B慢100微秒，但不会超过300微秒。因此，你决定延迟所有类型B事件350微秒，因为这将确保它们永远无法战胜任何首先发生的类型A事件。你为自己的聪明感到非常自豪，并告诉你的客户他们的同步问题已经解决了。
 - en: If “Type A” events are NBBO changes that cause you to reprice peg orders, and
     “Type B” events are all other customer orders, then this analogy is close to the
     idea of exchange speedbumps. The problem, of course, is that now the “Type B”
@@ -301,62 +417,84 @@
     after they were received, that they can’t match with peg orders. There are methods
     to properly deal with these situations in software. It’s just that adding a constant
     delay to select events isn’t one of them.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果“类型A”事件是导致您重新定价挂单的NBBO变化，而“类型B”事件是所有其他客户订单，那么这个类比与交易所速度障碍的想法非常接近。当然，问题在于现在“类型B”订单有了速度劣势，这意味着，如果在他们收到后价格很快变动，他们无法与挂单匹配。在软件中有方法可以正确处理这些情况。只是向选择的事件添加一个常数延迟并不是其中之一。
 - en: '[[5](#5iexpeg)] Here’s another example of a pretty dumb strategy that only
     an HFT could try:'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[5](#5iexpeg)] 这里有一个只有高频交易才会尝试的非常愚蠢的策略：'
 - en: The NBBO for a stock is set by Nasdaq at 10.00/10.05.
+  id: totrans-55
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 股票的NBBO由纳斯达克设定为10.00/10.05。
 - en: An HFT observes a hidden trade on Nasdaq at 10.03.
+  id: totrans-56
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 高频交易观察到纳斯达克的一个隐藏交易价格为10.03。
 - en: The HFT knows that there is probably still hidden liquidity available at 10.03,
     because resting hidden orders tend to be large.
+  id: totrans-57
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 高频交易知道在10.03很可能仍然有隐藏的流动性可用，因为休息的隐藏订单通常较大。
 - en: The passive side of the hidden trade isn’t distributed in market data. But the
     HFT has a model which estimates that there’s a 70% chance that the resting side
     is the bid.
+  id: totrans-58
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 隐藏交易的被动方不会在市场数据中分布。但高频交易有一个模型，估计有70%的可能性休息的一方是买入价。
 - en: If the HFT were more confident about that estimate, it could submit a midpoint
     buy order to Bats, which could get filled at 10.025, lower than the price the
     hidden order just paid. However, the 30% chance that the estimate is wrong is
     too high — If somebody sends large sell orders checking for hidden liquidity at
     Bats, and shortly afterwards sweeps the Nasdaq bid, the HFT will be stuck with
     a toxic fill.
+  id: totrans-59
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 如果高频交易（HFT）对该估计更有信心，它可以向Bats提交一个中间价买入订单，可能会以10.025的价格成交，低于隐藏订单刚刚支付的价格。然而，估计出错的可能性高达30%——如果有人向Bats发送大量卖出订单以检查隐藏流动性，并在不久之后清扫纳斯达克的买入价，高频交易将会面临有毒的成交。
 - en: The HFT submits a midpoint buy peg to IEX instead.
+  id: totrans-60
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 高频交易改为向IEX提交一个中间价买入peg订单。
 - en: Now, if their guess is wrong, they’re protected. When IEX receives the same
     aggressive order checking for hidden liquidity, it holds it for 350us. While holding
     onto that order, IEX sees the Nasdaq bid swept, and pulls the HFT’s midpoint order.
+  id: totrans-61
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 现在，如果他们的猜测错误，他们受到了保护。当IEX收到同样的积极订单以检查隐藏流动性时，它会将其保留350微秒。在持有该订单的同时，IEX看到纳斯达克的买入价被清扫，并撤销了高频交易的中间价订单。
 - en: If the HFT’s guess is right, and someone sends large sell orders to IEX and
     Nasdaq, the hidden order at Nasdaq will trade at 10.03, leaving the displayed
     bid intact. The HFT’s order will execute at IEX at 10.025, a better price than
     the hidden order received.
+  id: totrans-62
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 如果高频交易的猜测正确，并且有人向IEX和纳斯达克发送大量卖出订单，纳斯达克的隐藏订单将以10.03的价格成交，保持显示的买入价不变。高频交易的订单将在IEX以10.025的价格执行，这比隐藏订单收到的价格更好。
 - en: '[[6](#6iexpeg)] In addition to peg orders backing away from fills after market
     conditions deteriorate, it’s possible that IEX uses non-delayed data to help peg
     orders aggressively trade against resting liquidity, potentially “picking off”
     orders on their own exchange. I previously [blogged](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/#3iex2)
     about this “book recheck” feature. “Book rechecks” could offer conditionality
     to sophisticated traders wanting to remove liquidity before specific future events.'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 在市场状况恶化后，peg订单远离成交的同时，IEX使用非延迟数据帮助peg订单积极交易休息流动性，有可能会在其自己的交易所上“挑选”订单。我之前[写过博客](https://mechanicalmarkets.wordpress.com/2015/08/11/iex-ideology-and-the-role-of-an-exchange/#3iex2)关于这个“簿记复检”功能。“簿记复检”可以为希望在特定未来事件之前移除流动性的复杂交易者提供条件性。

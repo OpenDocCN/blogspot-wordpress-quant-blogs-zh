@@ -1,91 +1,143 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:48:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:48:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The Most Diversified or The Least Correlated Efficient Frontier | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最多元化或最不相关的有效前沿 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/10/27/the-most-diversified-or-the-least-correlated-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/27/the-most-diversified-or-the-least-correlated-efficient-frontier/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/10/27/the-most-diversified-or-the-least-correlated-efficient-frontier/#0001-01-01](https://systematicinvestor.wordpress.com
 - en: 'The [“Minimum Correlation Algorithm”](http://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
     is a term I stumbled at the [CSS Analytics blog](http://cssanalytics.wordpress.com).
     This is an Interesting Risk Measure that in my interpretation means: minimizing
     Average Portfolio Correlation with each Asset Class for a given level of return.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[“最小相关算法”](http://cssanalytics.wordpress.com/2011/08/09/forecast-free-algorithms-a-new-benchmark-for-tactical-strategies/)
+    是我在 [CSS Analytics 博客](http://cssanalytics.wordpress.com) 上偶然发现的一个术语。这是一个有趣的风险度量，在我的解释中意味着：在给定收益水平下最小化每个资产类别与平均投资组合的相关性。'
 - en: One might try to use Correlation instead of Covariance matrix in mean-variance
     optimization, but this approach, as I will show below, will not produce the least
     correlated portfolios.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人可能会尝试在均值-方差优化中使用相关性而不是协方差矩阵，但正如我将在下面展示的那样，这种方法不会产生最不相关的投资组合。
 - en: 'The Average Portfolio Correlation with each Asset Class:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个资产类别与平均投资组合相关性：
 - en: '![P = \sum_{i=1}^{n}w_{i}X_{i} = w^{T} \ast X  \newline\newline  \sigma_{P}
     = w^{T} \ast COV \ast w  \newline\newline  COV\left ( P,X_{i} \right ) = COV\left
     ( \sum_{i=1}^{n}w_{i}X_{i},X_{i} \right )  =w_{1}COV\left ( X_{1},X_{i} \right
     )+...+w_{n}COV\left ( X_{n},X_{i} \right )  \newline\newline  \rho_{P,X_{i}} =
     \frac{COV\left ( P,X_{i} \right )}{\sigma_{P}\ast\sigma_{X_{i}}}  \newline\newline  Average
     Portfolio Correlation = \frac{1}{n}\sum_{i=1}^{n}\rho_{P,X_{i}}  ](img/852fcb71f1ba0df8b08471828476ec8d.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![P = \sum_{i=1}^{n}w_{i}X_{i} = w^{T} \ast X  \newline\newline  \sigma_{P}
+    = w^{T} \ast COV \ast w  \newline\newline  COV\left ( P,X_{i} \right ) = COV\left
+    ( \sum_{i=1}^{n}w_{i}X_{i},X_{i} \right )  =w_{1}COV\left ( X_{1},X_{i} \right
+    )+...+w_{n}COV\left ( X_{n},X_{i} \right )  \newline\newline  \rho_{P,X_{i}} =
+    \frac{COV\left ( P,X_{i} \right )}{\sigma_{P}\ast\sigma_{X_{i}}}  \newline\newline  Average
+    Portfolio Correlation = \frac{1}{n}\sum_{i=1}^{n}\rho_{P,X_{i}}  ](img/852fcb71f1ba0df8b08471828476ec8d.png)'
 - en: 'This formula can be easily coded in R:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个公式可以很容易地用 R 代码编写：
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: I’m not aware of the method to transform this formula in to the linear programming,
     so I will use a Nonlinear programming solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html),
     which is based on donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html).
     Following code might not properly execute on your computer because Rdonlp2 is
     only available for R version 2.9 or below.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不知道如何将这个公式转化为线性规划，所以我将使用一个非线性规划求解器，[Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html)，这是基于由[彼得·斯佩鲁奇教授](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html)开发和版权的donlp2例程。由于
+    Rdonlp2 仅适用于 R 版本 2.9 或更低版本，以下代码可能无法在您的计算机上正确执行。
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/5e1d9cfe2465ef64e4eaf1849b08215a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small8.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5e1d9cfe2465ef64e4eaf1849b08215a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1-small8.png)'
 - en: Using Correlation instead of Covariance matrix in mean-variance optimization
     is a very bad idea to produce the least correlated portfolios. The ‘Cor instead
     of Cov’ efficient frontier actually increases average portfolio correlation compared
     to the standard ‘Risk’ efficient frontier.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在均值-方差优化中使用相关性而不是协方差矩阵是一个非常糟糕的想法，因为它会产生最不相关的投资组合。与标准的“风险”有效前沿相比，“Cor instead
+    of Cov”有效前沿实际上会增加平均投资组合的相关性。
 - en: '[![](img/cf855b1ea98851c89dbe169de3fd0c2d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small8.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/cf855b1ea98851c89dbe169de3fd0c2d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2-small8.png)'
 - en: The portfolio composition of the Average Correlation efficient frontier is split
     between gold (GLD) and bonds (TLT) at the lower risk levels. This is not surprising
     because both gold and bonds have positive expected returns and low correlation
     to the other assets.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均相关性有效前沿的投资组合构成在低风险水平下分为黄金（GLD）和债券（TLT）。这并不令人惊讶，因为黄金和债券都具有正的预期收益率，并且与其他资产的相关性较低。
 - en: '[![](img/baafd04130f9f55daeec88a120c594e6.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3-small5.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3-small5.png)'
 - en: To view the complete source code for this example, please have a look at the
     [aa.avg.cor.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[GitHub上的aa.avg.cor.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。
 - en: 'Following is the complete source code for minimizing Average Portfolio Correlation
     with each Asset Class function:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是用于最小化每种资产类别之间平均投资组合相关性的完整源代码：
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'

@@ -1,73 +1,110 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:45:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:45:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Trading Strategy Sensitivity Analysis | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 交易策略敏感性分析 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/29/trading-strategy-sensitivity-analysis/#0001-01-01)
 - en: When designing a trading strategy, I want to make sure that small changes in
     the strategy parameters will not transform the profitable strategy into the loosing
     one. I will study the strategy robustness and profitability under different parameter
     scenarios using a sample strategy presented by David Varadi in the [Improving
     Trend-Following Strategies With Counter-Trend Entries](http://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/)
     post.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在设计交易策略时，我要确保策略参数的小幅变化不会将盈利的策略转变为亏损的策略。我将使用David Varadi在[Improving Trend-Following
+    Strategies With Counter-Trend Entries](http://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/)一文中展示的示例策略，研究在不同参数情景下策略的鲁棒性和盈利性。
 - en: 'First, let’s implement this trend-following strategy using the backtesting
     library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库来实现这个趋势追踪策略：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/5f467642835b043c8430f58e70f0d1cd.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small9.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small9.png)'
 - en: '[![](img/d0f9f5382b45885a1fceeadb656ce6fd.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small8.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small8.png)'
 - en: 'The Counter-Trend Entries (trend.following.dv1, black line) improved the performance
     of the simple Trend-Following (trend.following, red line) strategy: both returns
     are higher and drawdowns are smaller.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 逆趋势入场（trend.following.dv1，黑线）提高了简单趋势追踪（trend.following，红线）策略的表现：两者回报更高，回撤更小。
 - en: 'Next, I will examine how CAGR, Sharpe, DVR, and Maximum Drawdowns are affected
     by varying length of the moving average from 10 to 100 and varying length of the
     DV from 1 to 5:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将检查CAGR、Sharpe、DVR和最大回撤如何受到移动平均长度从10到100变化和DV长度从1到5变化的影响：
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/fcef1d25b0db5fca77a6cb801e00e6cc.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small6.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small6.png)'
 - en: The first column, labeled “NO”, shows the performance of the Trend-Following
     strategy (no Counter-Trend Entries). The Counter-Trend filter improves the strategy
     performance for most of the parameter scenarios. This is the result you want to
     get by doing Sensitivity Analysis, the strategy is robust and profitable under
     variety of parameters.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一列，标签为“NO”，显示了趋势追踪策略（无逆趋势入场）的表现。逆趋势过滤器提高了大多数参数情景下策略的表现。这是进行敏感性分析所希望得到的结果，策略在多种参数下都是鲁棒且盈利的。
 - en: The next step, which you can do as a homework, is to examine the strategy performance
     with different instruments. For example, a more volatile Nasdaq (QQQ), or a Canadian
     S&P/TSX Index (XIU.TO).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一个步骤，你可以作为家庭作业来做，就是检查不同品种对策略表现的影响。例如，更具波动性的纳斯达克（QQQ），或者加拿大的标普/TSX指数（XIU.TO）。
 - en: To view the complete source code for this example, please have a look at the
     [bt.improving.trend.following.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)上的bt.improving.trend.following.test()函数。

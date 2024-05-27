@@ -1,49 +1,75 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:57:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:57:29'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Kelly vs. Markowitz Portfolio Optimization'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：凯利与马科维茨投资组合优化
 - en: 来源：[http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01](http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01](http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html#0001-01-01)
 - en: In my
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我
 - en: '[book](http://www.amazon.com/dp/0470284889/ref=as_sl_pd_tf_lc?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0470284889&adid=0DEF116W4JR65B8KSV6H&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[book](http://www.amazon.com/dp/0470284889/ref=as_sl_pd_tf_lc?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0470284889&adid=0DEF116W4JR65B8KSV6H&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
 - en: ', I described a very simple and elegant formula for determining the optimal
     asset allocation among N assets:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我描述了一个非常简单且优雅的公式，用于确定 N 项资产之间的最优资产分配：
 - en: F=C
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: F=C
 - en: ^(-1)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ^(-1)
 - en: '*M   (1)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*M   (1)'
 - en: where F is a Nx1 vector indicating the fraction of the equity to be allocated
     to each asset, C is the covariance matrix, and M is the mean vector for the excess
     returns of these assets. Note that these "assets" can in fact be "trading strategies"
     or "portfolios" themselves. If these are in fact real assets that incur a carry
     (financing) cost, then excess returns are returns minus the risk-free rate.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 F 是一个 Nx1 向量，表示要分配给每个资产的股本比例，C 是协方差矩阵，M 是这些资产的超额回报的平均向量。请注意，这些“资产”实际上可以是“交易策略”或“投资组合”本身。如果这些实际上是会产生融资（持仓）成本的真实资产，那么超额回报是回报减去无风险利率。
 - en: 'Notice that these fractions, or weights as they are usually called, are not
     normalized - they don''t necessarily add up to 1\. This means that F not only
     determines the allocation of the total equity among N assets, but it also determines
@@ -52,38 +78,55 @@
     beauty of Kelly formula: optimal allocation and optimal leverage in one simple
     formula, which is supposed to maximize the compounded growth rate of one''s equity
     (or equivalently the equity at the end of many periods).'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意这些比例，或者像通常所说的权重，并没有标准化 - 它们不一定加起来等于 1\。这意味着 F 不仅决定了总股本在 N 项资产中的分配，而且还决定了应使用的整体最优杠杆。F
+    的各分量绝对值之和除以总股本实际上是整体杠杆。因此，凯利公式的美妙之处在于：一个简单的公式中包含了最优分配和最优杠杆，这应该能最大化一个人股本（或等效地，多个周期后的股本）的复合增长率。
 - en: However, most students of finance are not taught Kelly portfolio optimization.
     They are taught Markowitz mean-variance portfolio optimization. In particular,
     they are taught that there is a portfolio called the
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，大多数金融学生并没有学习凯利投资组合优化。他们学习了马科维茨均值-方差投资组合优化。特别是，他们学习了存在一个称为
 - en: '*tangency portfolio*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*贴边投资组合*'
 - en: which lies on the efficient frontier (the set of portfolios with minimum variance
     consistent with a certain expected return) and which maximizes the Sharpe ratio.
     Left unsaid are
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 位于有效前沿（一组最小化方差并符合一定预期回报的组合），并最大化夏普比率。未提及的是
 - en: What's so good about this tangency portfolio?
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 这个贴边投资组合有什么好处？
 - en: What's the real benefit of maximizing the Sharpe ratio?
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最大化夏普比率的真正好处是什么？
 - en: Is this tangency portfolio the same as the one recommended by Kelly optimal
     allocation?
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 这个贴边投资组合是否与凯利最优分配所推荐的投资组合相同？
 - en: I want to answer these questions here, and provide a connection between Kelly
     and Markowitz portfolio optimization.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想在这里回答这些问题，并为凯利和马科维茨投资组合优化之间提供联系。
 - en: 'According to Kelly and Ed Thorp (and explained in my book), F above not only
     maximizes the compounded growth rate, but it also maximizes the Sharpe ratio.
     Put another way: the maximum growth rate is achieved when the Sharpe ratio is
@@ -94,15 +137,22 @@
     for us. Otherwise, the percent allocation of an asset in both are the same (assuming
     that we haven''t imposed additional constraints in the optimization problem).
     How do we prove this?'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据凯利和艾德·索普（在我书中解释）的观点，上述的 F 不仅能最大化复合增长率，还能最大化Sharpe比例。换句话说：当Sharpe比例最大化时，增长率最大。因此我们明白了为什么切线组合如此重要。实际上，**切线组合与凯利最优组合
+    F** 相同，只是切线组合假设是标准化的，杠杆为1，而 F 更进一步为我们确定了最优杠杆。否则，在两个组合中，资产的百分比分配是相同的（假设我们没有在优化问题中施加额外的约束）。我们如何证明这一点呢？
 - en: The usual way Markowitz portfolio optimization is taught is by setting up a
     constrained
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 教授马科维茨投资组合优化通常的方法是建立一个有约束的
 - en: '*quadratic*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*二次*'
 - en: optimization problem - quadratic because we want to optimize the portfolio variance
     which is a quadratic function of the weights of the underlying assets - and proceed
     to use a numerical quadratic programming (QP) program to solve this and then further
@@ -110,52 +160,81 @@
     tedious and actually obscures the elegant formula for F shown above. Instead,
     we can proceed by applying Lagrange multipliers to the following optimization
     problem (see
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 优化问题 - 二次因为我们要优化投资组合方差，这是一个基于底层资产权重的二次函数 - 然后使用数值二次规划（QP）程序来解决这个方程，然后进一步最大化Sharpe比例以找到切线组合。但这是不必要的繁琐，实际上还模糊了上面显示的
+    F 的优雅公式。相反，我们可以通过应用拉格朗日乘数到以下优化问题（参见
 - en: '[http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf](http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: （http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf](http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf)
 - en: 'for a similar treatment):'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于类似的处理）：
 - en: Maximize Sharpe ratio = F^T*M/(F^T*C*F)^(1/2    )(2)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大化Sharpe比例 = F^T*M/(F^T*C*F)^(1/2 （2）
 - en: subject to constraint F^T***1**=1   (3)
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 受限于约束 F^T***1** = 1   （3）
 - en: (to emphasize that the **1** on the left hand side is a column vector of one's,
     I used bold face.)
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: （为了强调左边的**1**是一个由一组成的列向量，我使用了粗体。）
 - en: 'So we should maximize the following unconstrained quantity with respect to
     the weights F[i ]of each asset i and the Lagrange multiplier λ:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我们应该最大化以下无约束量，关于每个资产 i 的权重 F[i] 和拉格朗日乘数 λ：
 - en: F^T*M/(F^T*C*F)^(1/2  - )λ(F^T***1-**1)  (4)
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: F^T*M/(F^T*C*F)^(1/2 - λ(F^T***1 - **1) （4）
 - en: But taking the partial derivatives of this fraction with a square root in the
     denominator is unwieldy. So equivalently, we can maximize the logarithm of the
     Sharpe ratio subject to the same constraint. Thus we can take the partial derivatives
     of
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是对这个分式取偏导数，分母中有平方根，是不方便的。所以等价地，我们可以最大化Sharpe比例的对数，同时受限于相同的约束。这样我们可以取
 - en: log(F^T*M)-(1/2)*log(F^T*C*F)^(  - )λ(F^T***1-**1)   (5)
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: log(F^T*M) - (1/2)*log(F^T*C*F)^(-1)λ(F^T***1 - **1) （5）
 - en: with respect to F[i]. Setting each component i to zero gives the matrix equation
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于 F[i]。将每个分量 i 设为零得到矩阵方程
 - en: (1/F^T*M)M-(1/F^T*C*F)C*F=λ**1   **(6)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: （1/F^T*M）M -（1/F^T*C*F）C*F = λ**1   （6）
 - en: Multiplying the whole equation by F^(T )on the right gives
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 将整个方程乘以 F^(T )在右边得到
 - en: (1/F^T*M)F^T*M-(1/F^T*C*F)F^T*C*F=λF^T***1   **(7)
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: （1/F^T*M）F^T*M -（1/F^T*C*F）F^T*C*F = λF^T***1   （7）
 - en: 'Remembering the constraint, we recognize the right hand side as just λ. The
     left hand side comes out to be exactly zero, which means that λ is zero. A Lagrange
     multiplier that turns out to be zero means that the constraint won''t affect the
@@ -163,32 +242,50 @@
     satisfying since we know that if we apply an equal leverage on all the assets,
     the maximum Sharpe ratio should be unaffected. So we are left with the matrix
     equation for the solution of the optimal F:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 记住约束，我们认识到右边就是 λ。左边的结果恰好为零，这意味着 λ 也为零。一个结果为零的拉格朗日乘数意味着这个约束不会影响优化问题的解，直到一个比例常数。这是令人满意的，因为我们知道如果我们对所有资产应用相同的杠杆，最大Sharpe比例应该不受影响。所以我们得到了最优解
+    F 的矩阵方程：
 - en: C*F=(F^T*C*F/F^T*M)M    (8)
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: C*F = (F^T*C*F/F^T*M)M   （8）
 - en: If you know how to solve this for F using matrix algebra, I would like to hear
     from you. But let's try an *ansatz *F=C^(-1)*M as in (1). The left hand side of
     (8) becomes M, the right hand side becomes (F^T*M/F^T*M)M = M as well. So the
     ansatz works, and the solution is in fact (1), up to a proportionality constant.
     To satisfy the normalization constraint (3), we can write
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你知道如何使用矩阵代数解决这个公式中的F，请告知我。但我们尝试一个*假设*F=C^(-1)*M，如公式(1)所示。公式(8)的左边变为M，右边变为(F^T*M/F^T*M)M
+    = M。所以这个假设是有效的，并且解决方案实际上是(1)，乘以一个比例常数。为了满足归一化约束(3)，我们可以写
 - en: F=C^(-1)*M / (**1**^T*C^(-1)*M) (9)
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '公式(9)：F=C^(-1)*M / (**1**^T*C^(-1)*M) '
 - en: So there, the tangency portfolio is the same as the Kelly optimal portfolio,
     up to a normalization constant, and without telling us what the optimal leverage
     is.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，切线组合与凯利最优组合相同，乘以一个归一化常数，并没有告诉我们最优杠杆是多少。
 - en: ===
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: '**Workshop Update:**'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**研讨会更新：**'
 - en: ===
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: ====

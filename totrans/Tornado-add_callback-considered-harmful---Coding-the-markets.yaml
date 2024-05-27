@@ -1,44 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:29:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:29:10'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Tornado add_callback considered harmful | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Tornado add_callback考虑有害 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2018/07/16/tornado-add_callback-considered-harmful/#0001-01-01](https://etrading.wordpress.com/2018/07/16/tornado-add_callback-considered-harmful/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2018/07/16/tornado-add_callback-considered-harmful/#0001-01-01](https://etrading.wordpress.com/2018/07/16/tornado-add_callback-considered-harmful/#0001-01-01)
 - en: Tornado add_callback considered harmful
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Tornado add_callback考虑有害
 - en: July 16, 2018
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2018年7月16日
 - en: I ran into an interesting Tornado event loop gotcha last week, so I thought
     I’d blog the issue. At work I’m building a suite of Tornado Python based microservices
     to implement an FX options booking stack. The message transports in play for comms
     with other systems are IBM MQ series and AMPS for pubsub messaging. Naturally
     we use pymqi, which is a thin Python layer on top of MQ series traditional blocking
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 上周我遇到了一个有趣的问题，所以我想我应该写一篇关于这个问题博客。在工作中，我正在构建一系列基于Tornado Python的微服务，以实现FX期权预订堆栈。与其他系统通信的消息传输是IBM
+    MQ系列和AMPS用于发布/订阅消息。自然而然，我们使用pymqi，这是MQ系列传统阻塞
 - en: C API. Blocking APIs don’t play well with the Tornado event loop. In classic
     single threaded async style Tornado callbacks should complete quickly and not
     hog the thread, so that new incoming socket events can be seviced. So the MQ PUTs
     and GETs were in another thread, which used ioloop.add_callback( ) to
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: C API。阻塞式API与Tornado事件循环配合不佳。在传统的单线程异步风格中，Tornado回调应该快速完成，且不应该占用线程，以便可以处理新的传入套接字事件。因此，MQ的PUT和GET操作在另一个线程中进行，该线程使用ioloop.add_callback()
 - en: 'send work back to the main thread. For high volume queues, that means a lot
     of add_callback( ) invocations. And that’s the gotcha: [Tornado’s main event loop](http://www.tornadoweb.org/en/stable/_modules/tornado/ioloop.html#IOLoop.start)
     dispatches pending timeouts and callbacks before looking for new socket events
@@ -46,11 +67,16 @@
     then your code may be slow to fall through to servicing new socket events. And
     if those socket events are HTTP GET /health hits from your Marathon platform,
     then'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 将工作返回主线程。对于高容量队列，这意味着有很多add_callback()调用。这就是陷阱：[Tornado的主事件循环](http://www.tornadoweb.org/en/stable/_modules/tornado/ioloop.html#IOLoop.start)在查找新的套接字事件并将其分派给它们的处理程序之前，调度挂起的时间outs和回调。如果您有很多昂贵的挂起回调，那么您的代码可能会变慢，无法及时处理新的套接字事件。而这些套接字事件可能来自您的Marathon平台上的HTTP
+    GET /health击打，那么
 - en: Marathon will conclude your process is dead and bounce it. Exactly what you
     don’t want when there’s high traffic! In this case the fix was to make the MQ
     thread more selective about which incoming messages got pitched over to the other
     thread with add_callback( ).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Marathon会认为您的进程已死，并将其弹跳。在高流量时，这正是您不希望看到的！在这种情况下，修复方法是使MQ线程更加选择性地将哪些传入消息传递给其他线程，以使用add_callback()。

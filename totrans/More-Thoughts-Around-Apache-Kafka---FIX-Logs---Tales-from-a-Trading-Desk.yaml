@@ -1,92 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:36:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:36:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: More Thoughts Around Apache Kafka – FIX Logs | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更多关于Apache Kafka的思考——FIX日志|交易桌面故事
 - en: 来源：[https://mdavey.wordpress.com/2012/08/08/more-thoughts-around-apache-kafka-fix-logs/#0001-01-01](https://mdavey.wordpress.com/2012/08/08/more-thoughts-around-apache-kafka-fix-logs/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2012/08/08/more-thoughts-around-apache-kafka-fix-logs/#0001-01-01](https://mdavey.wordpress.com/2012/08/08/more-thoughts-around-apache-kafka-fix-logs/#0001-01-01)
 - en: More Thoughts Around Apache Kafka – FIX Logs
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 更多关于Apache Kafka的思考——FIX日志
 - en: 'Earlier this year I blogged about Raptor (Sungard) and real-time analytics. 
     This posting follow on with a few specific Kafka thoughts:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今年早些时候，我撰写了一篇关于Raptor（Sungard）和实时分析的博客。这篇文章继续介绍了一些具体的Kafka想法：
 - en: Kafka’s [design](http://incubator.apache.org/kafka/design.html) page provides
     a few use cases, around “activity streams”.  Of interesting is the list of companies
     [mentioned](https://cwiki.apache.org/confluence/display/KAFKA/Powered+By) that
     are using Kafka – in particular [Metamarkets](http://metamx.com/), a company I
     have blogged about before in the big data analysis space.
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Kafka的[设计](http://incubator.apache.org/kafka/design.html)页面提供了一些用例，主要围绕“活动流”。值得注意的是提到的公司[名单](https://cwiki.apache.org/confluence/display/KAFKA/Powered+By)，这些公司正在使用Kafka——特别是[Metamarkets](http://metamx.com/)，一家我之前在大数据分析领域撰写博客时提到过的公司。
 - en: 'The reference to log files is of particular interest:'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对日志文件的引用特别引人注目：
 - en: Activity stream data is a normal part of any website for reporting on usage
     of the site. Activity data is things like page views, information about what content
     was shown, searches, etc. This kind of thing is usually handled by logging the
     activity out to some kind of file and then periodically aggregating these files
     for analysis
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 活动流数据是任何网站报告网站使用情况的一个正常部分。活动数据比如页面浏览量、展示的内容信息、搜索等。这类东西通常通过将活动日志输出到某种文件中，然后定期汇总这些文件进行分析。
 - en: The above lead to the thoughts around FIX messages, and specific the type of
     product that are commercially available from various vendors e.g. B2BITS with
     its [FIX](http://qwtradingsystem.com/documents/QWFIX/main/Getting%20Started/Features%20Tour/QWFIX%20RTAnalyzer/1.FIXMessageMonitoring.htm)
     log [analyzers](http://www.b2bits.com/trading_solutions/fix_log_analyzers.html)
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 上述内容导致了关于FIX消息的思考，特别是从各种供应商那里商业可用的产品类型，例如B2BITS的[FIX](http://qwtradingsystem.com/documents/QWFIX/main/Getting%20Started/Features%20Tour/QWFIX%20RTAnalyzer/1.FIXMessageMonitoring.htm)日志[分析器](http://www.b2bits.com/trading_solutions/fix_log_analyzers.html)。
 - en: OnixS FIX Analyser is again similar, monitoring log [files](http://www.onixs.biz/fix-analyser.html)
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: OnixS FIX Analyzer又类似，监控日志[文件](http://www.onixs.biz/fix-analyser.html)
 - en: All the above leads to leveraging Kafka to process FIX log files in real-time.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 上述所有内容都导致了利用Kafka实时处理FIX日志文件。
 - en: The Log4j [appender](http://incubator.apache.org/kafka/quickstart.html) as show
     here should make things easy from an application perspective
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Log4j的[appender](http://incubator.apache.org/kafka/quickstart.html)如这里所示，应该从应用程序的角度使事情变得容易
 - en: Likewise the Hadoop [consumer](https://github.com/kafka-dev/kafka/tree/master/contrib/hadoop-consumer)
     offers some interesting possibilities
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 同样，Hadoop的[消费者](https://github.com/kafka-dev/kafka/tree/master/contrib/hadoop-consumer)提供了一些有趣的可能
 - en: Further, assuming you now have this data, it maybe interesting to “count” FIX
     messages, which [possibly](http://www.slideshare.net/dave_revell/nearrealtime-analytics-with-kafka-and-hbase#)
     leads us to [data cube](https://github.com/urbanairship/datacube) (backed by HBase).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，假设你现在有了这些数据，统计FIX消息可能有趣，这[可能](http://www.slideshare.net/dave_revell/nearrealtime-analytics-with-kafka-and-hbase#)引导我们到了[数据立方体](https://github.com/urbanairship/datacube)(由HBase支持)。
 - en: '[Storm](http://www.slideshare.net/Hadoop_Summit/realtime-analytics-with-storm)
     also offer interesting [possibilities](https://github.com/nathanmarz/storm/wiki/Kestrel-and-Storm)
     with FIX messages – another posting.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Storm](http://www.slideshare.net/Hadoop_Summit/realtime-analytics-with-storm)也提供了与FIX消息有趣的[可能性](https://github.com/nathanmarz/storm/wiki/Kestrel-and-Storm)——另一篇文章。'
 - en: ~ by mdavey on August 8, 2012.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2012年8月8日。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [Messaging](https://mdavey.wordpress.com/tag/messaging/)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[消息传递](https://mdavey.wordpress.com/tag/messaging/)

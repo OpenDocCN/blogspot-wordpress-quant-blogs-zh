@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:03:56'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:03:56
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: SVM Classification using RSI from Various Lengths – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: SVM使用不同长度的RSI进行分类 – 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/10/svm-classification-using-rsi-from-various-lengths/#0001-01-01)
 - en: First of all, I want to apologize for the lack of posting on the blog these
     days. I have been insanely busy with work (still am) and had trouble squeezing
     full posts in.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我想为最近博客上缺少帖子道歉。我一直忙于工作（现在仍然如此），并且很难抽出时间写完整的帖子。
 - en: Today, I thought I would follow up on the [previous post on SVM learning](https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/).
     In this post I did exactly what I talked about in the post; the only input in
     the system is the RSI values for lengths 2 to 30 days associated with their respective
@@ -33,14 +47,22 @@
     or anything of the sort, I thought this would be a good example since it was previously
     discussed on the blog. Anyhow, here are the equity curves and some numbers compared
     to classic MR with RSI 2 50/50 as a proxy and buy and hold.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我想跟进一下[关于SVM学习的上一篇文章](https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/)。在这篇文章中，我做了我文章中提到的所有事情；系统中的唯一输入是与它们各自结果（上涨与下跌）相关的2至30天的RSI值。SVM算法来自R包kernlab，SVM本身的参数是nu
+    = 0.2，C = 10\。这些是随意选择的，绝对没有进行优化，想法只是提供一个例子。此外，我绝不建议这是最佳设置或任何此类事情，我认为这是一个很好的例子，因为之前在博客上已经讨论过了。无论如何，以下是相对于经典MR+RSI2
+    50/50作为代理和持有策略的权益曲线和一些数字。
 - en: '[![](img/9e85d9f49ebd5b06e753872baa0c4252.png "SVM - RSIs")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/svm-rsis1.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9e85d9f49ebd5b06e753872baa0c4252.png "SVM - RSIs")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/svm-rsis1.png)'
 - en: '[![](img/5d364c644b776d6dd99d00a88e2fdd1f.png "SVM - RSIs results")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/svm-rsis-results.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5d364c644b776d6dd99d00a88e2fdd1f.png "SVM - RSIs结果")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/svm-rsis-results.png)'
 - en: Just eyeballing the chart, one can see that the SVM strategy adapt better to
     the the presence of a trend and outperform RSI 2 during the bull market, it also
     adapted fairly well to the recent turmoil, performing slightly worse than the
@@ -49,8 +71,12 @@
     (I am thinking a downloadable file or something like it) I will proceed. Finally,
     if readers have played around with SVM I welcome suggestions and comments as always
     !
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 只是大体上看图表，我们就能看出SVM策略在趋势存在时适应得更好，并且在牛市中表现优于RSI2，它也相当适应最近的动荡，表现略逊于短期MR策略。我计划分享一些代码，但不想让博客充斥着一行行的代码，所以一旦我想出最好的方法（我正在考虑一个可下载的文件或其他类似的方式），我将进行分享。最后，如果读者对SVM有所尝试，我像往常一样欢迎建议和评论！
 - en: QF
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

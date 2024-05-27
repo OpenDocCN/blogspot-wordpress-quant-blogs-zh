@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:06:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:06:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Z-Rank Beta: Identifying Outliers With A Simple Calculation | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Z-Rank Beta：通过简单的计算识别异常值 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/02/26/z-rank-beta-identifying-outliers-with-a-simple-calculation/#0001-01-01](https://cssanalytics.wordpress.com/2012/02/26/z-rank-beta-identifying-outliers-with-a-simple-calculation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/02/26/z-rank-beta-identifying-outliers-with-a-simple-calculation/#0001-01-01](https://cssanalytics.wordpress.com/2012/02/26/z-rank-beta-identifying-outliers-with-a-simple-calculation/#0001-01-01)
 - en: Most conventional quantitative methods from forecasting to optimization suffer
     from the existence of large outliers in the data. There are many responses to
     remedy this problem, from using bootstrap/re-sampling techniques to winsorization.
@@ -26,8 +38,11 @@
     many winsorization procedures entail cropping the the data to compute trimmed
     means or replacing observations at the extremes with the 95th/5th values. More
     extensive winsorization techniques are also computationally intensive.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 大部分传统的定量方法，从预测到优化，在数据中存在大量异常值。为了纠正这个问题，有许多应对方案，从使用自助/bootstrap重新采样技术到 winsorization。无论哪种情况，这些解决方案都要么计算密集，要么在性质上有些任意性。重新采样密集的程序速度慢且繁琐，而许多
+    winsorization 程序需要对数据进行修剪以计算修剪均值或以 95th/5th 值替换极端观察值。更广泛的 winsorization 技术也需要计算密集。
 - en: In general outliers can hurt both the bias (accuracy of actual versus predicted)
     and the variance (sensitivity to the sample data) of the predictor. The bias/variance
     tradeoff is analogous to trying to find the best model without over-fitting the
@@ -38,8 +53,10 @@
     is possible to construct a better model of the data. In finance, volatility, correlations,
     covariances and other measures are already being applied to noisy time-series
     data and it is even more important to address these issues.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一般来说，异常值会对预测器的偏差（实际值与预测值的准确性）和方差（对样本数据的敏感性）产生影响。偏差/方差的权衡类似于试图找到最佳模型而不过度拟合样本数据。异常值会导致所选择模型的性质变化，也会使模型的方差对更正常的样本变得不灵敏。因此，需要处理异常值以避免误规范。一旦异常值被识别并其影响被减小，就可以构建更好的数据模型。在金融领域，波动率、相关性、协方差和其他指标已经被应用于嘈杂的时间序列数据，并且更重要的是要解决这些问题。
 - en: 'There is a simple calculation I would like to call the “Z-Rank Beta” that looks
     at the relationship between the normalized data and a cumulative distribution.
     Essentially this is the slope of the probability distribution (z-score of a normal
@@ -51,29 +68,47 @@
     generally be closer to 1\. The best way to test the statistic is to run a regression
     to derive the beta and use the p-value to identify whether the deviation is significant.
     To compute the Z-Rank Beta the calculation would be:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想称之为“Z-Rank Beta”的一个简单计算方法是查看归一化数据和累积分布之间的关系。本质上，这是输入值的概率分布的斜率（标准正态分布的 z 分数转换为概率）和输入值的百分位排名之间的关系。两个测量之间的差异在于
+    z 分数没有被限制且对称，而百分位排名始终被限制且对称。因此，在 z 分数与百分位排名明显不同时，beta 将比 1 低得多，而完美匹配通常更接近 1。检验该统计量的最佳方式是进行回归以得到
+    beta，并使用 p 值来确定偏差是否显著。要计算 Z-Rank Beta，计算如下：
 - en: 1) Use an array of at least 20 values
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 使用至少 20 个值的数组
 - en: 2) Find the percentile ranking of each value in the array
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 查找数组中每个值的百分位排名
 - en: '3) Compute the z-score of each value in the array: (x-average(x1,x2…))/stdeva(x1,x2…)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 计算数组中每个值的 z 分数：(x-平均值(x1,x2…))/标准差(x1,x2…)
 - en: '4) Convert the z-scores to probabilities–in excel: NORMSDIST(z1,z2….)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 将 z 分数转换为概率 - 在 Excel 中：NORMSDIST(z1,z2…)
 - en: '5) Compute the Z-Rank Beta as:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 计算 Z-Rank Beta 如下：
 - en: covariance(percentile rankings,probabilities)/variance(percentile rankings)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 协方差（百分位排名，概率）/方差（百分位排名）
 - en: As a general guideline, beta values less than .95 indicate the possible presence
     of an outlier (or more than one), and values below .9 show a definite mismatch.
     Using a regression is superior to be able to test the significance and also identify
     the specific residuals that are the largest.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一般准则，小于0.95的β值表明可能存在异常值（或多个异常值），而小于0.9的值则显示明显不匹配。使用回归可以更好地测试显著性，并识别特定的残差，这些残差最大。

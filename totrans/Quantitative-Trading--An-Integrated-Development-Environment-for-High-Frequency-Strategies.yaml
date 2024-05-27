@@ -1,39 +1,59 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:59:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:59:47'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: An Integrated Development Environment for High Frequency
     Strategies'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：高频策略的集成开发环境
 - en: 来源：[http://epchan.blogspot.com/2013/04/an-integrated-development-environment.html#0001-01-01](http://epchan.blogspot.com/2013/04/an-integrated-development-environment.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2013/04/an-integrated-development-environment.html#0001-01-01](http://epchan.blogspot.com/2013/04/an-integrated-development-environment.html#0001-01-01)
 - en: I have come across many software platforms that allow traders to first specify
     and backtest a strategy and then, with the push of a button, turn the backtest
     strategy into a live trading program that can automatically submit orders to their
     favorite broker. (See all my articles on this topic
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经接触过许多软件平台，允许交易员首先指定和回测策略，然后，只需按一下按钮，将回测策略转换为一个可以自动向他们喜爱的经纪人提交订单的实时交易程序。（在此主题上查看我的所有文章）
 - en: '[here](http://epchan.blogspot.com/search/label/Automated%20trading%20platforms)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这里](http://epchan.blogspot.com/search/label/Automated%20trading%20platforms)'
 - en: .)  I called these platforms "Integrated Development Environment" (IDE) in my
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: .)  我称这些平台为我的“集成开发环境”（IDE）
 - en: '[new book](http://www.amazon.com/gp/product/1118460146/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1118460146&linkCode=as2&tag=quantitativet-20)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[新书](http://www.amazon.com/gp/product/1118460146/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1118460146&linkCode=as2&tag=quantitativet-20)'
 - en: ', and they range from the familiar and retail-oriented (e.g. MetaTrader, NinjaTrader,
     TradeStation), to the professional but skills-demanding (e.g. ActiveQuant, Marketcetera, TradeLink),  and
     finally to the comprehensive and industrial-strength (e.g. Deltix, Progress Apama,
@@ -42,8 +62,11 @@
     languages like Python, and yet others demand full-blown programming abilities
     in Java, C#, or C++. But which of these allow us to backtest and execute high
     frequency strategies?'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 的平台，它们从熟悉且面向零售的（例如MetaTrader，NinjaTrader，TradeStation）到专业但需要技能的（例如ActiveQuant，Marketcetera，TradeLink），再到全面且工业强度的（例如Deltix，Progress
+    Apama，QuantHouse，RTD Tango）不等。其中一些根本不需要编程技能，允许您通过拖放来构建策略，另一些使用一些简单的脚本语言如Python，还有一些需要Java，C#或C++的全面编程能力。但这些哪些允许我们回测和执行高频策略？
 - en: 'To state the obvious: backtesting HFstrategies is quite hard. The volume of
     data is one issue. But in addition, the execution details are very important to
     such strategies: details such as the exact exchange/venue to which we are routing
@@ -55,24 +78,36 @@
     do allow backtesting using tick data, I don''t know that they enable backtesting
     using the full order book and choice of execution venue. With this background,
     I am happy to report I have recently come across just such a platform called'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 显而易见的是：回测 HF 策略相当困难。数据量是一个问题。但此外，执行细节对这些策略非常重要：诸如我们将订单路由到的确切交易所/场所、触发我们订单的订单簿的精确状态、我们正在使用的订单类型，以及如果我们使用非市场订单，被填充的概率。搞砸其中一个细节，回测将远非真实。我经常告诉人们，纸上交易高频策略比回测高频策略更容易。虽然我上面报告的许多平台确实允许使用tick数据进行回测，但我不知道它们是否允许使用完整的订单簿和执行场所进行回测。在此背景下，我很高兴地报告我最近发现了一个名为
 - en: '[Lime Strategy Studio](http://www.limebrokerage.com/services/marketdata/simulation)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Lime Strategy Studio](http://www.limebrokerage.com/services/marketdata/simulation)'
 - en: .
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: ~~First, the bad news. LimeTrader is useful only to traders who trade with Lime
     Brokerage, as it is configured to send live orders to Lime only.~~
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ~~首先，坏消息。LimeTrader仅对与Lime Brokerage交易的交易员有用，因为它配置为仅向Lime发送实时订单。~~
 - en: '['
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '['
 - en: '**UPDATE:**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**更新：**'
 - en: 'I have since learned that there are adapters available for 3rd party brokers.]
     However, if you are going to trade HF stocks and futures strategies, why not go
     with Lime, since they provide you with a comprehensive API, direct ultra-low latency
@@ -80,8 +115,10 @@
     exchanges or at their data center at a reasonable fee? (Full Disclosure: I have
     no current business relationship with Lime, though I was a customer.) Another
     piece of bad news: the specification of the strategy must be in C++.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我后来了解到，为第三方经纪人提供了适配器。]然而，如果你打算交易高频股票和期货策略，为什么不选择Lime呢，因为他们为你提供了一个全面的API，直接从交易所获取超低延迟的数据流，并允许（甚至坚持）在交易所或他们的数据中心进行托管，费用合理？（全文披露：目前我没有任何与Lime的商业关系，尽管我曾是他们的客户。）另一个不好的消息是：策略的规格必须使用C++。
 - en: But once you get over these two hurdles, the benefits are manifold. Every detail
     that you can specify for a live trading strategy can be specified for the backtest
     and paper trading. As I said, these details may include order type, trading venue,
@@ -91,42 +128,67 @@
     IDEs, once you backtested a strategy in its every detail and are satisfied with
     the performance metrics, you can go live (either for paper or production trading)
     with the push of a button.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 但一旦你克服了这两个障碍，好处将是多方面的。你可以为实盘交易策略指定的每一个细节都可以为回测和模拟交易指定。正如我所说，这些细节可能包括订单类型、交易场所、订单簿的状态，甚至订单簿的统计数据，更不用说基本数据，如收益、公司行动和其他用户提供的数据，如新闻。fill模拟器用于你的非市场订单。与其他IDE一样，一旦你在其每一个细节上都回测过策略并对性能指标满意，你就可以通过一键操作将其投入实盘（无论是用于模拟交易还是实际交易）。
 - en: If any reader know of other IDEs that have similar features and useful for backtesting
     HF strategies, please let us know!
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果任何读者知道有其他具有类似功能并适用于回测高频策略的IDE，请告诉我们！
 - en: ===
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Speaking of HF strategies, traders often lament the ultra-high secrecy around
     them and the difficulty of gathering knowledge in this field. A friend (hat tip:
     Dave) referred me to this'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '说到高频策略，交易员们经常抱怨围绕它们的超高度机密性以及在这个领域收集知识 difficulty. A friend (hat tip: Dave)
+    referred me to this'
 - en: '[paper](http://www.math.stevens.edu/~ifloresc/Research/Publications/ProjectpricevolFinalwithDragos.pdf)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[论文](http://www.math.stevens.edu/~ifloresc/Research/Publications/ProjectpricevolFinalwithDragos.pdf)'
 - en: by Prof. Dragos Bozdog
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Dragos Bozdog教授著
 - en: '*et. al.*'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '*et. al.*'
 - en: that gives a flavor of what sort of modeling may be involved. I find it very
     readable and thought-provoking.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 让人们了解到可能涉及哪种类型的建模。我觉得这篇论文非常易读且发人深思。
 - en: ===
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: There are still 2 slots available in my online
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有两个名额可以在我的在线
 - en: '[Mean Reversion Strategies workshop](http://www.epchan.com/my-workshops/)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[均值回归策略研讨会](http://www.epchan.com/my-workshops/)'
 - en: scheduled for May.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 计划于五月进行。

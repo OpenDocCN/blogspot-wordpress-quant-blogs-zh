@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:57:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:57:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: RSO MVO vs Standard MVO Backtest Comparison | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: RSO MVO与标准MVO回测比较 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/10/10/rso-mvo-vs-standard-mvo-backtest-comparison/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/10/rso-mvo-vs-standard-mvo-backtest-comparison/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/10/10/rso-mvo-vs-standard-mvo-backtest-comparison/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/10/rso-mvo-vs-standard-mvo-backtest-comparison/#0001-01-01)
 - en: 'In a previous post I introduced [Random Subspace Optimization](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/
     "Random Subspace Optimization (RSO)") as a method to reduce dimensionality and
     improve performance versus standard optimization methods. The concept is theoretically
@@ -34,11 +46,20 @@
     "Minimum Correlation ") and [Minimum Variance](https://cssanalytics.wordpress.com/2013/04/04/minimum-variance-algorithm-mva-test-drive/
     "Minimum Variance Algorithm (MVA) Test Drive") Algorithms, the second was using
     the S&P sector spyder ETFs. Here are the parameters and the results:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章中，我介绍了[随机子空间优化](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/
+    "Random Subspace Optimization (RSO)")作为一种降低维度并提高性能的方法，与标准优化方法相比。这个概念在理论上是有根据的，并且传统上应用于机器学习以提高分类准确性。它对于投资组合优化也应该是有用的。为了测试这种方法，我使用了一个非常简单/简化的RSO模型，其中从一个宇宙中选择“k”个子空间，并对所有样本运行经典的“[均值-方差](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/
+    "Mean-Variance Optimization and Statistical Theory")”优化（MVO），使用“s”个样本，并平均所有样本中找到的投资组合权重，以产生最终的投资组合。MVO是在无约束条件下运行的（允许多头和空头），以减少计算时间，因为有一个封闭形式的解。使用了两个数据集：第一个是之前研究中用于[最小相关性](https://cssanalytics.wordpress.com/2012/09/21/minimum-correlation-algorithm-paper-release/
+    "Minimum Correlation ")和[最小方差](https://cssanalytics.wordpress.com/2013/04/04/minimum-variance-algorithm-mva-test-drive/
+    "Minimum Variance Algorithm (MVA) Test Drive")算法的8个ETF宇宙，第二个是使用标普 sector spyder
+    ETFs。以下是参数和结果：
 - en: '[![rso comp](img/f9b92a64ac4befed5791819dcb6d4529.png)](https://cssanalytics.files.wordpress.com/2013/10/rso-comp.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '![rso comp](img/f9b92a64ac4befed5791819dcb6d4529.png)'
 - en: On these two universes, with this set of parameters, RSO mean-variance was a
     clear winner in terms of both returns and risk-adjusted returns– and the results
     are even more compelling when you factor the lower average exposure used as a
@@ -55,5 +76,7 @@
     bullet, but in this case it appears better capable of handling noisy datasets
     at the very least- where matrix inversion used within typical unconstrained MVO
     can be unstable.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这两个宇宙中，对于这一组参数，RSO均值-方差策略在回报和风险调整后的回报方面都是明显的赢家——当你考虑到平均暴露更低的平均值时，结果更具说服力，这是通过对100个投资组合进行平均得出的。换手率也更加稳定，这可以归因于平均值的过程。当k<=3时，在这两种情况下结果最佳，但几乎所有k都超越了基线。k的选择确实有点笨拙（类似于在最近邻域分析中），并且需要优化或与宇宙中资产的数量相关联来考虑。跨投资组合的平均过程也很天真，它不关心给定投资组合的目标函数是高还是低。有许多方法可以改进这个基线RSO版本。我目前还没有进行广泛的测试，但理论和初步结果表明，与基线MVO（和其他类型）的优化相比，有适度的改进。RSO本身并不是一个万无一失的解决方案，但在这种情况下，它至少能够更好地处理噪声较大的数据集——在典型的无约束MVO中使用的矩阵求逆可能会不稳定。

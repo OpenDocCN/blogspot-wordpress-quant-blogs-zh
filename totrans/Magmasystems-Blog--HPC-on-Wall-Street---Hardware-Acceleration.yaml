@@ -1,174 +1,282 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:12:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:12:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: HPC on Wall Street - Hardware Acceleration'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：华尔街的HPC - 硬件加速
 - en: 来源：[http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01](http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01](http://magmasystems.blogspot.com/2007/02/hpc-on-wall-street-hardware.html#0001-01-01)
 - en: Sam Brown of the University of Utah just came out with
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 犹他大学的Sam Brown刚刚发表了
 - en: '[some slides](http://www.chpc.utah.edu/hybrid_computing/talks/sam_brown_talk.ppt)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[一些幻灯片](http://www.chpc.utah.edu/hybrid_computing/talks/sam_brown_talk.ppt)'
 - en: on his initial forays into hardware acceleration. He contrasts the use of Cell
     Processors,
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在他最初尝试硬件加速时。他对比了Cell处理器的使用，
 - en: FPGAs
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: FPGAs
 - en: ', and'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ，和
 - en: Multi
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 多
 - en: -core processors. He was trying to speed up 2-Way Wave Equation Modeling, which
     is not a financial application, but the lessons that he learned can be applied
     to those of use who are doing (or exploring)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 多核处理器。他试图加速2路波动方程建模，这不是一个金融应用程序，但作者学到的经验可以适用于那些正在（或探索）
 - en: HPC
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: HPC
 - en: in Wall Street.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在华尔街。
 - en: The big effort is in unrolling loops and
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大的努力是在展开循环和
 - en: parallelizing
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 并行化
 - en: your code. Using the
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 你的代码。使用
 - en: POSIX PThread API
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: POSIX PThread API
 - en: and
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: multi
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 多
 - en: -core
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 多核
 - en: cpus
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: cpus
 - en: is the easiest thing to do. With 4 threads (2 dual-core 2.2
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 是最容易的事情。使用4个线程（2个双核，每个2.2
 - en: Ghz Opterons
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Ghz Opterons
 - en: ', 4 GB RAM), he got a 11x improvement on one set of benchmarks, and a 2x improvement
     on the big application.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: ，4 GB RAM），他在一组基准测试中提高了11倍的性能，在大应用程序上提高了2倍的性能。
 - en: The
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 该
 - en: FPGA
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: FPGA
 - en: system used the
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统使用了
 - en: Altera Stratix
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: Altera Stratix
 - en: II
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: II
 - en: FPGA
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: FPGA
 - en: . He got about a 14x
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 。他大约提高了14倍的
 - en: improvement
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 改进
 - en: on the initial set of benchmarks, but the development effort was a lot harder.
     It took 12 hours to get the design onto the
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 在初步的一组基准测试中，但开发工作要困难得多。它花了12个小时才把设计放到
 - en: FPGA
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: FPGA
 - en: chip.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 芯片。
 - en: The Cell systems were a Sony
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: Cell系统是索尼
 - en: Playstation
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: Playstation
 - en: 3 (!!!) and a IBM Cell Blade with 2 Cell Processors with 8
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 3（！！！）和带有2个Cell处理器的IBM Cell刀片，每个处理器有8
 - en: SPEs
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: SPEs
 - en: each (a Cell processor has 8
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个（一个Cell处理器有8
 - en: SPEs
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: SPEs
 - en: ', which function as coprocessors.) The Cell results were generally disappointing,
     with the author wondering if he programmed the Cell correctly. One thing that
     I have heard about the Cell is that it is very difficult to program. Perhaps companies
     like'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: ，作为协处理器。）Cell的结果普遍令人失望，作者怀疑自己是否正确编写了Cell的程序。关于Cell我听说的一件事是，它非常难以编程。或许像
 - en: PeakStream
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: PeakStream
 - en: can help you with this effort.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以帮助你完成这项工作。
 - en: (For instant gratification, the money shots are slides 28, 29, and 30)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: （为了即时满足，幻灯片28、29和30是高潮部分）
 - en: What can hardware acceleration do for you? Faster pricing of derivatives. Faster
     generation of risk values, especially for exotics. Better overnight stressing.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 硬件加速能为你做什么？更快地对衍生品进行定价。更快地生成风险值，特别是对于奇异品。更好的隔夜压力测试。
 - en: The problem is in acquiring the
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题在于获取
 - en: skill set
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 技能集
 - en: to
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 到
 - en: parallelize
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 并行化
 - en: algorithms, deal with the development environments (especially debugging), learning
     new variants of C, and getting buy-in from the business.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 算法，处理开发环境（尤其是调试），学习C的新变体，并从业务中获得支持。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

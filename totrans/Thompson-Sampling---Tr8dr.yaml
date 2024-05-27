@@ -1,109 +1,155 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:28:56'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:28:56
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Thompson Sampling | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Thompson抽样 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2014/12/13/thompson-sampling/#0001-01-01](https://tr8dr.wordpress.com/2014/12/13/thompson-sampling/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2014/12/13/thompson-sampling/#0001-01-01](https://tr8dr.wordpress.com/2014/12/13/thompson-sampling/#0001-01-01)
 - en: December 13, 2014 · 12:47 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2014年12月13日 · 12:47 pm
 - en: I recently attended a talk by David Simchi-Levi of MIT, where he discussed an
     approach to online price discovery for inventory, to maximize some objective,
     such as profit.   The scenario was where one could observe whether inventory was
     sold or not-sold to for each potential buyer in the marketplace, giving an empirical
     view of demand-behavior as a function of price.   The optimal setting in selling
     the inventory is one that  maximizes price x liquidation probability.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近参加了一场由麻省理工学院的大卫·西尔维-莱维教授主讲的讲座，他讨论了一种在线价格发现的方法，以最大化库存的某些目标，比如利润。情景是，可以观察到每个潜在买家的市场中的库存是否被售出或未被售出，从而给出价格作为需求行为的经验观点。在出售库存的最佳设置是最大化价格x清算概率。
 - en: 'When we have no knowledge about the true demand for inventory as a function
     of price, we must start with some prior estimate in the form of a sold/unsold
     distribution (the demand function in terms of price) and modify this online during
     the selling period.   The setup of the problem is then:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们对库存的真实需求作为价格函数一无所知时，我们必须从某种先验估计的形式开始，这种形式是一个售出/未售出的分布（需求函数在价格方面）并在销售期间在线修改这个。问题的设置如下：
 - en: have a fixed period in which can sell the inventory
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 有一个固定的时期可以出售库存
 - en: can observe whether a prospective buyer bought at offer price or rejected the
     price as too high
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 可以观察到一个潜在的买家是否以报价价格购买，或者是否因为价格过高而拒绝该价格
 - en: determine a number of different selling price levels & some prior on their respective
     probability of sale at each price, starting with a uniform distribution.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 确定不同的销售价格级别和它们各自在不同价格下的销售概率的先验知识，从均匀分布开始。
 - en: This can be modeled as the 1-armed bandit problem, where we decide amongst n
     bandits  (slot machines), determining which slot machine gives the highest payout
     through iteratively adjusting our model based on observations.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以建模为1臂老虎机问题，我们在n个老虎机（老虎机）之间做出决定，通过迭代调整我们的模型基于观察来确定哪个老虎机给出最高的回报。
 - en: 'In determining the optimal price, can formulate  as a sequence of bandits:
     a sequence of prices ranging from low to high.  Associated with each price is
     a distribution which represents our view on the demand associated with this price
     (i.e. the probability of sale).  With no prior, can start with an equi-probable
     view on demand across prices, starting with an initial Beta distribution on at
     each price level of B(α=1,β=1).'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在确定最佳价格时，可以将其表述为一连串的bandits：从低到高的价格序列。与每个价格相关联的是一个分布，代表我们对与这个价格相关的需求（即销售概率）的看法。在没有先验知识的情况下，可以从一个对需求在价格上具有等概率看法开始，从每个价格级别的初始Beta分布B(α=1,β=1)开始。
 - en: 'Rather than provide the formal setup for Thompson sampling, will illustrate
     its use for the above problem.  The sold/unsold distributions & selection of price
     can then be evolved as follows:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 而不是提供汤普森抽样的正式设置，我将说明它在上面的应用问题中的使用。售出/未售出的分布和价格选择可以按照以下方式发展：
 - en: take a sample from each distribution associated with a price (representing the
     probability of sale at a each given price)
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从每个与价格相关的分布中抽取样本（代表在每个给定价格下销售的概率）
 - en: 'choose the ith price (1-armed bandit) that maximizes the objective: p(sale[i])
     * price[i], where p(sale) is the sampled probability from each demand/price distribution'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 选择第i个价格（1臂老虎机），最大化目标：p(sale[i]) * price[i]，其中p(sale)是从每个需求/价格分布中抽取的样本概率
 - en: offer the ith price to the marketplace
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 将第i个价格提供给市场
 - en: the unit of inventory is observed to be sold or unsold
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 库存的单位被观察为售出或未售出
 - en: 'adjust the beta distribution associated with price[i] (the price used in the
     offer) as follows:'
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如下调整与价格[i]相关联的Beta分布（在报价中使用的价格）：
 - en: 'if sold:  B’ = B (α+1, β)'
+  id: totrans-20
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果售出：B’ = B (α+1, β)
 - en: 'if unsold: B = B(α, β+1)'
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果未售出：B = B(α, β+1)
 - en: The net effect over time is that the distributions will converge such that the
     optimal bandit (associated with optimal price) will offer the highest probability
     in sampling or at least the highest expectation (price x p(sold)).  The approach
     (Thompson Sampling) has many applications in finance for online optimisation.
      Definitely going to be part of my toolset going forward.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着时间的推移，净效果是这些分布将会收敛，使得最优臂（与最优价格相关）在抽样时提供最高的概率，或至少是最高的期望值（价格 x 销售概率）。这种方法（汤普森抽样）在金融领域在线优化方面有许多应用。肯定会成为我未来工具箱的一部分。

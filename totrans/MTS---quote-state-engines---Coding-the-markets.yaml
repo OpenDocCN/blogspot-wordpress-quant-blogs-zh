@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:52:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:52:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: MTS & quote state engines | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: MTS & 报价状态引擎 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2006/06/28/mts-quote-state-engines/#0001-01-01](https://etrading.wordpress.com/2006/06/28/mts-quote-state-engines/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2006/06/28/mts-quote-state-engines/#0001-01-01](https://etrading.wordpress.com/2006/06/28/mts-quote-state-engines/#0001-01-01)
 - en: MTS & quote state engines
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: MTS & 报价状态引擎
 - en: June 28, 2006
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2006年6月28日
 - en: '[Finite state machines](http://en.wikipedia.org/wiki/Finite_state_machine) are
     a standard programming technique we use in our trading system for managing the
     state of quotes and RFQs. Let’s consider quote state management on MTS. MTS is
@@ -34,8 +50,10 @@
     markets like Bloomberg and TradeWeb, where the quotes we send are indicative,
     not tradeable. On those ECNs we only send a tradeable price to an individual client
     when they click on an indicative quote and initiate an RFQ.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[有限状态机](http://en.wikipedia.org/wiki/Finite_state_machine)是我们用在交易系统中管理报价和RFQ状态的标准编程技术。考虑在MTS上的报价状态管理。MTS特别有趣，因为MTS将市场制造商的报价视为“提案”，这些是坚定的、可交易的报价。这与其他纯粹由报价驱动的市场，如彭博和TradeWeb，非常不同，在这些ECN上，我们发送的报价是指导性的，而不是可交易的。在这些ECN上，只有当客户点击指导性报价并发起RFQ时，我们才会向个别客户发送一个可交易的价格。'
 - en: Since for MTS, our quotes are firm, or tradeable, we developers must take great
     care over the quotes our system sends on the trader’s behalf. If we leave a stale
     quote out on the market, our traders will lose money. They get very unhappy when
@@ -46,8 +64,10 @@
     They’re both issues for another day, so let’s just take it as read that in a fast
     moving market, we have to recalc bond prices several times a second, and publish
     the resulting quotes to MTS.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于对于MTS，我们的报价是坚定的，或者可以交易，我们开发者必须非常重视我们系统发送的报价。如果我们把陈旧的报价留在市场上，我们的交易员会损失金钱。当这种情况发生时，他们会非常不高兴。确切为什么报价会变陈旧，这会让我们进入讨论固定收益定价引擎的架构和设计，以及期货、基准债券、债券和掉期之间的价格关系。我们还可以讨论MTS的交易报价模型以及相关的排队机制。这些都是另外一天的问题，所以我们假设在一个快速变动的市场中，我们必须每秒重新计算几次债券价格，并将结果报价发布到MTS。
 - en: 'Our system is an autoquoting system: it automates the quoting of bonds on a
     dozen ECNs. Naturally, our traders control our autoquoting system, just as a pilot
     controls an autopilot in an aircraft. The quote state engine ensures that the
@@ -55,94 +75,130 @@
     predictable manner. The controls at the trader’s disposal are the spread, the
     bid and offer sizes, and whether the quote should be on or off. Now let’s work
     though some example states and transitions for a quote for a bond…'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的系统是一个自动报价系统：它自动化了在一打ECN上报价债券的过程。当然，我们的交易员控制着我们的自动报价系统，就像飞行员控制飞机上的自动驾驶系统一样。报价状态引擎确保自动报价系统以安全和可预测的方式响应交易员对其控制装置的操作。交易员可用的控制装置是价差、买入和卖出数量，以及报价是开启还是关闭。现在让我们通过一些关于债券报价的状态和转换的例子来进行说明…
 - en: States
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 状态
 - en: 'Dead: we’re not quoting the bond'
+  id: totrans-12
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 死亡：我们没有报价债券。
 - en: 'PendingPrice: trader has switched the quote on, but we haven’t had a fresh
     tick from our pricing engine yet'
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 待处理价格：交易员已经开启报价，但我们还没有从定价引擎那里得到最新的价格跳动。
 - en: 'PendingMarketOn: the quote is on, we have a fresh mid price and have applied
     a spread and sent the resulting bid and offer prices and sizes to MTS, thereby
     opening a quote transaction, but MTS has yet to close the quote transation'
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 待处理市场开启：报价是开启的，我们有一个最新的中间价格，并应用了一个价差，将结果的买入和卖出价格及数量发送到MTS，从而开启了一个报价交易，但MTS尚未关闭报价交易。
 - en: 'Live: MTS has closed the quote transaction, signalling to us that the proposal
     is live on the market, and therefore tradable'
+  id: totrans-15
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 直播：MTS已经关闭了报价交易，向我们示意该提案已活在市场上，因此可以交易。
 - en: 'PendingMarketOff: trader has switched the quote off, we’ve initiated the quote
     off transaction, but MTS has not yet confirmed the quote off transaction as closed'
+  id: totrans-16
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 待处理市场关闭：交易员已经关闭了报价，我们已经启动了报价关闭交易，但MTS尚未确认报价关闭交易已关闭。
 - en: Transitions
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 转换
 - en: 'BankOn: we’re logged on to MTS'
+  id: totrans-18
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: BankOn：我们已经登录到MTS。
 - en: 'TraderOn: quotes are grouped by trader. The trader for the group owning this
     quote is logged on'
+  id: totrans-19
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'TraderOn: 报价按交易员分组。拥有这个报价的分组交易员已经登录'
 - en: 'Price: a fresh mid price for this quote has arrived from the pricing engine'
+  id: totrans-20
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Price: 定价引擎传来了一个新的中间价格'
 - en: 'Trade: a market taker has hit our proposal. We may want to go quote off for
     a few seconds to let the trader think about the trade before going back on'
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Trade: 市场接受者触发了我们的提议。我们可能想要关闭报价几秒钟，让交易员在重新开启之前考虑这笔交易'
 - en: 'TraderOff: trader has turned off his quote group'
+  id: totrans-22
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'TraderOff: 交易员已经关闭了他的报价组'
 - en: 'BankOff: we’ve logged off MTS'
+  id: totrans-23
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'BankOff: 我们已经从MTS上登出'
 - en: Getting the states and transitions right means we avoid trading at stale prices.
     For example…
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 正确获取状态和转换意味着我们避免了在陈旧价格上交易。例如…
 - en: Going quote on with a stale mid price, then subsequently trading at the wrong
     price
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用陈旧的中间价格开启报价，然后随后在错误的价格上交易
 - en: Trying to send a new quote before the transaction for the previous quote has
     closed. If the mid price for this quote ticks again, we’ll have a stale quote
     at the head of the outgoing queue, with a fresher quote behind it
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在之前的报价交易关闭之前尝试发送一个新的报价。如果这个报价的中间价格再次变动，我们将在发往外部的队列中有一个陈旧的报价，而后面则是一个更新更新鲜的报价
 - en: Of course, all the above is an over simplification, and I’ve omitted all sorts
     of issues like MTS’s channel mechanism and the OpenServer, but you get the idea…
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，上述所有内容都是过于简化的，我还省略了像MTS的通道机制和OpenServer这样的各种问题，但你应该明白了…

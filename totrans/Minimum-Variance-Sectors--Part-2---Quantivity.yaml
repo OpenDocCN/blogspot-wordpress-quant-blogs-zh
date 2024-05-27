@@ -1,51 +1,78 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:51:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:51:37
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Minimum Variance Sectors: Part 2 | Quantivity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最小方差行业：第二部分 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/04/22/minimum-variance-sector-rotation-part-2/#0001-01-01](https://quantivity.wordpress.com/2011/04/22/minimum-variance-sector-rotation-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/04/22/minimum-variance-sector-rotation-part-2/#0001-01-01](https://quantivity.wordpress.com/2011/04/22/minimum-variance-sector-rotation-part-2/#0001-01-01)
 - en: Continuing analysis of sector rotation with [minimum variance portfolios](https://quantivity.wordpress.com/2011/04/17/minimum-variance-portfolios/),
     John Hall inquired about performance of minimum variance sector rotation outside
     the period illustrated in the [previous post](https://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/).
     This post expands analysis to consider the period extending back to *inception
     of US sector ETFs* (circa late 1998), unveiling several unexpected delights.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续分析 sectors 的旋转与[最小方差投资组合](https://quantivity.wordpress.com/2011/04/17/minimum-variance-portfolios/)，John
+    Hall 询问了在[前一篇帖子](https://quantivity.wordpress.com/2011/04/20/minimum-variance-sector-rotation/)所描述的时间段之外，最小方差行业旋转的表现。这篇文章扩展了分析，考虑从美国行业ETF的*创立之初*（大约1998年底）开始的时间段，揭示了几处意想不到的乐趣。
 - en: 'The period 1999 – 2010 includes a diversity of market price regimes: two bubbles,
     mixed up/down trending, and ample mean reversion. Begin minimum variance sector
     rotation analysis with MVP sector weights, which are unexpectedly quite interesting:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 1999-2010年期间包括多种市场价格机制：两个泡沫，混合上升/下降趋势，以及充足的均值回归。从 MVP 行业权重开始最小方差行业旋转分析，这些权重意外地很有趣：
 - en: '[![](img/873fa27daa50b58285518b832a81ce5b.png "annual-mv-sector-weights-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/annual-mv-sector-weights-1999.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/873fa27daa50b58285518b832a81ce5b.png "annual-mv-sector-weights-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/annual-mv-sector-weights-1999.png)'
 - en: 'Specifically, the years 2000 – 2002 unveil a *remarkable* change in the sector
     weight of staples: increasing from 20% to 100%. Drilling further into the 2001
     – 2002 weight transition, the difference is (*i.e.* `round(annualWeights[4,] -
     annualWeights[3,],3)`):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是，2000-2002年揭示了必需消费品行业权重的*显著*变化：从20%增加到100%。进一步研究2001-2002年的权重过渡，差异为(*即* `round(annualWeights[4,]
+    - annualWeights[3,],3)`)：
 - en: '| XLB | XLE | XLF | XLK | XLI | XLP | XLU | XLV | XLY |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '| XLB | XLE | XLF | XLK | XLI | XLP | XLU | XLV | XLY |'
 - en: '| 0.011 | -0.042 | -0.155 | -0.112 | 0.159 | 0.446 | -0.303 | -0.012 | 0.008
     |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| 0.011 | -0.042 | -0.155 | -0.112 | 0.159 | 0.446 | -0.303 | -0.012 | 0.008
+    |'
 - en: 'Thus, the increase in staples came at the expense of significant decrease in
     utilities (-30.3%), finance (-15.5%), and tech (-11.2%). This is a fascinating
     mix when viewed through the classic sector rotation mythology: finance and tech
@@ -54,80 +81,117 @@
     as it’s “growth”. No immediate economic explanation for the huge decrease in utilities,
     beyond the obvious that 2002 coincided with the post-tech bubble trough. Worth
     some pondering.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，必需消费品的增加是以公用事业(-30.3%)、金融(-15.5%)和科技(-11.2%)的显著减少为代价的。从经典的行业旋转神话来看：金融和科技是“增长”，而公用事业是“防御”。科技减少可以理解，因为泡沫破裂；金融减少不太清楚，或许可以解释为它是“增长”。对于公用事业的大幅减少，没有立即的经济解释，除了2002年与科技泡沫低谷相一致这一明显事实。值得深思。
 - en: 'Next, the annual PCA decomposition for top 5 dominant components, affirming
     relationship between market dislocation and increased proportion of variance from
     the *market component*:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，对前5个主导成分的年 PCA 分解，证实了市场错位与来自*市场成分*的方差比例增加之间的关系：
 - en: '[![](img/d401e6862b5f17868fc6a43ce938491e.png "longitudinal-pca-decomp-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/longitudinal-pca-decomp-1999.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d401e6862b5f17868fc6a43ce938491e.png "longitudinal-pca-decomp-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/longitudinal-pca-decomp-1999.png)'
 - en: 'Next, consider the daily P&L generated from these weights over the extended
     period:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，考虑在这个延长的时间段内这些权重产生的每日盈亏：
 - en: '[![](img/57c1c1986f2a2688f9e89f4acd46ba56.png "mvp-pl-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/mvp-pl-19992.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/57c1c1986f2a2688f9e89f4acd46ba56.png "mvp-pl-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/mvp-pl-19992.png)'
 - en: 'This strategy outperforms the benchmark throughout the period, by as much as
     80%. To better understand the temporal dynamics of this outperformance, define
     “alpha” as the *spread* between strategy and SPY returns (*i.e.* `alpha <- cumsum(dailyPnL[2:length(dailyPnL)])
     - cumsum(diff(log(coredata(spy))))`). The following illustrates alpha time series
     over the period:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种策略在整个期间内都超越了基准，最多超出80%。为了更好地理解这种超越的时空动态，定义“alpha”为策略和SPY回报之间的*利差*（即`alpha
+    <- cumsum(dailyPnL[2:length(dailyPnL)]) - cumsum(diff(log(coredata(spy))))`）。以下是在该期间alpha时间序列的说明：
 - en: '[![](img/831468a22d22835ce710b3d91f4d87ce.png "min-var-alpha-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/min-var-alpha-19992.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/831468a22d22835ce710b3d91f4d87ce.png "min-var-alpha-1999")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/min-var-alpha-19992.png)'
 - en: 'This strongly hints that alpha generation may be inversely correlated with
     downward market price volatility, which matches *a priori* intuition that MVPs
     are intended to minimize variance. To investigate further, consider visualization
     of the time series relationship between these two with an overlay graph of both
     first differences:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这强烈地暗示了alpha生成可能与市场价格波动的下降成反比，这与*先验*直觉相符，即MVP旨在最小化方差。为了进一步调查，请考虑将这两个时间序列关系叠加的图表：
 - en: '[![](img/d01ded4f7832714db5ac73d8ff1a83b3.png "min-var-alpha-diff")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/min-var-alpha-diff2.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d01ded4f7832714db5ac73d8ff1a83b3.png "min-var-alpha-diff")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/min-var-alpha-diff2.png)'
 - en: 'This affirms both series are strongly [heteroskedastic](http://en.wikipedia.org/wiki/Heteroscedasticity)
     (not surprisingly), along with strong temporal simultaneity in variance changes.
     There appears potential for strong correlation, yet unclear from time series whether
     positive or negative. To investigate directionality, consider the following annual
     Pearson correlation between first differences of alpha and SPY:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这证实了这两个系列都是强烈的**异方差性**（毫不奇怪），并且 variance 变化之间有强烈的时空同时性。似乎存在强烈的相关性，但尚不清楚时间序列是正相关还是负相关。为了调查方向性，请考虑以下年度皮尔逊相关系数，该系数衡量的是alpha和SPY的第一差分：
 - en: '[![](img/ecb7199fdf936f74fc7cb47a72cc111d.png "alpha-spy-correlation")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/alpha-spy-correlation.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ecb7199fdf936f74fc7cb47a72cc111d.png "alpha-spy-correlation")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/alpha-spy-correlation.png)'
 - en: This indeed confirms a *strong inverse relationship between changes in alpha
     and corresponding changes in SPY* (note the y-axis is *negative* values). This
     is quite interesting, given the hunt for negative correlation with benchmark asset
     classes.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这确实证实了*alpha变化与相应SPY变化之间存在强烈反比关系*（注意y轴是*负值*）。考虑到寻找与基准资产类别之间的负相关性，这确实很有趣。
 - en: 'Compare the preceding negative correlation with the annual mean correlation
     of US sectors (as measured by same sector ETFs), exemplifying the standard strong
     positive correlation under distress:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 将前面的负相关性与美国行业（由同一行业ETF衡量）的年均相关性进行比较，体现了在困境下的典型强正相关：
 - en: '[![](img/4e1f4e92ff13d3ff3a1a3ca2e7e709bd.png "mean-sector-correlation")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/mean-sector-correlation.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4e1f4e92ff13d3ff3a1a3ca2e7e709bd.png "mean-sector-correlation")](https://quantivity.wordpress.com/wp-content/uploads/2011/04/mean-sector-correlation.png)'
 - en: In summary, the preceding analysis indeed suggests minimum variance portfolios
     live up to their goal of truncating “bad” (downside) variance while simultaneously
     not reducing alpha during periods of either “good” (upside) variance or dampened
     variance.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，前面的分析确实表明最小方差组合实现了它们的目标，即在“好”（上涨）方差或缓和方差期间同时削减“坏”（下跌）方差而不减少alpha。
 - en: '* * *'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'For readers wanting to follow along in R, this post relies upon the preceding
     along with the following additional logic:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 想要在R中跟进的读者，本篇文章依赖于上述内容以及以下额外逻辑：
 - en: '[PRE0]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

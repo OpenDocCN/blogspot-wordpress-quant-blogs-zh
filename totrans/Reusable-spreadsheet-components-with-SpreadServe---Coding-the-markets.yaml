@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:31:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:31:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Reusable spreadsheet components with SpreadServe | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 可复用的电子表格组件——SpreadServe | 编程市场
 - en: 来源：[https://etrading.wordpress.com/2015/08/14/reusable-spreadsheets-components-with-spreadserve/#0001-01-01](https://etrading.wordpress.com/2015/08/14/reusable-spreadsheets-components-with-spreadserve/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2015/08/14/reusable-spreadsheets-components-with-spreadserve/#0001-01-01](https://etrading.wordpress.com/2015/08/14/reusable-spreadsheets-components-with-spreadserve/#0001-01-01)
 - en: Reusable spreadsheet components with SpreadServe
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 可复用的电子表格组件——SpreadServe
 - en: August 14, 2015
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2015年8月14日
 - en: 'There are a couple of spreadsheets in the [SpreadServe beta](https://groups.google.com/forum/#!aboutgroup/spreadserve)
     that illustrate [point 3 (component reuse) from my recent Spreadsheets are code
     post](https://etrading.wordpress.com/2015/08/13/spreadsheets-are-code/). One of
@@ -59,5 +75,8 @@
     or trader developer spreadsheets can be strung together very rapidly. The benefit
     of the spreadsheet level component reuse that [SpreadServe](http://spreadserve.com/)
     makes possible should be apparent.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[SpreadServe beta](https://groups.google.com/forum/#!aboutgroup/spreadserve)中有一些电子表格，它们展示了我在最近的“Spreadsheets
+    are code”帖子中提到的第3点（组件复用）。其中的一个——[ycb_quandl_pub.xls](http://54.148.111.119:8888/ycb_quandl_pub.xls/Bootstrapping)——正在[AWS主机](http://54.148.111.119:8888/dashboard.html)上运行，并且一篇最近的帖子详细解释了它是如何使用[Quandl数据](https://www.quandl.com/data/FRED/DSWP10-10-Year-Swap-Rate)来驱动[QuantLib的收益率曲线bootstrap函数](http://www.bnikolic.co.uk/ql/addindoc/f/qlPiecewiseYieldCurve.html)。ycb_quandl_pub.xls与ycb_quandl_sub.xls配对使用。您可以从[这里](http://54.148.111.119:8888/repository.html)下载它们，正如它们的名称所暗示的，ycb_quandl_pub.xls是一个发布者，而ycb_quandl_sub.xls是一个订阅者。ycb_quandl_pub.xls在Excel或SpreadServe中都能运行得很好，但只有在SpreadServe中运行时它才成为一个可复用的组件。尝试下载ycb_quandl_sub.xls并在您桌面上的Excel中运行它。您需要安装[SSAddin](https://github.com/SpreadServe/SSAddin)才能使其工作。然后您会看到ycb_quandl_sub.xls用ycb_quandl_pub.xls计算出的bootstrap曲线的日期和利率进行了更新。您可能在几分钟内在单元格中看到#N/A，直到服务器首次从服务器发送滴答声，这每五分钟重新计算一次。ycb_quandl_sub.xls中的s2cfg表配置了[SSAddin](https://github.com/SpreadServe/SSAddin)使用其[s2websock函数](http://spreadserve-addin.readthedocs.org/en/latest/functions.html)订阅[RealTimeWebServer](http://spreadserve.readthedocs.org/en/latest/config.html)发布的利率，每当ycb_quandl_pub.xls表在SpreadServeEngine实例中重新计算时。RealTimeWebServer可以支持许多订阅者，所以ycb_quandl_pub.xls中从Quandl、QuantLib以及工作表公式中的所有逻辑都由所有订阅者共享。具有编辑权限的用户可能在发布者侧更改模型的某些方面，比如Interpolator或TermStructureCalendar，结果所有订阅者都会得到同样的更新数据。熟悉投资银行中典型定价引擎架构的人会认出这里定价引擎图表的构成要素。但主要区别是，实现这一切不需要服务器端的C++、C#或Java编程。量化或交易开发人员电子表格的图表可以非常快地串联在一起。SpreadServe所可能实现的电子表格级别组件复用的好处是显而易见的。

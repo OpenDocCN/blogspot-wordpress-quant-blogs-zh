@@ -1,47 +1,67 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:28:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:28:01
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Musings on HFT in Bitcoin | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 对比特币高频交易的思考 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2015/03/14/musings-on-hft-in-bitcoin/#0001-01-01](https://tr8dr.wordpress.com/2015/03/14/musings-on-hft-in-bitcoin/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2015/03/14/musings-on-hft-in-bitcoin/#0001-01-01](https://tr8dr.wordpress.com/2015/03/14/musings-on-hft-in-bitcoin/#0001-01-01)
 - en: I have 4 Bitcoin L3 exchange feeds running smoothly out of a data center in
     California (which is slightly closer to Asian exchanges and Coinbase than the
     east coast).  It took a bit of error handling and exponential back-off, to handle
     the unreliability of connectivity with these exchanges, where connections can
     intermittently be overwhelmed (returning 502 / 503 errors due to the poor choice
     of a REST-based API).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在加利福尼亚的一个数据中心运行着4个比特币三级交易所数据流，运行顺利（这比东海岸更靠近亚洲交易所和Coinbase）。处理这些交易所的不稳定性连接（由于使用了基于REST的API而偶尔返回502/503错误）需要一些错误处理和指数退避。
 - en: I am thinking to add Bitstamp and Kraken to the mix, even though they are smaller.
       Bitstamp seems to have recovered somewhat since its security breach and Kraken
     is unique due to its EUR denominated trading.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我考虑将Bitstamp和Kraken加入混合，尽管它们规模较小。Bitstamp在安全漏洞之后似乎有所恢复，而Kraken因其欧元交易而独一无二。
 - en: '**HFT Opportunity**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**高频交易机会**'
 - en: Bitcoin trading & order volume is quite far from the hyper-fast moving equities,
     FX, or treasuries markets.   That said, it has significant potential for market
     makers and short-term prop-trading given the greater transparency of microstructure
     in this market.    The caveat to this is that the transaction costs on many exchanges
     are enormous (10+bp or 20+bp round-trip), though for BTCChina is surprisingly
     free (fees are on withdrawal).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 比特币交易及订单量与超高速移动的股票、外汇或国债市场相比还有很大差距。虽说如此，考虑到该市场微观结构的透明度更高，市场制造商和短期自营交易具有巨大的潜力。然而，需要注意的是，许多交易所的交易成本巨大（10个基点或20个基点以上的往返成本），尽管BTCChina的交易成本出奇地低（费用在提现时收取）。
 - en: I am really at the beginning of collecting HFT-style data for the main exchanges,
     so while I have tested a couple of signals on very small samples, want to collect
     a larger data set for backtest and fine-tuning.   The 2 signals have tested are
@@ -49,23 +69,32 @@
     use as a risk-avoidance in a market making engine.  In the later case would remove
     my offer from one side of the market if detect 1-sided direction, avoiding adverse
     selection.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我刚开始收集主要交易所的高频交易数据，所以尽管我在非常小的样本上测试了几种信号，但希望收集更多的数据集进行回测和微调。这两种测试过的信号是围绕短期动量检测的，所以可以用它来跟随动量，或者在市场制造引擎中用作避险。在后者的情况下，如果检测到单边方向，将移除市场的一边报价，避免逆向选择。
 - en: '**Restrictions**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**限制**'
 - en: 'Some marketplaces look to put in measures to keep their marketplace sane for
     lower-freq / non-HFT specialized traders.   In looking at the Kraken API today,
     noticed the following:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些市场试图采取措施，以保持其市场对低频/非高频专业交易者的理智。今天查看Kraken API时，注意到了以下内容：
 - en: We have safeguards in place to protect against abuse/DoS attacks as well as
     **order book manipulation** caused by the rapid placing and canceling of orders
     …
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们已经实施了保护措施，以防止滥用/DoS攻击以及由快速下单和撤单引起的**订单簿操纵**……
 - en: ''
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -73,36 +102,50 @@
     10 the user’s API access is suspended for 15 minutes. The rate at which a users
     counter is reduced depends on various factors, but the most strict limit reduces
     the count by 1 every 5 seconds.
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 用户的计数器每几秒减少一次，但如果计数器超过10，用户的API访问将被暂停15分钟。用户计数器减少的速度取决于各种因素，但最严格的限制是每5秒减少一次。
 - en: So effectively Kraken will allow for a small burst of order adjustments or placements,
     but only allows an average of 1 adjustment / 5 sec.   For a market maker 1 every
     5 seconds (or 2 sides every 10) is too limiting.   This can become a problem for
     both market makers and trend / momentum followers if the market is moving.   Perhaps
     this limit should scale with respect to price movement or be combined with a higher
     limit + minimum TTL (time to live).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，Kraken将允许偶尔的订单调整或放置，但平均每5秒只允许一次调整。对于市场制造商来说，每5秒（或10秒内两边）一次太受限了。如果市场有变动，这将成为市场制造商和趋势/动量跟随者的一个问题。或许这个限制应该根据价格变动进行调整，或者与更高的限制+最小生存时间（TTL）结合。
 - en: 'I am actually **for** certain restrictions in the market.  The equities market,
     in particular, needs to be cleaned up, not with new taxes or ill-conceived regulation
     (reg-NMS for example), but with:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我实际上**支持**市场中的某些限制。尤其是股票市场，需要进行整治，而不是通过新的税收或考虑不周的监管（例如reg-NMS），而是通过：
 - en: time-based priority / price-level  (believe it or not, there are order types
     that allow HFT to jump the queue)
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 基于时间的优先级/价格层次（信不信由你，有些订单类型允许高频交易跳过队列）
 - en: minimum TTL (time-to-live)
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 最小的TTL（生存时间）
 - en: 'some reasonable maximum # of orders / unit time on a security'
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对某一证券设定合理的最大订单数/单位时间
 - en: '#2 and #3 would remove many of the games on the exchange that do not serve
     the market.'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 第2点和第3点将消除许多不利于市场的交易所游戏。

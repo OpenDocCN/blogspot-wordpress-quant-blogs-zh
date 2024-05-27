@@ -1,76 +1,116 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:43:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:43:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Time Series Matching strategy backtest | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 时间序列匹配策略回测 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/01/17/time-series-matching-strategy-backtest/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/17/time-series-matching-strategy-backtest/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/01/17/time-series-matching-strategy-backtest/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/17/time-series-matching-strategy-backtest/#0001-01-01)
 - en: This is a quick post to address comments raised in the [Time Series Matching](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/)
     post. I will show a very simple example of backtesting a Time Series Matching
     strategy using a distance weighted prediction. I have to warn you, the strategy’s
     performance is worse then the Buy and Hold.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这篇文章是为了回应在[时间序列匹配](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/)文章中提出的评论。我将展示一个非常简单的回测时间序列匹配策略的例子，使用距离加权预测。我必须警告你，这个策略的表现不如买入持有策略。
 - en: 'I used the code from [Time Series Matching](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/)
     post and re-arranged it into 3 functions:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我使用了来自[时间序列匹配](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/)文章的代码，并将其重新组织成3个函数：
 - en: bt.matching.find – finds historical matches similar to the given query (pattern).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: bt.matching.find – 寻找与给定查询（模式）相似的历史匹配。
 - en: bt.matching.overlay – creates matrix that overlays all matches one on top of
     each other.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: bt.matching.overlay – 创建一个矩阵，将所有匹配项叠加在一起。
 - en: bt.matching.overlay.table – creates and plots matches summary table.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: bt.matching.overlay.table – 创建并绘制匹配摘要表。
 - en: I will use historical prices for [^GSPC](http://finance.yahoo.com/q?s=%5Egspc)
     to extend [SPY](http://finance.yahoo.com/q?s=spy) time series. I will create a
     monthly backtest, that trades at the end of the month, staring January 1994\.
     Each month, I will look back for the best historical matches similar to the last
     90 days in the last 10 years of history.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用[^GSPC](http://finance.yahoo.com/q?s=%5Egspc)的历史价格来扩展[SPY](http://finance.yahoo.com/q?s=spy)的时间序列。我将创建一个月的回测，在月底交易，始于1994年1月。每个月，我将回顾过去10年历史中的最后90天，寻找最佳的历史匹配。
 - en: I will compute a distance weighted average prediction for the next month and
     will go long if prediction is positive, otherwise stay in cash. This is a very
     simple backtest and the strategy’s performance is worse then the Buy and Hold.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将计算下一个月的历史加权平均预测，如果预测为正则做多，否则持有现金。这是一个非常简单的回测，该策略的表现不如买入持有策略。
 - en: 'Following code loads historical prices from Yahoo Fiance and setups Time Series
     Matching strategy backtest using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下代码从雅虎财经加载历史价格，并使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)设置时间序列匹配策略回测：
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s compare the Time Series Matching strategy to Buy & Hold:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们比较时间序列匹配策略与买入持有策略：
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/1da7d3e51d2a6e95778ed8429001e4ca.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small2.png)'
 - en: How would you change the strategy or backtest to make it profitable? Please
     share your ideas. I looking forward to exploring them.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 你会如何改变策略或回测使其盈利？请分享你的想法。我期待着探索它们。
 - en: To view the complete source code for this example, please have a look at the
     [bt.matching.backtest.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个例子完整的源代码，请查看 github 上的 [bt.matching.backtest.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

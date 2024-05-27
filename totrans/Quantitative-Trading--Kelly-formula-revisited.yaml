@@ -1,35 +1,54 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:18:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:18:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Kelly formula revisited'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：凯利公式再探
 - en: 来源：[http://epchan.blogspot.com/2009/02/kelly-formula-revisited.html#0001-01-01](http://epchan.blogspot.com/2009/02/kelly-formula-revisited.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2009/02/kelly-formula-revisited.html#0001-01-01](http://epchan.blogspot.com/2009/02/kelly-formula-revisited.html#0001-01-01)
 - en: 'Some discussions on Kelly''s formula with a reader Steven L:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 与读者Steven L的一些关于凯利公式的讨论：
 - en: 'Q:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Q:'
 - en: '"I am more than half way through your book and am stuck at a concept that I
     can''t seem to find an answer in any other forum.'
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “你的书我已经读了一半以上，但卡在一个我在其他论坛找不到答案的概念上。
 - en: ''
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -39,10 +58,13 @@
     on each trade. What I am referring to is the so-called "fixed-fractional" trading.
     There exists an optimal fraction that will maximize the geometric growth rate
     of the trading equity, in theory anyway.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我读过Ralph Vince的《投资组合管理公式》，其中使用凯利公式计算每次试验中银行存款的最佳“比例”。因此，交易员可以计算出他总交易账户价值的某个比例用于每次交易的风险。我指的是所谓的“固定比例”交易。理论上，存在一个最佳比例，可以最大化交易权益的几何增长率。
 - en: ''
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -54,37 +76,53 @@
     Trading Strategies and asked the same question on some forums, but no one was
     able to give me a clear satisfactory answer. It would be greatly helpful if you
     can help me sort out the confusion."
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 然而，在你书中的资金管理章节，你使用凯利公式推导出最佳“杠杆”。这似乎与我从Ralph Vince那里学到的东西相冲突，因为杠杆通常大于1，而比例通常小于1。我似乎无法找到这两个概念之间的联系。我也曾在Lars
+    Kestner的《量化交易策略》中看到相同的最佳杠杆公式，并在一些论坛上提出同样的问题，但没有人能给我一个清晰的满意答案。如果你可以帮助我澄清这个困惑，我将不胜感激。”
 - en: 'A:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'A:'
 - en: I don't have Ralph Vince's book with me, but if I recall correctly, his formulation
     is based on discrete bets (win or lose, no intermediate outcome), much like horse-betting
     or in a casino game. My approach, or rather, Professor Ed Thorp's approach, is
     based on continuous finance, assuming that every second, your P&L could fluctuatate
     in a Gaussian ("log-normal") fashion.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我没有带Ralph Vince的书在身边，但如果我记得没错，他的公式是基于离散投注（赢或输，没有中间结果），就像赌马或在赌场游戏中一样。我的方法，或者更准确地说，Ed
+    Thorp教授的方法，是基于连续金融，假设每一秒，你的损益可能会以高斯（对数正态）方式波动。
 - en: For discrete bets where you could have lost all of your equity in one bet, surely
     one should only bet a fraction of your total equity. For continuous finance, there
     is very little chance one could have lost all of the equity in one time period,
     due to the assumed log-normal distribution of prices. Hence one should bet more
     than your equity, i.e. use leverage.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于可能在一次投注中失去所有权益的离散投注， surely one should only bet a fraction of your total equity.
+    对于连续金融，由于假设价格的log-normal分布，一个人在一段时间内失去所有权益的可能性非常小，因此应该下注超过你的权益，即使用杠杆。
 - en: 'Q:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Q:'
 - en: In example 6.2 in your book, the portfolio consists of only long SPY, which
     has little chance of going to zero. So I can see how it is reasonable that you
     use the continuous finance approach and apply the optimal leverage to scale up
     the return.
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 在你书中的例子6.2中，投资组合只包括多头SPY，其归零的可能性很小。所以我可以看到你是如何合理地采用连续金融方法并将最佳杠杆用于放大收益的。
 - en: ''
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -96,17 +134,23 @@
     trading is like making discreet bets? Should we expect the mean and variance of
     this strategy automatically result in an Optimal Leverage that is less than one?
     So that we actually need to risk a fraction of the account equity per trade?
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 但是让我们假设投资组合只包含一个策略，即买入期权。假设这个策略因为时间衰减大多数时候会亏损，但偶尔会因为黑天鹅事件而获利。我认为把整个投资组合的权益一次性下注在这个策略上不是一个好主意。在这种情况下，你还能应用连续金融方法吗，因为实际上交易就像做出离散下注？我们应该期待这个策略的平均值和方差自动产生一个小于1的最优杠杆吗？这样我们实际上需要每次交易承担账户权益的一定比例的风险？
 - en: 'A:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 'A:'
 - en: The formula I depicted in the book is valid only if the P&L distributions are
     Gaussian. If one expects a fat-tailed distribution due to black-swan events, a
     different mathematical model needs to be used, though it can still be within the
     continuous finance framework. However, for simplicity's sake, if the distribution
     looks multinomial (e.g. high probability of "Win a lot" v "Lose a lot"), then
     you may model it with fractional betting just like a casino game.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 书中所描述的公式仅在收益和损失（P&L）分布为高斯分布时有效。如果因为黑天鹅事件预期一个厚尾分布，那么就需要使用不同的数学模型，尽管它仍然可以属于连续金融框架之内。然而，为了简化，如果分布看起来是多项式的（例如，“赢很多”的概率高于“输很多”），那么你可以像赌场游戏一样用分数投注来建模。

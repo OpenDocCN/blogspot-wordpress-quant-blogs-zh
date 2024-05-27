@@ -1,73 +1,117 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:32:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:32:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Stochastic Oscillator | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 随机振荡器|系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/07/19/stochastic-oscillator/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/19/stochastic-oscillator/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/07/19/stochastic-oscillator/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/19/stochastic-oscillator/#0001-01-01)
 - en: 'I came across the link to the [John Ehlers paper: Predictive Indicators for
     Effective Trading Strategies](http://www.stockspotter.com/files/PredictiveIndicators.pdf),
     while reading the [Dekalog Blog](http://dekalogblog.blogspot.ca/2013/07/my-nn-input-tweak.html).
     John Ehlers offers a different way to smooth prices and incorporate the new filter
     into the oscillator construction. Fortunately, the EasyLanguage code was also
     provided and i was able to translate it into R.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当阅读[Dekalog Blog](http://dekalogblog.blogspot.ca/2013/07/my-nn-input-tweak.html)时，我偶然发现了[John
+    Ehlers论文：有效的交易策略的预测指标](http://www.stockspotter.com/files/PredictiveIndicators.pdf)的链接。John
+    Ehlers提供了一种不同的平滑价格的方法，并将新滤波器整合到振荡器构造中。幸运的是，也提供了EasyLanguage代码，并且我能够将其翻译成R。
 - en: Following are some results from the paper and test of John’s stochastic oscillator.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是来自John的随机振荡器论文和测试的一些结果。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: First let’s plot the John’s stochastic oscillator vs traditional one.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们绘制John的随机振荡器与传统振荡器的对比图。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![plot1](img/b875f01734d054a5c69acb55eaecb7dd.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot11.jpg)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/b875f01734d054a5c69acb55eaecb7dd.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot11.jpg)'
 - en: 'Next let’s code the trading rules as in Figure 6 and 8 in the [John Ehlers
     paper: Predictive Indicators for Effective Trading Strategies](http://www.stockspotter.com/files/PredictiveIndicators.pdf)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们编写如图6和8所示的交易规则，这些规则来自于[John Ehlers论文：有效的交易策略的预测指标](http://www.stockspotter.com/files/PredictiveIndicators.pdf)。
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot2](img/9cd27b0607eb1dd3eef99201c87c3648.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot21.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/9cd27b0607eb1dd3eef99201c87c3648.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot21.jpg)'
 - en: Look’s like most profit comes from the long side.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来大部分利润都来自于多头。
 - en: 'Finally let’s visualize the timing of the signal for these strategies:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们可视化这些策略的信号时机：
 - en: '[PRE3]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![plot3](img/df6a69d8a3d28f783a08f3efed5dbed6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot31.jpg)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3](img/df6a69d8a3d28f783a08f3efed5dbed6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot31.jpg)'
 - en: As a homework, I encourage you to compare trading the John’s stochastic oscillator
     vs traditional one.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一种作业，我鼓励你们比较使用John的随机振荡器与传统振荡器进行交易。
 - en: To view the complete source code for this example, please have a look at the
     [john.ehlers.filter.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的john.ehlers.filter.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

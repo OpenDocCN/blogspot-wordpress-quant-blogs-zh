@@ -1,64 +1,98 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:32:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:32:22'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multivariate Independence Tests | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多变量独立性测试 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/08/30/multivariate-independence-tests/#0001-01-01](https://tr8dr.wordpress.com/2010/08/30/multivariate-independence-tests/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/08/30/multivariate-independence-tests/#0001-01-01](https://tr8dr.wordpress.com/2010/08/30/multivariate-independence-tests/#0001-01-01)
 - en: August 30, 2010 · 2:17 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年8月30日 · 2:17 pm
 - en: Thought I should mention the obvious multivariate independence tests.   These
     can be used in a 1st pass to trim out the obviously independent variables.   Assume
     a d-dimensional joint distributions **p(x0, x1, x2, … xd)** as a starting point
     with sample vector X = { x0, x1, x2, .. xd }.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想我应该提到明显的多变量独立性测试。这些可以在第一轮用来排除明显的独立变量。假设一个 d 维联合分布 **p(x0, x1, x2, … xd)**
+    作为起点，样本向量 X = { x0, x1, x2, .. xd }。
 - en: 'Let us consider a subdividing of the above **d** dimensional distribution into
     **n** and **m** dimensional distributions respectively (where d = n+m).  We want
     to test to see whether the marginal distribution of **n** variables is independent
     of the distribution of **m** variables.   Our sample vector for the full joint
     distribution can be expressed as:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们考虑将上述**d**维分布划分为**n**维和**m**维分布（其中 d = n+m）。我们希望测试**n**个变量的边际分布是否与**m**个变量的分布独立。我们的全联合分布的样本向量可以表示为：
 - en: X = { {a1,a2, ..an}, {b1,b2,…,bm}}
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: X = { {a1,a2, ..an}, {b1,b2,…,bm}}
 - en: 'and we have marginal distributions **p(A)** and **p(B)** each of which is a
     subset of the dimensions of **p(X)**.   The covariance matrix for **p(X)** looks
     like:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 而且我们有边际分布 **p(A)** 和 **p(B)**，它们分别是 **p(X)** 维度的子集。**p(X)** 的协方差矩阵如下：
 - en: '[![](img/8997e22f3b49dd20ad585e7a4e2a5957.png "Screen shot 2010-08-30 at 2.46.32
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-2-46-32-pm.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/8997e22f3b49dd20ad585e7a4e2a5957.png "Screen shot 2010-08-30 at 2.46.32
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-2-46-32-pm.png)'
 - en: 'Intuitively if A and B are independent then Σab should be 0 (well not significantly
     different from 0).   We set up the null hypothesis H0 to indicate independence.
       The wilks’ test rejects independence if:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 直观上，如果 A 和 B 是独立的，那么 Σab 应该是 0（好吧，与 0 没有显著差异）。我们设置零假设 H0 来表示独立性。威尔克斯测试如果：
 - en: '[![](img/bfecc2554495073de1d9292c40693e60.png "Screen shot 2010-08-30 at 3.13.57
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-3-13-57-pm.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bfecc2554495073de1d9292c40693e60.png "Screen shot 2010-08-30 at 3.13.57
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-3-13-57-pm.png)'
 - en: where N is the number of samples.   This test is valid even for non-elliptical
     distributions, so is a good 1st line test.   The intuition with the above measure
     is that the determinant ratio is measuring the volume of the covariance matrix
     in ratio to the volumes of the non-crossing components of covariance.   If the
     volume is mostly explained by the non-crossing components, then A and B are independent.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 N 是样本数量。这个测试即使对于非椭圆分布也是有效的，因此是一个很好的第一线测试。上述测量的直观意思是，行列式比值测量协方差矩阵的体积与非交叉协方差分量的体积之比。如果体积主要由非交叉分量解释，那么
+    A 和 B 是独立的。

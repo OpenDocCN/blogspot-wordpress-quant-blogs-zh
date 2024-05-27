@@ -1,189 +1,306 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 评论：/*yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:17:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:17:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '*/'
 - en: 'Timely Portfolio: R Exercise with USDA Data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：使用美国农业部数据的R练习
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/r-exercise-with-usda-data.html#0001-01-01)
 - en: After the helpful comment by Bradley on my post [Commodity Index Estimators](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html),
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在Bradley在我的帖子[商品指数估算器](http://timelyportfolio.blogspot.com/2011/05/commodity-index-estimators.html)上的有用评论之后，
 - en: How about the National Agricultural Statistics Service (NASS)? Looks like they
     have information for prices received back to 1908 for many agricultural goods
     ([http://www.nass.usda.gov/](http://www.nass.usda.gov/)).
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 那么国家农业统计局（NASS）怎么样？看起来他们有很多从1908年以来许多农产品价格收到的信息([http://www.nass.usda.gov/](http://www.nass.usda.gov/)）。
 - en: I started trying to get this USDA price data in R, but after three hours struggling
     to find historical data from start to finish in any useable format, had no success. 
     However, I did notice some gaps in my R skills, so I decided to use some USDA
     data for practice.  The USDA 10 year price projections for major US crops interested
     me.  Three more hours of struggle yielded some new R skills and the following
     graphs and R code.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我开始尝试在R中获取美国农业部的价格数据，但在三个小时的挣扎中，我未能以任何可用的格式找到从开始到结束的历史数据，没有成功。然而，我注意到了自己在R技能上的一些不足，所以我决定用一些美国农业部的数据来练习。美国农业部对主要美国作物的10年价格预测引起了我的兴趣。三个小时的挣扎让我掌握了一些新的R技能，并产生了以下图表和R代码。
 - en: And in a slightly better cumulative return format.  Strangely, my favorite set
     of PerformanceAnalytics graphs returned a “format” error.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以稍微更好的累计回报格式。奇怪的是，我最喜欢的绩效分析图表集返回了一个“格式”错误。
 - en: Looks like the dairy business might be attractive.  Maybe, I can make money
     there.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 看来乳品业务可能很有吸引力。也许，我可以在那里赚钱。
 - en: One beneficial byproduct of the exercise was the discovery of [http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp](http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp
     "http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp") which offers
     monthly crop price data in graph or table form.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这次练习的一个有益的副产品是发现了[http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp](http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp
+    "http://www.farmdoc.illinois.edu/manage/uspricehistory/USPrice.asp")，它提供按月分的作物价格数据，可以是图表或表格形式。
 - en: '![](img/4b31b681e9284331a180c29ed5456e0a.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/4b31b681e9284331a180c29ed5456e0a.png)'
 - en: Now I need to determine how to get this monthly price data from the USDA or
     somewhere else for R research.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我需要确定如何从美国农业部或其他地方获取这个月度价格数据，以便进行R研究。
 - en: Also, I thought this research piece [www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf](http://www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf)
     was interesting but not helpful toward this objective.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，我还以为这篇研究文章[www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf](http://www.farmdoc.illinois.edu/irwin/research/EmpiricalMethodsCommodity.pdf)很有趣，但不符合这个目标。
 - en: 'R code:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(gdata)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(gdata)
 - en: require(quantmod)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(ggplot2)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(ggplot2)
 - en: URL<-"[http://usda.mannlib.cornell.edu/usda/ers/94005/2011/Table39.xls"](http://usda.mannlib.cornell.edu/usda/ers/94005/2011/Table39.xls%22)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 网址<-"[http://usda.mannlib.cornell.edu/usda/ers/94005/2011/Table39.xls"](http://usda.mannlib.cornell.edu/usda/ers/9
 - en: '#get Shiller data for inflation and US Treasury 10 year'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取Shiller数据进行通胀和美国国债10年
 - en: USDAprice <- read.xls(URL,sheet="Table38",pattern="2009",stringsAsFactors =
     FALSE)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格 <- read.xls(URL,"Table38"，"2009"，stringsAsFactors = FALSE)
 - en: '#strip out interesting information'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 删除有趣的信息
 - en: USDAprice<-USDAprice[3:10,]
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格 <- USDAprice[3:10,]
 - en: '#change row names to crop names in column 1'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 将行名更改为列1中的作物名称
 - en: rownames(USDAprice)<-USDAprice[,1]
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格的行名<-USDAprice[,1]
 - en: '#delete column 1 since now rowname'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 删除第1列，因为现在有行名
 - en: USDAprice<-USDAprice[,2:NCOL(USDAprice)]
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格 <- USDAprice[,2:NCOL(USDAprice)]
 - en: '#insure numeric data'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 确保数值数据
 - en: USDAprice<-as.data.frame(data.matrix(USDAprice))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格 <- as.data.frame(data.matrix(USDAprice))
 - en: '#switch rows and columns'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 行和列切换
 - en: USDAprice<-t(USDAprice)
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格 <- t(USDAprice)
 - en: '#get an xts version for later'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取稍后的xts版本
 - en: USDApricexts<-USDAprice
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格xts<-美国农业部价格
 - en: rownames(USDApricexts)<-paste(substr(rownames(USDAprice),2,5),rep("01-01",NROW(USDAprice)),sep
     = "-")
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格xts的行名<-paste(substr(美国农业部价格的行名,2,5),rep("01-01",NROW(USDAprice)),sep
+    = "-")
 - en: USDApricexts<-as.xts(USDApricexts)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国农业部价格xts<-as.xts(USDApricexts)
 - en: '#get dates for rownames'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取行名的日期
 - en: rownames(USDAprice)<-as.Date(paste(substr(rownames(USDAprice),2,5),rep("01-01-31",NROW(USDAprice)),sep
     = "-"))
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '`rownames(USDAprice)<-as.Date(paste(substr(rownames(USDAprice),2,5),rep("01-01-31",NROW(USDAprice)),sep
+    = "-"))`'
 - en: USDApricemelt<-melt(USDAprice)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricemelt<-melt(USDAprice)`'
 - en: colnames(USDApricemelt)<-c("Date","Crop","USDA_Projected_Price")
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '`colnames(USDApricemelt)<-c("Date","Crop","USDA_Projected_Price")`'
 - en: ggplot(USDApricemelt, stat="identity", aes(x=Date,y=USDA_Projected_Price,colour=Crop))
     + geom_line() +
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ggplot(USDApricemelt, stat="identity", aes(x=Date,y=USDA_Projected_Price,colour=Crop))
+    + geom_line() +`'
 - en: scale_x_date(format = "%Y") +
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '`scale_x_date(format = "%Y") +`'
 - en: opts(title = "USDA Projected Crop Prices through 2020")
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '`opts(title = "USDA Projected Crop Prices through 2020")`'
 - en: '#standardize to get cumulative return or wealth index'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#standardize to get cumulative return or wealth index`'
 - en: USDApricereturn<-USDApricexts/lag(USDApricexts)-1
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturn<-USDApricexts/lag(USDApricexts)-1`'
 - en: USDApricereturn[1,]<-0
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturn[1,]<-0`'
 - en: USDApricereturn<-cumprod(1+USDApricereturn)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturn<-cumprod(1+USDApricereturn)`'
 - en: '#get in format that ggplot2 can use'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#get in format that ggplot2 can use`'
 - en: USDApricereturnmelt<-cbind(as.Date(index(USDApricereturn)),coredata(USDApricereturn))
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturnmelt<-cbind(as.Date(index(USDApricereturn)),coredata(USDApricereturn))`'
 - en: rownames(USDApricereturnmelt)<-USDApricereturnmelt[,1]
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '`rownames(USDApricereturnmelt)<-USDApricereturnmelt[,1]`'
 - en: USDApricereturnmelt<-USDApricereturnmelt[,(2:NCOL(USDApricereturnmelt))]
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturnmelt<-USDApricereturnmelt[,(2:NCOL(USDApricereturnmelt))]`'
 - en: USDApricereturnmelt<-melt(USDApricereturnmelt)
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '`USDApricereturnmelt<-melt(USDApricereturnmelt)`'
 - en: colnames(USDApricereturnmelt)<-c("Date","Crop","USDA_Projected_Cumulative_Return")
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '`colnames(USDApricereturnmelt)<-c("Date","Crop","USDA_Projected_Cumulative_Return")`'
 - en: ggplot(USDApricereturnmelt, stat="identity", aes(x=Date,y=USDA_Projected_Cumulative_Return,colour=Crop))
     + geom_line() +
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ggplot(USDApricereturnmelt, stat="identity", aes(x=Date,y=USDA_Projected_Cumulative_Return,colour=Crop))
+    + geom_line() +`'
 - en: scale_x_date(format = "%Y") +
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '`scale_x_date(format = "%Y") +`'
 - en: opts(title = "USDA Projected Crop Price Cumulative Returns through 2020")
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '`opts(title = "USDA Projected Crop Price Cumulative Returns through 2020")`'

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:51:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:51:52
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Part 2: Improving DV Bands with Intraday Data | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第二部分：使用日内数据改进DV Bands | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/06/part-2-improving-dv-bands-with-intraday-data/#0001-01-01)
 - en: 'One simple adjustment improves the forecast error of DV Bands  out of sample
     measurably—adding intraday data. By doing this, you are combining some of the
     valuable information contained within intraday volatility. Think of it as a merger
@@ -27,43 +39,68 @@
     and lower band, we will see what % of prices fall between the upper and lower
     band tommorow. All data is on the SPY (s&p500) looking back 3000 bars. Lets look
     at the results:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个简单的调整可以显著地降低DV Bands的样本外预测误差——添加日内数据。通过这样做，你正在结合日内波动性中包含的一些宝贵信息。可以把它看作是ATR带和Bollinger带的合并。现在移动平均和标准差的计算包含了最后20天的开盘价、最高价、最低价和收盘价。为了测试预测误差，如果今天的价格位于上轨和下轨之间，我们将看看明天的价格有%会位于上轨和下轨之间。所有数据都是基于SPY
+    (s&p500) 回望3000根柱子。让我们看看结果：
 - en: '|   | *next day  % of prices falling | forecast |'
+  id: totrans-7
   prefs: []
   type: TYPE_TB
+  zh: '|  | *次日均%的价格 | 预测 |'
 - en: '|   |  between upper and lower bands | error |'
+  id: totrans-8
   prefs: []
   type: TYPE_TB
+  zh: '|  |  | 误差 |'
 - en: '| Bollinger Bands (20,2) | 89% | -6% |'
+  id: totrans-9
   prefs: []
   type: TYPE_TB
+  zh: '| Bollinger Bands (20,2) | 89% | -6% |'
 - en: '| **DV Bands w intraday (O,H,L,C) (20,2)** | **93%** | **-2%** |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '| **DV Bands w intraday (O,H,L,C) (20,2)** | **93%** | **-2%** |'
 - en: '| DV Bands  (20,2) | 91% | -4% |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| DV Bands (20,2) | 91% | -4% |'
 - en: 'As we can see, a clear improvement, forecast error is reduced by 2%.  Let’s
     see what the impact that has on average daily returns above and below the re-scaled
     mean:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如我们所看到的，有了明显的改进，预测误差降低了2%。让我们来看看这将对平均每日收益率产生什么影响，这些收益率是在重新缩放的平均值之上和之下计算的：
 - en: '|  | ***avg next day returns** |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '|  | ***次日均收益率** |'
 - en: '|  | **above mean** | **below mean** |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '|  | **高于平均值** | **低于平均值** |'
 - en: '| Bollinger Bands (20,2) | -0.004% | 0.016% |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '| Bollinger Bands (20,2) | -0.004% | 0.016% |'
 - en: '| **DV Bands w intraday (O,H,L,C) (20,2)** | **-0.0015%** | **0.06%** |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '| **DV Bands w intraday (O,H,L,C) (20,2)** | **-0.0015%** | **0.06%** |'
 - en: '| DV Bands  (20,2) | -0.012% | 0.025% |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| DV Bands (20,2) | -0.012% | 0.025% |'
 - en: Average daily returns were much higher using the intraday DV Bands than the
     other methods. This is a 140% improvement over the baseline DV bands.  However,
     when looking at average daily returns above the mean, the DV Bands were not as
@@ -71,15 +108,19 @@
     fact, it makes the upper band penetrations more likely to represent trend signals.
     Upward breakouts would contain less noise than using standard bands, or the DV
     Bands with closing data. This would be especially true if the bands were tight.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用日内DV Bands计算的平均每日收益率比其他方法高得多。这是基线DV带的标准的140%的改进。然而，当查看平均每日收益率高于平均值时，DV Bands并不是很有效于识别超卖水平。这并不是什么坏事……事实上，这使得上轨突破更有可能代表趋势信号。向上的突破将比使用标准带或收盘数据的DV带包含更少的噪音。如果带宽较紧，这一点尤其正确。
 - en: There are numerous methods to further improve these results, we will take a
     look at adjusting the bands based on the mean reversion embedded in historical
     bandwidth. This should make the bands more reliable for countertrend trading,
     and they can also be redesigned to be superior breakout indicators as well by
     extension.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 有许多方法可以进一步提高这些结果，我们将探讨根据历史带宽中嵌入的平均回归调整带宽的方法。这应该会使带宽在逆趋势交易中更加可靠，通过扩展，它们还可以被重新设计为更优越的突破指标。
 - en: 'The primary reason for the success of DV Bands has to do with normalization
     and the adjustment of bands based on the current environment. In bear markets,
     prices rarely touch the standard upper bands, and tend to “walk the lower bands”
@@ -93,5 +134,8 @@
     better. Furthermore, one could create bands designed for multiple trading purposes:
     1) trend-following 2) mean-reversion 3) breakout strategies and 4) filters for
     abnormality.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: DV Bands的成功主要归功于标准化和根据当前环境调整波段。在熊市中，价格很少触及标准的顶部波段，并且经常“走在”底部波段。在牛市中情况恰恰相反，顶部波段可以长时间“走在”其中。通过调整历史频率，波段现在被调整以反映当前市场的概率。这些所谓的“错误”，也可以通过调查过去20天的R-squared测量来最小化趋势强度，以及斜率方向和成交量斜率。最终，使用类似于DVO的适应性方法的波段调整将证明效果更好。此外，还可以创建用于多种交易目的的波段：1)
+    趋势追踪 2) 均值回归 3) 突破策略和4) 异常过滤器。

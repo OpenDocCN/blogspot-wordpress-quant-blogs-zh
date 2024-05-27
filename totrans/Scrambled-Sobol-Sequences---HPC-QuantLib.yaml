@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:42:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:42:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Scrambled Sobol Sequences – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 扰动的Sobol序列 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/05/11/pricing-asian-options-using-scrambled-sobol-sequence/#0001-01-01](https://hpcquantlib.wordpress.com/2011/05/11/pricing-asian-options-using-scrambled-sobol-sequence/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/05/11/pricing-asian-options-using-scrambled-sobol-sequence/#0001-01-01](https://hpcquantlib.wordpress.com/2011/05/11/pricing-asian-options-using-scrambled-sobol-sequence/#0001-01-01)
 - en: The authors of [1][2] presented an efficient way to create scrambled Sobol numbers
     and have shown that their scrambling algorithm can lead to a significantly higher
     convergence speed. The upcoming CUDA 4.0 Release provides an implementation of
     the scrambling algorithm outlined in [2].
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1][2]的作者们提出了一种有效创建扰动Sobol数的方法，并展示了他们的扰动算法可以导致显著更高的收敛速度。即将推出的CUDA 4.0版本提供了[2]概述的扰动算法的实现。'
 - en: The aim is now to compare the order of convergence of a PRNG (Merssenne-Twister), 
     a QRNG (Sobol) and this scrambled-QRNG for the pricing of a portfolio of geometric
     Asian options. To number of observation dates of the Asian options in the benchmark
@@ -31,53 +45,79 @@
     pricing problem is considerably large. We’ll use a Brownian bridge to construct
     the paths. This ensures that the first coordinates of a Sobol sequence are used
     to sample the most important modes.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标是现在比较PRNG（梅尔塞纳-特怀斯勒）、QRNG（Sobol）和这个扰动的QRNG在几何亚洲期权组合定价中的收敛阶数。基准组合中亚洲期权的观察日期数量在45到120之间。定价问题的维度相当大。我们将使用布朗桥来构造路径。这确保了Sobol序列的第一个坐标用于采样最重要的模式。
 - en: The error analysis is not an easy task.  Simply applying another randomized
     shift is not sufficient as this transformation changes the discrepancy of a point-set
     (A shifted (t,m,d)-net does not need to be a (t,m,d)-net.). In [3] this problem
     was overcome by looking on the RMS relative error
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 错误分析并非易事。简单地应用另一个随机移位是不够的，因为这种变换改变了点集的偏差（一个移位后的（t,m,d）-网不一定是一个（t,m,d）-网）。在[3]中，这个问题通过关注RMS相对误差来克服。
 - en: '![\sqrt{\frac{1}{m}\sum_{i=1}^m\left(\frac{\hat{C}_i -C_i}{C_i}\right)^2}](img/dcb9bf78c212158e44a1c35f912c6dad.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![\sqrt{\frac{1}{m}\sum_{i=1}^m\left(\frac{\hat{C}_i -C_i}{C_i}\right)^2}](img/dcb9bf78c212158e44a1c35f912c6dad.png)'
 - en: of a set of benchmark options with true prices given by ![C_1,...,C_m](img/831a4009518336968517250147f8fe36.png)
     and the Monte-Carlo approximations ![\hat{C}_1,...,\hat{C}_m](img/ed43dabcc2b93498206b9a85e90138f4.png).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 是一组基准期权的真值价格，由![C_1,...,C_m](img/831a4009518336968517250147f8fe36.png)给出，蒙特卡洛近似由![\hat{C}_1,...,\hat{C}_m](img/ed43dabcc2b93498206b9a85e90138f4.png)给出。
 - en: We are in particular interest in ratios between the PRNG, QRNG and scrambled
     QRNG errors and in the order ![\alpha](img/86ceb19e0d1d39c689d6601fd46650ae.png)
     of the convergence.  For PRNG we are expecting a convergence of order ![err \simeq
     N^{\alpha}](img/b4665ed6b0dbc8ad2dfae8709b2947fd.png) with  ![\alpha=-0.5](img/589629ef8e0566261e8844268d68958c.png)
     and ![N](img/f6ed931dee56eceee76562d962e13d4a.png) being the number of paths.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们特别关注PRNG、QRNG和扰动的QRNG误差之间的比率以及收敛阶数![\alpha](img/86ceb19e0d1d39c689d6601fd46650ae.png)。对于PRNG，我们预计收敛阶数为![err
+    \simeq N^{\alpha}](img/b4665ed6b0dbc8ad2dfae8709b2947fd.png)，其中![\alpha=-0.5](img/589629ef8e0566261e8844268d68958c.png)且![N](img/f6ed931dee56eceee76562d962e13d4a.png)是路径数量。
 - en: As can be seen in the diagram the scrambled Sobol sequence provides the smallest
     overall error bounds but the convergence order between scrambled and non-scrambled
     Sobol does not differ significantly. As the implementation comes more or less
     for free it’s definitely worth to check scrambled Sobol sequences out.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 如图所示，扰动的Sobol序列提供了最小的总体误差界限，但扰动与非扰动的Sobol序列的收敛阶数并无显著差异。由于实现起来几乎不费吹灰之力，所以绝对值得一试扰动的Sobol序列。
 - en: C++ and CUDA code is available [here](http://hpc-quantlib.de/src/scrambled.zip). 
     It depends on [QuantLib 1.1](http://quantlib.org) and [CUDA 4.0](http://www.nvidia.com/object/cuda_home_new.html).
     If you want to generate the plot directly out of the C++ program you also need
     [R](http://www.r-project.org/), [RCPP](http://cran.r-project.org/web/packages/Rcpp/index.html)
     and [RInside](http://cran.r-project.org/web/packages/RInside/index.html).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: C++和CUDA代码可以在[这里](http://hpc-quantlib.de/src/scrambled.zip)找到。它依赖于[QuantLib
+    1.1](http://quantlib.org)和[CUDA 4.0](http://www.nvidia.com/object/cuda_home_new.html)。如果你想在C++程序中直接生成图表，你还需要[R](http://www.r-project.org/)、[RCPP](http://cran.r-project.org/web/packages/Rcpp/index.html)和[RInside](http://cran.r-project.org/web/packages/RInside/index.html)。
 - en: '[![](img/7ae8c9af651ce65be71fb670f0994e75.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/05/plot2.png)'
 - en: '[1] J. Dick, [Higher order scrambled digital nets achieve the optimal rate
     of the root mean square error for smooth integrands](http://arxiv.org/abs/1007.0842).
     ArXiv, 8 July 2010.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] J. Dick, [高阶混沌数字格达到平滑被积函数的根均方误差最优率](http://arxiv.org/abs/1007.0842). ArXiv,
+    8 July 2010.'
 - en: '[2] A.B. Owen, [Local antithetic sampling with scrambled nets](http://arxiv.org/pdf/0811.0528).
     ArXiv, 28 May 2008'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] A.B. Owen, [带混沌格子的局部反向抽样](http://arxiv.org/pdf/0811.0528). ArXiv, 28 May
+    2008'
 - en: '[3] P. Glasserman, Monte Carlo Methods in Financial Engineering.  ISBN-0387004513'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] P. Glasserman, 金融工程中的蒙特卡洛方法. ISBN-0387004513'

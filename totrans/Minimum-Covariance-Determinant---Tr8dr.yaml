@@ -1,156 +1,230 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:31:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:31:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Minimum Covariance Determinant | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最小协方差行列式| Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/24/minimum-covariance-determination/#0001-01-01](https://tr8dr.wordpress.com/2010/09/24/minimum-covariance-determination/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/09/24/minimum-covariance-determination/#0001-01-01](https://tr8dr.wordpress.com/2010/09/24/minimum-covariance-determination/#0001-01-01)
 - en: Outliers are very common in noisy data.  Unfortunately outliers can bias estimates
     of the moments.   In this case am interested in the covariance of a data set.
       In addition to being prominent in stochastic equations, portfolio analysis (the
     usual stuff in finance), it is also used in linear projection and prediction.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 异常值在噪声数据中非常常见。不幸的是，异常值可能会偏估矩估计。在这种情况下，我感兴趣的是数据集的协方差。除了在随机方程中占主导地位，在金融中的典型内容（投资组合分析），它还用于线性投影和预测。
 - en: 'Geometrically, the covariance matrix specifies an ellipsoid that circumscribes
     the primary dimensions of the data in N space (N being the dimension of the data).
      Outlier data stretches the ellipsoid along the axis of the outlier relative to
     the mean.   Here is a diagram from a paper by Hubert and Verboven that illustrates
     this nicely:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在几何上，协方差矩阵指定了一个包围N空间（N为数据维度）主要维度的椭圆。异常数据沿着与平均值相对的异常轴拉伸椭圆。以下是Hubert和Verboven论文中说明这一点的图表：
 - en: '[![](img/93e15096be369f928175404346ea2d3b.png "Screen shot 2010-09-24 at 6.23.30
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-24-at-6-23-30-pm.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/93e15096be369f928175404346ea2d3b.png "Screen shot 2010-09-24 at 6.23.30
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-24-at-6-23-30-pm.png)'
 - en: For many applications we are interested in the “robust” covariance as illustrated
     in the smaller ellipse.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于许多应用，我们对“稳健”协方差感兴趣，如图中较小椭圆所示。
 - en: '**Illustrative Brute Force Algorithm'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**说明性暴力算法'
 - en: We want to find the covariance matrix with minimum volume encompassing some
     % of the data set.  Let us assume we have a set of observations X = {x1, x2, …
     xN} of size N.  Further let us assume 10% of samples are outliers.   One could
     construct a brute-force algorithm as follows:**
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们想要找到一个协方差矩阵，它所包含的体积最小，并能覆盖数据集的某些%。让我们假设我们有一组观测值X = {x1, x2, … xN}，大小为N。进一步假设10%的样本是异常值。一个人可以构建一个暴力算法如下：**
 - en: determine all unique sample subsets of size **h = 0.9N**
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定所有独特的大小为**h = 0.9N**的样本子集
 - en: for each subset S
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对于每个子集S
 - en: compute the covariance matrix of Cs = S
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算Cs = S的协方差矩阵
 - en: compute Vs = det(Cs)
+  id: totrans-15
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算Vs = det(Cs)
 - en: choose the subset where Vs is a minimal
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 选择Vs最小的子集
 - en: Geometrically, the determinant is the volume of the N dimensional vector space
     implied by the covariance matrix.  Minimizing the ellipsoid is equivalent to minimizing
     the volume.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在几何上，行列式是协方差矩阵所暗示的N维向量空间的体积。最小化椭圆等同于最小化体积。
 - en: '**A Better Algorithm'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**一个更好的算法'
 - en: The brute force algorithm is very inefficient (or not computable) as one has
     to evaluate an increasingly astronomical number of possible subsets.** Rousseeuw
     developed an algorithm called FAST-MCD.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 暴力算法非常低效（或无法计算），因为必须评估越来越多可能的子集的数量。** Rousseeuw开发了一种名为FAST-MCD的算法。
 - en: 'Supposing we take a random sample of size **h**.  We can evaluate the similarity
     between data points in the full set and  our randomly sampled subset.    In particular
     the Mahalanobis distance is used.  Let **M** be the mean of the random subset
     and **S** be the standard covariance of the random subset:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们取一个大小为**h**的随机样本。我们可以评估全集中数据点与我们随机抽样子集之间的相似性。特别是，使用马氏距离。让**M**是随机子集的平均值，**S**是随机子集的标准协方差：
 - en: '[![](img/e0a5cb2713b401fce1e0625f0c5f3073.png "Screen shot 2010-09-24 at 7.44.22
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-24-at-7-44-22-pm.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e0a5cb2713b401fce1e0625f0c5f3073.png "Screen shot 2010-09-24 at 7.44.22
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-24-at-7-44-22-pm.png)'
 - en: 'The algorithm is then as follows:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 算法如下：
 - en: choose a random subset of H0 of X, with size h
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 选择X中H0的一个随机子集，大小为h
 - en: repeat
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 重复
 - en: Determine covariance S and mean M of the subset H0
+  id: totrans-25
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定子集H0的协方差S和平均值M
 - en: Determine distances d(Xi) for all Xi relative to H with the Mahalanobis distance
+  id: totrans-26
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定所有Xi相对于H的相对马氏距离d(Xi)
 - en: Choose the h smallest distances and create a new subset H1
+  id: totrans-27
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 选择h最小的距离，创建一个新的子集H1
 - en: repeat with Ho <- H1, until Ho and H1 are equal or 0
+  id: totrans-28
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 重复Ho <- H1，直到Ho和H1相等或为0
 - en: Evaluate from 1 for K times (maybe 500) and determine the selection that had
     the smallest volume.
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 从1开始评估K次（也许500次）并确定具有最小体积的选择。
 - en: The random sampling works because it can be proven that det(H1) ≤ det(H0) in
     the iterative portion (i.e. we are iteratively reducing the volume) and that the
     set self-selects the tightest representative volume of points.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 随机抽样之所以有效，是因为可以证明在迭代过程中，|H1| ≤ |H0|（即我们是在迭代地减小体积），并且集合自我选择点集的最紧凑代表体积。
 - en: The reevaluation of the random samples can be cut short at the 2nd or 3rd iteration
     based on volume and then a smaller set of random sets can be fully evaluated.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以根据体积在第二次或第三次迭代时缩短随机样本的重新评估，然后对更小的随机集合进行完全评估。
 - en: There are other tricks that can be used to subdivide the problem for N very
     large.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于非常大的N，还可以使用其他技巧将问题细分。
 - en: '**Results'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结果'
 - en: I implemented the algorithm this morning.   Works nicely.   Here is an example
     of normally distributed 2-dimensional data with outliers (the red indicates points
     that were selected as optimal for the robust covariance):**
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我今天早上实现了这个算法。运行得很好。下面是一个二维正态分布数据带有异常值（红色表示被选为鲁棒协方差的优化点）的例子:**
 - en: '**[![](img/068e23e4db449c232799cad06b820b8e.png "Screen shot 2010-09-25 at
     12.11.43 PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-25-at-12-11-43-pm.png)**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕截图 2010-09-25](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-25-at-12-11-43-pm.png)'

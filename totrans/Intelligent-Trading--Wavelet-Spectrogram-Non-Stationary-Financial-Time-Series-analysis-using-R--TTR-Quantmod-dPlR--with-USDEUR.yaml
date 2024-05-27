@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:45:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:45:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Wavelet Spectrogram Non-Stationary Financial Time Series
     analysis using R (TTR/Quantmod/dPlR) with USDEUR'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：使用 R 进行小波频谱图非平稳金融时间序列分析（TTR/Quantmod/dPlR）与 USDEUR
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/04/wavelet-spectograph-analysis-using-r.html#0001-01-01)
 - en: 'I''ve been doing some research lately regarding types of spectral imaging and
     decomposition techniques that apply to non-stationary signals. As mentioned earlier,
     one of the major problems with the simple fourier analysis is that the basis functions
@@ -27,36 +39,51 @@
     is that they use local small windowed basis functions, allowing them to capture
     not only non-stationary signals, but signals that are aperiodic: two large advantages
     over fourier based methods when dealing with financial time series.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近，我一直在进行关于适用于非平稳信号的光谱成像和分解技术的研究。如前所述，傅立叶分析的一个主要问题之一是基础函数在两个方向上都延伸到无穷远，信号被假定为平稳的。虽然我现在不会过多展开，但小波的一个优点是它们使用局部小窗口基函数，使它们能够捕获不仅是非平稳信号，而且是非周期信号：在处理金融时间序列时，这是傅立叶方法的两个重大优势。
 - en: I put together a few small examples to understand how to visually understand
     a spectrogram.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我组织了一些小例子来理解如何直观地理解频谱图。
 - en: '[![](img/78c2265bb524f397305c940f23f91332.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipNyBRAcp-JhdlexzpGbmJ_Fa6gY_jlm9OZ5SnWX5u3X1dk4fvWwNvAkWZRC5C1WlPGPWWHficyj4IeYQUNxuZPB42cq8R89J1_tE33XeQ2KH-jgy3sq8L4mQ7AboiFBrLy9MC3DyxCO0/s1600/58_cycle1.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/78c2265bb524f397305c940f23f91332.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipNyBRAcp-JhdlexzpGbmJ_Fa6gY_jlm9OZ5SnWX5u3X1dk4fvWwNvAkWZRC5C1WlPGPWWHficyj4IeYQUNxuZPB42cq8R89J1_tE33XeQ2KH-jgy3sq8L4mQ7AboiFBrLy9MC3DyxCO0/s1600/58_cycle1.jpg)'
 - en: Fig 1\. Simple 58 day cycle captured with 11 octaves and 2048 (2^11) data points
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 1\. 用 11 个八度和 2048（2^11）个数据点捕获的简单 58 天周期
 - en: As in earlier tutorial based posts, we use a simple 58 day cycle to show the
     basic time series sine based waveform. Now the plot on the bottom is known as
     a spectrogram. The type of wavelet operation for this spectrogram is known as
     a continuous wave Morlet transform. The package is dpLR (The Dendrochronology
     Program Library) put together by
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如早期的基于教程的文章所述，我们使用一个简单的 58 天周期来展示基本的时间序列正弦波形。现在底部的图表被称为频谱图。这个频谱图的波小波变换类型被称为连续小波
+    Morlet 变换。该软件包是 dpLR（树轮年代学程序库），由
 - en: '[Andy Bunn](http://myweb.facstaff.wwu.edu/bunna/dplR.htm)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[安迪·邦恩](http://myweb.facstaff.wwu.edu/bunna/dplR.htm)'
 - en: . The package was designed to analyze tree rings. Notice that there are a multitude
     of tools utilizing this type of technology, ranging from MRIs, to climatology,
     to speech processing. It is, IMO, the modern day version of dft type spectral
     tools (however, for non-stationary and aperiodic signals). Now looking on the
     spectrogram plot, please keep in mind the units are Days not Years (I need to
     see how to alter that, hopefully Dr. Bunn is listening=).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: . 该软件包旨在分析树木年轮。请注意，有许多工具利用这种技术，从核磁共振成像到气象学，再到语音处理。在我看来，这是现代版的 DFT 类型的频谱工具（但是，用于非平稳和非周期信号）。现在看频谱图，请记住单位是天，而不是年（我需要看看如何修改，希望邦恩博士在听着=)。
 - en: The time scales represents linear time, or a window of 2048 days that was sampled.
     We could have used any time series, but it needs to be length=2^N; if not, there
     is a function to pad the rest of the data with zeros to make up that length. The
@@ -71,74 +98,110 @@
     in the dominant cycle (s). We notice the cycle persists throughout the entire
     spectrogram Time Series length (much as we would expect from the 2D time series
     plot).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间尺度表示线性时间，或一个2048天窗口的采样。我们可以使用任何时间序列，但需要长度=2^N；如果不是，有一个函数用零填充数据的其余部分，以达到该长度。垂直刻度是对数刻度，显示所谓的“八度”。借用音乐术语，我们可以认为它们是音阶，每个前一个音阶的幅度翻倍，并在这些音阶上表示局部频率能量信息。颜色表示信号在感兴趣区域的热或功率。由于这种变换有一些问题，我们忽略了超出暗抛物线区域（影响锥）的不确定信息。很清楚，最高的能量是右边的暗红色区域，大约在58天。这里重要的是，不仅要理解周期的确切值，而是主导周期（s）的持续性。我们注意到，周期在整个频谱时间序列长度内持续存在（正如我们从2D时间序列图中预期的那样）。
 - en: What happens if we use different frequencies that change over time? Here we
     notice a clear advantage over fourier based methods. A fourier based decomposition
     would be able to locate the dominant tones, however, because it uses infinite
     bases, the reconstructed signal would not capture the isolation of different frequencies.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们使用随时间变化的不同频率会发生什么？在这里，我们明显地发现，与傅里叶方法相比，有一个明显的优势。傅里叶分解能够定位主导音，但是，因为它使用无限基，重建的信号不会捕捉不同频率的隔离。
 - en: '[![](img/c3c228db8b489bb6c4fac8a58a7af93b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvMiwdbYt3gnLtyHZwUyjluqf5b7QqxRceiv4obC_3F0h8DAq4A6FGFZL9STs3qQ-C7NQdzdWuCUEbGmXcF8YXiG-j9GLB7sI3S2F_6polCfbOqoGeJT7-SkfPLz3mdhKsHQLiMnIr7ak/s1600/composite_cycles1.jpg)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c3c228db8b489bb6c4fac8a58a7af93b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvMiwdbYt3gnLtyHZwUyjluqf5b7QqxRceiv4obC_3F0h8DAq4A6FGFZL9STs3qQ-C7NQdzdWuCUEbGmXcF8YXiG-j9GLB7sI3S2F_6polCfbOqoGeJT7-SkfPLz3mdhKsHQLiMnIr7ak/s1600/composite_cycles1.jpg)'
 - en: Fig 2\. Composite Stationary Time Series comprised of 3 dominant tones
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2。由3个主导音组成的复合平稳时间序列
 - en: Notice, that we can clearly see the regions of dominant tones by following the
     chart and looking for the most concentrated power (red) regions, which are around
     48, 253, and 532 day cycles. We also notice that the power density can be viewed
     in terms of time context, our eyes simply follow along in time and observe strong
     regions of signal energy concentration.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，通过遵循图表并寻找最集中的能量（红色）区域，我们可以清晰地看到主导音的区域，这些区域大约在48、253和532天的周期附近。我们还注意到，能量密度可以从时间上下文中观察，我们的眼睛只需沿着时间跟随并观察信号能量集中的强区域。
 - en: Ok, but what about if the signal itself is non-stationary?
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，但如果信号本身是非平稳的呢？
 - en: '[![](img/77085acddc4598af817d5ee95e49090f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif0Q9IJO7tqpzLe5v8a_jYu-ppqPjQrlq4SIJAXsfWd3CxU4z-nLZDc5o37dx1o1wLvmSp8_DaQQp0-KoGyRBKel0MSoQ5bk0QMVWBOGxmC4hfpTEhsQbDuNFj4bv1kygey6QdDNdbW0E/s1600/composite_exp3.jpg)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/77085acddc4598af817d5ee95e49090f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEif0Q9IJO7tqpzLe5v8a_jYu-ppqPjQrlq4SIJAXsfWd3CxU4z-nLZDc5o37dx1o1wLvmSp8_DaQQp0-KoGyRBKel0MSoQ5bk0QMVWBOGxmC4hfpTEhsQbDuNFj4bv1kygey6QdDNdbW0E/s1600/composite_exp3.jpg)'
 - en: Fig 3\. Composite signal added to exponential curve to make signal non-stationary
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3。复合信号添加到指数曲线中，使信号非平稳
 - en: Notice, that even though we now have a non-stationary signal, the regions of
     underlying cyclic component stability are still detectable by eye!
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，尽管我们现在有一个非平稳的信号，但通过眼睛仍然可以检测到潜在的周期成分稳定性区域！
 - en: Lastly, a financial time series of USDEUR was captured via TTR/Quantmod packages.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，通过TTR/Quantmod包捕获了USDEUR的金融时间序列。
 - en: '[![](img/b89bdee30f42da044282ac33c2a2a180.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1tCqfF-UXhL7i13dFM0ceVkVzSAl1Jxr6cGNLFeDkGQUAxgxzbgqI7Tghh8gGqOlXsNYciDCYL6yk8jRMNpBwYx1dES7nmzz8I-K2HVNLKWpC0GaIDXLp_CPl5-RDXGzozGuc7tOakts/s1600/usdeur1.jpg)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b89bdee30f42da044282ac33c2a2a180.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1tCqfF-UXhL7i13dFM0ceVkVzSAl1Jxr6cGNLFeDkGQUAxgxzbgqI7Tghh8gGqOlXsNYciDCYL6yk8jRMNpBwYx1dES7nmzz8I-K2HVNLKWpC0GaIDXLp_CPl5-RDXGzozGuc7tOakts/s1600/usdeur1.jpg)'
 - en: Fig 4\. USDEUR time series spectrogram
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 4.  USDEUR 时间序列光谱图
 - en: Notice even with the non-stationary financial signal, there is a very clear
     dominant cycle pattern that is persistent at roughly 255 days (anyone familiar
     with trading recognizes that as the approximate number of trading days per year).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，即使是在非平稳的金融信号中，也存在一个非常清晰的、主导的周期模式，它大致持续255天（任何熟悉交易的人都知道那大约是一年中的交易日数）。
 - en: Keep in mind that there are also aliases (and spreading) present in sampling
     methods which may look like periodic signals, but are merely digital artifacts
     of the underlying sampled signal. We also see the very short term noise present
     in the bottom lower scales.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 请记住，在采样方法中也可能存在混叠（和扩散），这些可能看起来像周期信号，但实际上仅仅是 underlying sampled signal 的数字杂波。我们还可以在最低的刻度下看到非常短期的噪声。
 - en: Another interesting application of this is that it may not only be used as a
     modern tool to augment non-stationary decomposition, but for those familiar with
     pattern based techniques, it (and the periodogram counterpart) is often used in
     pattern recognition and markov type modeling.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个方法的另一个有趣应用是，它不仅可以用作现代工具来增强非平稳分解，对于熟悉基于模式的技巧的人来说，它（以及周期图的对立面）经常用于模式识别和马尔可夫类型的建模。
 - en: That's all for now. Hopefully, you have gained some appreciation for wavelet
     based spectral techniques vs. Fourier spectral based analysis.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就全部结束了。希望您对基于小波的谱技术和对傅里叶谱分析有所了解。
 - en: I have been debating whether to break up the post, but because I was added to
     the R bloggers thread, I wanted the post to be complete for local readers.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直在考虑是否要把文章分开，但因为我在 R bloggers 论坛上发了文章，所以我想让本地读者看到完整的文章。
 - en: That's it for now.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就结束了。

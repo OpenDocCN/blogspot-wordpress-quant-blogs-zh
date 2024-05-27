@@ -1,90 +1,139 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:36:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:36:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Permanent Portfolio – Simple Tools | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 永久组合 – 简单工具 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/#0001-01-01)
 - en: 'I have previously described and back-tested the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy based on the series of posts at the [GestaltU](http://gestaltu.blogspot.ca/)
     blog. Today I want to show how we can improve the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy perfromance using following simple tools:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前已经描述并对[永久组合](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)策略进行了回溯测试，基于[GestaltU](http://gestaltu.blogspot.ca/)博客中的一系列帖子。今天我想展示如何使用以下简单工具改进[永久组合](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)策略的表现：
 - en: Volatility targeting
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 波动率目标
 - en: Risk allocation
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 风险分配
 - en: Tactical market filter
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 战略市场过滤器
 - en: First, let’s load the historical prices for the stocks(SPY), gold(GLD), treasuries(TLT),
     and cash(SHY) and create a quarterly rebalanced [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们加载股票（SPY）、黄金（GLD）、国债（TLT）和现金（SHY）的历史价格，并使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)创建一个季度重新平衡的[永久组合](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)策略。
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Now let’s create a version of the [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy that targets the 7% annual volatility based on the 21 day look back period.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们创建一个目标为 7% 年波动率的[永久组合](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)策略，基于
+    21 天的回溯期。
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Please note that allocating equal dollar amounts to each investment puts more
     risk allocation to the risky assets. If we want to distribute risk budget equally
     across all assets we can consider a portfolio based on the equal risk allocation
     instead of equal capital (dollar) allocation.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，将等额的美元分配给每项投资会增加风险分配给风险资产。如果我们想要在所有资产之间平均分配风险预算，我们可以考虑基于等风险分配而不是等资本（美元）分配的投资组合。
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: We can also use market filter, for example a 10 month moving average, to control
     portfolio drawdowns.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们也可以使用市场过滤器，例如 10 个月移动平均线，来控制投资组合的回撤。
 - en: '[PRE3]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'Finally, let’s combine market filter and volatility targeting:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们结合市场过滤和波动率目标：
 - en: '[PRE4]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/1a04b1e7457539cc2501fc8910445f9b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1a04b1e7457539cc2501fc8910445f9b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small.png)'
 - en: '[![](img/c0a160f45bf331bfddadefad70d00c91.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c0a160f45bf331bfddadefad70d00c91.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small.png)'
 - en: 'The final portfolio that combines market filter and volatility targeting is
     a big step up from the original [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy: the returns are a bit down, but draw-downs are cut in half.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 结合市场过滤和波动率目标的最终投资组合比原始的[永久组合](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)策略要好得多：收益稍微下降，但回撤减少了一半。
 - en: To view the complete source code for this example, please have a look at the
     [bt.permanent.portfolio2.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[GitHub 上的 bt.test.r 中的 bt.permanent.portfolio2.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,85 +1,127 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:18:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:18:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Fios and EC2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：Fios和EC2
 - en: 来源：[http://epchan.blogspot.com/2009/04/fios-and-ec2.html#0001-01-01](http://epchan.blogspot.com/2009/04/fios-and-ec2.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2009/04/fios-and-ec2.html#0001-01-01](http://epchan.blogspot.com/2009/04/fios-and-ec2.html#0001-01-01)
 - en: As an algorithmic trader, I am constantly in search of a better physical infrastructure
     where I can connect via the internet to my execution broker at the highest speed
     and with the least possibility of outage, and at a reasonable cost.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个算法交易员，我一直在寻找更好的物理基础设施，这样我可以通过互联网以最高速度连接到我的执行经纪人，并且停电的可能性最小，成本合理。
 - en: To that end, I would like to mention
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 为此，我想提一下
 - en: '[Fios](http://www22.verizon.com/Residential/FiOSInternet/FiOSvsCable/FiOSvsCable.htm)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Fios](http://www22.verizon.com/Residential/FiOSInternet/FiOSvsCable/FiOSvsCable.htm)'
 - en: ', a fiber-optics service from Verizon with download speed of 50 Mpbs, upload
     speed is 20 Mbps, both faster than your typical T-1 line (1.5 Mbps). Furthermore,
     it costs only $45/month. Hey, even'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: ，来自Verizon的光纤服务，下载速度为50 Mbps，上传速度为20 Mbps，都比典型的T-1线路（1.5 Mbps）快。此外，它每月只需45美元。嘿，甚至
 - en: '[Paul Krugman](http://krugman.blogs.nytimes.com/2009/03/23/incommunicado-probably/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 保罗·克鲁格曼[Paul Krugman](http://krugman.blogs.nytimes.com/2009/03/23/incommunicado-probably/)
 - en: has installed it at his home!
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在他的家里安装了！
 - en: (I haven't tried it myself, and would like to hear from those of you who have
     and see if it is time to say goodbye to T-1.)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: （我自己还没有尝试过，很想听听你们那些尝试过的人的看法，看看是否该和T-1说再见了。）
 - en: And as I have
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 而且，正如我之前
 - en: '[reported](http://epchan.blogspot.com/2009/01/algorithmic-trading-technology-update.html)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 报道过[reported](http://epchan.blogspot.com/2009/01/algorithmic-trading-technology-update.html)
 - en: earlier, I am also constantly looking for a good cloud computing platform so
     that I can run more strategies without cluttering my office with computers. Finding
     one will obviate the need for any big investment in internet connectivity at the
     office.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 所提到的，我也在不断寻找一个好的云计算平台，这样我就可以运行更多的策略，而不会让我的办公室里堆满电脑。找到一个将消除在办公室进行任何大型互联网连接投资的必要性。
 - en: To that end, I have been trying out Amazon's EC2 for several months. I use it
     to run one of our strateiges, and I have to report that my experience is mixed.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 为此，我尝试了亚马逊的EC2几个月。我用它来运行我们的一种策略，我必须报告我的体验是喜忧参半的。
 - en: Firstly, if you are not an IT person, it does take a lot of time (8 person-hours?)
     to get set up and running, especially with their securities precautions. The learning
     curve is steep.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，如果你不是IT人士，那么花时间（8个人小时？）来设置和启动是非常多的，特别是考虑到他们的安全预防措施。学习曲线是陡峭的。
 - en: Secondly, and more annoyingly, the instances sometimes fail to start properly,
     or fail to bundle properly. (Bundling means saving the software configuration
     for future use.) I am using Windows instances. Maybe those who use Linux instances
     have better experiences?
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二点，更让人烦恼的是，实例有时无法正确启动，或者无法正确捆绑。（捆绑意味着保存软件配置以供将来使用。）我正在使用Windows实例。那些使用Linux实例的人有更好的体验吗？
 - en: Thirdly, and most annoyingly, when a new instance is started, Windows often
     cannot automatically synchronize its clock with time.windows.com or any other
     internet clock. As a result, the time is often wrong. Now, this may not be a big
     deal for usual office work. But when your automated trading strategy depends crucially
     on the time of the day, it can be quite fatal to your profit. If anyone has experienced
     a similar problem with Window's clock and know a fix, please let me know!
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 第三点，也是最让人烦恼的，当一个新的实例被启动时，Windows通常无法自动将其时钟与time.windows.com或其他任何互联网时钟同步。结果，时间经常是错误的。现在，这对一般的办公室工作可能不是什么大问题。但是，如果你的自动化交易策略严重依赖一天中的时间，它可能会对你的利润造成致命的影响。如果有人经历过Windows时钟的类似问题，并知道一个解决办法，请让我知道！
 - en: Despite all these hassles, I am still running strategies on EC2, hoping that
     once EC2 get past the beta release, things will be better.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管所有这些烦恼，我仍然在EC2上运行策略，希望一旦EC2度过测试版发布，情况会变得更好。

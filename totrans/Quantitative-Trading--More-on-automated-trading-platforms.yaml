@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:02:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:02:28
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: More on automated trading platforms'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：更多关于自动化交易平台
 - en: 来源：[http://epchan.blogspot.com/2011/09/more-on-automated-trading-platforms.html#0001-01-01](http://epchan.blogspot.com/2011/09/more-on-automated-trading-platforms.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2011/09/more-on-automated-trading-platforms.html#0001-01-01](http://epchan.blogspot.com/2011/09/more-on-automated-trading-platforms.html#0001-01-01)
 - en: 'The ideal software platform for automating backtesting and executing your algorithmic
     trading strategies depends mainly on your level of programming expertise and your
     budget. If you are a competent programmer in, say, Java or C#, there is nothing
@@ -25,36 +37,50 @@
     to automate execution. And of course, it is also easy for you to write a separate
     backtesting program utilizing historical data. However, even for programmer-traders,
     there are a couple of inconveniences in developing these programs from scratch:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 理想的软件平台用于自动化回测和执行你的算法交易策略主要取决于你的编程经验和你的预算。如果你是比如说Java或C#这样的熟练程序员，那么阻止你利用许多券商提供的（通常免费）API来自动化执行是没有道理的。当然，对你来说，利用历史数据编写一个单独的回测程序也是轻而易举的。然而，即使是程序员交易员，从零开始开发这些程序也会遇到一些不便：
 - en: A) Every time we change brokerages, we have to re-write parts of the low-level
     functions that utilize the brokerage's API;
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: A) 每次我们更换券商时，我们都要重新编写利用券商API的部分低级函数；
 - en: B) The automated trading program cannot be used to backtest unless a simulator
     is built to feed the historical data into the program as if they were live. To
     reduce bugs, it is better to have the same code that both backtests and trades
     live.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: B) 自动化交易程序除非构建了一个模拟器来将历史数据输入程序，好像它们是实时数据一样，否则不能用于回测。为了减少错误，最好是有同样的代码既用于回测也用于实时交易。
 - en: This is where a number of open-source algorithmic trading development platforms
     come in. These platforms all assume that the user is a Java programmer. But they
     eliminate the hassles A) and B) above as they serve as the layer that shield you
     from the details of the brokerage's API, and let you go from backtesting to live
     trading mode with a figurative turn of a key. I have taken a tour of one such
     platforms
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就是许多开源算法交易开发平台出现的地方。这些平台都假设用户是Java程序员。但它们消除了上述A)和B)的烦恼，因为它们充当了层，保护你免受券商API的细节，让你用一个比喻的钥匙转动就可以从回测切换到实时交易模式。我参观了一个这样的平台
 - en: '[Marketcetera](http://www.marketcetera.com/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Marketcetera](http://www.marketcetera.com/)'
 - en: ', and will highlight some features here:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ，并在这里突出一些特点：
 - en: 1) It has a trading GUI with features similar to that of IB's TWS. This will
     be useful if your own brokerage's GUI is dysfunctional.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 它有一个交易GUI，功能与IB的TWS相似。如果你的券商GUI功能故障，这将很有用。
 - en: 2) Complex Event Processing (CEP) is available as a module. CEP is essentially
     a way for you to easily specify what kind of market/pricing events should trigger
     a trading action. For e.g., "BUY if ask price is below 20-min moving average."
@@ -62,39 +88,60 @@
     to retrieve the 20-min MA on-demand could be quite messy. CEP solves that data
     retrieval problem for you by storing only those data that is needed by your registered
     trading rules.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 复杂事件处理（CEP）作为一个模块可用。CEP本质上是一种让你轻松指定何种市场/定价事件应触发交易行动的方法。例如，"如果询问价格低于20分钟移动平均值，则买入。"
+    当然，你可以在回调函数中编写这个交易规则，但按需获取20分钟MA可能会相当混乱。CEP通过仅存储你的注册交易规则所需的数据来解决数据检索问题。
 - en: 3) It can use either FIX or a brokerage's API for connection. Available brokerage
     connectors include Interactive Brokers and Lime Brokerage.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 它可以使用FIX或券商API进行连接。可用的券商连接器包括Interactive Brokers和Lime Brokerage。
 - en: 4) It offers a news feed, which can be used by your trading algorithms to trigger
     trading actions if you use Java's string processing utilities to parse the stories
     properly.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 它提供了一个新闻源，如果使用Java的字符串处理工具正确解析故事，你的交易算法可以利用这个新闻源来触发交易行动。
 - en: 5) The monthly cost ranges from $3,500 - $4,500.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 每月成本从3,500美元到4,500美元不等。
 - en: If Marketcera is beyond your budget, you can check out
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果Marketcera超出了你的预算，你可以看看
 - en: '[AlgoTrader](http://code.google.com/p/algo-trader/)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[AlgoTrader](http://code.google.com/p/algo-trader/)'
 - en: . It has advantages 1)-3) but not 4) listed above, and is completely free. I
     invite readers who have tried these or other similar automated trading platforms
     to comment their user experience here.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 。它具有上述1)-3)优点，但不具备4)。它是完全免费的。我邀请尝试过这些或其他类似自动化交易平台的读者在这里评论他们的用户体验。
 - en: P.S. For those of us who use Matlab to automate our executions, a reader pointed
     out there is a new product
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 附言：对于那些用Matlab自动化执行的我们来说，一位读者指出有一个新产品
 - en: '[MATTICK](http://www.agoratron.com/our_products.html)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[MATTICK](http://www.agoratron.com/our_products.html)'
 - en: that allows you to send order via the FIX protocol which should let us trade
     with a great variety of brokerages.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以通过FIX协议发送订单，这应该让我们能够与各种经纪公司交易。

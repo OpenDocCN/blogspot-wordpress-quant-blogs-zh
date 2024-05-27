@@ -1,121 +1,188 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 08:09:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:09:24
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: QuantLib, the Greeks and other useful option-related values | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: QuantLib, the Greeks and other useful option-related values | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01](https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01](https://quantcorner.wordpress.com/2011/02/06/quantlib-the-greeks-and-other-useful-option-related-values/#0001-01-01)
 - en: In this post, we provide the reader with a **C++/QuantLib** code that computes
     the most common **option sensitivities** – the **Greeks** – as well as the **elasticity**
     of the option and its **implied volatility**. Before we recall the **Greeks**
     formulas, as **partial derivatives** of the **Black-Scholes formula**. And, we
     very briefly indicates how to calculate the **implied volatility**.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本文中，我们向读者提供了**C++/QuantLib**代码，该代码可以计算最常用的**期权敏感性**——**希腊字母**——以及期权的**弹性**和其**隐含波动率**。在回顾**希腊字母**公式之前，作为**Black-Scholes公式**的**偏导数**。并且，我们非常简要地指示了如何计算**隐含波动率**。
 - en: One can read here and there that **QuantLib** is overwhelming for the beginner.
     This post shows once again how powerful **QuantLib**. In fact, once the option
     parameters and the Quantlib tools coming into play are defined in the code, we
     get all our Greeks in-a-row. I mean **QuantLib** is definetely worthwhile.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 到处都可以读到**QuantLib**对初学者来说过于复杂。本文再次展示了**QuantLib**的强大之处。实际上，一旦在代码中定义了期权参数和Quantlib工具，我们就能一次获得所有的希腊字母。我的意思是**QuantLib**绝对值得一试。
 - en: Delta
+  id: totrans-8
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Delta
 - en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "delta")'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "delta")'
 - en: Gamma
+  id: totrans-10
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Gamma
 - en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "gamma")'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "gamma")'
 - en: Theta
+  id: totrans-12
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Theta
 - en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "theta")'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "theta")'
 - en: Vega
+  id: totrans-14
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Vega
 - en: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "vega")'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/7d956fbec1b9ef9c8af2c8f958984351.png "vega")'
 - en: Elasticity
+  id: totrans-16
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 弹性度
 - en: The elasticity measures the sensitivity of an option in percent to a percent
     change in the price of its underlying.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 弹性度量了期权价格对其标的资产价格百分比变动的敏感性。
 - en: '[![](img/7bc3d53798a6b905f9fa5d04dc23dc52.png "elasticity")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/elasticity1.jpg)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7bc3d53798a6b905f9fa5d04dc23dc52.png "elasticity")](https://quantcorner.wordpress.com/wp-content/uploads/2011/02/elasticity1.jpg)'
 - en: Implied volatility
+  id: totrans-19
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 隐含波动率
 - en: Obtaining the implied volatility is not straightforward. We must solve the Black-Scholes
     equation V(S[0], t[0]; σ, r; E, T ) = known value for σ. And, the so-called Newton-Raphson
     method is commonly used.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取隐含波动率并非易事。我们必须解出Black-Scholes方程 V(S[0], t[0]; σ, r; E, T ) = 已知值对于σ。而且，所谓的牛顿-拉弗森方法通常被使用。
 - en: The C++/QuantLib code
+  id: totrans-21
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 基于C++/QuantLib的代码
 - en: To keep the things as simple as possible, we get back to the basic **European
     option on stocks** we recently programmed. We benchmarked our calculation results
     with the ones drawing from the **Excel** pricer accompanying **E.G.Haug**‘s handbook
     ***The complete guide to  option pricing formulas, 2nd Ed.*** .
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了尽可能简单，我们回到最近编程的基本**欧式股票期权**。我们将我们的计算结果与来自**Excel**定价器的**E.G.Haug**手册中伴随的**The
+    complete guide to option pricing formulas, 2nd Ed.**的结果进行了基准测试。
 - en: _________________________________
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: _________________________________
 - en: Option type =                 put
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权类型 =              看跌
 - en: Option strike =               50
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权执行价格 =              50
 - en: Stock Price =                  47
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 股价 =              47
 - en: Risk-free rate =              5%
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 无风险利率 =              5%
 - en: Dividend yield =            0%
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 股息收益率 =              0%
 - en: Volatility =                      20%
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率 =              20%
 - en: Option expiration =     December  10^(th), 2011
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权到期日 =    2011年12月10日
 - en: __________________________________
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: __________________________________
 - en: '[PRE0]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

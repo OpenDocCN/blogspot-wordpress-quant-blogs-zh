@@ -1,57 +1,87 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:56:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: More Data or Fewer Predictors: Which is a Better Cure
     for Overfitting?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：更多数据还是更少预测变量：哪种是过拟合的更好治疗方法？
 - en: 来源：[http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01](http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01](http://epchan.blogspot.com/2017/03/more-data-or-fewer-predictors-which-is.html#0001-01-01)
 - en: One of the perennial problems in building trading models is the spareness of
     data and the attendant danger of overfitting. Fortunately, there are systematic
     methods of dealing with both ends of the problem. These methods are well-known
     in machine learning, though most traditional machine learning applications have
     a lot more data than we traders are used to. (E.g. Google used 10 million YouTube
     videos to train a deep learning network to
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 构建交易模型中的一个长期问题数据稀疏性和随之而来的过拟合危险。幸运的是，有针对这两个问题的系统方法。这些方法在机器学习中被广泛知道，尽管大多数传统的机器学习应用比我们交易员习惯的数据要多得多。（例如，谷歌用了1000万YouTube视频来训练一个深度学习网络去
 - en: '[recognize cats'' faces](http://static.googleusercontent.com/media/research.google.com/en//archive/unsupervised_icml2012.pdf)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 识别猫的面部：[链接](http://static.googleusercontent.com/media/research.google.com/en//archive/unsupervised_icml2012.pdf)
 - en: .)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 。）
 - en: To create more training data out of thin air, we can
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了从空气中创造更多的训练数据，我们可以
 - en: '*resample*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '*重采样*'
 - en: (perhaps more vividly,
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: （或许更生动地，
 - en: '*oversample*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 对我们的现有数据进行*过采样*。 这称为装袋。让我们用我在
 - en: ) our existing data. This is called bagging. Let's illustrate this using a fundamental
     factor model described in my
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 中描述的基本面因子模型来说明这一点。
 - en: '[new book](http://amzn.to/2kTMvUM)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 新书：[链接](http://amzn.to/2kTMvUM)
 - en: '. It uses 27 factor loadings such as P/E, P/B, Asset Turnover, etc. for each
     stock. (Note that I call cross-sectional factors, i.e. factors that depend on
     each stock, "factor loadings" instead of "factors" by convention.) These factor
@@ -64,47 +94,64 @@
     of these 27 predictors. The trading strategy based on this predictive factor model
     is equally simple: if the predicted next-quarter-return is positive, buy the stock
     and hold for a quarter. Vice versa for shorts.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 。它使用了27个因子载荷，如P/E，P/B，资产周转等每只股票。 （请注意，我称跨截面因子，即依赖于每只股票的因子为“因子载荷”，而不是“因子”，这是一种惯例。）这些因子载荷来自标普500公司的季度财务报表，可以从Sharadar的核心美国基本面数据库（以及更昂贵的来源如Compustat）获得。因子模型非常简单：它只是一个多元线性回归模型，下一季度的股票回报作为依赖（目标）变量，27个因子载荷作为独立（预测器）变量。训练包括找到这些27个预测器的回归系数。基于这个预测因子模型的交易策略同样简单：如果预测的下一季度回报为正，买入股票并持有一个季度。反之亦然用于空头。
 - en: 'Note there is already a step taken in curing data sparseness: we do not try
     to build a separate model with a different set of regression coefficients for
     each stock. We constrain the model such that the same regression coefficients
     apply to all the stocks. Otherwise, the training data that we use from 200701-201112
     will only have 1,260 rows, instead of 1,260 x 500 = 630,000 rows.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意已经采取了一个步骤来治疗数据稀疏性：我们并没有尝试为每只股票建立一个不同的回归系数模型。我们限制模型，使得相同的回归系数适用于所有股票。否则，我们从200701-201112使用到的训练数据将只有1,260行，而不是1,260
+    x 500 = 630,000行。
 - en: 'The result of this baseline trading model isn''t bad: it has a CAGR of 14.7%
     and Sharpe ratio of 1.8 in the out-of-sample period 201201-201401\. (Caution:
     this portfolio is not necessarily market or dollar neutral. Hence the return could
     be due to a long bias enjoying the bull market in the test period. Interested
     readers can certainly test a market-neutral version of this strategy hedged with
     SPY.) I plotted the equity curve below.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个基线交易模型的结果并不坏：在201201-201401的外部样本期间，它的年复合增长率为14.7%，夏普比率为1.8。（警告：这个投资组合不一定与市场或美元中性。因此，回报可能是因为在测试期间享受牛市的长期偏见。感兴趣的读者当然可以测试这个策略的市场中性版本，用SPY进行对冲。）我在下面画了股票曲线。
 - en: Next, we resample the data by randomly picking N (=630,000) data points
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们通过随机选择N（=630,000）个数据点来重采样数据
 - en: '*with replacement*'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '*带替换*'
 - en: to form a new training set (a "bag"), and we repeat this K (=100) times to form
     K bags. For each bag, we train a new regression model. At the end, we average
     over the predicted returns of these K models to serve as our official predicted
     returns. This results in marginal improvement of the CAGR to 15.1%, with no change
     in Sharpe ratio.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 形成一个新的训练集（一个“袋子”），我们重复这个K（=100）次来形成K个袋子。对于每个袋子，我们训练一个新的回归模型。最后，我们平均这些K个模型的预测回报，作为我们的官方预测回报。这使得年化复合增长率（CAGR）提高了15.1%，而夏普比率没有变化。
 - en: Now, we try to reduce the predictor set. We use a method called "random subspace".
     We randomly pick half of the original predictors to train a model, and repeat
     this K=100 times. Once again, we average over the predicted returns of all these
     models. Combined with bagging, this results in further marginal improvement of
     the CAGR to 15.1%, again with little change in Sharpe ratio.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们尝试减少预测变量集。我们使用一种叫做“随机子空间”的方法。我们随机选取原始预测变量的一半来训练一个模型，重复这个K=100次。再次，我们平均所有这些模型的预测回报。与装袋方法结合，这使得年化复合增长率（CAGR）进一步提高到15.1%，夏普比率几乎没有变化。
 - en: The improvements from either method may not seem large so far, but at least
     it shows that the original model is robust with respect to randomization.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 两种方法的效果可能看起来不大，但至少它显示原始模型对随机化是稳健的。
 - en: 'But there is another method in reducing the number of predictors. It is called
     stepwise regression. The idea is simple: we pick one predictor from the original
     set at a time, and add that to the model only if BIC  (Bayesian Information Criterion)
@@ -116,44 +163,68 @@
     a time, until the BIC couldn''t decrease any further. Applying this to our fundamental
     factor loadings, we achieve a quite significant improvement of the CAGR over the
     base model: 19.1% vs. 14.7%, with the same Sharpe ratio.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 但还有一种减少预测变量的方法。它叫做逐步回归。这个想法很简单：我们一次从原始集合中选取一个预测变量，只有当贝叶斯信息准则（BIC）降低时，我们才将其加入到模型中。BIC基本上是基于回归模型的训练数据的负对数似然，还有一个与预测变量数量成比例的惩罚项。也就是说，如果两个模型的对数似然相同，参数数量更多的模型会有更大的BIC从而受到惩罚。一旦我们达到最小BIC，我们然后尝试一次从模型中移除一个预测变量，直到BIC不再降低。将这个方法应用于我们的基本因子载荷，相比于基础模型，我们取得了相当显著的年化复合增长率提升：19.1%对比14.7%，而夏普比率保持不变。
 - en: 'It is also satisfying that the stepwise regression model picked only two variables
     out of the original 27\. Let that sink in for a moment: just two variables account
     for all of the predictive power of a quarterly financial report! As to which two
     variables these are - I will reveal that in my talk at'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 令人满意的是，逐步回归模型只从原始的27个变量中选择了两个。让这个事实沉淀一会儿：仅两个变量就构成了季度财务报告的所有预测力！至于这两个变量是哪两个——我将在我的讲座中透露。
 - en: '[QuantCon 2017](http://www.quantcon.com/)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[QuantCon 2017](http://www.quantcon.com/)'
 - en: on April 29.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 于4月29日。
 - en: ===
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**My Upcoming Workshops**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**即将到来的研讨会**'
 - en: 'March 11 and 18:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 3月11日和18日：
 - en: '[Cryptocurrency Trading with Python](http://epchan.com/workshops)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[用Python进行加密货币交易](http://epchan.com/workshops)'
 - en: I will be moderating this online workshop for my friend Nick Kirk, who taught
     a similar course at CQF in London to wide acclaim.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将主持这场在线研讨会，我的朋友Nick Kirk将会教授一个类似的课程，他在伦敦的CQF教授过此类课程，广受好评。
 - en: 'May 13 and 20:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 5月13日和20日：
 - en: '[Artificial Intelligence Techniques for Traders](http://epchan.com/workshops)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[人工智能技术在交易中的应用](http://epchan.com/workshops)'
 - en: I will discuss in details AI techniques such as those described above, with
     other examples and in-class exercises. As usual, nuances and pitfalls will be
     covered.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将详细讨论上述提到的AI技术，以及其他例子和课堂练习。像往常一样，我会覆盖细微之处和潜在陷阱。

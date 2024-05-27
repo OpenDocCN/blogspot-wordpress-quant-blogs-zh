@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:25:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:25:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: What is your stop loss strategy?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：你的止损策略是什么？
 - en: 来源：[http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html#0001-01-01](http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html#0001-01-01](http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html#0001-01-01)
 - en: A reader recently asked me whether setting a stop loss for a trading strategy
     is a good idea. I am a big fan of setting stop loss, but there are certainly myriad
     views on this.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近有读者问我，为交易策略设置止损是否是一个好主意。我非常赞成设置止损，但对此确实有各种不同的看法。
 - en: 'One of my former bosses didn''t believe in stop loss: his argument is that
     the market does not care about your personal entry price, so your stop price may
     be somebody else’s entry point. So stop loss, to him, is irrational. Since he
@@ -30,8 +44,10 @@
     capital in just one or a few specific positions to be important. Of course, if
     you are an individual trader with fewer than a hundred positions, preservation
     of capital becomes a lot more important, and so does stop loss.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我以前的一位老板不相信止损：他的观点是市场不在乎你的个人入场价格，因此你的止损价格可能是别人的入场点。所以对他来说，止损是不理性的。由于他管理着一个拥有数百个仓位的投资组合，他不认为在一个或几个特定仓位上保护资金是重要的。当然，如果你是一个持仓不到一百个的个人交易者，资本保值就变得更加重要了，止损也是如此。
 - en: 'Even if you are highly diversified and preservation of capital in specific
     positions is not important, are there situations where stop loss is rational?
     I certainly think that applies to trend-following strategies. Whenever you incur
@@ -47,8 +63,10 @@
     a big loss is not a good enough reason to surrender to the market, how would you
     ever decide if your mean-reverting model is wrong? Here I propose a stop loss
     criterion that looks at another dimension: time.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使你高度分散，特定仓位的资本保值并不重要，是否存在止损是理性的情况？我认为这当然适用于趋势跟踪策略。每当你在持有趋势跟踪仓位时遭受重大损失时，通常意味着最新的入场信号与你最初的入场信号相反。在这种情况下，最好承认你的错误，平仓你的仓位，甚至可能进入相反的方向。（有时候我希望我们的政客也这样想。）另一方面，如果你采用的是均值回归策略，而市场没有回归，而是继续朝着原来的方向发展并导致你亏损，这是否意味着你错了？未必：你可能只是太早进场了。事实上，在这种情况下，许多交易者会加倍仓位，因为这种情况下的最新入场信号与原始入场信号的方向相同。不过这引出了一个问题：如果遭受重大损失并不足以投降给市场，那么你如何确定你的均值回归模型是错误的呢？在这里我提出了一个考虑另一个维度的止损标准：时间。
 - en: 'The simplest model one can apply to a mean-reverting process is the [Ornstein-Uhlenbeck
     formula](http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process). As a concrete
     example, I will apply this model to the commodity ETF spreads I discussed before
@@ -68,12 +86,16 @@
     later the spread still has not reverted to zero, we have reason to believe that
     maybe the regime has changed, and our mean-reverting model may not be valid anymore
     (or at least, the spread may have acquired a new long-term mean.)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以应用于均值回归过程的最简单模型是[奥恩斯坦-乌伦贝克公式](http://en.wikipedia.org/wiki/Ornstein-Uhlenbeck_process)。作为一个具体的例子，我将把这个模型应用于我之前讨论过的我认为是均值回归的商品ETF价差（[XLE-CL](http://epchan.blogspot.com/2006/11/cointegration-of-oih-with-spot-oil.html)，[GDX-GLD](http://epchan.blogspot.com/2006/11/reader-suggested-possible-trading.html)，[EEM-IGE](http://epchan.blogspot.com/2006/11/does-canada-belong-to-emerging-markets.html)，和[EWC-IGE](http://epchan.blogspot.com/2006/11/does-canada-belong-to-emerging-markets.html)）。这是一个简单的模型，它说下一个价差的变化与价差与其长期均值的偏差符号相反，其大小与偏差成比例。在我们这个案例中，这个比例常数θ可以通过每日价差变化与价差本身的线性回归来估计。对我们来说最重要的是，如果我们解这个方程，我们会发现均值偏差以指数衰减的方式接近零，衰减的半衰期等于ln(2)/θ。这个半衰期是一个重要的数字：它给了我们一个估计，预期价差会远离零停留多久的估计。如果我们进入一个均值回归的位置，而3个或4个半衰期之后价差仍然没有恢复到零，我们有理由相信也许模式已经改变，我们的均值回归模型可能不再有效（或者至少，价差可能已经获得了新的长期均值。）
 - en: 'Let’s now apply this formula to our spreads and see what their half-life’s
     are. Fitting the daily change in spreads to the spread itself gives us:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们把我们这个价差公式应用来看看它们的半衰期是多少。将每日价差变化拟合到价差本身，我们得到：
 - en: These numbers do confirm my experience that the GDX-GLD spread is the best one
     for traders, as it reverts the fastest, while the XLE-CL spread is the most trying.
     If we arbitrarily decide that we will exit a spread once we have held it for 3
@@ -82,10 +104,14 @@
     while I have entered and exited (profitably) the GDX-GLD spread several times
     since last summer, I am holding the XLE - QM (substituting QM for CL) spread for
     the 104^(th) day!
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些数字确实证实了我的经验：GDX-GLD价差最适合交易者，因为它恢复得最快，而XLE-CL价差则是最具挑战性的。如果我们武断地决定，在我们持有某个价差3个半衰期后我们就退出，那么在放弃之前我们必须持有XLE-CL价差几乎一整年。（注意半衰期只计算交易日。）实际上，自从去年夏天以来，虽然我多次进入并盈利地退出过GDX-GLD价差，但我已经持有XLE-QM（用QM代替CL）价差104天了！
 - en: (By the way, if you want to check the latest values of the 4 spreads I mentioned,
     you can subscribe to them at [epchan.com/subscriptions.html](http://www.epchan.com/subscriptions.html)
     for a nominal fee.)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: （顺便说一下，如果你想检查我提到的4个价差的最新值，你可以支付象征性的费用在[epchan.com/subscriptions.html](http://www.epchan.com/subscriptions.html)订阅它们。）

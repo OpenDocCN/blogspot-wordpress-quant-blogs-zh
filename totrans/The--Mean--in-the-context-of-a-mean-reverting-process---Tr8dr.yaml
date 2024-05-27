@@ -1,193 +1,289 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:38:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:38:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The “Mean” in the context of a mean-reverting process | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在均值回归过程中的“均值”| Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/03/the-mean-in-the-context-of-a-mean-reverting-process/#0001-01-01](https://tr8dr.wordpress.com/2009/11/03/the-mean-in-the-context-of-a-mean-reverting-process/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/03/the-mean-in-the-context-of-a-mean-reverting-process/#0001-01-01](https://tr8dr.wordpress.com/2009/11/03/the-mean-in-the-context-of-a-mean-reverting-process/#0001-01-01)
 - en: We know that price processes exhibit mean reversion on multiple timescales.  
     Supposing one wants to measure the distance between the price X[t] and the mean
     E[X[t]].   The mean of a price process is particularly difficult to model as the
     process is non-stationary.    The standard approach in options modeling has been
     to model in terms of a near-stationary process such as log returns .
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们知道，价格过程在多个时间尺度上表现出均值回归的特点。假设有人想要测量价格X[t]与均值E[X[t]]之间的距离。价格过程的均值特别难以建模，因为该过程是非平稳的。在期权建模中的标准方法是围绕一个近似平稳的过程（如对数回报）来进行建模。
 - en: I am interested in the empirical price distance to the mean.   One could look
     at the sum of log returns as a proxy to price, but empirical returns are very
     noisy and the mean-reversion aspect would be lost.    This works out in a continuous
     model, but wold require some smoothing to make sense in an empirical model.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对经验价格到均值的距离感兴趣。可以将对数回报的和作为价格的代理，但经验回报非常嘈杂，均值回归方面会丢失。这在连续模型中可行，但在经验模型中需要一些平滑处理才能有意义。
 - en: '**The “Mean”**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**“均值”**'
 - en: 'Focusing again on the mean, in a non-stationary process, we can take different
     views on the mean depending on the timescale of mean reversion we are interested
     in focusing on.   Here is an example of different means through a price series
     (taken ex-post as a penalized least squares regression):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次关注均值，在非平稳过程中，我们可以根据关注的时间尺度对均值采取不同的看法。以下是通过价格序列得到的不同均值的一个例子（作为惩罚最小二乘回归的结果）：
 - en: '![](img/3f17d26d400bcdfb179b10d54d94b0b3.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/3f17d26d400bcdfb179b10d54d94b0b3.png)'
 - en: '![Picture 1](img/33200a0b44635757846c3b6b66014d18.png "Picture 1")'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 1](img/33200a0b44635757846c3b6b66014d18.png "图片 1")'
 - en: The mean for a random variable is defined as the expectation of the variable
     E[X].  That’s fine, except that E[x] is model dependent and also dependent on
     our desired mean-reversion timescale.  In the example above all of the regression
     lines represent reasonable values for the mean and are optimal in a least squares
     sense, so which “mean” do we choose and what process generates it?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 随机变量的均值定义为变量E[X]的期望值。这很好，但是E[x]依赖于模型，也依赖于我们想要的时间尺度上的均值回归。在上面的例子中，所有的回归线代表均值的合理值，并且在最小二乘意义上是最优的，所以我们应该选择哪个“均值”，以及产生它的过程是什么？
 - en: '**Modeling Issues**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**建模问题**'
 - en: 'Ultimately would like to come up with an empirical, discrete, state system
     that allows me to estimate the mean as a hidden state from a maximum likelihood
     point of view.   Just as with “volatility”, the mean is not truely observable. 
     The model needs express the following:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终，我希望能提出一个经验性的、离散的、状态系统，使我能够从最大似然观点估计均值作为一个隐藏状态。与“波动率”一样，均值并不是真正可观测的。模型需要表达以下内容：
 - en: represent mean reversion timescale of interest
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 表示关注的均值回归时间尺度
 - en: deal with jumps / regime change in the mean
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 处理跳跃/制度变化时的平均值
 - en: mean is a function of time
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 均值是时间的函数
 - en: variance is a function of time
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 方差是时间的函数
 - en: '**Models**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**模型**'
 - en: 'A common place to start with mean-reversion models is the *Ornstein-Uhlenbeck
     process*:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值回归模型的一个常见起点是*奥恩斯坦-乌伦贝克过程*：
 - en: '![Picture 11](img/da56ebee70966c930b7e40d82609f3ab.png "Picture 11")'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 11](img/da56ebee70966c930b7e40d82609f3ab.png "图片 11")'
 - en: Note that this is expressed in terms of a long-run mean (constant) μ, a mean-reversion
     coefficient (constant) κ, and standard deviation (constant) σ.  Also note that
     this is a process modeling the change in price (usually log change).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，这表达了一个长期均值（常数）μ，一个均值回归系数（常数）κ，以及一个标准差（常数）σ。也要注意，这是一个模拟价格变化（通常是逻辑变化）的过程。
 - en: 'The *Hull-White model* went a step further to allow the mean and standard deviation
     to be a function of time.   Finally the *extended Vasicek model* allows for the
     mean-reversion constant to vary with time:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Hull-White模型**进一步允许均值和标准差随时间变化。最后，**扩展Vasicek模型**允许均值回归常数随时间变化：'
 - en: '![Picture 5](img/85b070c0cc4751f9b97f94c99002c3db.png "Picture 5")'
+  id: totrans-24
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 5](img/85b070c0cc4751f9b97f94c99002c3db.png "图片 5")'
 - en: 'Ok, a few problems.   We have not addressed the jump aspect of price movement
     and also need to convert this into a discrete empirical process.   One way of
     introducing a jump component is modifying the above formulation to include a jump
     process dQ (note that I have adjusted the mean-reversion process to be a constant
     to allow us to solve for μ(t) later:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，有几个问题。我们还没有解决价格运动的跳跃方面，同时也需要将这转化为一个离散的经验过程。引入跳跃组件的一种方法是修改上述公式以包括跳跃过程dQ（注意我已经调整了均值回归过程为一个常数，以便我们稍后求解μ(t)）：
 - en: '![Picture 7](img/17489a8fd671fded670db6315bc35eb2.png "Picture 7")'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 7](img/17489a8fd671fded670db6315bc35eb2.png "图片 7")'
 - en: This is not the most sophisticated model, however, for the purposes of modeling
     the mean should prove useful.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这并不是最复杂的模型，然而，为了建模目的，均值应该是有用的。
 - en: '**Discrete form** Let’s ignore the jump component for the moment, and arrive
     at a discrete formulation for the Gaussian component in the mixture.   A general
     gaussian markov process has the form:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**离散形式**让我们先忽略跳跃组件，得出混合模型中高斯成分的离散公式。一般的高斯马尔可夫过程具有以下形式：'
 - en: '![Picture 1](img/fa4a990ad02244e48c642e90f3d365b7.png "Picture 1")'
+  id: totrans-29
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 1](img/fa4a990ad02244e48c642e90f3d365b7.png "图片 1")'
 - en: 'we get the following solution:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们得到以下解决方案：
 - en: '![Picture 2](img/b5cd4359ad4d0686383a127872b3b260.png "Picture 2")'
+  id: totrans-31
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 2](img/b5cd4359ad4d0686383a127872b3b260.png "图片 2")'
 - en: 'For our equation this works out to:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于我们方程来说，这可以简化为：
 - en: '![Picture 3](img/ac786c2681ca8db657a63164b32657eb.png "Picture 3")'
+  id: totrans-33
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 3](img/ac786c2681ca8db657a63164b32657eb.png "图片 3")'
 - en: 'or between times t-Δt and t:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者在时间t-Δt和t之间：
 - en: '![Picture 4](img/be1c78bf4b395d3424938e71a2d806a4.png "Picture 4")'
+  id: totrans-35
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 4](img/be1c78bf4b395d3424938e71a2d806a4.png "图片 4")'
 - en: We now have enough to formulate a state system.   We will assume the change
     in volatility or mean over Δt to be small enough so that can assume volatility
     and mean are constant over the integral for Δt.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们已经足够形成一个状态系统。我们将假设在Δt内的波动性或均值变化足够小，以至于可以假设在Δt内的积分波动性和均值是常数。
 - en: 'First we need to decide on a process to express variance.   For daily returns
     we can use GARCH(1,1), and for intraday will need an alternate model:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先我们需要决定一个过程来表达方差。对于日收益，我们可以使用GARCH(1,1)，对于日内则需要一个替代模型：
 - en: '![Picture 7](img/206d06c3a48648caef946ff80dbe92f3.png "Picture 7")'
+  id: totrans-38
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 7](img/206d06c3a48648caef946ff80dbe92f3.png "图片 7")'
 - en: 'Within the context of a discrete increment Δt within our mean reverting SDE,
     the volatility scales as:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 在均值回归SDE的离散增量Δt内，波动性按以下方式缩放：
 - en: '![Picture 8](img/320300c6c550324a2ee6479812947c2f.png "Picture 8")'
+  id: totrans-40
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 8](img/320300c6c550324a2ee6479812947c2f.png "图片 8")'
 - en: 'We express the mean as an AR(2) process, but within the larger state system
     so that it accepts “innovations” from the mean reversion process (via recursive
     feedback):'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将均值表达为一个AR(2)过程，但放在更大的状态系统中，这样它就可以接受来自均值回归过程（通过递归反馈）的“创新”：
 - en: '![Picture 9](img/b8c4aab91b2289bee7bf00cb8fdb22f0.png "Picture 9")'
+  id: totrans-42
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 9](img/b8c4aab91b2289bee7bf00cb8fdb22f0.png "图片 9")'
 - en: We can easily express this state system in a particle filter to find the ML
     parameters (assuming constant κ).
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以很容易地将这个状态系统在粒子滤波器中表达出来，以找到最大似然参数（假设κ为常数）。
 - en: '**Handling Jumps** Given that we are not using this SDE in a predictive fashion,
     we can introduce jumps as a point process or alternatively as a cumulator variable
     as we observe jumps in the market.   So for instance, could reexpress the mean
     process as:'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**处理跳跃**鉴于我们不是以预测方式使用这个SDE，我们可以将跳跃作为点过程引入，或者作为我们观察市场跳跃时的累积变量。例如，可以将均值过程重新表达为：'
 - en: '![Picture 10](img/d85c2f4363cff999ce82dc8bc325cf00.png "Picture 10")'
+  id: totrans-45
   prefs: []
   type: TYPE_IMG
+  zh: '![图片 10](img/d85c2f4363cff999ce82dc8bc325cf00.png "图片 10")'
 - en: '**Conclusion**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结论**'
 - en: Our goal here was to determine an accurate measure of the mean, one that we
     can consider optimal from a model / maximum likelihood point of view.   I now
     need to implement this state system in a particle filter and determine how effective
     it is.   Some enhancements may be required.    This is a work in progress, look
     for further updates …
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们此行的目标是确定一个准确的均值衡量标准，从模型/最大似然的角度来看，我们可以认为它是最佳的。我现在需要把这个状态系统实现到粒子滤波器中，并确定它的有效性。可能需要一些改进。这是一个进行中的工作，请期待进一步的更新...

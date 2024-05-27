@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:47:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:47:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Part 2: Using a Self-Similarity Metric with Intraday Data to Define Market
     Regimes | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第二部分：使用自相似性指标与日内数据定义市场体制 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2015/04/17/part-2-using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01](https://cssanalytics.wordpress.com/2015/04/17/part-2-using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2015/04/17/part-2-using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01](https://cssanalytics.wordpress.com/2015/04/17/part-2-using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01)
 - en: The Self-Similarity metric has been a popular series. Recently the [original
     post](https://cssanalytics.wordpress.com/2015/03/13/using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/
     "Using a Self-Similarity Metric with Intraday Data to Define Market Regimes")
@@ -29,8 +41,12 @@
     a very interesting analysis on the Self-similarity metric was done by Mike Harris
     on his [Price Action Blog](http://www.priceactionlab.com/Blog/2015/04/performance-in-stable-and-chaotic-markets-based-on-the-cssa-regime-indicator/)
     which also has a lot of very interesting articles and is worth following.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 自相似性指标系列一直很受欢迎。最近，Jeff Swanson的流行网站[System Trader Success](http://systemtradersuccess.com/)分享了一篇原始文章，该网站涵盖了关于交易系统开发的一系列发人深省的
+    articles，非常值得一读。Jeff还发布了一些TradeStation代码供指标使用，一些读者可能会发现这些代码很有价值。在垂直博客的一个极好例子中，Mike
+    Harris在他的[Price Action Blog](http://www.priceactionlab.com/Blog/2015/04/performance-in-stable-and-chaotic-markets-based-on-the-cssa-regime-indicator/)上对自相似性指标进行了一项非常有趣的分析，该博客还有很多其他有趣的articles，值得关注。
 - en: I have to say that one of the most rewarding aspects of this blog has been my
     interaction with readers (and fellow bloggers) at various levels. I have developed
     several relationships over the years, and some of these developed into new business
@@ -43,52 +59,79 @@
     out to me with some visuals and analysis on the chaos/stability self-similarity
     indicator I recently presented on the blog. I suggested that we post this for
     CSSA readers, and he was kind enough to agree to share.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我必须说，这个博客最令人满意的方面之一是与不同水平的读者（和博主）的互动。多年来，我发展了几种关系，其中一些发展成了新的商业机会。很多年前，在积极运营CSS
+    Analytics时，我有幸与一群非常有才华和敬业的人合作。很高兴看到其中许多人已经在定量领域取得了相当的成功。那个才华横溢小组的原始成员之一是David
+    Abrams。多年来，我们在系统开发上投入了大量时间，尽管我们不再积极合作，但我们仍然设法保持联系。David与我分享了一些关于我最近在博客上介绍的混沌/稳定性自相似性指标的视觉和分析。我建议我们为CSSA读者发布这个内容，他非常友好地同意分享。
 - en: '**Dave Abrams is Director of Quantitative Strategies at Wilbanks, Smith and
     Thomas Asset Management (www.wstam.com) in Norfolk, VA, where they design risk
     managed fund models and S&P indices (about 400M of the firm’s 2.5B in AUM is quant).
     He was formerly part of a group doing quant research at CSS Analytics.**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Dave Abrams 是Wilbanks, Smith and Thomas资产管理公司（www.wstam.com）在弗吉尼亚州诺福克市的定量策略总监，该公司设计风险管理的基金模型和标普指数（该公司的25亿资产中有大约4亿是定量）。他之前是CSS
+    Analytics定量研究小组的一部分。**'
 - en: '**Visualizing The Chaos Stability Indicator**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**可视化混沌稳定性指标**'
 - en: It is useful to visualize DV’s new self-similarity regime method in a Tradestation
     chart. Here is the strategy and indicator using the default parameters (N = 10
     day, 60 day average, 252 percent rank length). I transformed the indicator by
     subtracting 0.5 to center the values around 0 and displayed with a color coded
     histogram.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在Tradestation图表中可视化DV的新自相似性体制方法很有用。以下是使用默认参数（N = 10天，60天平均值，252百分比排名长度）的策略和指标。我将指标值减去0.5以使值围绕0居中，并以彩色直方图显示。
 - en: 'Here is what the Chaos Stability as a buy/sell indicator on the SPY looks like:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是SPY上的混沌稳定性作为买入/卖出指标的样子：
 - en: '[![pic 1](img/cf7f670bd594ab44935022f85f0f6f74.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-1.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic 1](img/cf7f670bd594ab44935022f85f0f6f74.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-1.png)'
 - en: The indicator is currently in a new “sell” position as the value is below zero.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 当前指标处于新的“卖出”位置，因为其值低于零。
 - en: This perhaps reflects the more random and sideways market movement that we have
     had over the past few months. As with any indicator, this bearish signal is not
     perfect and in April through early July of 2014 the market made good upward progress
     despite the chaos stability values being mired deep in the red. It is useful to
     look at some other charts to get a sense of when the buy and sell signals occur.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可能反映了我们过去几个月更随机和横向的市场运动。与任何指标一样，这个看跌信号并不完美，并且在2014年4月至7月初，尽管混沌稳定性值深陷红色，但市场仍取得了良好的上涨。查看一些其他图表有助于了解买入和卖出信号何时发生。
 - en: '[![pic2](img/032da0d5761afc85201091efc2527583.png)](https://cssanalytics.files.wordpress.com/2015/04/pic2.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic2](img/032da0d5761afc85201091efc2527583.png)](https://cssanalytics.files.wordpress.com/2015/04/pic2.png)'
 - en: '[![pic3](img/665c954dbd9f7b0e1d7fe034e1c11cf8.png)](https://cssanalytics.files.wordpress.com/2015/04/pic3.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic3](img/665c954dbd9f7b0e1d7fe034e1c11cf8.png)](https://cssanalytics.files.wordpress.com/2015/04/pic3.png)'
 - en: '[![pic 1](img/cf7f670bd594ab44935022f85f0f6f74.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-1.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic 1](img/cf7f670bd594ab44935022f85f0f6f74.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-1.png)'
 - en: '[![pic4](img/964f894b3eae491868cf2c080acf6e71.png)](https://cssanalytics.files.wordpress.com/2015/04/pic4.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic4](img/964f894b3eae491868cf2c080acf6e71.png)](https://cssanalytics.files.wordpress.com/2015/04/pic4.png)'
 - en: It is hard to discern what is going on without careful inspection, but it seems
     as if the chaos/stability indicator flashes buy signals at swing lows- where the
     market is moving persistently downward or in persistent bull moves upward out
@@ -98,11 +141,15 @@
     up and down moves, signals are uncorrelated or even negatively correlated to a
     trend-following strategy as highlighted in the original post. This is important
     to those looking to diversify a trend strategy on a single asset.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果不仔细检查，很难看出发生了什么，但似乎混沌/稳定性指标在市场持续向下移动或持续牛市向上移动走出修正或在建立的上涨趋势顶部时闪烁买入信号。卖出信号往往出现在市场顶部附近，此时市场波动较大或在市场在其长期趋势内横向移动的区域。由于持续性在上涨和下跌移动中都存在，信号与趋势跟踪策略不相关或甚至呈负相关，如原始帖子中所强调。这对于那些希望在单一资产上多样化趋势策略的人来说很重要。
 - en: '**Smoothed Chaos Stability Metric**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**平滑混沌稳定性指标**'
 - en: One of the challenges I noticed when looking at the charts was that the indicator
     frequently switched from buy to sell- especially as the value hovered close to
     zero. Smoothing seemed to be a logical approach to reduce some of the whipsaw
@@ -110,14 +157,21 @@
     Smoother method ([http://traders.com/Documentation/FEEDbk_docs/2014/01/TradersTips.html](http://traders.com/Documentation/FEEDbk_docs/2014/01/TradersTips.html))
     to to the Chaos Stability measure. Notice the indicator below. This reduced the
     number of trades by 11% and the Profit Factor went up by 6 %.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我查看图表时，我注意到指标经常从买入变为卖出-尤其是当值在接近零时波动。平滑似乎是一个合理的办法来减少一些摆动交易并减少周转率。为了解决这个问题，我将约翰·埃勒的超级平滑方法（http://traders.com/Documentation/FEEDbk_docs/2014/01/TradersTips.html）应用于混沌稳定性测量。注意下面的指标。这减少了11%的交易数量，并将盈利因子提高了6
+    %。
 - en: '[![pic5](img/b68ac309fc9e5c9109547efddfaddeff.png)](https://cssanalytics.files.wordpress.com/2015/04/pic5.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![pic5](img/b68ac309fc9e5c9109547efddfaddeff.png)](https://cssanalytics.files.wordpress.com/2015/04/pic5.png)'
 - en: '**Walk Forward Analysis**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**前进测试分析**'
 - en: 'One of the challenges of new indicators is that they tend to promise a lot
     but fail to deliver in the real world. Often the reason this happens is because
     the examples presented by the developer are tuned to a specific set of parameters-
@@ -129,39 +183,55 @@
     the parameters so that at each period of time we are using out-of-sample results.
     We can get greater confidence in the strategy if it performs well using walk-forward.
     The results are below :'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 新指标的一个挑战是，它们往往承诺很多，但在现实世界中却未能兑现。通常这种情况发生的原因是因为开发者提供的例子是针对特定的一组参数进行调整的——换句话说，这个指标是过度拟合的，不够健壮。那么DV的创新新指标只是幸运，还是稳定的呢？评估一个指标是否具有预测能力的一个最佳方法就是进行前瞻性测试。没有预测能力的指标往往会在这种测试中失败。为了进行评估，我在Tradestation中进行了一次前瞻性测试。这个模块会不断地重新优化参数，这样我们每次使用的时候都是用的样本外的结果。如果使用前瞻性测试表现良好，我们就能对策略有更大的信心。结果如下：
 - en: '[![pic 6](img/15edd3a2855506ca85823fb70ac1c8f4.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-6.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![图6](img/15edd3a2855506ca85823fb70ac1c8f4.png)](https://cssanalytics.files.wordpress.com/2015/04/pic-6.png)'
 - en: Based on these criteria for evaluation, the DV Chaos/Stability indicator passes
     with flying colors. In addition to passing the walk-forward test the logic of
     indicator is also sound- which is an often overlooked but important qualitative
     assessment. In our quantitative research methodology we always apply a walk-forward
     analysis and qualitative assessment. The hypothetical equity curve from the walk-forward
     results showing each out-of-sample period over time are presented below.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据这些评估标准，DV混沌/稳定性指标表现出色。除了通过前瞻性测试，指标的逻辑也是合理的，这是经常被忽视但重要的定性评估。在我们的量化研究方法中，我们总是应用前瞻性分析和定性评估。下面是前瞻性结果中显示的每个样本外时期的假设股票曲线。
 - en: '[![pic7](img/f21d683b82c99565c5ddf8291e281b51.png)](https://cssanalytics.files.wordpress.com/2015/04/pic7.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![图7](img/f21d683b82c99565c5ddf8291e281b51.png)](https://cssanalytics.files.wordpress.com/2015/04/pic7.png)'
 - en: Tradestation Walk Forward Analyzer Performance Graph. The results are hypothetical
     results and are NOT an indicator of future results and do NOT represent returns
     that any investor actually attained
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: Tradestation前瞻性分析器性能图表。这些结果是假设的结果，并不是未来结果的指标，也不代表任何投资者实际获得的回报。
 - en: Good quantitative research is a combination of different but stable ideas which
     either confirms each other or adds diversity to the overall model. I agree with
     Ray Dalio that 15 uncorrelated return streams is the holy grail of investing (
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 好的量化研究是不同但稳定的想法的组合，这些想法要么相互确认，要么为整体模型增加多样性。我同意雷·达里奥的观点，15个非相关的回报流是投资的圣杯（
 - en: '[http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9](http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9)).
     DV’s chaos stability regime model could be a viable uncorrelated candidate.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9](http://www.businessinsider.com/heres-the-most-genius-thing-ray-dalio-said-2011-9)。DV的混沌稳定性模型可能是可行的非相关候选者。'
 - en: Disclosure
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 披露
 - en: The research discussion presented above is intended for discussion purposes
     only and is not intended as investment advice, recommendation of any particular
     investment strategy including any of the depicted models. There are inherent limitations
@@ -174,5 +244,7 @@
     these factors might have had on the model depicted above. Past performance, whether
     based on hypothetical models or actual investment results, is not indicative of
     future performance.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述研究讨论仅出于讨论目的，并不构成投资建议，也不推荐任何特定的投资策略，包括所展示的任何模型。展示投资组合表现基于假设性及回测结果存在固有限制。与实际记录不同，假设性结果无法准确反映材料经济或市场因素对证券价格的影响，因此，结果可能由于这些因素的影响而被高估或低估。由于假设性结果不反映实际交易，且可能无法准确反映材料经济和市场因素的影响，因此无法知道这些因素对上述展示模型可能产生的影响。无论基于假设模型还是实际投资结果的过往表现，都不预示未来表现。

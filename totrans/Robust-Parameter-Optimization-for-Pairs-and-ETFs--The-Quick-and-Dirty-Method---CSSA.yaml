@@ -1,24 +1,37 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:49:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:49:35'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Robust Parameter Optimization for Pairs and ETFs: The Quick and Dirty Method
     | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Robust Parameter Optimization for Pairs and ETFs: The Quick and Dirty Method
+    | CSSA'
 - en: 来源：[https://cssanalytics.wordpress.com/2009/09/04/robust-parameter-optimization-for-pairs-and-etfs-the-quick-and-dirty-method/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/04/robust-parameter-optimization-for-pairs-and-etfs-the-quick-and-dirty-method/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/09/04/robust-parameter-optimization-for-pairs-and-etfs-the-quick-and-dirty-method/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/04/robust-parameter-optimization-for-pairs-and-etfs-the-quick-and-dirty-method/#0001-01-01)
 - en: Following up on a good post by BZB [http://bzbtrader.blogspot.com/2009/09/get-pair.html](http://bzbtrader.blogspot.com/2009/09/get-pair.html) who
     is a full-time expert trader, I decided that I would like to provide some input
     on how to figure out what parameters to use following optimization. Again I do
@@ -31,13 +44,19 @@
     has an imperfect correlation and allows me to find the best parameter length for
     a given pair. The application can also be used to develop systems for trading
     individual stocks or ETFs.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 继BZB的一个好帖子[http://bzbtrader.blogspot.com/2009/09/get-pair.html](http://bzbtrader.blogspot.com/2009/09/get-pair.html)之后（他是一位全职专家交易员），我决定提供一些关于如何在优化后确定使用哪些参数的意见。我仍然推荐任何想交易对的人最好使用ETF
+    Rewind的[http://etfrewind.blogspot.com/](http://etfrewind.blogspot.com/)对应用程序，这个程序拥有几乎是一个坚定的量化分析师可能想要的一切，而不是开发你自己的系统。这个应用程序使用z-score，这实际上是使用带有均值和标准差的中轨和上轨通道的一个分支。我自己也用它作为我的内部差分DV2对应用程序的一个很好的补充，因为它有
+    imperfect 相关性，允许我找到给定对的最佳参数长度。该应用程序还可以用于开发交易单个股票或ETF的系统。
 - en: 'Optimization is a valuable tool if used properly. There are a few important
     points that I would emphasize are critical for avoiding unpredictable or disastrous
     results:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Optimization是一个宝贵的工具，如果正确使用。有几点非常重要，我认为是避免不可预测或灾难性结果的关键：
 - en: 1) **the pair must make logical sense:** I rarely trade pairs that do not have
     a conceptual relationship– generally I stick to stocks or ETFs in the same sector,
     commodity, or country. An example would be to trade Vanguard Financial Sector
@@ -48,8 +67,10 @@
     themselves AND it compensates me by offering a much higher return than traditional
     pairs. A good example would be XHB vs IYR (the homebuilders vs the real estate
     sector).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 对必须有逻辑上的意义：我很少交易没有概念性关系的对——通常我坚持交易同一板块、商品或国家的股票或ETF。一个例子就是交易先锋金融板块ETF与iShares金融板块ETF。我还大量交易杠杆ETF套利，这是指如SPY与其杠杆对应物SSO或SDS这样的基础ETF。偶尔我会偏离这个原则，当一个有某种关系的交叉对似乎提供比交易各个组成部分本身更优越的风险/回报特性，并且它通过提供比传统对更高的回报来补偿我。一个好的例子是XHB与IYR（房地产商与房地产板块）。
 - en: '2) **the parameter that best works for one logical pair should work for related
     pairs:**  it doesn’t make sense to use the results of optimization for say the
     leveraged ETF pair SPY vs SSO if it does not work for QQQQ vs QLD for example.
@@ -59,8 +80,10 @@
     to trading stocks individually–the DV2 and RSI2 are currently robust because they
     work across most stocks– using the z-score is no different, it is simply a different
     mean-reversion indicator.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 对一个逻辑对最佳的参数应该适用于相关对：如果它对SPY与SSO这样的杠杆ETF对不起作用，那么例如它对QQQQ与QLDD这样的对也不应该有效。同样的，这也适用于股票对：如果你为美国钢铁与AK钢铁找到了最佳参数，但如果它没有为米塔尔钢铁与美国钢铁带来盈利的成果，那么你使用了一个过拟合的参数。同样的，对单独交易股票也适用——DV2和RSI2目前之所以健壮，是因为它们适用于大多数股票——使用z-score没有不同，它只是一个不同的均值回归指标。
 - en: 'In theory, the ideal way to achieve robustness is to simply choose the top
     quantile or decile of parameter settings using linearity times return, and invest
     a part of your portfolio in each individual parameter setting within this quantile
@@ -69,11 +92,15 @@
     avoid sudden shocks. For the average trader, you can achieve this by diversifying
     across the top 2 or 3 parameters. If you want to simplify your life,here is the
     **Quick and Dirty Method** to find robust parameters:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在理论上，实现稳健性的理想方法是简单地选择线性乘以回报的最高分位数或十分位参数设置，并将你投资组合的一部分投资于这个分位数或十分位数单元内的每个单独的参数设置。显然，如果你有很多钱，这才是实用的。这可能是顶级对冲基金正在做的事情——通过参数设置多样化，以避免突然的冲击。对于普通交易员，你可以通过在最好的2个或3个参数之间多样化来实现。如果你想简化你的生活，这里有一个**快速而简陋的方法**来找到稳健的参数：
 - en: 1) Optimize on linearity x return for better results
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 优化线性x回报以获得更好的结果。
 - en: '2) find the optimal parameters for at least 20 different **related** pair combinations
     (these can be overlapping using one side with other partners) , make sure to optimize
     using the 2-months out of sample feature. Remember this is  either stocks in the
@@ -89,17 +116,24 @@
     deeper you could calculate the average return and standard devation for the entire
     matrix for a given parameter choice and choose the parameter combination that
     has the highest sharpe ratio.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 为至少20个不同的**相关**配对组合找到最优参数（这些可以是使用同一侧与其他合作伙伴重叠的） ，确保使用2个月的样本外特征进行优化。记住这是同一行业的股票或杠杆ETF与基础资产或不同提供商的行业ETF之间的配对。也可能是行业与行业之间的配对——例如XLF与XLE等。**注意：**
+    你可以通过输入同一行业的5-10种不同的股票在ETF Rewind的“矩阵”标签中，并使用一个参数（如15天的均值和1个标准差）同时测试所有组合（超过20个）。你可以从均值2或3开始，逐步增加，选择在最多组合数上盈利的参数组合。你可以通过将盈利单元数除以矩阵中的总单元数来计算这个百分比。在这种情况下，如果你想深入了解，你可以为给定参数选择计算整个矩阵的平均回报和标准差，并选择具有最高夏普比例的参数组合。
 - en: 3) take the average or median setting  for both length of mean and z-score entry/exit
     as the parameter to be used for all pair trades in that sector. Record the standard
     deviation for both the length of mean and z-score entry/exit.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 将平均值长度和z分数进入/退出设置的平均值或中位数作为该行业所有配对交易的参数。记录平均值长度和z分数进入/退出的标准差。
 - en: 4) combine the average or median setting with the optimal setting to yield your
     final robust parameter setting
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 将平均或中位数设置与最优设置相结合，以得出最终的稳健参数设置。
 - en: 5) calculate the performance out of sample over 3 months for short-term pair
     trades (lookback period length less than 10 with z-score entry/exit less than
     1) and 12 months for long-term pair trades (lookback period length greater than
@@ -110,5 +144,7 @@
     but there were profitable settings within the +/-2 standard deviations around
     the average/median parameter setting, then you need to diversify across more than
     one setting.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 使用稳健的参数设置和平均/中位数设置，计算短期配对交易（回溯期长度小于10且z分数进入/退出小于1）和长期配对交易（回溯期长度大于10且z分数进入/退出大于1）在样本外的3个月和12个月的表现。如果你发现使用参数的平均/中位数设置±2个标准差并没有盈利，那么你可能有一个不稳定的配对，应该将其排除。如果你的结果是亏损的，但在平均/中位数参数设置±2个标准差的范围内有盈利的设置，那么你需要进行更多设置的多样化。

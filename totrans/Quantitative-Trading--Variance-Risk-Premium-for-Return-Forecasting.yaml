@@ -1,46 +1,69 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:59:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:59:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Variance Risk Premium for Return Forecasting'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：预测回报的波动风险溢价
 - en: 来源：[http://epchan.blogspot.com/2014/01/variance-risk-premium-for-return.html#0001-01-01](http://epchan.blogspot.com/2014/01/variance-risk-premium-for-return.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2014/01/variance-risk-premium-for-return.html#0001-01-01](http://epchan.blogspot.com/2014/01/variance-risk-premium-for-return.html#0001-01-01)
 - en: Folklore has it that VIX is a reasonable leading indicator of risk. Presumably
     that means if VIX is high, then there is a good chance that the future return
     of the SP500 will be negative. While I have found some evidence that this is true
     when VIX is particularly elevated, say above 30, I don't know if anyone has established
     a negative correlation between VIX and future returns. (
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 传说中VIX是一个合理的风险领先指标。假设这意味着如果VIX高，那么未来SP500回报有很高的可能是负的。虽然我发现当VIX特别高时，比如说超过30时，这种情况确实存在，但我不知道是否有人建立了VIX与未来回报之间的负相关关系。
+    (
 - en: '*Contemporaneous*'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '*同时*'
 - en: VIX and SP500 levels do have a very nice linear relationship with negative slope.)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: VIX和SP500的水平确实有非常好的线性关系，且斜率为负。)
 - en: Interestingly, the situation is much clearer if we examine the Variance Risk
     Premium (VRP), which is defined as the difference between a model-free implied
     volatility (of which VIX is the most famous example) and the historical volatility
     over a recent period. The relationship between VRP and future returns is examined
     in a paper by
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，如果我们检查一下Variance Risk Premium (VRP)，情况会更加清晰，VRP定义为模型免费的隐含波动率（VIX是最著名的例子）与近期历史波动率之间的差异。在论文中，
 - en: '[Chevallier and Sevi](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292496)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Chevallier和Sevi](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2292496)'
 - en: in the context of OVX, which is the CBOE Crude Oil Volatility Index. They have
     found that there is a statistically significant negative linear relationship between
     VRP and future 1-month crude oil futures (CL) returns. The historical volatility
@@ -50,8 +73,11 @@
     believe in the prescience of options traders, it should not surprise you that
     the regression coefficient is negative (i.e. a high VRP predicts a lower future
     return).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在OVX的背景下，这是CBOE原油波动率指数。他们发现VRP与未来1个月原油期货(CL)回报之间存在统计上显著的负线性关系。历史波动率是计算最近交易日的5分钟回报。
+    (为什么是5分钟？显然这个时间足够长，可以避免买卖价差引起的虚假波动，同时又足够短，可以真正采样日内波动。) 如果你相信期权的先见之明，那么回归系数为负（即VRP越高，预测的未来回报越低）也不会让你感到惊讶。
 - en: I have tested a simple trading strategy based on this linear relationship. Instead
     of using monthly returns, I use VRP to predict daily returns of CL. It is very
     similar to a mean-reverting Bollinger band strategy, except that here the "Bollinger
@@ -61,8 +87,10 @@
     bands. So we buy a front contract of CL and hold for just 1 day if VRP is below
     its moving first quartile, and short if VRP is above its moving third quartile.
     It gives a decent average annual return of 17%, but performance was poor in 2013.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经测试了一种基于这种线性关系的简单交易策略。不是使用月回报，而是用VRP来预测CL的日回报。这非常类似于均值回归的Bollinger带策略，不同之处在于这里的“Bollinger带”是由VRP的移动第一和第三四分位数（回顾90天）构成的。由于VRP远非正态分布，我认为使用四分位数而不是标准差来定义Bollinger带更为合理。所以如果VRP低于其移动第一四分位数，我们就买入CL的前合约，仅持有一天；如果VRP高于其移动第三四分位数，我们就做空。它给出了一个相当不错的平均年回报率17%，但在2013年的表现却很差。
 - en: 'Naturally, one can try this simple trading strategy on the E-mini SP500 future
     ES also. This time, VRP is VIX minus the historical volatility of ES.  Contrary
     to folklore, I find that if we regress the future 1 day ES return against VRP,
@@ -73,20 +101,28 @@
     ES if VRP is above its moving third quartile, and short ES if VRP is below its
     moving first quartile. The annualized return is 6%, but performance in 2013 was
     also poor.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，人们也可以尝试将这个简单的交易策略应用于E-mini标普500期货ES。这次，VRP是VIX减去ES的历史波动率。与传说相反，我发现如果我们用VRP对期货一天的ES回报进行回归，回归系数是正的。这意味着VIX相对于历史波动率的增加实际上预测了ES的增加！（这难道意味着投资者为了组合保护而过度支付SPX的看跌期权吗？）确实，与上述相反的交易规则可以带来正回报：如果VRP高于其移动第三四分位数，我们应该买入ES；如果VRP低于其移动第一四分位数，我们应该做空ES。年化回报率为6%，但2013年的表现也很差。
 - en: As the authors of the paper noted, whether or not VRP is a strong enough stand-alone
     predictor of returns, it is probably useful as an additional factor in a multi-factor
     model for CL and ES. If any reader know of other volatility index like VIX and
     OVX, please do share with us in the comments section!
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如论文的作者所指出的，无论VRP是否是一个足够强的独立回报预测因子，它作为CL和ES的多因子模型中的一个额外因子可能是有用的。如果任何读者知道其他类似VIX和OVX的波动率指数，请在评论部分与我们分享！
 - en: ===
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: My online Backtesting Workshop will be offered on February 18-19\. Please visit [epchan.com/](http://epchan.com/my-workshops)[my-workshops ](http://epchan.com/my-workshops)for
     registration details. Furthermore, I will be teaching my Mean Reversion, Momentum,
     and Millisecond Frequency Trading workshops in London on March 17-21, and in Hong
     Kong on June 17-20.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的在线回测研讨会将于2月18-19日举行。请访问[epchan.com/](http://epchan.com/my-workshops)[my-workshops](http://epchan.com/my-workshops)了解注册详情。此外，我将于3月17-21日在伦敦教授我的均值回归、动量以及毫秒频率交易研讨会，并于6月17-20日在香港教授。

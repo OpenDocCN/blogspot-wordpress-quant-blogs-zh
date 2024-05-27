@@ -1,66 +1,100 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:30:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:30:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Quality of Historical Stock Prices from Yahoo Finance | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 来自雅虎财经的历史股价质量 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2014/04/08/quality-of-historical-stock-prices-from-yahoo-finance/#0001-01-01](https://systematicinvestor.wordpress.com/2014/04/08/quality-of-historical-stock-prices-from-yahoo-finance/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2014/04/08/quality-of-historical-stock-prices-from-yahoo-finance/#0001-01-01](https://systematicinvestor.wordpress.com/2014/04/08/quality-of-historical-stock-prices-from-yahoo-finance/#0001-01-01)
 - en: 'I recently looked at the strategy that invests in the components of [S&P/TSX
     60](http://ca.spindices.com/indices/equity/sp-tsx-60-index) index, and discovered
     that there are some abnormal jumps/drops in historical data that I could not explain.
     To help me spot these points and remove them, I created a helper function [data.clean()
     function in data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.r).
     Following is an example of how you can use [data.clean() function](https://github.com/systematicinvestor/SIT/blob/master/R/data.r):'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近研究了投资于[S&P/TSX 60](http://ca.spindices.com/indices/equity/sp-tsx-60-index)指数成分的策略，发现了一些历史数据中无法解释的异常跳动/下跌。为了帮助我发现这些点并删除它们，我创建了一个辅助函数[data.clean()函数在github上的data.r](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)。以下是如何使用[data.clean()函数](https://github.com/systematicinvestor/SIT/blob/master/R/data.r)的示例：
 - en: '[PRE0]'
+  id: totrans-7
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![plot1](img/10466967026e8d60d2c5f66473a67e30.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot1.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/10466967026e8d60d2c5f66473a67e30.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot1.png)'
 - en: '[PRE1]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: It is surprising that [Bank of Nova Scotia (BNS.TO)](http://ca.finance.yahoo.com/q/hp?s=BNS.TO)
     has only one year worth of historical data. I also did not find an explanations
     for jumps in the ARX, COS, ERF during 2000.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 令人惊讶的是，[加拿大新斯科舍银行（BNS.TO）](http://ca.finance.yahoo.com/q/hp?s=BNS.TO)只有一年的历史数据。我也没有找到关于2000年ARX、COS、ERF跳动的解释。
 - en: 'Next, I did same analysis for the stocks in the [S&P 100](http://ca.spindices.com/indices/equity/sp-100)
     index:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我对[S&P 100](http://ca.spindices.com/indices/equity/sp-100)指数中的股票进行了同样的分析：
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot2](img/291ffd63cacfdc903ce2437ec0786ef4.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot2.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/291ffd63cacfdc903ce2437ec0786ef4.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot2.png)'
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'I first thought that September 29th, 2000 drop in AAPL was an data error; however,
     I found following news item: [Apple bruises tech sector, September 29, 2000: 4:33
     p.m. ET](http://cnnfn.cnn.com/2000/09/29/markets/techwrap/) Computer maker’s warning
     weighs on hardware, chip stocks; Nasdaq tumbles.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最初以为2000年9月29日苹果公司（AAPL）的下跌是数据错误；然而，我找到了以下新闻：[苹果打击科技行业，2000年9月29日：下午4:33](http://cnnfn.cnn.com/2000/09/29/markets/techwrap/)电脑制造商的警告对硬件、芯片股造成了压力；纳斯达克大幅下跌。
 - en: So working with data requires a bit of data manipulation and a bit of detective
     works. Please, always have a look at the data before running any back-tests or
     making any conclusions.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，处理数据需要一些数据操作和一些侦探工作。请在运行任何回测或得出任何结论之前，务必查看数据。

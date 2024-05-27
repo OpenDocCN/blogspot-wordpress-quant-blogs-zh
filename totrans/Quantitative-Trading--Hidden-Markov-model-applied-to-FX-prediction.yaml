@@ -1,29 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:01:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:01:59'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Hidden Markov model applied to FX prediction'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：隐马尔可夫模型应用于外汇预测
 - en: 来源：[http://epchan.blogspot.com/2012/03/hidden-markov-model-applied-to-fx.html#0001-01-01](http://epchan.blogspot.com/2012/03/hidden-markov-model-applied-to-fx.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2012/03/hidden-markov-model-applied-to-fx.html#0001-01-01](http://epchan.blogspot.com/2012/03/hidden-markov-model-applied-to-fx.html#0001-01-01)
 - en: I read with interest an older paper "
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我有兴趣地阅读了圣路易斯联邦储备银行Dueker和Neely发表的较早论文"
 - en: '[Can Markov Switching Models Predict Excess Foreign Exchange Returns?](http://research.stlouisfed.org/wp/2001/2001-021.pdf)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Can Markov Switching Models Predict Excess Foreign Exchange Returns?](http://research.stlouisfed.org/wp/2001/2001-021.pdf)'
 - en: '" by Dueker and Neely of the Federal Reserve Bank of St. Louis. I have a fondness
     for hidden Markov models because of its great success in speech recognition applications,
     but I confess that I have never been able to create a HMM model that outperforms
@@ -32,8 +48,10 @@
     to historical data, which makes it vulnerable to data snooping bias. Hence I approached
     this paper with the great hope that experts can teach me how to apply HMM properly
     to finance.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '"。我喜欢隐马尔可夫模型，因为它在语音识别应用中取得了巨大的成功，但我承认我从未能够创建出一个在外汇预测中超越简单技术指标的HMM模型。我将这一点归咎于自己缺乏创造力，以及HMM往往有太多需要通过历史数据进行拟合的参数，这使得它容易受到数据窥探偏差的影响。因此，我带着很大的希望阅读了这篇论文，希望专家们能教我如何正确地将HMM应用于金融。'
 - en: 'The objective of the model is simple: to predict the excess return of an exchange
     rate over an 8-day period. (Excess return in this context is measured by the %
     change in the exchange rate minus the interest rate differential  between the
@@ -41,8 +59,10 @@
     is higher than a threshold (called "filter" in the paper), then go long. If it
     is lower than another threshold, go short. Even though the prediction is on a
     8-day return, the trading decision is made daily.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 模型的目标很简单：预测汇率在8天内的超额回报。（在此上下文中，超额回报通过汇率的变化百分比减去基础货币和计价货币之间的利率差异来衡量。）如果预期的超额回报高于一个阈值（在论文中称为“过滤器”），那么做多。如果它低于另一个阈值，那么做空。尽管预测是在8天的回报上，但交易决策是每天做出的。
 - en: The excess return is assumed to have a 3-parameter student-t distribution. The
     3 parameters are the mean, the degree of freedom, and the scale. The scale parameter
     (which controls the variance) can switch between a high and low value based on
@@ -57,16 +77,20 @@
     volatility, with the consequent change of preference (=different mean returns)
     for "safe" versus "risky" currencies, a phenomenon well-demonstrated in the period
     between August 2011 to January 2012.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 超额回报假定为具有3个参数的学生t分布。这三个参数是均值、自由度和规模。规模参数（控制方差）可以根据马尔可夫模型在高水平和低水平之间切换。自由度（控制峰度，也称为“尾巴的厚度”）也可以根据另一个马尔可夫模型在两个值之间切换。均值与自由度、规模假设的值以及另一个在两个值之间切换的马尔可夫变量线性相关。因此，均值可以假设8个不同的值。这三个马尔可夫模型是独立的。学生t分布比正态分布更适合于建模金融回报，因为它允许有重尾。作者还认为，这个模型捕捉了高波动性和低波动性时期的切换，以及由此导致的对“安全”和“风险”货币的偏好变化（=不同的均值回报），这一现象在2011年8月至2012年1月期间得到了很好的证明。
 - en: The parameters of the Markov models and the student-t distributions are estimated
     in the in-sample period (1974-1981) for each currency pair in order to minimize
     the cumulative deviation of the excess returns from zero. There are a total of
     14 parameters to be so estimated. After these estimations, we have to also estimate
     the 2 trading thresholds by maximizing the in-sample return of the trading strategy,
     assuming a transaction costs of 10 basis point per trade.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了最小化超额回报的累计偏差，每个货币对在样本内期间（1974-1981）对马尔可夫模型和学生-t分布的参数进行估计。总共有14个参数需要这样估计。在这些估计之后，我们还需要通过最大化交易策略在样本内的回报来估计2个交易阈值，假设每笔交易的交易成本为10个基点。
 - en: 'With this large number (16 in total) of parameters, I dread to see the out-of-sample
     (1982-2005) results. Amazing, these are far better than I expected: the annualized
     returns range from 1.1% to 7.5% for 4 major currency pairs. The Sharpe ratios
@@ -78,18 +102,26 @@
     after 2005 and to more currency pairs, to find out if there is really something
     here. In fact, this is the reason why I prefer to read older papers - to allow
     for the possibility of true out-of-sample tests immediately.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 拥有如此多的参数（总共16个）让我不敢想象样本外的结果（1982-2005）。惊人的是，这些结果比我预期的要好得多：对于4大货币对的年度回报率介于1.1%至7.5%之间。夏普比率并不那么令人印象深刻：介于0.11至0.71之间。当然，当研究者报告样本外结果时，你应该对此持保留态度。如果样本外结果不好，他们就不会报告，而是会持续更改底层模型直到获得好的“样本外”结果！所以真正使用这个模型、将其应用于2005年后的数据以及更多的货币对，以找出这里是否真的有什么东西，取决于我们。事实上，这就是我为什么更愿意阅读较旧的论文的原因——为了允许真正的样本外测试立即进行。
 - en: What do you think can be done to improve this model? I suspect that as a first
     step, one can see whether the estimated Markov states correspond reasonably to
     what traders think of as risk-on vs risk-off regimes. If they do, then regardless
     of the usage of this model as a signal generator, it can at least generate good
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 你认为有哪些方法可以改进这个模型？我怀疑作为第一步，可以看看估计的马尔可夫状态是否与交易者认为的风险偏好（risk-on）与风险规避（risk-off）体制相符。如果相符，那么无论这个模型作为信号生成器的使用如何，它至少能生成良好的
 - en: '[risk indicators](http://epchan.blogspot.com/2011/12/risk-indicators.html)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[风险指标](http://epchan.blogspot.com/2011/12/risk-indicators.html)'
 - en: . If not, then maybe the hidden Markov model need to be replaced with a Markov
     model that is conditioned on observable indicators.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果不然，那么或许需要用一个基于可观测指标的条件马尔可夫模型来替代隐藏的马尔可夫模型。

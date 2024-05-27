@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:03:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 19:03:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Implementing stock strategies using options'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：利用期权实施股票策略
 - en: 来源：[http://epchan.blogspot.com/2010/09/implementing-stock-strategies-using.html#0001-01-01](http://epchan.blogspot.com/2010/09/implementing-stock-strategies-using.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2010/09/implementing-stock-strategies-using.html#0001-01-01](http://epchan.blogspot.com/2010/09/implementing-stock-strategies-using.html#0001-01-01)
 - en: There are many stock trading strategies that are quite attractive in terms of
     Sharpe ratios, but not very attractive in terms of returns. (Pairs trading comes
     to mind. But in general, any market neutral strategy suffers from this problem.) 
@@ -28,23 +40,32 @@
     trading strategy using options instead, though there are a sizable number of issues
     to consider. (I recently brushed up on my options know-how by reading the popular
     "
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有许多股票交易策略在夏普比率方面相当有吸引力，但在回报方面并不那么吸引人。（我想到的是一对交易策略。但一般来说，任何市场中性策略都会遇到这个问题。）当然，除非你已经拥有数百万美元的资本，否则你不能靠年化收益率在个位数或低两位数中养家糊口。解决这个困境的一种方式当然是加入专有交易团体，那里我们可能会获得多达x30的杠杆。另一种方式是使用期权而不是实施股票交易策略，尽管需要考虑的问题相当多。（我最近通过阅读流行的
+    "
 - en: '[Options as a Strategic Investment](http://www.amazon.com/dp/0735201978?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0735201978&adid=0Q0NBNQ5ETXJS894MZPP&)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[期权作为战略投资](http://www.amazon.com/dp/0735201978?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0735201978&adid=0Q0NBNQ5ETXJS894MZPP&)'
 - en: '".)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '".)'
 - en: Using options will allow you to increase your leverage beyond the Reg T x2 leverage
     (or even the day trading x4 leverage) only if you buy options only, but not selling
     them. For example, to implement a pairs trading strategy on 2 different stocks,
     you would have to buy call options on the long side, and *buy* put options on
     the short side (but not sell call options). Otherwise the margin requirement for
     selling calls is as onerous as shorting the underlying stock itself.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用期权将允许你将杠杆提高到Reg T x2杠杆（甚至是日内交易x4杠杆）之外，只有当你只购买期权时，而不是卖出期权。例如，要在两个不同的股票上实施一对交易策略，你必须在多头部分购买认购期权，并在空头部分*购买*认沽期权（但不卖出认购期权）。否则，卖出认购期权的保证金要求与卖出标的股票本身一样繁琐。
 - en: The effective leverage is computed by multiplying the *delta* of the option
     by the underlying stock price divided by the option premium. If you buy an out-of-money
     (OTM) option, the delta will be small (smaller than 0.5), but the option premium
@@ -53,18 +74,22 @@
     I personally choose to buy an at-the-money (ATM) call or slightly ITM call without
     actually computing the optimized strike, but perhaps you have reached a different
     conclusion?
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 有效杠杆通过将期权的*delta*与标的股票价格相乘，再除以期权权利金来计算。如果你买入实值期权（ITM），其希腊值会小于0.5，但期权权利金也很小。对于虚值期权（OTM）相反。因此，你必须找到最佳行权价，以便最大化有效杠杆。我个人选择购买平值期权（ATM）或略微实值期权，而不实际计算最优行权价，但也许你得出了不同的结论？
 - en: Naturally, the shorter the time-to-expiration, the cheaper the option and higher
     the effective leverage. Additionally, for ITM options, their deltas increase as
     we get closer to expiration, which also contributes to higher effective leverage.
     However, the time-to-expiration must of course be longer than the expected holding
     period of your position, otherwise you would incur the transaction cost of rolling
     over to the further-month options.
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 自然而言，期权的到期时间越短，期权越便宜，有效杠杆越高。此外，对于实值期权（ITM），随着到期日的临近，它们的希腊值增加，这也导致了更高的有效杠杆。然而，到期时间当然必须长于你持有头寸的预期持有期，否则你将会为滚动到更长时间期权而产生交易成本。
 - en: The discussion of finding the right strike price based on its delta is moot
     if your brokerage's API does not provide you with delta for your automated trading
     system. In theory, Interactive Brokers's API provide deltas for whole options
@@ -74,29 +99,44 @@
     have found the reason/cure for this, please let me know. For now, I am reduced
     to assuming that all my near ATM calls for different stocks have the same delta,
     and I increase this common value from 0.5 to close to 1 as time passes.
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 如果您的券商API不为您提供期权的德尔塔值以供自动化交易系统使用，那么基于其德尔塔值寻找正确执行价格的讨论就是无关紧要的。理论上，Interactive
+    Brokers的API为整个期权链提供德尔塔值，并且[quant2ib](http://exchangeapi.com/)的MATLAB API也会将这些值传递给您的MATLAB执行程序。然而，我尝试使用quant2ib的API获取德尔塔值并未成功。如果您遇到过类似问题，或许已经找到了原因/解决方案，请告知我。目前，我只能假设我所有不同股票的近ATM看涨期权具有相同的德尔塔值，并且随着时间的推移，我将这个共同值从0.5增加到接近1。
 - en: Options don't have MOO, LOO, MOC or LOC order types. If one uses market orders
     to buy at the open or close, one would incur significant transaction costs due
     to the much wider bid-ask spread compared to stocks. I try to use limit orders
     on options orders as much as possible.
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 期权订单不包含MOO、LOO、MOC或LOC订单类型。如果使用市价订单在开盘或收盘时购买，由于与股票相比买卖价差较大，将产生显著的交易成本。我尽可能多地使用限价订单来下单期权。
 - en: If you have used options to implement stock trading strategies, and have experiences
     with these or other issues, please do share them here.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您使用期权实施股票交易策略，并且有这些或其他问题方面的经验，请在这里分享。
 - en: ====
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: 'Reminder: my next'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 提醒：我的下一个
 - en: '[pairs trading workshop](http://www.technicalanalyst.co.uk/training/pairs-trading.htm)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[对冲交易工作坊](http://www.technicalanalyst.co.uk/training/pairs-trading.htm)'
 - en: will take place in New York on October 26-27th.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 将于10月26-27日在纽约举行。

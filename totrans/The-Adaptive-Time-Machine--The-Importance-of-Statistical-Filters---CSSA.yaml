@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:48:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:48:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'The Adaptive Time Machine: The Importance of Statistical Filters | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 适应性时间机器：统计过滤的重要性 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/#0001-01-01](https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/#0001-01-01)
 - en: '**Note:** *to the sophisticated quant crowd, bootstrap tests using White’s
     Reality check are more approriate measures of confidence to avoid data-mining
     bias ie random re-sampling, and de-trending the data by subtracting S&P500 returns
     are done in practice.*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注意：** *对于高级量化群体来说，使用怀特现实检查的引导测试是避免数据挖掘偏差（即随机重新采样，通过减去标普500回报进行数据去趋势）的更合适的置信度衡量标准。*'
 - en: Returning to our little experiment [https://cssanalytics.wordpress.com/2009/09/14/busting-the-efficient-markets-hypothesis-the-adaptive-market-time-machine/](https://cssanalytics.wordpress.com/2009/09/14/busting-the-efficient-markets-hypothesis-the-adaptive-market-time-machine/) and
     the methodology [https://cssanalytics.wordpress.com/2009/09/15/creating-the-adaptive-time-machine/](https://cssanalytics.wordpress.com/2009/09/15/creating-the-adaptive-time-machine/),
     recall that there are 50 strategies that our machine can choose from. It can buy
@@ -41,8 +55,12 @@
     my expert trader friend Frank at Trading the Odds [http://www.tradingtheodds.com/](http://www.tradingtheodds.com/) both
     make frequent use of this statistic and the concept of confidence each in their
     own way.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到我们的小实验[https://cssanalytics.wordpress.com/2009/09/14/busting-the-efficient-markets-hypothesis-the-adaptive-market-time-machine/](https://cssanalytics.wordpress.com/2009/09/14/busting-the-efficient-markets-hypothesis-the-adaptive-market-time-machine/)和方法[https://cssanalytics.wordpress.com/2009/09/15/creating-the-adaptive-time-machine/](https://cssanalytics.wordpress.com/2009/09/15/creating-the-adaptive-time-machine/)，回忆一下，我们的机器可以选择50种策略。它可以在上涨或下跌的任意组合上进行买入或卖出。问题是我们应该关注哪些策略？那些理解市场收益时间序列的人知道，为了避免交易噪音，需要过滤掉相当一部分随机性。过滤策略的一种方法是T统计量[http://en.wikipedia.org/wiki/T-statistic](http://en.wikipedia.org/wiki/T-statistic)。T统计量或T分数的基本原理是帮助你得出一个策略具有统计学上不同于零的平均值的置信度。这是一个不错的开始，因为置信度低的策略更有可能是随机效应。科学家通常使用95%作为区分偶然效应和系统效应所需的置信度标准。现在将这个指标应用于时间序列数据有点复杂，但超出了本文的范围。像我的MarketSci同事Michael
+    Stokes[http://marketsci.wordpress.com/](http://marketsci.wordpress.com/)和我的交易专家朋友Frank
+    at Trading the Odds[http://www.tradingtheodds.com/](http://www.tradingtheodds.com/)都频繁使用这个统计量和置信度的概念。
 - en: 'To conduct our first test, we selected S&P500 data going back to 1955\. First
     we tested buy and hold and then the baseline strategies traded with either a mean-reversion
     bias (ie buy on down runs sell on up runs), or a standard follow-through or trend
@@ -57,11 +75,16 @@
     24, and 32 for 50% confidence. This is in contrast to selecting the “best method.”
     It also helps to verify the robustness of the filter. Lets look at how this filter
     performs vs the various benchmarks:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了进行我们的第一次测试，我们选择了从1955年到现在的标普500数据。首先我们测试了买入持有策略，然后测试了基于均值回归偏见（即在下跌行情中买入，在上涨行情中卖出）或标准跟进或趋势偏见的基准策略。然后我们使用了t统计量创建了三个过滤器：1)
+    最低50%置信度 2) 最低75%置信度和3) 最低95%置信度。然后根据t检验指示的方向交易策略——即如果t统计量是负的，我们交易策略短线；如果是正的，我们交易策略长线。注意，这个方法是“无偏见”的，因为我们不在乎策略交易的方向。置信度数字是使用3年和1年时间的窗口组合计算得出的。请注意，即使是在95%置信度下，我们平均同时交易了7个策略，而在75%置信度下我们交易了24个，在50%置信度下我们交易了32个。这与选择“最佳方法”不同。这也帮助验证了过滤器的健壮性。让我们看看这个过滤器与各种基准表现如何：
 - en: '[![AMTMbarchart100](img/5949ae854eee81a002c9fdcc54e2002f.png "AMTMbarchart100")](https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/amtmbarchart100-2/)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![AMTMbarchart100](img/5949ae854eee81a002c9fdcc54e2002f.png "AMTMbarchart100")](https://cssanalytics.wordpress.com/2009/09/16/the-adaptive-time-machine-the-importance-of-statistical-filters/amtmbarchart100-2/)'
 - en: '![PerformanceChart101](img/ffae048a27ae65a2db9519b077a99502.png "PerformanceChart101")Note
     that each level of confidence outperforms the other, and the equity curve is very
     smooth and adapts across a variety of regimes. The annual return and sharpe ratio
@@ -75,5 +98,7 @@
     adaptive this simple algorithm is, learning from what is working and reallocating
     capital. In the next series of posts we will look at other methods of selecting
     strategies and improving performance even more.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![PerformanceChart101](img/ffae048a27ae65a2db9519b077a99502.png "PerformanceChart101")请注意，每个置信水平的表现都优于其他水平，股票曲线非常平滑，能够在各种制度中进行适应。对于50%、75%和95%的置信度，年回报率和夏普比率都远胜于买入持有策略。这是有道理的，因为即使是50%的置信度，也会包含超过95%置信度的策略。作为一个深层次的思考，市场本质上是由成千上万策略组成的股票曲线，其中许多是基于判断而非统计数据执行的。因此，市场的随机成分实际上相当高，避免低置信度策略可以轻松击败买入持有策略。所有策略也轻松击败了均值回归或跟进偏见。这显示了这个简单算法适应性有多强，它能从正在发挥作用的地方学习并重新分配资本。在下一系列的帖子中，我们将研究选择策略的其他方法以及进一步提高性能。'

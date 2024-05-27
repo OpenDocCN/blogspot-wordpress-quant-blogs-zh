@@ -1,32 +1,48 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:23:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:23:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Index and Bespoken Tranches'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 指数和定制信用违约互换'
 - en: 来源：[http://magmasystems.blogspot.com/2005/11/index-and-bespoken-tranches.html#0001-01-01](http://magmasystems.blogspot.com/2005/11/index-and-bespoken-tranches.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2005/11/index-and-bespoken-tranches.html#0001-01-01](http://magmasystems.blogspot.com/2005/11/index-and-bespoken-tranches.html#0001-01-01)
 - en: In the credit derivatives trading system we are building, we need to add support
     for various structured products. Two of the products are index and bespoken tranches.
     Other instruments that we will eventually have to implement are NTDs, CDOs, and
     CDO
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们正在构建的信用衍生品交易系统中，我们需要添加对各种结构化产品的支持。其中两种产品是指数和定制分层。我们最终需要实施的其他工具包括NTDs、CDOs和CDO
 - en: '2.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '2.'
 - en: 'We all know what a Credit Default Swap (CDS) is, right? It''s a form of insurance
     that someone takes out on a company. One party (the buyer of the insurance) pays
     a periodic premium to a counterparty (seller of the insurance) for insurance on
@@ -35,105 +51,171 @@
     or the CEO runs away to Bermuda with his secretary), the seller of the insurance
     must pay the buyer a certain sum of money, known as the "recovery rate". The CDS
     has some parameters, such as the'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们都知道信用违约互换（CDS）是什么，对吧？这是某人为一家公司购买的一种保险形式。一方（保险的购买者）定期向另一方（保险的出售者）支付保险费，以获得一个基础证券（债券或其他信用工具）的保险。如果基础证券发生“信用事件”（例如：公司破产、错过利息支付，或CEO带着他的秘书逃到百慕大），保险的出售者必须向购买者支付一定数额的钱，这被称为“恢复率”。CDS有一些参数，例如
 - en: '**seniority**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**优先级**'
 - en: (who is first in line to get paid in case the company goes belly up), the
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: （在公司破产时首先获得赔偿的人）， the
 - en: '**tenor**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**期限**'
 - en: (how long the buyer has to pay the premiums for), and the
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: （购买者需要支付保险费的时间长度），以及
 - en: '**notional**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**名义金额**'
 - en: (the value of the underlying instrument).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: （基础证券的价值）。
 - en: There are Indexes on CDS's. We can create our own index, such as the bonds of
     all of the American auto manufacturers. Or, we can use an exchange-manufactured
     index.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 有关于CDS的指数。我们可以创建我们自己的指数，比如所有美国汽车制造商的债券。或者，我们可以使用交易所制造的指数。
 - en: CDS indices are so popular that there is a
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: CDS指数非常受欢迎，以至于有
 - en: '[CDS index](http://djindexes.com/mdsidx/index.cfm?event=cdx)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[CDS指数](http://djindexes.com/mdsidx/index.cfm?event=cdx)'
 - en: on the Dow. The most widely-traded CDS index is the one for
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在道琼斯指数上。交易最广泛的CDS指数是
 - en: '[North American Investment Grade](http://finance.yahoo.com/q?s=%5EDJCDXNI)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[北美投资级指数](http://finance.yahoo.com/q?s=%5EDJCDXNI)'
 - en: instruments. It accounts for over 80% of the CDX volume that is traded.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 证券。它占交易CDX体积的80%以上。
 - en: So, now we know what a CDS Index is. On to Tranches....
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，现在我们知道什么是CDS指数。接下来是分层......
 - en: A
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个
 - en: '**Tranche**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**分层**'
 - en: 'is a certain level of risk. According to Investopedia:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 是一定程度的风险。根据Investopedia的说法：
 - en: '*Tranche is a term often used to describe a specific class of* [*bonds*](http://www.investopedia.com/terms/t/tranches.asp#)
     *within an offering wherein each tranche offers varying degrees of risk to the*
     [*investor*](http://www.investopedia.com/terms/t/tranches.asp#)*. For example,
     a CMO offering a partitioned MBS portfolio might have mortgages (tranches) that
     have one-year, two- year, five-year and 20-year maturities.*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**分层是一个经常用来描述特定类别的** [**债券**](http://www.investopedia.com/terms/t/tranches.asp#)
+    **的术语，在发行中每个分层对** [**投资者**](http://www.investopedia.com/terms/t/tranches.asp#)
+    **提供不同程度的风险。例如，一个CMO提供的分隔MBS投资组合可能包括一年、两年、五年和20年到期的抵押贷款（分层）。**'
 - en: For the above-mentioned index, there are 5 tranches. The
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于上面提到的指数，有5个分层。The
 - en: '***Equity***'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '***股权**'
 - en: tranche covers the first 3% of losses on the credit instruments. The
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 分层覆盖信用工具的第一个3%的损失。The
 - en: '***Mezzanine***'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '***中级**'
 - en: tranche covers from 3-7%. The two
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 分层覆盖从3-7%。The two
 - en: '***Senior***'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '***高级**'
 - en: tranches cover 7-10% and 10-15% respectively. The
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 分层分别覆盖7-10%和10-15%。The
 - en: '***Super Senior***'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '***超级高级**'
 - en: tranche covers the last 15-30% of losses.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 分层覆盖最后15-30%的损失。
 - en: '**Index Tranches**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**指数分层**'
 - en: are for active traders. A
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 是为活跃交易者设计的。一个
 - en: '**Bespoken Tranche**'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定制分层**'
 - en: is one that is put together on the wishes of an investor. It is usually created
     for long-term investment.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是根据投资者的愿望组装的。它通常是长期投资的产物。
 - en: ©2005 Marc Adler - All Rights Reserved
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2005 Marc Adler - 保留所有权利

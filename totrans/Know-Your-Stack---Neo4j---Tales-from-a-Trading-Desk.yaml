@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:28:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:28:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Know Your Stack – Neo4j | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 了解你的堆栈——Neo4j | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2017/02/22/know-your-stack-neo4j/#0001-01-01](https://mdavey.wordpress.com/2017/02/22/know-your-stack-neo4j/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2017/02/22/know-your-stack-neo4j/#0001-01-01](https://mdavey.wordpress.com/2017/02/22/know-your-stack-neo4j/#0001-01-01)
 - en: Know Your Stack – Neo4j
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 了解你的堆栈——Neo4j
 - en: Sometimes things go south in production.  Often its a combination of events
     that have generated a perfect storm.  The storm being production outages that
     are difficult to diagnose due to lack of understanding of the application stack,
     tools, and knowledge.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时生产环境中的事情会变得很糟糕。通常这是因为一系列事件共同作用，形成了一场完美的风暴。这场风暴指的是由于对应用堆栈、工具和知识理解不足，导致生产故障难以诊断。
 - en: 'When attempting to diagnose an issue, its important to piece together the situation
     though evidence – log files, monitoring tools, etc.  Your own codebase can often
     be improved with appropriate logging and inclusion of monitoring tools/UI’s.  Issues
@@ -35,34 +51,48 @@
     to understand the inner workings.  One example in Neo4j.  What follows is a few
     hopefully helpful suggestion to understand what is going on in your application
     stack:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在尝试诊断问题时，重要的是要通过证据——日志文件、监控工具等来拼凑情况。您的代码库往往可以通过适当的日志记录和包含监控工具/UI来改进。问题往往源于现成的产品和对如何理解内部工作原理的知识不足。在Neo4j中有一个例子。以下是一些希望有帮助的建议，以了解您的应用堆栈中正在发生的事情：
 - en: Neo4j has a query.log which is extremely useful in tailing to view the queries
     being run, and the time to execute each query.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Neo4j有一个query.log，在查看正在运行的查询和每个查询的执行时间方面非常有用。
 - en: Neo4j browser (port 7474 by default) has a “:play sysinfo” which has some basic
     information that can prove useful e.g the Transaction tile, and in particular
     “Current”.  If Current remains move than 0 for a duration, when you expect it
     to be 0, you could have long running transactions 😦
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Neo4j浏览器（默认端口7474）有一个“:play sysinfo”，其中有一些基本信息可能会有所帮助，例如事务瓦片，特别是“当前”。如果“当前”持续大于0，而您期望它是0，您可能有长时间运行的事务😦
 - en: Neo4j 3.1+ has improved query management.  In particular its now possible to
     see what queries are [running](https://neo4j.com/docs/operations-manual/current/monitoring/query-management/procedures/?_ga=1.17453689.1953165753.1485254392#query-management-list-queries),
     and kill queries if required
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Neo4j 3.1+改进了查询管理。特别是现在可以查看哪些查询[正在运行](https://neo4j.com/docs/operations-manual/current/monitoring/query-management/procedures/?_ga=1.17453689.1953165753.1485254392#query-management-list-queries)，并在需要时终止查询
 - en: Reading documentation before using a product is key.  Remember the Open [Files](https://support.neo4j.com/hc/en-us/articles/222587167-How-do-I-set-max-open-files-for-Debian-installs)
     for Neo4j.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在使用产品之前阅读文档是关键。记得Neo4j的[打开文件](https://support.neo4j.com/hc/en-us/articles/222587167-How-do-I-set-max-open-files-for-Debian-installs)。
 - en: ~ by mdavey on February 22, 2017.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2017年2月22日发表。
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/), [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于[语言](https://mdavey.wordpress.com/category/languages/)，[未分类](https://mdavey.wordpress.com/category/uncategorized/)

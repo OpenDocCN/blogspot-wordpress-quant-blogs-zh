@@ -1,85 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:20:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:20:12'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Death Spiral Warning Graph'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：死亡螺旋警告图
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html#0001-01-01)
 - en: In the death spiral scenario, rates go up while the currency goes down.  Here
     is the way to watch that.  I’m not saying that death spiral of US Dollar and interest
     rates occurs, but without significant action to restore confidence in fiscal and
     monetary policies, it is almost certain.  Fortunately free markets and a democracy
     might stop the spiral early, but it appears a mini-crisis is necessary to force
     action.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在死亡螺旋场景中，利率上升而货币贬值。以下是观察的方法。我不是说美元和利率的死亡螺旋会发生，但如果没有采取重要措施恢复对财政和货币政策的信心，几乎是肯定的。幸运的是，自由市场和民主可能会及早制止螺旋，但似乎需要一个小危机来迫使采取行动。
 - en: '[![](img/15e838bfa17538c5209a9412623d3bb8.png)](http://stockcharts.com/h-sc/ui?s=%24tnx:%24usd&p=m&st=1990-01-01&en=(today)&id=p76537466593)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/15e838bfa17538c5209a9412623d3bb8.png)](http://stockcharts.com/h-sc/ui?s=%24tnx:%24usd&p=m&st=1990-01-01&en=(today)&id=p76537466593)'
 - en: via [StockCharts.com](http://stockcharts.com/h-sc/ui?s=%24tnx:%24usd&p=m&st=1990-01-01&en=(today)&id=p76537466593)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 [StockCharts.com](http://stockcharts.com/h-sc/ui?s=%24tnx:%24usd&p=m&st=1990-01-01&en=(today)&id=p76537466593)
 - en: And when we add this as the denominator or pricing mechanism for the S&P 500
     (transformation requires removing natural $ pricing first), the chart looks like
     this.  The transitory fake improvement in stock prices since 2008 driven by aggressive
     monetary action is much clearer.  Anything through 14.3 on the green line is indicative
     of the first phase of this spiral.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们将其作为 S&P 500 的分母或定价机制添加时（转换需要先删除自然美元定价），图表看起来像这样。自 2008 年以来由于积极的货币行动而引起的股价短暂的假象性改善更加清晰。绿线上的任何数值超过
+    14.3 都表明这个螺旋的第一阶段。
 - en: '![fed fred rates dollar sp500](img/9c13e54170ef26d3b5c7d10afd735952.png "fed
     fred rates dollar sp500")'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![fed fred rates dollar sp500](img/9c13e54170ef26d3b5c7d10afd735952.png "fed
+    fred rates dollar sp500")'
 - en: And to throw a little R into this, let’s look at the rolling correlation of
     the SP500 to the 10y/US$ ratio.  The correlation magically increases in Summer
     1998 with Long Term Capital Management and Russia default, and the Fed put became
     entrenched.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 并且为了增加一些 R，让我们看一下 SP500 与 10年期美元/美元比率的滚动相关性。在 1998 年夏天，由于长期资本管理公司和俄罗斯违约，相关性神奇地增加，而美联储的支持也变得牢固。
 - en: 'R code:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: require(quantmod)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#get currency rate and stock data from the FED FRED data series'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从美联储美元其他数据系列获取货币汇率和股票数据'
 - en: 'getSymbols("DGS10",src="FRED") #load Fed 10y rate'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DGS10",src="FRED") #加载美联储10年期利率'
 - en: 'getSymbols("DTWEXM",src="FRED") #load Fed Dollar'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DTWEXM",src="FRED") #加载美联储美元'
 - en: 'getSymbols("DTWEXO",src="FRED") #load Fed Dollar Other'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DTWEXO",src="FRED") #加载美联储美元其他'
 - en: 'getSymbols("SP500",src="FRED") #load Fed SP500'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("SP500",src="FRED") #加载美联储SP500'
 - en: returns<-merge(monthlyReturn(to.monthly(DGS10/DTWEXM)),monthlyReturn(to.monthly(SP500)))
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: returns<-merge(monthlyReturn(to.monthly(DGS10/DTWEXM)),monthlyReturn(to.monthly(SP500)))
 - en: corSP10USD<-runCor(returns["1973::2011-02",1],returns["1973::2011-02",2],n=6)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: corSP10USD<-runCor(returns["1973::2011-02",1],returns["1973::2011-02",2],n=6)
 - en: chartSeries(corSP10USD,theme='white',name="S&P 500 Rolling 1y Correlation with
     US$ and US10y Rates")
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: chartSeries(corSP10USD,theme='white',name="S&P 500 Rolling 1y Correlation with
+    US$ and US10y Rates")

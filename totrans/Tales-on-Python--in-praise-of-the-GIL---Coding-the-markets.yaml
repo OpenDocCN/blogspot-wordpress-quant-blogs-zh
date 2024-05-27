@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:34:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:34:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Tales on Python: in praise of the GIL | Coding the markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Python传奇：赞美GIL | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2011/11/28/tales-on-python-in-praise-of-the-gil/#0001-01-01](https://etrading.wordpress.com/2011/11/28/tales-on-python-in-praise-of-the-gil/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2011/11/28/tales-on-python-in-praise-of-the-gil/#0001-01-01](https://etrading.wordpress.com/2011/11/28/tales-on-python-in-praise-of-the-gil/#0001-01-01)
 - en: 'Tales on Python: in praise of the GIL'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Python传奇：赞美GIL
 - en: November 28, 2011
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2011年11月28日
 - en: '[Tales](http://mdavey.wordpress.com) notes the trend towards Python in a [recent
     post](http://mdavey.wordpress.com/2011/11/28/tier-1-sell-side-language-war-slang-vs-python-vs-scala/).
     Couple of points in response: firstly, slang at Goldman. I’m told by ex Goldmanites
@@ -44,5 +60,9 @@
     Python’s C API on a different thread than the main app thread. It’s not a concern,
     because the GIL serializes all access to Python’s memory. Which simplifies things
     hugely…'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[Tales](http://mdavey.wordpress.com)的一篇最近帖子中，提到了Python逐渐受到重视的趋势。[近期帖子](http://mdavey.wordpress.com/2011/11/28/tier-1-sell-side-language-war-slang-vs-python-vs-scala/)中提到了几点回应：首先，Goldman的slang非常接近Python。据前Goldmanites说，slang本来就与Python很相似。其次，Python的全局解释器锁（GIL）。GIL对于习惯了C++、Java和C#等传统多线程环境的开发者来说，似乎总是一个劣势。从这种角度来看批评Python的人是正确的，他们指出GIL阻止了开发者在一个进程中实现并发性，因为它对Python运行时拥有的所有内存进行了锁定。这是一个真正的限制，但在处理混合语言环境时却有好处。例如，如果您正在使用Python的C
+    API实现C++的发布/订阅API，您将需要一个回调机制来处理传入的消息。本地的发布/订阅API通常会在另一个线程上生成，在该线程上调度新的消息回调。当该线程调用回调实现时，回调实现可以调用Python代码，而不用担心锁定或互斥量，或者它是在主应用线程不同的线程上调用Python的C
+    API。这不是一个担忧，因为GIL将所有对Python内存的访问序列化。这大大简化了事情…

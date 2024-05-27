@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:23:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:23:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Targeted Volatility Analysis | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 目标波动性分析 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/06/14/targeted-volatility-analysis/#0001-01-01](https://cssanalytics.wordpress.com/2010/06/14/targeted-volatility-analysis/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/06/14/targeted-volatility-analysis/#0001-01-01](https://cssanalytics.wordpress.com/2010/06/14/targeted-volatility-analysis/#0001-01-01)
 - en: One of the most overlooked areas in trading is the focus on keeping a constant
     bet size in order to ensure consistent risk-adjusted returns. Most traders fail
     to explicitly adjust for market volatility, which can have a catastrophic impact
@@ -28,8 +40,10 @@
     profile based on expected returns and volatility. Most passive portfolios keep
     constant exposure to market conditions, leaving them effectively overleveraged
     when volatility spikes in years like 2008.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易中最被忽视的领域之一就是保持恒定的投注规模，以确保一致的风险调整后回报。大多数交易员没有明确地调整市场波动性，当市场剧烈波动时，不幸地投注错误方向可能会造成灾难性的影响。使用杠杆使这变得更加危险。然而，这一因素对长期持有投资者也有影响。投资组合管理基于为具有特定风险/回报概况的投资者创建资产配置，这基于预期回报和波动性。大多数被动投资组合保持对市场条件的恒定敞口，在像2008年这样的波动性激增年份，实际上可能会过度杠杆。
 - en: 'So how do portfolio managers in the field deal with such issues?  A friend
     of this blog, Jerry Wagner  has a great deal of experience making these types
     of decisions as the president of [Flexible Plan Investments](http://www.flexibleplan.com/).
@@ -40,57 +54,89 @@
     Abrams—also  presented a paper.  So what is Jerry’s secret sauce to address the
     issue of maintaining constant volatility for a portfolio? The equation is really
     very simple yet mathematically elegant:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么现场的投资组合经理是如何处理这些问题的呢？博客的好友Jerry Wagner在这方面有丰富的决策经验，他曾是[Flexible Plan Investments](http://www.flexibleplan.com/)的总裁。CSS最近参加了在奥兰多举办的[NAAIM
+    Uncommon Knowledge 2010 Conference](http://www.naaim.org/annualconference.aspx)，Jerry在那里介绍了一种使用当前和历史波动性进行头寸规模/对冲的有趣技术。这是关于Secret
+    Sauce Trading Seminar的系列报道的第一部分，其中我们的CSS研究人员David Abrams也提交了一份论文。那么Jerry的秘诀是什么，以解决保持投资组合恒定波动性的问题呢？这个方程实际上非常简单，却又数学上优雅：
 - en: '![](img/bdc751c30b95e7bc267f203ae31bc2e1.png "tva_eq")'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/bdc751c30b95e7bc267f203ae31bc2e1.png "tva_eq")'
 - en: 'You can incorporate this into your own trading with or without leverage.  Here’s
     how to do it with leverage:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以无论是否使用杠杆都将此纳入自己的交易中。以下是使用杠杆的方法：
 - en: '*If (HR < 1) Position Size = 1 – HR*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（HR < 1）则头寸规模 = 1 - HR
 - en: '*If (HR >1 and HR<2) Position Size= HR*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（HR >1且HR<2）则头寸规模= HR
 - en: '*If (HR> 2) Position Size = 2*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（HR> 2）则头寸规模 = 2
 - en: Position size of 1 means full position, 2 means 100% leverage.  So a hedge ratio
     (HR>1 and HR<2) means leverage of (HR-1).  This has the benefit of continuously
     adjusting position size based on the ratio of the historic volatility to the current
     volatility.  The numerator can be adjusted by a volatility multiplier to “target”
     a specified level of volatility and make your system more conservative or aggressive.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 头寸规模为1意味着满仓，2意味着100%杠杆。因此，对冲比率（HR>1且HR<2）意味着杠杆（HR-1）。这的好处是持续根据历史波动性与当前波动性的比率调整头寸规模。分子可以通过波动性乘数进行调整，以“目标”特定的波动水平，使你的系统更加保守或激进。
 - en: Let’s look at an example.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们来看一个例子。
 - en: '|  | **CAGR** | **St Dev (daily)** | **Sharpe** | **DVR** | **MaxDD** |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '|  | **年化复合增长率** | **每日标准差** | **夏普比率** | **DVR** | **最大回撤** |'
 - en: '| **BUY HOLD** | 7.29% | 1.25% | 36.66% | 0.01% | -55.19% |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '| **买入持有** | 7.29% | 1.25% | 36.66% | 0.01% | -55.19% |'
 - en: '| **TVA (no leverage)** | 6.55% | 0.84% | 49.14% | 0.02% | -34.09% |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| **TVA（无杠杆）** | 6.55% | 0.84% | 49.14% | 0.02% | -34.09% |'
 - en: '| **TVA (200% leverage)** | 7.59% | 0.79% | 60.35% | 0.05% | -30.58% |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| **TVA（200%杠杆）** | 7.59% | 0.79% | 60.35% | 0.05% | -30.58% |'
 - en: In the graph below you can see how a simple long only strategy using TVA and
     leverage to control position size can reduce the max drawdown in half and almost
     double the Sharpe ratio while also slightly increasing the CAGR.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图展示了如何使用TVA和杠杆来控制头寸规模的简单长期策略，这种策略可以将最大回撤减少一半，同时几乎将夏普比率翻倍，并且略微增加年化复合增长率。
 - en: '[![](img/07a4fc36a5f8e1a400fd0839f49e0d0d.png "000")](https://cssanalytics.files.wordpress.com/2010/06/000.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '![000](https://cssanalytics.files.wordpress.com/2010/06/000.png)'
 - en: The resulting equity curves are much more stable than a buy and hold allocation
     despite using leverage explicitly. In future posts we will look at how to incorporate
     volatility and other metrics into position sizing.  These will be incorporated
     into our portfolio management tools for systems. Good work Jerry!
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管明确使用了杠杆，但得出的权益曲线比买入并持有分配要稳定得多。在未来的文章中，我们将探讨如何将波动性和其他指标纳入头寸规模。这些将整合到我们的系统投资组合管理工具中。杰瑞，干得好！

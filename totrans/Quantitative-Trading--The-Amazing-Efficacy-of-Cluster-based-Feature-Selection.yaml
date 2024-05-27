@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:54:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:54:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: The Amazing Efficacy of Cluster-based Feature Selection'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：基于聚类的特征选择的惊人效果
 - en: 来源：[http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01](http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01](http://epchan.blogspot.com/2021/01/the-amazing-efficacy-of-cluster-based.html#0001-01-01)
 - en: 'One major impediment to widespread adoption of machine learning (ML) in investment
     management is their black-box nature: how would you explain to an investor why
     the machine makes a certain prediction? What''s the intuition behind a certain
@@ -25,8 +37,11 @@
     is not just a problem for financial ML, it is a prevalent issue in applying ML
     to any domain. If you don’t understand the underlying mechanisms of a predictive
     model, you may not trust its predictions.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 机器学习（ML）在投资管理中广泛采用的主要障碍之一就是它们的黑盒特性：你如何向投资者解释机器为何做出某种预测？某种ML交易策略背后的直觉是什么？你如何解释一次重大的回撤？这种“可解释性”的缺乏不仅仅是金融机器学习的一个问题，也是将ML应用于任何领域的一个普遍问题。如果你不理解预测模型的
+    underlying mechanisms，你可能不会信任其预测。
 - en: 'Feature importance ranking goes a long way towards providing better interpretability
     to ML models. The feature importance score indicates how much information a feature
     contributes when building a supervised learning model. The importance score is
@@ -47,8 +62,11 @@
     many alternative (substitute) features can be used to build predictive models
     with similar predictive power. (In linear regression, substitution effect is called
     "collinearity".)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 特征重要性的排名在提高机器学习模型的可解释性方面起到了很重要的作用。特征重要性得分表明了在构建监督学习模型时一个特征贡献了多少信息。每个数据集中的特征都会计算其重要性得分，从而使得特征可以进行排序。因此，投资者可以看到在预测中使用的主要预测因子（特征），实际上可以应用“特征选择”方法，只将那些重要的特征包括在预测模型中。然而，正如我的同事Nancy
+    Xin Man和我 在[Man and Chan 2021a](https://doi.org/10.3905/jfds.2020.1.047)中演示的，常见的特征选择算法（例如MDA、LIME、SHAP）在特征重要性排名上可能表现出很高的变异性：不同的随机种子通常会产生截然不同的特征重要性排名。例如，如果我们用不同的种子多次对某些交叉验证集运行MDA，那么在一次运行中某个特征可能位于列表顶部，但在下一次运行中可能会跌至底部。这种当然消除了特征选择的可解释性好处。有趣的是，尽管特征重要性的排名存在这种变异性，但特征选择通常仍然会在我们上述论文中测试的多组数据集上提高样本外预测性能。这可能是由于“替代效应”：许多替代特征可以用来构建具有相似预测能力的预测模型。（在线性回归中，替代效应被称为“多重共线性”）。
 - en: To reduce variability (or what we called *instability*) in feature importance
     rankings and to improve interpretability, we found that LIME is generally preferable
     to SHAP, and definitely preferable to MDA. Another way to reduce instability is
@@ -63,8 +81,12 @@
     however, this minimum is not zero. So there remains some residual variability
     of the top ranked features, which may be attributable to the substitution effect
     as discussed before.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了减少特征重要性排名的变异性（或我们所称的不稳定性）并提高可解释性，我们发现LIME通常优于SHAP，绝对优于MDA。减少不稳定的另一种方法是在特征重要性算法运行过程中增加迭代次数。在典型的MDA实现中，每个特征都会被多次
+    permute。但是LIME和SHAP的标准实现将迭代次数设置为默认的1次，这不利于稳定性。在LIME中，每个实例及其扰动样本只适合一个线性模型，但我们可以多次扰动它们以适合多个线性模型。在SHAP中，我们可以多次
+    permute 样本。我们的实验表明，随着迭代次数的增加，顶级特征的不稳定性大致收敛到某个最小值；然而，这个最小值不是零。因此，顶级特征的残差变异性仍然存在，这可能归因于之前讨论的替代效应。
 - en: To further improve interpretability, we want to remove the residual variability. [López
     de Prado, M. (2020)](https://amzn.to/39lU6or) described a clustering method to
     cluster together features are that are similar and  should receive the same importance
@@ -74,131 +96,197 @@
     to the same data sets we studied previously. This method is generally called cMDA.
     As they say in social media click baits, the results will (pleasantly) surprise
     you.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了进一步提高可解释性，我们想要去除残差变异性。[López de Prado, M. (2020)](https://amzn.to/39lU6or)描述了一种聚类方法，将相似的特征聚类在一起，并应该收到相同的重要性排名。这承诺是一种伟大的方法来去除替代效应。在我们新的论文[Man
+    and Chan 2021b](https://py.predictnow.ai/request_cmda_paper)中，我们在之前研究过的同一数据集上应用了层次聚类方法，在MDA特征选择之前。这种方法通常称为cMDA。正如社交媒体点击诱饵所说，结果将会（愉快地）让你感到惊讶。
 - en: 'For the benchmark [breast cancer dataset](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)),
     the top two clusters found were:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于基准数据集[乳腺癌数据集](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic))，找到的前两个簇分别是：
 - en: '| Topic | Cluster Importance Scores | Cluster Rank | Features |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| 主题 | 簇重要性得分 | 簇排名 | 特征 |'
 - en: '| Geometry summary | 0.360 | 1 |   ''mean radius'',  ''mean perimeter'',  ''mean
     area'',  ''mean compactness'',  ''mean concavity'',  ''mean concave points'', 
     ''radius error'',  ''perimeter error'',  ''area error'',  ''worst radius'',  ''worst
     perimeter'',  ''worst area'',  ''worst compactness'',  ''worst concavity'',  ''worst
     concave points'' |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '| 几何摘要 | 0.360 | 1 |  ''平均半径'', ''平均周长'', ''平均面积'', ''平均紧凑度'', ''平均凹陷度'', ''平均凹点数'',
+    ''半径误差'', ''周长误差'', ''面积误差'', ''最小区半径'', ''最大区周长'', ''最大区面积'', ''最大区紧凑度'', ''最大区凹陷度'',
+    ''最大区凹点数'' |'
 - en: '| Texture summary | 0.174 | 2 | ''mean texture'', ''worst texture'' |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| 纹理摘要 | 0.174 | 2 | ''平均纹理'', ''最小区纹理'' |'
 - en: Not only do these clusters have clear interpretations (provided by us as a "Topic"),
     these clusters almost never change in their top importance rankings under 100
     random seeds!
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些簇不仅有清晰的解释（由我们提供为“主题”），而且在100个随机种子下，这些簇的顶级重要性排名几乎没有变化！
 - en: Closer to our financial focus, we also applied cMDA to a
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 更接近我们的金融焦点，我们还把cMDA应用于了
 - en: '[public dataset](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=517667)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 【公共数据集](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=517667)
 - en: with features that may be useful for predicting S&P 500 index excess monthly
     returns. The two clusters found are
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 带有可能对预测标普500指数超额月收益有用的特征。找到的两个簇是
 - en: '| Topic | Cluster Scores | Cluster Rank | Features |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| 主题 | 簇得分 | 簇排名 | 特征 |'
 - en: '| Fundamental | 0.667 | 1 | d/p, d/y, e/p, b/m, ntis, tbl, lty, dfy, dfr, infl
     |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| 基本面 | 0.667 | 1 | d/p, d/y, e/p, b/m, ntis, tbl, lty, dfy, dfr, infl |'
 - en: '| Technical | 0.333 | 2 | d/e, svar, ltr, tms |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| 技术 | 0.333 | 2 | d/e, svar, ltr, tms |'
 - en: 'The two clusters can clearly be interpreted as fundamental vs technical indicators,
     and their rankings don''t change: fundamental indicators are always found to be
     more important than technical indicators in all 100 runs with different random
     seeds.'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这两个簇可以明确地解释为基本指标与技术指标，它们的排名不会改变：在100次不同随机种子运行中，基本指标始终被认为比技术指标更重要。
 - en: Finally, we apply this technique to our proprietary features for predicting
     the success of our [Tail Reaper](https://www.predictnow.ai/blog/what-is-the-probability-of-profit-of-your-next-trade-introducing-predictnow-ai/)
     strategy. Again, the top 2 clusters are highly interpretable, and never change
     with random seeds. (Since these are proprietary features, we omit displaying them.)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们将这种技术应用于我们预测[Tail Reaper](https://www.predictnow.ai/blog/what-is-the-probability-of-profit-of-your-next-trade-introducing-predictnow-ai/)策略成功性的专有特征。再次强调，前两个簇是非常容易解释的，并且不会因为随机种子而改变。（由于这些是专有特征，我们省略了它们的显示。）
 - en: If we select only those clearly interpretable, top clusters of features as input
     to training our random forest, we find that their *out-of-sample* predictive performances
     are also improved in many cases. For example, the accuracy of the S&P 500 monthly
     returns model improves from 0.517 to 0.583 when we use cMDA instead of MDA, while
     the AUC score improves from 0.716 to 0.779.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们只选择那些清晰可解释的、顶级聚类特征作为随机森林训练的输入，我们发现在许多情况下，它们的*样本外*预测性能也得到了提高。例如，当使用cMDA而不是MDA时，S&P
+    500月收益率模型的准确性从0.517提高到0.583，而AUC得分从0.716提高到0.779。
 - en: '|  | S&P 500 monthly returns prediction |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '|  | 预测S&P 500月收益率 |'
 - en: '|  | F1 | AUC | Acc |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '|  | F1 | AUC | Acc |'
 - en: '| cMDA | 0.576 | 0.779 | 0.583 |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: '| cMDA | 0.576 | 0.779 | 0.583 |'
 - en: '| MDA | 0.508 | 0.716 | 0.517 |'
+  id: totrans-27
   prefs: []
   type: TYPE_TB
+  zh: '| MDA | 0.508 | 0.716 | 0.517 |'
 - en: '| Full | 0.167 | 0.467 | 0.333 |'
+  id: totrans-28
   prefs: []
   type: TYPE_TB
+  zh: '| 完整 | 0.167 | 0.467 | 0.333 |'
 - en: Meanwhile, the accuracy of the Tail Reaper metalabeling model improves from
     0.529 to 0.614 when we use cMDA instead of MDA and select all clustered features
     with above-average importance scores, while the AUC score improves from 0.537
     to 0.672.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 与此同时，当我们使用cMDA而不是MDA，并选择所有重要性得分高于平均水平的聚类特征时，Tail Reaper金属标签模型的准确性从0.529提高到0.614，而AUC得分从0.537提高到0.672。
 - en: '|  | F1 | AUC | Acc |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: '|  | F1 | AUC | Acc |'
 - en: '| cMDA | 0.658 | 0.672 | 0.614 |'
+  id: totrans-31
   prefs: []
   type: TYPE_TB
+  zh: '| cMDA | 0.658 | 0.672 | 0.614 |'
 - en: '| MDA | 0.602 | 0.537 | 0.529 |'
+  id: totrans-32
   prefs: []
   type: TYPE_TB
+  zh: '| MDA | 0.602 | 0.537 | 0.529 |'
 - en: '| Full | 0.481 | 0.416 | 0.414 |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
+  zh: '| 完整 | 0.481 | 0.416 | 0.414 |'
 - en: This added bonus of improved predictive performance is a by-product of capturing
     all the important, interpretable features, while removing most of the unimportant,
     uninterpretable features.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种提高预测性能的额外好处是在捕捉所有重要、可解释的特征的同时，移除了大部分不重要、不可解释的特征。
 - en: You can try out this hierarchical cluster-based feature selection for free on
     our financial machine learning SaaS [predictnow.ai](http://predictnow.ai). You
     can use the no-code version, or ask for our [API](https://py.predictnow.ai/api_request).
     Details of our methodology can be found [here](https://py.predictnow.ai/request_cmda_paper).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以在我们的金融机器学习SaaS [predictnow.ai](http://predictnow.ai) 上免费尝试这种基于层次聚类的特征选择。您可以使用无代码版本，或者请求我们的[API](https://py.predictnow.ai/api_request)。我们方法论的详细信息可以在[这里](https://py.predictnow.ai/request_cmda_paper)找到。
 - en: Industry News
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 行业新闻
 - en: Jay Dawani recently published a very readable, comprehensive guide to deep learning
     "[Hands-On Mathematics for Deep Learning](https://amzn.to/34v6tuY)".
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 杰伊·达瓦尼最近出版了一本非常易读、全面的深度学习指南——《[深度学习的手动手册](https://amzn.to/34v6tuY)》。
 - en: Tradetron.tech is a new algo strategy marketplace that allows one to build algo
     strategies without coding and others to subscribe to them and take trades in their
     own linked brokerage accounts automatically. It can handle complex strategies
     such as arbitrage and options strategies. Currently some 400 algos are on offer.
+  id: totrans-38
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Tradetron.tech是一个新的算法策略市场，它允许用户不编写代码就能构建算法策略，也让其他人订阅这些策略，并自动在他们自己的关联经纪账户中进行交易。它能够处理复杂的策略，如套利和期权策略。目前大约有400个算法可供选择。
 - en: Jonathan Landy, a Caltech physicist, together with 3 of his physicist friends,
     have started a deep data science and machine learning [blog](https://www.efavdb.com/) with
     special emphasis on finance.
+  id: totrans-39
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 加州理工学院物理学家乔纳森·兰迪和他的3位物理学家朋友一起，开始了一个重点关注金融的深度数据科学和机器学习[博客](https://www.efavdb.com/)。

@@ -1,185 +1,275 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:30:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:30:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Pricing & Regime (part 1) | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 定价与政权（第 1 部分）| Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01](https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01](https://tr8dr.wordpress.com/2011/07/27/pricing-regimes-part-1/#0001-01-01)
 - en: 'High frequency trading tends to fall into the following categories:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 高频交易往往属于以下类别：
 - en: some form of prop market making (probably largest %)
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 某种形式的机构市场制造（可能最大的比例）
 - en: gaming other players or microstructure
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 与其他玩家或微观结构博弈
 - en: short-period arbitrage
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 短期套利
 - en: execution algos
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 执行算法
 - en: 'One might also run medium frequency strategies that pursue:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 也可能运行中频率策略，追求：
 - en: trend (if there is sufficient momentum)
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 趋势（如果有足够的动量）
 - en: cycles (follow the pivots for high amplitude price cycles)
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 周期（跟随高振幅价格周期的主轴）
 - en: longer-period arbitrage
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 长期套利
 - en: Focusing on market making and trend/cycle following, understanding price regime
     (the gross characteristics of price movement) and pricing function (a view on
     expected forward price) is important.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 专注于市场制造和趋势/周期跟随，理解价格政权（价格运动的总体特征）和定价函数（预期远期价格的观点）很重要。
 - en: '**Regime**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**政权**'
 - en: We might like to have an indication of regime to determine whether we should
     be market making, following a trend, following cycles, etc.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可能希望有一个政权指示来确定我们是否应该进行市场制造、跟随趋势、跟随周期等。
 - en: In particular, with market making, there will be periods in the market where
     market making is “dangerous” (i.e. is almost guaranteed to lose money).   Aside
     from the obvious danger in gapping prices around news or other events, the main
     danger is in offering during periods of strong momentum.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是，在市场制造过程中，市场制造可能会在某些时期变得“危险”（即几乎肯定会亏钱）。除了在新闻或其他事件周围跳空价格的明显危险外，主要危险在于在强劲动量期间提供报价。
 - en: There will be a strong order selection bias such that when the market is going
     up (down) you receive buying (selling) orderflow almost exclusively, and end up
     with short inventory against an appreciating (depreciating) price.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 将存在强烈的订单选择偏见，以至于当市场上升（下降）时，你几乎 exclusively 收到购买（销售）订单流，最终在面对上升（下降）价格时出现空头库存。
 - en: Hence, there will be periods during a trading day that are “good” for market
     making (i.e. when there is balanced order flow and very gradual price drift) and
     periods which are better suited for momentum or high-amplitude cycle following
     strategies.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，在交易日的某些时期进行市场制造是“好”的（即当订单流平衡且价格漂移非常缓慢），而适合趋势或高振幅周期跟随策略的时期。
 - en: '**Pricing**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定价**'
 - en: Pricing provides us with an expected mean and its derivatives over some forward
     period, as well as an estimate of noise and MR activity. This information is invaluable
     in determining appropriate market making offering prices and in following high
     amplitude price activity.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 定价为我们提供了一些预期平均值及其在某些远期期间的导数，以及噪声和MR活动的估计。这些信息在确定适当的市场制造报价价格以及跟随高振幅价格活动方面至关重要。
 - en: '**Goals**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**目标**'
 - en: 'We would like to have the following:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们希望有以下内容：
 - en: A pricing function with (often) good accuracy over some forward period, tailored
     to the requirements of the regime
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一个在某些远期期间具有（通常）良好准确性的定价函数，根据政权的要求进行定制
 - en: A notion of price regime
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 价格政权的概念
 - en: Other metrics such as upper and lower noise around the price function (mean),
     period and amplitudes of monotonic segments, etc.
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 价格函数周围的噪声上下的其他度量（平均值），周期和单调段落的振幅等。
 - en: In the context of market making we are looking to have a monotonic and almost
     linear price function that represents a mean or a mode through price noise.  
     Calibrated in this fashion one has a convenient view on the forward price function
     and the upper and lower bounds on prices we are willing to offer on.   This combined
     with inventory can be used to dynamically bias the offerings.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 在市场制造的背景下，我们希望能够有一个单调且几乎线性的价格函数，代表通过价格噪音的平均值或模态。以这种方式校准后，你对远期价格函数以及我们愿意提供的价格上下的界限有一个方便的观点。结合库存，可以用来动态偏置报价。
 - en: In the context of momentum or cycling we are looking for a pricing function
     that follows the momentum or cycles with appropriate curvature and is reasonably
     predictive (or retrospective with low-lag) with respect to pivot points.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在动量或周期背景下，我们正在寻找一个遵循动量或周期的定价函数，具有适当的曲率，并且对于枢轴点具有合理的预测性（或低延迟的回顾性）。
 - en: '**Example**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**示例**'
 - en: 'Here is an example of a pricing function (the green line) during a momentum
     period (over the course of some hours), encountering a disturbance and change
     in regime to a cycling mode thereafter:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一个定价函数（绿色线条）在动量期间（在几小时内）的一个例子，遇到干扰并随后转变为循环模式：
 - en: 'Here is the continuation within the series with the pricing function in a momentum
     / cycling mode:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是在一系列连续过程中，以动量/循环模式呈现定价函数的继续：
 - en: Note that the above is smoothed a-posteri, so the trajectory of the filter has
     more noise as it progresses tick to tick.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，上述内容是后验平滑的，因此随着逐笔推进，滤波器的轨迹会有更多的噪声。
 - en: '**History Of Approaches**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方法历史**'
 - en: 'I’ve used many approaches in the past in modeling the price function:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去，我尝试过许多方法来构建价格函数模型：
 - en: variety of filters from the signal processing space
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 来自信号处理空间的多种滤波器
 - en: signal decompositions and partial reconstitutions
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 信号分解和部分重构
 - en: a number of different stochastic state systems with an EKF (extended kalman
     filter)
+  id: totrans-38
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用扩展卡尔曼滤波（EKF）对多个不同的随机状态系统进行了处理：
 - en: direct calibration of least squares splines with various heuristic rules
+  id: totrans-39
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 直接校准最小二乘样条的各种启发式规则
 - en: 'My current approach is the #4, but would like to find a good solution using
     a SDE in a bayesian framework, as is more elegant and flexible.    My past experience
     with EKFs was that they are hard to parameterize (via the state and measurement
     covariances) and can easily become unstable in the presence of unexpected noise.'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 我目前采用的方法是第4种，但希望能找到一个在贝叶斯框架内使用SDE的好方法，因为这种方法更为优雅和灵活。过去我在使用EKF时的经验是，它们很难进行参数化（通过状态和测量协方差）并且在遇到意外噪声时很容易变得不稳定。
 - en: A few months ago Max Dama posted a link to a
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 几个月前，Max Dama分享了一个链接到一篇
 - en: '[paper](http://arxiv.org/abs/0802.0220 "paper")'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[论文](http://arxiv.org/abs/0802.0220 "论文")'
 - en: describing a TV-VAR model, but more of interest, an alternate approach to describing
     the kalman filter evolution rate with discount factors.   The discounting approach
     solves one of the problems in parameterizing Kalman filters.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 描述了一个时间序列向量自回归（TV-VAR）模型，但更有趣的是，一种描述卡尔曼滤波演化速率带有折现因子的替代方法。折现方法解决了参数化卡尔曼滤波中的一个问题。
 - en: That and in discussion with some other quants (hi Sasha) recently motivated
     me to reexamine the SDE approach.   I’ll be discussing an approach in some detail
     in the next posts.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 在与一些其他量化分析师（嗨，萨沙）的讨论中，我重新审视了随机微分方程（SDE）方法。在接下来的文章中，我将详细讨论这种方法。

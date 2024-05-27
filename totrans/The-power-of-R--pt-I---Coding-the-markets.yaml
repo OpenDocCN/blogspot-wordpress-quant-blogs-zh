@@ -1,104 +1,168 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:51:32'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:51:32
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The power of R, pt I | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: The power of R, pt I | Coding the markets
 - en: 来源：[https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01](https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01](https://etrading.wordpress.com/2006/08/01/the-power-of-r-pt-i/#0001-01-01)
 - en: A small illustration culled from the R intro…
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: A small illustration culled from the R intro…
 - en: 30 elements in each array..
+  id: totrans-7
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 每个数组有 30 个元素..
 - en: ..a salary and an Aussie state
+  id: totrans-8
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: ..a salary and an Aussie state
 - en: incomes <- c(60, 49, 40, 61, 64, 60,
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: incomes <- c(60, 49, 40, 61, 64, 60,
 - en: 59, 54, 62, 69, 70, 42, 56,
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 59, 54, 62, 69, 70, 42, 56,
 - en: 61, 61, 61, 58, 51, 48, 65,
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 61, 61, 61, 58, 51, 48, 65,
 - en: 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 49, 49, 41, 48, 52, 46, 59, 46, 58, 43)
 - en: state <- c(“tas”, “sa”,  “qld”, “nsw”,
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: state <- c(“tas”, “sa”, “qld”, “nsw”,
 - en: “nsw”, “nt”,  “wa”,  “wa”,  “qld”,
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: “nsw”, “nt”, “wa”, “wa”, “qld”,
 - en: “vic”, “nsw”, “vic”, “qld”, “qld”,
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: “vic”, “nsw”, “vic”, “qld”, “qld”,
 - en: “sa”,  “tas”, “sa”,  “nt”,  “wa”,
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: “sa”,  “tas”, “sa”,  “nt”,  “wa”,
 - en: “vic”, “qld”, “nsw”, “nsw”, “wa”,
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: “vic”, “qld”, “nsw”, “nsw”, “wa”,
 - en: “sa”,  “act”, “nsw”, “vic”, “vic”, “act”)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: “sa”,  “act”, “nsw”, “vic”, “vic”, “act”)
 - en: Categorise the states and categorise the incomes
+  id: totrans-19
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 对州和收入进行分类
 - en: into buckets using cut(). Then use table() to
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用 cut() 把数据分成几个桶，然后用 table() 函数
 - en: generate a table of counts for each category
+  id: totrans-21
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 生成每个类别的计数表
 - en: combination…
+  id: totrans-22
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 进行组合…
 - en: statef <- factor( state)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: statef <- factor( state)
 - en: incomef <- factor( cut( incomes, breaks = 35 + 10*(0:7)))
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: incomef <- factor( cut( incomes, breaks = 35 + 10*(0:7)))
 - en: table( incomef, statef)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: table( incomef, statef)
 - en: statef
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: statef
 - en: incomef   act nsw nt qld sa tas vic wa
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: incomef   act nsw nt qld sa tas vic wa
 - en: (35,45]   1   1  0   1  0   0   1  0
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: (35,45]   1   1  0   1  0   0   1  0
 - en: (45,55]   1   1  1   1  2   0   1  3
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: (45,55]   1   1  1   1  2   0   1  3
 - en: (55,65]   0   3  1   3  2   2   2  1
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: (55,65]   0   3  1   3  2   2   2  1
 - en: (65,75]   0   1  0   0  0   0   1  0
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: (65,75]   0   1  0   0  0   0   1  0

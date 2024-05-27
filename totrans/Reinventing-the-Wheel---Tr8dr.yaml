@@ -1,44 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:28:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:28:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Reinventing the Wheel | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: ReInventing the Wheel | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01](https://tr8dr.wordpress.com/2015/01/27/reinventing-the-wheel/#0001-01-01)
 - en: I guess I am old enough to have seen the wheel reinvented a number of times
     in both software infrastructure and financial technology spaces.  Unfortunately
     the next generation’s version of the wheel is not always better, and with youthful
     exuberance often ignores the lessons of prior “wheels”.   That said, we all know
     that sometimes innovation is a process of 3 steps forward and 2 steps backward.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想我已经足够大了，以至于在软件基础设施和金融科技领域看到过多次轮子被重新发明。不幸的是，下一代轮子并不总是更好的，而且常常由于年轻人的激情而忽略先前“轮子”的教训。话说回来，我们都知道，有时创新是一个前进三步、后退两步的过程。
 - en: Two examples that have impacted me recently.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近影响我的两个例子。
 - en: '**HDFS**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**HDFS**'
 - en: An example of a poorly reinvented wheel is Hadoop / HDFS in the technology space,
     where Amdahl’s law has been ignored completely (i.e. keep the data near the computation
     to achieve parallelism).   When one writes to HDFS, HDFS distributes blocks of
     data across nodes, but with no explicit way to control of data / node affinity.
       HDFS is only workable in scenarios where the data to be applied in a computation
     is <= the block size and packaged as a unit.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个例子是在技术领域中的Hadoop/HDFS，其中Amdahl定律被完全忽略了（即保持数据靠近计算以实现并行化）。当向HDFS写入数据时，HDFS将在节点之间分配数据块，但没有明确的方式来控制数据/节点亲和性。HDFS仅在数据块大小
+    <= 要应用于计算的数据并且以单元形式打包的情况下才可行。
 - en: “Everybody and his brother” are touting big data on HDFS, S3, or something equivalent
     as the data solution for distributed computation, in many cases, without thinking
     deeply about it.   I was involved a company that was dealing with a big data problem
@@ -46,19 +67,26 @@
     (url visits) based on ~4B Ad auctions daily, relate each URL to a content categories
     (via classification & taxonomy of concepts), and for each user, then determine
     a feature vector for each user.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: “每个人和他的兄弟”都在吹嘘HDFS、S3或等效物作为分布式计算的数据解决方案，在许多情况下，没有深入思考。最近我参与了一家处理广告领域大数据问题的公司。我需要跟踪和建模4亿+用户的浏览行为（url访问），基于每天约40亿次广告拍卖，将每个URL与一个内容类别相关联（通过概念的分类和税制），并为每个用户确定一个特征向量。
 - en: 'I argued that using HDFS for this data would be a failure with respect to scaling.
      The problem was that auction data, 4B records of <timestamp,user,url, …>, was
     distributed across N nodes uniformly, rather than on userid MOD N.  HDFS does
     not allow one to control data / node affinity.  My computation was some function
     over all events seen in a historical period for each user.  This function:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我争辩说，使用HDFS对此数据进行处理将在扩展方面失败。问题在于拍卖数据，40亿条<时间戳,用户,url, …>记录均匀地分布在N个节点上，而不是基于userid
+    MOD N。HDFS不允许一个人控制数据/节点亲和性。我的计算是对每个用户在历史时期内看到的所有事件的一些函数。这个函数：
 - en: F( [<timestamp,user1,urlA, …>, <timestamp,user1,urlG, …>, …])
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: F( [<时间戳,用户1,urlA, …>, <时间戳,用户1,urlG, …>, …])
 - en: needed to be evaluated for each user, across all events for that user and could
     not be decomposed into sub-functions on individual events reasonably.    The technology
     I had to use was Spark over HDFS distributed timeseries.  I argued that to evaluate
@@ -67,56 +95,78 @@
     in a uniformly distributed data-block scheme).   The (lack of) performance did
     not “disappoint”, instead a linear speedup (N x faster), produced a linear slowdown
     (approaching N x slower due to the dominance of communication).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要为每个用户评估，跨该用户的所有事件，并且不能合理地分解为单个事件上的子函数。我不得不使用的技术是在HDFS分布式时间序列上的Spark。我争辩说，要为每个用户评估这个函数，平均而言，（N-1）/N请求的数据需要从其他节点传输（因为只有1/N的数据可能在均匀分布的数据块方案中是本地的）。性能的（缺乏）并没有“令人失望”，相反，线性加速（N倍快），产生了线性减速（由于通信的主导地位，接近N倍慢）。
 - en: '**Bitcoin Exchanges**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**比特币交易所**'
 - en: Bitcoin popularized a number of excellent ideas around decentralized clearing,
     accounting, and trust via the blockchain ledger.  The core technology behind bitcoin
     is very innovative and is being closely watched by traditional financial institutions.
       The exchanges, on the other hand (with some exceptions), seem to have been built
     with little clue as to what preceded them in the financial space.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: Bitcoin 通过区块链账本普及了许多关于去中心化清算、记账和信任的优秀理念。比特币背后的核心技术非常创新，正受到传统金融机构的密切关注。另一方面，交易所（有一些例外）似乎是在对金融领域之前的情况知之甚少的情况下建立起来的。
 - en: JSON / REST is popular as a web transport, but is not an efficient or precise
     transport for market data.
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: JSON/REST 作为一种网络传输方式流行，但并不是市场数据的高效或精确传输。
 - en: 'clue: provide a Nasdaq ITCH like binary stream-based feed for efficiency and
     precision OR FIX if you insist.'
+  id: totrans-17
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 线索：提供类似纳斯达克 ITCH 的二进制流基于传输以提高效率和精确度，或者如果你坚持的话，进行修复。
 - en: Some exchanges (like Bitstamp) have a super-slow matching engine
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一些交易所（如 Bitstamp）拥有超级慢的匹配引擎。
 - en: sweeping the book takes multiple seconds to transact
+  id: totrans-19
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 清扫订单簿需要数秒才能完成交易。
 - en: Provide orderbook updates as transactions and not top-K levels
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将订单簿更新作为交易提供，而不是顶级 K 级别。
 - en: transactions (new order, delete order, update order, traded) are more compact,
     provide more information, & are timely.
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易（新订单、删除订单、更新订单、成交）更加紧凑，提供更多信息，并且及时。
 - en: Provide keyframes
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 提供关键帧。
 - en: i.e. provide an enumeration of orders in the orderbook on connection and perhaps
     periodically in the stream to bootstrap the subscribers view of the orderbook
     and validate later in the stream.
+  id: totrans-23
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 即在连接时提供订单簿中订单的枚举，并在流中定期验证以启动订阅者的订单簿视图。

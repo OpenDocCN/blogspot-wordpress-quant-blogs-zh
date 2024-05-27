@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:37:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:37:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Tales from a Trading Desk | Software Engineering Noise
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 交易台故事 | 软件工程噪音
 - en: 来源：[https://mdavey.wordpress.com#0001-01-01](https://mdavey.wordpress.com#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com#0001-01-01](https://mdavey.wordpress.com#0001-01-01)
 - en: 'Having just spent what feels like years waiting for fibre to be available in
     my area of the woods, Three weeks ago, I’ve finally had the fibre installed into
     my house but took a few weeks to resolve the connectivity issues 😦 Here’s a summary
     to help anyone else following in my footsteps:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在等待我的林地区域光纤可用，感觉像是等了好几年之后，三周前，我终于把光纤安装到了我的房子里，但解决连通性问题花了几周时间😦 以下是一份总结，希望能帮助后来者：
 - en: I’ve been running with [Plusnet](https://www.plus.net/) broadband for a long
     time. The broadband comes in on a copper phone line, into an OpenReach bridge,
     and from the bridge to a Plusnet 4 port router. Previously I had the router connected
@@ -34,14 +48,21 @@
     and for IPv4 Connection select PPPoE, and sent the Plusnet username and password.
     This should allow the [UDM Pro](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)
     to PPPoE to Plusnet.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直使用[Plusnet](https://www.plus.net/)宽带。宽带通过铜质电话线进入，经过OpenReach桥接，再从桥接器接到Plusnet
+    4端口路由器。以前我将路由器连接到UDM Pro的Port9（默认端口）(WAN)。这样是可以的，直到你想使用静态IP地址，这时你需要将OpenReach桥接器直接连接到WAN，即默认的Port9，然后通过UDM
+    Pro控制面板，设置/互联网，选择默认（WAN），在高级设置中，选择手动，对于IPv4连接选择PPPoE，并输入Plusnet用户名和密码。这应该可以让UDM
+    Pro通过PPPoE连接到Plusnet。
 - en: I made the decision to keep Plusnet for a period of time whilst I get Hey!Broadband
     Fibre install, and get a bearing on the quality of service. Plusnet has delivered
     a good quality of service over the last n years, but doesn’t offer fibre in my
     area.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定在一段时间内保留Plusnet，同时我安装Hey!Broadband Fibre，并了解服务质量。Plusnet在过去几年中提供了良好的服务质量，但在我的地区不提供光纤。
 - en: '[Hey!Broadband Fibre](https://heybroadband.co.uk/for-home) cones into a bridge
     model, which in non bridge install, would connect to a wifi router. I opted for
     bridge mode, with a static IP, and therefore didn’t need the wifi router. UDM
@@ -54,22 +75,30 @@
     successful connection. Errors I experience during the initial setup of the service
     ranged from failing to find remote host, Unsupported address family, Misformatted
     DNS reply and Unable to complete PPPoE Discovery'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Hey!Broadband Fibre](https://heybroadband.co.uk/for-home)提供一个桥接模型，在非桥接安装中，会连接到无线路由器。我选择了桥接模式，并使用静态IP，因此不需要无线路由器。UDM
+    Pro Port10（WAN2）是需要的从光纤桥接调制解调器连接以太网线的端口。一旦连接完成，UDM Pro控制面板，设置/互联网，选择备份（WAN2）高级设置需要启用PPPoE，并输入正确的用户名和密码。如果你想在启用PPPoE时查看日志，从你局域网中的任何一台机器通过SSH登录到UDM
+    Pro，并查看/var/log/message的尾端。你也许还想要使用ifconfig和route -n命令来检查在成功连接后接口是否设置如预期。在服务初始设置过程中，我遇到的错误从找不到远程主机、不支持的地址族、格式错误的DNS回复到无法完成PPPoE发现。'
 - en: Hopefully by now your UDM Pro dashboard (top left) should display WAN and WAN2
     with IP addresses above the Gateway IP. You should be able to run Speed Tests
     for both internet connections (WAN/WAN2) from the UDM Pro dashboard (bottom right),
     by selecting WAN or WAN2 and then selecting Speed Test.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在你的UDM Pro控制面板（左上角）应该显示WAN和WAN2，并在网关IP上方显示IP地址。你应该能够从UDM Pro控制面板（右下角）对两个互联网连接（WAN/WAN2）进行速度测试，通过选择WAN或WAN2，然后选择速度测试。
 - en: I ran into two issue during the overall install of fibre. Hey!Broadband hasn’t
     setup the bridge modem correctly. I diagnosed this by using a laptop, and PPPoE’d
     to the bridge modem, and reporting the issues I saw. Post a successful PPPoE connecting,
     I saw DNS resolution issues on the bridge modem or further back into Hey!Broadband’s
     network. Reporting this to TechSupport resolve the issue at 6.40am the following
     morning – effectively they assigned me a new static IP
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在安装光纤整体过程中，我遇到了两个问题。嘿！宽带没有正确设置桥接调制解调器。我用笔记本电脑进行了诊断，通过桥接调制解调器进行PPPoE连接，并报告了我看到的问题。在成功进行PPPoE连接后，我发现桥接调制解调器或进一步进入嘿！宽带网络的DNS解析存在问题。我将此问题报告给技术支持，在第二天早上6.40解决了问题——实际上他们为我分配了一个新的静态IP。
 - en: Between a successful PPPoE connection, and resolved DNS issues, I wanted the
     OpenReach PPPoE to work from Port10 (WAN2), since it was going to be the failover.
     The reason for this turned out to be that Port10 can’t downgrade to 100Mb, which
@@ -78,14 +107,22 @@
     way around from a failover, and default UDM Pro setup. To resolve this I went
     into the UDM Pro [Port Management](https://help.ui.com/hc/en-us/articles/360008365334-UniFi-Configure-Port-Remapping),
     and swapped WAN to Port10 and WAN2 to Port9\. Solved
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在成功进行PPPoE连接和解决DNS问题之间，我希望OpenReach PPPoE能从Port10（WAN2）工作，因为它将是故障转移的手段。后来发现Port10不能降级到100Mb，这是OpenReach桥接能达到的最大连接。实际上我现在有了Port9（WAN）Plusnet和Port10（WAN2）嘿！宽带光纤，这与故障转移的默认UDM
+    Pro设置正好相反。为了解决这个问题，我进入了UDM Pro的[端口管理](https://help.ui.com/hc/en-us/articles/360008365334-UniFi-Configure-Port-Remapping)，并将WAN交换到Port10，WAN2交换到Port9。解决了问题。
 - en: With the above failover configuration in place, PPPoE connected, but the DNS
     issues unresolved, the UDM Pro failed over to WAN2, and the slower Plusnet broadband.
     Sometimes between 1am and 6:40am, Hey!Broadband resolve the DNS/PPPoE issues,
     and UDM Pro failed back to WAN.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上述故障转移配置就绪后，PPPoE连接成功，但DNS问题未解决，UDM Pro故障转移到了WAN2，并使用了较慢的Plusnet宽带。在凌晨1点到6:40之间，嘿！宽带解决了DNS/PPPoE问题，UDM
+    Pro恢复到了WAN。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)

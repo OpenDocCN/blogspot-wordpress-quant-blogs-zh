@@ -1,109 +1,171 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:07:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:07:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: QuantLib installation in Visual Studio Express 2013 | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: QuantLib在Visual Studio Express 2013中的安装 | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2015/05/07/quantlib-installation-in-visual-studio-express-2013/#0001-01-01](https://quantcorner.wordpress.com/2015/05/07/quantlib-installation-in-visual-studio-express-2013/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2015/05/07/quantlib-installation-in-visual-studio-express-2013/#0001-01-01](https://quantcorner.wordpress.com/2015/05/07/quantlib-installation-in-visual-studio-express-2013/#0001-01-01)
 - en: Say ***VS2013 Express*** is already installed on your machine (it can be downloaded
     from [here](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
     "Microsoft Visual Studio")). Compiling ***QuantLib*** (‘***QL***‘, thereafter)
     requires a working ***Boost*** installation. We will then start by Installing
     the ***Boost*** library.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设***VS2013 Express***已经在你的机器上安装好了（它可以从[这里](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+    "Microsoft Visual Studio")下载）。编译***QuantLib***（简称***QL***）需要一个工作的***Boost***安装。我们将首先从安装***Boost***库开始。
 - en: '**Boost download & installation**'
+  id: totrans-7
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '**Boost下载及安装**'
 - en: The ***Boost*** project now provides binaries that makes the process installation
     painless.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Boost**项目现在提供了二进制文件，使得安装过程变得无痛。'
 - en: (1) Go to [http://sourceforge.net/projects/boost/files/boost-binaries](http://sourceforge.net/projects/boost/files/boost-binaries),
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: （1）访问[http://sourceforge.net/projects/boost/files/boost-binaries](http://sourceforge.net/projects/boost/files/boost-binaries)，
 - en: (2) Select the ***Boost*** file corresponding to the release you wish to download
     and install (we will be using ***Boost 1.57.0***, below).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: （2）选择与你希望下载和安装的版本对应的**Boost**文件（我们将使用**Boost 1.57.0**，见下文）。
 - en: (3) Choose the installer corresponding to your compiler and platform.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: （3）选择与你的编译器和平台相对应的安装程序。
 - en: (4) Download the installer on your machine and run it.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: （4）在你的机器上下载安装程序并运行它。
 - en: In what follows, ***Boost 1.57.0*** has been installed in the folder C:\Boost\boost_1_57_0.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在以下内容中，***Boost 1.57.0***已安装在C:\Boost\boost_1_57_0文件夹中。
 - en: '**QuantLib download & installation**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**QuantLib下载及安装**'
 - en: (1) Go to [http://sourceforge.net/projects/quantlib/files](http://sourceforge.net/projects/quantlib/files
     "sourceforge.quantlib").
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: （1）访问[http://sourceforge.net/projects/quantlib/files](http://sourceforge.net/projects/quantlib/files
+    "sourceforge.quantlib")。
 - en: (2) Download ***QL*** (the most recent version is ***QL 1.5*** at the time of
     writing).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: （2）下载***QL***（截至编写时最新版本为***QL 1.5***）。
 - en: '***QL*** has been installed in the folder C:\QuantLib-1.5'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '***QL***已安装在C:\QuantLib-1.5文件夹中。'
 - en: (3) Start VC++, File > Open File… > C:\QuantLib-1.5\ QuantLib_vc12.sln. You
     shall then see the Quantlib_vc12 and the 19 projects it contains in ***VS2013***’s
     *Solution Explorer* window.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: （3）启动VC++，文件 > 打开文件… > C:\QuantLib-1.5\QuantLib_vc12.sln。你将在VS2013的“解决方案资源管理器”窗口中看到Quantlib_vc12和它包含的19个项目。
 - en: (4) Open ***VS2013***’s *Property Manager* window, following View > Other Windows…
     > Property Manager. There in *Property Manager*, select the *QuantLib* and expand
     it. It will show the build *modes/platform* nodes.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: （4）打开***VS2013***的*属性管理器*窗口，按照视图 > 其他窗口… > 属性管理器。在*属性管理器*中，选择*QuantLib*并展开它。它将显示构建*模式/平台*节点。
 - en: (5) Select the build mode(s)/platform(s) you wish to build ***QL*** with, eg
     expand the node *Debug | x64* and select *Microsoft.Cpp.x64.User* inside.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: （5）选择你希望用***QL***构建的构建模式/平台，例如展开节点*Debug | x64*并选择内部的*Microsoft.Cpp.x64.User*。
 - en: '[![Visual Studio - QuantLib - Property Manager](img/b65365834515035b39569abef8701838.png)](https://quantcorner.wordpress.com/wp-content/uploads/2015/05/installing_quantlib_vs2013_1.jpg)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![Visual Studio - QuantLib - 属性管理器](https://quantcorner.wordpress.com/wp-content/uploads/2015/05/installing_quantlib_vs2013_1.jpg)'
 - en: VS2013 ‘s Property Manager window with several solution configurations selected
     at a time
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: VS2013的“属性管理器”窗口，同时选择多个解决方案配置
 - en: (6) Then right-click and select *Property* at the bottom in the context menu.
     A *Property Page* will pop. Click on the *VC++ Directories* tab.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: （6）然后右键点击，在上下文菜单中选择*属性*。将弹出*属性页*。点击*VC++目录*标签。
 - en: (7) In *Include Directories*, add C:\Boost\boost_1_57_0.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: （7）在*包含目录*中，添加C:\Boost\boost_1_57_0。
 - en: (8) In Libraries Directories, add C:\Boost\boost_1_57_0\libs.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: （8）在“库目录”中，添加C:\Boost\boost_1_57_0\libs。
 - en: (9) Click on *Apply*, then *OK* to close the *Property Page* window.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: （9）点击*应用*，然后*确定*以关闭*属性页*窗口。
 - en: (10) Now, select the configuration you wish eg *Release* mode and x64\. Go back
     to the *Solution Explorer*. Select the **Quantlib_vc12 Solution** in *Solution
     Explorer*, right-click and *Build*. ***QL*** shall start to build, then.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: (10) 现在，选择你想要的配置，例如*发布*模式和x64。回到*解决方案资源管理器*。在*解决方案资源管理器*中选择**Quantlib_vc12解决方案**，右键点击并选择*构建*。此时，***QL***
+    将开始构建。
 - en: Note: the official ***QL** *installation documentation can be found [here](http://quantlib.org/install/vc10.shtml
     "QuantLib Installation documention"). We previously wrote [here](https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/
     "Installing Quantlib for VC11") on this topic.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：官方***QL** *安装文档可以在此处找到[这里](http://quantlib.org/install/vc10.shtml "QuantLib安装文档")。我们之前在此处[这里](https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/
+    "在VC11上安装Quantlib")写了关于这个话题的内容。

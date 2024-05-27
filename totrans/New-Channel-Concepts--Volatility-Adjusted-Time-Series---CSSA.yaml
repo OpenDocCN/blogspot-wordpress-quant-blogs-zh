@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:48:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:48:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'New Channel Concepts: Volatility-Adjusted Time Series | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 新的通道概念：波动调整时间序列 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2015/02/12/new-channel-concepts-volatility-adjusted-time-series/#0001-01-01](https://cssanalytics.wordpress.com/2015/02/12/new-channel-concepts-volatility-adjusted-time-series/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2015/02/12/new-channel-concepts-volatility-adjusted-time-series/#0001-01-01](https://cssanalytics.wordpress.com/2015/02/12/new-channel-concepts-volatility-adjusted-time-series/#0001-01-01)
 - en: '[![vol33](img/6590d18b64908122e5d4478ec85c7c31.png)](https://cssanalytics.files.wordpress.com/2015/02/vol33.jpg)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![vol33](img/6590d18b64908122e5d4478ec85c7c31.png)](https://cssanalytics.files.wordpress.com/2015/02/vol33.jpg)'
 - en: 'In the last several posts, I introduced some different methods for channel
     strategies including [Percentile Channel](https://cssanalytics.wordpress.com/2015/01/21/percentile-channels-a-new-twist-on-a-trend-following-favorite/
     "Percentile Channels: A New Twist On a Trend-Following Favorite")s. A simple way
@@ -39,8 +53,12 @@
     on the volatility-adjusted index. As a final point of clarification, you are not
     changing your position size as a function of volatility, instead you are just
     changing the input price.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去的几篇文章中，我介绍了一些不同的通道策略方法，包括[百分位通道](https://cssanalytics.wordpress.com/2015/01/21/percentile-channels-a-new-twist-on-a-trend-following-favorite/
+    "百分位通道：趋势跟踪的新变化")。一个简单的方法，可以潜在地改进（或至少采用不同的方法）唐奇安通道策略，就是使用不同的价格输入来生成交易信号。如在[误差调整动量再现](https://cssanalytics.wordpress.com/2015/02/02/error-adjusted-momentum-redux/
+    "误差调整动量再现")中所述，使用任何类型的风险调整都有助于通过减少一些噪音来提高性能。当使用回报时，这很容易应用，但是当我们将此概念应用于基于价格的策略时该怎么办呢？实际上很简单：使用一个固定的目标百分比-比如1%-，你将自始至终的所有回报乘以目标除以某个滞后标准差。然后你创建一个这些回报的指数，这将成为新的价格系列（要小心避免任何前瞻性偏差）。这个波动调整指数就是生成您的通道策略信号的东西，而不是传统的价格历史。当然，在回测中，你获得的是实际价格历史上的回报，而不是波动调整指数上的回报。作为最后澄清的一点，你并不是根据波动性来改变你的头寸大小，而是只是改变输入价格。
 - en: 'So lets compare using a traditional 120-day Donchian Channel strategy that
     buys the S&P500 on new 120-day highs and sells and goes to cash (SHY) on 120-day
     lows versus the same strategy using a volatility-adjusted time series to generate
@@ -51,25 +69,35 @@
     NOT the equity curve of the strategy, but rather the Volatility-Adjusted Index
     created using SPY. The performance of the strategy using the index for signals
     is also highlighted in red:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，让我们比较使用传统的120日唐奇安通道策略，即在标普500指数创下120日新高时买入，并在120日新低时卖出并持有现金（SHY），与使用波动调整时间序列生成信号的相同策略。回顾期是20日标准差，将每日回报调整为创建指数（带有0.75%的波动目标-注意目标选择不会改变性能，只会改变指数的比例）。对于这个测试，我们使用了来自Yahoo的SPY数据，以及从Morningstar延伸的SHY数据。请注意，红线不是策略的股权曲线，而是使用SPY创建的波动调整指数。使用该指数进行信号的策略表现也用红色突出显示：
 - en: '[![SPY VOLLY](img/af5b6adc00e84e8df43605e7a3bee5be.png)](https://cssanalytics.files.wordpress.com/2015/02/spy-volly.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![SPY VOLLY](img/af5b6adc00e84e8df43605e7a3bee5be.png)](https://cssanalytics.files.wordpress.com/2015/02/spy-volly.png)'
 - en: 'In this case, performance is improved using the volatility-adjusted index for
     signals versus the actual SPY price. Here is the same strategy using DBC with
     the ETF data only (since the choice of extension of DBC can create significant
     variability in performance):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，使用波动率调整指数相对于实际SPY价格，可以提高性能。以下是仅使用DBC和ETF数据（因为DBC的扩展选择可能会导致性能出现显著的变异性）的相同策略：
 - en: '[![DBC with VOLLY](img/8b175d83583a30c0460022c0db406d1c.png)](https://cssanalytics.files.wordpress.com/2015/02/dbc-with-volly.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![带有波动率的DBC](img/8b175d83583a30c0460022c0db406d1c.png)](https://cssanalytics.files.wordpress.com/2015/02/dbc-with-volly.png)'
 - en: The strategy shows some promise and generates different signals at certain times
     than the traditional strategy. Perhaps using different risk metrics such as acceleration
     or using other filtering techniques may hold even more promise. This same concept
     can be applied with moving averages or any other time of price-based signal. Just
     another concept for the diligent researcher to experiment with. Perhaps applying
     fractals to generate charts may be another useful avenue of exploration.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 该策略显示出一些潜力，并在某些时候产生与传统策略不同的信号。或许使用不同的风险度量，如加速度，或者使用其他过滤技术可能会带来更大的希望。这个概念可以与移动平均线或其他基于价格的信号一起应用。这是勤奋的研究者可以尝试的另一个概念。或许将分形应用于生成图表可能是另一种有用的探索途径。

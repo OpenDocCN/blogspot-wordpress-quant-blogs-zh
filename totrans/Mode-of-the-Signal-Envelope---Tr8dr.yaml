@@ -1,57 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:38:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:38:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mode of the Signal Envelope | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 信号包络的模式 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01](https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01](https://tr8dr.wordpress.com/2009/11/06/mode-of-the-envelope/#0001-01-01)
 - en: November 6, 2009 · 8:02 am
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年11月6日 · 8:02 am
 - en: One thing that struck me as clever with the HHT was the use of projecting a
     spline across the minima and maxima for a given harmonic.   In effect this defines
     the envelope for the series for a given harmonic (level of decomposition).   A
     posteri, the mean or mode should be more or less equivalent to the average of
     the envelope splines.   Interesting!
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在HHT中，让我印象深刻的一个巧妙之处是，它使用样条函数跨过给定谐波的极小值和极大值。实际上，这为给定谐波（分解级别）的序列定义了包络。事后再看，均值或模式应该与包络样条的平均值相当。很有趣！
 - en: This is a very appropriate way to model the mean within the context of mean-reversion
     (ie oscillations around the mode within an envelope).   Instead of trying to model
     the mean directly as a stochastic process, why not model the envelope — this is
     more appropriate as we can fit the envelope into our view of mean reversion.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在均值回归（即在包络内围绕模式的振荡）的背景下，这是一种非常合适的方式来建模均值。与其尝试直接将均值建模为随机过程，不如建模包络——这更为合适，因为我们可以把包络纳入我们对均值回归的看法。
 - en: '**Version 1** I used a regressor to estimate the mean and connected minima
     and maxima with a spline for the envelope.  The approach has issues (such as what
     sort of bias does the mean regressor have with respect to the data).   There are
     some issues below:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**版本1** 我用了一个回归器来估计平均值，并用样条函数连接极小值和极大值来形成包络。这种方法存在一些问题（比如平均值回归器对数据有什么样的偏差）。下面是一些问题：'
 - en: '![Picture 1](img/a685cb77f7fac1c7a8a2093aa8bf3e5f.png "Picture 1")'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![图1](img/a685cb77f7fac1c7a8a2093aa8bf3e5f.png "图1")'
 - en: '**Version 2** I took a dfference approach, estimating the inflection points
     with a regressing “oscillator”  (in green) and determining the mid-points between
     minima and maxima to produce a spline representing the mode (blue).   So far looks
     good.   Edge cases, consolidation, and jumps need to be considered:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**版本2** 我采取了差分方法，用回归的“振荡器”（绿色）来估计拐点，并通过确定极小值和极大值的中点来产生表示模式（蓝色）的样条。到目前为止看起来不错。需要考虑边缘情况、整合和跳跃：'
 - en: '![Picture 2](img/7b2a63d722e620a508b72c391b8d37fa.png "Picture 2")'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![图2](img/7b2a63d722e620a508b72c391b8d37fa.png "图2")'
 - en: More on this later.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 以后再详细讨论这个问题。

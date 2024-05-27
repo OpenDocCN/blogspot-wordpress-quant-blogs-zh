@@ -1,147 +1,223 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:32:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:32:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Longer-history back-tests | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更长历史回测 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/12/longer-history-back-tests/#0001-01-01)
 - en: One of the important steps of evaluating new trading idea or strategy is to
     see how it behaved historically (i.e. create back-test and examine the equity
     curve in different economic and market conditions)
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 评估新的交易想法或策略的重要一步是看看它过去的表现如何（即创建回测并在不同的经济和市场条件下检查股票曲线）
 - en: However, creating a long back-test is usually problematic because most ETFs
     do not have a long price history. One way to alleviate the short price history
     is to find an appropriate proxy asset/index to extend ETF’s price history.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，创建一个长期回测通常是有问题的，因为大多数ETF没有长期的价格历史。减轻短期价格历史的一种方法是找到一个适当的代理资产/指数来延长ETF的价格历史。
 - en: 'For example in my last post, [Update: Extending Commodity time series](https://systematicinvestor.wordpress.com/2013/07/04/update-extending-commodity-time-series/),
     I showed howyou can extend the price history of commodity ETFs with [Thomson Reuters
     / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，在我的上一篇文章[更新：扩展商品时间序列](https://systematicinvestor.wordpress.com/2013/07/04/update-extending-commodity-time-series/)中，我展示了如何使用[汤姆森路透/杰弗里斯CRB指数](http://www.jefferies.com/Commodities/2cc/389)来扩展商品ETF的价格历史。
 - en: 'I created [two functions in data.proxy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/data.proxy.r)
     to help visualize and compute statistics for potential proxy time series:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在GitHub上的[data.proxy.r文件中创建了两个函数](https://github.com/systematicinvestor/SIT/blob/master/R/data.proxy.r)，以帮助可视化和计算潜在代理时间序列的统计数据：
 - en: proxy.test function will create a plot and compute summary statistics over the
     common period for all given series
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: proxy.test函数将为所有给定的系列在共同期间创建一个图并计算总结性统计数据
 - en: proxy.overlay.plot function will create an overlay plot for all given series
     (a plot where all shorter series are overlayed over the longest one)
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: proxy.overlay.plot函数将为所有给定的系列创建一个叠加图（一个所有较短系列都叠加在最长系列上的图）
 - en: Following is an example of using these functions for commodity ETFs and [Thomson
     Reuters / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一个使用这些函数对商品ETF和汤姆森路透/杰弗里斯CRB指数的示例。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![plot1](img/0dbc902fc06aed0786347627b883ab41.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot1.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot1.jpg)'
 - en: '[![plot2](img/80677b52d12264bb0834979442cdd867.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot2.jpg)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot2.jpg)'
 - en: The [Thomson Reuters / Jefferies CRB Index](http://www.jefferies.com/Commodities/2cc/389)
     (CRB_1) looks a better fit for commodity ETFs.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 汤姆森路透/杰弗里斯CRB指数（CRB_1）看起来更适合商品ETF。
 - en: 'Yahoo Finance contains a big collection of indices with long histories. Just
     to give you an example, following is a list of some indices for major asset classes:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: Yahoo Finance包含了许多具有长期历史的指数。 just to give you an example，以下是一些主要资产类别的指数列表：
 - en: Equity Market
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 股票市场
 - en: Vanguard Total Stock Mkt (VTSMX)
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋 Total Stock Mkt（VTSMX）
 - en: Vanguard Total Intl Stock (VGTSX)
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋 Total Intl Stock（VGTSX）
 - en: Vanguard 500 Index (VFINX)
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋500指数（VFINX）
 - en: Vanguard Emerging Mkts (VEIEX)
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋新兴市场（VEIEX）
 - en: Fixed Income Market
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 固定收益市场
 - en: Vanguard Short-Term Treasury (VFISX)
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋 Short-Term Treasury（VFISX）
 - en: Vanguard Long-Term Treasury (VUSTX)
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋长期国债（VUSTX）
 - en: Vanguard Total Bond Market (VBMFX)
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋总债券市场（VBMFX）
 - en: Vanguard High-Yield Corporate (VWEHX)
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋高收益企业债（VWEHX）
 - en: PIMCO Emerging Markets Bond (PEBIX)
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: PIMCO新兴市场债券（PEBIX）
 - en: Vanguard Inflation-Protected (VIPSX)
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋通胀保护债（VIPSX）
 - en: PIMCO Total Return (PTTRX)
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: PIMCO总回报（PTTRX）
 - en: Vanguard REIT (VGSIX)
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 先锋REIT（VGSIX）
 - en: 'Now let’s look at an example of extending real estate time ETFs:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看一个扩展房地产ETFs的示例：
 - en: '[PRE1]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![plot3](img/2f1ef9c35da3c895b9a575af3d6385b6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot3.jpg)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot3.jpg)'
 - en: '[![plot4](img/ac8003a69728b413b54b34fbf48a00fc.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot4.jpg)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot4.jpg)'
 - en: The Vanguard REIT (VGSIX) Index looks as a good proxy for the Dow Jones U.S.
     Real Estate Index (IYR), while Dow Jones Global Real Estate Index (RWO) does behave
     differently.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 先锋房地产投资信托指数（VGSIX）看起来是道琼斯美国房地产指数（IYR）的一个好代理，而道琼斯全球房地产指数（RWO）的表现则有所不同。
 - en: So the next time you are faced with a task of running a long history back-test,
     please have a look at extending your short history assets with proxies.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以下次当你面临运行一个长期历史回测的任务时，请考虑用代理来扩展你的短期历史资产。

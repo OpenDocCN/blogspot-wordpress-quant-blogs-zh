@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:15:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 15时15分53秒
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Spreads and Stress'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 利差和压力'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/spreads-and-stress.html#0001-01-01)
 - en: Since we have the [Gifts from BAC ML and the Federal Reserve](http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html),
     I thought I should look at another interesting element of bonds.  Bond spreads
     act as a very strong symbol of financial stability and confidence.  The St. Louis
@@ -26,179 +38,298 @@
     (BFCIUS)](http://www.bloomberg.com/apps/quote?ticker=BFCIUS:IND) nicely explained
     at [http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf](http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf
     "http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf") and [www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf](http://www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们有来自 BAC ML 和联邦储备系统的[礼物](http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html)，我想我应该再看看债券的另一个有趣的元素。
+    债券利差作为金融稳定和信心的非常强大的象征。 圣路易斯联邦压力指数是每周更新的，但也许我们可以将利差作为压力或类似于[彭博金融条件指数（BFCIUS）](http://www.bloomberg.com/apps/quote?ticker=BFCIUS:IND)的每日金融不稳定性的代理，这在
+    [http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf](http://www.ssc.wisc.edu/~mchinn/fcw_sep112009.pdf)
+    和 [www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf](http://www.princeton.edu/~mwatson/papers/MPF_paper_April_13.pdf)
+    中有很好的解释。
 - en: If we plot the values from the BAC ML Emerging Market and High Yield Spreads
     and the St. Louis Fed Index, it is hard to distinguish the lines.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们绘制 BAC ML 新兴市场和高收益利差以及圣路易斯联邦指数的值，很难区分这些线条。
 - en: Just for the ggplot2 fans
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 只是为了满足 ggplot2 的粉丝
 - en: Correlations total and rolling look like this.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 总体和滚动相关性如下所示。
 - en: Like volatility and [financial turbulence](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html),
     periods of extremes are autocorrelated.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 像波动性和[金融动荡](http://timelyportfolio.blogspot.com/
 - en: And just for fun, here is a chart of the higher moments.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 而且，只是为了好玩，这是一个高阶时刻的图表。
 - en: If you want a challenge, tie this spread data to my post [Wonderful New Blog
     TimeSeriesIreland](http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html)
     or [Great FAJ Article on Statistical Measure of Financial Turbulence Part 3](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html). 
     Don’t think I have it in me before the weekend.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你想挑战一下，可以将这些利差数据与我的帖子[Wonderful New Blog TimeSeriesIreland](http://timelyportfolio.blogspot.com/2011/05/wonderful-new-blog-timeseriesireland.html)或[Great
+    FAJ Article on Statistical Measure of Financial Turbulence Part 3](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html)联系起来。
+    在周末之前，我不认为我有这个能力。
 - en: 'R code:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: '#thank you Bank of America Merrill Lynch and St. Louis Fed for this data'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#感谢美国银行美林和圣路易斯联邦提供的这些数据'
 - en: require(quantmod)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(ggplot2)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: '#get Bank of America Merrill Lynch bond index data from St. Louis Fed'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从圣路易斯联邦获取美国银行美林债券指数数据'
 - en: '#use auto.assign = FALSE so we can use shorter names'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用 auto.assign = FALSE，以便我们可以使用更短的名称'
 - en: MLEmCorpSpreads<-getSymbols("BAMLEMCBPIOAS",src="FRED",auto.assign=FALSE)
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: MLEmCorpSpreads<-getSymbols("BAMLEMCBPIOAS",src="FRED",auto.assign=FALSE)
 - en: MLHYCorpSpreads<-getSymbols("BAMLH0A0HYM2",src="FRED",auto.assign=FALSE)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: MLHYCorpSpreads<-getSymbols("BAMLH0A0HYM2",src="FRED",auto.assign=FALSE)
 - en: 'getSymbols("STLFSI",src="FRED")  #get St.Louis Fed Stress Index'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("STLFSI",src="FRED")  #获取圣路易斯联邦压力指数'
 - en: spreadsStress<-na.omit(merge(MLEmCorpSpreads,MLHYCorpSpreads,STLFSI))
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: spreadsStress<-na.omit(merge(MLEmCorpSpreads,MLHYCorpSpreads,STLFSI))
 - en: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
 - en: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
 - en: legend.loc="topleft",
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: legend.loc="topleft",
 - en: main="Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress Index")
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: main="美国银行美林债券利差和圣路易斯联邦压力指数")
 - en: '#chart changes of Spreads and Stress'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#图表显示利差和压力的变化'
 - en: spreadsStress<-na.omit(merge(momentum(MLEmCorpSpreads,5),momentum(MLHYCorpSpreads,5),momentum(STLFSI,1)))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: spreadsStress<-na.omit(merge(momentum(MLEmCorpSpreads,5),momentum(MLHYCorpSpreads,5),momentum(STLFSI,1)))
 - en: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(spreadsStress)<-c("BAC ML Emerging","BAC ML HY","St Louis Fed Stress")
 - en: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(spreadsStress,colorset=c("cadetblue","darkolivegreen3","gray70"),
 - en: legend.loc="topleft",
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: legend.loc="topleft",
 - en: main="Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress Index")
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: main="美国银行美林证券债券利差和圣路易斯联储压力指数")
 - en: '#for the ggplot fans'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '#为ggplot爱好者'
 - en: spreadsStressDf<-data.frame(index(spreadsStress),coredata(spreadsStress))
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: spreadsStressDf<-data.frame(index(spreadsStress),coredata(spreadsStress))
 - en: colnames(spreadsStressDf)<-c("Date",colnames(spreadsStress))
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(spreadsStressDf)<-c("Date",colnames(spreadsStress))
 - en: spreadsStressDf<-melt(spreadsStressDf,id.var="Date")
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: spreadsStressDf<-melt(spreadsStressDf,id.var="Date")
 - en: colnames(spreadsStressDf)<-c("Date","Index","Value")
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(spreadsStressDf)<-c("Date","Index","Value")
 - en: ggplot(spreadsStressDf, stat="identity", aes(x=Date,y=Value,colour=Index)) +
     geom_line() +
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(spreadsStressDf, stat="identity", aes(x=Date,y=Value,colour=Index)) +
+    geom_line() +
 - en: scale_x_date(format = "%Y") +
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: scale_x_date(format = "%Y") +
 - en: opts(title = "Bank of America Merrill Lynch Bond Spreads and St. Louis Fed Stress
     Index")
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: opts(title = "美国银行美林证券债券利差和圣路易斯联储压力指数")
 - en: '#chart correlations'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '#图表相关性'
 - en: chart.Correlation(spreadsStress,main="Bank of America Merrill Lynch Bond Spreads
     and St. Louis Fed Stress Index Correlation")
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.Correlation(spreadsStress,main="美国银行美林证券债券利差和圣路易斯联储压力指数相关性")
 - en: '#explore autocorrelation lags'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '#探索自相关延迟'
 - en: 'par(mfrow=c(3,1))  #3 rows and 1 column'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 'par(mfrow=c(3,1))  #3行1列'
 - en: acf(spreadsStress[,1],main=colnames(spreadsStress)[1])
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: acf(spreadsStress[,1],main=colnames(spreadsStress)[1])
 - en: acf(spreadsStress[,2],main=colnames(spreadsStress)[2])
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: acf(spreadsStress[,2],main=colnames(spreadsStress)[2])
 - en: acf(spreadsStress[,3],main=colnames(spreadsStress)[3])
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: acf(spreadsStress[,3],main=colnames(spreadsStress)[3])
 - en: '#get rolling correlations'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取滚动相关性'
 - en: corHYStress<-runCor(spreadsStress[,3],spreadsStress[,1],n=20)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: corHYStress<-runCor(spreadsStress[,3],spreadsStress[,1],n=20)
 - en: corEmStress<-runCor(spreadsStress[,3],spreadsStress[,2],n=20)
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: corEmStress<-runCor(spreadsStress[,3],spreadsStress[,2],n=20)
 - en: corAll<-merge(corHYStress,corEmStress)
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: corAll<-merge(corHYStress,corEmStress)
 - en: chart.TimeSeries(corAll,main="Rolling 20 Week Correlation between Spreads and
     Stress",
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(corAll,main="滚动20周的利差和压力指数相关性",
 - en: legend.loc="topright", colorset=c("cadetblue","darkolivegreen3"))
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: legend.loc="topright", colorset=c("cadetblue","darkolivegreen3"))
 - en: '#look at the higher moments'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '#查看高阶矩'
 - en: higherMoments<-table.HigherMoments(spreadsStress[,1:2],spreadsStress[,3])
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: higherMoments<-table.HigherMoments(spreadsStress[,1:2],spreadsStress[,3])
 - en: higherMoments<-melt(cbind(rownames(higherMoments),higherMoments))
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: higherMoments<-melt(cbind(rownames(higherMoments),higherMoments))
 - en: colnames(higherMoments)<-c("Moment","Index","Value")
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(higherMoments)<-c("Moment","Index","Value")
 - en: ggplot(higherMoments, stat="identity", aes(x=Moment,y=Value,fill=Index)) +
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(higherMoments, stat="identity", aes(x=Moment,y=Value,fill=Index)) +
 - en: geom_bar(position="dodge") + coord_flip() +
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: geom_bar(position="dodge") + coord_flip() +
 - en: 'opts(legend.position=c(.75,0.88)) #thanks for the tip timeseriesireland'
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 'opts(legend.position=c(.75,0.88)) #感谢timeseriesireland的提示'

@@ -1,57 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:36:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:36:59'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: System Testing Metrics, GIGO, and Million Dollar Questions | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 系统测试指标、GIGO 和百万美元问题 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/26/system-testing-metrics-gigo-and-million-dollar-questions/#0001-01-01)
 - en: '*Readers are strongly encouraged to read the following links–I don’t want anyone
     to miss these very eloquent and thought provoking discussions on the topic:*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '*读者们强烈被鼓励阅读以下链接——我不想让任何人错过这些关于主题的非常优雅和发人深思的讨论：*'
 - en: 'What are “degrees of freedom” ? This is a very important and highly overlooked
     topic, and Brenda Jubin– a true market scholar– of **Reading the Markets** does
     the best job of explaining this concept that I have seen in print: [http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html](http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: “自由度”是什么？这是一个非常重要但被严重忽视的话题，Brenda Jubin——真正的市场学者——在**Reading the Markets**中对这一概念的解释是我见过的最好的：
+    [http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html](http://readingthemarkets.blogspot.com/2010/01/degrees-of-freedom-kiss.html)
 - en: 'Jez Liberty of **Automated Trading Systems **who is posting some very good
     work lately also  highlights a very subtle concept: 1) the fact that there is
     no magic metric for measuring performance 2) traders are better off tailoring
     these metrics to their own personality and preference just like they would a trading
     system. [http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/](http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Jez Liberty** of **Automated Trading Systems**，近期发布了一些非常好的作品，也突出了一个非常微妙的概念：1)
+    衡量绩效没有神奇的指标 2) 交易员最好根据自己的个性和偏好来调整这些指标，就像他们调整交易系统一样。[http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/](http://www.automated-trading-system.com/bliss-function-quantify-trading-system-objective/)'
 - en: 'Last but not least, **TopTick** who is a frequent poster on my forums at DV
     Indicators in the community section is a quant par excellence and I must say is
     in very good company (thanks to all the great posts out there!) and I plan to
     link in many posts in the future. Here TopTick produces a great breakdown of a
     lot of the ideas to consider for system testing and performance metrics: [http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0](http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后但并非最不重要的是，**TopTick**，在我DV Indicators社区版块的论坛上经常发帖，是一位杰出的量化专家，我必须说它能与非常优秀的公司（感谢所有伟大的帖子！）为伍，我计划在未来的很多帖子中链接到它。在这里，TopTick对系统测试和性能指标需要考虑的许多想法进行了很好的分解：[http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0](http://www.dvindicators.com/community/forum/?vasthtmlaction=viewtopic&t=42.0)
 - en: 'Here is my humble take on the topic:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是我对这个话题的谦逊看法：
 - en: 1) Everyone wants to know the secret to finding the perfect metric that will
     allow you to extrapolate the future reliably from the past.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 每个人都想知道找到完美指标的秘密，这个指标将允许你从过去可靠地预测未来。
 - en: 2) Everyone wants to know how to figure out exactly when a sytem has broken
     down so that they can exit reliably with minimal drawdown.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 每个人都想知道如何准确地判断系统何时崩溃，以便他们可以可靠地最小化回撤地退出。
 - en: These are million dollar questions and those who realistically expect concrete
     answers in the form of one simple equation are living in a utopian trading universe. System
     performance metrics ultimately boil down to measuring the equity curve and/or
@@ -66,8 +94,10 @@
     the inputs and the possible methodological flaws in trading system design are
     more important than the output— if you just want to find great numbers genetic
     algorithms and optimizers will give you what you are looking for in seconds.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些问题价值百万美元，那些现实地期望通过一个简单方程得到具体答案的人，活在一种理想化的交易世界中。系统性能指标最终归结为衡量收益曲线以及个别交易的盈利性和波动性。在回测中找到一个好结果后，不幸的事实是，你并不能必然地外推。使用最先进的统计方法进行的简单或复杂分析都帮不了你区分伪系统与真正的赢家。收益曲线仅仅是输出，它们取决于构成它们的因素/系统。因此，结果是垃圾进垃圾出。如果你想结合50个变量，测试短期内的长期参数移动平均集——猜猜会发生什么？自由度会击垮你！你的系统是伪的，而且我不在乎它有一个4的夏普比率和2%的回撤。理解输入项和交易系统设计中可能的方法论缺陷比输出更重要——如果你只是想找到好数字，遗传算法和优化器会在几秒钟内给你你想要的东西。
 - en: '**Every equity curve contains a story behind the numbers, and asking good questions
     is the real key to finding the truth.** If I looked at Madoff’s equity curve any
     metric I would have used would assure me of continued performance. Behind the curtain
@@ -75,8 +105,10 @@
     only person who seemed to catch on was a fellow hedge fund manager who used ahem
      “common sense”  to point out that no strategy that was being described for Madoff’s
     fund or any other for that matter could possibly produce returns that consistent.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**每个收益曲线背后都有一段故事，而提出好问题才是发现真相的关键。** 如果我查看一下麦道夫的收益曲线，无论用什么指标，都会让我相信他的业绩会持续下去。在这段漂亮的业绩背后，是一个统计学无法揭示的虚构故事。似乎唯一看穿这一切的是一位对冲基金经理，他用**常识**指出，没有任何策略能够像麦道夫基金那样产生一致的回报。'
 - en: The same applies outside the realm of pure fraud– a 100 or 200 day system test
     during 2008 of any mean-reversion indicator would have looked flawless and similarly
     invulnerable. Guess what, the real story behind the curve was that the indicators preyed
@@ -88,8 +120,10 @@
     what drove profitability–ie volatility which was a consequence of credit issues–
     we could use either as a superior means of figuring out when to cash in our chips
     than observing the system output.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个原则适用于纯欺诈之外的领域——2008年对任何均值回归指标的100天或200天系统测试都会看起来完美无瑕，同样不可战胜。猜猜看，曲线背后的真实故事是什么？这些指标无情地利用了巨大的不确定性和信贷危机，导致了大规模的保证金追加——这创造了前所未有的波动性和异常混乱的相关性，这些是可以预测的周期性——也就是，它们不会永远持续！当不确定性和信贷得到恢复时，盈利性回到了更正常的水平。系统崩溃了吗？还是它只是经历了超常的盈利？如果我们知道盈利是由什么驱动的——即波动性，这是信贷问题的后果——我们就可以用这个作为判断何时收手的优越手段，而不是观察系统输出。
 - en: 'Try to think of yourself more as an experimenter or a scientist: What am I
     trying to measure here? Which independent variables are responsible for moderating
     the profitability of my system? (volatility etc)  Am I potentially measuring a
@@ -105,5 +139,7 @@
     how it fits together. In an increasingly uncertain world, it is not likely that
     reality will ever have the consistency and symmetry of a good theory–but the ideas
     help inspire better systems that are more likely to survive in the future.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽量把自己当作一个实验者或科学家：我这里要测量什么？有哪些自变量会影响我系统的盈利性？（波动性等）我是否可能测量到了一种虚假的相关性？也就是说，也许我正在间接测量某物，应该寻找更清晰的代理变量（信用利差）。不断深入挖掘，连接这些点，即使你的初始努力没有得到回报，最终你也会因为这样做而变得更好、更稳定地盈利。我本可以永远说下去，但如果我能恳求所有那些“只关心某件事是否有效，而不关心它为什么有效”的人退一步，尝试用逻辑术语理解他们的系统，他们将会更接近于找到他们真正寻求的答案。最优秀的物理学家——在数学上比你们或我都更有天赋——是伟大的抽象思考者，他们首先寻求用严密的理论理解我们的宇宙以及它是如何联系在一起的。在一个日益不确定的世界中，现实可能永远不会像一个好的理论那样具有一致性和对称性——但这些思想有助于启发更好的系统，使它们更有可能在未来生存下来。

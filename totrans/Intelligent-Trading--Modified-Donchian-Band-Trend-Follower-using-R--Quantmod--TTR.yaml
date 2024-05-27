@@ -1,30 +1,46 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:46:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:46:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Modified Donchian Band Trend Follower using R, Quantmod,
     TTR'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：使用R、Quantmod、TTR的修改唐奇安通道趋势跟踪者
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/03/modified-dochian-band-trend-follower.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/03/modified-dochian-band-trend-follower.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/03/modified-dochian-band-trend-follower.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/03/modified-dochian-band-trend-follower.html#0001-01-01)
 - en: I've been toying around with the examples given on the
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直在玩味给出的例子
 - en: '[FOSS trading site](http://blog.fosstrading.com/2009/04/testing-rsi2-with-r.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[FOSS交易网站](http://blog.fosstrading.com/2009/04/testing-rsi2-with-r.html)'
 - en: for some of the great work they've put together in the Quantmod and TTR packages.
     Those viewers who are looking for a nice (and free) backtesting suite to possibly
     complement some of your other results or work in say, Weka, should familiarize
@@ -34,14 +50,20 @@
     data mining and machine learning concepts in Weka, you can also make the move
     to integrate the tools inside of R, as R contains the majority of machine learning
     schemes inside of various packages.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于他们在Quantmod和TTR包中整理的一些出色工作。那些寻找一个漂亮（且免费）的回测套件来可能补充你们其他结果或工作在比如说Weka中的观众，应该熟悉R。它不仅可以作为模拟思想和概念的画布，还可以处理更面向交易者的指标的后端结果，而不是使用Weka这样的独立工具。随着你在Weka中对数据挖掘和机器学习概念变得更加熟练，你也可以将工具集成到R中，因为R包含各种包中的大多数机器学习方案。
 - en: '[![](img/42c34520ad0e160166d6fe70dbbe31aa.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_n8wv9T8qEW-Mrx_SNJBP0bXk_zTGmeI4w4UYXQ7DKIjP6HEz_C_Z9oqDTJk0N80Gtm3rmFxGSh5UoBTpSEvN1sQLPt7tEtgCa1Mx9wWdtGZ7CFt7njGXu-zvfbAe9ULrGwRajbw9JCk/s1600-h/donch_ex.jpg)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![唐奇安通道图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_n8wv9T8qEW-Mrx_SNJBP0bXk_zTGmeI4w4UYXQ7DKIjP6HEz_C_Z9oqDTJk0N80Gtm3rmFxGSh5UoBTpSEvN1sQLPt7tEtgCa1Mx9wWdtGZ7CFt7njGXu-zvfbAe9ULrGwRajbw9JCk/s1600-h/donch_ex.jpg)'
 - en: Fig 1\. Modified Donchian Channel System Simulation
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1。修改后的唐奇安通道系统模拟
 - en: As an example of how to use some of their tools (along with traditional R packages)
     for fast prototyping, I put together an example of a modified Donchian Channel
     trend following system along with how you might simulate it using R. The typical
@@ -52,195 +74,311 @@
     signal is entered on the average line break to the downside. Unlike a price/moving
     average type system, there wasn't a lot of choppiness causing false starts around
     the average line, which is a plus.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个使用他们一些工具（以及传统的R包）进行快速原型的例子，我整理了一个修改后的唐奇安通道趋势跟踪系统的例子，以及如何使用R进行模拟。典型的唐奇安通道带被用作突破入场和离场信号。也就是说，一旦n周期的高点被突破，你就做多，然后在n周期的低点被突破时离场——做空相反。然而，在这个例子中，我们只要平均线突破就做多，只要它在平均线之上就持有。在平均线下方，平均线突破时做空。与价格/移动平均类型的系统不同，平均线周围没有造成很多假启动的波动，这是一个优点。
 - en: I am still trying to familiarize myself more with the tools, and am still at
     the point where I like how simple and fast the static vector computations work
     (similar to numpy in Python), but I am wondering how fast more sophisticated entry/exits
     requiring loops will work. I still expect to work on some of these types of scenarios,
     as I am really enjoying the capabilities of R along with some of these trading
     oriented packages.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我仍在努力熟悉这些工具，并且仍处于我喜欢静态向量计算工作如此简单和快速的阶段（类似于Python中的numpy），但我想知道更复杂的入场/离场，需要循环会怎样。我仍然期待着处理这些类型的场景，因为我真的很喜欢R以及这些面向交易的包的能力。
 - en: Although the system (using QQQQ as an example) is in no way optimized nor analyzed
     for robustness, it returned a respectable 60% versus a buy and hold loss over
     the past roughly two years (showing a simple example of trend type trading).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这个系统（以QQQQ为例）根本没有经过优化，也没有分析其稳健性，但在过去的大约两年里，它返回了60%的回报，而买入持有策略则亏损（展示了一个简单的趋势交易类型示例）。
 - en: Here is the complete code for you to replicate (I used the R version 2.7.10.1).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: Here is the complete code for you to replicate (I used the R version 2.7.10.1).
 - en: 'Note: if some of it looks familiar to the FOSS RSI example, it is exactly because
     I used that example as a starting point, so there will be some overlap in comments
     and actions.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Note: if some of it looks familiar to the FOSS RSI example, it is exactly because
+    I used that example as a starting point, so there will be some overlap in comments
+    and actions.'
 - en: We will need the quantmod package for charting and pulling
+  id: totrans-16
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: We will need the quantmod package for charting and pulling
 - en: data and the TTR package to calculate Donchian Bands.
+  id: totrans-17
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: data and the TTR package to calculate Donchian Bands.
 - en: 'You can install packages via: install.packages("packageName")'
+  id: totrans-18
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'You can install packages via: install.packages("packageName")'
 - en: install.packages(c("quantmod","TTR"))
+  id: totrans-19
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: install.packages(c("quantmod","TTR"))
 - en: See Foss Trading Blog for RSI template
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: See Foss Trading Blog for RSI template
 - en: library(quantmod)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: library(quantmod)
 - en: library(TTR)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: library(TTR)
 - en: tckrtckr_obj
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: tckrtckr_obj
 - en: startend
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: startend
 - en: Pull tckr index data from Yahoo! Finance
+  id: totrans-25
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Pull tckr index data from Yahoo! Finance
 - en: getSymbols(tckr, from=start, to=end)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols(tckr, from=start, to=end)
 - en: QQQQ.clQQQQ.HQQQQ.Ldc
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: QQQQ.clQQQQ.HQQQQ.Ldc
 - en: '#Plotting Donchian Channel'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#Plotting Donchian Channel'
 - en: ymin=25
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: ymin=25
 - en: ymax=55
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: ymax=55
 - en: par(mfrow=c(2,2), oma=c(2,2,2,2))
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(2,2), oma=c(2,2,2,2))
 - en: max, avg, min plot(dc[,1],col="red",ylim=c(ymin,ymax),main="")
+  id: totrans-32
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: max, avg, min plot(dc[,1],col="red",ylim=c(ymin,ymax),main="")
 - en: par(new=T)
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: par(new=T)
 - en: plot(dc[,2],col="blue",ylim=c(ymin,ymax),main="")
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(dc[,2],col="blue",ylim=c(ymin,ymax),main="")
 - en: par(new=T)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: par(new=T)
 - en: plot(dc[,3],col="green",ylim=c(ymin,ymax),main="")
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(dc[,3],col="green",ylim=c(ymin,ymax),main="")
 - en: par(new=T)
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: par(new=T)
 - en: plot(QQQQ.cl,ylim=c(ymin,ymax),pch=15,main="donchian bands max/avg/min")
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(QQQQ.cl,ylim=c(ymin,ymax),pch=15,main="donchian bands max/avg/min")
 - en: lines(QQQQ.cl,ylim(ymin,ymax))
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: lines(QQQQ.cl,ylim(ymin,ymax))
 - en: '###################################################'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '###################################################'
 - en: Create the long (up) and short (dn) signals
+  id: totrans-41
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Create the long (up) and short (dn) signals
 - en: sigup dc[,2],1,0)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: sigup dc[,2],1,0)
 - en: sigdn
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: sigdn
 - en: Lag signals to align with days in market,
+  id: totrans-44
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Lag signals to align with days in market,
 - en: not days signals were generated
+  id: totrans-45
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: not days signals were generated
 - en: sigup sigdn
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: sigup sigdn
 - en: Replace missing signals with no position
+  id: totrans-47
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Replace missing signals with no position
 - en: (generally just at beginning of series)
+  id: totrans-48
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: (generally just at beginning of series)
 - en: sigup[is.na(sigup)] sigdn[is.na(sigdn)]
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: sigup[is.na(sigup)] sigdn[is.na(sigdn)]
 - en: Combine both signals into one vector
+  id: totrans-50
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Combine both signals into one vector
 - en: sig
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: sig
 - en: Calculate Close-to-Close returns
+  id: totrans-52
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Calculate Close-to-Close returns
 - en: ret ret[1]
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: ret ret[1]
 - en: Calculate equity curves
+  id: totrans-54
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Calculate equity curves
 - en: eq_up eq_dn eq_all
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: eq_up eq_dn eq_all
 - en: '#graphics'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '#graphics'
 - en: mfg=c(1,2)
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: mfg=c(1,2)
 - en: plot(eq_up,ylab="Long",col="green")
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(eq_up,ylab="Long",col="green")
 - en: mfg=c(2,2)
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: mfg=c(2,2)
 - en: plot(eq_all,ylab="Combined",col="blue",main="combined L/S equity")
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(eq_all,ylab="Combined",col="blue",main="combined L/S equity")
 - en: mfg=c(2,1)
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: mfg=c(2,1)
 - en: plot(eq_dn,ylab="Short",col="red")
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(eq_dn,ylab="Short",col="red")
 - en: title("Modified Donchian Band Trend Following System (intelligenttradingtech.blogspot.com)",
     outer = TRUE)
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: title("Modified Donchian Band Trend Following System (intelligenttradingtech.blogspot.com)",
+    outer = TRUE)
 - en: '##############################################################################################################'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '##############################################################################################################'
 - en: P.S. As always, please use your own due diligence in all work borrowed from
     this site. There are some areas that I believe are not quite correct in the simulation
     framework, needless to say, you have a complete script to start your own examples
     and backtesting.
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: P.S. As always, please use your own due diligence in all work borrowed from
+    this site. There are some areas that I believe are not quite correct in the simulation
+    framework, needless to say, you have a complete script to start your own examples
+    and backtesting.

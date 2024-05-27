@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:37:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:37:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'MPP: Big Data in Real Time through In-Memory Technology and Analytics | Tales
     from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: MPP：通过内存技术和分析的实时大数据 | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01](https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01](https://mdavey.wordpress.com/2012/07/24/mpp-big-data-in-real-time-through-in-memory-technology-and-analytics/#0001-01-01)
 - en: 'MPP: Big Data in Real Time through In-Memory Technology and Analytics'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: MPP：通过内存技术和分析的实时大数据
 - en: '[Harnessing the Power of Big Data in Real Time through In-Memory Technology
     and Analytics](http://www3.weforum.org/docs/GITR/2012/GITR_Chapter1.7_2012.pdf)
     train reading lead to the following thoughts: Page 93 of the PDF talks to finance,
@@ -33,41 +47,58 @@
     one such technology with offerings in this area.  [RBS](http://www.bankingtech.com/bankingtech/article.do?articleid=20000192301),
     as blogged about previously, has gone down the Oracle Coherence route in the Big
     Data trade world – Operational Data Cache.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过内存技术和分析实时利用大数据的力量](http://www3.weforum.org/docs/GITR/2012/GITR_Chapter1.7_2012.pdf)的阅读引导产生了以下思考：PDF的第93页讨论了金融和建模环境（我猜是风险？）。随着更多系统趋向于近实时（NRT），很显然内存是首选路径。有了内存技术，问题转化为哪种产品/开源解决方案能帮助这条路径。[GridGain](http://www.gridgain.com/blog/fyi/gridgain-4-2-released/)就是这一领域的技术之一。[RBS](http://www.bankingtech.com/bankingtech/article.do?articleid=20000192301)，如之前博客所述，已经在大数据交易世界中采取了Oracle
+    Coherence的方法——操作数据缓存。
 - en: In the case of GridGain as a Big Data [product](http://www.gridgain.com/blog/archives/new-products-and-services-from-gridgain/),
     the product evolution has created three [products](http://www.gridgain.com/features/)
     – Compute Grid, Data Grid and Big Data (effectively a combination of the two other
     products).   Its also clear the [death](http://gigaom.com/cloud/why-the-days-are-numbered-for-hadoop-as-we-know-it/)
     of [Hadoop](http://www.gridgain.com/blog/fyi/gigaom-hadoop-days-are-numbered-are-they/)
     is over sold in Big Data land.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在GridGain作为大数据[产品](http://www.gridgain.com/blog/archives/new-products-and-services-from-gridgain/)的情况下，产品演变已经创造了三个[产品](http://www.gridgain.com/features/)——计算网格、数据网格和大数据（实际上是另外两个产品的组合）。很明显，[Hadoop](http://www.gridgain.com/blog/fyi/gigaom-hadoop-days-are-numbered-are-they/)在[大数据](http://gigaom.com/cloud/why-the-days-are-numbered-for-hadoop-as-we-know-it/)领域的末日已经过时了。
 - en: 'Turning to Gigaspaces, “XAP 9.0 – Geared for Real-Time Big Data Stream [Processing](http://blog.gigaspaces.com/xap-9-0-%E2%80%93-geared-for-real-time-bigdata-stream-processing/)”
     touch on an important point which doesn’t often get talked about much – movement
     of data:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 转向Gigaspaces，“XAP 9.0 – Geared for Real-Time Big Data Stream [Processing](http://blog.gigaspaces.com/xap-9-0-%E2%80%93-geared-for-real-time-bigdata-stream-processing/)”触及了一个重要点，这个点很少被谈论——数据移动：
 - en: Once you’ve stored data in memory across multiple nodes, it’s important to achieve
     locality of data and processing. If you process an incoming event on one node,
     and need to read and update data on other nodes, your processing latency and scalability
     will be very limited. Achieving locality requires a solid routing mechanism, that
     will allow you to send your events to the node most relevant to them, i.e. the
     one that contains the data that is needed for their processing
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 一旦你在多个节点上存储了内存中的数据，实现数据的局部性和处理是很重要的。如果你在一个节点上处理一个传入事件，并且需要读取和更新其他节点上的数据，你的处理延迟和可扩展性将会非常有限。实现局部性需要一个坚固的路由机制，这将允许你将事件发送到与它们最相关的节点，即需要其处理数据的节点。
 - en: '[Kognitio](http://www.kognitio.com/analyticalplatform) is another product that
     offers the ability to run in-memory analytics on Big Data.  Interesting to see
     “Credit and risk management” mentioned, but with little detail.  Anyone used Kognitio?'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个提供在大数据上进行内存分析能力的产品是[Kognitio](http://www.kognitio.com/analyticalplatform)。“信用和风险管理”提到，但细节不多。有谁用过Kognitio？
 - en: ~ by mdavey on July 24, 2012.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2012年7月24日。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [BigData](https://mdavey.wordpress.com/tag/bigdata/), [MPP](https://mdavey.wordpress.com/tag/mpp/)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Tags: [大数据](https://mdavey.wordpress.com/tag/bigdata/), [MPP](https://mdavey.wordpress.com/tag/mpp/)'

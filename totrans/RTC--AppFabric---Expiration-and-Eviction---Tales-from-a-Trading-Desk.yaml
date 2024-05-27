@@ -1,100 +1,151 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:13:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:13:15'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'RTC: AppFabric – Expiration and Eviction | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'RTC: AppFabric – 过期和驱逐 | 交易台故事'
 - en: 来源：[https://mdavey.wordpress.com/2010/04/16/rtc-appfabric-expiration-and-eviction/#0001-01-01](https://mdavey.wordpress.com/2010/04/16/rtc-appfabric-expiration-and-eviction/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2010/04/16/rtc-appfabric-expiration-and-eviction/#0001-01-01](https://mdavey.wordpress.com/2010/04/16/rtc-appfabric-expiration-and-eviction/#0001-01-01)
 - en: 'RTC: AppFabric – Expiration and Eviction'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 'RTC: AppFabric – 过期和驱逐'
 - en: 'Progress on the Real-Time Cube (RTC) leveraging [Windows AppFabric Caching](http://msdn.microsoft.com/en-us/windowsserver/ee695849.aspx)
     is going well. I should have more to say on this in the next few days. If you
     are using AppFabric, it’s worth [reading](http://msdn.microsoft.com/en-us/library/ee790981.aspx)
     the “Expiration and Eviction” documentation, otherwise you may find your objects
     disappearing 🙂 Here are the [defaults](http://msdn.microsoft.com/en-us/library/ee790935(v=MSDN.10).aspx)
     I have for the RTC:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 实时立方体（RTC）利用[Windows AppFabric 缓存](http://msdn.microsoft.com/en-us/windowsserver/ee695849.aspx)的进展顺利。我应该在接下来的几天内有更多话要说。如果你正在使用AppFabric，阅读“过期和驱逐”文档是值得的，否则你可能会发现你的对象消失了:-)
+    以下是RTC的默认设置：
 - en: PS C:\Windows\system32> Get-CacheConfig
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: PS C:\Windows\system32> Get-CacheConfig
 - en: ''
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: cmdlet Get-CacheConfig at command pipeline position 1
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 命令 Get-CacheConfig 在命令管道中的位置 1
 - en: 'Supply values for the following parameters:'
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 为以下参数提供值：
 - en: 'CacheName: default'
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'CacheName: default'
 - en: ''
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'CacheName : default'
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'CacheName : default'
 - en: 'TimeToLive : 10 mins'
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'TimeToLive : 10 分钟'
 - en: 'CacheType : Partitioned'
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'CacheType : 分区'
 - en: 'Secondaries : 0'
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'Secondaries : 0'
 - en: 'IsExpirable : True'
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'IsExpirable : 是'
 - en: 'EvictionType : LRU'
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'EvictionType : LRU'
 - en: 'NotificationsEnabled : True'
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 'NotificationsEnabled : 是'
 - en: You can easily spot the obvious issues with the above 🙂 – TTL will cause problems
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以很容易地看出上述问题的明显之处:-) – TTL将导致问题
 - en: Finally, anyone got an idea of when AppFabric will RC? Beta 2 has been out for
     some time now.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，有人知道AppFabric何时推出RC版吗？Beta 2已经发布一段时间了。
 - en: ~ by mdavey on April 16, 2010.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2010年4月16日。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/), [RealTimeOLAP](https://mdavey.wordpress.com/tag/realtimeolap/)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '标签: [微软](https://mdavey.wordpress.com/tag/microsoft/)，[实时OLAP](https://mdavey.wordpress.com/tag/realtimeolap/)'

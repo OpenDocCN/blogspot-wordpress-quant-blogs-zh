@@ -1,48 +1,75 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:12:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:12:27'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Syncfusion GridControl vs GroupingGrid'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: Syncfusion GridControl 与 GroupingGrid 对比'
 - en: 来源：[http://magmasystems.blogspot.com/2007/02/syncfusion-gridcontrol-vs-groupinggrid.html#0001-01-01](http://magmasystems.blogspot.com/2007/02/syncfusion-gridcontrol-vs-groupinggrid.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/02/syncfusion-gridcontrol-vs-groupinggrid.html#0001-01-01](http://magmasystems.blogspot.com/2007/02/syncfusion-gridcontrol-vs-groupinggrid.html#0001-01-01)
 - en: I am starting to write the grid abstraction for my client-side framework. Developers
     will code to a "virtual grid" API, and there will be adapters for the actual implementations
     of the grids (Syncfusion, Infragistics, WinForms, DevExpress, etc).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在为我的客户端框架编写网格抽象。开发者将针对“虚拟网格”API 进行编码，并将为网格的实际实现（Syncfusion、Infragistics、WinForms、DevExpress
+    等）提供适配器。
 - en: Because most of Wall Street uses Syncfusion grids for trading apps, this is
     the first adapter that I need to write.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于大多数华尔街公司使用 Syncfusion 网格进行交易应用，这是我需要编写的第一个适配器。
 - en: 'Syncfusion has 3 different grids: the regular old GridControl, the DataBoundGrid,
     and the GroupingGrid. The grouping grid is used a lot in my place to provides
     rollups of data. You would think that the GroupingGrid would inherit from the
     GridControl, but unbelievably, it does not. The API sets are not even consistent.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Syncfusion 有 3 种不同的网格：普通的 GridControl、数据绑定的 DataBoundGrid 和分组网格 GroupingGrid。在我所在的地方，分组网格被广泛用于提供数据的汇总。你会以为
+    GroupingGrid 会从 GridControl 继承，但令人难以置信的是，它并没有。API 集合甚至都不一致。
 - en: I have spent my time using Lutz Roeder's very excellent Reflector to try to
     hunt and peck through the Syncfusion class hierarchy in search of the various
     classes and functions in the GroupingGrid that implement the same functionality
     as the GridControl. The fact that I am dealing with two incompatible API sets
     has increased my work by 100%.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我花时间使用 Lutz Roeder 开发的非常出色的 Reflector 工具，试图通过对 Syncfusion 类层次结构的搜索，寻找实现与 GridControl
+    相同功能的 GroupingGrid 中的各种类和函数。处理两个不兼容的 API 集合使我的工作增加了 100%。
 - en: C'mon Syncfusion ... you should know better than that!
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Syncfusion，你们应该知道更好的做法！
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

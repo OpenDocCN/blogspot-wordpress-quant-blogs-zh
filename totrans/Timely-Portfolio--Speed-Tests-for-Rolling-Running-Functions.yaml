@@ -1,145 +1,233 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:52:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:52:53'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Speed Tests for Rolling/Running Functions'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：滚动/运行函数的速度测试
 - en: 来源：[http://timelyportfolio.blogspot.com/2014/07/speed-tests-for-rollingrunning-functions.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/07/speed-tests-for-rollingrunning-functions.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2014/07/speed-tests-for-rollingrunning-functions.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/07/speed-tests-for-rollingrunning-functions.html#0001-01-01)
 - en: I use rolling and running functions almost daily with financial time series.
     In my post [A Whole New World with Chains and Pipes](http://timelyportfolio.blogspot.com/2014/06/a-whole-new-r-world-with-chains-and.html),
     I made this statement
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我几乎每天都使用金融时间序列进行滚动和运行函数。在我的帖子[A Whole New World with Chains and Pipes](http://timelyportfolio.blogspot.com/2014/06/a-whole-new-r-world-with-chains-and.html)中，我提出了这样一个说法
 - en: I have noticed that rolling analysis with xts can sometimes be slow. as.matrix
     is my favorite way to speed things up, since I usually do not need xts powerful
     indexing and subsetting features.
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我注意到使用 xts 进行滚动分析有时可能会很慢。`as.matrix` 是我加快速度的最爱，因为我通常不需要 xts 强大的索引和子集功能。
 - en: I felt like I be a little more thorough, so I put together a couple of speed
     tests for running and rolling functions. Please let me know if there are ways
     to make these even speedier.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我觉得我应该更加全面，所以我做了几个运行和滚动函数的速度测试。如果有更快的方法，请告诉我。
 - en: One method I had not seen was provided in the comments, so I promoted to the
     body of this post.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前没有见过的一种方法是在评论中提供的，所以我将其提升到了此帖子的正文中。
 - en: Hi, there is also nice benchmark (for variable window width) provided here:[http://stackoverflow.com/quest...](http://stackoverflow.com/questions/21368245/performance-of-rolling-window-functions-in-r)
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 嗨，这里也有一个很好的基准（适用于可变窗口宽度）提供在此处：[http://stackoverflow.com/quest...](http://stackoverflow.com/questions/21368245/performance-of-rolling-window-functions-in-r)
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Random Data | matrix, data.frame, and xts with dplyr
+  id: totrans-12
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 随机数据 | 矩阵，数据框和 xts 与 dplyr
 - en: For our tests, let's make some random data with 10 columns of 100,000 rows.
     If this is daily financial data, 100,000 takes us back to about 1740\. I wish
     I had good data back to then. We'll create a `matrix`, `data.frame`, and `xts`
     object.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于我们的测试，让我们创建一些具有 10 列和 100,000 行的随机数据。如果这是每日的金融数据，100,000 将我们带回约 1740 年。我希望我当时有好的数据。我们将创建一个
+    `matrix`，`data.frame` 和 `xts` 对象。
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Running | Beauty of Fortran
+  id: totrans-15
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 运行 | Fortran 的美
 - en: The [`ttr` authors](https://r-forge.r-project.org/projects/ttr/) have made the
     running functions really speedy with [Fortran and C](https://r-forge.r-project.org/scm/viewvc.php/pkg/src/?root=ttr).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[`ttr` 作者](https://r-forge.r-project.org/projects/ttr/) 使用 [Fortran 和 C](https://r-forge.r-project.org/scm/viewvc.php/pkg/src/?root=ttr)
+    使运行函数真正快速。'
 - en: '[PRE2]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: runMean microbenchmark results
+  id: totrans-18
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: runMean 微基准结果
 - en: '| summary | expr | min | lq | median | uq | max | neval |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| summary | expr | min | lq | median | uq | max | neval |'
 - en: '| --- | --- | --- | --- | --- | --- | --- | --- |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| --- | --- | --- | --- | --- | --- | --- | --- |'
 - en: '| 1 | runMean_matrix | 7.83479 | 8.328931 | 10.187089 | 15.631568 | 20.428914
     | 10 |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '| 1 | runMean_matrix | 7.83479 | 8.328931 | 10.187089 | 15.631568 | 20.428914
+    | 10 |'
 - en: '| 2 | runMean_df | 415.200526 | 436.36685 | 463.7532645 | 504.178149 | 565.733628
     | 10 |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| 2 | runMean_df | 415.200526 | 436.36685 | 463.7532645 | 504.178149 | 565.733628
+    | 10 |'
 - en: '| 3 | runMean_xts | 19.379056 | 22.689037 | 27.419294 | 31.679356 | 34.873025
     | 10 |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| 3 | runMean_xts | 19.379056 | 22.689037 | 27.419294 | 31.679356 | 34.873025
+    | 10 |'
 - en: '| 4 | runMean_rollapply | 40530.101527 | 41679.322495 | 42675.2747235 | 43917.396031
     | 47993.732396 | 10 |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| 4 | runMean_rollapply | 40530.101527 | 41679.322495 | 42675.2747235 | 43917.396031
+    | 47993.732396 | 10 |'
 - en: '![plot of chunk unnamed-chunk-2](img/c682a361f9e0bcc003f1b4ee97dd4fa9.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_IMG
+  zh: '![plot of chunk unnamed-chunk-2](img/c682a361f9e0bcc003f1b4ee97dd4fa9.png)'
 - en: Rolling | I Miss Fortran
+  id: totrans-26
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 滚动 | 我错过了 Fortran
 - en: Rolling functions get a lot slower without Fortran and C. However, we can convert
     with `as.matrix` or `as.numeric` to speed things up a little bit. Once we're done
     calculating we will need to convert back to `xts` with a little date logic.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有 Fortran 和 C，滚动函数会变得慢得多。但是，我们可以使用 `as.matrix` 或 `as.numeric` 来加速一点点。一旦计算完成，我们将需要使用一些日期逻辑转换回
+    `xts`。
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: rollapply microbenchmark results
+  id: totrans-29
   prefs:
   - PREF_H5
   type: TYPE_NORMAL
+  zh: rollapply 微基准结果
 - en: '| summary | expr | min | lq | median | uq | max | neval |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: '| summary | expr | min | lq | median | uq | max | neval |'
 - en: '| --- | --- | --- | --- | --- | --- | --- | --- |'
+  id: totrans-31
   prefs: []
   type: TYPE_TB
+  zh: '| --- | --- | --- | --- | --- | --- | --- | --- |'
 - en: '| 1 | ra_matrix | 26.001762182 | 26.001762182 | 26.8966084855 | 27.791454789
     | 27.791454789 | 2 |'
+  id: totrans-32
   prefs: []
   type: TYPE_TB
+  zh: '| 1 | ra_matrix | 26.001762182 | 26.001762182 | 26.8966084855 | 27.791454789
+    | 27.791454789 | 2 |'
 - en: '| 2 | ra_matrix2 | 22.331454712 | 22.331454712 | 24.8568809085 | 27.382307105
     | 27.382307105 | 2 |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
+  zh: '| 2 | ra_matrix2 | 22.331454712 | 22.331454712 | 24.8568809085 | 27.382307105
+    | 27.382307105 | 2 |'
 - en: '| 3 | ra_matrix3 | 25.255073874 | 25.255073874 | 26.3310039035 | 27.406933933
     | 27.406933933 | 2 |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
+  zh: '| 3 | ra_matrix3 | 25.255073874 | 25.255073874 | 26.3310039035 | 27.406933933
+    | 27.406933933 | 2 |'
 - en: '| 4 | ra_xts | 308.954120943 | 308.954120943 | 309.3609896875 | 309.767858432
     | 309.767858432 | 2 |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: '| 4 | ra_xts | 308.954120943 | 308.954120943 | 309.3609896875 | 309.767858432
+    | 309.767858432 | 2 |'
 - en: '| 5 | ra_xts2 | 27.154306816 | 27.154306816 | 28.6303421355 | 30.106377455
     | 30.106377455 | 2 |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: '| 5 | ra_xts2 | 27.154306816 | 27.154306816 | 28.6303421355 | 30.106377455
+    | 30.106377455 | 2 |'
 - en: '![plot of chunk unnamed-chunk-4](img/526cee34f7d8bb90e8a5b2ec9f725d4e.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_IMG
+  zh: '![chunk unnamed-chunk-4 的图表](img/526cee34f7d8bb90e8a5b2ec9f725d4e.png)'

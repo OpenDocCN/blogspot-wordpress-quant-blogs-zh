@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:44:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:44:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Pattern Recognition: forward Boxplot Trajectories using
     R'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：模式识别：使用R进行前向箱形图轨迹
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/07/pattern-recognition-forward-boxplot.html#0001-01-01)
 - en: Although the following discussion can apply to the Quantitative Candlestick
     Pattern Recognition series, it is addressing the same issue as any basic conditional
     type system -- how and when to exit.  The following is one way to visualize and
     think about it, and is by no means optimal.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然以下讨论可以适用于定量蜡烛图模式识别系列，但它与任何基本条件类型系统面临的问题是相同的——何时以及如何退出。以下是思考和可视化问题的一种方法，绝非最优。
 - en: Fig 1\. Posterior Boxplot Trajectory
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 后置箱形图轨迹。
 - en: Often we attempt to find some set of prior input patterns that leads to profitable
     posterior outcomes.  However, in most of the available examples, we are typically
     only given heuristics and rules of thumb on where to exit.  This might make sense,
@@ -36,8 +52,10 @@
     the prior knowledge of forward trajectories.  I dubbed the name 'boxplot trajectory',
     here, as I think it's a useful way to visualize a group of many possible outcome
     trajectories for further analysis.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 通常，我们试图找到一组先前的输入模式，这些模式会导致有利的后续结果。然而，在大多数可用的示例中，我们通常只给出启发式和基于规则的准则，关于何时退出。这可能是有意义的，因为没有人能够准确预测何时退出。然而，有了对过去样本的了解，我们可以有一些关于基于先前知识的前向轨迹，一个好的退出目标可能在哪里的想法。我在这里称其为“箱形图轨迹”，因为我认为这是可视化许多可能结果轨迹以便进一步分析的有用方式。
 - en: In this example, a set of daily price based patterns was analyzed via a proprietary
     program I wrote in R, which resulted in an input pattern yielding a set of 52
     samples that met my conditional criteria.  Fig 1 illustrates a way to look at
@@ -45,11 +63,15 @@
     criteria. The bottom graph is simply the plot of median results of each data point
     in the trajectory. We often try to imagine the best way to exit without foreknowledge
     of the future (and somewhat less rule of thumb based criteria).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在此示例中，我使用编写的R语言专有程序分析了一组基于日价格的模式，结果产生了一个输入模式，产生了符合我的条件标准的52个样本。图1说明了一种根据条件标准中的一个有利模式来查看轨迹结果的方法。底部图表仅仅是每个轨迹数据点的中位数结果的绘图。我们经常试图在没有预知未来的情况下想象退出最佳方式（以及略微不太基于规则的准则）。
 - en: Fig 2\. Trajectory tree.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2. 轨迹树。
 - en: One approach would be to use some type of exiting rule based upon the statistical
     median of each sequential point's range.  Knowing that 1/2 of the vertices occur
     above and 1/2 below the median, we should expect to hit at least 1/2 of the targets
@@ -57,28 +79,41 @@
     sense to exit earlier than waiting for a greater gain further out (which has an
     even lower median).  So if we take as a target, the median value of the 3rd pt.
     we achieve an average and fixed target of 1.59% on 27/52 of the total samples.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种方法是使用基于每个连续点范围统计中位数的退出规则。考虑到有一半的顶点位于中位数之上和之下，我们应期望至少有一半的目标位于或高于中位数。鉴于第三个点的中位数最高，早点退出比等待更大的收益（中位数更低）是有意义的。因此，如果我们将第三个点的的中值作为目标，那么在总共52个样本中的27/52我们能够实现平均固定的1.59%的目标。
 - en: 'Of the remaining samples, we may now wish to exit on the 11th bar (or earlier
     if the same target is hit earlier) target of .556%, which is achieved on 13/52
     of the remaining samples.  This leaves only the last bar of which we simply use
     the average return as the weighted return value for that target, in this case
     -1.74% for the remaining samples : 12/52\. Notice we will always have the worse
     contenders that were put off until the end.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '在剩余样本中，我们现在可能希望在第11个条形图（或更早，如果更早达到相同目标）处退出，目标为0.556%，在剩余的13/52个样本中实现。这只剩下最后一个条形图，我们只需将平均回报作为该目标的加权回报值，在这种情况下，剩余样本为-1.74%
+    : 12/52。注意，我们总是会有那些被推迟到最后的较差竞争者。'
 - en: The expectation yields E(rtn)=27/52*.0159+13/52*.0056-12/52*-.017 =.0057
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 期望得到E(rtn)=27/52*.0159+13/52*.0056-12/52*-.017 =.0057
 - en: 'eeking out a small average + gain of .57%. Compounded, this gives:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 寻求平均+的小幅收益为0.57%。复合起来，这相当于：
 - en: (1+.0159)^27*(1+.0056)^13*(1-.017)^12~ 34% rtn for 52 trades, each less than
     3 days in length.  Hit rate (as secondary observation) is 77% in this case.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: (1+0.0159)^27*(1+0.0056)^13*(1-0.017)^12~ 34%的回报，对于52笔交易，每笔交易的时间都不超过3天。在这种情况下，命中率（作为次要观察）为77%。
 - en: The approach is particularly appealing for a high frequency strategy with very
     low commissions. Notice it's by no means comprehensive (and yes, I've only shown
     in sample here), but rather a novel way to think about exiting strategies.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法特别适用于高频策略，因为它的佣金非常低。请注意，这绝不是全面的（是的，我这里只展示了一个样本），而是一种新颖的思考退出策略的方法。

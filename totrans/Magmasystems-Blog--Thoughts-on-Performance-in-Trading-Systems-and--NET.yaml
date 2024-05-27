@@ -1,45 +1,67 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:18:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:18:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Thoughts on Performance in Trading Systems and .NET'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：关于交易系统和.NET性能的思考
 - en: 来源：[http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01](http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01](http://magmasystems.blogspot.com/2006/09/thoughts-on-performance-in-trading.html#0001-01-01)
 - en: Rico has done it again with a
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Rico又一次做到了，他
 - en: '[post](http://blogs.msdn.com/ricom/archive/2006/08/31/733887.aspx)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[帖子](http://blogs.msdn.com/ricom/archive/2006/08/31/733887.aspx)'
 - en: that provides much thought.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供了很多思考。
 - en: With the advent of object oriented languages (C++), and higher-level languages
     (C#, Java), most developers try to craft elegant, object-oriented frameworks,
     complete with reflection, heavyweight classes, lots of properties. I am one of
     these.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着面向对象语言（C++）和高级语言（C#、Java）的出现，大多数开发者试图构建优雅的面向对象框架，包括反射、重量级类、大量属性。我也是其中之一。
 - en: However, I remember the days where I had to cram all of the functionality of
     New York Word (my very first commercial product) into 512K of ram. Pouring over
     code, trying to see if I can save a few bytes here and a few bytes there. Looking
     at the output of the Microsoft Linker to see if I can save space. Looking over
     the disassembly of a crucial module, such as the one that performed wordwrapping.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我记得我曾经不得不把纽约单词（我的第一个商业产品）的所有功能压缩到512K的内存里。翻阅代码，试图节省几个字节，再节省几个字节。查看微软链接器的输出，看看我能节省空间。审查一个关键模块的反汇编，比如执行文字换行的模块。
 - en: In the next few years, we are going to start seeing a predicted rate of 456,000
     messages per second from some of the market data feeds. The goal is to get these
     messages, transformed into viable data, into another, trader-facing system, with
@@ -50,25 +72,35 @@
     the path that your data takes. If you are writing array-handling code in a managed
     environment, then the time it takes to perform array checking might add further
     delay. Even the slightest delay can mean millions of dollars in lost opportunities.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在未来的几年里，我们将开始看到一些市场数据馈送预测每秒将会有456,000条信息。目标是尽快将这些信息转换成有用的数据，并将其传输到另一个面向交易员的系统中。需要尽可能减少延迟将这些数据传输到算法交易系统和黑盒交易系统。序列化和反序列化数据，构造对象，以及执行垃圾回收的时间可能会给你的数据路径增加几毫秒的延迟。如果你在一个受管理的环境中编写数组处理代码，那么执行数组检查的时间可能会进一步延迟。即使是微不足道的延迟，也可能意味着失去数百万美元的机会。
 - en: An incredible amount of effort has been spent in writing high-performance, low
     latency graphics toolkits for rendering objects in video games. Has similar efforts
     been made to "render" the flow of market data, where every market tick counts?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在编写高性能、低延迟的图形工具包方面投入了大量努力，用于渲染视频游戏中的对象。是否有类似的努力投入到“渲染”市场数据的流动中，其中每一个市场滴答都至关重要？
 - en: I would love to hear about any experiences that you have had in getting market
     data into a client as fast as possible. Things like compressing data, conflating
     data, choice of transport, choice of GUI grids, high-performance threading, etc.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很想听听您在将市场数据尽可能快地传输到客户端方面的任何经验。比如数据压缩、数据合并、传输方式的选择、GUI网格的选择、高性能线程处理等等。
 - en: Microsoft has oodles of articles that deal with performance in .NET. I am anxious
     to see any performance improvements throughout the entire .NET stack. I am also
     interested to see how .NET/C#/C++ stacks up against a similar Java/Linux stack,
     given the same hardware. The PetShop demo might work well for a typical developer,
     but for trading systems developers, we need to see something a bit more substantial.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 微软有很多关于.NET性能的文章。我迫切希望看到整个.NET堆栈的性能改进。我也想看看在相同硬件下，.NET/C#/C++堆栈与类似的Java/Linux堆叠相比如何。PetShop演示可能对典型开发者来说很不错，但对于交易系统开发者来说，我们需要看到一些更实质性的东西。
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

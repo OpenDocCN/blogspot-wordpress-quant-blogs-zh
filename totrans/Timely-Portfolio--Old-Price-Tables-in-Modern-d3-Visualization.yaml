@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:00:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:00:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Old Price Tables in Modern d3 Visualization'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：现代d3可视化中的旧价格表格
 - en: 来源：[http://timelyportfolio.blogspot.com/2013/04/old-price-tables-in-modern-d3.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/04/old-price-tables-in-modern-d3.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2013/04/old-price-tables-in-modern-d3.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/04/old-price-tables-in-modern-d3.html#0001-01-01)
 - en: In my post [Dust off 130 Year Old Gold Books on Google Bookshelf](http://timelyportfolio.blogspot.com/2013/03/dust-off-130-year-old-gold-books-on.html),
     I reproduced some of the old and way out of copyright price tables from the appendices
     in [Gold and Prices Since 1873 by James Laurence Laughlin](http://books.google.com/books?id=UFMuAAAAYAAJ&printsec=frontcover#v=thumbnail&q&f=false)
@@ -25,43 +37,64 @@
     multiline [d3](http://d3js.org) ractive built in my last post [“Building ractives
     is so addictive it should be illegal!”](http://timelyportfolio.blogspot.com/2013/03/building-ractives-is-so-addictive-it.html),
     we can easily transform this data into an interactive time series line chart.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的文章[从谷歌书架上拂去130年前的黄金书籍尘埃](http://timelyportfolio.blogspot.com/2013/03/dust-off-130-year-old-gold-books-on.html)中，我使用了**latticeExtra
+    xyplot**重现了[詹姆斯·劳伦斯·劳克林](http://books.google.com/books?id=UFMuAAAAYAAJ&printsec=frontcover#v=thumbnail&q&f=false)所著的[1873年以来的黄金与价格](http://books.google.com/books?id=UFMuAAAAYAAJ&printsec=frontcover#v=thumbnail&q&f=false)附录中的某些旧且已超出版权保护的价格表格。现在，借助我上一篇文章中构建的[**clickme**](https://github.com/nachocab/clickme)多行[d3](http://d3js.org)ractive，我们可以轻松地将这些数据转换成交互式的时间序列线图。
 - en: 'I tried to generalize the [multiline ractive](https://github.com/timelyportfolio/clickme_multiline_generic/)
     to create almost any line chart for an xts object from [R](http://r-project.org).
     See the [commit history](https://github.com/timelyportfolio/clickme_multiline_generic/commits/)
     for the minor modifications that I made to the [original ractive](https://github.com/timelyportfolio/clickme_multiline):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我试图将[多行ractive](https://github.com/timelyportfolio/clickme_multiline_generic/)泛化，以创建来自[R](http://r-project.org)的xts对象的几乎任何线图。查看[提交历史](https://github.com/timelyportfolio/clickme_multiline_generic/commits/)，了解我对[原始ractive](https://github.com/timelyportfolio/clickme_multiline)所做的少量修改：
 - en: Take data as given instead of transforming to a cumulative line
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 采用给定的数据而不是转换为累积线
 - en: Allow parameters for a title and the location of the x-axis
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 允许为标题和x轴位置设置参数
 - en: Handle data series with differing start and end dates
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 处理起始日期和结束日期不同的数据系列
 - en: We can build the html file using [**clickme**](https://github.com/nachocab/clickme)
     with a couple of lines of R code.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以使用几行R代码和[**clickme**](https://github.com/nachocab/clickme)构建html文件。
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: I had not seen an example of passing parameters, so I used title and x_axis_location
     as a test for how **clickme** handles parameters. If I read the source correctly,
     the template_config.yml specifies permissible parameters. Then the parameters
     can be specified by a list provided as params to the **clickme** function as shown
     above.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我没有看到传递参数的示例，所以我用标题和x_axis_location作为测试，看看**clickme**如何处理参数。如果我看源代码正确的话，template_config.yml指定了允许的参数。然后，可以通过作为params提供给**clickme**函数的列表来指定这些参数，如上面所示。
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'

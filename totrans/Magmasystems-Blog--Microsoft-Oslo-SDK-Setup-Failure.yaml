@@ -1,125 +1,201 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:57:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:57:45'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Microsoft Oslo SDK Setup Failure'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems Blog：微软奥索洛（Microsoft Oslo）SDK 安装失败
 - en: 来源：[http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01](http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01](http://magmasystems.blogspot.com/2008/11/microsoft-oslo-sdk-setup-failure.html#0001-01-01)
 - en: It looks like you need SQL Server 2008 installed in order to use Oslo. Microsoft
     does not state this anywhere, nor does its installation program warn you of this.
     Here is my experience in trying to install Oslo on my laptop.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来你需要安装 SQL Server 2008 才能使用奥索洛。微软在任何地方都没有提到这一点，它的安装程序也没有警告你。以下是我在尝试在笔记本电脑上安装奥索洛的经历。
 - en: 1) I downloaded the Oslo SDK CTP from the Microsoft site.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 我从微软网站下载了奥索洛 SDK CTP。
 - en: 2) I extracted the files, and ran the setup. The setup completed without any
     warnings and error messages. So far so good.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 我解压了文件，并运行了安装程序。安装程序顺利完成，没有警告和错误信息。到目前为止还好。
 - en: 3) I have Windows Vista SP1 with both SQL Server 2005 and SQL Server Express
     2005 installed. I opened up SQL Server Management Studio and searched both servers
     for any trace of the Oslo repositories. No luck.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 我的电脑安装了 Windows Vista SP1，同时安装了 SQL Server 2005 和 SQL Server Express 2005。我打开
+    SQL Server Management Studio 并搜索了奥索洛仓库的任何痕迹。没有找到。
 - en: 4) In the directory
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 在目录
 - en: C:\Users\Marc\AppData\Local\Temp
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: C:\Users\Marc\AppData\Local\Temp
 - en: ', I found a file called'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我发现了一个名为
 - en: Oslo_Repository_Setup.log
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: Oslo_Repository_Setup.log
 - en: '. I opened this file in Notepad and found the following lines:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: . 我用记事本打开了这个文件，并发现了以下几行：
 - en: 'Property(C): ExecuteSilentCmd = "C:\Program Files\Microsoft Repository\CreateRepository.exe"
     /v+'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: Property(C)：ExecuteSilentCmd = "C:\Program Files\Microsoft Repository\CreateRepository.exe"
+    /v+
 - en: 'Property(C): WIXUI_EXITDIALOGOPTIONALTEXT = Warning: repository database creation
     failed. Please see %temp%\RepositorySetup.log for more details.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Property(C): WIXUI_EXITDIALOGOPTIONALTEXT = 警告：仓库数据库创建失败。请查看 %temp%\RepositorySetup.log
+    以获取更多详细信息。'
 - en: 'However, at the very end of the file, I found the following lines:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，在文件的末尾，我发现了以下几行：
 - en: 'MSI (c) (B0:48) [06:51:33:985]: Product: Microsoft Codename "Oslo" Repository
     -- Installation completed successfully.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: MSI (c) (B0:48) [06:51:33:985]：产品：微软代号“奥索洛”仓库 -- 安装成功。
 - en: 'MSI (c) (B0:48) [06:51:33:987]: Windows Installer installed the product. Product
     Name: Microsoft Codename "Oslo" Repository. Product Version: 3.0.1342.0\. Product
     Language: 1033\. Installation success or error status: 0.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: MSI (c) (B0:48) [06:51:33:987]：Windows Installer 安装了产品。产品名称：微软代号“奥索洛”仓库。产品版本：3.0.1342.0。产品语言：1033。安装成功或错误状态：0。
 - en: So, it looks like the installer considered the installation to be a success,
     even though the repository could not be created.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，看起来安装程序认为安装成功，尽管无法创建仓库。
 - en: '5) In the file RepositorySetup.log, I found the following lines:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 在 RepositorySetup.log 文件中，我发现了以下几行：
 - en: 'message: Creating repository database ...'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 'message: 创建仓库数据库...'
 - en: 'error: Cannot assign a default value to a local variable.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 错误：不能为局部变量分配默认值。
 - en: Must declare the scalar variable "@login".
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 必须声明标量变量 "@login"。
 - en: '[11/3/2008 - 6:51:24]Completed execution of: "C:\Program Files\Microsoft Repository\CreateRepository.exe"
     /v+'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[11/3/2008 - 6:51:24]已完成执行： "C:\Program Files\Microsoft Repository\CreateRepository.exe"
+    /v+'
 - en: 6) We see other users who have
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 我们看到其他用户也遇到了
 - en: '[reported this](https://connect.microsoft.com/oslo/feedback/ViewFeedback.aspx?FeedbackID=378415)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[已报告此问题](https://connect.microsoft.com/oslo/feedback/ViewFeedback.aspx?FeedbackID=378415)'
 - en: . Microsoft says that this is not a bug. It is "By Design".
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: . 微软表示这并非一个错误，而是“设计如此”。
 - en: 7) At
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 在
 - en: '[this link](http://social.msdn.microsoft.com/Forums/en-US/oslo/thread/c0ee4730-4595-4971-a2f3-a988997c4616)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这个链接](http://social.msdn.microsoft.com/Forums/en-US/oslo/thread/c0ee4730-4595-4971-a2f3-a988997c4616)'
 - en: ', we find a comment by Carlos Gomez of Microsoft:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我们发现微软的卡洛斯·戈麦斯（Carlos Gomez）留下了一条评论：
 - en: We do not support Sql Server 2005 at all, because some of the repository features
     depend on Sql Server Katmai.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们完全不支持 SQL Server 2005，因为一些仓库功能依赖于 SQL Server Katmai。
 - en: In other words, you need to have SQL Server 2008 installed. Well, my company
     is still on SS 2005, so I guess that means that Oslo will be just for my personal
     experimentation for the forseeable future.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，你需要安装 SQL Server 2008。嗯，我们公司还在用 SS 2005，所以我猜奥索洛（Oslo）将只在我的个人实验中使用，至少在可预见的未来是这样。
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 保留所有权利。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 在此表达的所有意见都是个人的，与我的雇主无关。

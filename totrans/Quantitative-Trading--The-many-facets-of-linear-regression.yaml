@@ -1,43 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:03:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:03:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: The many facets of linear regression'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：线性回归的多重面向
 - en: 来源：[http://epchan.blogspot.com/2011/04/many-facets-of-linear-regression.html#0001-01-01](http://epchan.blogspot.com/2011/04/many-facets-of-linear-regression.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2011/04/many-facets-of-linear-regression.html#0001-01-01](http://epchan.blogspot.com/2011/04/many-facets-of-linear-regression.html#0001-01-01)
 - en: 'Many years ago, a portfolio manager asked me in a phone interview: "Do you
     believe that linear or nonlinear models are more powerful in building trading
     models?" Being a babe-in-the-woods, I did not hesitate in answering "Nonlinear!"
     Little did I know that this is'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多年前，一个投资组合经理在一次电话面试中问我：“你认为在构建交易模型时，线性模型还是非线性模型更有力量？”作为一个初出茅庐的新手，我毫不犹豫地回答：“非线性！”我当时不知道，这其实是一个
 - en: '*the*'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '*the*'
 - en: question that separate the men from the boys in the realm of quantitative trading.
     Subsequent experiences showed me that nonlinear models have mostly been unmitigated
     disasters in terms of trading profits. As Max Dama said in a recent excellent
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 区分量化交易领域中男士和男孩的问题。随后的经验告诉我，在交易利润方面，非线性模型大多造成了不可挽回的损失。正如Max Dama在最近的一篇优秀
 - en: '[article](http://www.maxdama.com/?p=414)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[文章](http://www.maxdama.com/?p=414)'
 - en: 'on linear regression: "'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于线性回归的问题： "
 - en: '...when the signal to noise ratio is .05:1, ... there’s not much point in worrying
     about [higher order effects]". One is almost certain to overfit a nonlinear model
     to non-recurring noise.  Until recently, I have used linear regression mainly
@@ -74,5 +96,7 @@
     is faithfully linear.  I haven''t used Kalman filter much myself, but I would
     welcome any comments from our readers on its usage. Also, if you know of other
     ways to use linear regression in trading, do share with us here!'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 当信噪比为0.05:1时...担心[高阶效应]并没有多大意义"。几乎可以肯定，非线性模型会对偶发噪声进行过拟合。直到最近，我主要在配对交易中使用线性回归寻找两个工具的对冲比率，或者更一般地说，在某种形式的指数套利中寻找单个股票在篮子中的权重（以股数计算）。当然，其他人也在主成分分析以及更一般的因子分析中发现了线性代数的用途。但感谢博客上的一些评论者和各种私人通信者，我开始更直接地将线性回归应用于交易模型中。将线性回归直接应用于交易的一种方法是将其用作移动平均值。使用移动平均值隐含地假设价格序列中没有趋势，价格的均值将保持不变。这当然可能是不正确的。因此，有时使用线性回归来预测当前均衡价格比简单地将其设置为移动平均值更为准确。我发现，在某些情况下，这种均衡价格会导致更好的均值回归模型：例如，当某个工具的当前价格远高于均衡价格时，做空该工具。当然，也可以在动量模型中以类似方式使用线性回归：例如，如果当前价格远高于均衡价格，可以将此视为“突破”并购买该工具。上述文章中提到的Max还指出了线性回归的一个更复杂的版本，通常称为“加权最小二乘回归”（WLS）。WLS是线性回归的权重平均移动平均（EMA）是简单移动平均（SMA）的版本：它给予最近的数据点更高的权重。实际上，我发现在交易中，WMA通常比SMA给出更好的结果。然而，到目前为止，我没有发现WLS比简单最小二乘法更好。Max还引用了一篇文章，证明了加权最小二乘法与卡尔曼滤波等价。卡尔曼滤波是量化交易者中非常流行的线性模型。卡尔曼滤波的一个很好的特点是没有多少自由参数：该模型将逐渐适应输入时间序列的均值和协方差。此外，它可以一次一步进行（用技术术语来说，使用“在线”算法）：即，无需将数据分为“训练”和“测试”集，也无需定义与移动平均值不同的“回顾”期。它利用了类似于隐马尔可夫模型（HMM）的“隐状态”，但与HMM不同，卡尔曼滤波是真正线性的。我自己并没有使用过卡尔曼滤波，但我非常欢迎我们读者就其使用方法发表任何评论。此外，如果您知道线性回归在交易中的其他使用方法，请在这里与我们分享！

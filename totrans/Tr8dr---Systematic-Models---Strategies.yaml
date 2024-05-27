@@ -1,37 +1,56 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:41:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:41:49
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Tr8dr | Systematic Models & Strategies
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Tr8dr | 系统模型与策略
 - en: 来源：[https://tr8dr.wordpress.com#0001-01-01](https://tr8dr.wordpress.com#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com#0001-01-01](https://tr8dr.wordpress.com#0001-01-01)
 - en: In the previous post outlined intention to put together high quality L2/L3 feeds
     for the top 4-5 bitcoin exchanges, collect L3 data, and provide a consolidated
     live orderbook for trading.   So far have implemented OKCoin and been experimenting
     with the others to determine their API capabilities.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章中概述了打算为前四大比特币交易所组装高质量L2/L3数据源，收集L3数据，并为交易提供综合实时订单簿的意图。到目前为止，已经实现了 OKCoin
+    并正在实验其他交易所以确定它们的API能力。
 - en: 'With the exception of OKCoin, what I’ve found so far is not good.  Here is
     a summary of the top-4 exchanges w/ respect to market data APIs (I also included
     Coinbase with the notion will become a top player):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了 OKCoin 之外，我目前发现的情况都不好。以下是前四大交易所关于市场数据API的总结（我还包括了 Coinbase，因为我认为它会成为一个顶级玩家）：
 - en: '[![Screen Shot 2015-02-08 at 9.33.28 AM](img/e5c07009cda3c27ebe4a74490bc8ed04.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-08-at-9-33-28-am.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![Screen Shot 2015-02-08 at 9.33.28 AM](img/e5c07009cda3c27ebe4a74490bc8ed04.png)](https://tr8dr.wordpress.com/wp-content/uploads/2015/02/screen-shot-2015-02-08-at-9-33-28-am.png)'
 - en: '**BTCChina** is, by far, the largest exchange, however appears to have shoddy
     technology (at least on the market data side).  They implemented FIX 4.4 last
     Nov, however is broken in that requests for full OB fail to work as documented
@@ -42,8 +61,12 @@
     knows how this works, please let me know).  **Addendum**: I have reached out to
     BTCChina, hopefully they will address the FIX depth-of-book subscription issue
     and not treat it as a feature.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**BTCChina** 是最大的交易所，然而在市场数据方面似乎技术粗糙。他们去年11月实现了FIX 4.4，然而文档所述的全量OB请求无法工作（如果有人在这方面取得任何成功，请告知我）。BTCChina有一个替代的公开WebSocket/JSON
+    API，只提供5个订单簿级别。然而，似乎有一个“秘密”API提供完整的订单簿深度，因为实时UI（如 bitcoinwisdom）显示的活动超出5个级别（如果有人知道这个是如何工作的，请让我知道）。**补充**：我已经联系了
+    BTCChina，希望他们能解决FIX订单簿深度订阅问题，而不是将其视为一个特性。'
 - en: '**OKCoin** is the 2nd largest exchange by volume and appears to have the most
     active orderbook of the lot.  The good news is that its FIX API works as documented.
       Activity-wise, have been receiving 20+ transactions every 100-300ms or 15ms
@@ -53,16 +76,21 @@
     1st 3-5 levels of the orderbook.   The pattern I saw was very shallow orders (1/10th
     BTC) on the 1st 3-5 levels of both sides of the market getting swept on either
     side alternatively.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**OKCoin** 是交易量第二大的交易所，并且似乎拥有最活跃的订单簿。好消息是，其FIX API如文档所述正常工作。从活动量来看，平均每100-300毫秒或15毫秒收到20多个交易。这种活跃程度堪比更传统市场。话说回来，怀疑交易所或者一个零交易成本的市场制造商伙伴在订单簿的前3-5个级别不断对市场两边进行操作。我所见到的模式是非常浅的订单（十分之一的BTC）在市场两边的前3-5个级别被交替地扫单。'
 - en: '**Bitfinex** seems to be the most popular BTC/USD exchange, and hence cannot
     be ignored, even though has a ill-advised market data API.   They are beta-testing
     AlphaPoint’s “modern” exchange implementation.  Once that hits production should
     expect both FIX and binary streaming feeds.   I don’t know whether these will
     provide a L2 (depth of book) or L3 (order transactions) view of the exchange.
      Either would be very welcome.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Bitfinex** 似乎是最受欢迎的 BTC/USD 交易所，因此不能忽视它，尽管它有一个不智的市场数据API。他们正在测试 AlphaPoint
+    的“现代”交易所实现。一旦投入生产，应该期待既有FIX也有二进制流式数据源。我不知道这些是否会提供L2（订单簿深度）或L3（订单交易）的交易所视图。任何一个都会非常受欢迎。'
 - en: '**BitStamp** has fallen dramatically in terms of its share of BTC/USD volume.
      Given its troubles, I wonder whether it will survive.   Though it has a “secret”
     API providing L3 data, the technology backing the exchange is suspect.  In particular,
@@ -71,8 +99,11 @@
     sweeping a few levels can take seconds to execute.   Short of Bitstamp reinventing
     itself both in terms of technology and trust, the question is then, who will replace
     them as the #2 presence in the BTC/USD market?'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**BitStamp**在BTC/USD交易量的市场份额急剧下降。考虑到它的困境，我怀疑它是否能生存下去。尽管它有一个提供L3数据的“秘密”API，但支持该交易所的技术令人怀疑。特别是，它的匹配引擎既有[不正确的匹配语义](http://www.reddit.com/r/Bitcoin/comments/1r4d6t/bitstamps_streaming_api_and_exploitation/
+    "improper matching semantics")（在reddit上有记录）而且非常慢，清扫几个层次可能需要几秒钟才能执行。除非Bitstamp在技术和信任上彻底重塑自己，否则问题是谁将取代他们成为BTC/USD市场的第二大角色？'
 - en: '**Coinbase** or the yet-to-be launched Gemini, may be the successor to Bitstamp
     in terms of market position (or perhaps even take on Bitfinex).  With respect
     to market data, it provides a complete list of orders in the orderbook. **Update**:
@@ -83,28 +114,40 @@
     is a streaming API with order transaction “deltas” {new order, del order, update
     order, etc}.    The most basic design, scale, & accessibility mistakes have been repeated,
     and on a high profile exchange launch (regulated, NYSE-backed, etc).~~'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Coinbase**或尚未推出的Gemini，可能是取代Bitstamp在市场地位上的继任者（或许甚至挑战Bitfinex）。在市场数据方面，它提供了订单簿中完整的订单列表。**更新**：Coinbase有一个流API及三级数据，我的错误。~~然而这必须通过轮询他们的REST/json
+    API来查询。正如你所想象的，这不是一种可扩展的方法——订单数量会随着时间的推移增加到一定程度，消息大小将在定期频率上令人应接不暇。正确的解决方案是一个带有订单交易“差分”的流API（新订单、删除订单、更新订单等）。最基本的设计、规模和可访问性错误已经被重复，并且在一家知名交易所的推出（受监管的、NYSE支持的等）。~~'
 - en: '**Chinese Exchanges**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**中国交易所**'
 - en: 'It is hard to know what is real with respect to volume & dealability on the
     chinese exchanges.  I do not have any trading experience with either OKCoin or
     BTCChina, however, the following has been noted from multiple sources ([for example](http://www.reddit.com/r/BitcoinMarkets/comments/2swttr/okcoin_unusable_during_this_drop/
     "for example")):'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '在中国交易所关于交易量和可交易性的真实性很难得知。我没有与OKCoin或BTCChina的任何交易经验，然而，以下是从多个来源注意到的([例如](http://www.reddit.com/r/BitcoinMarkets/comments/2swttr/okcoin_unusable_during_this_drop/
+    "for example")):'
 - en: 'OKCoin: exchange not responsive to crossing orders during larger movements
     (DDOS on price movements)'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: OKCoin：在大规模价格变动时，交易所对交叉订单不响应（价格变动上的DDOS）。
 - en: 'OKCoin & BTCChina: massive wash trading and spam orders (obviously house trading
     bot given not economical otherwise).  This resonates with what I’ve seen in the
     market data on OKCoin.'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: OKCoin & BTCChina：大量洗盘交易和垃圾订单（很明显是内置的交易机器人，否则在经济上不可行）。这与我在OKCoin的市场数据中看到的情况相呼应。
 - en: At least as a data source, I think these exchanges provide value.   More ideal
     would be to find a way to use for trading, and avoid situations where unlikely
     to be able to execute.   With respect to unresponsive crosses in larger price
@@ -112,41 +155,58 @@
     (where the OB may be overwhelmed)[1] or whether is being done intentionally “for
     the house”[2].   It seems very likely that the exchanges are trading on their
     own behalf in addition to providing exchange services.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 至少作为一个数据来源，我认为这些交易所是有价值的。更理想的是找到一种用于交易的方法，并避免在不太可能执行时的情况。关于在大规模价格变动时对交叉订单的不响应，问题这是由于糟糕的匹配引擎技术（可能OB被淹没）[1]还是为了“自家人”有意为之[2]。似乎交易所为自己交易提供服务的同时，很可能在为自己提供交易所服务。
 - en: Today there was also bad news, where a HK based exchange (MaiCoin) [disappeared](http://headlines.yahoo.co.jp/hl?a=20150208-00000055-jij-cn
     "disappeared") with $3B HKD worth of deposits from customers.   I think there
     is enough fraud and poor market practices in the bitcoin space, that a certain
     level of regulation and regulated exchanges will be welcomed.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天也传来了一些坏消息，一家香港交易所（MaiCoin）[消失](http://headlines.yahoo.co.jp/hl?a=20150208-00000055-jij-cn
+    "消失")了，携带着来自客户的30亿港元存款。我认为在比特币领域已经存在足够的欺诈和不良市场行为，因此一定程度的监管和受监管的交易所将会受到欢迎。
 - en: '**Conclusions (technology)**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结论（技术方面）**'
 - en: My overall impression with (most of) the exchange Bitcoin technology is that
     it has been designed by the typical full-stack web app developer, taking few learnings
     from traditional markets or applying common sense with respect to scale.   Polling
     with REST/JSON is one of the dumbest ideas that is pervasive in Bitcoin exchanges
     (though for some uses is fine).   With this sort of exterior interface / design
     decision, one has to wonder what other marvels are present behind the scenes.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，我对（大多数）交易所的比特币技术印象是，它们是由典型的全栈网络应用开发者设计的，这些开发者从传统市场学到的东西很少，或者在考虑规模问题时没有运用常识。轮询REST/JSON是比特币交易所普遍存在的一个极其愚蠢的想法（尽管在某些应用场景中是可行的）。有了这种外部接口/设计决策，人们不禁要好奇幕后还有哪些惊人的“杰作”。
 - en: I am sure that these will mature, and via competition, will converge towards
     more sophistication and sensible design.   I would be happy to consult with these
     exchanges to move their APIs and implementations towards the state of the art,
     if for no other reason then to make these better venues for trading.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我相信这些缺陷将会得到改进，通过市场竞争，它们将趋向于更加复杂和合理的设计。如果出于其他任何理由，我都愿意为这些交易所提供咨询服务，帮助他们将API和实施方式推向业界先进水平，以使这些交易所成为更好的交易场所。
 - en: '**Notes**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注记**'
 - en: '[1] Given the uninformed / ill-considered implementations have seen in the
     BTC space, would not be a surprise if most exchanges have deficient matching engines,
     with respect to order volume scaling.   Certainly Bitstamp does.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到在BTC领域我们已经见证了不计其数的无信息/考虑不周的实施案例，如果大多数交易所的订单匹配引擎在订单量扩展方面存在缺陷，那也毫不令人意外。Bitstamp肯定也存在这样的问题。
 - en: '[2] The “for the house” scam would be to intentionally delay and front-run:
     in a market upswing, delay buying flow, buy in front of the buyer flow and sell
     to the latent buyers at a higher price.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 所谓的“利于交易所自身”的骗局可能包括故意延迟和抢跑：在市场上升时，延迟买方流量，在买方流量之前买入并在更高的价格卖给潜在的买家。

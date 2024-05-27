@@ -1,36 +1,54 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:33:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:33:42
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Model Parsimony | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 模型的简约性 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/02/21/model-parsimony/#0001-01-01](https://tr8dr.wordpress.com/2010/02/21/model-parsimony/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/02/21/model-parsimony/#0001-01-01](https://tr8dr.wordpress.com/2010/02/21/model-parsimony/#0001-01-01)
 - en: 'Given the complexity of the markets, it is easy to fall into the trap of overfitting
     when creating a parametric model of some sort.    There are a variety of approaches
     to avoiding this, some heuristic and others theoretical, such as:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到市场的复杂性，在创建某种参数模型的过程中很容易陷入过拟合的陷阱。 避免这种情况有各种方法，有些是启发式的，其他的是理论上的，例如：
 - en: cross-validation  (in-sample, out-of-sample)
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交叉验证 （样本内，样本外）
 - en: likelihood weighted information criteria
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 似然加权信息准则
 - en: 'I want to briefly look at information criteria today.   The [Kullback-Leiber
     divergence](http://en.wikipedia.org/wiki/Kullback-Leibler_divergence) metric is
     probably the seminal work in this area.   Since then there have been a number
@@ -38,47 +56,72 @@
     (well 2000) Hamaparsum Bozdogan developed another measure ([ICOMP](yaroslavvb.com/papers/bozdogan-akaike.pdf))
     which has more appeal for me in terms of what it captures.   Conceptually the
     measure weighs the following:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想简要地看看信息准则。 [Kullback-Leiber 散度](http://en.wikipedia.org/wiki/Kullback-Leibler_divergence)指标可能是这一领域的开创性工作。
+    此后出现了许多度量标准，例如赤池信息准则，Hannon-Quinn 等。 近年来（好吧，2000年）Hamaparsum Bozdogan 开发了另一个度量标准([ICOMP](yaroslavvb.com/papers/bozdogan-akaike.pdf))，在它所捕捉的内容方面更吸引我。
+    从概念上讲，该度量标准权重如下：
 - en: likelihood of the model given the parameters (lack or degree of fit)
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 给定参数的模型似然度（缺乏或适应度程度）
 - en: the complexity of model parameters (lack of parsimony)
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 模型的参数复杂度（缺乏简约性）
 - en: the complexity of model errors (profusion of complexity)
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 模型误差的复杂度（复杂度的增生）
 - en: 'A simplified form of the measure is as follows:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 度量的简化形式如下：
 - en: '[![](img/c3b17079c9930b851730899ae67a2041.png "ICOMP")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/screen-shot-2010-02-21-at-3-15-19-pm.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c3b17079c9930b851730899ae67a2041.png "ICOMP")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/screen-shot-2010-02-21-at-3-15-19-pm.png)'
 - en: where Σθ and Σε are the parameter and residuals covariance matrices respectively.
      λ’s are the eigenvalues of each respective matrix.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中Σθ和Σε分别是参数和残差协方差矩阵。 λ's 是每个矩阵的特征值。
 - en: 'We look to minimize the above function (effectively maximizing likelihood against
     the countervailing complexity measures):'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们试图最小化上述函数（有效地最大化似然度，对抗复杂的度量标准）：
 - en: '[![](img/c874bc1b7aab348083b3477930092904.png "minimization")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/screen-shot-2010-02-21-at-3-44-20-pm.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c874bc1b7aab348083b3477930092904.png "minimization")](https://tr8dr.wordpress.com/wp-content/uploads/2010/02/screen-shot-2010-02-21-at-3-44-20-pm.png)'
 - en: 'The measure of complexity is explained as follows from his [paper](yaroslavvb.com/papers/bozdogan-akaike.pdf):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '复杂度的度量如下解释自他的[论文](yaroslavvb.com/papers/bozdogan-akaike.pdf):'
 - en: Complexity of a system (of any type) is a measure of the degree of interdependency
     between the whole system and a simple enumerative composition of its subsystems
     or parts.
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 系统的复杂度（任何类型的系统）是整个系统与简单枚举组成其子系统或部分之间的相互依赖度的度量。
 - en: ''
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -86,10 +129,13 @@
     it provides a numerical measure to assess *parameter redundancy* and *stability*
     uniquely all in one measure. When the parameters are stable, this implies that
     the covariance matrix should be approximately a diagonal matrix.
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 模型协方差结构的复杂度的贡献是它提供了一个数值度量，用于评估*参数冗余*和*稳定性*，所有这些都集中在一个度量标准中。 当参数稳定时，这暗示协方差矩阵应该是一个近似于对角矩阵。
 - en: ''
+  id: totrans-22
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -97,18 +143,24 @@
     the variables, and a low degree of complexity represents less interaction between
     the variables. The minimum of *Complexity*(Σ) corresponds to the least complex
     structure. In other words:'
+  id: totrans-23
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 一般来说，复杂度的大值表示变量之间的高交互作用，而复杂度的小值表示变量之间的低交互作用。 *复杂度*(Σ)的最小值对应于最简单的结构。 换句话说：
 - en: ''
+  id: totrans-24
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '*Complexity*(Σ) → 0 as Σ→ I'
+  id: totrans-25
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 复杂度(Σ) → 0 作为 Σ→ I
 - en: ''
+  id: totrans-26
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -118,11 +170,16 @@
     or linear models with no colinearity, are the least complex, or most informative,
     and the identity matrix is the only matrix for which the complexity vanishes.
     Otherwise, *Complexity*(Σ) > 0, necessarily.
+  id: totrans-27
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 这确立了一种合理的联系，即信息论复杂性与计算努力之间的关系。此外，这意味着单位矩阵是最简单的矩阵。用统计学的话来说，正交设计，或者没有多重共线的线性模型，是最简单的，或者是最有信息的，而单位矩阵是唯一一个复杂度消失的矩阵。否则，*复杂度*(Σ)
+    > 0，是必然的。
 - en: Why bother?   Well the most commonly used criterion (the AIC) has does not adequately
     capture complexity and is know to be biased for some model systems.   The approach
     also has greater intuitive appeal.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 为什么要这么做呢？毕竟，最常用的标准（AIC）并没有充分捕捉到复杂度，并且已知对某些模型系统有偏差。这种方法还具有更大的直观吸引力。

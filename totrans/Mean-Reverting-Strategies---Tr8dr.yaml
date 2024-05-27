@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:32:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:32:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mean Reverting Strategies | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 均值回归策略 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/09/05/mean-reverting-strategies/#0001-01-01](https://tr8dr.wordpress.com/2010/09/05/mean-reverting-strategies/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/09/05/mean-reverting-strategies/#0001-01-01](https://tr8dr.wordpress.com/2010/09/05/mean-reverting-strategies/#0001-01-01)
 - en: September 5, 2010 · 5:10 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年9月5日 · 5:10 pm
 - en: Recently there have been some discussions on one of the quant groups, where
     someone indicated “mean reverting strategies no longer work”.    I don’t agree
     with this at all.    However, there has been a lot of risk aversion and the market
@@ -28,40 +42,56 @@
     then those preceding.    The market of the last few months has been ideal for
     market making given the tight bands and much less favorable for strategies that
     rely on trends or big swings.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近在一个量化群里有一些讨论，有人表示“均值回归策略已经不再有效”。我完全不认同这个观点。然而，最近几个月市场风险厌恶情绪很高，市场走势（自二月或三月以来）与之前的情况有很大不同。最近几个月的市场对市场制造非常有利，因为波动区间紧缩，对于依赖趋势或大幅波动的策略来说就不那么有利了。
 - en: One of my strategies is quite simple and depends on mean-reverting behavior
     across a large portfolio.   When MR behavior in the market is “cranked back” it
     makes sense to filter the portfolio, increasing the chance of successful trades
     and reducing possible losses from assets without the desired footprint.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的其中一个策略非常简单，依赖于一个大组合的均值回归行为。当市场中的均值回归行为“回调”时，筛选组合是有意义的，这样可以提高成功交易的机会，并减少来自没有所需足迹的资产的可能损失。
 - en: 'I decided to do some tests on the biggest winners and losers by asset to confirm
     my belief that wining assets would exhibit strong negative autocorrelation and
     losing assets would likely exhibit positive or statistically not-significant levels
     of autocorrelation (+/-).  Indeed one of the biggest losing assets had the following
     profile:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定对一些最大赢家和输家进行测试，以确认我的信念：赢家的资产会表现出强烈的负自相关性，而输家的资产可能会表现出正相关或统计上不显著的自相关性（±）。其中一个最大的输家资产的概况如下：
 - en: '[![](img/443f0200dbacda614891826a5797c995.png "Screen shot 2010-09-05 at 5.32.48
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-5-32-48-pm.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![2010-09-05 at 5.32.48 PM](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-5-32-48-pm.png)'
 - en: 'The above asset spends most of the time in positive auto-corr territory and
     does not tend to mean-revert over the window of interest.    The asset below spend
     most of its time in negative auto-corr territory and hence is very strongly mean-reverting:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述资产大部分时间处于正自相关区域，并且在感兴趣的窗口期内不会倾向于均值回归。下面的资产大部分时间处于负自相关区域，因此具有非常强烈的均值回归特征：
 - en: '[![](img/2e0d2d938e6860466b0eb9de4594ed20.png "Screen shot 2010-09-05 at 5.27.27
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-5-27-27-pm.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![2010-09-05 at 5.27.27 PM](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-5-27-27-pm.png)'
 - en: 'Of course measures like this have lag associated with them, but if chosen carefully
     can be used to effectively filter assets on the run.   Here is the test code in
     R:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，这种方法存在滞后，但如果选择得当，可以有效地在运行过程中筛选资产。以下是R语言的测试代码：
 - en: '[![](img/c0f8ee2c7faec98d9488f93f45cb0400.png "Screen shot 2010-09-05 at 9.18.26
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-9-18-26-pm.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![2010-09-05 at 9.18.26 PM](https://tr8dr.wordpress.com/wp-content/uploads/2010/09/screen-shot-2010-09-05-at-9-18-26-pm.png)'

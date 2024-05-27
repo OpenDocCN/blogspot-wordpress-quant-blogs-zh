@@ -1,131 +1,206 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:08:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 08:08:53'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Installing QuantLib for VC11 (Windows) | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Installing QuantLib for VC11 (Windows) | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/#0001-01-01](https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/#0001-01-01](https://quantcorner.wordpress.com/2012/11/13/installing-quantlib-for-vc11-windows/#0001-01-01)
 - en: Below are instructions for installing and using **QuantLib 1.2** for **VC11**
     on a computer running under **Windows** (32-bit). We will only install  the core
     library of **QuantLib**, that is only 1 of the 15 projects contained in the solution
     file. Thus, we will just need **Boost** header-only. There will no need to install
     the **Boost** library.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是在运行于**Windows**（32位）的电脑上安装和使用**QuantLib 1.2**用于**VC11**的说明。我们只会安装**QuantLib**的核心库，即解决方案文件中的15个项目中的只有1个。因此，我们只需要**Boost**的头文件。无需安装**Boost**库。
 - en: '**(I) Requirements**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**(I) 要求**'
 - en: '**a)** You must have the **VC11** environment available on your computer, that
     is Visual Studio 11 Beta, Visual Studio 2012, Visual C++ 2012 Express, … .'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**a)** 你的电脑上必须有**VC11**环境，即Visual Studio 11 Beta、Visual Studio 2012、Visual
+    C++ 2012 Express等。'
 - en: '**b)** The **Boost** library can be downloaded [here](http://www.boost.org/users/download/
     "Boost"). Currently, the latest version available is **Boost 1.52.0**.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**b)** **Boost**库可以在这里[下载](http://www.boost.org/users/download/)。目前可用的最新版本是**Boost
+    1.52.0**。'
 - en: '**c)** The **QuantLib** library. The solution file of **QuantLib 1.2.1** for
     **VC11** can be downloaded from a [previous post](https://quantcorner.wordpress.com/2012/10/28/quantlib-1-2-with-vc11/
     "QuantLib for VC11").'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**c)** **QuantLib**库。**VC11**的**QuantLib 1.2.1**解决方案文件可以从一篇[之前的帖子](https://quantcorner.wordpress.com/2012/10/28/quantlib-1-2-with-vc11/)下载。'
 - en: '**(II) Building QuantLib**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**(II) 构建 QuantLib**'
 - en: We will build the solution from within **Visual Studio** in Debug mode, here.
     Just follow the same upcoming installation steps to build **QuantLib** in any
     other mode (e.g. in Release mode). From now onwards, we assume everything is okay
     with the requirements in **(I)**.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将会在**Visual Studio**中以调试模式构建解决方案。在这里，请按照即将到来的安装步骤来以任何其他模式（例如，以发布模式）构建**QuantLib**。从现在开始，我们假定**(I)**中的所有要求都是没有问题的。
 - en: '**a)** From within your GUI or directly by double clicking on the file, open
     the solution file named QuantLib_vc11.sln ( *… \QuantLib-1.2.1\ QuantLib_vc11.sln*).
     This will open the 15 projects contained in the solution (see the picture, below).'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**a)** 在你的图形用户界面（GUI）中或者直接通过双击文件，打开名为QuantLib_vc11.sln的解决方案文件（*… \QuantLib-1.2.1\
+    QuantLib_vc11.sln*）。这将打开解决方案中的15个项目（见下面的图片）。'
 - en: '[![](img/b3443eacd5b40d4a504f1221e4661ff3.png "vc11 1")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-1.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![vc11 1](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-1.jpg)'
 - en: '**b)** Make sure the ‘QuantLib’ project is selected that is it is enlighten
     in the ‘Solution Explorer’ panel. Then, right-click and select ‘Properties’ in
     the context menu.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**b)** 确保“QuantLib”项目被选中，即在“解决方案资源管理器”面板中突出显示。然后，在上下文菜单中右键点击并选择“属性”。'
 - en: '**c)** Add the path to the folder *… \boost_1_52* to *Configuration Properties*/*VC++
     Directories/Include Directories*. Then, add the path to the folder *… \boost_1_52\libs*
     to Configuration Properties/*VC++ Directories/Libraries Directories* (see in bold
     on the picture, below). Obviously, you click on ‘Apply’ for your changes to be
     taken into account.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**c)** 将文件夹*… \boost_1_52*的路径添加到*配置属性/*VC++ 目录/包含目录*。然后，将文件夹*… \boost_1_52\libs*的路径添加到配置属性/*VC++
+    目录/库目录*（见下面的加粗图片）。显然，你需要点击“应用”以使你的更改生效。'
 - en: '[![](img/e08a0d84d4b0e705d1a13a3fb4f6236b.png "vc11 2")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-2.jpg)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![vc11 2](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-2.jpg)'
 - en: '**d)** Now, in the ‘QuantLib Properties Pages’ panel, set the *Configuration
     Properties/*C/C++/***Precompiled Headers/Precompiled Header* item to ‘Not Using
     Precompiled Headers’.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**d)** 现在，在“QuantLib 属性页面”面板中，将*配置属性/*C/C++/*预编译头/预编译头*项设置为“不使用预编译头”。'
 - en: '[![](img/d81f26b28f8eac765250a7e9f3ea6b10.png "vc11 3")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-3.jpg)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![vc11 3](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-3.jpg)'
 - en: '**f)** In the ‘Solution Explorer’ panel, right-click on ‘Solution_vc11’ (15
     projects)’ and select ‘Properties’. In *Configuration Properties/Configuration*
     unselect all the project from ‘Build’ except the ‘QuantLib’ project.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **f)** 在 ‘Solution Explorer’ 面板上，右键点击 ‘Solution_vc11’（15个项目）’，选择 ‘Properties’。在
+    *Configuration Properties/Configuration* 中，取消选择所有 ‘Build’ 中的项目，只留下 ‘QuantLib’
+    项目。'
 - en: '[![](img/bfc20357a3c6f10e3b3394dbe9ffe19e.png "vc11 4")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-4.jpg)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bfc20357a3c6f10e3b3394dbe9ffe19e.png "vc11 4")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-4.jpg)'
 - en: '**g)** Now, right-click again on ‘Solution_vc11’ (15 projects)’ in the ‘Solution
     Explorer’ panel and click on ‘Build Solution’. Alternatively, on can strike the
     F7 key. The build process should start.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **g)** 现在，再次在 ‘Solution Explorer’ 面板上点击 ‘Solution_vc11’（15个项目）’，然后点击 ‘Build
+    Solution’。或者，可以按下 F7 键。构建过程应该会开始。'
 - en: There might be warning messages during the compilation, but this is no real
     problem.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   编译过程中可能会出现警告信息，但这并不是真正的问题。'
 - en: '**(III) QuantLib Usage**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **(III) QuantLib 使用**'
 - en: '**a)** Each time the C++ program you write relies on the **QuantLib** library,
     you will have to make the *… \boost_1_52* and *… \boost_1_52\libs* folders visible
     to your project as shown at the step **(II,c)**, above.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **a)** 每次你编写的 C++ 程序依赖于 **QuantLib** 库时，你都需要按照上面步骤 **(II,c)** 的所示，让你的项目能够看到
+    *… \boost_1_52* 和 *… \boost_1_52\libs* 文件夹。'
 - en: '**b)** Then, add the path to the folder *… /QuantLib-1.2.1* to Configuration
     Properties/*C/C++/General/Additional Include Directories*.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **b)** 然后，将 *… /QuantLib-1.2.1* 文件夹的路径添加到 Configuration Properties/*C/C++/General/Additional
+    Include Directories*。'
 - en: '[![](img/155ace2fa84acfd008b626c967309eb7.png "vc11 5")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-5.jpg)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/155ace2fa84acfd008b626c967309eb7.png "vc11 5")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-5.jpg)'
 - en: '**c)** Eventually, add the path to the folder *… /QuantLib-1.2.1/lib* to Configuration
     Properties/*Librarian/General.*'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **c)** 最后，将 *… /QuantLib-1.2.1/lib* 文件夹的路径添加到 Configuration Properties/*Librarian/General*。'
 - en: '[![](img/10b77b14c33ccc2be43a251a4bfbce00.png "vc11 6")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-61.jpg)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/10b77b14c33ccc2be43a251a4bfbce00.png "vc11 6")](https://quantcorner.wordpress.com/wp-content/uploads/2012/11/vc11-61.jpg)'
 - en: Alternatively, one can make the steps **(III, a)** an **(III, b)** less tiredsome,
     specifying once for all the directories required for the use of **QuantLib**,
     e.g. by specifying a [per-user directory list](http://msdn.microsoft.com/en-us/library/vstudio/ee855621.aspx
     "Per-user directory list"), or any other method you like*****.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   或者，可以让步骤 **(III, a)** 和 **(III, b)** 更简单一些，一次性指定 **QuantLib** 所需的全部目录，例如，通过指定一个
+    [每用户目录列表](http://msdn.microsoft.com/en-us/library/vstudio/ee855621.aspx "Per-user
+    directory list")，或者你喜欢的任何其他方法*****。'
 - en: '****** Thank you to **Polter**  for his comments in the Wilmott forums.*'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   ****** 感谢 **Polter** 在 Wilmott 论坛上的评论。*'

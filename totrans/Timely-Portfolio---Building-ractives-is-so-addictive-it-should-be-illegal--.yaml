@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:00:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:00:40
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: “Building ractives is so addictive it should be illegal!”'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时组合：“构建ractives如此令人上瘾，它应该被禁止！”
 - en: 来源：[http://timelyportfolio.blogspot.com/2013/03/building-ractives-is-so-addictive-it.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/03/building-ractives-is-so-addictive-it.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2013/03/building-ractives-is-so-addictive-it.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/03/building-ractives-is-so-addictive-it.html#0001-01-01)
 - en: '[clickme](https://github.com/nachocab/clickme) is an amazing R package. I was
     not sure what to expect when I first saw [Nacho Caballero''s](https://twitter.com/nachocaballero)
     announcement. I actually was both skeptical and intimidated, but neither reaction
@@ -28,33 +40,49 @@
     focus on quick reproducibility and sharing makes it a very useful tool. This is
     very much in the spirit of [http://dexvis.wordpress.com/ Reusable Charts](http://dexvis.wordpress.com/2013/03/27/reusable-charts-part-6-parallel-coordinates/).
     **ractives** [defined](https://github.com/nachocab/clickme/wiki) as'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个非常棒的R包。[clickme](https://github.com/nachocab/clickme)。当我第一次看到[Nacho Caballero](https://twitter.com/nachocaballero)的声明时，我并不确定会看到什么。实际上，我既怀疑又害怕，但这两种反应都是没有根据的。示例证明了它的力量，而[他的wiki教程](https://github.com/nachocab/clickme/wiki/_pages)减轻了新手的困难。clickme与shiny非常相似，它作为html、javascript（尤其是[d3](http://d3.js.org)）和R的集成点。虽然clickme不支持shiny的R
+    websocket交互性，但它更专注于快速可复现性和共享，使其成为一个非常有用的工具。这与[可复用图表](http://dexvis.wordpress.com/2013/03/27/reusable-charts-part-6-parallel-coordinates/)的精神非常相似。**ractives**
+    [定义](https://github.com/nachocab/clickme/wiki)如下：
 - en: (short for interactives-a hat tip to Neal Stephenson), which are simple folder
     structures that contain a template file used to populate the JS code with R input
     data
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: （简称interactives-向Neal Stephenson致敬），这是一个包含用于用R输入数据填充JS代码的模板文件的简单文件夹结构
 - en: provide the structure for clickme to produce an html file from
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为clickme提供结构以从
 - en: a template in R markdown (template.rmd)
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一个R markdown模板（template.rmd）
 - en: a translator R script (translator.r)
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一个转换器R脚本（translator.r）
 - en: a data source
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 数据源
 - en: external scripts (probably javascript) and styles (.css).
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 外部脚本（可能是javascript）和样式（.css）。
 - en: Inspired by the [clickme longitudinal heatmap example](http://bl.ocks.org/timelyportfolio/raw/5225228/),
     I just had to try to create my own ractive. I thought [Mike Bostock's line chart
     example](http://bl.ocks.org/mbostock/3902569) would serve as a nice template for
@@ -62,26 +90,41 @@
     **PerformanceAnalytics** dataset named **managers**. With very minor modifications
     to the Bostock source and a simple custom R script translator (translator.R shown
     below), we have everything we need for this ractive, which I will call multiline.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 受到[clickme纵向热图示例](http://bl.ocks.org/timelyportfolio/raw/5225228/)的启发，我忍不住尝试创建自己的ractive。我认为[Mike
+    Bostock的线图示例](http://bl.ocks.org/mbostock/3902569)将作为我的第一个ractive的好模板。数据不出所料将来自R金融包**PerformanceAnalytics**数据集，名为**managers**。对Bostock源进行了非常小的修改，并编写了一个简单的自定义R脚本转换器（translator.R，如下所示），我们就有了这个ractive所需的一切，我将称其为multiline。
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Now to create our first clickme html page, we just need a couple lines of code
     in R.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在要创建我们的第一个clickme html页面，我们只需要在R中写几行代码。
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[PRE2]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Then, we have a web page that will create an interactive d3 line chart using
     the cumulative growth of the **managers** return series. If you do not see the
     embed below, then please follow the [link](http://bl.ocks.org/timelyportfolio/5257985).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们将创建一个网页，该网页将使用累积增长**经理**回报系列的d3线图进行交互。如果您看不到下面的嵌入内容，请点击[这里](http://bl.ocks.org/timelyportfolio/5257985)跟进链接。
 - en: Eventually, it will be very nice to have an entire gallery of amazing ractives.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终，拥有一个完整的一系列令人惊叹的ractives的画廊将是非常好的。

@@ -1,75 +1,111 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:46:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:46:47'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Genetic Algorithm Systematic Trading Development-- Part
     2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：遗传算法系统交易开发 - 第2部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_17.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_17.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_17.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading_17.html#0001-01-01)
 - en: 'We started by discussing the goal of a genetic algorithm, which is to optimally
     find the candidate pool of rules that are superior to other potential rules. In
     our example of moving averages, we are seeking the values of parameters of the
     rule :'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们首先讨论了遗传算法的目标，即找到优于其他潜在规则的规则候选池。在我们移动平均的例子中，我们寻求规则的参数值：
 - en: if ma(m) binop ma(n) then action.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果ma(m)二进制运算ma(n)则动作。
 - en: '*Note: binop is short for binary operator; in this case the binary operator
     is > or'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '*注：binop是二元运算符的简称；在此情况下，二元运算符是>或'
 - en: <./>
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: <./>
 - en: The GA (genetic algorithm) works by encoding the rule set into a string of binary
     valued variables. For instance if we wanted to encode the moving average parameter
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 遗传算法（genetic algorithm）通过将规则集编码为二值变量的字符串来实现。例如，如果我们想编码移动平均参数
 - en: to 4 real decimal values, we could simply use a 2 bit string, where 00 = 0 decimal,
     01= 1 decimal, 10 = 2 decimal and 11 = 3 decimal. We can encode up to 2^n values
     per bits contained in each string. If we wanted to encode 512 values, we would
     need a 9 bit string to encode this value (2^9=512).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 至于4个实数小数值，我们可以简单地使用一个2位字符串，其中00=0小数，01=1小数，10=2小数，11=3小数。我们可以在每个字符串中包含的位中编码多达2^n的值。如果我们想要编码512个值，我们需要一个9位字符串来编码这个值（2^9=512）。
 - en: Also, we can encode values other than decimal values as binary bits, for instance,
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，我们可以将除了小数值以外的值编码为二进制位，例如，
 - en: action = buy or sell, can be represented by 0 or 1\. Greater or Less than (>
     or
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 动作=买入或卖出，可以用0或1表示。大于或小于(>或
 - en: '[![](img/2d4bc0a7e1ca6a0bd7641dbe7cba23e1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxfZYeuCwy8St-m4kYQ55Zo2n1qvdmIaDsc13VcKaFuuzfx-hV0YV3JLtuvxtFIRgUKvDYi1_6u24HR-My851ysQSCnWjeaYbZqBNzrpG9rJGrcdAUNBZXKE1z6U4Zjvwf-ztaAczML4E/s1600-h/fig_2boolencodinga.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/2d4bc0a7e1ca6a0bd7641dbe7cba23e1.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxfZYeuCwy8St-m4kYQ55Zo2n1qvdmIaDsc13VcKaFuuzfx-hV0YV3JLtuvxtFIRgUKvDYi1_6u24HR-My851ysQSCnWjeaYbZqBNzrpG9rJGrcdAUNBZXKE1z6U4Zjvwf-ztaAczML4E/s1600-h/fig_2boolencodinga.jpg)'
 - en: Fig 1\. Examples of Boolean Encoding
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 布尔编码示例
 - en: Once we encode our rule set into a boolen representation or string, we then
     want to generate a population of strings to select from. Typically, we start out
     by assigning random values to the parameters. For instance, we may start a population
     of 100 strings; each string representing a set of rules with different parameters.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我们将规则集编码为布尔表示或字符串，我们然后希望生成一个字符串种群以供选择。通常，我们开始时会给参数分配随机值。例如，我们可能开始一个包含100个字符串的种群；每个字符串代表一组具有不同参数的规则。
 - en: One string could be if ma(10)<ma(50) then buy, another might be if ma(20)>ma(200)
     then sell. Once a population has initially been created, we need to create diversity
     and additionally successfully improve fitness in the offspring over successive
     generations.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 一条字符串可能是如果ma(10)<ma(50)则买入，另一条可能是如果ma(20)>ma(200)则卖出。一旦最初创建了一个种群，我们需要产生多样性，并且成功地在后代中改进适应度，以供后续几代使用。
 - en: The concept of fitness is perhaps one of the most elegant and flexible options
     that makes the GA such a powerful optimizer. In the decision tree learners and
     Neural Network learners we discussed, there are only one or two simple goals to
@@ -77,25 +113,35 @@
     entropy, neural net trains on reducing fitted variance errors). The GA can use
     any goal you can imagine, which gives it unlimited flexibility compared to others.
     You could use
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 适应度的概念也许是使遗传算法成为一个强大优化器的最优雅、最灵活的选项之一。在我们讨论的决策树学习和神经网络学习中，只有一个或两个简单的目标来进行训练（例如，决策树的目标是减少信息熵，神经网络的目标是减少拟合误差方差）。遗传算法可以利用你能想象到的任何目标，这使得它与其它方法相比具有无限的灵活性。你可以使用
 - en: total gain as a goal, or sharpe ratio, or profit factor as goals. You could
     even combine goals. The fitness or goal is what you are trying to optimize. Keep
     in mind that a genetic algorithm, like any other learner does not guarantee you
     will find the absolute best, it may get caught in local maxima of the fitness
     landscape.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 将总收益、夏普比率或利润因子作为目标。你甚至可以组合目标。适应度或目标是你试图优化的东西。请记住，遗传算法和其他学习者一样，不能保证你找到绝对最好的，它可能会陷入适应度景观的局部最大值。
 - en: However, you can get more sophisticated and add other sub methods to try to
     avoid this.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，你可以变得更加复杂，并添加其他子方法来尝试避免这种情况。
 - en: '[![](img/141e01fb783c0878d97c37ad5aa8e557.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiStlHTG_XUfM-YOsjWwTa2AVBss1ihvD4cRoJ-jzQXMlKcJUECbJjB10P5s9Pi6bShb4Q_Rg0nE9SoSt-pv6ZCYlqE1fh5JK7GpkLHinFS8ilr_dRXzeKCKt0xX1LMcQ-NY8fxEvY3fdg/s1600-h/fig3populationa.jpg)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图3种群示例](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiStlHTG_XUfM-YOsjWwTa2AVBss1ihvD4cRoJ-jzQXMlKcJUECbJjB10P5s9Pi6bShb4Q_Rg0nE9SoSt-pv6ZCYlqE1fh5JK7GpkLHinFS8ilr_dRXzeKCKt0xX1LMcQ-NY8fxEvY3fdg/s1600-h/fig3populationa.jpg)'
 - en: Fig 2\. Example of population of rules to be processed.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2. 待处理规则种群的示例。
 - en: Once our initial population of parameter based rules has been created (randomly),
     we then want to think about how we achieve the goal of optimizing or finding the
     set of rule parameters that best optimizes our fitness. Note that each time we
@@ -117,31 +163,47 @@
     and flip them. It adds a bit more random diversity to the offspring, so that possibly
     some candidate may show up unexpectedly that has great performance (think unusual
     height in basketball for instance).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我们创建了基于参数的规则的初始种群（随机创建），那么我们就要考虑如何实现优化目标或找到最能优化我们适应度的规则参数集。请注意，每次我们创建一个新的后代种群，我们称之为新的代运行或时期。第一组后代或父母通常尝试选择一些适应度最高的成员，传递到下一代。我们可以使用贪心方法，只是对成员进行排序或排名，并只从最优秀的50%中选择传递到下一代（这称为截断选择）或者使用一种称为轮盘选择的方法。在轮盘选择中，我们根据它们的标准化适应度从原始种群中抽取成员。所以如果最好的适应度是所有适应度之和的20%，那么以20%的概率将该字符串或规则复制到下一代。其他适应度/字符串组合也适用。最终，我们从前一代最优秀的候选者中选择更多的后代。接下来，我们想要确保后代中有一定的多样性。交叉操作通过将一个候选者与另一个候选者之间的基因交叉或交换来实现这一点。这是在整个种群中执行的，以确保多样性。最后，我们使用变异来随机选择一些字符元素并翻转它们。这为后代增加了更多的随机多样性，因此可能有一些候选者会出现，其表现非常好（想想篮球中的异常身高）。
 - en: More bells and whistles can be added to improve performance. Tournament selection
     is another method that improves offspring selection by running a tournament between
     string candidates. The winning candidate gets passed along to the next generation.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以添加更多功能来提高性能。锦标赛选择是另一种通过在字符串候选者之间运行锦标赛来改进后代选择的方法。获胜的候选者会被传递到下一代。
 - en: '[![](img/133ac5c007f257b907a02122415078b3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nZA61G1V5l_tXRfFpFPd2_q72-v0G-aq83ie2t4-dplC5FgpncOXIpu2UVQhXYLU4iyVbp-GHGNXVeuTY7rgbnzfMu0bYzTEPEnnwp6eo1vunaEhxf7y89Dl1NprQ8k_L9hxZy18VVY/s1600-h/fig4selection.jpg)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图4选择过程](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nZA61G1V5l_tXRfFpFPd2_q72-v0G-aq83ie2t4-dplC5FgpncOXIpu2UVQhXYLU4iyVbp-GHGNXVeuTY7rgbnzfMu0bYzTEPEnnwp6eo1vunaEhxf7y89Dl1NprQ8k_L9hxZy18VVY/s1600-h/fig4selection.jpg)'
 - en: Fig 3\. Selection process.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3. 选择过程。
 - en: We essentially run the optimization and diversity routines through each generation,
     and the best candidates get passed down through to the next generation until our
     number of generations has run out, or we specify an early stopping criterion.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们实际上是在每一代中运行优化和多样性程序，最优的候选者会一直传递到下一代，直到我们的代数用尽，或者我们指定了提前停止的标准。
 - en: In the case of our rule set, we expect it to converge to the best set of parameters
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 就我们的规则集而言，我们希望它能够收敛到最佳的一组参数。
 - en: (moving average arguments, and binary greater or equal than operator), based
     upon the fitness goal we assign to it.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: （移动平均参数，以及二进制大于或等于运算符），这基于我们为其指定的适应度目标。
 - en: Next. Genetic Algorithm Systematic Trading Development-- Part 3
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一节。遗传算法系统交易开发——第3部分

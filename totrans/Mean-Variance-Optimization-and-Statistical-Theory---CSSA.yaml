@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:58:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:58:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mean-Variance Optimization and Statistical Theory | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 均值-方差优化与统计理论 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/#0001-01-01)
 - en: '[![dimensions and subspace](img/d1f3cd88a8d0c4830c0e745ef8e41d2f.png)](https://cssanalytics.files.wordpress.com/2013/10/dimensions-and-subspace.png)Mean-variance
     optimization (MVO) was introduced by Markowitz as a means of compressing forecasts
     into an expression of portfolio weights for asset allocation. The theory and mathematical
@@ -31,16 +43,22 @@
     this case, MVO requires the estimation of a large number of inputs for the return
     vector and the variance-covariance matrix. The number of different variables to
     estimate is:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![维度与子空间](img/d1f3cd88a8d0c4830c0e745ef8e41d2f.png)](https://cssanalytics.files.wordpress.com/2013/10/dimensions-and-subspace.png)均值-方差优化（MVO）是由马科维茨作为一种将预测压缩为资产配置中投资权重表达的方法而引入的。该理论和数学概念已成为现代金融学的核心。对MVO的看法高度两极化——有些人认为它毫无价值，而其他人则认为它是圣杯。真相位于两者之间。实际上，MVO的优势和劣势根植于统计理论。MVO存在许多不同的弱点——其中许多不会在这篇文章中得到解决——例如MVO假设数据是正态分布的（模型偏差）。在这篇文章中，假设MVO将使用历史数据而不是预期回报/因子模型。在这种情况下，MVO需要对收益向量和方差协方差矩阵进行大量输入的估计。需要估计的不同变量的数量为：'
 - en: '**2N+1/2(N^2-N)**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2N+1/2(N^2-N)**'
 - en: '*where N= the number of assets in the optimization. The first term 2N= the
     return and risk estimates, and the second term 1/2(N^2-N) is the number of covariances
     to estimate.*'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 N=优化中的资产数量。第一项 2N=收益和风险的估计，第二项 1/2(N^2-N) 是要估计的协方差数量。
 - en: 'For a modest sized portfolio of 10 assets, this is 65 different estimates.
     For the S&P500 this is 125,750 different estimates! If one is employing a dynamic
     optimization model with small amounts of data, this presents a major problem:
@@ -63,8 +81,12 @@
     "Filtering White Noise"). This leads to under-fitting since historical returns
     tend to dominate the weights of MVO. In statistical theory, this would place MVO
     as a “high-bias”/”low-variance” classifier.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于一个规模适中的由10个资产组成的投资组合，这就有了65个不同的估计值。对于标普500来说，这就有了125,750个不同的估计值！如果一个人在使用带有少量数据的动态优化模型，这就会带来一个主要问题：维度诅咒是一个由组合爆炸函数决定的，其中空间体积增长得如此之快，以至于可用的数据变得稀疏。在这种背景下，估计变量变得实际上非常困难。所需数据量的增加需要与维度的程度成指数增长。这是一个主要问题，因为计算的最大负担在于方差协方差矩阵的估计。在这种情况下，一个简单的等权重投资组合预计会表现得相对较好，因为它不需要任何估计。研究实际上表明，等权重投资组合往往在大型数据集上超越均值-方差、最小方差和其他启发式方法。当考虑到交易成本时，这一点尤其正确。另一个因素是使用历史回报率，这些回报率估计起来非常困难（而风险/波动性相对容易预测）。在这种情况下，历史回报率代表了最无偏的估计器（这是好的），但它们往往也是时间序列数据的一种简化/
+    poor 表示，因为它往往包含一个组合[趋势、均值回归和随机噪声](https://cssanalytics.wordpress.com/2013/04/23/filtering-white-noise/
+    "Filtering White Noise")。这导致了过拟合，因为历史回报率往往主导MVO的权重。在统计理论中，这会将MVO归类为“高偏差”/“低方差”的分类器。
 - en: There have been many different attempts to address these problems. The most
     frequent complaint about MVO is that small changes in the inputs lead to large
     changes in the output weights. [Michaud](http://www.newfrontieradvisors.com/Research/ResearchHistory/MichaudOptimization.html)–
@@ -82,8 +104,11 @@
     type of approach. Research shows that Ledoit-Wolf shrinkage often outperforms
     re-sampling, but tends to add value primarily in minimum variance portfolios rather
     than MVO.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 已经有很多不同的尝试来解决这些问题。关于MVO的最常见抱怨是，输入的小变化导致输出权重的巨大变化。[米丘德](http://www.newfrontieradvisors.com/Research/ResearchHistory/MichaudOptimization.html)——后现代MVO的先驱——引入了重新采样作为一种装袋/自助法，以提高样本外性能和降低估计误差。重新采样的投资组合具有更大的多样化（它们的[“转换图”](http://systematicinvestor.wordpress.com/?s=resampling)看起来更好），但它们的样本外性能大致相等，有时甚至不如传统的MVO。重新采样似乎产生更多益处的是[最小方差投资组合](https://cssanalytics.wordpress.com/2013/04/01/minimum-variance-algorithm-mva/
+    "最小方差算法（MVA）")，即将讨论潜在原因。使用正则化的贝叶斯方法试图通过惩罚复杂性来显式降低维度。它们将观察到的数据“压缩”到一个逻辑或结构良好的先验估计中，以防止过拟合。勒杜伊-沃尔夫引入了一种开创性的方法，用这种方法缩小方差协方差矩阵。研究表明，勒杜伊-沃尔夫缩放通常优于重新采样，但主要在最小方差投资组合中而非MVO中增加价值。
 - en: 'In statistics, prediction error is a function of three factors (a good overview
     [here](http://www.cs.umd.edu/class/spring2006/cmsc726/Lectures/EnsembleMethods.pdf)):
     1) **bias**– or the accuracy of the predictor/model (high bias is an overly simplistic
@@ -101,8 +126,12 @@
     bias. Variance reduction methods will improve out-of-sample performance when a
     predictor has high variance, and low bias, but they will have much less impact
     when a predictor has low variance and high bias.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在统计学中，预测误差是由三个因素决定的（一个很好的概述[在此](http://www.cs.umd.edu/class/spring2006/cmsc726/Lectures/EnsembleMethods.pdf)）：1)
+    **偏差**——即预测器/模型的准确性（高偏差意味着预测器过于简单/欠拟合，而低偏差则是非常接近的匹配/过拟合）2) **方差**——这是给定不同数据时估计的敏感性（低方差意味着数据的变化不会使预测器发生很大的变化，高方差意味着数据的变化将改变所需的预测器）3)
+    **噪声**——这是不言自明的。高偏差与低方差相关，而低偏差与高方差相关。本质上，一个在将来与过去不相似时过于拟合（低偏差，高方差）的模型是脆弱的。相比之下，如果一个模型欠拟合（高偏差，低方差），它不太脆弱，但也不能最大化预测准确性。已经创建了各种方法，如装袋、提升和正则化，以解决这些问题。所有这些方法（除了提升）都会以提高偏差为代价来降低方差。方差降低方法将在预测器具有高方差、低偏差时提高样本外性能，但当预测器具有低方差和高偏差时，它们的影响要小得多。
 - en: In MVO, the historical return estimates can be considered high bias/low variance,
     the risk/volatility estimates are in the middle (since risk is a good linear predictor),
     and the covariances are low bias/high variance since there are so many to estimate.
@@ -125,5 +154,8 @@
     more important direction. The same is true for risk/volatility estimates, although
     they are already so good using historical data that the margin for improvement
     is small.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在MVO（最小方差优化）中，历史回报的估计可以被认为是高偏差/低方差，风险/波动率的估计处于中间（因为风险是一个良好的线性预测器），而协方差估计是低偏差/高方差，因为需要估计的协方差太多。就估计误差对权重的影口向而言，历史回报是最重要的，其次是风险，然后是协方差。这暗示MVO主要是一个高偏差，低方差的问题。重采样与自助法/重采样类似，主要是用来降低方差-它不如正则化/收缩那样直接在偏差与方差之间进行权衡，这也是它很多时候不那么成功的原因。由于最小方差优化部分是一个高方差/低偏差问题，这些方法在提高样本外表现方面已显示出成功。然而，重采样和收缩都无力充分解决MVO问题，因为最大的驱动因素是回报估计，它是高偏差/低方差。以偏差的代价降低方差正好相反，如果回报仍然被考虑在内，那么这就是改善MVO所需要做的。这解释了为什么在MVO中使用这两种方法都无法提高样本外表现。重采样和收缩对于MVO的只有一个组成部分是足够的-
+    协方差矩阵（VCV）。使用更复杂的模型或更准确的预测器来改进回报估计，然后通过相同的方法降低方差，这是一个更重要的方向。对于风险/波动率的估计也是如此，尽管使用历史数据已经很好，改进空间很小。

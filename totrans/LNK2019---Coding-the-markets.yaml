@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:35:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:35:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: LNK2019 | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: LNK2019 | Coding the markets
 - en: 来源：[https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01](https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01](https://etrading.wordpress.com/2011/01/30/lnk2019/#0001-01-01)
 - en: LNK2019
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: LNK2019
 - en: January 30, 2011
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2011年1月30日
 - en: Every C++ dev gets bitten by unresolved symbols in their builds from time to
     time. You can stare at code for hours, sure that your library is defining a symbol.
     I just cracked one of these. Three methods in a lib were showing as unresolved
@@ -38,5 +54,10 @@
     refs all had stlp_ in the signatures. Of course, I couldn’t see that until I compared
     methods defined in the lib using dumpbin /linkmembers:2 and undname with those
     unresolved by the linker.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个C++开发者时不时都会在构建过程中遇到未解析的符号问题。你可能会盯着代码看好几个小时，确信你的库定义了一个符号。我刚刚解决了一个这样的问题。当我构建exe时，一个库中的三个方法显示为未解析。这个[stackoverflow条目](http://stackoverflow.com/questions/261377/lnk2001-error-when-compiling-apps-referencing-stlport-5-1-4-with-vc-2008)很有帮助，尤其是Raymond
+    Chen的博客文章，它让我注意到了undname工具。我对dumpbin已经了解了好几年，但undname对我来说是个新工具。问题最后被发现是因为我的一个库在没有STLport头文件的包含路径下构建的。Visual
+    Studio默默地带上了它自己的STL。然后链接器抱怨它无法解析返回std::string的方法。所有未解析的引用在签名中都有stlp_。当然，在我用dumpbin
+    /linkmembers:2和undname与链接器未解析的方法进行比较后，我才看出来这一点。

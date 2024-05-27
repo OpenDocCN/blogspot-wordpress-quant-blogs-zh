@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:47:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:47:35'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Trading Research/Idea Recommendation using Alternating Least Squares (ALS) |
     Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用交替最小二乘法（ALS）进行交易研究/建议 | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2014/08/07/trading-researchidea-recommendation-using-alternating-least-squares-als/#0001-01-01](https://mdavey.wordpress.com/2014/08/07/trading-researchidea-recommendation-using-alternating-least-squares-als/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2014/08/07/trading-researchidea-recommendation-using-alternating-least-squares-als/#0001-01-01](https://mdavey.wordpress.com/2014/08/07/trading-researchidea-recommendation-using-alternating-least-squares-als/#0001-01-01)
 - en: Trading Research/Idea Recommendation using Alternating Least Squares (ALS)
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 使用交替最小二乘法（ALS）进行交易研究/建议
 - en: '[Spark](http://spark.apache.org/docs/latest/streaming-programming-guide.html)
     is generating a lot of interest.  Obvious ideas for using Spark in the Single
     Bank Platform space is around helping the sell-sides clients in identify trade
@@ -32,50 +46,75 @@
     [article](http://ampcamp.berkeley.edu/big-data-mini-course/movie-recommendation-with-mllib.html)
     over on ampcamp, which provides details on collaborative filtering and alternating
     least squares (ALS).  Code is also provided 🙂'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Spark](http://spark.apache.org/docs/latest/streaming-programming-guide.html)
+    引起了很多人关注。在单一银行平台空间使用Spark的明显想法是帮助卖方客户识别交易建议/研究/评论，以协助他们管理投资组合。作为一个起点，阅读Spark[电影](http://mlnick.github.io/blog/2013/04/01/movie-recommendations-and-more-with-spark/)建议和[MLlib](http://spark.apache.org/docs/latest/mllib-collaborative-filtering.html)文章在ampcamp上，提供了协同过滤和交替最小二乘法（ALS）的详细信息。还提供了代码
+    🙂'
 - en: '[MLlib](http://spark.apache.org/docs/latest/mllib-guide.html) is a Spark implementation
     of some common machine learning [algorithms](http://www.slideshare.net/MrChrisJohnson/collaborative-filtering-with-spark)
     and utilities, including classification, regression, clustering, collaborative
     filtering, dimensionality reduction, as well as underlying optimization primitives'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[MLlib](http://spark.apache.org/docs/latest/mllib-guide.html) 是Spark对一些常见机器学习[算法](http://www.slideshare.net/MrChrisJohnson/collaborative-filtering-with-spark)和工具的实现，包括分类、回归、聚类、协同过滤、维度降低以及底层优化原语。'
 - en: Its probably also having a read of the ampcamp’s Spark Streaming [article](http://ampcamp.berkeley.edu/3/exercises/realtime-processing-with-spark-streaming.html).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 也许还会阅读ampcamp的Spark Streaming[文章](http://ampcamp.berkeley.edu/3/exercises/realtime-processing-with-spark-streaming.html)。
 - en: 'Finally, check out Andrew Psaltis’s video, Real-time Map Reduce: Exploring
     Clickstream [Analytics](http://berlinbuzzwords.de/session/real-time-map-reduce-exploring-clickstream-analytics-spark-streaming-kafka-and-websockets)
     with Spark Streaming, Kafka and WebSockets'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，看看Andrew Psaltis的视频，探索点击流分析的实时Map Reduce：[http://berlinbuzzwords.de/session/real-time-map-reduce-exploring-clickstream-analytics-spark-streaming-kafka-and-websockets](http://berlinbuzzwords.de/session/real-time-map-reduce-exploring-clickstream-analytics-spark-streaming-kafka-and-websockets)
 - en: With all the above, its relatively easy to begin to look at using Spark Streaming
     to deliver alerts to client on recommended reading material.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了上述所有内容，开始使用Spark Streaming向客户提供推荐阅读材料的警报相对容易。
 - en: 'For a deep understanding of what is going on, try this [article](http://labs.yahoo.com/files/HuKorenVolinsky-ICDM08.pdf). 
     Be mindful of the ‘cold start’ issue:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了深入理解发生了什么，试试这篇[文章](http://labs.yahoo.com/files/HuKorenVolinsky-ICDM08.pdf)。要留意“冷启动”问题：
 - en: inability to address products new to the system, for which content based approaches
     would be adequate.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 无法处理系统中的新产品，内容基础方法将足够。
 - en: Taking this a step further, user data and trade content with trading activity,
     quoting activity and possible CRM data would enhance the recommendations.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 更进一步，用户数据和交易内容结合交易活动、报价活动以及可能的客户关系管理（CRM）数据将增强建议。
 - en: Finally, it would be interesting to know if you could take advantage of Collaborative
     [Filtering](https://spark.apache.org/docs/latest/mllib-collaborative-filtering.html)
     from a spreading perspective, to possible recommend a spread on the trade price
     for an instrument.  Logistic [Regression](https://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression)
     maybe more interesting for optimize the client spread based on the price sensitivity
     from RFQ accept/reject data.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，了解一下你是否能从传播的角度利用协同过滤[算法](https://spark.apache.org/docs/latest/mllib-collaborative-filtering.html)，来可能地推荐一种关于交易价格的传播，会很有趣。
+    logistics [回归](https://spark.apache.org/docs/latest/mllib-linear-methods.html#logistic-regression)或许对于根据RFQ接受/拒绝数据的价格敏感性来优化客户传播更为有趣。
 - en: ~ by mdavey on August 7, 2014.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2014年8月7日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)分类中。

@@ -1,138 +1,198 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:49:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:49:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Optimal Equity Monetization: Part 3 | Quantivity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最优股票货币化：第三部分 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01](https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01](https://quantivity.wordpress.com/2011/08/03/optimal-equity-monetization-part-3/#0001-01-01)
 - en: 'The previous post [Optimal Equity Monetization](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)
     introduced a mathematical model for optimizing equity monetization. In the follow-up
     post [Optimal Equity Monetization: Part 2](https://quantivity.wordpress.com/2011/07/31/optimal-equity-monetization-part-2),
     solutions are considered which assume ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)
     are deterministic. In this post, real-life is considered by assuming ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)
     is a stochastic process.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 前一篇帖子 [最优股票货币化](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)
+    介绍了一个优化股票货币化的数学模型。在后续帖子 [最优股票货币化：第二部分](https://quantivity.wordpress.com/2011/07/31/optimal-equity-monetization-part-2)
+    中，考虑了假设 ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png) 是确定性的解决方案。在这篇文章中，通过假设
+    ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png) 是一个随机过程，来考虑现实生活。
 - en: 'Despite this topic seeming pedestrian at first glance, it turns out to be unexpectedly
     beautiful in exemplifying quant techniques spanning finance, ML, and pure math:
     fitting empirical returns, [monte carlo](http://en.wikipedia.org/wiki/Monte_Carlo_method),
     [global optimization](http://en.wikipedia.org/wiki/Global_optimization), [integer
     composition](http://en.wikipedia.org/wiki/Composition_(number_theory)), [MLE](http://en.wikipedia.org/wiki/Maximum_likelihood),
     genetic randomization, and [portfolio theory](http://en.wikipedia.org/wiki/Portfolio_theory).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这个主题乍一看似乎很普通，但它出人意料地美丽，它展示了涵盖金融、机器学习和纯数学的量化技术：拟合经验回报、[蒙特卡洛](http://en.wikipedia.org/wiki/Monte_Carlo_method)、[全局优化](http://en.wikipedia.org/wiki/Global_optimization)、[整数组合](http://en.wikipedia.org/wiki/Composition_(number_theory))、[最大似然估计](http://en.wikipedia.org/wiki/Maximum_likelihood)、遗传随机化，以及[投资组合理论](http://en.wikipedia.org/wiki/Portfolio_theory)。
 - en: The first important question to ask in a model with stochastic future equity
     prices is *what impact does intelligent (or dumb) choice of quantities ![q_i](img/6df37a73ab6b36be431927e481053710.png)
     have on monetization profit*. How does perfect foresight predicting all future
     returns compare with no foresight?
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个具有随机未来股票价格的模型中，首先要问的重要问题是 *智能（或愚蠢）选择数量 ![q_i](img/6df37a73ab6b36be431927e481053710.png)
+    对货币化利润有什么影响*。完美预见预测所有未来回报与没有预见相比如何？
 - en: 'By framing monetization in this context, techniques from portfolio optimization
     can be borrowed: quantities ![q_i](img/6df37a73ab6b36be431927e481053710.png) are
     considered longitudinally (over the monetization periods), akin to cross-sectional
     portfolio weights. Moreover, this perspective suggests an obvious prior on ![q_i](img/6df37a73ab6b36be431927e481053710.png):
     sell equal-sized quantities in every period. By conceptual analogy, this is the
     “equal weight portfolio” solution for monetization.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过在这个背景下构建货币化，可以从投资组合优化中借用技术：数量 ![q_i](img/6df37a73ab6b36be431927e481053710.png)
+    沿袭地（在货币化期间）考虑，类似于横截面投资组合权重。此外，这种观点暗示了对 ![q_i](img/6df37a73ab6b36be431927e481053710.png)
+    的一个明显先验：每个时期卖出等量的数量。通过概念上的类比，这对于货币化是“等权重投资组合”的解决方案。
 - en: Hence, this post considers *how monetization profit compares for optimal foresight
     versus equal-quantity*. This matters because it gives insight into whether there
     is benefit in spending time predicting future returns. This consideration is especially
     relevant for equity monetization, as it is most interesting for equities with
     high vol and/or new issues for which prediction is notoriously poor.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，这篇文章考虑了 *最优预见与等数量货币化利润的比较*。这很重要，因为它提供了是否值得花时间预测未来回报的洞察。这种考虑对于股票货币化尤为重要，因为它对于高波动性及/或新发行的股票最有趣，而这些股票的预测公认是不好的。
 - en: To quantify and answer this comparison, monetization profit is calculated via
     monte carlo of future returns. Analysis begins by looking at asymptotic densities
     and moments for optimal and equal-weight selling strategies, followed by looking
     at the corresponding small sample analysis. After results, the analytic and computational
     methodology is discussed. Finally, R code is provided.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了量和回答这个比较，通过蒙特卡洛计算未来回报的货币化利润。分析首先通过查看最优和等权重卖出策略的渐进密度和矩，然后查看相应的的小样本分析。在结果之后，讨论了分析和计算方法。最后，提供了R代码。
 - en: '**Asymptotic Results**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**渐进结果**'
 - en: 'Cutting to the chase: the difference in profit between optimal and equal-quantity
     is *surprisingly small*. About 5%.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 言归正传：最优和等量的利润差异*出奇的小*。大约5%。
 - en: 'The following graph illustrates the densities for optimal and equal-quantity
     monetization profit for a representative scenario (using a well-known equity,
     round-number ![\hat q](img/14de207c4d978f69e127c1df382d0b1a.png), and 48 periods),
     evaluated via 2000-iteration monte carlo:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下图表展示了在代表性场景中（使用知名股票、圆整数![\hat q](img/14de207c4d978f69e127c1df382d0b1a.png)和48个周期），通过2000次迭代蒙特卡洛评估的最优和等量货币化利润密度：
 - en: '[![](img/138672b587aa6f1b694652f5a765ed95.png "optimal-equal-monetization")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/138672b587aa6f1b694652f5a765ed95.png "optimal-equal-monetization")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization.png)'
 - en: 'In this graph, black is optimal and red is equal-quantity. Profit distributions
     are similar; equal-quantity has more negative skew, with larger left tail; optimal
     has more positive skew, with larger right tail. That all makes intuitive sense.
     Here is the unexpected part: dashed vertical lines are medians of the respective
     densities (median is preferred to mean due to skew). The difference in median
     profit between optimal and equal-quantity is less than 5%.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个图表中，黑色是最优的，红色是等量的。利润分布相似；等量有更多的负偏斜，有更大的左尾；最优有更多的正偏斜，有更大的右尾。这是符合直觉的。这里是意外的部分：虚线垂直线是各自密度的中位数（由于偏斜，中位数比平均值更受欢迎）。最优和等量的中位数利润差异小于5%。
 - en: In other words, *perfect foresight about future returns generates no more than
     5% greater monetization profit than selling an equal-quantity of shares every
     period*, when considered *asymptotically* over a large distribution of future
     scenarios. Thus, there is fairly minimal benefit to spending effort trying to
     predict the future.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，*对未来回报的完美预见产生的货币化利润不超过比每个周期卖出等量股份高5%*，当在大量未来情景中考虑*渐进*时，因此，试图预测未来的努力带来的好处相当有限。
 - en: '**Small Sample Results**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**小样本结果**'
 - en: 'Asymptotic results are useful, but they ignore an absolutely crucial fact (often
     overlooked): monetization is an activity that is undertaken *once*, thus looking
     only at the distribution potentially masks *small sample risk*. Towards this end,
     small sample dynamics are explored via monte carlo with a small number of iterations.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 渐进结果是有用的，但它们忽略了一个至关重要的事实（经常被忽视）：货币化是一项*一次性的活动*，因此只看分布可能会掩盖*小样本风险*。为此，通过蒙特卡洛方法探索了小样本动态，迭代次数较少。
 - en: The following four graphs illustrate representative small sample monetization
     simulations, each 10 iterations. Worth visually noting is both instability and
     qualitative differences in distribution shape.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的四个图表展示了每个10次迭代的代表性小样本货币化模拟，值得视觉注意的是分布形状的不稳定性和定性差异。
 - en: '[![](img/bcb4bcd5cf2e88e1d749c73681cdaf12.png "optimal-equal-monetization-small")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bcb4bcd5cf2e88e1d749c73681cdaf12.png "optimal-equal-monetization-small")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small.png)'
 - en: '[![](img/e86911e2a679e1747d4cd8b5d1f30328.png "optimal-equal-monetization-small-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-2.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e86911e2a679e1747d4cd8b5d1f30328.png "optimal-equal-monetization-small-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-2.png)'
 - en: '[![](img/ef6eae64d0df0fcfc420677c33fd8118.png "optimal-equal-monetization-small-3")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-3.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ef6eae64d0df0fcfc420677c33fd8118.png "optimal-equal-monetization-small-3")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-3.png)'
 - en: '[![](img/876232661e20c61e75f1cbad7534cebb.png "optimal-equal-monetization-small-4")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-4.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/876232661e20c61e75f1cbad7534cebb.png "optimal-equal-monetization-small-4")](https://quantivity.wordpress.com/wp-content/uploads/2011/08/optimal-equal-monetization-small-4.png)'
 - en: 'Of particular interest, and potential concern, is clear evidence of [bimodality](http://en.wikipedia.org/wiki/Bimodal_distribution).
     One potential explanation is jumps in the returns, induced by a distribution fitted
     from a very high-vol equity which possesses large tails: a single large jump,
     either positive or negative, will drive the price (as geometric cumulative) far
     away from its value in the first period. Thus, converging to two modes: positive
     jump and negative jump.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别感兴趣，也值得关注的是[双模分布](http://en.wikipedia.org/wiki/Bimodal_distribution)的明确证据。一个可能的解释是收益的跳跃，由一个非常高波动率的股票拟合的分布具有大尾巴：一个大跳跃，无论是正还是负，都会把价格（作为几何累积）从第一期的价值上推得很远。因此，收敛到两个模态：正跳跃和负跳跃。
 - en: 'Yet, despite this prevalent bimodality, the *asymptotic median difference result
     also holds true in small samples*: maximum difference in median between optimal
     and equal is less than 7%. Robustness of this median difference is pleasantly
     surprising, and suggests this result may matter in practice.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管存在这种普遍的双模态，*渐进中位数差异结果在小样本中同样成立*：最优和相等的中位数之间的最大差异小于7%。这个中位数差异的稳健性令人愉快地惊讶，并且暗示这个结果在实践中可能很重要。
 - en: Coming full circle, this analysis informs that even perfect foresight of 4 years
     of future returns translates into only modestly greater profit. Thus implying
     there is even less comparative profitability in trying to *predict* the unknown
@@ -140,17 +200,25 @@
     sheds light on results reported in the accounting literature on abnormal 10b5-1
     returns (see research by [Jagolinzer](http://leeds-faculty.colorado.edu/alja4277/research.html),
     for example).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 圆满地，这项分析表明，即使对4年未来收益有完美的预见，也只能带来微不足道的更大利润。因此，暗示尝试*预测*实际生活中未知的未来收益的比较盈利性甚至更小。除了实际利益外，这个结果还揭示了会计文献中关于异常10b5-1收益的报道结果（参见例如[Jagolinzer](http://leeds-faculty.colorado.edu/alja4277/research.html)的研究）。
 - en: '* * *'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: Discussion of the methodology, math, and R implementation follow for those interested.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些有兴趣的人，接下来将讨论方法论、数学和R实现。
 - en: '**Past and Future Returns Distribution**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**过去和未来收益分布**'
 - en: 'Begin by assuming ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png) is a stochastic
     process. [Geometric Brownian motion](http://en.wikipedia.org/wiki/Geometric_Brownian_motion)
     makes no sense, given high vol. Instead, assume returns following the univariate
@@ -159,73 +227,110 @@
     [Laplace](http://en.wikipedia.org/wiki/Laplace_distribution), and [Variance-gamma](http://en.wikipedia.org/wiki/Variance-gamma_distribution)).
     Distribution parameters should be fit directly from the observable data, given
     no *a priori* intuition on suitable values. Thus, in R:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先假设![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)是一个随机过程。[几何布朗运动](http://en.wikipedia.org/wiki/Geometric_Brownian_motion)在波动率高时没有意义，相反，假设收益遵循单变量[广义双曲分布](http://en.wikipedia.org/wiki/Generalised_hyperbolic_distribution)，它推广了熟悉的厚尾分布([学生*t*分布](http://en.wikipedia.org/wiki/Student%27s_t-distribution)，[拉普拉斯分布](http://en.wikipedia.org/wiki/Laplace_distribution)，和[方差-伽玛分布](http://en.wikipedia.org/wiki/Variance-gamma_distribution))。分布参数应直接从可观察数据中拟合，因为对于合适的值没有*先验*直觉。因此，在R中：
 - en: '[PRE0]'
+  id: totrans-32
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Assuming an unknown stochastic future of returns, one way to compare optimal-vs-equal
     is to consider a large number ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png) of
     potential futures via monte carlo sampling; in R:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设一个未知的收益随机未来，比较最优与相等的一种方法是考虑大量的潜在未来，通过蒙特卡洛采样；在R中：
 - en: '[PRE1]'
+  id: totrans-34
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: For each of these potential futures, monetization profit must be calculated
     for both optimal and equal quantities and compared. Calculating profit for equal
     quantity is easy (*i.e.* longitudinal price times quantity, subject to quantity
     constraints).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于这些潜在的未来情况，必须计算出最优数量和相等数量下的货币化利润并进行比较。计算相等数量的利润是容易的(*即*纵向价格乘以数量，在数量约束条件下)。
 - en: '**Optimal Profit Optimization**'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最优利润优化**'
 - en: 'For optimal quantities, calculating profit requires a bit more effort: all
     quantities must be chosen to optimize total profit, hence optimization. Given
     convexity of this problem is not assured, one way to calculate profit is to globally
     optimize the objective, subject to quantity bounds:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于最优数量，计算利润需要更多的努力：所有数量都必须选择以优化总利润，因此需要优化。由于这个问题凸性不能保证，计算利润的一种方法是全局优化目标，数量界限为约束条件：
 - en: '[PRE2]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'One optimization wrinkle is quantities must satisfy both of the following inequality
     constraints ([Optimal Equity Monetization](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)
     for explanation):'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个优化的折痕是数量必须满足以下不等式约束([最优股票货币化](https://quantivity.wordpress.com/2011/07/30/optimal-equity-monetization)解释)：
 - en: '![\sum_i{q_i} = \hat q ](img/4d8273a82ad12a8177e5543261bd74f2.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_IMG
+  zh: '![\sum_i{q_i} = \hat q ](img/4d8273a82ad12a8177e5543261bd74f2.png)'
 - en: '![\forall i : 0 \leq q_i \leq \left( \sum\limits_{j=1}^i v_j - \sum\limits_{j=1}^{i-1}
     q_j \right) ](img/4e01ba25d78c00a81d465c5d817eef0a.png)'
+  id: totrans-41
   prefs: []
   type: TYPE_IMG
+  zh: '![\forall i : 0 \leq q_i \leq \left( \sum\limits_{j=1}^i v_j - \sum\limits_{j=1}^{i-1}
+    q_j \right) ](img/4e01ba25d78c00a81d465c5d817eef0a.png)'
 - en: 'Applying the portfolio optimization methodology from [Ardia *et al*.](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1584905)
     to equity monetization, an initial random population is generated satisfying the
     constraints, which seeds genetic optimization. Given the above first constraint,
     each population member is an integer composition of the total quantity ![\hat
     q](img/14de207c4d978f69e127c1df382d0b1a.png). Yet, composition cardinality is:'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 将来自[Ardia *et al*.](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1584905)的投资组合优化方法应用于股票货币化，首先生成一个满足约束条件的初始随机人口，这为遗传优化提供了种子。由于上述第一个约束，每个种群成员是总数量![\hat
+    q](img/14de207c4d978f69e127c1df382d0b1a.png)的整数组成。然而，组成基数是：
 - en: '![{{n+k-1}\choose{k}} ](img/bab0b39edb6d28dde906f40a0c75da13.png)'
+  id: totrans-43
   prefs: []
   type: TYPE_IMG
+  zh: '![{{n+k-1}\choose{k}} ](img/bab0b39edb6d28dde906f40a0c75da13.png)'
 - en: Which would generate a massive matrix, given ![n ](img/2bf4d3de40f06c14df7d961bf8f673b9.png)
     periods and ![k = \frac{1}{\hat q}](img/221e30c37dba7b941552def503d00b5f.png)
     fractional partitions. Thus, use of `partitions::compositions()` is out due to
     memory constraints. Instead, the random population matrix of compositions are
     built via two-partition [genetic](http://en.wikipedia.org/wiki/Genetic_algorithm)
     [mutation](http://en.wikipedia.org/wiki/Mutation_%28genetic_algorithm%29) in `randomPartitions()`.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 给定![n ](img/2bf4d3de40f06c14df7d961bf8f673b9.png)个周期和![k = \frac{1}{\hat q}](img/221e30c37dba7b941552def503d00b5f.png)的分数划分，这将产生一个巨大的矩阵。因此，由于内存限制，无法使用`partitions::compositions()`。相反，组成的两划分[遗传](http://en.wikipedia.org/wiki/Genetic_algorithm)
+    [变异](http://en.wikipedia.org/wiki/Mutation_%28genetic_algorithm%29)是通过`randomPartitions()`生成的随机人口矩阵来构建的。
 - en: '* * *'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'For those readers familiar with R, the following calculates equity monetization:'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些熟悉R的读者，以下计算股票货币化：
 - en: '[PRE3]'
+  id: totrans-47
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'

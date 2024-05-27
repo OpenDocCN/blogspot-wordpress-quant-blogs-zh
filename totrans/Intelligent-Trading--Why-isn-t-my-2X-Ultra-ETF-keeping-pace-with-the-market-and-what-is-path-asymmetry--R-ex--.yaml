@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:45:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:45:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Why isn''t my 2X Ultra ETF keeping pace with the market
     and what is path asymmetry (R ex)?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：我的2X超短ETF为什么跟不上市场步伐？路径不对称是什么？（R ex）
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/03/why-isnt-my-2x-etf-keeping-pace-with.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/03/why-isnt-my-2x-etf-keeping-pace-with.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/03/why-isnt-my-2x-etf-keeping-pace-with.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/03/why-isnt-my-2x-etf-keeping-pace-with.html#0001-01-01)
 - en: I've been reading a few articles lately, lambasting ultra ETFs for not keeping
     up with markets and ascribing the problem to weird unexplainable reasons such
     as portfolio derivative re-balancing and negative drift. I thought it would be
@@ -26,14 +38,20 @@
     definitions of price asymmetry (econometrics for example), in this case I'm simply
     referring to the asymmetrical nature of percentage price movements vs dollar movements
     and their final cumulative outcome given any arbitrary path.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近读了几篇文章，批评超短ETF未能跟上市场步伐，并将问题归咎于奇怪且无法解释的原因，如投资组合衍生品重新平衡和负漂移。我想重新审视一下路径不对称的概念。尽管价格不对称有多种定义（例如，计量经济学），在此情况下，我仅仅指的是百分比价格变动与美元变动的不对称性质以及给定任意路径的最终累计结果。
 - en: '[![](img/d73953df76e9076d8c005773af29d737.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOiTWmp9rkWazomUHfS7OsLyy_k1m62BaVA219hxuCtiGXdx8Wkyp_c5j9Zv9U96gUVmysUBU4xM84GT61DYg4mig1RALBknZRZH_J5YbxpIpMyXznbpeiLNe9G1WtS6aT7ujRtm5dfww/s1600/path_ex.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/d73953df76e9076d8c005773af29d737.png)'
 - en: Fig 1\. Example of ultra 2X ETFs and path asymmetry
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 2X超短ETF和路径不对称的示例
 - en: Many people seem to find it incomprehensible (if not reprehensible) that an
     underlying series may move a certain direction, yet, both the ultra short and
     ultra long series both finish below the underlying over the long run. What exactly
@@ -41,8 +59,10 @@
     lose some percentage of your account, like 50%, that you need more than 50% to
     make up for the loss. That is an example of path asymmetry (I should note someone
     also mentioned it's an example of Seigel's paradox).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多人似乎觉得（如果不是令人反感的话）一个基础序列可能会朝某个方向移动，然而，无论是超短还是超长序列，在长期内最终都低于基础资产。路径不对称到底是什么？一些交易员可能熟悉这样一个观念，如果你账户损失了一定的百分比，比如50%，那么你需要超过50%的收益来弥补损失。这是路径不对称的一个例子（我应该指出，也有人提到这是西格尔悖论的例子）。
 - en: Let's look at a very simple example of how this might affect a stock and it's
     2x counterparts. Suppose a stock moves from 100dollars to 80 and back to 100 again--
     break-even. The move from 100 to 80 on a percentage basis, was a 20% loss. However,
@@ -57,16 +77,24 @@
     It is the simple mechanics of path dependency and asymmetry that account for this,
     even with perfect 2x leveraging. It is important to take into account path dependencies
     when dealing with any leveraged product, including hedging.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们通过一个简单的例子来看看这可能会如何影响一只股票及其2X对应产品。假设一只股票从100美元跌至80美元，然后再涨回100美元——打平。从100美元跌至80美元，在百分比基础上，是20%的损失。然而，要弥补这个数额，我们需要解方程80*(1+x)=100；答案是25%，不是20%。这意味着尽管美元金额对两者（20美元的下跌和上涨）来说相同，但百分比金额并非如此。这是路径不对称的一个例子。这对2X超杠杆ETF有何影响？嗯，由于每个ETF旨在跟踪基础资产的两倍日变动，+2xETF将下跌40%，然后回升50%，净美元结束价值为90美元。而-2xETF将上涨2x或40%至140，然后回撤-50%，仅剩下70美元。注意，在这两种情况下，每个超ETF最终都低于基础价格。正是路径依赖和不对称的简单机制导致了这一点，即使是在完美的2X杠杆下。在处理任何杠杆产品时，包括对冲，都要考虑到路径依赖是非常重要的。
 - en: Now keep in mind, there is additional drag on these products, due to fund expenses,
     which does add merit to the original question. More on this is explained succinctly
     in this article by
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 现   现在要记住，这些产品存在额外的拖累，因为基金费用，这确实对原问题增加了合理性。更多相关内容在这篇文章中得到了简明扼要的解释，
 - en: '[Alpha''s Tristan Yates and Lye Kok](http://seekingalpha.com/article/35789-the-case-against-leveraged-etfs)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在要记住，这些产品存在额icle/35789-the-case-against-leveraged-etfs)的文章中简明扼要地解释了。
 - en: .
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 。

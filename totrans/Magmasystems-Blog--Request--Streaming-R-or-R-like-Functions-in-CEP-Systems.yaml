@@ -1,88 +1,137 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 04:55:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:55:44'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Request: Streaming R or R-like Functions in CEP Systems'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 请求：CEP系统中的流式R或R-like函数'
 - en: 来源：[http://magmasystems.blogspot.com/2009/02/request-streaming-r-or-r-like-functions.html#0001-01-01](http://magmasystems.blogspot.com/2009/02/request-streaming-r-or-r-like-functions.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2009/02/request-streaming-r-or-r-like-functions.html#0001-01-01](http://magmasystems.blogspot.com/2009/02/request-streaming-r-or-r-like-functions.html#0001-01-01)
 - en: I have been looking a bit into R lately. I have written here before about being
     able to transform R into something that can take real-time streams of data, or
     integrating R (or SPlus) into a CEP system. Here is a small example. Let's say
     that you want to take a sample of a "window" of streaming data every few seconds
     and compute some function on that sample.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近对R语言有所涉猎。我之前在这里写过关于将R转换为能够处理实时数据流的东西，或者将R（或SPlus）集成到CEP系统中的内容。这是一个小例子。假设你想每几秒从流数据中“窗口”样本中抽取一些数据，并对该样本执行某些函数。
 - en: Let's see how we can do this in R using static data.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看看如何使用静态数据在R中实现这一点。
 - en: In R, we can define a range of stock prices that range from $10.00 to $100.00,
     in increments of 25 cents.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在R中，我们可以定义一个从10.00美元到100.00美元的股价范围，每25美分一个增量。
 - en: StockPrices
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: StockPrices
 - en: StockPrices
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: StockPrices
 - en: '[1] 10.00 10.25 10.50 10.75 11.00 11.25 11.50 11.75 12.00 12.25 12.50 12.75
     13.00 13.25 13.50 13.75 14.00'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] 10.00 10.25 10.50 10.75 11.00 11.25 11.50 11.75 12.00 12.25 12.50 12.75
+    13.00 13.25 13.50 13.75 14.00'
 - en: '......'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '...'
 - en: '[358] 99.25 99.50 99.75 100.00'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[358] 99.25 99.50 99.75 100.00'
 - en: 'We can take a sample of 10 random stock prices like this:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以像这样抽取10个随机股价样本：
 - en: sample(StockPrices, 10, rep=F)
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: sample(StockPrices, 10, rep=F)
 - en: '[1] 20.50 19.00 78.75 44.75 62.75 45.25 66.25 70.00 71.00 91.00'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] 20.50 19.00 78.75 44.75 62.75 45.25 66.25 70.00 71.00 91.00'
 - en: 'We can compute the average price of a sample of 10 random prices like this:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以像这样计算10个随机价格样本的平均价格：
 - en: mean(sample(StockPrices, 10, rep=F))
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: mean(sample(StockPrices, 10, rep=F))
 - en: '[1] 52.775'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] 52.775'
 - en: Using the Coral8 term of "window", let's say that we have a window called StockPrices
     that contains one minute's worth of prices. Every 5 seconds, we want to take a
     random sampling of 10 prices in that window and compute the average price of that
     random sample.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用Coral8术语“窗口”，假设我们有一个名为StockPrices的窗口，其中包含了一分钟的股价。每隔5秒，我们想要从这个窗口中随机抽取10个价格并进行计算，得出这个随机样本的平均价格。
 - en: How can we do it in your CEP system? I would welcome examples in Coral8, Apama,
     Streambase, Aleri, Esper, StreamSQL, and any other CEP system.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在您的CEP系统中如何实现呢？我欢迎Coral8、Apama、Streambase、Aleri、Esper、StreamSQL以及其他任何CEP系统的示例。
 - en: ©2009 Marc Adler - All Rights Reserved.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2009 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的所有观点都是个人的，与我的雇主无关。

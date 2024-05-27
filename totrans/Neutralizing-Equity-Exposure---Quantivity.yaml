@@ -1,106 +1,150 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:55:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:55:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Neutralizing Equity Exposure | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 中和股票敞口 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/09/19/neutralizing-equity-exposure/#0001-01-01](https://quantivity.wordpress.com/2009/09/19/neutralizing-equity-exposure/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/09/19/neutralizing-equity-exposure/#0001-01-01](https://quantivity.wordpress.com/2009/09/19/neutralizing-equity-exposure/#0001-01-01)
 - en: 'An equity trader recently posed the following question:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一位股票交易员最近提出了以下问题：
 - en: Given an equity position, how can I “borrow” some part of the capital tied up
     in that position to undertake another short-term trade without liquidating the
     equity position.
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 鉴于股票头寸，我如何“借用”部分被困在该公司股票头寸中的资本来从事另一笔短期交易，而不清算股票头寸。
 - en: 'This question boils down to hedging, and thus is interesting as its solution
     is relevant to numerous other trading and investment challenges—and one which
     many retail investors may underappreciate its usefulness and broad applicability:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个问题归结为对冲，因此有趣的是，其解决方案与许多其他交易和投资挑战相关——许多零售投资者可能没有充分认识到它的有用性和广泛的适用性：
 - en: 'Derivatives: use of leverage *without* being directional speculation'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 衍生品：使用杠杆*而不*进行方向性投机
 - en: 'Portfolio management: constructing an [alpha](http://en.wikipedia.org/wiki/Alpha_%28investment%29)
     overlay (*i.e.* any short-term trading strategy) on a standard beta index strategy
     (*e.g.* S&P 500 via SPY)'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 投资组合管理：在标准贝塔指数策略（例如通过SPY的标普500）上构建一个alpha覆盖（即任何短期交易策略）
 - en: 'Employee stock options: hedging for unvested or non-exercised employee stock
     options (ISO or NQO)'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 员工股票期权：对未行权或未行使的员工股票期权进行对冲（ISO或NQO）
 - en: 'Tax avoidance: satisfy holding period to qualify for long-term capital gains'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 避税：满足持有期限以符合长期资本收益的条件
 - en: 'To answer this question, start by considering a position composed of a single
     stock: say, long 100 shares of GE.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了回答这个问题，首先考虑由单一股票组成的位置：比如说，持有100股GE的长期股票。
 - en: 'Solution is an offsetting position which satisfies two requirements:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决方案是一个抵消头寸，满足两个要求：
 - en: 'Neutrality: if GE prices decreases $1, offset should increase in value close
     to $1'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 中性：如果GE价格下跌1美元，抵消的价值应增加接近1美元
 - en: 'Cash: offset should generate cash close to being equal to the price of GE (*e.g.*
     $16.44 @ close) multiple by the number of shares being offset (100 shares); $1,644
     in this example'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 现金：抵消应产生的现金接近等于GE的价格（例如16.44美元收盘价）乘以抵消的股票数量（100股）；在这个例子中是1,644美元
 - en: Numerous approaches exist to solve this problem. One approach is to statically
     hedge via a deep in the money (DITM) option on GE, say a Jan 2010 $2.50 call (GEWAS).
     Given the option contract multiplier of 100, 1 GEWAS contract is required per
     100 shares. Thus, a single option in this example.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 存在多种解决此问题的方法。一种方法是通过深度实值（DITM）期权对GE进行静态对冲，比如说2010年1月的2.50美元看涨期权（GEWAS）。考虑到期权合约乘数100，每个100股需要一份GEWAS合约。因此，在这个例子中，只需要一个期权。
 - en: To satisfy the neutrality requirement from above (glossing over several derivative
     complexities for brevity), the [option greeks](http://en.wikipedia.org/wiki/Greeks_%28finance%29)
     ([delta](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Delta) and [gamma](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Gamma),
     in particular; [vega](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Vega)
     is zero in this example, so conveniently ignored) indicate GEWAS should increase
     very nearly $1 for every $1 decrease by GE.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了满足上述中性要求（为了简洁起见，忽略了几个衍生品的复杂性），[期权希腊字母](http://en.wikipedia.org/wiki/Greeks_%28finance%29)（特别是[delta](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Delta)和[gamma](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Gamma)；（在这个例子中，[vega](http://en.wikipedia.org/wiki/Greeks_%28finance%29#Vega)为零，因此方便地忽略了）表明GEWAS应增加接近1美元，以抵消GE每下跌1美元。
 - en: 'To satisfy the cash requirement from above, the call option should be sold
     short: when GE decreases in value, the short call option must increase in value.
     Most recent midpoint close quote for GEWAS is $14.05, thus shorting 1 GEWAS generates
     $14.05 in cash for each share—for a total of $1,405 in this example (less transaction
     costs).'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了满足上述现金要求，应该出售看涨期权：当GE的价值下跌时，空头看涨期权必须增加价值。GEWAS的最新中间价收盘报价为14.05美元，因此出售1 GEWAS产生14.05美元的现金——在这个例子中总共产生1,405美元（减去交易成本）。
 - en: Thus, the equity trader can solve this problem by shorting a single option contract
     (-1 GEWAS), use the $1,405 proceeds to execute the desired short-term trade, and
     then buy the option back (thus, generating the P&L to match the underlying change
     in GE which occurs in the meantime) once the short-term trade is closed.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，股票交易员可以通过做空一个期权合约（-1 GEWAS）来解决这个问题，用所得的1405美元来执行 desired short-term trade（短期交易），然后在短期交易关闭后买回期权（从而，产生与期间GE的底层变动相匹配的损益）。
 - en: 'One caveat: if GE consistently decreases in price, this hedge will need to
     be closed or dynamically adjusted. This adjustment becomes required because the
     option delta/gamma decreases away from 1 as GE decreases. For example, if GE decreases
     to $2.50 (GEWAS strike price), then the option becomes [at the money](http://en.wikipedia.org/wiki/Moneyness#ATM:_At-the-money)
     (ATM) and thus delta is 0.5\. As such, this hedge should be closed or adjusted
     well in advance of GE price decreasing to approach this strike price.'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个注意事项：如果GE价格持续下跌，这个对冲将需要被关闭或动态调整。这种调整变得必要，因为随着GE的下降，期权的delta/gamma会从1减少。例如，如果GE下跌到2.50美元（GEWAS的行权价格），那么期权就变成了[平值期权](http://en.wikipedia.org/wiki/Moneyness#ATM:_At-the-money)（ATM），因此delta是0.5。因此，这个对冲应该在GE价格下跌接近这个行权价格之前就关闭或调整。

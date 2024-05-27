@@ -1,79 +1,116 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-17 23:29:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-17 23:29:36'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'LSMC: Need for fast and accurate Generalized Least Squares – HPC-QuantLib'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: LSMC：快速准确广义最小二乘的需求 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2016/02/13/lsmc-need-for-fast-and-accurate-generalized-least-squares/#0001-01-01](https://hpcquantlib.wordpress.com/2016/02/13/lsmc-need-for-fast-and-accurate-generalized-least-squares/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2016/02/13/lsmc-need-for-fast-and-accurate-generalized-least-squares/#0001-01-01](https://hpcquantlib.wordpress.com/2016/02/13/lsmc-need-for-fast-and-accurate-generalized-least-squares/#0001-01-01)
 - en: 'Update 21.02.2016: Added values for QR decomposition with pivoting and QuantLib
     performance improvements.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新日期：2026年2月21日：添加了QR分解与枢轴和QuantLib性能改进的值。
 - en: Least Squares Monte Carlo simulations spend a significant amount of the total
     computation time on the generalized least squares especially if the problem itself
     has a high dimensional state.  Preferred techniques to solve the normal equations
     are the QR decomposition
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小二乘蒙特卡罗模拟将大部分总计算时间花费在广义最小二乘上，尤其是如果问题本身具有高维状态。解正规方程的首选技术是QR分解
 - en: '![A = Q\cdot R](img/97c2f8703e9053349ddbf5de6e2a9f09.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![A = Q\cdot R](img/97c2f8703e9053349ddbf5de6e2a9f09.png)'
 - en: where ![Q](img/cce0ee434ca4714e77d346c4f6ebf573.png) is orthogonal and ![R](img/e44744d666c5e2e22c0d42b61e9631f9.png)
     is upper triangular or the singular value decomposition (SVD)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![Q](img/cce0ee434ca4714e77d346c4f6ebf573.png)是正交矩阵，![R](img/e44744d666c5e2e22c0d42b61e9631f9.png)是上三角矩阵，或者奇异值分解（SVD）
 - en: '![A = U\cdot w \cdot V^T](img/329d3f5695e52894845c07096ea0544f.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![A = U\cdot w \cdot V^T](img/329d3f5695e52894845c07096ea0544f.png)'
 - en: where ![U](img/11464e262320dc0222962f3337ef8705.png) is column-orthogonal, ![V](img/77bb324491ef895001cc13da1d0208f6.png) 
     is an orthogonal matrix and ![w](img/91e16cf334dc7440d37f9b5fa24cabb2.png) is
     a positive semi-definite diagonal matrix. The Cholesky Factorization
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![U](img/11464e262320dc0222962f3337ef8705.png)是列正交矩阵，![V](img/77bb324491ef895001cc13da1d0208f6.png)是一个正交矩阵，![w](img/91e16cf334dc7440d37f9b5fa24cabb2.png)是一个正半定对角矩阵。Cholesky分解
 - en: '![A = L \cdot L^T](img/d1eac0f4a43b0f06fd99754089769fb9.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![A = L \cdot L^T](img/d1eac0f4a43b0f06fd99754089769fb9.png)'
 - en: where ![L](img/c48829d076e0b243fc2be1c334f78ee6.png) is a lower triangular is
     the fasted method but often numerically unstable. The author in [1] summaries
     all methods and also outlines the computational efforts involved for ![m](img/29a5c6972bfb9cdcfcd544dd4275dd4e.png)
     observations and ![n](img/17deaa124310c647ec1dd85566e7b1e5.png) parameters as
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![L](img/c48829d076e0b243fc2be1c334f78ee6.png)是一个下三角矩阵，是最快的方法，但通常数值不稳定。作者在[1]中总结了所有方法，并概述了对![m](img/29a5c6972bfb9cdcfcd544dd4275dd4e.png)个观测和![n](img/17deaa124310c647ec1dd85566e7b1e5.png)个参数的计算工作量如下：
 - en: 'Chlolesky Factorization: costs ![\sim mn^2 + n^3/3](img/74dcbbe9f5f17ef045f6d903f6d714f0.png)
     flops'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Cholesky分解：成本为![\sim mn^2 + n^3/3](img/74dcbbe9f5f17ef045f6d903f6d714f0.png)
+    flops
 - en: 'QR decomposition: costs ![\sim 2mn^2 - 2n^3/3](img/8486852953b5f615cfc5251d42bfe62f.png)
     flops'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: QR分解：成本为![\sim 2mn^2 - 2n^3/3](img/8486852953b5f615cfc5251d42bfe62f.png) flops
 - en: 'Singular value decomposition: costs ![2mn^2 + 11n^3](img/32e1547543a25a084394074a6c63756e.png)
     flops'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 奇异值分解：成本为![2mn^2 + 11n^3](img/32e1547543a25a084394074a6c63756e.png) flops
 - en: For LSMC simulations we have ![m\gg n](img/1fff5960e40f94102b3cbb63eb790640.png)
     and therefore the QR decomposition has no computational advantages over the SVD. 
     Since a QR decomposition without column pivoting has numerical problems if ![A](img/f6c194c9a4ae3b06df69cda19cb6b1e8.png)
     is rank-deficient, the singular value decomposition is often the method of choice
     for LSMC simulations.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于LSMC模拟，我们有![m\gg n](img/1fff5960e40f94102b3cbb63eb790640.png)，因此QR分解在计算上没有比SVD更大的优势。由于QR分解在![A](img/f6c194c9a4ae3b06df69cda19cb6b1e8.png)是秩亏时存在数值问题，奇异值分解通常是LSMC模拟的选择方法。
 - en: All three decomposition methods are available in [QuantLib](http://quantlib.org/index.shtml),
     in [LAPACK](http://www.netlib.org/lapack/) (with or without optimized [OpenBLAS](http://www.openblas.net/)
     library) and in Intel’s [MKL](https://software.intel.com/en-us/intel-mkl) library.
@@ -88,16 +125,26 @@
     in QuantLib 1.7 has a performance issue if the number of rows is much larger than
     the number of columns. For these tests an [improved](https://github.com/lballabio/QuantLib/pull/54/files)
     version of QuantLib’s QR decomposition has been used.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 三种分解方法在[QuantLib](http://quantlib.org/index.shtml)中都可以使用，在[LAPACK](http://www.netlib.org/lapack/)（带或不带优化的[OpenBLAS](http://www.openblas.net/)库）和英特尔的[MKL](https://software.intel.com/en-us/intel-mkl)库中也可使用。通过LSMC的标准摆动期权估值应作为一个测试平台，以测量带和不带列交换的QR分解的性能以及SVD算法。对于LAPACK和MKL，已使用dgels和dgesvd方法来实现SVD和无交换的QR分解，而带交换的QR则基于dgeqp3、dormqr和dtrsm。为了保持结果可比较，所有情况下都测量了单线程性能。参考价格是通过有限差分方法计算得到的，所有LSMC实现都导致了与参考价格相同的价格。QuantLib
+    1.7中当前的QR实现如果在行数远大于列数时，存在性能问题。对这些测试使用了QuantLib QR分解的[改进](https://github.com/lballabio/QuantLib/pull/54/files)版本。
 - en: '![swing_perf](img/adb59e4324681b7bcff59dd501bb9cd8.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![swing_perf](img/adb59e4324681b7bcff59dd501bb9cd8.png)：swing_perf的图片。'
 - en: As expected MKL is often the fasted library but the difference between MKL and 
     LAPACK plus OpenBLAS is small.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如预期，MKL通常是速度最快的库，但MKL与LAPACK加上OpenBLAS之间的差异很小。
 - en: '[1] Do Q Lee, 2012, [Numerically Efficient Methods for Solving Least Squares
     Problems](http://math.uchicago.edu/~may/REU2012/REUPapers/Lee.pdf)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 参考文献[1]：杜克·李（Do Q Lee），2012年，《解决最小二乘问题的数值高效方法》（[Numerically Efficient Methods
+    for Solving Least Squares Problems](http://math.uchicago.edu/~may/REU2012/REUPapers/Lee.pdf)）。

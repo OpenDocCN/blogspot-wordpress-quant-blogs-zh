@@ -1,121 +1,189 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:47:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:47:34'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Maximizing Omega Ratio | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最大化 Omega Ratio | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/03/maximizing-omega-ratio/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/03/maximizing-omega-ratio/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/03/maximizing-omega-ratio/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/03/maximizing-omega-ratio/#0001-01-01)
 - en: The [Omega Ratio](http://en.wikipedia.org/wiki/Omega_ratio) was introduced by
     [Keating and Shadwick](http://faculty.fuqua.duke.edu/~charvey/Teaching/BA453_2006/Keating_An_introduction_to.pdf)
     in 2002\. It measures the ratio of average portfolio wins over average portfolio
     losses for a given target return L.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Omega Ratio](http://en.wikipedia.org/wiki/Omega_ratio) 是由 [Keating 和 Shadwick](http://faculty.fuqua.duke.edu/~charvey/Teaching/BA453_2006/Keating_An_introduction_to.pdf)
+    于 2002 年引入的。它衡量了给定目标收益 L 的平均投资组合收益与平均投资组合损失的比率。'
 - en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
     j= 1,…,T scenarios of returns with equal probabilities are available. I will use
     historical assets returns as scenarios. Let us denote by r.ij the return of i-th
     asset in the scenario j. The portfolio’s Omega Ratio can be written as
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 设 x.i, i= 1,…,n 为投资组合中各种工具的权重。我们假设有 j= 1,…,T 个具有相等概率的回报场景可用。我将使用历史资产回报作为场景。让我们用
+    r.ij 表示场景 j 中第 i 个资产的回报。投资组合的 Omega Ratio 可以写成
 - en: '![\Omega(L) = \frac{E\left [ max(\sum_{i=1}^{n}r_{ij}x_{i} - L, 0) \right ]}{E\left
     [ max(L - \sum_{i=1}^{n}r_{ij}x_{i}, 0) \right ]}  ](img/7c6ae5b6ac440223dd7e9afdcfed4f65.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![\Omega(L) = \frac{E\left [ max(\sum_{i=1}^{n}r_{ij}x_{i} - L, 0) \right ]}{E\left
+    [ max(L - \sum_{i=1}^{n}r_{ij}x_{i}, 0) \right ]}  ](img/7c6ae5b6ac440223dd7e9afdcfed4f65.png)'
 - en: I will use methods presented in [Optimizing Omega by H. Mausser, D. Saunders,
     L. Seco (2006)](http://www.math.uwaterloo.ca/~dsaunder/Site/Publications_files/OmegaOptimizationWAppendix.pdf)
     paper to construct optimal portfolios that maximize Omega Ratio.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用 [H. Mausser, D. Saunders, L. Seco (2006)](http://www.math.uwaterloo.ca/~dsaunder/Site/Publications_files/OmegaOptimizationWAppendix.pdf)
+    论文中提出的方法构建最大化 Omega Ratio 的最优投资组合。
 - en: The maximization problem (pages 5-6) can be written as
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大化问题（第 5-6 页）可以写成
 - en: '![\Omega^{*}(L) = max_{x,u,d}\frac{\frac{1}{T} \sum_{i=1}^{n}u_{i}}{\frac{1}{T}
     \sum_{i=1}^{n}d_{i}}  \newline\newline  \sum_{i=1}^{n}r_{ij}x_{i} - u_{j}+d_{j}
     = L, j=1,...,T  \newline\newline  u_{j},d_{j}\geq 0, j=1,...,T  \newline\newline  u_{j}*d_{j}
     = 0, j=1,...,T  ](img/fa37a5489fd92a15e4024551a4d76c66.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\Omega^{*}(L) = max_{x,u,d}\frac{\frac{1}{T} \sum_{i=1}^{n}u_{i}}{\frac{1}{T}
+    \sum_{i=1}^{n}d_{i}}  \newline\newline  \sum_{i=1}^{n}r_{ij}x_{i} - u_{j}+d_{j}
+    = L, j=1,...,T  \newline\newline  u_{j},d_{j}\geq 0, j=1,...,T  \newline\newline  u_{j}*d_{j}
+    = 0, j=1,...,T  ](img/fa37a5489fd92a15e4024551a4d76c66.png)'
 - en: It can be formulated as a linear programming problem with following transformation
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 它可以被表述为一个线性规划问题，其转换如下
 - en: '![t=\frac{1}{\frac{1}{T} \sum_{i=1}^{n}u_{i}}  \newline\newline  \Omega^{*}(L)
     = max_{\tilde{x},\tilde{u},\tilde{d},t}\frac{1}{T} \sum_{i=1}^{n}\tilde{u}_{i}  \newline\newline  \sum_{i=1}^{n}r_{ij}\tilde{x}_{i}
     - \tilde{u}_{j}+\tilde{d}_{j} = L, j=1,...,T  \newline\newline  \frac{1}{T}\sum_{i=1}^{n}\tilde{d}_{i}
     = 1  \newline\newline  \tilde{u}_{j},\tilde{d}_{j}\geq 0, j=1,...,T  ](img/1f8201cae5584c778215086bf0be1150.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![t=\frac{1}{\frac{1}{T} \sum_{i=1}^{n}u_{i}}  \newline\newline  \Omega^{*}(L)
+    = max_{\tilde{x},\tilde{u},\tilde{d},t}\frac{1}{T} \sum_{i=1}^{n}\tilde{u}_{i}  \newline\newline  \sum_{i=1}^{n}r_{ij}\tilde{x}_{i}
+    - \tilde{u}_{j}+\tilde{d}_{j} = L, j=1,...,T  \newline\newline  \frac{1}{T}\sum_{i=1}^{n}\tilde{d}_{i}
+    = 1  \newline\newline  \tilde{u}_{j},\tilde{d}_{j}\geq 0, j=1,...,T  ](img/1f8201cae5584c778215086bf0be1150.png)'
 - en: This method will only work for ![\Omega^{*}(L) > 1](img/123140917b72af9ad0975a2603a5e3b6.png).
     In the case ![\Omega^{*}(L) \leqslant 1](img/778e8ea6f4bbb03715666db080441524.png),
     I will use a Nonlinear programming solver, [Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html),
     which is based on donlp2 routine developed and copyright by [Prof. Dr. Peter Spellucci](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html).
     Following code might not properly execute on your computer because Rdonlp2 is
     only available for R version 2.9 or below.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法只适用于 ![\Omega^{*}(L) > 1](img/123140917b72af9ad0975a2603a5e3b6.png) 的情况。在
+    ![\Omega^{*}(L) \leqslant 1](img/778e8ea6f4bbb03715666db080441524.png) 的情况下，我将使用一个非线性规划求解器，[Rdonlp2](http://arumat.net/Rdonlp2/tutorial.html)，它基于由
+    [彼得·斯佩鲁奇教授](http://www.mathematik.tu-darmstadt.de/fbereiche/numerik/staff/spellucci/spellucci.html)
+    开发和拥有版权的 donlp2 程序包。由于 Rdonlp2 仅适用于 R 版本 2.9 或更低版本，以下代码在您的计算机上可能无法正确执行。
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: First let’s examine how the traditional mean-variance efficient frontier looks
     like in the Omega Ratio framework.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先让我们看一下传统的均值-方差有效前沿在 Omega Ratio 框架中的样子。
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/114dc795b2063c1ab876ec35d6bf3cf0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small1.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small1.png)'
 - en: Portfolio returns and Portfolio Omega Ratio are monotonically increasing as
     we move along the traditional mean-variance efficient frontier in the Omega Ratio
     framework. The least risky portfolios (Risk_weight_1, Risk_weight_10) have lower
     Omega Ratio for 13% threshold (target return) and the most risky portfolios (Risk_weight_40,
     Risk_weight_50) have higher Omega Ratio.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在Omega Ratio框架下，随着我们沿着传统的均值-方差有效前沿移动，投资组合的回报和投资组合Omega比率单调递增。风险最小的组合（Risk_weight_1,
+    Risk_weight_10）对于13%的阈值（目标回报）具有较低的Omega比率，而风险最大的组合（Risk_weight_40, Risk_weight_50）具有较高的Omega比率。
 - en: 'To create efficient frontier in the Omega Ratio framework, I propose first
     to compute range of returns in the mean-variance framework. Next split this range
     into # Portfolios equally spaced points. For each point, I propose to find portfolio
     that has expected return less than given point’s expected return and maximum Omega
     Ratio.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了在Omega Ratio框架下创建有效前沿，我建议首先计算均值-方差框架中的回报范围。接下来，将这个范围分成#个等距的组合点。对于每个点，我建议找到一个组合，其预期回报小于给定点的预期回报且具有最大Omega比率。
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/a78ce6fb17bfcdc70c174c1179071a9e.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small1.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small1.png)'
 - en: The Omega Ratio efficient frontier looks similar to the traditional mean-variance
     efficient frontier for expected returns greater than 13% threshold (target return).
     However, there is a big shift in allocation and increase in Omega Ratio for portfolios
     with expected returns less than 13% threshold.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Omega Ratio有效前沿与预期回报大于13%阈值（目标回报）的传统均值-方差有效前沿相似。然而，对于预期回报小于13%阈值的组合，分配发生了巨大转变，并且Omega比率有所增加。
 - en: '[![](img/7a7b6a554d2a943fe27c9086e4585979.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small.png)'
 - en: The Omega Ratio efficient frontier looks very inefficient in the Risk framework
     for portfolios with expected returns less than 13% threshold. But remember that
     goal of this optimization was to find portfolios that maximize Omega Ratio for
     given user constraints. Overall I find results a bit radical for portfolios with
     expected returns less than 13% threshold, and this results defiantly call for
     more investigation.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在风险框架下，对于预期回报小于13%阈值的组合，Omega Ratio有效前沿显得非常低效。但请记住，此优化的目标是找到最大化Omega Ratio的组合，给定用户的约束。总的来说，我发现对于预期回报小于13%阈值的组合的结果有些激进，这些结果绝对需要进一步调查。
 - en: To view the complete source code for this example, please have a look at the
     [aa.omega.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看github上的[aa.omega.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。

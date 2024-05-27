@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:42:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:42:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiple Factor Model – Building 130/30 Index | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多因子模型 – 构建130/30指数 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/#0001-01-01)
 - en: '[Nico](http://www.rnfc.org/ivey/) brought to my attention the [130/30: The
     New Long-Only (2008) by A. Lo, P. Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)
     paper in his comment to the [Multiple Factor Model – Building CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)
@@ -29,8 +41,15 @@
     post and the Risk Model we created in the [Multiple Factor Model – Building Risk
     Model](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)
     post.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '尼科（Nico）在他的评论中向我推荐了[A. Lo, P. Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)的论文[130/30:
+    The New Long-Only (2008)](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)，这篇论文在[多因子模型
+    – 构建CSFB因子](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)一文中提及。该论文提供了一个非常详细的步骤指南，用于使用平均CSFB因子作为alpha模型和[MSCI
+    Barra多因子风险模型](http://www.alacra.com/alacra/help/barra_handbook_US.pdf)构建130/30指数。今天，我想采用这种方法，并展示如何根据我们在[多因子模型
+    – 构建CSFB因子](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)和[多因子模型
+    – 构建风险模型](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)文章中创建的CSFB因子和风险模型构建130/30指数。'
 - en: Let’s start by loading the CSFB factors that we saved at the end of the [Multiple
     Factor Model – Building CSFB Factors](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)
     post. [If you are missing data.factors.Rdata file, please execute fm.all.factor.test()
@@ -40,95 +59,145 @@
     post. [If you are missing risk.model.Rdata file, please execute fm.risk.model.test()
     function first to create and save multiple factor risk model.] Next, I will compute
     betas over a two-year rolling window.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们加载保存于[多因子模型 – 构建CSFB因子](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/)一文末尾的CSFB因子数据。如果你丢失了`data.factors.Rdata`文件，请先执行`fm.all.factor.test()`函数来创建并保存CSFB因子。[接下来，让我们加载在[多因子模型
+    – 构建风险模型](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)一文末尾保存的多因子风险模型。如果你丢失了`risk.model.Rdata`文件，请先执行`fm.risk.model.test()`函数来创建并保存多因子风险模型。]接下来，我将计算一个两年滚动窗口内的贝塔值。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'To construct efficient portfolio each month, I will solve mean-variance portfolio
     optimization problem of the following form:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了每月构建有效组合，我将解决如下形式的均值-方差组合优化问题：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Please read [The Effects of Risk Aversion on Optimization (2010) by S. Liu,
     R. Xu](http://www.mscibarra.com/research/articles/2010/The%20Effects%20of%20Risk%20Aversion%20on%20Optimization%20(Feb%202010).pdf)
     paper for the detailed discussion of this optimization problem.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 请阅读S. Liu, R. Xu在[风险厌恶对优化影响](http://www.mscibarra.com/research/articles/2010/The%20Effects%20of%20Risk%20Aversion%20on%20Optimization%20(Feb%202010).pdf)论文中对此优化问题的详细讨论。
 - en: 'Please note that I will use risk.aversion = 0.0075 and portfolio beta = 1 as
     discussed on the page 22 of the [130/30: The New Long-Only (2008) by A. Lo, P.
     Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf) paper. To model portfolio
     beta constraint, I will use the fact that [portfolio beta is equal to the weighted
     average of the individual asset betas](http://www.duke.edu/~charvey/Classes/ba350/riskman/riskman.htm).'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '请注意，我将使用风险厌恶系数`risk.aversion = 0.0075`和组合贝塔=1，如[A. Lo, P. Patel](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)在论文[130/30:
+    The New Long-Only (2008)](http://math.nyu.edu/faculty/avellane/Lo13030.pdf)第22页所讨论的。为了建模组合贝塔约束，我将使用这样一个事实：[组合贝塔等于个别资产贝塔的加权平均](http://www.duke.edu/~charvey/Classes/ba350/riskman/riskman.htm)。'
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Next, let’s construct 130/30 portfolio. I will restrict portfolio weights to
     be +/- 10% and will use portfolio construction technique that I documented in
     the [130/30 Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
     post.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们构建一个130/30投资组合。我将限制投资组合权重为±10%，并将使用我在[130/30投资组合构建](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)文章中记录的投资组合构建技术。
 - en: '[PRE3]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: At this point, we created monthly long-only and 130:30 portfolios. Let’s examine
     their transition maps.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在此阶段，我们创建了月度的只做多和130:30投资组合。让我们来查看它们的状态转换图。
 - en: '[PRE4]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/86d300abb5e6f0c7f212c7c812c62f12.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small.png)'
 - en: The portfolio weights for the long-only portfolio (long.alpha) sum up to 100%
     and for the 130:30 portfolio (long.short.alpha) is 130% long and 30% short as
     expected.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 只做多投资组合（long.alpha）的权重之和为100%，而130:30投资组合（long.short.alpha）的权重为130%做多和30%做空，符合预期。
 - en: Next let’s create trading strategies based on these portfolios and check their
     performance.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们基于这些投资组合创建交易策略并检查它们的表现。
 - en: '[PRE5]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '[![](img/c7867388085de6e897b0af4bc78173e0.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small.png)'
 - en: '[![](img/883a28712c91733f8f7cd73aa1a68902.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small.png)'
 - en: The 130:30 portfolio works best, producing high returns with smaller drawdowns
     than long-only and benchmark (1/N) portfolios.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 130:30投资组合表现最佳，相比只做多（long-only）和基准（1/N）投资组合，它能带来更高的回报，且回撤更小。
 - en: 'The note of caution: the above results are based on $0 commission rate (i.e.
     trading is free). Also, I’m using the current Dow Jones index components through
     out the whole history; hence, introducing [survivorship bias](http://www.investopedia.com/terms/s/survivorshipbias.asp)
     (i.e. Dow Jones index changed its composition a few times in the last 20 years).'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意事项：上述结果基于$0交易费用（即交易免费）。此外，我使用了整个历史期间的道琼斯指数成分股；因此，引入了[幸存者偏差](http://www.investopedia.com/terms/s/survivorshipbias.asp)（即道琼斯指数在过去的20年中改变了其构成几次）。
 - en: To see how much of the problem is my assumption of $0 commission rate, let’s
     have a look at the annual portfolio turnovers.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们来看看假设交易费用为$0的问题影响有多大，让我们来查看一下投资组合的年换手率。
 - en: '[PRE6]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '[![](img/0d2555f19cc77eac703683ca573d1938.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small.png)'
 - en: The 130:30 portfolio has a pretty high portfolio turnover; therefore, it will
     not perform as well in the real life as in our backtest.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 130:30投资组合的换手率相当高；因此，它在实际操作中的表现可能不如我们在回测中的结果那样好。
 - en: To view the complete source code for this example, please have a look at the
     [fm.long.short.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[fm.long.short.test()函数在factor.model.test.r中的代码](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

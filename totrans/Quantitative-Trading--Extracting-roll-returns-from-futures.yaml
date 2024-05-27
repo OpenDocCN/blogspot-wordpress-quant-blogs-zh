@@ -1,37 +1,53 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:00:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:00:31'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Extracting roll returns from futures'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：从期货中提取滚动收益
 - en: 来源：[http://epchan.blogspot.com/2012/07/extracting-roll-returns-from-futures.html#0001-01-01](http://epchan.blogspot.com/2012/07/extracting-roll-returns-from-futures.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2012/07/extracting-roll-returns-from-futures.html#0001-01-01](http://epchan.blogspot.com/2012/07/extracting-roll-returns-from-futures.html#0001-01-01)
 - en: 'Futures returns consist of two components: the returns of the spot price and
     the "roll returns". This is kind of obvious if you think about it: suppose the
     spot price remains constant in time (and therefore has zero return). Futures with
     different maturities will still have different prices at any point in time, and
     yet they must all converge to the same spot price at expirations, which means
     they must have non-zero returns during their lifetimes.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货收益由两部分组成：现货价格的收益和“滚动收益”。如果你思考一下这是显而易见的：假设现货价格在时间上保持不变（因此收益为零）。不同到期日的期货在任何时间点上仍然会有不同的价格，然而它们必须全部在到期时收敛到相同的现货价格，这意味着它们在其生命周期内必须有非零收益。
 - en: 'This roll return is in action every day, not just during the rollover to the
     next nearest contract. For some futures, the magnitude of this roll return can
     be very large: it averages about -50% annualized for VX, the volatility futures.
     Wouldn''t it be nice if we can somehow extract this return?'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   这种滚动收益每天都在发挥作用，不仅仅是在接下来最近合约的滚动期间。对于某些期货来说，这种滚动收益的幅度可能非常大：波动性期货VX的年化收益平均约为-50%。如果我们可以以某种方式提取这个收益，那不是很好吗？'
 - en: 'In theory, extracting this return should be easy: if a future is in backwardation
     (positive roll return), just buy the future and short the underlying asset, and
     vice versa if it is in contango. Unfortunately, shorting, or even buying, an underlying
@@ -39,8 +55,10 @@
     actually hold only their futures (e.g. USO, UNG, ...), so they are of no help
     at all in this arbitrage strategy. Meanwhile, it is also a bit inconvenient for
     us to go out and buy a few oil tankers ourselves.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论上，提取这个收益应该很简单：如果一个期货处于反向市场（正滚动收益），只需买入期货并做空基础资产，反之亦然，如果它处于正向市场。不幸的是，做空，或者甚至买入，一个基础资产并不容易。除了贵金属，大多数持有“商品”的商品ETF实际上只持有它们的期货（例如USO、UNG、……），所以它们在这个套利策略中根本帮不上忙。同时，我们出去自己买几艘油轮也不太方便。
 - en: 'But in arbitrage trading, we often do not need an exact arbitrage relationship:
     a statistical likely relationship is good enough. So instead of using a commodity
     ETF as a hedge against the future, we can use a commodity-producer ETF. For example,
@@ -49,19 +67,27 @@
     with the spot price than do the futures, and therefore very suitable as hedges.
     In cases where the futures do not track commodities (as in the case of VX), however,
     we have to look harder to find the proper hedge.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 但在套利交易中，我们通常不需要一个精确的套利关系：一个统计上可能的关系就足够了。所以，我们不是用商品ETF作为期货的对冲工具，而是可以用一个商品生产者ETF。例如，我们不是用USO作为对冲，而是可以用XLE，这个持有能源生产公司的能源板块ETF。这些ETF与现货价格的相关性应该比期货高，因此非常适合作为对冲工具。在期货不跟踪商品的情况下（如VX的情况），我们必须更努力地寻找合适的对冲工具。
 - en: Which brings me to this fresh-off-the-press
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让我想到了这本新鲜出炉的
 - en: '[paper by David Simon and Jim Campasano](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2094510)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[David Simon和Jim Campasano的论文](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2094510)'
 - en: '. (Hat tip: Simon T.) This paper suggests a trading strategy that tries to
     extract the very juicy roll returns of VX. The hedge they suggest is -- you guessed
     it! -- the ES future. In a nutshell:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '. (Hat tip: Simon T.) 这份论文提出了一种尝试提取VX非常丰厚的滚动收益的交易策略。他们建议的对冲工具——你猜对了！——是ES期货。简而言之：'
 - en: 'if VX is in contango (which is most of the time), just short both VX and ES,
     and vice versa if VX is in backwardation.   Why does ES work as a good hedge?
     Of course, its very negative correlation with VX is the major factor. But one
@@ -79,5 +105,8 @@
     are true: hedging with the back contract of VX brings very little benefit because
     both the front and back contracts are suffering from very similar roll returns,
     so there is little return left when you take opposite positions in them!'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果VX处于正向市场（这通常是大部分时间的情况），只需同时做空VX和ES，反之如果VX处于反向市场亦是如此。ES为什么能作为一个好的对冲工具？当然，它与VX非常负相关的特性是一个主要因素。但人们不应忽视这样一个事实，ES也具有非常小的滚动收益（大约为+1.5%的年化收益）。换句话说，如果你想要找一个期货作为对冲，寻找那些滚动收益不显著的期货。
+    (当然，如果我们能找到一个与原始期货高度相关但滚动收益符号相反的期货，那将是理想的。但我们很少那么幸运。)  附言：推荐我阅读这篇文章的读者Simon也引起我注意到了一个明显的矛盾：这篇文章的结论和我较早之前的博客文章[做空VIX日历价差](http://epchan.blogspot.ca/2011/01/shorting-vix-calendar-spread.html)的结论之间。这篇文章认为当VX处于正向市场时做空VX并用短ES对冲是盈利的，而我却说当VX处于正向市场时做空VX的前合约并用VX后合约的多头对冲可能并不盈利。这两个陈述都是正确的：用VX的后合约对冲带来的好处非常少，因为前合约和后合约都受到非常相似的滚动收益影响，所以当它们处于相反位置时，几乎没有剩余的回报！

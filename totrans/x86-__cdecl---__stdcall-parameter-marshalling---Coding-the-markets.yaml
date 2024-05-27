@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-12 19:32:37'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024年5月12日 19:32:37'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: x86 __cdecl & __stdcall parameter marshalling | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: x86 __cdecl & __stdcall 参数传递 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2014/07/23/x86-__cdecl-__stdcall-parameter-marshalling/#0001-01-01](https://etrading.wordpress.com/2014/07/23/x86-__cdecl-__stdcall-parameter-marshalling/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2014/07/23/x86-__cdecl-__stdcall-parameter-marshalling/#0001-01-01](https://etrading.wordpress.com/2014/07/23/x86-__cdecl-__stdcall-parameter-marshalling/#0001-01-01)
 - en: x86 __cdecl & __stdcall parameter marshalling
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: x86 __cdecl & __stdcall 参数传递
 - en: July 23, 2014
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2014年7月23日
 - en: Suppose you have a third party Win32 DLL, but don’t have access to the source
     code. The DLL exports a well known init function that makes callbacks into your
     code to register more functions. So you can call Win32’s [LoadLibrary](http://msdn.microsoft.com/en-gb/library/windows/desktop/ms684175%28v=vs.85%29.aspx)
@@ -40,8 +56,16 @@
     them? You don’t have function declarations available at compile time in your code.
     The functions don’t use varargs, so you can’t use va_start and va_end to figure
     out the params at run time.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设你有一个第三方的 Win32 DLL，但没有访问源代码的权限。该 DLL 导出一个众所周知的 init 函数，该函数回调到您的代码中以注册更多函数。因此，您可以调用
+    Win32 的 [LoadLibrary](http://msdn.microsoft.com/en-gb/library/windows/desktop/ms684175%28v=vs.85%29.aspx)
+    来加载 DLL，您可以使用 [GetProcAddress](http://msdn.microsoft.com/en-gb/library/windows/desktop/ms683212%28v=vs.85%29.aspx)
+    获取 init 函数的指针。您可以从您的代码中调用 init 函数，因为您知道函数原型 - 参数的数量和类型。然后，您将回调到您提供的 Register 函数，该函数提供了第三方
+    DLL 导出的其他函数的名称，以及参数的数量和类型。Excel 开发人员将识别出 XLL 函数注册机制的描述。因此，鉴于这些函数的名称，您可以使用 GetProcAddress
+    获取它们的函数指针。但是如何调用它们呢？您的代码在编译时没有可用的函数声明。这些函数不使用 varargs，因此您无法在运行时使用 va_start 和 va_end
+    来确定参数。
 - en: 'The only way to resolve this dilemma is to kick down to assembler, and hand
     code some x86 that follows the Win32 calling conventions, which are well explained
     [here](http://unixwiz.net/techtips/win32-callconv.html) and [here](http://en.wikipedia.org/wiki/X86_calling_conventions).
@@ -51,11 +75,21 @@
     and this [x86 instruction set reference](http://x86.renejeschke.de/). It’s in
     inline assembler, together with the C++ preamble that sets up parameters to simplify
     the assembler.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决这个困境的唯一方法是降级到汇编语言，并手工编写一些遵循 Win32 调用约定的 x86 代码，这些约定在这里 [well explained](http://unixwiz.net/techtips/win32-callconv.html)
+    和 [here](http://en.wikipedia.org/wiki/X86_calling_conventions) 有很好的解释。因此，这是我编写的代码，用于调用从
+    DLL 导出的任意函数。我使用了几个很好的资源来恢复我生疏已久的 ASM 技能：这个 [primer](http://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
+    和这个 [x86 instruction set reference](http://x86.renejeschke.de/)。它是内联汇编，连同设置参数以简化汇编的
+    C++ 序言一起。
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'

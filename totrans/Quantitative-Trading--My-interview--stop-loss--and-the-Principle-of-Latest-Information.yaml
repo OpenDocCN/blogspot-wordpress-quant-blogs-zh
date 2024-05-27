@@ -1,48 +1,72 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:06:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:06:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: My interview, stop loss, and the Principle of Latest
     Information'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：我的采访、止损和最新信息原则
 - en: 来源：[http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html#0001-01-01](http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html#0001-01-01](http://epchan.blogspot.com/2009/06/my-interview-stop-loss-and-principle-of.html#0001-01-01)
 - en: You can find an interview of me in the
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以在
 - en: '[July 2009 issue of Technical Analysis of Stocks & Commodities magazine](http://www.traders.com/Documentation/FEEDbk_Docs/2009/07/Interview.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[《Technical Analysis of Stocks & Commodities》杂志2009年7月号](http://www.traders.com/Documentation/FEEDbk_Docs/2009/07/Interview.html)'
 - en: . I mentioned in that interview and also in my
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 。我在那次采访中提到了，在我的
 - en: '[book](http://www.amazon.com/dp/0470284889?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0470284889&adid=0H1F6CWS2PADFAG8XZPQ&)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[书籍](http://www.amazon.com/dp/0470284889?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=0470284889&adid=0H1F6CWS2PADFAG8XZPQ&)'
 - en: that I believe stop loss should only be applied to momentum strategies but not
     to mean-reverting strategies. I explained my reasoning better in my book than
     in the interview, and so I will paraphrase the explanation here.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 中我也提到了，我相信止损应该只应用于动量策略，而不应用于均值回归策略。我在书中对我的理由解释得更好，所以我会在这里重新表述解释。
 - en: In algorithmic trading, it is reasonable and intuitive that we should always
     make use of the latest information in determining whether we should enter into
     a position, whether that information is price, news, or some analysis. Let's call
     this the Principle of Latest Information. (If someone can think of a better or
     sexier name, let me know!)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在算法交易中，我们在确定是否进入头寸时总是应该利用最新信息，这是合理和直观的，无论这条信息是价格、新闻还是某种分析。让我们称这为最新信息原则。 (如果有人能想出一个更好或更吸引人的名字，请让我知道！)
 - en: So let's say we have a stock model based on price momentum, and we entered into
     a long position based on a recent positive return on price. A few minutes later,
     the price went down instead of up, causing a big loss on our position. If we now
@@ -51,8 +75,10 @@
     be exiting the previously long position and became flat. This is in effect a stop
     loss, and it follows strictly from adhering to our model and our Principle of
     Latest Information.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以假设我们有一个基于价格动量的股票模型，并且我们根据最近的价格正回报进入了多头头寸。几分钟后，价格反而下跌，导致我们头寸上出现巨大亏损。如果我们现在再次运行这个动量模型，它非常有可能会告诉我们因为最近的价格负回报而做空股票。如果我们这样做，我们将退出之前的多头头寸并变得平仓。这实际上是一种止损，它严格遵循我们模型和我们的最新信息原则。
 - en: In contrast, suppose we now have a stock model based on mean-reversion, and
     we entered into a long position based on a recent drop in price. A few minutes
     later, the price went down further instead of up, again causing a big loss on
@@ -61,19 +87,25 @@
     not ask you to exit this position and take a loss. Hence, adhering to the model
     and the Principle of Latest Information will not lead to a stop loss for a mean-reverting
     model.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 相比之下，假设我们现在有一个基于均值回归的股票模型，并且我们根据最近的价格下跌进入了多头头寸。几分钟后，价格反而进一步下跌，再次导致我们头寸上出现巨大亏损。如果我们现在再次运行这个均值回归模型，它肯定会告诉我们因为价格越来越便宜而再次买入股票。该模型不会要求您退出此头寸并承担亏损。因此，遵循模型和最新信息原则不会导致均值回归模型产生止损。
 - en: (Now, if we hold this losing long position long enough, the model will incorporate
     new historical prices into determining its long or short signals as it retrain
     itself, as the Principle of Latest Information says it should! At that time, it
     may indeed recommend that we exit the previously held long position at a loss.
     But this adjustment takes place at a much longer time scale, and therefore cannot
     really be considered a stop-loss in its usual sense.)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: (现在，如果我们长期持有这个亏损的多头头寸，模型会在重新训练自己的过程中将新的历史价格纳入其长或短信号的确定中，正如最新信息原则所说它应该那样！那时，它确实可能会建议我们以亏损的价格退出之前持有的多头头寸。但这种调整是在更长的时间尺度上进行的，因此实在不能被认为是在其通常意义上的止损。）
 - en: More generally, I find that at every turn, and not only in the realm of stock
     trading, applying the Principle of Latest Information always help me to be disciplined
     and not be afraid to enter into new positions, take loss or endure a drawdown
     as the case may be.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 更普遍地说，我发现无论在哪个环节，不仅在股票交易领域，应用最新信息原则总是能帮助我保持纪律，不怕进入新仓位，接受亏损或忍受回撤，具体情况而定。

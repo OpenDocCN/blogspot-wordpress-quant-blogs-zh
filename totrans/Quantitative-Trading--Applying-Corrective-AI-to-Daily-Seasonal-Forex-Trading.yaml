@@ -1,29 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:53:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:53:44
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Applying Corrective AI to Daily Seasonal Forex Trading'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：将纠正性AI应用于每日季节性外汇交易
 - en: 来源：[http://epchan.blogspot.com/2023/03/applying-corrective-ai-to-daily.html#0001-01-01](http://epchan.blogspot.com/2023/03/applying-corrective-ai-to-daily.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2023/03/applying-corrective-ai-to-daily.html#0001-01-01](http://epchan.blogspot.com/2023/03/applying-corrective-ai-to-daily.html#0001-01-01)
 - en: By Sergei Belov, Ernest Chan, Nahid Jetha, and Akshay Nautiyal
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：谢尔盖·别洛夫，欧内斯特·陈，纳希德·杰塔，阿克沙伊·纳蒂亚尔
 - en: ABSTRACT
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 摘要
 - en: We applied [Corrective](https://predictnow.ai/what-is-corrective-ai/) [AI](https://predictnow.ai/what-is-corrective-ai/)
     (Chan, 2022) to a trading model that takes advantage of the intraday seasonality
     of forex returns. Breedon and Ranaldo (2012) observed that foreign currencies
@@ -32,8 +48,10 @@
     and Ranaldo on recent EURUSD data from September 2021 to January 2023 and then
     applied Corrective AI to this trading strategy to achieve a significant increase
     in performance.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将[纠正性AI](https://predictnow.ai/what-is-corrective-ai/)（陈，2022）应用于一个利用外汇回报日周期性的交易模型。布雷登和拉纳尔多（2012）观察到，在外汇的当地工作时间，外币相对于美元贬值，而在美元的当地工作时间则升值。我们首先用2021年9月到2023年1月的最近EURUSD数据回测布雷登和拉纳尔多的结果，然后将纠正性AI应用于这个交易策略，以显著提高性能。
 - en: Breedon and Ranaldo (2012) described a trading strategy that shorted EURUSD
     during European working hours (3 AM ET to 9 AM ET, where ET denotes the local
     time in New York, accounting for daylight savings) and bought EURUSD during US
@@ -41,29 +59,39 @@
     buying of the US dollar takes place during European working hours to pay global
     invoices and the reverse happens during US working hours. Hence this effect is
     also called the “invoice effect".
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 布雷登和拉纳尔多（2012）描述了一种交易策略，在欧洲工作时间（东部时间早上3点到晚上9点，其中ET表示纽约当地时间，考虑夏令时）做空EURUSD，而在美国工作时间（东部时间下午11点到晚上3点）买入EURUSD。这种策略的依据是，大规模的机构在美国工作时间购买美元以支付全球发票，而在欧洲工作时间则相反。因此，这种效应也被称为“发票效应"。
 - en: There is some supportive evidence for the time-of-the-day patterns in various
     measures of the forex market like volatility (see Baille and Bollerslev(1991),
     or Andersen and Bollerslev(1998)), turnover (see Hartman (1999), or Ito and Hashimoto(2006)),
     and return (see Cornett(1995), or Ranaldo(2009)). Essentially, local currencies
     depreciate during their local working hours for each of these measures and appreciate
     during the working hours of the United States.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一些支持证据表明，外汇市场的各种指标，如波动性（参见Baille和Bollerslev（1991），或Andersen和Bollerslev（1998））、成交量（参见Hartman（1999），或Ito和Hashimoto（2006））和回报率（参见Cornett（1995），或Ranaldo（2009）），在这些指标中，当地货币在每个指标的当地工作期间相对于美元贬值，而在美国工作期间升值。
 - en: Figure 1 below describes the average hourly return of each hour in the day over
     a period starting from 2019-10-01 17:00 ET to 2021-09-01 16:00 ET. It reveals
     the pattern of returns in EURUSD. The return pattern in the above-described “working
     hours'' reconciles with the hypothesis of a prevalent “invoice effect” broadly.
     Returns go down during European working and up during US working hours.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1描述了从2019年10月1日17:00 ET到2021年9月1日16:00 ET期间，每天每个小时的平均回报。它揭示了EURUSD的回报模式。上述描述的“工作时间”的回报模式与广泛存在的“发票效应”假设相一致。在欧洲工作期间回报下降，在美国工作期间回报上升。
 - en: '![](img/ea6b2fb979f92b3b7e9efdd858eefdd4.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/ea6b2fb979f92b3b7e9efdd858eefdd4.png)'
 - en: 'Figure 1: Average EURSUD return by time of day (New York time)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1：按日间时间计算的EURSUD平均回报（纽约时间）
 - en: As this strategy was published in 2012, it offers ample time for true out-of-sample
     testing. We collected 1-minute bar data of EURUSD from Electronic Broking Services
     (EBS) and performed a backtest over the out-of-sample period October 2021-January
@@ -73,114 +101,162 @@
     the backtest because our only objective is to compare the performances with and
     without Corrective AI, not to determine if this trading strategy is viable in
     live production.)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于这个策略在2012年发表，它提供了充足的真样本外测试时间。我们从电子经纪服务（EBS）收集了EURUSD的1分钟K线数据，并在2021年10月至2023年1月的样本外期间进行了回测。该策略在这一期间的夏普比率是0.88，平均年回报率为3.5%，最大回撤为-3.5%。策略的alpha显然持续存在。（出于本文的目的，回测中没有包含交易成本，因为我们唯一的目标是比较带有和没有纠正AI的表现，而不是确定这个交易策略在实际生产中是否可行。）
 - en: Figure 2 below shows the equity curve (“growth of $1”) of the strategy during
     the aforementioned out-of-sample period. The cumulative returns during this period
     are just below 8%. We call this the “Primary” trading strategy, for reasons that
     will become clear below.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2展示了上述样本外期间该策略的权益曲线（“1美元的增长”）。在此期间，累计回报率略低于8%。我们称这为“主”交易策略，原因将在下面解释清楚。
 - en: '![](img/36e3ce548ea159251ce09bdff43a8c02.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/36e3ce548ea159251ce09bdff43a8c02.png)'
 - en: 'Figure 2: Equity curve of Primary trading strategy in out-of-sample period'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2：样本外期间主交易策略的权益曲线
 - en: What is Corrective AI?
+  id: totrans-18
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 什么是纠正AI？
 - en: Suppose we have a trading model (like the Primary trading strategy described
     above) for setting the side of the bet (long or short). We just need to learn
     the size of that bet, which includes the possibility of no bet at all (zero sizes).
     This is a situation that practitioners face regularly. A machine learning algorithm
     (ML) can be trained to determine that. To emphasize, we do not want the ML algorithm
     to learn or predict the side, just to tell us what is the appropriate size.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们有一个交易模型（如上述主交易策略），用于设置投注的侧（多头或空头）。我们只需要学习这个投注的大小，包括根本不下注（零大小）的可能性。这是实践者经常面临的情况。一个机器学习算法（ML）可以被训练来确定这一点。需要强调的是，我们不想让ML算法学习或预测哪一侧，只是告诉我们适当的大小。
 - en: We call this problem meta-labeling (Lopez de Prado, 2018) or Corrective AI (Chan,
     2022) because we want to build a secondary ML model that learns how to use a primary
     trading model.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们称这个问题为元标签问题（Lopez de Prado，2018）或纠正AI（Chan，2022），因为我们希望建立一个次级机器学习模型，学习如何使用主要交易模型。
 - en: We train an ML algorithm to compute the “Probability of Profit” (PoP) for the
     next minute-bar. If the PoP is greater than 0.5, we will set the bet size to 1;
     otherwise we will set it to 0\. In other words, we adopt the step function as
     the bet sizing function that takes PoP as an input and gives the bet size as an
     output, with the threshold set at 0.5. This bet sizing function decides whether
     to take the bet or pass, a purely binary prediction.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们训练了一个机器学习算法来计算下一分钟K线的“盈利概率”（PoP）。如果PoP大于0.5，我们将下注大小设置为1；否则，我们将其设置为0。换句话说，我们将采用步进函数作为下注大小函数，它接受PoP作为输入，给出下注大小作为输出，阈值设置为0.5。这个下注大小函数决定是否下注或放弃，这是一个纯粹的二进制预测。
 - en: The training period was from 2019-01-01 to 2021-09-30 while the out-of-sample
     test period was from 2021-10-01 to 2023-01-15, consistent with the out-of-sample
     period we reported for the Primary trading strategy. The model used to train ML
     algorithm was done using the predictnow.ai Corrective AI (CAI) API, with more
     than a hundred pre-engineered input features (predictors). The underlying learning
     algorithm is a gradient-boosting decision tree.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 训练期是从2019年1月1日至2021年9月30日，而样本外测试期是从2021年10月1日至2023年1月15日，这与我们报告的主交易策略的样本外期间一致。用于训练机器学习算法的模型是使用predictnow.ai纠正AI（CAI）API完成的，该API具有超过一百个预先工程化的输入特征（预测因子）。底层学习算法是一种梯度提升决策树。
 - en: After applying Corrective AI, the Sharpe Ratio of the strategy in this period
     is 1.29 (an increase of 0.41), with average annual returns of 4.1% (an increase
     of 0.6%) and a maximum drawdown of -1.9% (a decrease of 1.6%). The alpha of the
     strategy is significantly improved.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在应用纠正AI之后，该策略在此期间夏普比率达到了1.29（增加了0.41），平均年回报率为4.1%（增加了0.6%），最大回撤为-1.9%（减少了1.6%）。策略的alpha显著改善。
 - en: The equity curve of the Corrective AI filtered secondary model signal can be
     seen in the figure below.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面图表中可见Corrective AI过滤后的次要模型信号权益曲线。
 - en: '![](img/04a898214137951a6760a7f974b5b12b.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/04a898214137951a6760a7f974b5b12b.png)'
 - en: 'Figure 3: Equity curve of Corrective AI model in out-of-sample period'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3：Corrective AI模型在样本外期间的权益曲线
 - en: Features used to train the Corrective AI model include technical indicators
     generated from indices, equities, futures, and options markets. Many of these
     features were created using [Algoseek](https://www.algoseek.com/)’s high-frequency
     futures and equities data. More discussions of these features can be found in
     (Nautiyal & Chan, 2021).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 用于训练Corrective AI模型的特征包括来自指数、股票、期货和期权市场的技术指标。其中许多特征是使用[Algoseek](https://www.algoseek.com/)的高频期货和股票数据创建的。关于这些特征的更多讨论可以在（纳蒂亚尔&陈，2021）中找到。
 - en: 'Conclusion:'
+  id: totrans-28
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 结论：
 - en: By applying Corrective AI to the time-of-the-day Primary strategy, we were able
     to improve the Sharpe ratio and reduce drawdown during the out-of-sample backtest
     period. This aligns with observations made in the literature on meta-labeling
     for our primary strategies. The Corrective AI model's signal filtering capabilities
     do enhance performance in specific scenarios.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过将Corrective AI应用于时间段的初级策略，我们能够在样本外回测期间提高夏普比率并减少回撤。这与我们对初级策略的元标签观察相一致。Corrective
+    AI模型的信号过滤能力在特定场景中确实能提高性能。
 - en: Acknowledgment
+  id: totrans-30
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 致谢
 - en: We are grateful to Chris Bartlett of Algoseek, who generously provided much
     of the high-frequency data for our feature engineering in our Corrective AI system.
     We also thank Pavan Dutt for his assistance with feature engineering and to Jai
     Sukumar for helping us use the Predictnow.ai CAI API. Finally, we express our
     appreciation to Erik MacDonald and Jessica Watson for their contributions in explaining
     this technology to Predictnow.ai’s clients
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们感谢Algoseek的Chris Bartlett，他慷慨提供了我们Corrective AI系统特征工程所需的高频数据。我们也感谢Pavan Dutt在特征工程方面的协助，以及Jai
+    Sukumar帮助我们使用Predictnow.ai CAI API。最后，我们感谢Erik MacDonald和Jessica Watson向Predictnow.ai的客户解释这项技术。
 - en: '**References**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**参考文献**'
 - en: Breedon, F., & Ranaldo, A. (2012, April 3). *Intraday Patterns in FX Returns
     and Order Flow*. https://ssrn.com/abstract=2099321
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 布雷登，F.，&拉纳尔多，A.（2012年4月3日）《外汇回报率与订单流日内模式》。https://ssrn.com/abstract=2099321
 - en: Chan, E. (2022, June 9). *What is Corrective AI?* PredictNow.ai. Retrieved February
     23, 2023, from https://predictnow.ai/what-is-corrective-ai/
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 陈，E.（2022年6月9日）《什么是纠正性AI？》。PredictNow.ai。2023年2月23日检索自https://predictnow.ai/what-is-corrective-ai/
 - en: Lopez de Prado, M. (2018). *Advances in Financial Machine Learning*. Wiley.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 洛佩兹·德·普拉多，M.（2018）。《金融机器学习进展》。威利出版社。
 - en: Nautiyal, A., & Chan, E. (2021). *New Additions to the PredictNow.ai Factor
     Zoo*. PredictNow.ai. Retrieved February 28, 2023, from https://predictnow.ai/new-additions-to-the-predictnow-ai-factor-zoo/
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 纳蒂亚尔，A.，&陈，E.（2021）。《PredictNow.ai因子动物园的新增内容》。PredictNow.ai。2023年2月28日检索自https://predictnow.ai/new-additions-to-the-predictnow-ai-factor-zoo/

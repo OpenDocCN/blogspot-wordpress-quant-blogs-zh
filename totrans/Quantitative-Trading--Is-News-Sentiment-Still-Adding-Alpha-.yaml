@@ -1,29 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:55:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月12日 18:55:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Is News Sentiment Still Adding Alpha?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 定量交易：新闻情感是否仍在增加Alpha？
 - en: 来源：[http://epchan.blogspot.com/2019/04/is-news-sentiment-still-adding-alpha.html#0001-01-01](http://epchan.blogspot.com/2019/04/is-news-sentiment-still-adding-alpha.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2019/04/is-news-sentiment-still-adding-alpha.html#0001-01-01](http://epchan.blogspot.com/2019/04/is-news-sentiment-still-adding-alpha.html#0001-01-01)
 - en: By Ernest Chan and
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：Ernest Chan
 - en: '[Roger Hunter](http://www.qtscm.com/principals/)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Roger Hunter](http://www.qtscm.com/principals/)'
 - en: 'Nowadays it is nearly impossible to step into a quant trading conference without
     being bombarded with flyers from data vendors and panel discussions on news sentiment.
     Our team at QTS has made a vigorous effort in the past trying to extract value
@@ -35,74 +51,101 @@
     NLP was the specialty of one of us back in the day), and we rely on the data vendor
     to do the job for us. The fact that we couldn''t extract much alpha from one such
     vendor does not mean news sentiment is in general useless.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，几乎不可能进入一个量化交易会议而不被数据供应商的传单和关于新闻情感的小组讨论所轰炸。我们在QTS的团队过去曾经努力过，试图从这样的数据中提取价值，但效果并不好。但是对于测试预处理的替代数据的中心困境是：是否由于这些数据中缺乏alpha，还是供应商的数据预处理有误？我们，像许多量化交易员一样，没有时间自己构建自然语言处理引擎，将原始新闻故事转化为情感和相关性得分（尽管NLP曾经是我们中的一个人的专长），我们依赖数据供应商为我们完成这项工作。我们无法从这样的供应商中提取太多alpha，并不意味着新闻情感总体上是无用的。
 - en: So it was with some excitement that we heard Two Sigma, the $42B+ hedge fund,
     was sponsoring a
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们听到42亿美元以上的对冲基金Two Sigma赞助一件事非常兴奋。
 - en: '[news sentiment competition at Kaggle](https://www.kaggle.com/c/two-sigma-financial-news)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Kaggle上的新闻情感竞赛](https://www.kaggle.com/c/two-sigma-financial-news)'
 - en: ', providing free sentiment data from Thomson-Reuters for testing. That data
     started from 2007 and covers about 2,000 US stocks (those with daily trading dollar
     volume of roughly $1M or more), and complemented with price and volume of those
     stocks provided by Intrinio. Finally, we get to look for alpha from an industry-leading
     source of news sentiment data!'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ，提供来自汤森路透的免费情感数据进行测试。该数据始于2007年，涵盖了约2000只美国股票（其中日交易金额约为100万美元或更多），并且由Intrinio提供了这些股票的价格和交易量。最后，我们从一个行业领先的新闻情感数据源中寻找Alpha！
 - en: The evaluation criterion of the competition is effectively the Sharpe ratio
     of a user-constructed market-neutral portfolio of stock positions held over 10
     days.  (By market-neutral, we mean zero beta. Though that isn't the way Two Sigma
     put it, it can be shown
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 比赛的评估标准实际上是用户构建的股票持仓的市场中性投资组合的夏普比率，持有时间为10天。 （通过市场中性，我们指的是零贝塔。虽然这不是Two Sigma的说法，但可以证明他们的标准等价于我们的陈述。）
 - en: '[statistically](http://www.kaggle.com/marketneutral/eda-what-does-mktres-mean)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[统计学上](http://www.kaggle.com/marketneutral/eda-what-does-mktres-mean)'
 - en: and mathematically that their criterion is equivalent to our statement.) This
     is conveniently the Sharpe ratio of the "alpha", or excess returns, of a trading
     strategy using news sentiment.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 和数学上他们的标准等价于我们的陈述。）这恰好是使用新闻情感进行交易策略的“alpha”或超额收益的夏普比率。
 - en: 'It may seem straightforward to devise a simple trading strategy to test for
     alpha with pre-processed news sentiment scores, but Kaggle and Two Sigma together
     made it unusually cumbersome and time-consuming to conduct this research. Here
     are some  common complaints from Kagglers, and we experienced the pain of all
     of them:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 设计一个简单的交易策略来测试具有预处理的新闻情感评分的Alpha似乎很简单，但是Kaggle和Two Sigma共同使得这项研究异常繁琐和耗时。以下是Kagglers的一些常见抱怨，我们经历了其中的所有痛苦：
 - en: As no one is allowed to download the precious news data to their own computers
     for analysis, research can only be conducted via Jupyter Notebook run on Kaggle's
     servers. As anyone who has tried Jupyter Notebook knows, it is a great real-time
     collaborative and presentation platform, but a very unwieldy debugging platform
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 由于没有人被允许将珍贵的新闻数据下载到自己的计算机上进行分析，研究只能通过在Kaggle服务器上运行的Jupyter Notebook进行。任何尝试过Jupyter
+    Notebook的人都知道，这是一个非常好的实时协作和演示平台，但是一个非常难以操作的调试平台
 - en: Not only is Jupyter Notebook a sub-optimal tool for efficient research and software
     development, we are only allowed to use 4 CPU's and a very limited amount of memory
     for the research. GPU access is blocked, so good luck running your deep learning
     models. Even simple data pre-processing killed our kernels (due to memory problems)
     so many times that our hair was thinning by the time we were done.
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 不仅Jupyter Notebook不是进行有效研究和软件开发的次优工具，我们只被允许使用4个CPU和非常有限的内存进行研究。GPU访问被阻止，所以运行你的深度学习模型祝你好运。即使简单的数据预处理也多次因内存问题杀死我们的内核，以至于我们完成时头发都快掉光了。
 - en: Kaggle kills a kernel if left idle for a few hours. Good luck training a machine
     learning model overnight and not getting up at 3 a.m. to save the results just
     in time.
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Kaggle如果在几个小时内让内核空闲，就会杀死内核。祝你训练机器学习模型一夜之间好运，并且早上3点起床及时保存结果。
 - en: You cannot upload any supplementary data to the kernel. Forget about using your
     favorite market index as input, or hedging your portfolio with your favorite ETP.
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 您不能将任何补充数据上传到内核。别想使用你最喜欢的市场指数作为输入，或者用你最喜欢的ETP对冲你的投资组合。
 - en: There is no "securities master database" for specifying a unique identifier
     for each company and linking the news data with the price data.
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 没有“证券主数据库”来指定每个公司的唯一标识符并将新闻数据与价格数据链接起来。
 - en: The last point requires some elaboration. The price data uses two identifiers
     for a company, assetCode and assetName, neither of which can be used as its unique
     identifier. One assetName such as Alphabet can map to multiple assetCodes such
@@ -120,8 +163,10 @@
     as the unique identifier, as presumably different classes of stocks such as GOOG.O
     and GOOGL.O are affected by the same news on Alphabet. So each news item is potentially
     mapped to multiple price histories.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后一个问题需要一些解释。价格数据使用公司的两个标识符，assetCode和assetName，这两个都不能作为其唯一标识符。例如，一个assetName如Alphabet可以映射到多个assetCodes如GOOG.O和GOOGL.O。我们需要分别跟踪GOOG.O和GOOGL.O，因为它们有不同的价格历史。这带来了在如CRSP等工业级数据库中不存在的问题，并迫使我们设计自己的算法来创建唯一标识符。我们是通过查找每个assetName的多个assetCode历史是否在时间上重叠来实现的。如果如此，我们每个assetCode都当作不同的唯一标识符。如果不是，那么我们只是使用最后一个已知的assetCode作为唯一标识符。在后一种情况下，我们还检查了“合并”多个assetCode是否合理，通过检查一个的结束和另一个的开始之间的差距是否很小，以及价格是否合理。由于只有大约150个案例，这些都可以外部检查。另一方面，新闻数据只有assetName作为唯一标识符，因为假设不同类别的股票如GOOG.O和GOOGL.O受到Alphabet相同新闻的影响。所以每个新闻条目可能映射到多个价格历史。
 - en: The price data is also quite noisy, and Kagglers spent much time replacing bad
     data with good ones from outside sources. (As noted above, this can't be done
     algorithmically as data can neither be downloaded nor uploaded to the kernel.
@@ -130,8 +175,10 @@
     bad data, but at the very least, time series plots of the statistics of some of
     the important news sentiment features revealed no structural breaks (unlike those
     of another vendor we tested previously.)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格数据也非常嘈杂，Kagglers花了大量时间用外部来源的好数据替换坏数据。（如上所述，这不能算法化进行，因为数据既不能下载也不能上传到内核。花费时间的手动纠正坏数据的过程似乎是为了折磨参与者。）确定新闻数据中是否包含坏数据更困难，但至少，一些重要新闻情感特征的统计时间序列图没有显示出结构性断裂（与我们先前提到的另一个供应商的数据不同。）
 - en: 'To avoid overfitting, we first tried the two most obvious numerical news features:
     Sentiment and Relevance. The former ranges from -1 to 1 and the latter from 0
     to 1 for each news item. The simplest and most sensible way to combine them into
@@ -152,15 +199,21 @@
     of 1\. The alpha on the out-of-sample test set from 20170101 to 20180731 is a
     bit lower at 1.8% p.a., with a Sharpe ratio of 0.75\. You might think that this
     is just a small decrease, until you take a look at their respective equity curves:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了避免过拟合，我们首先尝试了两个最明显的数值新闻特征：情感（Sentiment）和相关性（Relevance）。每条新闻项目的情感值从-1到1，相关性值从0到1。将它们结合成一个特征的最简单、最合理的方式是将它们相乘。但由于每条股票每天可能有大量的新闻项目，而我们每天只做一次预测，我们需要一种方法将这个特征在一个或多个天内聚合。我们计算这个特征在过去5天内的简单移动平均（5是这个模型的唯一参数，在20070101到20141231的训练数据上优化）。最后，预测模型也尽可能简单：如果移动平均值是正的，买入股票；如果是负的，则做空。所有交易信号的资本分配是均匀的。正如我们上面提到的，这场比赛的评价标准意味着我们必须在t+1天的市场开盘后进入这样的头寸，此时t天的新闻情感数据已经由午夜（UTC时间）知晓。这个头寸必须持有10个交易日后在t+11天的市场开盘时退出，并且组合的净beta必须用适当数量的市值指数对冲。从20150101到20161231的验证集alpha约为2.3%每年，令人鼓舞的夏普比率是1。从20170101到20180731的样本外测试集alpha略低，为1.8%每年，夏普比率为0.75。你可能认为这只是一个小幅下降，直到你查看了它们各自的股票曲线：
 - en: 'One cliché in data science confirmed: a picture is worth a thousand words.
     (Perhaps you’ve heard of the'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据科学中一个陈词滥调得到了证实：一图胜千言。（也许你听说过）
 - en: '[Anscombe''s Quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[安斯康姆四重奏](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)'
 - en: '?) We would happily invest in a strategy that looked like that in the validation
     set, but no way would we do so for that in the test set. What kind of overfitting
     have we done for the validation set that caused so much "variance" (in the bias-variance
@@ -171,15 +224,19 @@
     between validation vs test sets in this case in anticipation of machine learning
     hyperparameter optimization, which wasn''t actually used for this simple news
     strategy.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: （疑问）我们很乐意投资一个在验证集中看起来那样的策略，但是绝不可能对测试集这样做。我们在验证集中做了什么样的过拟合，导致了测试集中如此多的“方差”（在偏差-方差意义上）？诚实的答案是：什么也没有。正如我们上面讨论的，策略仅基于训练集指定，唯一的参数（5）也是纯粹基于那些数据优化的。验证集在实质上是一个样本外的测试集，与“测试集”没有区别。在这个案例中区分验证集和测试集是为了期待机器学习超参数优化，但实际上这个简单的新闻策略并没有使用到。
 - en: 'We will comment more on this deterioration in performance for the test set
     later. For now, let’s address another question: Can categorical features improve
     the performance in the validation set? We start with 2 categorical features that
     are most abundantly populated across all news items and most intuitively important:
     headlineTag and audiences.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们稍后会更详细地讨论这种性能下降的问题。现在，让我们来探讨另一个问题：分类特征能否提高验证集的性能？我们从所有新闻项目中含量最丰富、最直观重要的两个分类特征开始：headlineTag（标题标签）和audiences（受众）。
 - en: 'The headlineTag feature is a single token (e.g. "BUZZ"), and there are 163
     unique tokens. The audiences feature is a set of tokens (e.g. {''O'', ''OIL'',
     ''Z''}), and there are 191 unique tokens. The most natural way to deal with such
@@ -193,48 +250,72 @@
     day, we will set that daily feature to True. Before trying to build a predictive
     model using this feature matrix, we compared their features importance to other
     existing features using boosted random forest, as implemented in LightGBM.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 标题标签（headlineTag）特征是一个单独的标记（例如“BUZZ”），共有163个独特的标记。观众（audiences）特征是一组标记（例如{'O',
+    'OIL', 'Z'}），共有191个独特的标记。处理这些分类特征最自然的方式是使用“独热编码”：每个这些标记在特征矩阵中都会得到自己的列，如果新闻包含这样的标记，相应的列将得到“真”值（否则为“假”）。独热编码还允许我们在一些回望期内对这些特征进行汇总。为此，我们决定使用或运算符在最近的交易日（而不是数字特征的5天回望）对这些特征进行汇总。即只要最近一天的新闻包含一个标记，我们将该日特征设置为真。在尝试使用这个特征矩阵构建预测模型之前，我们比较了它们与使用LightGBM实现的提升随机森林（boosted
+    random forest）中其他现有特征的特征重要性。
 - en: '[![](img/d4a92de0176e6057ecc39238237452be.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOwGEUaA_kXl4KXT44Hbt7lFcyxs4fnl_BxkywglqTBeRK-scjQ4TeLGQoT-cv0UTYO7dvOgd5yruHJV6qQ251aL8-t6733V6-0i7VOdNybUrQm2ddunmCTbyMvvvvzFgseFPWSg/s1600/Features+importance+LGBM.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d4a92de0176e6057ecc39238237452be.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOwGEUaA_kXl4KXT44Hbt7lFcyxs4fnl_BxkywglqTBeRK-scjQ4TeLGQoT-cv0UTYO7dvOgd5yruHJV6qQ251aL8-t6733V6-0i7VOdNybUrQm2ddunmCTbyMvvvvzFgseFPWSg/s1600/Features+importance+LGBM.png)'
 - en: These categorical features are nowhere to be found in the top 5 features compared
     to the price features (returns). But more shockingly, LightGBM returned assetCode
     as the most important feature! That is a common fallacy of using train data for
     feature importance ranking (the problem is highlighted by
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些分类特征与价格特征（回报）相比，在最重要的5个特征中无处可寻。但更令人震惊的是，LightGBM返回assetCode作为最重要的特征！那是在使用训练数据进行特征重要性排名时的一个常见谬误（问题在
 - en: '[Larkin](https://www.kaggle.com/marketneutral/the-fallacy-of-encoding-assetcode)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Larkin](https://www.kaggle.com/marketneutral/the-fallacy-of-encoding-assetcode)'
 - en: .) If a classifier knows that GOOG had a great Sharpe ratio in-sample, of course
     it is going to predict GOOG to have positive residual return no matter what! The
     proper way to compute feature importance is to apply
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: .) 如果一个分类器知道GOOG在样本内具有很好的夏普比率，当然它会预测GOOG将具有正的残差回报，无论怎样！计算特征重要性的正确方法是应用
 - en: '[Mean Decrease Accuracy](https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos/dp/1119482089/ref=as_sl_pc_tf_til?tag=quantitativet-20&linkCode=w00&linkId=d7381a1bc4fd7adf25c210b2967e15be&creativeASIN=1119482089)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[平均减少准确性](https://www.amazon.com/Advances-Financial-Machine-Learning-Marcos/dp/1119482089/ref=as_sl_pc_tf_til?tag=quantitativet-20&linkCode=w00&linkId=d7381a1bc4fd7adf25c210b2967e15be&creativeASIN=1119482089)'
 - en: (MDA) using validation data or with cross-validation (see our
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: （MDA）使用验证数据或进行交叉验证（参见我们的
 - en: '[kernel](http://www.kaggle.com/chanep/assetcode-with-mda-using-random-data)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[核](http://www.kaggle.com/chanep/assetcode-with-mda-using-random-data)'
 - en: demonstrating that assetCode is no longer an important feature once we do that.)
     Alternatively, we can manually exclude such features that remain constant through
     the history of a stock from features importance ranking. Once we have done that,
     we find the most important features are
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 演示了assetCode一旦我们这样做就不再是一个重要的特性。）另一步，我们可以手动排除这样在股票历史中保持不变的特征，从特征重要性排名中。一旦我们这样做，我们发现最重要的特征是
 - en: '[![](img/9748c0c76c84da75d9a2efdde75aa83c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjftipeXELT07Lof60YIEgoIOefOnmGVpUXrfapzShCqG0yBFFzqfwPVLporAbp-dFBPx1OEq9SnoYYhptDO1-vOKCiBg-e6i15SBQoyfZySWWi_NKSIalJBkIsX_Jvod02TE37QA/s1600/Correct+features+importance+LGBM.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/9748c0c76c84da75d9a2efdde75aa83c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjftipeXELT07Lof60YIEgoIOefOnmGVpUXrfapzShCqG0yBFFzqfwPVLporAbp-dFBPx1OEq9SnoYYhptDO1-vOKCiBg-e6i15SBQoyfZySWWi_NKSIalJBkIsX_Jvod02TE37QA/s1600/Correct+features+importance+LGBM.png)'
 - en: Compared to the price features, these categorical news features are much less
     important, and we find that adding them to the simple news strategy above does
     not improve performance.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 与价格特征相比，这些分类新闻特征的重要性要小得多，我们发现将它们添加到上述简单的新闻策略中并不能提高性能。
 - en: So let's return to the question of why it is that our simple news strategy suffered
     such deterioration of performance going from validation to test set. (We should
     note that it isn’t just us that were unable to extract much value from the news
@@ -249,17 +330,23 @@
     regime change also seems unlikely. Alpha decay seems a likely culprit - by that
     we mean the decay of alpha due to competition from other traders who use the same
     features to generate signals. A recently published academic paper (
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么让我们回到这个问题上，为什么我们的简单新闻策略在从验证集到测试集的性能会如此恶化。（我们应该指出，不仅是我们无法从新闻数据中提取很多价值。其他Kagglers发布的多数内核在生成alpha时也没有显示出加入新闻特征的好处。许多领先参赛者发布的内核中使用了复杂的价格特征和复杂的机器学习算法。）我们已经排除了过拟合，因为从验证集中没有提取到额外的信息。其他可能性是运气不佳、政权更迭或alpha衰减。比较两个股票曲线，运气不佳似乎是一个不太可能的解释。考虑到策略只使用新闻特征，而不使用宏观经济、价格或市场结构特征，政权更迭似乎也不太可能。alpha衰减似乎是一个可能的罪魁祸首——这是我们指的是由于其他使用相同特征生成信号的交易者的竞争而导致的alpha衰减。最近发表的一篇学术论文（
 - en: '[Beckers, 2018](https://jpm.iijournals.com/content/45/2/58)'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Beckers, 2018](https://jpm.iijournals.com/content/45/2/58)'
 - en: ) lends support to this conjecture. Based on a meta-study of most published
     strategies using news sentiment data, the author found that such strategies generated
     an information ratio of 0.76 from 2003 to 2007, but only 0.25 from 2008-2017,
     a drop of 66%!
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: ）支持了这一猜想。基于对使用新闻情绪数据的大部分已发表策略的元研究，作者发现，这样的策略在2003年至2007年期间产生了0.76的信息比率，但仅在2008-2017期间产生了0.25，下降了66%！
 - en: Does that mean we should abandon news sentiment as a feature? Not necessarily.
     Our predictive horizon is constrained to be 10 days. Certainly one should test
     other horizons if such data is available. When we gave a summary of our findings
@@ -269,14 +356,21 @@
     We have only applied the research to US stocks in the top 2,000 of market cap,
     due to the restrictions imposed by Two Sigma, but there is no reason you have
     to abide by those restrictions in your own news sentiment research.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 这意味着我们应该放弃新闻情绪作为特征吗？不一定。我们的预测范围被限制在10天内。如果存在此类数据，当然应该测试其他范围。当我们在一次会议上概述我们的发现时，一位观众成员建议，如果我们小心选择应用新闻情绪的国家（印度？），或行业（与国防相关的股票？），或市值（零股？），它仍然可能是有用的。由于Two
+    Sigma施加的限制，我们只研究了市值排名前2000的美国股票，但在您自己的新闻情绪研究中，您不必遵守这些限制。
 - en: '----'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '----'
 - en: '**Workshop update:**'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**研讨会更新：**'
 - en: We have launched a new online course "Lifecycle of Trading Strategy Development
     with Machine Learning." This is a 12-hour, in-depth, online workshop focusing
     on the challenges and nuances of working with financial data and applying machine
@@ -287,11 +381,18 @@
     as Pandas, Scikit-learn, LightGBM, and execution platforms like QuantConnect.
     It will be co-taught by Dr. Ernest Chan and Dr. Roger Hunter, principals of QTS
     Capital Management, LLC. See
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们推出了一门新的在线课程“生命周期交易策略开发与机器学习”。这是一门长达12小时、深入、专注于金融数据处理和应用机器学习生成交易策略的在线讲座。我们将带领您通过使用机器学习创建和改进交易策略的完整生命周期，包括自动执行，从我们自己的研究和实践中获得独特的见解和评论。我们将广泛使用Python包，如Pandas、Scikit-learn、LightGBM，以及QuantConnect等执行平台。本课程将由QTS
+    Capital Management, LLC的负责人Ernest Chan博士和Roger Hunter博士共同教授。详情请查看。
 - en: '[www.epchan.com/workshops](http://www.epchan.com/workshops)'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '[www.epchan.com/workshops](http://www.epchan.com/workshops)'
 - en: for registration details.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 有关注册详情。

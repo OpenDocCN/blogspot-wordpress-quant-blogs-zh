@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:48:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:48:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Maximum Loss and Mean-Absolute Deviation risk measures | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最大损失和平均绝对偏差风险度量 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/14/maximum-loss-and-mean-absolute-deviation-risk-measures/#0001-01-01)
 - en: 'During construction of typical [efficient frontier](http://en.wikipedia.org/wiki/Efficient_Frontier),
     risk is usually measured by the standard deviation of the portfolio’s return.
     Maximum Loss and [Mean-Absolute Deviation](http://en.wikipedia.org/wiki/Median_absolute_deviation)
@@ -26,73 +38,118 @@
     Strategies: An Application to Hedge Funds by Krokhmal, P., S. Uryasev, and G.
     Zrazhevsky (2001)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=297639)
     paper to construct optimal portfolios.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在典型[有效边界](http://en.wikipedia.org/wiki/Efficient_Frontier)的构建过程中，风险通常是通过投资组合收益的标准偏差来衡量的。最大损失和[平均绝对偏差](http://en.wikipedia.org/wiki/Median_absolute_deviation)是我将用来构建[有效边界](http://en.wikipedia.org/wiki/Efficient_Frontier)的替代风险度量。我将使用[Krokhmal,
+    P., S. Uryasev 和 G. Zrazhevsky（2001）的论文](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=297639)中提出的方法来构建最优投资组合。
 - en: Let x.i, i= 1,…,n be weights of instruments in the portfolio. We suppose that
     j= 1,…,T scenarios of returns with equal probabilities are available. I will use
     historical assets returns as scenarios. Let us denote by r.ij the return of i-th
     asset in the scenario j. The portfolio’s Maximum Loss (page 34) can be written
     as
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让 x.i, i= 1,…,n 为投资组合中工具的权重。我们假设有 j= 1,…,T 个具有相等概率的回报情景可用。我将使用历史资产回报作为情景。我们将
+    r.ij 表示为情景 j 中第 i 个资产的回报。投资组合的最大损失（第34页）可以写成
 - en: '![\max_{1\leq j \leq T}\left \{ -\sum_{i=1}^{n}r_{ij}x_i \right \}](img/0399128c0179490e5eab269b1d80a717.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![\max_{1\leq j \leq T}\left \{ -\sum_{i=1}^{n}r_{ij}x_i \right \}](img/0399128c0179490e5eab269b1d80a717.png)'
 - en: It can be formulated as a linear programming problem
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以被表述为线性规划问题
 - en: '![\min_{}{}w\newline\newline-\sum_{i=1}^{n}r_{ij}x_j\leq w , j=1,...,T](img/410c821398b35681083b61fad919d77e.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![\min_{}{}w\newline\newline-\sum_{i=1}^{n}r_{ij}x_j\leq w , j=1,...,T](img/410c821398b35681083b61fad919d77e.png)'
 - en: This linear programming problem can be easily implemented
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个线性规划问题可以很容易地实现
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The portfolio’s Mean-Absolute Deviation (MAD) (page 33) can be written as
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资组合的平均绝对偏差（MAD）（第33页）可以写成
 - en: '![\frac{1}{T}\sum_{j=1}^{T}\left | \sum_{i=1}^{n}r_{ij}x_{i} - \frac{1}{T}\sum_{k=1}^{T}\sum_{i=1}^{n}r_{ik}x_{i}
     \right |](img/9e043e95ddfb19db9bca319eba96a3c0.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![\frac{1}{T}\sum_{j=1}^{T}\left | \sum_{i=1}^{n}r_{ij}x_{i} - \frac{1}{T}\sum_{k=1}^{T}\sum_{i=1}^{n}r_{ik}x_{i}
+    \right |](img/9e043e95ddfb19db9bca319eba96a3c0.png)'
 - en: It can be formulated as a linear programming problem
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以被表述为线性规划问题
 - en: '![\min_{}{}\frac{1}{T}\sum_{j=1}^{T}(u_{j}^{+}+u_{j}^{-})\newline\newline \sum_{i=1}^{n}r_{ij}x_{i}
     - \frac{1}{T}\sum_{j=1}^{T}\sum_{i=1}^{n}r_{ij}x_{i}=u_{j}^{+}-u_{j}^{-}, j=1,...,T\newline\newline
     u_{j}^{+},u_{j}^{-} \geq 0, j=1,...,T](img/7951917b2b376abe4aca2dc3a3102ed2.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![\min_{}{}\frac{1}{T}\sum_{j=1}^{T}(u_{j}^{+}+u_{j}^{-})\newline\newline \sum_{i=1}^{n}r_{ij}x_{i}
+    - \frac{1}{T}\sum_{j=1}^{T}\sum_{i=1}^{n}r_{ij}x_{i}=u_{j}^{+}-u_{j}^{-}, j=1,...,T\newline\newline
+    u_{j}^{+},u_{j}^{-} \geq 0, j=1,...,T](img/7951917b2b376abe4aca2dc3a3102ed2.png)'
 - en: This linear programming problem can be implemented
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个线性规划问题可以被实现
 - en: '[PRE1]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Let’s examine efficient frontiers computed under different risk measures using
     historical input assumptions presented in the [Introduction to Asset Allocation](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)
     post:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们使用[资产配置介绍](https://systematicinvestor.wordpress.com/2011/10/13/introduction-to-asset-allocation/)中提供的历史输入假设来检查使用不同风险度量计算的有效边界：
 - en: '[PRE2]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/e832ce116e68ee22a872136571e96b45.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot4-small1.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e832ce116e68ee22a872136571e96b45.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot4-small1.png)'
 - en: '[![](img/7f0a161352bfa6dac09e5fae35e61e1f.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5-small1.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7f0a161352bfa6dac09e5fae35e61e1f.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5-small1.png)'
 - en: '[The Mean-Absolute Deviation and Standard Deviation risk measures are very
     similar by construction – they both measure average deviation](http://www.leeds.ac.uk/educol/documents/00003759.htm),
     so it is not a surprise that their efficient frontiers and transition maps are
     close. On the other hand, the Maximum Loss measures the extreme deviation and
     has very different efficient frontier and transition map.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**平均绝对偏差**和**标准差**这两种风险度量在结构上非常相似——它们都衡量平均偏差([The Mean-Absolute Deviation and
+    Standard Deviation risk measures are very similar by construction – they both
+    measure average deviation](http://www.leeds.ac.uk/educol/documents/00003759.htm))，因此它们的有效前沿和转换图接近并不令人意外。另一方面，**最大损失**度量的是极端偏差，其有效前沿和转换图与前两者非常不同。'
 - en: To view the complete source code for this example, please have a look at the
     [aa.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[github上aa.test()函数的代码](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。

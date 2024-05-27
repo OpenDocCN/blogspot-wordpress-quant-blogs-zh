@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:46:16'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:16
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Calculating Present Value | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍 QuantLib：计算现值 | 金融和技术一切…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/14/introducing-quantlib-calculating-present-value/#0001-01-01)
 - en: In a [previous post](https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/) in
     this series, I introduced the concept of ‘present value’. In this post, I will
     cover some examples of calculating present value using QuantLib’s [CashFlow](http://quantlib.org/reference/class_quant_lib_1_1_cash_flow.html)
@@ -28,85 +40,134 @@
     of a loan on its maturity date,  which we learned how to calculate in my last
     post.  Or a future cash flow could be a stock dividend, an interest payment, an
     annuity payment, the payoff from an option or a bond coupon.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本系列的[之前的文章](https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/)中，我介绍了‘现值’的概念。在这篇文章中，我将介绍使用
+    QuantLib 的 [CashFlow](http://quantlib.org/reference/class_quant_lib_1_1_cash_flow.html)
+    和 [CashFlows](http://quantlib.org/reference/class_quant_lib_1_1_cash_flows.html)
+    类计算现值的一些示例。尽管这当然是一个简化，但可以毫不夸张地说，所有的金融工具定价归结为估计未来现金流或一系列现金流的现值。一个现金流可以是贷款在到期日的偿还，我们在上一篇文章中学习了如何计算。或者未来现金流可能是股息、利息支付、年金支付、期权的结算或债券票息的支付。
 - en: 'So let’s start with the example from my last post – a loan with a single future
     cash flow, the amount due on a $100 one-year loan with an interest rate of 5%
     compounded annually.  The amount due at the end of the loan period is $105, which
     is the sum of the principal and the accrued interest.  What is the ‘present value’
     of the loan assuming that the loan was issued today? The code below computes the
     answer:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以让我们从我上一篇文章的例子开始 - 一笔带有单一未来现金流的贷款，即以年利率5%复利发放的100美元一年期贷款到期时应付的金额。在贷款期末应付的金额为105美元，这是本金和应计利息的总和。假设今天发放贷款，贷款的‘现值’是多少？以下代码计算答案：
 - en: '#include <ql/quantlib.hpp>'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <ql/quantlib.hpp>'
 - en: '#include <iostream>'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <iostream>'
 - en: '#define BOOST_AUTO_TEST_MAIN'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '#define BOOST_AUTO_TEST_MAIN'
 - en: '#include <boost/test/unit_test.hpp>'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <boost/test/unit_test.hpp>'
 - en: BOOST_AUTO_TEST_CASE(testCalculatePresentValue)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: BOOST_AUTO_TEST_CASE(测试计算现值)
 - en: '{'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: Leg cashFlows;
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: Leg cashFlows;
 - en: Date date = Date::todaysDate();
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期 date = Date::todaysDate();
 - en: cashFlows.push_back(boost::shared_ptr<CashFlow>(new SimpleCashFlow(105.0, date
     + 365)));
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: cashFlows.push_back(boost::shared_ptr<CashFlow>(new SimpleCashFlow(105.0, date
+    + 365)));
 - en: Rate rate = .05;
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率 = .05;
 - en: Real npv = CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(), Compounded,
     Annual), true);
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际现值 = CashFlows::npv(cashFlows, InterestRate(rate, ActualActual(), Compounded,
+    Annual), true);
 - en: 'std::cout << “Net Present Value (NPV) of cash flows is: ” << npv << std::endl;'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: std::cout << “现金流的净现值（NPV）为：” << npv << std::endl;
 - en: '}'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: 'The output of this code is:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 此代码的输出是：
 - en: '`Net Present Value (NPV) of cash flows is: 100`'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '`现金流的净现值（NPV）为：100`'
 - en: 'The first line of the test instantiates a Leg object.  Leg is defined in cashflow.hpp
     as:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试的第一行实例化了一个 Leg 对象。Leg 在 cashflow.hpp 中定义为：
 - en: '`typedef std::vector<boost::shared_ptr<CashFlow> > Leg`,'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '`typedef std::vector<boost::shared_ptr<CashFlow> > Leg`,'
 - en: which is a sequence of cash flows.  The loan repayment amount is modeled as
     a single cash flow, which is subsquently added to the Leg.  The static `Cashflows::npv`
     function is used to calculate the present value of the cash flow given the specified
     interest rate, day count convention, simple compounding rule and annual compounding
     period.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一系列现金流。贷款偿还金额被建模为单一现金流，随后添加到 Leg 中。使用静态的 `Cashflows::npv` 函数来计算给定指定利率、日计数约定、简单复利规则和年复利周期的现金流的现值。
 - en: In my next post, we’ll apply what we’ve learned about present value to price
     a bond with annual coupons. See you then and thanks for reading my blog!
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的下一篇文章中，我们将应用我们所学的现值知识来定价年息票债券。那时再见，感谢您阅读我的博客！
 - en: About Mick Hittesdorf
+  id: totrans-27
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于 Mick Hittesdorf
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -116,5 +177,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一位多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我曾负责管理一个全球数据科学和分析平台，开发了低延迟的、专有的交易系统，管理过软件开发团队，制定了企业架构策略，撰写了白皮书和博客，在行业期刊上发表过文章，并以咨询和技术销售的身份向客户提供了创新的解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R语言和云计算。

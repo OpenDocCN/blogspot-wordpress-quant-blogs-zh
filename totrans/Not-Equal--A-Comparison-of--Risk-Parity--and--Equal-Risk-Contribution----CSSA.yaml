@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:05:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:05:44
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Not Equal: A Comparison of “Risk Parity” and “Equal Risk Contribution” | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 不等同：风险平价与等风险贡献的比较 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/07/19/not-equal-a-comparison-of-risk-parity-and-equal-risk-contribution/#0001-01-01](https://cssanalytics.wordpress.com/2012/07/19/not-equal-a-comparison-of-risk-parity-and-equal-risk-contribution/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/07/19/not-equal-a-comparison-of-risk-parity-and-equal-risk-contribution/#0001-01-01](https://cssanalytics.wordpress.com/2012/07/19/not-equal-a-comparison-of-risk-parity-and-equal-risk-contribution/#0001-01-01)
 - en: 'The term **“Risk Parity”** is often confusing because it is defined and applied
     differently depending on the firm.  With the advent of multiple variations in
     tactical asset allocation and indexing strategies, it is perhaps not a stretch
@@ -31,8 +43,12 @@
     an application of Risk Parity to asset allocation as well as a good list of articles
     here: [http://www.mebanefaber.com/2012/03/22/risk-parity-vs-endowment-model-vs-permanent-portfolio/](http://www.mebanefaber.com/2012/03/22/risk-parity-vs-endowment-model-vs-permanent-portfolio/
     "Faber Risk Parity")'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**“风险平价”**这个术语经常令人困惑，因为它根据公司不同而有不同的定义和应用。随着战术资产配置和指数化策略的多种变化的出现，或许可以声称风险平价与用“对冲基金”这个术语来描述一种投资管理风格一样模糊和难以捉摸。我下面创建了一个表格，以澄清两个经常可以互换使用但*不是*相同的变体。  关于风险平价起源的良好历史可以在这里找到：[http://en.wikipedia.org/wiki/Risk_parity](http://en.wikipedia.org/wiki/Risk_parity)。**系统投资者**——一个优秀的博客——在这里提供了一些有用的R代码和测试：[http://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/](http://systematicinvestor.wordpress.com/2012/03/19/backtesting-asset-allocation-portfolios/
+    "风险平价在R中")。**梅班·法伯**——总是为新想法提供极好的资源——在这里提供了将风险平价应用于资产分配的应用，以及一份很好的文章列表：[http://www.mebanefaber.com/2012/03/22/risk-parity-vs-endowment-model-vs-permanent-portfolio/](http://www.mebanefaber.com/2012/03/22/risk-parity-vs-endowment-model-vs-permanent-portfolio/
+    "法伯风险平价")'
 - en: In my opinion, it is best to simply consider **Risk Parity** as a broad class
     of risk-budgeting schemes where the risk of each asset in the portfolio is leveraged
     (if necessary) to have the same volatility. Essentially, each asset has “equal
@@ -48,149 +64,231 @@
     application or interpretation. Below is a table that helps to define the similarities
     and differences of the two approaches and the relative advantages of each in the
     context of portfolio allocation.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我看来，将**风险平价**视为一个广泛的风险预算方案类别最为简单。在这个类别中，投资组合中每个资产的风险（如有必要）都会被杠杆化，以拥有相同的波动性。本质上，每个资产都具有“平等的风险”，因此，由于回报和风险较少依赖于任何一个资产，投资组合被认为是更加多元化的。相比之下，**罗纳尔迪**
+    [http://www.thierry-roncalli.com/riskparity.html](http://www.thierry-roncalli.com/riskparity.html
+    "罗纳尔迪") 提出了**“等风险贡献”（ERC）**这一术语，它是**风险平价的一个独立子类别**，旨在使每个资产对投资组合的风险贡献相等。如果阅读了各种文章之后，这两种方法听起来相同，那是因为在经常引用的两资产案例中，它们有相同的数学解决方案和解释其有效性的原因。然而，并非所有的风险平价投资组合都是一样的——理解等风险与等风险贡献方法之间的差异，以避免不当的应用或解释是必要的。下面是一个表格，有助于定义这两种方法的相似之处和不同之处，以及每种方法在投资组合分配中的相对优势。
 - en: '**Features and Qualities Shared By Equal Risk Contribution (ERC) and Risk Parity
     (RP)**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**等风险贡献（ERC）和风险平价（RP）共享的特点和品质**'
 - en: '| **Algorithm Characteristics** | **Equivalency** | **Equal Risk Contribution
     (ERC)** | **Risk Parity (RP)** |'
+  id: totrans-9
   prefs: []
   type: TYPE_TB
+  zh: '**算法特点** | **等效性** | **等风险贡献（ERC）** | **风险平价（RP）** |'
 - en: '| Requires Historical/Expected Asset Returns | ≈ | No | No |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: 需要历史/预期资产回报 | ≈ | 无 | 无 |
 - en: '| Considered Heuristic Algorithms That Lack Strong Theoretical Support | ≈
     | Yes | Yes |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: 被认为是缺乏强理论支持的启发式算法 | ≈ | 是 | 是 |
 - en: '| Generally Uses Leverage | ≈ | Yes | Yes |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: 通常使用杠杆 | ≈ | 是 | 是 |
 - en: '| Generally Uses a Target Portfolio Risk | ≈ | Yes | Yes |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: 通常使用目标组合风险 | ≈ | 是 | 是 |
 - en: '| Allocation Across All Assets in the Universe Selected | ≈ | Yes | Yes |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: 在所选宇宙中的所有资产分配 | ≈ | 是 | 是 |
 - en: '| Low Turnover Relative to Traditional Models | ≈ | Yes | Yes |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: 相对于传统模型，换手率较低 | ≈ | 是 | 是 |
 - en: '| Comparatively Less Sensitive to Estimation Error than Traditional Models
     | ≈ | Yes | Yes |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: 与传统模型相比，对估计误差的敏感性相对较低 | ≈ | 是 | 是 |
 - en: '| Generally Superior Return and Sharpe to Equal Weight Portfolios | ≈ | Yes
     | Yes |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: 通常比等权重组合具有更高的回报和夏普比率 | ≈ | 是 | 是 |
 - en: '| Better Returns and Sharpe than 60/40 Balanced Stock/Bond Portfolios | ≈ |
     Yes | Yes |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: 比60/40平衡股票/债券组合具有更好的回报和夏普比率 | ≈ | 是 | 是 |
 - en: '| Solution for a Two-Asset Portfolio | ≈ | inverse volatility weighted | inverse
     volatility weighted |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: 二资产组合的解决方案 | ≈ | 波动率倒数的加权 | 波动率倒数的加权 |
 - en: '| Conditions for Being Equivalent to Equal Weight Portfolios | ≈ | Equal Asset
     Volatility and Constant Correlation | Equal Asset Volatility and Constant Correlation
     |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: 与等权重组合等效的条件 | ≈ | 资产波动率相等且相关系数恒定 | 资产波动率相等且相关系数恒定 |
 - en: '| Conditions for Being Optimal on the Efficient Frontier | ≈ | Equal Sharpe
     Ratios and Constant Correlations | Equal Sharpe Ratios and Constant Correlations
     |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: 在有效前沿上最优的条件 | ≈ | 夏普比率相等且相关系数恒定 | 夏普比率相等且相关系数恒定 |
 - en: '**Features and Qualities That Favor Equal Risk Contribution (ERC)**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**有利于等风险贡献（ERC）的特点和品质**'
 - en: '| **Algorithm Characteristics** | **Equivalency** | **Equal Risk Contribution
     (ERC)** | **Risk Parity (RP)** |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '**算法特点** | **等效性** | **等风险贡献（ERC）** | **风险平价（RP）** |'
 - en: '| Objective Function | ≠ | volatility of risk contributions=0 | inverse volatility
     weighted |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: 目标函数 | ≠ | 风险贡献的波动率=0 | 波动率倒数的加权 |
 - en: '| Uses Beta/Covariance Data | ≠ | Yes | No |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: 使用贝塔/协方差数据 | ≠ | 是 | 无 |
 - en: '| Always Assumes Constant Correlation Matrix | ≠ | No | Yes |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: 总是假设恒定的相关系数矩阵 | ≠ | 无 | 是 |
 - en: '| Holdings Have Equal Risk Contributions to Portfolio Volatility | ≠ | Yes
     | No |'
+  id: totrans-27
   prefs: []
   type: TYPE_TB
+  zh: 持仓的风险贡献对组合波动率相等 | ≠ | 是 | 无 |
 - en: '| Performance Highly Sensitive to the Universe of Assets Selected | ≠ | No
     | Yes (ie. 5 equities and 1 bond create imbalance) |'
+  id: totrans-28
   prefs: []
   type: TYPE_TB
+  zh: 性能对所选资产组合的宇宙非常敏感 | ≠ | 无 | 是（例如，5只股票和1只债券会产生不平衡） |
 - en: '| Flexibility of Use for Risk Budgeting and Factor Tilts | ≠ | winner | loser
     |'
+  id: totrans-29
   prefs: []
   type: TYPE_TB
+  zh: 用于风险预算和因子倾斜的灵活性 | ≠ | 胜者 | 败者 |
 - en: '| Out of Sample Risk (Given the same target) | ≠ | winner | loser |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: 样本外风险（给定相同的目标） | ≠ | 胜者 | 败者 |
 - en: '| Out of Sample Return (Given the same target or leverage constrained) | ≠
     | winner | loser |'
+  id: totrans-31
   prefs: []
   type: TYPE_TB
+  zh: 在样本外回报（给定相同的目标或杠杆约束） | ≠ | 胜者 | 败者 |
 - en: '| Out of Sample Drawdowns | ≠ | winner | loser |'
+  id: totrans-32
   prefs: []
   type: TYPE_TB
+  zh: 样本外回撤 | ≠ | 胜者 | 败者 |
 - en: '| Out of Sample Sharpe Ratios | ≠ | winner | loser |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
+  zh: 样本外夏普比率 | ≠ | 胜者 | 败者 |
 - en: '| Out of Sample Diversification (Concentration and Average Correlation) | ≠
     | winner | loser |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
+  zh: 样本外多样化（集中度和平均相关性） | ≠ | 胜者 | 败者 |
 - en: '| Favorable Hybrid Between Minimum Variance and Equal Weight | ≠ | Yes | No
     |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: 有利的混合方法，介于最小方差和等权重之间 | ≠ | 是 | 无 |
 - en: '| Can Be Equivalent to Minimum Variance | ≠ | When Correlation Matrix is Minimized
     | Not Possible |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: 可以与最小方差等效 | ≠ | 当相关系数矩阵最小时 | 不可能 |
 - en: '**Features and Qualities That Favor Risk Parity (RP) or Equal Risk**'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**有利于风险平价（RP）或等风险的特点和品质**'
 - en: '| **Algorithm Characteristics** | **Equivalency** | **Equal Risk Contribution
     (ERC)** | **Risk Parity (RP)** |'
+  id: totrans-38
   prefs: []
   type: TYPE_TB
+  zh: '**算法特点** | **等效性** | **等风险贡献（ERC）** | **风险平价（RP）** |'
 - en: '| Simple to Calculate for the Mathematically Challenged (Napkin Factor) | ≠
     | loser | winner |'
+  id: totrans-39
   prefs: []
   type: TYPE_TB
+  zh: 对数学能力弱的人来说简单易算（餐巾纸因子） | ≠ | 败者 | 胜者 |
 - en: '| Intuitively Easy to Understand and Use in Most Software Packages | ≠ | No
     | Yes |'
+  id: totrans-40
   prefs: []
   type: TYPE_TB
+  zh: 直观容易理解并在大多数软件包中使用 | ≠ | 无 | 是 |
 - en: '| Best Sounding Name/Cool Factor | ≠ | loser | winner |'
+  id: totrans-41
   prefs: []
   type: TYPE_TB
+  zh: 最佳发音名称/酷因素 | ≠ | 败者 | 胜者 |
 - en: '| Practical Use for Dynamic Allocation With Long-Term Monthly Data | ≠ | loser
     | winner |'
+  id: totrans-42
   prefs: []
   type: TYPE_TB
+  zh: 使用长期月度数据进行动态分配的实用方法 | ≠ | 败者 | 胜者 |
 - en: '| Sensitivity to Covariance Estimation Error | ≠ | loser | winner |'
+  id: totrans-43
   prefs: []
   type: TYPE_TB
+  zh: '| 对协方差估计误差的敏感性 | ≠ | 输家 | 赢家 |'
 - en: '| Generally Requires a Sophisticated Solver for Optimization | ≠ | Yes | No
     |'
+  id: totrans-44
   prefs: []
   type: TYPE_TB
+  zh: '| 通常需要一个复杂的求解器进行优化 | ≠ | 是 | 否 |'
 - en: '| Speed of Calculation for Large Universe | ≠ | Slow | Fast |'
+  id: totrans-45
   prefs: []
   type: TYPE_TB
+  zh: '| 对大量宇宙计算的速度 | ≠ | 慢 | 快 |'
 - en: '| Performance on very large data sets with limited sample size | ≠ | loser
     (too many covariances relative to sample size | winner (fewer variables to estimate
     relative to sample size) |'
+  id: totrans-46
   prefs: []
   type: TYPE_TB
+  zh: '| 在有限样本量下处理非常大数据集的表现 | ≠ | 输家（相对于样本量，协方差太多） | 赢家（相对于样本量，要估计的变量较少） |'

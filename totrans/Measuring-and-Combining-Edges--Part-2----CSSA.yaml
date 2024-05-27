@@ -1,23 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:17:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:17:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Measuring and Combining Edges (Part 2) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[测量与组合边缘（第2部分）](https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01)
+    | CSSA'
 - en: 来源：[https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2010/10/05/measuring-and-combining-edges-part-2/#0001-01-01)
 - en: In the last post I covered a generic overview of some of the issues involved
     in time series prediction. However there are more basic issues to consider before
     I start covering some examples. When  modeling  time series, the two key problems
@@ -32,8 +45,10 @@
     to address these issues specifically. That said, in general it is hard for a single
     prediction model  to capture such a dynamic input–output relationship inherent
     in the data.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章中，我概述了与时间序列预测相关的一些问题。然而，在开始介绍一些例子之前，还有一些更基本的问题需要考虑。建模时间序列时，两个关键问题是噪声和非平稳性。噪声是过去时间序列行为缺乏完整信息的功能，无法完全捕捉未来和过去之间的依赖关系。数据中的噪声可能导致过度拟合或低估数据。因此，获得的模型在应用于新的数据模式时，其性能会很差。时间序列数据的非平稳性方面意味着动态可能会随时间变化。这将导致输入和输出变量之间测量的关系逐渐变化。这是学术界青睐ARCH和GARCH过程以解决这些问题的一个原因。话说回来，一般来说，单一的预测模型很难捕捉到数据中固有的这种动态输入-输出关系。
 - en: One of the key problems facing a single model  to learn the data is that there
     exists  inconsistencies in the  level of noise in different regions of the dependent
     variable output. This leads to a situation that penalizes certain regions at the
@@ -43,8 +58,10 @@
     or perhaps even an opposing effect. In the converse situation the distinct regions
     may be overfitted by a function that does not generalize to the rest of the variable
     output, and as a consequence the predictions are unstable.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个单一模型在学习数据时面临的关键问题之一是，依赖变量输出的不同区域存在噪声水平的不一致性。这导致了一种情况，即以牺牲其他区域为代价惩罚某些区域。这通常是学术界未能看到效果的关键原因之一，因为“婴儿和洗澡水一起被倒掉”——高度盈利的区域在预测函数中被平滑，而包含的只是噪声或甚至可能是相反效果的区域。在相反的情况下，这个独特的区域可能会被一个不适用于变量输出的其他部分的函数过度拟合，结果预测变得不稳定。
 - en: 'The only way to adequately capture the non-linearities that exist in the data
     is to: 1) use non-linear functions that are robust 2) use multiple linear, non-linear,
     or discrete models using historical situational returns in combination such that
@@ -58,5 +75,8 @@
     time-varying (ie adaptive) is one without a good map. The only way to find your
     way through the woods of the financial wilderness is with a compass, trial and
     error, common sense, and an open mind.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 要充分捕捉数据中的非线性特征，唯一的方法是：1) 使用鲁棒的非线性函数 2) 结合历史情景回报，使用多个线性、非线性或离散模型，从而更准确地表示底层数据。CSS
+    使用“区域”来解析数据以捕捉非线性特征，其他方法包括在历史背景下使用多个“设置”，神经网络，指标和系统，以及当然线性二次规划（即优化）。切勿误以为简单的数据挖掘就足以提取关系，这是大错特错的。走向鲁棒性与严谨性之间的平衡，并创建一个既足够复杂又随时间变化（即适应性）的模型的路径，是没有良好地图的。穿越金融荒野的森林的唯一方法是依靠指南针、试错、常识和开放的心态。

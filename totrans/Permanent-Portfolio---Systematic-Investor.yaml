@@ -1,66 +1,101 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:37:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:37:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Permanent Portfolio | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 永久组合 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/#0001-01-01)
 - en: 'First, just a quick update: I’m moving the release date of the SIT package
     a few months down the road, probably in November.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，快速更新：我将把SIT包的发布日期推迟几个月，可能在11月。
 - en: Now back to the post. Recently I came across a series of interesting posts about
     the [Permanent Portfolio](http://gestaltu.blogspot.ca/2012/08/permanent-portfolio-shakedown-part-1.html)
     at the [GestaltU](http://gestaltu.blogspot.ca/) blog. Today I want to show you
     how to back-test the [Permanent Portfolio](http://en.wikipedia.org/wiki/Fail-Safe_Investing)
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在回到帖子。最近我在[GestaltU](http://gestaltu.blogspot.ca/)博客上发现了一系列关于[永久组合](http://gestaltu.blogspot.ca/2012/08/permanent-portfolio-shakedown-part-1.html)的有趣帖子。今天我想向您展示如何使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)对[永久组合](http://en.wikipedia.org/wiki/Fail-Safe_Investing)进行回测。
 - en: The simple version of the [Permanent Portfolio](http://en.wikipedia.org/wiki/Fail-Safe_Investing)
     consists of equal allocations to stocks(SPY), gold(GLD), treasuries(TLT), and
     cash(SHY). [25% allocation each] The portfolio is rebalanced once a year if any
     allocation breaks out from the 15% – 35% range.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单的[永久组合](http://en.wikipedia.org/wiki/Fail-Safe_Investing)包括股票(SPY)、黄金(GLD)、国债(TLT)和现金(SHY)的等额分配。[每个25%的分配]如果任何分配超出15%
+    – 35%的范围，则每年重新平衡一次投资组合。
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: To rebalance base on the 10% threshold (i.e. portfolio weights breaking out
     from the 15% – 35% range) I will use bt.max.deviation.rebalancing() function introduced
     in the [Backtesting Rebalancing methods](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/)
     post.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于10%的阈值进行再平衡（即投资组合权重超出15% – 35%的范围）我将使用在[Backtesting Rebalancing methods](https://systematicinvestor.wordpress.com/2011/12/16/backtesting-rebalancing-methods/)文章中介绍的bt.max.deviation.rebalancing()函数。
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/be277e611778b6b2549a34ada3baf4d6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small1.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small1.png)'
 - en: '[![](img/e312dc142367874316c59d2c6ad0408a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot2-small.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot2-small.png)'
 - en: '[![](img/1a7ff643f0189edbc4741d92070abdd0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small1.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small1.png)'
 - en: The Quarterly rebalancing with 10% threshold produces an attractive portfolio
     with top performance and low turnover.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用10%的阈值进行季度再平衡可以创建一个具有优异表现和低周转率的吸引人的投资组合。
 - en: To view the complete source code for this example, please have a look at the
     [bt.permanent.portfolio.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[github上bt.permanent.portfolio.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,159 +1,233 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:32:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:32:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Transfer Entropy | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 转移熵 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/08/29/transfer-entropy/#0001-01-01](https://tr8dr.wordpress.com/2010/08/29/transfer-entropy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/08/29/transfer-entropy/#0001-01-01](https://tr8dr.wordpress.com/2010/08/29/transfer-entropy/#0001-01-01)
 - en: 'I am revisiting spanning trees & clusters that express relationships amongst
     assets.   I am also interested in a related problem: reducing dimensionality in
     a high-dimensional distribution of asset returns.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在重新研究表达资产之间关系的生成树和聚类。我还对一个相关问题感兴趣：在高维资产回报分布中降低维度。
 - en: '[![](img/12878ba5a4091ab9d0f51c6a6e056607.png "Screen shot 2010-08-30 at 12.56.59
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-12-56-59-pm.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/12878ba5a4091ab9d0f51c6a6e056607.png "Screen shot 2010-08-30 at 12.56.59
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-30-at-12-56-59-pm.png)'
 - en: '**Linear Approaches** The most naive approach is to look at the correlations
     amongst time-series.   Correlations have a number of well-known problems for this
     purpose:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**线性方法** 最朴素的方法是查看时间序列之间的相关性。相关性在此目的上有几个众所周知的问题：'
 - en: correlation ≠ causality
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 相关性≠因果性
 - en: correlations can occur between completely unrelated variables for arbitrary
     sample periods
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 相关性可以在任意样本期间完全无关的变量之间发生
 - en: correlations are a linear measure of similarity
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 相关性是相似性的线性度量
 - en: 'The VECM model offers significant improvement over the correlation approach,
     at least in terms of identifying causality.   For those unfamiliar with VECM it
     is similar to an ARMA model, but extended to include lags from the other timeseries.
       For 2 variables, a lag-p VECM would be set up as:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: VECM模型在识别因果性方面比相关性方法有显著改进。对于不熟悉VECM的人来说，它与ARMA模型相似，但扩展到包括其他时间序列的滞后项。对于两个变量，一个滞后p的VECM将设置为：
 - en: '[![](img/63764fc7309755e8065f2f18f55fa788.png "Screen shot 2010-08-29 at 2.29.29
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-2-29-29-pm.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/63764fc7309755e8065f2f18f55fa788.png "Screen shot 2010-08-29 at 2.29.29
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-2-29-29-pm.png)'
 - en: That is Δx is described in terms of lagged Δx’s and lagged Δy’s.   Solving for
     this (usually in matrix form), one arrives at coefficients (assuming statistical
     significance) which on-average describe the interactions between the series X
     and Y.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 即Δx是用滞后Δx'和滞后Δy'来描述的。解决这个问题（通常以矩阵形式），可以得到系数（假设具有统计显著性），平均来说描述了系列X和Y之间的相互作用。
 - en: Taking this a step further, one can do the “Granger Causality test”, doing a
     F-test to determine whether Δx with cross-lags produces significantly less error
     variance than Δx without cross-lags.   This is performed for various lags to determine
     the minimum number of lags for which there is “causality” (or none at all).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 进一步来说，可以进行“格兰杰因果性检验”，进行F检验以确定带有交叉滞后项的Δx是否比没有交叉滞后项的Δx产生显著更小的误差方差。为此，对各种滞后期进行检验，以确定存在“因果性”（或根本不存在）的最小滞后数量。
 - en: This is not a bad approach for normally distributed returns, but is flawed for
     data with non-linearities.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这对于正态分布的回报来说不是个坏方法，但是对于具有非线性特征的数据来说是有缺陷的。
 - en: '**Information Theory** It turns out information theory provides a powerful
     tool in analyzing causality (or at least temporal flows of information from one
     market to another).'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**信息论** 结果表明，信息论在分析因果性（或至少是从一个市场到另一个市场的信息时间流动）方面提供了强大的工具。'
 - en: 'Shannon measured the information for a particular event “e” as:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 香农将特定事件“e”的信息测量为：
 - en: '[![](img/7ef1bd5a91d311ee198c48aa4168ea7b.png "Screen shot 2010-08-29 at 2.56.56
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-2-56-56-pm.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7ef1bd5a91d311ee198c48aa4168ea7b.png "Screen shot 2010-08-29 at 2.56.56
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-2-56-56-pm.png)'
 - en: 'Let us associate a symbol with each possible distinct event in a system {A,
     B, C, … }.  A sampling of these events across time will lead to a sequence of
     symbols (for example:  ABAAABBBBABABAA).   If the symbol B occurs with p(B) =
     1 (i.e. BBBBBBBB), the sequence can carry no information as can only represent
     1 state.   Note that I(B) would be 0 in this case.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们用一个符号来表示系统中的每个可能的独特事件{A, B, C, … }。时间上对这些事件的抽样将导致一系列符号（例如：ABAAABBBBABABAA）。如果符号B以p(B)=1（即BBBBBBBB），则序列无法携带任何信息，因为它只能表示1个状态。注意在这种情况下，I(B)将是0。
 - en: 'Shannon went on to define the entropy of the system as the expected information
     content:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 香农进而将系统的熵定义为期望信息含量：
 - en: '[![](img/8309ca22adade452ac10c8271f89b4a4.png "Screen shot 2010-08-29 at 3.44.54
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-3-44-54-pm.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照 2010-08-29 下午3.44.54](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-3-44-54-pm.png)'
 - en: 'This can be extended to look at the joint entropy of for 2 or more “symbol”
     generators such as:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可以扩展到查看两个或更多“符号”生成器的联合熵，例如：
 - en: '[![](img/29ae0c442e9f218db0c8fb78256159c0.png "Screen shot 2010-08-29 at 3.49.31
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-3-49-31-pm.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照 2010-08-29 下午3.49.31](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-3-49-31-pm.png)'
 - en: 'Observing that if X and Y are independent, p(x,y) = p(x)p(y), we can determine
     how much information has been introduced into the joint event space versus the
     amount of information were the two sequences independent as:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 观察到如果 X 和 Y 是独立的，p(x,y) = p(x)p(y)，我们可以确定与两个序列独立相比，在联合事件空间中引入了多少信息：
 - en: '[![](img/c196cba16d1f6554a3ab57c69a438ec2.png "Screen shot 2010-08-29 at 4.02.49
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-4-02-49-pm.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照 2010-08-29 下午4.02.49](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-4-02-49-pm.png)'
 - en: The above is called the “Mutual Information” measure.   This measure does not
     differentiate between information X provides Y or Y provides X.   In the context
     of finance it is useful to know more about the directional flow of information
     than that they simply share information.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述称为“互信息”度量。这个度量没有区分信息 X 向 Y 提供还是 Y 向 X 提供。在金融领域，了解信息的流向方向比它们仅仅共享信息更有用。
 - en: '**Transfer Entropy**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**转移熵**'
 - en: Transfer Entropy is a more precise measure than Mutual Information in that it
     captures information flow direction and temporal relationship.  The Transfer Entropy
     approach is a nearly 1:1 analog with Granger causality, except that it is applicable
     for a wider range of systems (as it turns out granger causality and transfer entropy
     have been shown to be equivalent for data with normally distributed noise).
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 转移熵是比互信息更精确的度量，因为它捕捉了信息流向方向和时间关系。转移熵方法与格兰杰因果关系几乎成比例，区别在于它适用于更广泛的系统（因为格兰杰因果关系和转移熵已证明对于具有正态分布噪声的数据是等价的）。
 - en: 'Like Granger Causality (GC), we look at the entropy (or in the case of GC:
     error variance) with and without an explanatory variable from the other series.
       For a single lag, this results in the following measure:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 与格兰杰因果关系（GC）类似，我们比较了有和没有另一系列解释变量的熵（或在 GC 的情况下：误差方差）。对于单个滞后，这导致以下度量：
 - en: '[![](img/ef759b2b39029cf5c02503235354cad1.png "Screen shot 2010-08-29 at 4.21.53
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-4-21-53-pm.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照 2010-08-29 下午4.21.53](https://tr8dr.wordpress.com/wp-content/uploads/2010/08/screen-shot-2010-08-29-at-4-21-53-pm.png)'
 - en: The above expressed the transfer entropy of y[t] on x[t+1], i.e. how much impact
     does y[t] have on x[t+1].   Changing the conditional probabilities to express
     p(y[t+1] | x[t], y[t]) would allow us to explore the other direction.   Of course
     this can be evaluated for more lags (the above is just for 1 lag).
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述表达了 y[t] 对 x[t+1] 的转移熵，即 y[t] 对 x[t+1] 有多大的影响。改变条件概率来表达 p(y[t+1] | x[t], y[t])
+    会使我们能够探索另一个方向。当然，这可以针对更多滞后进行评估（上述仅为 1 个滞后）。
 - en: Finally one needs to consider the level of significance for a given transfer
     energy to understand at which point there is no further relationship when looking
     at past lags or other variables.   The approach taken is to measure the baseline
     entropy in a shuffled series (one that removes the correlations but maintains
     the symbols and marginal frequencies).
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，需要考虑给定的转移能量的显著性水平，以了解在观察过去滞后或其他变量时，是否存在进一步的关系。采用的方法是在打乱的序列中测量基线熵（一种移除相关性但保持符号和边际频率的方法）。
 - en: This approach is much more robust than granger if the data set one is working
     with has non-linearities.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果数据集中存在非线性关系，这种方法比格兰杰方法更加健壮。

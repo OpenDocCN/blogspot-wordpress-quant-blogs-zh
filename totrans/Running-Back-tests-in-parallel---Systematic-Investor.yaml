@@ -1,59 +1,87 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:31:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:31:33
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Running Back-tests in parallel | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 并行运行回测 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01](https://systematicinvestor.wordpress.com/2013/11/11/running-back-tests-in-parallel/#0001-01-01)
 - en: Once you start experimenting with many different asset allocation algorithms,
     the computation time of running the back-tests can be substantial. One simple
     way to solve the computation time problem is to run the back-tests in parallel.
     I.e. if the asset allocation algorithm does not use the prior period holdings
     to make decision about current allocation, we can run many periods in parallel.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦你开始尝试多种不同的资产配置算法，运行回测的计算时间可能会相当长。解决计算时间问题的一个简单方法就是并行运行回测。也就是说，如果资产配置算法不使用前期持仓来决定当前分配，我们可以同时并行运行多个期间。
 - en: In the [Update for Backtesting Asset Allocation Portfolios](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)
     post, I show cased the [portfolio.allocation.helper() function in strategy.r at
     github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r). The
     [portfolio.allocation.helper() function](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)
     is a user-friendly interface to evaluate multiple asset allocation algorithms
     over given asset universe in a sequential fashion.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[回测资产配置组合的更新](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)文章中，我展示了GitHub上[strategy.r文件中的portfolio.allocation.helper()函数](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)。[portfolio.allocation.helper()函数](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)是一个用户友好的界面，可以评估在给定的资产宇宙中，以顺序方式评估多种资产配置算法。
 - en: 'Following is a sample code from the [Update for Backtesting Asset Allocation
     Portfolios](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)
     post:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是来自[回测资产配置组合的更新](https://systematicinvestor.wordpress.com/2013/10/24/update-for-backtesting-asset-allocation-portfolios-post/)文章的示例代码：
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'To run the same strategies in parallel, I created the [portfolio.allocation.helper.parallel()
     function in strategy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
     There is one extra input that you need to specify: cores – number of CPU processors
     used for computations.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了并行运行相同的策略，我在GitHub上的[strategy.r文件中创建了portfolio.allocation.helper.parallel()函数](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)。你需要指定一个额外的输入：核心数——用于计算的CPU处理器数量。
 - en: For example, the code below will use 2 CPU processors to run back-test computations.
     It will run faster than the [portfolio.allocation.helper() function](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，下面的代码将使用2个CPU处理器来运行回测计算。它比[portfolio.allocation.helper()函数](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)运行得更快。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Hopefully, I did not ruin your prolong lunch plans 🙂
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 希望我没有破坏你那悠长的午餐计划:)

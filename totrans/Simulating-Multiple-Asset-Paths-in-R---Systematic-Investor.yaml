@@ -1,94 +1,142 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:36:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:36:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Simulating Multiple Asset Paths in R | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在R中模拟多个资产路径 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/06/simulating-multiple-asset-paths-in-r/#0001-01-01)
 - en: 'I recently came across the [Optimal Rebalancing Strategy Using Dynamic Programming
     for Institutional Portfolios by W. Sun, A. Fan, L. Chen, T. Schouwenaars, M. Albota](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=639284)
     paper that examines the cost of different rebablancing methods. For example, one
     might use calendar rebalancing: i.e. rebalance every month / quarter / year. Or
     one might use threshold rebalancing: i.e. rebalance only if asset weights break
     out from a certain band around the policy mix, say 3%.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近阅读了[W. Sun, A. Fan, L. Chen, T. Schouwenaars, M. Albota的论文](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=639284)，该论文研究了不同再平衡方法的成本。例如，人们可能会使用日历再平衡：即每月/每季度/每年进行再平衡。或者，人们可能会使用阈值再平衡：即只有在资产权重超出政策组合周围一定范围的3%时才进行再平衡。
 - en: To investigate the cost of the different rebalancing methods, authors run 10,000
     simulations. Today, I want to show how to simulate asset price paths given the
     expected returns and covariances. I will assume that prices follow the [Geometric
     Brownian Motion](http://en.wikipedia.org/wiki/Geometric_Brownian_motion). Also
     I will show a simple application of Monte Carlo option pricing. In the next post
     I will evaluate the cost of different rebalancing methods.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了研究不同再平衡方法的成本，作者运行了10,000次模拟。今天，我想展示如何根据预期的回报和协方差来模拟资产价格路径。我将假设价格遵循[几何布朗运动](http://en.wikipedia.org/wiki/Geometric_Brownian_motion)。我还将展示蒙特卡洛期权定价的一个简单应用。在下一篇文章中，我将评估不同再平衡方法的成本。
 - en: 'Let’s assume that a stock price can be described by the stochastic differential
     equation:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设股票价格可以由以下随机微分方程描述：
 - en: '![dS_{t}=\mu S_{t}dt+\sigma S_{t}dW_{t} ](img/8b873af72aec176b2eff77815b47f9ae.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![dS_{t}=\mu S_{t}dt+\sigma S_{t}dW_{t} ](img/8b873af72aec176b2eff77815b47f9ae.png)'
 - en: where ![\mu ](img/a7b41734d1ade4e8ce41e1d911ca9401.png) is the expected annual
     return of the underlying asset, ![\sigma ](img/8ca94d09f9b07e2091a7d34e12a0348f.png)
     is the annualized volatility, and ![W_{t} ](img/82b4e7df581bd58834abd317140707e9.png)
     is a Brownian Motion. This stochastic differential equation has the following
     solution
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 ![\mu ](img/a7b41734d1ade4e8ce41e1d911ca9401.png) 是基础资产的年预期回报，![\sigma ](img/8ca94d09f9b07e2091a7d34e12a0348f.png)
+    是年化波动率，而 ![W_{t} ](img/82b4e7df581bd58834abd317140707e9.png) 是一个布朗运动。这个随机微分方程的解如下：
 - en: '![S_{t}=S_{0}exp\left(\left(\mu - \frac{\sigma^{2}}{2}\right)t+\sigma W_{t}\right)
     ](img/384ccea761b63a995a5a285233f8ad9a.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![S_{t}=S_{0}exp\left(\left(\mu - \frac{\sigma^{2}}{2}\right)t+\sigma W_{t}\right)
+    ](img/384ccea761b63a995a5a285233f8ad9a.png)'
 - en: which I implemented in the asset.paths() function. The asset.paths() function
     is based on the [Simulating Multiple Asset Paths in MATLAB](http://www.goddardconsulting.ca/matlab-monte-carlo-assetpaths.html)
     code in Matlab.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在资产.路径()函数中实现了这个公式。资产.路径()函数是基于Matlab中[Simulating Multiple Asset Paths in MATLAB](http://www.goddardconsulting.ca/matlab-monte-carlo-assetpaths.html)代码。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next let’s visualize some simulation asset paths:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们可视化一些模拟资产路径：
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/5fb5f850651e21dd1876cd7b3a3de39d.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![![](img/5fb5f850651e21dd1876cd7b3a3de39d.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot1-small.png)'
 - en: '[![](img/a5a5868b95fed2c3c859973241d137e3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![![](img/a5a5868b95fed2c3c859973241d137e3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/11/plot2-small.png)'
 - en: Next, let’s look at examples of Monte Carlo option pricing using [asset.paths()
     function in random.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/random.r).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们看看使用[资产.路径()函数在github上的示例](https://github.com/systematicinvestor/SIT/blob/master/R/random.r)。
 - en: '[PRE2]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Please note that Monte Carlo option pricing requireies many simulations to converge
     to the option price. It takes longer as we increase number of simulations or number
     of time periods or number of assets. On the positive side, it provides a viable
     alternative to simulating difficult problems that might not be solved analytically.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，蒙特卡洛期权定价需要进行大量模拟才能收敛到期权价格。随着模拟次数、时期数或资产数量的增加，所需时间也会更长。从积极的一面来看，它为模拟那些可能无法通过分析解决的其他复杂问题提供了一个可行的选择。
 - en: In the next post I will look at the cost of different rebalancing methods.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将探讨不同再平衡方法的成本。
 - en: To view the complete source code for this example, please have a look at the
     [asset.paths.test() function in random.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/random.r).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看本例的完整源代码，请查看[github上random.r文件中的asset.paths.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/random.r)。

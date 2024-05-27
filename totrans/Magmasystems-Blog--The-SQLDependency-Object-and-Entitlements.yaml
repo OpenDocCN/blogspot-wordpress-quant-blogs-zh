@@ -1,153 +1,261 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 04:58:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:58:50'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: The SQLDependency Object and Entitlements'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: The SQLDependency Object and Entitlements'
 - en: 来源：[http://magmasystems.blogspot.com/2008/09/sqldependency-object-and-entitlements.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/sqldependency-object-and-entitlements.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/09/sqldependency-object-and-entitlements.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/sqldependency-object-and-entitlements.html#0001-01-01)
 - en: Our
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Our
 - en: CEP
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: Servers have to run 24x6\. When our server starts up, it reads some tables in
     our
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Servers have to run 24x6\. When our server starts up, it reads some tables in
+    our
 - en: SQL
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: SQL
 - en: Server 2005 database that contains information about users and the alerts that
     they are entitled to see. We don't want most of our users to be able to see alerts
     that occur because of order messages, but we do want our users to see alerts that
     occur from execution reports.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Server 2005 database that contains information about users and the alerts that
+    they are entitled to see. We don't want most of our users to be able to see alerts
+    that occur because of order messages, but we do want our users to see alerts that
+    occur from execution reports.
 - en: If we had to query the database for the entitlements on every single alert that
     flows through our system, we would take a tremendous hit in performance. Therefore,
     we cache the entitlements in memory and cache the result sets.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: If we had to query the database for the entitlements on every single alert that
+    flows through our system, we would take a tremendous hit in performance. Therefore,
+    we cache the entitlements in memory and cache the result sets.
 - en: We want to be able to change our entitlements on-the-fly, while the server is
     running. We want to add and delete users, change the method of notification for
     a user (
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: We want to be able to change our entitlements on-the-fly, while the server is
+    running. We want to add and delete users, change the method of notification for
+    a user (
 - en: Tibco
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: ','
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ','
 - en: SMS
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: SMS
 - en: ', email, messenger, etc), and add new alerts to our system. We could restrict
     all changes to the underlying entitlements tables so that the changes would have
     to made made through an Administrative GUI, but because of the environment inside
     our company, we cannot. Someone might add a user through the Admin GUI, and others
     might decide to go right into our'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ', email, messenger, etc), and add new alerts to our system. We could restrict
+    all changes to the underlying entitlements tables so that the changes would have
+    to made made through an Administrative GUI, but because of the environment inside
+    our company, we cannot. Someone might add a user through the Admin GUI, and others
+    might decide to go right into our'
 - en: SQL
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: SQL
 - en: Server database and add some new rows to our tables.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: Server database and add some new rows to our tables.
 - en: We need a way to detect when the
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: We need a way to detect when the
 - en: entitlement
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: entitlement
 - en: tables have changed within our
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: tables have changed within our
 - en: SQL
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: SQL
 - en: Server database while our server in running, and have those changes reflected
     in the operation of our system. We cannot afford to bring our system down, make
     the changes to the entitlements, and restart our system. We also don't want to
     wait until the end of the week for the "green zone" period, where we can safely
     bring down our system, make the changes, and restart the system.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Server database while our server in running, and have those changes reflected
+    in the operation of our system. We cannot afford to bring our system down, make
+    the changes to the entitlements, and restart our system. We also don't want to
+    wait until the end of the week for the "green zone" period, where we can safely
+    bring down our system, make the changes, and restart the system.
 - en: SQL
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: SQL
 - en: Server 2005 has a class called
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: Server 2005 has a class called
 - en: SqlDependency
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: SqlDependency
 - en: . This class can be used as an interface between
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: . This class can be used as an interface between
 - en: SQL
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: SQL
 - en: Service Broker and a .NET application to inform the .NET application when a
     certain query's result set has changed.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: Service Broker and a .NET application to inform the .NET application when a
+    certain query's result set has changed.
 - en: Most of the literature on the
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: Most of the literature on the
 - en: SqlDependency
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: SqlDependency
 - en: class revolves around using it in an ASP.NET application. There are also a bunch
     of things that you need to be aware of, such as restrictions on the syntax of
     the query that you give to the
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: class revolves around using it in an ASP.NET application. There are also a bunch
+    of things that you need to be aware of, such as restrictions on the syntax of
+    the query that you give to the
 - en: SqlDependency
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: SqlDependency
 - en: class. It took a little bit of digging and experimentation for me to get this
     stuff to work, but after a little while, we found that it did the job nicely.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: class. It took a little bit of digging and experimentation for me to get this
+    stuff to work, but after a little while, we found that it did the job nicely.
 - en: I have enclosed the source code to a simple
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: I have enclosed the source code to a simple
 - en: EntitlementTableWatcher
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: EntitlementTableWatcher
 - en: class that shows you how to use
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: class that shows you how to use
 - en: SqlDependency
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: SqlDependency
 - en: . I have also include some links to URLs that I found useful. If you have any
     comments about the code, or if you find any bugs, please let me know and I will
     correct them.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: . I have also include some links to URLs that I found useful. If you have any
+    comments about the code, or if you find any bugs, please let me know and I will
+    correct them.
 - en: '[PRE0]'
+  id: totrans-40
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - All Rights Reserved.
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: All opinions here are personal, and have no relation to my employer.

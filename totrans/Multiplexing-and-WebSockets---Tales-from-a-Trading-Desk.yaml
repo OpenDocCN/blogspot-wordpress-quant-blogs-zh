@@ -1,75 +1,115 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:53:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:53:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiplexing and WebSockets | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 复用与 WebSocket | 交易桌面故事
 - en: 来源：[https://mdavey.wordpress.com/2014/03/04/multiplexing-and-websockets/#0001-01-01](https://mdavey.wordpress.com/2014/03/04/multiplexing-and-websockets/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2014/03/04/multiplexing-and-websockets/#0001-01-01](https://mdavey.wordpress.com/2014/03/04/multiplexing-and-websockets/#0001-01-01)
 - en: Multiplexing and WebSockets
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 复用与 WebSocket
 - en: 'The [C10k](http://www.kegel.com/c10k.html) Problem, WhatsApp and more have
     over the years shown how web server application have improved to handle a high
     number of clients simultaneously.  High Scalability offer [further](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html)
     food for thought:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于 [C10k](http://www.kegel.com/c10k.html) 问题，WhatsApp 和其他公司多年来展示了如何提高网络服务器应用程序同时处理多个客户端的能力。High
+    Scalability 提供了[更多](http://highscalability.com/blog/2014/2/26/the-whatsapp-architecture-facebook-bought-for-19-billion.html)的思考食物：
 - en: 'In 2011 WhatsApp achieved [1 million established tcp sessions](http://blog.whatsapp.com/index.php/2011/09/one-million/) on
     a single machine with memory and cpu to spare. In 2012 that was pushed to over [2
     million tcp connections](http://blog.whatsapp.com/index.php/2012/01/1-million-is-so-2011/).
     In 2013 WhatsApp [tweeted out](https://twitter.com/WhatsApp/status/286591302185938946):
     On Dec 31st we had a new record day: 7B msgs inbound, 11B msgs outbound = 18 billion
     total messages processed in one day!'
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 2011 年，WhatsApp 在一台机器上实现了 [100 万个建立的 TCP 会话](http://blog.whatsapp.com/index.php/2011/09/one-million/)，并且还有内存和
+    CPU 的剩余。2012 年，这个数字超过了 [200 万个 TCP 连接](http://blog.whatsapp.com/index.php/2012/01/1-million-is-so-2011/)。2013
+    年，WhatsApp [在推特上发布](https://twitter.com/WhatsApp/status/286591302185938946)：12月31日，我们创下新纪录：70
+    亿条入站消息，110 亿条出站消息 = 一天处理总计 180 亿条消息！
 - en: Historically with last mile messaging (COMET/[WebSocket](http://chimera.labs.oreilly.com/books/1230000000545/ch17.html)/etc)
     connections, the browser application would only make a single connection back
     to the streaming web application servers, and leverage [muliplexing](http://chimera.labs.oreilly.com/books/1230000000545/ch17.html#_binary_framing_layer_2)
     of messages between a browsers application views using client side functionality. 
     However, with advance on server side scalability as above, is this still the correct
     approach?
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在历史上，对于最后mile消息传递（COMET/[WebSocket](http://chimera.labs.oreilly.com/books/1230000000545/ch17.html)/等），浏览器应用程序只向流式网络应用服务器回传一个连接，并利用[消息复用](http://chimera.labs.oreilly.com/books/1230000000545/ch17.html#_binary_framing_layer_2)功能，在浏览器的应用程序视图中使用客户端功能。然而，随着服务器端可伸缩性的提高，这是否还是正确的做法？
 - en: 'Interesting, SockJS over on RabbitMQ [discusses](https://www.rabbitmq.com/blog/2012/02/23/how-to-compose-apps-using-websockets/)
     this very point, but is impacted by a SockJS issue:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，SockJS 在 RabbitMQ 上[讨论](https://www.rabbitmq.com/blog/2012/02/23/how-to-compose-apps-using-websockets/)了这一点，但受到了
+    SockJS 问题的影响：
 - en: 'In theory you could open multiple [WebSocket](http://blog.arungupta.me/2014/02/rest-vs-websocket-comparison-benchmarks/)
     connections, one for every module. Although suboptimal (due to the need to handle
     multiple TCP/IP connections), this approach will work for native WebSockets. But,
     unfortunately it won’t for SockJS due to a technical limitation of HTTP: for some
     fallbacks transports it is not possible to open more than one connection at a
     time to a single server.'
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 在理论上，你可以打开多个 [WebSocket](http://blog.arungupta.me/2014/02/rest-vs-websocket-comparison-benchmarks/)
+    连接，每个模块一个。尽管这不是最优解（因为需要处理多个 TCP/IP 连接），但这种方法适用于原生的 WebSocket。但是，不幸的是，由于 HTTP 的一个技术限制，它不适用于
+    SockJS，因为对于某些回退传输，不可能同时向单个服务器打开多个连接。
 - en: There is however another issue on the client side to force one down the multiplexing
     road – browser maximum [connections.](http://docs.pushtechnology.com/docs/4.6.0/manual/html/clients/support/c_matrixSupportBrowser.html)
     However, sub-domains could aid this
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，在客户端强制进行复用之路的另一个问题是 – 浏览器最大[连接数](http://docs.pushtechnology.com/docs/4.6.0/manual/html/clients/support/c_matrixSupportBrowser.html)。不过，子域名可以解决这个问题。
 - en: github offer a SockJS [multiplexer](http://prezi.com/luc9sbry_xf5/multiplexing-in-websockets/)
     – [WebSocket-multiplex](https://github.com/sockjs/websocket-multiplex)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: GitHub 提供了一个 SockJS [复用器](http://prezi.com/luc9sbry_xf5/multiplexing-in-websockets/)
+    – [WebSocket-multiplex](https://github.com/sockjs/websocket-multiplex)
 - en: ~ by mdavey on March 4, 2014.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey 于 2014 年 3 月 4 日。
 - en: Posted in [Languages](https://mdavey.wordpress.com/category/languages/)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于[编程语言](https://mdavey.wordpress.com/category/languages/)

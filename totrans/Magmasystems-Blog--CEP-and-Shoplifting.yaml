@@ -1,162 +1,262 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:59:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:59:29
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: CEP and Shoplifting'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems 博客：CEP 和店内行窃
 - en: 来源：[http://magmasystems.blogspot.com/2008/09/cep-and-shoplifting.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/cep-and-shoplifting.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/09/cep-and-shoplifting.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/cep-and-shoplifting.html#0001-01-01)
 - en: Yesterday, I decided to drive the long way for a lunch with an ex-colleague
     of mine from Morgan Stanley. The local NPR public radio station (
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨天，我决定开车去一个前摩根士丹利同事那里吃午饭。当地的 NPR 公共广播电台(
 - en: WNYC
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: WNYC
 - en: ) has replaced the heavy metal station (
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 已经被重金属音乐台(
 - en: WSOU
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: WSOU
 - en: ) as my primary station in my car (sigh ... the joys of getting older ...),
     and I caught the last part of the Leonard
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 将我的汽车里的主要收音机位置(叹气...变老的乐趣...)换成了轻音乐台，而我在听到 Leonard 的最后一部分节目时——这是一个在纽约非常受欢迎的新闻谈话节目。
 - en: Lopate
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Lopate
 - en: show, a very popular news-talk show in New York.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 的节目时，一个很受欢迎的新闻谈话节目在纽约。
 - en: Leonard was
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: Leonard 曾经是
 - en: '[interviewing](http://www.wnyc.org/shows/lopate/episodes/2008/09/05)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 进行采访](http://www.wnyc.org/shows/lopate/episodes/2008/09/05)
 - en: John
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: John
 - en: Colapinto
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: Colapinto
 - en: ', who had written an article for The New Yorker on loss prevention in stores
     ... commonly known as shoplifting.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ，他曾在《纽约客》杂志上发表了一篇关于商店防损的文章 ... 通常被称为店内行窃。
 - en: What was fascinating was that, as John was talking about how store detectives
     monitor customer patterns for shoplifting, it seemed like the perfect thing for
     Complex Event Processing (I hope that Tim will agree that this is truly Complex).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，当 John 谈论店内侦探如何监视顾客模式以防止店内行窃时，这看起来完美适合复杂事件处理(我希望 Tim 会同意这真的很复杂)。
 - en: Now, I am sure that this is not news to the
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我敢肯定这对于
 - en: CEP
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendors out there. Fraud detection and surveillance is one of the big applications
     of
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场上的供应商。防欺诈检测和监视是
 - en: CEP
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: . But, after each detection pattern
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 。但是，在每次检测模式之后
 - en: Colapinto
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Colapinto
 - en: described, I said to myself "How would we do this in Coral8?".
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 描述了我对自己说“我们在 Coral8 中怎么做到这一点？”。
 - en: Some of the patterns
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些模式
 - en: Colapinto
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: Colapinto
 - en: 'mentioned included:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 提到的包括：
 - en: 1) Customers examining clothing without looking at the price tag.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 顾客查看衣服但没有看价格标签。
 - en: 2) Customers moving randomly from table to table. There seems to be a certain
     pattern of movement that is common amongst shoplifters.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 顾客随意从一个“桌子”移动到另一个。似乎有一种特定的移动模式在店内行窃者中很常见。
 - en: 'In the "Shoplifter Alert System" that we would build, there would be multiple
     levels of complex events (Tim can correct me on the proper terminology to use)
     :'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '在我们要构建的“防盗警报系统”中，将会有多个复杂事件的级别(Tim 可以纠正我使用正确的术语):'
 - en: Level 1 Event
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一级事件
 - en: '"This person is a shoplifter"'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: “这个人是个小偷”
 - en: Level 2 Events
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二级事件
 - en: '"This person is moving too randomly through the store"'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: “这个人店内移动得太随机了”
 - en: '"This person does not seem interested in the price"'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: “这个人似乎对价格不感兴趣”
 - en: Level 3 Events
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 第三级事件
 - en: The amount of time a person is spending at each "table" in the store
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 顾客在店内每个“桌子”停留的时间
 - en: The amount of time a person handles each garment
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 顾客处理每件衣服的时间
 - en: A sensor on the price tag to indicate whether the person has looked at the price
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格标签上的传感器指示顾客是否看了价格
 - en: Level 4 Events
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 第四级事件
 - en: A person has entered the store
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人进入了商店
 - en: A person has left the store
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人离开了商店
 - en: A person is moving through the store
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 有人正在店内移动
 - en: I would love to hear any anecdotes about how
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很乐意听听任何关于如何
 - en: CEP
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: is actually being used in detecting shoplifting, so if you know of anything,
     please comment.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上正在被用于检测店内行窃，所以如果你知道任何事情，请评论。
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里所有的观点都是个人的，与我的雇主无关。

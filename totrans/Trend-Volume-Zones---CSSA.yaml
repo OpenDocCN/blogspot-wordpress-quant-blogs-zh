@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:34:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:34:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Trend/Volume Zones | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 趋势/量能区域 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/03/10/trendvolume-zones/#0001-01-01](https://cssanalytics.wordpress.com/2010/03/10/trendvolume-zones/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/03/10/trendvolume-zones/#0001-01-01](https://cssanalytics.wordpress.com/2010/03/10/trendvolume-zones/#0001-01-01)
 - en: In a retro flashback to our earlier “zone” concept, it is important to understand
     how volume interacts with different basic market conditions. This is important
     because it shows you where you are likely to make errors in judgement if you were
@@ -27,8 +39,12 @@
     and it is quite useful towards increasing the prediction accuracy of a generic
     condition such as daily follow-through.  Another good blog which covers this approach
     for next day prediction of the S&P500  is run by Frank of  Trading the Odds [http://www.tradingtheodds.com/](http://www.tradingtheodds.com/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在回顾我们早期的“区域”概念时，理解量能与不同的基本市场条件如何互动是非常重要的。这一点很重要，因为它能告诉你，如果你只用一个变量（比如观察今天的方向）来判断，你很可能会犯错误。这种情境或条件概率的方法已经被Rob
+    Hanna of Quantifiable Edges [http://quantifiableedges.blogspot.com/](http://quantifiableedges.blogspot.com/)成功地使用，并且对于提高每日跟进行为的预测准确性非常有用。另一个涵盖这种方法用于预测S&P500次日走势的好博客是由Frank
+    of Trading the Odds [http://www.tradingtheodds.com/](http://www.tradingtheodds.com/)运营的。
 - en: 'I would suggest that if you want to do this type of analysis you follow a similar
     format to what is presented below when doing this type of analysis and keep things
     simple. Both Rob and Frank are more experienced at combining multiple conditions
@@ -50,47 +66,76 @@
     while falling volume was negative. To preserve space, and to save time I only
     included some simple statistics.  Here are the results over the last 2000 bars
     on the SPY:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我建议，如果你想进行这种分析，你在进行分析时要遵循下面所示的类似格式，并保持事情的简单性。Rob和Frank在结合多个条件方面更有经验，在尝试自己这样做之前，仔细阅读他们的归档和例子是非常有指导性的。话说回来，作为一般建议，建议初学者尽量减少子条件，增加最终观察值，以便在每个框中有一个明显的差异。在这种情况下，表下每个条件的观察值超过150个。表中的趋势和无趋势条件都是使用DVRAC进行划分的，DVRAC是一个DV指标，是一个中期的统计趋势过滤器。[https://cssanalytics.wordpress.com/2009/10/09/dvrac-and-trading-in-the-zone/](https://cssanalytics.wordpress.com/2009/10/09/dvrac-and-trading-in-the-zone/)
+    DVRAC背后的概念是使用多个r平方值进行回归，大于20或小于-20的值表示有统计学意义的趋势。中间的所有值都被认为是统计学上不显著的，因此目前不存在明显趋势。表下调查了由DVRAC定义的各种市场条件在与量能和涨跌日配合时的表现。为了表示我们的量能筛选器，我们将使用量能ROC(5)，正如我们之前的帖子中所用。作为一个复习，使用这个指标上升的量能是正面的，而下降的量能是负面的。为了节省空间，以及节省时间，我只包含了一些简单的统计数据。以下是过去2000个SPY柱子的结果：
 - en: '|   |   |   |  avg daily return |         w% | worst day |'
+  id: totrans-8
   prefs: []
   type: TYPE_TB
+  zh: │ │ │ │ 平均每日回报 │ │ 最坏的一天 │
 - en: '|  Trend UP | Today UP | Vol ROC(5) UP | 0.07% | 57.87% | -4.20% |'
+  id: totrans-9
   prefs: []
   type: TYPE_TB
+  zh: │ 趋势上升 │ 今日上升 │ 量能ROC(5)上升 │ 0.07% │ 57.87% │ -4.20% │
 - en: '|  Trend UP | Today DOWN | Vol ROC(5) UP | 0.11% | 62.34% | -3.90% |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势上升 | 今日下降 | 5日成交量变动率上升 | 0.11% | 62.34% | -3.90% |'
 - en: '|  Trend UP | Today UP | Vol ROC(5) DOWN | 0.04% | 55.15% | -3.00% |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势上升 | 今日上升 | 5日成交量变动率下降 | 0.04% | 55.15% | -3.00% |'
 - en: '|  Trend UP | Today DOWN | Vol ROC(5) DOWN | -0.01% | 49.43% | -3.80% |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势上升 | 今日下降 | 5日成交量变动率下降 | -0.01% | 49.43% | -3.80% |'
 - en: '| No Trend | Today UP | Vol ROC(5) UP | -0.18% | 50.91% | -6.41% |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| 无趋势 | 今日上升 | 5日成交量变动率上升 | -0.18% | 50.91% | -6.41% |'
 - en: '| No Trend | Today DOWN | Vol ROC(5) UP | 0.16% | 57.26% | -4.40% |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '| 无趋势 | 今日下降 | 5日成交量变动率上升 | 0.16% | 57.26% | -4.40% |'
 - en: '| No Trend | Today UP | Vol ROC(5) DOWN | -0.19% | 48.12% | -3.33% |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '| 无趋势 | 今日上升 | 5日成交量变动率下降 | -0.19% | 48.12% | -3.33% |'
 - en: '| No Trend | Today DOWN | Vol ROC(5) DOWN | 0.23% | 60.20% | -7.42% |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '| 无趋势 | 今日下降 | 5日成交量变动率下降 | 0.23% | 60.20% | -7.42% |'
 - en: '|  Trend DOWN | Today UP | Vol ROC(5) UP | -0.26% | 46.34% | -7.84% |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势下降 | 今日上升 | 5日成交量变动率上升 | -0.26% | 46.34% | -7.84% |'
 - en: '|  Trend DOWN | Today DOWN | Vol ROC(5) UP | 0.33% | 56.43% | -6.99% |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势下降 | 今日下降 | 5日成交量变动率上升 | 0.33% | 56.43% | -6.99% |'
 - en: '|  Trend DOWN | Today UP | Vol ROC(5) DOWN | -0.08% | 52.30% | -8.85% |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势下降 | 今日上升 | 5日成交量变动率下降 | -0.08% | 52.30% | -8.85% |'
 - en: '|  Trend DOWN | Today DOWN | Vol ROC(5) DOWN | -0.10% | 52.63% | -9.85% |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '|  趋势下降 | 今日下降 | 5日成交量变动率下降 | -0.10% | 52.63% | -9.85% |'
 - en: As you can see, a strong up-trend with strong volume is positive regardless
     of whether today is an up or down day. This result is very important because it
     shows that you should not consider standard mean-reversion relevant when this
@@ -109,8 +154,10 @@
     this zone. Broadly speaking, traders are advised to go long or buy on pullbacks
     in this zone, and look to lighten up positions as the market weakens on falling
     volume and breaks key support.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所见，无论今日是上涨还是下跌，强劲的上升趋势配合强劲的成交量都是积极的。这一结果非常重要，因为它表明当这种条件出现时，你不应该考虑标准的均值回归相关性——你最好坚持趋势，通常在下跌的日子买入比在上涨的日子买入稍微更有利。当趋势上升但成交量在下降时，上涨的日子比下跌的日子更有利，有趣的是，下跌的日子显示出轻微的负平均每日回报。市场似乎会向今日收盘的方向移动——这与标准均值回归相反，当成交量下降时。这是另一个有趣的观察，也非常符合当今市场的实际情况。总的来说，当趋势上升时，使用日跟进的均值回归策略并没有真正是一个有用的策略。此外，使用均值回归策略最大的惩罚将是对空头的惩罚——即在上涨后做空，这是危险的做法。最后一个观察是，在这个区域尾部风险，或每日最坏损失，非常低。总的来说，交易员建议在这个区域做多或买入回调，并寻求在成交量下降和突破关键支撑时减轻仓位。
 - en: Moving on to the trendless zone, we see in contrast that mean-reversion was
     in fact a highly profitable strategy regardless of volume condition. This makes
     sense, as the probability distribution of sideways movement should contain no
@@ -121,8 +168,10 @@
     may reveal some interesting setups based on volume reversals.  Generally, tail
     risk is low making this a good area to execute mean-reversion. Trades can be exited
     in this area if the regime were to change, or support/resistance is broken.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来看看无趋势区域，我们发现与趋势区域相反，均值回归策略实际上无论成交量条件如何都是一个非常盈利的策略。这是有道理的，因为横向运动的概率分布不应该有任何特定的趋势偏见，并且倾向于在支撑和阻力之间弹跳。在成交量下降条件相对于成交量上升条件对淡出有轻微的，但可能不显著的优势。这在购买下跌的日子时尤其正确——正如他们所说“不要做市场的空头”。更复杂的研究可能会揭示基于成交量逆转的一些有趣的设置。通常，尾风险低，使这个区域成为执行均值回归的好地方。如果政权改变，或者支撑/阻力被突破，可以在该区域退出交易。
 - en: 'Moving on to the down- trend zone, we see a very interesting result: mean-reversion
     strategies perform best when volume is rising. Apparently this pattern denotes
     capitulation or exhaustion– up days on rising volume were followed by strong downside
@@ -132,5 +181,7 @@
     were present. Tail risk in this situation was the highest of any other setup.
     The bottom line is for traders–look to fade high/rising volume conditions in a
     downtrend, and go short or to cash when volume is falling.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 进入下跌趋势区域，我们看到了一个非常有趣的结果：当成交量上升时，均值回归策略表现最好。显然，这种模式表示投降或耗尽——在成交量上升的日子里上涨，随后伴随着强烈的下跌反转，而在成交量上升的日子里下跌，随后伴随着强烈的上涨反转。相比之下，当成交量下降时，趋势的下跌力量要远远大于上涨力量。当出现这两种子条件时，无论是上涨还是下跌的日子都会导致负回报。在这种情况下，尾部风险是任何其他设置中最高的。对于交易员来说，底线是——在下跌趋势中寻找减弱/上升成交量的条件，并在成交量下降时做空或持币观望。

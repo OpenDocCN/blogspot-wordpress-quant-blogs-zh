@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 17:50:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:50:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volatility of Acceleration Part Two | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 加速度波动 第二部分 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/#0001-01-01](https://cssanalytics.wordpress.com/2014/12/01/volatility-of-acceleration-part-two/#0001-01-01)
 - en: '[![acceleration 2](img/46614fdab7a086bd1c282f0858d36626.png)](https://cssanalytics.files.wordpress.com/2014/12/acceleration-2.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![acceleration 2](img/46614fdab7a086bd1c282f0858d36626.png)](https://cssanalytics.files.wordpress.com/2014/12/acceleration-2.png)'
 - en: 'In the [last post](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/
     "A New (Better?) Measure of Risk and Uncertainty: The Volatility of Acceleration"),
     I introduced a different method for accounting for risk or uncertainty based on
@@ -33,27 +47,41 @@
     answer is that it is a general concept, and the specific calculation can be done
     many different ways. But to narrow things down, I will present one way that I
     think is the most stable and discuss how this concept can be extended further.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[上一篇文章](https://cssanalytics.wordpress.com/2014/11/28/a-new-better-measure-of-risk-and-uncertainty-the-volatility-of-acceleration/
+    "一种新（更好？）的风险和不确定性度量方法：加速度波动")中，我介绍了一种基于每日收益加速度来计算风险或不确定性的不同方法。思考这个度量方式的另一种方式是它考虑了使用昨日收益预测今日收益的平均误差。利用误差创建更好的趋势跟踪指标的应用在“[误差调整动量](https://cssanalytics.wordpress.com/2014/07/30/error-adjusted-momentum/
+    "误差调整动量")”中讨论过。在上一篇文章中，许多问题和评论与加速度波动的具体计算（VOA）有关。答案是，这是一个通用概念，具体计算方法有很多种。但为了缩小范围，我将提出我认为最稳定的一种方式，并讨论如何进一步扩展这个概念。
 - en: '**VOA= average of: | ln(pt/pt-1)- ln(pt-1/pt-2) |…….. | ln(pt-n/pt-n-1)|**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**VOA= 平均值: | ln(pt/pt-1)- ln(pt-1/pt-2) |…….. | ln(pt-n/pt-n-1)|**'
 - en: 'Essentially the VOA is the average of the absolute value of the first difference
     of daily log returns. Here is a spreadsheet picture to help clarify this basic
     calculation:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 本质上，VOA是每日对数收益的一阶差的绝对值的平均值。这里有一个电子表格图片，帮助澄清这个基本计算：
 - en: '[![accel 3](img/4a8ffae713e34a9c3a786cc649e13452.png)](https://cssanalytics.files.wordpress.com/2014/12/accel-3.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![accel 3](img/4a8ffae713e34a9c3a786cc649e13452.png)](https://cssanalytics.files.wordpress.com/2014/12/accel-3.png)'
 - en: 'Here is an alternative framework called “Forecast VOA” that incorporates the
     change in VOA between today and yesterday to give the indicator even less lag
     than the original VOA:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有一个名为“**Forecast VOA**”的替代框架，它将今天与昨天的**VOA**变化纳入考虑，使得该指标的滞后性比原始**VOA**更小：
 - en: '**Forecast VOA (F-VOA)= VOA(t)+ k*(VOA(t)- VOA(t-1))**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**预测VOA（F-VOA）= VOA(t)+ k*(VOA(t)- VOA(t-1))**'
 - en: 'where “k” is a constant between 0 and 1 that is selected either manually or
     via optimization. The lag does not need to be 1 day, but can be any number of
     chosen days backward. The constant k and the number of lags can incorporated as
@@ -66,14 +94,21 @@
     10-day lookback and computed the 20-day rolling hedge ratio between 10-day VOA
     and 10-day volatility on a walk-forward basis and multiplied that by the % target
     to normalize. Here are the results:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中“k”是一个在0和1之间的常数，可以手动选择或通过优化选择。滞后不需要是1天，而是可以选择任意数量的向后天数。常数k和滞后的数量可以作为独立或递归过程，类似于EMA，先前解决的度量被反馈到下一个时间步中。在下面的示例中，我使用了S&P500(SPY)上的“Forecast
+    VOA”，滞后为1天，以及一个“k”值等于1。我使用了一个10天的回溯期基线VOA，并没有使用递归。目标VOA设置为1%，其中头寸大小计算为目标%除以VOA。为了与标准波动率头寸大小进行比较，我使用了10天的回溯期，并计算了10天VOA和10天波动率之间的20天滚动对冲比率，并将其乘以目标%以进行归一化。以下是结果：
 - en: '[![accel5](img/77a3c9932f4572ea2e2fc7b10c9a29bb.png)](https://cssanalytics.files.wordpress.com/2014/12/accel5.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![加速5](img/77a3c9932f4572ea2e2fc7b10c9a29bb.png)](https://cssanalytics.files.wordpress.com/2014/12/accel5.png)'
 - en: '[![accel 6](img/efc8ea641440aba3f257325cf3f1c34a.png)](https://cssanalytics.files.wordpress.com/2014/12/accel-6.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![加速6](img/efc8ea641440aba3f257325cf3f1c34a.png)](https://cssanalytics.files.wordpress.com/2014/12/accel-6.png)'
 - en: Both the forecast VOA, and the standard VOA outperform using standard volatility
     on a return and risk-adjusted (sharpe) basis. Readers will find that the standard
     VOA typically outperforms using standard volatility across a range of lookbacks
@@ -89,5 +124,7 @@
     and possibly better measures of volatility. However, there are some very sophisticated
     econometric methods such as GARCH to forecast volatility that readers are strongly
     encouraged to explore as well.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在收益和风险调整（夏普比）方面，预测的VOA和标准的VOA都优于使用标准波动率。读者会发现，标准的VOA通常在S&P500从短期到长期的一系列回溯期中优于使用标准波动率。然而，少于10天的短期度量通常太嘈杂，不能使用，因为它们包含了一阶差分。使用预测的VOA似乎优于VOA，但需要注意的是，至少需要解决参数“k”来校准模型。更有雄心的公式将解决“k”和最佳滞后，并可能包含方程中的其他项。在这一点上，需要进一步研究其他工具，如一位读者建议的，但是使用类似F-VOA的框架可以允许适应以提高性能和跨市场一致性。VOA框架是朝着寻找替代可能更好的波动率度量的方向迈出的一步。然而，还有一些非常复杂的计量经济学方法，如GARCH来预测波动性，强烈建议读者也去探索。

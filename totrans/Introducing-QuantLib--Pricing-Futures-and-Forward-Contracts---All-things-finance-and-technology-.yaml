@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:46:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Pricing Futures and Forward Contracts | All things finance
     and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：定价期货和远期合约 | 所有关于金融和科技的事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/04/02/introduction-to-quantlib-pricing-futures-and-forward-contracts/#0001-01-01](https://mhittesdorf.wordpress.com/2013/04/02/introduction-to-quantlib-pricing-futures-and-forward-contracts/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/04/02/introduction-to-quantlib-pricing-futures-and-forward-contracts/#0001-01-01](https://mhittesdorf.wordpress.com/2013/04/02/introduction-to-quantlib-pricing-futures-and-forward-contracts/#0001-01-01)
 - en: In this installment of my series on QuantLib, I’m going to show how to price
     a forward contract on a fixed rate bond. A forward contract obligates the buyer
     to purchase an underlying asset at a specified future point in time at a specified
@@ -27,34 +39,47 @@
     the contract, the strike price is established as the expected future value of
     the underlying asset, which we learned how to calculate in an earlier post in
     this series.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本系列关于QuantLib的安装中，我将向您展示如何定价固定利率债券的远期合约。远期合约要求买方在指定的未来时间点以特定的执行价格从远期合约的卖方那里购买基础资产，卖方同样有义务在约定的执行价格交付基础资产。在合约成立之初，执行价格被设定为预期未来基础资产的价值，关于如何计算这个价值，我们在本系列早些时候的帖子中已经学过。
 - en: A futures contract is a standardized, exchange-traded forward contract with
     daily mark-to-market.  For the purposes of this post, we will assume that futures
     and forward prices are equivalent. For the subtleties that can cause futures and
     forward price to diverge in the real world, I recommend that you read Chapter
     5 of John Hull’s classic book, “Options, futures and Other Derivatives, 6th Edition”.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货合约是一种标准化的、交易所交易的远期合约，具有每日盯市。在本篇博文中，我们将假设期货和远期价格是等效的。对于可能导致期货和远期价格在现实世界中分离的细微差别，我建议您阅读约翰·赫尔的经典书籍《期权、期货和其他衍生品，第六版》的第5章。
 - en: 'To calculate the (strike) price of a forward contract on a fixed-rate bond,
     which is an asset with a known, fixed income consisting of regular coupon payments,
     the following formula is used, where K = the forward price at issuance, S0 = the
     underlying asset’s price at issuance, I = the present value of any income received
     during the life of the forward contract, r = the interest rate and T is the tenor
     of the contract:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 要计算固定利率债券的远期合约的（执行）价格，这是一种具有已知、固定收入的资产，包括定期付息，使用以下公式，其中 K = 发行时的远期价格，S0 = 发行时基础资产的价格，I
+    = 远期合约生命周期内收到任何收入的现值，r = 利率，T 是合约的期限：
 - en: K = (S0 – I)e^rT
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: K = (S0 – I)e^rT
 - en: 'As time progresses and/or interest rates move subsequent to the issuance of
     the forward contract, the value of the forward contract changes. To reprice the
     contract, the following formula is used, with all the variables as defined previously:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着时间推移以及/或利率在远期合约发行后变动，远期合约的价值会发生变化。要重新定价合约，可以使用以下公式，所有变量如前所定义：
 - en: F = S0 – I – Ke^-rT
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: F = S0 – I – Ke^-rT
 - en: The QuantLib code to price a 15 month forward contract on a 3% fixed rate bond
     with a face value of 100 and 5% coupons paid annually is shown below.  The code
     also demonstrates how to re-value the forward given both a 1% up and down shift
@@ -63,61 +88,95 @@
     yield curve to be ‘re-linked’ to the existing forward contract, which causes the
     forward contract to reprice itself at the higher or lower interest rate when the
     `FixedRateBondForward::NPV()` method is called.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是如何定价一个15个月期限的3%固定利率债券的远期合约的QuantLib代码，该债券的面值为100，每年支付5%的票息。代码还展示了如何在利率水平上升或下降1%的情况下重新估值远期合约。注意`[RelinkableHandle<YieldTermStructure>](http://quantlib.org/reference/class_quant_lib_1_1_relinkable_handle.html)`，这是一个强大的QuantLib编程结构，它允许一个新的、更新的收益率曲线“重新链接”到现有的远期合约，当调用`FixedRateBondForward::NPV()`方法时，远期合约会在更高的或更低的利率水平上重新定价自己。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The output of this code when run is:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这段代码运行的输出结果是：
 - en: '`Bond price: 105.657'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '`债券价格：105.657'
 - en: 'Cash flow: April 2nd, 2014, 5.00'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 现金流：2014年4月2日，5.00
 - en: 'Cash flow: April 2nd, 2015, 5.00'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 现金流：2015年4月2日，5.00
 - en: 'Cash flow: April 4th, 2016, 5.00'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 现金流：2016年4月4日，5.00
 - en: 'Cash flow: April 4th, 2016, 100.00'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现金流：2016年4月4日，100.00
 - en: 'Expiration of forward contract: July 2nd, 2014'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 远期合同到期日：2014年7月2日
 - en: 'Days to maturity of forward contract: 455'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 远期合同到期日剩余天数：455天
 - en: 'Strike price of forward contract is: 104.61'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 远期合同的执行价格为：104.61
 - en: 'Bond forward contract value: -0.00'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 债券远期合同价值：-0.00
 - en: 'Bond forward contract value (rates up 1 percent): -1.63'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 债券远期合同价值（利率上升1%）：-1.63
 - en: 'Bond forward contract value (rates down 1 percent): 1.70`'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 债券远期合同价值（利率下降1%）：1.70
 - en: As expected, the value of the forward contract is zero, when first issued. The
     value of the forward contract falls when interest rates go up/the bond price goes
     down and vice versa when interest rates decline/the bond’s price rises.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如预期的那样，当远期合同首次发行时，其价值为零。当利率上升/债券价格下降时，远期合同的价值会下降，反之亦然，当利率下降/债券价格上涨时。
 - en: I hope you enjoyed this latest post explaining how to value forward and futures
     contracts with QuantLib. Check back soon and, as always, please feel free to leave
     comments and questions. Have fun with QuantLib!
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我希望您喜欢这篇最新文章，它解释了如何使用QuantLib估值远期和期货合同。请随时关注，并留下评论和问题。祝您在使用QuantLib时玩得开心！
 - en: About Mick Hittesdorf
+  id: totrans-28
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于Mick Hittesdorf
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -127,5 +186,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一位多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我曾负责管理一个全球数据科学和分析平台，开发了低延迟的专有交易系统，管理过软件开发团队，制定了企业架构策略，撰写了白皮书和博客，在行业期刊上发表文章，并以咨询和技术销售的身份向客户提供创新解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R和云计算。

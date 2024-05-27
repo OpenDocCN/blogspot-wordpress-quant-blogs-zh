@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:11:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:11:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Thoughts on Windows Server AppFabric, Windows Cluster and Deployment | Tales
     from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 关于Windows Server AppFabric、Windows Cluster和部署的思考 | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2009/11/24/thoughts-on-windows-server-appfabric-windows-cluster-and-deployment/#0001-01-01](https://mdavey.wordpress.com/2009/11/24/thoughts-on-windows-server-appfabric-windows-cluster-and-deployment/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2009/11/24/thoughts-on-windows-server-appfabric-windows-cluster-and-deployment/#0001-01-01](https://mdavey.wordpress.com/2009/11/24/thoughts-on-windows-server-appfabric-windows-cluster-and-deployment/#0001-01-01)
 - en: Thoughts on Windows Server AppFabric, Windows Cluster and Deployment
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于Windows Server AppFabric、Windows Cluster和部署的思考
 - en: So I’ve been watching some of the PDC 2009 videos. [Muralidhar’s](http://microsoftpdc.com/Sessions/FT26)
     “Windows Server AppFabric Caching” session enlightens us with the fact that the
     notification mechanism now has a batch facility, primarily because XBox Live was
@@ -32,8 +46,11 @@
     The fact the the application [polls](http://microsoftpdc.com/Sessions/FT26) the
     cache for notifications raise the question of how real-time the notification mechanism
     is?
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我看了一些PDC 2009的视频。[Muralidhar的](http://microsoftpdc.com/Sessions/FT26)“Windows
+    Server AppFabric缓存”演讲启发我们，通知机制现在有了批量处理功能，这主要是因为XBox Live每秒要处理150万条通知。听起来事务支持即将加入到[Velocity](http://www.microsoft.com/presspass/features/2009/nov09/11-17pdcappfabric.mspx)中——我猜这将会利用[STM.NET](http://msdn.microsoft.com/en-us/devlabs/ee334183.aspx)。应用程序[轮询](http://microsoftpdc.com/Sessions/FT26)缓存以获取通知，这让我们怀疑通知机制的实时性有多强？
 - en: Microsoft’s current roadmap from an application hosting perspective appears
     to be driven by IIS – Windows Server AppFabric is a set of integrated technologies
     that make it easier to build, scale and manage Web and composite applications
@@ -48,17 +65,31 @@
     is legacy – just look at the .NET support (you have [Generic Service](http://blogs.msdn.com/clustering/archive/2009/06/09/9712609.aspx)
     support, but for the [Failover Cluster APIs](http://msdn.microsoft.com/en-us/library/cc296100%28VS.85%29.aspx)
     looks to be C++) and the lack of any PDC 2009 session on Windows Cluster.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 从应用托管的角度来看，微软当前的路线图似乎是由IIS驱动的——Windows Server AppFabric是一组集成的技术，使得构建、扩展和管理运行在[IIS](http://msdn.microsoft.com/en-us/windowsserver/ee695849.aspx)上的Web和组合应用程序变得更加容易。不幸的是，金融领域的卖方世界并非一切都通过IIS驱动——实际上，非常少的一部分。如果你看看卖方Linux世界，Java进程在[VCS](http://en.wikipedia.org/wiki/Veritas_Cluster_Server)
+    [集群](http://www.symantec.com/business/cluster-server)上运行是相当普遍的——这些进程可能正在监听消息总线，计算并将新的希腊字母或其他价格推送到另一个总线。看看微软的对应产品，[Windows
+    Cluster](http://msdn.microsoft.com/en-us/library/aa373130(VS.85).aspx)，很明显AppFabric是微软的关注焦点，而Windows
+    Cluster ([MSCS](http://msdn.microsoft.com/en-us/library/ms952401.aspx))是遗留技术——只需看看.NET支持（你有[通用服务](http://blogs.msdn.com/clustering/archive/2009/06/09/9712609.aspx)支持，但对于[故障转移集群API](http://msdn.microsoft.com/en-us/library/cc296100%28VS.85%29.aspx)看起来是C++）和Windows
+    Cluster在PDC 2009上没有任何会议。
 - en: Am I missing something on this whole issue of [deployment](http://social.technet.microsoft.com/Forums/en-US/windowsserver2008r2highavailability/thread/b531dfdb-3000-451a-9d30-59d8da8561bf/)?
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对整个部署[问题](http://social.technet.microsoft.com/Forums/en-US/windowsserver2008r2highavailability/thread/b531dfdb-3000-451a-9d30-59d8da8561bf/)是不是有什么误解？
 - en: ~ by mdavey on November 24, 2009.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2009年11月24日。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[微软](https://mdavey.wordpress.com/tag/microsoft/)

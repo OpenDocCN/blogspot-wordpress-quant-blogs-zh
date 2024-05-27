@@ -1,59 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:57:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:57:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Commitments of Traders (COT) strategy on soybean futures'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：大豆期货的持仓量（COT）策略
 - en: 来源：[http://epchan.blogspot.com/2015/02/commitments-of-traders-cot-strategy-on.html#0001-01-01](http://epchan.blogspot.com/2015/02/commitments-of-traders-cot-strategy-on.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/02/commitments-of-traders-cot-strategy-on.html#0001-01-01](http://epchan.blogspot.com/2015/02/commitments-of-traders-cot-strategy-on.html#0001-01-01)
 - en: 'In our drive to extract alphas from a variety of non-price data, we came across
     this old-fashioned source: Commitments of Traders (COT) on futures. This indicator
     is well-known to futures traders since 1923 (see www.cmegroup.com/education/files/COT_FBD_Update_2012-4-26.pdf),
     but there are often persistent patterns (risk factors?) in the markets that refuse
     to be arbitraged away. It is worth another look, especially since the data has
     become richer over the years.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们努力从各种非价格数据中提取alpha的过程中，我们发现了一个过时的数据来源：期货的持仓量（COT）指标。这个指标自1923年以来就被期货交易者所熟知（参见www.cmegroup.com/education/files/COT_FBD_Update_2012-4-26.pdf），但市场上经常有持续的模式（风险因素）无法被套利掉。这是值得再次关注的话题，尤其是因为数据在近年来变得更加丰富。
 - en: 'First, some facts about COT:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，关于COT的一些事实：
 - en: 1) CFTC collects the reports of the number of long and short futures and options
     contracts ("open interest") held by different types of firms by Tuesdays, and
     reports them every Friday by 4:30 CT.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) CFTC通过周二收集不同类型公司持有的多头和空头期货和期权合约（“持仓量”）的报告，并在每个周五下午4:30CT报告它们。
 - en: 2) Options positions are added to COT as if they were futures but adjusted by
     their deltas.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 期权头寸像期货一样加到COT上，但调整它们的德尔塔值。
 - en: 3) COT are then broken down into contracts held by different types of firms.
     The most familiar types are "Commercial" (e.g. an ethanol plant) and "Non-Commercial"
     (i.e. speculators).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) COT然后细分为不同类型公司持有的合约。最熟悉的类型是“商业”（例如乙醇厂）和“非商业”（即投机者）。
 - en: 4) Other types are "Spreaders" who hold calendar spreads, "Index traders", "Money
     Managers", etc. There are 9 mutually exclusive types in total.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 其他类型包括持有日历价差合约的“套利者”、“指数交易者”、“货币经理”等。总共有9种相互排斥的类型。
 - en: Since we only have historical COT data from csidata.com, and they do not collect
     data on all these types, we have to restrict our present analysis only to Commercial
     and Non-Commercial. Also, beware that csidata tags a COT report by its Tuesday
     data collection date. As noted above, that information is unactionable until the
     following Sunday evening when the market re-opens.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们只从csidata.com获取历史COT数据，而且他们没有收集所有这些类型的数据，我们必须将目前的分析限制在商业和非商业方面。此外，请注意，csidata数据通过其周二的数据收集日期来标记COT报告。如上所述，该信息在市场周日下午重新开盘之前是不可操作的。
 - en: 'A simple strategy would be to compute the ratio of long vs short COT for Non-Commercial
     traders. We buy the front contract when this ratio is equal to or greater than
     3, exiting when the ratio drops to or below 1\. We short the front contract when
@@ -61,47 +87,71 @@
     1\. Hence this is a momentum strategy: we trade in the same direction as the speculators
     did. As most profitable futures traders are momentum traders, it would not be
     surprising this strategy could be profitable.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个简单的策略可能是计算非商业交易者的多头与空头COT比率。当这个比率等于或大于3时，我们买入前端合约，当比率降至或低于1时退出。当这个比率等于或小于1/3时，我们做空前端合约，当比率上升至或高于1时退出。因此，这是一个趋势策略：我们的交易方向与投机者的方向相同。由于大多数盈利的期货交易者都是趋势交易者，这种策略可能是有利可图的并不令人惊讶。
 - en: Over the period from 1999 to 2014, applying this strategy on CME soybean futures
     returns about 9% per annum, though its best period seems to be behind us already.
     I have plotted the cumulative returns below (click to enlarge).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 从1999年到2014年，将这种策略应用于CME大豆期货，年化回报率约为9%，尽管它的最佳时期似乎已经过去了。我下面绘制了累计回报图（点击放大）。
 - en: I have applied this strategy to a few other agricultural commodities, but it
     doesn't seem to work on them. It is therefore quite possible that the positive
     result on soybeans is a fluke. Also, it is very unsatisfactory that we do not
     have data on the Money Managers (which include the all important CPOs and CTAs),
     since they would likely to be an important source of alpha. Of course, we can
     go directly to the cftc.gov,
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经将这种策略应用于一些其他农产品，但它似乎对它们不起作用。因此，大豆上的积极结果很可能是一个偶然现象。另外，我们没有货币经理（包括非常重要的CPO和CTA）的数据，这非常令人不满意，因为他们可能是alpha的重要来源。当然，我们可以直接访问cftc.gov，
 - en: '[download](http://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalCompressed/index.htm)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[下载](http://www.cftc.gov/MarketReports/CommitmentsofTraders/HistoricalCompressed/index.htm)'
 - en: all the historical reports in .xls format, and compile the data ourselves. But
     that is a project for another day.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有历史报告均为.xls格式，我们将自行整理数据。但这是另一天的工作。
 - en: ===
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**My Upcoming  Talks and Workshops**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我即将进行的讲座和工作坊**'
 - en: '5/13-14: "Mean Reversion Strategies", "AI techniques in Trading" and "Portfolio
     Optimization" at [Q-Trade Bootcamp 2015](http://qtradebootcamp.com/), Milan, Italy.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '5/13-14: 在[Q-Trade Bootcamp 2015](http://qtradebootcamp.com/)，米兰，意大利，将举行“均值回归策略”、“交易中的AI技术”和“投资组合优化”的讲座。'
 - en: ===
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Managed Account Program Update**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**受管理的账户计划更新**'
 - en: ===
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我 on Twitter: @chanep'

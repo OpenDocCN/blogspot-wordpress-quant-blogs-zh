@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:52:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:52:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Predicting Bonds with Stocks: A Strategy to Improve Timing in Corporate and
     High Yield Bonds | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 利用股票预测债券：一种改进企业债券和高收益债券时机的方法 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/10/30/predicting-bonds-with-stocks-a-strategy-to-improve-timing-in-corporate-and-high-yield-bonds/#0001-01-01](https://cssanalytics.wordpress.com/2014/10/30/predicting-bonds-with-stocks-a-strategy-to-improve-timing-in-corporate-and-high-yield-bonds/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/10/30/predicting-bonds-with-stocks-a-strategy-to-improve-timing-in-corporate-and-high-yield-bonds/#0001-01-01](https://cssanalytics.wordpress.com/2014/10/30/predicting-bonds-with-stocks-a-strategy-to-improve-timing-in-corporate-and-high-yield-bonds/#0001-01-01)
 - en: '[![stocks and high yield bonds](img/8db338557372f8e32722bf82ec81e9dc.png)](https://cssanalytics.files.wordpress.com/2014/10/stocks-and-high-yield-bonds.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![stocks and high yield bonds](img/8db338557372f8e32722bf82ec81e9dc.png)](https://cssanalytics.files.wordpress.com/2014/10/stocks-and-high-yield-bonds.png)'
 - en: Alpha Architect recently posted a good [article summary](http://www.alphaarchitect.com/blog/2014/10/28/predict-stocks-with-bond-markets/#.VFEAU_nF-VJ)
     of an academic paper that links the returns of corporate bonds to equity returns.
     The authors find that the equity market can lead corporate bond returns by up
@@ -30,8 +44,10 @@
     share vulnerability to common economic factors (growth, credit risk etc). Since
     stocks are far more liquid than corporate or high yield bonds, it makes sense
     that the stock market should have a leading signal.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Alpha Architect最近发布了一篇关于企业债券收益与股权收益关联性的学术论文的好[文章摘要](http://www.alphaarchitect.com/blog/2014/10/28/predict-stocks-with-bond-markets/#.VFEAU_nF-VJ)。作者发现，股权市场可以将企业债券收益领先一个月。我之前已经探讨过这个概念，前提是股票和企业债券（以及高收益债券）之间存在逻辑上的联系，因为它们都容易受到共同的经济因素（如增长、信用风险等）的影响。由于股票的流动性远高于企业债券或高收益债券，因此股票市场应该具有领先信号。
 - en: As a simple test to demonstrate the potential value of this leading signal,
     one can compare a simple moving average strategy that uses the stock market to
     time either corporate or high yield bonds versus using the underlying market to
@@ -47,19 +63,25 @@
     they tend to be issued by smaller/less diversified companies. This means that
     the lead/lag relationship between equities and high yield should be longer and
     more stable than for corporate bonds.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个简单的测试，以展示这种领先信号的潜在价值，我们可以将使用股票市场来定时企业债券或高收益债券的简单移动平均策略与使用基础市场来生成信号进行比较。假设应该是，与使用基础时间序列的传统移动平均策略相比，股票或股权市场信号应该产生更优越的结果。此外，我们还会假设，相对于企业债券而言，高收益债券的优势应该更显著，因为它们与股票（投资级企业债券在一定程度上与经济增长和信用风险相关，但同时也具有更大的利率敏感性，因为它们的信用利差与总名义收益率之比较大）有更相似的经济因素风险。另外，由于高收益债券的流动性低于企业债券，因为它们往往由较小/不太多元化的公司发行，因此这种领先/滞后关系在股权和高收益之间应该更长且更稳定。
 - en: 'For our simple test, we use a 20-day moving average strategy to trade either
     High Yield (HYG) or Corporate Bonds (LQD) using either the underlying time series
     to generate signals or the S&P500 (SPY) to represent equity market signals. As
     with most SMA strategies, we go long if the close is above the SMA and in this
     case we allocate to cash (SHY) below the SMA. Here are the results extending the
     bond indices back to 1995:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于我们的简单测试，我们使用一个20日移动平均策略，以交易高收益债券（HYG）或企业债券（LQD），使用基础时间序列来生成信号，或使用标普500（SPY）来代表股权市场信号。与大多数SMA策略一样，如果收盘价高于SMA，我们就做多，在这种情况下，我们在SMA以下分配给现金（SHY）。以下是将债券指数回溯到1995年的结果：
 - en: '[![stock predict bonds](img/f77837841f09ee815fcb44538e9fd17b.png)](https://cssanalytics.files.wordpress.com/2014/10/stock-predict-bonds.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![股票预测债券](https://cssanalytics.files.wordpress.com/2014/10/stock-predict-bonds.png)'
 - en: 'Results are very much in line with both hypotheses: the equity market is a
     superior signal than using the underlying time series, and the advantage in applying
     this effect is stronger in high yield bonds versus using corporate bonds. The
@@ -71,5 +93,7 @@
     lag. The lesson for quants is that it often helps to pay attention to the fundamental
     drivers of a market’s underlying return rather than applying naaive technical
     trading rules.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果与两个假设非常一致：相较于使用基础时间序列，权益市场是一个更优越的信号源，并且在运用这一效应方面的优势在高收益债券中比在企业债券中更为显著。使用权益市场信号交易高收益债券可以显著降低回撤，提高风险调整后的回报。作为一种谨慎的提醒，这项分析没有考虑相对交易成本，但预计无论使用哪个市场，总的交易信号数量都会相似，因为它们面临相似的风险因素，并且也使用了相同的移动平均滞后。对于量化分析师来说，教训在于关注市场的根本收益驱动因素往往比应用简单的技术交易规则更有帮助。

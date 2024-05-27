@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:09:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 08:09:38'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using Quantlib on a Windows (32bit) machine | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Using Quantlib on a Windows (32bit) machine | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2011/01/24/usin-quantlib-on-a-windows-32-bit-machine/#0001-01-01](https://quantcorner.wordpress.com/2011/01/24/usin-quantlib-on-a-windows-32-bit-machine/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/01/24/usin-quantlib-on-a-windows-32-bit-machine/#0001-01-01](https://quantcorner.wordpress.com/2011/01/24/usin-quantlib-on-a-windows-32-bit-machine/#0001-01-01)
 - en: In this post, we show the required steps before using  **Quantlib** on a **Windows
     32** computer. We install this powerful library for quantitative matters with **MS
     Visual Studio 2010**. And, that must work for MS **Visual Studio Express 2010**
@@ -26,68 +38,102 @@
     As this web address itself indicates, this is an installation documentation for
     the previous version of MS Visual Studio (that is the  MS **Visual Studio 2008**version).
     Our job is getting and installing the latest Quantlib files.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我们展示了在在**Windows 32**计算机上使用**Quantlib**之前所需的步骤。我们使用**MS Visual Studio
+    2010**安装这个强大的量化库。而且，这也适用于MS**Visual Studio Express 2010**。我们基于**Quantlib**库官方网站的“安装”部分，即[http://quantlib.org/install/vc9.shtml](http://quantlib.org/install/vc9.shtml)。正如这个网址本身所表明的，这是为较早版本的MS
+    Visual Studio（即MS**Visual Studio 2008**版本）的安装文档。我们的工作是获取并安装最新的Quantlib文件。
 - en: The **Quantlib** library requires the **Boost** library to be available on your
     machine. We thus will install the latter, too. Finally, we will install a user-friendly
     software, namely **TortoiseSVN**, to get the latest versions of the files of both
     libraries.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Quantlib**库需要**Boost**库在你的机器上可用。因此，我们也将安装后者。最后，我们将安装一个用户友好的软件，即**TortoiseSVN**，以获取这两个库文件的最新版本。'
 - en: '**Let’s start**:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**让我们开始**：'
 - en: – Download the **Boost**library installer, freely available at [http://www.boostpro.com/download](http://www.boostpro.com/download)
     . At the time of writing the latest available version is BoostPro 1.44.0 Installer.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: – 下载**Boost**库安装程序，该安装程序可在[http://www.boostpro.com/download](http://www.boostpro.com/download)免费获得。截至编写本文时，最新可用的版本是BoostPro
+    1.44.0安装程序。
 - en: – Follow the “Boost installation” paragraphs at [http://quantlib.org/install/vc9.shtml](http://quantlib.org/install/vc9.shtml)
     . Except, that you will install the **Visual C++ 10.0** (**Visual Studio 2010**)
     binary.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: – 遵循[http://quantlib.org/install/vc9.shtml](http://quantlib.org/install/vc9.shtml)的“Boost安装”段落。不过，你会安装**Visual
+    C++ 10.0**（**Visual Studio 2010**）二进制文件。
 - en: – Download the **Quantlib**library from [http://sourceforge.net/projects/quantlib/files/QuantLib](http://sourceforge.net/projects/quantlib/files/QuantLib)
     . Select the latest version of the library, and start the download.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: – 从[http://sourceforge.net/projects/quantlib/files/QuantLib](http://sourceforge.net/projects/quantlib/files/QuantLib)下载**Quantlib**库。选择库的最新版本，然后开始下载。
 - en: – Download **TortoiseSVN** from [http://tortoisesvn.net/downloads.html](http://tortoisesvn.net/downloads.html)
     . It is a subversion client program for **Windows**. It is easy to use and this
     software will allow you to get the latest file versions of Boost and **Quantlib**.
     It is well documented, too ([http://tortoisesvn.net/docs/release/TortoiseSVN_en](http://tortoisesvn.net/docs/release/TortoiseSVN_en)
     ).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: – 从[http://tortoisesvn.net/downloads.html](http://tortoisesvn.net/downloads.html)下载**TortoiseSVN**。这是一个用于**Windows**的subversion客户端程序。它易于使用，并将允许你获取Boost和**Quantlib**的最新文件版本。这个软件也有很好的文档资料([http://tortoisesvn.net/docs/release/TortoiseSVN_en](http://tortoisesvn.net/docs/release/TortoiseSVN_en)）。
 - en: – Get the latest **Boost**file versions from the subversion repository using **TortoiseSVN**at [http://svn.boost.org/svn/boost/trunk](http://svn.boost.org/svn/boost/trunk)
     .
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: – 使用**TortoiseSVN**从[http://svn.boost.org/svn/boost/trunk](http://svn.boost.org/svn/boost/trunk)获取**Boost**文件的最新版本。
 - en: – In much the same way, update your **Quantlib**file versions, from [http://quantlib.svn.sourceforge.net/svnroot/quantlib/trunk](http://quantlib.svn.sourceforge.net/svnroot/quantlib/trunk)
     .
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: – 同样地，从[http://quantlib.svn.sourceforge.net/svnroot/quantlib/trunk](http://quantlib.svn.sourceforge.net/svnroot/quantlib/trunk)更新你的**Quantlib**文件版本。
 - en: – Find out the **QuantLib_vc10.sln** file in the **C:\ … \Quantlib\QuantLib**
     directory on your disk. Double-click on it. Visual studio will simultaneously
     open the 14 projects.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: – 在你的硬盘上**C:\ … \Quantlib\QuantLib**目录中找到**QuantLib_vc10.sln**文件。双击它。Visual
+    Studio将同时打开14个项目。
 - en: – Now, make the **Boost**headers and libraries available to **Quantlib**. Right-click
     on the **QuantLib**project in the solution explorer, then add your **C:\ … \boost_1_44**
     directory into the “Include files” directory of **Visual Studio**(We assume you
     didn’t rename any file). Next, add **C:\ … \boost_1_44\lib** into the “Library
     files” directory.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: – 现在，让**Boost**头文件和库对**Quantlib**可用。在解决方案资源管理器中右键点击**QuantLib**项目，然后将你的**C:\
+    … \boost_1_44**目录添加到**Visual Studio**的“包含文件”目录中（我们假设你没有重命名任何文件）。接下来，将**C:\ … \boost_1_44\lib**添加到“库文件”目录中。
 - en: – You are ready to build the **Quantlib**library. In the solution explorer window
     of **Visual Studio**, right-click on “Solution ‘Quantlib_vc10’ (14 projects),
     and choose “Build the solution” to build all the 14 projects.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: – 你已经准备好构建**Quantlib**库了。在**Visual Studio**的解决方案资源管理器窗口中，右键点击“解决方案‘Quantlib_vc10’（14个项目）”，并选择“构建解决方案”以构建这14个项目。
 - en: '***–  You’re done!  –***'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '***– 完成啦！–***'
 - en: You can build the solution whatever in build or release mode. It doesn’t really
     matter. The important thing is that you will have to build your future projects
     in the same mode as **Quantlib** had been built. Being so, *why wouldn’t you build*
     ***Quantlib****in both modes on your computer ?*
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以在构建或发布模式下构建解决方案。这真的不重要。重要的是你将不得不以与**Quantlib**相同的模式构建你的未来项目。既然如此，你为什么不在你的电脑上同时以两种模式构建**Quantlib**呢？*

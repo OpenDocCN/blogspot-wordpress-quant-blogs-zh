@@ -1,29 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:43:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:43:03'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: howto: Observer pattern'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Python交易：如何：观察者模式
 - en: 来源：[http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01](http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01](http://tradingwithpython.blogspot.com/2011/12/howto-observer-pattern.html#0001-01-01)
 - en: The
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: The
 - en: '[observer pattern](http://en.wikipedia.org/wiki/Observer_pattern)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[观察者模式](http://en.wikipedia.org/wiki/Observer_pattern)'
 - en: comes very handy when dealing with complex systems. It allows for class-to class
     communication with a very simple structure. Even more important is the ability
     to separate functionality in different modules, for example running a single 'broker'
@@ -32,54 +48,84 @@
     understand how this process works is to write the whole system from scratch. In
     many languages this is a very tedious task, but thanks to the power of Python
     it only takes a couple of lines to do this.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在处理复杂系统时非常有用。它允许类与类之间进行通信，结构非常简单。更重要的是，它允许将功能分离到不同的模块中，例如运行一个单独的'经纪人'作为某些API的包装器，并让多个策略订阅相关经纪人的事件。有一些现成的模块可用，但理解这个过程的最好方法是从头写整个系统。在许多语言中这是非常繁琐的任务，但多亏了Python的力量，只需几行代码就可以完成。
 - en: The following example code creates a
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下示例代码创建了一个
 - en: '*Sender*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发送者*'
 - en: class (named Alice). Sender keeps track of interested listeners and notifies
     them accordingly. In more detail, this is achieved by a dictionary containing
     a function-event mapping, Sender.listeners.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 类（名为Alice）。发送者跟踪感兴趣的监听器并相应地通知它们。更详细地说，这是通过包含函数-事件映射的字典实现的，即发送者的监听器列表。
 - en: A listener class can be of any type, here I make a bunch of
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个监听器类可以是任何类型，在这里我创建了一组
 - en: '*ExampleListener*'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '*示例监听器*'
 - en: classes, named Bob,Dave & Charlie. All of them have a method, that is that is
     subscribed to
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 类，名为Bob、Dave和Charlie。它们都有一个方法，那就是订阅了
 - en: '*Sender*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发送者*'
 - en: '. The only special thing about the subscribed method is that it should contain
     three parameters:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 。订阅方法的特殊之处在于，它应该包含三个参数：
 - en: '*sender, event, message*'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发送者、事件、消息*'
 - en: . Sender is the class reference of the
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 。发送者是
 - en: '*Sender*'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发送者*'
 - en: class, so a listener would know who sent the message. Event is an identifier,
     for which I usually use a string. Optionally, a message is the data that is passed
     to a function.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 类，因此监听器知道是谁发送的消息。事件是一个标识符，我通常使用字符串来表示。可选地，消息是传递给函数的数据。
 - en: A nice detail is that if a listener method throws an exception, it is automatically
     unsubscribed from further events.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个好的细节是，如果一个监听器方法抛出异常，它会自动从进一步的事件中取消订阅。
 - en: '[PRE0]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

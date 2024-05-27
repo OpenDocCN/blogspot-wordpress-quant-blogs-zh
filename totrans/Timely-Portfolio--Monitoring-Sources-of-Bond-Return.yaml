@@ -1,80 +1,131 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:18:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Monitoring Sources of Bond Return'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Monitoring Sources of Bond Return'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html#0001-01-01)
 - en: Here is a way to monitor bond return sources in R.  In the next iteration, I
     will use CPI to add history to the series.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一种监控债券回报来源的方法。在下一版本中，我将使用消费者价格指数（CPI）为系列添加历史数据。
 - en: So right now, you can expect about a 5% return from bonds.  How much of that
     is real return is unknown.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以现在，你可以从债券中预期大约5%的回报。那其中有多少是实际回报还不清楚。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(reshape2)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(reshape2)
 - en: require(ggplot2)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: 'getSymbols("WGS10YR",src="FRED") #load 10yTreasury'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("WGS10YR",src="FRED") #load 10yTreasury'
 - en: 'getSymbols("WFII10",src="FRED") #load 10yTIP for real return'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("WFII10",src="FRED") #load 10yTIP for real return'
 - en: 'getSymbols("BAMLC0A0CM",src="FRED") #load Corporate for credit'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("BAMLC0A0CM",src="FRED") #load Corporate for credit'
 - en: 'getSymbols("CPIAUCSL",src="FRED") #load Corporate for credit'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("CPIAUCSL",src="FRED") #load Corporate for credit'
 - en: bondReturnSources<-na.omit(merge(WGS10YR-WFII10,WFII10,to.weekly(BAMLC0A0CM)[,4])["2003::"])
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources<-na.omit(merge(WGS10YR-WFII10,WFII10,to.weekly(BAMLC0A0CM)[,4])["2003::"])
 - en: colnames(bondReturnSources)<-c("10yTreasury","10yTIPReal","Credit")
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSources)<-c("10yTreasury","10yTIPReal","Credit")
 - en: bondReturnSourcesToGraph<-data.frame(cbind(as.Date(index(bondReturnSources)),coredata(bondReturnSources)))
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSourcesToGraph<-data.frame(cbind(as.Date(index(bondReturnSources)),coredata(bondReturnSources)))
 - en: colnames(bondReturnSourcesToGraph)<-c("Date","InflationBreakEven","10yTIPReal","Credit")
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSourcesToGraph)<-c("Date","InflationBreakEven","10yTIPReal","Credit")
 - en: bondReturnSourcesToGraph<-melt(bondReturnSourcesToGraph,id.vars=1)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSourcesToGraph<-melt(bondReturnSourcesToGraph,id.vars=1)
 - en: colnames(bondReturnSourcesToGraph)<-c("Date","ReturnSource","Yield")
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSourcesToGraph)<-c("Date","ReturnSource","Yield")
 - en: rownames(bondReturnSourcesToGraph)<-c(1:NROW(bondReturnSourcesToGraph))
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: rownames(bondReturnSourcesToGraph)<-c(1:NROW(bondReturnSourcesToGraph))
 - en: ggplot(bondReturnSourcesToGraph, stat="identity", aes(x=Date,y=Yield,fill=ReturnSource,group=ReturnSource))
     + geom_area() +scale_x_date(format = "%Y") + opts(title = "Sources of Bond Return")
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(bondReturnSourcesToGraph, stat="identity", aes(x=Date,y=Yield,fill=ReturnSource,group=ReturnSource))
+    + geom_area() +scale_x_date(format = "%Y") + opts(title = "Sources of Bond Return")

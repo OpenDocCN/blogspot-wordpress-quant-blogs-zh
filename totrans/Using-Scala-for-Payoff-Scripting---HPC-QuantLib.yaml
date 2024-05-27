@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:41:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:41:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using Scala for Payoff Scripting – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Scala进行支付脚本编程 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01](https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01](https://hpcquantlib.wordpress.com/2011/09/01/using-scala-for-payoff-scripting/#0001-01-01)
 - en: The advantages of payoff scripting based on a build-in interpreter or “on-the-fly
     compiler” instead of implementing the payoffs in C++ are obvious. Faster time-to-market
     because there is no need to recompile and deploy the C++ pricing library and people
@@ -30,27 +42,43 @@
     solutions, see. e.g. [1].  This is especially true if the Monte-Carlo scenario
     generator is running on a GPU. The payoff scripting on the CPU can then easily
     become the bottleneck of your pricing library.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用内置解释器或“即时编译器”进行支付脚本编程，而不是在C++中实现支付，其优势是显而易见的。因为不需要重新编译和部署C++定价库，所以上市时间更快，而且不需要深入C++知识的人也能够开发和测试新的结构化产品。一个缺点通常是所选脚本语言的执行速度。我所见过的/用于支付脚本的语言例子有
+    [Python](http://python.org/) （C++接口 [boost::python](http://www.boost.org/doc/libs/1_47_0/libs/python/doc/)），[Lua](http://www.lua.org/)，[tinycc](http://tinycc.org)
+    和 [CINT](http://root.cern.ch/drupal/content/cint)。当涉及到执行速度时，这些语言都不适合构建高性能解决方案，例如
+    [1]。 特别是如果Monte-Carlo场景生成器在GPU上运行。那么在CPU上运行的支付脚本编程很容易成为定价库的瓶颈。
 - en: '[Scala](http://www.scala-lang.org) is a modern programming language that integrates
     object-oriented and functional language features. The Scala compiler generates
     byte code for the Java VM. Therefore the execution speed of a Scala script is
     comparable with Java and roughly a factor of two slower than C++ [1].'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Scala](http://www.scala-lang.org) 是一种现代编程语言，它集成了面向对象和函数式语言特性。Scala编译器为Java虚拟机生成字节码。因此，Scala脚本的执行速度与Java相当，大约比C++慢一倍
+    [1]。'
 - en: The Scala compiler itself is a Scala object and can be used at runtime to compile
     and link new scripts or classes. In addition using [JNI](http://download.oracle.com/javase/6/docs/technotes/guides/jni/index.html)
     it is fairly easy to attach a Java VM to a C++ process and to exchange data between
     C++ and Scala. Also Scala offers a lot of features to design an “internal”, user-friendly
     domain specific language (DSL) for payoff scripting.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Scala编译器本身是一个Scala对象，可以在运行时用来编译和链接新的脚本或类。此外，利用[JNI](http://download.oracle.com/javase/6/docs/technotes/guides/jni/index.html)
+    ，很容易将Java虚拟机附加到C++进程之间，以及C++和Scala之间交换数据。Scala还提供了许多特性，用于设计一个“内部”用户友好的领域特定语言（DSL）用于支付脚本。
 - en: The code for a small QuantLib/Scala Monte-Carlo simulation in action is available
     [here](http://hpc-quantlib.de/src/scalaPayoffScripting.zip). It depends on QuantLib
     1.0 or higher, a Java 1.6 VM and Scala 2.8/9\. Overwrite the PayoffImpl.scala
     class to implement different payoffs without recompiling the C++ code.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个小型QuantLib/Scala Monte-Carlo模拟的示例代码可以在 [这里](http://hpc-quantlib.de/src/scalaPayoffScripting.zip)
+    找到。它依赖于QuantLib 1.0或更高版本，Java 1.6虚拟机和Scala 2.8/9\。覆盖PayoffImpl.scala类，不重新编译C++代码来实现不同的支付。
 - en: '[1] [Computer Language Benchmark Game](http://shootout.alioth.debian.org/u32/which-programming-languages-are-fastest.php)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] [计算机语言基准游戏](http://shootout.alioth.debian.org/u32/which-programming-languages-are-fastest.php)'

@@ -1,173 +1,282 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '类别: 未分类'
 - en: 'date: 2024-05-18 15:16:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 15:16:50'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: S&P 500 High Beta and Low Volatility Indexes and Powershares
     ETFs'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '及时投资组合: 标普 500 高贝塔和低波动指数以及 Powershares ETFs'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/s-500-high-beta-and-low-volatility.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/s-500-high-beta-and-low-volatility.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/s-500-high-beta-and-low-volatility.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/s-500-high-beta-and-low-volatility.html#0001-01-01)
 - en: There must be a useful insight, concept, or system provided by the new S&P 500
     High Beta and Low Volatility Indexes.  Now with the announcement by Powershares
     of etfs for these indicies [http://www.invescopowershares.com/volatility/](http://www.invescopowershares.com/volatility/
     "http://www.invescopowershares.com/volatility/"), any of these potential insights,
     concepts, or systems seem viable.  The indexes are available through the S&P website
     in spreadsheet form
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的标普 500 高贝塔和低波动指数必定提供了有用的见解、概念或系统。现在，随着 Powershares 宣布推出这些指数的 ETFs [http://www.invescopowershares.com/volatility/](http://www.invescopowershares.com/volatility/
+    "http://www.invescopowershares.com/volatility/")，这些潜在的见解、概念或系统似乎都是可行的。这些指数可以在标普网站上以电子表格的形式获得
 - en: '[http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--](http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--
     "http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--<br
     />") [http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--](http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--)'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--](http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--
+    "http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--<br
+    />") [http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--](http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--)'
 - en: or through Bloomberg with SP5HBIT for High Beta and SP5LVIT Low Volatility.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者通过 SP5HBIT 和 SP5LVIT 来使用彭博社的 High Beta 和 Low Volatility.
 - en: If we apply some basic techniques of relative strength and momentum introduced
     in previous posts, we can build a switching strategy between the High Beta and
     Low Volatility Indexes.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们应用之前文章介绍的一些基本的相对强度和动量技术，我们可以构建一个在高贝塔和低波动指数之间切换的策略。
 - en: Or with the same signals, we can use the relative strength (RS) signal to generate
     entry and exit signals for the overall S&P 500 index.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者使用相同的信号，我们可以使用相对强度（RS）信号来为整个标普 500 指数生成入场和出场信号。
 - en: 'R code:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 'R 代码:'
 - en: require(quantmod)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#don''t think it is possible to download directly from S&P'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#不认为可以直接从标普下载'
 - en: '#but can get a spreadsheet to use from'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#但可以从获取一个电子表格来使用'
 - en: '#[http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--](http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#[http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--](http://www.standardandpoors.com/indices/sp-500-low-volatility/en/us/?indexId=spusa-500-usdw-lop-us-l--)'
 - en: '#[http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--](http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#[http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--](http://www.standardandpoors.com/indices/sp-500-high-beta/en/us/?indexId=spusa-500-usdw-hbp-us-l--)'
 - en: '#also these indicies are available through Bloomberg and Reuters'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '#这些指数也可以通过彭博社和路透社获得'
 - en: '#Bloomberg access with R is possible through RBloomberg'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#通过 RBloomberg 可以使用 Bloomberg 访问'
 - en: SPHighBetaLowVol<-as.xts(read.csv("sphighbeta-lowvol.csv",row.names=1,stringsAsFactors=FALSE))
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: SPHighBetaLowVol<-as.xts(read.csv("sphighbeta-lowvol.csv",row.names=1,stringsAsFactors=FALSE))
 - en: SPIndexes<-merge(SPHighBetaLowVol,getSymbols("^GSPC",from="2006-01-03",auto.assign=FALSE)[,4])
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: SPIndexes<-merge(SPHighBetaLowVol,getSymbols("^GSPC",from="2006-01-03",auto.assign=FALSE)[,4])
 - en: SPIndexesReturns<-ROC(SPIndexes,1,type="discrete")
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: SPIndexesReturns<-ROC(SPIndexes,1,type="discrete")
 - en: charts.PerformanceSummary(SPIndexesReturns)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(SPIndexesReturns)
 - en: '#let''s try an easy relative strength signal and index filter'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#让我们尝试一种简单的相对强度信号和指数过滤器'
 - en: '#know I can do this better in R but here is my ugly code'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我知道我可以在 R 中更好地完成这个任务，但这是我的丑陋代码'
 - en: '#to calculate 125 day or 1/2 year slope of high beta/low vol'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算高贝塔/低波动的 125 天或 1/2 年斜率'
 - en: width=125
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: width=125
 - en: '#get relative strength slope of high beta/low vol'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取高贝塔/低波动的相对强度斜率'
 - en: for (i in 1:(NROW(SPIndexes)-width)) {
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于 (i in 1:(SPIndexes 的行数-width)) {
 - en: model<-lm(SPIndexes[i:(i+width),1]/SPIndexes[i:(i+width),2]~index(SPIndexes[i:(i+width)]))
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: model<-lm(SPIndexes[i:(i+width),1]/SPIndexes[i:(i+width),2]~index(SPIndexes[i:(i+width)]))
 - en: ifelse(i==1,indexRS<-model$coefficients[2],indexRS<-rbind(indexRS,model$coefficients[2]))
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: ifelse(i==1,indexRS<-model$coefficients[2],indexRS<-rbind(indexRS,model$coefficients[2]))
 - en: '}'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: indexRS<-xts(cbind(indexRS),order.by=index(SPIndexes)[(width+1):NROW(SPIndexes)])
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: indexRS<-xts(cbind(indexRS),order.by=index(SPIndexes)[(width+1):NROW(SPIndexes)])
 - en: '#get slope of total S&P on shorter term 75 day'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取较短期75天的总S&P斜率'
 - en: width=75
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: width=75
 - en: for (i in 1:(NROW(SPIndexes)-width)) {
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 1:(NROW(SPIndexes)-width)) {
 - en: model<-lm(SPIndexes[i:(i+width),3]~index(SPIndexes[i:(i+width)]))
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: model<-lm(SPIndexes[i:(i+width),3]~index(SPIndexes[i:(i+width)]))
 - en: ifelse(i==1,indexSlope<-model$coefficients[2],indexSlope<-rbind(indexSlope,model$coefficients[2]))
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: ifelse(i==1,indexSlope<-model$coefficients[2],indexSlope<-rbind(indexSlope,model$coefficients[2]))
 - en: '}'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: indexSlope<-xts(cbind(indexSlope),order.by=index(SPIndexes)[(width+1):NROW(SPIndexes)])
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: indexSlope<-xts(cbind(indexSlope),order.by=index(SPIndexes)[(width+1):NROW(SPIndexes)])
 - en: signals<-na.omit(merge(lag(indexRS),lag(indexSlope),SPIndexesReturns))
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: signals<-na.omit(merge(lag(indexRS),lag(indexSlope),SPIndexesReturns))
 - en: ret<-ifelse(signals[,1]>0&signals[,2]>0,signals[,3],ifelse(signals[,1]<0&signals[,2]>0,signals[,4],0))
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: ret<-ifelse(signals[,1]>0&signals[,2]>0,signals[,3],ifelse(signals[,1]<0&signals[,2]>0,signals[,4],0))
 - en: perf_compare<-merge(ret,SPIndexesReturns)
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: perf_compare<-merge(ret,SPIndexesReturns)
 - en: '#name the columns for charting'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '#为图表命名列'
 - en: colnames(perf_compare)<-c("RotationSystem",colnames(perf_compare)[2:4])
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(perf_compare)<-c("RotationSystem",colnames(perf_compare)[2:4])
 - en: charts.PerformanceSummary(perf_compare,main="Rotation System with S&P Indexes)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(perf_compare,main="Rotation System with S&P Indexes)
 - en: '#now let''s use the RS signal to determine entry exit to overall SP index'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在让我们使用RS信号来确定整体S&P指数的买卖点'
 - en: '#when high volatility is outperforming go long S&P 500'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '#当高波动性表现优于时做多S&P 500'
 - en: ret<-ifelse(signals[,1]>0,signals[,5],0)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: ret<-ifelse(signals[,1]>0,signals[,5],0)
 - en: perf_compare<-merge(ret,perf_compare)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: perf_compare<-merge(ret,perf_compare)
 - en: colnames(perf_compare)<-c("SP500TacticalBasedOnRS",colnames(perf_compare)[2:5])
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(perf_compare)<-c("SP500TacticalBasedOnRS",colnames(perf_compare)[2:5])
 - en: charts.PerformanceSummary(perf_compare,main="Systems Comparisons with S&P Indexes)
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(perf_compare,main="Systems Comparisons with S&P Indexes)

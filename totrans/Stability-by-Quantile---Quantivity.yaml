@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:56:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:56:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Stability by Quantile | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 稳健统计学中的稳定性 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/#0001-01-01](https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/#0001-01-01](https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/#0001-01-01)
 - en: Stability is one of the most important factors influencing *consistency* of
     quantitative trading algorithms. What works in a bull market does not work in
     a bear market; what works in trending market does not work in range-bound market.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 稳定性是影响量化交易算法*一致性*最重要的因素之一。在牛市中有效的方法在熊市中不一定有效；在趋势市场中有效的方法在震荡市场中不一定有效。
 - en: 'Examples illustrating the importance of stability abound, with the most recent
     infamous example being discredited [CDS](http://en.wikipedia.org/wiki/Collateralized_debt_obligation)
     pricing via [copula](http://en.wikipedia.org/wiki/Copula_(statistics)) methods
@@ -30,36 +44,52 @@
     “On Default Correlation: A Copula Function Approach”, [Journal of Fixed Income](http://www.iijournals.com/toc/jfi/current)
     9: 43-54). Turns out correlation simply is not a stable measure of coassocation.
     Other examples from quantitative trading include:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '稳定性重要性的例子比比皆是，最新的臭名昭著的例子就是通过[copula](http://en.wikipedia.org/wiki/Copula_(statistics))方法（由[Li](http://en.wikipedia.org/wiki/David_X._Li)在其经典文章“关于违约相关性：一种copula函数方法”，《固定收益杂志》9:
+    43-54） discredited 的[CDS](http://en.wikipedia.org/wiki/Collateralized_debt_obligation)定价。结果证明，相关性根本不是一个稳定的关联度量。其他来自量化交易的例子包括：'
 - en: 'Volatility: relationship and switching between market regimes'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 波动性：市场体制之间的相互关系和转换
 - en: 'Dispersion: relationship between index volatility and constituent volatilities'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 分散度：指数波动与成分股波动之间的关系
 - en: 'Sector rotation: relationship among market sector, value vs. growth, and related
     factors'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 板块轮动：市场板块、价值与增长之间的关系及相关因素
 - en: Stability is often evaluated using techniques from [robust statistics](http://en.wikipedia.org/wiki/Robust_statistics)
     (applied [dynamical systems](http://en.wikipedia.org/wiki/Dynamical_systems) contributes
     additional techniques, often more familiar to mathematicians and physicists).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 稳定性通常通过应用稳健统计学技术（动态系统应用提供了额外的技术，通常对数学家和物理学家更为熟悉）来评估。
 - en: 'Robust statistics are particularly interesting because their relationship to
     the [Three Horsemen](https://quantivity.wordpress.com/2009/07/25/bias-stationarity-ergodicity/)
     (bias, stationarity, and ergodicity):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 稳健统计学特别有趣，因为它们与[三大骑士](https://quantivity.wordpress.com/2009/07/25/bias-stationarity-ergodicity/)（偏差、平稳性和
+    ergodic 性）的关系：
 - en: Robust statistic is resistant to errors in the results produced by deviations
     from assumptions.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 稳健统计学对由假设偏差产生的结果误差有抵抗力。
 - en: 'Traders are intimately familiar with the “long tails” of market returns, reflecting
     the common observation of positive excess [kurtosis](http://en.wikipedia.org/wiki/Kurtosis)
     (leptokurtosis, commonly associated with the [Laplace distribution](http://en.wikipedia.org/wiki/Laplace_distribution))
@@ -69,43 +99,57 @@
     returns are not constant over time (formally known as [heteroskedasticity](http://en.wikipedia.org/wiki/Heteroskedasticity)).
     Yet, despite these universal familiarities, many analysts persist in exclusively
     using classical non-robust techniques.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易员对市场回报的“长尾”了如指掌，这反映了大多数金融市场都普遍存在的正超额[峰度](http://en.wikipedia.org/wiki/Kurtosis)（leptokurtosis，通常与[拉普拉斯分布](http://en.wikipedia.org/wiki/Laplace_distribution)相关）的现象：更多的方差是由于不频繁的极端偏差引起的，而不是频繁的小规模偏差。同样，任何在2008-2009年观察市场的人都能很容易地发现市场回报的方差随时间不是恒定的（正式称为[异方差性](http://en.wikipedia.org/wiki/Heteroskedasticity)）。然而，尽管这些普遍的熟悉，许多分析师仍然坚持使用经典的非稳健技术。
 - en: Mean versus median (more generally, [quantiles](http://en.wikipedia.org/wiki/Quantile))
     is one the root considerations of stability, whether directly or indirectly. This
     is exemplified by revising the SPY-PRF pairs trade from prior posts. OLS was used
     by those posts to estimate the cointegrating relationship between SPY and PRF.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均值与中位数（更一般地，[分位数](http://en.wikipedia.org/wiki/Quantile)）是稳定性的根本考虑之一，无论是直接还是间接。这可以通过修订先前的帖子中的SPY-PRF配对交易来证明。先前的帖子使用OLS估计SPY和PRF之间的协整关系。
 - en: 'From the perspective of trading algorithms, there are two fundamental problems
     with this approach:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 从交易算法的角度来看，这种方法存在两个基本问题：
 - en: 'Outliers: OLS is known to be highly-sensitive to outliers (which have occurred
     quite frequently), which is particularly problematic given the purpose of pairs
     trading is to identify pairs whose outliers exhibit specific desired behavior'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 异常值：OLS众所周知对异常值高度敏感（这已经相当频繁地发生了），这在考虑到配对交易的目的时尤其成问题，即找出异常值表现出特定期望行为的配对。
 - en: 'Level sensitivity: OLS estimates a single parameter value, irrespective of
     the level'
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 水平敏感性：OLS估计一个参数值，不考虑水平。
 - en: Ignoring level sensitivity is particularly problematic in statistical arbitrage,
     as it assumes securities co-behave in identical ways irrespective of their values.
     This assumption is usually bogus in practice, as easily demonstrated by comparing
     behavior at recent market bottoms (*e.g.* March 2009) versus market tops (*e.g.*
     October 2007).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 忽略水平敏感性在统计套利中尤其成问题，因为它假设证券以相同的方式共同行为，而不管它们的值如何。这个假设在实践中通常是站不住脚的，正如通过比较最近市场底部（例如2009年3月）和市场顶部（例如2007年10月）的行为很容易证明的那样。
 - en: 'Given all these problems, generating consistent trading results demands careful
     evaluation of stability, answering questions such as: “does the ratio of PRF-SPY
     depend upon the level of PRF or SPY?” and “If so, what is the range of the ratio
     under all observed values of PRF and SPY?”. Both are examples of questions which
     OLS and classic statistics simply cannot answer.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到这些问题，要生成一致的交易结果，需要对稳定性进行仔细评估，回答诸如：“PRF-SPY比率是否取决于PRF或SPY的水平？”和“如果是这样，在所有观察到的PRF和SPY值下，比率的范围是多少？”等问题。这些问题都是最小二乘法（OLS）和经典统计学无法回答的。
 - en: 'One of the easiest ways to evaluate stability for cointegrating relationships
     (such as PRF-SPY pairs) is via use of [quantile regression](http://en.wikipedia.org/wiki/Quantile_regression),
     which is a type of [robust regression](http://en.wikipedia.org/wiki/Robust_regression)
@@ -114,84 +158,125 @@
     for errors with Laplacian distribution, which nicely coincides with long tail
     distribution violations as discussed above). This can be performed quickly using
     a bit of R code. Assuming the following data frame setup:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 评估协整关系（如PRF-SPY对）稳定性的最简单方法之一是使用[分位数回归](http://en.wikipedia.org/wiki/Quantile_regression)，这是一种[稳健回归](http://en.wikipedia.org/wiki/Robust_regression)（注意[最小绝对偏差](http://en.wikipedia.org/wiki/Least_absolute_deviations)是拉普拉斯分布误差的[最大似然](http://en.wikipedia.org/wiki/Maximum_likelihood)估计，这很好地与上面讨论的长尾分布违反相一致）。这可以通过使用一些R代码快速完成。假设以下数据框设置：
 - en: '`> prices <- read.table("prf-spy-all.txt", header = TRUE, sep = "\t")'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '`> prices <- read.table("prf-spy-all.txt", header = TRUE, sep = "\t")'
 - en: prf <- prices$PRF
+  id: totrans-23
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: prf <- prices$PRF
 - en: spy <- prices$SPY`
+  id: totrans-24
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: spy <- prices$SPY
 - en: 'We estimate OLS:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们估计OLS：
 - en: '`> fm <- lm(prf ~ spy)`'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '`> fm <- lm(prf ~ spy)`'
 - en: 'Given SPY parameter estimate of 0.4549 and intercept of -7.3561, and the following
     Normal [Q-Q plot](http://en.wikipedia.org/wiki/Q-Q_plot):'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到SPY参数估计值为0.4549和截距为-7.3561，以及以下正态[Q-Q图](http://en.wikipedia.org/wiki/Q-Q_plot)：
 - en: '![prf-spy-q-q-plot](img/a8a9b81f0aa68f084b420a0ad581f56b.png "prf-spy-q-q-plot")'
+  id: totrans-28
   prefs: []
   type: TYPE_IMG
+  zh: '![prf-spy-q-q-plot](img/a8a9b81f0aa68f084b420a0ad581f56b.png "prf-spy-q-q-plot")'
 - en: 'Whose tails obviously differ from normality quite heavily, indicating stability
     of the pair should be evaluated carefully. Use quantile regression to estimate
     the same relationship (using the [quantreg](http://cran.r-project.org/web/packages/quantreg/index.html)
     cran library):'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 它们的尾巴明显与正态性相差很大，这表明应该仔细评估对的稳定性。使用分位数回归估计相同的关系（使用[quantreg](http://cran.r-project.org/web/packages/quantreg/index.html)cran库）：
 - en: '`> quantile <- rq(prf ~ spy, tau = -1, data = prices)`'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '`> quantile <- rq(prf ~ spy, tau = -1, data = prices)`'
 - en: 'Which estimates the relationship across all quantiles (tau = -1). Plot of the
     SPY parameter estimates (*i.e.* hedge ratio), versus quantile (tau) ranging from
     zero to 1.0:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个估计是在所有分位数（tau = -1）上的关系。SPY参数估计（即对冲比率）与分位数（tau）从零到1.0的图表：
 - en: '![prf-spy-quantile-spy-tau](img/a04372b36995715269903f6722aa935f.png "prf-spy-quantile-spy-tau")'
+  id: totrans-32
   prefs: []
   type: TYPE_IMG
+  zh: '![prf-spy-quantile-spy-tau](img/a04372b36995715269903f6722aa935f.png "prf-spy-quantile-spy-tau")'
 - en: 'This means, for example, that the SPY hedge ratio is for the zero quantile
     is 0.49 (0.0 tau) and 0.45 for the median (0.50 tau). This plot nicely illustrates
     stability (or lack thereof), and provides graphical answers to our previous pair
     trading questions:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这意味着，例如，SPY对冲比率在零分位数时是0.49（0.0 tau）而在中位数时是0.45（0.50 tau）。这个图表很好地说明了稳定性（或缺乏稳定性），并为我们之前的价格对交易问题提供了图形答案：
 - en: '**Q**: Does the ratio of PRF-SPY depend upon the level of PRF or SPY?'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Q**：PRF-SPY比率取决于PRF或SPY的水平吗？'
 - en: '**A**: Yes.'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**A**：是的。'
 - en: '**Q**: If so, what is the range of the ratio under all observed values of PRF
     and SPY?'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Q**：如果是这样，在PRF和SPY观察到的所有值下，比率的范围是多少？'
 - en: '**A**: SPY hedge ratio ranges from < 0.45 to > 0.50 over the quantile range,
     with no clear linear relationship between quantile and hedge ratio.'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**A**：SPY对冲比率在分位数范围内从小于0.45到大于0.50不等，分位数与对冲比率之间没有清晰的线性关系。'
 - en: 'Translated into trading: PRF/SPY hedge ratio increases to nearly 2:1 (0.50)
     at the lowest quantiles of PRF price (low $30s, corresponding to 10% quantile).
     Over all other quantiles ($40-60), the SPY hedge ratio decreases into the range
     of [0.45, 0.46].'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 翻译成交易术语：PRF/SPY对冲比率在PRF价格最低分位数（低至30美元出头，对应于10%的分位数）处增加到几乎2:1（0.50）。在其他所有分位数（40-60）上，SPY对冲比率下降到[0.45,
+    0.46]的范围内。
 - en: 'These values are quite different from the 0.4549 estimate from OLS, and illustrate
     key insight into stability: traders assuming 0.45 estimate as PRF decreased into
     lower quantiles would increasingly lose money, as their pair residuals continuously
     diverged away from zero.'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些值与OLS估计的0.4549大不相同，并揭示了关于稳定性的关键见解：假设0.45估计的对子交易者，随着PRF降低到较低的分位数，会不断亏损，因为他们的对子残差持续偏离零。
 - en: 'Coming full circle back to stability, this analysis implies: the residual mean
     value for the SPY-PRF pair would have been unstable, if traded over 2007 – 2008\.
     Thus, *pair traders assuming a stable 0.4549 would likely have lost increasing
     capital on residual divergence as PRF decreased into the $30 range*.'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 绕着稳定性一圈回来，这个分析暗示了：如果SPY-PRF对子在2007-2008年期间被交易，其残差的平均值将是不稳定的。因此，*假设稳定性为0.4549的对子交易者，随着PRF降低到30美元的范围，可能会不断增加资本损失于残差偏离*。

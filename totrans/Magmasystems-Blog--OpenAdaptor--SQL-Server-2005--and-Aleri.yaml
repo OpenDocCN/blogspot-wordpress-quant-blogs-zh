@@ -1,92 +1,146 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:05:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:05:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: OpenAdaptor, SQL Server 2005, and Aleri'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：OpenAdaptor、SQL Server 2005和Aleri
 - en: 来源：[http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/openadaptor-sql-server-2005-and-aleri.html#0001-01-01)
 - en: This posting was made in the interests of any Aleri or OpenAdaptor users who
     are trying to connect to a named SS2005 instance.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 此帖子是为了任何尝试连接到命名SS2005实例的Aleri或OpenAdaptor用户而发布的。
 - en: I have multiple "instances" installed of SQL Server 2005\. According to the
     documentation at
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我安装了多个SQL Server 2005的“实例”。根据
 - en: '[http://msdn2.microsoft.com/en-us/library/ms378428.aspx](http://msdn2.microsoft.com/en-us/library/ms378428.aspx)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**http://msdn2.microsoft.com/en-us/library/ms378428.aspx**'
 - en: ', this JDBC connection string should have worked:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: ，这个JDBC连接字符串应该能工作：
 - en: jdbc:sqlserver://MAGMALAPTOP\RPT;databaseName=MyDatabase;integratedSecurity=true;
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: jdbc:sqlserver://MAGMALAPTOP\RPT;数据库名称=MyDatabase;集成安全=真;
 - en: In Microsoft's
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在微软的
 - en: '[JDBC Driver 1.2 for SQL Server 2005](http://msdn2.microsoft.com/en-us/data/aa937724.aspx)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**JDBC驱动程序1.2用于SQL Server 2005**'
 - en: ', there is a sample Java app called connectURL. With the connection string
     above, this sample app worked fine, and was able to connect to the RPT instance
     of my SS2005 database.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ，有一个名为connectURL的Java示例应用程序。使用上述连接字符串，这个示例应用程序运行良好，并能连接到我的SS2005数据库的RPT实例。
 - en: However, I could not get
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我无法得到
 - en: '[OpenAdaptor](https://www.openadaptor.org/)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**OpenAdaptor**'
 - en: to work with this connect string. In case you are wondering why I was messing
     around with OpenAdaptor, it is because this is what
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个连接字符串工作。如果你想知道我为什
 - en: '[Aleri](http://www.aleri.com/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Aleri**'
 - en: uses for its adapters to external data sources.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 用于其适配器的外部数据源。
 - en: After spending several hours this weekend trying to get Aleri to connect to
     SQL Server using the connection string above, I finally stumbled upon an alternative
     syntax for the connection string.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本周末花了数小时尝试使用上述连接字符串让Aleri连接到SQL Server后，我终于找到了连接字符串的一个替代语法。
 - en: 'The new connection string is:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的连接字符串是：
 - en: jdbc:sqlserver://MAGMALAPTOP;instanceName=RPT;databaseName=MyDatabase;integratedSecurity=true;
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: jdbc:sqlserver://MAGMALAPTOP;实例名称=RPT;数据库名称=MyDatabase;集成安全=真;
 - en: Notice that the
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意那个
 - en: '*instanceName*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*实例名称*'
 - en: is specified with a separate parameter.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 是用一个单独的参数指定的。
 - en: So, there may be an issue with OpenAdaptor. Or, another theory that I have is
     that the backslash character in the connection string is being considered as an
     escape character.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，OpenAdaptor可能存在问题。或者，我还有一个理论是连接字符串中的反斜杠字符被认为是一个转义字符。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 保留所有权利

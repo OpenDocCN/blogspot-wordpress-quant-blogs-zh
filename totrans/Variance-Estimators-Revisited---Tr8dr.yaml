@@ -1,167 +1,252 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:37:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:37:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Variance Estimators Revisited | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 方差估计器再访 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/17/variance-estimators-revisited/#0001-01-01](https://tr8dr.wordpress.com/2009/11/17/variance-estimators-revisited/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/17/variance-estimators-revisited/#0001-01-01](https://tr8dr.wordpress.com/2009/11/17/variance-estimators-revisited/#0001-01-01)
 - en: I need to have a reasonably accurate measure of intra-day variance for a strategy
     I am working on.    In a previous post I indicated that while GARCH(1,1) fits
     daily returns well, it fits intra-day returns poorly.   In fact so poorly, that
     it was not possible to arrive at a non-zero maximum likelihood.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我需要对我正在工作的策略进行合理准确的日内方差测量。 在我之前的一篇文章中，我指出虽然GARCH(1,1)很好地拟合了日回报，但它对日内回报拟合得不好。
+    实际上，它拟合得如此之差，以至于无法得到非零的最大似然值。
 - en: 'The failure of the GARCH model for intra-day is multifold.   Intraday (squared)
     returns exhibit:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于日内GARCH模型的失败是多方面的。 日内（平方）回报表现出：
 - en: random large jumps followed by sharp drop-off
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 随机大幅跳跃后急剧下降
 - en: microstructure noise
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 微观结构噪声
 - en: apparent gaps in return as a smooth AR process
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 回报中的明显缺口作为平滑的自回归过程
 - en: '**Garch Revisited** I decided to take another look at GARCH;  Perhaps with
     some modification could make it useful as a rough measure, short of a more sophisticated
     model.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Garch再访**我决定重新审视GARCH； 也许经过一些修改可以用作粗略的测量，而不是更复杂的模型。'
 - en: 'The “jumps” present in intra-day data have a near 0 probability in a gaussian
     error model.   To combat this, added a component to the GARCH model to absorb
     jump shocks:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 日内数据中的“跳跃”在高斯误差模型中的概率接近0。 为了解决这个问题，在GARCH模型中增加了一个组件来吸收跳跃冲击：
 - en: '[![](img/45a2f36c70d923b4a3093c803feecb32.png "Picture 1")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-17.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片 1](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-17.png)'
 - en: The added component is **J**, which absorbs the excess return above a threshold.  
     The above basically says that the jump has no predictive value for subsequent
     measures of the squared return (though this is not strictly what is observed).  
     More likely, the jumps should be considered as a largely independent random process
     contributing to overall variance.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 新增的组件是**J**，它吸收了超过阈值的过量回报。 上面基本上说明跳跃对后续平方回报的预测价值没有（尽管这并不是严格观察到的情况）。 更有可能的是，跳跃应被视为一个主要独立于总体方差的随机过程。
 - en: 'The threshold was determined heuristically as:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 阈值是通过启发式方法确定的：
 - en: '[![](img/d76c1ed5b11b43727513cc0c8abd676a.png "Picture 1")](../files/2009/11/picture-18.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片 1](../files/2009/11/picture-18.png)'
 - en: With the above formulation was able to calibrate to a relatively high likelihood
     and R^2 of around 0.90 in sample and 0.85 out of sample, that is with truncated
     jumps.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 利用上述公式，我能够校准到一个相对较高的似然值和R^2，样本值为0.90，外部值为0.85，即带有截断跳跃。
 - en: '[![](img/b5f887c70a0c65ce88ff80c31cec9ff3.png "Picture 9")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-92.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片 9](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-92.png)'
 - en: '**Duration Based Approach**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**基于持续时间的方法**'
 - en: 'For a Brownian motion based process, we know that increments Δ**r** over time
     interval Δ**t** scale as follows, and that one implies the other:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于基于布朗运动的进程，我们知道在时间间隔Δt内的增量Δr按如下比例缩放，并且一个暗示另一个：
 - en: '[![](img/3f2fac43c125bdab2c41b82ab32cd252.png "Picture 3")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-37.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片 3](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-37.png)'
 - en: Basically implying that we can estimate the amount of time it will take for
     Δ**r** to be realized in the price (returns) process.   Engel and Russell developed
     a well regarded model for price duration, called the Autoregressive Conditional
     Duration model (ACD).   The model expresses price movements in terms of duration
     (or alternatively intensity), though does not explicitly provide a variance estimate.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本上这意味着我们可以估计Δr在价格（回报）过程中实现的时间量。 Engel和Russell开发了一个广受好评的价格持续时间模型，称为自回归条件持续时间模型（ACD）。
+    该模型用持续时间（或交替地用强度）来表示价格变动，但没有明确提供方差估计。
 - en: For the purposes of this model, let us assume a granularity constant Δ**r**. 
     We then let **D**[t] denote the effective span of time took for the process to
     move by Δ**r** between [t, t-1].  This is calculated as Δ**r** divided by the
     change in return (approximately).   For example if Δ**r** is the return represented
     by 1 pip, and a 3 pip return is seen over a period of 1 second, D[t] would be
     1/3rd.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了这个模型，让我们假设一个粒度常数 Δ**r**。然后让 **D**[t] 表示过程在 [t, t-1] 之间移动 Δ**r** 所需的有效时间跨度。这大约是
+    Δ**r** 除以回报的变化（大约）。例如，如果 Δ**r** 表示由 1 个点组成的回报，并且在 1 秒内看到了 3 个点的回报，那么 D[t] 将是 1/3。
 - en: 'In terms of intensity we can model this as:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在强度方面，我们可以将这个问题建模为：
 - en: '[![](img/3b83952b7a42edbbc9705f7533528029.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-43.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3b83952b7a42edbbc9705f7533528029.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-43.png)'
 - en: 'We would like to get variance into a form were it can estimated in terms of
     intensity.   Given that variance is expressed as the expectation on square of
     returns, we can formulate this probabilistically:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们希望将方差转化为可以利用强度进行估计的形式。由于方差表示为回报的平方的期望值，我们可以从概率的角度来表述这个问题：
 - en: '[![](img/030d71ade5f2bee5c7290ed458520dc8.png "Picture 7")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-72.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/030d71ade5f2bee5c7290ed458520dc8.png "Picture 7")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-72.png)'
 - en: We can use the Poisson pdf to model p(k jumps | λ), and evaluate the discrete
     integral up to some maximum jump size m.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以使用泊松分布来模拟条件概率 p(k jumps | λ)，并计算跳跃到某个最大跳跃大小 m 的离散积分。
 - en: '**Handling Jumps**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**处理跳跃**'
 - en: 'Empirically, it would seem that jumps follow a different process from non-jump
     price movements.   To address this I’ve added a separate process for jumps, with
     a single factor guiding exponential decay.   The two processes are combined when
     the expectation is calculated:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 从经验上看，跳跃似乎遵循与非跳跃价格变动不同的过程。为了解决这个问题，我增加了一个单独的过程来处理跳跃，由一个单一因素引导指数衰减。在计算期望值时，这两个过程会结合在一起：
 - en: '[![](img/22e0875f089461a3ba79241260aaf394.png "Picture 8")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-82.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/22e0875f089461a3ba79241260aaf394.png "Picture 8")](https://tr8dr.wordpress.com/wp-content/uploads/2009/11/picture-82.png)'
 - en: 'The messy bit is deciding, given a return, whether to consider a jump **J**
     or a standard return **D** (both as a durations).   We can decide that:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 决定何时将回报视为跳跃 J 或标准回报 D（两者均作为持续时间）是一件复杂的事情。我们可以这样决定：
 - en: D = max (*price duration for [t-1,t]*, *jump threshold*)
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: D = max (*价格持续时间对于[t-1,t]*, *跳跃阈值*)
 - en: J = max (*price duration for [t-1,t] – D, 0*)
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: J = max (*价格持续时间对于[t-1,t] – D, 0*)
 - en: or decide to categorize the whole return as a jump or normal return.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者决定将整个回报分类为跳跃或正常回报。
 - en: '**Seasonality**'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**季节性**'
 - en: We might also want to adjust the constant **Dμ** to adjust to different levels
     depending on the prevalent level for a given period of the trading day.   Durations
     will be short (variance high) at the opens and closes for instance.   This would
     require building a seasonality curve for the trading day.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可能还想调整常数 **Dμ**，以便根据交易日的不同阶段调整不同水平。例如，开盘和收盘时，持续时间会很短（方差高）。这将需要构建交易日的季节性曲线。
 - en: In the FX markets, different trading sessions offer varying degrees of liquidity.  
     With reduced liquidity we can see periods with very little price action and large
     (often temporary) jumps in price.  The autocorrelation of intensities is likely
     to differ in these sessions, not to mention the base intensity.   A markov switching
     model  may be the way to go to specialize for the different market conditions.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 在外汇市场中，不同的交易时段提供的流动性程度不同。流动性降低时，我们可能会看到价格动作很小，价格出现很大的（通常是暂时的）跳跃。这些时段的强度自相关性可能会有所不同，更不用说基本强度了。采用马尔可夫切换模型可能是适应不同市场条件的最佳方式。
 - en: '**Results**'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结果**'
 - en: I am now implementing this.   Will see how it compares to the modified GARCH
     process.   May also look at some variants for the jump process.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 我现在正在实施这个方案。将看看它与修改后的 GARCH 过程相比如何。也可能研究跳跃过程的一些变体。

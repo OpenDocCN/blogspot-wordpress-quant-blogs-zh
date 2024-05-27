@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:30:29'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:30:29'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: RethinkDB batch insert performance | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: RethinkDB batch insert performance | Coding the markets
 - en: 来源：[https://etrading.wordpress.com/2016/11/21/rethinkdb-batch-insert-performance/#0001-01-01](https://etrading.wordpress.com/2016/11/21/rethinkdb-batch-insert-performance/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2016/11/21/rethinkdb-batch-insert-performance/#0001-01-01](https://etrading.wordpress.com/2016/11/21/rethinkdb-batch-insert-performance/#0001-01-01)
 - en: RethinkDB batch insert performance
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: RethinkDB批量插入性能
 - en: November 21, 2016
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2016年11月21日
 - en: The forthcoming cloud version of SpreadServe uses a Tornado based server to
     persist a breakdown of all formulae used in a spreadsheet loaded by SpreadServe.
     For complex sheets I found that the insertion of many formulae in the formula
@@ -41,5 +57,8 @@
     server to handle HTTP GETs in the middle of an insert. If improved performance
     is necessary in future, splitting the Tornado server into two processes may be
     the way to go, but for current test scenarios performance is acceptable.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 即将推出的SpreadServe的云版本使用基于Tornado的服务器来持久化所有在SpreadServe中加载的电子表格中使用的公式的分解。对于复杂的表格，我发现许多公式在公式表中的插入可能会耗时。在一个测试场景中，多公式插入花了5分钟。所以我去查看了RethinkDB的[故障排除页面](https://www.rethinkdb.com/docs/troubleshooting/)，那里有一些有用的性能提示。使用建议的批量大小200进行批量插入，将插入时间从5分钟降低到21秒。进一步的改进来自于使用软持久性和noreply，将插入时间降低到约3.5秒。然而，我发现当插入协程在循环插入批次时，我的Tornado服务器无法响应传入的HTTP
+    GET请求。我推测noreply意味着循环中的yield会立即继续，而不等待数据库的回复IO。去掉noreply允许单线程服务器在插入过程中处理HTTP GET请求。如果将来需要改进性能，将Tornado服务器分成两个进程可能是可行的，但对于当前的测试场景，性能是可以接受的。

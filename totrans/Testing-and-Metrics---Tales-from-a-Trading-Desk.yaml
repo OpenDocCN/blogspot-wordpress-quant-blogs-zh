@@ -1,81 +1,119 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:27:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:27:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Testing and Metrics | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 测试与度量 | 交易台的传奇
 - en: 来源：[https://mdavey.wordpress.com/2018/01/11/testing-and-metrics/#0001-01-01](https://mdavey.wordpress.com/2018/01/11/testing-and-metrics/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2018/01/11/testing-and-metrics/#0001-01-01](https://mdavey.wordpress.com/2018/01/11/testing-and-metrics/#0001-01-01)
 - en: 'Executive Summary: testing provides confidence that requirements have been
     implemented (acceptance criteria/tests) prior to delivery into production, metrics
     provide a steer on confidence that the product/service/application is delivering
     as per the objectives, in production.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 执行摘要：测试提供了在交付到生产之前实施的需求的信心（验收标准/测试），指标提供了在生产中按照目标提供产品/服务/应用程序的信心。
 - en: Writing code has become easier in recent years with the improvements in IDE’s,
     build and deploy chain tooling, GitHub and tutorials and samples available on
     the web. In many cases it is possible to find code lying around the web which
     may solves part of the problem you are attempting to code. That said, writing
     good code is an art. Code that is well structured, tested, and that delivers a
     solution to the problem statement is continues to be a high bar.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 近年来，随着IDE的改进、构建和部署链工具、GitHub以及网上可用的教程和示例，编写代码变得更加容易。 在许多情况下，可以在网上找到解决部分问题的代码。
+    也就是说，编写优秀的代码是一门艺术。 良好结构化、经过测试并提供问题解决方案的代码仍然是一个高标准。
 - en: 'Testing is, and will continue to be, a debated topic, with multiple divergent
     approaches being common, for example:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试是一个长期争议的话题，并将继续如此，常见的有多种不同的方法，例如：
 - en: Unit vs integration vs end to end
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 单元测试 vs 集成测试 vs 端到端测试
 - en: Code then test, Test Drive Development (TDD), Behaviour Driven Development (BDD),
     or other.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Code then test, Test Drive Development (TDD), Behaviour Driven Development (BDD),
+    or other.
 - en: Any testing is better than no testing; and in most cases, an individual’s viewpoint
     on testing is strongly influenced by their notion of what makes a quality product,
     and how quality is measured. Improving upon a viewpoint, however well informed,
     requires articulated hypothesis and data points of validation found in collected
     [metrics](https://www.entrepreneur.com/article/237326).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 任何测试都比没有测试要好；在大多数情况下，个人对测试的看法都受到他们对什么构成优质产品以及如何衡量质量的概念的强烈影响。 然而，改进一个观点，无论多么充分地通知，都需要表达出的假设和在收集到的度量中找到的验证数据点。
 - en: AWS’s recent blog posting on the [roulette](http://www.businessinsider.com/amazon-web-services-uses-the-wheel-to-run-big-meetings-2017-12)
     wheel reminds us of how a data-driven culture is driving productivity and innovation
     at Amazon. Amazon has embraced metrics in defining objectives, and ensuring that
     products, services and processes meet expectation and can be optimised without
     reliance on “point of view”. Testing, backed by metrics, provides confidence that
     the delivered service will meet the expected criteria.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: AWS最近在[轮盘](http://www.businessinsider.com/amazon-web-services-uses-the-wheel-to-run-big-meetings-2017-12)的博客发布提醒我们，数据驱动文化如何推动亚马逊的生产力和创新。
+    亚马逊已经接受了用指标来定义目标，并确保产品、服务和流程达到期望，并且可以在不依赖“观点”的情况下进行优化。 测试，支持指标，提供了交付服务将满足预期标准的信心。
 - en: We can think of metrics and testing as providing a solid basis for confidence
     in application code as it progresses through the Software Development Life Cycle
     (SDLC), indeed, in the case of Amazon, Metrics Driven Development (MDD) are at
     the core of the SDLC. Metrics that validate the Definition of [Done](https://en.wikipedia.org/wiki/Scrum_(software_development))
     (of a story), not only validate software during test but provide real-time data-driven
     evidence of performance to specification in production.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以将度量和测试视为在应用程序代码通过软件开发生命周期（SDLC）时提供信心的坚实基础，事实上，在亚马逊的案例中，基于度量的开发（MDD）是SDLC的核心。
+    用于验证（故事）的完成定义的度量不仅在测试期间验证软件，而且提供了实时的基于数据的性能证据，以符合生产规范。
 - en: 'Returning to testing: software engineers who prefer not to follow the agile
     path of acceptance criteria/tests, as a required part of a story, risk failing
     to codify the story in a way that evidences how the requirement has been satisfied.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到测试：软件工程师如果不愿意遵循故事的验收标准/测试的敏捷路径，作为故事的必需部分，就有可能未能以证据的方式对故事进行编码，证明了需求是如何满足的。
 - en: ~ by mdavey on January 11, 2018.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由mdavey于2018年1月11日发布。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表在[未分类](https://mdavey.wordpress.com/category/uncategorized/)中

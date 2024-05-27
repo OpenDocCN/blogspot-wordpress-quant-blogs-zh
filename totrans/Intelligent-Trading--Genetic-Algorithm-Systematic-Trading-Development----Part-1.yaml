@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:46:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:46:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Genetic Algorithm Systematic Trading Development -- Part
     1'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：遗传算法系统交易开发第一部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/genetic-algorithm-systematic-trading.html#0001-01-01)
 - en: I want to start with a brief introduction to what I consider one of the most
     powerful learning methodologies to come out of Artificial Intelligence in the
     last several decades-- the Genetic Algorithm. Although it was originally developed
@@ -27,8 +39,10 @@
     adaptive systems at the University of Michigan, he wrote a text, titled "Adaptation
     in Natural and Artificial Systems" in 1975, that is considered a landmark book
     in the field.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想从对一种我认为是过去几十年人工智能领域中最强大的学习方法之一的简要介绍开始——遗传算法。虽然它最初是在20世纪50年代末为模拟进化生物学而开发的，但大多数人将其归功于约翰·霍兰德，因为他对该领域的发展做出了详细的贡献。作为密歇根大学适应性系统教授，他在1975年撰写了一部名为《自然和人工系统中的适应》的著作，该著作被认为是该领域的里程碑之作。
 - en: Although GAs are designed to borrow from our Genetic Biology, I want to quickly
     describe why they are powerful with respect to trading systems development. As
     a trader, you might often develop systems using creative ideas borrowed from Technical
@@ -42,8 +56,10 @@
     about whether our particular system (with the parameters we selected) has performed
     better than any other potential system in the universe of all possible candidate
     solutions.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然遗传算法是借鉴了我们的遗传生物学设计的，但我想要快速描述一下它们在交易系统开发方面为什么强大。作为一个交易员，你可能经常会开发使用来自你可能阅读过的技术分析书籍中的创新想法的交易系统。早期技术分析书籍的一个普遍问题，我认为，是它们通常会“挑挑拣拣”参数集的例子，而没有多少解释关于它们是如何得出这些参数的，以及它们可能比其他参数表现得如何。在统计学中，我们通常感兴趣的是收集许多不同的样本，以建立一个结果的分布概况，作为所有可能候选解决方案的真实人口的所有可能候选解决方案的估计。我们经常查看这些模型分布来收集关于我们的特定系统（我们选择的参数）是否比所有其他潜在系统在所有可能的候选解决方案的宇宙中表现更好的数量推断。
 - en: If the system performed better than some designated percentage of the sample
     distribution area of 100% (often set at 1% or 5% in common literature), then we
     can say that the result compared to the universe of candidates is "statistically
@@ -61,8 +77,10 @@
     the parameters of our system and look for those parameters that yield statistically
     significant results, the next might be to compare that candidate to buy and hold
     or other potential system candidates using a t-test of the separate distributions.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果系统的表现优于样本分布区间的100%中指定的某个百分比（在常见文献中通常设定为1%或5%），那么我们可以认为与所有候选者相比，结果是“统计学上显著的”。对于同一组系统规则使用不同的参数，将会得到不同的样本结果，构成那分布。例如，使用移动平均线交叉，我们可能会选择一对移动平均值来确定入市和离市，结果盈利为0.1%，而在相同期间另一组合则收益为2.3%。最终我们希望找到表现最佳的一组组合，或者至少显著优于买入持有策略，否则通常没有太多激励进行买卖，因为佣金成本和其他负面影响使得这变得不可行。我们可以尝试通过猜测或在潜在解决方案的搜索空间中枚举各种参数，但到了一定点，组合的数量变得难以控制且计算上不高效。第一步可能是评估我们系统的参数，寻找那些产生统计学上显著结果的参数，下一步可能是使用独立分布的t检验，将该候选者与买入持有策略或其他潜在的系统候选者进行比较。
 - en: Let's take an example of a potential set of rules to illustrate this idea. Suppose
     we sat down one day and decided upon a rule that said to buy if the m period moving
     average was greater or less than the n period moving average. First, we need to
@@ -80,22 +98,33 @@
     this goal. The genetic algorithm is one such optimization algorithm that borrows
     directly from our own evolutionary genetic system to find the best potential candidate,
     without having to literally try out every single possible combination.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们以一个潜在的规则集为例来阐述这个想法。假设我们某一天坐下来决定了一条规则，即如果m期移动平均大于或小于n期移动平均，则买入。首先，我们需要决定使用什么范围的值来计算平均值。如果我们将值的范围离散化为整数值，即每个1到512步，我们将有512X512X2（其中2表示大于或小于）=
+    542,288种不同的参数来枚举（或尝试）。尽管对于今天的计算能力来说，尝试这么多的组合数量似乎并不大，但当我们开始让规则变得更加复杂时，组合的数量将开始达到数百万。尝试所有这些组合根本不切实际，因此我们希望找到一种方法来减少潜在候选者的数量，同时找到最好的可能结果。我们所尝试做的是找到一个能快速收敛至最佳解决方案的“最优”算法。在机器学习领域中有许多算法被采用，在优化算法这一类别下存在为了实现这一目标。遗传算法就是这样一种优化算法，它直接借鉴了我们自己的进化遗传系统，以找到最佳的潜在候选者，而不必实际尝试每一个可能的组合。
 - en: '[![](img/7d707cec7a725207c48401b47b33557c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAawhkX1hZwdZjWQvNAisSoTZ0WkrM-lLy6RcilQz3-RkJ_uJBmiGFNthZBHlCd5Wy38LWL1x1KpFt1MbiyDZQFeaephEzhtGMjmUN3UpHnAdzSSIZNXmCdOCygtp_cbGFWt0k1VWS8mg/s1600-h/fig1_statistics_graph.jpg)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图1](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAawhkX1hZwdZjWQvNAisSoTZ0WkrM-lLy6RcilQz3-RkJ_uJBmiGFNthZBHlCd5Wy38LWL1x1KpFt1MbiyDZQFeaephEzhtGMjmUN3UpHnAdzSSIZNXmCdOCygtp_cbGFWt0k1VWS8mg/s1600-h/fig1_statistics_graph.jpg)'
 - en: Fig1\. Example of searching for statistically superior parameters.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 寻找统计上更优参数的示例。
 - en: Above, we see an example distribution of possible candidate solutions in the
     population of potential parameter pairs with the x-axis representing binned ranges
     of potential gain for the system, and y representing the frequency of parameter
     pair outcomes corresponding to that gain. Our Genetic Algorithm will help us to
     find those solutions that are statistically significant compared to potential
     solutions.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上文中，我们看到了一个可能候选解决方案在潜在参数对种群中的分布示例，其中x轴表示系统潜在收益的分类范围，y轴表示对应于该收益的参数对结果的频率。我们的遗传算法将帮助我们找到与潜在解决方案相比具有统计显著性的解决方案。
 - en: 'Next: Genetic Algorithm Systematic Trading Development -- Part 2'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 下篇：遗传算法系统交易开发 -- 第二部分

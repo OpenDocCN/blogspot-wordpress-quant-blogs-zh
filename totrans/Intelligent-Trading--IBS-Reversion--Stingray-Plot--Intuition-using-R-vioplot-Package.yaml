@@ -1,42 +1,66 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: '分类: 未分类'
 - en: 'date: 2024-05-18 04:43:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '日期: 2024-05-18 04:43:53'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: IBS Reversion (Stingray Plot) Intuition using R vioplot
     Package'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Intelligent Trading: IBS反转（鳐鱼图）直觉使用R vioplot包'
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2013/04/ibs-stingray-reversion-intuition-using.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2013/04/ibs-stingray-reversion-intuition-using.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2013/04/ibs-stingray-reversion-intuition-using.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2013/04/ibs-stingray-reversion-intuition-using.html#0001-01-01)
 - en: Fig 1\. Vioplot  of IBS filtered next day returns on SPY.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 1. Vioplot  of IBS过滤的SPY次日回报。
 - en: Fig 2\. Table of Summary of Results for rtn.tom vs. IBS.class (H,L,M)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 2. 摘要表，比较rtn.tom与IBS.class (H,L,M)的结果。
 - en: A colleague and I were recently discussing ways to get intuition about the
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我和一位同事最近讨论了如何获得关于
 - en: '[IBS classification method](http://intelligenttradingtech.blogspot.com/2013/01/ibs-reversion-edge-with-quantshare.html)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[IBS分类方法](http://intelligenttradingtech.blogspot.com/2013/01/ibs-reversion-edge-with-quantshare.html)'
 - en: for reversion systems.  I thought I'd share a
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 用于反转系统的IBS。我想分享一个
 - en: '[violin plot](http://cran.r-project.org/web/packages/vioplot/index.html)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[小提琴图](http://cran.r-project.org/web/packages/vioplot/index.html)'
 - en: I generated that might help to get some visual intuition about it. We can download
     and process next day returns for an asset like SPY and group classes into LOW
     (IBS < 0.2), HIGH(IBS > 0.8), and MID(all others). One thing you can see in the
@@ -46,5 +70,8 @@
     The nice thing about the vioplot visualization is that it includes the density
     shape of the return distribution, which adds intuition over more common box and
     whisker plots.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我生成的图表，可能会帮助大家获得一些关于它的视觉直觉。我们可以下载并处理像SPY这样的资产的次日回报，并将类别分为低（IBS < 0.2）、高（IBS
+    > 0.8）和中（其他所有）三个组。在图表中，你可以看到低组有明显的右偏，而高组有左偏（它们有点像相反的鳐鱼——鳐鱼图可能是更恰当的术语来描述反转现象）；而中组往往更接近平衡。vioplot可视化的好处是，它包括了回报分布的密度形状，这比常见的箱线图增加了直观性。

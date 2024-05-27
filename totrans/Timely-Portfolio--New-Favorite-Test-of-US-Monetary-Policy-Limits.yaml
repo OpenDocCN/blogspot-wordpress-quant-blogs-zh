@@ -1,94 +1,151 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:18:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: New Favorite Test of US Monetary Policy Limits'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时组合：美国货币政策限制的新宠测试
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/new-favorite-test-of-us-monetary-policy.html#0001-01-01)
 - en: After a little additional thought, I discovered that my [Death Spiral Warning
     Graph](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html)
     post can be improved through the isolation of the expected inflation component
     of US 10y yields provided by the US 10y yield – US 10y TIP yield.  Unfortunately,
     it more accurately reveals the cost of aggressive US Fed monetary policy, and
     I think offers a more dire assessment of the limits of this policy.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 经过一些深思熟虑后，我发现我的[死亡螺旋警告图](http://timelyportfolio.blogspot.com/2011/03/death-spiral-warning-graph.html)可以通过分离美国10年收益率的预期通胀成分来改进，该收益率由美国10年收益率-美国10年TIP收益率提供。不幸的是，它更准确地揭示了美国联邦储备银行积极货币政策的成本，并且我认为对这种政策的限制进行了更严重的评估。
 - en: The gains we have experienced seem much more transitory and spurious than a
     simple chart of the S&P 500 reveals.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们所经历的增长似乎比简单的标普500图表所显示的要短暂和虚假得多。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(性能分析)
 - en: '#get data from St. Louis Federal Reserve (FRED)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 注释：来自圣路易斯联邦储备银行(FRED)的数据
 - en: 'getSymbols("DGS10",src="FRED") #load 10yTreasury'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("DGS10"，源="FRED") #加载10年国债'
 - en: 'getSymbols("DFII10",src="FRED") #load 10yTIP for real return'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("DFII10"，源="FRED") #加载10年TIP的真实回报'
 - en: 'getSymbols("DTWEXB",src="FRED") #load US dollar'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("DTWEXB"，源="FRED") #加载US美元'
 - en: 'getSymbols("SP500",src="FRED") #load SP500'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("SP500"，源="FRED") #加载SP500'
 - en: '#new FED monetary policy limit monitor'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#新的美联储货币政策限制监控'
 - en: '#US10Y TIP Breakeven Inflation divided by the US Dollar'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 注释：US10Y TIP盈亏平衡通胀除以US美元
 - en: '#old favorite is US 10y Nominal divided by the US Dollar'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 旧宠是US 10年名义除以US美元
 - en: fedpolicytest<-merge((DGS10-DFII10)/DTWEXB,DGS10/DTWEXB)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: fedpolicytest<-合并((DGS10-DFII10)/DTWEXB,DGS10/DTWEXB)
 - en: colnames(fedpolicytest)<-c("US10yTIPInflationDivByUSDollar (new favorite)","US10yDivByDollar
     (old favorite)")
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名(fedpolicytest)<-c("US10yTIPInflationDivByUSDollar (新宠)","US10yDivByDollar
+    (旧宠)")
 - en: chart.TimeSeries(fedpolicytest["2003::2011"],legend.loc="topleft",
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.TimeSeries(fedpolicytest["2003::2011"],图例.位置="顶部左方",
 - en: main="US Monetary Policy Test-Does Bernanke Have a Limit?",colorset=c("cadetblue","darkolivegreen3"),ylab="",
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 主标题="美国货币政策测试-伯南克有极限吗？"，颜色集=c("海军蓝","深橄榄绿3"),y轴标签=""
 - en: event.lines="2008-07-02",event.labels="July 2, 2008")
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件线条="2008-07-02"，事件标签="2008年7月2日"
 - en: '#add label to denote new recent high'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 注释：添加标签以表示新的近期高点
 - en: text(NROW(fedpolicytest["2003::2011"])-15,fedpolicytest[NROW(fedpolicytest),1]+.001,"New
     High")
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 文本(NROW(fedpolicytest["2003::2011"])-15,fedpolicytest[NROW(fedpolicytest),1]+.001,"新高")
 - en: '#label previous high'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 注释：以前的高点
 - en: abline(h=fedpolicytest["2008-07-02",1],col="cadetblue")
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: abline(h=fedpolicytest["2008-07-02",1],col="navy")

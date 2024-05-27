@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:42:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:42:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Trading VXX with nearest neighbors prediction'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python交易：使用最近邻预测交易VXX
 - en: 来源：[http://tradingwithpython.blogspot.com/2014/11/trading-vxx-with-nearest-neighbors.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/11/trading-vxx-with-nearest-neighbors.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2014/11/trading-vxx-with-nearest-neighbors.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/11/trading-vxx-with-nearest-neighbors.html#0001-01-01)
 - en: An experienced trader knows what behavior to expect from the market based on
     a set of indicators and their interpretation. The latter is often done based on
     his memory or some kind of model. Finding a good set of indicators and processing
     their information poses a big challenge. First, one needs to understand what  factors
     are correlated to
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 经验丰富的交易员根据一组指标及其解读，知道市场会出现什么行为。后者通常基于他的记忆或某种模型进行。找到一组好的指标并处理它们的信息是一个巨大的挑战。首先，需要了解哪些因素与
 - en: '*future*'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**期货**'
 - en: prices. Data that does not have any predictive quality only intorduces noise
     and complexity, decreasing strategy performance. Finding good indicators is a
     science on its own, often requiring deep understandig of the market dynamics.
@@ -35,159 +51,243 @@
     set of indicators has been found, the traders memory and 'intuition' can be easily
     replaced with a statistical model, which will likely to perform much better as
     computers do have flawless memory and can make perfect statistical estimations.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格。没有预测价值的数据只会引入噪音和复杂性，降低策略表现。找到好的指标是一门科学，通常需要深入了解市场动态。这一部分策略设计不能轻易自动化。幸运的是，一旦找到了一组好的指标，交易员的记忆和'直觉'可以很容易地被统计模型所取代，计算机确实有完美的记忆能力，可以进行完美的统计估计。
 - en: Regarding volatility trading, it took me quite some time to understand what
     influences its movements. In particular, I'm interested in variables that
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于波动率交易，我花了很长时间才理解影响其走势的因素。特别是，我感兴趣的是那些
 - en: '*predict*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**预测**'
 - en: 'future returns of VXX and  XIV. I will not go into full-length explanation
     here, but just present a conclusion : my two most valuable indicators for volatility
     are the term structure slope and current volatility premium.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货回报率。我不会在这里进行详细解释，只是提供一个结论：我对波动率最宝贵的两个指标是期限结构斜率和当前波动率溢价。
 - en: 'My definition of these two is:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对这两个的定义是：
 - en: '*volatility premium = VIX-realizedVol*'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**波动率溢价 = VIX-实际波动率**'
 - en: '*delta (term structure slope) = VIX-VXV*'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**delta (term structure slope) = VIX-VXV**'
 - en: '*VIX & VXV*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**VIX & VXV**'
 - en: are the forward 1 and 3 month implied volatilities of the S&P 500\.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 是标普500的前1个月和3个月隐含波动率。
 - en: '*realizedVol*'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**实际波动率**'
 - en: here is a 10-day realized volatility of SPY, calculated with Yang-Zhang formula.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是SPY的10日实际波动率，使用杨-张公式计算。
 - en: '*delta*'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**delta**'
 - en: has been often discussed on
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 经常在
 - en: '[VixAndMore](http://vixandmore.blogspot.nl/)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[VixAndMore](http://vixandmore.blogspot.nl/)'
 - en: blog, while
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客，同时
 - en: '*premium*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**溢价**'
 - en: is well-known from option trading.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 众所周知，来自期权交易。
 - en: It makes sense to go short volatility when *premium*  is high and futures are
     in contango (*delta*  < 0). This will cause a tailwind from both the premium and
     daily roll along the term structure in VXX. But this is just a rough estimation.
     A good trading strategy would combine information from both *premium* and *delta* to
     come with a prediction on trading direction in VXX.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 当**溢价**高且期货处于正向市场(*delta* < 0)时做空波动率是有意义的。这将导致VXX沿着期限结构的每日滚动带来顺风。但这只是一个粗略的估计。一个好的交易策略会结合来自*溢价*和*delta*的信息来预测VXX的交易方向。
 - en: I've been struggling for a very long time to come up with a good way to combine
     the noisy data from both indicators. I've tried most of the 'standard' approaches,
     like linear regression, writing a bunch of 'if-thens' , but all with a very minor
     improvements compared to using only one indicator. A good example of such 'single
     indicator' strategy with simple  rules can be found on
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我花了很长时间才找到了一种好的方法来结合这两个指标产生的噪声数据。我尝试了大部分的'标准'方法，比如线性回归，写了一堆'如果-那么'，但与只使用一个指标相比，改进非常小。一个使用简单规则的'单个指标'策略的例子可以在
 - en: '[TradingTheOdds](http://www.tradingtheodds.com/2014/11/ddns-volatility-risk-premium-strategy-revisited-3/)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[](http://www.tradingtheodds.com/2014/11/ddns-volatility-risk-premium-strategy-revisited-3/)'
 - en: blog . Does not look bad, but what can be done with multiple indicators?
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客。看起来不错，但是多个指标能做些什么呢？
 - en: I'll start with some out-of-sample VXX data that I got from
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将从MarketSci获取一些样本外的VXX数据
 - en: '[MarketSci](http://marketsci.wordpress.com/2012/04/18/free-historical-vxx-data/)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[MarketSci](http://marketsci.wordpress.com/2012/04/18/free-historical-vxx-data/)'
 - en: . Note that this is simulated data, before VXX was created.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，这是模拟数据，在VXX创建之前。
 - en: 'The indicators for the same period are plotted below:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是同一时期的指标图表：
 - en: 'If we take one of the indicators (premium in this case) and plot it against
     future returns of VXX, some correlation can be seen, but the data is extremely
     noisy:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们取其中一个指标（这里为溢价）并与VXX未来的回报进行绘图，可以看到一些相关性，但数据非常嘈杂：
 - en: Still, it is clear that negative premium is likely to have positive VXX returns
     on the next day.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，很明显，负溢价很可能会在第二天带来正的VXX回报。
 - en: Combining both premium and delta into one model has been a challenge for me,
     but I always wanted to do a statistical approximation. In essence, for a combination
     of (delta,premium), I'd like to find all historic values that are closest to the
     current values and make an estimation of the future returns based on them. A couple
     of times I've started writing my own nearest-neighbor interpolation algorithms,
     but every time I had to give up... until I came across the
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 将溢价和delta结合成一个模型对我来说一直是一个挑战，但我一直想做一个统计近似。本质上，对于（delta,premium）的组合，我想找到所有与当前值最接近的历史值，并基于它们来估计未来的回报。我曾经几次开始编写自己的最近邻插值算法，但每次都不得不放弃...直到我遇到了
 - en: '[scikit nearest neighbors regression](http://scikit-learn.org/stable/auto_examples/neighbors/plot_regression.html#example-neighbors-plot-regression-py)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[scikit最近邻回归](http://scikit-learn.org/stable/auto_examples/neighbors/plot_regression.html#example-neighbors-plot-regression-py)'
 - en: . It enabled me to quickly build a predictor based on two inputs and the results
     are so good, that I'm a bit worried that I've made a mistake somewhere...
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让我能够快速基于两个输入构建一个预测器，结果非常好，以至于我有点担心我在某个地方犯了一个错误...
 - en: 'Here is what I did:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是所作之事：
 - en: create a dataset of [*delta,premium*] -> [*VXX next day return*] (in-of-sample)
+  id: totrans-39
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 创建一个数据集[*delta,premium*] -> [*VXX下一日回报*]（样本内）
 - en: create a nearest-neighbor predictor based on the dataset above
+  id: totrans-40
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 基于上述数据集创建一个最近邻预测器
 - en: 'trade strategy (out-of-sample) with the rules:'
+  id: totrans-41
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '用以下规则进行样本外交易策略（out-of-sample）:'
 - en: go long if predicted return > 0
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果预测回报率>0，则做多
 - en: go short if predicted return <0
+  id: totrans-43
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果预测回报率<0，则做空
 - en: The strategy could not be simpler...
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个策略不能再简单了...
 - en: The results seem extremely good and get better when more neigbors are used for
     estimation.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果似乎非常好，并且当用于估计的邻居更多时，表现会更好。
 - en: First, with 10 points, the strategy is excellent in-sample, but is flat out-of-sample
     (red line in figure below is the last point in-sample)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，用10个点，策略在样本内表现优秀，但在样本外表现平淡（下面图表中的红线是样本内的最后一个点）
 - en: 'Then, performance gets better with 40 and 80 points:'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，随着40和80个点的增加，表现变得更好：
 - en: In the last two plots, the strategy seems to perform the same in- and out-of-sample.
     Sharpe ratio is around 2.3.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 在最后两个图表中，策略在样本内外的表现似乎相同。夏普比率约为2.3。
 - en: I'm very pleased with the results and have the feeling that I've only been scratching
     the surface of what is possible with this technique.
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对结果非常满意，并且感觉我仅仅触及了这项技术可能做到的表面。

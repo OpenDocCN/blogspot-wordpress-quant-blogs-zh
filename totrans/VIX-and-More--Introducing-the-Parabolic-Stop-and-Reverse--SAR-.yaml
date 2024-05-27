@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 17:53:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 17:53:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: Introducing the Parabolic Stop and Reverse (SAR)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'VIX and More: 介绍抛物线停损和反转（SAR）'
 - en: 来源：[http://vixandmore.blogspot.com/2009/03/introducing-parabolic-stop-and-reverse.html#0001-01-01](http://vixandmore.blogspot.com/2009/03/introducing-parabolic-stop-and-reverse.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2009/03/introducing-parabolic-stop-and-reverse.html#0001-01-01](http://vixandmore.blogspot.com/2009/03/introducing-parabolic-stop-and-reverse.html#0001-01-01)
 - en: Yesterday, a reader asked about the usefulness of the parabolic stop and reverse
     indicator, sometimes called the PSAR or [SAR](http://vixandmore.blogspot.com/search/label/SAR).
     Since this is one of my favorite not-quite-mainstream indicators, I thought I
@@ -25,8 +37,11 @@
     One thing led to another and before I knew it, my simple response had grown to
     Tolstoyan proportions. For that reason, I am going to address the SAR over the
     course of several posts.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨天，一位读者询问了抛物线停损反转指标（有时称为 PSAR 或 [SAR](http://vixandmore.blogspot.com/search/label/SAR)）的用处。由于这是我最喜欢的非主流指标之一，我想我会花点时间提及我喜欢
+    SAR 的一些原因。事情就这样发展，然后我意识到，我的简单回答已经变成了托尔斯泰式的篇幅。因此，我将在几篇文章中探讨 SAR。
 - en: The SAR was unveiled by Welles Wilder as part of the groundbreaking 1978 classic,
     [New Concepts in Technical Trading Systems](http://www.amazon.com/New-Concepts-Technical-Trading-Systems/dp/0894590278/ref=sr_1_1?ie=UTF8&s=books&qid=1238510516&sr=1-1).
     Even after more than three decades, the achievements in this book still boggle
@@ -35,21 +50,29 @@
     [ADX](http://vixandmore.blogspot.com/search/label/ADX) (average directional indicator)
     and SAR, along with several lesser known indicators (e.g., commodity selection
     index, swing index, etc.) that probably deserve much more attention.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: SAR 是由威尔斯·怀尔德在 1978 年的开创性经典作品 [《技术交易系统的新概念》](http://www.amazon.com/New-Concepts-Technical-Trading-Systems/dp/0894590278/ref=sr_1_1?ie=UTF8&s=books&qid=1238510516&sr=1-1)
+    中揭示的。即使经过三十多年，这本书中的成就仍令人瞠目。怀尔德一举推出了 RSI（相对强度指数）、ATR（[真实波幅](http://vixandmore.blogspot.com/search/label/average%20true%20range)）、[ADX](http://vixandmore.blogspot.com/search/label/ADX)（平均方向指标）和
+    SAR，以及几个较不知名的指标（例如商品选择指数、摆动指数等），这些指标可能值得更多关注。
 - en: When it comes to adding more indicators to one’s TA toolbox, I am always a little
     hesitant to do so, as I prefer to keep things simple rather than make them too
     complex. This bias for “less is more” when it comes to indicators is partly due
     to the fact that so many of the indicators share some computational ancestry that
     the value added is often a lot less than meets the eye.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 当涉及到向技术分析工具箱中添加更多指标时，我总是有些犹豫，因为我更倾向于保持简单而不是使其过于复杂。对指标的“少即是多”偏好部分是因为许多指标共享一些计算血统，其增值通常远远不如其表面所见。
 - en: With those caveats in mind, I consider the SAR to be an exception. Specifically,
     the SAR is a unique combination of price and time. It works particularly well
     in trending markets and perhaps best suited to being implemented as a trailing
     stop mechanism.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到这些注意事项，我认为 SAR 是一个例外情况。具体来说，SAR 是价格和时间的独特组合。它在趋势市场中表现特别出色，也许最适合作为一种跟踪止损机制实施。
 - en: This time around, I will not delve into the details of the calculations of the
     SAR; instead, I will provide a quick overview of how the SAR works. In the chart
     below, I have captured data in [XLF](http://vixandmore.blogspot.com/search/label/XLF),
@@ -60,8 +83,11 @@
     signaled, the purple dots flip from the bottom to the top or the top to the bottom.
     To make these reversal signals easier to identify, I have added green and red
     arrows to indicate trend reversals.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这一次，我不会深入探讨 SAR 的计算细节；相反，我将简要概述 SAR 的工作原理。在下图中，我捕捉了金融 ETF [XLF](http://vixandmore.blogspot.com/search/label/XLF)
+    过去一年的数据。紫色点代表 SAR 值，它们是覆盖在价格图表上的。当紫色点位于蜡烛图下方时，这表明价格上涨；当紫色点位于蜡烛图上方时，这表明价格下跌。每当发出趋势变化的信号时，紫色点会从底部翻转到顶部，或从顶部翻转到底部。为了更容易识别这些反转信号，我添加了绿色和红色箭头表示趋势反转。
 - en: 'The SAR assumes traders are always in the market. Very simply, when the trend
     reverses, the SAR signals a new position should be initiated. To get a sense of
     how the SAR values move, review the new short signal from the second week in December.
@@ -75,22 +101,32 @@
     exit. This is the essence of the SAR: it gives gradual trends some time to gather
     momentum, hugs sharp trends closely, and acts as a tight stop should the trend
     begin to change direction.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: SAR假设交易者始终在市场中。简单地说，当趋势反转时，SAR信号应该建立新头寸。为了了解SAR值是如何变化的，回顾一下十二月中旬第二周的新空信号。注意SAR远高于最初的空头入场信号，但随着时间推移，SAR仍然沿着原始信号的方向移动，无论市场是否跟随趋势。这使得SAR在年初价格附近。也要注意，当XLF在一月初开始急剧下跌时，SAR随之加速下跌并紧随价格行动。当XLF在一月底最终反转到最后一刻，追踪止损如此之紧，仅一个看涨跳空上涨的日子就触发了退出。这就是SAR的精髓：它给逐渐趋势一些时间来积聚动力，紧贴急剧趋势，并在趋势开始改变方向时充当紧止损。
 - en: Now study the balance of the chart. Notice that when XLF was in a persistent
     trend (May, June, October, etc.), the SAR performed quite well. When XLF traded
     sideways, however, as it did in August, the SAR was responsible for quite a few
     whipsaws.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在研究一下图表的平衡。注意到了吗？当XLF处于持续趋势中（比如五月、六月、十月等）时，SAR表现非常好。然而，当XLF横盘交易，就像八月那样时，SAR造成了不少假信号。
 - en: In the next article in this series, I will delve deeper into the calculations
     behind the SAR and discuss some of the preferred approaches for applying this
     indicator.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个系列下一篇文章中，我将更深入地探讨SAR背后的计算，并讨论一些应用这个指标的首选方法。
 - en: '![](img/1eb644e8c2680fe694faa62e4ef7c2ba.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/1eb644e8c2680fe694faa62e4ef7c2ba.png)'
 - en: '*[source: StockCharts]*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '*[来源：StockCharts]*'

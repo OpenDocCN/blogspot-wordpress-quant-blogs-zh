@@ -1,53 +1,80 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:49:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:49:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: First Steps in WPF and Prism'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: First Steps in WPF and Prism'
 - en: 来源：[http://magmasystems.blogspot.com/2011/08/first-steps-in-wpf-and-prism.html#0001-01-01](http://magmasystems.blogspot.com/2011/08/first-steps-in-wpf-and-prism.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2011/08/first-steps-in-wpf-and-prism.html#0001-01-01](http://magmasystems.blogspot.com/2011/08/first-steps-in-wpf-and-prism.html#0001-01-01)
 - en: As I mentioned in my last posting, I want to spend a little time to better educate
     myself on WPF and Microsoft Prism. I see both of these being used more and more
     in Capital Markets applications, and I want to see if these two will truly allow
     me to build better applications faster.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 如我在上篇文章中提到的，我想花点时间更好地教育自己关于WPF和微软Prism的知识。我注意到这两个在资本市场应用中越来越多地被使用，我想看看这两个是否真的能让我更快地构建更好的应用程序。
 - en: I spent the last few days on a little sprint to come up with a prototype of
     a "Quote Workbench" that I could eventually expand into an algo trading platform
     or a backtesting platform. All of this code was written from scratch. My only
     tool was Visual Studio 2010\. There are no third-party commercial controls involved,
     so that if you wanted to download this code and build it yourself, you would not
     have to purchase any additional software.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 过去几天我一直在快速开发一个“报价工作台”的原型，我最终可以将其扩展为一个算法交易平台或一个回测平台。所有这些代码都是从头开始编写的。我唯一的工具是Visual
+    Studio 2010。没有涉及到第三方商业控件，所以如果你想下载这个代码并自行构建，你不需要购买任何额外的软件。
 - en: I ended up using two small DLLs that I found on CodeProject and CodePlex. One
     was a
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最终使用了在CodeProject和CodePlex上找到的两个小DLL。一个是
 - en: '[set of themes](http://datagridthemesfromsl.codeplex.com/)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[主题集合](http://datagridthemesfromsl.codeplex.com/)'
 - en: for the Microsoft WPF DataGrid, and the other was a
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于微软WPF DataGrid，另一个是
 - en: '[color picker control](http://wpfcolorpicker.codeplex.com/)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[颜色选择器控件](http://wpfcolorpicker.codeplex.com/)'
 - en: that I needed to enhance in order to support WPF Databinding.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了支持WPF数据绑定，我需要增强某些功能。
 - en: I am also curious to see if the Microsoft DataGrid can keep up with a high volume
     of real-time quotes. Most of the time, there is some sort of quote throttling
     that goes on before the quotes ever reach the grid. The general rule of thumb
@@ -58,29 +85,37 @@
     some of the commercial grids (DevExpress, Syncfusion, Infragistics, Xceed) are
     more performant that the out-of-the-box Microsoft DataGrid, but I do not have
     these commercial UI toolkits at my disposal right now.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我也很好奇微软的DataGrid是否能够跟上大量实时报价。大多数时候，报价在到达DataGrid之前都会进行某种程度的节流。一般性的经验法则是，人眼只能跟随每秒两次的更新。而且，除非你的GUI中有一些CEP系统或业务规则嵌入，否则你通常可以摆脱对报价的节流。尽管如此，我还是很好奇WPF基础的网格是否能够跟上大量报价。据我所知，一些商业网格（DevExpress，Syncfusion，Infragistics，Xceed）的性能比微软自带的DataGrid要好，但现在我手头并没有这些商业UI工具包。
 - en: From my recent experience, it seems that most developers are wrapping Winforms
     grids in a WindowsFormsHost control, and are not going to native WPF grids. If
     you have any opinions on the performance of Winforms vs WPF grids, please post
     a comment here.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据我最近的经验，似乎大多数开发者在将Winforms网格封装在WindowsFormsHost控件中，而不是使用本地的WPF网格。如果你对Winforms与WPF网格的性能有任何意见，请在评论区留下你的看法。
 - en: The idea for this sprint was to write two applications, a quote server and a
     quote client. The quote server spits out two types of quotes, Level 1 and Level
     2 equity quotes. The quote client consumes these quotes and displays the Level
     1 quotes in a WPF DataGrid and displays the Level 2 quotes in a standard Depth-of-Book
     control.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这次冲刺的想法是编写两个应用程序，一个报价服务器和一个报价客户端。报价服务器生成两种类型的报价，一级和二级股票报价。报价客户端消费这些报价，在WPF DataGrid中显示一级报价，在标准的深度订单簿控件中显示二级报价。
 - en: Since the overall theme of this exercise was to learn as much WPF and Prism
     as possible in the shortest amount of time, I did not pay attention to the way
     that the GUI looks. Nor did I try to optimize the internal plumbing. A lot of
     the application was designed to explore as much of WPF as possible, especially
     aspects surrounding Data Binding. My goal for Prism was to have as much loose
     coupling as possible.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于这次练习的整体主题是在最短的时间内尽可能多地学习WPF和Prism，所以我没有关注GUI的外观。也没有尝试优化内部管道。应用程序的很大一部分是为了探索尽可能多的WPF，尤其是与数据绑定相关的方面。我对Prism的目标是实现尽可能多的松耦合。
 - en: The first task was to write a Level 1 Equity Quote simulator. This is always
     a useful thing to have in your bag of tools. I preloaded a quote cache with a
     few symbols, and implemented a few strategies with which I could pump out quotes.
@@ -88,38 +123,52 @@
     be to download a list of the S&P 500 and corresponding Average Daily Volumes (ADV)
     for each instrument. A new strategy would be to generate quotes based on the weighted
     ADVs.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个任务是编写一个Level 1股票报价模拟器。这是工具箱中总是很有用的事物。我预加载了一个报价缓存，里面包含几个符号，并实现了一些策略，我可以使用这些策略来生成报价。目前这些策略限于循环和随机策略。下一步将是下载标普500指数及其相应每日平均成交量（ADV）的列表。一种新的策略将是基于加权ADV生成报价。
 - en: I also put GUIs in both the quote server and quote client so that I can see
     if there is any noticeable latency in delivering quotes from the server to a GUI.
     Of course, since I am delivering it between processes on my laptop, there shouldn't
     be any latency. But, if I decide to experiment with Comet and deliver the quotes
     across the Internet to a web-based GUI, then it's useful to have a monitoring
     GUI attached to the quote server.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还为报价服务器和报价客户端都加入了GUI，这样我就可以看到从服务器到GUI传递报价是否存在可察觉的延迟。当然，由于我是在笔记本电脑上的进程间传递，不应该有任何延迟。但是，如果我想实验Comet并在互联网上向基于网页的GUI传递报价，那么在报价服务器上附加一个监控GUI就很有用了。
 - en: The Level 1 quote simulator is fairly dumb right now. All it does is push out
     a lot of quotes at a user-specified rate. Additional improvements to the quote
     simulator would be
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 当前Level 1报价模拟器相当愚蠢。它所做的就是以用户指定的速率推送大量报价。报价模拟器的高级功能包括
 - en: Let the client subscribe and unsubscribe to specific quotes
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 让客户端订阅和取消订阅特定的报价
 - en: Use the FIX QuoteRequest  message for this
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用FIX QuoteRequest 消息进行此操作
 - en: When no clients are interested in a symbol, automatically stop publishing
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当没有客户对某个符号感兴趣时，自动停止发布
 - en: Use something like Google Finance or Yahoo Finance to seed the initial quotes
     with realistic values
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用诸如Google Finance或Yahoo Finance之类的工具来为初始报价提供实际值
 - en: Once I got the quote simulator working, and the quotes updating the server-side
     DataGrid in real-time, I wanted to send the quotes from the server to the client.
     For that, I decided to publish the quotes using the FIX Protocol. I downloaded
@@ -128,27 +177,41 @@
     Generally, you would not use FIX to push across a high volume of equity quotes.
     But, since this is a toolbox for experimentation, and since we want to stick with
     some free tools that implement a quasi-standard, let's just use FIX.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我让报价模拟器运行起来，并且报价能实时更新服务器端的DataGrid，我就想让服务器将报价发送到客户端。为此，我决定使用FIX协议发布报价。我下载了QuickFIX.Net的一个副本，创建了一个Prism模块，该模块能够接收一系列内部生成的报价对象流，并将它们通过网络推送给一个FIX订阅者。通常，您不会使用FIX来推送大量股票报价。但是，由于这是一个实验工具箱，并且我们想坚持使用一些免费的、实现准标准的工具，所以我们就用FIX。
 - en: '*Note - The QuickFIX assembly is built with .NET 2.0, so we need to add  useLegacyV2RuntimeActivationPolicy="true"
     to the app.config file for any application that uses QuickFix.NET.*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '*注意 - QuickFIX组件是用.NET 2.0构建的，因此我们需要在使用QuickFix.NET的任何应用程序的app.config文件中添加useLegacyV2RuntimeActivationPolicy="true"。*'
 - en: <configuration>
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: <configuration>
 - en: <startup uselegacyv2runtimeactivationpolicy="true">
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: <startup uselegacyv2runtimeactivationpolicy="true">
 - en: <supportedruntime sku=".NETFramework,Version=v4.0" version="v4.0"/>
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: <supportedruntime sku=".NETFramework,Version=v4.0" version="v4.0"/>
 - en: </startup>
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: </startup>
 - en: </configuration>
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: ']]></configuration>'
 - en: Now I had Level 1 equity quotes flowing between the client and server, I wanted
     to start publishing Level 2 quotes. I wrote a simple Book Generator that, given
     a certain symbol, generates an entire new book at a specified interval. Of course,
@@ -158,80 +221,114 @@
     the subscribed instruments, and ship out deltas to the GUI. The GUI would then
     need to insert new rows in the book, delete rows in the book, or modify rows in
     the book. I will leave this for a later exercise.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我已经有了客户端和服务器之间流动的一级股权报价，我想开始发布二级报价。我编写了一个简单的书籍生成器，给定一个特定的符号，在指定的间隔内生成一个全新的书籍。当然，现实世界并不是这样运作的。通常，当你收到一个书籍时，你会收到书籍的初始图像，然后是增量更新。书籍构建模块的工作将是为所有订阅的仪器构建一个完整的订单簿，并将增量更新发送到GUI。GUI需要插入书籍中的新行，删除书籍中的行，或修改书籍中的行。我稍后会留下这个问题。
 - en: How can I transmit the book from the server to the GUI? I coded up a quick WCF
     PubSub mechanism using the NetTCP binding. The book was transmitted across the
     wire as a SOAP message. Not very good for performance, but OK for interoperability
     in case I want to write an iOS-based or web-based GUI.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 我如何将簿记从服务器传输到GUI？我编写了一个快速的WCF发布-订阅机制，使用NetTCP绑定。簿记作为SOAP消息通过网络传输。性能不是很好，但对于在我想写一个基于iOS或基于web的GUI的情况下，兼容性还可以。
 - en: 'Improvements for the Level 2 Simulator are similar to the improvements I need
     to make to the Level 1 simulator, and include:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 二级模拟器的改进与我对一级模拟器需要做的改进相似，包括：
 - en: Improve performance - use binary encoding where possible, and investigate WCF-specific
     improvements
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 提高性能 - 尽可能使用二进制编码，并调查WCF特定的改进。
 - en: When a client subscribes to a symbol, send the full image and deltas, not the
     entire book.
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当客户端订阅一个符号时，发送完整的图像和增量，而不是整个簿记。
 - en: The pub-sub "topics" should contain information about the specific security
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 发布-订阅“主题”应包含有关特定安全性的信息。
 - en: Let the client subscribe and unsubscribe to specific quotes
+  id: totrans-37
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 让客户端订阅和取消订阅特定的报价。
 - en: When no clients are interested in a symbol, automatically stop publishing
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当没有客户端对某个符号感兴趣时，自动停止发布。
 - en: Use something like Google Finance or Yahoo Finance to seed the initial quotes
     with realistic values
+  id: totrans-39
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用类似于Google Finance或Yahoo Finance的东西来为初始报价提供实际值。
 - en: In the GUI, let the user switch between aggregated and non-aggregated views
     of the book. In an aggregated view, we aggregate the volume at each price point.
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在GUI中，让用户可以在聚合视图和非聚合视图之间切换簿记。在聚合视图中，我们在每个价格点上汇总成交量。
 - en: A screenshot of version 0.0001 is included below. Just a reminder that the GUI
     was coded so that I could explore different aspects of WPF and Prism, and is intended
     to be a test bench for learning.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是版本0.0001的截图。只想提醒一下，GUI的代码是为了让我能够探索WPF和Prism的不同方面，并打算作为一个学习用的测试台。
 - en: What's next?
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步是什么？
 - en: Probably a very light exchange simulator. I don't have access to a high-quality
     commercial product like the Aegis Exchange Simulator, but several years ago, a
     reader of this blog sent me the binary of a small exchange simulator that he wrote.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 可能是一个非常轻量级的交易所模拟器。我没有访问像Aegis Exchange Simulator这样的高质量商业产品，但几年前，博客的一位读者向我发送了他编写的一个小型交易所模拟器的二进制文件。
 - en: To keep on the track of investigating new technology, I would like to explore
     Microsoft-specific frameworks like TPL and perhaps Rx. I need to go over Matt
     Davey's blog and get some ideas :-)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了继续研究新技术，我想探索一些微软特定的框架，比如TPL，也许还有Rx。我需要回顾一下Matt Davey的博客，找些灵感:-)
 - en: The depth-of-book view can use some new kind of visualization in aggregated
     mode.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 在聚合模式下，深度簿记视图可以使用一些新的可视化方法。
 - en: There is some unfinished business that I have with Microsoft StreamInsight.
     I would like to provide a GUI that allows the user to create CEP queries, and
     have StreamInsight monitor the quote stream and provide alerting. I haven't looked
     at SI in two years, and I don't even know if I have access to it if I don't have
     a MSDN subscription. I can always used NEsper as a fallback (is Esper still around?)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 我与微软StreamInsight还有一些未完成的事情。我想提供一个GUI，使用户能够创建CEP查询，并让StreamInsight监控报价流并提供警报。两年前我甚至没看过SI，而且我不知道如果没有MSDN订阅，我是否可以访问它。我总是可以用NEsper作为备选方案（Esper还在吗？）
 - en: ©2011 Marc Adler - All Rights Reserved. All opinions here are personal, and
     have no relation to my employer.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2011 马克·阿德勒 - 版权所有。此处所有观点均为个人观点，与我的雇主无关。

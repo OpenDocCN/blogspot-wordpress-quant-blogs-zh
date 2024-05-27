@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:45:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:45:35'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Is it possible to get a causal smoothed filter ?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：是否可以得到一个因果平滑滤波器？
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/05/is-it-possible-to-get-causal-smoothed.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/05/is-it-possible-to-get-causal-smoothed.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/05/is-it-possible-to-get-causal-smoothed.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/05/is-it-possible-to-get-causal-smoothed.html#0001-01-01)
 - en: Although I haven't been all that much of a fan of moving average based methods,
     I've observed some discussions and made some attempts to determine if it's possible
     to get an actual smoothed filter with a causal model. Anyone who's worked on financial
@@ -26,34 +38,52 @@
     average length to accomplish a causal filter with decent lag properties; often
     a sacrifice is made between choosing a large parameter to obtain decent smoothing
     at the cost of lag.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然我一直不是移动平均方法的大粉丝，但我观察了一些讨论，并试图确定是否可以得到一个实际的因果模型平滑滤波器。任何从事过金融时间序列滤波器的人都知道，滤波器的噩梦是获得延迟非常低时的平滑响应。讽刺的是，您可能会认为为了实现具有相当延迟属性的因果滤波器，需要一个非常小的移动平均长度；通常是在选择大参数以获得良好的平滑性，而牺牲延迟之间做出妥协。
 - en: I put together the following FIR based filter using QQQQ daily data for about
     1 year worth of data. It is completely causal and described by .. gasp.. 250 coefficients.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我用大约一年的 QQQQ 日数据组装了以下基于 FIR 的滤波器。它是完全因果的，由... 250 个系数描述。
 - en: Does it appear smooth? You decide.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 它看起来是否平滑？您来决定。
 - en: '[![](img/97e67f3081338588eab781fa1d440b0b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAyNaaR5RtC37mZdiftYvrW3jVfc1fktHL9yj5fe35PnsHinIpPWRY2IS7fofyilKRAil2xNs4HK9plHlqFA32Asb1ZVFIxKT4o7HFa8n7qNyMAX4U5iCVujihQy9P6RgTLOLPzPwea9k/s1600/causal1.jpg)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAyNaaR5RtC37mZdiftYvrW3jVfc1fktHL9yj5fe35PnsHinIpPWRY2IS7fofyilKRAil2xNs4HK9plHlqFA32Asb1ZVFIxKT4o7HFa8n7qNyMAX4U5iCVujihQy9P6RgTLOLPzPwea9k/s1600/causal1.jpg)'
 - en: Fig 1\. FIR 250 tap feed forward filter
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 1. 250 抽头的前馈 FIR 滤波器
 - en: '[![](img/1be47d4e7510ecf61130260f9efc7a36.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXuJP0xhnyxJGhDYbXclFCSC1AQ-X36qc3JpLVfZKm0gGi4Y0UuBVFbB7TUGw305OVDDcLe8q2DvB_iB38QYkGkOAi4THp4-Fs_iZMqQyUiCVtH0GZWh4dPrD6cOdjCrQWBcDQLNM2hNY/s1600/impulse.jpg)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXuJP0xhnyxJGhDYbXclFCSC1AQ-X36qc3JpLVfZKm0gGi4Y0UuBVFbB7TUGw305OVDDcLe8q2DvB_iB38QYkGkOAi4THp4-Fs_iZMqQyUiCVtH0GZWh4dPrD6cOdjCrQWBcDQLNM2hNY/s1600/impulse.jpg)'
 - en: Fig 2\. 250 weight impulse response determining coefficients
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 2. 确定系数的 250 权重冲激响应
 - en: The impulse response is approximately a sinc function, which is the discrete
     inverse transform for an ideal 'brick wall' low pass filter.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 冲激响应大约是一个 sinc 函数，这是理想 '砖墙' 低通滤波器的离散逆变换。
 - en: I haven't actually verified much out of sample at the moment, so it's quite
     possible that the model may not fare as well; it remains to be investigated. However,
     thought I would share this work to give some ideas about potential of causal filtering
     methods.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上我目前并没有对外部样本进行太多验证，所以模型可能表现不佳，还有待进一步调查。然而，我想分享这项工作，以提供关于因果滤波方法潜力的想法。

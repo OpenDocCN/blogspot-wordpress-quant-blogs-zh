@@ -1,32 +1,50 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:24:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:24:22'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: The Night of the Living Config Files'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 活配置文件之夜'
 - en: 来源：[http://magmasystems.blogspot.com/2005/10/night-of-living-config-files.html#0001-01-01](http://magmasystems.blogspot.com/2005/10/night-of-living-config-files.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2005/10/night-of-living-config-files.html#0001-01-01](http://magmasystems.blogspot.com/2005/10/night-of-living-config-files.html#0001-01-01)
 - en: My colleague
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的同事
 - en: '[Pinakin](http://pinakin-uk.blogspot.com)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Pinakin](http://pinakin-uk.blogspot.com)'
 - en: blogged today about config file hell in his project.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天在他的项目中写了关于配置文件地狱的博客。
 - en: This brought a chuckle to me. We went through precisely the same thing at the
     last project. For one part of our system, we were forced to use a framework that
     was built by an outside consulting firm that had done some work for my client,
@@ -37,13 +55,17 @@
     each major release of the framework. Needless to say, every major release brought
     some headaches on our side as we scrambled to find all of the various assemblies
     that were no longer loading.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让我忍俊不禁。我们在上一个项目中经历了完全相同的事情。我们系统的一部分被迫使用一个由外部咨询公司为我的客户，一家大型金融机构构建的框架。这个框架使用服务定位器模式来管理服务。每个服务都有它自己的基于XML的配置文件，里面包含了所有各种DLL的绝对路径。这家外部公司还有一个坏习惯，就是在框架的每次重大发布时更改各种程序集的命名空间。不言而喻，每次框架的重大发布都会给我们带来一些麻烦，因为我们急于找到所有不再加载的各种程序集。
 - en: We saw some mistakes in the implementation of this outside framework. If you
     are writing systems that use the service locator pattern, there are some things
     that you need to be aware of.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到了这个外部框架实现中的一些错误。如果你正在编写使用服务定位器模式的服务，有一些事情你需要注意。
 - en: 1) Sequencing. Certain services must be loaded before others if there are dependencies
     between services. For example, if you have a logging service, and this logging
     service uses an exception-handling service if the log file cannot be created,
@@ -52,13 +74,17 @@
     hashtable and then iterate through the hashtable to instantiate each service.
     Well, hashtables are iterated in a quasi-random fashion, so you can certainly
     run into sequencing issues as you instantiate each service.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 顺序。如果服务之间有依赖关系，某些服务必须在其他服务之前加载。例如，如果你有一个日志服务，如果无法创建日志文件，这个日志服务将使用异常处理服务，那么异常处理服务必须先加载。这个框架犯的一个错误是将所有服务代理配置信息读取到一个哈希表中，然后遍历哈希表以实例化每个服务。嗯，哈希表是以伪随机方式遍历的，所以当你实例化每个服务时，你肯定会遇到顺序问题。
 - en: 2) Default behavior. If a "non-crucial" service cannot be loaded, do you abort
     the program? For example, if the logging service cannot be loaded, just turn off
     logging (unless the business requirements are such that logging must be always
     functional due to auditing rules). Do something reasonable if as service cannot
     be loaded. Don't just come back with a cryptic error message. I have spent more
     time tracing Assembly.Load() errors than I care to imagine.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 默认行为。如果一个“非关键”服务无法加载，你是否终止程序？例如，如果日志服务无法加载，只需关闭日志（除非由于审计规则，日志必须始终可用）。如果某个服务无法加载，做一些合理的事情。不要只返回一个神秘的错误信息。我花在追踪Assembly.Load()错误上的时间比我愿意想象的时间还要多。

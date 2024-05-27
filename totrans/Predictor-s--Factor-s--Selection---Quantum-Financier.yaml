@@ -1,42 +1,60 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:00:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:00:52
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Predictor(s)/Factor(s) Selection – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 预测变量（因素）选择——量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2011/01/09/predictorfactor-selection/#0001-01-01](https://quantumfinancier.wordpress.com/2011/01/09/predictorfactor-selection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2011/01/09/predictorfactor-selection/#0001-01-01](https://quantumfinancier.wordpress.com/2011/01/09/predictorfactor-selection/#0001-01-01)
 - en: Before getting in the post main subject, I want to mention a couple things.
     First, the TAA system talked about before on the blog is still in the works, a
     busy schedule and work commitment made it difficult for me to polish and publish
     it as soon as I wanted. Secondly, I apologize for the New Year’s hiatus; I will
     be back to regular posting in the coming days.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在进入文章主题之前，我想提几件事情。首先，博客上之前提到的TAA系统仍在进行中，紧张的日程和工作承诺使我难以在我希望的时间内打磨并发布它。其次，我为新年假期期间的停更道歉；我将在未来几天回归正常更新。
 - en: Back to the subject at hand; predictor selection. For usual readers of the blog,
     machine learning will not strike as an unusual topic for the blog. I really enjoy
     using statistical learning models for my research and trading, and talked about
     it a fair bit in earlier posts. However, reviewing the blog history recently,
     I noticed that I overlooked this very important topic.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到手头上的主题；预测变量选择。对于博客的通常读者来说，机器学习不会让人觉得是博客的一个不寻常的话题。我非常喜欢用统计学习模型进行我的研究和交易，并且在早期的文章中谈到了这一点。然而，最近回顾博客历史时，我注意到我忽略了这个非常重要的主题。
 - en: 'The same way we must be careful what predictor(s) we use when using linear
     regression or, for that matter, any forecasting model we need to pay close attention
     to our input when using learning models (GIGO: garbage in = garbage out).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，我们必须小心我们在使用线性回归时使用的预测变量，或者，事实上，我们在使用任何预测模型时都需要密切注意我们的输入（垃圾进=垃圾出）。
 - en: Using a “kitchen sink” approach and using as many predictors as one can think
     of is generally not the way to go. A large number of predictors often bring a
     high level of noise which usually makes it very hard to identify reliable patterns
@@ -44,8 +62,10 @@
     unlikely that there will be a lot of high probability patterns to profit from.
     In theory we are trying to minimize the number of predictors for a given accuracy
     level.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用“一站式购物”方法，尽可能多地使用预测变量，通常并不是一个好方法。大量的预测变量通常会带来很高的噪声，这通常使得很难识别出模型中数据中可靠的规律。另一方面，预测变量非常少时，不太可能存在很多高概率的规律可以从中获利。理论上，我们在给定的准确度水平下尽量减少预测变量的数量。
 - en: In practice, we usually go from what the theory suggests or discretionary observation
     to determine what should be included. The quantification of this process is often
     called Exploratory Factor Analysis (EFA); basically looking at the covariance
@@ -57,8 +77,12 @@
     decomposition is supposed to help us refine our predictor selection and hopefully
     improve classification performance; this process will be the object of the next
     few posts.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在实际操作中，我们通常根据理论建议或主观观察来决定应包含哪些内容。这个过程的量化通常被称为探索性因子分析（EFA）；基本上是查看我们的预测变量的协方差矩阵并进行特征值分解。这样做我们旨在确定影响我们响应（依赖）变量的因素数量以及这种影响的强度。这种技术有助于更好地理解预测变量与响应变量之间的关系，并确定在分类时哪些预测变量最为重要。这种协方差矩阵分解技术有助于我们完善预测变量的选择，希望能提高分类性能；这个过程将是接下来几篇文章的主题。
 - en: QF
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

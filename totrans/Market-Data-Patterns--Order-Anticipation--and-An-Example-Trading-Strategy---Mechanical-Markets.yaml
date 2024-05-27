@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:43:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:43:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Market Data Patterns, Order Anticipation, and An Example Trading Strategy |
     Mechanical Markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 市场数据模式、订单预期和一个交易策略示例 | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/04/30/market-data-patterns-order-anticipation-and-an-example-trading-strategy/#0001-01-01)
 - en: I recently [discussed](https://mechanicalmarkets.wordpress.com/2015/04/12/spoofing-corrupts-markets-a-reply-to-john-arnold/)
     the inseparability between predicting an instrument’s price and anticipating its
     order flow. But, sometimes it’s possible to directly predict order flow from the
@@ -26,55 +38,77 @@
     post, we’ll see examples of common patterns in market data that have an association
     with future orders. I’ll also outline a simple trading strategy with one of these
     patterns as its primary feature.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近[讨论](https://mechanicalmarkets.wordpress.com/2015/04/12/spoofing-corrupts-markets-a-reply-to-john-arnold/)了预测工具价格与预期订单流不可分割的问题。但是，有时可以直接从执行算法或某些交易所订单类型的签名中预测订单流。在这篇文章中，我们将看到市场数据中与未来订单有关的一些常见模式。我还将概述一个以这些模式之一为主要特征的简单交易策略。
 - en: Reserve Orders
+  id: totrans-7
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 保留订单
 - en: 'A reserve order (also called an “iceberg order” or [“MaxShow order](http://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+-+Order+Qualifiers#iLink-OrderQualifiers-Tag210-MaxShow)“)
     is a resting order that is programmed to have its quantity refilled in some fashion
     after it executes. I believe the existence of reserve orders is motivated by participants’
     desire to hide the full extent of their trading intentions. A reserve order, for
     instance, might display 200 shares at any one time when its full size is many
     times that. Here’s a simplified illustration of how they work:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 保留订单（也称为“冰山订单”或[“MaxShow订单](http://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+-+Order+Qualifiers#iLink-OrderQualifiers-Tag210-MaxShow)”）是一种在执行后以某种方式重新填充数量的休息订单。我相信保留订单的存在是由参与者隐藏其交易意图的全文的愿望所驱动的。例如，保留订单可能在任何时候显示200股，而其全部大小是那个数字的好几倍。下面是一个简化的工作原理说明：
 - en: Trader submits a reserve order to buy 5000 shares of AAPL at $100, setting the
     order to display 200 shares at any one time.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易员提交了一个保留订单，购买AAPL的5000股，价格为100美元，设置订单在任何时候显示200股。
 - en: Market data shows a new bid at $100 for 200 shares.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 市场数据显示一个新的100美元的出价，为200股。
 - en: Someone else trades with that $100 bid.
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 别人与那个100美元的出价进行了交易。
 - en: A new 200 share bid for $100 appears in the market data.
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 市场数据显示一个新的200股的100美元出价。
 - en: Steps 3 and 4 repeat until the full 5000 shares are executed, the price moves
     away, or the trader cancels the order.
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 步骤3和4重复执行，直到5000股全部成交，价格变动，或者交易员取消订单。
 - en: See p56-60 of this [document](http://www.nasdaqomx.com/digitalAssets/75/75620_nasdaqomxnordicmarketmodel2.6.pdf)
     from Nasdaq Nordic for more detailed examples.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 想了解更详细的例子，请看纳斯达克北欧的这份[文件](http://www.nasdaqomx.com/digitalAssets/75/75620_nasdaqomxnordicmarketmodel2.6.pdf)的第56-60页。
 - en: You might guess that reserve orders, because they tend to be large and worth
     hiding, have substantial alpha. You can probably also see how they might leave
     a fairly obvious signature in market data. So, let’s check. Here is a chart of
     the performance of a few types of refilled orders.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可能猜测，因为保留订单通常较大且需要隐藏，所以它具有大量的alpha。你也许还能看出它们在市场数据中可能留下相当明显的签名。所以我们来查一下。下面是几种补单类型的绩效图表。
 - en: '[![inet_sfa_reserve_midpt_toxic_800](img/40d05225d84d96e97559c9aa86a0e531.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/inet_sfa_reserve_midpt_toxic_1366.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![inet_sfa_reserve_midpt_toxic_800](img/40d05225d84d96e97559c9aa86a0e531.png)'
 - en: 'Top panel: Average profit or loss per share vs distance in time from market
     event. For events marked “Order-Add,” the line follows the market price trajectory
     relative to the order price and time of appearance. Events marked “Execution”
@@ -85,8 +119,10 @@
     trading-through and the market price snap-back that follows. Chart is over 6 days
     in August and excludes fees and rebates. Bottom panel: Shares traded on Nasdaq
     vs time from event (including volume from any part of these events).'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：平均每股利润或损失与市场事件时间距离的关系。对于标记为“订单增加”的事件，线条遵循相对于订单价格和出现时间的市场价格轨迹。标记为“执行”的事件遵循后来成交的这些订单的价格轨迹，相对于执行价格和时间。这里的“市场价格”是指纳斯达克的midpoint，而不是像之前的帖子中的最后交易价格，并且根据订单增加/执行的量分别加权。查看midpoint可以很容易地看到价格水平的交易穿透和随后的市场价格反弹。图表是8月份6天内的数据，不包括费用和回扣。底部面板：纳斯达克交易的股票与事件时间（包括这些事件任何部分的成交量）。
 - en: These orders that are the result of a refill definitely have noticeable alpha,
     even when they execute. Which is somewhat surprising given that a large part of
     the market ought to know that these orders were potential icebergs. You might
@@ -96,8 +132,10 @@
     by any standard. Generally speaking, a high fill rate is associated with greater
     market impact; though, of course, we don’t have any information about the hidden
     portions of these orders which are not executed.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些因补单而产生的订单确实具有明显的alpha，即使它们被执行了。这在某种程度上令人惊讶，因为市场的大部分人应该知道这些订单可能是潜在的冰山。你可能期望在第一次补单后，只有非常有信心的参与者才会愿意与它们交易，而在几次补单后，交易者会变得越来越谨慎。大约67%的这些展示的股票最终被成交，这个比例在任何标准下都很高。一般来说，高的成交率与更大的市场影响相关；然而，我们当然没有任何关于未被执行的这些订单隐藏部分的信息。
 - en: Most importantly, notice how the market midpoint tends to snap back after a
     trade, more or or less confirming that many refilled orders continue to get refilled
     after subsequent trades. Also, note that the time-scale of the snap-back is pretty
@@ -109,12 +147,16 @@
     entry interface. [[1](#bottom1reserve)] Of course, these refills could also be
     due to execution algorithms operated independently from Nasdaq, but I suspect
     that many are, in fact, reserve orders. [[2](#bottom2reserve)]
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 最重要的是，注意市场midpoint在交易后是如何倾向于反弹的，这或多或少证实了许多补单在后续交易后仍然继续被补单。同时，注意反弹的时间尺度在200~400us范围内，这比在纳斯达克交易的HFT的通常往返时间要长得多。我的猜测是纳斯达克通过其核心匹配引擎外的计算机处理保留订单。这可以解释这种延迟以及保留订单[不可用](http://nasdaqtrader.com/content/ProductsServices/Trading/Protocols_quickref.pdf)在高速[OUCH](http://www.nasdaqtrader.com/Trader.aspx?id=ouch)订单输入界面上的原因。当然，这些补单也可能是因为独立于纳斯达克的执行算法，但我怀疑事实上许多其实是保留订单。
 - en: Anticipating Order Flow
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 预期订单流动
 - en: If that’s the case, this is a great example of exchange order handling being
     potentially open to what Michael Lewis might call front-running [[3](#bottom3reserve)].
     If reserve orders take ~250us for the exchange to refill them, what happens if
@@ -127,16 +169,21 @@
     if so the hypothetical HFT would have pretty limited risk of being filled in situations
     where they did not have an order behind them in the queue, which is generally
     considered desirable.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果是这样，这是交易所订单处理可能对迈克尔·刘易斯所说的前端运行开放的一个很好的例子[[3](#bottom3reserve)]。如果储备订单需要交易所大约250微秒来加油，那么如果有人试图在预期加油之前提交一个订单会发生什么？交易所延迟因情况而异，我自己没有在这些情况下测试过，但我敢打赌，在纳斯达克加油之前，一个HFT可以有自己的订单保持活动状态。
+    [[4](#bottom4reserve)] HFT甚至可以在几百微秒后删除他们的订单，如果储备订单在他们后面没有加油。我*不是*说这种情况正在发生，但如果如此，假设的HFT在他们没有在队列中后面的订单的情况下成交的风险相当有限，这通常被认为是可取的。
 - en: My feeling is that this sort of trading by an HFT would be perfectly legal,
     even if it feels a little shady. HFTs’ compliance departments might forbid flashing
     and quickly deleting an order if nobody joins its price level, partly because
     that kind of activity may indicate a strategy is hoping to elicit a reaction from
     the market with its orders. That’s not what we’re discussing here, but compliance
     departments are hopefully very watchful of any trading that resembles market manipulation.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的感觉是，这种由HFT进行的交易完全是合法的，即使它看起来有些可疑。HFT的合规部门可能会禁止在没有人与其价格水平成交的情况下闪烁并快速删除订单，部分原因是这种活动可能表明一个策略希望通过其订单引发市场的反应。这不是我们在讨论的内容，但合规部门希望对任何类似市场操纵的交易保持高度警惕。
 - en: 'But, what if we simulate the next simplest thing? We’re not trying to do anything
     too complicated here, so let’s just pick the highest performing type of refill
     events for our strategy to mimic. Events with refills that improve the BBO at
@@ -147,31 +194,41 @@
     of simulated trades that result from adding a 100-share order *after* one of these
     refills occurs, with the simulation keeping its orders live until it sees the
     suspected reserve orders stop refilling:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，如果我们模拟下一件最简单的事情呢？我们在这里并没有试图做太复杂的事情，所以让我们 just 选择一种最高性能的加油事件类型来模仿我们的策略。在加油时能提高BBO的事件的表现优于那些与BBO持平的事件（对于后者群体，这里同样的[分析](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/inet_sfa_reserve_midpt_nontoxic_1366.png)如上）。加油订单显示超过101股的性能也显著更好。我们的策略将本质上是要复制这些订单。以下是模拟交易的结果，在发生这些加油事件之一后添加一个100股订单，模拟使其订单保持活动状态，直到它看到疑似的储备订单停止加油：
 - en: '[![inet_sfa_reserve_sim_>101add_bboImp_800](img/419c5965b64327adc354db4f3e1744ee.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/inet_sfa_reserve_sim_101add_bboimp_1366.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![inet_sfa_reserve_sim_>101add_bboImp_800](img/419c5965b64327adc354db4f3e1744ee.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/inet_sfa_reserve_sim_101add_bboimp_1366.png)'
 - en: 'Top panel: Average market-priced profit or loss per share vs distance in time
     from trades simulated by the above-described strategy. The “market price” here
     is a measure of the last-traded price, which is why you don’t see a snap-back
     in the price after a trade. Chart is over 8 days in August (different from the
     days in the above chart). Bottom panel: Shares traded on Nasdaq vs time from trade
     (excluding simulated trade).'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：平均市场价格每股利润或损失与上述描述的策略模拟交易的时间距离。这里的“市场价格”是最后交易价格的度量，这就是为什么你在交易后看不到价格的快速反弹。图表是在8月份的8天（不同于上面的图表中的日子）。底部面板：纳斯达克交易的股票与交易时间（不包括模拟交易）。
 - en: Even this simple trading strategy appears to be profitable. The above chart
     excludes fees and the roughly 0.30 cents/share Nasdaq rebates, which raise the
     profitability significantly. All told, at least in simulation, this would make
     nearly 20k/day. And that is just by sending 100 share orders to Nasdaq, with Nasdaq
     refills as the only signal. There are other exchanges with very similar behavior
     that are amenable to this kind of strategy.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使这个简单的交易策略似乎也是盈利的。上述图表未包含费用和大约0.30美分/股的纳斯达克回扣，这些回扣显著提高了盈利能力。总的来说，至少在模拟中，这可以使每天的收入接近20,000美元。仅通过向纳斯达克发送100股订单，并以纳斯达克回填作为唯一信号，就有其他具有非常相似行为的交易所适用于这种策略。
 - en: Automated Pattern Detection
+  id: totrans-27
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 自动化模式检测
 - en: In the simulation, after the once-refilled order in front of the simulated order
     executes, another refill generally comes in behind the simulated order. So, this
     simulated strategy is still pretty explicitly anticipating order flow. Again,
@@ -184,62 +241,87 @@
     without actually looking at what those patterns are. [[6](#bottom6reserve)] This
     particular pattern occurs quite often, so I think that many pattern-detection
     methods would find it easily.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 在模拟中，在模拟订单之前的重新填充订单执行后，通常会在模拟订单后面再次出现重新填充。所以，这种模拟策略仍然在很明确地预期订单流。再次强调，我相信这种交易活动是合法的（并不是我是律师）。但这确实让我感到有些不舒服，我和我的公司也从未在实际交易中使用过这种信号或类似信号。但是，很容易想象这种市场数据模式在没有操作者意识到的情况下被用于交易策略。
+    [[5](#bottom5reserve)] 量化分析师可以创建一个模型，该模型会自动在市场数据中寻找模式，并将其统计地结合起来进行预测，而不必实际查看这些模式是什么。
+    [[6](#bottom6reserve)] 这种特定模式发生得相当频繁，所以我认为许多模式检测方法都会很容易地找到它。
 - en: I’ll also mention that sometimes certain patterns in market data do not obviously
     resemble exchange order types, but still have similar predictive power to our
     example of reserve orders. Below, we can see the anomalously high performance
     of orders that are added shortly after the appearance of another order on the
     opposite side.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还要提到，有时市场数据中的某些模式并不明显类似于交易所订单类型，但仍然具有与我们的储备订单示例类似的预测能力。如下，我们可以看到在另一个订单出现在相反侧后不久添加的订单表现异常优异。
 - en: '[![inet_sfa_dime-oppSideDime_midpt_toxic_(trimmed)800](img/4c72d61a1735b8d6f2f9aae0b793adee.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/inet_sfa_dime-oppsidedime_midpt_toxic_trimmed1366.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '![inet_sfa_dime-oppSideDime_midpt_toxic_(trimmed)800](img/4c72d61a1735b8d6f2f9aae0b793adee.png)'
 - en: 'Top panel: Average profit or loss per share vs distance in time from market
     event. The “market price” here is again the Nasdaq midpoint, not the last-traded
     price. Chart is over 6 days in August and excludes fees and rebates. Bottom panel:
     Shares traded on Nasdaq vs time from event (including volume from any part of
     these events).'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：平均每股利润或亏损与市场事件时间距离的关系。“市场价格”此处仍为纳斯达克中点价格，并非最后交易价格。图表覆盖了八月份的6天，未包含费用和回扣。底部面板：纳斯达克交易的股票与事件时间关系（包括这些事件任何部分的成交量）。
 - en: 'Orders that are part of event sequences of this type are pretty high-alpha
     as you can see. There could be all sort of reasons for that, including:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为此类事件序列的一部分订单alpha值相当高，如你所见。可能有各种各样的原因，包括：
 - en: Execution algorithms that make their quotes more aggressive when they see the
     spread tighten
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 执行算法在看到价差缩小时使他们的报价更加激进
 - en: Some could be reserve orders like those above, and are refilling after both
     an incoming trade and a new order on the opposite side (other algos may add that
     order in response to the trade).
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 其中一些可能是像上面那样的储备订单，并在一个方向上的交易和新订单之后进行回填（其他算法可能在该交易中添加该订单）。
 - en: Exchange order types that I’m not familiar with
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 我不熟悉的交易所订单类型
 - en: 'Or, in light of [recent events](http://www.bloombergview.com/articles/2015-04-21/guy-trading-at-home-caused-the-flash-crash),
     spoofing. (Hopefully not, and I doubt it). [Edit: For an example of how spoofing
     may induce somebody into trading with a reserve order on the opposite side, see
     this [CME disciplinary notice](http://www.cmegroup.com/tools-information/lookups/advisories/disciplinary/NYMEX-10-07963-BC-IGOR-OYSTACHER.html#pageNumber=1)]'
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 或者，考虑到[最近的事件](http://www.bloombergview.com/articles/2015-04-21/guy-trading-at-home-caused-the-flash-crash)，垃圾邮件发送。
+    （希望不是，我怀疑不是）。[编辑：关于垃圾邮件发送可能诱导某人与保留订单在相反方向上交易的例子，请参阅此[CME纪律通知](http://www.cmegroup.com/tools-information/lookups/advisories/disciplinary/NYMEX-10-07963-BC-IGOR-OYSTACHER.html#pageNumber=1)]
 - en: Ethics of Using Signatures from Algorithmic Trading Tools
+  id: totrans-37
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 算法交易工具使用签名的道德问题
 - en: Would using this particular signal, which is not directly linked to an exchange
     order type, in a trading strategy be unethical? Neither I nor my company have
     used it (or anything like it), but I don’t see a problem with doing so. If somebody
     wants to use an execution algorithm that leaves a blaring signature in market
     data, it’s hard to feel too sympathetic.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用这种特定的信号，它与交易所订单类型没有直接联系，在交易策略中是否不道德？我自己或我的公司都没有使用过它（或类似的东西），但我看不出这样做有什么问题。如果有人想要使用一个在市场数据中留下明显签名的执行算法，很难表示太多同情。
 - en: Ultimately, it is the traders submitting these orders that are accountable for
     their efficacy. In an ideal world, traders responsible for substantial volume
     perform careful analysis of their execution methods and choose the best one for
@@ -254,12 +336,17 @@
     don’t mind algorithmic traders being gamed by spoofers, you ought not to mind
     their order flow being anticipated using the information they blast out to the
     market.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终，对于这些订单的有效性，是提交这些订单的交易员负责。在理想的世界里，负责大量交易的交易员会对他们的执行方法进行仔细分析，并选择最适合特定情况的最佳方法。像冰山这样的订单类型是设计给
+    sophisticated participants 的算法工具。我认为重要的是要注意，许多最响亮地反对订单预期策略的人也有[市场的达尔文主义观点](http://johnhcochrane.blogspot.com/2015/04/just-when-you-thought-financial.html)并认为算法交易者不应该受到垃圾邮件发送者的保护。这种观点似乎与反对预测其他算法行为的订单预期策略的反对意见相冲突。上述市场数据模式，即使部分来自保留订单，也是算法交易的签名。如果你不介意算法交易者被垃圾邮件发送者欺骗，那么你不应该介意他们的订单流被他们向市场发布的信息所预期。
 - en: Exchange Improvements
+  id: totrans-40
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 交易所改进
 - en: That said, I think it might be helpful if exchanges were a little more transparent
     about their order handling process. If, for example, order types that mimic execution
     algorithms have a high latency because they operate on separate computers from
@@ -275,8 +362,18 @@
     some market data patterns, that are likely from traders’ algorithms (rather than
     exchanges’ algorithms), also seem to be due to the use of non-random timers –
     so exchanges are certainly not outside the mainstream here.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 说到这里，我认为如果交易所能对其订单处理过程更加透明会很有帮助。例如，如果模仿执行算法的订单类型因为它们与撮合引擎在不同的计算机上运行而有较高的延迟，那么交易所也许应该提供延迟统计数据，这样用户就可以做出更加明智的选择。同样地，如果交易所能够添加一个简单的功能来帮助隐藏保留订单，为什么不这样做呢？例如，纳斯达克提供了保留订单用随机数量重新填充的功能，
+    presumably with the intention of obfuscation. Why not offer functionality for
+    reserve orders to be refilled at a random time interval as well? If refills didn’t
+    just occur in a tight range of 200-400us, they would have been much harder for
+    me to detect. Of course, many traders could just implement that functionality
+    in their own iceberg algorithms if they wanted it. But it’s worth mentioning that
+    some market data patterns, that are likely from traders’ algorithms (rather than
+    exchanges’ algorithms), also seem to be due to the use of non-random timers –
+    so exchanges are certainly not outside the mainstream here.
 - en: Some people might also say that our markets have become too complex and that
     traders are being increasingly forced to use order types that they don’t understand.
     I’m somewhat sympathetic with that sentiment, and there are [proposals](http://www.ft.com/intl/cms/s/0/e9c66ddc-be7a-11e3-b44a-00144feabdc0.html)
@@ -290,12 +387,16 @@
     is likely sufficient for traders to understand that reserve orders may leak valuable
     information upon refilling. Market professionals are handsomely compensated and
     probably should take the time to read the manual.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些人可能还会说，我们的市场变得过于复杂，交易者越来越多地被迫使用他们不理解的订单类型。我对这种情绪有些同情，并且有[建议](http://www.ft.com/intl/cms/s/0/e9c66ddc-be7a-11e3-b44a-00144feabdc0.html)减少订单类型。但是，即使市场简化，大型交易者仍应该阅读交易所撮合引擎和计划使用的任何订单类型的文档。通常最详细的交易所文档不超过几百页，具体的订单类型通常在几页文档中说明——所有这些，虽然乏味，可能都可以在一天内读完。在纳斯达克对保留订单的情况下，[订单类型指南](http://nasdaqtrader.com/content/ProductsServices/Trading/OrderTypesG.pdf)中提供的简短描述可能足以让交易者理解，当保留订单重新填充时可能会泄露有价值的信息。市场专业人士得到的报酬相当丰厚，也许应该花时间阅读手册。
 - en: Explicit Marking of Reserve Orders on DirectEdge
+  id: totrans-43
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在DirectEdge上明确标记保留订单
 - en: 'More generally, exchanges probably should do the best they can, within the
     confines of an order type, to keep client information as secret as possible. And,
     when they don’t, they probably should explain that as clearly as possible, just
@@ -303,60 +404,84 @@
     data protocol ([p9](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/denextgenmdmulticast-1-1-5.pdf)),
     there is a field (“Replenish Flag”) that discloses whether a new order is associated
     with a reserve order:'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 更一般地说，交易所可能在订单类型范围内尽可能地保护客户信息。而且，当它们不能做到这一点时，它们可能应该尽可能清楚地解释，以防有些交易者没有阅读每个交易所文件。在DirectEdge的旧市场数据协议中（[p9](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/denextgenmdmulticast-1-1-5.pdf)），有一个字段（“Replenish
+    Flag”）揭示了新订单是否与保留订单相关：
 - en: This message indicates a replenishment of an existing reserve order.
+  id: totrans-45
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 这条消息表示对现有保留订单的补充。
 - en: I know exchanges work hard to protect client info, so I was surprised to see
     this. As we saw, it’s not that hard to identify reserve orders anyway. But even
     so, I would not be astonished if some iceberg users were upset by this order flag.
     One philosophy of market data distribution is that more disclosure is always better;
     DirectEdge could have been operating under this assumption when they elected to
     include the flag.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 我知道交易所为了保护客户信息而努力，所以我看到这个感到惊讶。正如我们所见，识别储备订单并不困难。但即便如此，如果一些冰山用户因为这个订单标志而感到不安，我也不会感到惊讶。市场数据分布的一种哲学是，更多的披露总是更好的；当DirectEdge选择包含这个标志时，他们可能就是基于这种假设在运作。
 - en: 'This field is not (to my knowledge) disseminated on the new market data protocol,
     used after DirectEdge’s integration with the Bats platform. In fact, Bats’s [documentation](https://www.batstrading.com/resources/membership/BATS_MC_PITCH_Specification.pdf)
     seems to stress the importance of keeping this information secret:'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个字段据我所知，在新市场数据协议中并没有传播，该协议是在DirectEdge与Bats平台整合后使用的。实际上，Bats的[文档](https://www.batstrading.com/resources/membership/BATS_MC_PITCH_Specification.pdf)似乎强调保持这些信息保密的重要性：
 - en: 'To better protect reserve orders, BATS handles executions against reserve orders
     as follows: …'
+  id: totrans-48
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 为了更好地保护储备订单，BATS按照以下方式处理与储备订单的执行：…
 - en: When the displayed portion of the reserve order is refreshed, the order is assigned
     a new OrderID on the PITCH feed. This is reported by an Add Order(0x21, 0x22,
     or 0x2F) when the remainder is nonzero.
+  id: totrans-49
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 当显示的储备订单部分刷新时，在PITCH馈送中为订单分配一个新的OrderID。当剩余部分不为零时，这是通过一个Add Order(0x21, 0x22,
+    或 0x2F)报告的。
 - en: 'In any case, here’s a plot of what the market looks like around the time these
     flagged orders were added and executed:'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 在任何情况下，这是在标记订单添加和执行时市场的外观：
 - en: '[![edgex_sfa_bboImprove-addflag_reserve_800](img/f7cb2067d10f795787ec70cd167d9f2d.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/edgex_sfa_bboimprove-addflag_reserve_1366.png)'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '![edgex_sfa_bboImprove-addflag_reserve_800](img/f7cb2067d10f795787ec70cd167d9f2d.png)'
 - en: 'Top panel: Average profit or loss per share vs distance in time from market
     event. The “market price” here is the EdgeX last-traded price. Chart is over 6
     days in August and excludes fees and rebates. Bottom panel: Shares traded on EdgeX
     vs time from event (including volume from any part of these events).'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：每股平均利润或亏损与市场事件时间距离的关系。这里的“市场价格”是指EdgeX的最新交易价格。图表覆盖了八月份的6天，不包含费用和回扣。底部面板：EdgeX上交易的股份与事件时间的关系（包括这些事件中任何部分的成交量）。
 - en: It appears that these orders carry valuable information as well. As with the
     suspected Nasdaq reserve orders, [larger orders with this flag have greater alpha](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/edgex_sfa_bboimprove-addflag_reserve_feedaddqty_1366.png).
     A simple strategy that just copies them is profitable in simulation too. I will
     mention that neither I nor my company have used this flag (or anything like it)
     as a signal.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 看来这些订单也携带有价值的信息。与怀疑的纳斯达克储备订单一样，[带有此标志的大订单具有更大的alpha](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/04/edgex_sfa_bboimprove-addflag_reserve_feedaddqty_1366.png)。一个简单的策略，只是复制它们，在模拟中也是盈利的。我要说明的是，我和我的公司都没有使用这个标志（或类似的东西）作为信号。
 - en: Adding vs Removing Liquidity
+  id: totrans-54
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 添加与移除流动性
 - en: One thing I like about strategies that essentially mimic reserve orders (or
     other patterns) is that they post liquidity even though they could be embarrassing
     for anybody using them (again, embarrassment does not imply anything illegal).
@@ -364,8 +489,11 @@
     a revered activity thought of as a service to the market. Adding liquidity as
     part of an explicit order-anticipation strategy turns that picture on its head.
     [[7](#bottom7reserve)]
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 我喜欢模仿储备订单（或其他模式）的策略的一点是，尽管使用它们可能会让人感到尴尬（再次说明，尴尬并不暗示任何非法行为），但它们仍然发布流动性。被动交易，通常被称为增加流动性或市场制造，通常是被尊敬的活动，被看作是对市场的一项服务。作为显式订单预期策略的一部分增加流动性，颠覆了这一观念。
+    [[7](#bottom7reserve)]
 - en: Earlier trading strategies posted on this blog all remove liquidity, something
     often frowned upon by the media. Those aggressive strategies, which focus on trading
     with [old](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/)
@@ -377,21 +505,28 @@
     their orders after execution. Those strategies may technically remove liquidity,
     but as far as counterparties would be concerned, they provide a valuable service
     worthy of being called market-making.
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 早期在本博客上发布的交易策略都移除了流动性，这是媒体经常不赞成的。那些专注于与[旧](https://mechanicalmarkets.wordpress.com/2015/01/20/identifying-trader-type-pt-2/)、[大](https://mechanicalmarkets.wordpress.com/2015/02/09/order-size-in-the-hft-era-identifying-trade-type-pt-3/)或[MPID标记](https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/)的订单交易的激进策略，选择与表现出人类或零售起源特征的交易对手进行交易。所以，这些策略可能实际上移除了流动性，但就对手方而言，它们提供了值得称为市场造市商的有价值服务。
 - en: '[[1](#1reserve)] From p28 of Nasdaq Nordic’s [Market Model document](http://www.nasdaqomx.com/digitalAssets/75/75620_nasdaqomxnordicmarketmodel2.6.pdf)'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 从纳斯达克北欧的[市场模型文档](http://www.nasdaqomx.com/digitalAssets/75/75620_nasdaqomxnordicmarketmodel2.6.pdf)第28页可以找到[[1](#1reserve)]。
 - en: All changes on the Order including changes to the volume (both visible and total
     volume) of a Reserve Order are accomplished using an Order cancellation followed
     by an Order insert. In addition, when the displayable portion of the Order is
     completely executed within the Order Book, the non – displayable portion of the
     Order is decremented (retaining time priority) and a new displayable Order is
     sent to the Order Book (with new time priority).
+  id: totrans-58
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 订单的所有更改，包括保留订单的成交量（可见和总成交量）的更改，都是通过先取消订单然后插入新订单来完成的。此外，当订单簿中的可展示部分完全执行时，订单的非展示部分会递减（保持时间优先级），并发送一个新的可展示订单到订单簿中（具有新的时间优先级）。
 - en: ''
+  id: totrans-59
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -401,32 +536,44 @@
     Orders. E.g. the updating of open or displayed volume of a Reserve Order is done
     at a time when other Orders may be entering the Order Book, thus leaving the Order
     priority of the update non – deterministic.
+  id: totrans-60
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 某些订单功能的技术实现意味着这些功能是以尽力而为为基础提供的。这意味着执行可能受到所谓的“竞态条件”的影响，并且结果可能受到其他（传入）订单的影响。例如，保留订单的开盘量或展示量的更新是在其他订单可能进入订单簿的时间完成的，从而使更新订单的优先级非确定性。
 - en: Nasdaq Nordic uses Inet technology, so it’s a reasonable guess that their American
     markets have similar order-handling logic. But, it’d be great if Nasdaq could
     provide some clarifying guidance. It’s a sign of the state of disclosure (which
     has dramatically improved in recent years) on US exchanges that sometimes you
     need to read the documentation of foreign analogues to understand how they operate.
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 纳斯达克北欧使用Inet技术，因此可以合理猜测它们的美国市场具有类似的订单处理逻辑。但是，如果纳斯达克能提供一些澄清指导，那就太好了。美国交易所的披露状态（近年来有了显著改善）有时需要阅读外国类似产品的文档，以了解它们是如何运作的，这是令人担忧的。
 - en: '[[2](#2reserve)] Reserve orders account for about 8% of volume on [NYSE Arca](https://www.nyse.com/publicdocs/nyse/markets/nyse-arca/NYSE_Arca_Order_Type_Usage.pdf)
     and about 4% on [NYSE](https://www.nyse.com/publicdocs/nyse/markets/nyse/NYSE_Order_Type_Usage.pdf).
     It wouldn’t surprise me if they were also very common on Nasdaq.'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 保留订单在[纽约证券交易所Arca](https://www.nyse.com/publicdocs/nyse/markets/nyse-arca/NYSE_Arca_Order_Type_Usage.pdf)的成交量约为8%，在[纽约证券交易所](https://www.nyse.com/publicdocs/nyse/markets/nyse/NYSE_Order_Type_Usage.pdf)约为4%。如果它们在纳斯达克也非常普遍，我也不会感到惊讶[[2](#2reserve)]。
 - en: '[[3](#3reserve)] I, and [others](http://www.bloombergview.com/articles/2014-06-20/why-i-love-high-speed-trading),
     certainly wouldn’t call it that.'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 我和其他人[认为高频交易并非如此](http://www.bloombergview.com/articles/2014-06-20/why-i-love-high-speed-trading)，当然不会那样称呼它。
 - en: '[[4](#4reserve)] See [[1](#bottom1reserve)] for Nasdaq Nordic’s depiction of
     reserve order refills having non-deterministic priority in the queue.'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '[4](#4reserve) 参见[1](#bottom1reserve)关于纳斯达克北欧对预留订单补给在队列中具有非确定性优先级的描述。'
 - en: '[[5](#5reserve)] This is, again, not the case for me or my company.'
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: '[5](#5reserve) 这件事对我来说或我的公司并不适用。'
 - en: '[[6](#6reserve)] This isn’t advice, but it wouldn’t be a terrible idea for
     compliance departments to ask developers for a list of all pattern-like signals
     used in trading strategies. Developers might automatically add signals without
@@ -434,10 +581,14 @@
     they’re used in live trading. Unless there are tens of thousands of such features,
     in which case it may still be possible to create automated tools to check them
     for potentially problematic behavior.'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '[6](#6reserve) 这并非建议，但合规部门要求开发者列出所有在交易策略中使用的类似模式的信号，这个想法并不糟糕。开发者可能会不假思索地自动添加信号，但合规部门在它们被用于实际交易之前审查这些信号是有道理的。除非有数万这样的特征，否则仍然可能创建自动工具来检查它们是否存在潜在的问题行为。'
 - en: '[[7](#7reserve)] Of course, you could imagine using the order patterns we’ve
     seen in other strategies that remove liquidity. I do feel like just copying the
     anticipated orders is the most pure method of capturing some of their alpha though.'
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: '[7](#7reserve) 当然，你可以想象在其他消除流动性的策略中使用我们见过的订单模式。我觉得简单复制预期订单是捕捉它们部分阿尔法最纯粹的方法。'

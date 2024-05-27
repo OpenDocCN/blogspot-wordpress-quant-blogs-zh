@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:43:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:43:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiple Factor Model – Building Fundamental Factors | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多因子模型——构建基本面因子 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/#0001-01-01)
 - en: This is the second post in the series about Multiple Factor Models. I will build
     on the code presented in the prior post, [Multiple Factor Model – Fundamental
     Data](https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/),
@@ -25,8 +37,11 @@
     Framework. For details of the CSFB Alpha Factor Framework please read [CSFB Quantitative
     Research, Alpha Factor Framework on page 11, page 49 by P. N. Patel, S. Yao, R.
     Carlson, A. Banerji, J. Handelman](http://www.scribd.com/mobile/documents/62210581/download?commit=Download+Now&secret_password=).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是关于多因子模型的系列文章中的第二篇。我将基于前一篇文章[《多因子模型——基本面数据》](https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/)中展示的代码，展示如何构建CSFB阿尔法因子框架中描述的基本面因子。关于CSFB阿尔法因子框架的详细信息，请阅读[P.
+    N. Patel, S. Yao, R. Carlson, A. Banerji, J. Handelman的《CSFB定量研究，阿尔法因子框架》第11页，第49页](http://www.scribd.com/mobile/documents/62210581/download?commit=Download+Now&secret_password=)。
 - en: The CSFB Alpha Factor Framework has both traditional Fundamental factors and
     industry relative Fundamental factors. Let’s start by getting Fundamental data
     that we will need to create Price/Earnings, Price/Sales, Price/Cash Flow, Dividend
@@ -35,37 +50,54 @@
     and I recommend saving fundamental data with save(data.fund, file=’data.fund.Rdata’)
     command. In the following code I will just load historical fundamental data with
     load(file=’data.fund.Rdata’) command instead of downloading all data again.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: CSFB阿尔法因子框架既有传统的基本面因子，也有行业相对基本面因子。让我们先获取我们需要的用于创建市盈率、市销率、市现率、股息率、市净率因子的基本面数据。在前一篇文章中，我提到需要一段时间下载道琼斯指数中所有公司的历史基本面数据，并建议使用`save(data.fund,
+    file='data.fund.Rdata')`命令保存基本面数据。在下面的代码中，我将使用`load(file='data.fund.Rdata')`命令加载历史基本面数据，而不是再次下载所有数据。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: In the Dow Jones index there are 4 financial firms (AXP, BAC, JPM, TRV) and
     Sales and Cash Flow are not really measurable for financial firms. Please read
     [Valuing Financial Service Firms by A. Damodaran](www.stern.nyu.edu/~adamodar/pdfiles/papers/finfirm09.pdf)
     for detailed explanation why Sales and Cash Flow are not really measurable for
     financial firms.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在道琼斯指数中，有4家金融公司（AXP、BAC、JPM、TRV），对于金融公司来说，销售和现金流实际上是无法测量的。请阅读[A. Damodaran的《估值金融服务业公司》](www.stern.nyu.edu/~adamodar/pdfiles/papers/finfirm09.pdf)一文，了解为什么对于金融公司来说，销售和现金流实际上是无法测量的。
 - en: 'Next let’s create Traditional Value factors: Price/Earnings, Price/Sales, Price/Cash
     Flow, Dividend Yield, Price/Book.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建传统价值因子：市盈率、市销率、市现率、股息率、市净率。
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: To create an overall Traditional Value factor, let’s first normalize (convert
     to z scores) all Traditional Value factors by subtracting capitalization weighted
     average and dividing by standard deviation. The overall Traditional Value factor
     is an average of all normalized Traditional Value factors.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了创建一个整体的传统价值因子，让我们首先标准化（转换为z分数）所有的传统价值因子，通过减去市值加权平均值并除以标准差。整体传统价值因子是所有标准化传统价值因子的平均值。
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/4b91025e6527319e19eba2bc9cc96ca4.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small.png)'
 - en: I created a [compute.quantiles() function in factor.model.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.r)
     to compute and plot quantiles. For example, the quantiles chart for EP factor
     shows the average next month performance of stocks in each quantiles. The quantiles
@@ -73,27 +105,41 @@
     quantiles. There is tendency of quantile 5 (Q5) to outperform quantile 1 (Q1)
     in most cases. The relationship between quantiles is not perfect, but the spread
     between Q5-Q1 is positive.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在[github上的factor.model.r文件中创建了一个compute.quantiles()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.r)，用于计算和绘制分位数。例如，EP因子的分位数图表显示了每个分位数中股票的平均下月表现。每个月通过EP因子对股票进行排名并将它们分为5个分位数。在大多数情况下，第五个分位数（Q5）的表现优于第一个分位数（Q1）。分位数之间的关系并不完美，但第五个分位数和第一个分位数之间的差距是正的。
 - en: Next let’s examine quantiles for the overall Traditional Value factor in more
     details.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们更详细地检查一下整体传统价值因子的分位数。
 - en: '[PRE3]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/483c7b0beaa485240f84b23a0c380f05.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small1.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small1.png)'
 - en: The quantile spread Q5-Q1 shows consistent positive performance after 2000,
     but is inverted from 1995 to 2000\. This is a bit strange and calls for more investigation.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 第五个分位数和第一个分位数之间的差距（Q5-Q1）在2000年之后一直显示出一致的正表现，但在1995年到2000年之间是反向的。这有点奇怪，需要进一步调查。
 - en: In the next posts, I will show how to run pooled cross sectional regression
     to create alpha scores.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 在接下来的文章中，我将展示如何运行合并横截面回归来创建alpha分数。
 - en: To view the complete source code for this example, please have a look at the
     [fm.fund.factor.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个例子的完整源代码，请查看[github上factor.model.test.r文件中的fm.fund.factor.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

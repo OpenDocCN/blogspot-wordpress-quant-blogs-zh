@@ -1,101 +1,153 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:34:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:34:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Tracking Number of Historical Clusters | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 跟踪历史聚类数量 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/27/tracking-number-of-historical-clusters/#0001-01-01)
 - en: In the prior post, [Optimal number of clusters](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/),
     we looked at methods of selecting number of clusters. Today, I want to continue
     with clustering theme and show historical Number of Clusters time series using
     these methods.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在前一篇文章中，[最优聚类数量](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/)，我们探讨了选择聚类数量的方法。今天，我想继续聚类主题，并使用这些方法展示历史聚类数量时间序列。
 - en: 'In particular, I will look at the following methods of selecting optimal number
     of clusters:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是，我将查看以下选择最优聚类数量的方法：
 - en: Minimum number of clusters that explain at least 90% of variance
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 解释至少90%方差的最低聚类数
 - en: Elbow method
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 弯曲方法
 - en: Hierarchical clustering tree cut at 1/3 height
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 层次聚类树在1/3高度处切割
 - en: Let’s first load historical prices for the 10 major asset classes
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们加载10大资产类的历史价格。
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, I created 3 helper functions to automate cluster selection. In particular,
     I used following methods of selecting optimal number of clusters:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我创建了3个助手函数来自动选择聚类。特别是，我使用了以下选择最优聚类数量的方法：
 - en: Minimum number of clusters that explain at least 90% of variance – cluster.group.kmeans.90
     function
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 解释至少90%方差的最低聚类数 – cluster.group.kmeans.90函数
 - en: Elbow method – cluster.group.kmeans.elbow function
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 弯曲方法 – cluster.group.kmeans.elbow函数
 - en: Hierarchical clustering tree cut at 1/3 height – cluster.group.hclust function
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 层次聚类树在1/3高度处切割 – cluster.group.hclust函数
 - en: To view the complete source code for these functions please have a look at the
     [startegy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这些函数的完整源代码，请查看[github上的startegy.r](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)。
 - en: Let’s use these functions on our data set every week with 250 days look-back
     to compute correlations.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们每周使用这些函数对数据集进行250天回溯来计算相关性。
 - en: '[PRE1]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Finally, the historical number of cluster time series plots for each method:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，每种方法的历史聚类数量时间序列图表：
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot1.png.small](img/7740aae2aca4057401aa7a292134fba6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small1.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1.png.small](img/7740aae2aca4057401aa7a292134fba6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small1.png)'
 - en: '[![plot2.png.small](img/eb7e1bc748357107b8d26d2dd1dc9cf8.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2-small.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2.png.small](img/eb7e1bc748357107b8d26d2dd1dc9cf8.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot2-small.png)'
 - en: '[![plot3.png.small](img/612df2fb5d1797ecc52896febcecc56d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot3-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3.png.small](img/612df2fb5d1797ecc52896febcecc56d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot3-small.png)'
 - en: All methods selected clusters a little bit differently, as expected. The “Minimum
     number of clusters that explain at least 90% of variance” method seems to produce
     the most stable results. I would suggest looking at the larger universe (for example
     DOW30) and longer period of time (for example 1995-present) to evaluate these
     methods.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有方法选择的聚类略有不同，这是预期的。"解释至少90%方差的最低聚类数"方法似乎产生了最稳定的结果。我建议查看更大的宇宙（例如DOW30）和更长的时期（例如1995年至今）来评估这些方法。
 - en: 'Takeaways: As I mentioned in the [Optimal number of clusters](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/)
     post, there are many different methods to create clusters, and I have barely scratched
     the surface. There is also another dimension that I have not explored yet, the
@@ -103,9 +155,14 @@
     to create clusters. I was pointed out by Matt Considine that there is an R interface
     to the [Maximal Information-based Nonparametric Exploration (MINE)](http://www.exploredata.net/)
     metric that can be used as a better measure of correlation.'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 要点：正如我在[最优聚类数量](https://systematicinvestor.wordpress.com/2013/01/17/optimal-number-of-clusters/)一文中提到的，创建聚类有多种不同的方法，而我只是略知一二。还有一个我尚未探索的维度——距离矩阵。目前，我使用相关矩阵作为距离度量来创建聚类。Matt
+    Considine 指出，有一个 R 接口可以用于[最大信息基础非参数探索（MINE）](http://www.exploredata.net/)指标，该指标可以作为相关性的更好度量。
 - en: To view the complete source code for this example, please have a look at the
     [bt.cluster.optimal.number.historical.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 github 上的 [bt.cluster.optimal.number.historical.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,95 +1,137 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是YAML格式的部分：
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:32:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:32:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是YAML格式的结束部分：
 - en: SPARQL and Machine Learning | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: SPARQL和机器学习|交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/04/29/sparql-and-machine-learning/#0001-01-01](https://mdavey.wordpress.com/2016/04/29/sparql-and-machine-learning/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/04/29/sparql-and-machine-learning/#0001-01-01](https://mdavey.wordpress.com/2016/04/29/sparql-and-machine-learning/#0001-01-01)
 - en: SPARQL and Machine Learning
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: SPARQL和机器学习
 - en: 'As discussed in previous postings, with the industry trend appearing to be
     off down the Semantic Data Lake road, its probably worth understanding the Return
     on Investment (ROI) for Semantic Machine Learning :'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 如前所述，随着行业趋势似乎正走向语义数据湖之路，了解语义机器学习的投资回报率（ROI）可能是值得的：
 - en: Today, following the [CRISP-DM](https://en.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining)
     process, or at least something similar, a good degree of time is spent understanding
     the data, and linking different data sets together to create the appropriate data
     frames (H2OFrame etc) before you can start train models and tuning the model parameter.
      A Semantic Data Lake should at least reduce the identification of data linkages
     time
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 今天，遵循[CRISP-DM](https://en.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining)过程，或者至少是类似的过程，花在理解数据上的时间相当多，并且将不同的数据集链接在一起以创建适当的数据框架（H2OFrame等），然后你才能开始训练模型和调整模型参数。语义数据湖至少可以减少数据链接的识别时间
 - en: Consuming raw data into a data lake is fine, as there is zero data loss – ELT
     rather than ETL.  However, with changing resources on your Data Science team,
     there is a degree of “learning” time about the data.  RDF’s and ontologies should
     reduce this.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 将原始数据消费到数据湖中是可以的，因为数据损失为零——ELT而不是ETL。然而，随着数据科学团队资源的改变，关于数据的学习时间有一定的“学习”时间。RDF和本体论应该可以减少这个时间。
 - en: '[Ontology Matching](http://homes.cs.washington.edu/~pedrod/papers/hois.pdf)
     is something that might be quite interesting from the [EL](http://wortschatz.uni-leipzig.de/~fwitschel/papers/ekaw10.pdf)
     side of a data lake – reduced time in leverage new data sources in the lake.'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从数据湖的[EL](http://wortschatz.uni-leipzig.de/~fwitschel/papers/ekaw10.pdf)角度来看，[本体匹配](http://homes.cs.washington.edu/~pedrod/papers/hois.pdf)可能相当有趣——减少了在数据湖中利用新数据源的时间。
 - en: 'With RDF underpinning your data lake, data scientist now have a degree of linkage
     resolve.  This is briefly discussed in “[SPARQL with R](http://www.r-bloggers.com/sparql-with-r-in-less-than-5-minutes/)
     in less than 5 minutes”:'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 由于你的数据湖下面是RDF，数据科学家现在有了一个程度的链接解析。这在不到5分钟的时间内简要讨论了如何在[SPARQL与R](http://www.r-bloggers.com/sparql-with-r-in-less-than-5-minutes/)中结合使用：
 - en: In English, our query says, “Give me the values for the attributes “fires”,
     “acres” and “year” wherever they are defined
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 在我们的查询中，我们说：“给我定义在“fires”，“acres”和“year”属性的值”
 - en: 'I think the killer statement in this article is:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为这篇文章中的关键语句是：
 - en: As more data becomes available in RDF format, automated solutions for mining
     and analyzing the Semantic Web will become more and more useful.
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 随着更多数据以RDF格式出现，自动挖掘和分析语义网的解决方案将变得越来越有用。
 - en: 'Which leads us to the need for a data lake, as discussed elsewhere on the web,
     to be underpinned by [RDF](https://en.wikipedia.org/wiki/SPARQL).  As an example,
     if your lake is consuming social network data (e.g Facebook), then your probably
     want to look at Friend of a Friend ([FOAF](http://www.foaf-project.org/)), since
     this will allow you to [query](https://www.w3.org/TR/2012/WD-sparql11-overview-20120501/#sparql11-query)
     the data lake (of many data sources) leveraging the FOAF ontology:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这使我们想起了需要一个由[RDF](https://en.wikipedia.org/wiki/SPARQL)支撑的数据湖，正如网络上的其他地方所讨论的那样。例如，如果你的数据湖正在消费社交网络数据（如Facebook），那么你可能想看看朋友的朋友([FOAF](http://www.foaf-project.org/))，因为这将允许你利用FOAF本体查询（[查询](https://www.w3.org/TR/2012/WD-sparql11-overview-20120501/#sparql11-query)）湖中的多个数据源（许多数据源）
 - en: '[PRE0]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Anyone using a [Triple store](http://jena.apache.org/) for their data lake?
      If so, how are you using it with the normal Hadoop/HDFS data lake world technologies?
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 有谁在使用[三元存储](http://jena.apache.org/)作为他们数据湖的一部分？如果有，你是如何将它与正常的Hadoop/HDFS数据湖世界技术结合使用的？
 - en: ~ by mdavey on April 29, 2016.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2016年4月29日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)分类下
 - en: 'Tags: [MachineLearning](https://mdavey.wordpress.com/tag/machinelearning/),
     [Ontology](https://mdavey.wordpress.com/tag/ontology/), [RDF](https://mdavey.wordpress.com/tag/rdf/)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[机器学习](https://mdavey.wordpress.com/tag/machinelearning/)，[本体论](https://mdavey.wordpress.com/tag/ontology/)，[RDF](https://mdavey.wordpress.com/tag/rdf/)

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 13:53:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 13:53:55'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Trading the Unobservable | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 交易不可观察的变量 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2010/02/15/trading-the-unobservable/#0001-01-01](https://quantivity.wordpress.com/2010/02/15/trading-the-unobservable/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2010/02/15/trading-the-unobservable/#0001-01-01](https://quantivity.wordpress.com/2010/02/15/trading-the-unobservable/#0001-01-01)
 - en: 'Security prices are driven by diverse factors and constraints, many of which
     are neither directly observable nor quantifiable by traders. Examples includes
     fundamental (*e.g.* corporate actions), behavioral (*e.g.* herd mentality), financial
@@ -25,24 +37,35 @@
     (*e.g.* market impact algos). Yet, many classic quant models are formulated exclusively
     using variables which are directly observed: quotes, trades, prices, volumes,
     spreads, *etc*.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 证券价格受多种因素和约束的影响，其中许多既不是交易者直接可观察到的，也不是可量化的。例如基本面（*例如* 公司行动），行为（*例如* 从众心理），金融（*例如*
+    流动性），宏观（*例如* 央行干预）和微观结构（*例如* 市场影响算法）。然而，许多经典量化模型仅使用直接观察到的变量进行构建：报价，交易，价格，成交量，价差，*等等*。
 - en: '*This is an odd contradiction*.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '*这是一个奇怪的矛盾*。'
 - en: Unraveling this contradiction is central to exploring [market regimes](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/),
     as they defy characterization by observable variables.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 揭示这一矛盾是探索[市场形态](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/)的核心，因为它们不受可观察变量的特征所限制。
 - en: 'A short detour through a bit of mathematical intuition helps illustrate this
     contradiction and point a way towards potential solutions not found in classic
     time series statistics. Consider the price ![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png)
     for any security at tick time ![(n + 1)](img/2cbaae4e18d911df13b937ace421ca05.png):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过一点数学直觉的简短绕道，可以帮助阐明这一矛盾，并指出在经典时间序列统计中找不到的潜在解决方案。考虑任何刻度时间![（n + 1）](img/2cbaae4e18d911df13b937ace421ca05.png)的证券价格![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png)：
 - en: '![f_{n+1}(\boldsymbol{O}_{n}, \boldsymbol{U}_{n}) \rightarrow p_{n+1}](img/daf747c8816da65a52439ce986b4a2fb.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![f_{n+1}(\boldsymbol{O}_{n}, \boldsymbol{U}_{n}) \rightarrow p_{n+1}](img/daf747c8816da65a52439ce986b4a2fb.png)'
 - en: 'In other words, the price of the security at time ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png)
     is determined by some function ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)
     of observed (![\boldsymbol{O}](img/ac4555c4f6c8b73325d974f23b3febe8.png)) and
@@ -51,66 +74,98 @@
     Admittedly, an apparent [tautology](http://en.wikipedia.org/wiki/Tautology_%28rhetoric%29)
     if there ever was. Yet, from this simple equivalence, we can highlight the *a
     priori* constraints imposed by traditional time-series quant models:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，时间为![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png)时的证券价格由一些函数![f](img/f6f5c905b764a946a65bee80b6736fe6.png)决定，该函数是在前一时段![\{
+    n, n - 1, ... \}](img/4374500cebcc6bd3252f514ff78e9e75.png)期间评估的观察（![\boldsymbol{O}](img/ac4555c4f6c8b73325d974f23b3febe8.png)）和未观察（![\boldsymbol{U}](img/d59984531e1d5a1f9f2feb76c04007f2.png)）变量的函数。诚然，这是一个明显的[重言](http://en.wikipedia.org/wiki/Tautology_%28rhetoric%29)。然而，从这个简单的等价性中，我们可以突出传统时间序列量化模型所施加的
+    *先验* 约束条件：
 - en: 'Probabilistic: the future cannot be predicted with certainty, thus ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)
     are assumed to be probabilistic, usually drawing from a single distribution ![P](img/c50bb82816939f237c093edbf5959d94.png)
     (usually analytically tractable)'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 概率性：未来不能被确定地预测，因此![f](img/f6f5c905b764a946a65bee80b6736fe6.png)被假定为概率性的，通常从单一分布![P](img/c50bb82816939f237c093edbf5959d94.png)中绘制（通常是可解析的）
 - en: '[Independent and identically-distributed](http://en.wikipedia.org/wiki/Independent_and_identically-distributed_random_variables)
     (i.i.d): values of ![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png)
     are drawn from ![P](img/c50bb82816939f237c093edbf5959d94.png), and assumed to
     be i.i.d.'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[独立同分布](http://en.wikipedia.org/wiki/Independent_and_identically-distributed_random_variables)（i.i.d）：![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png)的值是从![P](img/c50bb82816939f237c093edbf5959d94.png)中绘制的，并且被假定为独立同分布的。'
 - en: 'Observability: unobservable variables are excluded (since they cannot be quantified),
     thus ![\boldsymbol{U}_{n}](img/d342e78db9985a764e6a09d92f8bcd7c.png) is omitted
     (*i.e.* empty set ![\varnothing](img/667139a11bfc53a359777f4d81fa4399.png))'
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 观测性：不可观察的变量被排除在外（因为它们无法量化），因此![\boldsymbol{U}_{n}](img/d342e78db9985a764e6a09d92f8bcd7c.png)被省略（*即*
+    空集![\varnothing](img/667139a11bfc53a359777f4d81fa4399.png)）
 - en: '[Statistical significance](http://en.wikipedia.org/wiki/Statistical_significance):
     achieving statistical significance requires a minimum set of observations, thus
     ![f](img/f6f5c905b764a946a65bee80b6736fe6.png) is commonly assumed the same for
     long contiguous sequences of ![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png),
     if not all ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png) (*i.e.* ![f_{n} = f_{n
     - 1} = ... = f_{0}](img/1c5aaa73fc62ea746d268749dc2fc942.png))'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 统计显著性：[统计显著性](http://en.wikipedia.org/wiki/Statistical_significance)的实现需要一定数量的观察值，因此
+    ![f](img/f6f5c905b764a946a65bee80b6736fe6.png) 通常假设对于长连续序列的 ![\boldsymbol{p}](img/da222f3a4e8c7fece21c7f2a6b10e886.png)
+    是相同的，如果不是所有的 ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png) (*即* ![f_{n} = f_{n
+    - 1} = ... = f_{0}](img/1c5aaa73fc62ea746d268749dc2fc942.png))
 - en: 'These constraints are compounded by two unfortunate facts:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些问题由于两个不幸的事实而进一步复杂化：
 - en: 'Unknown ![f](img/f6f5c905b764a946a65bee80b6736fe6.png): the true function ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)
     is not known to the model, as it is unknowable'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 未知 ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)：模型不知道真正的函数 ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)，因为它无法得知
 - en: 'Lack of objective function: there is no quantitative way to know how to improve
     any given model relative to ![f](img/f6f5c905b764a946a65bee80b6736fe6.png), as
     ![f](img/f6f5c905b764a946a65bee80b6736fe6.png) is unknown'
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 缺乏目标函数：没有定量的方法知道如何相对于 ![f](img/f6f5c905b764a946a65bee80b6736fe6.png) 改进任何给定的模型，因为
+    ![f](img/f6f5c905b764a946a65bee80b6736fe6.png) 是未知的
 - en: 'Which result in the following methodological problems, when seeking to choose
     one quant model in favor of another for purposes of profitable trading:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在寻求为了盈利的交易而选择一个量化模型优于另一个时，以下方法论问题是什么？
 - en: 'Yet, not all is lost. There is a beautiful mathematical trick:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，并非一切都失去了。有一个美丽的数学技巧：
 - en: '![g_{n}(\boldsymbol{O}_{n}) \rightarrow \boldsymbol{Z_{n}}  \\[7px] f_{n+1}(\boldsymbol{O}_{n},
     \boldsymbol{Z}_{n}) \rightarrow p_{n+1}](img/8fd2effbcfd1fcd9cf2b5a3f70f03461.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![g_{n}(\boldsymbol{O}_{n}) \rightarrow \boldsymbol{Z_{n}}  \\[7px] f_{n+1}(\boldsymbol{O}_{n},
+    \boldsymbol{Z}_{n}) \rightarrow p_{n+1}](img/8fd2effbcfd1fcd9cf2b5a3f70f03461.png)'
 - en: Where ![\boldsymbol{Z}](img/6279c7e47574739a50981fa50d5863ba.png) are *unobserved
     variables* (usually estimated in a [state space](http://en.wikipedia.org/wiki/State_space_%28controls%29))
     and the system is evaluated with [Bayesian inference](evaluate%20the%20following%20under%20Bayesian%20inference).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 ![\boldsymbol{Z}](img/6279c7e47574739a50981fa50d5863ba.png) 是*未观察到的变量*（通常在[状态空间](http://en.wikipedia.org/wiki/State_space_%28controls%29)中估计）并且系统用[贝叶斯推断](evaluate%20the%20following%20under%20Bayesian%20inference)来评估。
 - en: This trick is conceptually simple, yet manifests in myriad elegant ways from
     [hidden markov models](http://en.wikipedia.org/wiki/Hidden_Markov_Models) and
     [principle components](http://en.wikipedia.org/wiki/Principal_component_analysis)
@@ -118,27 +173,38 @@
     filters and [state space models](http://en.wikipedia.org/wiki/State_space_%28controls%29).
     So many ways, in fact, the fledgling discipline of [machine learning](http://en.wikipedia.org/wiki/Machine_learning)
     is seeking to unify them.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个技巧在概念上很简单，但在多种优雅的方式中表现出来，从[隐马尔可夫模型](http://en.wikipedia.org/wiki/Hidden_Markov_Models)和[主成分分析](http://en.wikipedia.org/wiki/Principal_component_analysis)到[卡尔曼](http://en.wikipedia.org/wiki/Kalman_filter)
+    / [粒子](http://en.wikipedia.org/wiki/Particle_filter)滤波器和[状态空间模型](http://en.wikipedia.org/wiki/State_space_%28controls%29)。实际上，机器学习（http://en.wikipedia.org/wiki/Machine_learning）的新兴学科正在寻求统一它们。
 - en: 'Yet, machine learning (ML) remains shrouded in mystery and corresponding intrigue
     for many traders. Although numerous causes may be root, two seem to regularly
     stand out:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，机器学习（ML）对许多交易者来说仍然笼罩在神秘和相应的魅力之中。尽管可能有众多原因，两个似乎经常突出：
 - en: 'Or, as summed up nicely by [Gappy](http://www.twitter.com/gappy3000) in a recent
     [post comment](https://quantivity.wordpress.com/2010/01/10/how-to-learn-algorithmic-trading/#comments);
     many modern quantitative trading techniques:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者，正如[Gappy](http://www.twitter.com/gappy3000)在最近一篇[评论](https://quantivity.wordpress.com/2010/01/10/how-to-learn-algorithmic-trading/#comments)中简洁地总结的：许多现代量化交易技术：
 - en: “Take too long to learn how to apply the concepts well, and it’s all too easy
     to misapply them.”
+  id: totrans-26
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “花太多时间学习如何正确应用这些概念，而且很容易误用它们。”
 - en: 'Given understanding [market regimes](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/)
     depends in part upon quantifying the unobservable, a subsequent series of posts
     will seek to illuminate selected ML techniques. Motivated by the above discussion,
     the first post in this series will introduce two elegant and ubiquitous workhorses
     of machine learning: expectation maximization and the Kullback-Leibler divergence.'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于对[市场体制](https://quantivity.wordpress.com/2009/12/31/market-regime-trading-redux/)的理解部分依赖于对不可观测事物的量化，接下来的系列文章将探讨精选的机器学习技术。受到上述讨论的启发，本系列的第一篇文章将介绍两种优雅且无处不在的机器学习“工作马”：期望最大化法和克吕格-勒伊伯散度。

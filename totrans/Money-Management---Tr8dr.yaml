@@ -1,187 +1,269 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:29:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:29:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Money Management | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 资金管理 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2012/09/29/money-management/#0001-01-01](https://tr8dr.wordpress.com/2012/09/29/money-management/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2012/09/29/money-management/#0001-01-01](https://tr8dr.wordpress.com/2012/09/29/money-management/#0001-01-01)
 - en: It has been almost a year since my last post.  I have been far too busy getting
     a new trading desk up and running.   I  thought to discuss money management, since
     am revisiting right now.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 自从我上一次发帖已经过去几乎一年了。我一直太忙于建立一个新的交易台。我一直在考虑讨论资金管理，因为现在重新审视。
 - en: Overview
+  id: totrans-7
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 概览
 - en: 'It is easy to think that trading signal is the most important aspect of a trading
     strategy, but money management (and execution) can be even more important.   Loosely
     defined, money management is a mechanism for position-level risk management.  The
     mechanism attempts to regulate, accomplishing a number of things:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们很容易认为交易信号是交易策略最重要的方面，但资金管理（和执行）可能更重要。资金管理可以被松散地定义为仓位级别的风险管理机制。该机制试图规范，实现许多事情：
 - en: ride out a profitable signal as long as there is continued profit potential
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 只要持续有盈利潜力，就持有盈利信号
 - en: close out a profitable position when the p&l is drifting sideways
+  id: totrans-10
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 当盈亏指标呈水平移动时关闭盈利仓位
 - en: close out a profitable position, alternatively when there is a drawdown
+  id: totrans-11
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 关闭盈利仓位，或者在出现回撤时
 - en: otherwise, allow the position to continue to profit, even through transient
     negative noise
+  id: totrans-12
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 否则，即使经历短暂的负面噪音，也让仓位继续盈利
 - en: close out our losing positions as quickly as possible
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 尽快关闭我们的亏损仓位
 - en: close position once we have a view that it is unlikely to be profitable
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一旦我们有观点认为它不太可能盈利，就关闭仓位
 - en: close out strategy if seems unstable
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 如果看起来不稳定，则关闭策略
 - en: for example keeps hitting stop-loss
+  id: totrans-16
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 例如一直触及止损
 - en: risk measures indicative of unstable market situation for strategy
+  id: totrans-17
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 风险指标暗示策略市场不稳定
 - en: A desirable feature of a money manager is that when pairing the money manager
     and signal together, we have a return distribution with positive skew and very
     limited negative tails.   We can even have a signal with < 50% wins, but because
     of the generated bias in + returns / – returns, have an overall positive equity
     curve.   Of course I would advocate for much a much higher win ratio than 50%
     😉
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 资金经理的一个理想特征是，当将资金经理和信号配对时，我们有一个具有正偏斜和非常有限负尾部的回报分布。即使信号赢率小于50%，我们也可以有，但由于在正回报/负回报中生成的偏差，整体权益曲线为正。当然，我会倡导远高于50%的胜率😁
 - en: Signal → Position
+  id: totrans-19
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 信号 → 仓位
 - en: I take the approach of having a trading signal that scales between [-1,1] or
     [0,1] on a continuous basis.   In my trading systems the money manager not only
     works as a risk manager, but also decides how to scale the signal into a desired
     position.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我采取的方法是拥有一个在[-1,1]或[0,1]之间连续调整的交易信号。在我的交易系统中，资金经理不仅作为风险管理者工作，还决定如何将信号调整为目标仓位。
 - en: 'For example, if our maximum position is $5 million, we might scale our desired
     position from 0 to $5 million (if the signal reaches full power at 1).  The 0
     or close to 0 level would indicate being out of market, 0.5 being at 1/2 strength
     or 2.5 million in.   Here is an example signal from 0 to 1:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果我们设定的最大仓位是500万美元，我们可能会将我们的目标仓位从0调整到500万美元（如果信号达到满功率为1）。0或接近0的水平将表示市场外，0.5表示一半的力量或250万美元进入。以下是从0到1的信号示例：
 - en: Trading signals can be noisy, though we do our best to provide smooth signals.
       Without regulation of how we map the signal to position size, the up and down
     dips in the signal would imply thrashing in and out of position, which would be
     costly.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易信号可能会有噪声，尽管我们尽力提供平滑的信号。如果没有对我们将信号映射到仓位大小的调节，信号的上下波动将意味着频繁的进出仓位，这将付出高昂的代价。
 - en: Hence, we should try to enforce direction monotonicity, so as to avoid thrashing.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们应该尝试强制方向单增，以避免频繁交易。
 - en: Types of stop-loss
+  id: totrans-24
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 止损类型
 - en: 'There are a number of stop-loss types we should consider:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们应该考虑多种止损类型：
 - en: 'stop-loss:'
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 止损：
 - en: stop when (smoothed) equity curve has reached a negative return threshold
+  id: totrans-27
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 当（平滑）权益曲线达到负回报阈值时止损
 - en: 'stop-profit:'
+  id: totrans-28
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 止盈：
 - en: exit an up-to-current profitable trade, but one that has lost some % from the
     high
+  id: totrans-29
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 退出当前盈利的交易，但已从高点失去了一些%
 - en: stop-drift
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 止损漂移
 - en: a time and slope based stop that closes out a position whose equity curve is
     drifting more-or-less sideways for a significant period
+  id: totrans-31
   prefs:
   - PREF_IND
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 基于时间和斜率止损，关闭一个权益曲线在一段时间内大致水平移动的仓位
 - en: Risk Reentry Avoidance
+  id: totrans-32
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 风险重入避免
 - en: 'On a stop-loss not only want to close the position, but also have to “back
     away” from the signal, such that we do not immediately get back into an undesirable
     situation.   Depending on why we exited the position, we may want to:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 在止损时，我们不仅想关闭头寸，还必须从信号中“退却”，这样我们就不会立即回到不理想的情况。根据我们为什么退出头寸，我们可能想要：
 - en: disable market entry until the signal has gone to zero
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在信号归零之前禁用市场进入
 - en: impose a time penalty
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 施加时间惩罚
 - en: impose a market reentry restriction (wait for the market regime to reach a certain
     stage)
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 施加市场重入限制（等待市场体制达到一定阶段）
 - en: A FSM
+  id: totrans-37
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 一个FSM
 - en: 'Here is a finite state machine that illustrates a possible state system guiding
     position scaling and money management:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一个有限的 state machine，它说明了一个可能的 state system，指导头寸缩放和资金管理：
 - en: '[![](img/bc4f3fa4e34c116d4b6d8eaf254dbed5.png "Money Management FSM")](https://tr8dr.wordpress.com/wp-content/uploads/2012/09/screen-shot-2012-09-29-at-4-49-18-pm.png)'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '![资金管理FSM](https://tr8dr.wordpress.com/wp-content/uploads/2012/09/screen-shot-2012-09-29-at-4-49-18-pm.png)'
 - en: The state system expresses some of the above money management features.   To
     make it effective, one needs to be clever about deciding on whether a negative
     movement is a sign to get out or a transient movement.   One can use a combination
     of signal, smoothed series, and aspects of order book and trade data to have a
     better read on this.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 状态系统表达了一些上述资金管理特性。为了使其有效，你需要聪明地决定一个负面运动是退出的信号还是暂时的波动。可以使用信号、平滑序列以及订单簿和交易数据的方面来更好地理解这一点。

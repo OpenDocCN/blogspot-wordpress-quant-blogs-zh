@@ -1,50 +1,76 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:59:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:59:15'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Cointegration Trading with Log Prices vs. Prices'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：与价格相比，对数价格的共整合交易
 - en: 来源：[http://epchan.blogspot.com/2013/11/cointegration-trading-with-log-prices.html#0001-01-01](http://epchan.blogspot.com/2013/11/cointegration-trading-with-log-prices.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2013/11/cointegration-trading-with-log-prices.html#0001-01-01](http://epchan.blogspot.com/2013/11/cointegration-trading-with-log-prices.html#0001-01-01)
 - en: In my recent
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我最近的
 - en: '[book](http://www.amazon.com/dp/1118460146/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=1118460146&adid=00W7DZWKQ8DNBM541YD6&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[book](http://www.amazon.com/dp/1118460146/ref=as_li_qf_sp_asin_til?tag=quantitativet-20&camp=14573&creative=327641&linkCode=as1&creativeASIN=1118460146&adid=00W7DZWKQ8DNBM541YD6&&ref-refURL=http%3A%2F%2Fepchan.blogspot.ca%2F)'
 - en: ', I highlighted a difference between cointegration (pair) trading of price
     spreads and log price spreads. Suppose the price spread hA*yA-hB*yB of two stocks
     A and B is stationary. We should just keep the'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我突出了价格差距和对数价格差距的共整合（配对）交易之间的差异。假设两只股票A和B的价格差距hA*yA-hB*yB是平稳的。我们应该保持股票A和B的
 - en: '**number of shares**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**股票数量**'
 - en: of stocks A and B fixed, in the ratio hA:hB, and short this spread when it is
     much higher than average, and long this spread when it is much lower. On the other
     hand, for a stationary log price spread hA*log(yA)-hB*log(yB), we need to keep
     the
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在比例hA:hB固定，当这个差距远高于平均水平时，我们做空这个差距，当这个差距远低于平均水平时，我们做多这个差距。另一方面，对于一个对数价格差距hA*log(yA)-hB*log(yB)是平稳的情况，我们需要保持股票A和B的
 - en: '**market values**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**市场价值**'
 - en: of stocks A and B fixed, in the ratio hA:hB, which means that at the end of
     every bar, we need to rebalance the shares of A and B due to price changes.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 股票A和B的比例（hA:hB）固定，这意味着在每个交易日结束时，由于价格变动，我们需要重新平衡A和B的股份。
 - en: 'For most cointegrating pairs that I have studied, both the price spreads and
     the log price spreads are stationary, so it doesn''t matter which one we use for
     our trading strategy. However, for an unusual pair where its log price spread
@@ -58,61 +84,92 @@
     rates of A vs B return to a 2:1 ratio, and not when the price spread of A vs B
     returns to a historical mean. In fact, the price spread of A vs B should continue
     to increase over the long term.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于我研究过的大多数共整合对，价格差距和对数价格差距都是平稳的，所以我们使用哪种对于我们的交易策略并不重要。然而，对于一个不寻常的对，其中对数价格差距共整合但价格差距不共整合（感谢Adam
+    G.指出了这样一个例子），其影响非常显著。一个平稳的价格差距意味着价格差异是均值回归的，一个平稳的对数价格差距意味着收益差异是均值回归的。例如，如果股票A的增长速度通常比B快2倍，但最近增长速度比B快2.5倍，我们可以预期未来增长速度差距会减小。我们仍然做空A并做多B，但当A与B的增长速度恢复到2:1的比例时，我们退出这个头寸，而不是当A与B的价格差距恢复到历史平均水平时。事实上，A与B的价格差距应该在长期内继续增加。
 - en: This much is easy to understand. But thanks to a reader Ferenc F. who referred
     me to a paper by
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这部分很容易理解。但多亏了读者Ferenc F.向我推荐了一篇论文
 - en: '[Fernholz and Maguire](http://www.jstor.org/stable/4480875)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Fernholz and Maguire](http://www.jstor.org/stable/4480875)'
 - en: ', I realize there is a simple mathematical relationship between stock A and
     B in order for their log prices to cointegrate.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ', 我意识到股票A和B的对数价格之间存在着简单的数学关系，以便它们共整合。'
 - en: 'Let us start with a formula derived by these authors for the change in log
     market value P of a portfolio of 2 stocks: d(logP) = hA*d(log(yA))+hB*d(log(yB))+gamma*dt.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们从这些作者为一个由2只股票组成的投资组合的对数市值P的变化导出的公式开始：d(logP) = hA*d(log(yA))+hB*d(log(yB))+γ*dt。
 - en: The gamma in this equation is
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 此方程中的γ是
 - en: gamma=1/2*(hA*varA + hB*varB), where varA is the variance of stock A
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: γ=1/2*(hA*varA + hB*varB)，其中varA是股票A的方差
 - en: minus
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 减去
 - en: the variance of the portfolio market value, and ditto for varB.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 组合市值的方差，varB同理。
 - en: Note that this formula holds for a portfolio of any two stocks, not just when
     they are cointegrating. But if they are in fact cointegrating, and if hA and hB
     are the weights which create the stationary portfolio P, we know that d(logP)
     cannot have a non-zero long term drift term represented by gamma*dt. So gamma
     must be zero. Now in order for gamma to be zero, the
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，这个公式适用于任何两只股票的组合，而不仅仅是它们协整的情况。但是，如果它们实际上是在协整，并且如果hA和hB是创建平稳组合P的权重，我们知道d(logP)不能有一个非零的长期漂移项，该项由gamma*dt表示。所以gamma必须为零。现在为了使gamma为零，
 - en: '**covariance**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**协方差**'
 - en: of the two stocks must be positive (no surprise here) and equal to the
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 两只股票的协方差必须为正（这里没有惊喜）且等于
 - en: '**average of the variances**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方差的平均值**'
 - en: of the two stocks. I invite the reader to verify this conclusion by expressing
     the variance of the portfolio market value in terms of the variances of the individual
     stocks and their covariance, and also to extend it to a portfolio with N stocks.
     This cointegration test for log prices is certainly simpler than the usual CADF
     or Johansen tests! (The price to pay for this simplicity? We must assume normal
     distributions of returns.)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 两只股票的组合。我邀请读者通过用个别股票的方差和它们的协方差来表示组合市值的方差，来验证这个结论，并将它扩展到包含N只股票的组合。这种对数价格的协整检验肯定比常用的CADF或Johansen检验简单！(为了这种简单性需要付出的代价？我们必须假定收益服从正态分布。)
 - en: === My online Quantitative Momentum Strategies workshop will be offered on December
     2-4\. Please visit [epchan.com/](http://epchan.com/my-workshops)[my-workshops ](http://epchan.com/my-workshops)for
     registration details.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的线上量化动量策略研讨会将于12月2日至4日举行。请访问[epchan.com/](http://epchan.com/my-workshops)[我的研讨会](http://epchan.com/my-workshops)页面获取注册详情。

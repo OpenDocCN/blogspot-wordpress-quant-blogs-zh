@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:30:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:30:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: SpreadServe AMI part II | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: SpreadServe AMI第二部分 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2017/01/17/spreadserve-ami-part-ii/#0001-01-01](https://etrading.wordpress.com/2017/01/17/spreadserve-ami-part-ii/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2017/01/17/spreadserve-ami-part-ii/#0001-01-01](https://etrading.wordpress.com/2017/01/17/spreadserve-ami-part-ii/#0001-01-01)
 - en: SpreadServe AMI part II
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: SpreadServe AMI part II
 - en: January 17, 2017
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2017年1月17日
 - en: 'The core component in a [SpreadServe](http://spreadserve.com) deployment is
     the SpreadServeEngine, a headless C++ server binary that implements the Excel
     compatible calculation engine. The engine discovers its hostname through the win32
@@ -42,5 +58,12 @@
     helper server process to query instance metadata using Tornado’s [async HTTPClient](http://www.tornadoweb.org/en/stable/httpclient.html)
     and write it to the localFS, where SpreadServeEngine can read it. Result: any
     new SpreadServe AMI will automatically discover its public DNS.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[SpreadServe](http://spreadserve.com)部署中的核心组件是SpreadServeEngine，这是一个实现了与Excel兼容的计算引擎的无头C++服务器二进制文件。该引擎通过使用[GetComputerNameExA](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724301(v=vs.85).aspx)(
+    ComputerNameDnsFullyQualified, …) win32 API发现其主机名。在[AWS](https://aws.amazon.com/)上，这给我的主机名是WIN-THU4IQNRN6F，而我想要的是完全合格域名，如ec2-54-186-184-85.us-west-2.compute.amazonaws.com。StackExchange上的[Harry
+    Johnston](http://english.stackexchange.com/users/77895/harry-johnston)热心建议，由于主机没有加入域，只有通过控制面板明确设置，GetComputerNameExA才会返回FQDN。自然地，我想要避免在SpreadServe
+    AMI上进行手动修复，所以我决定使用Amazon的EC2[实例元数据](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html)。可以通过任何EC2主机的HTTP
+    GET请求从这个URL获取完全合格的主机名：http://169.254.169.254/latest/meta-data/public-hostname。我建立了一个小型助手服务器进程，使用Tornado的[异步HTTP客户端](http://www.tornadoweb.org/en/stable/httpclient.html)查询实例元数据，并将其写入本地文件系统，SpreadServeEngine可以从本地文件系统中读取它。结果：任何新的SpreadServe
+    AMI都可以自动发现其公共DNS。

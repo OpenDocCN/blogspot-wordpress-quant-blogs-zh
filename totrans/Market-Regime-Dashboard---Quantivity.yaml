@@ -1,64 +1,92 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 13:55:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:55:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Market Regime Dashboard | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 市场体制仪表板 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/08/23/market-regime-dashboard/#0001-01-01](https://quantivity.wordpress.com/2009/08/23/market-regime-dashboard/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/08/23/market-regime-dashboard/#0001-01-01](https://quantivity.wordpress.com/2009/08/23/market-regime-dashboard/#0001-01-01)
 - en: The [previous post](https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/),
     and excellent attendant reader comments, posited that effective quantitative trading
     needs to dynamically adapt to context. Yet, one of the most difficult systemic
     quant problems is *identifying relevant “context”, how to measure it, and how
     to visualize it*.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[上一篇文章](https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/)中，以及随后的优秀读者评论中，提出了有效量化交易需要动态适应环境。然而，最困难的系统性量化问题之一是*确定相关的“环境”，如何衡量它，以及如何可视化它*。
 - en: All too often, people focus exclusively on analyzing raw price charts for context
     ([technical analysis](http://en.wikipedia.org/wiki/Technical_analysis) is particular
     guilty). This is unfortunate, as basic time-series analysis offers to tickle out
     and visualize myriad richness otherwise invisible.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们过于经常地专注于分析原始价格图表以获取背景信息([技术分析](http://en.wikipedia.org/wiki/Technical_analysis)特别有害)。这是不幸的，因为基本的时间序列分析可以揭示并可视化其他方式无法看到的丰富信息。
 - en: 'A series of four posts seek to build a “visual dashboard” for *market regime
     of a single instrument* (in pictures, as one is worth a 1000 words). For simplicity,
     each post focuses on SPY during 2007 – 2008 and explore both [time domain](http://en.wikipedia.org/wiki/Time-domain)
     and [frequency domain](http://en.wikipedia.org/wiki/Frequency_domain). The first
     two posts will focus on identifying regime structure in the time domain:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 一系列四篇文章试图建立一个“视觉仪表板”用于*单一工具的市场体制*（以图片形式，因为一张图片胜过千言万语）。为了简单起见，每篇文章都关注于2007年至2008年的SPY，并探讨时间域和频域。前两篇文章将重点讨论在时间域内识别体制结构：
 - en: 'Raw structure: visualize distribution and moments'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 原始结构：可视化分布和瞬间
 - en: 'Correlation structure: visualize measures of self-correlation'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 相关性结构：可视化自相关测度
 - en: 'The latter two posts will focus on identifying regime structure in the frequency
     domain:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 后两篇文章将重点讨论在频域内识别体制结构：
 - en: 'Frequency structure: visualize stationary sinusoidal frequencies via [Fourier
     analysis](http://en.wikipedia.org/wiki/Fourier_analysis)'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 频域结构：通过[傅里叶分析](http://en.wikipedia.org/wiki/Fourier_analysis)可视化稳定的正弦频率
 - en: 'Wavelet structure: visualize non-stationary [wavelets](http://en.wikipedia.org/wiki/Wavelet_analysis)'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 小波结构：可视化非稳定的[小波](http://en.wikipedia.org/wiki/Wavelet_analysis)
 - en: For readers new to these techniques, they can be understood via analogy to appreciating
     orchestra. First, one must appreciate the progression and sequence of notes, as
     expressed by a sheet of music, played by each instrument; this is the time domain.
@@ -67,9 +95,13 @@
     or group of instruments; this is the frequency domain. Both are important, each
     providing an [orthogonal](http://en.wikipedia.org/wiki/Orthogonality) (or [orthonormal](http://en.wikipedia.org/wiki/Orthonormal))
     perspective on the same phenomenon.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于刚开始接触这些技术的读者，它们可以通过类比欣赏乐队来理解。首先，必须理解音符的进展和顺序，由每种乐器演奏的乐谱表达；这是时间域。其次，必须理解如何区分每种乐器或乐器组演奏的[旋律](http://en.wikipedia.org/wiki/Melodies)和[和声](http://en.wikipedia.org/wiki/Harmonies)；这是频域。两者都很重要，每个提供对同一现象的[正交](http://en.wikipedia.org/wiki/Orthogonality)（或[正交normal](http://en.wikipedia.org/wiki/Orthonormal)）视角。
 - en: This dashboard strives to provide basic visualizations which can capture the
     regime of many instruments, as applicable to both trading and risk management.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个仪表板旨在提供基本的可视化，可以捕捉许多工具的体制，适用于交易和风险管理。

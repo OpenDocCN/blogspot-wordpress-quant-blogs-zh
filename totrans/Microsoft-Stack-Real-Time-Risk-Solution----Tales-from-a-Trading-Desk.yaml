@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:19:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:19:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Microsoft Stack Real-Time Risk Solution? | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 微软堆栈实时风险解决方案？ | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2009/11/29/microsoft-stack-real-time-risk-solution/#0001-01-01](https://mdavey.wordpress.com/2009/11/29/microsoft-stack-real-time-risk-solution/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2009/11/29/microsoft-stack-real-time-risk-solution/#0001-01-01](https://mdavey.wordpress.com/2009/11/29/microsoft-stack-real-time-risk-solution/#0001-01-01)
 - en: Microsoft Stack Real-Time Risk Solution?
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 微软堆栈实时风险解决方案？
 - en: There appears to be a lot of opportunity in the real-time risk space. For a
     company like Microsoft who would probably like a large share of the financial
     vertical pie, it’s unclear if they understand the problem or have a solution.
@@ -30,14 +44,18 @@
     banks are building or will build over the coming year or so. Unfortunately I don’t
     think this is a clear winner as yet in this product space, there doesn’t seem
     to be a single product that solves 80% of the problem.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在实时风险领域似乎有很多机会。对于像微软这样的公司，他们可能想要获得金融垂直领域的很大一部分份额，目前还不清楚他们是否理解这个问题或者是否有解决方案。如果你看看我最近博客上提到的那些实时风险产品公司，有许多竞争者可能会或可能不会被银行在接下来一年左右的时间里构建的解决方案所采用。不幸的是，我认为在这个产品领域还没有明确的赢家，似乎没有一个产品能解决80%的问题。
 - en: If we look at the problem space, what we do know is that we need to handle a
     lot of moving data (trades, market, etc), we need to cook curves, calculate risk
     on trades/positions in real-time, and finally we need to present this data appropriately,
     and allow drill-down and analysis of the data – [P&L attribution](http://pnlexplained.com/PEP_PnL_Explained_FAQ.html).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们看看问题领域，我们知道我们需要处理大量的动态数据（交易、市场等），我们需要绘制曲线，实时计算交易/头寸风险，最后我们需要以适当的方式展示这些数据，并允许深入钻取和分析数据——[利润与损失（P&L）归因](http://pnlexplained.com/PEP_PnL_Explained_FAQ.html)。
 - en: 'So now we turn to Microsoft, and what it can provide to solve this problem.
     Today it has [Analysis services](http://www.microsoft.com/sqlserver/2005/en/us/Analysis-Services.aspx),
     which offers OLAP but isn’t a vector database, and I suspect it’s not real-time
@@ -49,8 +67,13 @@
     cube off this distributed data set presented though a Silverlight/WPF application
     – essentially [StreamCube](http://www.panopticon.com/products/streamcube_olap_data_visualization.htm)
     over AppFabric Caching.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以现在我们转向微软，以及它能为解决这个问题提供什么。今天它有[分析服务](http://www.microsoft.com/sqlserver/2005/en/us/Analysis-Services.aspx)，提供
+    OLAP 但不是向量数据库，而且我认为它对桌面来说不够实时 😦 然而，我认为如果愿意尝试一个证明概念（POC）的一部分，可能是解决方案的一部分：采用 StreamInsight，可能使用[Dryad](http://blogs.technet.com/windowshpc/archive/2009/07/15/dryad-and-dryadlinq-on-hpc-server.aspx)连接到
+    HPC，将 Windows Server AppFabric 缓存用于交易/风险数据，并可能考虑构建一个[内存中](http://it.toolbox.com/blogs/crm-realms/inmemory-olap-vs-traditional-olap-27467)的
+    cube，这个 cube 基于通过 Silverlight/WPF 应用程序呈现的分布式数据集构建——本质上是在 AppFabric 缓存之上构建[StreamCube](http://www.panopticon.com/products/streamcube_olap_data_visualization.htm)。
 - en: Torsten’s PDC 2009 session provides some insight into how you might use StreamInsight
     in a Real-Time Risk (RTR) architecture. Although his Market Mover demo is not
     aggregating risk, it does show how with a multi-layer StreamInsight architecture
@@ -59,14 +82,25 @@
     coloured StreamInsight servers, with the 3rd tier handling client application
     requests to push RTR data based on dynamic queries. 46mins into the session I
     think provides a good RTR viewpoint.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 托斯滕在2009年PDC会议上的 session 提供了一些关于如何在实时风险（RTR）架构中使用 StreamInsight 的见解。尽管他的市场推动者演示没有聚合风险，但它确实展示了如何使用多层
+    StreamInsight 架构——在会议的第41分钟。我怀疑你希望将 SQL Server 2008 Analysis Services（OLAP）数据库也喂给那些绿色
+    StreamInsight 服务器，以便进行 MDX 即席查询，第三层处理客户端应用程序请求以根据动态查询推动 RTR 数据。我认为会议的第46分钟提供了一个很好的
+    RTR 视角。
 - en: ~ by mdavey on November 29, 2009.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey 于2009年11月29日。
 - en: Posted in [Trading](https://mdavey.wordpress.com/category/trading/)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[交易](https://mdavey.wordpress.com/category/trading/)
 - en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[微软](https://mdavey.wordpress.com/tag/microsoft/)

@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:46:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Black-Scholes and the Greeks | All things finance and
     technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：布莱克-斯科尔斯和希腊字母 | 金融与科技的一切...
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/#0001-01-01](https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/#0001-01-01](https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/#0001-01-01)
 - en: As I wrote the title of this post, I couldn’t help but think of the classic
     Elton John song, Bennie and the Jets (cue music…) Bennie.. Bennie.. Bennie and
     the Je..e.ets. Elton John’s hit song was recorded in May of 1973\. The Black-Scholes
@@ -28,48 +40,69 @@
     equation, Robert Merton, went on to win the Nobel Prize in Economics. Maybe some
     musically inclined option quants can come up with a silly parody something like
     “Black-Scholes.. Black-Scholes.. Black-Scholes and the Gre..ee..eeks”.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我写下这篇文章的标题时，我忍不住想起了经典的艾尔顿·约翰的歌曲《本尼和喷气机》（播放音乐...）本尼..本尼..本尼和喷气机。艾尔顿·约翰的热门歌曲是在1973年5月录制的。布莱克-斯科尔斯模型是在1973年的一篇名为“期权定价和公司负债”的论文中首次发表的。艾尔顿·约翰后来成为了一位国际流行音乐巨星，而布莱克-斯科尔斯方程的另一位关键贡献者，罗伯特·莫顿，后来获得了诺贝尔经济学奖。也许有些擅长音乐的期权量化分析师能想出一些愚蠢的恶搞，比如“布莱克-斯科尔斯..布莱克-斯科尔斯..布莱克-斯科尔斯和极客”。
 - en: My awful attempt at humor aside, it’s beyond dispute that the Black-Scholes
     equation revolutionized derivatives pricing and established Fischer Black, Myron
     Scholes and Robert Merton as the ‘rock stars’ of modern finance.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 玩笑 aside，毫无疑问，布莱克-斯科尔斯方程革新了衍生品定价，将菲舍尔·布莱克、莫伦·斯科尔斯和罗伯特·莫顿确立为现代金融的“摇滚巨星”。
 - en: The Black-Scholes Equation
+  id: totrans-8
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 布莱克-斯科尔斯方程
 - en: 'So let’s take a closer look at the Black-Scholes equation. First, it is important
     to understand the basic assumptions of the Black-Scholes model, which I’ve taken
     from the excellent book, “[Options, Futures and Other Derivatives](http://www.amazon.com/Options-Futures-Other-Derivatives-6th/dp/0131499084/ref=sr_1_3?s=books&ie=UTF8&qid=1375158629&sr=1-3&keywords=options+futures+and+other+derivatives)”,
     by John Hull:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么让我们仔细看看布莱克-斯科尔斯方程。首先，理解布莱克-斯科尔斯模型的基本假设是非常重要的，这些假设来自于约翰·赫尔 excellent 的书《期权、期货和其他衍生品》（[Options,
+    Futures and Other Derivatives](http://www.amazon.com/Options-Futures-Other-Derivatives-6th/dp/0131499084/ref=sr_1_3?s=books&ie=UTF8&qid=1375158629&sr=1-3&keywords=options+futures+and+other+derivatives)》）：
 - en: The underlying asset price follows a ‘random walk’ in accordance with a process
     known as Geometric Brownian Motion
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 基础资产价格遵循一种称为几何布朗运动的过程的“随机游走”：
 - en: Shorts sales are permitted
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 允许空头交易
 - en: No transaction costs are incurred
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 不产生交易成本
 - en: No dividends are paid prior to expiration of the option
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在期权到期前不支付股息
 - en: Security trading is continuous, with no jumps in the underlying asset price
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 证券交易是连续的，基础资产价格没有跳跃
 - en: The risk-free interest rate, r, is constant
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 无风险利率 r 是常数
 - en: 'The first assumption leads to a model of stock price behavior that I briefly
     touched on in my last post in which the underlying asset’s return is assumed to
     be constant and normally distributed, the asset’s price is lognormally distributed
@@ -79,11 +112,16 @@
     S is the change in stock price over an instantaneous period of time, t, mu represents
     the underlying return, sigma its volatility and delta z is a normally distributed
     random (stochastic) variable:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个假设导致了一种股票价格行为的模型，我在上篇文章中简要提到了这个模型，在这个模型中，基础资产的回报被假设为常数且服从正态分布，资产的价格服从对数正态分布，其波动率是常数。股票价格的对数正态模型的离散时间版本由下面的方程描述，这也是布莱克-斯科尔斯微分方程推导的起点，其中
+    delta S 是股票价格在瞬间时间 t 内的变化，mu 表示基础回报，sigma 表示其波动率，delta z 是一个服从正态分布的随机（随机）变量：
 - en: '[![discretetimestockpricemodel](img/7ac4638b6e68058edaea8e3fd0012883.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/discretetimestockpricemodel1.jpg)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '![discretetimestockpricemodel](img/7ac4638b6e68058edaea8e3fd0012883.png)'
 - en: 'The next step is to apply [Ito’s Lemma](http://en.wikipedia.org/wiki/It%C5%8D%27s_lemma),
     which describes how a function, f, of the underlying S and time t is related to
     changes in S and t.  Then a ‘riskless’ portfolio is formed consisting of a long
@@ -94,170 +132,250 @@
     f, S and t is constantly changing as the market moves.  I won’t go into all the
     math, which is beyond the scope of this post, but the end result is the Black-Scholes
     differential equation:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步是应用[伊藤引理](http://en.wikipedia.org/wiki/It%C5%8D%27s_lemma)，它描述了函数f，关于基础资产S和时间t如何与S和t的变化相关。然后形成一个“无风险”的投资组合，该组合包括对衍生品的长期头寸和“delta”单位基础资产的空头头寸（我稍后会解释delta的含义）。这有效地抵消了基础随机过程的随机性，并创建了一个瞬间无风险的位置。该位置只在瞬间无风险，因为市场变动，f，S和t之间的关系不断变化。我不会详述所有数学公式，这超出了本篇文章的范围，但最终结果是布莱克-斯科尔斯微分方程：
 - en: '[![bsmdiffequation](img/40983566590a5eea189dc5c44a299fff.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/bsmdiffequation.jpg)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![bsmdiffequation](img/40983566590a5eea189dc5c44a299fff.png)：'
 - en: Lastly, to solve for the value of a call and put, the appropriate boundary conditions
     must be used, which should be familiar from my last post as the *payoff* functions
     for a call and put respectively.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，为了解决看涨和看跌期权的价值，必须使用适当的边界条件，这应该与我上篇文章中的看涨和看跌期权的*收益*函数熟悉。
 - en: 'For a call, the boundary condition is:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于看涨期权，边界条件是：
 - en: '[![callboundary](img/81235ab043de47f40bbe3ff230ec83fb.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/callboundary.jpg)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![callboundary](img/81235ab043de47f40bbe3ff230ec83fb.png)：'
 - en: 'For a put, the boundary condition is:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于看跌期权，边界条件是：
 - en: '[![putboundary](img/9779a3d87b6fbc910b0c4207020a96a4.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/putboundary.jpg)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![putboundary](img/9779a3d87b6fbc910b0c4207020a96a4.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/putboundary.jpg)：'
 - en: 'This results in the following equation for the value of a call:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了看涨期权的以下价值方程：
 - en: '[![callequation](img/1ca95c74e1126bf1ba5ffa9b24158507.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/callequation.jpg)and
     the value of a put:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '![callequation](img/1ca95c74e1126bf1ba5ffa9b24158507.png)：'
 - en: '[![putequation](img/7e487047b9bd9d6829eaf8827adf2645.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/putequation.jpg)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '![putequation](img/7e487047b9bd9d6829eaf8827adf2645.png)：'
 - en: 'where d1 and d2 are defined as follows:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中d1和d2定义如下：
 - en: '[![d1andd2](img/40c4fb7e4ac6f5f92518defa68da7246.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/d1andd2.jpg)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '![d1andd2](img/40c4fb7e4ac6f5f92518defa68da7246.png)：'
 - en: and N is the normal cumulative probability density function. As such, N(x) is
     the probability that a normally distributed random variable is less than x.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中N是正态累积概率密度函数。因此，N(x)是正态分布的随机变量小于x的概率。
 - en: 'To illustrate how these equations are used in practice to calculate the value
     of a call and put, I’ve uploaded a spread sheet to my Box account at [https://app.box.com/s/iqekbg6phhf9m23tuzki](https://app.box.com/s/iqekbg6phhf9m23tuzki)
     .  A screen shot is below:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了说明这些方程如何在实践中用于计算看涨和看跌期权的价值，我已经将一个电子表格上传到我的Box账户中[https://app.box.com/s/iqekbg6phhf9m23tuzki](https://app.box.com/s/iqekbg6phhf9m23tuzki)。下面是屏幕快照：
 - en: '[![bscalc](img/be2f9b110e31136ef541b898cd7abc3f.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/07/bscalc.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![bscalc](img/be2f9b110e31136ef541b898cd7abc3f.png)：'
 - en: Note that N(x) is implemented in LibreOffice (and Excel) as the function *normsdist.*
     Also you can see that the call and put values agree with those from my previous
     post.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意N(x)在LibreOffice（以及Excel）中作为函数*normsdist*实现。你也可以看到看涨和看跌价值与我在 previous post中的值一致。
 - en: The Greeks
+  id: totrans-34
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 希腊字母：
 - en: 'So let’s move on to the second part of this post, in which I’ll introduce and
     show how to calculate the *Greeks*.  In the context of option valuation, the Greeks
     refer to a standard set of option sensitivity measures.   They are:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么让我们继续这篇文章的第二部分，我将介绍并展示如何计算*希腊字母*。在期权估值的背景下，希腊字母指的是期权敏感度的一组标准度量。它们包括：
 - en: Delta (df/dS) – the change in the value of an option (f) given a one point change
     in the price of the underlying (S).  Delta is defined as the first derivative
     of f with respect to S.
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Delta（df/dS）- 标的资产价格（S）变化一个点时，期权价值（f）的变化。Delta定义为f关于S的一阶导数。
 - en: Gamma (d2f/d2S) – the change in the delta of an option given a one point change
     in the price of the  underlying (S).  Gamma is defined as the second derivative
     of f with respect to S.
+  id: totrans-37
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Gamma（d2f/d2S）- 标的资产价格（S）变化一个点时，期权delta的变化。Gamma定义为f关于S的二阶导数。
 - en: Theta (df/dt) – the change in the value of an option (f) given a 1 day decrease
     in the option’s time to maturity (t).  Theta is often referred to as the decay
     rate of an option. It is defined as the first derivative of f with respect to
     t.
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Theta（df/dt）- 期权到期时间（t）减少一天时，期权价值（f）的变化。Theta通常被称为期权的衰减速率。它定义为f关于t的一阶导数。
 - en: Vega (df/dsigma) – the change in the value of an option (f) given a one point
     change in the volatility (sigma).  Vega is defined as the first derivative of
     f with respect to sigma.
+  id: totrans-39
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Vega（df/dsigma）- 波动率（sigma）变化一个点时，期权价值（f）的变化。Vega定义为f关于sigma的一阶导数。
 - en: Rho (df/dr) – the change in the value of an option (f) given a one basis point
     change in the risk-free rate (r).  Rho is defined as the first derivative of f
     with respect to r.
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Rho（df/dr）- 标的资产价格（S）不变，无风险利率（r）变化一个基点时，期权价值（f）的变化。Rho定义为f关于r的一阶导数。
 - en: In options trading, the Greeks are critical to managing the risk of an options
     portfolio. For example, vega can be used to measure the PnL impact of a change
     in market volatility.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在期权交易中，希腊字母对于管理期权投资组合的风险至关重要。例如，vega可以用来衡量市场波动率变化对PnL的影响。
 - en: Additionally, as most option traders seek to limit their exposure to movements
     in the underlying, the delta of an option is used as a hedge ratio.  To achieve
     a delta neutral position, a trader must offset his delta by buying (selling) delta
     units of the underlying if the trader’s option delta is negative (positive).
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，由于大多数期权交易者寻求限制他们对标的资产波动的暴露，期权的delta被用作对冲比率。为了实现delta中性的头寸，如果交易者的期权delta为负（正），交易者必须通过购买（卖出）标的资产的delta单位来抵消他的delta。
 - en: 'Also, by virtue of the fact that delta and gamma are the first and second derivatives
     of the option valuation function (f) with respect to S, the new value of an option
     can be estimated by means of a [Taylor series expansion](http://en.wikipedia.org/wiki/Taylor_expansion). 
     As such, delta and gamma are similar in many respects to duration and convexity
     in the fixed income domain (see my March 2013 post,  Introducing QuantLib: Duration
     and Convexity).'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，由于delta和gamma是期权估值函数（f）关于S的一阶和二阶导数，可以通过[泰勒级数展开](http://en.wikipedia.org/wiki/Taylor_expansion)来估算期权的新的价值。因此，在固定收益领域，delta和gamma在很多方面与持续期和凸性相似（参见我2013年3月的帖子，《介绍QuantLib：持续期和凸性》）。
 - en: So now that we’ve covered all the key background concepts related to the valuation
     of options with Black-Scholes and the measurement of option price sensitivity, 
     I’ll show how easy it is to value an option in QuantLib using the [BlackScholesCalculator](http://quantlib.org/reference/class_quant_lib_1_1_black_scholes_calculator.html)
     class. This class, in keeping with the Black-Scholes assumptions above, takes
     a constant volatility (sigma) and rate (r) as input along with the underlying’s
     price (S), the option’s strike (K) and the option’s time to maturity (t).
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 既然我们已经涵盖了与Black-Scholes模型期权估值和期权价格敏感性测量相关的所有关键背景概念，我将展示如何使用[BlackScholesCalculator](http://quantlib.org/reference/class_quant_lib_1_1_black_scholes_calculator.html)类在QuantLib中轻松估值一个期权。这个类，与上述Black-Scholes假设一致，需要输入一个常数波动率（sigma）和利率（r），以及标的资产的价格（S）、期权的执行价格（K）和期权的到期时间（t）。
 - en: Unlike the original, classic Black-Scholes model, the QuantLib BlackScholesCalculator
     also supports an optional dividend yield.   Also, a subtle quirk of the BlackScholesCalculator
     implementation to watch out for is that the constructor expects sigma to be multiplied
     by the square root of time.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 与原始的经典Black-Scholes模型不同，QuantLib BlackScholesCalculator还支持可选的股息收益率。另外，要注意BlackScholesCalculator实现的一个微妙的怪癖是，构造函数期望sigma乘以时间的平方根。
 - en: '[PRE0]'
+  id: totrans-46
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'When run, the code produces the following output:'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行代码时，会产生以下输出：
 - en: '`Value of 110.0 call is 2.6119'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`110.0看涨期权的价值为2.6119'
 - en: Delta of 110.0 call is 0.3095
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0看涨期权的Delta为0.3095
 - en: Gamma of 110.0 call is 0.0249
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0看涨期权的Gamma为0.0249
 - en: Vega of 110.0 call is 0.2493
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0看涨期权的Vega为0.2493
 - en: Theta of 110.0 call is -0.0160
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0看涨期权的Theta为-0.0160
 - en: Value of 110.0 call (spot up $1) is 2.9340
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0美元看涨期权（标的资产价格上涨1美元）的价值是2.9340。
 - en: Value of 110.0 call (spot up $1) estimated from delta is 2.9214
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0美元看涨期权（从delta估计标的资产价格上涨1美元）的价值是2.9214。
 - en: Value of 110.0 call (spot up $1) estimated from delta and gamma is 2.9339
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0美元看涨期权（从delta和gamma估计标的资产价格上涨1美元）的价值是2.9339。
 - en: Value of 110.0 call (sigma up 0.01) is 2.8631
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0美元看涨期权（波动率上升0.01）的价值是2.8631。
 - en: Value of 110.0 call (sigma up 0.01 estimated from vega) is 2.8612`
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 110.0美元看涨期权（从vega估计波动率上升0.01）的价值是2.8612。
 - en: As you can see, for small changes in the Black-Scholes input parameters, the
     Greeks can accurately estimate the new price of the option.   For larger changes
     in parameter values or when needing to consider the combined effect of multiple
@@ -265,11 +383,15 @@
     of the options in a portfolio. This can be expensive and time consuming depending
     on the performance of the option pricing code, the number of options and the complexity
     of the scenario.
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的，对于Black-Scholes输入参数的小幅变化，希腊字母可以准确估计期权的新的价格。对于参数值的大幅变化，或者需要考虑多个参数变化组合效应（通常称为*情景*）时，有必要重新评估投资组合中的所有期权。这取决于期权定价代码的性能、期权的数量和情景的复杂性，可能会非常昂贵和耗时。
 - en: At this point, I think we’ve covered all the essentials of computing option
     values and sensitivities with QuantLib’s BlackScholesCalculator class. I hope
     you enjoyed my latest ‘Introducing QuantLib’ post. Until next time, have fun with
     QuantLib!
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 在此点上，我认为我们已经涵盖了使用QuantLib的BlackScholesCalculator类计算期权价值和敏感性的所有基本内容。希望您喜欢我最新的《介绍QuantLib》博文。下次见，祝您用QuantLib玩得开心！

@@ -1,216 +1,348 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:02:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:02:52'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Abstracting the CEP Engine'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 抽象化CEP引擎'
 - en: 来源：[http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 数据来源：[http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/abstracting-cep-engine.html#0001-01-01)
 - en: 'Here are two comments that I received yesterday, and my answers:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨天我收到了两条评论，以下是我的回答：
 - en: 1)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 1)
 - en: '*You bought an CEP Engine that doesn''t support event clouds?*'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '*你购买了一个不支持事件云的CEP引擎吗？*'
 - en: We feel that Coral8 does support event clouds, but we are looking for the best
     pattern to implement it. Mark, who is the
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们认为Coral8支持事件云，但我们正在寻找实现它的最佳模式。Mark是
 - en: CTO
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: CTO
 - en: of Coral8, doesn't quite agree with the term "event cloud". His posting
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 的Coral8，不太同意“事件云”这个术语。他发布的
 - en: '[here](http://www.coral8.com/blogs/blog-entry/unclouding-and-streamlining-your-thinking-about-cep-use-cases)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[这里](http://www.coral8.com/blogs/blog-entry/unclouding-and-streamlining-your-thinking-about-cep-use-cases)'
 - en: highlights his argument. According to Mark, an "event cloud" can be represented
     as multiple event streams,
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 突出他的论点。根据Mark的说法，“事件云”可以表示为多个事件流，
 - en: something
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 某事
 - en: that Coral8 supports.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 的支持。
 - en: 2)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 2)
 - en: '*How and why did you abstract the CEP engine in your system?*'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*如何在您的系统中抽象化CEP引擎？*'
 - en: First, the why. We want to insulate ourselves from any uncertainties concern
     the
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，为什么。我们希望隔离自己，不受任何与
 - en: CEP
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine, both in terms of the product itself and of the company. In this economic
     environment, we are concerned that some of these smallish
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎，无论是产品本身还是公司方面。在这种经济环境下，我们担心其中一些规模较小的
 - en: CEP
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: companies might be strained. Ones who are backed by Venture Capital might find
     their
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 企业可能会受到压力。那些有风险投资支持的企业可能会发现他们的
 - en: VC's
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: VC's
 - en: getting worried and thinking that we are reliving those inglorious times from
     2002 to 2003\. Ones who are privately financed might find that the backers want
     to move into other areas. It is no secret that most firms are cutting back or
     delaying their software purchases, and the ones who get impacted first are the
     smaller niche companies.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 感到担忧，认为我们正在重蹈2002年至2003年那些不光彩的时代的覆辙。那些私人融资的公司可能会发现支持者希望转移到其他领域。众所周知，大多数公司都在削减或推迟软件采购，受到影响的第一批是小型利基公司。
 - en: We also want to have some flexibility in case the
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还希望有一定的灵活性，以防
 - en: CEP
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine itself does not function as advertised. Coral8 has given us great support,
     but we have not stressed it yet. We know other companies who have evaluated Coral8
     who have
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎本身并不像宣传的那样工作。Coral8给了我们很大的支持，但我们还没有对它施加压力。我们知道其他评估过Coral8的公司，他们已经
 - en: foudn
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: foudn
 - en: some shortcomings, things that the Coral8 staff have addressed. However, it
     is perfectly within the realm of possibility that we may need to consider another
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些缺点，这些问题Coral8工作人员已经解决。然而，完全有可能我们需要考虑另一种
 - en: CEP
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine should Coral8 fall on its face.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎在Coral8跌跌撞撞时应该使用。
 - en: Now, the how ....
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，关于如何...
 - en: We are not using Coral8's native input and output adapters. We are not even
     reading databases using Coral8's
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们没有使用Coral8的本地输入和输出适配器。我们甚至不使用Coral8的
 - en: PollFromDatabase
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: PollFromDatabase
 - en: and
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: ReadFromDatabase
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: ReadFromDatabase
 - en: adapters. We have an input server that is used to read static and real-time
     data and
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 适配器。我们有一个输入服务器，用于读取静态和实时数据，
 - en: marshall
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: marshall
 - en: that data into coral8
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 把数据从Coral8
 - en: tuples
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 元组
 - en: . On the other side, we have an output server that takes the derived event
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 。在另一边，我们有一个输出服务器，它接收由其他系统生成的派生事件
 - en: tuples
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 元组
 - en: from Coral8,
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: from Coral8，
 - en: marshalls
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: marshalls
 - en: them into a common format, and does various kinds of alerting and visualizations.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 并将它们转换为通用格式，执行各种警报和可视化操作。
 - en: From the days that we did evaluations of other
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 从我们评估其他
 - en: CEP
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendors, we have layers in our input and output servers that deal with
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 供应商，我们的输入和输出服务器层处理
 - en: Aleri
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: and
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 和
 - en: Streambase
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: . In other words, we have our own adapters! Changing from Coral8 to
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 。换句话说，我们有自己的适配器！从Coral8更改到
 - en: Streambase
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: or
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 或
 - en: Aleri
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: involves a simple edit to our Spring-like configuration files.
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 涉及对我们类似Spring的配置文件进行简单编辑。
 - en: In addition, we have the ability to farm out work to other engines, such as
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，我们有能力将工作外包给其他引擎，例如
 - en: KDB
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: KDB
 - en: +. We can then read the derived events that are generated by other systems (as
     long as they are in our common format) and put them into the
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: +. 我们可以读取其他系统生成的派生事件（只要它们在我们的通用格式中）并将它们放入
 - en: CEP
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine's "event cloud".
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎的"事件云"。
 - en: In our architecture, we have introduced extra hops in order to abstract the
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们的架构中，我们引入了额外的跃点，以便抽象化
 - en: CEP
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine. But, we are not that concerned, since we are dealing with analysis and
     alerting rather than trading.
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎。但是，我们并不太担心，因为我们处理的是分析和小号，而不是交易。
 - en: ©2008 Marc Adler - All Rights Reserved
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 马克·阿德勒 - 版权所有

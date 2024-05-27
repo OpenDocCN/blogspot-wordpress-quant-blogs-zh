@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:03:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:03:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using Probability Density as an Adaptive Mechanism – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用概率密度作为适应性机制 – 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/#0001-01-01)
 - en: I will take a pause of the Time Machine series for now while I work on it some
     more and prepare future posts. Today I will follow up on my post on return distributions
     and show a simplistic way to include it in an adaptive strategy.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我现在将暂停一下《时间机器》系列，当我进一步研究并准备未来的文章时。今天我将跟进我关于回报分布的文章，展示一种简单的方法将其包含在适应性策略中。
 - en: It has been discussed quite a lot on the blogosphere that a strategies with
     fixed parameters are inferior to adaptive strategies. For example the simplest
     daily MR strategy I can think of is probably RSI 2 50/50, but this strategy did
@@ -30,16 +44,20 @@
     the most profitable lookback parameter for RSI also varies in time. This is where
     return distribution is useful. From it, we can derive the probability density
     function and use that to create an adaptive mechanism.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客圈里已经有很多讨论，认为具有固定参数的策略不如适应性策略。例如我能想到的最简单的每日MR策略可能是RSI 2 50/50，但这个策略并不总是有效，我当然也不期望它会永远有效。此外，RSI的最有利回顾参数也会随时间变化。这就是回报分布有用的地方。从这里，我们可以导出概率密度函数，并利用它来创建一个适应性机制。
 - en: 'Just a little background on probability density function; from wiki: “density
     of a continuous random variable is a function that describes the relative likelihood
     for this random variable to occur at a given point in the observation space.”
     In plain language; the probability of a certain event happening. I recommend using
     your favorite statistical software to do so, unless you want to be doing integrals
     for a long time!'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于概率密度函数稍微有一点背景；从维基百科上来说：“连续随机变量的密度是一个描述这个随机变量在观察空间中给定点发生相对可能性的函数。”用简单的话来说；就是某个特定事件发生的概率。我建议使用你最喜欢的统计软件来这样做，除非你想长时间做积分！
 - en: For this test, I took SPY data, computed RSI values for different lookback periods
     (2 to 30), and then looked at the results for each strategy. For a rolling period
     of 1 year and 6 months I looked at the probability densities of returns for every
@@ -49,17 +67,26 @@
     values. That way, the capital is allocated to the strategy with the parameter
     generating the highest probability of positive returns as measured by the probability
     density function. I compared the strategy, RSI 2 50/50 and buy and hold.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于这个测试，我取了SPY数据，计算了不同回顾期（2到30）的RSI值，然后查看了每个策略的结果。对于一个滚动周期为1年半，我查看了每个策略的回报概率密度，特别关注回报大于零的概率（这可以改为更高的阈值，只是想保持基础）。然后我交易了1年半内值最高的策略。这样，资本就分配给了由参数生成最高正回报概率的策略，这个概率由概率密度函数来衡量。我比较了RSI
+    2 50/50策略和持有策略。
 - en: Results
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果
 - en: '[![](img/bf18c92f382c821d5584b86325a90cc3.png "Density Adative")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/density-adative.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bf18c92f382c821d5584b86325a90cc3.png "Density Adative")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/density-adative.png)'
 - en: '[![](img/a1ac579dbcd64007515dc5e418bf1def.png "Density Adative Results")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/density-adative-results.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a1ac579dbcd64007515dc5e418bf1def.png "Density Adative Results")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/05/density-adative-results.png)'
 - en: The results are not particularly impressive, the point of the article was to
     illustrate the concept as simply as possible. I believe that there is ways to
     make this particular strategy more robust; as a starter to take a shorter time
@@ -69,8 +96,12 @@
     though the results are not spectacular, the strategy seems to adapt to the different
     waves in the market and allocate the capital to a more appropriate parameter length
     for the RSI depending on the current market paradigm.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果并不特别令人印象深刻，文章的目的是尽可能简单地说明这个概念。我相信有方法可以使这种特定策略更加稳健；作为初学者，可以缩短回顾期的时间框架，使其对近期市场数据更加敏感，或者引入加权方案，更多地权衡近期数据。我会让读者自己尝试，如果你愿意分享，我很乐意发布结果。尽管结果并不壮观，但这个策略似乎能够适应市场中的不同波动，并根据当前市场范式将资本分配到更适合RSI参数长度的参数上。
 - en: QF
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

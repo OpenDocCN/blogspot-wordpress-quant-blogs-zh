@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:51:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:51:28'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Responsive SVG in Your RStudio Browser'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 在您的 RStudio 浏览器中使用响应式 SVG'
 - en: 来源：[http://timelyportfolio.blogspot.com/2014/10/reponsive-svg-in-your-rstudio-browser.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/10/reponsive-svg-in-your-rstudio-browser.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2014/10/reponsive-svg-in-your-rstudio-browser.html#0001-01-01](http://timelyportfolio.blogspot.com/2014/10/reponsive-svg-in-your-rstudio-browser.html#0001-01-01)
 - en: For those readers who are unaware, SVG is absolutely amazing, and if you need
     some convincing see this 2009 paper/talk from David Dailey [Why is SVG Going to
     Be REALLY BIG?](http://www.svgopen.org/2009/papers/26-Why_is_SVG_going_to_be_REALLY_BIG_/) 
@@ -25,72 +37,115 @@
     appearing on the screen with certain commands.  These graphics though are rasters,
     so when you resize, the graphics are re-rendered to scale.  Let’s have a look
     with a simple plot.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些不了解的读者，SVG 绝对令人惊叹，如果你需要一些说服力，请看看 2009 年 David Dailey 的论文/演讲 [为什么 SVG 会变得非常重要？](http://www.svgopen.org/2009/papers/26-Why_is_SVG_going_to_be_REALLY_BIG_/) 
+    大多数 R 用户应该非常熟悉使用某些命令在屏幕上魔法般地显示图形和绘图。  这些图形是光栅图，所以当你调整大小时，图形会被重新渲染以适应比例。  让我们用一个简单的绘图来看看。
 - en: '[PRE0]'
+  id: totrans-7
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![R_raster_resize](img/c0680b1c754d1b716ae2d514cfc8a95f.png "R_raster_resize")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLjD7-l6uFyEUsI0nsqmCHUO8T29m78Rd1XkjkY-1uO4ue5B_UAXcfQKtUKsycTF26y1gvMkQOcA0O2I-7BpTsY0p8l2C8ct4lZVSjnLdb4GgDYJ4l3080gfCiWQBUBTpHzTy9wx6zQA/s1600-h/R_raster_resize%25255B4%25255D.gif)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![R_raster_resize](img/c0680b1c754d1b716ae2d514cfc8a95f.png "R_raster_resize")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLjD7-l6uFyEUsI0nsqmCHUO8T29m78Rd1XkjkY-1uO4ue5B_UAXcfQKtUKsycTF26y1gvMkQOcA0O2I-7BpTsY0p8l2C8ct4lZVSjnLdb4GgDYJ4l3080gfCiWQBUBTpHzTy9wx6zQA/s1600-h/R_raster_resize%25255B4%25255D.gif)'
 - en: One of the beauties of SVG is that it will scale without re-rendering.  The
     old way to create SVG in R was to do something like this which produces an svg
     file that we can use, adjust, and share.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: SVG 的一个美妙之处在于它可以在不重新渲染的情况下进行缩放。  在 R 中创建 SVG 的旧方法是像这样做的，它产生一个我们可以使用、调整和共享的 svg
+    文件。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: However, the integrated browser window in [RStudio](http://rstudio.com) combined
     with the [HTML helper tools](http://github.com/rstudio/htmltools)  from [RStudio](http://rstudio.com)
     lets us produce and see SVGs in real-time.  Let’s look again at our simple plot,
     but this time as an SVG in our RStudio browser window.  We will also use the precocious
     packages [SVGAnnotation](https://github.com/duncantl/SVGAnnotation) and [XML](http://cran.r-project.org/web/packages/XML/index.html)
     from Duncan Temple Lang.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，[RStudio](http://rstudio.com) 中的集成浏览器窗口与来自 [RStudio](http://rstudio.com)
+    的 [HTML 辅助工具](http://github.com/rstudio/htmltools)  让我们能够实时生成和查看 SVG。  让我们再次看看我们的简单绘图，但这次是作为
+    SVG 在我们的 RStudio 浏览器窗口中。  我们还将使用 [SVGAnnotation](https://github.com/duncantl/SVGAnnotation)
+    和 [XML](http://cran.r-project.org/web/packages/XML/index.html) 这两个早熟的软件包，它们来自
+    Duncan Temple Lang。
 - en: '[![R_svg_1](img/65d7dc1149bff356154b3053797695bc.png "R_svg_1")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZH15LxxEGyGT6j4DB_4nOjynUAeJp5NkiZib53Hxo_PnfA6SVvh4NvX-cv-6nZP4etjPJ8LfBibXqaXKFNAiUMyyUpBryM1_ee0Dbz5lNP4zuPApsSm3iBYDesDeF_UIZAzGfDWkmbA/s1600-h/R_svg_1%25255B4%25255D.gif)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![R_svg_1](img/65d7dc1149bff356154b3053797695bc.png "R_svg_1")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZH15LxxEGyGT6j4DB_4nOjynUAeJp5NkiZib53Hxo_PnfA6SVvh4NvX-cv-6nZP4etjPJ8LfBibXqaXKFNAiUMyyUpBryM1_ee0Dbz5lNP4zuPApsSm3iBYDesDeF_UIZAzGfDWkmbA/s1600-h/R_svg_1%25255B4%25255D.gif)'
 - en: '****But where is the magic resizability ?****'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '****但是魔术般的可调整性在哪里呢？****'
 - en: '****This is where we will use some help from****'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '****这就是我们将要从中获得一些帮助的地方****'
 - en: '****Sara Soueidan - [Understanding SVG Coordinate Systems & Transformations
     (Part 1) – The viewport, viewBox, & preserveAspectRatio](http://sarasoueidan.com/blog/svg-coordinate-systems/)****'
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '****Sara Soueidan - [理解 SVG 坐标系统和转换（第1部分）— 视口、视图框和保持纵横比](http://sarasoueidan.com/blog/svg-coordinate-systems/)****'
 - en: '****Dudley Storey - [Make SVG Responsive](http://demosthenes.info/blog/744/Make-SVG-Responsive)****'
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '****Dudley Storey - [制作响应式 SVG](http://demosthenes.info/blog/744/Make-SVG-Responsive)****'
 - en: '****We can make a simple function to help us change the attributes and style
     to get a fancy responsive SVG real-time.****'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '****我们可以制作一个简单的函数来帮助我们实时改变属性和样式，从而得到一个漂亮的响应式 SVG。****'
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '****Let’s test our fancy new function.****'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '****让我们测试一下我们新的漂亮函数。****'
 - en: '****[![R_svg_2](img/66e681590dd1a49b4be1d36e284cedc8.png "R_svg_2")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHJIra4LEmwDqGqayhMsilZb4LiZda01ia04kYPjtermBB1K3uTSMKMCAOxCM0PJVeGYMf6-dfTvbvqHBpI7vY8LXnQUztWuQCEbNxU-KPPl7K9TQKLi48MNIUAu7rg71Yw3PfUmPalQ/s1600-h/R_svg_2%25255B4%25255D.gif)****'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '****![R_svg_2](img/66e681590dd1a49b4be1d36e284cedc8.png "R_svg_2")（https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHJIra4LEmwDqGqayhMsilZb4LiZda01ia04kYPjtermBB1K3uTSMKMCAOxCM0PJVeGYMf6-dfTvbvqHBpI7vY8LXnQUztWuQCEbNxU-KPPl7K9TQKLi48MNIUAu7rg71Yw3PfUmPalQ/s1600-h/R_svg_2%25255B4%25255D.gif）****'
 - en: '****That’s more like it.  Let’s abandon the animated GIFs and embed a SVG below
     (copied/pasted straight from R into this post).  Resize your browser and test
     the result.****'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '****这才像样。让我们放弃动态GIF，在下面嵌入一个SVG（直接从R复制粘贴到这篇文章中）。调整你的浏览器窗口大小，测试一下结果。****'
 - en: '****Actually, it appears I lied. The SVG does not resize like it would outside
     the Blogger container.  See [http://bl.ocks.org/timelyportfolio/raw/560e50e437d4bb1b9142/](http://bl.ocks.org/timelyportfolio/raw/560e50e437d4bb1b9142/
     "http://bl.ocks.org/timelyportfolio/raw/560e50e437d4bb1b9142/") for the SVG in
     a standalone document for resizing.****'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '****实际上，看起来我撒谎了。SVG并没有像在Blogger容器之外那样调整大小。参见 [http://bl.ocks.org/timelyportfolio/raw/560e50e437d4bb1b9142/](http://bl.ocks.org/timelyportfolio/raw/560e50e437d4bb1b9142/)
+    中的独立文档中的SVG以进行调整。****'
 - en: '[PRE3]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'

@@ -1,76 +1,119 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:39:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:39:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Introduction to Backtesting library in the Systematic Investor Toolbox | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Systematic Investor Toolbox中的回测库介绍 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/25/introduction-to-backtesting-library-in-the-systematic-investor-toolbox/#0001-01-01)
 - en: I wrote a simple [Backtesting](http://www.investopedia.com/terms/b/backtesting.asp)
     library to evaluate and analyze Trading Strategies. I will use this library to
     present the performance of trading strategies that I will study in the next series
     of posts.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我编写了一个简单的[回测](http://www.investopedia.com/terms/b/backtesting.asp)库来评估和分析交易策略。我将使用这个库来展示我将在接下来的系列帖子中研究的交易策略的表现。
 - en: 'It is very easy to write a simple Backtesting routine in R, for example:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在R中编写一个简单的回测程序非常容易，例如：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The code I implemented in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
     is a bit longer, but follows the same logic. It provides extra functionality:
     ability to handle multiple securities, weights or shares backtesting, and customized
     reporting. Following is a sample code to implement the above strategies using
     the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中实现的代码有点长，但遵循相同的逻辑。它提供了额外的功能：处理多个证券、权重或股份回测，以及自定义报告。以下是使用[Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库实现上述策略的示例代码：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The **bt.prep** function merges and aligns all symbols in the data environment.
     The **bt.apply** function applies user given function to each symbol in the data
     environment. The **bt.run** computes the equity curve of strategy specified by
     **data$weight** matrix. The **data$weight** matrix holds weights (signals) to
     open/close positions. The **plotbt.custom.report** function creates the customized
     report, which can be fined tuned by the user. Here is a sample output:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**bt.prep** 函数合并并校准数据环境中的所有符号。**bt.apply** 函数将用户给定的函数应用于数据环境中的每个符号。**bt.run**
+    计算由 **data$weight** 矩阵指定的策略的权益曲线。**data$weight** 矩阵持有开仓/平仓的权重（信号）。**plotbt.custom.report**
+    函数创建自定义报告，用户可以对其进行微调。以下是样本输出：'
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'The visual performance summary:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 视觉性能总结：
 - en: '[![](img/7333640b1670d3d316d92261194c8186.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small8.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small8.png)'
 - en: 'The statistical performance summary:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 统计性能总结：
 - en: '[![](img/1eb1643b869f41a6d658841e3b2cd6f3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small7.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small7.png)'
 - en: 'The trade summary:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 交易总结：
 - en: '[![](img/ddcef9cdae946eae0a9f4e2f507323bc.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small5.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small5.png)'
 - en: To view the complete source code for this example, please have a look at the
     [bt.test() function in bt.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了查看这个例子完整的源代码，请查看 github 上的 [bt.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.r)。

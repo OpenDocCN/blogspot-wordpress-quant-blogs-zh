@@ -1,98 +1,151 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:43:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:43:40
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Time Series Matching | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 时间序列匹配 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/13/time-series-matching/#0001-01-01)
 - en: THIS IS NOT INVESTMENT ADVICE. The information is provided for informational
     purposes only.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这不是投资建议。 本信息仅供参考。
 - en: '[If it looks like a duck, swims like a duck, and quacks like a duck, then it
     probably is a duck.](http://en.wikipedia.org/wiki/Duck_test)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[如果它看起来像鸭子，游得像鸭子，叫得像鸭子，那么它很可能就是鸭子。](http://en.wikipedia.org/wiki/Duck_test)'
 - en: 'Do you want to know what S&P 500 will do in the next week, month, quarter?
     One way to make an educated guess is to find historical periods similar to the
     current market environment, and examine what happened. I will call this process
     time series matching, but you could find a similar techniques referred as technical
     patterns and fractals. To get some flavor about fractals, following are two articles
     I read recently about fractals:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 你想知道标普500在未来一周、一个月、一个季度会怎样吗？ 一种方法是通过找到与当前市场环境相似的历史时期，并检查发生了什么。 我将这个过程称为时间序列匹配，但你可能会找到与技术模式和分形相似的类似技术。
+    为了了解分形的味道，以下是两篇我最近阅读关于分形的文章：
 - en: 'I recommend reading following article about the time series matching to understand
     different approaches:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我建议阅读以下关于时间序列匹配的文章来了解不同的方法：
 - en: I will use a simple method outlined in the [How to Accelerate Model Deployment
     using Rook by Jean-Robert Avettand-Fenoel](http://www.londonr.org/Sep%2011%20LondonR_AvettandJR.pdf)
     article to find time series matches that are similar to the most recent 90 days
     of SPY.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将使用[Jean-Robert Avettand-Fenoel](http://www.londonr.org/Sep%2011%20LondonR_AvettandJR.pdf)文章中概述的简单方法来寻找与SPY最近90天相似的时间序列匹配。
 - en: 'Following code loads historical prices from Yahoo Fiance, setups the problem
     and computes Euclidean distance for the historical rolling window using the [Systematic
     Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下代码从雅虎财经加载历史价格，设置问题，并使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)计算历史滚动窗口的欧几里得距离：
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s select the best 10 matches to the ‘query’ pattern in the SPY history:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们在SPY历史中选择与“查询”模式最相似的10个匹配项：
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/5dee5c867d45edec69dfd26e09afa1f6.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small1.png)'
 - en: '[![](img/83e47dbc665ab605354e052b7f16fc09.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small1.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small1.png)'
 - en: 'Next, let’s overlay all matches with the ‘query’ pattern and examine their
     historical performance after the match took place:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们将所有匹配项与“查询”模式叠加，并在匹配发生后检查它们的历史表现：
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/c8e8465556b94245dc2275402af1db60.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small1.png)'
 - en: 'Next, let’s summarize all matches performance in a table:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们用表格总结所有匹配项的表现：
 - en: '[PRE3]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/8a6b7fc81c380088531896d772b02db8.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot4-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot4-small.png)'
 - en: The Time Series Matching analysis can be used to make an educated guess what
     S&P 500 will do in the next week, month, quarter. This educated guess is based
     on historical data and there is no guarantees that history will repeat itself.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间序列匹配分析可以用来猜测标普500在未来一周、一个月、一个季度的表现。这种猜测基于历史数据，历史上并没有保证会重复。
 - en: In the next post I will examine other distance measures for Time Series Matching
     and I will show an example of [Dynamic time warping](http://en.wikipedia.org/wiki/Dynamic_time_warping).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将检查时间序列匹配的其他距离度量，并展示一个[动态时间扭曲](http://en.wikipedia.org/wiki/Dynamic_time_warping)的示例。
 - en: To view the complete source code for this example, please have a look at the
     [bt.matching.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[github上bt.matching.test()函数的源代码](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

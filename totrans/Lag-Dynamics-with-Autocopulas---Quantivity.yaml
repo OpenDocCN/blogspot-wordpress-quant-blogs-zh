@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:48:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:48:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Lag Dynamics with Autocopulas | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 带有自相关的时间序列滞后动力学|量化
 - en: 来源：[https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#0001-01-01)
 - en: '[Rakonczai *et al.* (2010)](http://bit.ly/qRAQsw) introduced *autocopulas*
     to describe the *lag self-dependence* structure of a time series. Autocopulas
     are superior to [autocorrelation](http://en.wikipedia.org/wiki/Autocorrelation)
@@ -28,58 +40,88 @@
     Generalizing this notion to arbitrary time series provides an insightful tool
     for *analyzing and visualizing lag dynamics for both individual securities and
     baskets*.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**拉科诺齐等人（2010年）** [在](http://bit.ly/qRAQsw)引入了*自相关*来描述时间序列的*滞后自相关*结构。自相关优于[自相关](http://en.wikipedia.org/wiki/Autocorrelation)的同样原因，正如[copulas](http://en.wikipedia.org/wiki/Copula_%28probability_theory%29)优于依赖点统计(*例如*
+    [相关性](http://en.wikipedia.org/wiki/Correlation_and_dependence))。不熟悉copulas的读者建议回顾[经验Copulas和代理交叉套期保值基础风险](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk)。将此概念推广到任意时间序列，为分析单个证券和篮子滞后动态提供了洞察力。'
 - en: Autocopulas are potentially applicable to all sorts of fun problems in portfolio
     and risk management, exemplified in this post by considering their applicability
     to the continuing series on [proxy / cross hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging).
     Further application to generating alpha is fairly straightforward, although left
     an exercise for readers.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 自相关可能适用于组合和风险管理中各种有趣的问题，例如通过考虑其适用于持续的代理/交叉套期保值系列来证明这一点。[进一步应用于生成alpha](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)相对简单，尽管留给读者作为一个练习。
 - en: 'To begin, generalizing autocopulas—as defined by Rakonczai *et al.*—is necessary
     to support *arbitrary* time series (*i.e.* eliminating stationarity assumption),
     in doing so introducing explicit dependence on ![t](img/867074ff782cf54112401c2854672245.png):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，推广自相关—如Rakonczai *et al.*所定义的
 - en: '**Definition 1.** Given a time series ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png)
     and set of lags ![\mathcal{L} = \{ l_i \in \mathbb{Z}^+ : i = 1, ..., d \} ](img/bd8fb7bdfe663d37e857c124aadc65bf.png),
     the *autocopula* ![C_{Y,\mathcal{L}}](img/f8a179ecadd6e47fd51a9af3b2878ca3.png)
     is defined as the copula on the ![d + 1](img/77663dcb6b9b8c166651894ace8f0692.png)
     dimensional random vector ![(Y_t, Y_{t - l_1}, ..., Y_{t - l_d})](img/98fe25021dfb1b3996655a837ba591c8.png).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定义1**。给定一个时间序列![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png)和一个滞后集合![\mathcal{L}
+    = \{ l_i \in \mathbb{Z}^+ : i = 1, ..., d \} ](img/bd8fb7bdfe663d37e857c124aadc65bf.png)，*自相关*
+    ![C_{Y,\mathcal{L}}](img/f8a179ecadd6e47fd51a9af3b2878ca3.png)定义为在![d + 1](img/77663dcb6b9b8c166651894ace8f0692.png)维随机向量![(Y_t,
+    Y_{t - l_1}, ..., Y_{t - l_d})](img/98fe25021dfb1b3996655a837ba591c8.png)上的copula。'
 - en: '**Definition 2.** The *l-lag autocopula* ![C_{Y, l}](img/cb98aa3431801a1f9124f2f7ceaf7ac1.png)
     is the autocopula with lag ![\mathcal{L} = \{ l \in \mathbb{Z}^+ \}](img/e8afa852814b36858201c3fdd7d9f76e.png).'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定义2**。*l阶滞后自相关* ![C_{Y, l}](img/cb98aa3431801a1f9124f2f7ceaf7ac1.png)是具有滞后![\mathcal{L}
+    = \{ l \in \mathbb{Z}^+ \}](img/e8afa852814b36858201c3fdd7d9f76e.png)的自相关。'
 - en: 'In other words, an autocopula is the *empirical* copula composed of one or
     more lags of the *same* data series, such as longitudinal returns for an individual
     equity. From this definition, we can define the stationary versions from Rakonczai
     *et al.*, suitably relaxing dependency on ![t](img/867074ff782cf54112401c2854672245.png):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，自相关是*经验*由一个或多个滞后*相同*数据系列组成的copula，如个人股票的纵向回报。从这个定义，我们可以定义Rakonczai *et
+    al.*的平稳版本，适当放松对![t](img/867074ff782cf54112401c2854672245.png)的依赖性：
 - en: '**Definition 3.** A *stationary autocopula* is an autocopula whose time series
     ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png) is stationary.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定义3**。*平稳自相关*是一个其时间序列![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png)是平稳的自相关。'
 - en: '**Definition 4.** A *stationary l-lag autocopula* is an l-lag autocopula whose
     time series ![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png) is stationary.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**定义4**。一个*平稳的l滞后自相关密度*是一个其时间序列![Y_t](img/f0eab5b92197a1ad734d3ee9ddb8cb7e.png)平稳的l滞后自相关密度。'
 - en: Given these definitions, autocopulas can now be applied to [proxy / cross hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 给出这些定义后，自相关密度现在可以应用于[代理/交叉对冲](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging)。
 - en: '**Individual Autocopulas**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**个体自相关密度**'
 - en: 'The following plots illustrate fitted empirical student-t autocopula densities
     for the daily returns of CRM with lags of 1 day, 2 days, 1 week, and 1 month:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下图表展示了CRM日回报率与滞后1天、2天、1周和1个月的学生t自相关密度拟合结果：
 - en: '[![CRM autocopula](img/adc4f4c351001b731cb170c40c26c535.png "autocopula-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-crm.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![CRM自相关密度](img/adc4f4c351001b731cb170c40c26c535.png "autocopula-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-crm.png)'
 - en: 'These plots illustrate an interesting result: strong self-dependence of *conditional*
     returns extends over all periods in the tails (in all four corners), with weak
     dependence outside the tails. In other words, likelihood of large absolute returns
@@ -87,146 +129,223 @@
     temporal volatility clustering. As Gappy [commented](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#comments),
     recall the *unconditional* returns are heavy tailed—as exhibited by the fitted
     t marginals with low df in the [previous post](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk).'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些图表展示了一个有趣的结果：在尾部的所有周期中，条件回报的强烈自相关性，在尾外部相关性较弱。换句话说，在大绝对回报之前的条件下，大绝对回报的概率很高——因此，表现出大波动的聚类时间波动性。正如Gappy[评论](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas/#comments)的那样，回想一下*无条件*回报是有重尾的——正如在[前一篇帖子](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk)中，通过低自由度的拟合t边际所展示的。
 - en: Peakedness decreasing with increasing lag indicates dependence decay over time,
     meaning probability of large absolute returns decrease over time *conditional*
     on the previous occurrence of large absolute return (absolute due to peakedness
     in all four corners). Thus, not only does CRM have long tails, but its tail exhibit
     *decaying temporal tail dependence* (and thus, also, potentially self-similar
     volatility). Thanks to Gappy for absolute returns interpretation.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着滞后增加而峰度降低表明时间依赖性随时间衰减，意味着在大绝对回报之前的条件下，大绝对回报的概率随时间降低*条件*。因此，CRM不仅有长尾，其尾部还表现出*随时间衰减的尾部相关性*（因此，也可能具有潜在的自相似波动性）。感谢Gappy对绝对回报的解释。
 - en: 'Compare graphical intuition from above autocopulas versus autocorrelation (ACF)
     and partial autocorrelation (PACF) functions for *absolute returns* of CRM, which
     exhibit similar temporal dependence, yet do so via a pointwise dependence statistic
     providing minimal graphical intuition:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 比较上面自相关密度（ACF）与部分自相关（PACF）函数对于CRM绝对回报的图形直觉，它们表现出类似的时间相依性，然而却通过提供最小图形直觉的点相依统计实现：
 - en: '[![CRM Absolute Autocorrelation](img/064997f1073c8ddd1748d7504fa222fa.png "autocor-crm-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm-abs.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![CRM绝对自相关](img/064997f1073c8ddd1748d7504fa222fa.png "autocor-crm-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm-abs.png)'
 - en: 'In contrast with *non-absolute* returns, which exhibit no such dependence:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 与*非绝对*回报相比，后者表现出无此类相依性：
 - en: '[![CRM Autocorrelation](img/e0b3f33d7d4b131ca921e2a152e2198e.png "autocor-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![CRM自相关](img/e0b3f33d7d4b131ca921e2a152e2198e.png "autocor-crm")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-crm.png)'
 - en: 'Autocopulas for QQQ with same lags:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: QQQ相同滞后的自相关密度：
 - en: '[![QQQ Autocopula](img/c5757a8801f9b5328d8983d4d07dfab7.png "autocopula-qqq")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-qqq.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![QQQ自相关密度](img/c5757a8801f9b5328d8983d4d07dfab7.png "autocopula-qqq")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-qqq.png)'
 - en: Indicating that QQQ exhibits similar decaying temporal tail dependence, although
     the temporal decay is dramatically smaller for QQQ versus CRM—as the density remains
     strong peaked across all lags.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 指出QQQ表现出类似的随时间衰减的尾部相关性，尽管与CRM相比，QQQ的时间衰减要小得多——因为密度在所有滞后上始终保持高峰。
 - en: '**Proxy Autocopulas**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**代理自相关密度**'
 - en: 'Given autocopulas of the individual securities, question is how to apply this
     methodology to support intuition about inter-temporal dependence of both assets
     in proxy hedging. Two approaches seem immediately obvious: excess returns and
     difference in autocopulas.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于
 - en: 'First, consider the *excess autocopula* ![EC](img/a7f5311a84fb5ff059c73d6288492a74.png)
     which is the autocopula of the *excess returns*, defined as the linear difference
     in (non-log) returns between individual security ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)
     and market index ![\beta](img/e59dd600f7eb22f952e355797bceba2e.png):'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，考虑*超额自联互换* ![EC](img/a7f5311a84fb5ff059c73d6288492a74.png)，这是*超额回报*的自联互换，定义为个别证券
+    ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png) 和市场指数 ![\beta](img/e59dd600f7eb22f952e355797bceba2e.png)
+    之间的线性差分（非对数）回报：
 - en: '![EC(\alpha,\beta) = C(D(\alpha) - D(\beta))](img/202b547ce7089408e913078e84c7d7f1.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_IMG
+  zh: '![EC(\alpha,\beta) = C(D(\alpha) - D(\beta))](img/202b547ce7089408e913078e84c7d7f1.png)'
 - en: 'The following illustrates the excess autocopula for CRM and QQQ:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面说明了CRM和QQQ的超额自联互换：
 - en: '[![Excess Autocopula](img/c3ff3995074394a2fbfac7c96ecc1e52.png "autocopula-excess")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-excess.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![超额自联互换](img/c3ff3995074394a2fbfac7c96ecc1e52.png "autocopula-excess")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-excess.png)'
 - en: 'Which illustrates quite different results than above autocopulas of individual
     securities, on the *conditional* returns:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这说明了与上面个别证券的自联自动互换在*条件*回报上有相当不同的结果：
 - en: '**Asymmetric tail dependence**: lag-1 dependence in tails is strongly asymmetric,
     indicating temporal dependence is stronger for the tail of inversely correlated
     returns'
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**不对称尾部依赖**：滞后1在尾部的不对称性很强，表明逆向相关回报的尾部时间依赖性更强'
 - en: '**Rapid asymmetric tail decay**: tail asymmetry decays by lag-2, indicating
     rapid decay'
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**快速不对称尾部衰减**：尾部不对称性在滞后2时衰减，表明快速衰减'
 - en: '**Rapid dependence decay**: temporal dependence decays rapidly, with comparatively
     minimal peakedness within one week (*i.e.* lag-5)'
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**快速依赖衰减**：时间依赖性快速衰减，在一周内（即滞后5）相对峰值最小'
 - en: 'Compare this insight with ACF / PACF for *excess absolute returns*, which exhibit
     similar behavior as excess autocopula, but do so using only pointwise dependence:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 将这个洞察与*超额绝对回报*的ACF / PACF进行比较，其行为与超额自联互换相似，但仅使用点状依赖性：
 - en: '[![Absolute Proxy Excess Autocorrelation](img/50e19e650d881411548d08d0eb7bd234.png
     "autocor-proxy-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-proxy-abs.png)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![绝对代理超额自相关](img/50e19e650d881411548d08d0eb7bd234.png "autocor-proxy-abs")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocor-proxy-abs.png)'
 - en: 'Finally, a second approach to evaluating autocopula dynamics for proxy hedging
     is the *proxy autocopula* ![PC](img/20c4cd2ef958c12e834c4f713d0b619c.png), which
     is *arithmetic difference of two autocopula densities* ![C](img/e5cf91abc25ecaf404555860373f6acc.png)
     and ![D](img/fd6081407ca943a923c743cb5596009a.png):'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，对冲代理自联动态性的第二种方法是*代理自联* ![PC](img/20c4cd2ef958c12e834c4f713d0b619c.png)，这是两个自联密度
+    ![C](img/e5cf91abc25ecaf404555860373f6acc.png) 和 ![D](img/fd6081407ca943a923c743cb5596009a.png)
+    的*算术差分*：
 - en: '![PC(C(u,v),D(w,x)) = \frac{\partial^2 C(u,v)}{\partial u \partial v} - \frac{\partial^2
     D(w,x)}{\partial w \partial x} ](img/eef617df9446c0ad7b418e4ab938930b.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_IMG
+  zh: '![PC(C(u,v),D(w,x)) = \frac{\partial^2 C(u,v)}{\partial u \partial v} - \frac{\partial^2
+    D(w,x)}{\partial w \partial x} ](img/eef617df9446c0ad7b418e4ab938930b.png)'
 - en: 'The proxy autocopulas for CRM/QQQ, with same lags as above, are plotted below:'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是CRM/QQQ的代理自联互换，滞后与上面相同：
 - en: '[![Lag-1 proxy autocopula](img/aa1663c3c29569c4091d50073eaa765b.png "autocopula-proxy-lag1")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag1.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![滞后1的代理自联互换](img/aa1663c3c29569c4091d50073eaa765b.png "autocopula-proxy-lag1")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag1.png)'
 - en: Illustrating lag-1 CRM autocopula has significantly less tail temporal dependence,
     while having slightly more non-tail temporal dependence. Further, the tail dependence
     is highly asymmetric with stronger bias to inversely correlated returns. In other
     words, that suggests inverse return bounces are followed by reversals.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 说明滞后1的CRM自联自动互换具有明显较小的尾部时间依赖性，而具有略微更多的非尾部时间依赖性。此外，尾部依赖性高度不对称，对逆向相关回报的偏斜更强。换句话说，这暗示逆向回报反弹后会出现逆转。
 - en: The lag-2 exhibits similar dynamics, although the asymmetric tail dependence
     is inverted, biased in favor of directly correlated returns.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 滞后2显示出类似的动态，尽管不对称的尾部依赖性被颠倒，偏向于直接相关回报。
 - en: '[![Lag-2 Proxy Autocopula](img/c69d2da2aeac57067061222bf682a6f9.png "autocopula-proxy-lag-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-2.png)'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![滞后2代理自相关copula](img/c69d2da2aeac57067061222bf682a6f9.png "autocopula-proxy-lag-2")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-2.png)'
 - en: 'Lag-5 exhibits similar dynamics as lag-2:'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 滞后5的动态与滞后2相似：
 - en: '[![Lag-5 Proxy Autocopula](img/8a3632a5227a02657f777050966f283b.png "autocopula-proxy-lag-5")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-5.png)'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![滞后5代理自相关copula](img/8a3632a5227a02657f777050966f283b.png "autocopula-proxy-lag-5")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-5.png)'
 - en: 'Finally, tail dependence becomes symmetric by lag-22, but otherwise exhibits
     similar dynamics as lower lags:'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 最终，在滞后22时，尾部相关性变得对称，但除此之外，表现出与低滞后类似的动态：
 - en: '[![Lag-22 Proxy Autocopula](img/73dbb41787e600ff05395bf85e3afd18.png "autocopula-proxy-lag-22")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-22.png)'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![滞后22代理自相关copula](img/73dbb41787e600ff05395bf85e3afd18.png "autocopula-proxy-lag-22")](https://quantivity.wordpress.com/wp-content/uploads/2011/10/autocopula-proxy-lag-22.png)'
 - en: Collectively, the above proxy autocopulas clearly visualize the self-dependence
     of proxy absolute returns with strongly decaying temporal tail dependence.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 集体来看，上述代理自相关copulas清晰地可视化了代理绝对回报的自相关性，其时间尾部的相关性强烈衰减。
 - en: '* * *'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '****'
 - en: 'R code to generate the above autocopula lag dynamic analysis:'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成上述自相关copula滞后动态分析的R代码：
 - en: '[PRE0]'
+  id: totrans-53
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

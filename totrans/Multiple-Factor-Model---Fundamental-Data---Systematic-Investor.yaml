@@ -1,117 +1,181 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:42:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:42:48'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiple Factor Model – Fundamental Data | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多因子模型 – 基本面数据 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/29/multiple-factor-model-fundamental-data/#0001-01-01)
 - en: 'The [Multiple Factor Model](http://www.investopedia.com/terms/m/multifactor-model.asp)
     can be used to decompose returns and calculate risk. Following are some examples
     of the Multiple Factor Models:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[多因子模型](http://www.investopedia.com/terms/m/multifactor-model.asp) 可用于分解收益和计算风险。以下是多因子模型的一些示例：'
 - en: The factors in the model are usually created using pricing, fundamental, analyst
     estimates, and proprietary data. I will only show examples of factors using pricing
     and fundamental data because these infromation is readily available from Yahoo
     Fiance and ADVFN.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 模型中的因素通常使用定价、基本面、分析师估计和专有数据来创建。我只会展示使用定价和基本面数据的因素的示例，因为这些信息可以从 Yahoo Finance
+    和 ADVFN 轻松获取。
 - en: 'This is the first post in the series about Multiple Factor Models. In this
     post I will show how to get company’s Fundamental Data into R, create a simple
     factor, and run correlation analysis. In the next posts, I will show how to:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是关于多因子模型系列的第一篇文章。在本文中，我将展示如何将公司的基本数据导入 R，创建一个简单的因子，并运行相关性分析。在接下来的文章中，我将展示如何：
 - en: Build Factors and compute quantiles spreads
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 构建因子并计算分位数差距
 - en: Backtest Multiple Factor Model
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 回测多因子模型
 - en: Calculate Risk using Multiple Factor Model
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用多因子模型计算风险
 - en: 'I created a [fund.data() function in fundamental.data.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/fundamental.data.r)
     to download company’s historical Fundamental data from ADVFN. Following code loads
     historical quarterly fundamental data for [Wal-Mart Stores](http://www.google.com/finance?q=nyse:wmt)
     and computes rolling annual [Earnings per share (EPS)](http://en.wikipedia.org/wiki/Earnings_per_share)
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在 github 的 fundamental.data.r 中创建了一个 [fund.data() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/fundamental.data.r)，用于从
+    ADVFN 下载公司的历史基本数据。以下代码加载了 [沃尔玛商店](http://www.google.com/finance?q=nyse:wmt) 的历史季度基本数据，并使用
+    [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)
+    计算了滚动年度 [每股收益 (EPS)](http://en.wikipedia.org/wiki/Earnings_per_share)：
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/f67eed9efe087d08c8144cbaa43e5ba0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small4.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f67eed9efe087d08c8144cbaa43e5ba0.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small4.png)'
 - en: You can see a pronounced seasonality in the Quarterly EPS for Wal-Mart, the
     Q4 always strong and stands out. The common way to deal with seasonality in the
     income statement is to use rolling annual sum, i.e. sum last 4 quarters.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以看到沃尔玛的季度 EPS 存在明显的季节性，第四季度总是强劲且突出。处理损益表季节性的常见方法是使用滚动年度总和，即上一季度总和。
 - en: Next let’s align Wal-Mart prices and EPS and plot them on the same graph.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们对齐沃尔玛的价格和 EPS，并将它们绘制在同一张图上。
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/28c5b478be692ee204ee651cb1bff6a7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small3.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/28c5b478be692ee204ee651cb1bff6a7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small3.png)'
 - en: Next let’s repeat the above steps for all companies in the Dow Jones index.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们为道琼斯指数中的所有公司重复上述步骤。
 - en: '[PRE2]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: It takes a while to download historical fundamental data for all companies in
     the Dow Jones index, so I recommend saving your results with save(data.fund, file=’data.fund.Rdata’)
     command. Later on if you want to run code one more time, just load(file=’data.fund.Rdata’)
     instead of downloading all data again.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 下载所有道琼斯指数公司的历史基本数据需要一些时间，所以我建议用 save(data.fund, file='data.fund.Rdata') 命令保存你的结果。稍后如果你想再次运行代码，只需加载(file='data.fund.Rdata')，而不是重新下载所有数据。
 - en: Next let’s create monthly factors. EP factor = (Earnings per share) / Price.
     VOMO factor = Volume x Momentum.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建月度因子。EP 因子 = (每股收益) / 价格。VOMO 因子 = 成交量 x 动量。
 - en: '[PRE3]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Next let’s run correlation analysis for EP factor. You can do correlation analysis
     for VOMO factor as a homework.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们对 EP 因子运行相关性分析。你可以将 VOMO 因子的相关性分析作为作业。
 - en: '[PRE4]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/d1838aace98ae2e2673b58192daaf369.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small3.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small3.png)'
 - en: '[PRE5]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: The correlation between EP and Next Month Returns is small, but significantly
     different from zero. The small correlation is not a surprise and is usual for
     this type of analysis. In the next posts, I will show that even this weak dependence
     can be profitable.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: EP与下月收益率之间的相关性很小，但与零有显著差异。这种小相关性并不令人惊讶，且在这种类型的分析中很常见。在接下来的文章中，我将展示即使这种微弱的相关性也可以是有利可图的。
 - en: To view the complete source code for this example, please have a look at the
     [fm.fund.data.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[github上的factor.model.test.r文件中的fm.fund.data.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

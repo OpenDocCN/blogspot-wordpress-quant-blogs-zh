@@ -1,107 +1,173 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:18:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Historical Bond Price and Total Returns from 10y Yield Series'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：10年收益率系列的历史债券价格和总回报
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 数据来源：[http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html#0001-01-01)
 - en: Without access to Barclays or Merrill Bond Indicies to the 1970s or Ned Davis
     to 1950, studying historical bond returns is very difficult.  Here is a way to
     derive price and total returns on the 10 year US Treasury back to 1962.  I would
     like to extend to 1871, but monthly yields from Shiller and Fed are averages of
     the daily yields and not month-end values.  Applying this method to these month
     averages does not work.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有访问Barclays或Merrill债券指数到1970年代，或者Ned Davis到1950年代，研究历史债券回报是非常困难的。以下是一种获取1962年以来的10年美国国债价格和总回报的方法。我希望能追溯到1871年，但Shiller和美联储的月收益率是每日收益率的平均值，而不是月末值。将此方法应用于这些月平均值不起作用。
 - en: 'R code:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(RQuantLib)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(RQuantLib)
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(PerformanceAnalytics)
 - en: 'getSymbols("DGS10",src="FRED") #load US Treasury 10y from Fed Fred'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("DGS10",源="FRED") #从美联储Fred加载美国国债10年'
 - en: '#Fed monthly series of yields is the monthly average of daily yields'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#美联储的月收益率系列是每日收益率的月平均值'
 - en: '#Shiller series also is monthly average'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#Shiller系列也是月平均值'
 - en: '#to calculate returns monthly average does not work'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算回报的月平均值并不能工作'
 - en: '#so we get daily, take monthend with to.monthly'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#因此我们得到的是每日数据，用to.monthly取月末数据'
 - en: '#and unfortunately the series does not go back as far'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#不幸的是，这个系列并不能追溯到那么久远'
 - en: DGS10<-to.monthly(DGS10)[,4]
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10<-to.monthly(DGS10)[,4]
 - en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'DGS10价格回报<-DGS10 #设置此选项以保存价格回报'
 - en: DGS10pricereturn[1,1]<-0
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10价格回报[1,1]<-0
 - en: colnames(DGS10pricereturn)<-"PriceReturn"
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10价格回报的列名<-"价格回报"
 - en: '#I know I need to vectorize this but not qualified enough yet'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我知道我需要矢量化这个，但还不够资格'
 - en: '#Please feel free to comment to show me how to do this'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请随意评论以向我展示如何做到这一点'
 - en: for (i in 1:(NROW(DGS10)-1)) {
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于（i在1:(NROW(DGS10)-1)）{
 - en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10价格回报[i+1,1]<-固定利率债券价格(收益率=DGS10[i+1,1]/100,发行日期=系统日期(),
 - en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 到期日= advance("UnitedStates/GovernmentBond", 系统日期(), 10, 3),
 - en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率=DGS10[i,1]/100,期限=2)[1]/100-1
 - en: '}'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#total return will be the price return + yield/12 for one month'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#总回报将是价格回报+收益率/12（一个月）'
 - en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10总回报<-DGS10价格回报+滞后(DGS10,k=1)/12/100
 - en: colnames(DGS10totalreturn)<-"Total Return"
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10总回报的列名<-"总回报"
 - en: charts.PerformanceSummary(merge(DGS10pricereturn,DGS10totalreturn),ylog=TRUE,colorset=c("cadetblue","darkolivegreen3"),main="Simulated
     Returns from US10y Yield")
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.绩效总结(合并(DGS10价格回报,DGS10总回报),y对数=TRUE,颜色集=c("海军蓝","深橄榄绿3"),主="美国10年收益率的模拟回报")
 - en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: mtext("数据来源：美国联邦储备银行FRED",侧=1,调整=0)

@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:03:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:03:03'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Regime Switching System Using Volatility Forecast – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Regime Switching System Using Volatility Forecast – Quantum Financier
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/#0001-01-01](https://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/#0001-01-01](https://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/#0001-01-01)
 - en: In the same line of thoughts as last post, today we will look at a way to incorporate
     the GARCH volatility model we introduced yesterday to create a regime switching
     strategy.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 与昨天的文章思路一致，今天我们将探讨如何将我们昨天介绍的GARCH波动率模型融入其中，以创建一个切换策略。
 - en: It is often discussed on the blogosphere that high volatility is good for daily
     MR, see previous editions of the state of short-term mean-reversion report by
     Michael over at MarketSci [here](http://marketsci.wordpress.com/2010/08/01/the-new-state-of-short-term-mean-reversion-july-2010/)
@@ -31,8 +45,12 @@
     and [here](http://cssanalytics.wordpress.com/2009/08/25/moderators-of-daily-follow-through-mr-implied-volatility-vs-historical-volatility/).
     Concurrently, a low volatility environment is usually a good environment for trend
     following strategies; see Jez Liberty’s state of trend following report [here](http://www.automated-trading-system.com/state-trend-following-ijuly/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客圈经常讨论高波动性对日常均值回归（MR）有利，可参考Michael在MarketSci博客上发布的短期均值回归状态报告[这里](http://marketsci.wordpress.com/2010/08/01/the-new-state-of-short-term-mean-reversion-july-2010/)和David在CSS
+    Analytics博客上发布的日常跟随均值回归系列[这里](http://cssanalytics.wordpress.com/2009/08/24/moderators-of-daily-follow-through-mr-volatility-part-1-of-3/)和[这里](http://cssanalytics.wordpress.com/2009/08/25/moderators-of-daily-follow-through-mr-implied-volatility-vs-historical-volatility/)。同时，低波动性环境通常是有利于趋势跟踪策略的；参考Jez
+    Liberty的的趋势跟踪状态报告[这里](http://www.automated-trading-system.com/state-trend-following-ijuly/)。
 - en: With this in mind, since we want to maximize our return we want to be trading
     the appropriate strategy based on the volatility environment. Using volatility
     we can switch between MR and TF strategies dynamically to better adapt to the
@@ -42,8 +60,11 @@
     (developed by David Varadi) using a 252 day lookback period. We now have a back
     of the envelope smoothed volatility regime oscillator where reading greater than
     .5 indicate high volatility and smaller than .5 low volatility in place.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到这一点，由于我们希望最大化我们的回报，因此我们希望根据波动性环境交易适当的策略。使用波动率，我们可以动态地在MR和TF策略之间切换，以更好地适应当前市场范式。为此，我们可以使用252个交易日的回溯期对当前波动率进行百分位分类。结果系列在0和1之间波动，并使用21个交易日的[percentrankSMA](http://cssanalytics.wordpress.com/2010/05/19/percentrank-sma/)（由David
+    Varadi开发）进行平滑，回溯期为252个交易日。现在我们有一个简化的波动率切换策略振荡器，读数大于0.5表示高波动性，小于0.5表示低波动性。
 - en: 'For the following example, the regime switching (RS) strategy will be as follows:
     if the oscilliator is greater than .5 we trade the MR strategy and we trade the
     TF strategy when the oscillator is below the .5 treshold. The MR strategy proxy
@@ -52,29 +73,43 @@
     TF only (blue), buy and hold (green) and RS (yellow). Note that for this test,
     the input for the volatility is the running 21 day standard deviation of returns
     (ie. historical volatility).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下示例中，切换策略（RS）如下：如果振荡器大于0.5，我们交易MR策略，当振荡器低于0.5阈值时，我们交易TF策略。MR策略代理是RSI2，TF策略代理是50-200日移动平均线交叉，用于这个简单测试。下表显示了SPY的测试结果，包括仅MR（红色）、仅TF（蓝色）、买入持有（绿色）和RS（黄色）的权益曲线。注意，在这个测试中，波动率的输入是收益的21日滚动标准差（即历史波动率）。
 - en: '[![](img/0ccc07216cb64f1ccfd1c4b7d4f8b286.png "RSstrategy1")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy1.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0ccc07216cb64f1ccfd1c4b7d4f8b286.png "RSstrategy1")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy1.png)'
 - en: 'The RS strategy outperforms both MR and TF strategies over 10 years. But wait
     a minute, the post was about regime switching using volatility forecast, not historical
     volatility. Simple, to do so, we calculate the oscilliator using the results of
     the garch model introduced in the last post. We now have the RS strategy using
     volatility forecast, good news is: it performs better! Results below using GARCH
     forecast (gold) vs using historical volatility (grey).'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: RS策略在过去10年中优于MR和TF策略。但是等一下，这篇文章是关于使用波动率预测进行状态转换，而不是历史波动率。很简单，要做到这一点，我们使用上篇文章中介绍的GARCH模型的结果来计算振荡器。现在我们有了使用波动率预测的RS策略，好消息是：它的表现更好！以下使用GARCH预测（金色）与使用历史波动率（灰色）的结果对比。
 - en: '[![](img/4e94674ae6747a895da927aa977b4797.png "RSstrategy2")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy2.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![RSstrategy2](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy2.png)'
 - en: '[![](img/851a5134efc4f6f88203f6d29e89d8f9.png "RSstrategy - result")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy-result.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![RSstrategy - result](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/08/rsstrategy-result.png)'
 - en: As mentioned before on many other blogs, incorporating volatility forecast in
     a strategy seems to improve results in this regime switching strategy.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如前所述，在许多其他博客上，在策略中融入波动率预测似乎可以改善这种状态转换策略的结果。
 - en: QF
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化金融师

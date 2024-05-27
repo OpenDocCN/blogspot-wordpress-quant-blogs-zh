@@ -1,82 +1,138 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:10:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:10:14'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: QuickFix and Enums'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: QuickFix and Enums'
 - en: 来源：[http://magmasystems.blogspot.com/2007/03/quickfix-and-enums.html#0001-01-01](http://magmasystems.blogspot.com/2007/03/quickfix-and-enums.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/03/quickfix-and-enums.html#0001-01-01](http://magmasystems.blogspot.com/2007/03/quickfix-and-enums.html#0001-01-01)
 - en: It seems that the latest version of QuickFix has a .NET assembly and FIX 4.4
     support, so I am going to be using it in an OMS demo that I am putting together
     to show off my .NET client-side framework.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: It seems that the latest version of QuickFix has a .NET assembly and FIX 4.4
+    support, so I am going to be using it in an OMS demo that I am putting together
+    to show off my .NET client-side framework.
 - en: One thing that I wish that the QuickFix guys did was to use enums instead of
     static const chars. For example, here is the definition of the OrdType class (this
     class is written in Managed C++, but a lot of the other .NET classes are in C#).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: One thing that I wish that the QuickFix guys did was to use enums instead of
+    static const chars. For example, here is the definition of the OrdType class (this
+    class is written in Managed C++, but a lot of the other .NET classes are in C#).
 - en: '`public __gc class OrdType : public CharField'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '`public __gc class OrdType : public CharField'
 - en: '{'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: 'public:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 'public:'
 - en: static const int FIELD = 40;
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: static const int FIELD = 40;
 - en: static const __wchar_t MARKET = '1';
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: static const __wchar_t MARKET = '1';
 - en: static const __wchar_t LIMIT = '2';
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: static const __wchar_t LIMIT = '2';
 - en: static const __wchar_t STOP = '3';
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: static const __wchar_t STOP = '3';
 - en: static const __wchar_t STOP_LIMIT = '4';
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: static const __wchar_t STOP_LIMIT = '4';
 - en: '.............'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '.............'
 - en: 'OrdType() : CharField(40) {}'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'OrdType() : CharField(40) {}'
 - en: 'OrdType(__wchar_t data) : CharField(40, data) {}'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'OrdType(__wchar_t data) : CharField(40, data) {}'
 - en: '};`'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '};`'
 - en: I completely understand why they used const chars, but for data-binding purposes,
     it is easier for me to use enums.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我 completely understand why they used const chars, but for data-binding purposes,
+    it is easier for me to use enums.
 - en: I wonder if I should reflect over a few classes and translate these classes
     to corresponding enumerated types.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我 wonder if I should reflect over a few classes and translate these classes
+    to corresponding enumerated types.
 - en: I'm supposed to be a manager .. I have to find other people to do this kind
     of stuff for me. However, in my group, I am the only .NET person in a vast sea
     of Java-ness.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: I'm supposed to be a manager .. I have to find other people to do this kind
+    of stuff for me. However, in my group, I am the only .NET person in a vast sea
+    of Java-ness.
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - All Rights Reserved

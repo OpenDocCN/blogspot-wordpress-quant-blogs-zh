@@ -1,102 +1,163 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:00:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:00:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: SPlus, Adhoc Queries, and Coral8 Public Windows'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：SPlus、Adhoc查询和Coral8公共窗口
 - en: 来源：[http://magmasystems.blogspot.com/2008/07/splus-adhoc-queries-and-coral8-public.html#0001-01-01](http://magmasystems.blogspot.com/2008/07/splus-adhoc-queries-and-coral8-public.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/07/splus-adhoc-queries-and-coral8-public.html#0001-01-01](http://magmasystems.blogspot.com/2008/07/splus-adhoc-queries-and-coral8-public.html#0001-01-01)
 - en: I am reading a
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在读一篇
 - en: '[Powerpoint presentation](http://www.insightful.com/news_events/webcasts/2004/03zivot/HighFrequencyWebCast.pdf)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Powerpoint演示文稿](http://www.insightful.com/news_events/webcasts/2004/03zivot/HighFrequencyWebCast.pdf)'
 - en: by Prof. Eric
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 翻译：
 - en: Zivot
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Zivot
 - en: 'on'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在
 - en: SPlus
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: SPlus
 - en: ', and I was intrigued by the ad-'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我对这个广告很感兴趣
 - en: hoc
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: hoc
 - en: query facility that
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 查询设施，由Eric教授
 - en: SPlus
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: SPlus
 - en: offers. For example, if you have
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供了很多功能。例如，如果你有
 - en: TAQ
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: TAQ
 - en: tick data loaded into
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 将数据加载到
 - en: SPlus
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: SPlus
 - en: ', you can use the following'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: ，你可以使用以下的
 - en: SPlus
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: SPlus
 - en: 'query to get the average price of Microsoft over a non-overlapping 5-minute
     window:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 查询以获取Microsoft在一个非重叠的5分钟窗口内的平均价格：
 - en: mean.5min = aggregateSeries(msftt.ts[,"Price"], + by="minutes",k.by=5,FUN=mean)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均值。5min = aggregateSeries(msftt.ts[,"Price"], + by="minutes",k.by=5,FUN=mean)
 - en: Coral8 recently implemented queryable "public windows" as a way to do ad-hoc
     queries. In order to get this feature out the door quickly, Coral8 embedded a
     version of SQLite into their system. So, you cannot use the Coral8 streaming query
     language, CCL, to do ad-hoc queries of windows. Instead, you need to use a dialect
     of SQL-92.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Coral8最近实现了一个可查询的“公共窗口”，作为一种进行即席查询的方法。为了快速推出这个功能，Coral8在系统中嵌入了一个SQLite版本。因此，你不能使用Coral8流式查询语言CCL进行窗口的即席查询。相反，你需要使用SQL-92的一个方言。
 - en: (Coral8 tells me that eventually. you will be able to use CCL for ad-hoc queries)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: (Coral8告诉我，最终你将能够使用CCL进行即席查询)
 - en: SPlus looks like it supports a lot of built-in functions for time-series financial
     data. This is something I would also like to see in Coral8\. (I guess there is
     an opportunity for a little cottage industry to be built around enhancing Coral8
     for capital markets firms...)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: SPlus看起来支持很多内置函数，用于时间序列金融数据。这也是我希望在Coral8中看到的东西。（我想也许有一个机会，可以围绕为资本市场公司增强Coral8建立一个小型的
+    cottage 工业...)
 - en: I wonder if any of the CEP vendors considered SPlus/R as a query language before
     deciding on Streaming SQL? (I know that JOS has been on the R bandwagon for a
     while at Barcap. He hasn't blogged too much about it recently though...)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想知道CEP供应商是否在决定使用流式SQL之前考虑过SPlus/R作为查询语言？（我知道JOS已经在Barcap的R大潮中有一段时间了。他最近虽然没有太多关于它的博客...)
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的所有观点都是个人的，与我的雇主无关。

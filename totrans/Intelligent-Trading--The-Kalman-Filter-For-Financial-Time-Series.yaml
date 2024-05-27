@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 04:45:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:45:27'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: The Kalman Filter For Financial Time Series'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Intelligent Trading: The Kalman Filter For Financial Time Series'
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/05/kalman-filter-for-financial-time-series.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/05/kalman-filter-for-financial-time-series.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/05/kalman-filter-for-financial-time-series.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/05/kalman-filter-for-financial-time-series.html#0001-01-01)
 - en: Every now and then I come across a tool that is so bogged down in pages of esoteric
     mathematical calculations, it becomes difficult to get even a simple grasp of
     how or why they might be useful. Even worse, you exhaustively search the internet
@@ -26,14 +38,20 @@
     to understand conceptually because of the complex mathematical jargon. Below is
     a simple plot of a kalman filtered version of a random walk (for now, we will
     use that as an estimate of a financial time series).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 时不时地，我会遇到一些工具，它们在复杂的数学计算中泥足深陷，以至于难以理解它们如何或为何可能有用。更糟糕的是，你竭尽所能地在互联网上搜索，想找到一张简单的图来表达成千上万的方程式，但一无所获。卡曼滤波器就是这样一种工具。它极其有用，但概念上非常难以理解，因为涉及到复杂的数学行话。下面是一个随机游走卡曼滤波版本的简单图谱（暂时，我们将其作为金融时间序列的估计）。
 - en: '[![](img/ce6c1c69566103f3190fdf407a4b6e16.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQPUV5yWfBsLyDq5jwz2ojmNkwfqg_ldwy4cz8V-mbtAJF-xYJ8r-Wo5Bh6puSuPCLraHKd1IaIFlqGrPvc7d73WlVcVV081dRkjIKYjIouimfmefYFds6wJRnBaHc30Arntnwt4uxa0/s1600/rw_plot.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ce6c1c69566103f3190fdf407a4b6e16.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVQPUV5yWfBsLyDq5jwz2ojmNkwfqg_ldwy4cz8V-mbtAJF-xYJ8r-Wo5Bh6puSuPCLraHKd1IaIFlqGrPvc7d73WlVcVV081dRkjIKYjIouimfmefYFds6wJRnBaHc30Arntnwt4uxa0/s1600/rw_plot.jpg)'
 - en: Fig 1\. Kalman Filter estimates of mean and covariance of Random Walk
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 1. 卡曼滤波器对随机游走动态均值和协方差的估计
 - en: The kf is a fantastic example of an adaptive model, more specifically, a dynamic
     linear model, that is able to adapt to an ever changing environment. Unlike a
     simple moving average or FIR that has a fixed set of windowing parameters, the
@@ -47,61 +65,92 @@
     of the time series against the estimated average. Notice that unlike many other
     filters, the estimated average is a very good measure of the 'true' moving center
     of the time series.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 卡曼滤波器是适应模型的绝佳例子，更具体地说，是一种动态线性模型，能够适应不断变化的环境。与具有固定窗口参数的简单移动平均或FIR不同，卡曼滤波器不断更新信息以实现实时自适应过滤。尽管有一些基于技术分析的自适应滤波器，如考夫曼自适应移动平均和指数移动平均的变体；但它们都没有像KF那样捕捉到序列的最优估计。在图1中，我们有一条蓝色线，表示底层时间序列的估计动态“平均”，红色线表示时间序列本身，最后，点线表示时间序列相对于估计平均值的缩放协方差估计。注意，与许多其他滤波器不同，估计的平均值是衡量时间序列“真实”移动中心的非常好的一种方式。
 - en: 'Without diving into too much math, the following is the well known ''state
     space equation'' of the kf:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 不深入探讨太多数学，下面是卡曼滤波器（kf）广为人知的“状态空间方程式”：
 - en: xt=A*xt-1 + w
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: xt=A*xt-1 + w
 - en: zt=H*xt + v
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: zt=H*xt + v
 - en: Although these equations are often expressed in state space or matrix representation,
     making them somewhat complicated to the layman, if you are familiar with simple
     linear regression it might make more sense.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然这些方程式常常用状态空间或矩阵表示法来表达，对于门外汉来说，这使得它们显得有些复杂，但如果你熟悉简单线性回归，这可能会更有意义。
 - en: 'Let''s define the variables:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Let''s define the variables:'
 - en: xt is the hidden variable that is estimated, in this case it represents the
     best estimate of the dynamic mean or dynamic center of the time series
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: xt 是需要估计的隐变量，在此情况下，它表示时间序列的最佳动态平均值或动态中心。
 - en: A is the state transition matrix, or I often think of it as similar to the autoregressive
     coefficient in an AR model; think of it as Beta in a linear regression here.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: A 是状态转移矩阵，或者我想把它看作与 AR 模型中的自回归系数相似；在这里把它看作是线性回归中的 Beta。
 - en: w is the noise of the model.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: w 是模型的噪声。
 - en: So, we can think of the equation of x=Ax-1 + w as being very similar to the
     basic linear regression model, which it is. The main difference being that the
     kf constantly updates the estimates at each iteration in an online fashion. Those
     familiar with control systems might understand it as a feedback mechanism, that
     adjusts for error. Since we can not actually 'see' the true dynamic center in
     the future, only estimate it, we think of x as a 'hidden' variable.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们可以将方程 x=Ax-1 + w 视为与基本的线性回归模型非常相似，实际上也确实如此。主要区别在于 kf 会在每次迭代的在线方式下不断更新估计值。熟悉控制系统的人可能会将其理解为一种反馈机制，用于消除误差。由于我们实际上无法“看到”未来真实的动态中心，只能进行估计，因此我们将
+    x 视为一个“隐藏”变量。
 - en: The other equation is linked directly to the first.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个方程与第一个直接相关。
 - en: zt=H*xt+v
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: zt=H*xt+v
 - en: zt is the measured noisy state variable that has a probabilistic relationship
     to x.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: zt 是具有与 x 概率相关性的测量噪声状态变量。
 - en: xt we recognize as the estimate of the dynamic center of the time series.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: xt 我们认为是时间序列的动态中心的估计。
 - en: v is the noise of the model.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: v 是模型的噪声。
 - en: 'Again, it is a linear model, but this time the equation contains something
     we can observe: zt is the value of the time series we are trying to capture and
     model with respect to xt. More specifically, it is an estimate of the covariance,
@@ -109,12 +158,17 @@
     of the dynamic variable x. You can also think of the scaled envelope it creates
     as similar to a standard deviation band that predicts the future variance of the
     signal with respect to x.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次，它是一个线性模型，但这次方程中包含了我们可以观察到的事物：zt 是我们要捕捉和建模的时间序列值的值，相对于 xt。更具体地说，它是估计的协方差，或观测变量和时间序列值以及动态变量
+    x 的估计之间的共同运动。你也可以将它们创建的缩放包视为类似于标准差带，它预测了信号未来方差相对于 x 的表现。
 - en: Those familiar with hidden markov models, might recognize the concept of hidden
     and observed state variables displayed here.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 熟悉隐马尔可夫模型的人可能会认出这里展示的隐藏和观测状态变量概念。
 - en: 'Basically, we start out estimating our guess of the the average and covariance
     of the hidden series based upon measurements of the observable series, which in
     this case are simply the normal parameters N(mean, std) used to generate the random
@@ -123,56 +177,83 @@
     is made, the value of the covariance of x is then checked against the actual observable
     time series value, y, and a parameter called K is adjusted to update the prior
     estimates. Each time K is updated, the value of the estimate of x is updated via:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本上，我们开始时根据可观测序列的测量来估计隐藏序列的平均值和协方差，这里的可观测序列 simply 就是用来生成随机游走的正态参数 N(mean, std)。从那里开始，使用线性矩阵方程来估计
+    cov x 和 x 的值，使用线性矩阵运算。关键在于，一旦做出估计，就会将 x 的协方差值与实际的观测时间序列值 y 进行比较，并调整一个称为 K 的参数来更新先前的估计。每次更新
+    K 时，x 的估计值通过以下方式更新：
 - en: xt_new_est=xt_est + K*(zt - H*x_est). The value of K generally converges to
     a stable value, when the underlying series is truly gaussian (as seen in fig 1\.
     during the start of the series, it learns). After a few iterations, the optimal
     value of K is pretty stable, so the model has learned or adapted to the underlying
     series.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: xt_new_est=xt_est + K*(zt - H*x_est)。K 的值通常会在底层序列确实是高斯分布时（如图 1 中系列开始时所看到的那样）收敛到一个稳定值。在经过几次迭代之后，K
+    的最优值相当稳定，所以模型已经学会了或适应了底层序列。
 - en: Some advantages to the kalman filter are that is is predictive and adaptive,
     as it looks forward with an estimate of the covariance and mean of the time series
     one step into the future and unlike a Neural Network, it does NOT require stationary
     data.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 卡尔曼滤波器的一个优点是它具有预测性和适应性，因为它用估计的协方差和时间序列未来一步的均值向前看，与神经网络不同，它不需要稳定的数据。
 - en: Those working on the Neural Network tutorials, hopefully see a big advantage
     here.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 那些从事神经网络教程的人，希望在这里看到一个很大的优点。
 - en: It has a very close to smooth representation of the series, while not requiring
     peeking into the future.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 它非常接近于平滑表示系列，同时不需要窥视未来。
 - en: Disadvantages are that the filter model assumes linear dependencies, and is
     based upon noise terms that are gaussian generated. As we know, financial markets
     are not exactly gaussian, since they tend to have fat tails more often than we
     would expect, non-normal higher moments, and the series exhibit heteroskedasticity
     clustering. Another more advanced filter that addresses these issues is the particle
     filter, which uses sampling methods to generate the underlying distribution parameters.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 缺点是滤波模型假设线性依赖关系，并且基于高斯生成的噪声项。正如我们所知，金融市场并不完全是高斯分布，因为它们往往比我们预期的更常具有厚尾特征，具有非正常的更高矩，并且序列表现出异方差性聚集。另一种更先进的滤波器，用以解决这些问题的是粒子滤波器，它使用采样方法来生成潜在分布参数。
 - en: '--------------------------------------------------------------------------------'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '--------------------------------------------------------------------------------'
 - en: Here are some references which may further help in understanding of the kalman
     filter.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些可能有助于进一步理解卡尔曼滤波的参考资料。
 - en: In addition, there is a kalman smoother in the R package, DLM.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，R包DLM中还有卡尔曼平滑器。
 - en: http://www.swarthmore.edu/NatSci/echeeve1/Ref/Kalman/ScalarKalman.html
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 链接：[http://www.swarthmore.edu/NatSci/echeeve1/Ref/Kalman/ScalarKalman.html](http://www.swarthmore.edu/NatSci/echeeve1/Ref/Kalman/ScalarKalman.html)
 - en: If you are interested in a Python based approach, I highly recommend the following
     book...Machine Learning An Algorithmic Perspective
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你对基于Python的方法感兴趣，我强烈推荐以下书籍...《机器学习：算法视角》
 - en: Not only is there a fantastic writeup on hidden markov models and kalman filters,
     but there is real code you can replicate. It is one of the best practical books
     on Machine Learning I have come across-- period.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 不仅有一篇关于隐马尔可夫模型和卡尔曼滤波的精彩论述，还有你可以复现的真实代码。这是我所见过的最佳机器学习实践书籍之一，毫不夸张。

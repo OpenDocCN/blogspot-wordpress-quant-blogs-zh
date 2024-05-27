@@ -1,44 +1,68 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:25:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:25:20'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Percentrank SMA | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Percentrank SMA | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/05/19/percentrank-sma/#0001-01-01](https://cssanalytics.wordpress.com/2010/05/19/percentrank-sma/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/05/19/percentrank-sma/#0001-01-01](https://cssanalytics.wordpress.com/2010/05/19/percentrank-sma/#0001-01-01)
 - en: '*Some good recent links worthwile reading:*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些值得一读的近期链接：*
 - en: Rob Hanna at Quantifiable Edges looks at intraday behavior: [#mce_temp_url#](http://quantifiableedges.blogspot.com/2010/05/from-1-up-intraday-to-1-down-close.html)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Rob Hanna 在 Quantifiable Edges 网站上研究了日内行为：[#mce_temp_url#](http://quantifiableedges.blogspot.com/2010/05/from-1-up-intraday-to-1-down-close.html)
 - en: 'Dave at MindMoneyMarkets looks at an often overlooked detail–the performance
     of indicators on index prices versus actual traded ETFs: [http://davesbrain.blogs.com/mindmoneymarkets/](http://davesbrain.blogs.com/mindmoneymarkets/)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Dave 在 MindMoneyMarkets 网站上研究了一个常被忽视的细节——指数价格与实际交易的 ETF 指标表现对比：[http://davesbrain.blogs.com/mindmoneymarkets/](http://davesbrain.blogs.com/mindmoneymarkets/)
 - en: 'Michael at MarketSci looks at different variations of the Golden Cross: [http://marketsci.wordpress.com/2010/05/18/the-golden-cross-daily-vs-weekly-vs-monthly/](http://marketsci.wordpress.com/2010/05/18/the-golden-cross-daily-vs-weekly-vs-monthly/)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Michael 在 MarketSci 网站上研究了金叉的不同变体：[http://marketsci.wordpress.com/2010/05/18/the-golden-cross-daily-vs-weekly-vs-monthly/](http://marketsci.wordpress.com/2010/05/18/the-golden-cross-daily-vs-weekly-vs-monthly/)
 - en: 'Quantum Financier (a new but very promising new blog) looks at using the Probability
     Density Function to create an adaptive RSI: [http://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/](http://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Quantum Financier（一个新成立但非常有前景的博客）研究了使用概率密度函数创建自适应 RSI 的方法：[http://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/](http://quantumfinancier.wordpress.com/2010/05/14/using-probability-density-as-an-adaptive-mechanism/)
 - en: 'Engineering Returns (a new but very promising new blog) takes an interesting
     look on filtering for inside bars in a mean-reversion strategy: [http://engineering-returns.com/2010/05/18/spy-a-quantitative-view-at-inside-bars/](http://engineering-returns.com/2010/05/18/spy-a-quantitative-view-at-inside-bars/)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Engineering Returns（一个新成立但非常有前景的博客）从均值回归策略的角度对内部蜡烛图过滤进行了有趣的探讨：[http://engineering-returns.com/2010/05/18/spy-a-quantitative-view-at-inside-bars/](http://engineering-returns.com/2010/05/18/spy-a-quantitative-view-at-inside-bars/)
 - en: 'This is a  simple twist on using the now infamous “percentrank” function to
     create a trend following metric. The advantage of the percentrank SMA (P-SMA)
     is that it is continuous and captures the distribution of a price series versus
@@ -54,8 +78,13 @@
     which is more stable than price. The lag introduced by a long moving average versus
     a relatively short distribution measurement (250) requires that we potentially
     lower our threshold for what would constitute an uptrend.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是对臭名昭著的“percentrank”函数的一个简单改进，用于创建一个趋势跟踪指标。percentrank SMA（P-SMA）的优势在于它是连续的，捕捉了价格序列的分布，而不仅仅是二进制信号。它也比价格的percentrank更稳定。本文中使用的计算指标如下：**P-SMA=
+    percentrank(sma(n),250)**你可以选择你喜欢的移动平均长度，但由于计算性质，我建议使用等于或低于50的值，以便与金叉或200sma的时间跨度相匹配。
+    general idea 是避免查看价格，因为价格往往波动较大且噪声干扰，而是查看价格序列的平均值/中点，并将其随时间正常化。在这种情况下，与使用percentrank的其他指标不同，我们并不专门关注
+    median 之上/之下，因为已经使用了比价格更稳定的平均值。与相对较短的分布测量（250）相比，长移动平均引入的滞后要求我们降低构成上升趋势的阈值。
 - en: In this case I looked at how the 50 day P-SMA performs on the S&P500 index over
     the last 12,000 bars at various thresholds going long and short versus the Golden
     Cross as a basis of comparison. Results are presented below showing the CAGR and
@@ -63,8 +92,11 @@
     over the last 2000 bars was 10% CAGR for the .5 threshold which shows that the
     indicator performs well also in the recent past on a tradeable instrument versus
      the index.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，我查看了在过去12000根K线图中，50日P-SMA在标普500指数上的表现，以及在各种阈值下与金叉相比的长短线操作。结果如下，展示了自成立以来1美元的复合年化增长率（CAGR）和累积回报。请注意，在过去2000根K线图中，SPY的表现为.5阈值下的10%
+    CAGR，这表明该指标在近期过去对于交易性工具相对于指数表现也很好。
 - en: On balance the percentrank SMA at the 50 parameter performs better than the
     Golden Cross, and shorter variations while not shown tend to perform quite well
     in relation to comparable moving averages or crossovers. In my opinion, the selling
@@ -73,12 +105,19 @@
     than a crossover. Possible applications involve percentage exposure models, or
     even more interesting would be to use the indicator values to adjust shorter term
     indicator values/signals.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 总体来看，50参数的百分比排名SMA表现优于金叉，以及更短期的变化虽然未展示，但相对于可比较的移动平均线或交叉线表现相当好。在我看来，卖点不仅仅是超越表现（这是很好的），而是你可以在系统创建层面上使用连续趋势指标做更多的事情，而不是使用交叉线。可能的应用涉及百分比暴露模型，或者更有趣的是，使用指标值来调整更短期指标值/信号。
 - en: Percentrank SMA Various  Entry Thresholds Versus Golden Cross (12000 bars)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 百分比排名SMA各种入场阈值与金叉对比（12000根K线）（请确认是否需要翻译成“不同阈值进入的百分比排名SMA与金叉的对比”）
 - en: Golden Cross >.5 >.45 >.4 >.35 CAGR 6.13% 6.18% 6.45% 7.44% 6.84% Cumulative
     Product 17.40 17.74 20.071 31.27 23.97 Factor
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 金叉 >.5 >.45 >.4 >.35 CAGR 6.13% 6.18% 6.45% 7.44% 6.84% 累积乘数 17.40 17.74 20.071
+    31.27 23.97 因子

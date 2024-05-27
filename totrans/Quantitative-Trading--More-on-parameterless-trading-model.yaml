@@ -1,50 +1,76 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:19:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:19:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: More on parameterless trading model'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：更多关于无参数交易模型
 - en: 来源：[http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html#0001-01-01](http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html#0001-01-01](http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html#0001-01-01)
 - en: I have written
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经写了
 - en: '[before](http://epchan.blogspot.com/2008/05/parameterless-trading-models.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[之前的内容](http://epchan.blogspot.com/2008/05/parameterless-trading-models.html)'
 - en: that my ideal trading model is one that has no parameters, and what ways there
     are to accomplish this. Actually, I forgot to mention that a
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我理想中的交易模型是没有参数的，以及实现这种方式的方法。实际上，我忘记提到一个
 - en: '[trading strategy](http://epchan.blogspot.com/2007/10/how-mean-reversion-strategy-performed.html)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[交易策略](http://epchan.blogspot.com/2007/10/how-mean-reversion-strategy-performed.html)'
 - en: proposed by Dr. Andrew Lo discussed previously is in fact parameterless, and
     the technique is so general that it can be applied to any mean-reverting strategy.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前讨论过的由Andrew Lo博士提出的策略实际上是没有参数的，这个技术如此通用，以至于它可以应用于任何均值回归策略。
 - en: 'The technique is simply this: maintain a long (or short) portfolio with capital
     proportional to the distance between a supposedly mean-reverting measure and its
     long-term mean value.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个技术简单来说就是：维持一个与假设的均值回归指标与其长期均值之间的距离成比例资本的多头（或空头）组合。
 - en: For e.g. if you are pair-trading PEP vs KO, and you believe that the spread
     between PEP and KO is mean-reverting, then this spread is the mean-reverting measure
     you should employ.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，如果你在进行PEP与KO的配对交易，并且你相信PEP与KO之间的价差是均值回归的，那么这个价差就是你应该使用的均值回归指标。
 - en: 'As the spread moves away from its mean, keep buying (or shorting) the spread
     in equal dollar amount. And as the spread reverts, keep selling (or buying) the
     spread in the same dollar amount. What this dollar amount should be depends on:
@@ -53,11 +79,15 @@
     c is not a parameter: it is arbitrary and limited only by transaction costs, technology,
     and other operational issues. As for the expected maximum deviation, it can be
     obtained by observing the history of the spread since inception.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着价差偏离其均值，以相等的美元金额持续买入（或做空）价差。而当价差回归时，以相同的美元金额持续卖出（或买入）价差。这个美元金额应该是多少取决于：a)你拥有的总购买力，b)预期价差从其均值的最大偏差，以及c)你打算买入/做空的频率。注意点c不是一个参数：它是任意的，仅受交易成本、技术和其他运营问题的限制。至于预期最大偏差，可以通过观察价差自成立以来历史数据得到。
 - en: This scheme thus obviates the need for entry or exit thresholds, and with them,
     the possibility of data-snooping bias. (You may still want to impose an entry
     threshold based on transaction cost consideration - but that would not count as
     a free parameter.)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个策略因此消除了设置进入或退出阈值的需要，随之也消除了数据窥探偏差的可能性。（你仍然可能想要根据交易成本考虑设定一个进入阈值——但那将不会被视为一个自由参数。）

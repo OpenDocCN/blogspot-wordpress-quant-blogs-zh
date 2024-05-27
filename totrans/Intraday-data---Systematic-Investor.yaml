@@ -1,128 +1,200 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:30:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:30:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Intraday data | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Intraday数据 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01](https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01](https://systematicinvestor.wordpress.com/2014/03/10/intraday-data/#0001-01-01)
 - en: In the [Intraday Backtest](https://systematicinvestor.wordpress.com/2012/04/23/intraday-backtest/)
     post I showed an example of loading and working with Forex Intraday data from
     the [FXHISTORICALDATA.COM](http://www.fxhistoricaldata.com/). Recently, I came
     across another interesting source of Intraday data at the [Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)
     site. Please note that you will have to register to get access to the Intraday
     data; the registration is free.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[Intraday Backtest](https://systematicinvestor.wordpress.com/2012/04/23/intraday-backtest/)文章中，我展示了一个加载和处理来自[FXHISTORICALDATA.COM](http://www.fxhistoricaldata.com/)的Forex
+    Intraday数据的示例。最近，我在[Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)网站上发现了一个关于Intraday数据的有趣来源。请注意，您必须注册才能获取Intraday数据；注册是免费的。
 - en: Today, I want examine quality of the Intraday data from the [Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)
     and show how it can be integrated into Backtest using the [Systematic Investor
     Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
     For the example below, please first download and save 1 minute Intraday historical
     data for SPX and GLD. Next let’s load and plot time series for SPX.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我想检查[Bonnot Gang](http://thebonnotgang.com/tbg/historical-data/)的Intraday数据质量，并展示如何将其整合到Backtest中使用[Systematic
+    Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)。对于下面的示例，首先下载并保存SPX和GLD的1分钟Intraday历史数据。接下来让我们加载并绘制SPX的时间序列。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![plot1](img/4a786f17ed75acae006fdbe6301c22b1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot1.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/4a786f17ed75acae006fdbe6301c22b1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot1.png)'
 - en: '[![plot2](img/90a2158e769f5e9c6e85391992d3d08a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot2.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/90a2158e769f5e9c6e85391992d3d08a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot2.png)'
 - en: It jumps right away that the data provider had changed the time scale, in 2012
     data was recorded from 9:30 to 16:00 and in 2013 data was recorded from 13:30
     to 20:00.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 立即发现数据提供者更改了时间刻度，2012年的数据是从9:30到16:00记录的，而2013年的数据是从13:30到20:00记录的。
 - en: Next, let’s check if there are any big gaps in the series Intraday.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们检查Intraday系列中是否有任何大缺口。
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Please see below the dates for GLD with gaps over 4 minutes
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 请查看下面GLD存在4分钟以上缺口的日期
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: A detailed look at the Feb 19th, 2013 shows a 48 minute gap between 14:54 and
     15:42
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 详细查看2013年2月19日，14:54和15:42之间存在48分钟的缺口
 - en: '[PRE3]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: So there is definitely something going on with data acquisition at that time.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，当时数据采集肯定有问题。
 - en: 'Next, let’s compare Intrada data with daily data:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们比较Intrada数据和日数据：
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![plot3](img/3c8e765aaf3cf5da31097ccf295e4762.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot3.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3](img/3c8e765aaf3cf5da31097ccf295e4762.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot3.png)'
 - en: '[![plot4](img/83fe56b84117406aeab92ab23355f238.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot4.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot4](img/83fe56b84117406aeab92ab23355f238.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot4.png)'
 - en: The Intraday data matches Daily data very well.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Intraday数据与日数据非常吻合。
 - en: 'Please note that the raw Intraday data comes with seconds time stamp, for back-testing
     purposes we will also want to round date time to the nearest minute, so that we
     can merge the Intraday data series without introducing multiple entries for the
     same minute. For example:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，原始的Intraday数据带有秒时间戳，为了回测目的，我们还需要将日期时间四舍五入到最近的分钟，这样我们就可以合并Intraday数据系列，而不会引入同一分钟的多个条目。例如：
 - en: '[PRE5]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '[PRE6]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: I got an impression that these Intraday data is not really authentic, but was
     collected by running Intraday snap shoots of the quotes and later on processed
     to create one minute bars. But I might be wrong.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我觉得这些Intraday数据并不是真的很真实，而是通过运行报价的Intraday快照收集的，后来处理以创建一分钟条形图。但我可能错了。
 - en: 'Next, let’s clean the Intraday data, by removing any day with time gaps over
     4 minutes and let’s round all times to the nearest minute:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们通过删除时间超过4分钟的任何一天来清理Intraday数据，并将所有时间四舍五入到最近的分钟：
 - en: '[PRE7]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: 'Once Intraday data is ready, we can test a simple equal weight strategy:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦Intraday数据准备就绪，我们可以测试一个简单的等权重策略：
 - en: '[PRE8]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '[![plot5](img/e20a124fef1d93f884e77c62f8a3895e.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/03/plot5.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot5](img/e20a124fef1d93f884e77c62f8a3895e.png)'
 - en: In this post, I tried to outline the basic steps you need to take if you are
     planning to work with a new data source. Next, I plan to follow with more examples
     of testing Intraday strategies.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我试图概述如果你打算使用新的数据源需要采取的基本步骤。接下来，我计划通过更多示例来介绍测试日内策略。
 - en: To view the complete source code for this example, please have a look at the
     [bt.intraday.thebonnotgang.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上bt.intraday.thebonnotgang.test()函数的bt.test.r文件](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

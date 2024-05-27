@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:34:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:34:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Lodestone | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Lodestone | Coding the markets
 - en: 来源：[https://etrading.wordpress.com/2012/05/23/lodestone/#0001-01-01](https://etrading.wordpress.com/2012/05/23/lodestone/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2012/05/23/lodestone/#0001-01-01](https://etrading.wordpress.com/2012/05/23/lodestone/#0001-01-01)
 - en: So it looks like [Lodestone](http://lodestonefoundation.wordpress.com/) is an
     [Open Source](http://en.wikipedia.org/wiki/Open_source) project backed by [Deutsche
     Bank](http://www.db.com/), and involving the estimable [Martin Thompson of LMAX
@@ -33,8 +45,14 @@
     Why not ?  And why is OSS being touted as a silver bullet for trading systems
     software again, fifteen years after Eric Raymond’s [The Cathedral and The Bazaar](http://www.catb.org/~esr/writings/homesteading/cathedral-bazaar/index.html#catbmain)
     first alerted the  mainstream to a different way of doing software ?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以看起来[Lodestone](http://lodestonefoundation.wordpress.com/)是一个由[德意志银行](http://www.db.com/)支持的开源项目，并涉及著名的[LMAX
+    Disruptor](http://www.infoq.com/presentations/LMAX)的马丁·汤普森。以前有过投资银行（IB）支持的开源项目，尤其是[A+](http://www.aplusdev.org/
+    "A+")和[OpenAdaptor](https://www.openadaptor.org/ "OpenAdaptor")。也有为API和消息格式进行协作规范的努力，比如[AMQP](http://www.amqp.org/),
+    [FIX](http://fixprotocol.org/)和[FpML](http://www.fpml.org/)，它们使用类似开源许可证的知识产权，并经常采用参考实现。然而，在投资银行这个垂直领域里，它们没有达到像[Linux内核](http://www.kernel.org/)、[Apache](http://www.apache.org/)或[Mozilla](http://www.mozilla.org/en-US/)这样的典型开源项目的影响力。为什么不是呢？并且在埃里克·
+    Raymond的[大教堂与集市](http://www.catb.org/~esr/writings/homesteading/cathedral-bazaar/index.html#catbmain)首次向主流警报软件的另一种做法十五年后，为什么开源软件又被吹捧为交易系统软件的银弹呢？
 - en: My initial answers to the two questions are a little cynical, but when you’ve
     spent nearly fifteen years working in investment bank technology, cynical has
     to be your default mindset. As always, let’s follow the money. I suspect a large
@@ -45,8 +63,10 @@
     the much vaunted Open Source “community” to shoulder a lot of the maintenance
     and testing burden. And at this point in the economic cycle, driving down in house
     development costs by any means makes sense.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最初对这两个问题的答案有点愤世嫉俗，但当你在投资银行技术领域工作了近十五年后，愤世嫉俗就必须成为你的默认心态。像往常一样，让我们跟着钱走。我怀疑很大一部分开源像A+和OpenAdaptor这样的代码库的动机是出于成本考虑。随着银行内部专有代码库的衰老，它们被视为不是竞争优势或敏捷性的来源，而是阻碍投资于其他领域的恼人重复成本。开源软件提出了一个诱人的前景，即让备受吹捧的开源“社区”承担大量的维护和测试负担。在这个经济周期的这个阶段，通过任何手段降低内部开发成本都是合理的。
 - en: So driving down costs is part of the motivation for OSS. But why didn’t A+ and
     OpenAdaptor win universal adoption by investment banks ?  Because they don’t provide
     sufficient incentive to adopt. Take A+, a niche APL based programming language.
@@ -59,8 +79,10 @@
     there’s no incentive to adopt such codebases, then the originating organisation
     reaps none of the maintenance and testing benefits that motivated them to open
     source in the first place. Ergo no cost savings, and a moribund project.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，降低成本是开源软件（OSS）的一部分动机。但为什么A+和OpenAdaptor没有得到投资银行的普遍采用呢？原因在于它们没有提供足够的采用激励。以A+为例，这是一种利基的基于APL的编程语言。如果银行没有大量现有的A+代码库，它们为什么会采用它呢？OpenAdaptor是一种中间件抽象层。它的存在理由是防止与底层商业供应商软件耦合。大多数银行已经建立了这样的层——这就是IB软件架构团队的作用！为什么它们会从支持它们所有编程语言和操作系统选择的内部层切换到一个不支持且不由它们控制的层呢？如果没有采用此类代码库的激励，那么发起组织就无法获得维护和测试的好处，这些好处最初促使它们将软件开源。因此，没有成本节省，项目就会陷入停滞。
 - en: Which leads us to the question of what a bank led OSS project would need to
     do to incentivise adoption. Let’s bear in mind that the software stack used to
     build trading applications has  components that range from completely generic,
@@ -85,8 +107,10 @@
     then quietly dropped. IB cooperation had restored dealer control to the swap etrading
     landscape, and dealers could compete for client inquiries in a trading venue they
     control.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这使我们想到了一个问题：银行主导的开源软件项目需要做些什么才能激励采用。我们要记住，构建交易应用程序所使用的软件堆栈包括从完全通用的数据库，到高度特定的量化库等组件。投资银行不会将像量化库或算法交易这样的代码库开源，这些确实是它们竞争优势的特殊调料。并且没有必要将非常通用的东西如编程语言或中间件抽象层开源，因为这些东西没有强烈的采用动机。但是，在中间存在一系列代码，像Lodestone这样的项目应该评估这些代码。这些代码库的合作好处必须超过放弃的竞争优势。这些代码库必须是垂直特定的，因为更广泛的开源世界已经解决了真正通用的需求，如编程语言和数据库，所以开源银行代码库没有显著好处。我们应该寻找投资银行合作的成功联盟努力。像FpML和FIX这样的标准化努力意味着投资银行共享一些它们的知识产权，但这些成本被这些标准带来的互操作性好处所抵消。另一个成功的联盟是Tradeweb。投资银行将他们的股份出售给汤森路透，然后意识到他们失去了对IRS电子交易的控制。他们推出了LiquidityHub，试图将掉期流动性从彭博和Tradeweb转移到他们控制的ECN上。最终，Tradeweb对LiquidityHub的威胁做出了回应，允许投资银行重新购入，并给予他们董事会席位。随后，LiquidityHub被悄然放弃。投资银行的合作恢复了掉期电子交易市场的交易商控制，交易商可以在他们控制的交易场所争夺客户咨询。
 - en: 'So we’re looking for codebases that are specific to the IB vertical, that are
     not special sauce, and where the benefits of cooperation outweigh the cost of
     any IP give up. My rates etrading background suggests the ECN gateway space as
@@ -103,8 +127,11 @@
     need access to ECN test systems and APIs. ECNs control that, it’s a cost they
     want to minimise as they are trading venues not software vendors, so they only
     give access to IBs.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们正在寻找特定于IB垂直领域的代码库，这些代码库并非独门秘方，且合作的利益大于任何IP让步的成本。我的etrading背景建议ECN网关领域是一个富有成果的领域。在这里，有一个主流供应商[ION
+    Trading](http://www.iontrading.com)，它有一套成功的利率交易软件。ION的软件套件包括MarketView网关，为所有固定收益ECN提供相同的API：彭博社、Tradeweb、BondVision、MTS、BrokerTec、eSpeed等。几乎所有领先的利率交易商都在使用它们。据我的经验，几乎所有领先的利率交易商都认为它们是一种麻烦的持续成本。采用这些网关所带来的上市时间和开发人员人力的节省早已被折扣掉，所有交易商看到的只是沉重的持续许可费用。但是，仅构建一组网关的成本就太高了，所以没有人去做。为什么没有第三方介入并建立一个MarketView的开源竞争对手呢？原因之一是进入门槛。要建立ECN网关，你需要访问ECN测试系统和API。ECN控制这一点，因为他们是交易场所而非软件供应商，所以他们只向IB提供访问权限。
 - en: 'An IB led OSS consortium like Lodestone could develop open source ECN gateways,
     sharing the cost of development including ECN test system and API access, and
     freeing themselves from ION’s license fees. They’d also gain more control: one
@@ -118,11 +145,15 @@
     or to keep them secret, and bear the cost of porting and merging going forward.
     The choice remains with the IB – and that’s a key benefit of free software in
     the Stallman sense of the word free.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 像Lodestone这样的IB领导的OSS联盟可以开发开源的ECN网关，共享包括ECN测试系统和API访问在内的开发成本，从而摆脱ION的许可费用。他们还将获得更多控制权：IB们经常抱怨的一个问题是，他们从ION请求的新功能在几个月后就会在主代码库中推出，这时他们的所有竞争对手都能使用。当然，从运行传统闭源商业许可软件模型的供应商那里期望得到其他任何东西都是不现实的。但这一点确实突显了将开源模型应用于ECN网关领域的另一个好处。网关源代码的开放访问意味着个人IB可以开发自己的专有扩展，然后选择将这些扩展回馈给社区，或者保守秘密，并承担后续的移植和合并成本。选择权仍在于IB——这是自由软件在Stallman所说的“自由”意义上的关键好处。
 - en: So I believe the Lodestone project should be asking which codebases are IB specific,
     are not special sauce, and which offer strong cost benefits from cooperation.
     I’ve  given an example from etrading above. Can you give one from another asset
     class, or another part of the IB stack, risk management or STP perhaps ?
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我相信Lodestone项目应该询问哪些代码库是针对IB的、并非独门秘方的，以及哪些通过合作提供强大的成本效益。我在上面提到了一个来自etrading的例子。你能再提供一个来自其他资产类别或IB堆栈的其他部分，比如风险管理或STP的例子吗？

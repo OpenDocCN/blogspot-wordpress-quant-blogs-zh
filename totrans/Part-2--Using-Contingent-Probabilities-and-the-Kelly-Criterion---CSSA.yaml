@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:51:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:51:28
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Part 2: Using Contingent Probabilities and the Kelly Criterion | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 第二部分：使用条件概率和凯利公式 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/08/09/using-contingent-probabilities-and-the-kelly-criterion-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/09/using-contingent-probabilities-and-the-kelly-criterion-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/08/09/using-contingent-probabilities-and-the-kelly-criterion-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/09/using-contingent-probabilities-and-the-kelly-criterion-part-2/#0001-01-01)
 - en: 'In Part 1 we discussed the procedure for estimating how much to bet using MDVK
     with a baseline strategy to identify bull and bear markets.  Now we should look
     at how to use this information when combined with new information–ie we are trying
@@ -26,8 +38,11 @@
     historical data, and some adjustments based on human logic 2) ***using advanced statistical
     forecasts:***  forecasting using  conditional probabilities where the correlation
     and interaction between independent variables are considered.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第一部分中，我们讨论了使用MDVK和基准策略来估算投注量的程序，以识别牛市和熊市。现在，我们应该看看如何在与新信息结合时使用这些信息——也就是说，我们试图使用条件概率数据来计算投注量。解决这个问题有两种方法：1)
+    **“信手拈来”** —— 使用历史数据以及基于人类逻辑的一些调整进行估计 2) **使用高级统计预测：** —— 使用条件概率进行预测，其中考虑了独立变量之间的相关性和交互作用。
 - en: 'We  will focus on “back of the envelope” estimation in this article, as the
     reality is that most traders are not equipped, or knowledgeable enough to effectively
     use #2 on a day-to day basis. There is a big difference between the ideal world
@@ -37,19 +52,25 @@
     Besides, good human judgement combined with basic historical data (properly used)
     can produce solid results that are more robust than poorly-executed quantitative
     models.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文将重点讨论“信手拈来”的估计，因为现实情况是，大多数交易者没有足够的装备或知识，无法在日常基础上有效地使用第二种方法。理想数字世界和交易*.*的粗犷世界之间有很大的区别。我会用以下比喻来比较1和2：你不会想让一名士兵带着一种复杂或难以使用的新武器上战场，除非经过充分的训练。此外，良好的判断力与基本的历史数据（正确使用）相结合，可以产生比执行不当的定量模型更健壮的、可靠的结果。
 - en: 'One of the best sources to generate  useable contingent probability data  is
     Rob Hanna’s ***Quantifiable Edges*** [http://quantifiableedges.blogspot.com/](http://quantifiableedges.blogspot.com/) .
     In general, Rob usually presents a specific situation that is directly comparable to
     the current environment. He then presents historical data for what you would have
     made or lost by trading under this specific contingency. Suppose our primary trading
     vehicle is the SPY, here is a practical example:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成可用条件概率数据的一个最佳来源是Rob Hanna的***Quantifiable Edges*** [http://quantifiableedges.blogspot.com/](http://quantifiableedges.blogspot.com/)。通常，Rob会呈现一个与当前环境直接可比较的具体情况，然后提供历史数据，告诉你在这个具体的条件下进行交易你会盈利还是亏损。假设我们的主要交易工具是SPY，以下是一个实际例子：
 - en: '[http://2.bp.blogspot.com/_931wANibTqw/SnGgh-ybdJI/AAAAAAAABS4/ksKrIMBsfnQ/s1600-h/2009-7-30+png.png](http://2.bp.blogspot.com/_931wANibTqw/SnGgh-ybdJI/AAAAAAAABS4/ksKrIMBsfnQ/s1600-h/2009-7-30+png.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://2.bp.blogspot.com/_931wANibTqw/SnGgh-ybdJI/AAAAAAAABS4/ksKrIMBsfnQ/s1600-h/2009-7-30+png.png](http://2.bp.blogspot.com/_931wANibTqw/SnGgh-ybdJI/AAAAAAAABS4/ksKrIMBsfnQ/s1600-h/2009-7-30+png.png)'
 - en: 'Lets assume from the example in Part 1, that we are in a bull market and the
     VIX is 15\. Our baseline bet should be 47% using the previous calculation based
     on MDVK.  Lets assume that we are not able to obtain the conditional probability
@@ -59,73 +80,111 @@
     days. In this contingency, Rob presents the historical results for trading when ” the
     SPY closes higher in the last hour of trading  4 days in a row , sell “x” days
     later.” This is the only data that we need:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们从第一部分例子中，当前处于牛市且VIX为15。根据之前的MDVK计算，我们的基准投注应该是47%。假设我们无法获得在牛市或熊市中特定结果的条件概率。我们必须结合我们的新信息来决定下注多少。再假设我们一次交易一周，我们的决策并持有5个交易日。在这种情况下，Rob展示了当“SPY在交易最后hour连续4天收高，x天后卖出”的历史交易结果。这是我们所需的所有数据：
 - en: '|   |   | **all: total** | **all: %** | **All: Win/Loss** |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| | | **总计：所有** | **总计：百分比** | **总计：胜/负** |'
 - en: '| **x days** |  | ** trades** | **profitable** | **ratio** |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '| **x天** | | **交易** | **盈利** | **比率** |'
 - en: '| 5 |   | 85 | 45.88% | 0.82 |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| 5 | | 85 | 45.88% | 0.82 |'
 - en: 'Now, using the MDVK we can figure out how much to bet in this situation–let’s
     revisit the calculation. This time I also simplified the Kelly Criterion so that
     is easier to follow:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，使用MDVK我们可以计算在这种情况下应该下注多少——让我们重新审视一下计算过程。这次我还简化了凯利准则，以便更容易理解：
 - en: '***B***= ***T ***x *20/(the current vix level)*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**B** = **T** x 20/(当前VIX水平)'
 - en: '***MDVK***= (B x 1/2 x (100/(1-f)))*max(300%)*'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**MDVK**= (B x 1/2 x (100/(1-f)))*max(300%)*'
 - en: '*note that if “f” is <0, than the  formula becomes:    -1*(B x 1/2 x (100/(1-abs(f)))*max(-300%)**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '*注意，如果“f” <0，那么公式变为：-1*(B x 1/2 x (100/(1-|f|)))*max(-300%)*'
 - en: '*where **T**= *100% trend bet going long in bull markets/short in bear markets**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '*其中 **T** = *100%趋势投注在牛市/熊市做空*'
 - en: '*where **B**=  *baseline bet going long in bull markets/short in bear markets**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '*其中 **B** = *基准投注在牛市/熊市做空*'
 - en: '*where Kelly Criterion= f = W – [(1 – W) / R       and   R= win/loss ratio
     and W= the % profitable trades*'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*其中凯利准则= f = W – [(1 – W) / R]    和    R=胜/负比率，W=盈利的交易百分比*'
 - en: '*B= 20/15 x (100%)= 1.333*'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '*B= 20/15 x (100%)= 1.333*'
 - en: '*f= 46%-((1-46%)/.82))= -20%*'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '*f= 46%-((1-46%)/.82))= -20%*'
 - en: '*MDVK=-1 x 1.333 x .5 x (100/80)= -83% or “short” 83% of your portfolio*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*MDVK=-1 x 1.333 x .5 x (100/80)= -83% 或“做空”你组合的83%*'
 - en: 'To calculate the combined “f” in this case we need to utilize the previous
     baseline estimate of 47% with the current contingency estimate of -83%.  Ideally
     we would want to know what the conditional probability is, because we do not we
     can solve our “back of the envelope” problem as follows:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了计算此案例中的组合“f”，我们需要利用之前的基准估计47%与当前应急估计-83%。理想情况下，我们想知道条件概率是什么，因为我们不知道，我们可以像下面这样解决我们的“信封背面”问题：
 - en: combined(*f*)= ( Baseline *f + (confidence)x contingency (f))/2*
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 组合f = (基准f + (信心)x应急(f))/2*
 - en: '*where confidence=  t-score confidence  OR the  rough adjustment for your own
     confidence that this probability is reliable given the sample size and the situation.
     If the sample size is under 20, i recommend at best 50% confidence. Another adjustment
     includes if you feel that the current situation does not fully match the historical
     situations. Perhaps the market is abnormal, or there is a seasonal influence to
     take into account.*'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '*其中信心=t-score信心 OR 根据样本大小和情况，自己对这种概率可靠性的粗略调整。如果样本量小于20，我建议最多50%的信心。另一种调整包括如果你觉得当前情况并不完全符合历史情况。或许市场异常，或者需要考虑季节影响。*'
 - en: 'In this case, to keep things simple we will assume 100% confidence:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个案例中，为了保持简单，我们将假设100%的信心：
 - en: combined f= (47%+(-83%))/2= -18%
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 结合f = (47% + (-83%))/2 = -18%
 - en: In this case, we would close out our long position and go net short 18% of our
     portfolio. As you can see, the above methodology is practical because it allows
     us to quantify how much to bet, and also can incorporate adjustments based on
@@ -137,8 +196,11 @@
     to the closing bell. It is a highly structured framework to take into account
     the 1) the current long term trend 2) volatility 3) risk/reward ratios and 4)
     contingent situations.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，我们会平掉多头头寸，并使我们的组合净空头18%。正如您所看到的，上述方法是实用的，因为它允许我们量化下注的金额，同时也可以根据我们对形势的判断进行调整。交易员常常在确定下注金额和是否获利了结，或者转换头寸上感到困惑。使用MDVK来计算综合的“f”，会给你一个明确的答案，告诉你当前应该采取什么头寸。虽然它并不意味着非常精确，但比在收盘铃声压力下做出的“拍脑袋”决策要好得多。这是一个高度结构化的框架，考虑了1）当前的长期趋势
+    2）波动性 3）风险/回报比率以及4）衍生情况。
 - en: I will try to make a spreadsheet available to the readers by the end of the
     week so that it can be used for real-life trading. In part 3 we will look at using
     statistics to make more precise conditional forecasts. This is a topic that we
@@ -147,5 +209,7 @@
     “back of the envelope” robust optimization procedures to figure out how to trade
     pairs. However this method is applicable to optimizing any trading system without
     overfitting.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我会在本周结束前尝试向读者提供一份电子表格，以便用于实际交易。在第三部分，我们将研究如何使用统计学来做出更精确的条件预测。这是一个我们将逐步建立的主题，我将介绍各种统计程序及其应用，以及优缺点。周二我们将研究如何进行“信手拈来”的鲁棒优化程序，以找出如何交易对。然而，这种方法适用于优化任何不会过拟合的交易系统。

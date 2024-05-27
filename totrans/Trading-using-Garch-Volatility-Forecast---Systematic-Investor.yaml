@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:44:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:44:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Trading using Garch Volatility Forecast | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Garch波动率预测进行交易 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01](https://systematicinvestor.wordpress.com/2012/01/06/trading-using-garch-volatility-forecast/#0001-01-01)
 - en: '[Quantum Financier](http://quantumfinancier.wordpress.com) wrote an interesting
     article [Regime Switching System Using Volatility Forecast](http://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/).
     The article presents an elegant algorithm to switch between mean-reversion and
@@ -26,77 +38,118 @@
     Forecast. The mean-reversion strategy is modeled with RSI(2): Long when RSI(2),
     and Short otherwise. The trend-following strategy is modeled with SMA 50/200 crossover:
     Long when SMA(50) > SMA(200), and Short otherwise.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 量子金融家（[Quantum Financier](http://quantumfinancier.wordpress.com)）撰写了一篇有趣的文章[使用波动率预测的政权切换系统](http://quantumfinancier.wordpress.com/2010/08/27/regime-switching-system-using-volatility-forecast/)。文章提出了一种基于市场波动在均值回归和趋势跟踪策略之间切换的精巧算法。研究了两个模型：一个使用历史波动率，另一个使用Garch(1,1)波动率预测。均值回归策略使用RSI(2)建模：当RSI(2)时做多，否则做空。趋势跟踪策略使用SMA
+    50/200交叉建模：当SMA(50) > SMA(200)时做多，否则做空。
 - en: I want show how to implement these ideas using the backtesting library in the
     [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想展示如何使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库实现这些想法。
 - en: 'Following code loads historical prices from Yahoo Fiance and compares performance
     of the Buy and Hold, Mean-Reversion, and Trend-Following strategies using the
     backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下代码从雅虎财经加载历史价格，并使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库比较买入持有、均值回归和趋势跟踪策略的表现：
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/721aea6f23941e481461bf232435c56a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot1-small.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/721aea6f23941e481461bf232435c56a.png "plot1.png.small")'
 - en: Next, let’s create a strategy that switches between mean-reversion and trend-following
     strategies based on historical market volatility.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建一个基于历史市场波动在均值回归和趋势跟踪策略之间切换的策略。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/4da4f9e19ce2c5ff87b54650fcca13ec.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot2-small.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/4da4f9e19ce2c5ff87b54650fcca13ec.png "plot2.png.small")'
 - en: 'Next, let’s create a GARCH(1,1) Volatility Forecast. I would recommend reading
     following articles for anyone who wants to find what GARCH is all about or to
     refresh their knowledge:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建一个GARCH(1,1)波动率预测。我建议任何想了解GARCH是什么或者想复习相关知识的人阅读以下文章：
 - en: 'There are a few R packages to fit GARCH models. I will consider garch function
     from tseries package and garchFit function from fGarch package. The garch function
     from tseries package is fast but does not always find solution. The garchFit function
     from fGarch package is slower but does converge more consistently. To demonstrate
     the speed difference between garch function and garchFit function I created a
     simple benchmark:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 有几种R包可以拟合GARCH模型。我将考虑来自tseries包的garch函数和来自fGarch包的garchFit函数。tseries包中的garch函数速度快，但不一定总能找到解决方案。而fGarch包中的garchFit函数较慢，但收敛更为一致。为了展示garch函数和garchFit函数之间的速度差异，我创建了一个简单的基准：
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The garchFit function is on average 6 times slower than garch function. So to
     forecast volatility I will try to use garch function whenever it can find a solution
     and garchFit function otherwise.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: garchFit函数平均比garch函数慢6倍。所以，为了预测波动率，我将尝试在garch函数能找到解决方案时使用它，否则使用garchFit函数。
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Now, let’s create a strategy that switches between mean-reversion and trend-following
     strategies based on GARCH(1,1) volatility forecast.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，让我们创建一个基于GARCH(1,1)波动率预测在均值回归和趋势跟踪策略之间切换的策略。
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/03ab80ffd096a221965ceae4ba3611a0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '以下是图片的翻译: [![](img/03ab80ffd096a221965ceae4ba3611a0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/01/plot3-small.png)'
 - en: The switching strategy that uses GARCH(1,1) volatility forecast performed slightly
     better than the one that uses historical volatility.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用GARCH(1,1)波动率预测的切换策略略优于使用历史波动率的策略。
 - en: 'There many different approaches you can take to incorporate forecasting into
     your models and trading strategies. R has a very rich set of packages to model
     and forecast time series. Here are some examples that I found interesting:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '有许多不同的方法可以将预测 Incorporate into your models and trading strategies. R has a
+    very rich set of packages to model and forecast time series. Here are some examples
+    that I found interesting:'
 - en: To view the complete source code for this example, please have a look at the
     [bt.volatility.garch() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[bt.volatility.garch()函数在 github 上的 bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

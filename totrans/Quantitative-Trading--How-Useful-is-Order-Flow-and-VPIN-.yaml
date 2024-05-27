@@ -1,30 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:59:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:59:20
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: How Useful is Order Flow and VPIN?'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：订单流和VPIN有多有用？
 - en: 来源：[http://epchan.blogspot.com/2013/10/how-useful-is-order-flow-and-vpin.html#0001-01-01](http://epchan.blogspot.com/2013/10/how-useful-is-order-flow-and-vpin.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2013/10/how-useful-is-order-flow-and-vpin.html#0001-01-01](http://epchan.blogspot.com/2013/10/how-useful-is-order-flow-and-vpin.html#0001-01-01)
 - en: Can short-term price movement be predicted? (I am speaking of  seconds or minutes
     here.) This is a question not only relevant to high frequency traders, but to
     every long-term investor as well. Even if  one plans to buy and hold a stock for
     years,  nobody likes to suffer short-term negative P&L immediately after entry
     into position.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 短期价格变动可以预测吗？（我这里指的是秒或分钟。）这个问题不仅与高频交易员相关，也与每一位长期投资者相关。即使一个人计划持有一支股票多年，也没有人喜欢在进入头寸后立即遭受短期负的P&L。
 - en: 'One short-term prediction method that has long found favor with academic researchers
     and traders alike is order flow. Order flow is just signed transaction volume:
     if a transaction of 100 shares is classified as a "buy", the order flow is +100;
@@ -39,8 +53,11 @@
     knowledge or technical model), so we better join her/him! Such superior traders
     are often called "informed traders", and their order flow is often called "toxic
     flow". Toxic, that is, to the uninformed market maker.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种长期以来受到学术研究和交易员喜爱的短期预测方法是订单流。订单流就是带符号的交易量：如果一笔100股的交易被分类为“买入”，那么订单流为+100；如果它被分类为“卖出”，那么订单流为-100\.
+    这可能会让一些人感到相当奇怪：每一笔交易都有买家和卖家，那么“买入”或“卖出”是什么意思？嗯，“买家”被定义为“攻击者”，即使用市价单在卖出价买入的人。（对于卖家来说则相反，在此讨论中我将省略对卖家的提及。）直观上，一系列大型“买入”市价订单预示着短期价格上涨的原因是，如果有人如此渴望做多，她/他可能知道市场其他人不知道的东西（要么由于卓越的基本知识或技术模型），所以我们最好加入她/他！这样的顶级交易员通常被称为“有信息交易员”，他们的订单流通常被称为“有毒流动”。这对无信息的市场制造商来说是有毒的。
 - en: 'In theory, if one has a tick data feed, one can tell whether an execution is
     a "buy" or "sell" by comparing the trade price with the bid and ask price: if
     the trade price is equal to the ask, it is a "buy". This is called the "Quote
@@ -50,11 +67,17 @@
     markets take place in dark pools or via hidden orders, so the quotes are simply
     invisible and order flow non-computable. So this classification scheme is not
     foolproof. Therefore, a number of researchers (see "'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论上，如果一个人有一个ticks数据源，那么通过将交易价格与买入价和卖出价进行比较，可以判断一次执行是“买入”还是“卖出”：如果交易价格等于卖出价，则为“买入”。这被称为“报价规则”。但实际操作中有一个小陷阱。如果买入价和卖出价变化很快，一个买入市场订单可能会最终以买入价购买，如果市场在订单发出后幸运地下跌了。此外，美国股票市场大约有1/3的交易发生在暗池中，或通过隐藏订单进行，所以报价
+    simply invisible and order flow non-computable. So this classification scheme
+    is not foolproof. Therefore, a number of researchers (see "
 - en: '[Flow Toxicity and Volatility in a High Frequency World](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1695596)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[高频世界的流动毒性和波动性](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1695596)'
 - en: '" by Easley, et. al.) proposed an alternative, "easier", method to compute
     order flow. Instead of checking the trade price of each tick, they just need the
     "open" and "close" trade prices of a bar, preferably a volume bar, and assign
@@ -64,15 +87,21 @@
     incidentally models price changes of volume bars, but not time bars, pretty well.)
     The absolute difference between buy and sell volume expressed as a fraction of
     the total volume is called "VPIN" by the authors, or'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: （由Easley等人提出的）提出了一种替代的、更“简单”的方法来计算订单流动。他们不需要检查每个点的交易价格，他们只需要一个柱状图的“开盘”和“收盘”交易价格，最好是成交量柱状图，并根据收盘价格是高于还是低于开盘价格，将该柱状图中的体积的一部分分配给“买入”或“卖出”。（分配公式基于高斯分布的累积概率密度，有趣的是，这个模型很好地模拟了成交量柱状图而不是时间柱状图的价格变化。）买入和卖出量之间的绝对差异，作为总体积的一个分数，被称为“VPIN”的作者，或者
 - en: '*Volume-Synchronized Probability of Informed Trading*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*成交量同步知情交易概率*'
 - en: . The higher VPIN is, the more likely we will experience short-term momentum
     due to informed trading.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 。VPIN值越高，我们越有可能因为知情交易而经历短期动量。
 - en: Theory and intuition aside, how well does order flow work in practice as a short-term
     predictor in various markets? And how predictive is VPIN as compared to the old
     Quote Rule?  In my experience, while this indicator is predictive of price change,
@@ -82,23 +111,35 @@
     despite (?) it being patented and highly touted. I have informally polled other
     investment professionals on their experience, and the answer usually come back
     indifferent as well.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 理论和直觉 aside，订单流动在实践中作为各种市场的短期预测器表现如何？与旧的报价规则相比，VPIN的预测力如何？在我的经验中，尽管这个指标可以预测价格变化，但这种变化通常太小，无法克服包括买卖价差在内的交易成本。更令人不安的是，在那些既应该使用报价规则又应该使用VPIN的市场（例如期货市场）中，尽管VPIN已经被专利保护并且广受赞誉，但它迄今为止的表现还是不如报价规则。我已经非正式地调查了其他投资专业人士的经验，他们通常也回馈说没有太大差异。
 - en: Do you have live experience with VPIN? Or more generally, do you find strategies
     built using volume bars superior to those using time bars? If so, please leave
     us your comments!
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 你是否有使用VPIN的实时经验？或者更一般地说，你是否觉得使用成交量柱状图构建的策略优于使用时间柱状图构建的策略？如果是，请留下你的评论！
 - en: ===
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: My online Quantitative Momentum Strategies workshop will be offered in December.
     Please visit
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的线上量化动量策略研讨会将在12月提供。请访问
 - en: '[epchan.com/](http://epchan.com/my-workshops)[my-workshops ](http://epchan.com/my-workshops)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[epchan.com/](http://epchan.com/my-workshops)[我的研讨会](http://epchan.com/my-workshops)'
 - en: for registration details.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 注册详情请见。

@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:15:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: date：2024-05-18 15:15:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Utility Spread and Financial Turbulence'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：效用价差和金融动荡
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/utility-spread-and-financial-turbulence.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/utility-spread-and-financial-turbulence.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/utility-spread-and-financial-turbulence.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/utility-spread-and-financial-turbulence.html#0001-01-01)
 - en: '**THIS IS NOT INVESTMENT ADVICE.  YOU ARE RESPONSIBLE FOR YOUR OWN GAINS AND
     LOSSES.**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**这不是投资建议。您对自己的收益和损失负责。**'
 - en: In [Long XLU Short SPY Part 2 (More History)](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html),
     I explored the defensive nature of the spread and its potential as a bond substitute
     in troublesome periods for stocks.  I thought it would be interesting to see what
@@ -30,321 +44,529 @@
     system.  Unfortunately, the use of the spread on price returns as cash does not
     benefit the system as much as bonds as cash, but I still thought it might encourage
     some additional reader thought on the spread and its potential uses.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[Long XLU Short SPY Part 2 (More History)](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html)中，我探讨了这种价差的防御性质及其在股票困难时期作为债券替代品的潜力。我想看到如果我们在[Great
+    FAJ Article on Statistical Measure of Financial Turbulence Part 3](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_6197.html)系统中将这种价差作为我们的现金持仓，会发生什么。不幸的是，将价格回报中的价差用作现金并不像将债券用作现金那样有利于系统，但我仍然认为这可能会鼓励一些对价差及其潜在用途的额外思考。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#get data from St. Louis Federal Reserve (FRED)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从圣路易斯联邦储备局（FRED）获取数据'
 - en: 'getSymbols("GS20",src="FRED") #load 20yTreasury; 20y has gap 86-93; 30y has
     gap in early 2000s'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS20",src="FRED") #加载 20 年期国债；20 年期在 1986 年至 1993 年之间有间隙；30 年期在
+    2000 年代初有间隙'
 - en: 'getSymbols("GS30",src="FRED") #load 30yTreasury to fill 20y gap 86-93'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS30",src="FRED") #加载 30 年期国债，以填补 20 年期国债在 1986 年至 1993 年之间的间隙'
 - en: 'getSymbols("BAA",src="FRED") #load BAA'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("BAA",src="FRED") #加载 BAA'
 - en: 'getSymbols("SP500",src="FRED") #load SP500'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("SP500",src="FRED") #加载 SP500'
 - en: '#now Dow Jones Indexes'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在是道琼斯指数'
 - en: 'getSymbols("DJIA",src="FRED") #load daily Dow Jones Industrial'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DJIA",src="FRED") #加载每日道琼斯工业平均指数'
 - en: 'getSymbols("DJUA",src="FRED") #load daily Dow Jones Utility'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DJUA",src="FRED") #加载每日道琼斯公用事业平均指数'
 - en: DJUADJIA<-DJUA/DJIA
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: DJUADJIA<-DJUA/DJIA
 - en: '#get CRB data from a csv file'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从 csv 文件获取 CRB 数据'
 - en: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
 - en: '#fill 20y gap from discontinued 20y Treasuries with 30y'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用已停止发行的 20 年期国债填补 1986 年至 1993 年之间的 20 年期间隙'
 - en: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
 - en: '#do a little manipulation to get the data lined up on monthly basis'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#稍微操作一下，以便数据在每月基础上对齐'
 - en: SP500<-to.monthly(SP500)[,4]
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: SP500<-to.monthly(SP500)[,4]
 - en: DJUADJIA<-to.monthly(DJUADJIA)[,4]
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: DJUADJIA<-to.monthly(DJUADJIA)[,4]
 - en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将格式更改为每月的 yyyy-mm-dd，第一天为该月的第一天'
 - en: index(SP500)<-as.Date(index(SP500))
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: index(SP500)<-as.Date(index(SP500))
 - en: index(DJUADJIA)<-as.Date(index(DJUADJIA))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: index(DJUADJIA)<-as.Date(index(DJUADJIA))
 - en: '#my CRB data is end of month; could change but more fun to do in R'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我的 CRB 数据是月末的；可以更改，但在 R 中更有趣'
 - en: CRB<-to.monthly(CRB)[,4]
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-to.monthly(CRB)[,4]
 - en: index(CRB)<-as.Date(index(CRB))
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: index(CRB)<-as.Date(index(CRB))
 - en: '#let''s merge all this into one xts object; CRB starts last in 1956'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '#让我们将所有这些合并成一个 xts 对象；CRB 从 1956 年开始'
 - en: assets<-na.omit(merge(GS20,SP500,CRB,DJUADJIA))
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: assets<-na.omit(merge(GS20,SP500,CRB,DJUADJIA))
 - en: '#use ROC for SP500 and CRB and momentum for yield data'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用 SP500 和 CRB 的 ROC，以及收益数据的动量'
 - en: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:4],type="discrete")))
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:4],type="discrete")))
 - en: '#get Correlations'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取相关性'
 - en: corrBondsSp<-runCor(assetROC[,1],assetROC[,2],n=7)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: corrBondsSp<-runCor(assetROC[,1],assetROC[,2],n=7)
 - en: corrBondsCrb<-runCor(assetROC[,1],assetROC[,3],n=7)
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: corrBondsCrb<-runCor(assetROC[,1],assetROC[,3],n=7)
 - en: corrSpCrb<-runCor(assetROC[,2],assetROC[,3],n=7)
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: corrSpCrb<-runCor(assetROC[,2],assetROC[,3],n=7)
 - en: '#composite measure of correlations between asset classes and roc-weighted correlations'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '#资产类别之间的相关性的复合度量和 ROC 加权相关性'
 - en: assetCorr<-(corrBondsSp+corrBondsCrb+corrSpCrb+
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: assetCorr<-(corrBondsSp+corrBondsCrb+corrSpCrb+
 - en: (corrBondsSp*corrSpCrb*assetROC[,2])+
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: (corrBondsSp*corrSpCrb*assetROC[,2])+
 - en: (corrBondsCrb*corrSpCrb*assetROC[,3])-
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: (corrBondsCrb*corrSpCrb*assetROC[,3])-
 - en: assetROC[,1])/6
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROC[,1])/6
 - en: '#sum of ROCs of asset classes'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '#资产类别的 ROC 总和'
 - en: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
 - en: '#finally the turbulence measure'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '#最后是动荡测量'
 - en: turbulence<-abs(assetCorr*assetROCSum*100)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: turbulence<-abs(assetCorr*assetROCSum*100)
 - en: colnames(turbulence)<-"Turbulence-correlation"
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(turbulence)<-"动荡-相关性"
 - en: chartSeries(turbulence,theme="white",name="Correlation and % Change as Measure
     of Financial Turbulence")
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: chartSeries(turbulence,theme="white",name="相关性和%变化作为金融动荡的衡量")
 - en: abline(h=0.8)
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: abline(h=0.8)
 - en: chart.ACF(turbulence,main="Auto-correlation of Turbulence")
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.ACF(turbulence,main="动荡的自相关性")
 - en: '#wish I could remember where I got some of this code'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '#但愿我能记得我从哪里得到了一些代码'
 - en: '#most likely candidate is www.fosstrading.com'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '#最有可能的候选人是www.fosstrading.com'
 - en: '#please let me know if you know the source'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '#如果您知道来源，请告诉我'
 - en: '#so I can give adequate credit'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '#这样我就能给予充分的认可'
 - en: '#use turbulence to determine in or out of equal-weighted sp500 and crb'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用动荡来确定是否持有等权重的标准普尔500指数和商品Research Bureau指数'
 - en: signal<-ifelse(turbulence>0.8,0,1)
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-ifelse(turbulence>0.8,0,1)
 - en: '#use slope of sp500/crb to determine sp500 or crb'
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用标准普尔500指数/商品Research Bureau指数的斜率来确定标准普尔500指数或商品Research Bureau指数'
 - en: signal<-lag(signal,k=1)
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-lag(signal,k=1)
 - en: Replace missing signals with no position
+  id: totrans-62
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用“no position”替换缺失的信号
 - en: (generally just at beginning of series)
+  id: totrans-63
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: (一般只在系列的开始时)
 - en: signal[is.na(signal)] <- 0
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: signal[is.na(signal)] <- 0
 - en: '#get returns from equal-weighted crb and sp500 position; Return.portfolio was
     causing problems, so did the hard way'
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从等权重的商品Research Bureau指数和标准普尔500指数持仓中获取回报；Return.portfolio导致问题，所以采用了更麻烦的方法'
 - en: ret<-ifelse(signal==1,(assetROC[,2]+assetROC[,3])/2,assetROC[,4])
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: ret<-ifelse(signal==1,(assetROC[,2]+assetROC[,3])/2,assetROC[,4])
 - en: ret[1] <- 0
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: ret[1] <- 0
 - en: '#get system performance'
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取系统表现'
 - en: system_perf <- ret*signal
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: system_perf <- ret*signal
 - en: system_perf_util <- ret
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: system_perf_util <- ret
 - en: system_eq <- cumprod(1+signal*ret)
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: system_eq <- cumprod(1+signal*ret)
 - en: system_eq_util <- cumprod(1+ret)
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: system_eq_util <- cumprod(1+ret)
 - en: perf_comparison<-merge(lag((assetROC[,2]+assetROC[,3])/2,k=1),system_perf,system_perf_util)
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: perf_comparison<-merge(lag((assetROC[,2]+assetROC[,3])/2,k=1),system_perf,system_perf_util)
 - en: colnames(perf_comparison)<-c("Equal-weighted","System-with-turbulence-filter","System-with-turbulence-filter-with-util")
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(perf_comparison)<-c("等权重","带有动荡过滤器的系统","带有动荡过滤器的系统-带有实用性")
 - en: charts.PerformanceSummary(perf_comparison,ylog=TRUE,main="Turbulence-based System
     vs Equal-Weighted CRB and SP500")
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(perf_comparison,ylog=TRUE,main="基于动荡的系统 vs 等权重CRB和SP500")
 - en: '#let''s use basic relative strength to pick sp500 or crb'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '#让我们使用基本的相对强度来选择标准普尔500指数或商品Research Bureau指数'
 - en: '#know I can do this better in R but here is my ugly code'
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我知道我可以在R中做得更好，但这是我的丑陋代码'
 - en: '#to calculate 12 month slope of sp500/crb'
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算标准普尔500指数/商品Research Bureau指数的12个月斜率'
 - en: width=12
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: width=12
 - en: for (i in 1:(NROW(assets)-width)) {
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 1:(NROW(assets)-width)) {
 - en: model<-lm(assets[i:(i+width),2]/assets[i:(i+width),3]~index(assets[i:(i+width)]))
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: model<-lm(assets[i:(i+width),2]/assets[i:(i+width),3]~index(assets[i:(i+width)]))
 - en: ifelse(i==1,assetSlope<-model$coefficients[2],assetSlope<-rbind(assetSlope,model$coefficients[2]))
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: ifelse(i==1,assetSlope<-model$coefficients[2],assetSlope<-rbind(assetSlope,model$coefficients[2]))
 - en: '}'
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: assetSlope<-xts(cbind(assetSlope),order.by=index(assets)[(width+1):NROW(assets)])
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: assetSlope<-xts(cbind(assetSlope),order.by=index(assets)[(width+1):NROW(assets)])
 - en: '#use turbulence to determine in or out of equal-weighted sp500 and crb'
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用动荡来确定是否持有等权重的标准普尔500指数和商品Research Bureau指数'
 - en: signal<-ifelse(turbulence>0.8,0,1)
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-ifelse(turbulence>0.8,0,1)
 - en: '#use slope of sp500/crb to determine sp500 or crb'
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用标准普尔500指数/商品Research Bureau指数的斜率来确定标准普尔500指数或商品Research Bureau指数'
 - en: signal2<-ifelse(assetSlope[,1]>0,1,2)
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: signal2<-ifelse(assetSlope[,1]>0,1,2)
 - en: signal<-lag(signal,k=1)
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-lag(signal,k=1)
 - en: signal[1]<-0
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: signal[1]<-0
 - en: signal2<-lag(signal2,k=1)
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: signal2<-lag(signal2,k=1)
 - en: signal2[1]<-0
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: signal2[1]<-0
 - en: signals_and_returns<-merge(signal,signal2,assetROC,assetSlope,turbulence)
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: signals_and_returns<-merge(signal,signal2,assetROC,assetSlope,turbulence)
 - en: '#get sp500 or crb return based on slope when turbulence low or use bonds as
     cash'
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: '#当动荡较低时，根据斜率获取标准普尔500指数或商品Research Bureau指数的回报，或者使用债券作为现金'
 - en: ret<-ifelse(signals_and_returns[,2]==1,signals_and_returns[,4],ifelse(signals_and_returns[,2]==2,signals_and_returns[,5],signals_and_returns[,3]))
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: ret<-ifelse(signals_and_returns[,2]==1,signals_and_returns[,4],ifelse(signals_and_returns[,2]==2,signals_and_returns[,5],signals_and_returns[,3]))
 - en: '#get sp500 or crb return based on slope when turbulence low or use utility
     spread as cash'
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: '#当动荡较低时，根据斜率获取标准普尔500指数或商品Research Bureau指数的回报，或者将实用性价差作为现金'
 - en: ret_util<-ifelse(signals_and_returns[,2]==1&signals_and_returns[,1]==1,signals_and_returns[,4],
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: ret_util<-ifelse(signals_and_returns[,2]==1&signals_and_returns[,1]==1,signals_and_returns[,4],
 - en: ifelse(signals_and_returns[,2]==2&signals_and_returns[,1]==1,signals_and_returns[,5],
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: ifelse(signals_and_returns[,2]==2&signals_and_returns[,1]==1,signals_and_returns[,5],
 - en: signals_and_returns[,6]))
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: signals_and_returns[,6]))
 - en: ret[1]<-0
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: ret[1]<-0
 - en: ret_util[1]<-0
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: ret_util[1]<-0
 - en: '#get system performance'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取系统表现'
 - en: system_perf_rs<-signals_and_returns[,1]*ret
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: system_perf_rs<-signals_and_returns[,1]*ret
 - en: system_perf_rs_util<-ret_util
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: system_perf_rs_util<-ret_util
 - en: system_eq_rs<- cumprod(1+signals_and_returns[,1]*ret)
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: system_eq_rs<- cumprod(1+signals_and_returns[,1]*ret)
 - en: system_eq_rs_util<- cumprod(1+ret_util)
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: system_eq_rs_util<- cumprod(1+ret_util)
 - en: perf_comparison<-merge((assetROC[,2]+assetROC[,3])/2,assetROC[,2],assetROC[,3],system_perf,system_perf_util,system_perf_rs,system_perf_rs_util)
+  id: totrans-107
   prefs: []
   type: TYPE_NORMAL
+  zh: 性能比较<-合并((资产ROC[,2]+资产ROC[,3])/2,资产ROC[,2],资产ROC[,3],系统性能,系统性能利用率,系统性能RS,系统性能RS利用率)
 - en: colnames(perf_comparison)<-c("Equal-weighted","S&P500","CRB","System-with-turbulence-filter","System-with-turbulence-filter-util","System-with-turbulence-filter
     and RS","System-with-turbulence-filter and RS-util")
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: 性能比较的列名<-c("等权重","S&P500","CRB","带湍流过滤器的系统","带湍流过滤器的系统利用率","带湍流过滤器的系统与RS的组合","带湍流过滤器的系统与RS组合利用率")
 - en: charts.PerformanceSummary(perf_comparison,ylog=TRUE,main="Turbulence-based System
     with RS vs Equal-Weighted, CRB, and SP500")
+  id: totrans-109
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.性能总结(性能比较, ylog=TRUE, 主标题="基于湍流的系统与RS的比较、等权重、CRB和SP500")

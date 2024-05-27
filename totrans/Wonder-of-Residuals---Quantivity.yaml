@@ -1,99 +1,145 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:52:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:52:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Wonder of Residuals | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 残差的奇迹 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/#0001-01-01](https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/#0001-01-01](https://quantivity.wordpress.com/2009/08/02/wonder-of-residuals/#0001-01-01)
 - en: Some mathematical [constructs](http://en.wikipedia.org/wiki/Construct_(philosophy_of_science))
     appear so repeatedly across trading strategies that they evolve into [mental models](http://en.wikipedia.org/wiki/Mental_model)
     for quantitative trading. Each of these constructs deserve their own post, given
     their fundamental role in algorithmic trading.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些数学 [构造](http://en.wikipedia.org/wiki/Construct_(philosophy_of_science)) 在交易策略中反复出现，以至于它们演变成量化交易的
+    [心智模型](http://en.wikipedia.org/wiki/Mental_model)。这些构造每一个都值得一篇文章，鉴于它们在算法交易中的基础作用。
 - en: Residuals are one of these wonderful constructs.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 残差是这些奇妙构造之一。
 - en: 'Many [market-neutral](http://en.wikipedia.org/wiki/Market_neutral) strategies
     are derived from residuals, particularly the arbitrage family: volatility arbitrage,
     dispersion arbitrage, index arbitrage, basket arbitrage, correlation arbitrage,
     *etc*. Residuals also open for trading an infinite-sized universe of investable
     assets, rather than just the instruments for which quotes are available from [Yahoo](http://finance.yahoo.com)
     or [Bloomberg](http://www.bloomberg.com).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多 [市场中性](http://en.wikipedia.org/wiki/Market_neutral) 策略源于残差，特别是套利家族：波动率套利、分散套利、指数套利、篮子套利、相关套利，*等等*。残差还为交易打开了一个无限大小的可投资资产宇宙，而不仅仅是从
+    [Yahoo](http://finance.yahoo.com) 或 [Bloomberg](http://www.bloomberg.com) 获取报价的工具。
 - en: 'Conceptually, a residual is deceptively simple:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 从概念上讲，残差看起来很简单：
 - en: Residual is the difference between a sample and its corresponding estimated
     function value.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 残差是样本与其对应的估计函数值之间的差异。
 - en: 'For example, the [Mean Reversion](https://quantivity.wordpress.com/2009/07/19/mean-reversion/)
     post estimated the following linear relationship between SPY and PRF during the
     2007-2008 period:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，[均值回归](https://quantivity.wordpress.com/2009/07/19/mean-reversion/) 文章估计了
+    2007-2008 期间 SPY 和 PRF 之间的以下线性关系：
 - en: '`PRF = -7.356 + (0.455 * SPY)`'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '`PRF = -7.356 + (0.455 * SPY)`'
 - en: 'This function generates an estimated value of PRF, given a value for SPY. Translating
     this into trading: buy one share of PRF, short 0.455 shares of SPY, and pay $7.356
     in cash. This combination forms a [basket](http://en.wikipedia.org/wiki/Basket_(finance))
     (which is a generalization of the classic [pair](http://en.wikipedia.org/wiki/Pairs_trade)),
     which is a *synthetic instrument*. This synthetic can be bought or sold at an
     exchange at any time, just like any traditional asset.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个函数生成了给定 SPY 值时 PRF 的估计值。将其转化为交易：购买一股 PRF，做空 0.455 股 SPY，并支付 $7.356 现金。这种组合形成了一个
+    [篮子](http://en.wikipedia.org/wiki/Basket_(finance))（这是对经典的 [配对](http://en.wikipedia.org/wiki/Pairs_trade)
+    的一种概括），这是一种 *合成工具*。这种合成品可以随时在交易所买卖，就像任何传统资产一样。
 - en: 'Given this synthetic, first question is how is it priced? You guessed it: price
     of the synthetic is equal to the residual! Specifically, equal to difference between
     the actual price of PRF (sample) versus the value estimated by the equation. Specifically,
     the price of the synthetic is as follows, rearranging the function to solve for
     the residual term (ε):'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于这个合成品，第一个问题是如何定价的？你猜对了：合成品的价格等于残差！具体而言，等于 PRF（样本）的实际价格与方程式估算值之间的差异。具体地说，合成品的价格如下，重新排列函数以解出残差项（ε）：
 - en: '`ε = PRF - (0.455 * SPY) + 7.356`'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ε = PRF - (0.455 * SPY) + 7.356`'
 - en: 'This innocent-looking equation belies wonder, and is worth briefly dwelling
     upon: a *residual prices a synthetic linear combination of assets* (SPY, PRF,
     and cash in this example). Similarly, the profit to hold this pair between yesterday
     and today is equal to subtracting value of the residual today from yesterday’s
     value. More generally, profit of holding the synthetic can be calculated between
     any two times *t* and *t+1*:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个看似无害的方程式掩盖了奇迹，值得稍作停留：*残差定价了一种合成资产的线性组合*（以本例中的 SPY、PRF 和现金为例）。类似地，持有这一对的利润，从昨天到今天，等于将今天的残差值从昨天的值中减去。更一般地说，持有合成品的利润可以在任意两个时间
+    *t* 和 *t+1* 之间计算：
 - en: profit = ε[t+1] – ε[t]
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 利润 = ε[t+1] – ε[t]
 - en: 'This simple example hints at a very deep generalization, owing to basic algebra:
     an infinite number of linear combinations exist for two or more assets, let alone
     the investable universe of assets (worldwide equities, commodities, fx, and corresponding
     derivatives). If there are an infinite number of linear combinations, then there
     are an infinite number of residuals. If infinite residuals, then there are an
     infinite number of synthetics.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个简单的例子暗示了一个非常深刻的泛化，归功于基本代数：对于两个或多个资产，存在无限数量的线性组合，更不用说可投资的资产宇宙（全球股票、商品、外汇以及相应的衍生品）。如果存在无限数量的线性组合，那么就会有无限数量的残差。如果有无限数量的残差，那么就会有无限数量的合成物。
 - en: In other words, *residuals open the door for investment into an infinite number
     of potential assets*, rather than the mere thousands in the traditional investable
     universe. Pretty amazing for the little greek letter epsilon which statistics
     ironically refers to as the [“error”](http://en.wikipedia.org/wiki/Errors_and_residuals_in_statistics).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，*残差为投资进入无限数量的潜在资产敞开了大门*，而不仅仅是传统可投资宇宙中的几千种。对于统计学讽刺地称为[“误差”](http://en.wikipedia.org/wiki/Errors_and_residuals_in_statistics)的小希腊字母ε来说，这是相当惊人的。
 - en: Synthetics are just one wonderful fruit of residuals. Subsequent *Wonder* posts
     will cover non-OLS residuals (*e.g.* generalized regression, state space models,
     and wavelets) and techniques for using residuals to choose trades amongst this
@@ -102,5 +148,9 @@
     (*e.g.* variance ratio test, [ACF](http://en.wikipedia.org/wiki/Autocorrelation),
     [Chow](http://en.wikipedia.org/wiki/Chow_test) / Quandt tests, and iterative coefficient
     estimates).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 合成物只是残差的一个美妙之果。随后的*奇迹*文章将涵盖非OLS残差（*例如*，广义回归、状态空间模型和小波）以及使用残差选择交易的技术，在这个无限大小的投资宇宙中评估它们的稳定性，例如方差分析和[结构性变化](http://en.wikipedia.org/wiki/Structural_change)
+    (*例如* 方差比检验、[ACF](http://en.wikipedia.org/wiki/Autocorrelation)、[Chow](http://en.wikipedia.org/wiki/Chow_test)
+    / Quandt检验以及迭代系数估计)。

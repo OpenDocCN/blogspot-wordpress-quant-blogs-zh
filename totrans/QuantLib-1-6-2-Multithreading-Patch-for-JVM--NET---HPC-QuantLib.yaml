@@ -1,67 +1,95 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:30:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:30:00
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: QuantLib 1.6.2 Multithreading Patch for JVM/.NET – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量子库1.6.2 JVM/.NET多线程补丁 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/#0001-01-01](https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/#0001-01-01](https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/#0001-01-01)
 - en: 'Update 23.11.2015: A modified version of the patch is now part of the official
     QuantLib Release 1.7.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新2015年11月23日：修改后的补丁现在已是量子库官方发布1.7的一部分。
 - en: The implementation of QuantLib’s observer pattern does not tolerate a parallel
     garbage collector running in a different thread. This can lead to random crashes
     or producing “pure virtual function calls” when using QuantLib in JVM and .NET
     languages (e.g. Java/Scala and C#/F#) via the SWIG interface. An original description
     of this problem can be found e.g. [here](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/)
     and within the references.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 量子库观察者模式的实现不允许多线程的并行垃圾回收器运行。这可能会导致随机崩溃或在使用JVM和.NET语言（例如Java/Scala和C#/F#）通过SWIG接口使用量子库时产生“纯虚函数调用”。关于这个问题的原始描述可以例如在这里找到[](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/)和参考文献中。
 - en: With the version 1.58 and higher the boost library has extended the interface
     of class boost::enable_shared_from_this<T> by the method
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 从版本1.58开始，boost库扩展了类boost::enable_shared_from_this<T>的接口，增加了方法
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: which gives access to the underlying weak pointer used to implement the “shared
     pointer from this” functionality. This method now allows for a much cleaner and
     easier to install patch to make QuantLib’s observer pattern thread safe. Especially
     it is no longer necessary to define preprocessor defines or to edit boost files.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 该方法提供了对实现“从this获取共享指针”功能的底层弱指针的访问。现在，这个补丁使得量子库的观察者模式线程安全变得更为干净、更容易安装。特别是，不再需要定义预处理器定义或编辑boost文件。
 - en: The implementation is backed by boost::signals2 to get the observer pattern
     working in a thread safe manner. The boost::signals2 library works purely based
     on shared_ptr. Therefore the first step is to add an Observer::Proxy class to
     QuantLib’s Observer, which can be registered with boost::signals2 and which forwards
     the update calls to the corresponding observer. In addition the class Observer
     is now derived from boost::enable_shared_from_this.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 实现得到了boost::signals2的支持，以线程安全的方式实现观察者模式。boost::signals2库完全基于shared_ptr。因此，第一步是向量子库的观察者中添加一个Observer::Proxy类，该类可以注册到boost::signals2，并将其更新调用转发给相应的观察者。此外，类Observer现在从boost::enable_shared_from_this派生。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: The critical path for the race condition in the original implementation is when
     the destructor of an observer is called while an observable triggers an update
     call. Now the destructor of an observer deactivates the proxy if the destructor
     is able to get the same mutex lock as the update method of the proxy acquires.
     If the proxy gets deactivated it will not forward any update calls to the observer
     which is about to be deleted.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 原始实现中竞态条件的关键路径是在观察者的析构函数被调用时，同时可观察对象触发更新调用。现在，如果观察者的析构函数能够获取与代理的更新方法相同的互斥锁，观察者的析构函数将禁用代理。如果代理被禁用，它将不会将任何更新调用转发给即将被删除的观察者。
 - en: If the update call manages to acquire the mutex lock then it will delay any
     concurrent observer destructor calls. Therefore it is safe trying to get the underlying
     weak pointer from the observer linked to the proxy in line 27\. This weak pointer
@@ -70,13 +98,20 @@
     the update methods from there. This part follows the same methodology as outlined
     in [1}. The rest of the implementation inherits the thread safeness from the boost
     signals2 library.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果更新调用成功获取了互斥锁，那么它将延迟任何并发观察者的析构函数调用。因此，尝试从第27行的与代理关联的观察者中获取底层弱指针是安全的。如果以前没有从观察者创建共享指针，这个弱指针可能是空的。如果存在弱指针，代理将尝试获取共享指针并从那里调用更新方法。这一部分遵循了[1]中概述的方法论。剩余的实现继承了boost
+    signals2库的线程安全性。
 - en: The patch for QuantLib 1.6.2 can be found [here](http://hpc-quantlib.de/src/observer-1.6.2.zip).
     It also contains Riccardo’s thread-safe singleton patch and it requires boost
     version 1.58 or higher.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 针对QuantLib 1.6.2的补丁可在此[链接](http://hpc-quantlib.de/src/observer-1.6.2.zip)找到。该补丁还包括Riccardo的线程安全单例补丁，并需要boost版本1.58或更高。
 - en: '[1] Shuo Chen, [Where Destructors meet Threads](http://www.slideshare.net/chenshuo/where-destructors-meet-threads)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 陈硕的演讲稿《析构函数与线程的相遇](http://www.slideshare.net/chenshuo/where-destructors-meet-threads)》

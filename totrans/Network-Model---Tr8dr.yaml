@@ -1,104 +1,152 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:34:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:34:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Network Model | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 网络模型 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/02/16/network-model/#0001-01-01](https://tr8dr.wordpress.com/2010/02/16/network-model/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/02/16/network-model/#0001-01-01](https://tr8dr.wordpress.com/2010/02/16/network-model/#0001-01-01)
 - en: February 16, 2010 · 11:46 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年2月16日 · 23:46
 - en: I’ve been thinking about the relationships amongst a network of assets.   Supposing
     I have a network of hundreds of assets, what sort of measurements can be made
     that allow for statements about the future state with a measurable degree of confidence.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直在思考资产网络之间的关系。假设我有一个由数百个资产组成的网络，可以进行哪些测量，以便能够以可衡量的程度信心来描述未来的状态。
 - en: '[![](img/ce338b6eaa23df2e74a8527f0c67f038.png "group1")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/group1.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ce338b6eaa23df2e74a8527f0c67f038.png "group1")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/group1.png)'
 - en: 'Here are some “standard” approaches to looking at the relationship between
     assets:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些“标准”的方法，用于查看资产之间的关系：
 - en: '**Covariance**'
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**协方差**'
 - en: Covariance is a linear measure, the normalization of which is literally the
     slope of a least-squares regression line through paired data.  Has issues with
     lagged series and assumes linearity, also only uniquely specifies elliptical distributions.
+  id: totrans-11
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 协方差是一种线性度量，其归一化形式就是通过成对数据的最小二乘回归线的斜率。它对滞后序列有问题，并且假设线性关系，还只能唯一指定椭圆分布。
 - en: '**Cointegration'
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**协整'
 - en: Cointegration is a measure of relationship between series using an autoregressive
     error correction model.   It avoids many of the issues of Covariance, however,
     like covariance is not sufficient to uniquely specify the joint distribution.
       The VECM model and Johansen method give robust estimates of this.**
+  id: totrans-13
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 协整是一种使用自回归误差校正模型衡量序列之间关系的方法。它避免了协方差许多问题，例如协方差不足以唯一确定联合分布。VECM模型和乔哈恩方法给出了这种的鲁棒估计。**
 - en: '**Distribution Estimating Models**'
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**分布估计模型**'
 - en: Models that estimate the distribution (i.e. provide the most probable price
     movement in the next sample period based on an estimated high-dimensional distribution);
     works well on certain portfolios.
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 估计分布（即基于估计的高维分布提供下一个样本期间最可能的价格变动）的模型；在某些投资组合上表现良好。
 - en: '**SDEs'
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**SDEs'
 - en: SDEs that impose a structure / mechanism of price movement, implying future
     price movements.   These models often combine points 1 and 3\.   I like most other
     people in this space have a collection of these, some better than others.**
+  id: totrans-17
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 施加价格变动结构/机制的SDEs，暗示未来的价格变动。这些模型通常结合了1点和3点。和其他在这个领域的人一样，我也有一系列这些模型，有些比其他的要好。**
 - en: Given that I already have models in categories 3 and 4,  am interested in a
     new model based on cointegration — not cointegration for pairs trading, but using
     the strong error-correcting relationships in a network of assets to determine
     likely next period moves.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到我已经在第3类和第4类中有了模型，我对一个基于协整的新模型感兴趣——不是用于配对交易的协整，而是利用资产网络中的强误差校正关系来确定可能的下一期变动。
 - en: 'Amongst a number of approaches for determining error-correcting relationships,
     have found the eigenvectors implied by the Johansen maximum likelihood estimate
     of the VECM to be the most stable as compared to other alternatives:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在确定误差校正关系的一系列方法中，发现由乔哈恩最大似然估计的VECM隐含的特征向量相较于其他替代方案最为稳定：
 - en: heuristic zero crossings maximization
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 启发式零穿越最大化
 - en: beta estimates from rolling OLS regressor
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 滚动OLS回归器的beta估计
 - en: Various Ornstein-Uhlenbeck models (though with a particle filter the degree
     of noise can be reduced significantly)
+  id: totrans-22
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 各种奥恩斯坦-乌伦贝克模型（尽管通过粒子滤波器可以显著降低噪声程度）
 - en: I’m not going to state what I am doing right now, but may write up parts of
     it along the way.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 我现在不会说明我在做什么，但可能会在过程中写一些相关内容。

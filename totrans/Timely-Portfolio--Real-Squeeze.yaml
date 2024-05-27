@@ -1,82 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:12:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:12:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Real Squeeze'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Real Squeeze'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/08/real-squeeze.html#0001-01-01)
 - en: Real yields even out to 10 years have now been competely squeezed. Either bond
     investors need to accept even worse negative real yields or deflation needs to
     get ugly for additional price returns from here. If deflation is the outcome,
     then shorts in stocks and commodities will be much more rewarding than long bonds.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际收益率现在已经被完全压缩到10年。要么债券投资者需要接受更糟糕的实际负收益率，要么通货紧缩需要变得丑陋，从这里获得额外的价格回报。如果通货紧缩是结果，那么与长期债券相比，做空股票和商品将更有回报。
 - en: 'R code:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 代码：
 - en: require(quantmod)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: getSymbols("DGS10",src="FRED")
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号("DGS10",来源="FRED")
 - en: getSymbols("DFII10",src="FRED")
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号("DFII10",来源="FRED")
 - en: barplot(rbind(merge(DGS10["2010-12-31",]-DFII10["2010-12-31",],DFII10["2010-12-31",]),
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 条形图(rbind(合并(DGS10["2010-12-31",]-DFII10["2010-12-31",],DFII10["2010-12-31",]),
 - en: merge(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),],DFII10[NROW(DFII10),])),
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 合并(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),],DFII10[NROW(DFII10),])),
 - en: col=c("steelblue3","firebrick3"),
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 颜色=c("steelblue3","firebrick3"),
 - en: main="US 10 Year Yield Components
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 主标题="美国10年收益率组成部分
 - en: YTD 2011 Change",
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: YTD 2011变更",
 - en: ylim=c(0,4))
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: y限制=c(0,4))
 - en: text(y=c(coredata(DGS10["2010-12-31",])-.3,coredata(DFII10["2010-12-31",]),
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 文本(y=c(coredata(DGS10["2010-12-31",])-.3,coredata(DFII10["2010-12-31",]),
 - en: coredata(DGS10[NROW(DGS10),])-.02,coredata(DFII10["2010-12-31",])),
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: coredata(DGS10[NROW(DGS10),])-.02,coredata(DFII10["2010-12-31",])),
 - en: x=c(0.7,0.7,1.9,1.9),
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: x=c(0.7,0.7,1.9,1.9),
 - en: c(paste("real",sprintf("%.2f",coredata(DFII10["2010-12-31",])),sep=" "),
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: c(粘贴("real",sprintf("%.2f",coredata(DFII10["2010-12-31",])),sep=" "),
 - en: paste("inflation",sprintf("%.2f",coredata(DGS10["2010-12-31",]-DFII10["2010-12-31",])),sep="
     "),
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 粘贴("inflation",sprintf("%.2f",coredata(DGS10["2010-12-31",]-DFII10["2010-12-31",])),sep="
+    "),
 - en: paste("real",sprintf("%.2f",coredata(DFII10[NROW(DFII10),])),sep=" "),
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 粘贴("real",sprintf("%.2f",coredata(DFII10[NROW(DFII10),])),sep=" "),
 - en: paste("inflation",sprintf("%.2f",coredata(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),])),sep="
     ")),
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 粘贴("inflation",sprintf("%.2f",coredata(DGS10[NROW(DGS10),]-DFII10[NROW(DFII10),])),sep="
+    ")),
 - en: cex=0.8)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 字体大小=0.8)

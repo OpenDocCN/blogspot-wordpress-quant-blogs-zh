@@ -1,134 +1,211 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:12:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:12:49'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: New Semi-Analytic Heston Pricing Algorithms – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 新的半解析 Heston 定价算法 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2017/05/07/newer-semi-analytic-heston-pricing-algorithms/#0001-01-01](https://hpcquantlib.wordpress.com/2017/05/07/newer-semi-analytic-heston-pricing-algorithms/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2017/05/07/newer-semi-analytic-heston-pricing-algorithms/#0001-01-01](https://hpcquantlib.wordpress.com/2017/05/07/newer-semi-analytic-heston-pricing-algorithms/#0001-01-01)
 - en: The pricing engines for the Heston model in QuantLib have aged a bit. Meanwhile
     newer and better algorithms have been developed and discussed in the literature.
     For a comprehensive review please see [1][2]. Time to refurbish the existing engines.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib 中 Heston 模型的定价引擎已经有些过时。同时，新的更好的算法已经在文献中得到发展和讨论。欢迎参阅 [1][2] 进行全面审查。是时候翻新现有的引擎了。
 - en: The Heston model is defined by the following stochastic differential equation
     of the log spot
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Heston 模型由以下股票对数的随机微分方程定义
 - en: '![\begin{array}{rcl} d \ln S_t&=& \left(r_t - q_t - \frac{\nu_t}{2}\right)dt
     + \sqrt\nu_t dW^{S}_t \nonumber \\ d\nu_t&=& \kappa\left(\theta-\nu_t \right )
     dt + \sigma\sqrt\nu_t dW^{\nu}_t \nonumber \\ \rho dt &=& dW^{S}_tdW^{\nu}_t \end{array}](img/7bb998b60af889698cbc7da23e39455e.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} d \ln S_t&=& \left(r_t - q_t - \frac{\nu_t}{2}\right)dt
+    + \sqrt\nu_t dW^{S}_t \nonumber \\ d\nu_t&=& \kappa\left(\theta-\nu_t \right )
+    dt + \sigma\sqrt\nu_t dW^{\nu}_t \nonumber \\ \rho dt &=& dW^{S}_tdW^{\nu}_t \end{array}](img/7bb998b60af889698cbc7da23e39455e.png)'
 - en: The normalized characteristic function in the Gatheral formulation is given
     by
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Gatheral 形式中的归一化特征函数为
 - en: '![\phi_t(z) = \exp\left\{\frac{v_0}{\sigma^2}\frac{1-e^{-Dt}}{1-Ge^{-Dt}}\left(\kappa-i\rho\sigma
     z-D\right) + \frac{\kappa\theta}{\sigma^2}\left(\left(\kappa-i\rho\sigma z-D\right)t-2\ln\frac{1-Ge^{-Dt}}{1-G}\right)
     \right\}](img/579b82b565b9de252e33440e65e2414a.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![\phi_t(z) = \exp\left\{\frac{v_0}{\sigma^2}\frac{1-e^{-Dt}}{1-Ge^{-Dt}}\left(\kappa-i\rho\sigma
+    z-D\right) + \frac{\kappa\theta}{\sigma^2}\left(\left(\kappa-i\rho\sigma z-D\right)t-2\ln\frac{1-Ge^{-Dt}}{1-G}\right)
+    \right\}](img/579b82b565b9de252e33440e65e2414a.png)'
 - en: '![\begin{array}{rcl} D&=&\sqrt{\left(\kappa - i\rho\sigma z\right)^2+\left(z^2+iz\right)\sigma^2}
     \nonumber \\ G&=&\displaystyle\frac{\kappa -i\rho\sigma z-D}{\kappa -i\rho\sigma
     z + D}\end{array}](img/e77612059b60e5dc57ad01a117bfe2f4.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} D&=&\sqrt{\left(\kappa - i\rho\sigma z\right)^2+\left(z^2+iz\right)\sigma^2}
+    \nonumber \\ G&=&\displaystyle\frac{\kappa -i\rho\sigma z-D}{\kappa -i\rho\sigma
+    z + D}\end{array}](img/e77612059b60e5dc57ad01a117bfe2f4.png)'
 - en: Andersen and Piterbarg [3] introduced a Black-Scholes control variate to improve
     the numerical stability of Lewis’s formula (2001) for the price of a vanilla call
     option
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: Andersen 和 Piterbarg [3] 引入了一个 Black-Scholes 控制变量，以提高 Lewis 公式（2001 年）对香草看涨期权价格的数值稳定性
 - en: '![\begin{array}{rcl} C(S_0, K, T)&=&BS\left(S_0, K, T, \sigma_{BS}\right) \nonumber
     \\ &+& \frac{\sqrt{Se^{(r-q)t}K}e^{-rt}}{\pi}\displaystyle\int\limits_{0}^{\infty}{\Re\left(
     \frac{\phi^{BS}_T\left(u-\frac{i}{2}\right) - \phi_T\left(u-\frac{i}{2}\right)}{u^2+\frac{1}{4}}
     e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) } \right)  \mathrm{d}u}\end{array}](img/1de9ba5864c76669e051677209a00460.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![\begin{array}{rcl} C(S_0, K, T)&=&BS\left(S_0, K, T, \sigma_{BS}\right) \nonumber
+    \\ &+& \frac{\sqrt{Se^{(r-q)t}K}e^{-rt}}{\pi}\displaystyle\int\limits_{0}^{\infty}{\Re\left(
+    \frac{\phi^{BS}_T\left(u-\frac{i}{2}\right) - \phi_T\left(u-\frac{i}{2}\right)}{u^2+\frac{1}{4}}
+    e^{i u \left(\ln\frac{S}{K}+(r-q)T\right) } \right)  \mathrm{d}u}\end{array}](img/1de9ba5864c76669e051677209a00460.png)'
 - en: with the Black-Scholes price ![BS\left(S_0, K, T, \sigma_{BS}\right)](img/7a540b78e38573509ae5522e932ac68c.png)
     of a vanilla call option with volatility ![\sigma_{BS}](img/babcd5b93d361ec65726e3dbaf6fcdd0.png)
     and the characteristic function
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中香草期权的 Black-Scholes 价格 ![BS\left(S_0, K, T, \sigma_{BS}\right)](img/7a540b78e38573509ae5522e932ac68c.png)
+    具有波动率 ![\sigma_{BS}](img/babcd5b93d361ec65726e3dbaf6fcdd0.png) 和特征函数
 - en: '![\phi^{BS}_T(z)=e^{-\frac{1}{2}\sigma_{BS}^2 T (z^2 + iz)} ](img/af848a6610ddd0dcd89bc0f92e65175c.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![\phi^{BS}_T(z)=e^{-\frac{1}{2}\sigma_{BS}^2 T (z^2 + iz)} ](img/af848a6610ddd0dcd89bc0f92e65175c.png)'
 - en: 'Different proposals for the volatility of the vanilla option have been brought
     up in order to achieve an optimal control variate:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了实现最优控制变量，提出了不同的香草期权波动率方案：
 - en: '![\sigma_{BS}^2 = \nu_0](img/7ac94af4c1aca949bf2c55faccc14ca3.png)'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_IMG
+  zh: '![\sigma_{BS}^2 = \nu_0](img/7ac94af4c1aca949bf2c55faccc14ca3.png)'
 - en: '![\sigma_{BS}^2 = \frac{1}{\kappa t}\left(1-e^{-\kappa t}\right)\left(\nu_0-\theta\right)
     + \theta](img/b6298ad4724d204bf2a507c70d4d1660.png)'
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_IMG
+  zh: '![\sigma_{BS}^2 = \frac{1}{\kappa t}\left(1-e^{-\kappa t}\right)\left(\nu_0-\theta\right)
+    + \theta](img/b6298ad4724d204bf2a507c70d4d1660.png)'
 - en: '![\sigma_{BS}^2 = c_2](img/31b7724e5a2431897429fcdb04d930d4.png) with ![c_2](img/8de07e0ce5a8488d46add26b04e95db8.png)
     the second cumulant of ![\ln \frac{F}{K}](img/09fe352c30db9e119e89321c5cd029ca.png)
     [1].'
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '![\sigma_{BS}^2 = c_2](img/31b7724e5a2431897429fcdb04d930d4.png) 其中 ![c_2](img/8de07e0ce5a8488d46add26b04e95db8.png)
+    是 ![ln \frac{F}{K}](img/09fe352c30db9e119e89321c5cd029ca.png) 的第二累积量 [1]。'
 - en: The diagram below shows the resulting integrand for the different control variate
     volatilities, the Heston model parameters
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图显示了不同控制变量波动率和 Heston 模型参数的结果被积函数。
 - en: '![r=7.5\%, q=5\%, S_0=100, \nu_0=0.08, \rho=-80\%,\sigma=0.5, \kappa=4, \theta=0.05](img/57eebc588a72bbdd75f87f40fd528bab.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![r=7.5\%, q=5\%, S_0=100, \nu_0=0.08, \rho=-80\%,\sigma=0.5, \kappa=4, \theta=0.05](img/57eebc588a72bbdd75f87f40fd528bab.png)'
 - en: and for a vanilla call option with strike ![K=200](img/41aca03c616c2e5f4eb5072f3a4ae864.png)
     and maturity ![t=2.0](img/55d255484c530b33eb2c8decec022c12.png).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 并且对于执行价为![K=200](img/41aca03c616c2e5f4eb5072f3a4ae864.png)和到期日为![t=2.0](img/55d255484c530b33eb2c8decec022c12.png)的普通认购期权。
 - en: '![control_variate](img/f9f0a0d654821d2c2f0d96b6cb74b816.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![控制变量](img/f9f0a0d654821d2c2f0d96b6cb74b816.png)'
 - en: The best choice depends on the Heston- and option parameters but it seems that
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 最佳选择取决于 Heston 和期权参数，但似乎
 - en: '![\sigma_{BS}^2 = \frac{1}{\kappa t}\left(1-e^{-\kappa t}\right)\left(\nu_0-\theta\right)
     + \theta](img/b6298ad4724d204bf2a507c70d4d1660.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_IMG
+  zh: '![\sigma_{BS}^2 = \frac{1}{\kappa t}\left(1-e^{-\kappa t}\right)\left(\nu_0-\theta\right)
+    + \theta](img/b6298ad4724d204bf2a507c70d4d1660.png)'
 - en: is a good option for a large variety of parameters. A direct comparison of the
     integrand with and without control variate shows how effective the control variate
     is.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于各种参数而言，这是一个很好的选择。有控制变量和没有控制变量时，对函数被积函数进行直接比较，展示了控制变量的有效性。
 - en: '![control_comparison](img/0f5cfe684756355c37ad462e29d55bd5.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_IMG
+  zh: '![对照比较](img/0f5cfe684756355c37ad462e29d55bd5.png)'
 - en: The central trick of Andersen-Piterbarg is now to truncate Lewis’s infinite
     integral at a finite ![u_{max}](img/a86dcfd76fe79e4ff4fdf256bc0a91d6.png) such
     that the remaining part is smaller than a given threshold based on the following
     inequation
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: Andersen-Piterbarg 的核心技巧是将 Lewis 的无限积分截断至有限的![u_{max}](img/a86dcfd76fe79e4ff4fdf256bc0a91d6.png)，使得剩余部分小于基于下列不等式的给定阈值
 - en: '![\displaystyle\int_{u_{max}}^\infty \left\vert \frac{\phi_B(u-\frac{i}{2})
     - \phi(u-\frac{i}{2})}{u^2+\frac{1}{4}} \right\vert du \le e^{-C_\infty u_{max}}\displaystyle\int_{u_{max}}^\infty
     \frac{1}{u^2} du](img/128518b9a8a2e17563f3f17706aa3cf7.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_IMG
+  zh: '![\displaystyle\int_{u_{max}}^\infty \left\vert \frac{\phi_B(u-\frac{i}{2})
+    - \phi(u-\frac{i}{2})}{u^2+\frac{1}{4}} \right\vert du \le e^{-C_\infty u_{max}}\displaystyle\int_{u_{max}}^\infty
+    \frac{1}{u^2} du](img/128518b9a8a2e17563f3f17706aa3cf7.png)'
 - en: Please see the original paper or [2] for further details on how to get from
     here to an algorithm for ![u_{max}](img/a86dcfd76fe79e4ff4fdf256bc0a91d6.png),
     especially for short dated options.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 请参阅原始论文或[2]，了解如何从这里得到一个算法用于![u_{max}](img/a86dcfd76fe79e4ff4fdf256bc0a91d6.png)，特别是短期期权。
 - en: As Andersen and Piterbarg have pointed out, the simple trapezoidal rule works
     surprisingly well to carry out the resulting integral if a control variate is
     used. Alan Lewis’s [test cases](https://forum.wilmott.com/viewtopic.php?f=34&t=90957&hilit=heston#p620396)
@@ -137,30 +214,49 @@
     for this particular test case but the point here is that the trapezoidal rule
     converges much faster than the higher order Simpson rule or the even more complex
     adaptive Gauss-Lobatto method.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如 Andersen 和 Piterbarg 所指出的，如果使用控制变量，简单的梯形法则在执行得到的积分时效果出奇的好。Alan Lewis 的[测试案例](https://forum.wilmott.com/viewtopic.php?f=34&t=90957&hilit=heston#p620396)，具有高精度
+    Heston 参考价格，应该作为测试的基础，特别是执行价为100 的认购期权。Gauss-Laguerre 方法对这个特定测试案例非常感谢，但这里的重点是，梯形法则的收敛速度比高阶
+    Simpson 法则或甚至更复杂的自适应 Gauss-Lobatto 方法要快得多。
 - en: '![convergence_speed](img/1dc2a71795ce0a21c0885efe28d60c4d.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_IMG
+  zh: '![收敛速度](img/1dc2a71795ce0a21c0885efe28d60c4d.png)'
 - en: The diagram below compares the recently added COS engine with the Andersen-Piterbarg
     method using the trapezoid rule for this test-case. The Andersen-Piterbarg method
     is more accurate for a similar number of points.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图将最近新增的 COS 引擎与使用梯形法则的 Andersen-Piterbarg 方法进行了比较。对于相似数量的点，Andersen-Piterbarg
+    方法更为精确。
 - en: '![convergence_comparison](img/1cb61bc3936f7a05a65f8ea18b12695e.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_IMG
+  zh: '![收敛比较](img/1cb61bc3936f7a05a65f8ea18b12695e.png)'
 - en: The implementation is part of the pull request [#251](https://github.com/lballabio/QuantLib/pull/251).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 实现是 pull request [#251](https://github.com/lballabio/QuantLib/pull/251) 的一部分。
 - en: '[1] M. Schmelzle, [Option Pricing Formulae using Fourier Transform: Theory
     and Application.](http://pfadintegral.com/docs/Schmelzle2010%20Fourier%20Pricing.pdf)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] M. Schmelzle，《利用 Fourier 变换的期权定价公式：理论与应用》。'
 - en: '[2] F. Le Floc’h, [Fourier Integration and Stochastic Volatility Calibration.](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2362968)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] F. Le Floc’h，《傅里叶积分和随机波动率校准》。'
 - en: '[3] L. Andersen, and V. Piterbarg, 2010,  Interest Rate Modeling, Volume I:
     Foundations and Vanilla Models,  Atlantic Financial Press London.'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] L. Andersen, and V. Piterbarg, 2010, 《利率建模，第一卷：基础和普通模型》，大西洋金融出版社，伦敦。'

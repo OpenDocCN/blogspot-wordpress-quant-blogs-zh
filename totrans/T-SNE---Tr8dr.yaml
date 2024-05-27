@@ -1,60 +1,86 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:29:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: '2024-05-18 15:29:05'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: T-SNE | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: T-SNE | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2014/12/13/t-sne/#0001-01-01](https://tr8dr.wordpress.com/2014/12/13/t-sne/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2014/12/13/t-sne/#0001-01-01](https://tr8dr.wordpress.com/2014/12/13/t-sne/#0001-01-01)
 - en: December 13, 2014 · 10:27 am
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2014年12月13日 · 10:27 am
 - en: The T-SNE approach is a very intuitive approach to dimensional reduction and
     visualization of high dimensional features.  I Implemented this in F# recently
     and had used some implementations in R and python previously.  I have found this
     very useful in determining whether I have designed a feature set correctly, such
     that has a natural degree of separation with respect to labels.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: T-SNE方法是一种非常直观的高维特征降维和可视化方法。我最近用F#实现了这个方法，之前也用过R和Python的一些实现。我发现这对我判断是否正确设计了一个特征集非常有用，这样的特征集相对于标签具有自然的分离度。
 - en: 'The algorithm is elegant: determine the pairwise probabilities of points being
     neighbors in high dimensional space, find a distribution in  2-dimensional space
     that, to the extent possible, reflects the same distances (probabilities). with
     a bias towards preserving locality.   This is solved as an iterative gradient
     descent on the pairwise relationship across n points.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 算法优雅：在高维空间中确定点对邻居的概率，找到一个在2维空间中的分布，尽可能地反映相同的距离（概率），并且偏向于保持局部性。这是通过对n个点之间的成对关系进行迭代梯度下降来解决的。
 - en: The problem is that it is an O(n^2) problem, equivalently solving the n-body
     problem.   My data sets are in the 100s of thousands or millions, so you can imagine,
     this is no longer feasible on a single processor.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题在于这是一个O(n^2)的问题，等价于解决n体问题。我的数据集有数十万或数百万，所以你可以想象，这不再适用于单个处理器。
 - en: Barnes-Hut is an approximation approach for n-body problems bringing the complexity
     to O(n log n), but can only be effective if ones partitioning of space is coarse.
      For some of my problems, have found that cannot get appropriate separation with
     this sort of approximation.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Barnes-Hut是一种用于n体问题的近似方法，将复杂度降低到O(n log n)，但只有在空间的划分较粗时才能有效。对于我的某些问题，发现这种近似方法不能得到适当的分离。
 - en: 'In terms of parallelizing, n-body problems require fine-grained parallelism
     to solve efficiently.   Given that fine-grained parallelism is limited in scale
     (how many processors can you have on 1 machine or GPU), have been considering
     whether there is an iterative hierarchical approach that could be applied with
     distributed parallelism.  I would not expect that such an approach could get anywhere
     close to linear speedup, but perhaps can do better than a limited # of local nodes.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在并行化方面，n体问题需要细粒度的并行化才能有效解决。鉴于细粒度并行化在规模上有限（一台机器或GPU上你能有多少处理器），一直在考虑是否可以应用一种迭代层次方法，该方法可以与分布式并行化相结合。我不期望这种方法能接近线性加速，但或许能比有限的局部节点做得更好。
 - en: Another approach to this problem, which is easily distributed would be a meta-heuristic
     approach such as differential evolution.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决这个问题另一种方法，一种容易分布的方法是差分进化等元启发式方法。

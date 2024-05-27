@@ -1,157 +1,234 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:02:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:02:01
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: On Code Optimization and the Laziness of Developers'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 火山系统博客：关于代码优化和开发者的懒惰
 - en: 来源：[http://magmasystems.blogspot.com/2008/06/on-code-optimization-and-laziness-of.html#0001-01-01](http://magmasystems.blogspot.com/2008/06/on-code-optimization-and-laziness-of.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/06/on-code-optimization-and-laziness-of.html#0001-01-01](http://magmasystems.blogspot.com/2008/06/on-code-optimization-and-laziness-of.html#0001-01-01)
 - en: A very wise man, someone who runs the group that owns our more important trading
     framework, once said to me “I don’t know why we spend all of this effort in investigating
     Hardware Acceleration. If we actually went into our code,
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个非常聪明的人，我们更重要的一些交易框架的拥有团队的管理者，曾经对我说：“我不知道我们为什么要花这么多精力去研究硬件加速。如果我们真的深入到我们的代码中，
 - en: refactored
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: refactored
 - en: it, and optimized it, we could probably speed up the end-to-end performance
     by 50%.”
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 它，并优化它，我们可能能够将端到端的性能提高50%。”
 - en: I have always maintained that the continued use of high-level, object-oriented
     programming languages has made the average programmer lazy. Perhaps it is the
     pressure of continually churning out releases, but some of the code that I have
     seen lately is abysmal. Game programmers would cringe if they ever saw some of
     this code. So would a good number of people who started their lives programming
     in C (and even C++).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直认为，继续使用高级、面向对象编程语言使得平均程序员变得懒惰。也许是因为不断推出版本的压力，但最近我看到的某些代码简直是糟糕透顶。游戏程序员如果看到其中的一些代码，会感到厌恶。很多从C（甚至C++）开始编程的人也会有同感。
 - en: I started programming professionally in 1984\. My first commercial product,
     a word processor for UNIX and the PC, had to run in 128K of RAM. I can’t tell
     you the number of hours I spent riding the subway, looking over a file of code
     to see what optimizations I could make in a function or two. That whole optimization-conscious
     culture seems to have fallen by the wayside.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我从1984年开始从事专业编程。我的第一个商业产品，一个UNIX和PC上的文字处理器，必须在128K的RAM中运行。我无法告诉你，我在地铁上花了多少个小时，翻看代码文件，看看我能在一个或两个函数中做出哪些优化。那种整个优化意识的文化似乎已经淡出了。
 - en: However, take heart, Mr. Corporate Programmer. It’s not only your code that
     I am finding fault with.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，放心吧，企业程序员先生。我发现问题的不仅仅是你的代码。
 - en: Last Friday, I dropped down from Manager Mode into Code Optimization Mode. I
     wanted to optimize a particularly crucial part of our system. Our system is written
     in C#, so we are using the .NET
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 上周五，我从管理模式切换到代码优化模式。我想优化我们系统中的一个关键部分。我们的系统是用C#编写的，所以我们正在使用.NET
 - en: SDK
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: SDK
 - en: that is provided by one of the vendors. I notice that vendors who provide
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 由供应商提供。我注意到，提供
 - en: SDKs
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: SDKs
 - en: for Java, C++, and C# usually tend to treat the C#
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于Java、C++和C#通常会将对C#
 - en: SDK
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: SDK
 - en: as a second-class citizen. I have blogged about this before, and in this case,
     I felt that it was no different with this vendor. As I debugged into the vendor
     code, I was amazed at some of the things that I found, and in about 30 minutes
     worth of time, I had fired off six emails to the vendor.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为二等公民。我之前写过关于这个话题的博客，在这个案例中，我觉得这个供应商也没有什么不同。当我调试供应商的代码时，我惊讶地发现了一些事情，在30分钟的时间里，我已经给供应商发了六封电子邮件。
 - en: 'I found things like this:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 我发现了一些像这样的东西：
 - en: '[Snippets of Code removed for now]'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[代码片段暂时移除]'
 - en: However, I just scratched the surface of their .Net
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我只是触及了他们.Net的表面。
 - en: SDK
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: SDK
 - en: . I did not give it a full profiling, nor did I bother to give it a code review.
     This is not my job. It is the vendor’s job to do this.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 。我没有给它全面的性能分析，也没有给它代码审查。这不是我的工作。这是供应商的工作。
 - en: Just to make sure that I
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 只是为了确保我
 - en: wasn
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: wasn
 - en: ’t bitching about nothing, I showed the code to a colleague who runs one of
     our departments. He was an old C game developer way back when. When I showed him
     the code, he shook his head, and said that there was no excuse for this laziness.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ’t为无关紧要的事情抱怨，我把代码给了一个负责我们一个部门的同事看。他以前是一个资深的C游戏开发者。我把代码给他看时，他摇了摇头，说这种懒惰是没有借口的。
 - en: Since this code is called about 2 million times per day, I am very concerned.
     If I found these kinds of anomalies in source code that is made public, what could
     be lurking under the covers of the actual engine of the product?
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于这段代码每天被调用约200万次，我非常担忧。如果在公开的源代码中发现了这些异常，那么产品实际引擎下可能隐藏着什么？
 - en: 'In summary, I have some advice for vendors and for coders everywhere:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，我给供应商和世界各地的程序员一些建议：
 - en: 1) Continually optimize and refactor
+  id: totrans-29
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 1) 持续优化和重构
 - en: 2) Put your code through a profiler. Use the .NET CLR Profiler. Use DevPartner
     Studio. Use the built-in profiler in Visual Studio 2008.
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 2) 使用代码分析工具对你的代码进行分析。使用.NET CLR分析器。使用DevPartner Studio。使用Visual Studio 2008内置的分析器。
 - en: 3) Don’t treat C# as a pariah. If you are going to put out a .NET SDK, make
     sure that it is just as good as your Java and C++ SDKs. And, when you refactor
     your java SDK, refactor the C# SDK as well.
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 3) 不要将C#当作弃儿。如果你要发布一个.NET SDK，请确保它和你的Java及C++ SDK一样优秀。而且，当你重构你的Java SDK时，也请重构C#
+    SDK。
 - en: 4) Quality control. In this case, we see that the vendor did not do their due
     diligence with regards to the .NET SDK. Code coverage and unit tests must be done.
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 4) 质量控制。在这种情况下，我们发现供应商没有对.NET SDK做足够的尽职调查。必须进行代码覆盖和单元测试。
 - en: 5) If you make an enhancement in one superclass, make sure you enhance all of
     the other superclasses as well.
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 5) 如果你在一个超类中进行了一次增强，确保你也对其他所有超类进行了增强。
 - en: 6) Code reviews. Get more pairs of eyes on that code!
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 6) 代码审查。让更多人的眼睛来看代码！
 - en: For my part, I just had one of our junior developers refactor some of the code
     that parses our FIX messages and converts them into C# objects. He replaced 3
     calls to string.Substring() with one call to string.Split(). After running some
     tests, he said that we only had a 2% improvement. For code that is called a few
     million times per day, I will gladly take that 2%, not to mention less small things
     going into the heap.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 就我而言，我刚刚让我们的一个初级开发人员重构了一些解析我们的FIX消息并将其转换为C#对象的代码。他将3次对string.Substring()的调用替换为一次对string.Split()的调用。运行一些测试后，他说我们只取得了2%的改进。对于每天被调用几次百万次的代码，我很乐意接受这2%的改进，更不用说减少了进入堆的小东西。
 - en: We need to start working on code coverage, but right now, we need to get a system
     out there to the traders .... and we have the luxury that nobody except us will
     be looking at our code!
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要开始进行代码覆盖，但现在，我们需要将一个系统推向交易员...而且我们有这样的奢侈，除了我们，没有人会查看我们的代码！
 - en: ©2008 Marc Adler - All Rights Reserved
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有

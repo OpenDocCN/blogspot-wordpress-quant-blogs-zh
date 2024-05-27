@@ -1,45 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:04:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:04:05'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Normalized Price Spread Strategy – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Normalized Price Spread Strategy – Quantum Financier
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/06/17/normalized-price-spread-strategy/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/17/normalized-price-spread-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/06/17/normalized-price-spread-strategy/#0001-01-01](https://quantumfinancier.wordpress.com/2010/06/17/normalized-price-spread-strategy/#0001-01-01)
 - en: Here is a quick idea I had the other day. I was reading about statistical arbitrage
     and pair trading and as some of you may know, the notion of spread is quite central
     in the domain. The idea behind pair trading is somewhat simple; find assets exhibiting
     similar behavior, then when the spread depart from the mean bet on the subsequent
     return to normal. Simple, elegant and based on sheer intuition, everything I like
     in a trading concept.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是我最近几天想到的一个快速想法。我正在阅读有关统计套利和配对交易的内容，正如你们中的一些人可能知道，价差在领域中相当关键。配对交易背后的想法相当简单；找到表现相似的资产，然后当价差离开平均值时赌其回归正常。简单，优雅，仅基于直觉，这是我喜欢的一个交易概念的所有要素。
 - en: I looked at ways to incorporate the concept in a simple system. This strategy
     looks at the normalized spread (difference) between the closing price and a short-term
     moving average (for this example 3 days). In other words, I use the percentrank
     function on the difference between the last closing price and the 3 day moving
     average of a single asset. Enter long if < 50th percentile, short otherwise. The
     results on SPY since 2000 are presented below.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我研究了如何将这个概念融入一个简单的系统。这个策略关注的是收盘价与短期移动平均（本例中为3天）之间的标准化价差（差异）。换句话说，我使用最后收盘价与单一资产的3天移动平均之间的百分比排名函数。如果小于50百分位则做多，否则做空。以下是自2000年以来SPY的表现。
 - en: '[![](img/ec1a793b3590bd6d480d55af4edc9811.png "Norm.Spread")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/norm-spread.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ec1a793b3590bd6d480d55af4edc9811.png "Norm.Spread")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/norm-spread.png)'
 - en: '[![](img/792ac1a69fdbf35d5e6d774abc8c82d7.png "Norm.Spread - result")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/norm-spread-result.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/792ac1a69fdbf35d5e6d774abc8c82d7.png "Norm.Spread - result")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/06/norm-spread-result.png)'
 - en: Conceptually this makes a lot of sense. If the recent price exhibit strong relative
     strength we expect it to return to normal, the opposite holds true for weak relative
     strength. Normalizing the spread give use an indication of the degree to which
@@ -53,8 +73,12 @@
     based bet scheme or a [“dimmer approach” à la MarketSci](http://marketsci.wordpress.com/2010/05/12/tweaking-the-sector-rotation-strategy-part-2/).
     Regardless, I think that the concept of spread is a good concept, expect it to
     come back on the blog as I learn more about it.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 从概念上讲，这是很有道理的。如果最近的价格显示出强劲的相对强度，我们预计它会回归正常，相对强度较弱的情况则相反。标准化价差给了我们一个近期价格与过去几天以及平均值之间的偏差程度的指示，从这里我们可以预计一定程度的均值回归。如果价格变得“拉伸”，那么我会比价格在平均值附近波动时更有信心。话说回来，这个想法并没有什么天才之处；它只是另一个相对强度策略，与众所周知的z-score非常相似。然而，我喜欢使用百分位数，因为我们不需要假设任何分布，从而放宽了对数据正态性的需求。它还促进了基于信心的投注方案或MarketSci式的[“调光方法”](http://marketsci.wordpress.com/2010/05/12/tweaking-the-sector-rotation-strategy-part-2/)的创建。无论如何，我认为价差的概念是一个好概念，预计它会在博客上再次出现，因为我正在了解更多关于它的信息。
 - en: QF
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

@@ -1,28 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:46:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:46:24
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Monthly and Quarterly Seasonality Using the Time Machine Test (Part 1) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用时间机器测试探讨月度和季度季节性（第一部分） | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/10/06/monthly-and-quarterly-seasonality-using-the-time-machine-test-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2009/10/06/monthly-and-quarterly-seasonality-using-the-time-machine-test-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/10/06/monthly-and-quarterly-seasonality-using-the-time-machine-test-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2009/10/06/monthly-and-quarterly-seasonality-using-the-time-machine-test-part-1/#0001-01-01)
 - en: '***Note:** to receive an early bird discount on the upcoming DV Indicators
     package email us at* [*dvindicators@gmail.com*](mailto:dvindicators@gmail.com)
     *—**those who have emailed us already for the DVTrsi are already automatically eligible.***'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '***注意：想要在即将推出的DV指标包中享受早鸟折扣，请通过电子邮件联系我们* [*dvindicators@gmail.com*](mailto:dvindicators@gmail.com)
+    *——已经向我们咨询过DVTrsi的人自动有资格。***'
 - en: Continuing with our look at seasonality-based strategies, we decided to  investigate
     how well monthly and quarterly strategies would perform in a realistic time machine
     test. For newbies, a time machine test means that we will use a learning algorithm
@@ -31,8 +46,10 @@
     are fraught with hindsight bias–or Monday morning quarterback bias to be cheeky.
     Strategies that pass a time machine test will be far more likely to work in real
     life than static backtests or “systems.”
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 继我们探讨基于季节性的策略之后，我们决定调查在现实的时间机器测试中，月度和季度策略的表现如何。对于新手来说，时间机器测试意味着我们将使用一个按照特定规则编程的学习算法，从数据集的开始部分开始，并进行出样本交易。这是最客观的实验，因为历史回测充满了后见之明偏差——或者用俏皮的话来说，就是“周一早上四分卫”的偏差。那些通过时间机器测试的策略在现实生活中发挥作用的可能性要比静态回测或“系统”大得多。
 - en: 'So on to the first test: lets look for months or quarters with 95% statistical
     confidence > or <0 using the t-statistic.  Essentially we want to find extremely
     consistent positive or negative months historically . Oops, not many takers on
@@ -57,8 +74,10 @@
     coinciding with the effect for finding the worst month. The fact that the results
     were so sensitive to the lookback period dramatically weakens any results or conclusions
     that can be derived.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么我们先来看第一次测试：让我们寻找使用t统计量，在95%的统计置信水平下大于或小于0的月份或季度。本质上，我们想要找到历史上极其一致的正面或负面月份。哦，没有多少人愿意接受这个挑战，使用更长的回望期（超过5年的历史数据）**我们几乎没有找到任何符合条件的月份或季度**。这是我们第一次发现月度和季度的季节性非常**嘈杂**——我个人认为，如果一个策略通不过这个测试，我可能会直接将其抛弃。有很多好的效应值得交易，专注于那些无法自信地区分于零的策略是没有意义的。那么我们暂时将置信度定为75%——这对于金融市场来说已经足够了。下面是一个测试，该测试选择t分数大于0且置信度在75%或以上的月份，即它们应该高于0，并且希望比平均月份更好。此外，我们还包括了选择t分数小于0且置信度在75%或以上的月份，意味着它们应该是负面的，或者希望比平均月份更糟。在这里，我们看到我们评估时需要10年或20年的回望期来提高效果（这是有意义的，因为样本量较小），而且这个策略只能成功识别表现不佳的月份。实际上，选择高t分数的月份实际上表现不如平均水平。相比之下，季度的表现要好得多，奇怪的是，为了识别最好的季度，更倾向于使用较短的回望期——关于这个现象，我们将在下一篇文章中详细介绍。然而，为了识别最差的季度，20年的回望期是最成功的，这可能与寻找最差月份的效果巧合。结果对回望期非常敏感，这大大削弱了可以得出的任何结果或结论。
 - en: We also used a ranking methodology incorporating the DVR—which is the Sharpe
     Ratio x the linearity of the equity curve. The noise inherent in trying to identify
     the best and worst ranked months or quarters is quite visible in the graph. There
@@ -78,17 +97,27 @@
     here seems to be in identifying when to slightly increase exposure for a given
     quarter, and when to reduce exposure. No long/short strategy using the top and
     bottom was capable of beating buy and hold.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还使用了一种包含DVR的排名方法——这是夏普比率乘以权益曲线的线性度。试图识别最佳和最差排名的月份或季度中的噪声在图表中非常明显。并没有明确的关系。到目前为止，教训似乎是月度和季度的季节性是一个非常微弱的影响——虽然评论家们经常提出回测结果，显示出像一月效应或者在夏季和早秋期间卖出这样非常出色的结果，但没有多少证据支持这是容易赚钱的。请记住，我们的时间机器没有后视镜的优势，所以在这个意义上它就像一个真正的交易员。我们的时间机器确实选择了最佳/最差和最一致的日历效应，并且很可能历史数据似乎包含了一个月或季度超越/落后表现的明显持续性。**在实际中，使用这种方法并没有产生良好的持续性结果，当这种信息用于交易时。**在下一篇文章中，我们将看看一些其他方法，尝试分离季节性效应………并得到一些非常令人惊讶和有趣的结果。尽管如此，教训仍然是警惕长期季节性研究——这里唯一可交易的好处似乎是在确定何时略微增加给定季度的敞口，以及何时减少敞口。使用顶部和底部进行多空策略并没有能够打败买入并持有。
 - en: '[![monthlyperfbyconf](img/5a479e11b2488814496b1388367dd4d8.png "monthlyperfbyconf")](https://cssanalytics.files.wordpress.com/2009/10/monthlyperfbyconf.jpg)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![monthlyperfbyconf](img/5a479e11b2488814496b1388367dd4d8.png "monthlyperfbyconf")（[月度绩效按配置](https://cssanalytics.files.wordpress.com/2009/10/monthlyperfbyconf.jpg)）'
 - en: '[![quarterlyperfbyconf](img/cef80733d8837e3b5be72d10d6b398f0.png "quarterlyperfbyconf")](https://cssanalytics.files.wordpress.com/2009/10/quarterlyperfbyconf.jpg)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![quarterlyperfbyconf](img/cef80733d8837e3b5be72d10d6b398f0.png "quarterlyperfbyconf")（[季度绩效按配置](https://cssanalytics.files.wordpress.com/2009/10/quarterlyperfbyconf.jpg)）'
 - en: '[![monthlyperfbyrank2](img/b53688faf25d7b2c090e0ac29cab5bb4.png "monthlyperfbyrank2")](https://cssanalytics.files.wordpress.com/2009/10/monthlyperfbyrank2.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![monthlyperfbyrank2](img/b53688faf25d7b2c090e0ac29cab5bb4.png "monthlyperfbyrank2")（[月度绩效按排名2](https://cssanalytics.files.wordpress.com/2009/10/monthlyperfbyrank2.jpg)）'
 - en: '[![quarterlyperfbyrank2](img/4f606aa3109dca23530ee6955e78b017.png "quarterlyperfbyrank2")](https://cssanalytics.files.wordpress.com/2009/10/quarterlyperfbyrank2.jpg)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![quarterlyperfbyrank2](img/4f606aa3109dca23530ee6955e78b017.png "quarterlyperfbyrank2")（[季度绩效按排名2](https://cssanalytics.files.wordpress.com/2009/10/quarterlyperfbyrank2.jpg)）'

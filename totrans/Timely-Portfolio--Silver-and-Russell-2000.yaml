@@ -1,101 +1,168 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:21:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:21:44'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Silver and Russell 2000'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Silver and Russell 2000'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/02/silver-and-russell-2000.html#0001-01-01)
 - en: When I find a chart that looks like this, I always like to explore a little
     further.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: When I find a chart that looks like this, I always like to explore a little
+    further.
 - en: '[![](img/5251def285910c9f45b4b2e17e5a66c7.png)](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5251def285910c9f45b4b2e17e5a66c7.png)](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)'
 - en: via [StockCharts.com](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: via [StockCharts.com](http://stockcharts.com/h-sc/ui?s=slv&p=d&yr=1&mn=0&dy=0&id=p04441145431)
 - en: I pull it into R and try to find anything worthwhile.  I do not find anything,
     except that I do not want to be trading both in the same direction and expect
     any diversification.  But we all know the whole world is correlated.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: I pull it into R and try to find anything worthwhile.  I do not find anything,
+    except that I do not want to be trading both in the same direction and expect
+    any diversification.  But we all know the whole world is correlated.
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(TTR)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(TTR)
 - en: require(PerformanceAnalytics)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: tckr<-c("GLD","SLV","IWM")
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: tckr<-c("GLD","SLV","IWM")
 - en: start<-"2006-06-30"
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: start<-"2006-06-30"
 - en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
 - en: Pull tckr index data from Yahoo! Finance
+  id: totrans-17
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Pull tckr index data from Yahoo! Finance
 - en: getSymbols(tckr, from=start, to=end)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols(tckr, from=start, to=end)
 - en: '#adjust for splits and dividends'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#adjust for splits and dividends'
 - en: GLD<-adjustOHLC(GLD,use.Adjusted=T)
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: GLD<-adjustOHLC(GLD,use.Adjusted=T)
 - en: SLV<-adjustOHLC(SLV,use.Adjusted=T)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: SLV<-adjustOHLC(SLV,use.Adjusted=T)
 - en: IWM<-adjustOHLC(IWM,use.Adjusted=T)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: IWM<-adjustOHLC(IWM,use.Adjusted=T)
 - en: '#get daily return from prices to use PerformanceAnalytics'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#get daily return from prices to use PerformanceAnalytics'
 - en: GLD<-dailyReturn(GLD)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: GLD<-dailyReturn(GLD)
 - en: SLV<-dailyReturn(SLV)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: SLV<-dailyReturn(SLV)
 - en: IWM<-dailyReturn(IWM)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: IWM<-dailyReturn(IWM)
 - en: RetToAnalyze<-merge(GLD,SLV,IWM)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: RetToAnalyze<-merge(GLD,SLV,IWM)
 - en: colnames(RetToAnalyze)<-tckr
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(RetToAnalyze)<-tckr
 - en: charts.RollingRegression(last(RetToAnalyze,"3 years")[,c(1,2),drop=F],last(RetToAnalyze,"5
     years")[,3],legend.loc="topleft",width=20,main="Rolling 20-day Regression")
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.RollingRegression(last(RetToAnalyze,"3 years")[,c(1,2),drop=F],last(RetToAnalyze,"5
+    years")[,3],legend.loc="topleft",width=20,main="Rolling 20-day Regression")
 - en: chart.RollingPerformance(RetToAnalyze,width=150,legend.loc="topleft",main="Rolling
     150-day Performance")
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.RollingPerformance(RetToAnalyze,width=150,legend.loc="topleft",main="Rolling
+    150-day Performance")

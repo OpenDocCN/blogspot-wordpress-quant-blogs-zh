@@ -1,198 +1,323 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:15:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:15:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Long XLU Short SPY Part 2 (More History)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：长期XLU短期SPY第2部分（更多历史）
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy-part-2-more-history.html#0001-01-01)
 - en: '**THIS IS NOT INVESTMENT ADVICE.  YOU ARE RESPONSIBLE FOR YOUR OWN GAINS AND
     LOSSES.**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**这不是投资建议。 您对自己的收益和损失负责。**'
 - en: The Fed is on a roll adding BAC ML Bond Indicies and now complete history for
     the four primary Dow Jones Indexes, so I wanted to extend my first post [Long
     XLU Short SPY](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy.html)
     to add some more historical context.  Unfortunately, the Dow Jones Indicies are
     only price return, but I think exploration still benefits the discussion.  Including
     dividends significantly enhances the spread position.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 美联储正在不断增加BAC ML债券指数，现在是四个主要道琼斯指数的完整历史，所以我想扩展我的第一篇文章[长期XLU短期SPY](http://timelyportfolio.blogspot.com/2011/05/long-xlu-short-spy.html)以增加一些更多的历史背景。
+    不幸的是，道琼斯指数只是价格回报，但我认为探索仍然有益于讨论。 包括股利显着增强了价差头寸。
 - en: Now with the US 10y Treasury price return series.  See [Historical Sources of
     Bond Returns-Comparison of Daily to Monthly](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html)
     for details on the US 10y Treasury return calculations.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在有美国10年期国库券价格回报系列。详情请参见[历史债券回报来源-日度与月度比较](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html)有关美国10年期国库券回报计算的详细信息。
 - en: The original discussion was as a bond manager what I can do if I do not like
     bonds.  Let’s have a quick look at the Long DJUA Short US10y price spread to see
     how it will work in this context.  Correlations above are certainly attractive.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 最初的讨论是作为一个债券经理，如果我不喜欢债券我可以做什么。 让我们快速看一下长期DJUA短期US10y价格差价，看看在这种情况下它将如何运作。 以上的相关性确实很吸引人。
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 'R代码:'
 - en: '#get even more history'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获得更多历史'
 - en: require(RQuantLib)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(RQuantLib)
 - en: require(PerformanceAnalytics)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(quantmod)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: '#first bonds'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#首先债券'
 - en: 'getSymbols("DGS10",src="FRED") #load daily US Treasury 10y from Fed Fred'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DGS10",src="FRED") #加载每日美国财政部10年期国库券'
 - en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'DGS10pricereturn<-DGS10  #设置这个来保存价格回报'
 - en: DGS10pricereturn[1,1]<-0
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10pricereturn[1,1]<-0
 - en: colnames(DGS10pricereturn)<-"PriceReturn-daily to monthly DGS10"
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(DGS10pricereturn)<-"PriceReturn-daily to monthly DGS10"
 - en: '#I know I need to vectorize this but not qualified enough yet'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我知道我需要向量化这个但还不够资格'
 - en: '#Please feel free to comment to show me how to do this'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请随意评论以告诉我如何做到这一点'
 - en: for (i in 1:(NROW(DGS10)-1)) {
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 1:(NROW(DGS10)-1)) {
 - en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
 - en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 到期日= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
 - en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: rates=DGS10[i,1]/100,period=2)[1]/100-1
 - en: '}'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#total return will be the price return + yield/12 for one month'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#总回报将是价格回报+一个月的收益/12'
 - en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
 - en: colnames(DGS10totalreturn)<-"Total Return-daily to monthly DGS10"
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(DGS10totalreturn)<-"Total Return-daily to monthly DGS10"
 - en: '#now Dow Jones Indexes'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在是道琼斯指数'
 - en: 'getSymbols("DJIA",src="FRED") #load daily Dow Jones Industrial'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DJIA",src="FRED") #加载每日道琼斯工业'
 - en: 'getSymbols("DJUA",src="FRED") #load daily Dow Jones Utility'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("DJUA",src="FRED") #加载每日道琼斯公用事业'
 - en: DJUADJIA<-DJUA/DJIA
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: DJUADJIA<-DJUA/DJIA
 - en: retDJ<-na.omit(merge(ROC(DJUADJIA,1,type="discrete"),ROC(DJIA,1,type="discrete"),ROC(DJUA,1,type="discrete")))
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: retDJ<-na.omit(merge(ROC(DJUADJIA,1,type="discrete"),ROC(DJIA,1,type="discrete"),ROC(DJUA,1,type="discrete")))
 - en: colnames(retDJ)<-c("DJIA","DJUA","DJUADJIAspread")
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(retDJ)<-c("DJIA","DJUA","DJUADJIAspread")
 - en: charts.PerformanceSummary(retDJ,ylog=TRUE,
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(retDJ,ylog=TRUE,
 - en: main="DJIA, DJUA, and DJUA/DJIA Spread Price Return Analysis",
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 主要="DJIA，DJUA和DJUA/DJIA差价价格回报分析",
 - en: colorset=c("cadetblue","darkolivegreen3","goldenrod"))
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: colorset=c("cadetblue","darkolivegreen3","goldenrod"))
 - en: '#now add bonds to analysis'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在将债券添加到分析中'
 - en: retToAnalyze<-na.omit(merge(ROC(DJIA,1,type="discrete"),
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: retToAnalyze<-na.omit(merge(ROC(DJIA,1,type="discrete"),
 - en: ROC(DJUA,1,type="discrete"),
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: ROC(DJUA,1,type="discrete"),
 - en: ROC(DJUA/DJIA,1,type="discrete"),
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: ROC(DJUA/DJIA,1,type="discrete"),
 - en: DGS10pricereturn))
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10pricereturn))
 - en: colnames(retToAnalyze)<-c("DJIA","DJUA","DJUADJIAspread","US10yPrice")
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(retToAnalyze)<-c("DJIA","DJUA","DJUADJIAspread","US10yPrice")
 - en: charts.PerformanceSummary(retToAnalyze,ylog=TRUE,
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '`charts.PerformanceSummary(retToAnalyze,ylog=TRUE,'
 - en: main="DJIA, DJUA, DJUA/DJIA Spread, and US 10y Price Return Analysis",
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '`main="DJIA, DJUA, DJUA/DJIA Spread, and US 10y Price Return Analysis",'
 - en: colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))`
 - en: chart.Correlation(retToAnalyze)
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`chart.Correlation(retToAnalyze)`'
 - en: corDJUADJIAtoDJIA<-runCor(retDJ[,1],retDJ[,2],120)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '`corDJUADJIAtoDJIA<-runCor(retDJ[,1],retDJ[,2],120)`'
 - en: corDJUADJIAtoBonds<-runCor(retToAnalyze[,3],retToAnalyze[,4],120)
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '`corDJUADJIAtoBonds<-runCor(retToAnalyze[,3],retToAnalyze[,4],120)`'
 - en: chartSeries(DJUADJIA,TA="addTA(corDJUADJIAtoDJIA);addTA(corDJUADJIAtoBonds)",
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '`chartSeries(DJUADJIA,TA="addTA(corDJUADJIAtoDJIA);addTA(corDJUADJIAtoBonds)",'
 - en: theme="white",
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '`theme="white",'
 - en: name="Long DJUA and Short DJIA with Correlation Analysis")
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: name="Long DJUA and Short DJIA with Correlation Analysis")`
 - en: '#now let''s see how it looks as long xlu short bonds on price basis'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '`#now let''s see how it looks as long xlu short bonds on price basis`'
 - en: priceBonds<-na.omit(cbind(DGS10pricereturn,rep(1,NROW(DGS10))))
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: priceBonds<-na.omit(cbind(DGS10pricereturn,rep(1,NROW(DGS10))))`
 - en: priceBonds<-cumprod(priceBonds[,1]+priceBonds[,2])
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: priceBonds<-cumprod(priceBonds[,1]+priceBonds[,2])`
 - en: DJUABonds<-na.omit(merge(DJUA,priceBonds))
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: DJUABonds<-na.omit(merge(DJUA,priceBonds))`
 - en: DJUABonds<-DJUABonds[,1]/DJUABonds[,2]
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '`DJUABonds<-DJUABonds[,1]/DJUABonds[,2]`'
 - en: chartSeries(DJUABonds, log=TRUE,
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '`chartSeries(DJUABonds, log=TRUE,'
 - en: theme="white",
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: theme="white",
 - en: name="Long DJUA and Short Bonds Price")
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '`name="Long DJUA and Short Bonds Price")`'

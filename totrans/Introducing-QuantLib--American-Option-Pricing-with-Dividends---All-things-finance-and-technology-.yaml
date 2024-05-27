@@ -1,31 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: -->yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:45:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:45:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: American Option Pricing with Dividends | All things finance
     and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：带股息的美国期权定价 | 金融与科技事事……
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01](https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01](https://mhittesdorf.wordpress.com/2013/11/17/introducing-quantlib-american-option-pricing-with-dividends/#0001-01-01)
 - en: In this post, the last I’m planning to write on the subject of option pricing,
     I will cover the mechanics of valuing options subject to American exercise rules,
     taking into account dividend payments expected prior to option expiration.  Specifically,
     I will show how to calculate the value of a series of Intel (INTC) Calls expiring
     on Feb 21, 2014 where a dividend of .22 is expected to be paid on Feb 5, 2014.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇关于期权定价的最后一篇博客中，我将讨论在美式行权规则下，考虑在期权到期前预期支付的股息，对期权估值的机制。具体来说，我将展示如何计算一系列于2014年2月21日到期的英特尔（INTC）看涨期权的价值，其中预期在2014年2月5日支付0.22的股息。
 - en: An American option, unlike a European option, can be exercised anytime before
     the option expires. This privilege carries with it a premium, making American
     options generally more expensive than their European counterparts, all else being
@@ -34,8 +48,10 @@
     options. More specifically, dividends reduce the value of a call option and increase
     the value of a put option, again, all else being equal, compared to the same option
     without a dividend.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 美式期权与欧式期权不同，可以在期权到期前任何时候行使。这种特权带来了一定的溢价，使得美式期权通常比其欧式对应期权更贵，在其他条件相同的情况下。股息代表了一种预期的未来现金流，它减少了标的资产的前向价格的价值，从而影响了相应期权的价值。更具体地说，与没有股息的相同期权相比，股息会减少看涨期权的价值，增加看跌期权的价值，在其他条件相同的情况下。
 - en: In previous posts, I’ve relied on Black-Scholes as my theoretical option pricing
     model. Black-Scholes, strictly speaking, does not support pricing American options
     with dividends without making an adjustment to the forward price to account for
@@ -47,8 +63,10 @@
     types of American option pricing models, which tend to vary along dimensions of
     speed, numerical stability and complexity while producing very nearly the same
     option valuations.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在之前的博客中，我依赖于Black-Scholes作为我的理论期权定价模型。严格来说，Black-Scholes并不支持不进行调整就定价带有股息的美式期权。因此，通常使用如二叉树或有限差分的格子模型来定价美式期权。或者，如果速度是一个主要考虑因素，美国解析近似之一，例如[Barone-Adesi-Whaley](http://www.investopedia.com/terms/b/barone-adesi-whaley-model.asp)可能是一个不错的选择。幸运的是，QuantLib提供了许多不同类型的美式期权定价模型的支持，这些模型在速度、数值稳定性和复杂性方面有所不同，同时产生非常接近的期权估值。
 - en: In this post, I’ll utilize the Crank-Nicolson Finite Differences lattice model
     as the pricing engine, which is implemented by the [FDAmericanEngine<CrankNicolson>](http://quantlib.org/reference/class_quant_lib_1_1_f_d_american_engine.html)
     class. Also, rather than presenting an overly simplified example that assumes
@@ -56,112 +74,178 @@
     the required dividend, interest rate and volatility curves from Interactive Brokers
     market data (see screenshot below) and current LIBOR rates. This should give you
     a good feel for what’s required to value options in the ‘real world’.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇博客中，我将使用Crank-Nicolson有限差分格子模型作为定价引擎，该引擎由[FDAmericanEngine<CrankNicolson>](http://quantlib.org/reference/class_quant_lib_1_1_f_d_american_engine.html)类实现。此外，我并不会展示一个过于简化的例子，该例子假设利率、股息和波动率期限结构平坦，而是将从Interactive
+    Brokers市场数据（见下面的屏幕截图）和当前LIBOR利率中引导出所需的股息、利率和波动率曲线。这应该能让你对在“现实世界”中估值期权所需的东西有一个很好的了解。
 - en: '[![inteloptions-11-15-2013](img/f34f449be90c90d1d5d401135b016947.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/11/inteloptions-11-15-2013.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![inteloptions-11-15-2013](img/f34f449be90c90d1d5d401135b016947.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/11/inteloptions-11-15-2013.png)'
 - en: 'So let’s start by building the necessary market data curves. First, I’ll present
     a function that will be called to construct the INTC volatility smile for the
     Feb 2014 calls. (For an introduction to volatility smiles see my earlier post
     [here](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/).) 
     The function relies on the QuantLib [BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)
     class, which supports strike-level volatilities. Here is the code:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么让我们从构建必要的市场数据曲线开始。首先，我将介绍一个函数，该函数将用于构建2014年2月INTC看涨期权的波动率微笑曲线。（想了解波动率微笑曲线，请参阅我之前的文章[这里](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/)。）该函数依赖于QuantLib
+    [BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)类，它支持罢工水平的波动率。以下是代码：
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s bootstrap the LIBOR zero rate curve, which supplies the necessary
     interest rates for discounting option payoffs.  The USD LIBOR rates were obtained
     from the Web site [globalrates.com](http://www.global-rates.com/interest-rates/libor/american-dollar/american-dollar.aspx).
     The code follows below:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们引导LIBOR零利率曲线，该曲线提供了折现期权收益所需的利率。美元LIBOR利率是从[globalrates.com](http://www.global-rates.com/interest-rates/libor/american-dollar/american-dollar.aspx)网站上获取的。以下代码如下：
 - en: '[PRE1]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The final curve that we’ll need to generate provides the annualized dividend
     yield for Intel.  Here is the code that bootstraps the dividend curve:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们最后需要生成的曲线提供了英特尔的年化股息收益率。以下是引导股息曲线的代码：
 - en: '[PRE2]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Now that we have the code to bootstrap all of our market data curves, the pricing
     code to value the Intel Call options is pretty straightforward:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们已经有了引导所有市场数据曲线的代码，英特尔看涨期权的定价代码相当简单：
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'When the code is run it produces the following option values and Greeks for
     the 22 through 28 strikes:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 当代码运行时，它生成了以下22至28罢工选项的价值和希腊字母：
 - en: '`Intel February 21st, 2014 22.00 Call value is: 2.77'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '`英特尔2014年2月21日22.00看涨期权价值为：2.77'
 - en: 'Delta: 0.8287'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.8287'
 - en: 'Gamma: 0.0883'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.0883'
 - en: 'Intel February 21st, 2014 23.00 Call value is: 1.94'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日23.00看涨期权价值为：1.94
 - en: 'Delta: 0.7312'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.7312'
 - en: 'Gamma: 0.1230'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.1230'
 - en: 'Intel February 21st, 2014 24.00 Call value is: 1.28'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日24.00看涨期权价值为：1.28
 - en: 'Delta: 0.5922'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.5922'
 - en: 'Gamma: 0.1486'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.1486'
 - en: 'Intel February 21st, 2014 25.00 Call value is: 0.78'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日25.00看涨期权价值为：0.78
 - en: 'Delta: 0.4380'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.4380'
 - en: 'Gamma: 0.1544'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.1544'
 - en: 'Intel February 21st, 2014 26.00 Call value is: 0.45'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日26.00看涨期权价值为：0.45
 - en: 'Delta: 0.2948'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.2948'
 - en: 'Gamma: 0.1364'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.1364'
 - en: 'Intel February 21st, 2014 27.00 Call value is: 0.24'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日27.00看涨期权价值为：0.24
 - en: 'Delta: 0.1835'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.1835'
 - en: 'Gamma: 0.1046'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.1046'
 - en: 'Intel February 21st, 2014 28.00 Call value is: 0.13'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 英特尔2014年2月21日28.00看涨期权价值为：0.13
 - en: 'Delta: 0.1068'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Delta: 0.1068'
 - en: 'Gamma: 0.0720`'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Gamma: 0.0720`'
 - en: The option values printed above are within or just outside the bid-ask spread
     for each strike in the Interactive Brokers screenshot. Deviations of a penny or
     two are likely due to differences in the model employed by Interactive Brokers
@@ -169,12 +253,17 @@
     possibly even a trading opportunity (i.e. “edge”). In fact, recognizing, adjusting
     for and/or exploiting such deviations between theoretical option values and the
     market is at the core of modern option pricing and trading.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述打印的期权价值在 Interactive Brokers 截图中的每个罢工价格都在或略高于买卖价差。一角钱或两角的偏差可能是由于Interactive
+    Brokers所使用的模型与QuantLib Crank-Nicolson模型的差异，输入市场数据的差异，或者甚至可能是交易机会（即“边缘”）。实际上，认识到、调整或利用理论期权价值与市场之间的偏差是现代期权定价和交易的核心。
 - en: With that, I’ll bring this somewhat lengthy post to a close. I very much hope
     that you enjoyed it and learned something about pricing American options on dividend-paying
     stocks using QuantLib. Please feel free to submit your comments or questions below.
     I’ll do my best to get back to you as soon as I can. And, of course, have fun
     with QuantLib!
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了这个，我将结束这篇有点长的帖子。我深信你从中获得了乐趣，并学到了一些有关使用QuantLib定价分红股票的美股期权的方法。请随时在下面提交你的评论或问题。我会尽我所能尽快回复你。当然，也要和QuantLib一起玩得开心！

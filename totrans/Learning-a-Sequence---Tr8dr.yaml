@@ -1,192 +1,289 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:36:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:36:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Learning a Sequence | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 学习序列 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01](https://tr8dr.wordpress.com/2009/12/04/pattern-learning/#0001-01-01)
 - en: I had been looking at predicting durations (or the intensity) to model price
     behavior and variance estimation.    As mentioned previously, the prevalent ACD
     models in the literature do poorly.   Before moving on to another topic wanted
     to revisit this, with an idea for future approach.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我一直在研究预测持续时间（或强度）来建模价格行为和方差估计。如前所述，文献中常见的ACD模型表现不佳。在转向另一个话题之前，我想重新审视这个问题，并提出一个未来的方法。
 - en: 'Here is a sample of durations for a high-frequency price series:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是一个高频率价格序列的持续时间样本：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'I decided that rather than trying to regress for specific durations, where
     there are an infinite number of possible values (theoretically), transform this
     into a set of symbols so that there are a finite number of states say:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定，与其尝试回归特定的持续时间，理论上可能有无限多的可能值，不如将这个转化为一组符号，这样就有有限的状态，比如说：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'where S1 might represent durations in [0, 0.25], S8 durations in [3, 3.5],
     etc.   The sequence of states for the above durations might look like:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中S1可能代表[0, 0.25]内的持续时间，S8代表[3, 3.5]内的持续时间等。以上持续时间的序列状态可能如下所示：
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: This turned out to be useful.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这证明是有用的。
 - en: '**SVM** SVM on a radial basis kernel did a much better job of predicting the
     next symbol (duration) in a sequence than the ACD models.   It was still not 
     a suitable level of prediction however.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**SVM** 使用径向基核的SVM在预测序列中的下一个符号（持续时间）方面比ACD模型做得更好。然而，这仍然不是一个合适的预测水平。'
 - en: The problem with SVM and related approaches in general is that you either need
     to have a problem that can easily be categorized in high dimensional linear vector
     space.  A big part of this is finding the kernel that will map your (usually)
     non-linear vectors into a linearly separable space.    Also, SVM is arguably better
     suited to binary classification as opposed to multinary classification.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: SVM和相关方法的问题在于，你需要一个问题，可以很容易地在高维线性向量空间中进行分类。这很大程度上在于找到将你的（通常是）非线性向量映射到一个线性可分空间的核。另外，SVM在二元分类上比多元分类更适合。
 - en: '**ANNs** In theory, an ANN with enough neurons can asymptotically approximate
     any function.  There are many problems in arriving at a general solution though:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ANNs** 理论上，具有足够神经元的ANN可以渐进地逼近任何函数。然而，到达通用解决方案的问题有很多：'
 - en: '**Calibration**'
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 校准**
 - en: Standard techniques of backpropagation (essentially gradient descent) solve
     for a local optimum, which depends on the starting configuration.   A global optimum
     can be found with meta-heuristic approaches such as GAs, however, at significant
     computational cost.
+  id: totrans-18
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 标准的反向传播技术（本质上是梯度下降）求得一个局部最优解，这取决于起始配置。然而，可以用元启发式方法如遗传算法找到全局最优解，但计算成本显著增加。
 - en: '**Overfitting**'
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**过拟合**'
 - en: It is very difficult to come up with networks that generalize.   Part of the
     success in doing this involves choosing training sets and configurations carefully.
+  id: totrans-20
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 提出能够泛化的网络非常困难。成功的一部分在于精心选择训练集和配置。
 - en: Nevertheless, this may be an approach worth exploring.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管如此，这可能是一个值得探索的方法。
 - en: '**Probabalistic Graph Models** As our duration pattern is essentially a transition
     from one state to the next, modeling as a probabalistic finite state machine appeals
     as model.  The idea with such an approach would be:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**概率图模型** 由于我们的持续时间模式本质上是从一个状态到下一个状态的转换，将其建模为概率有限状态机是有吸引力的模型。这种方法的想法是：'
 - en: empirically observe all chains of length ≤ some maximum
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经验上观察所有长度≤最大值的一些链
 - en: determine the frequency of chains
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定链的频率
 - en: factorize into the smallest graph that reproduces those chains within some error
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 分解成最小的图，在某种误差内复制这些链
 - en: 'The chains, for instance:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，这些链：
 - en: '[![](img/6ed0abd5fbfd1137d0c1fd0e86d5a365.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-4.png)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6ed0abd5fbfd1137d0c1fd0e86d5a365.png "Picture 4")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-4.png)'
 - en: A first approach to this problem is to consider whether can be modeled as a
     markovian state system.  It is, however, doubtful that the states {S1, S2, S3,
     …} can be modeled in a strictly markovian setting without the use of additional
     states.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   解决这个问题的一种初步方法是考虑是否可以作为马尔可夫状态系统进行建模。然而，状态{S1, S2, S3, …}'
 - en: For instance, is  P(S1|S2) the same as P(S1|S2, {prior states})?   The duration
     data shows dependence beyond the immediate prior state.    Therefore we have to
     expect that P(S1|S2, {S5,S1}) will differ from P(S1|S2, {S2,S3}), whereas in a
     markovian model, the probability of S1 can be conditioned purely on the prior
     state.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   例如，P(S1|S2)是否与P(S1|S2, {先验状态})相同？时长数据显示了除了最近的先验状态之外的依赖关系。因此，我们预计P(S1|S2,
+    {S5,S1})将与P(S1|S2, {S2,S3})不同，而在马尔可夫模型中，S1的概率可以纯粹基于先验状态进行条件化。'
 - en: 'Such a markovian system might look like:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   这样的马尔可夫系统可能看起来像：'
 - en: '[![](img/00cbadb3eab8cde270dcd67753b38e0a.png "markov FSM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/markov-fsm.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   ![](img/00cbadb3eab8cde270dcd67753b38e0a.png "markov FSM")（[![](img/00cbadb3eab8cde270dcd67753b38e0a.png
+    "markov FSM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/markov-fsm.png)）'
 - en: The HMM (Hidden Markov Model) combats this assumption by assuming that there
     is a hidden markovian process (usually with more states than the observed state
     system).   One can easily prove that a HMM of infinite size can exactly model
     all possible state chains (sequences) amongst a finite set of states.   Of course
     we are interested in a much smaller model that can reproduce most of the observed
     chains with limited error.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   隐马尔可夫模型（HMM）通过假设存在一个隐马尔可夫过程（通常比观察状态系统有更多的状态）来对抗这种假设。可以很容易地证明，一个无限大小的HMM可以精确地模拟有限状态集合中所有可能的状态链（序列）。当然，我们感兴趣的是一个可以以有限错误复现大多数观察链的更小的模型。'
 - en: 'Here is a sample structure, where the black lines are edges between hidden
     states and the red edges indicate correspondence between hidden state and observed
     state.   The red edges are not traversed:'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   这是一个样本结构，其中黑色线条是隐藏状态之间的边缘，红色边缘表示隐藏状态与观察状态之间的对应关系。红色边缘不被遍历：'
 - en: '[![](img/050ec04f298d365e0a02857dea531f6c.png "HMM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/hmm.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/050ec04f298d365e0a02857dea531f6c.png "HMM")（[![](img/050ec04f298d365e0a02857dea531f6c.png
+    "HMM")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/hmm.png)）'
 - en: '**Aliasing Issues**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **混叠问题**'
 - en: Remember that we have arbitrarily subdivided durations (which are continuous)
     into N discrete states.   The idea was that the difference between say 0.25 seconds
     and 0.22 seconds is not important for our purposes.   One would think that less
     granular states will allow for  easier modeling of the state sequence.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   我们要记住，我们是任意地将时长（连续的）分成了N个离散状态。想法是，比如说0.25秒和0.22秒之间的差异对于我们来说并不重要。人们可能会认为，更细粒度的状态将允许更容易建模状态序列。'
 - en: 'The problem is that we are dividing these discretely.   We run into an **aliasing**
     problem where a specific duration *partially* belongs to the set represented by
     S(i) and S(i+1).   For instance for a sequence of length 3 we have 4 possible
     true state paths, each with associated probability.   Without compensating for
     aliasing we see the states (naively):'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   问题是我们正在对这些离散地进行划分。我们遇到了一个**混叠**问题，特定的时长*部分*属于由S(i)和S(i+1)表示的集合。例如，对于长度为3的序列，我们有4种可能的真状态路径，每种路径都有相关的概率。不进行混叠补偿，我们会天真地看到状态：'
 - en: '[![](img/943dabee4a3e8b19ca2cd6f8dcdc7b07.png "Picture 6")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-61.png)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   ![](img/943dabee4a3e8b19ca2cd6f8dcdc7b07.png "Picture 6")（[![](img/943dabee4a3e8b19ca2cd6f8dcdc7b07.png
+    "Picture 6")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-61.png)）'
 - en: 'With aliasing we have the following possibilities:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   在混叠的情况下，我们有以下可能性：'
 - en: '[![](img/1e5807de1c43c8562802070bf18295e6.png "Picture 5")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-51.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/1e5807de1c43c8562802070bf18295e6.png "Picture 5")（[![](img/1e5807de1c43c8562802070bf18295e6.png
+    "Picture 5")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-51.png)）'
 - en: As our path length approaches N, we will have 2^(N-1) possible paths.  One possible
     implementation of this is train with the M highest probability paths.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   当我们的路径长度接近N时，我们将有2^(N-1)种可能的路径。实现此方法的一种可能是训练M概率最高的路径。'
 - en: '**Fuzzy HMM** Aliasing is a kind of fuzzy set membership.   Aside from aliasing
     there are a number of reasons why we should consider fuzzy state membership:'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   **模糊HMM** 混叠是一种模糊集合成员资格。除了混叠之外，还有许多原因让我们考虑模糊状态成员资格：'
 - en: The data may be noisy, obscuring the pattern
+  id: totrans-43
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '-   数据可能是嘈杂的，掩盖了模式'
 - en: Discretisation error (aliasing)
+  id: totrans-44
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '-   离散化误差（混叠）'
 - en: Not surprisingly, other people have thought of fuzzy state membership in the
     context of HMM.   There are multiple fuzzy HMM models.   To be investigated …
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 毫不奇怪，其他人已经在隐马尔可夫模型（HMM）的背景下考虑过模糊状态成员资格。   存在多种模糊HMM模型。   需要进一步研究……

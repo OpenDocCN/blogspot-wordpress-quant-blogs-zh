@@ -1,34 +1,50 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:57:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:57:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Rent, don’t buy, data: our experience with QuantGo (Guest
     Post)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：租用数据，不要购买：我们与QuantGo合作的经验（嘉宾文章）
 - en: 来源：[http://epchan.blogspot.com/2014/11/rent-dont-buy-data-our-experience-with.html#0001-01-01](http://epchan.blogspot.com/2014/11/rent-dont-buy-data-our-experience-with.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2014/11/rent-dont-buy-data-our-experience-with.html#0001-01-01](http://epchan.blogspot.com/2014/11/rent-dont-buy-data-our-experience-with.html#0001-01-01)
 - en: '*By Roger Hunter*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：罗杰·亨特
 - en: 'I am a quant researcher and developer for QTS Partners, a commodity pool Ernie
     (author of this blog) founded in 2011\. I help Ernie develop and implement several
     strategies in the pool and various separate accounts.  I wrote this article to
     give insights into a very important part of our strategy development process:
     the selection of data sources.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是QTS Partners的量化研究员和开发者，这是一个由Ernie（本博客的作者）于2011年创立的商品池。我帮助Ernie在池中以及各种独立账户中开发和实施几种策略。我写这篇文章是为了揭示我们策略开发过程中的一个非常重要的部分：选择数据源。
 - en: Our main research focus is on strategies that monitor execution in milliseconds
     and that hold for seconds through several days. For example, a strategy that trades
     more than one currency pair simultaneously must ensure that several executions
@@ -38,26 +54,36 @@
     data quality and quantity we needed, we chose Nanex data which is aggregated at
     25ms. This means, for example, that aggressor flags are not available. We purchased
     several years of futures data and set to work.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的主要研究重点是监测毫秒级执行并持有时至数日的策略。例如，同时交易多种货币对的策略必须确保在正确价格和非常短的时间内完成多次执行。回测需要高质量的历史日内报价和交易数据，最好是逐笔数据用于测试。我们的初步关注是期货，在查看了提供所需逐笔数据质量和数量的各种供应商后，我们选择了Nanex数据，该数据汇总于25毫秒。这意味着，例如，攻击者标志是不可用的。我们购买了数年的期货数据，并开始工作。
 - en: Earlier this year we needed to update our data and discovered that Nanex prices
     had increased significantly. We also needed quotes and trades, and data for more
     asset classes including US equities and options.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 今年年初，我们需要更新数据，发现Nanex的价格大幅上涨。我们还需要报价和交易数据，以及包括美国股票和期权在内的更多资产类别的数据。
 - en: We looked at TickData.com which has good data but is very expensive and you
     pay up-front per symbol.  There are other services like Barchartondemand.com and
     XIgnite.com where you pay based on your monthly usage (number of data requests
     made) which is a model we do not like.  We ended up choosing
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们考察了TickData.com，该网站数据质量不错，但非常昂贵，且每个符号需预先付费。还有其他服务，如Barchartondemand.com和XIgnite.com，您根据每月使用量（数据请求次数）付费，这是我们不喜欢的一种模式。我们最终选择了
 - en: '[QuantGo.com](http://tinyurl.com/oxv4d6k)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[QuantGo.com](http://tinyurl.com/oxv4d6k)'
 - en: ', where you have unlimited access to years of global tick or bar data for a
     fixed monthly subscription fee per data service.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ，您可以通过固定的月订阅费用访问全球多年的逐笔或K线数据。
 - en: On QuantGo, you get computer instances in your own secure and private cloud
     built on Amazon AWS with on-demand access to a wide range of global intraday tick
     or bar data from multiple data vendors.  Since you own and manage the computer
@@ -65,8 +91,10 @@
     internet or import your own data.  With QuantGo the original vendor data must
     remain in the cloud but you can download your results, this allows QuantGo to
     rent access to years of data at affordable monthly prices.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在QuantGo上，您可以获得运行在您专有的、私密的、基于亚马逊AWS构建的云中的计算机实例，可以按需访问多种全球日内逐笔或K线数据。由于您拥有和管理这些计算机实例，您可以选择任何操作系统，安装任何软件，访问互联网或导入您自己的数据。虽然QuantGo要求原始数据供应商数据必须保留在云端，但您可以下载您的结果，这使得QuantGo能够以可承受的月费价格出租多年数据访问权限。
 - en: 'All of the data we have used so far is from AlgoSeek (one of QuantGo’s data
     vendors). This data is survivorship bias-free and is exactly as provided by the
     exchanges at the time. Futures quotes and trades download very quickly on the
@@ -75,39 +103,58 @@
     (by QuantGo) to a somewhat verbose text form.  Before the price split, a day of
     option quotes and trades for AAPL was typically 100GB in this form. Here is a
     data sample from the full Options (OPRA) data:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止我们所使用的所有数据都来自AlgoSeek（QuantGo的数据供应商之一）。这些数据没有幸存者偏差，且与交易所提供的数据完全一致。系统上下载期货报价和交易非常快。我正在测试期权策略，由于数据量大，这很有挑战性。数据以高度压缩的形式下载，然后由QuantGo展开成
+    somewhat verbose 的文本形式。在价格拆分之前，AAPL的一天期权报价和交易通常以这种形式达到100GB。以下是来自完整期权（OPRA）数据的一个数据样本：
 - en: Timestamp, EventType, Ticker, OptionDetail, Price, Quantity, Exchange, Conditions
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间戳，事件类型，股票代码，期权详细信息，价格，数量，交易所，条件
 - en: 08:30:02.493, NO_QUOTE BID NB, LLEN, PUT at 7.0000 on 2013-12-21, 0.0000, 0,
     BATS, F
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 08:30:02.493，NO_QUOTE BID NB，LLEN，2013-12-21的PUT期权报价为7.0000，0.0000，0，BATS，F
 - en: 08:30:02.493, NO_QUOTE ASK, LLEN, CALL at 7.0000 on 2013-12-21, 0.0000, 0, BATS,
     F
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 08:30:02.493，NO_QUOTE ASK，LLEN，2013-12-21的CALL期权报价为7.0000，0.0000，0，BATS，F
 - en: 09:30:00.500, ROTATION ASK, LLEN, PUT at 2.0000 on 2013-07-20, 0.2500, 15, ARCA,
     R
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 09:30:00.500，ROTATION ASK，LLEN，2013-07-20的PUT期权报价为2.0000，0.2500，15，ARCA，R
 - en: 09:30:00.500, ROTATION BID, LLEN, PUT at 2.0000 on 2013-07-20, 0.0000, 0, ARCA,
     R
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 09:30:00.500，ROTATION BID，LLEN，2013-07-20的PUT期权报价为2.0000，0.0000，0，ARCA，R
 - en: 09:30:00.507, FIRM_QUOTE ASK NB, LLEN, PUT at 5.0000 on 2013-08-17, 5.0000,
     7, BATS, A
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 09:30:00.507，FIRM_QUOTE ASK NB，LLEN，2013-08-17的PUT期权报价为5.0000，5.0000，7，BATS，A
 - en: 09:30:00.508, FIRM_QUOTE BID NB, LLEN, PUT at 6.0000 on 2013-08-17, 0.2000,
     7, BATS, A
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 09:30:00.508，FIRM_QUOTE BID NB，LLEN，2013-08-17的PUT期权报价为6.0000，0.2000，7，BATS，A
 - en: These I convert to a more compact format, and filter out lines we don't need
     (e.g. NO_QUOTE, non-firm, etc.)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将这些数据转换成更紧凑的格式，并过滤掉我们不需要的行（例如NO_QUOTE、非固定数据等）。
 - en: The quality of the AlgoSeek data seems to be high. One test I have performed
     is to record live data and compare it with AlgoSeek. This is possible because
     the AlgoSeek historical data is now updated daily, and is one day behind for all
@@ -121,132 +168,199 @@
     to learn more about their products. The final test of data quality (and of our
     market model) is the comparison of live trading results (at one contract/spread
     level) with backtests over the same period.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: AlgoSeek数据的质量似乎很高。我进行的一项测试是将实时数据记录下来并与AlgoSeek数据进行比较。这是可能的，因为AlgoSeek的历史数据现在每天更新，除了期权数据，所有数据都晚一天更新（他们正在努力将期权数据更新时间缩短到两天，但这个过程涉及到将所有期权数据上传到特殊服务器---一个重大的任务）。另一个测试是使用OptionNET
+    Explorer（ONE）。ONE数据是5分钟间隔的，软件只显示中点值。然而，通过执行历史交易，你可以看到这些5分钟界限上的期权的买入和卖出值。我将20个这些数据与AlgoSeek数据进行了核对，并且在所有情况下都发现了完全一致的协议。无论如何，您都可以直接联系数据供应商以了解更多关于他们产品的信息。数据质量的最后测试（以及我们的市场模型）是将实时交易结果（在同一合约/价差水平）与同一时期的回测进行比较。
 - en: The data offerings have recently expanded dramatically with more data partners
     and now include historical data from (QuantGo claims) "every exchange in the world".
     I haven't verified this, but the addition of elementized, tagged and scored news
     from Acquire Media, for example, will allow us to backtest strategies of the type
     discussed in Ernie's latest book.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据产品最近大幅扩展，增加了更多数据合作伙伴，并包括来自（QuantGo声称）“世界上每一个交易所”的历史数据。我没有验证这一点，但是例如，来自Acquire
+    Media的元素化、标记和评分的新闻将允许我们回测在Ernie最新书中讨论的策略类型。
 - en: 'So far, we like the system. For us, the positives are:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止，我们喜欢这个系统。对我们来说，优点是：
 - en: 1\. Affordable Prices.  The reason that the price has been kept relatively low
     is that original vendor data must be kept and used in the QuantGo cloud. For example,
     to access years of US data we have been paying
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 1. 价格实惠。价格相对较低的原因是必须保留并在QuantGo云中使用原始供应商数据。例如，为了访问多年的美国数据，我们一直在支付
 - en: Five years of US Equities Trades and Quotes (“TAQ”) is $250 per month
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国股市交易和报价（TAQ）五年数据，每月250美元。
 - en: Five years of US Equities 5 minute Bars $75 per month
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国股市5分钟K线五年数据，每月75美元。
 - en: Three Years of US Options 1 minute bars $100 per month.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国期权三年1分钟K线，每月100美元。
 - en: Three Year of CME, CBOT, NYMEX Futures Trades and Quotes $250 per month
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: CME、CBOT、NYMEX期货交易和报价三年数据，每月250美元。
 - en: 2\.  Free Sample Data.  Each data service has free demo data which is actual
     real historical data where I can select data from the demo date range.  This allowed
     me to view and work with the data before subscribing.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 2. 免费样本数据。每个数据服务都提供免费的演示数据，这些数据实际上是真实的历史数据，我可以从演示日期范围内选择数据。这让我在订阅之前能够查看和处理数据。
 - en: 3\. One API.  I have one API to access different data vendors.  QuantGo gives
     me a java GUI, python CLI and various libraries (R, Matlab, Java).
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 3. 一个API。我有一个API可以访问不同的数据供应商。QuantGo为我提供了一个java GUI，一个python CLI和各种库（R、Matlab、Java）。
 - en: 4\. On-Demand.  The ability to select the data we want "on demand" via a subscription
     from a website console at any time. You can select data for any symbol and for
     just a day or for several years.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 4. 按需服务。能够“按需”选择我们想要的数据，通过网站控制台随时从订阅中获得。您可以为任何符号选择数据，只需一天或几年。
 - en: 5\. Platform not proprietary.  We can use any operating system or software with
     the data as it is being downloaded to virtual computers we fully control and manage.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 5. 平台非专有。我们可以使用任何操作系统或软件，因为数据在下载到我们完全控制和管理的大型虚拟计算机时可以使用。
 - en: Because all this is done in the cloud, we have to pay for our cloud computer
     usage as well.  While cloud usage is continuing to drop rapidly in price it is
     still a variable cost and it needs to monitored.  QuantGo does provide close to
     real-time billing estimates and alarms you can preset at dollar values.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于所有这些都是在云端完成的，所以我们还需要为我们的云计算机使用付费。虽然云使用成本正在迅速下降，但它仍然是一个变动成本，需要被监控。QuantGo提供了接近实时的计费估计，并允许您预设达到特定金额的警报。
 - en: I was at first skeptical of the restriction of not being able to download the
     data vendor’s tick or bar data, but so far this hasn't been an issue as in practice
     we only need the results and our derived data sets. I'm told that if you want
     to buy the data for your own computers, you can negotiate directly with the individual
     data vendor and will get a discount if you have been using it for a while on QuantGo.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 起初我对不能下载数据供应商的tick或bar数据的限制表示怀疑，但到目前为止，这并没有成为一个问题，因为实际上我们只需要结果和我们生成的数据集。我被告知，如果您想在您自己的电脑上购买数据，可以直接与个别数据供应商协商，如果您在QuantGo上使用了一段时间，您将获得折扣。
 - en: As we use the windows operating system we access our cloud computers with Remote
     Desktop and there have been some latency issues, but these are tolerable. On the
     other hand, it is a big advantage to be able to start with a relatively small
     virtual machine for initial coding and debugging, then "dial up" a much larger
     machine (or group of machines) when you want to run many compute and data intensive
     backtests. While
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我们使用的是Windows操作系统，通过远程桌面访问我们的云电脑，确实存在一些延迟问题，但这些都是可以忍受的。另一方面，能够从一台相对较小的虚拟机开始进行初步的编码和调试，然后在需要运行许多计算和数据密集型的回测时，“升级”到一台更大的机器（或一组机器），这是一个很大的优势。然而
 - en: '[QuantGo](http://tinyurl.com/oxv4d6k)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[QuantGo](http://tinyurl.com/oxv4d6k)'
 - en: is recently launched and is not perfect, it does open up the world of the highest
     institutional quality data to those of us who do not have the data budget of a
     Renaissance Technologies or D.E. Shaw.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然最近推出，并不完美，但它确实为我们这些没有文艺复兴技术或 D.E. Shaw 那样雄厚的数据预算的人打开了最高机构质量数据的大门。
 - en: === **Industry Update**
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: === **行业更新**
 - en: (No endorsement of companies or products is implied by our mention.)
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: （我们提及的公司或产品并不代表对其公司的认可。）
 - en: A new site for jobs in finance was recently launched: [www.financejobs.co](http://www.financejobs.co/).
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最近推出了一个新的金融职位网站：[www.financejobs.co](http://www.financejobs.co/)。
 - en: A new software package Geode by Georgica Software can backtest tick data, and
     comes with a fairly rudimentary fill simulator.
+  id: totrans-43
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一个新的软件包Geode由Georgica Software开发，可以回测tick数据，并带有相当基础的填充模拟器。
 - en: '[Quantopian.com](http://quantopian.com/) now incorporates a new IPython based
     research environment that allows interactive data analysis using minute level
     pricing data in Python.'
+  id: totrans-44
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Quantopian.com](http://quantopian.com/) 现已整合了一个基于 IPython 的新研究环境，允许使用 Python
+    对分钟级别的定价数据进行交互式数据分析。'
 - en: ===
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Workshops Update**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**研讨会更新**'
 - en: My next online [Quantitative Momentum Strategies](http://www.epchan.com/workshops/)
     workshop will be held on December 2-4\. Any reader interested in futures trading  in
     general would benefit from this course.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的下一个在线[量化动量策略](http://www.epchan.com/workshops/)研讨会将于12月2日至4日举行。任何对期货交易感兴趣的读者都会从这门课程中受益。
 - en: ===
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Managed Account Program Update**'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '**管理账户计划更新**'
 - en: Our FX Managed Account program had an unusually profitable month in
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的外汇管理账户计划在
 - en: '[October](http://www.epchan.com/accounts/)'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '[十月](http://www.epchan.com/accounts/)'
 - en: .
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: ===
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我 on Twitter: @chanep'

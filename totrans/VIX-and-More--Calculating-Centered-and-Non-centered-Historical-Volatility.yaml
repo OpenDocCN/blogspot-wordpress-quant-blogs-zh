@@ -1,90 +1,130 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 17:20:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 17:20:44
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: Calculating Centered and Non-centered Historical Volatility'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX和更多：计算中心化和非中心化历史波动率
 - en: 来源：[http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html#0001-01-01](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html#0001-01-01](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html#0001-01-01)
 - en: Yesterday in [What Is Historical Volatility?](http://vixandmore.blogspot.com/2009/12/what-is-historical-volatility.html)
     I attempted to provide a brief overview of [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility)
     (HV) and put it in a broader volatility context.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨天在[什么是历史波动率？](http://vixandmore.blogspot.com/2009/12/what-is-historical-volatility.html)一文中，我试图简要概述历史波动率（HV）并将其放入更广泛的波动率背景下。
 - en: 'Today I will endeavor to address the most frequent question I get about historical
     volatility: exactly how is it calculated?'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我将努力回答关于历史波动率我最常收到的问题：它到底是如何计算的？
 - en: 'You would think the calculation would be a straightforward affair, but this
     is not necessarily the case. As best I can in plain English (and since I have
     not mastered Word’s equation editor), the steps for calculating historical volatility
     are as follows:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可能会认为计算是一件简单的事情，但实际上并非如此。尽我所能用简单的英语说明（由于我没有掌握Word的方程编辑器），计算历史波动率的步骤如下：
 - en: Select a desired lookback period in trading days *(lookback period)*
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 选择一个期望的交易日回顾期*（回顾期）*
 - en: Gather closing prices for the full lookback period, plus one additional day
     *(lookback +1)*
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 收集完整回顾期内的收盘价格，再加上一天*（回顾期+1）*
 - en: Calculate the daily close-to-close price changes in a security for each day
     in the lookback period *(daily change)*
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算回顾期内每个交易日证券的收盘价变动*（每日变动）*
 - en: Determine the natural log of each daily percentage change *(log of daily changes)*
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算每个日常百分比变动的自然对数*（每日变动的自然对数）*
 - en: Calculate the mean of all the natural logs of the closing prices for the lookback
     period *(log lookback mean)*
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算回顾期内收盘价格的自然对数平均值*（回顾期收盘价格的自然对数平均值）*
 - en: For each day, subtract the lookback mean from the log of daily changes *(daily
     difference)*
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 对于每一天，从日常变动的自然对数中减去回顾期平均值*（日常差异）*
 - en: Square all the differences between the mean and the daily change *(daily variance)*
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将平均值与每日变动的差值平方*（每日方差）*
 - en: Sum all the squares of the differences *(sum of variances)*
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将所有差值的平方相加*（方差之和）*
 - en: Divide the sum of the squares of the variances by the lookback period *(lookback
     variance)*
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 将方差之和除以回顾期*（回顾期方差）*
 - en: Take the square root of the lookback variance *(historical volatility, expressed
     as a standard deviation)*
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 计算回顾期内的历史波动率*（历史波动率，表示为标准差）*的平方根
 - en: '*Finally, to convert the standard deviation into an annual volatility percentage
     take the HV expressed as a standard deviation and multiply it by the square root
     of the number of trading days in a year (approximately 252) and then by 100 *(historical
     volatility).*'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，要将标准差转换为年度波动率百分比，请将表示为标准差的历史波动率HV乘以一年中的交易日数（大约252天）的平方根，然后乘以100 *（历史波动率）。*
 - en: An Excel example will help to illustrate the steps and calculations. The table
     below uses closing data for the SPX for the last eleven trading sessions. The
     second row has a date of 11/24/09 in column A, a close of 1105.65 in column B
@@ -92,29 +132,40 @@
     (b3:b2)]. Column D is an average of the natural logs in column C [=average (c3:c12)],
     while column E simply subtracts column D from column C [=c3-d3]. Finally, Column
     F squares the results of column E [=e3^2] and cell F13 sums all the squares [=sum(f3:f12)].
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个Excel示例将有助于说明步骤和计算。下面的表格使用了过去十一个交易日的SPX收盘数据。第二行在A列有11/24/09的日期，B列有1105.65的收盘价，C列是11/24的收盘价除以11/23的自然对数[=LN
+    (b3:b2)]。D列是C列自然对数的平均值[=average (c3:c12)]，而E列简单地从C列减去D列[=c3-d3]。最后，F列平方E列的结果[=e3^2]，F13单元格则求和所有平方值[=sum(f3:f12)]。
 - en: The calculations below the main table start by repeating the value of F13 in
     A16 [=f13] and stating the number of lookback periods in A17\. In A19, A16 is
     divided by A17 [=a16/a17]. A21 then takes the square root of the result from A19
     [=a19^1/2]. A23 takes the result from A21 and multiplies it by the square root
     of 252 [=a21*sqrt(252)]. Last but not least, A25 converts to result from A23 to
     a percentage [=a23*100], yielding a 10-day historical volatility of 15.63.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在主要表格下面的计算首先在A16重复F13的值[=f13]，并在A17声明回顾期的数量。在A19，A16除以A17 [=a16/a17]。A21然后取A19的结果的平方根[=a19^1/2]。A23将A21的结果乘以252的平方根[=a21*sqrt(252)]。最后但并非最不重要的是，A25将A23的结果转换为百分比[=a23*100]，得出10日历史波动率为15.63。
 - en: To replicate the entire table, the formulas from row 3 can just be copied down
     to the bottom of the table, with one exception. That exception is column D, where
     the mean value – not the formula – is repeated throughout the table.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 要复制整个表格，只需将第3行的公式复制到表格的底部，有一个例外。这个例外是D列，在整个表格中重复的是平均值——而不是公式。
 - en: '![](img/5b8f2fb7f4939e2b8e3e116bc13acba0.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/5b8f2fb7f4939e2b8e3e116bc13acba0.png)'
 - en: If this seems like a lot of calculations to arrive at historical volatility
     value, there is a much shorter and slightly different way – and one that I believe
     generates a better number for traders.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果这似乎是得出历史波动率值所需进行的大量计算，还有一种更简短且稍有不同的方法——我相信这种方法为交易员生成更好的数字。
 - en: The above calculations reflect a centered approach in which daily price changes
     are characterized relative to a mean value for the entire period. Another way
     to look at the same problem is to assume that in the long run, the mean change
@@ -122,8 +173,10 @@
     not meaningful, there is no reason to subtract it from the daily changes, so all
     the calculations involving the mean can be dropped. This is the non-centered approach
     to calculating historical volatility and is sometimes known as “ditching the mean”.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述计算反映了一个中心方法，其中日常价格变化是相对于整个周期的平均值来衡量的。看待同一个问题的另一种方式是假设在长期内，价格的平均变化趋近于零，并且没有意义。作为一个推论，如果平均值没有意义，就没有理由从日常变化中减去它，所以所有涉及平均值的计算都可以省略。这就是计算历史波动率的非中心方法，有时也被称为“摒弃平均值”。
 - en: The resulting table below is much more manageable and easier to follow. The
     first three columns (date, close and natural log of the daily price change) are
     identical to those above. The fourth column simply takes the standard deviation
@@ -134,23 +187,35 @@
     copied to the rows below to calculate subsequent historical volatility values.
     Note that unlike the centered approach, there are no additional calculations required
     beyond those in the main table.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的结果表格要容易管理得多，也更容易理解。前三列（日期、收盘价和每日价格变化的自然对数）与上面相同。第四列只需计算每日价格变化的自然对数的标准差，乘以一年中交易日的平方根（252），并通过乘以100将其转换为年度波动率百分比。因此，下面单元格d12的公式简单的是=stdev(c3:c12)*sqrt(252)*100。这个公式现在可以复制到下面的行中，以计算随后的历史波动率值。注意，与中心方法不同，除了主要表格中的计算外，不需要进行任何额外的计算。
 - en: Here the non-centered approach also yields a 10-day historical volatility of
     15.63.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里，非中心方法也得到了10日历史波动率为15.63的结果。
 - en: '![](img/12240abb8612849d86334fdfeb468deb.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/12240abb8612849d86334fdfeb468deb.png)'
 - en: For the next part in this series, I will expand upon what some of the formulas
     mean, how they can be modified, and why traders might prefer the non-centered
     historical volatility data to the centered historical volatility data.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来的部分，我将详细解释一些公式的含义，以及它们如何被修改，并解释交易员为什么可能更喜欢非中心的历史波动率数据而不是中心的历史波动率数据。
 - en: 'For more on historical volatility, readers are encouraged to check out:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于历史波动率，读者可以查阅以下内容：
 - en: '****Disclosure:*** *none***'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '****披露：*** *无*'

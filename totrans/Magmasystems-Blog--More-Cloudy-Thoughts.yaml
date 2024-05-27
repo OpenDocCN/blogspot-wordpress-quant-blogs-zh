@@ -1,166 +1,255 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:03:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:03:00
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: More Cloudy Thoughts'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：更多关于云计算的思考
 - en: 来源：[http://magmasystems.blogspot.com/2008/04/more-cloudy-thoughts.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/more-cloudy-thoughts.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/04/more-cloudy-thoughts.html#0001-01-01](http://magmasystems.blogspot.com/2008/04/more-cloudy-thoughts.html#0001-01-01)
 - en: It seems that my inelegance in describing my idea of the event cloud has spurred
     some debate between Greg and Hans. I am going to try to clarify my thoughts around
     the event cloud, and see if it makes more sense.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 看来我在描述事件云的想法时的笨拙引发了一些 Greg 和 Hans 之间的争论。我将尝试澄清我对事件云的思考，看看是否更有意义。
 - en: I don’t want to give any of our “secret sauce” away in my postings, so I will
     try to map my thinking from the Equities Trading domain to another domain that
     I am not familiar with …. The domain of building security. (Apologies in advance
     to all of the sleuths who are reading this. My use cases will probably malign
     your esteemed field of study.)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的帖子中我不想透露我们任何“秘方”，所以我会尝试将我的思考从股票交易领域映射到另一个我不熟悉的领域……建筑安全领域。（提前向所有阅读这篇文章的侦探们道歉。我的用例可能会诽谤你们尊敬的研究领域。）
 - en: Let’s say that we are writing an enterprise-wide CEP application for our MegaBank
     that will monitor our security system so that those nosey parkers from StanLehGoldBar
     Inc don’t break into our building and steal our secrets.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们正在为我们的MegaBank编写一个企业级的CEP应用程序，以监视我们的安全系统，以便那些爱打探的StanLehGoldBar Inc员工不要闯入我们的建筑物并窃取我们的秘密。
 - en: We are going to make the distinction between
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们要区分以下
 - en: '**Atomic Events**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**原子事件**'
 - en: and
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及
 - en: '**Derived Events**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**派生事件**'
 - en: . A Derived Event is generated when something interesting is detected from the
     monitoring of one or more atomic events.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 。一个派生事件是在监视一个或多个原子事件时检测到有趣的事情时产生的。
 - en: An atomic event may be saved in our CEP engine, depending on the use case. A
     derived event will be definitely be saved by our CEP system. Since a derived event
     represents an “interesting” condition, we may want to do reporting and analysis
     on derived events. We may also want to do some sophisticated searching of our
     derived events. In my mind, the persisted atomic and derived events form our event
     cloud.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个原子事件可能根据用例存储在我们的CEP引擎中。一个派生事件将肯定由我们的CEP系统保存。由于派生事件代表了一个“有趣”的条件，我们可能想要对派生事件进行报告和分析。我们可能还想对派生事件进行一些复杂的搜索。在我心中，持久化的原子和派生事件形成了我们的事件云。
 - en: Two or more derived events can be combined to form a new derived event. A derived
     event can be combined with an atomic event to form a new derived event. Let me
     illustrate this.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 两个或更多的派生事件可以组合成一个新的事件。一个派生事件可以与一个原子事件结合成一个新的事件。让我来解释一下。
 - en: We have a lot of atomic events that come through our CEP system. Every person
     that passes through MegaBank’s doors generates a
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们通过CEP系统处理很多原子事件。每个穿过MegaBank大门的人都会产生一个
 - en: '**PersonEnteredBuilding**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**人员进入建筑物**'
 - en: atomic event. (This is analogous to a market data event.) We have a static database
     of all of MegaBank’s employees, and when the person in a
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 原子事件。（这相当于市场数据事件。）我们有MegaBank所有员工的静态数据库，当在
 - en: '**PersonEnteredBuilding**'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**人员进入建筑物**'
 - en: event does not match an entry in our employee database, the CEP system generates
     a
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件中的人不在我们的员工数据库中，CEP系统会产生一个
 - en: '**NonEmployeeEntered**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**非员工进入**'
 - en: derived event. This derived event will be persisted in our CEP engine.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 派生事件。这个派生事件将存储在我们的复杂事件处理引擎中。
 - en: We also have a derived
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还有其他派生
 - en: '**PersonLeftBuilding**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**人员离开建筑物**'
 - en: event generated whenever a person leaves the building. This event is generated
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件在有人离开建筑物时产生。这个事件是由以下产生的
 - en: (Let’s fantasize a bit, and assume we do a retina scan of everyone entering
     the building. Let’s stretch our imaginations a bit and say that we have a retina
     scan of all StanLehGoldBar Inc employees)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: （让我们幻想一下，假设我们对进入建筑物的人进行视网膜扫描。让我们发挥一点想象力，说我们有StanLehGoldBar Inc所有员工的视网膜扫描）
 - en: Let’s say that we do a join between a
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们在
 - en: '**NonEmployeeEntered**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**非员工进入**'
 - en: event and the static source of StanLehGoldBar employees. We can generate a
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件和StanLehGoldBar员工的静态来源之间进行连接。我们可以产生一个
 - en: '**CompetitorInBuilding**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**建筑物内有竞争对手**'
 - en: derived event. This derived event will be saved in the CEP engine too.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 派生事件。这个派生事件也将保存到CEP引擎中。
 - en: We monitor all doors to our building. Whenever someone goes through the doors
     of the Equities trading floor, we generate a
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们监控我们建筑的所有大门。无论何时有人穿过股票交易大厅的门，我们都会生成一个
 - en: '**TradingFloorEntered**'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**TradingFloorEntered**'
 - en: atomic event. If someone goes through the trading floor doors for the first
     time of the day after 6:00 PM, we might want to consider that action to be a suspicious
     activity, and we want to generate a
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 原子事件。如果有人在天下午6点后第一次穿过交易大厅的门，我们可能会认为这个行为是可疑活动，并且我们想要生成一个
 - en: '**PossibleIntruderOnTradingFloor**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**PossibleIntruderOnTradingFloor**'
 - en: derived event.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 派生事件。
 - en: Now, some smart security guard who is a user of our CEP system wants to create
     a new derived event. He wants to see if we have a competitor roaming around our
     Trading Floor at night. So, the security guard goes into our CEP GUI and creates
     a new, custom derived event called CompetitorOnTradingFloorAfterHours that gets
     generated 1) if we have a
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，一些聪明的安保人员是我们CEP系统的用户，他想创建一个新的派生事件。他想看看我们是否有竞争对手在夜间徘徊在我们的交易大厅。所以，安保人员进入我们的CEP
+    GUI，创建了一个新的、自定义的派生事件，称为CompetitorOnTradingFloorAfterHours，如果满足以下条件之一就会生成：
 - en: '**CompetitorInBuilding**'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '**CompetitorInBuilding**'
 - en: derived event 2) that does not have a “cancelling”
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 派生事件2）没有“取消”
 - en: '**PersonLeftBuilding**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '**PersonLeftBuilding**'
 - en: event, 3) combined with a
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件，3）与
 - en: '**PossibleIntruderOnTradingFloor**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**PossibleIntruderOnTradingFloor**'
 - en: event. The fact that various events are “floating” around our event cloud makes
     it possible to easily create new derived events on the fly.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 事件。各种事件“漂浮”在我们的事件云中，这使得轻松创建新的派生事件成为可能。
 - en: The security guard might also want to do a query of our event cloud to see if
     the competitor was “casing the joint” prior to the intrusion into the trading
     floor at night. The security guard might want to see how many times that particular
@@ -168,53 +257,77 @@
     times the competitor visited the trading floor during normal business hours. This
     sounds like the kind of query that you would do with a Data Warehouse, not a CEP
     engine.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 安保人员可能还想对我们的事件云进行查询，看看竞争对手在夜间入侵交易大厅之前是否“踩点”。安保人员可能想看看在过去一个月里那个特定的竞争对手访问MegaBank的次数。他可能还想看看竞争对手在正常营业时间内访问交易大厅的次数。这听起来像是你会用数据仓库而不是CEP引擎做的查询。
 - en: So, we need to be able to represent the event cloud in an efficient way in the
     CEP engine. We need to be able to create new derived events dynamically, while
     the CEP engine is running. We need to be able to do ad-hoc analysis of the event
     cloud to improve our situational awareness. We need to be able to create new and
     interesting visualizations that let the user peek into what is going on inside
     the cloud.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们需要在CEP引擎中以有效的方式表示事件云。我们需要能够在CEP引擎运行时动态地创建新的派生事件。我们需要能够对事件云进行即兴分析，以提高我们的情境意识。我们需要能够创建新的有趣的视觉化效果，让用户窥视云中的情况。
 - en: Interesting stuff, right?
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的东西，对吧？
 - en: 'Tim Bass gives a list of techniques that can be used to perform analysis of
     events. These techniques include:'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: Tim Bass列出了可以用于事件分析的技术列表。这些技术包括：
 - en: Rule-Based Inference
+  id: totrans-48
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 基于规则的推理
 - en: Bayesian Belief Networks (Bayes Nets)
+  id: totrans-49
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 贝叶斯信念网络（贝叶斯网络）
 - en: Dempster-Shafer’s Method
+  id: totrans-50
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Dempster-Shafer方法
 - en: Adaptive Neural Networks
+  id: totrans-51
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 适应性神经网络
 - en: Cluster Analysis
+  id: totrans-52
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 聚类分析
 - en: State-Vector Estimation
+  id: totrans-53
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 状态向量估计
 - en: I have to admit that I have not delved into these areas before. However, we
     just hired someone with a BioInformatics background who we hope could do this
     stuff in his sleep. Who would have thought that, working for MegaBank, I would
     be exposed to such interesting areas of study?
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 我必须承认，我之前并没有深入研究这些领域。然而，我们刚刚雇佣了一个有生物信息学背景的人，我们希望他能在睡梦中完成这些工作。谁会想到，在MegaBank工作，我会接触到如此有趣的研究领域呢？
 - en: ©2008 Marc Adler - All Rights Reserved
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有

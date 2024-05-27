@@ -1,32 +1,46 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:53:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:53:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Conditional Portfolio Optimization: Using machine learning
     to adapt capital allocations to market regimes'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：条件组合优化：使用机器学习根据市场环境调整资本分配
 - en: 来源：[http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01](http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01](http://epchan.blogspot.com/2022/10/conditional-portfolio-optimization.html#0001-01-01)
 - en: Previously on this blog, we wrote about a machine-learning-based parameter optimization
     technique we invented, called [Conditional Parameter Optimization](https://predictnow.ai/blog/conditional-parameter-optimization-adapting-parameters-to-changing-market-regimes/)
     (CPO). It appeared to work well on optimizing the operating parameters of trading
     strategies, but increasingly, we found that its greatest power lies in its potential
     to optimize portfolio allocations. We call this Conditional Portfolio Optimization
     (which fortuitously shares the same acronym).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇博客上，我们曾经写过一篇关于我们发明的基于机器学习的参数优化技术，称为[条件参数优化](https://predictnow.ai/blog/conditional-parameter-optimization-adapting-parameters-to-changing-market-regimes/)（CPO）。它在优化交易策略的操作参数方面似乎效果很好，但我们越来越多地发现，它最大的力量在于其优化组合分配的潜力。我们称这为条件组合优化（幸运的是，它也共享相同的缩写）。
 - en: Let’s recap what Conditional Parameter Optimization is. Traditionally, optimizing
     the parameters of any business process (such as a trading strategy) is a matter
     of finding out what parameters give an optimal outcome over past data. For example,
@@ -38,8 +52,10 @@
     that relates the parameters to the outcome is nonlinear, or if there are numerous
     constraints on the parameters. There are already standard methods to handle these
     difficulties.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们回顾一下条件参数优化是什么。传统上，优化任何业务过程（如交易策略）的参数是找出过去数据中哪些参数能带来最优结果的问题。例如，设置1%的止损给出了一个交易策略在过去10年回测中的最佳夏普比率。或者以每分钟1米的速度运行传送带导致了制造过程中缺陷率最低。当然，根据许多不同因素，数值优化过程可能会变得相当复杂。例如，如果参数数量很大，或者与结果相关的目标函数是非线性的，或者参数上有许多限制。已经有了一些处理这些困难的标准方法。
 - en: What concerns us at PredictNow.ai, is when the objective function is not only
     nonlinear, but also depends on external time varying and stochastic conditions.
     In the case of a trading strategy, the optimal stop loss may depend on the market
@@ -49,8 +65,10 @@
     results under a particular set of external conditions.Furthermore, even if you
     specify that exact set of conditions, the outcome is not deterministic. What better
     method than machine learning to solve this problem!
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们PredictNow.ai，关注的是当目标函数不仅非线性，还取决于外部时间变化和随机条件时。在交易策略的情况下，最优止损可能取决于市场环境，这可能定义不明确。在制造过程中，最优传送带速率可能取决于数十个传感器读数。这样的目标函数意味着在特定的一组外部条件传统优化方法通常不能给出最优结果。此外，即使你指定了那一组确切的条件，结果也是不确定的。解决这个问题的最好方法莫过于机器学习！
 - en: By using machine learning,  we can approximate this objective function using
     a neural network, by training its many nodes using historical data. (Recall that
     a neural network is able to [approximate almost any function](https://en.wikipedia.org/wiki/Universal_approximation_theorem),
@@ -69,8 +87,10 @@
     (i.e. target variables). Once trained, this neural network can then predict the
     future 1-month Sharpe ratio based on any hypothetical set of trading parameters
     and the current market features.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过使用机器学习，我们可以使用神经网络近似这个目标函数，通过使用历史数据训练其众多节点。（回想一下，神经网络能够[近似几乎任何函数](https://en.wikipedia.org/wiki/Universal_approximation_theorem)，但你也可以使用许多其他机器学习算法来代替神经网络完成这个任务）。这个神经网络的输入不仅包括我们最初打算优化的参数，还包括衡量外部条件的众多特征集合。例如，为了表示“市场体制”，我们可能包括市场波动性、不同市场部门的行为、宏观经济状况以及其他许多输入特征。为了帮助客户高效地运行他们的模型，Predictnow.ai提供了[数百个这样的市场特征](https://predictnow.ai/blog/new-additions-to-the-predictnow-ai-factor-zoo-2/)。这个神经网络的输出将是您想要优化的结果。例如，最大化交易策略的未来1个月夏普比率是一个典型的结果。在这种情况下，您将把历史训练样本输入到神经网络中，包括交易参数、市场特征以及交易策略的未来1个月夏普比率作为“标签”（即目标变量）。一旦训练完成，这个神经网络就可以预测任何假设的交易参数和当前市场特征的未来1个月夏普比率。
 - en: With this method, we “only need” to try different sets of hypothetical parameters
     to see which gives the best Sharpe ratio and adopt that set as the optimal. We
     put “only need” in quotes because of course if the number of parameters is large,
@@ -89,8 +109,11 @@
     till the end of the universe to finish. Overcoming this curse of dimensionality
     is one of the major breakthroughs the Predictnow.ai team has accomplished with
     Conditional Portfolio Optimization.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用这种方法，我们“只需要”尝试不同的假设参数集合，看看哪个给出最好的夏普比率，并采用这一组作为最优。我们之所以用引号标注“只需要”，是因为如果参数数量很大，尝试不同的参数组合可能需要非常长的时间来找到最优解。当应用为投资组合优化时，参数代表对投资组合不同组成部分的资本分配。这些组成部分可能是共同基金中的股票，或者是对冲基金中的交易策略。例如，对于持有标普500股票的投资组合，可能会有多达500个参数。在这种情况下，在训练过程中，我们预计要向神经网络输入这500个参数的所有可能组合，加上市场特征，找出由此产生的5天或20天回报率，或夏普比率，或我们想要最大化的任何绩效指标。所有可能的组合？如果我们表示分配给每只股票的资本权重为w
+    ∈ [0, 1]，假设我们不允许做空头，即使进行离散化，搜索空间也有w500=[0, 1]500组合，我们的计算机需要运行到宇宙尽头才能完成。克服这种维度诅咒是Predictnow.ai团队通过条件投资组合优化实现的主要突破之一。
 - en: 'To measure the value Conditional Portfolio Optimization adds, we need to compare
     it with alternative portfolio optimization methods. The default method is Equal
     Weights: applying equal capital allocations to all portfolio components. Another
@@ -115,167 +138,257 @@
     this does not maximize its past Sharpe ratio, it often results in portfolios that
     achieve better forward Sharpe ratios than the tangency portfolio! Another case
     of “Past Performance is Not Indicative of Future Results”.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了衡量条件组合优化增加的价值，我们需要将其与替代组合优化方法进行比较。默认的方法是等权重：对所有组合成分应用相等的资本分配。另一种简单的方法是风险平价方法，其中每个成分的资本分配与其回报波动性的倒数成比例。它被称为风险平价，因为每个成分都应贡献相等的波动性，或风险，给整体组合的风险。这假设成分回报之间的相关系数为零，这当然是不现实的。然后有马科维茨方法，也称为均值-方差优化。这个众所周知的方法，使哈里·马科维茨获得了诺贝尔奖，基于成分回报的历史均值和协方差来最大化组合的夏普比率。具有最大历史夏普比率的优化组合也称为切点组合。我曾在之前的[博客文章](http://epchan.blogspot.com/2014/08/kelly-vs-markowitz-portfolio.html)中写过关于这个方法。它当然没有考虑到市场体制或任何市场特征。它也公然违反了熟悉的说法，“过去的表现不代表未来的结果”，并且众所周知会产生各种不幸的不稳定性（参见[这里](https://www.amazon.com/dp/0199959323/ref=as_sl_pc_tf_til?tag=quantitativet-20&linkCode=w00&linkId=&creativeASIN=0199959323)或[这里](https://amzn.to/3r7y2FA)）。尽管如此，它是最多的资产管理者使用的标准组合优化方法。最后，还有最小方差组合，它使用马科维茨的方法不是为了最大化夏普比率，而是为了最小化组合的方差（以及因此波动性）。即使这并没有最大化其过去的夏普比率，它常常导致实现比切点组合更好的前向夏普比率的组合！“过去的表现不代表未来的结果”的另一个案例。
 - en: Let’s see how our Conditional Portfolio Optimization method stacks up against
     these conventional methods.  For an unconstrained optimization of the S&P 500
     portfolio, allowing for short positions and aiming to maximize its 7-day forward
     Sharpe ratio,
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们看看我们的条件组合优化方法与这些传统方法相比如何。对于S&P 500组合的无约束优化，允许做空并旨在最大化其7天前向夏普比率，
 - en: '| Method | Sharpe Ratio |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| 方法 | 夏普比率 |'
 - en: '| Markowitz | 0.31 |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 0.31 |'
 - en: '| CPO | 0.96 |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 0.96 |'
 - en: (These results are over an out-of-sample period from July 2011 to June 2021,
     and the universe of stocks for the portfolio are those that have been present
     in the SP 500 index for at least 1 trailing month. The Sharpe Ratio we report
     in this and the following tables are all annualized). CPO improves the Sharpe
     ratio over the Markowitz method by a factor of 3.1.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: （这些结果是从2011年7月至2021年6月的样本外期间，组合的股票范围是那些至少在过去一个月内存在于SP 500指数中的股票。我们在本表及以下表格中报告的夏普比率都是年化的）。CPO将夏普比率相对于马科维茨方法提高了3.1倍。
 - en: 'Then we test our CPO performs for an ETF (TSX: MESH) given the constraints
     that we cannot short any stock, and the weight w of each stock obeys w ∈ [0.5%,
     10%],'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '然后我们测试在给定我们不能做空任何股票的约束条件下，我们的CPO对于ETF（TSX: MESH）的表现，每个股票的权重w遵守w ∈ [0.5%, 10%]，'
 - en: '| Period | Method | Sharpe Ratio | CAGR |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| 期间 | 方法 | 夏普比率 | 年化复合增长率 |'
 - en: '| 2017-01 to 2021-07 | Equal Weights | 1.53 | 43.1% |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| 2017-01至2021-07 | 等权重 | 1.53 | 43.1% |'
 - en: '| Risk Parity | 1.52 | 39.9% |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| 风险平价 | 1.52 | 39.9% |'
 - en: '| Markowitz | 1.64 | 47.2% |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 1.64 | 47.2% |'
 - en: '| Minimum Variance | 1.56 | 38.3% |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| 最小方差 | 1.56 | 38.3% |'
 - en: '| CPO | 1.62 | 43.6% |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 1.62 | 43.6% |'
 - en: '| 2021-08 to 2022-07 | Equal Weights | -0.76 | -30.6% |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: 2021-08至2022-07期间，| 等权重 | -0.76 | -30.6% |
 - en: '| Risk Parity | -0.64 | -22.2% |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '| 风险平价 | -0.64 | -22.2% |'
 - en: '| Markowitz | -0.94 | -30.8% |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | -0.94 | -30.8% |'
 - en: '| Minimum Variance | -0.47 | -14.5% |'
+  id: totrans-27
   prefs: []
   type: TYPE_TB
+  zh: '| 最小方差 | -0.47 | -14.5% |'
 - en: '| CPO | -0.33 | -13.7% |'
+  id: totrans-28
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | -0.33 | -13.7% |'
 - en: CPO performed similarly to the Markowitz method in the bull market, but remarkably,
     it was able to switch to defensive positions and has beaten the Markowitz method
     in the bear market of 2022\. It improves the Sharpe ratio over the Markowitz portfolio
     by more than 60% in that bear market. That is the whole rationale of Conditional
     Portfolio Optimization - it adapts to the expected future external conditions
     (market regimes), instead of blindly optimizing on what happened in the past.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: CPO在牛市中表现与马科维茨方法相似，但在2022年的熊市中，它能够转为防御性位置，并且超越了马科维茨方法。在那次熊市中，它将夏普比率相对于马科维茨组合提高了60%以上。这就是条件组合优化的全部理念——它适应预期的未来外部条件（市场体制），而不是盲目地优化过去发生的事情。
 - en: Next, we tested the CPO methodology on a private investor’s tech portfolio,
     consisting of 7 US and 2 Canadian stocks, mostly in the tech sector. The constraints
     are that we cannot short any stock, and the weight w of each stock obeys w ∈ [0%,
     25%],
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们将CPO方法应用于一位私人投资者的科技组合，该组合包括7只美国股票和2只加拿大股票，主要集中在科技领域。约束条件是我们不能做空任何股票，每只股票的权重w遵守
+    w ∈ [0%, 25%]，
 - en: '| Period | Method | Sharpe Ratio | CAGR |'
+  id: totrans-31
   prefs: []
   type: TYPE_TB
+  zh: '| 期间 | 方法 | 夏普比率 | 年化复合增长率 |'
 - en: '| 2017-01 to 2021-07 | Equal Weights | 1.36 | 31.1% |'
+  id: totrans-32
   prefs: []
   type: TYPE_TB
+  zh: 2017-01至2021-07期间，| 等权重 | 1.36 | 31.1% |
 - en: '| Risk Parity | 1.33 | 24.2% |'
+  id: totrans-33
   prefs: []
   type: TYPE_TB
+  zh: '| 风险平价 | 1.33 | 24.2% |'
 - en: '| Markowitz | 1.06 | 23.3% |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 1.06 | 23.3% |'
 - en: '| Minimum Variance | 1.10 | 19.3% |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: '| 最小方差 | 1.10 | 19.3% |'
 - en: '| CPO | 1.63 | 27.1% |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 1.63 | 27.1% |'
 - en: '| 2021-08 to 2022-07 | Equal Weights | 0.39 | 6.36% |'
+  id: totrans-37
   prefs: []
   type: TYPE_TB
+  zh: 2021-08至2022-07期间，| 等权重 | 0.39 | 6.36% |
 - en: '| Risk Parity | 0.49 | 7.51% |'
+  id: totrans-38
   prefs: []
   type: TYPE_TB
+  zh: '| 风险平价 | 0.49 | 7.51% |'
 - en: '| Markowitz | 0.40 | 6.37% |'
+  id: totrans-39
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 0.40 | 6.37% |'
 - en: '| Minimum Variance | 0.23 | 2.38% |'
+  id: totrans-40
   prefs: []
   type: TYPE_TB
+  zh: '| 最小方差 | 0.23 | 2.38% |'
 - en: '| CPO | 0.70 | 11.0% |'
+  id: totrans-41
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 0.70 | 11.0% |'
 - en: CPO performed better than both alternative methods under all market conditions.
     In particular, it improves the Sharpe ratio over the Markowitz portfolio by 75%
     in the bear market.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: CPO在所有市场条件下表现都优于其他两种方法。特别是，在熊市中，它将马科维茨组合的夏普比率提高了75%。
 - en: We also tested how CPO performs for some unconventional assets - a portfolio
     of 8 crypto currencies, again allowing for short positions and aiming to maximize
     its 7-day forward Sharpe ratio,
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还测试了CPO在不寻常资产上的表现——一个由8种加密货币组成的组合，同样允许空头头寸，并旨在最大化其7天的前向夏普比率，
 - en: '| Method | Sharpe Ratio |'
+  id: totrans-44
   prefs: []
   type: TYPE_TB
+  zh: '| 方法 | 夏普比率 |'
 - en: '| Markowitz | 0.26 |'
+  id: totrans-45
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 0.26 |'
 - en: '| CPO | 1.00 |'
+  id: totrans-46
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 1.00 |'
 - en: (These results are over an out-of-sample period from January 2020 to June 2021,
     and the universe of cryptocurries for the portfolio are BTCUSDT, ETHUSDT, XRPUSDT,
     ADAUSDT, EOSUSDT, LTCUSDT, ETCUSDT, XLMUSDT). CPO improves the Sharpe ratio over
     the Markowitz method by a factor of 3.8.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: (这些结果是一个从2020年1月到2021年6月的样本外期间，组合的加密货币宇宙包括BTCUSDT、ETHUSDT、XRPUSDT、ADAUSDT、EOSUSDT、LTCUSDT、ETCUSDT、XLMUSDT)。CPO将夏普比率相对于马科维茨方法提高了3.8倍。
 - en: Finally, to show that CPO doesn’t just work on portfolios of assets, we apply
     it to a portfolio of FX trading strategies traded live by a proprietary trading
     firm WSG. It is a portfolio of 7 trading strategies, and the allocation constraints
     are w ∈ [0%, 40%],
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，为了表明CPO不仅仅适用于资产组合，我们将它应用于一家 proprietary trading firm WSG 实盘交易的7种外汇交易策略组合。这是一个由7种交易策略组成的组合，分配约束为
+    w ∈ [0%, 40%]，
 - en: '| Method | Sharpe Ratio |'
+  id: totrans-49
   prefs: []
   type: TYPE_TB
+  zh: '| 方法 | 夏普比率 |'
 - en: '| Equal Weights | 1.44 |'
+  id: totrans-50
   prefs: []
   type: TYPE_TB
+  zh: '| 等权重 | 1.44 |'
 - en: '| Markowitz | 2.22 |'
+  id: totrans-51
   prefs: []
   type: TYPE_TB
+  zh: '| 马科维茨 | 2.22 |'
 - en: '| CPO | 2.65 |'
+  id: totrans-52
   prefs: []
   type: TYPE_TB
+  zh: '| CPO | 2.65 |'
 - en: (These results are over an out-of-sample period from January 2020 to July 2022).
     CPO improves the Sharpe ratio over the Markowitz method by 19%.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: (这些结果是一个从2020年1月到2022年7月的样本外期间。CPO将夏普比率相对于马科维茨方法提高了19%)。
 - en: In all 5 cases, CPO was able to outperform the naive Equal Weights portfolio
     and the Markowitz portfolio during a downturn in the market, while generating
     similar performance during the bull market.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 在所有5种情况下，CPO能够在市场下跌时超越简单的等权重组合和马科维茨组合，而在牛市时则表现出相似的性能。
 - en: For clients of our CPO technology, we can add specific constraints to the desired
     optimal portfolio, such as average ESG rating, maximum exposure to various sectors,
     or maximum turnover during portfolio rebalancing. The only input we require from
@@ -287,13 +400,19 @@
     Clients’ features can remain anonymized. We will be providing an API for clients
     who wish to experiment with various constraints and their effects on the optimal
     portfolio.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于使用我们CPO技术的客户，我们可以向期望的最优组合中添加特定的限制条件，例如平均ESG评级、对各个行业的最大暴露度，或在组合再平衡过程中的最大周转率。我们唯一需要他们提供的输入是组合成分的历史回报（除非这些成分是公开交易的资产，在这种情况下，客户只需告诉我们它们的交易代码）。Predictnow.ai将提供预先配置的市场特征，以捕捉市场体制信息。如果客户有专有的市场特征，这些特征可能有助于预测他们的组合回报，他们也可以将其与我们的特征合并。客户的特征可以保持匿名。我们将为希望尝试不同限制及其对最优组合影响的客户提供一个API。
 - en: If you’d like to learn more, please join us for our Conditional Portfolio Optimization
     webinar on Thursday, October 22, 2022, at 12:00 pm New York time. Please register
     [here](https://www.predictnow.ai/webinar/).
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您想了解更多内容，请参加我们于2022年10月22日星期四中午12:00（纽约时间）举办的条件组合优化网络研讨会。请在此[注册](https://www.predictnow.ai/webinar/)。
 - en: In the meantime, if you have any questions, please email us at info@predictnow.ai.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 同时，如果您有任何问题，请通过邮箱info@predictnow.ai与我们联系。

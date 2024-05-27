@@ -1,44 +1,68 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:21:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:21:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Event Manager Code - EventSubscriberAttribute.cs'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 磁码系统博客：事件管理器代码 - EventSubscriberAttribute.cs
 - en: 来源：[http://magmasystems.blogspot.com/2006/04/event-manager-code-eventsubscriberattr.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/event-manager-code-eventsubscriberattr.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/04/event-manager-code-eventsubscriberattr.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/event-manager-code-eventsubscriberattr.html#0001-01-01)
 - en: The EventSubscriberAttribute is used to decorate a C# function that is the recipient
     of a subscribed event from our event manager. The topic name can be a wildcard
     string, just like Tibco. For instance, to subscribe to all actions that happen
     to a trade, you can subscribe to topic "TradingSystem.Trade.*".
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: EventSubscriberAttribute用于装饰C#函数，该函数是我们事件管理器订阅的事件的接收者。主题名称可以是通配符字符串，就像Tibco一样。例如，要订阅所有关于交易发生的事件，你可以订阅主题"TradingSystem.Trade.*"。
 - en: Notice that the attribute is declared with AllowMultiple=true. This lets a function
     have multiple subscription declarations.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，该属性已声明 AllowMultiple=true。这使得一个函数可以有多个订阅声明。
 - en: The final thing to notice is the IsBackground flag. If a subscriber is declared
     with IsBackground=true, then the event will be dispatched to the subscriber on
     a worker thread (internally, Begin/EndInvoke is used).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要注意的最后一点是IsBackground标志。如果一个订阅者声明为IsBackground=true，那么事件将被调度到一个工作线程（内部使用Begin/EndInvoke）。
 - en: 'Here is the code:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是代码：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

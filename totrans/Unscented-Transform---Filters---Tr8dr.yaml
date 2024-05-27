@@ -1,146 +1,211 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: -->yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:29:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:29:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Unscented Transform & Filters | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 无迹变换与滤波器 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/07/28/unscented-transform-filters/#0001-01-01](https://tr8dr.wordpress.com/2011/07/28/unscented-transform-filters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/07/28/unscented-transform-filters/#0001-01-01](https://tr8dr.wordpress.com/2011/07/28/unscented-transform-filters/#0001-01-01)
 - en: 'The unscented transform (and filter) was developed as a practical alternative
     to MC sampling in estimating the conditional distribution functions of hidden
     state systems.   We want to determine the hidden state (Xt)  given observations
     (Yt):'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 无迹变换（滤波器）是为估计隐藏状态系统的条件分布函数而开发的实用替代蒙特卡洛采样。我们希望确定给定观察值（Yt）的隐藏状态（Xt）：
 - en: '[![](img/5954bc3cfdce9a31084bbf2eae47c98c.png "Screen shot 2011-07-27 at 7.01.57
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-01-57-pm.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5954bc3cfdce9a31084bbf2eae47c98c.png "Screen shot 2011-07-27 at 7.01.57
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-01-57-pm.png)'
 - en: 'The  Sequential MC approach to determining this distribution p(Xt | Y1:t) is
     calculated as folows:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 确定此分布p(Xt | Y1:t)的顺序MC方法如下：
 - en: '[![](img/daed599816f635c111fc876255d2af67.png "Screen shot 2011-07-28 at 9.43.31
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-9-43-31-am.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/daed599816f635c111fc876255d2af67.png "Screen shot 2011-07-28 at 9.43.31
+    AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-9-43-31-am.png)'
 - en: This works for us, since we know the observations y[1:t] and we should have
     a view on the likelihood of state X given Y by projecting samples of X into Y
     via function g(.).   There are various approaches to determining the likelihood
     and reducing the number of particles (samples) required to arrive at a robust
     integration (such as SIR).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这对我们来说行之有效，因为我们知道观察值y[1:t]，并且应该对给定Y的状态X的似然性有一个看法，通过函数g(.)将X的样本投影到Y上。确定似然性和减少所需的粒子（样本）数量，以得到健壮的积分（如SIR）有各种方法。
 - en: 'The basic MC particle sampling algorithm is as follows:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 基本蒙特卡洛粒子采样算法如下：
 - en: generate N samples of X[t],i from f (X[t-1] + noise), transformed from X[t-1]
     to X[t] via that f(.) function
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 从f(X[t-1] + 噪声)生成N个X[t]的样本，通过该f(.)函数从X[t-1]变换到X[t]
 - en: determine “particles” as p(Yt | X'[t],i) / normalizing constant, where p(Yt|Xt)
     can be determined by applying function g(x) and determining likelihood of computed
     Yt given Xt.
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定“粒子”为p(Yt | X'[t],i) / 归一化常数，其中p(Yt|Xt)可以通过应用函数g(x)并确定计算出的Yt给定Xt的似然性来确定。
 - en: some resampling and kernel weighted selection may occur, depending on algorithm
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 根据算法，可能会进行一些重采样和核加权选择。
 - en: Mean is then the probability weighted average of the Xt’s (as indicated in the
     above integral)
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 均值是Xt’s的概率加权平均值（如上积分所示）
 - en: I’ve implemented and used a number of variations of these in the past.   MC
     approaches are unavoidable for complex distributions (for instance ones that are
     multi-modal).   That said particle filters can be orders of magnitude slower than
     the Kalman family of filters.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我过去实现并使用过这些的许多变体。对于复杂分布（例如多模态分布），蒙特卡洛方法是不可避免的。话说回来，粒子滤波器的速度可能比卡尔曼滤波器家族慢几个数量级。
 - en: '**Unscented Transform** Enter the unscented transform.   Much as with the SMC
     approach, the unscented transform uses sampling to determine the mean and higher-order
     moments of the distribution: p(x[t] | y[1:t]).   Instead of generating numerous
     random samples, the unscented approach is to take samples at specific points around
     the current mean.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**无迹变换** 于是，无迹变换应运而生。与SMC方法类似，无迹变换通过采样来确定分布的均值和高阶矩：p(x[t] | y[1:t])。而不是生成大量随机样本，无迹方法是围绕当前均值取特定点的样本。'
 - en: The unscented approach also avoids approximating the non-linearity of  system
     functions, instead looks to determine the simpler problem of approximating the
     distribution.  2^d + 1 sample (or sigma) points are determined around the mean
     and transformed through the non-linear functions to arrive at a view of the distribution
     of the state vector.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 无迹方法还避免了系统函数的非线性的近似，而是寻求确定更简单的问题：近似分布。围绕均值确定2^d + 1个样本（或sigma）点并通过非线性函数变换，以得到状态向量的分布视图。
 - en: '[![](img/24c89657c1ea40f87d27802edf799d31.png "orthogonal projections")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/orthogonal-projections.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/24c89657c1ea40f87d27802edf799d31.png "正交投影")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/orthogonal-projections.png)'
 - en: 'As illustrated in Julier and Uhlmann’s 1997 seminal paper:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如Julier和Uhlmann 1997年的开创性论文所示：
 - en: '[![](img/d01f84773adaa410e6ad954b0db7cd16.png "Screen shot 2011-07-28 at 2.06.56
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-2-06-56-pm.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照2011-07-28下午2.06.56](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-2-06-56-pm.png)'
 - en: 'The sigma points determined around the mean (Si and with associated weights
     Wi), are transformed through the non-linear system function allowing us to determine
     the moments of the distribution p(μ, P), with mean μ and covariance P (higher
     order moments can be computed as well):'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 围绕均值确定的sigma点（Si及其相关的权重Wi），通过非线性系统函数进行转换，使我们能够确定分布p(μ, P)的矩，其中μ是均值，P是协方差（更高阶的矩也可以计算）：
 - en: '[![](img/9e7c7a951a48d1088f2b68697449f6b8.png "Screen shot 2011-07-28 at 2.26.28
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-2-26-28-pm.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照2011-07-28下午2.26.28](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-2-26-28-pm.png)'
 - en: It then becomes a question of how to select these sigma points Si around the
     mean Xt.   We know that we want to choose Si = Xt + Ei, where each vector Ei provides
     an appropriate spread in a given dimension, along the orientation of the distribution.
      If these points are well chosen, will provide enough information to reconstruct
     moments of the distribution.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，问题变成了如何选择这些围绕均值Xt的sigma点Si。我们知道我们想要选择Si = Xt + Ei，其中每个向量Ei在给定维度上提供了适当的扩散，沿着分布的方向。如果这些点选择得当，将提供足够的信息来重构分布的矩。
 - en: 'Under the assumption that Xt (pre-transform) is elliptically distributed, it
     turns out that the column vectors of the Cholesky decomposition of the covariance
     matrix specify vectors co-linear with the axes of the distribution.   These are
     determined and scaled as follows:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在假设Xt（预转换）是椭圆分布的情况下，结果表明协方差矩阵的奇异值分解的列向量指定与分布轴共线的向量。这些向量如下确定并缩放：
 - en: '[![](img/b8ff3e17e90c7ae7a5e0ab2811972850.png "Screen shot 2011-07-28 at 3.40.45
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-3-40-45-pm.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照2011-07-28下午3.40.45](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-28-at-3-40-45-pm.png)'
 - en: For more detail read the following [paper](http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBUQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.46.8107%26rep%3Drep1%26type%3Dpdf&ei=Xq8xTo3UNcKcgQe6quH5DA&usg=AFQjCNHo8y-X15XiCLoWuN3dkgrxCE55Tg&sig2=IpOnVHReCpwtSWEEUmqI2g
     "A Consisten, Debiased Method for Converting Bteween Polar and Cartesian Coordinates").
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 有关更多详细信息，请阅读以下[论文](http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBUQFjAA&url=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.46.8107%26rep%3Drep1%26type%3Dpdf&ei=Xq8xTo3UNcKcgQe6quH5DA&usg=AFQjCNHo8y-X15XiCLoWuN3dkgrxCE55Tg&sig2=IpOnVHReCpwtSWEEUmqI2g
+    "一种一致性、去偏差的极坐标与笛卡尔坐标转换方法").
 - en: '**Why the UKF**?'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**为什么选择UKF**？'
 - en: The typical implementation of the EKF uses a linear (and sometimes quadratic)
     approximation in the update of the distributions.  This can fail spectacularly
     (or just present significant error) unless your system is well behaved through
     1st order dynamics.   The UKF approach also does not require calculation of Jacobian
     or Hessian matrices, which for some problems may be extremely difficult or impossible
     to provide.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 典型的EKF实现使用在分布更新中对线性（有时是二次）近似的扩散。除非你的系统在1阶动力学方面表现良好，否则这可能会失败得非常壮观（或者只是表现出显著的误差）。UKF方法也不需要计算雅可比或海森矩阵，对于某些问题这可能非常困难或不可能提供。
 - en: '**Next Step** I am particularly interested in the forward-backward UTF with
     smoothing.   I have found that smoothing on the priors (not just the immediate
     t-1) provides a better forecast for the current and next periods.   Will write
     more about this next.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**下一步**我特别感兴趣的是带有平滑的前向-后向UTF。我发现对先验（不仅仅是立即的t-1）进行平滑可以提供更佳的当前和下一期的预报。接下来我将写更多有关这一点的内容。'

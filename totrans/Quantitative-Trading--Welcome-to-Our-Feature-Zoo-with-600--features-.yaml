@@ -1,36 +1,52 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:54:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:54:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Welcome to Our Feature Zoo with 600+ features!'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：欢迎来到我们的特征动物园，拥有600+个特征！
 - en: 来源：[http://epchan.blogspot.com/2021/09/welcome-to-our-feature-zoo-with-600.html#0001-01-01](http://epchan.blogspot.com/2021/09/welcome-to-our-feature-zoo-with-600.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2021/09/welcome-to-our-feature-zoo-with-600.html#0001-01-01](http://epchan.blogspot.com/2021/09/welcome-to-our-feature-zoo-with-600.html#0001-01-01)
 - en: This has been a summer of feature engineering for PredictNow.ai. First, we launched
     the US stock [cross-sectional](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)
     features and the [time-series](https://www.predictnow.ai/blog/metalabeling-and-the-duality-between-cross-sectional-and-time-series-factors/)
     market-wide features. Now we have launched the features based on options activities,
     ETFs, futures, and macroeconomic indicators. In total, we are now offering 616
     ready-made features to our subscribers.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 对PredictNow.ai来说，这是一个特征工程之夏。首先，我们推出了美国股票[横截面](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)特征和[时间序列](https://www.predictnow.ai/blog/metalabeling-and-the-duality-between-cross-sectional-and-time-series-factors/)市场特征。现在，我们推出了基于期权活动、ETF、期货和宏观经济指标的特征。总计，我们现在向我们的订阅者提供616个现成的特征。
 - en: There is a lot to read here. If you would rather join our October 1, 12pm EST
     webinar where Ernie and I will discuss these factors / features and answer your
     questions, please sign up [here](https://py.predictnow.ai/register_workshop).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有很多内容需要阅读。如果你更愿意参加我们美国东部时间10月1日12点的网络研讨会，届时我和Ernie将讨论这些因素/特性并回答你的问题，请在此[注册](https://py.predictnow.ai/register_workshop)。
 - en: 'NOPE - [Net options pricing effect](https://www.scribd.com/document/487296659/Investigating-Delta-Gamma-Hedging-Impact-on-SPY-Returns-2007-2020)
     - is a normalized measure of the net delta imbalance between the put and call
     options of a traded instrument across its entire option chain, calculated at the
@@ -43,8 +59,13 @@
     the instrument we applied it to was SPY ETF options. The SPX index options were’t
     used because the daily traded volume of the underlying SPX index “stock” was irrational.
     It was calculated as the traded volume of the constituents of the index.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '否定 - [净期权定价效应](https://www.scribd.com/document/487296659/Investigating-Delta-Gamma-Hedging-Impact-on-SPY-Returns-2007-2020)
+    - 是交易工具整个期权链中看涨期权和看跌期权的净delta不平衡的正常化度量，在市场关闭时计算所有到期日的合同的。这个指标是由Lily Francus（Twitter:
+    @nope_its_lily）发明的，与基础工具的总交易量标准化。不平衡估计了市场制造商为保持其头寸delta中性所需的delta对冲量。这种对冲导致基础工具的价格变动，NOPE应该理想地捕捉到这些变动。这些数据来源于[Delta
+    Neutral](http://www.deltaneutral.com/)。我们应用它的工具是SPY ETF期权。没有使用SPX指数期权，因为基础SPX指数“股票”的每日交易量是不合理的。它是计算指数成分股的交易量。'
 - en: Canary - is an indicator that acts similar to a  canary in a coal mine, which
     will raise an alarm when there’s an impending danger. This indicator comes from
     the dual momentum strategies of [Vigilant](https://seekingalpha.com/article/4087925-breadth-momentum-and-vigilant-asset-allocation)
@@ -61,8 +82,11 @@
     to cash. For example, a “2” would imply 100% cash or cash equivalents, while a
     “0” would imply 100% allocation to the global risky assets. Alternatively, a value
     of “1” would imply 50% allocation to global risky assets and 50% to cash.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 金丝雀 - 这是一个类似于煤矿中的金丝雀的指标，当有潜在危险时会发出警报。这个指标来自于[Vigilant](https://seekingalpha.com/article/4087925-breadth-momentum-and-vigilant-asset-allocation)和[防御性资产配置](https://indexswingtrader.blogspot.com/2018/07/announcing-defensive-asset-allocation.html)的双动量策略。金丝雀值可以是0、1或2。这是两个债券或股票ETF的绝对动量的每日测量值
+    - 1) BND - 先锋总体债券市场ETF 2) VMO - 先锋新兴市场股票指数基金ETF。动量使用13612W方法计算，我们在最后1个月、3个月、6个月和1年的债券/股票ETF回报的百分比变化上取比例加权平均值。在论文中，金丝雀投资组合的“0”,”1”或“2”的值代表金丝雀的多少百分比是看涨的。这表明资产组合中有多少比例分配给全球风险资产（股票、债券和商品ETF）以及有多少比例分配给现金。例如，“2”意味着100%的现金或现金等价物，而“0”意味着100%分配给全球风险资产。或者，值为“1”意味着全球风险资产分配50%，现金分配50%。
 - en: Carry - “[Carry](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2298565)”, 
     defined a carry feature as, “the return on a futures position when the price stays
     constant over the holding period”. (It is also called “roll yield” or “convenience
@@ -70,22 +94,31 @@
     expected dividend and daily close prices; 2) SPX futures - calculated from price
     of front month SPX futures contract and spot price of the index; and3) Currency
     -  calculated from the two nearest months futures data.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 持仓回报 - “持仓回报”（[Carry](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2298565)），定义为“期货持仓在持有期间价格保持恒定时所获得的回报”。（它也被称为“滚动收益率”或“便利收益率”）我们计算持仓回报的1)全球股市
+    - 计算为预期股息与每日收盘价格的比率；2) SPX期货 - 计算前端月份SPX期货合约的价格和指数的即期价格；以及3) 货币 - 计算最近两个月期货数据。
 - en: 'Macro factors - macro factors are derived from global macroeconomic data, from
     the US and 12 other major economies. These are sourced from either Factset or
     FRED. The factors being offered are:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 宏观因素 - 宏观因素源自全球宏观经济数据，包括美国和其他12个主要经济体。这些数据来源于Factset或FRED。提供的因素包括：
 - en: 1) US Market index adjusted by inflation, money supply - mainly calculated for
     the US - SP500 adjusted for CPI, PCE, M1 and M2 - tells us if the market index
     is “inflated” or bubbled up by increased money supply or increasing prices. All
     these features are daily percentage changes, to make them stationary.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 经通胀调整的美国市场指数 - 主要是针对美国的计算 - SP500经CPI、PCE、M1和M2调整 - 告诉我们市场指数是否因货币供应增加或价格上涨而“膨胀”或泡沫化。所有这些特征都是每日百分比变化，使它们保持稳定。
 - en: 2) Principal components of continuous maturity bond data
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 连续到期债券数据的主成分
 - en: Pricing factors can be extracted as the principal components of the cross-section
     of treasury yields i.e. these factors are linear combinations of the treasury
     yields. The first three PCs have been prime candidates in this regard as they
@@ -93,236 +126,350 @@
     and, due to their loadings, may be interpreted as the level, slope and curvature
     factor. More can be explored in the paper, [Equity tail risk in the treasury bond
     market](https://www.sipotra.it/wp-content/uploads/2021/01/Equity-tail-risk-in-the-treasury-bond-market.pdf).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 定价因素可以提取为国债收益率横截面的主成分，即这些因素是国债收益率的线性组合。前三个主成分一直是主要候选者，因为它们通常解释了债券收益率期限结构中超过99%的变异性，而且由于它们的载荷，可以解释为水平、斜率和曲率因子。更多关于这方面的内容可以在论文[Equity
+    tail risk in the treasury bond market](https://www.sipotra.it/wp-content/uploads/2021/01/Equity-tail-risk-in-the-treasury-bond-market.pdf)中探索。
 - en: 3) Common sovereign ratios (calculated month-on-month and year-on-year)-
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 共同主权比率（按月计算和按年计算）-
 - en: Sovereign Debt normalised with GDP
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 主权债务与GDP的正常化
 - en: Foreign Exchange normalised with GDP,
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 外汇与GDP的正常化
 - en: Government spending normalised to GDP
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 政府支出与GDP的正常化
 - en: Current account balance to normalised GDP
+  id: totrans-19
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经常账户余额与正常化GDP之比
 - en: Government Budget balance normalised by GDP
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 政府预算余额与GDP的正常化
 - en: Labour force as a percentage of population
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 劳动力队伍作为人口百分比
 - en: 4) Fixed income term premia - the risk or the term premium is the premium or
     compensation the bond holder gets to account for the possibility of short-term
     interest rates to deviate from the expected path. This is sourced from the FRED.
     The methodology for the term structure model used to calculate term premia is
     covered in the paper, [Three-Factor Nominal Term Structure Model](https://www.federalreserve.gov/data/three-factor-nominal-term-structure-model.htm).
     All the term premia features are daily percentage changes, to make them stationary.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 固定收益期限溢价 - 风险或期限溢价是债券持有人为可能性短期利率偏离预期路径所得到的溢价或补偿。这来源于FRED。计算期限溢价的期限结构模型的方法在论文[Three-Factor
+    Nominal Term Structure Model](https://www.federalreserve.gov/data/three-factor-nominal-term-structure-model.htm)中涵盖。所有的期限溢价特征都是每日百分比变化，使它们变得平稳。
 - en: '5) Features that are calculated as month-on-month and year-on-year percentage
     changes:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 按月和按年百分比变化的特征：
 - en: Current Account Balance - the percentage change in a country’s international
     transactions with other countries.
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经常账户余额 - 一个国家与其他国家的国际交易的百分比变化。
 - en: Exports - the percentage change in a country’s exports to other countries.
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 出口 - 一个国家向其他国家出口的百分比变化。
 - en: Industrial production - the percentage change in a country’s output by industrial
     sector.
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 工业生产 - 一个国家工业部门产出的百分比变化。
 - en: Imports - the percentage change in a country’s imports from other countries.
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 进口 - 一个国家从其他国家进口的百分比变化。
 - en: Money supply - the percentage change in a country’s M2 money supply.
+  id: totrans-28
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 货币供应 - 一个国家M2货币供应的百分比变化。
 - en: Retail Sales Index- the percentage change in a country’s demand for durable
     and non-durable goods.
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 零售销售指数 - 一个国家耐用和非耐用商品需求的百分比变化。
 - en: Employment -  the percentage change in a country’s employment numbers.
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 就业 - 一个国家就业人数的百分比变化。
 - en: Housing Starts - the percentage change in a country’s new residential construction
     projects.
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 房屋开工 - 一个国家新住宅建设项目的百分比变化。
 - en: Trade balance - the percentage change in a country’s net sum of imports and
     exports.
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 贸易平衡 - 一个国家进口和出口净额的百分比变化。
 - en: Unemployment rate - the percentage change in a country’s percentage of labour
     that is jobless.
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 失业率 - 一个国家失业劳动力百分比的百分比变化。
 - en: Labour force - the percentage change in a country’s active labour force.
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 劳动力队伍 - 一个国家活跃劳动力队伍的百分比变化。
 - en: Foreign Exchange Reserves - the percentage change in a country’s forex reserves.
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 外汇储备 - 一个国家外汇储备的百分比变化。
 - en: Consumer Price Index - the percentage change in a country’s CPI inflation measure.
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 消费者价格指数 - 一个国家CPI通胀测量的百分比变化。
 - en: Wholesale Price Index - the percentage change in a country’s WPI inflation measure.
+  id: totrans-37
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 批发价格指数 - 一个国家WPI通胀测量的百分比变化。
 - en: '6) Features that are calculated as quarter-on-quarter change:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 按季度变化的特征：
 - en: Government Spending - the percentage change in a country’s government spending.
+  id: totrans-39
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 政府支出 - 一个国家政府支出的百分比变化。
 - en: Fixed Investment - the percentage change in a country’s assets.
+  id: totrans-40
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 固定资产投资 - 一个国家资产的百分比变化。
 - en: Personal Consumption Expenditure - the percentage change in a country’s household
     expenditures.
+  id: totrans-41
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 个人消费支出 - 一个国家家庭支出的百分比变化。
 - en: Government debt - the percentage change in a country’s government debt.
+  id: totrans-42
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 政府债务 - 一个国家政府债务的百分比变化。
 - en: Gross Domestic product - the percentage change in a country’s gross domestic
     product.
+  id: totrans-43
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 国内生产总值 - 一个国家国内生产总值的百分比变化。
 - en: Read Gross domestic product - GDP adjusted for inflation.
+  id: totrans-44
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 阅读国内生产总值 - 经通胀调整的 GDP。
 - en: GDP Price deflator -  the percentage change in a country’s price levels.
+  id: totrans-45
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: GDP 价格膨胀率 - 一个国家价格水平的百分比变化。
 - en: 7) Seasonally adjusted features - calculated using additive seasonal decomposition
     to break the series into trend, seasonal and noise components. Only the trend
     is extracted to get a seasonally adjusted signal. After seasonal adjustment, we
     calculate the month-on-month and year-on-year change.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 季节性调整的特征 - 使用加法季节性分解来将序列分解为趋势、季节和噪声成分。仅提取趋势以获得季节性调整的信号。在季节调整后，我们计算月度和年度变化。
 - en: a) Seasonally adjusted Employment
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: a) 季节性调整的就业
 - en: b) Seasonally adjusted  Retail Sales Index
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: b) 季节性调整的零售销售指数
 - en: c) Seasonally adjusted Housing Starts
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: c) 季节性调整的新屋开工
 - en: 8) Total Credit to the non-financial sector-
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 8) 非金融部门的累计信用 -
 - en: The measure of the credit given to non-financial sectors in selected developed
     economies. This is a leading indicator and can inform us about movement in indicators
     like Gross domestic product in the future. We calculate the quarter-on-quarter
     change for these features.
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 选定发达经济体非金融部门的信用度量。这是一个领先指标，可以告诉我们未来关于国内生产总值等指标的变动。我们对这些特征进行季度变化计算。
 - en: 9) Treasury Interest rate spreads - various combinations of spreads between
     sovereign yields of various maturities. These produce the slopes of the yield
     curves. Read more about the difference between term spread and term premium [here](https://russellinvestments.com/nz/blog/to-fear-or-not-to-fear-the-yield-curve).
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 9) 政府债券利率利差 - 不同到期期限的主权收益率的各种组合。这些产生了收益率曲线的斜率。关于期限利差和期限溢价的区别，请阅读 [这里](https://russellinvestments.com/nz/blog/to-fear-or-not-to-fear-the-yield-curve)。
 - en: 10) Retail Inventory to Sales ratio - The percentage of inventory for durable
     and non-durable goods is sold. This can forecast changes in gross domestic product.
     We calculate the month-on-month change for these features.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 10) 零售库存与销售比率 - 耐用和非耐用商品的库存百分比被售出。这可以预测国内生产总值的变化。我们对这些特征进行月度变化计算。
 - en: 11) Feds Fund rate - daily percentage change in the interbank overnight rate
     at which excess reserves based on bank requirements are lent or borrowed. The
     FOMC makes its decisions about rate adjustments based on key economic indicators
     that may show signs of inflation, recession, or other issues that can affect sustainable
     economic growth.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 11) 联邦基金利率 - 基于银行要求，隔夜银行间利率的日百分比变化，在此利率下超额准备金被借出或借入。FOMC 根据可能显示通胀、衰退或其他可能影响可持续经济增长的关键经济指标，做出关于利率调整的决定。
 - en: Orderflow
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单流
 - en: The underlying reason for the price movement for an asset is the imbalance of
     buyers and sellers. An onslaught of market sell orders portends a decrease in
     price and vice versa..
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 资产价格变动的根本原因是买方和卖方的失衡。市场卖单的涌入预示着价格将下跌，反之亦然...
 - en: Order flow is the signed transaction volume aggregated over a period of time
     and over many transactions in that period to create a more robust measure. It’s
     also positively correlated with the price movement. This feature is calculated
     using tick data from Algoseek with aggressor tags (which flag the trade as a buy
     or sell market order). The data is time-stamped at milliseconds. We aggregate
     the tick-based order flow to form order flow per minute.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单流是带符号的交易量，在一段时间内累积，并在这个时期内的许多交易中形成更稳健的衡量。它与价格变动正相关。此特征使用来自 Algoseek 的带有攻击者标签（标记交易为买入或卖出市场订单）的滴答数据计算。数据以毫秒为单位时间戳。我们将基于滴答的订单流聚合为每分钟的订单流。
 - en: 'An example:'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 示例：
 - en: Order flow feature with time stamp 10:01 am will consider trades from 10:00:00
     am 10:00:59 am
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 带有时间戳的订单流特征 10:01 am 将考虑 10:00:00 am 至 10:00:59 am 的交易
 - en: Time  Trade Size  Aggressor Tag
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间  交易量  攻击者标签
 - en: 10:00:01 am  1  B
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:01 am  1  B
 - en: 10:00:03 am  4  S
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:03 am  4  S
 - en: 10:00:09 am  2  B
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:09 am  2  B
 - en: 10:00:19 am  1  S
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:19 am  1  S
 - en: 10:00:37 am  5  S
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:37 am  5  S
 - en: 10:00:59 am  2  S
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: 10:00:59 am  2  S
 - en: The order flow would be 1-4+2-1-5-5=-9
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单流量为 1-4+2-1-5-5=-9
 - en: This would be reflect in our feature as Time:10:01 , Order flow :-9
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: 这将反映在我们的特征中，时间为：10:01 ，订单流量：-9
 - en: Conclusion
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: 结论
 - en: With the 616 features PredictNow.ai  has developed for  our subscribers, applying
     machine learning to risk management and portfolio optimization is easier than
     ever , especially given our built-in financial machine learning API. Our [features
@@ -333,5 +480,7 @@
     features to improve predictive accuracy. If you have any questions or would like
     to learn more about these features, download our detailed user manual [here](https://py.predictnow.ai/get_manual/),
     or book a live demo and chat with one of our consultants [here](https://www.predictnow.ai/contact/).
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了PredictNow.ai为我们的订阅用户开发的**616项功能**，将机器学习应用于风险管理和投资组合优化比以往任何时候都更加简单，尤其是我们拥有内置的金融机器学习API。我们的[特征重要性排名和选择功能](https://www.predictnow.ai/blog/the-amazing-efficacy-of-cluster-based-feature-selection/)可以指示哪些功能对于预测用户的投资组合或策略回报最重要，因此无需花费数小时决定包含哪些特征。理想情况下，用户还会将其与自己的专有特征合并，以提高预测准确性。如果您有任何问题或想了解更多关于这些功能的信息，请点击[此处](https://py.predictnow.ai/get_manual/)下载我们的详细用户手册，或者预约一次在线演示并与我们的咨询顾问[此处](https://www.predictnow.ai/contact/)聊天。

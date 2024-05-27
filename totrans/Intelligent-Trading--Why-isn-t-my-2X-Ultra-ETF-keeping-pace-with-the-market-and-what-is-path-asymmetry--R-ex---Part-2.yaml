@@ -1,37 +1,55 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:45:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:45:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Why isn''t my 2X Ultra ETF keeping pace with the market
     and what is path asymmetry (R ex)? Part 2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：为什么我的2X超额ETF没有跟上市场步伐，路径不对称（R ex）是什么？第二部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/04/why-isnt-my-2x-ultra-etf-keeping-pace.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/04/why-isnt-my-2x-ultra-etf-keeping-pace.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/04/why-isnt-my-2x-ultra-etf-keeping-pace.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/04/why-isnt-my-2x-ultra-etf-keeping-pace.html#0001-01-01)
 - en: I created an example to show how the theory from part 1 might be applied using
     S&P500 as a proxy for performance. Just in case anyone viewing is not familiar
     with terminal wealth, it is the final (usually compounded) ending value (hence,
     terminal) of the account.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了一个示例，展示了第1部分理论可能如何使用S&P500作为绩效代理应用。以防任何查看的人对终端财富不熟悉，它是指账户的最终（通常是复利的）结束价值（因此称为终端）。
 - en: '[![](img/557ab8b9ee2907e4ca46bb76d810b4fc.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgut07Pl8y06TqS9njlGhQPQJKS2JsvKsuBNIQCX6LZq_QMev5byrBkHuKmsg6Cq7Qhde6LoDtk7APq-VdH0ieuwdaJ-ve5C-Gt3KmEIHou2bj8V_kO2kamKEdNNJ8-SBRTl0UKM6y_zlI/s1600/example_SP500.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/557ab8b9ee2907e4ca46bb76d810b4fc.png)'
 - en: Fig 1\. Example of S&P 500 and using GBM monte carlo simulations for terminal
     wealth
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 示例S&P 500和使用GBM蒙特卡洛模拟的终端财富
 - en: A monte carlo simulation of GBM, using historical daily%change parameters(mean,std),
     was run for 10,000 iterations of a time series length=1000\. The length was chosen
     to approximate slices of about 3yrs for summary statistics of terminal wealth
@@ -39,8 +57,10 @@
     mu and std of the series, although it might be a bit biased towards longer horizons.
     Possibly, I could generate more of a 3yr sampling distribution of N(u,std), for
     more relevance, but for now we'll assume the long run parameters are a good approximation.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用历史每日变化参数（均值，标准差）进行了10,000次迭代的GBM蒙特卡洛模拟的时间序列长度=1000。这个长度被选择来大致约当于终端财富的总结统计数（市场时机的好近似）的约3年切片。我还使用了该系列的长期历史均值和标准差，尽管它可能有点偏向于更长的期限。也许，我可以生成更贴近的3年抽样分布N(u,std)，以增加相关性，但现在我们假设长期参数是很好的近似。
 - en: Graphical summary statistics using boxplots and density estimates are shown
     for the monte carlo simulations. What strikes me at first glance, is that the
     -2x instrument performs absolutely horrible in most cases, adding to the common
@@ -48,8 +68,10 @@
     just hope it isn't short (we've all experienced the deer in the headlight phenomenon
     at one time or another); statistically, it is not the best side to be stuck on
     for any long period.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 图形化的总结统计数据使用箱形图和密度估计显示了蒙特卡洛模拟的结果。一眼看上去，令我印象最深的是，-2x仪器在大多数情况下表现得一团糟，这加剧了市场有上升趋势的普遍认识。如果你被困在一个位置，只希望它不是空头（我们都有过在聚光灯下的鹿的经历）；从统计学上讲，长时间持有任何杠杆较大的头寸都不是最佳选择。
 - en: Another more interesting observation, however, is that the simple 1X underlying
     instrument mode is to the right of all the density estimates. In addition, you
     are clearly taking on wider variance/risk, by using the positive (and neg) leveraged
@@ -57,64 +79,96 @@
     By taking on 2X risk, while you have a chance of larger gains, statistically,
     you are not likely to do too much better than 1x, while taking on far greater
     risk on the negative side.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，一个更有趣的观察是，简单的1X基础工具模式在所有密度估计的右侧。此外，使用正（和负）杠杆的2x工具承担了更宽的方差/风险。从本质上讲，你在这里看到了一些凯利原则的实际应用。承担2X风险，虽然你有更大的收益机会，但从统计学上讲，你不太可能比1x做得更好，同时在负方面承担了更大的风险。
 - en: Lastly, there are two sample slices shown of the actual results, using arbitrary
     periods of performance. It is clear, that during periods of long trends, we have
     much better growth in the 2X instrument, unfortunately, we don't know when those
     trends will occur, and secondly, according to the monte carlo sims, they are not
     that likely to occur.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，展示了使用任意绩效周期的实际结果的两个样本切片。很明显，在长期趋势期间，我们2X工具的增长要好得多，不幸的是，我们不知道这些趋势会在什么时候发生，其次，根据蒙特卡洛模拟，它们发生的可能性并不高。
 - en: The most recent performance, displayed, is a perfect example of a series where
     both 2X instruments performed worse than the underlying, as explained in part
     1.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近的表现，如所示，是一个完美例子，表明在这组系列中，2X工具的表现不如底层，如第一部分所解释。
 - en: Below is a summary of the three series, ser(1X), ser2pos(+2X), ser2neg(-2X)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是三个系列摘要，ser(1X)，ser2pos(+2X)，ser2neg(-2X)
 - en: summary(ser)
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: summary(ser)
 - en: Min. 1st Qu. Median Mean 3rd Qu. Max.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小值 第一四分位数 中位数 平均值 第三四分位数 最大值
 - en: 0.3613 1.0800 1.3290 1.3870 1.6250 4.7460
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 0.3613 1.0800 1.3290 1.3870 1.6250 4.7460
 - en: summary(ser2pos)
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: summary(ser2pos)
 - en: Min. 1st Qu. Median Mean 3rd Qu. Max.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小值 第一四分位数 中位数 平均值 第三四分位数 最大值
 - en: 0.1178 1.0630 1.6100 1.9180 2.4070 20.5700
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 0.1178 1.0630 1.6100 1.9180 2.4070 20.5700
 - en: summary(ser2neg)
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: summary(ser2neg)
 - en: Min. 1st Qu. Median Mean 3rd Qu. Max.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小值 第一四分位数 中位数 平均值 第三四分位数 最大值
 - en: 0.0337 0.2859 0.4279 0.5173 0.6483 5.6480
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 0.0337 0.2859 0.4279 0.5173 0.6483 5.6480
 - en: Notice the Median of +2X is nowhere near 2 times the Median of the underlying.
     Although 2X has some fantastic outliers, you shouldn't expect them statistically.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，+2X的中位数远非底层数据的两倍。尽管2X有一些惊人的异常值，但你不应该从统计学上期望它们。
 - en: It's sort of like tossing a coin with compounding the full amount, whereby,
     you get a fantastic result for the winning outcome, unfortunately, there is a
     75% probability of going bankrupt (maybe I'll cover that one another time).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这有点像抛一枚硬币，并且全额复合，这样，你在获胜的结果上得到一个惊人的结果，不幸的是，破产的概率有75%（也许我下次再解释那个）。
 - en: One final comment is that the monte carlo sims used GBM, whereas a more likely
     jump diffusion process would create much fatter tails, meaning even more neg tail
     risk against the potentially nice looking 2X instrument potential gains.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后一点是，蒙特卡洛模拟使用了GBM，而更可能的跳跃扩散过程会产生更宽的尾巴，这意味着相对于2X工具潜在的美好收益，负面尾部风险更大。

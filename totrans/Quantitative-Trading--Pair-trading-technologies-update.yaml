@@ -1,41 +1,63 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:03:53'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:03:53
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Pair trading technologies update'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：成对交易技术更新
 - en: 来源：[http://epchan.blogspot.com/2010/07/pair-trading-technologies-update.html#0001-01-01](http://epchan.blogspot.com/2010/07/pair-trading-technologies-update.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2010/07/pair-trading-technologies-update.html#0001-01-01](http://epchan.blogspot.com/2010/07/pair-trading-technologies-update.html#0001-01-01)
 - en: 'Pair trading was invented two decades ago, but automating its implementation
     has only recently become fashionable with independent traders. But once the spotlight
     is on, innovations come fast and furious. Here are a number of recent developments
     that I find interesting:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 成对交易是在二十年前发明的，但自动化其实施直到最近才受到独立交易员的青睐。但一旦聚光灯照下，创新就会迅速猛烈地到来。以下是我认为有趣的几个近期发展：
 - en: 1\. I mentioned
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 1. 我提到了
 - en: '[previously](http://epchan.blogspot.com/2009/05/matlab-as-automated-execution-system.html)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以前](http://epchan.blogspot.com/2009/05/matlab-as-automated-execution-system.html)
 - en: the software called
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 称为
 - en: '[quant2ib](http://exchangeapi.com/ProductOverview.htm)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[quant2ib](http://exchangeapi.com/ProductOverview.htm)'
 - en: . It is an API which allows us to get market data and send orders from a Matlab
     program to Interactive Brokers (IB). I have used it extensively for our trading,
     and it is as reliable as IB's native API. Their latest version now includes functions
@@ -44,80 +66,124 @@
     you to get market data as well as to submit orders on a combo. This is a huge
     improvement because you can now automatically trade a pair of securities as one
     unit by submitting
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 。它是一个API，允许我们从Matlab程序获取市场数据并向Interactive Brokers（IB）发送订单。我已广泛用于我们的交易，并且它像IB的本地API一样可靠。他们最新的版本现在包括了构建“组合”证券的功能。这种组合证券可以是股票、ETF、期货等成对（值得注意的是，货币除外），API允许您获取市场数据以及向组合提交订单。这是一个巨大的改进，因为您可以现在通过提交
 - en: '**limit**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 限制
 - en: orders on the combo. (Previously, you would have had to submit market order
     on at least one side of the pair, and this would have required your program to
     continuously monitor the market prices and send orders when appropriate. Or else
     you had to give up using the API and manually enter a "generic combo" limit order
     in IB's TWS.)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在组合上提交订单。（以前，您至少需要在成对的一侧提交市场订单，这需要您的程序持续监控市场价格并在适当的时候发送订单。否则，您必须放弃使用API，并在IB的TWS中手动输入“通用组合”限价订单。）
 - en: 2\. Alphacet Discovery also has the ability to send limit orders on pairs, due
     to its
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 2. Alphacet Discovery还具有在成对上发送限价订单的能力，因为它
 - en: '[partnership](http://alphacet.com/site/news/knight.shtml)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 合作伙伴关系](http://alphacet.com/site/news/knight.shtml)
 - en: 'with Knight Trading. Besides, based on a demo that I have recently seen, they
     also now have great pairs portfolio and execution reporting functionality. (Full
     disclosure: I used to consult for them.)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 与Knight Trading合作。此外，根据我最近看到的演示，他们还现在拥有出色的成对投资组合和执行报告功能。（全文披露：我过去为他们提供咨询服务。）
 - en: '3\. IB itself has released a "Scale Trader" algorithm that can be applied to
     combos (see 1\. above. Hat tip: Mohamed.) I can''t explain this better than their
     press release: "... ScaleTrader algorithm allows clients to create conditions
     under which a long position in one stock is built while simultaneously creating
     an offsetting short position in the other. The ScaleTrader is named because investors
     can '''
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 3. IB本身发布了一个“Scale Trader”算法，可以应用于组合（参见1.上面。致谢：Mohamed。）我无法比他们的新闻稿更好地解释这个： “…
+    ScaleTrader算法允许客户创建条件，在这些条件下，同时创建一个股票的长期头寸，同时创建另一个的抵消性短期头寸。ScaleTrader之所以得名，是因为投资者可以'
 - en: scale
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 规模
 - en: -in' to market weakness by setting
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 设置
 - en: orders
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单
 - en: to buy as the market moves lower. Similarly, sell
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着市场下跌买入。同样，卖出
 - en: orders
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单
 - en: can be 'scaled' into when a market is rising. The ScaleTrader algorithm can
     be programmed to buy the spread and subsequently take profit by selling the spread
     if the difference reaches predetermined levels set by the user." In other words,
     it allows us to automatically implement the "
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以在市场上升时“扩大”进入。ScaleTrader算法可以编程购买价差，随后在价差达到用户设定的预定水平时通过卖出价差获利。"换句话说，它允许我们自动实施“
 - en: '[parameterless trading](http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 无参数交易](http://epchan.blogspot.com/2008/08/more-on-parameterless-trading-model.html)
 - en: '" or the "'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: “或“
 - en: '[averaging-in](http://epchan.blogspot.com/2010/01/does-averaging-in-work.html)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[平均入市](http://epchan.blogspot.com/2010/01/does-averaging-in-work.html)'
 - en: '" strategy that I blogged about previously without any programming on our part!'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前在博客上提到的*无需我们编程*的策略。
 - en: Speaking of pair trading, I will be teaching my first New York
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 说到配对交易，我将首次教授我的纽约*工作坊*。
 - en: '[workshop](http://www.technicalanalyst.co.uk/training/pairs-trading.htm)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[工作坊](http://www.technicalanalyst.co.uk/training/pairs-trading.htm)的链接需要保留原文网址。'
 - en: in October.  (My editor inevitably picks touristy locations for these workshops.
     My London workshop takes place across the street from the Tower of London, my
     New York workshop is across from the new World Trade Center, and my Hong Kong
     workshop is in the "Golden Mile" shopping district of Tsim Sha Tsui.)
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在十月。](My editor inevitably picks touristy locations for these workshops. My
+    London workshop takes place across the street from the Tower of London, my New
+    York workshop is across from the new World Trade Center, and my Hong Kong workshop
+    is in the "Golden Mile" shopping district of Tsim Sha Tsui.)

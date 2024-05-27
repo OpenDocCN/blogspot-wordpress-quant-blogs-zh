@@ -1,70 +1,102 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:39:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:39:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: More on Factor Attribution to improve performance of the 1-Month Reversal Strategy
     | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更多关于因子归因以提高1个月反转策略的性能 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01](https://systematicinvestor.wordpress.com/2012/07/27/more-on-factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/#0001-01-01)
 - en: In my last post, [Factor Attribution to improve performance of the 1-Month Reversal
     Strategy](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/),
     I discussed how [Factor Attribution](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)
     can be used to boost performance of the [1-Month Reversal Strategy](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/).
     Today I want to dig a little dipper and examine this strategy for each sector
     and also run a sector-neutral back-test.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的上篇文章[因子归因以提高1个月反转策略的性能](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/)中，我讨论了如何使用[因子归因](https://systematicinvestor.wordpress.com/2012/07/04/example-of-factor-attribution/)来提高[1个月反转策略](https://systematicinvestor.wordpress.com/2012/07/13/1-month-reversal-strategy/)的性能。今天我想更深入地研究这个策略，并针对每个部门进行研究，同时进行部门中性的回测。
 - en: 'The initial steps to load historical prices, load Fama/French factors and run
     Factor Attribution are the same as in the original [post](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/),
     so I will not repeat them here. The complete source code for this example is located
     in the [bt.fa.sector.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)
     for your reference. The new functionality to create sector and sector-neutral
     back-tests is located in the bt.make.quintiles.sector() function below:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 加载历史价格、加载Fama/French因子和运行因子归因的初始步骤与原始[文章](https://systematicinvestor.wordpress.com/2012/07/17/factor-attribution-to-improve-performance-of-the-1-month-reversal-strategy/)相同，所以我这里不再重复。这个示例的完整源代码位于[github上的bt.fa.sector.one.month.test()函数中](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)供您参考。创建部门和部门中性的回测的新功能位于下面的bt.make.quintiles.sector()函数中：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: I have compared below, the overall and sector-neutral versions of the strategy
     based on the 1 Month returns (one.month) and the Residuals from the Factor Attribution
     regression (last.e_s). In all cases the Residual strategy outperformed the base
     one and also the sector-neutral versions have better risk-adjusted coefficients
     compared to the overall strategy.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面我进行了比较，基于1个月回报（one.month）和因子归因回归的残差（last.e_s）的总体策略和部门中性的版本。在所有情况下，残差策略的表现优于基础策略，而且部门中性的版本相比总体策略具有更好的风险调整系数。
 - en: '[![](img/960853f1d55b2616164943b25962a327.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small3.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot1-small3.png)'
 - en: '[![](img/460ae762f3ca987c3b5fa1dc2f71f465.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small3.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot2-small3.png)'
 - en: Next I looked at the each sector performance for both strategies and surprisingly
     found that Energy, Materials, and Utilities underperformed in both cases and Financials
     and Consumer Staples did very well in both cases. Looking at the sector back-test
     charts, I think the Momentum strategy that selects top few sectors each month
     would do very well. You can try implementing this idea as a homework.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在研究了两种策略的每个部门的表现后，我惊讶地发现，在两种情况下能源、材料和公用事业的表现都低于平均水平，而金融和消费品在两种情况下表现都非常出色。查看部门回测图表，我认为选择每月前几个部门的动量策略会做得很好。你可以尝试将这个想法作为家庭作业来实现。
 - en: '[![](img/b3f16313d2fa6c2cee8aac3283b3f8ed.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot3-small1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot3-small1.png)'
 - en: '[![](img/eabdf83c2ad9b6a678c81f05d43b980d.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small1.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/07/plot4-small1.png)'
 - en: To view the complete source code for this example, please have a look at the
     [bt.fa.sector.one.month.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[bt.fa.sector.one.month.test()函数在 github 上的 bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,104 +1,150 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:22:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:22:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: The Wall Street Stack'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems Blog:华尔街堆栈
 - en: 来源：[http://magmasystems.blogspot.com/2005/11/wall-street-stack_27.html#0001-01-01](http://magmasystems.blogspot.com/2005/11/wall-street-stack_27.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2005/11/wall-street-stack_27.html#0001-01-01](http://magmasystems.blogspot.com/2005/11/wall-street-stack_27.html#0001-01-01)
 - en: It has been done plenty of times on Wall Street..... what I call the Wall Street
     Stack.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在华尔街已经有很多次了.....我称之为华尔街堆栈。
 - en: I just came off of a large project where I architected (yet another) one. I
     am current involved in one now. So are plenty of other people that I know in other
     companies.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我刚刚完成了一个大型项目，其中我架构了（又一个）项目。我现在正在参与一个。还有很多我认识的其他公司的人也在做。
 - en: 'Everyone''s trading applications seems to be the same. Here are the standard
     elements:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个人的交易应用程序似乎都一样。以下是标准元素：
 - en: 1) The UI layer. The UI layer is usually designed around the Model-View-Controller
     pattern. It generally uses some third-party UI suite, such as Infragistics, Component
     One, or Syncfusion.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) UI层。UI层通常围绕模型-视图-控制器模式设计。它通常使用一些第三方UI套件，如Infragistics、Component One或Syncfusion。
 - en: 2) The UI usually contains an Outlook-style navigation bar on the left side.
     On the right is usually an MDI-ish area. There are multiple tabbed controls, each
     containing a grid control. The grid is a respresentation of the underlying business
     objects.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) UI通常包含在左侧的Outlook风格导航栏。在右侧通常是MDI样式区域。有多个标签控件，每个控件都包含一个网格控件。网格是底层业务对象的表现。
 - en: 3) Filter criteria that is used to filter the results on the grid. The filter
     UI is usually placed on the same panel as the grid and consists of a number of
     comboboxes and edit fields that represent dates and static criteria. Filters can
     usually be translated into an SQL statement.... a dataview-like pattern can be
     applied to the underlying model to produce a filtered view.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 用于在网格上过滤结果的筛选条件。筛选UI通常放置在网格相同的面板中，由一些组合框和编辑字段组成，代表日期和静态条件。筛选通常可以翻译成SQL语句....在底层模型上可以应用类似dataview的模式来生成筛选视图。
 - en: 4) User preferences and workspace persistence. Users can save the layout of
     the workspace, and load the layout when they log onto a new session from any machine.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 用户偏好和工作区持久化。用户可以保存工作区的布局，并在从任何机器登录新会话时加载布局。
 - en: 5) Entitlements by role. Entitlements control various aspects of the UI, such
     as what menus, toolbar buttons, and controls are available to the user.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 根据角色授权。权限控制UI的各种方面，如用户可以访问哪些菜单、工具栏按钮和控件。
 - en: 6) A Data layer that sits between the UI layer and the middle-tier. The data
     layer can contain a business facade, smart business objects (that are decorated
     with .NET attributes), a data access layer (contains a reference to the cache),
     and service providers that interface with a database and/or a middle-tier. The
     data layer can communicate with the middle-tier in both synchronous and asynchronous
     fashion.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 位于UI层和中间层之间的数据层。数据层可以包含业务外观、智能业务对象（用.NET属性装饰）、数据访问层（包含缓存引用）和服务提供商，与数据库和/或中间层接口。数据层可以以同步和异步方式与中间层通信。
 - en: 7) Middle-tier (usually Java-based) that accesses the underlying database. Communication
     with the middle-tier is through some variant of XML (usually SOAP). (Sorry, .NET
     middle-tiers have not caught on yet in Wall Street ... I cite projects at Lehman,
     Wachovia, Citicorp, Goldman...)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 中层（通常基于Java）访问底层数据库。与中层通信是通过某种XML变种（通常是SOAP）进行的。（抱歉，.NET中层在华尔街还没有普及...我举了雷曼、华科伟、花旗集团、高盛等项目的例子）
 - en: 8) Schemas shared between the client and middle-tier.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 8) 客户端和中层之间共享的架构。
 - en: 9) Subscription to asynchronous events, usually by some mechanism as a message
     bus (Tibco RV or EMS), or Smart Sockets (which is now owned by Tibco). When something
     happens to the underlying data, the middle-tier will broadcast an event to all
     of the clients that are hooked up to it. Each client has something that I call
     a "service agent", which is like a web service in reverse. The service agent receives
     the subscription event, and propogates the evented data up the chain.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 9) 订阅异步事件，通常通过消息总线（Tibco RV或EMS）或Smart Sockets（现在由Tibco拥有）等机制。当底层数据发生变化时，中层将向所有连接到它的客户端广播一个事件。每个客户端都有一个我称之为“服务代理”的东西，它就像一个反向的Web服务。服务代理接收订阅事件，并将事件数据向上传播。
 - en: 10) A rich event manager. The event manager can be thought of as a mini-Tibco
     that resides totally within the client. The event manager should support wildcarding.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 10) 一个丰富的事件管理器。事件管理器可以被看作是一个完全存在于客户端内的迷你Tibco。事件管理器应该支持通配符。
 - en: This stack is being implemented over and over again. The closest thing that
     I have seen to a corporate standard is the OCEAN framework that Goldman has.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个堆栈正在一次又一次地实施。我所见过的最接近企业标准的是高盛的OCEAN框架。
 - en: There has to be a vendor who can commercialize this stack and sell it across
     the various financial companies. Anyone want to start a company with me????
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 必须有家供应商能够将此堆栈商业化，并将其销售给各种金融机构。有人想和我一起创业吗？？？
 - en: As an aside, the Microsoft Composite Application Block bears close watching.
     However, it is only available for .NET 2.0\. Many of the current .NET-based projects
     are still using 1.1.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便说一下，微软的复合应用程序块值得密切关注。然而，它只适用于.NET 2.0。目前许多基于.NET的项目仍在使用1.1版本。
 - en: ©2005 Marc Adler - All Rights Reserved
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2005 Marc Adler - 版权所有

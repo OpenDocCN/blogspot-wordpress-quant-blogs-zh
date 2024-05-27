@@ -1,45 +1,67 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:56:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Time series analysis and data gaps'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：时间序列分析与数据空白
 - en: 来源：[http://epchan.blogspot.com/2015/07/time-series-analysis-and-data-gaps.html#0001-01-01](http://epchan.blogspot.com/2015/07/time-series-analysis-and-data-gaps.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/07/time-series-analysis-and-data-gaps.html#0001-01-01](http://epchan.blogspot.com/2015/07/time-series-analysis-and-data-gaps.html#0001-01-01)
 - en: 'Most time series techniques such as the ADF test for stationarity, Johansen
     test for cointegration, or ARIMA model for returns prediction, assume that our
     data points are collected at regular intervals. In traders'' parlance, it assumes
     bar data with fixed bar length. It is easy to see that this mundane requirement
     immediately presents a problem even if we were just to analyze daily bars: how
     are we do deal with weekends and holidays?'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数时间序列技术，如ADF测试用于平稳性、Johansen测试用于协整，或ARIMA模型用于回报预测，都假设我们的数据点是按固定间隔收集的。用交易者的行话来说，它假设柱状数据具有固定的柱长。很明显，即使我们只是分析日柱，这个简单的要求也会立即提出一个问题：我们如何处理周末和假日？
 - en: 'You can see that the statistics of return bars over weekdays can differ significantly
     from those over weekends and holidays. Here is a table of comparison for SPY daily
     returns from 2005/05/04-2015/04/09:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以看到，工作日的回报柱状统计数据与周末和假日的大不相同。以下是2005/05/04-2015/04/09 SPY日回报的比较表：
 - en: '|  |  |  | **Mean Absolute Returns (bps)** |  |'
+  id: totrans-8
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  | **平均绝对回报（基点）** |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-9
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: 'Though the absolute magnitude of the returns over a weekday is similar to that
     over a weekend, the mean returns are much more positive on the weekdays. Note
     also that the kurtosis of returns is almost doubled on the weekends. (Much higher
@@ -47,37 +69,54 @@
     a position over weekends?) So if we run any sort of time series analysis on daily
     data, we are force-fitting a model on data with heterogeneous statistics that
     won''t work well.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管一个工作日的回报绝对幅度与一个周末的相似，但工作日的平均回报要积极得多。注意，回报的峰度在周末几乎翻了一番。（周末的风险尾部要高得多，而预期回报要少得多：为什么有人会在周末持仓呢？）因此，如果我们对日数据进行任何时间序列分析，我们都是在强制拟合一个在具有异质统计数据的数据上工作的模型，这个模型不会很好地工作。
 - en: 'The problem is, of course, much worse if we attempt time series analysis on
     intraday bars. Not only are we faced with the weekend gap, in the case of stocks
     or ETFs we are faced with the overnight gap as well. Here is a table of comparison
     for AUDCAD 15-min returns vs weekend returns from 2009/01/01-2015/06/16:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，如果我们试图对日内柱进行分析，问题会更糟。我们不仅面临周末空白问题，在股票或ETF的情况下，我们还面临隔夜空白问题。以下是2009/01/01-2015/06/16
+    AUDCAD 15分钟回报与周末回报的比较表：
 - en: '|  |  |  | **Mean Absolute Returns (bps)** |  |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  | **平均绝对回报（基点）** |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: '|  |  |  |  |  |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |'
 - en: In this case, every important statistic is different (and it is noteworthy that
     kurtosis is actually lower on the weekends here, illustrating the mean-reverting
     character of this time series.)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种情况下，每一个重要的统计数据都是不同的（值得注意的是，这里周末的峰度实际上更低，说明了该时间序列的平均回归特性。）
 - en: 'So how should we predict intraday returns with data that has weekend gaps?
     (The same solution should apply to overnight gaps for stocks, and so omitted in
     the following discussion.) Let''s consider several proposals:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么我们应该如何预测具有周末空白的数据的日内回报呢？（同样的解决方案也适用于股票的隔夜空白，但在此后的讨论中省略。）让我们考虑几个建议：
 - en: 1) Just delete the weekend returns, or set them as NaN in Matlab, or missing
     values NA in R.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 直接删除周末回报，或在Matlab中将它们设置为NaN，或在R中将它们设置为缺失值NA。
 - en: This won't work because the first few bars of a week isn't properly predicted
     by the last few bars of the previous week. We shouldn't use any linear model built
     with daily or intraday data to predict the returns of the first few bars of a
@@ -85,31 +124,41 @@
     bars constitute the "first few bars", it depends on the lookback of the model.
     (Notice I emphasize linear model here because some nonlinear models can deal with
     large jumps during the weekends appropriately.)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法行不通，因为一周的前几根柱子不能被上一周的最后几根柱子正确预测。我们不应该使用任何基于日或日内数据构建的线性模型来预测一周的前几根柱子的回报，无论该模型是否包含具有周末空白的数据。至于多少根柱子构成“前几根”，这取决于模型的回顾期。（注意我在此强调线性模型，因为一些非线性模型可以适当地处理周末的大跳跃。）
 - en: 2) Just pretend the weekend returns are no different from the daily or intraday
     returns when building/training the time series model, but do not use the model
     for predicting weekend returns. I.e. do not hold positions over the weekends.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 在构建/训练时间序列模型时，假装周末的回报与日常或日内回报没有什么不同，但不要用模型来预测周末的回报。也就是说，周末不要持仓。
 - en: This has been the default, and perhaps simplest (naive?) way of handling this
     issue for many traders, and it isn't too bad. The predictions for the first few
     bars in a week will again be suspect, as in 1), so one may want to refrain from
     trading then. The model built this way isn't the best possible one, but then we
     don't have to be purists.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是许多交易员处理这个问题的默认方法，也许是最简单（天真）的方法，而且也不算太差。一周最初几个棒图的预测将再次受到怀疑，如同1)中一样，所以那时可能想要避免交易。这种方法构建的模型不是最好的，但然后我们不必过于严谨。
 - en: 3) Use only the most recent period without a gap to train the model. So for
     an intraday FX model, we would be using the bars in the previous week, *sans*
     the weekends, to train the model. Do not use the model for predicting weekend
     returns nor the first few bars of a week.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 只使用没有间隔的最新时期来训练模型。所以对于一个日内FX模型，我们将使用前一个星期的棒图，*去掉*周末的棒图来训练模型。不要用模型来预测周末的回报也不要用模型来预测一周最初的几个棒图。
 - en: This sounds fine, except that there is usually not enough data in just a week
     to build a robust model, and the resulting model typically suffers from severe
     data snooping bias.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 这听起来不错，但问题是通常一周内收集的数据量不足以构建一个健壮的模型，因此得到的模型通常会受到严重的历史数据挖掘偏差的影响。
 - en: You might think that it should be possible to concatenate data from multiple
     gapless periods to form a larger training set. This "concatenation" does not mean
     just piecing together multiple weeks' time series into one long time series -
@@ -121,15 +170,20 @@
     such a package in Matlab, R, or Python!) Instead of modifying the guts of a likelihood-maximization
     routine of a time series fitting package, we will examine a short cut in the next
     proposal.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可能会认为应该能够将多个无间隔期的数据连接起来形成一个更大的训练集。这种“连接”并不意味着只是将多个星期的时间序列拼接成一条长的时间序列 - 这将等同于2)并且是错误的。连接的意思是我们最大化模型在不同独立时间序列上的总对数似然，在理论上可以很容易地做到，因为独立数据的对数似然（即对数概率）是可加的。但实际中，大多数预打包的时间序列模型程序没有这个功能。（如果有人知道Matlab，R或Python中的这样的包，请添加一个评论！）
+    而不是修改时间序列拟合包的似然最大化过程的内部，我们将在下一个提案中研究一个捷径。
 - en: 4) Rather than using a pre-packaged time series model with maximum likelihood
     estimation, just use an equivalent multiple linear regression (LR) model. Then
     just fit the training data with this LR model with all the data in the training
     set except the weekend bars, and use it for predicting all future bars except
     the weekend bars and the first few bars of a week.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 与其使用带有最大似然估计的预打包时间序列模型，不如使用等效的多项式线性回归（LR）模型。然后用这个LR模型拟合训练数据，训练集中包含除周末棒图外的所有数据，并用于预测除周末棒图和一周最初几根棒图外的所有未来的棒图。
 - en: This conversion of a time series model into a LR model is fairly easy for an
     autoregressive model AR(p), but may not be possible for an autoregressive moving
     average model ARMA(p, q). This is because the latter involves a moving average
@@ -137,72 +191,108 @@
     into a LR. But I have found that AR(p) model, due to its simplicity, often works
     better out-of-sample than ARMA models anyway. It is of course, very easy to just
     omit certain data points from a LR fit, as each data point is presumed independent.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 将时间序列模型转换为LR模型的过程对于自回归模型AR(p)来说相对简单，但对于自回归移动平均模型ARMA(p, q)来说可能是不可能的。这是因为后者涉及到对残差的移动平均，产生了我不知道如何将其纳入LR模型中的依赖关系。但是我发现，由于AR(p)模型的简单性，它在样本外通常比ARMA模型表现得更好。当然，很容易在LR拟合中省略某些数据点，因为假设每个数据点都是独立的。
 - en: Here is a plot of the out-of-sample cumulative returns of one such AR model
     built for predicting 15-minute returns of NOKSEK, assuming midpoint executions
     and no transaction costs (click to enlarge.)
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是预测NOKSEK 15分钟回报的一个此类AR模型的样本回报累积图，假设中点执行且无交易成本（点击以放大。）
 - en: Whether or not one decides to use this or the other techniques for handling
     data gaps, it is always a good idea to pay some attention to whether a model will
     work over these special bars.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论决定使用处理数据缺失的这一技巧还是那一种技巧，始终关注模型在这些特殊柱子上的表现是一个好主意。
 - en: ===
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**===**'
 - en: This is a new online workshop focusing on the practical use of AI techniques
     for identifying predictive indicators for asset returns.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个关于使用AI技术实际寻找资产回报预测指标的新在线研讨会。
 - en: ===
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Managed Accounts Update**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**托管账户更新**'
 - en: 'Our FX Managed Account program is 6.02% in June (YTD: 31.33%).'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的外汇托管账户计划在6月份上涨了6.02%（年初至今：31.33%）。
 - en: ===
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**===**'
 - en: '**Industry Update**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**行业更新**'
 - en: I previously [reported](http://epchan.blogspot.com/2014/02/fundamental-factors-revisited-with.html)
     on a fundamental stock model proposed by Lyle and Wang using a linear combination
     of just two firm fundamentals ― book-to-market ratio and return on equity. Professor
     Lyle has [posted](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2613366)
     a new version of this model.
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我之前 [报道](http://epchan.blogspot.com/2014/02/fundamental-factors-revisited-with.html)
+    过，由莱尔和 Wang 提出的基于仅仅两个公司基本面的线性组合的股票模型——市净率（book-to-market ratio）和股本回报率（return on
+    equity）。莱尔教授已经 [发布](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=2613366)
+    这个模型的一个新的版本。
 - en: 'Charles-Albert Lehalle, Jean-Philippe Bouchaud, and Paul Besson reported that
     "intraday price is more aligned to signed limit orders (cumulative order replenishment)
     rather than signed market orders (cumulative order imbalance), even if order imbalance
     is able to forecast short term price movements." Hat tip: [Mattia Manzoni](https://it.linkedin.com/pub/mattia-manzoni/45/670/b01/en).
     (I don''t have a link to the original paper: please ask Mattia for that!)'
+  id: totrans-37
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 查尔斯-阿尔贝托·莱哈勒、让-菲利普·布肖aud 和保罗·贝松报告称“日内价格更多地与已签名的限价订单（累计订单补充）相一致，而不是已签名的市价订单（累计订单不平衡），即使订单不平衡能够预测短期价格变动。”致谢：[马蒂亚·曼佐尼](https://it.linkedin.com/pub/mattia-manzoni/45/670/b01/en)。（我没有原文论文的链接：请找马蒂亚获取！）
 - en: A new investment competition to help you raise capital is available at [hedgefol.io](http://hedgefol.io/).
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一个可以帮助您筹集资本的新投资竞赛在 [hedgefol.io](http://hedgefol.io/) 上可用。
 - en: Enjoy an **Outdoor Summer Party** with fellow quants benefiting the New York
     Firefighters Burn Center Foundation on Tuesday, July 14th with great food and
     cool drinks on a terrace overlooking Manhattan. Please [RSVP](http://quantsgiveback.org/event/)
     to join quant fund managers, systematic traders, algorithmic traders, quants and
     high frequency sharks for a great evening. This is a **complimentary** event (donations
     are welcomed).
+  id: totrans-39
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在周二，7月14日，与曼哈顿景色尽收眼底的露台上美食和饮料相伴，和同行量化分析师一起参加纽约消防员烧伤中心基金会的户外夏日派对。请通过 [RSVP](http://quantsgiveback.org/event/)
+    加入量化基金经理、系统交易员、算法交易员、分析师和高频交易员的行列，共度良辰。这是一个 **免费** 的活动（欢迎捐赠）。
 - en: '**===**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '**===**'
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 关注我的推特：@chanep

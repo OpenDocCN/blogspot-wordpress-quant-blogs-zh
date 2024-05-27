@@ -1,63 +1,99 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '``<!--yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:44:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:44:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: 'Intelligent Trading: Aug 4, 2011 "plunge" headlines are in the air tonight'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：2011年8月4日，“暴跌”的头条新闻今晚在空气中弥漫
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2011/08/aug-4-2011-plunge-headlines-are-in-air.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/08/aug-4-2011-plunge-headlines-are-in-air.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2011/08/aug-4-2011-plunge-headlines-are-in-air.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/08/aug-4-2011-plunge-headlines-are-in-air.html#0001-01-01)
 - en: Today's financial headlines are littered with the word 'plunge.'  Considering
     today's (cl-cl) drop on the S&P500 was just about -5%, I don't know that I would
     exactly call that a plunge.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天的金融头条充斥着“暴跌”这个词。考虑到今天(cl-cl)标普500的跌幅几乎达到了-5%，我不确定我是否会确切地称之为暴跌。
 - en: Fig 1\. Historical ts plot of S&P500 returns <= -5%
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1。标普500回报 <= -5% 历史时间序列图
 - en: The following R code produced a time series plot of historical occasions where
     this occurred.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下R代码产生了一个时间序列图，显示了历史上发生这种情况的时期。
 - en: '``###################################################` `library(quantmod)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '``###################################################`` `library(quantmod)'
 - en: getSymbols("^GSPC",from="1950-01-01",to="2012-01-01")
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号("^GSPC"，从="1950-01-01"，到="2012-01-01")
 - en: adj<-GSPC$GSPC.Adjusted
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: adj<-GSPC$GSPC.Adjusted
 - en: rtn<-(adj/lag(adj,1)-1)[2:length(adj)]
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: rtn<-(adj/lag(adj,1)-1)[2:length(adj)]
 - en: r05<-rtn[rtn<= -.05]
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: r05<-rtn[rtn<= -.05]
 - en: plot(sort(r05),type='o',main='S&P500 1950-present returns <= -5%')
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(sort(r05),type='o',main='标普500 1950年至今回报 <= -5%')
 - en: '``###################################################` `Although the frequency
     of such occurrences is  arguably rare, the 1987 drop is much more worthy of the
     1 day label ''plunge.'''
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '``###################################################`` `尽管这种事件的频率可能很少，但1987年的跌幅更值得1天的标签“暴跌”。'
 - en: One other disturbing observation in the data, however, is the large temporal
     clustering of occurrences in the recent 2008 region.  Now that's behavior to be
     concerned about (not to mention revised flash crash data pts.).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据中的另一个令人不安的观察是，在最近的2008年区域，发生次数的时空聚类很大。现在这种行为确实令人担忧（更不用说修订的闪电崩盘数据点了）。
 - en: filtered 1 day cl-cl returns <=-5% sorted by date````
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 过滤掉1天cl-cl回报 <=-5% 按日期排序````

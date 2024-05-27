@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:02:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:02:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: NSA Dragnet – What’s the Techology Architeture? | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: NSA大规模搜索——技术架构 | 交易桌面故事
 - en: 来源：[https://mdavey.wordpress.com/2013/08/11/nsa-dragnet-whats-the-techology-architeture/#0001-01-01](https://mdavey.wordpress.com/2013/08/11/nsa-dragnet-whats-the-techology-architeture/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2013/08/11/nsa-dragnet-whats-the-techology-architeture/#0001-01-01](https://mdavey.wordpress.com/2013/08/11/nsa-dragnet-whats-the-techology-architeture/#0001-01-01)
 - en: NSA Dragnet – What’s the Techology Architeture?
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: NSA大规模搜索——技术架构是什么？
 - en: Most of us have probably read something about Snowden and the NSA data collection. 
     ACLU’s recent [article](http://www.aclu.org/blog/national-security/guide-what-we-now-know-about-nsas-dragnet-searches-your-communications),
     “A Guide to What We Now Know About the NSA’s Dragnet Searches of Your Communications”,
@@ -29,55 +43,77 @@
     features that the NSA have at their disposal.  Like possible numerous other software
     engineers, I’m curious as to the architecture, and technology in use.  Specifically,
     the data storage, the amount of real-time compared to off-line processing, etc
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们中的大多数人可能已经读过一些关于斯诺登和国家安全局（NSA）数据收集的内容。美国公民自由联盟（ACLU）最近的[文章](http://www.aclu.org/blog/national-security/guide-what-we-now-know-about-nsas-dragnet-searches-your-communications)，"了解国家安全局对你通信的大规模搜索"，提供了通常的高级视图，包括NSA可以使用的数据收集、分析和搜索功能。像可能的其他许多软件工程师一样，我对使用的架构和技术感到好奇，具体是数据存储，实时处理与离线处理相比如何等等。
 - en: 'Based on the ACLU article alone, one could make the following (in-correct)
     assumptions:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 仅基于ACLU的文章，我们可以做出以下（错误的）假设：
 - en: Assuming network taps are one of the sources of data collection, based on the
     X-KEYSCORE “Where” slide, it sounds like the data is stored locally where its
     collected.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 假设网络嗅探是数据收集的来源之一，根据X-KEYSCORE的“位置”幻灯片，听起来数据在其收集地本地存储。
 - en: Data collection via UpStream cable taps would I assume break the data into both
     content and meta data (IP address’s, email address, keywords etc.) and store the
     data for further processing, or just search retrieval
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 通过UpStream电缆嗅探进行数据收集，我会假设这会打破数据，包括内容和元数据（IP地址、电子邮件地址、关键词等），并存储数据以进行进一步处理，或仅用于搜索检索。
 - en: PRISM data collection sounds more like an application tap, routed into the infrastructure
     as per the above two points.  Again its unclear if data storage for PRISM is local
     to each PRISM tap, or back to a single data repository
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: PRISM数据收集听起来更像是一个应用嗅探，如前两点所述，路由到基础设施中。再次不清楚PRISM的数据存储是否每个PRISM嗅探本地，还是回到一个单一的数据仓库。
 - en: You could see how [hadoop](http://hadoop.apache.org/) and other similar technologies
     from the open source community could aid the NSA in processing the data collected. 
     However, hadoop across multiple data centres located globally would incur some
     latency.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 你可以看到像[hadoop](http://hadoop.apache.org/)这样的开源社区的类似技术如何帮助NSA处理收集的数据。然而，跨越多个位于全球的数据中心会带来一些延迟。
 - en: “wiretap anyone, from you or your accountant” should be of no shock given the
     NSA has the stated application and network taps, its effectively a [continuous](http://coherence.oracle.com/display/COH31UG/Continuous+Query)
     query against the NSA’s data source to get a real-time view for the data requested
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: “监听任何人，从你或你的会计师”应该不会因为NSA有明确的应用和网络嗅探而感到震惊，实际上，这是一种[连续查询](http://coherence.oracle.com/display/COH31UG/Continuous+Query)针对NSA的数据源，以获取所需数据的实时视图。
 - en: The above is basic at best based on the flight I’ve just got off, but I’d be
     curious if anyone reading this blog has found further writing on the hypothetical
     technology being used by the NSA to process the “big-data” problem they would
     clearly have
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 以上内容基于我刚刚下飞机的航班，但我很好奇，是否阅读此博客的任何人都找到了关于NSA处理“大数据”问题的假设技术 further writing
 - en: ~ by mdavey on August 11, 2013.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2013年8月11日。
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [BigData](https://mdavey.wordpress.com/tag/bigdata/), [NSA](https://mdavey.wordpress.com/tag/nsa/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[大数据](https://mdavey.wordpress.com/tag/bigdata/)，[NSA](https://mdavey.wordpress.com/tag/nsa/)

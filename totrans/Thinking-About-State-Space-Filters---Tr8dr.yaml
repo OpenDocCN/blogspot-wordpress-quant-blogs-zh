@@ -1,163 +1,240 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:29:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:29:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Thinking About State Space Filters | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 思考状态空间滤波器 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/07/27/thinking-about-state-space-filters/#0001-01-01](https://tr8dr.wordpress.com/2011/07/27/thinking-about-state-space-filters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/07/27/thinking-about-state-space-filters/#0001-01-01](https://tr8dr.wordpress.com/2011/07/27/thinking-about-state-space-filters/#0001-01-01)
 - en: I have not used stochastic state based systems for a couple of years, but have
     decided to revisit.   I had previously implemented a number of systems with both
     the EKF and 3 variants of particle filter, but encountered various issues.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经有几年没有使用过基于随机状态的系统了，但是决定重新审视。我之前实现过多种系统，既有 EKF 也有 3 种粒子滤波器的变体，但遇到了各种问题。
 - en: In particular, found the parameterization of the evolution via the covariance
     matrices to be opaque and problematic for some systems.    Also both the EKF and
     particle filters were subject to numerical instability if the mean of the state
     distribution or observed samples shifted significantly with likelihoods approaching
     0.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是，发现通过协方差矩阵参数化演变对于某些系统是不透明且具有问题的。另外，如果状态分布的平均值或观测样本显著变化，EKF 和粒子滤波器都可能受到数值不稳定的影响，
+    likelihoods 接近 0。
 - en: I’ve decided to revisit state space filters but with a different filtering approach,
     for the purposes of coming up with a different approach to multi-regime pricing.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定重新审视状态空间滤波器，但采用不同的滤波方法，以便为多区域定价提出不同的方法。
 - en: 'I’ll start with an introduction.  The traditional state space model is a discrete
     (or discretized continuous) system represented by a measurement equation and state
     evolution equation:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将从简介开始。传统的状态空间模型是一个离散（或离散化的连续）系统，由测量方程和状态演变方程表示：
 - en: '[![](img/5954bc3cfdce9a31084bbf2eae47c98c.png "Screen shot 2011-07-27 at 7.01.57
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-01-57-pm.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![Screen shot 2011-07-27 at 7.01.57 PM](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-01-57-pm.png)'
 - en: 'Where:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在哪里：
 - en: X is a n dimensional vector representing the state of the system on timestep
     t
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: X 是一个 n 维向量，表示系统在时间步长 t 上的状态
 - en: Y is a m dimensional vector  representing the measurement on timestep t (for
     example a price in our price series)
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Y 是一个 m 维向量，表示时间步长 t 上的测量值（例如我们价格序列中的一个价格）
 - en: f(.) is our state evolution function mapping the t-1 th state to the t th state
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: f(.) 是我们状态演变函数，将 t-1 状态映射到 t 状态
 - en: g(.) is our state to measurement mapping
+  id: totrans-15
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: g(.) 是我们的状态到测量的映射
 - en: ε_x our state noise / error ~ N (0, Σx)
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: ε_x 我们的状态噪声/误差 ~ N (0, Σx)
 - en: ε_y our observation noise / error ~ N(0,Σy)
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: ε_y 我们的观测噪声/误差 ~ N(0,Σy)
 - en: '**Kalman Family of Filters** The kalman family of filters uses a bayesian logic
     to implement a linear error correction model, such that errors in the estimation
     of Yt propagate back to the evolving state Xt (or more precisely, an evolving
     distribution of Xt).'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**卡尔曼滤波器家族** 卡尔曼滤波器家族使用贝叶斯逻辑实现线性误差修正模型，从而使估计的Yt误差传播回演变状态Xt（或者更精确地说，Xt的演变分布）。'
 - en: 'The traditional Kalman filter assumes a linear function f(.) and g(.), usually
     expressed as matrices:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 传统的卡尔曼滤波器假设一个线性函数 f(.) 和 g(.)，通常表示为矩阵：
 - en: '[![](img/87dd8876426908abaf0c37971627e5df.png "Screen shot 2011-07-27 at 7.30.55
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-30-55-pm.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '![Screen shot 2011-07-27 at 7.30.55 PM](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-7-30-55-pm.png)'
 - en: 'We are interested in estimating the state Xt given the noisy observed data
     Yt, hence are interested in the pdf **p(x[t] | y[1:t])**.  Given that we will
     have a lagged (t-1) view on this pdf via the recursion inherent in filtering,
     we first need to be able to compute **p(x[t] | y[1:t-1])** and then using that **p(x[t]
     | y[1:t])**:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '我们感兴趣的是在给定噪声观测数据Yt的情况下估计状态Xt，因此我们感兴趣的是概率密度函数 **p(x[t] | y[1:t])**。考虑到我们将通过滤波器中的递归
+    inherent in filtering 获得对 pdf 的滞后（t-1）视图，我们首先需要能够计算 **p(x[t] | y[1:t-1])**，然后使用那个
+    **p(x[t] | y[1:t])**:'
 - en: '[![](img/d46a92d1df30f8a07a75d4ff598e9b3e.png "Screen shot 2011-07-27 at 8.28.48
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-8-28-48-pm.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![Screen shot 2011-07-27 at 8.28.48 PM](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-8-28-48-pm.png)'
 - en: 'Hence as pointed out in (Hartikainen 2008) the above linear state equations
     map to distributions:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，如 Hartikainen 2008 年所指出，上述线性状态方程映射到分布：
 - en: '[![](img/6d5a1a0301f7ffb821b5b105a91306b6.png "Screen shot 2011-07-27 at 8.37.51
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-8-37-51-pm.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![屏幕快照2011-07-27](https://tr8dr.wordpress.com/wp-content/uploads/2011/07/screen-shot-2011-07-27-at-8-37-51-pm.png)【图片无法显示，如需翻译图片上的文字，请提供文字内容】'
 - en: 'I won’t go into the math for the Kalman filter, as would like to discuss its
     issues and move on to more sophisticated approaches.  The 3 main issues I have
     with the Kalman Filter:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不会深入讲解卡尔曼滤波的数学公式，因为我想讨论其问题并转向更复杂的方法。我对卡尔曼滤波器的三个主要问题：
 - en: can only express the evolution of linear state functions
+  id: totrans-26
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 只能表达线性状态函数的演变
 - en: hard to calibrate degree of fit via state and measurement noise covariance matrices
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 通过状态和观测噪声协方差矩阵难以校准拟合度
 - en: can become numerically unstable with unexpected noise (probabilities go to 0
     or may oscillate wildly)
+  id: totrans-28
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在意外噪声下可能变得数值不稳定（概率降至0或可能剧烈振荡）
 - en: The **Extended Kalman Filter** partially solves one of these issues (that of
     non-linear state functions) by adjusting the kalman distribution estimation to
     use 1 or 2 terms of the taylor series expansion of the state and observation functions.
       This works well for functions completely described by 1st and 2nd derivatives,
     although has similar drawbacks in terms of calibration and stability.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**扩展卡尔曼滤波器**部分解决了这些问题之一（非线性状态函数的问题），通过调整卡尔曼分布估计来使用状态和观测函数的1或2项泰勒级数展开。这对于完全由一阶和二阶导数描述的函数来说效果很好，尽管在标定和稳定性方面有类似的缺点。'
 - en: Short of using a numerically expensive **particle filter**, it seems that a
     variant the **Unscented Kalman Filter** (UKF) presents the best choice for the
     potential state systems I will be using.    The UKF using a deterministic sampling
     approach mapped through the non-linear functions, provides multiple moments for
     the underlying distribution.   The distribution can then be described with greater
     accuracy than afforded through the EKF’s taylor expansion.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 除非使用计算成本高昂的**粒子滤波器**，否则似乎**无迹卡尔曼滤波器**（UKF）是我将使用的潜在状态系统中的最佳选择。使用确定性采样方法通过非线性函数映射的UKF，为潜在分布提供了多个矩。这比EKF的泰勒展开能提供更精确的分布描述。
 - en: '**Topics to be Discussed**:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**讨论主题**：'
 - en: Unscented Transform
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 无迹变换
 - en: Smoothing
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 平滑处理
 - en: Need for a Multiple Model approach with Markovian switching
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 需要采用多模型方法，并伴有马尔可夫切换
 - en: Filter approach for multiple models
+  id: totrans-35
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 多模型滤波方法
 - en: Possible Models
+  id: totrans-36
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 可能的模型

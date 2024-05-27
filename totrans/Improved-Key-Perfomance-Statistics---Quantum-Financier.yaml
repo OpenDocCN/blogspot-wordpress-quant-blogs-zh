@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:02:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:02:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Improved Key Perfomance Statistics – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 改进的关键性能统计数据 – 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/09/10/improved-key-perfomance-statistics/#0001-01-01](https://quantumfinancier.wordpress.com/2010/09/10/improved-key-perfomance-statistics/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/09/10/improved-key-perfomance-statistics/#0001-01-01](https://quantumfinancier.wordpress.com/2010/09/10/improved-key-perfomance-statistics/#0001-01-01)
 - en: With the goal to improve reader experience on the blog, I will be introducing
     a new performance statistics report for backtest results. In deciding what I would
     be using, I used reader feedback and I went on other blogs I follow to see what
@@ -26,11 +38,15 @@
     a statistical output relatively similar to the output produced by the [DVixl platform](http://dvindicators.cssanalytics.com/product/dvix/)
     (highly recommended product). In addition, I am going to be inserting three other
     measures in the tables. They are described below.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了改善博客上读者的体验，我将为回测结果引入一个新的性能统计报告。在决定我将使用什么时，我使用了读者反馈，并且查看了我关注的其他博客上他们在使用什么。这样我认为读者能够轻松比较博客圈中看到的不同的想法。作为一个指导原则，从现在起，我将使用与[DVixl平台](http://dvindicators.cssanalytics.com/product/dvix/)（强烈推荐的产品）产生的输出相对类似的统计输出。此外，我将在表中插入另外三个其他度量。它们如下所述。
 - en: '**Sortino Ratio**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Sortino Ratio（索提诺比率）**'
 - en: 'This ratio is a measure of the risk-adjusted return of the strategy. It is,
     in my opinion an improved version of the popular Sharpe ratio. The Sharpe ratio
     is computed using the mean return divided by the standard deviation of returns.
@@ -38,36 +54,51 @@
     both upside and downside volatility. From an intuitive point of view, only penalizing
     downside volatility make more sense, because upside volatility is desirable for
     investors. This is exactly what the Sortino ratio does (from wiki):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个比率是策略的风险调整回报的衡量。在我看来，这是流行的夏普比率的一个改进版本。夏普比率是使用平均回报除以回报的标准差计算的。虽然它的简洁性很有吸引力，但它并不是一个完美无缺的衡量（没有任何一个）；它惩罚上升和下降的波动。从直观的角度来看，只惩罚下跌的波动更有意义，因为上升的波动对投资者是有利的。这正是索提诺比率所做的（来自维基百科）：
 - en: '![](img/54a77f13b252bdff54b7e9c4c548d0ac.png "Sortino Ratio Formula")'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/54a77f13b252bdff54b7e9c4c548d0ac.png "Sortino Ratio Formula")'
 - en: Where R is the asset or portfolio realized return; T is the target or required
     rate of return for the investment strategy under consideration, (T was originally
     known as the minimum acceptable return or MAR); DR is the downside risk. Note
     that for the statistic on the blog, the MAR is going to be 0, same as in the Sharpe
     calculation.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中R是资产或投资组合的实际回报；T是考虑中的投资策略的目标或所需回报率（T最初被称为最低可接受回报或MAR）；DR是下行风险。请注意，对于博客上的统计数据，MAR将设为0，与夏普计算相同。
 - en: '**Historical Value-at-Risk (95%)**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**历史价值风险（95%）**'
 - en: For a very nice explanation of the VaR concept, see [this article](http://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/)
     by David Varadi. The value reported will be the ex-post (after the fact) value
     of the 5th percentile on the negative returns empirical distribution. It indicates
     that historically, we had daily returns worse that the value 5% of the time. Note
     that this is a non-parametric VaR which I prefer to the version assuming Gaussian
     distribution.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于VaR概念的优秀解释，请参阅David Varadi的[这篇文章](http://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/)。报告的价值将是负回报经验分布的第五百分位的后验（事后）价值。这表明历史上，我们大约有5%的时间
+    daily returns比这个值要差。请注意，这是一个非参数VaR，我更喜欢它而不是假设高斯分布的版本。
 - en: I hope that the new format which will be employed in future backtests will satisfy
     a broader audience of reader, and I also think that it will improve the value
     of the blog. In a short period of time, I will be posting strategies that I consider
     more tradable than the concepts I have talked about before and I think that the
     new format will be better to convey their value.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我希望未来回测中采用的新格式能够满足更多读者的需求，并且我认为这将提高博客的价值。在短时间内，我将发布我认为比之前谈论的概念更具交易性的策略，并且我认为新格式将更好地传达它们的价值。
 - en: QF
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

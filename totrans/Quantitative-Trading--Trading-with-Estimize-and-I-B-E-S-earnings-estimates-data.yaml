@@ -1,45 +1,69 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:57:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:57:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Trading with Estimize and I/B/E/S earnings estimates
     data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：使用Estimize和I/B/E/S收益估计数据进行交易
 - en: 来源：[http://epchan.blogspot.com/2015/01/trading-with-estimize-and-ibes-earnings.html#0001-01-01](http://epchan.blogspot.com/2015/01/trading-with-estimize-and-ibes-earnings.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/01/trading-with-estimize-and-ibes-earnings.html#0001-01-01](http://epchan.blogspot.com/2015/01/trading-with-estimize-and-ibes-earnings.html#0001-01-01)
 - en: '*By Yang Gao*[Estimize](http://www.estimize.com/)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：杨高[Estimize](http://www.estimize.com/)
 - en: is an online-community utilizing 'wisdom of crowds' to offer intelligence about
     market. It contains a wide range of crowd-sourced estimates from over 4,500 buy-side,
     sell-side and individual analysts.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 是一个利用“群体智慧”提供市场情报的在线社区。它包含超过4,500名买方、卖方和个体分析师的广泛群体来源估计。
 - en: '[Studies](http://www.estimize.com/api)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[研究](http://www.estimize.com/api)'
 - en: (from Deustche Bank and Rice University among others) show estimates from Estimize
     are more accurate than estimates from traditional sell-side analysts.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: （来自德意志银行和莱斯大学等）的数据显示，Estimize的估计比传统卖方分析师的估计更准确。
 - en: The first strategy we tested is a
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们测试的第一个策略是一种
 - en: '[mean reversion strategy](http://www.deltixlab.com/research)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[均值回归策略](http://www.deltixlab.com/research)'
 - en: developed by the quantitative research team from Deltix using Estimize’s data.
     This strategy is based on the idea that post-earning-announcement prices typically
     revert from the short-term trend driven by the more recent Estimize estimates
@@ -50,97 +74,140 @@
     5bp one-way transaction cost, we found that the backtest shows a Sharpe ratio
     of 0.8 and an average annual return of 6%.  The following figure is the cumulative
     P&L of the strategy based on $1 per stock position.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 由Deltix的定量研究团队使用Estimize的数据开发。该策略基于这样一个想法：收益公告后的价格通常会从公告前最近Estimize估计所驱动的短期趋势中回归。我们在2012年1月1日至2013年12月31日之间对S&P100进行了回测。（尽管Estimize有2014年的数据，但我们没有相应地包含收盘买入和卖出价格的Center
+    for Research in Securities Prices的无生存偏差价格数据。）在5个基点的单向交易成本下，我们发现回测显示夏普比率为0.8，平均年收益率为6%。以下图表是基于每只股票头寸1美元的策略累计盈亏。
 - en: '| [![](img/3339771777ec6994ba8b75d8be8a0b2c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXC7CpKDYxSfowewc-fjhpePsQJpmFhDeiNkQ2zlIXfSUgO5jd7pKnS4lgGxG7JX6ZPdeb7-eUkwKHJ8Vyuua-OYuRWcjfZIUIC_EcoLB1xiJixhwEu-cicHrIsqtMxFTzetlwyg/s1600/Estimize1.png)
     |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| [![](img/3339771777ec6994ba8b75d8be8a0b2c.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXC7CpKDYxSfowewc-fjhpePsQJpmFhDeiNkQ2zlIXfSUgO5jd7pKnS4lgGxG7JX6ZPdeb7-eUkwKHJ8Vyuua-OYuRWcjfZIUIC_EcoLB1xiJixhwEu-cicHrIsqtMxFTzetlwyg/s1600/Estimize1.png)
+    |'
 - en: '| Cumulative P&L of Deltix Mean Reversion Strategy with Estimize  |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '| Deltix均值回归策略与Estimize的累计盈亏 |'
 - en: 'It surprised us that a mean-reverting instead of a momentum strategy was used
     in conjunction with Estimize data, since earnings estimates and announcements
     typically generate price momentum. In order to show that this return is really
     driven by the information in Estimize and not simply due to price reversal, we
     provide a benchmark mean-reverting strategy that uses prices alone to generate
     signal:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 令我们惊讶的是，与Estimize数据相结合的是一种均值回归策略，而不是动量策略，因为收益估计和公告通常会产生价格动量。为了表明这种回报确实是由Estimize中的信息驱动的，而不是仅仅由于价格反转，我们提供了一个仅使用价格生成信号的基准均值回归策略：
 - en: 1\. Find long period T and short period T_s, where T is average period of the
     reporting of all the quarterly estimates and T_s is average period of the reporting
     of the latest 20% of all estimates.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 1. 找到长期T和短期T_s，其中T是所有季度估计报告的平均周期，T_s是最新20%的所有估计报告的平均周期。
 - en: 2\. Calculate stock return R over T and Rs over T_s, and let delta = R - Rs
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 2. 计算股票回报R over T和Rs over T_s，并令delta = R - Rs
 - en: 3\. Buy stocks with delta > 0 at close before an earnings announcement and exit
     the positions next morning at the open after the announcement.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 3. 在收益公告前收盘时买入delta > 0的股票，并在公告后第二天开盘时退出头寸。
 - en: 4\. Sell stocks with delta < 0 at close before an earnings announcement and
     exit the positions next morning at the open after the announcement.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 4. 在收益公告前收盘时卖出delta < 0的股票，并在公告后第二天开盘时退出头寸。
 - en: 5\. Hedge net exposure with SPY during the entire holding period.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 5. 在整个持仓期间，用SPY对冲净敞口。
 - en: This benchmark shows no significant positive return and so it does seem that
     there is useful information in the Estimize data captured by Deltix’s mean-reversion
     strategy.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个基准显示没有显著的正回报，因此看来Deltix的均值回归策略从Estimize数据中确实捕捉到了有用的信息。
 - en: Next, we compare the traditional earnings estimates from I/B/E/S gathered from
     sell-side Wall Street analysts to the crowd-sourced Estimize estimates. Backtest
     showed the same Deltix mean reversion strategy described above but using I/B/E/S
     estimates gave negative return over the same S&P100 universe and over the same
     2012-2013 period, again supporting the thesis that Estimize estimates may be superior.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们将比较从华尔街卖方分析师那里收集的I/B/E/S传统盈利预测与众包的Estimize预测。回测显示了上面描述的相同Deltix均值回归策略，但使用I/B/E/S预测在同一S&P100宇宙和2012-2013期间给出了负回报，这再次支持了Estimize预测可能更优越的论点。
 - en: 'Since Deltix''s mean reversion strategy gives negative returns on I/B/E/S data,
     it is natural to see if a momentum strategy would work instead: if the short-term
     average estimate is higher than the long-term average estimate (i.e. analogous
     to delta < 0 above), we expect the price to move up and vice verse.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于Deltix的均值回归策略在使用I/B/E/S数据时给出负回报，自然要考虑是否动量策略能取而代之：如果短期平均预估高于长期平均预估（即类似于上面delta
+    < 0的情况），我们预计股价将会上涨，反之亦然。
 - en: 'The backtest result of this momentum strategy over the same universe and time
     period is quite promising: with 5bp transaction cost, the Sharpe ratio = 1.5 and
     average annual return = 11%. The following figure is the daily P&L of the strategy
     based on $1 per stock position'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在相同的宇宙和时间段内，这个动量策略的回测结果非常有希望：交易成本为5个基点，夏普比率=1.5，平均年回报率=11%。下面的图表是基于每股1美元持仓的策略每日盈亏。
 - en: '| [![](img/3fc49e5755737e69a81bf879b4a9a7d8.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFSCol46wXxxRFvYNd6c5PYGHJ5HoisL34yW_1OK7EzzHHr-OO1Y-IiVE_J56DZbJK6S4suSY3Fr6neslgE8YgnQND6G19EYbV2IAsofnjQLlUrdfdIIpGGAh3A77NMX0PhnZybg/s1600/Estimize2.png)
     |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '![Estimize2.png](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFSCol46wXxxRFvYNd6c5PYGHJ5HoisL34yW_1OK7EzzHHr-OO1Y-IiVE_J56DZbJK6S4suSY3Fr6neslgE8YgnQND6G19EYbV2IAsofnjQLlUrdfdIIpGGAh3A77NMX0PhnZybg/s1600/Estimize2.png)'
 - en: '|  Cumulative P&L of momentum Strategy with I/B/E/S |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: '| 使用I/B/E/S的动量策略累计盈亏 |'
 - en: We tried the same momentum strategy using Estimize data over 2012-2013, and
     it generated negative returns this time. This is not surprising since we found
     earlier that the mean reversion strategy using Estimize data generated positive
     returns.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在2012-2013年期间尝试了同样的动量策略，但这次使用的是Estimize数据，结果产生了负回报。这并不令人惊讶，因为我们之前发现使用Estimize数据的均值回归策略产生了正回报。
 - en: We proceeded to backtest this momentum strategy over the S&P100 using out-of-sample
     I/B/E/S data between 2010 and 2012, and unfortunately the strategy failed there
     too. The following figure is the daily P&L of the strategy from 2010-2014.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们接着在2010-2012年期间使用样本外的I/B/E/S数据对S&P100进行动量策略回测，不幸的是，该策略在那里的表现也不佳。下面是2010-2014年间策略的每日盈亏。
 - en: '| [![](img/831395684619d056a61c2b52aad2d28a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidNjbkwFj65IfsehpkmF6r4DXC9Ibr_QljgxDKCj1QnoTN77FtiC4dUMDLWRM_QVML_8QHmk3HhCttxYAl4souHsVSPYj_620uvGI5-sqJK2dGuXqXg7dMWc-6umRFpel4DBCOpg/s1600/Estimize3.png)
     |'
+  id: totrans-29
   prefs: []
   type: TYPE_TB
+  zh: '![Estimize3.png](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidNjbkwFj65IfsehpkmF6r4DXC9Ibr_QljgxDKCj1QnoTN77FtiC4dUMDLWRM_QVML_8QHmk3HhCttxYAl4souHsVSPYj_620uvGI5-sqJK2dGuXqXg7dMWc-6umRFpel4DBCOpg/s1600/Estimize3.png)'
 - en: '| Cumulative P&L of momentum Strategy with I/B/E/S  |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: '| 使用I/B/E/S的动量策略累计盈亏 |'
 - en: So how would Deltix’s mean-reversion strategy with Estimize data work over this
     out-of-sample period? Unfortunately, we won’t know because Estimize didn't start
     collecting data until the end of 2011\. The following table is a summary on the
     annual returns comparing different strategies using different data sets and periods.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么Deltix的带有Estimize数据的均值回归策略在这个样本外的期间会怎样表现呢？不幸的是，我们不知道，因为Estimize直到2011年底才开始收集数据。下面是使用不同数据集和期间的不同策略的年回报总结表。
 - en: 'As a result, we cannot conclude that Estimize data is consistently better than
     I/B/E/S data in terms of generating alpha: it depends on the strategy deployed.
     We also cannot decide which strategy – mean-reversion or momentum – is consistently
@@ -148,67 +215,105 @@
     can reach is that the short duration of the Estimize data coupled with our lack
     of proper price data in 2014 means that we cannot have a statistically significant
     backtest. This state of inconclusiveness will of course be cured in time.'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，我们无法得出结论，Estimize数据在产生alpha方面始终比I/B/E/S数据更好：这取决于所采用的策略。我们也不能决定哪种策略——均值回归或动量——始终更好：这取决于时间段和所使用的数据。我们唯一可以得出结论的是，Estimize数据的短期持仓加上我们2014年缺乏适当的价格数据，这意味着我们无法进行具有统计学意义的回测。这种不明确的状况当然会随着时间的推移而得到解决。
 - en: _________
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: _________
 - en: ===
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Industry Update**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**行业动态**'
 - en: (No endorsement of companies or products is implied by our mention.)
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: （我们提及的公司或产品并不代表对其进行背书。）
 - en: There is a good discussion comparing [Quantconnect](http://quantconnect.com/)
     to Quantopian [here](http://www.quora.com/Quantitative-Finance/What-are-the-advantages-and-disadvantages-of-Quantopian-v-Quantconnect).
+  id: totrans-37
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 有一篇很好的讨论，比较了[Quantconnect](http://quantconnect.com/)和Quantopian [在此](http://www.quora.com/Quantitative-Finance/What-are-the-advantages-and-disadvantages-of-Quantopian-v-Quantconnect)。
 - en: For FX traders, [Rizm](http://rizm.io/) offers a comparable service as Quantconnect
     and Quantopian as it is directly connected to FXCM.
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对于外汇交易员来说，[Rizm](http://rizm.io/)提供了与Quantconnect和Quantopian相当的服務，因为它直接连接到FXCM。
 - en: Quantopian now offers free fundamental data from MorningStar. Also, check out
     their [Quantopian Managers Program](https://www.quantopian.com/posts/announcing-the-quantopian-managers-program) where
     you can compete to manage real money.
+  id: totrans-39
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Quantopian现在提供免费的晨星基本数据。同时，查看他们的[Quantopian经理计划](https://www.quantopian.com/posts/announcing-the-quantopian-managers-program)，在那里你可以竞争管理真实资金。
 - en: ===
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Workshop Update**'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '**研讨会更新**'
 - en: Our next online workshop will be
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们下一次的在线研讨会将是
 - en: '[Millisecond Frequency Trading](http://www.epchan.com/workshops/)'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '[毫秒频率交易](http://www.epchan.com/workshops/)'
 - en: on March 25-26\. It is for traders who are interested in intraday trading (even
     if not at millisecond frequency) and who want to defend
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期为3月25日至26日。这是针对那些对日内交易感兴趣的交易员（即使不是以毫秒频率）以及那些想要防御
 - en: '*against*'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '*对抗*'
 - en: certain HFT tactics.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 某些高频交易策略。
 - en: ===
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Managed Account Program Update**'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '**管理账户计划更新**'
 - en: ===
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我Twitter: @chanep'

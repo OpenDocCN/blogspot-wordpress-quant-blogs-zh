@@ -1,30 +1,44 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:42:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:42:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Possible Compromises for IEX | Mechanical Markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 《IEX可能的妥协》| 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/12/18/possible-compromises-for-iex/#0001-01-01)
 - en: The most controversial aspect of IEX’s proposed design seems to be the non-uniform
     application of their speed bump. [[1](#bottom1iexdesign)] Before the community
     invests too much time debating this issue, I want to discuss why the unfair access
     proposed by IEX is unnecessary. IEX could accomplish their stated goals without
     offering an informational advantage to its peg orders or router.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX拟议设计中最有争议的方面似乎是对其速度障碍的非均匀应用。 [[1](#bottom1iexdesign)] 在社区过多讨论这个问题之前，我想讨论为什么IEX提出的非公平访问是不必要的。IEX可以在不向其挂钩订单或路由器提供信息优势的情况下实现其声明的目标。
 - en: Apparently, IEX doesn’t apply the speed bump to incoming market data used for
     repricing algorithmic order types, or for communications between the exchange
     and their router. A lot of [people](http://www.sec.gov/comments/10-222/10222-19.pdf)
@@ -35,12 +49,16 @@
     between itself and every unaffiliated router. [[2](#bottom2iexdesign)][[3](#bottom3iexdesign)]
     In this post, I’ll explain why these two exceptions to the speed bump aren’t needed
     to prevent “latency arbitrage” and “front-running.”
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，IEX不对用于重新定价算法订单类型的传入市场数据，或交易所与他们的路由器之间的通信应用速度障碍。很多人（包括我）[[2](#bottom2iexdesign)][[3](#bottom3iexdesign)]已经解释了这些差异可能引起的问题。简而言之，使用对手尚未看到的市场数据重新定价算法订单类型相当于“延迟套利”。IEX延迟与每个未关联路由器之间的通信感觉具有反竞争性。在这篇文章中，我将解释为什么这两个速度障碍的例外不是防止“延迟套利”和“抢先交易”所必需的。
 - en: Protecting Peg Orders Without Privileging Them
+  id: totrans-8
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 保护挂钩订单而不赋予其特权
 - en: IEX wants to make it impossible for its peg orders to be “picked off” by traders
     that process market data faster than IEX can. But that doesn’t actually require
     IEX to reprice its peg orders with fully non-delayed market data. The [CME](http://www.cmegroup.com/confluence/display/EPICSANDBOX/New+iLink+Architecture)
@@ -53,8 +71,11 @@
     messages in the correct order. This would accomplish IEX’s [goal](http://www.sec.gov/comments/10-222/10222-20.pdf)
     of “[ensuring] that no market participants can take action on IEX in reaction
     to changes in market prices before IEX is aware of the same price changes.”
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX希望确保其挂钩订单无法被比IEX更快处理市场数据的交易者“挑选”。但实际上，IEX实际上并不需要使用完全非延迟的市场数据来重新定价其挂钩订单。CME正在引入一种功能，在接收客户订单的那一刻时间戳，然后按照那些时间戳的顺序处理它们。IEX可以采取同样的措施，同时对传入的市场数据进行时间戳。如果IEX不想订阅无线数据馈送，它可以从无线和光纤链路之间的延迟差异中减去其市场数据时间戳。
+    [[4](#bottom4iexdesign)] 一旦IEX为所有消息水平化时间戳，它所需要做的一切就是按正确的顺序处理这些消息。这将实现IEX的[目标](http://www.sec.gov/comments/10-222/10222-20.pdf)，即“确保在任何市场参与者可以对IEX采取行动以反应市场价格变化之前，IEX已经意识到同样的价格变化。”
 - en: If re-ordering messages with software during the shoebox delay makes the delay
     appear more “intentional” (which violates Reg. NMS), there are analog options
     too. [[5](#bottom5iexdesign)] IEX could introduce smaller shoeboxes for the direct
@@ -62,19 +83,29 @@
     200us before any trader can act on them, then it can add a delay coil of 200us
     to its cable from Nasdaq. And, if it receives market data from NYSE 50us before
     fast traders do, then it can add a 50us coil to its NYSE feed, etc.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果在与鞋盒延迟期间用软件重新排序消息使延迟看起来更加“有意”（这违反了 Reg. NMS），还有类似的替代方案。 [[5](#bottom5iexdesign)]
+    IEX 可以为它处理的方向性馈送引入更小的鞋盒。例如，如果 IEX 在任何交易者可以采取行动之前 200us 收到纳斯达克的市场数据消息，那么它可以将其从纳斯达克的电缆增加
+    200us 的延迟线。而且，如果它从纽约证券交易所收到市场数据 50us 快于快速交易者，那么它可以将其从纽约证券交易所的馈送增加 50us 的延迟线，等等。
 - en: 'Either of these options would prevent IEX peg orders from being repriced in
     a “last look”-like manner. Here’s a stylized, bad diagram:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这两个选项中的任何一个都可以防止 IEX peg 订单以“最后查看”类似的方式重新定价。这是一个风格化、糟糕的图表：
 - en: '[![IEX_peg_partial_fix_drawing](img/390905e46de7d71ea9078fe023824200.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/12/iex_peg_partial_fix_drawing.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![IEX_peg_partial_fix_drawing](img/390905e46de7d71ea9078fe023824200.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/12/iex_peg_partial_fix_drawing.png)'
 - en: Preventing Information-Leakage from IEX’s Router Without Privileging It
+  id: totrans-13
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 防止从 IEX 路由器泄露信息而不赋予其特权
 - en: IEX [says](http://www.sec.gov/comments/10-222/10222-26.pdf) that it delays outgoing
     messages to all subscribers, except their routing broker-dealer (IEXS), “to prevent
     “information leakage” or “liquidity fade” when IEXS routes to other markets.”
@@ -85,8 +116,13 @@
     with clients. The router could then maintain its view of exchanges’ visible order
     books, including IEX’s, and time the sending of its orders so that they arrive
     at all exchanges simultaneously.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX [表示](http://www.sec.gov/comments/10-222/10222-26.pdf)，它延迟向所有订阅者发送的消息，除了他们的路由经纪商（IEXS），以“防止信息泄露或流动性衰减，当
+    IEXS 路由到其他市场时。” 他们的担忧是，如果没有这种非对称延迟，市场制造商如果在交易者向 IEX 发送的大订单部分执行之前被路由出去，他们可能会在其他交易所撤销他们的报价。然而，IEX
+    可以通过将路由器位于 Secaucus 的速度障碍之外，与客户一起，来防止这种“抢跑”行为 [[6](#bottom6iexdesign)]。 然后，路由器可以维护其对交易所可见订单簿的看法，包括
+    IEX 的订单簿，并调整订单发送时间，使它们同时到达所有交易所。
 - en: 'IEX suggests that competing routers could operate in this way, so IEX should
     be aware that its router could do the same. [[7](#bottom7iexdesign)][[8](#bottom8iexdesign)]
     But there is a drawback. The router would only know the visible quantity posted
@@ -96,8 +132,12 @@
     back, then sending any unfilled balance to other markets. The whole point of hidden
     liquidity is that you only know it’s there after you (or others) trade with it.
     [[9](#bottom9iexdesign)]'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX 表示，竞争性路由器可以以这种方式运行，因此 IEX 应该意识到其路由器也可能这样做。 [[7](#bottom7iexdesign)][[8](#bottom8iexdesign)]
+    但这种方法有一个缺点。路由器只能知道在 IEX 上发布的可见数量，而无法最优地与 IEX 的隐藏订单互动。路由器完全访问给定交易所的隐藏流动性的唯一方式是按顺序操作：首先向该交易所发送订单，等待回复，然后将任何未完成的余额发送到其他市场。隐藏流动性的整个意义在于，你只有在与它（或他人）交易后才知道它的存在。
+    [[9](#bottom9iexdesign)]
 - en: 'By allowing its router to bypass the speed bump, IEX effectively gives it exclusive
     access to IEX’s hidden order book information. That special access only lasts
     for the speed bump duration of 350us, but it still seems problematic. Lava was
@@ -105,19 +145,27 @@
     for allegedly using information from its hidden order book to help routing decisions
     at an affiliate. Matt Levine [argues](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant)
     that this offense was (mostly) victimless:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过允许其路由器绕过速度障碍，IEX 实际上赋予了它对 IEX 隐藏订单簿信息的独家访问权。这种特殊的访问权仅持续 350us 的速度障碍时间，但这仍然是个问题。Lava
+    因被指控使用其隐藏订单簿的信息来帮助其在关联公司的路由决策而被 [罚款](http://www.sec.gov/News/PressRelease/Detail/PressRelease/1370542371114)。Matt
+    Levine [认为](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant)这种违法行为（大部分）没有受害者：
 - en: What ColorBook did with the hidden orders is route its customers to those hidden
     orders… Once they submitted an order to buy X shares at Y price, ColorBook would
     send it toward the hidden orders. That’s exactly what you want when you submit
     a hidden order!
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: ColorBook利用隐藏订单所做的就是将其客户路由到这些隐藏订单...一旦他们提交了以Y价格购买X股的订单，ColorBook就会将其发送到隐藏订单。这正是提交隐藏订单时你所希望发生的！
 - en: Which could certainly be true, though those hidden order users might not have
     liked interacting with flow from the ColorBook router. [[10](#bottom10iexdesign)]
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这当然可能是真的，尽管那些隐藏订单用户可能不喜欢与ColorBook路由器的流量互动。[10](#bottom10iexdesign)
 - en: The argument to allow IEX to favorably treat its router is pretty much the same
     as Levine’s point about Lava. Such treatment, if fully disclosed, would probably
     improve fill rates for users of both the router and IEX hidden orders. It does,
@@ -126,52 +174,70 @@
     via any means, or whether they have to consider the broader competitive landscape.
     Should BATS be permitted to make routing decisions based on special access to
     Edge’s hidden orders? The same trade-offs apply.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 允许IEX对其路由器给予优惠待遇的论点与Levine关于Lava的观点基本相同。如果这种待遇得到充分披露，可能会提高使用路由器和IEX隐藏订单的用户的市场填充率。然而，这也伤害了使用非IEX路由器（和非IEX挂单，会导致错失成交）的用户。问题在于，交易所是否应该被允许通过任何手段帮助他们的用户，或者他们是否必须考虑更广泛的竞争格局。应该允许BATS根据对Edge隐藏订单的特殊访问来做出路由决策吗？同样的权衡适用。
 - en: Regardless, IEX is perfectly capable of operating a router immune to “front-running,”
     without giving it preferential access. This issue is not about “front-running,”
     it’s about accessing hidden liquidity. [[11](#bottom11iexdesign)]
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论如何，IEX完全有能力运营一个对“前端交易”免疫的路由器，而不给它优先访问的权利。这个问题不是关于“前端交易”，而是关于访问隐藏流动性。[11](#bottom11iexdesign)
 - en: Compromising
+  id: totrans-21
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 妥协
 - en: The rhetoric surrounding IEX has always been too hot for reasonable debate.
     That’s a shame. I think that there’s room for a compromise which allows IEX to
     accomplish its goals, while also satisfying automated traders and competitors.
     The “Flash Boys” would just have to admit that, sometimes, people who they hate
     make good points. Maybe that’s part of [growing up](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up).
     [[12](#bottom12iexdesign)]
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 围绕IEX的言论总是太过激烈，不利于合理辩论。这很遗憾。我认为有一个妥协的空间，这可以让IEX实现其目标，同时也能满足自动化交易者和竞争对手。那些“闪电男孩”们不得不面对的事实是，有时候，他们讨厌的人也会提出合理的观点。也许这是[成长](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)的一部分。[](#bottom12iexdesign)
 - en: '[[1](#1iexdesign)] This post, as always with IEX, is speculative. Their currently
     posted [exchange application](http://www.sec.gov/rules/other/2015/investors-exchange-form-1.htm)
     doesn’t have much information on the speed bump and when it applies. IEX’s comment
     letters [provide](http://www.sec.gov/comments/10-222/10222-20.pdf) more [detail](http://www.sec.gov/comments/10-222/10222-26.pdf),
     but there are still some uncertainties in my mind as to what exactly their market
     model entails.'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[](#1iexdesign)此篇博文，像往常一样，关于IEX的，都是猜测。他们目前发布的[交易所申请](http://www.sec.gov/rules/other/2015/investors-exchange-form-1.htm)对速度阻碍及其应用时间并没有太多信息。IEX的评论信[提供](http://www.sec.gov/comments/10-222/10222-20.pdf)了更多[细节](http://www.sec.gov/comments/10-222/10222-26.pdf)，但我心中对他们市场模型具体包含什么仍有一些不确定性。'
 - en: '[[2](#2iexdesign)] IEX sort of [denies](http://www.sec.gov/comments/10-222/10222-20.pdf)
     this:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[](#2iexdesign)IEX有点[否认](http://www.sec.gov/comments/10-222/10222-20.pdf)这一点：'
 - en: IEXS, the routing broker‐dealer, does not route to IEX and all orders, routable
     or otherwise, must pass through the POP, so there is no competitive disparity
     in terms of access to IEX’s trading system.
+  id: totrans-25
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: IEXS，这个路由经纪商，不将订单路由到IEX，所有可路由或不可路由的订单必须通过POP，因此在访问IEX交易系统方面不存在竞争性差异。
 - en: 'But also:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 但还有：
 - en: Following completion of routing actions, as instructed by the Exchange, any
     unfilled balance of shares returns to the Exchange for processing in accordance
     with applicable rules. That message does not traverse the POP
+  id: totrans-27
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 在完成路由操作后，根据交易所的指示，任何未成交的股票余额将返回交易所，根据适用规则进行处理。这条信息不会穿越POP。
 - en: '[[3](#3iexdesign)] IEX favorably treating its router could prompt other exchanges
     to create similar arrangements for their own routers, putting brokers’ smart order
     routers and small exchanges at a competitive disadvantage. I don’t really understand
@@ -179,8 +245,11 @@
     to introduce a speed bump that doesn’t apply to its router, traders would be strongly
     incentivized to use Nasdaq’s router, and nobody would use IEX’s. I’d think that
     a startup exchange would be most supportive of Reg NMS’s spirit of fair competition.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[3](#3iexdesign)] IEX对其路由器的优惠待遇可能会促使其他交易所为它们自己的路由器创建类似的安排，从而使经纪人的智能订单路由器和小交易所处于竞争劣势。我真的不明白IEX为什么要允许这种情况。如果像纳斯达克这样的大型交易所引入一个不适用于其路由器的速度障碍，交易员将强烈激励使用纳斯达克的
+    router，而没有人会使用IEX的。我认为，一个初创交易所应该最支持Reg NMS的公平竞争精神。'
 - en: IEX’s peg order treatment could raise questions about fair competition as well.
     Traders and brokers may be forced to use IEX’s algorithmic order types rather
     than their own. [Citadel](http://www.sec.gov/comments/10-222/10222-16.pdf) expressed
@@ -191,8 +260,10 @@
     market data. It’s not unusual for an exchange to charge extra for hidden executions,
     but providing a latency advantage to hidden orders raises new questions about
     their fees.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: IEX的peg订单处理可能也会引起公平竞争的问题。交易员和经纪人可能被迫使用IEX的算法订单类型，而不是他们自己的。 [Citadel](http://www.sec.gov/comments/10-222/10222-16.pdf)表达了担忧，IEX有朝一日可能会“对执行peg订单收取更多费用…这些订单具有其他订单类型固有的时间优势。”也许IEX已经开始这样做了——通过为隐藏订单收取更高的费用。我的理解是，IEX上的所有隐藏订单实际上都是中点peg，使用未经过速度障碍的市场数据进行重新定价。交易所对隐藏执行收取额外费用并不罕见，但为隐藏订单提供延迟优势引发了关于他们费用的新问题。
 - en: '[[4](#4iexdesign)] For example, if IEX receives a book update from Nasdaq at
     10:00:00.000000 over fiber with a 1-way latency of 200us, but they know the fastest
     wireless link has a 1-way latency of 100us, then IEX could recalibrate the timestamp
@@ -204,54 +275,75 @@
     may be easier for IEX to just subscribe to wireless feeds from the most important
     markets. It’d probably [cost](http://images.qnasdaqomx.com/Web/NASDAQOMX/%7Bc6c41d3b-68f7-4408-a404-20b8436209c8%7D_MMWfaqs_April_2015_-_clean.pdf)
     a total of around $50k/mo, which doesn’t sound like a big burden.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[4](#4iexdesign)] 例如，如果IEX从纳斯达克以200us的单向延迟通过光纤在10:00:00.000000收到书籍更新，但他们知道最快的无线链路具有100us的单向延迟，那么IEX可以将该书籍更新的时间戳重新校准为9:59:59.999900。这将是最快的交易员可能收到同一市场数据消息的时间（比IEX早100us）。当你考虑到无线链路并不总是可用时，还有一些曲折，所以如果IEX要完全公平，天气恶劣时就不会进行这个减法。与其处理这个问题，IEX可能更容易只是订阅最重要市场的无线数据流。这可能会[花费](http://images.qnasdaqomx.com/Web/NASDAQOMX/%7Bc6c41d3b-68f7-4408-a404-20b8436209c8%7D_MMWfaqs_April_2015_-_clean.pdf)总计大约每月5万美元，这听起来并不是一个沉重的负担。'
 - en: '[[5](#5iexdesign)] I don’t see why it should matter whether a delay has software
     components, but I’m also not a lawyer.'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[5](#5iexdesign)] 我不知道延迟是否具有软件组件是否重要，但我也不是律师。'
 - en: '[[6](#6iexdesign)] Or whatever they’re calling it these days.'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[6](#6iexdesign)] 或者他们现在是怎么称呼它的。'
 - en: '[[7](#7iexdesign)] Top of [p15](http://www.sec.gov/comments/10-222/10222-26.pdf).'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[7](#7iexdesign)] 见[p15](http://www.sec.gov/comments/10-222/10222-26.pdf)顶部。'
 - en: '[[8](#8iexdesign)] Though I don’t understand the extent that an exchange can
     act in a broker-like capacity. Perhaps locating their router in a different datacenter
     and offering functionality similar to brokers’ smart order routers (SORs) crosses
     some line? If so, that still seems better than their proposal to offer systematically-advantaged
     SOR-like functionality?'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '[[8](#8iexdesign)] 尽管我不了解交易所可以在经纪人般的角色上采取何种程度的行动。也许将他们的路由器放在不同的数据中心并提供与经纪人智能订单路由器（SORs）类似的
+    functionality会越过某些界限？如果是这样，这仍然似乎比他们提供具有系统优势的SOR-like功能的提议要好。'
 - en: '[[9](#9iexdesign)] IEX seems rather dismissive of sequential routing in a comment
     letter ([p16](http://www.sec.gov/comments/10-222/10222-26.pdf)). But sequential
     routing does have its advantages. Not every user wants to fully access lit quotes
     without regard for market impact, price improvement, or fees.'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一份评论信中，IEX对顺序路由似乎相当轻视([p16](http://www.sec.gov/comments/10-222/10222-26.pdf))。但顺序路由确实有其优点。并非每个用户都希望不考虑市场影响、价格改进或费用而完全访问亮报价。
 - en: '[[10](#10iexdesign)] This depends on many factors, including the toxicity of
     ColorBook routed orders. If the information sharing between the Lava ECN and the
     ColorBook router were disclosed to hidden order users, they could have taken that
     into account before sending those hidden orders. As Levine [says](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant):'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '这取决于许多因素，包括ColorBook路由订单的毒性。如果Lava ECN与ColorBook路由器之间的信息共享被隐藏订单用户得知，他们可以在发送这些隐藏订单之前将其考虑在内。正如Levine所说([says](http://www.bloombergview.com/articles/2014-07-25/citi-wasn-t-so-clear-on-what-hidden-orders-meant)):'
 - en: 'That wasn’t disclosed in its filings, or consistently disclosed in its advertising.
     (Though it was sometimes: This is not so much “a fact LavaFlow kept secret” as
     it is “a fact LavaFlow forgot to tell people.“'
+  id: totrans-37
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 这在其文件中未披露，或在其广告中一致披露。尽管有时会这样：这更多的是“LavaFlow没有告诉人们的事实”，而不是“LavaFlow保持秘密的事实”。
 - en: 'How consistently has IEX disclosed any favorable access it affords its router?
     I don’t know, but Citadel [says](http://www.sec.gov/comments/10-222/10222-16.pdf):'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 'IEX是如何一致披露其路由器享有的任何有利访问的？我不知道，但Citadel表示([says](http://www.sec.gov/comments/10-222/10222-16.pdf)):'
 - en: While it is not explicit in the Application, IEX has explained informally that
     the IEX Router would not be required to go through the IEX Access Delay to access
     the IEX trading system or when routing orders from the IEX trading system to other
     market centers.
+  id: totrans-39
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 虽然在应用程序中没有明确说明，但IEX已非正式解释称，IEX路由器在访问IEX交易系统或将从IEX交易系统路由订单到其他市场中心时，无需经历IEX访问延迟。
 - en: '[[11](#11iexdesign)] There’s also an argument that allowing the IEX router
     to skip the speed bump guarantees that any unfilled portion of a routable order
     will be first in the queue when it returns to IEX. Ignoring the issue of whether
@@ -260,9 +352,14 @@
     it submits orders so that they hit BATS at the same time as NYSE, it should be
     possible for a trader to react to the sweep on BATS and submit an order to IEX
     more than 350us before IEX hears back from NYSE.'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有一种观点是，允许IEX路由器跳过速度障碍确保了任何可路由订单未成交的部分在返回IEX时将是队列中的第一个。忽略IEX是否应仅向其路由器的客户提供这一利益的争议，我不认为这是真的。我不确切知道IEX的路由器是如何工作的。但如果它提交的订单使得它们与BATS和NYSE同时到达，那么交易员应该有可能在IEX从NYSE那里得到回复之前350us以上向IEX提交订单。
 - en: '[[12](#12iexdesign)] [Matt Levine](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)
     is responsible for creating the pun. I’m responsible for using it badly.'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 负责创造这个双关语的是[Matt Levine](http://www.bloombergview.com/articles/2015-09-16/the-flash-boys-exchange-is-growing-up)，我则
+    responsibility for using it badly.

@@ -1,108 +1,177 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:18:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:18:27'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Historical Sources of Bond Returns with Shiller Data 1919-2011'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：1919-2011年债券回报的历史来源与Shiller数据
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns-with.html#0001-01-01)
 - en: And as usual, I always want a longer data set, so after a little playing with
     R-Excel, we can extend our historical sources of bond returns to 1919.  If nothing
     else, maybe you can find other uses for the [Shiller Dataset](http://www.econ.yale.edu/~shiller/data/ie_data.xls)
     in R.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一如既往，我总是想要一个更长的数据集，所以在稍微玩了一下R-Excel之后，我们可以将债券回报的历史来源延长到1919年。否则，也许您可以在R中找到[Shiller数据集](http://www.econ.yale.edu/~shiller/data/ie_data.xls)的其他用途。
 - en: And as an added bonus, we can prepare a boxplot.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为额外奖励，我们可以准备一个箱形图。
 - en: As always, please criticize or make suggestions.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 一如既往，请批评或提出建议。
 - en: 'R code:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: 'getSymbols("BAA",src="FRED") #load Corporate for credit from Fed Fred'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("BAA",src="FRED") #从Fed Fred加载信用公司数据'
 - en: '#get Shiller data for inflation and US Treasury 10 year'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取Shiller数据通胀和美国国债10年'
 - en: require(gdata)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(gdata)
 - en: URL <- "[http://www.econ.yale.edu/~shiller/data/ie_data.xls"](http://www.econ.yale.edu/~shiller/data/ie_data.xls%22)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: URL <- "[http://www.econ.yale.edu/~shiller/data/ie_data.xls"](http://www.econ.yale.edu/~shiller/data/ie_data.xls%22)
 - en: shillerData <- read.xls(URL,sheet="Data",pattern="Rate GS10")
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: shillerData <- read.xls(URL,sheet="Data",pattern="Rate GS10")
 - en: '#strip out date(1), CPI(5), and GS10(7)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#删除日期(1)，CPI(5)，GS10(7)'
 - en: shillerData <- shillerData[,c(1,5,7)]
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: shillerData <- shillerData[,c(1,5,7)]
 - en: '#get data starting in January 1919 to match with BAA xts series'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从1919年1月获取数据，以匹配BAA xts系列'
 - en: shillerData <- shillerData[rownames(shillerData[which(shillerData$Date==format(index(BAA)[1],"%Y.%m")):NROW(shillerData),]),2:3]
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: shillerData <- shillerData[rownames(shillerData[which(shillerData$Date==format(index(BAA)[1],"%Y.%m")):NROW(shillerData),]),2:3]
 - en: shillerData <- xts(shillerData[1:NROW(BAA),1:2],order.by=index(BAA))
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: shillerData <- xts(shillerData[1:NROW(BAA),1:2],order.by=index(BAA))
 - en: bondReturnSources<-merge(BAA,shillerData)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources<-merge(BAA,shillerData)
 - en: bondReturnSources[,1]<-bondReturnSources[,1]-bondReturnSources[,3]
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources[,1]<-bondReturnSources[,1]-bondReturnSources[,3]
 - en: '#get 12 month CPI change'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取12个月的CPI变化'
 - en: bondReturnSources[,2]<-ROC(bondReturnSources[,2],12,type="discrete")*100
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources[,2]<-ROC(bondReturnSources[,2],12,type="discrete")*100
 - en: bondReturnSources[,3]<-bondReturnSources[,3]-bondReturnSources[,2]
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources[,3]<-bondReturnSources[,3]-bondReturnSources[,2]
 - en: bondReturnSources<-merge(bondReturnSources,bondReturnSources[,1]+bondReturnSources[,2]+bondReturnSources[,3])
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources<-merge(bondReturnSources,bondReturnSources[,1]+bondReturnSources[,2]+bondReturnSources[,3])
 - en: colnames(bondReturnSources)<-c("Credit","Inflation","Real","Total")
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSources)<-c("Credit","Inflation","Real","Total")
 - en: chart.TimeSeries(bondReturnSources,legend.loc="bottom",main="Historical Sources
     of Bond Returns",ylab="Yield as %",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(bondReturnSources,legend.loc="bottom",main="Historical Sources
+    of Bond Returns",ylab="Yield as %",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
 - en: '#add source as caption'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#添加来源作为标题'
 - en: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'
 - en: chart.Boxplot(bondReturnSources,main="Historical Sources of Bond Returns",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.Boxplot(bondReturnSources,main="Historical Sources of Bond Returns",colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"))
 - en: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 'mtext("Source: Federal Reserve FRED and Robert Shiller",side=1,adj=0)'

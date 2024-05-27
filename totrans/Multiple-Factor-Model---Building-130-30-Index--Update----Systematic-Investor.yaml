@@ -1,90 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:42:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:42:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiple Factor Model – Building 130/30 Index (Update) | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多因子模型 – 构建130/30指数（更新） | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/10/multiple-factor-model-building-13030-index-update/#0001-01-01)
 - en: 'This is just a quick update to my last post: [Multiple Factor Model – Building
     130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/).
     I want to introduce Market-Neutral and Minimum Variance strategies and compare
     their performance to the 130/30 Index.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这只是一个对我在上篇文章的快速更新：[多因子模型 - 构建130/30指数](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)。我想介绍市场中性策略和最小方差策略，并比较它们与130/30指数的表现。
 - en: I have updated the source code of the [fm.long.short.test() function in factor.model.test.r
     at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)
     to include Market-Neutral and Minimum Variance strategies.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经更新了[github上因子模型测试文件中的fm.long.short.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)，包括市场中性策略和最小方差策略。
 - en: Let’s start by creating a Minimum Variance strategy. I will use the same framework
     as in the [Multiple Factor Model – Building 130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)
     post. At each month end, I will solve for a portfolio that has minimum variance,
     ignoring all alpha information.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们先创建一个最小方差策略。我将使用与[多因子模型 - 构建130/30指数](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)文章相同的框架。在每个月底，我将解决一个最小方差的组合，忽略所有的alpha信息。
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next, let’s construct Market-Neutral portfolio. I will restrict portfolio weights
     to be +/- 10% and will use portfolio construction technique that I documented
     in the [130/30 Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
     post.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们构建市场中性投资组合。我将限制投资组合权重为±10%，并将使用我在[130/30投资组合建设](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)文章中记录的投资组合建设技术。
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next, let’s re-create all summary charts from the [Multiple Factor Model – Building
     130/30 Index](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)
     post.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们重新创建[多因子模型 - 构建130/30指数](https://systematicinvestor.wordpress.com/2012/03/06/multiple-factor-model-building-13030-index/)帖子中的所有摘要图表。
 - en: '[![](img/7489bb61e2554cec2400ca462d195835.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small1.png)'
 - en: '[![](img/b81651b6d00636e223daaa941f1df77d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small1.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small1.png)'
 - en: '[![](img/75969bbdb93f8cdf29e97511cca4ad8b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small1.png)'
 - en: '[![](img/357bf68785489eaafd2bcaeaaf686522.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small1.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small1.png)'
 - en: 'Please note that we are not comparing apples to apples here. For example, Market-Neutral
     strategy has beta set equal to zero while 130/30 Index has beta set equal to one.
     But at the same time there are a few interesting observations:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，我们这里并不是在比较苹果和苹果。例如，市场中性策略的贝塔值设为零，而130/30指数的贝塔值设为 one。但与此同时，也有几个有趣的观察结果：
 - en: Minimum Variance strategy has the smallest drawdown among all long strategies,
     but its performance is lacking
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 最小方差策略在所有长期策略中跌幅最小，但其表现不足
 - en: Market-Neutral strategy does surprisingly well in this environment and has the
     best Sharpe ratio
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 市场中性策略在这种环境中表现出色，具有最佳的夏普比率
 - en: Market-Neutral strategy also has the highest portfolio turnover; hence, high
     trading costs will make this strategy less attractive
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 市场中性策略的组合换手率也最高；因此，高交易成本将使这种策略变得不那么有吸引力
 - en: To view the complete source code for this example, please have a look at the
     [fm.long.short.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看本例的完整源代码，请查看[github上的factor.model.test.r文件中的fm.long.short.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

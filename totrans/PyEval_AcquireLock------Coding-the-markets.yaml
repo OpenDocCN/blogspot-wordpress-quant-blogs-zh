@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:42:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:42:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: PyEval_AcquireLock( ) | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: PyEval_AcquireLock( ) | 编写市场代码
 - en: 来源：[https://etrading.wordpress.com/2008/06/20/pyeval_acquirelock/#0001-01-01](https://etrading.wordpress.com/2008/06/20/pyeval_acquirelock/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2008/06/20/pyeval_acquirelock/#0001-01-01](https://etrading.wordpress.com/2008/06/20/pyeval_acquirelock/#0001-01-01)
 - en: PyEval_AcquireLock( )
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: PyEval_AcquireLock( )
 - en: June 20, 2008
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2008年6月20日
 - en: 'The Python docs [explain](http://docs.python.org/api/threads.html) that PyEval_AcquireLock(
     ) shouldn’t be called more than once by the same thread: “if this thread already
     has the lock, a deadlock ensues”. I ran into this recently while coding with our
@@ -34,17 +50,24 @@
     trading systems.  It has pub/sub messaging, RPC, monitoring, failover, persistence,
     caching, versioning and logging all built in. While C++ is the native language
     of the framework, Java, C# and Python are also supported.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Python文档[解释](http://docs.python.org/api/threads.html)说，同一个线程不应该多次调用PyEval_AcquireLock(
+    )：“如果这个线程已经拥有锁，就会产生死锁”。我在编写C++/Python应用程序框架时遇到了这个问题。在工作中，我很幸运地使用了一个专为构建电子交易系统而设计的优秀的专有C++应用程序框架。它集成了发布/订阅消息传递、RPC、监控、故障转移、持久性、缓存、版本控制和日志记录等功能。尽管C++是框架的本机语言，但Java、C#和Python也得到支持。
 - en: The Python support is implemented in CPython using the [Python C API](http://docs.python.org/api/api.html).
     C++ framework callbacks are dispatched into Python. Before and after dispatch
     the GIL was  acquired with PyEval_AcquireLock and released with PyEval_ReleaseLock.
     All well and good until a Python callback invokes a C++ function which in turn
     calls another Python function, causing a second call to PyEval_AcquireLock which
     then deadlocks. Not good if your process is handling an RFQ !
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Python支持是通过CPython使用[Python C API](http://docs.python.org/api/api.html)实现的。C++框架回调被调度到Python中。在调度之前和之后，GIL通过PyEval_AcquireLock和PyEval_ReleaseLock获取和释放。一切都很顺利，直到Python回调调用一个C++函数，而这个函数又调用另一个Python函数，导致第二次调用PyEval_AcquireLock从而产生死锁。如果你的进程正在处理RFQ，这可不是什么好事！
 - en: The solution was to use PyGILState_Ensure and PyGILState_Release, as introduced
     in Python 2.2, instead.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决方案是使用Python 2.2中引入的PyGILState_Ensure和PyGILState_Release。

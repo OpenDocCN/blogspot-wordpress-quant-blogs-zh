@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:07:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:07:33'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Shortwave Trading | Part I | The West Chicago Tower Mystery – Sniper In Mahwah
     & friends
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 短波交易 | 第一部分 | 西芝加哥塔之谜 —— 由 Mahwah 狙击手及其朋友们撰写
 - en: 来源：[https://sniperinmahwah.wordpress.com/2018/05/07/shortwave-trading-part-i-the-west-chicago-tower-mystery/#0001-01-01](https://sniperinmahwah.wordpress.com/2018/05/07/shortwave-trading-part-i-the-west-chicago-tower-mystery/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://sniperinmahwah.wordpress.com/2018/05/07/shortwave-trading-part-i-the-west-chicago-tower-mystery/#0001-01-01](https://sniperinmahwah.wordpress.com/2018/05/07/shortwave-trading-part-i-the-west-chicago-tower-mystery/#0001-01-01)
 - en: Since 2014 this blog has extensively covered the wireless networks built by
     high-frequency trading (HFT) firms or network providers to reduce latencies between
     the different exchanges around the world (market makers need fast connectivity
@@ -31,8 +43,11 @@
     firms may use shortwave radio to directly connect widely-separated locations (in
     short, traders are willing to use shortwave to cross oceans with less latency
     than any fiber – like Hibernia).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 自2014年以来，本博客详细报道了由高频交易（HFT）公司或网络提供商构建的无线网络，以降低世界各地不同交易所之间的延迟（市场制造商需要快速连接以管理风险，新闻交易员也需要快速，等等）。这场关于微波的史诗般的调查始于*《后院的高频交易》（https://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/）*，我目前正在写的书中将全面报道（目前是法语）。由于我忙于写作（以及其他更有趣的市场结构相关事务），我并没有真正有时间去了解我所听说过的“短波”或者“高频”无线电。这是高频交易公司可能使用短波无线电直接连接相隔甚远的地点的方式（简而言之，交易员愿意使用短波穿越海洋，以低于任何光纤的延迟——比如
+    Hibernia）。
 - en: But recently I got more intel about the situation (and some fun anecdotes).
     With some help from the US, I found that a firm purchased a field for more than
     1$M to build towers and antennas; with some help from the EU, I got hints about
@@ -45,8 +60,10 @@
     the “Shortwave Trading” series is released at the same time Bob is talking about
     what he found at the [STAC Summit](https://stacresearch.com/spring2018CHI) in
     Chicago. Next parts will follow soon.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 但最近我获得了更多关于这种情况的情报（还有一些有趣的趣闻）。在美国的帮助之下，我发现一家公司购买了一个场地，以建造发射塔和天线，花费超过一百万美元；在欧盟的帮助下，我得到了关于德国的线索；我查阅了英国公共记录。去年三月在阿姆斯特丹，我还遇到了那些项目相关人员。不出所料，至少有五家HFT/市场制造商公司出现在他们用来隐藏的壳公司/名称背后。都是一些老面孔。最近，我收到了来自芝加哥的鲍勃的来信，他决定调查自己后院里的“短波”网络。今天，我很高兴地在这个博客上邀请鲍勃作为新嘉宾作家。这个“短波交易”系列的第一部分与鲍勃在芝加哥的[STAC峰会](https://stacresearch.com/spring2018CHI)上谈论他的发现同时发布。接下来的部分将很快发布。
 - en: I’m Bob Van Valzah and I’m on a “gardening leave” between jobs working as a
     Performance Engineer for high-frequency trading firms in Chicago. I recently stumbled
     onto the first evidence of shortwave trading at a site in West Chicago, Illinois
@@ -57,155 +74,218 @@
     of my research may be of interest here and there, so I offered to do some guest
     posting on this blog. I’ll have to go quiet again in July when I head back to
     work.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是鲍勃·范瓦尔萨，目前在芝加哥两家高频交易公司担任性能工程师，目前处于工作之间的“休假”状态。最近，我在伊利诺伊州西芝加哥的一个网站上偶然发现了短波交易的第一个证据，然后运用联邦通信委员会（FCC）数据库研究技术，找到了另外两个地点。通常，与雇主的保密协议会阻止我谈论这些，但在休假期间，与交易相关的发现都属于我个人。我的研究结果可能会引起一些人的兴趣，因此我愿意在这个博客上做一些客座文章。我将在七月再次“安静”下来，因为我回去工作了。
 - en: It might be reasonable to assume that “West Chicago” was just a western part
     of Chicago, Illinois. In fact, it’s [a city in its own right](https://en.wikipedia.org/wiki/West_Chicago,_Illinois),
     twenty some miles west of the big city. A typical weekend will find me cycling
     down a bike path that runs nearby. In March, muddy path conditions caused me to
     detour through an industrial park in West Chicago where the West Chicago Tower
     Mystery began. I looked up from the handlebars and saw this tower.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 人们可能会合理地假设“西芝加哥”只是伊利诺伊州芝加哥市西部的一部分。实际上，它是一个[独立的市](https://en.wikipedia.org/wiki/West_Chicago,_Illinois)，位于大城市西边约20英里处。一个典型的周末，我会骑自行车沿着附近的一条自行车道骑行。三月份，泥泞的路径条件使我不得不绕道通过西芝加哥的一个工业区，那里就是西芝加哥塔谜团的发源地。我从车把上抬头望去，看到了这座塔。
 - en: '[![WestChicagoTower](img/ce8c16b7022063c7a56910902799961e.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2018/05/westchicagotower-e1525386969469.jpg)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![WestChicagoTower](img/ce8c16b7022063c7a56910902799961e.png)'
 - en: Mysterious West Chicago Tower, March 10, 2018.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 神秘的西芝加哥塔，2018年3月10日。
 - en: I’m an amateur radio operator, or “ham,” (KE9YQ) and those four big antennas
     look a lot like ones that a ham would use to talk across an ocean. I’ll just call
     them shortwave antennas here, but practitioners of aluminum feng shui (antenna
     design) will recognize them as log periodic. There’s also a microwave dish antenna
     between the top two shortwave antennas. This much I could tell just by looking.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一名业余无线电操作员，“火腿”（KE9YQ），那四根又大又显眼的天线看起来很像火腿们用来跨越大洋进行通信的天线。在这里我称它们为短波天线，但铝制风水学（天线设计）的实践者会认出它们是日志周期天线。在顶部的两根短波天线之间还有一个微波天线。这些信息仅凭观察就能得知。
 - en: Most of the radio towers you see each day are cell towers. There are 215,000
     of them in the US. They differ from other radio towers in that they will almost
     always have one or more triangular structures with three or more directional antennas
     on each side of the triangle. A grid of cell towers covers an area with roughly
     hexagonal cells so that you get a good signal everywhere.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 你每天看到的绝大多数无线电塔都是移动通信塔。美国有215,000座。它们与其他无线电塔的区别在于，它们几乎总是会有一个或多个三角形的结构，每面三角形上都有三个或更多的方向性天线。一个由移动通信塔组成的网格覆盖了一个大致六边形的区域，这样你就能在任何地方都获得良好的信号。
 - en: The West Chicago tower had no triangular structure, so I was pretty sure it
     wasn’t a cell tower. And these antennas were huge compared to regular cell tower
     antennas. I could literally see them 1/2 mile away. Some cell towers do have microwave
     dish antennas when it’s hard to bring fiber to a site, but shortwave antennas
     didn’t seem to go together with microwave in my mind.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 西芝加哥塔没有三角结构，所以我敢肯定它不是一座移动通信塔。而且这些天线比普通移动通信塔的天线要大得多。我 literally 能在半英里外看到它们。有些移动通信塔确实在难以将光纤引入场地时会配备微波天线，但在我看来，短波天线和微波天线似乎不太搭配。
 - en: '**Mystery #1: If this wasn’t a cell tower, what was it?**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团#1：如果不是一座移动通信塔，那它是什么？**'
 - en: With my curiosity up, I pedaled to the base of the tower and took a look around.
     Like all cell towers, there’s a barbed wire perimeter fence and I could see a
     power meter where electricity enters the site. The panel allowed for up to four
     power meters because it’s common for two or more carriers to share a single site.
     There’s also a master power switch for each carrier so that they can shut off
     their juice for maintenance without knocking the other carriers off the air.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 好奇心驱使我骑车来到塔的底部四处查看。和所有的移动通信塔一样，有一个带刺铁丝网的围栏，我看到一个电表，电力从那里进入场地。这个面板可以容纳最多四个电表，因为两个或更多的运营商共享一个场地是很常见的。为每个运营商还设有一个主电源开关，这样他们就可以在维护时关闭自己的电源，而不会将其他运营商的通信信号中断。
 - en: '![WestChicagoTowerBase](img/b623517d3a1fdc1120631b7bee482c98.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![WestChicagoTowerBase](img/b623517d3a1fdc1120631b7bee482c98.png)'
 - en: The tower base and perimeter fence.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这座塔的基座和外围围栏。
 - en: '![WestChicagoPowerMeter](img/2ce46cdb9a3ab8b83df3c18b79804076.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![WestChicagoPowerMeter](img/2ce46cdb9a3ab8b83df3c18b79804076.png)'
 - en: The only power meter for the site.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 现场唯一的电表。
 - en: I walked right up to the fence and zoomed in on the power meter. It said “[U.S.
     Cellular](https://en.wikipedia.org/wiki/U.S._Cellular).” They are indeed a regional
     cellular carrier, but they only serve 23 U.S. states and wouldn’t want their signals
     crossing any oceans.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我径直走到围栏跟前，拉近镜头查看电表。上面写着“[U.S. Cellular](https://en.wikipedia.org/wiki/U.S._Cellular).”他们确实是一家区域性移动运营商，但只服务于美国的23个州，不希望信号跨越任何海洋。
 - en: '**Mystery #2: Why would a regional cellular carrier pay for power to cross
     oceans?**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团#2：为什么一家区域性移动运营商要支付跨越海洋的电力费用？**'
 - en: Riding on a hot day, I may stop for a drink in the shade of a cell tower, so
     I’ve seen what a lot of cell sites look like. There’s often a small building inside
     the perimeter fence to hold the equipment that runs the cell site. The ground
     inside the perimeter fence is typically coarsely crushed rock to prevent weeds
     from growing.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个炎热的天气里，我可能会在基站下阴影处停下来喝口水，所以我看到了很多基站的样子。围栏内通常有一个小建筑物，用来容纳运行基站设备。围栏内的地面通常是粗碎的石头，以防止杂草生长。
 - en: An odd thing about this “cell site” was that it had a garbage pile inside the
     fence. Cell sites are unmanned and don’t need much maintenance. Crews who do work
     there typically leave the site clean and take their garbage with them. There is
     no trash pickup at sites like this, so it seemed odd that there’d be cans full
     of lunch wrappers and cardboard boxes. If this was a cell site, it was maintained
     by much sloppier crews than the ones I’d typically seen.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个“基站”的一个奇怪之处在于，它在围栏内有垃圾堆。基站是无人值守的，不需要太多维护。在那里工作的员工通常会把现场清理干净，把他们的垃圾带走。这个地方没有垃圾收集，所以看起来很奇怪，为什么会有装满午餐包装纸和纸板箱的垃圾桶。如果这是一个基站，那么它是由比我通常看到的要粗心的员工维护的。
 - en: One box in the garbage pile caught my eye so I zoomed in through the fence and
     got the best shot of the label I could with my iPhone. I had never heard of the
     company [Ettus Research](https://www.ettus.com) or the [USRP X300 device](https://www.ettus.com/product/details/X300-KIT).
     With all the cell sites in the world, you’d think they’d be made from off-the-shelf
     parts, not stuff cooked up in a research and development lab.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 垃圾堆中的一个盒子引起了我的注意，所以我穿过围栏放大镜头，用我的iPhone拍下了标签的最佳照片。我从未听说过该公司[Ettus Research](https://www.ettus.com)或[USRP
+    X300设备](https://www.ettus.com/product/details/X300-KIT)。世界上所有的基站，你会认为它们是由现成的零件制造的，而不是在研发实验室里研制的东西。
 - en: '![EttusResearchLabel](img/eba585e1901684a97c5fba4bca373708.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![EttusResearchLabel](img/eba585e1901684a97c5fba4bca373708.png)'
 - en: The label on an interesting box in the garbage pile.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 垃圾堆中一个有趣盒子的标签。
 - en: '**Mystery #3: Why would a cell site need equipment from a research company?**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团#3：为什么一个基站需要研究公司的设备？**'
 - en: Most any cell site with a tower will have a sign with a seven-digit number known
     as the FCC Antenna Structure Registration (ASR) number. If you were a cellular
     carrier out shopping for a good place to put your antennas, you could use this
     number to find the height of the tower and get other useful nuggets from the FCC
     database. I took a picture of the number since I thought it might come in handy
     when I got home.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数带有塔的基站都会有一个带有七位数字的标志，这个标志被称为FCC天线结构注册（ASR）号码。如果你是一个细胞运营商，正在寻找一个放置天线的好地方，你可以使用这个数字来查找塔的高度，并从FCC数据库中获取其他有用的信息。我想当我回家的时候可能会用到这个数字，所以我拍了一张照片。
 - en: '![ChangeOfOwnership](img/74fbce36f11aa1c0293cbfd476e68384.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_IMG
+  zh: '![ChangeOfOwnership](img/74fbce36f11aa1c0293cbfd476e68384.png)'
 - en: U.S. Cellular sold the tower in 2014.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国细胞公司在2014年出售了这座塔。
 - en: Back home, I pulled up the FCC ASR database and found that the tower was indeed
     built by U.S. Cellular in 2009\. Digging deeper, I also found a record that they
     had sold it in late 2014\. This sort of transaction is pretty common in the business.
     As subscribers come and go, cellular carriers have to move their cell sites and
     keep adjusting their antenna heights to maintain good coverage everywhere.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到家后，我调用了FCC ASR数据库，发现这座塔确实是由美国细胞公司在2009年建造的。再深入挖掘，我还发现他们于2014年底将其出售的记录。这种交易在业内相当常见。随着用户的来来去去，细胞运营商不得不移动他们的基站，并不断调整天线的高度，以保持良好的覆盖。
 - en: Google Street View is a wonderful tool for looking at the way the world used
     to be. I found a view of the tower from August 2012 when it had already been picked
     clean of all cellular antennas (they have resale value!), with only the tell-tale
     triangular mounting structure remaining at the top of the tower.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 谷歌街景是一个查看世界过去的绝佳工具。我从2012年8月的视角找到了这座塔的照片，那时它已经被清空了所有的细胞天线（它们有回收价值!),只剩下塔顶的三角安装结构。
 - en: '![West Chicago Tower 8:2012](img/28205bd7327c15edaf71e6f4abb6e75d.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_IMG
+  zh: '![West Chicago Tower 8:2012](img/28205bd7327c15edaf71e6f4abb6e75d.png)'
 - en: The tower as it looked in August 2012.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 2012年8月，这座塔看起来是这样的。
 - en: So part of the history was becoming clear. The tower was built by U.S. Cellular
     in 2009, but fell into disuse sometime before 2012\. It was eventually sold in
     late 2014.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以这部分历史变得清晰了。这座塔是由美国细胞公司在2009年建造的，但在2012年之前不久就停止使用了。它最终在2014年底被出售。
 - en: As is common with cell sites these days, the tower site was sold to [Vertical
     Bridge](http://www.verticalbridge.com), an antenna site management company. Instead
     of owning antenna sites themselves, it now seems common for carriers to just lease
     space on towers at antenna sites owned by management companies. So that’s no real
     clue about current ownership or usage of the tower.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 像现在的手机基站一样，塔站被[Vertical Bridge](http://www.verticalbridge.com)，一家天线站点管理公司收购。与拥有天线站点本身不同，现在似乎常见的做法是，运营商只是在由管理公司拥有天线站点的塔上租用空间。所以这并不能真正说明塔当前的所有权或使用情况。
 - en: '**Mystery #4: Where is the other end of that microwave link?**'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团 #4：那条微波链路的另一端在哪里？**'
 - en: Microwave links require a license for operation, so I returned to the FCC databases
     and looked for licenses associated with that tower. Each license gives the GPS
     coordinates of both ends of the link and the FCC has a helpful mapping function.
@@ -213,23 +293,35 @@
     by the Chicago Mercantile Exchange! It was still just circumstantial evidence,
     but this was the first good clue that the West Chicago tower had something to
     do with trading. It was looking less and less like spooks were using the tower.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 微波链路需要进行操作的许可证，所以我回到FCC数据库，查找与那座塔相关的许可证。每个许可证都给出了链路两端GPS坐标，FCC还有一个有用的映射功能。它显示了西芝加哥塔和芝加哥商业交易所附近的另一座塔之间有一条直接链接！这还是间接证据，但这是最早的线索，表明西芝加哥塔与交易有关。这座塔越来越不像是被间谍使用。
 - en: '![FCCPathMapAnnotated](img/ae73eb1a70ca06781c8f54e3c2a4497c.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_IMG
+  zh: '![FCCPathMapAnnotated](img/ae73eb1a70ca06781c8f54e3c2a4497c.png)'
 - en: FCC map of microwave connection between CME and West Chicago tower.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: CME和西芝加哥塔之间的微波连接的FCC地图。
 - en: '![EttusResearchUSRP X300](img/42bba0fcf868f7fd10c591619eff2eee.png)'
+  id: totrans-42
   prefs: []
   type: TYPE_IMG
+  zh: '![EttusResearchUSRP X300](img/42bba0fcf868f7fd10c591619eff2eee.png)'
 - en: Top-of-the-line software defined radio.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶级软件定义无线电。
 - en: '**Mystery #5: What was in that box in the garbage pile?**'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团 #5：垃圾堆里的那个箱子里有什么？**'
 - en: Google helpfully explains that Ettus Research is the leading provider of Software
     Defined Radios (SDR). These are the devices you need to make any kind of custom
     radio you want. Just change the software and you can send voice, pictures, video,
@@ -237,60 +329,86 @@
     with an FPGA, two 10 gigabit Ethernet ports, and a PCIe bus interface. The pair
     that was in that box cost nearly $10,000\. You don’t need gear like this at a
     cell site.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 谷歌详细解释说，Ettus Research是软件定义无线电（SDR）的主要提供商。这些是你需要制作任何类型的定制无线电的设备。只需更改软件，你就可以发送语音、图片、视频或交易信息。箱子里的是他们的顶级型号，带有FPGA、两个10千兆以太网端口和PCIe总线接口。箱子里的一对成本接近10,000美元。你在手机基站不需要这样的设备。
 - en: '**Mystery #6: What could be interesting across an ocean?**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**谜团 #6：跨越大西洋还有什么有趣的？**'
 - en: I’m much better with the technology of trading rather than understanding how
     to make money with trading. But it seemed like a reasonable guess that prices
     on the markets at CME would be correlated with activity in European markets –
     let’s say, in Slough (UK) and Frankfurt (Germany). So I fired up Google Earth
     and plotted the lines that a radio signal would have to travel between West Chicago
     and the markets in London and Frankfurt.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在交易的技术方面要比理解如何通过交易赚钱做得更好。但似乎合理的猜测是，CME市场上的价格与英国Slough和德国法兰克福等欧洲市场的活动相关。所以我启动了谷歌地球，并绘制了无线电信号在西芝加哥和伦敦、法兰克福市场之间必须穿越的线路。
 - en: '[![WestChicagoLondonFrankfort](img/d56374105b0f4b53e7e875363f148357.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2018/05/westchicagolondonfrankfort.png)'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![WestChicagoLondonFrankfort](img/d56374105b0f4b53e7e875363f148357.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2018/05/westchicagolondonfrankfort.png)'
 - en: Shortest paths between West Chicago and European markets.
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 西芝加哥和欧洲市场之间的最短路径。
 - en: We are so used to seeing flattened projections of earth that it’s easy for a
     Chicagoan to think of Europe as being east of Chicago. But in fact the shortest
     way to Europe is northeast, at about a 45º angle.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们习惯于看到地球的平面投影，因此一个芝加哥人可能会认为欧洲位于芝加哥的东部。但实际上到欧洲的最短路径是向东北方向，大约呈45度角。
 - en: '![WestChicagoEuropeAngle](img/cdeeede25f13101c7aafe724b110e795.png)'
+  id: totrans-51
   prefs: []
   type: TYPE_IMG
+  zh: '![WestChicagoEuropeAngle](img/cdeeede25f13101c7aafe724b110e795.png)'
 - en: For radio, Europe is northeast of Chicago.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于无线电来说，欧洲位于芝加哥的东北方向。
 - en: This angle is important because those shortwave antennas on the tower are directional.
     If you know you want to talk to Europe, why send any of your signal toward Guam?
     Directional shortwave antennas focus your signal in the direction of the pointy
     end of the antenna. In the photo of the tower above, I’m standing right under
     the path where the top antenna is pointing.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个角度很重要，因为塔上的这些短波天线是方向性的。如果你知道你想和欧洲通话，为什么还要把任何信号发送到关岛呢？方向性短波天线将你的信号聚焦在天线尖端的指向方向。在上面塔的照片中，我站在顶部天线指向路径的正下方。
 - en: At shortwave frequencies, it’s difficult to make antennas with a narrow beam
     width. London and Frankfurt are only about 5º apart when you’re aiming from Chicago,
     so one antenna should hit both cities. This raises the question of why the tower
     needed four shortwave antennas, all pointed in pretty much the same direction.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 在短波频率上，很难制作出窄波束宽度的天线。当你从芝加哥瞄准时，伦敦和法兰克福之间的距离大约只有5º，所以一个天线应该能覆盖这两个城市。这让人好奇为什么这座塔需要四个短波天线，而且都指向基本相同的方向。
 - en: Some of the antennas on the tower focused their signal well, producing a more
     powerful signal, but only operate over a narrow range of shortwave frequencies.
     Others operate over a wide range of frequencies, but can’t produce a strong signal.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 塔上的某些天线信号聚焦很好，产生更强大的信号，但只在短波频率的狭窄范围内运行。其他的天线在广泛的频率上运行，但不能产生强信号。
 - en: '[![MarchToAprilChanges](img/cedf96f55a20c7be2a80b841f6c2b921.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2018/05/marchtoaprilchanges.jpg)'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![三月到四月变化](img/cedf96f55a20c7be2a80b841f6c2b921.png)](https://sniperinmahwah.wordpress.com/wp-content/uploads/2018/05/marchtoaprilchanges.jpg)'
 - en: The lower two antennas have been removed from the tower.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 较低的两个天线已经从塔上移除。
 - en: It also appeared that the second shortwave antenna up from the bottom had been
     damaged in a wind storm or perhaps poorly installed because four of its five elements
     had been knocked significantly out of the horizontal plane. Nonetheless, I was
@@ -298,8 +416,10 @@
     had been removed. So this site is being actively developed in the spring of 2018\.
     They’re moving antennas around and they haven’t gotten rid of the garbage pile,
     so there’s still work to do.
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来从底部向上数的第二个短波天线在风暴中受损，或者可能安装不当，因为其五个元素中的四个已经显著偏离水平面。尽管如此，当我几周后访问现场时，发现较低的两个天线已经被移除，我还是感到惊讶。所以这个网站在2018年春天正在积极开发中。他们正在移动天线，还没有清理垃圾堆，所以还有工作要做。
 - en: Bringing it all together, I’ve discovered that this West Chicago tower has all
     the ingredients needed to make a low-latency transatlantic market connection.
     I’ve also found two other sites around Chicago with massive shortwave antennas
@@ -310,14 +430,21 @@
     Tokyo [*Sniper’s note:* that reminds me I didn’t check recently what is going
     on around Go West]. Spotters are already at work looking for antennas around London
     and Frankfurt.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 综合来看，我发现了这座西芝加哥塔拥有制作低延迟跨大西洋市场连接所需的所有要素。我还发现了芝加哥附近另外两个拥有指向欧洲的大型短波天线和到CME的微波链路的大型网站，所以这场比赛不止有一匹马。我会在未来的文章中记录这些网站。东海岸也存在许可。我将在6月中旬的旅行中寻找它们。FCC的搜索还发现了在阿拉斯加安克雷奇的许可，它位于CME到东京的路径上[*Sniper的注释：*这让我想起我最近没有检查过围绕Go
+    West发生了什么]。观察者已经开始寻找伦敦和法兰克福周围的天线。
 - en: '![](img/b39a69ff1bfdf6b67862667763a2f18b.png)'
+  id: totrans-60
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/b39a69ff1bfdf6b67862667763a2f18b.png)'
 - en: Somewhere around Slough (UK), March 2018
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 英国斯劳附近，2018年3月
 - en: Shortwave is no panacea. It’s unreliable, expensive, and very low bandwidth.
     Think dialup speeds. But you can’t beat it for latency. I plan to go into more
     detail on shortwave tradeoffs in a future post. You might be wondering if anybody
@@ -325,8 +452,10 @@
     market faster. Yes, anybody can receive it, but the sender would be foolish not
     to encrypt it in a way that can’t be cracked. This is easily done without impacting
     performance.
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 短波不是万能的。它不可靠，昂贵，且带宽非常低。想想拨号上网的速度。但在延迟方面无法匹敌。我计划在未来的文章中详细讨论短波的权衡。你可能会想知道是否有人能够接收他们的信号，或许能更快地将订单发送到市场。是的，任何人都可以接收，但发送者如果不用一种无法破解的方式加密信息那就太愚蠢了。这很容易做到，而不会影响性能。
 - en: A muddy bike path diverted me from my usual route and I happened upon the tower.
     Being a ham, I recognized the shortwave antennas. I could see the potential, having
     worked in trading. I’m on gardening leave so I can talk publicly about what I
@@ -335,11 +464,17 @@
     way this blog investigated the [microwave networks](https://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/).
     The next post from me will describe the differences between microwave, shortwave,
     fiber, and satellite. Stay tuned.
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 一条泥泞的自行车道让我偏离了常规路线，我偶然发现了这座塔。作为一个无线电爱好者，我认出了短波天线。我看到了潜力，因为我曾在交易领域工作过。我现在处于休假状态，所以我可以公开谈论我在交易方面发现的内容——我刚刚整理了公共记录、照片、地图、背景信息，并加入了我自己的分析，其中有些灵感来自于这个博客对[微波网络](https://sniperinmahwah.wordpress.com/2014/09/22/hft-in-my-backyard-part-i/)的调查方式。我下次的帖子将描述微波、短波、光纤和卫星之间的区别。请保持关注。
 - en: '![](img/a241405faeb7abc25155f82009f2b96c.png)'
+  id: totrans-64
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/a241405faeb7abc25155f82009f2b96c.png)'
 - en: Somewhere in Kane County (US), April 8th, 2018
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 在美国 Kane County 的某个地方，2018年4月8日

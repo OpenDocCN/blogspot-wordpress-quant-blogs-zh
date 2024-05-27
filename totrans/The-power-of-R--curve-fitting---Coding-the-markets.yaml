@@ -1,82 +1,128 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:51:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:51:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'The power of R: curve fitting | Coding the markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: R语言的力量：曲线拟合 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01](https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01](https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/#0001-01-01)
 - en: 'The power of R: curve fitting'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: R语言的力量：曲线拟合
 - en: August 15, 2006
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2006年8月15日
 - en: I’ve got a bunch of XY cartesian coords that I want to plot. When charted the
     curves are jagged. Fortunately, each point has an associated weight – the number
     of observations used to create it. So how do I fit a curve to the data, using
     the weights to smooth and reduce the influence of the outlying points resulting
     from fewer observations ?
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我有一批XY笛卡尔坐标，我想进行绘图。当图表曲线时，曲线是锯齿状的。幸运的是，每个点都有一个相关的权重——用于创建它的观测次数的数量。那么我如何使用权重来平滑数据并减少由于观测次数较少而产生的异常点的影响呢？
 - en: With R, it’s easy…
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了R语言，一切都很简单……
 - en: x,y define straight line at 45%
+  id: totrans-10
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: x，y定义在45%的直线
 - en: x <- 0:19
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: x <- 0:19
 - en: y <- 0:19
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: y <- 0:19
 - en: make the line jagged by shifting points
+  id: totrans-13
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过移动点使直线出现锯齿状
 - en: '[down,no move, up] in a repeating group of 3'
+  id: totrans-14
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[下降，静止，上升] 在一个重复的3组中'
 - en: y <- y + (-1:1)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: y <- y + (-1:1)
 - en: plot(x,y,type=’b’)# generate vector of weights that give more
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: plot(x,y,type=’b’)# 生成权重向量，使其更多
 - en: weight to the unshifted points
+  id: totrans-17
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 对未移动的点进行加权
 - en: w <- rep(0,20)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: w <- rep(0,20)
 - en: w <- w + c(1,3,1)
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: w <- w + c(1,3,1)
 - en: reconstruct the unshifted straight line
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 重建未移动的直线
 - en: f <- glm.fit(x,y,w)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: f <- glm.fit(x,y,w)
 - en: lines(x,f$fitted.values)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: lines(x,f$fitted.values)

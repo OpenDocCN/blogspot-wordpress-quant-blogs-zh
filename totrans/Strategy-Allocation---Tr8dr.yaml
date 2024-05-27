@@ -1,183 +1,274 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:35:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:35:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Strategy Allocation | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Strategy Allocation | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/01/10/strategy-allocation/#0001-01-01](https://tr8dr.wordpress.com/2010/01/10/strategy-allocation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/01/10/strategy-allocation/#0001-01-01](https://tr8dr.wordpress.com/2010/01/10/strategy-allocation/#0001-01-01)
 - en: I’m interested in allocating capital across a series of strategies or assets
     in a way that balances between maximizing return and minimizing drawdown.   I’ve
     not spent much time thinking about this previously, so this is a work in progress.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我感兴趣的是以一种平衡最大化回报和最小化方差下降的方式分配资本 across a series of strategies or assets. I haven't
+    spent much time thinking about this previously, so this is a work in progress.
 - en: '**Mean-Variance Approach**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**均值-方差方法**'
 - en: It has long been traditional to use the mean-variance approach for portfolio
     allocation.    A problem with the mean-variance approach is that it penalizes
     excess returns on the “right” (positive) side of the distribution in addition
     to the “left” (negative).   This is one reason why many consider the Sharpe ratio
     to be a flawed measure with respect to how investors see risk.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 长期以来，传统上使用均值-方差方法进行投资组合分配。均值-方差方法的一个问题是，它不仅惩罚分布的“左侧”（负的），还惩罚“右侧”（正的）的额外回报。这是许多人认为夏普比率在投资者看待风险方面有缺陷的一个原因。
 - en: '[![](img/c6224c4d93586ba4a8f14beb745580e3.png "distribution")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/distribution.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c6224c4d93586ba4a8f14beb745580e3.png "distribution")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/distribution.png)'
 - en: The mean-variance approach penalizes for sections **D** and **C** of the distribution.
       An investor is generally happy with excess returns (i.e. D), and unhappy with
     drawdowns in the distribution (namely areas A and C).  We would prefer to accept
     the reward of the whole right side of the distribution and attempt to minimize
     the left.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 均值-方差方法对分布的**D**和**C**部分进行惩罚。投资者通常对超额回报（即D部分）感到满意，对方差下降的部分（即区域A和C）感到不满意。我们更愿意接受分布右侧的全部回报，并尝试最小化左侧。
 - en: '**Lower-Moment Frameworks**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**低阶框架**'
 - en: To remedy this we can use an asymmetric measure of variance to focus on the
     part of the distribution that represents our risk.   The family of such moment
     functions are called the “Lower Moments”.    Lower moment functions allow us to
     focus on sections **A** and **C** in the distribution (ie the drawdowns) and not
     consider the right side as a contribution towards risk.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了解决这个问题，我们可以使用非对称的方差度量，以关注表示我们风险的分布的部分。这样的函数族被称为“低阶函数”。低阶函数允许我们关注分布中的**A**和**C**部分（即方差下降的部分），而不将右侧视为风险的贡献。
 - en: 'Lower moment functions are expressed as follows:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 低阶函数如下表示：
 - en: '[![](img/5bd985cf2227fbafbd3bdc81605837bd.png "lower moment")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/lower-moment1.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5bd985cf2227fbafbd3bdc81605837bd.png "lower moment")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/lower-moment1.png)'
 - en: The idea, simply, is that the moment (degree m) is computed on the region of
     the distribution below some threshold (say 0).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 想法很简单，就是计算分布下某些阈值（比如0）区域的阶数（度m）。
 - en: For a risk measure, we may want to penalize returns < 0 or prehaps returns <
     risk free rate.   We would choose τ according to where we want to penalize.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于风险度量，我们可能希望惩罚回报小于0的情况，或者或许惩罚回报小于无风险利率的情况。我们会根据我们希望惩罚的部分来选择τ。
 - en: '**Application to portfolio** Ok, so the lower-moment looks like a good measure
     of downside risk.  How do we incorporate it?  Let’s set up the problem:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**应用于投资组合**好吧，低阶似乎是一个度量下侧风险的好方法。我们如何将其纳入？让我们设定问题：'
 - en: let **R** represent a matrix of returns
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让**R**代表回报矩阵
 - en: One row for each period, number of columns = number of assets or strategies.
+  id: totrans-19
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 每个时期一行，列数=资产或策略的数量。
 - en: let **w** represent the vector of weights for each asset / strategy
+  id: totrans-20
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让**w**代表每个资产/策略的权重向量
 - en: let **Σd** represent the lower-moment covariance of returns with respect to
     the set of assets or strategies
+  id: totrans-21
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让**Σd**代表关于资产或策略集的回报的低阶协方差。
 - en: 'Assumptions:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设：
 - en: let us assume that past performance is indicative of future performance  (we
     can relax this later)
+  id: totrans-23
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让我们假设过去的业绩可以预示未来的业绩（我们稍后可以放宽这个条件）
 - en: let us assume an eliptical (i.e. multivariate normal) distribution for negative
      returns
+  id: totrans-24
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让我们假设负回报服从椭圆分布（即多元正态分布）
 - en: let us assume that the drift grows in proportion to variance x time
+  id: totrans-25
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让我们假设漂移与方差成比例增加
 - en: Ok, those are pretty aggressive assumptions, but they allow a first look at
     putting this together.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，这些都是相当激进的假设，但它们允许我们第一次尝试整合这些内容。
 - en: We need to create a utility function that blends the upside and downside, subject
     to various constraints.  Here f(w) represents the portion of a convex utility
     function rewarding positive return, and g(w) a function describing the risk penalty.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要创建一个混合上行和下行的效用函数，并受到各种约束。这里f(w)表示凸效用函数中奖励正回报的部分，g(w)描述风险惩罚的函数。
 - en: '[![](img/5cddeb109e374872c7780a5166a362b0.png "problem")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/problem.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/5cddeb109e374872c7780a5166a362b0.png "problem")（图片链接）'
 - en: 'Let’s formulate the utility as the expected return for the next period (given
     the prior returns) and the expected negative return component (our risk) over
     the period:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们将效用定义为下一时期（给定先前的回报）的预期回报和期间内预期负面回报成分（我们的风险）的加权平均：
 - en: '[![](img/4fc0c6fb6237cdc4eb134af0f64821ac.png "formulation")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/formulation.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/4fc0c6fb6237cdc4eb134af0f64821ac.png "formulation")（图片链接）'
 - en: 'The first part of our utility E[r] represents the average observed return and
     the second part the negative drift (our downside risk).    E[r] can be computed
     in any number of ways, for instance:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的效用函数的第一部分E[r]表示观察到的平均回报，第二部分是负漂移（我们的下行风险）。E[r]可以用许多方法计算，例如：
 - en: as a time weighted average of past returns
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 作为过去回报的时间加权平均
 - en: as a regression model with seasonality
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 作为一个带有季节性的回归模型
 - en: from a stochastic model calibrated to past returns
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 来自一个根据过去回报校准的随机模型
 - en: The risk penalty is just ½ E[(τ – <w,r>)^2 | r < τ) · Δt, which approximates
     the expected downside drift over the period represented by Δt.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 风险惩罚是E[(τ – <w,r>)^2 | r < τ) · Δt的一半，这近似于由Δt表示的期间内的预期下行漂移。
 - en: Now the above is a bit ad-hoc and I may be double counting the upside and downside
     with E[r].   I’ll have to think on the implications for mixing a lower moment
     measure and a full moment measure.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述内容有点临时，我可能重复计算了上行和下行风险，用E[r]。我将不得不思考混合下部时刻测量和完整时刻测量的含义。
 - en: There may be some adjustments to make, but have outlined a first pass at penalizing
     returns and hopefully arriving at a more balanced weight selection.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 可能需要做一些调整，但已经概述了一个初步的惩罚回报的方法，希望到达一个更平衡的权重选择。
 - en: '**Addendum**'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '**附加说明**'
 - en: 'A more generalized approach could be to compose the utility function from a
     parameterized sum of upper and lower moments (Farinelli and Tibiletti 2002).  
     I’ve adjusted this a bit to fit my problem:'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个更一般化的方法可能是将效用函数组成参数化的上部和下部时刻的和（Farinelli和Tibiletti 2002）。我已经对这个方法做了一些调整以适应我的问题：
 - en: '[![](img/6a361535edc03d0db083fd285d3fca31.png "generalized")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/generalized1.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/6a361535edc03d0db083fd285d3fca31.png "generalized")（图片链接）'
 - en: The number of moments for the lower portion can be different for the upper portion
     (or simply let the coefficients of some moments be 0).    What I came up with
     in the prior section is essentially this function for 2 moments with coefficients
     {1,0} and {0,1/2}.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 下部分的数量可以与上部分不同（或者简单地让一些时刻的系数为0）。我在前一部分提出的是本质上这个函数对于2个时刻的系数{1,0}和{0,1/2}。
 - en: '**Addendum 2**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**附加说明 2**'
 - en: 'The utility function should have been (drift in proportion to sqrt), my bad:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 效用函数应该是（漂移与sqrt成比例），我的错：
 - en: '[![](img/b981d1e1aacae5b98d04b3e36f709ae3.png "adjusted")](https://tr8dr.wordpress.com/wp-content/uploads/2010/01/adjusted.png)'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/b981d1e1aacae5b98d04b3e36f709ae3.png "adjusted")（图片链接）'

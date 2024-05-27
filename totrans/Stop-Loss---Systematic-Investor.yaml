@@ -1,134 +1,204 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:32:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:32:19'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Stop Loss | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 止损 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01](https://systematicinvestor.wordpress.com/2013/07/30/stop-loss/#0001-01-01)
 - en: Today I want to share and present an example of the flexible [Stop Loss](http://www.investopedia.com/articles/trading/08/trailing-stop-loss.asp)
     functionality that I added to the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想分享并展示一个灵活的[止损功能](http://www.investopedia.com/articles/trading/08/trailing-stop-loss.asp)的示例，该功能已添加到[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中。
 - en: 'Let’s examine a simple [Moving Average Crossover](http://www.investopedia.com/university/movingaverage/movingaverages4.asp)
     strategy:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们研究一个简单的[移动平均线交叉](http://www.investopedia.com/university/movingaverage/movingaverages4.asp)策略：
 - en: Buy is triggered once fast moving average crosses above the slow moving average
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一旦快速移动平均线穿越慢速移动平均线，则触发买入
 - en: Sell is triggered once fast moving average crosses below the slow moving average
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一旦快速移动平均线穿越慢速移动平均线，则触发卖出
 - en: Here is an example using 20 and 50 day moving averages on SPY.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一个使用SPY的20日和50日移动平均线的示例。
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, I created the [custom.stop.fn() function in bt.stop.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.r)
     to handle user defined stop functions. Let’s have a look at 3 different flavors
     of stops below:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我在GitHub上的[bt.stop.r中的custom.stop.fn()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.r)中处理用户定义的止损函数。让我们看一下以下3种不同止损的示例：
 - en: '[PRE1]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Each user defined stop function have 4 required inputs:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个用户定义的止损函数都有4个必填输入项：
 - en: weight – signal or weight indicating position
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: weight – 表示仓位信号或权重
 - en: price – price for asset
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: price – 资产的价格
 - en: tstart – index(time) when trade was open
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: tstart – 交易开启时的指数（时间）
 - en: tend – index(time) when trade is closed
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: tend – 交易关闭时的指数（时间）
 - en: Additionally, you can provide any other required information.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，您还可以提供其他所需信息。
 - en: 'For example, the fixed.stop function above, will exit the trade once price
     falls below given % (pstop) from entry price or trade is closed. The trailing.stop.profit.target
     function will exit the trade once either:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，上述的fixed.stop函数将在价格跌至低于进入价格的给定%（pstop）时退出交易，或交易被关闭。带有利润目标的跟踪止损.profit.target函数将在以下任一情况下退出交易：
 - en: trailing stop is reached. i.e. price falls below given % (pstop) from max price
     since start of trade OR
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 跟踪止损达到。即价格自交易开始以来跌至给定%（pstop）以下，或
 - en: profit target is reached. i.e. price rises above given % (pprofit) from entry
     price
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 达到利润目标。即价格自进入价格以来上涨至给定%（pprofit）以上
 - en: Following is an example of integrating these stop losses into the back-tests.
     Please note that I only use the Buy rule from the original strategy to open the
     trades and to close the trades I use the stop loss logic.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是将这些止损整合到回测中的示例。请注意，我只使用原始策略的买入规则来开仓，而平仓时则使用止损逻辑。
 - en: '[PRE2]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![plot1](img/8a047573eb20c920f1b6c9d551303014.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot12.jpg)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/8a047573eb20c920f1b6c9d551303014.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot12.jpg)'
 - en: Nothing exciting to report. The fixed stop loss is not triggered often and resembles
     the Buy and Hold. The trailing stops reduce the time strategy is in the market
     and also reduce returns. The trailing stop with profit target is doing a bit better.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有令人兴奋的报告。固定止损很少被触发，类似于买入持有。跟踪止损减少了策略在市场中的时间，并降低了回报。带有利润目标的跟踪止损表现得略好一些。
 - en: 'We can see functionality of the stops more clearly in the picture below:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以在下面的图片中更清楚地看到止损的功能：
 - en: '[PRE3]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![plot2](img/21314f934769342f8b029c00340cbbb1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot22.jpg)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/21314f934769342f8b029c00340cbbb1.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/07/plot22.jpg)'
 - en: The shaded green area indicates the times when strategy is invested. In the
     top chart, the strategy is long once fast moving average (red line) is above the
     slow moving average (blue line).
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 阴影绿色区域表示策略投资的时期。在顶部图表中，当快速移动平均线（红线）位于慢速移动平均线（蓝线）之上时，策略做多。
 - en: The next chart (Fixed Stop) is fully invested because market has taken off since
     we entered the trade and stop, which is % relative to the trade entry price, is
     never triggered.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一个图表（固定止损）之所以完全投入，是因为自从我们进入交易并设定了止损点以来，市场已经起飞，而相对于交易进入价格的%止损从未被触发。
 - en: The last 2 charts show the trailing stop logic. Strategy is less often invested
     once we enforce the aggressive profit target.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后两张图表展示了跟踪止损逻辑。一旦我们实施了激进的利润目标，策略就不那么经常进行投资。
 - en: Have fun with creating your own customized stop loss functions and let me know
     if you run into problems.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 在创建您自己的定制止损函数时玩得开心，如果您遇到问题，请告诉我。
 - en: To view the complete source code for this example, please have a look at the
     [bt.stop.ma.cross.test() function in bt.stop.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.test.r).
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[bt.stop.ma.cross.test()函数在 github 上的 bt.stop.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.stop.test.r)。

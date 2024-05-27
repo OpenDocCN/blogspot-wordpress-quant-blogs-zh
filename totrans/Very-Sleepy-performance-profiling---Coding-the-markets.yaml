@@ -1,31 +1,48 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:30:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:30:58'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Very Sleepy performance profiling | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[Very Sleepy性能分析](https://etrading.wordpress.com/2015/10/05/very-sleepy-performance-profiling/#0001-01-01)
+    | 交易编程'
 - en: 来源：[https://etrading.wordpress.com/2015/10/05/very-sleepy-performance-profiling/#0001-01-01](https://etrading.wordpress.com/2015/10/05/very-sleepy-performance-profiling/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2015/10/05/very-sleepy-performance-profiling/#0001-01-01](https://etrading.wordpress.com/2015/10/05/very-sleepy-performance-profiling/#0001-01-01)
 - en: Very Sleepy performance profiling
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Very Sleepy性能分析
 - en: October 5, 2015
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2024年5月12日 19:30:58
 - en: 'Recently I’ve been using the excellent [Very Sleepy profiler](https://github.com/VerySleepy/verysleepy)
     to performance tune the SpreadServeEngine’s loader, compiler and interpreter.
     One of our beta users had helpfully supplied a very large spreadsheet which was
@@ -44,5 +61,9 @@
     in release builds as it a tremendously useful way of looking inside the execution
     of your spreadsheet. The result was a thirty fold improvement in load time, and
     much snappier calc cycles on very large sheets.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我一直在使用非常出色的[Very Sleepy分析器](https://github.com/VerySleepy/verysleepy)来优化SpreadServeEngine的加载器、编译器和解释器性能。我们的一位测试用户非常热心地提供了一个非常大的电子表格，这导致了非常长的加载和计算周期。在90年代，你必须为[Pure
+    Software](https://en.wikipedia.org/wiki/Pure_Software)的Purify和Quantify工具购买认真的许可证才能做这种工作。现在像[Dr
+    Memory](http://www.drmemory.org/)和Very Sleepy这样的工具是免费的，并且是开源的。自从我上次做真正的、系统的性能分析调优练习以来已经有一段时间了，我很快就回忆起了关于哪些代码部分可能是CPU密集型的先入之见是如何迅速被打破的。不久之后，我就面临了C++开发中的一个永恒真理，或者说是任何语言开发中的真理：malloc和free是昂贵的。这就是[LMAX团队编写自己的Java集合](http://www.infoq.com/presentations/LMAX)的原因。printf也不是便宜的。答案是在许多最常使用的编译器和解释器类中引入内存池，并为解释器跟踪设置配置开关。解释器跟踪需要在发布构建中可用，因为它是一种深入了解电子表格执行情况的好方法。结果是加载时间提高了30倍，在非常大的表格上的计算周期也更快。

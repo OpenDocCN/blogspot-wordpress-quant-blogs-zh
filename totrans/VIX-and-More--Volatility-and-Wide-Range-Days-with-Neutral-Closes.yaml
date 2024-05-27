@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 17:10:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 17:10:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: Volatility and Wide-Range Days with Neutral Closes'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX与更多：波动性与中性收盘价的广泛范围日
 - en: 来源：[http://vixandmore.blogspot.com/2010/05/volatility-and-wide-range-days-with.html#0001-01-01](http://vixandmore.blogspot.com/2010/05/volatility-and-wide-range-days-with.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2010/05/volatility-and-wide-range-days-with.html#0001-01-01](http://vixandmore.blogspot.com/2010/05/volatility-and-wide-range-days-with.html#0001-01-01)
 - en: 'A reader notes:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一位读者指出：
 - en: '*The VIX tends to move inversely with the market on a day-to-day basis. Market
     up = VIX down and market down = VIX up. That’s all fine and dandy MOST of the
     time (I’m stating the obvious here) because of expectations about the asymmetry
@@ -29,53 +43,75 @@
     the intraday move was very large (with implications re: continued high volatility),
     yet the VIX still fell? Does the VIX (from a statistical correlation perspective)
     only care about close-to-close changes? Isn’t that a bit shallow?*'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '*VIX在日常市场上往往与市场走势呈反向运动。市场上涨=VIX下跌，市场下跌=VIX上涨。这在大多数情况下都没问题（我在这里说的是显而易见的），因为我们对牛市和熊市波动率的不对称性有所期待。但是当我们遇到像星期一（05/17）这样的波动时，市场的收盘变化虽然非常小，但盘中波动却非常大（意味着持续高波动率），而VIX仍然下降，这又如何解释？从统计相关性的角度来看，VIX只关心收盘价变化吗？这不是有点肤浅吗？*'
 - en: This is an excellent comment and set of questions.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个很好的评论和一系列问题。
 - en: 'In terms of background, consider that measures of volatility based on actual
     changes in the price of the underlying break out into two camps:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 就背景而言，考虑到基于标的资产价格实际变化的波动率测量分为两大阵营：
 - en: those that focus on close-to-close price changes and ignore/understate intraday
     price movements (e.g., [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility))
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 那些侧重于收盘价变动并忽略/低估盘中价格波动的指标（例如，[历史波动率](http://vixandmore.blogspot.com/search/label/historical%20volatility)）
 - en: those that include intraday price variations in their calculations (e.g., [average
     true range](http://vixandmore.blogspot.com/search/label/average%20true%20range))
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 那些在计算中包含盘中价格波动的指标（例如，[真实波动幅度](http://vixandmore.blogspot.com/search/label/average%20true%20range)）
 - en: Here is where an example might help to clarify things. Take the recent ‘
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是一个示例，可能有助于澄清事情。以最近的‘
 - en: '[flash crash](http://vixandmore.blogspot.com/search/label/flash%20crash)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[闪崩](http://vixandmore.blogspot.com/search/label/flash%20crash)'
 - en: ’ of May 6
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ’，即5月6日
 - en: ^(th)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ^(th)
 - en: . Even though the close-to-close change in the S&P 500 index (SPX) was a very
     large 3.24%, the intraday range was a whopping 8.73%. So which was the better
     measure of volatility on that day? My guess is that anyone who was watching the
     markets as they crashed would vote for the 8.73% move, as things certainly felt
     more like the panic of October 2008 than the relative calm of October 2007.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使标准普尔500指数（SPX）的收盘变化非常大，达到3.24%，盘中范围也高达8.73%。那么在那一天，哪个是更好的波动率测量？我猜，任何当时观察市场崩溃的人都会选择8.73%的波动，因为事情肯定更像2008年10月的恐慌，而不像2007年10月的相对平静。
 - en: Given that implied volatility values such as the VIX are calculated directly
     from options prices, in theory the VIX does not strictly account for intraday
     prices. Also, technically the VIX is the market's forward estimate of close-to-close
     volatility in the SPX. So from a pure statistical perspective, the VIX does indeed
     have a narrow close-to-close time horizon and is blind to intraday fluctuations
     in prices.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 鉴于像VIX这样的隐含波动率值是直接从期权价格计算出来的，在理论上，VIX并不严格考虑盘中价格。此外，技术上来说，VIX是市场对标准普尔500指数（SPX）收盘波动性的前瞻性估计。因此，从纯统计的角度来看，VIX确实有一个狭窄的收盘时间范围，对盘中价格波动视而不见。
 - en: In practice, however, a wide range day with a relatively benign close-to-close
     number will typically reinforce the idea that the market is ripe for large volatility
     moves, even if these moves may cancel each other out on intraday basis. In my
@@ -83,11 +119,15 @@
     factors and path dependency come into play. If stocks go up 3% intraday, for example,
     then fall back to even due to news that, say, the government had to prop up a
     U.K. bank,
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，在实践中，一个范围广泛的交易日，虽然收盘价相对温和，但通常会强化市场对大波动的预期，即使这些波动可能在盘中抵消。在我看来，将价格变动映射到波动性变化是基本因素和路径依赖性发挥作用的地方。例如，如果股票在盘中上涨3%，然后因消息称政府不得不支撑英国一家银行而回落至平仓价，那么
 - en: '[Spain](http://vixandmore.blogspot.com/search/label/Spain)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[西班牙](http://vixandmore.blogspot.com/search/label/Spain)'
 - en: has announced it will not implement austerity measures, a Fed member makes a
     speech in which he or she suggests interest rate hikes are coming soon, there
     is a terrorist attack in Israel, etc., you would expect to see the VIX price in
@@ -95,63 +135,95 @@
     down 3%, but closed even following news that lots of jobs were created, housing
     prices are increasing, the euro rallied to 1.30, etc., then I would expect the
     VIX to price in less volatility in the next 30 days.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 已宣布不实施紧缩措施，一位美联储成员发表讲话，暗示即将出现加息，以色列发生恐怖袭击等情况，您可以预期在接下来的30天内VIX价格将更加波动。 另一方面，如果股票开始下跌3%，但在大量新增就业岗位的消息之后收平，房价正在上涨，欧元上涨至1.30等消息之后收平，则我预期VIX会在接下来的30天内价格波动较小。
 - en: In brief, on a wide range day, I would look hard at the fundamentals or what
     I call the
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 简言之，在广泛波动日，我会仔细研究基本面，或者我所说的
 - en: '[Forces Acting on the VIX](http://vixandmore.blogspot.com/2009/07/forces-acting-on-vix.html)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[影响VIX的力量](http://vixandmore.blogspot.com/2009/07/forces-acting-on-vix.html)'
 - en: ', as well as perhaps the elements of volatility I summarized in'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ，以及我在
 - en: '[A Conceptual Framework for Volatility Events](http://vixandmore.blogspot.com/2008/10/conceptual-framework-for-volatility.html)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[波动性事件的概念框架](http://vixandmore.blogspot.com/2008/10/conceptual-framework-for-volatility.html)'
 - en: . If news suggests that an obvious threat to the market has been eliminated
     or diminished significantly, then I would expect the VIX to fall, depending upon
     the applicability of the
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果新闻表明市场的明显威胁已被消除或显著减少，那么我会预期VIX下跌，具体取决于
 - en: '[dragon metaphor](http://vixandmore.blogspot.com/search/label/dragon%20metaphor)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[龙的隐喻](http://vixandmore.blogspot.com/search/label/dragon%20metaphor)'
 - en: . If a new threat crops up or an old one suddenly seems more robust, then I
     would expect to see a rising VIX.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果出现新的威胁或旧的威胁突然显得更加强大，那么我会预期VIX上升。
 - en: Even when stocks seem to turn the corner and put a threat behind it, there is
     often some sort of psychological hangover that behavioral economists would probably
     call “
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使股票似乎已经转弯并将威胁抛在身后，通常也会存在某种心理阴影，行为经济学家可能称之为“
 - en: '[availability bias](http://vixandmore.blogspot.com/search/label/availability%20bias)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[可得性偏误](http://vixandmore.blogspot.com/search/label/availability%20bias)'
 - en: ” and I have termed “
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: ”和我称之为“
 - en: '[disaster imprinting](http://vixandmore.blogspot.com/2009/11/availability-bias-and-disaster.html)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[灾难印记](http://vixandmore.blogspot.com/2009/11/availability-bias-and-disaster.html)'
 - en: .” This is the type of thing that happens on a wide range day that ends with
     a neutral close. So while the VIX is really estimating what historical close-to-close
     volatility will be 30 days hence, the presence of wide intraday moves almost necessarily
     forces options traders to consider increasing their estimates of the probability
     and/or magnitude of large market moves going forward.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是在以中性收盘结束的广泛波动日发生的事情。 因此，尽管VIX实际上是在估计历史收盘至收盘波动性将来会在30天内如何，但广泛的盘中波动几乎必然会迫使期权交易者考虑增加他们对未来大型市场波动的概率和/或幅度的估计。
 - en: Finally, getting back to your question about last weekend, part of what happened
     was that on Friday skittish investors bought so much portfolio insurance that
     the VIX priced in the possibility of a very large volatility event. When Monday's
     reality fell short of Friday's worst fears, the VIX began to fall.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，回答你关于上周末发生的事情的问题，部分原因是在星期五，胆怯的投资者购买了大量的投资组合保险，以至于VIX价格反映了非常大的波动性事件的可能性。 当周一的现实未达到周五最坏的恐惧时，VIX开始下跌。
 - en: 'For more on related subjects, readers are encouraged to check out:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 欲了解更多相关主题，请阅读以下内容：
 - en: '***Disclosure(s):*** *short VIX at time of writing*'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '***披露：*** *在撰写时持有短期的VIX头寸*。'

@@ -1,31 +1,45 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:57:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:57:24'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Moving Average Crossover = Triangle Filter on 1-Period
     Returns'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：移动平均交叉=1期回报的三角形滤波器
 - en: 来源：[http://epchan.blogspot.com/2014/09/moving-average-crossover-triangle.html#0001-01-01](http://epchan.blogspot.com/2014/09/moving-average-crossover-triangle.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2014/09/moving-average-crossover-triangle.html#0001-01-01](http://epchan.blogspot.com/2014/09/moving-average-crossover-triangle.html#0001-01-01)
 - en: Many traders who use technical analysis favor the Moving Average Crossover as
     a momentum indicator. They compute the short-term minus the long-term moving averages
     of prices, and go long if this indicator just turns positive, or go short if it
     turns negative. This seems intuitive enough. What isn't obvious, however, is that
     MA Crossover is nothing more than an estimate of the recent average compound return.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多使用技术分析的交易员喜欢将移动平均交叉作为动量指标。他们计算价格的短期移动平均减去长期移动平均，如果这一指标刚刚转为正值，则做多；如果它转为负值，则做空。这看起来足够直观。然而，不那么明显的是，移动平均交叉不过是最近平均复合回报的一个估计。
 - en: But just when you might be tempted to ditch this indicator in favor of the average
     compound return, it can be shown that the MA Crossover is also a triangle filter
     on the 1-period returns. (A triangle filter in signal processing is a set of weights
@@ -35,164 +49,262 @@
     leads us to consider other, more sophisticated filters (such as the least square,
     Kalman, or wavelet filters) as possible momentum indicators. In collaboration
     with my former
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，当你可能正想放弃这个指标，转而使用平均复合回报时，可以证明移动平均交叉也是1期回报的一个三角形滤波器。（在信号处理中，三角形滤波器是一组权重，施加于时间序列，随时间增加，直到某个点，然后随时间减少，直到现在。参见本文末尾的图表。）这种解释为什么有趣？这是因为它使我们考虑其他更复杂的滤波器（如最小二乘、卡尔曼或小波滤波器）作为可能的动量指标。与我以前
 - en: '[workshop](http://epchan.com/workshops)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[研讨会](http://epchan.com/workshops)'
 - en: participant Alex W. who was inspired by this
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 参与者 Alex W. 受到了启发
 - en: '[paper](http://www.lyxor.com/fileadmin/_fileup/lyxor_wp/document/51/files/assets/downloads/publication.pdf)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[论文](http://www.lyxor.com/fileadmin/_fileup/lyxor_wp/document/51/files/assets/downloads/publication.pdf)'
 - en: by Bruder
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 由 Bruder
 - en: '*et. al.*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 等人
 - en: ', we present the derivations below.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ，我们将在下面给出推导过程。
 - en: ===
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: First, note that we will compute the moving average of log prices y, not raw
     prices. There is of course no loss or gain in information going from prices to
     log prices, but it will make our analysis possible. (The exact time of the crossover,
     though, will depend on whether we use prices or log prices.) If we write MA(t,
     n1) to denote the moving average of n1 log prices ending at time t, then the moving
     average crossover is MA(t, n1)-MA(t, n2), assuming n1< n2\.  By definition,
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，请注意，我们将计算的是以对数价格 y 为基础的移动平均值，而不是原始价格。从价格到对数价格的转换当然不会损失或增加信息量，但这将使我们的分析成为可能。（确切的交叉时间，尽管如此，将取决于我们使用价格还是对数价格。）如果我们用
+    MA(t, n1) 来表示在时间 t 结束时 n1 个对数价格的移动平均值，那么移动平均值交叉点为 MA(t, n1) - MA(t, n2)，假设 n1
+    < n2。根据定义，
 - en: MA(t, n1)=(y(t)+y(t-1)+...+y(t-n1+1))/n1
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t, n1)=(y(t)+y(t-1)+...+y(t-n1+1))/n1
 - en: MA(t, n2)=(y(t)+y(t-1)+...+y(t-n1+1)+y(t-n1)+...+y(t-n2+1)/n2
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t, n2)=(y(t)+y(t-1)+...+y(t-n1+1)+y(t-n1)+...+y(t-n2+1)/n2
 - en: MA(t, n1)-MA(t, n2)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t, n1)-MA(t, n2)
 - en: =[(n2-n1)/(n1*n2)] *[y(t)+y(t-1)+...+y(t-n1+1)] - (1/n2)*[y(t-n1)+...+y(t-n2+1)]
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: =[(n2-n1)/(n1*n2)] *[y(t)+y(t-1)+...+y(t-n1+1)] - (1/n2)*[y(t-n1)+...+y(t-n
 - en: =[(n2-n1)/n2] *MA(t, n1)-[(n2-n1)/n2]*MA(t-n1, n2-n1)
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: =[(n2-n1)/n2] *MA(t, n1)-[(n2-n1)/n2]*MA(t-n1, n2-n1)
 - en: =[(n2-n1)/n2]*[MA(t, n1)-MA(t-n1, n2-n1)]
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: =[(n2-n1)/n2]*[MA(t, n1)-MA(t-n1, n2-n1)]
 - en: If we interpret MA(t, n1) as an approximation of the log price at the midpoint
     (n1-1)/2 of the time interval [t-n1+1, t], and MA(t-n1, n2-n1) as an approximation
     of the log price at the midpoint (n2-n1-1)/2 of the time interval [t-n1, t-(n2-n1)],
     then [MA(t, n1)-MA(t-n1, n2-n1)] is an approximation of the total return over
     a time period of n2/2\. If we write this total return as an average compound growth
     rate r multiplied by the period n2/2, we get
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们把 MA(t, n1) 视为对数价格在时间区间 [t-n1+1, t] 中间点 (n1-1)/2 的近似值，而 MA(t-n1, n2-n1)
+    视为对数价格在时间区间 [t-n1, t-(n2-n1)] 中间点 (n2-n1-1)/2 的近似值，那么 [MA(t, n1)-MA(t-n1, n2-n1)]
+    是对 n2/2 期间总回报的一个近似。如果我们把这个总回报写成平均复合增长率 r 乘以期间 n2/2，我们得到
 - en: MA(t, n1)-MA(t, n2)  ≈ [(n2-n1)/n2]*(n2/2)*r
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t, n1)-MA(t, n2) ≈ [(n2-n1)/n2]*(n2/2)*r
 - en: r ≈ [2/(n2-n1)]*[MA(t, n1)-MA(t, n2)]
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: r ≈ [2/(n2-n1)]*[MA(t, n1)-MA(t, n2)]
 - en: as shown in Equation 4 of the paper cited above. (Note the roles of n1 and n2
     are reversed in that paper.)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如上面论文中方程4所示。（注意那篇论文中n1和n2的角色是相反的。）
 - en: ===
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: Next, we will show why the MA crossover is also a triangle filter on 1-period
     returns. Simplifying notation by fixing t to be 0,
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们将说明为什么MA交叉也是一个1期回报的三角形滤波器。通过将t固定为0，简化记号，
 - en: MA(t=0, n1)
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t=0, n1)
 - en: =(y(0)+y(-1)+...+y(-n1+1))/n1
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: =(y(0)+y(-1)+...+y(-n1+1))/n1
 - en: =(1/n1)*[(y(0)-y(-1))+2(y(-1)-y(-2))+...+n1*(y(-n1+1)-y(-n1))]+y(-n1)
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: =(1/n1)*[(y(0)-y(-1))+2(y(-1)-y(-2))+...+n1*(y(-n1+1)-y(-n1))]+y(-n1)
 - en: Writing the returns from t-1 to t as R(t), this becomes
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 将从t-1到t的回报写为R(t)，这变为
 - en: MA(t=0, n1)=(1/n1)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]+y(-n1)
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t=0, n1)=(1/n1)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]+y(-n1)
 - en: Similarly,
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样，
 - en: MA(t=0, n2)=(1/n2)*[R(0)+2*R(-1)+...+n2*R(-n2+1)]+y(-n2)
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(t=0, n2)=(1/n2)*[R(0)+2*R(-1)+...+n2*R(-n2+1)]+y(-n2)
 - en: So MA(0, n1)-MA(0, n2)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以MA(0, n1)-MA(0, n2)
 - en: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
 - en: -(1/n2)*[(n1+1)*R(-n1)+(n1+2)*R(-n1-1)+...+n2*R(-n2+1)]
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: -(1/n2)*[(n1+1)*R(-n1)+(n1+2)*R(-n1-1)+...+n2*R(-n2+1)]
 - en: +y(-n1)-y(-n2)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: +y(-n1)-y(-n2)
 - en: Note that the last line above is just the total cumulative return from -n2 to
     -n1, which can be written as
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意上述最后一行只是从-n2到-n1的总累积回报，可以写作
 - en: y(-n1)-y(-n2)=R(-n1)+R(-n1-1)+...+R(-n2+1)
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: y(-n1)-y(-n2)=R(-n1)+R(-n1-1)+...+R(-n2+1)
 - en: Hence we can absorb that into the expression prior to that
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此我们可以将那个吸收进此表达式之前的部分。
 - en: MA(0, n1)-MA(0, n2)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: MA(0, n1)-MA(0, n2)
 - en: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
 - en: -(1/n2)*[(n1+1-n2)*R(-n1)+(n1+2-n2)*R(-n1-1)+...+(-1)*R(-n2+2)]
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: -(1/n2)*[(n1+1-n2)*R(-n1)+(n1+2-n2)*R(-n1-1)+...+(-1)*R(-n2+2)]
 - en: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: =(1/n1-1/n2)*[R(0)+2*R(-1)+...+n1*R(-n1+1)]
 - en: +(1/n2)*[(n2-n1-1)*R(-n1)+(n2-n1-2)*R(-n1-1)+...+R(-n2+2)]
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: +(1/n2)*[(n2-n1-1)*R(-n1)+(n2-n1-2)*R(-n1-1)+...+R(-n2+2)]
 - en: 'We can see the coefficients of R''s from t=-n2+2 to -n1 form the left side
     of an triangle with positive slope, and those from  t=-n1+1 to 0 form the right
     side of the triangle with negative slope. The plot (click to enlarge) below shows
     the coefficients as a function of time, with n2=10, n1=7, and current time as
     t=0\. The right-most point is the weight for R(0): the return from t=-1 to 0.'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到从t=-n2+2到-n1的R的系数形成了一个正斜率的三角形左侧，而从t=-n1+1到0形成了一个负斜率的三角形的右侧。下面的图表（点击放大）显示了随时间变化的系数，n2=10，n1=7，当前时间为t=0。最右边的点是R(0)的权重：从t=-1到0的回报。
 - en: Q.E.D. Now I hope you are ready to move on to a wavelet filter!
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 证明完毕。现在我希望你准备好继续学习小波滤波器！
 - en: P.S. It is wonderful to be able to check the correctness of messy algebra like
     those above with a simple Matlab program!
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: P.S. 能够用一个简单的Matlab程序检查上面那些乱七八糟的代数式的正确性真是太好了！
 - en: ===
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**New Service Announcement**'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '**新服务公告**'
 - en: Our firm QTS Capital Management has recently launched a
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们公司QTS资本管理最近推出了一项
 - en: '[FX Managed Accounts](http://epchan.com/accounts)'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '[外汇管理账户](http://epchan.com/accounts)'
 - en: program. It uses one of the mean-reverting strategies we have been trading successfully in
     our fund for the last three years, and is still going strong despite the low volatility
     in the markets. The benefits of a managed account are that clients retain full
@@ -200,27 +312,43 @@
     of leverage they are comfortable with. Unlike certain offshore FX operators, QTS
     is a CPO/CTA regulated by the National Futures Association and the Commodity Futures
     Trading Commission.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 程序。它使用我们在过去三年中在基金中成功交易的均值回归策略之一，尽管市场波动性较低，但它仍然表现强劲。管理账户的好处是，客户始终拥有其资金的完全所有权和控制权，并且可以决定他们舒适的杠杆水平。与某些海外FX运营商不同，QTS是一个受国家期货协会和商品期货交易委员会监管的CPO/CTA。
 - en: ===
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Workshops Update**'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '**研讨会更新**'
 - en: Readers may be interested in my next workshop series to be held in London, November
     3-7\. Please follow the link at the bottom of
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 读者可能对我的下一个研讨会系列感兴趣，该系列将于11月3日至7日在伦敦举行。请点击底部的链接
 - en: '[this page](http://epchan.com/workshops)'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '[此页面](http://epchan.com/workshops)'
 - en: for information.
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: for information.
 - en: ===
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我Twitter: @chanep'

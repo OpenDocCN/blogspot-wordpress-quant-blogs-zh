@@ -1,96 +1,152 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:41:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日14:41:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volatility Position Sizing to improve Risk Adjusted Performance | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过波动性仓位调整来改善风险调整后的绩效 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/#0001-01-01](https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/#0001-01-01](https://systematicinvestor.wordpress.com/2012/05/01/volatility-position-sizing-to-improve-risk-adjusted-performance/#0001-01-01)
 - en: '[Home](https://systematicinvestor.wordpress.com/ "Go to homepage")'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[主页](https://systematicinvestor.wordpress.com/ "转到主页")'
 - en: '>'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '>'
 - en: '[Backtesting](https://systematicinvestor.wordpress.com/category/backtesting/)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[回测](https://systematicinvestor.wordpress.com/category/backtesting/)'
 - en: ','
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: ','
 - en: '[Portfolio Construction](https://systematicinvestor.wordpress.com/category/portfolio-construction/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[组合构建](https://systematicinvestor.wordpress.com/category/portfolio-construction/)'
 - en: ','
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ','
 - en: '[R](https://systematicinvestor.wordpress.com/category/r/)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R](https://systematicinvestor.wordpress.com/category/r/)'
 - en: ','
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ','
 - en: '[Strategy](https://systematicinvestor.wordpress.com/category/strategy/)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[策略](https://systematicinvestor.wordpress.com/category/strategy/)'
 - en: ','
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ','
 - en: '[Trading Strategies](https://systematicinvestor.wordpress.com/category/trading-strategies/)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[交易策略](https://systematicinvestor.wordpress.com/category/trading-strategies/)'
 - en: Volatility Position Sizing to improve Risk Adjusted Performance
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 通过波动性仓位调整来改善风险调整后的绩效
 - en: Volatility Position Sizing to improve Risk Adjusted Performance
+  id: totrans-18
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 通过波动性仓位调整来改善风险调整后的绩效
 - en: 'Today I want to show how to use Volatility Position Sizing to improve strategy’s
     Risk Adjusted Performance. I will use the [Average True Range (ATR)](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)
     as a measure of Volatility and will increase allocation during low Volatility
     periods and will decrease allocation during high Volatility periods. Following
     are two good references that explain these strategy in detail:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想展示如何使用波动性仓位调整来改善策略的风险调整后的绩效。我将使用[真实波动幅度（ATR）](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)作为波动性的衡量标准，并将在低波动期间增加分配，在高波动期间减少分配。以下是两个详细解释这些策略的良好参考资料：
 - en: 'First, let’s load prices for SPY and compute Buy & Hold performance using the
     [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们加载SPY的价格，并使用[系统性投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)计算买入并持有的绩效：
 - en: '[PRE0]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next, let’s modify Buy & Hold strategy to vary it’s allocation according to
     the [Average True Range (ATR)](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们修改买入并持有策略，根据[真实波动幅度（ATR）](http://stockcharts.com/school/doku.php?id=chart_school:technical_indicators:average_true_range_atr)来变化其分配。
 - en: '[PRE1]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/e2febb7d4091b365e09b30cb7ab7391a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot1-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e2febb7d4091b365e09b30cb7ab7391a.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot1-small.png)'
 - en: '[![](img/310f6746ec648872b35d63592b9099e7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot2-small.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/310f6746ec648872b35d63592b9099e7.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/05/plot2-small.png)'
 - en: The Sharpe and DVR are both higher for new strategy and draw-downs are lower.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 夏普和DVR对于新策略都更高，而回撤更低。
 - en: To view the complete source code for this example, please have a look at the
     [bt.position.sizing.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.position.sizing.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

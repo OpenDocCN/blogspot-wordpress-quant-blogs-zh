@@ -1,43 +1,65 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:24:46'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:24:46
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Index arbitrage with XLE'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：通过XLE进行指数套利
 - en: 来源：[http://epchan.blogspot.com/2007/02/in-looking-for-pairs-of-financial.html#0001-01-01](http://epchan.blogspot.com/2007/02/in-looking-for-pairs-of-financial.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2007/02/in-looking-for-pairs-of-financial.html#0001-01-01](http://epchan.blogspot.com/2007/02/in-looking-for-pairs-of-financial.html#0001-01-01)
 - en: In looking for pairs of financial instruments to pair trade, we do not have
     to limit ourselves to pairs that occur in "nature". We can often construct our
     own baskets of stocks to trade against an index (or an ETF representing this index).
     In fact, such pairs usually show better cointegration properties than any stock
     or ETF pairs. I have alluded to this index arbitrage idea in an earlier
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在寻找可以进行对冲交易的金融工具对时，我们不必局限于自然界中出现的对。我们通常可以构建自己的股票篮子来对抗一个指数（或代表这个指数的ETF）。实际上，这样的对通常比任何股票或ETF对显示出更好的协同整合特性。我之前在
 - en: '[post](http://epchan.blogspot.com/2007/02/mr_05.html "post")'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[文章](http://epchan.blogspot.com/2007/02/mr_05.html "文章")中有解释'
 - en: ', and the details of the methodology are explained in my'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ，具体方法在我的
 - en: '[articles for Subscribers](http://epchan.com/subscriptions.html "articles for
     Subscribers")'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 【订阅文章】(http://epchan.com/subscriptions.html "订阅文章")
 - en: '. I tried this strategy on favorite sector ETF: the energy SPDR XLE.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 提到了这个指数套利的想法。我尝试了这个策略在我最喜欢的行业ETF：能源SPDR XLE上。
 - en: XLE is composed of some 33 stocks (as of 2/16/2007). Our goal is to pick some
     smaller subset of these stocks to form a basket. We pick them based on how well
     they cointegrate with XLE. How big should this subset be? The higher the number,
@@ -48,37 +70,54 @@
     preference than any scientific criterion which determines how many stocks to pick.
     I pick a basket with 10 stocks. I have found that this basket cointegrates with
     XLE with better than 99% probability since 2001/05/22\. The
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: XLE由大约33只股票组成（截至2007年2月16日）。我们的目标是挑选出这些股票中的一些小集合来形成一个篮子。我们根据它们与XLE的协同整合程度来挑选它们。这个子集应该有多大？数字越高，这个篮子与XLE的协同整合程度越高，但利润越低。（如果你包括XLE中的所有股票在这个篮子中，那么这个篮子与XLE的协同整合程度完美，但将没有交易机会！）数字越低，特定风险和回报也越高。因此，选择多少股票更多的是基于个人的风险回报偏好，而不是任何科学标准。我选择了一个包含10只股票的篮子。我发现自2001年5月22日以来，这个篮子与XLE的协同整合概率超过了99%。
 - en: '[half-life](http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html
     "half-life")'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[半衰期](http://epchan.blogspot.com/2007/01/what-is-your-stop-loss-strategy.html
+    "半衰期")'
 - en: for mean-reversion is about 20 days, which means you have to hold a position
     for at most a quarter. (My own rule is to exit when the spread hasn't reverted
     in 3 times the half-life.) If you enter into a position when the z-score is about
     ±2, you can expect a profit of about $2,000 on an investment of about $58,000
     on one side. This comes to a return per trade of about 3%. You can of course boost
     this return by using options to implement the XLE position instead.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于平均回归，大约是20天，这意味着你最多只能持有四分之一的仓位。（我的规则是在价差没有回归到一半生命周期的三倍时退出。）如果你在z-score约为±2时进入仓位，你可以在大约$58,000的一边投资中预期获得大约$2,000的利润。这意味着每笔交易的回报率约为3%。当然，你也可以通过使用期权来实现XLE仓位来提高这个回报。
 - en: As an aside, if you use Interactive Brokers, you can easily trade an entire
     basket of stocks using their Basket Trader.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺带一提，如果你使用Interactive Brokers，你可以使用他们的篮子交易器轻松交易一个完整的股票篮子。
 - en: I have created an online spreadsheet with (almost) real-time values of this
     spread in the
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了一个在线电子表格，实时显示这个价差在
 - en: '[subscription area](http://epchan.com/subscriptions.html "subscription area")'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[订阅区](http://epchan.com/subscriptions.html "订阅区")'
 - en: . (The detailed composition of this basket of 10 stocks are also described there.)
     Note that in theory, every time the XLE changes composition, we will have to re-compute
     our basket composition as well. But fortunately XLE composition does not change
     very much or very often, so I will only update my basket at most once a month.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 。（这个包含10只股票的篮子的详细组成也在那里。）请注意，在理论上，每次XLE改变组成时，我们都需要重新计算我们的篮子组成。但幸运的是，XLE的组成变化不大，也不经常变化，所以我最多一个月更新一次我的篮子。
 - en: '[![](img/bd0a4261d0263c63a7cefab5497f966e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2YZcqsZKHxyHLMFr1cZNaaXS3Lb8pawzzeoqrRZxIv2G9jdfaUsoZjmDHG81UgAP7_Nac1TWISQ75MXNFgQA_8UckLfBKbeZCplO0AtybzYwru7oBV_WiLW7st1JwBtALJGca0A/s1600-h/XLE.bmp)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2YZcqsZKHxyHLMFr1cZNaaXS3Lb8pawzzeoqrRZxIv2G9jdfaUsoZjmDHG81UgAP7_Nac1TWISQ75MXNFgQA_8UckLfBKbeZCplO0AtybzYwru7oBV_WiLW7st1JwBtALJGca0A/s1600-h/XLE.bmp)'

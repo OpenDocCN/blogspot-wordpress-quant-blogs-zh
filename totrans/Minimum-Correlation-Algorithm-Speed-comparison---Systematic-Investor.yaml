@@ -1,57 +1,87 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:37:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:37:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Minimum Correlation Algorithm Speed comparison | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最小相关算法速度比较 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/26/minimum-correlation-algorithm-speed-comparison/#0001-01-01)
 - en: '[The Minimum Correlation Algorithm](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)
     is a heuristic method discovered by [David Varadi](http://cssanalytics.wordpress.com/2012/09/21/minimum-correlation-algorithm-paper-release/).
     Below I will benchmark the execution speed of 2 versions of the Minimum Correlation
     Algorithm versus the traditional minimum variance optimization that relies on
     solving a quadratic programming problem.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[最小相关算法](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)是由[大卫·瓦拉迪](http://cssanalytics.wordpress.com/2012/09/21/minimum-correlation-algorithm-paper-release/)发现的一种启发式方法。下面我将比较最小相关算法的两个版本与传统的最小方差优化方法的执行速度，后者依赖于解决一个二次规划问题。'
 - en: '[PRE0]'
+  id: totrans-7
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: I have run the code above for n=10 (10 assets), n=100 (100 assets), n=500 (500
     assets), n=1000 (1000 assets)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我运行了上述代码，n=10（10个资产），n=100（100个资产），n=500（500个资产），n=1000（1000个资产）。
 - en: '[Please note that for n=1000 I have only run 5 replication]'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[请注意，对于n=1000我只运行了5次复制]'
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: For small universe (i.e. n ~ 100) all algorithms are fast. But once we attempt
     to solve 500 or 1000 assets portfolio allocation problem, the minimum variance
     algorithm is many times slower than the both versions of the minimum correlation
     algorithm.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于小宇宙（即 n ~ 100）所有算法都很快。但是一旦我们尝试解决500个或1000个资产的投资组合分配问题，最小方差算法比最小相关算法的两个版本慢得多。
 - en: 'So if we are considering a 500 assets weekly back-test for the 10 yrs the run-times
     in seconds (i.e. 52*10*single tun-time):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，如果我们考虑对10年内的500个资产进行每周回测，运行时间（即秒，52*10*单次调整时间）：
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: To view the complete source code for this example, please have a look at the
     [bt.mca.speed.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 github 上的 [bt.mca.speed.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

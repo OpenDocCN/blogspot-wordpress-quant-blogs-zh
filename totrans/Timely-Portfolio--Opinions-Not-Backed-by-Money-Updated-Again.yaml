@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:08:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:08:01'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Opinions Not Backed by Money Updated Again'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 再次更新并不以金钱为后盾的观点'
 - en: 来源：[http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/03/opinions-not-backed-by-money-updated.html#0001-01-01)
 - en: Strange that I am updating this post for a third time and nothing really has
     changed, but the fact that nothing has changed is incredibly interesting to me. 
     Since it is an update, I will not duplicate the explanation, so please read the
@@ -25,39 +37,67 @@
     with R](http://timelyportfolio.blogspot.com/2011/02/opinions-not-backed-by-money-are-not.html). 
     The basic conclusion is that we are in a bull market and AAII surveys are bullish,
     but nobody is willing to bet money on a good stock market.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 很奇怪我正在第三次更新这篇文章，但实际上没有什么改变，但没有改变的事实对我来说非常有趣。由于这是一次更新，我不会重复解释，请阅读上一个版本[不以金钱为后盾的观点并不那么可信--更新并使用
+    R](http://timelyportfolio.blogspot.com/2011/02/opinions-not-backed-by-money-are-not.html)。基本结论是我们处于牛市，AAII调查持多头看好，但没有人愿意在股市上打好注。
 - en: Data in a Google Doc ([https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc](https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc
     "https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc"))
     sourced from [AAII- The American Association of Individual Investors](http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBsQFjAA&url=http%3A%2F%2Faaii.com%2F&ei=BOIDTZq_H8OB8gbe36TrAg&usg=AFQjCNH43QiLqrZG9YBv_pvV1H-0qBeJoQ&sig2=Vdg0bSGYfr3vuS7SyBVw5w)
     and [ICI](http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBoQFjAA&url=http%3A%2F%2Fwww.ici.org%2F&ei=6eADTa-EGYOBlAfowcmuDg&usg=AFQjCNHp-bkB5qtA4VrXR6oCgdo_7jq_Tw&sig2=Mb8QzLDFXlWir56i5jOCkA).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据在 Google 文档中（[https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc](https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc
+    "https://docs.google.com/spreadsheet/ccc?key=0Amqp2r96khJPdENIRnE1SG5nanJ5OXFyYVUxOXRBVmc")）来源自[AAII-
+    美国个体投资者协会](http://www.google.com/url?sa=t&source=web&cd=1&sqi=2&ved=0CBsQFjAA&url=http%3A%2F%2Faaii.com%2F&ei=BOIDTZq_H8OB8gbe36TrAg&usg=AFQjCNH43QiLqrZG9YBv_pvV1H-0qBeJoQ&sig2=Vdg0bSGYfr3vuS7SyBVw5w)
+    和 [ICI](http://www.google.com/url?sa=t&source=web&cd=1&ved=0CBoQFjAA&url=http%3A%2F%2Fwww.ici.org%2F&ei=6eADTa-EGYOBlAfowcmuDg&usg=AFQjCNHp-bkB5qtA4VrXR6oCgdo_7jq_Tw&sig2=Mb8QzLDFXlWir56i5jOCkA)。
 - en: 'R code (not even worth putting in GIST):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码（甚至不值得放在 GIST 中）：
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(ggplot2)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: aaii_ici=read.csv("aaii-ici-noblank.csv",row.names=1)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: aaii_ici=read.csv("aaii-ici-noblank.csv",row.names=1)
 - en: '#using ggplot example from [http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/](http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用 ggplot 示例来自 [http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/](http://learnr.wordpress.com/2009/03/16/ggplot2-split-data-range-into-multiple-chart-series/)'
 - en: p <- ggplot(data=aaii_ici, aes(x = AAIIBULL-AAIIBEAR, y = runSum(aaii_ici[,4],3),
     colour = Range, shape = Range, label = Range))
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: p <- ggplot(data=aaii_ici, aes(x = AAIIBULL-AAIIBEAR, y = runSum(aaii_ici[,4],3),
+    colour = Range, shape = Range, label = Range))
 - en: p1 <- p + geom_point() + scale_y_continuous(limits = c(-200000, 200000),formatter=comma)
     + geom_hline(yintercept=0) + geom_vline(xintercept=0) + stat_smooth(method="lm",
     se=FALSE) + ylab("ICI Equity Rolling 3-mo Sum") + opts(title = "ICI Equity Flows
     by AAII Survey")
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: p1 <- p + geom_point() + scale_y_continuous(limits = c(-200000, 200000),formatter=comma)
+    + geom_hline(yintercept=0) + geom_vline(xintercept=0) + stat_smooth(method="lm",
+    se=FALSE) + ylab("ICI Equity Rolling 3-mo Sum") + opts(title = "AAII调查的ICI股票滚动
+    3 个月总和")
 - en: print(p1)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: print(p1)

@@ -1,38 +1,58 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:47:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:47:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Practical Implementation of Neural Network based time
     series (stock) prediction -PART 4'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：基于神经网络的时间序列（股票）预测的实用实现 - 第4部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural_04.html#0001-01-01)
 - en: Consider this an introduction to how we need to pre-process the data.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑这是我们需要预处理数据的一个介绍。
 - en: I mentioned earlier that a financial time series is typically a unit root or
     non-stationary signal, what this means is that if you sample statistical properties
     over time, they will obviously change.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前提到过，金融时间序列通常是一个单位根或非平稳信号，这意味着如果你随着时间的推移采样统计属性，它们显然会发生变化。
 - en: '[![](img/3e7152806f8ef04ad58c7e58640c42f5.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhotfy3qAUStcIYh4vFvQg6syIektEMfGPOoK1OzNjs2ZLGhzrCDnistWSjsxWyMyFJFqGnM5b-sSU0xZBxtmUlxgf7njfFnxYC7CEM4PmUVMZ1NmCuCmD1JElLTtIcXsoUcyWZ47hzE9k/s1600-h/fig1sp500.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3e7152806f8ef04ad58c7e58640c42f5.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhotfy3qAUStcIYh4vFvQg6syIektEMfGPOoK1OzNjs2ZLGhzrCDnistWSjsxWyMyFJFqGnM5b-sSU0xZBxtmUlxgf7njfFnxYC7CEM4PmUVMZ1NmCuCmD1JElLTtIcXsoUcyWZ47hzE9k/s1600-h/fig1sp500.jpg)'
 - en: Fig 1\. S&P 500 non-stationary signal
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 非平稳的S&P 500信号
 - en: You can see that as we sample the average at various points it is constantly
     changing. Another property of a unit root time series is that it is continuously
     growing (or exploding). We need to somehow transform the time series back into
@@ -40,8 +60,10 @@
     is it necessary for the Neural Net to see similar if not repeating data over and
     over, but any values beyond the internal squashing function will get saturated
     at the rails of the processing elements.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以看到，当我们在不同点取平均值时，它总是在变化。单位根时间序列的另一个特性是它持续增长（或爆炸）。我们需要以某种方式将时间序列转换回一个平稳信号，这样神经网络才能处理并学习它。不仅神经网络需要看到类似甚至重复的数据一次又一次，而且任何超过内部压缩函数的值都会在处理元素的轨道上饱和。
 - en: One of the things that you'll notice for many long term financial time series
     is that they grow exponentially, so a good candidate fit might be an exponential
     equation. However, since we will be using decomposition detrending, I prefer to
@@ -49,69 +71,103 @@
     later reverse the operation for post processing. Taking the log of exponential
     data also transforms the exponential regression to a linear one that we can use
     linear regression on and subtract the time series to get some stationarity .
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多长期金融时间序列的一个特点是它们呈指数增长，所以一个好的候选拟合可能是指数方程。然而，由于我们将使用分解去趋势，我更喜欢使用线性拟合。为了实现这一点，我们可以取数据的对数，稍后进行后处理反转操作。对指数数据取对数还将将指数回归转换为线性回归，我们可以使用线性回归并在时间序列上减去以获得一些平稳性。
 - en: '[![](img/91530656eb45e365ded127a4da4160cc.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWOBJZZoOLpLy1LUKrevueQlTMup3bdsl_cZl4iyk_Z6qJDMZeHhpQHRShPLDNhISuCsSwK8Dw5z0r_A4rvrDwzI5m57VJvZJYLodBG5eTzh4ppl_htsSmNw9_X9XUF_Z9_m3U9BzMSc/s1600-h/fig3logtransform.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/91530656eb45e365ded127a4da4160cc.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwWOBJZZoOLpLy1LUKrevueQlTMup3bdsl_cZl4iyk_Z6qJDMZeHhpQHRShPLDNhISuCsSwK8Dw5z0r_A4rvrDwzI5m57VJvZJYLodBG5eTzh4ppl_htsSmNw9_X9XUF_Z9_m3U9BzMSc/s1600-h/fig3logtransform.jpg)'
 - en: Fig 2\. Log Transformed Time Series
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2. 对数变换的时间序列
 - en: Also, notice that we will be predicting the next day, so we can simply use linear
     regression parameters updated daily to predict the next day.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，注意我们将要预测下一天，所以我们可以简单地使用每日更新的线性回归参数来预测下一天。
 - en: If we have a sufficient amount of data, we should see that the parameters settle
     to a stable limit, much as a coin toss converges to an asymptotic limit. If the
     parameters settle, we have some confidence that they will not change much from
     one sample prediction to the next.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们有足够的数据，我们应该看到参数趋向于一个稳定的极限，正如硬币抛掷收敛于一个渐进极限。如果参数稳定，我们有信心它们从一个样本预测到下一个不会发生很大变化。
 - en: '[![](img/f83fee54932c6118af3940221d230acb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBM0jjMH9iHy8wLvcTugVzQMFP0zqwuGfXM6HxYK4a-T3VrKtZzX7-hjvfQxe5xD3V7BD3sC7Ha3QXptV555KpcfUT5-Ql5x1kDyLDyDhIZELHWbvLVCUx_yBRZAlthSrf0PtY_hoTBNI/s1600-h/fig2slopeconvergence.jpg)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图9](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBM0jjMH9iHy8wLvcTugVzQMFP0zqwuGfXM6HxYK4a-T3VrKtZzX7-hjvfQxe5xD3V7BD3sC7Ha3QXptV555KpcfUT5-Ql5x1kDyLDyDhIZELHWbvLVCUx_yBRZAlthSrf0PtY_ho'
 - en: fig 3\. Dynamic Slope Settling of Linear Prediction Parameters
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3. 线性预测参数的动态斜率沉降
 - en: Notice that the parameters have settled to a pretty stable value over the training
     period, implying that we don't expect them to change too wildly from the true
     value on the next predicted estimate.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意参数在训练期间已经稳定到一个相当稳定的值，这暗示我们不期望它们在下一个预测估计的真实值上下太大波动。
 - en: After we subtract the line regression from the log transformed signal we get
     our detrended and stationary signal.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在从对数变换的信号中减去线性回归后，我们得到了去趋势且稳定的信号。
 - en: '[![](img/949e91433d990a4a75728519d21e169e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOF2kR9yojWT8dQl9RK-fwUXanf1Cj2P7Vs2nm20chX6gyJGJ8esGola319C-tf6b0PpvWoPiKiFSxQucYXBfTeHnek8UWpOXf8Cx9EUJOoFVcxM5LTjjRrblCYtYj1e9eqnzyVJF1uiY/s1600-h/fig4detrenedseries.jpg)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图5](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOF2kR9yojWT8dQl9RK-fwUXanf1Cj2P7Vs2nm20chX6gyJGJ8esGola319C-tf6b0PpvWoPiKiFSxQucYXBfTeHnek8UWpOXf8Cx9EUJOoFVcxM5LTjjRrblCYtYj1e9eqnzyVJF1uiY/s1600-h/fig4detrenedseries.jpg)'
 - en: fig 4\. De-trended Log transformed signal
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 图8. 去趋势的对数变换信号
 - en: Notice it appears much more stationary than the original time series. However,
     because the Neural Network does not get to see a lot of repetitive high frequency
     information over the time window, I will detrend once more with a faster smoothed
     representation. First we will use a 100 period moving average as the new intermediate
     trend, then subtract a 25 period moving average to get the 2nd detrended series.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，它比原始时间序列要稳定得多。然而，由于神经网络没有在时间窗口内看到很多重复的高频信息，我将再次进行去趋势处理，使用更快平滑的代表。首先我们将使用100期移动平均作为新的中间趋势，然后减去25期移动平均得到第二去趋势系列。
 - en: '[![](img/172a77968df99a9c412fcaa249b5b9a9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhn0LZl-pj8xZ7TV8WmmOAZbwxjYgYovYdWglrhJU-dtZPqPvypDpwF7lXrFEdws2-kaV_JJSTjfJMRVyDqbnDzdZb_dLZI0A0jxg5zoXl4Tq496MUWRIse7CY5RLG2s-LW7rplijU5gV8/s1600-h/fig5_2nddetrendedseries.jpg)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图1](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhn0LZl-pj8xZ7TV8WmmOAZbwxjYgYovYdWglrhJU-dtZPqPvypDpwF7lXrFEdws2-kaV_JJSTjfJMRVyDqbnDzdZb_dLZI0A0jxg5zoXl4Tq496MUWRIse7CY5RLG2s-LW7rplijU5gV8/s1600-h/fig5_2nddetrendedseries.jpg)'
 - en: Fig 5\. Second de-trended series.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 图7. 第二去趋势系列。
 - en: Notice that even this small sample shows a much better signal for the Neural
     Network to learn subtle patterns in the time series, and that stationarity property
     is very tame.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意即使这个小型样本也显示出神经网络学习时间序列中微小模式信号更好，这种稳定性属性非常温和。
 - en: '[![](img/19c51289558ea3c166f1784d6374c222.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijEoaJ1Zp3YrzUEmOfJk_1EV61ypK1ejaP9Y-lX6ByCOcSMBXKluXyy1xO8bxaUpMAHx9zYm4LITCxm6hC7OeSOBXn9Me-kLLs-N1ZgdVDWtvnmxsCS9D8zHGN9nH6JL4VVC-j81Gr_X4/s1600-h/fig6stockpred.jpg)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图4](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijEoaJ1Zp3YrzUEmOfJk_1EV61ypK1ejaP9Y-lX6ByCOcSMBXKluXyy1xO8bxaUpMAHx9zYm4LITCxm6hC7OeSOBXn9Me-kLLs-N1ZgdVDWtvnmxsCS9D8zHGN9nH6JL4VVC-j81Gr_X4/s1600-h/fig6stockpred.jpg)'
 - en: FIg 6\. Reconstructed prediction Out of Sample
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 图6. 重建的预测样本外
 - en: The figure above shows an example of a stock series that has been decomposed
     and smoothed then recomposed with a 100 and 25 period moving average and the out
     of sample period. There is a very good correlation between predicted and actual
@@ -121,5 +177,7 @@
     to one small problem I've had with Weka. The output of Weka only outputs 3 digits
     numerical precision. On the nabble forum they have mentioned a newer option in
     Subversion, but I haven't had a chance to play with it yet.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 上述图表展示了一个股票序列的例子，该序列通过使用100和25期移动平均以及样本外期间进行分解、平滑和重新组合。预测的平滑估计值与实际值之间存在非常好的相关性。这种系统可能会用于移动平均交叉预测，以在估计动量方面获得1天的优势。然而，预测值与实际值之间存在一些非常小的差异，我相信这是由于我在Weka上遇到的一个小问题。Weka的输出只具有3位数字的精度。在nabble论坛上他们提到了一个在Subversion中的新选项，但我还没有机会去尝试它。

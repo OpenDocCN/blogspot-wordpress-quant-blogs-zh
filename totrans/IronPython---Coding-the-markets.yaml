@@ -1,50 +1,76 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:45:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:45:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: IronPython | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: IronPython | 编写市场代码
 - en: 来源：[https://etrading.wordpress.com/ironpython/#0001-01-01](https://etrading.wordpress.com/ironpython/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/ironpython/#0001-01-01](https://etrading.wordpress.com/ironpython/#0001-01-01)
 - en: Some notes on IronPython, CPython, .Net and integration…
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于IronPython、CPython、.Net和集成的的一些说明…
 - en: 'Avoiding importing some CPython modules: you may not want to make your IronPython
     coded assemblies depend on an installation of CPython at c:\python25\. If so you
     must avoid importing a lot of modules that CPython coding takes for granted…'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 避免导入一些CPython模块：你可能不希望让你的IronPython代码组件依赖于c:\python25\中的CPython安装。如果是这样，你必须避免导入许多CPython编程认为理所当然的模块…
 - en: types – don’t use expressions like if type(myObj) == types.ListType. Use if
     type(myObj) == type([]) instead. Sometimes implicit is better than explicit !
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 类型 – 不要使用像if type(myObj) == types.ListType这样的表达式。应该使用if type(myObj) == type([])。有时候隐式比显式更好！
 - en: string – if you go back to CPython 1.5.2 you may still be in the habit of coding
     string.split() or string.join(). Switch over to member methods eg “”.join( ) andyou
     can avoid importing the string module.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 字符串 – 如果你回到CPython 1.5.2，你可能还习惯于编写字符串.split()或者字符串.join()。转向成员方法，例如“”.join()，并且你可以避免导入字符串模块。
 - en: Some modules can be imported just the same in IronPython and CPython…
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些模块可以在IronPython和CPython中以相同的方式导入…
 - en: Genericity
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 泛型
 - en: Use ContainsKey, not has_key. Both Hashtable and Python’s built in dictionary
     have it.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用ContainsKey而不是has_key。Hashtable和Python内置的字典都有它。

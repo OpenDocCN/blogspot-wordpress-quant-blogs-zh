@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:54:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:54:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Momentum Strategies and Universe Selection | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 动量策略与宇宙选择 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01](https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01](https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/#0001-01-01)
 - en: '[![momentum](img/eb3ddddfe0f1975279111d1de6c64c01.png)](https://cssanalytics.files.wordpress.com/2014/06/momentum.jpg)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '![动量](img/eb3ddddfe0f1975279111d1de6c64c01.png)'
 - en: It is well established that the momentum effect is robust across individual
     stocks and broad asset classes. However, one of the biggest issues for implementation
     at the strategy level is to choose a universe for trading. For example, one might
@@ -32,8 +46,10 @@
     artificially inflate results due to data mining (finding the best universe in
     hindsight prior to presenting the final backtest), or the choice can be too arbitrary
     and hence sub-optimal from a strategy development standpoint.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 众所周知，动量效应在个股和广泛的资产类别中都是稳健的。然而，在策略层面实施时最大的问题之一是选择一个交易宇宙。例如，一个人可能会为个股动量策略选择一个广泛的指数，如标普500，但这真的是最大化回报的最佳选择吗？或者如果我们想建立一个带有动量属性的资产配置策略，我们应该包括/排除哪些资产，为什么？通常，这些问题在学术论文中很少被讨论，在博客圈也几乎不见提及。结果是，宇宙的选择可能会由于数据挖掘而人为地提高结果（在呈现最终回测之前找到最佳宇宙），或者这个选择可能过于随意，因此从策略开发的角度来看不是最优的。
 - en: 'There are good reasons to believe that certain asset universes are likely to
     be superior to others. In a subsequent post, I will attempt to de-compose mathematically
     what makes a universe particularly well-suited for momentum strategies. But for
@@ -50,8 +66,10 @@
     since deviations from a common mean will eventually revert versus continue. This
     is not a complete description of the factors that drive momentum performance but
     rather a list that is likely to make logical sense to most investment professionals.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 有充分的理由相信，某些资产宇宙可能比其他宇宙更优越。在后续的文章中，我将尝试从数学上分解什么使一个宇宙特别适合动量策略。但现在，让我们讨论一些可能推动动量策略表现明显的因素：1）宇宙异质性/同质性：合理的推理是，由六个不同的大型ETF组成的投资宇宙不会导致理想的结果，因为宇宙过于相似（同质）。相比之下，选择不同的板块或风格，甚至是资产类别应该能在宇宙中的其他资产表现不佳时找到表现良好的资产。2）宇宙中的资产数量：资产越少，在其他条件相同的情况下机会越少。3）协整/均值回归：选择由协整资产组成的宇宙，比如可口可乐和百事可乐，或者埃克森美孚和能源板块ETF，可能会导致负的动量表现，因为从共同均值偏离最终会回归而不是持续。这并不是驱动动量表现的所有因素的完整描述，而是一份对大多数投资专业人士来说可能会有逻辑意义的列表。
 - en: Since there are good reasons to believe that some universes are simply better
     than others, it makes sense to determine some heuristic for universe selection
     to improve the performance of momentum strategies. One logical method to determine
@@ -63,8 +81,10 @@
     a performance metric such as CAGR. We would then select the top n/% of universes
     by their performance, and then apply the momentum strategy to these universes
     to determine the assets to trade at each re-balance.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于有充分的理由相信，有些宇宙就是比其他的更好，因此确定一些宇宙选择的启发式方法以改善动量策略的性能是有意义的。确定用于交易/回测的宇宙的一种逻辑方法是尝试在前进的基础上选择最佳的宇宙，而不是事后的。换句话说，我们在每个时间步骤使用一个选定的动量策略进行回测——例如，通过60天回报选择顶级资产——并使用一个更长的窗口，比如756天或更多，来测试从选定的宇宙中使用CAGR等性能指标的每个可能的宇宙子集。然后我们选择表现最佳的n/%的宇宙，并将这些宇宙应用于动量策略，以确定每个再平衡时需要交易资产。
 - en: 'A simple example would be to use the nine different sectors in the S&P500 (sector
     spyders). Perhaps there are sectors that are better suited to a momentum strategy
     than using all nine? To test this assumption one might choose all universe subsets
@@ -79,11 +99,15 @@
     momentum with universe selection- is to hopefully enhance returns and risk-adjusted
     returns versus using all assets in the universe. The results of this walk-forward
     strategy are presented below:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个简单的例子是使用标普500（sector spyders）中的九个不同行业。也许有些行业比使用全部九个行业更适合动量策略呢？为了测试这个假设，我们可以选择所有宇宙子集，这些子集包含2个或更多的资产（在这种情况下为2到9个资产），这将产生502个不同的动量投资组合。这突显了这种方法的一个关键困难——随着宇宙大小的增加，计算负担呈指数级增长。假设我们使用一个60天的动量策略，通过选择CAGR最高的行业来进行再平衡，回顾756个交易日或3年，我们测试所有502个不同的宇宙并使用动量策略选择CAGR排名前10%的宇宙。现在，在每次再平衡时，我们选择每个宇宙中CAGR排名前10%的资产。这种策略的目的——我们称之为带有宇宙选择的动量策略——是希望增强相对于使用宇宙中所有资产的回报和风险调整后的回报。这种前进策略的结果如下：
 - en: '[![umass sectors](img/502fbfcfbbe55639715c0ca973d0e797.png)](https://cssanalytics.files.wordpress.com/2014/06/umass-sectors.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![umass sectors](img/502fbfcfbbe55639715c0ca973d0e797.png)'
 - en: 'It appears that universe selection substantially enhances the performance of
     a basic momentum strategy. Both returns and risk-adjusted returns are improved
     by using rolling universe selection. There are clearly sectors that are better
@@ -93,16 +117,22 @@
     S&P500/SPY,Real Estate/IYR,Gold/GLD,Long-Term Treasurys/TLT,Commodities/DBC,10-year
     Treasurys/IEF,Emerging Markets/EEM,Europe/IEV,International Real Estate/RWX,Japan/EWJ.
     The results of this walk-forward strategy are presented below:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 看来宇宙选择显著增强了基本动量策略的性能。使用滚动宇宙选择，回报和风险调整后的回报都有所提高。显然有些行业更适合于切换策略，而不是一次性使用所有行业。关于资产类别呢？同样的效果适用吗？我们选择了一个之前用于测试[自适应资产配置](https://cssanalytics.wordpress.com/2012/07/17/adaptive-asset-allocation-combining-momentum-with-minimum-variance/)的10资产宇宙：标普500/SPY，房地产/IYR，黄金/GLD，长期国债/TLT，商品/DBC，10年国债/IEF，新兴市场/EEM，欧洲/IEV，国际房地产/RWX，日本/EWJ。这种前进策略的结果如下：
 - en: '[![umass asset class](img/4cae4154a4b4280f7ca3809d41b84d3c.png)](https://cssanalytics.files.wordpress.com/2014/06/umass-asset-class.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![umass资产类别](img/4cae4154a4b4280f7ca3809d41b84d3c.png)](https://cssanalytics.files.wordpress.com/2014/06/umass-asset-class.png)'
 - en: Once again, the returns and risk-adjusted returns are much higher when employing
     universe selection. The differences are highly significant in this case. Clearly
     there are subsets of asset classes that are superior to using the entire universe.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次说明，运用全宇宙选股的方法，其回报率和经风险调整的回报率要高得多。在此情况下，差异是高度显著的。很明显，资产类别中存在一些子集，这些子集优于使用整个宇宙。
 - en: This approach to universe selection is not without flaws however, and the reasons
     why will be clarified in a subsequent post. However it is still reasonably practical
     as long as the backtest lookback window (756 in the above example) is much larger
@@ -115,5 +145,7 @@
     data-mining too many different combinations and ending up with a universe that
     simply performed well due to chance. It also improves the reliability of out-of-sample
     performance.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，这种全宇宙选股的方法并非没有缺陷，稍后文章中将详细说明原因。然而，只要回测回顾窗口（上述例子中的756）远大于动量回顾窗口（上述例子中的60），它仍然相当实用。此外，回测回顾窗口理想上应覆盖一个市场周期——使用较短的回顾窗口可能会导致在牛市期间仅选择表现最佳的投资品种——这将导致有偏的宇宙。此外，选择一个合理数量或百分比的顶级宇宙（例如我们上述例子中的前5名、前10名甚至前10%）会有所帮助，以减轻数据挖掘过多不同组合的影响，从而避免仅仅因为运气好而取得良好表现的宇宙。这也提高了样本外表现的可靠性。

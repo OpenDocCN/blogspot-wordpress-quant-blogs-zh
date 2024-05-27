@@ -1,53 +1,77 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:29:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:29:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: QuantLib-SWIG and a Thread-Safe Observer Pattern in C++ – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: QuantLib-SWIG和C++中的线程安全观察者模式 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/#0001-01-01](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/#0001-01-01](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/#0001-01-01)
 - en: 'Update 23.11.2015: A modified version of the patch is now part of the official
     QuantLib Release 1.7.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 23.11.2015：修改后的补丁现在已是官方QuantLib 1.7版本的一部分。
 - en: 'Update 28.02.2015: Please find the latest version of the patch for QuantLib
     1.5 [here](http://hpc-quantlib.de/src/observer15.zip).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 28.02.2015：请在此找到QuantLib 1.5的最新补丁版本[这里](http://hpc-quantlib.de/src/observer15.zip)。
 - en: 'Update 11.05.2014: Please find the latest version of the patch for QuantLib
     1.4 [here](http://hpc-quantlib.de/src/observer.zip).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 11.05.2014：请在此找到QuantLib 1.4的最新补丁版本[这里](http://hpc-quantlib.de/src/observer.zip)。
 - en: The [QuantLib](http://www.quantlib.org) library is not really thread-safe. Successful
     usage in multi-core and parallel environments is often achieved by message passing
     between multiple processes rather than shared memory and multi-threading. If different
     threads are acting on distinct objects then QuantLib can also be used in the multi-threading
     environment (define QL_ENABLE_SESSIONS to make the singletons thread dependent.).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '`QuantLib`库并不是真正线程安全的。在多核和并行环境中的成功使用通常是通过在不同进程之间传递消息实现的，而不是共享内存和多线程。如果不同线程对不同对象进行操作，那么QuantLib也可以在多线程环境中使用（定义`QL_ENABLE_SESSIONS`以使单例线程相关）。'
 - en: If you are using QuantLib in Java or Scala via SWIG [1] then the QuantLib routines
     are automatically executed in a multi-threading environment even if your main
     routine is single threaded. The garbage collector of the JVM is usually running
     in different thread. In conjunction with QuantLib’s implementation of the Observer
     pattern this can lead to serious problems, e.g. the following single threaded
     Scala code crashes on a multi-core computer after a short period of time.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果您通过SWIG[1]在Java或Scala中使用QuantLib，即使主程序是单线程的，QuantLib例程也会自动在多线程环境中执行。JVM的垃圾收集器通常在不同的线程中运行。与QuantLib实现的观察者模式相结合，这可能会导致严重问题，例如，以下单线程Scala代码在多核计算机上运行一段时间后会崩溃。
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The garbage collector might call the destructor of an observer (QuoteHandle)
     at the same point in time when the update method on the same object is invoked
     by aSimpleQuote.setValue. (Find [here](http://old.nabble.com/Issues-with-C--Swig-Bindings,-NUnit-and-Settings.instance%28%29.setEvaluationDate%28%29-td30549787.html)
@@ -56,38 +80,55 @@
     C++. Unfortunately this solution can not be applied to the QuantLib because the
     solution involves a change of signature of the Observer interface and thereafter
     would lead to a lot of change in the QuantLib library.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 垃圾收集器可能在同一时间点调用观察者（QuoteHandle）的析构函数，同时`aSimpleQuote.setValue`在同一对象上调用更新方法。（请在此找到关于此问题的原始帖子[这里](http://old.nabble.com/Issues-with-C--Swig-Bindings,-NUnit-and-Settings.instance%28%29.setEvaluationDate%28%29-td30549787.html)
+    ，这是关于这个问题的QuantLib邮件列表的原始帖子。）对于一个绿色项目，作者在[2]中为这个问题提供了一个很好的C++解决方案。不幸的是，这个解决方案不能应用于QuantLib，因为解决方案涉及观察者接口签名的更改，此后会导致QuantLib库发生很多变化。
 - en: The main problem here is that we have to disable the Observer before the destructor
     starts to work. This could in theory be achieved by adding a special “Deleter”
     to every new instance of a boost::shared_ptr. But again this would lead to a lot
     of changes in the library.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的主要问题是，我们必须在析构函数开始工作之前禁用观察者。理论上，这可以通过向每个新的`boost::shared_ptr`实例添加一个特殊的“删除器”来实现。但这样做又会导致库中出现很多变化。
 - en: When compiled with the preprocessor directive BOOST_SP_ENABLE_DEBUG_HOOKS the
     boost library adds a callback hook before a destructor is called by any boost
     smart pointer. This hook can be utilized to disable an Observer before the actual
     destructor is executed. In addition the boost::signals2 library [3] provides a
     simple and thread-safe notification mechanism.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当使用预处理器指令`BOOST_SP_ENABLE_DEBUG_HOOKS`编译时，boost库在任意boost智能指针调用析构函数之前添加了一个回调钩子。这个钩子可用于在实际析构函数执行之前禁用观察者。此外，`boost::signals2`库[3]提供了一个简单且线程安全的通知机制。
 - en: The corresponding thread-safe implementation of the original QuantLib Observer/Observable
     interface can be found [here](http://hpc-quantlib.de/src/observable.zip). Set
     the preprocessor directive BOOST_SP_ENABLE_DEBUG_HOOKS for every source file.
     Replace/Add the files observable.hpp and observable.cpp and recompile the QuantLib
     library and the QuantLib-SWIG module.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 原始QuantLib观察者/可观察接口的相应线程安全实现可以在[这里](http://hpc-quantlib.de/src/observable.zip)找到。为每个源文件设置预处理器指令BOOST_SP_ENABLE_DEBUG_HOOKS。替换/添加observable.hpp和observable.cpp文件并重新编译QuantLib库和QuantLib-SWIG模块。
 - en: 'Note: if you want to use the patch with QL 1.2 and not for the trunk, please
     see the comment by gk below.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：如果你想要使用与QL 1.2一起的补丁而不是用于trunk，请参阅gk下面的注释。
 - en: '[1] Simplified Wrapper and Interface Generator, [SWIG](http://swig.sourceforge.net/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] 简化包装器与接口生成器，[SWIG](http://swig.sourceforge.net/)'
 - en: '[2] Shuo Chen, [Where Destructors meet Threads](http://www.slideshare.net/chenshuo/where-destructors-meet-threads)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] 陈硕，[析构函数与线程的相遇](http://www.slideshare.net/chenshuo/where-destructors-meet-threads)'
 - en: '[3] Douglas G., Mori Hess F., [Boost.Signals2](http://www.boost.org/doc/libs/1_48_0/doc/html/signals2.html)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[3] Douglas G., Mori Hess F., [Boost.Signals2](http://www.boost.org/doc/libs/1_48_0/doc/html/signals2.html)'

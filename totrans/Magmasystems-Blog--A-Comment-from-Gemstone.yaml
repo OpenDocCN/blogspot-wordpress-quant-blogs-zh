@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:11:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:11:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: A Comment from Gemstone'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 火山系统博客：来自Gemstone的评论
 - en: 来源：[http://magmasystems.blogspot.com/2007/03/comment-from-gemstone.html#0001-01-01](http://magmasystems.blogspot.com/2007/03/comment-from-gemstone.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/03/comment-from-gemstone.html#0001-01-01](http://magmasystems.blogspot.com/2007/03/comment-from-gemstone.html#0001-01-01)
 - en: 'Ocassionally, someone will make an important comment to a post I made several
     months ago. Such is the case now ... Jags from Gemstone replies:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时，有人会对我几个月前发表的帖子发表重要评论。现在就是这种情况...来自Gemstone的Jags回复：
 - en: '*You have hit the nail on the head. At GemStone, we recognized early on that
     a distributed cache that supports notifications has no choice but to ensure that
     object change notifications can reliably reach consumers. Else, it pretty much
@@ -45,8 +59,15 @@
     you enable applications to connect to a distributed object repository that gives
     pub-sub semantics, but all the contextual data required by the application to
     make instantenous decisions is available in memory.*'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '*你抓住了要点。在GemStone，我们很早就意识到，支持通知的分布式缓存必须确保对象更改通知能够可靠地传达给消费者，否则，它基本上就变得毫无用处。*
+    **我们考虑了许多因素：-** **应用程序通过p2p缓存共享数据，缓存支持动态成员资格 - 即成员可以随时加入和退出。从可扩展性的角度来看很好，但是当你有应用程序连接到点对点缓存并期望通知，而一个生成事件的节点突然离开会发生什么？在GemFire中，我们引入了一种声明性方法，以确保所有关键成员都接收到消息
+    - 每个生产者或消费者都可以扮演一个或多个角色；只有当所需的角色可用时，发布者才会成功。如果你对此感兴趣，请查看这里的第3.2节* *[*http://developer.gemstone.com/display/gfedev/Topologies+and+Architectures+for+Middle-Tier+Caching*](http://developer.gemstone.com/display/gfedev/Topologies+and+Architectures+for+Middle-Tier+Caching)*-***在你提到的情景中
+    - 客户端连接到逻辑缓存 - 我们还支持通过在缓存服务器上对队列进行内存复制实现异步可靠通知。这里的挑战是确保事件的按顺序传递，检测失败条件，客户端自动故障转移到管理次要队列的服务器，并避免重复通知。而且，考虑到客户端可能有一个本地缓存，服务器端可以通过仅传播对象“增量”来进一步优化向客户端的传输。***金融机构喜欢“缓存+消息传递”故事的一个重要原因是，现在你可以使应用程序连接到一个分布式对象存储库，它提供发布订阅语义，但应用程序做出即时决策所需的所有上下文数据都在内存中可用。*'
 - en: ©2007 Marc Adler - All Rights Reserved*****
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有*****

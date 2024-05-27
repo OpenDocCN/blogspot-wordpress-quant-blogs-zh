@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 17:50:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 17:50:52'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: How to Create Your Own Portable VXV'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'VIX and More: How to Create Your Own Portable VXV'
 - en: 来源：[http://vixandmore.blogspot.com/2009/04/how-to-create-your-own-portable-vxv.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/how-to-create-your-own-portable-vxv.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2009/04/how-to-create-your-own-portable-vxv.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/how-to-create-your-own-portable-vxv.html#0001-01-01)
 - en: I recently received a question from a reader who was looking to create a homemade
     version of the [VXV](http://vixandmore.blogspot.com/search/label/VXV) that he
     could apply to the Nifty (formally known as the [S&P CNX Nifty](http://www.nseindia.com/content/indices/ind_nifty.htm)),
@@ -26,83 +38,116 @@
     wanted to know if it would be possible to use a 93 day moving average of the [India
     VIX](http://vixandmore.blogspot.com/search/label/India%20VIX) to create an index
     that would be analogous to the VXV.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近收到了一位读者的来信，他想要创建一个自制的VXV版本，可以应用于Nifty（正式称为[S&P CNX Nifty](http://www.nseindia.com/content/indices/ind_nifty.htm)），这是一个在[印度国家证券交易所](http://www.nseindia.com/homepage.htm)上的50家大型市值公司的指数。具体来说，读者想知道是否可以使用[印度VIX](http://vixandmore.blogspot.com/search/label/India%20VIX)的93天移动平均值来创建一个类似于VXV的指数。
 - en: Actually, VXV ignores all historical volatility readings and utilizes implied
     volatility instead. It is the blending of implied volatility for the options from
     the months that are closest to 93 days into the future.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，VXV忽略了所有历史波动率读数，转而使用隐含波动率。它是由离未来93天最近的月份的期权隐含波动率的混合而成。
 - en: Refer to the graphic below and I will create a “quick and dirty” version of
     VXV that can be used on any underlying that has options. The example here is for
     the SPX, but the same process can yield a VXV proxy for any underlying.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 参考下面的图表，我将创建一个“快速简便”版本的VXV，可以用于任何有期权的底层资产。这里的示例是针对SPX的，但对于任何底层资产都可以得到一个VXV代理。
 - en: 'The steps are as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤如下：
 - en: Determine the two options expiration months whose time to expiration is closest
     to 93 days (the term for the VXV). In this case we are using July, with 85 days
     until expiration and August, with 120 days until expiration. Of course once each
     month there will be one month with exactly 93 days until expiration.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定两个到期时间最接近93天的期权到期月份（VXV的期限）。在此例中，我们使用七月，到期时间为85天，以及八月，到期时间为120天。当然，每个月都有一次到期时间为恰好93天。
 - en: Determine the last close in the SPX and the series immediately above and below
     the last close for each of the two months. Here the last close is 843.55\. For
     July, the series for the calculations are 840 and 850\. For August, we use 825
     and 850.
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定SPX的最后收盘价以及紧邻最后收盘价上下的系列收盘价，分别为两个月的数据。在这里，最后收盘价为843.55。对于七月，计算使用的系列为840和850。对于八月，我们使用825和850。
 - en: Determine the implied volatility levels for both the puts and calls for the
     relevant series for each of the two months. These are highlighted in red in the
     optionsXpress graphic below.
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 为每个两个月份的相关系列确定看涨和看跌期权的隐含波动率水平。这些在下面的optionsXpress图表中以红色突出显示。
 - en: 'Interpolate the implied volatility for the SPX close from the two July calls
     (A), July puts (B), August calls (C) and August puts (D). In this case the interpolation
     is done by assuming the proportions for the SPX close are the same as they are
     for the implied volatility values. For example:'
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 从两个七月的看涨期权（A）、看跌期权（B）、八月看涨期权（C）和看跌期权（D）中插值计算SPX收盘价的隐含波动率。在此例中，插值是通过假设SPX收盘价的比例与隐含波动率值的比例相同来完成的。例如：
 - en: A = 31.1 + (6.45/10)*(31.3-31.1)
+  id: totrans-14
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: A = 31.1 + (6.45/10)*(31.3-31.1)
 - en: A = 31.229
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: A = 31.229
 - en: Now that we have implied volatility levels for the SPX close, we need to average
     these across both puts and calls for each month. July = (A + B) / 2 and August
     = (C + D) / 2
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 现在我们已经有了SPX收盘价的隐含波动率水平，我们需要对这些数据在每个月份的看涨和看跌期权中进行平均。七月=(A+B)/2，八月=(C+D)/2
 - en: 'Finally, interpolate the July and August results from the step above to estimate
     93 day implied volatility. The easiest way to do this is to start with the nearer
     month and then add the appropriate fractional portion of the later month that
     lifts the blended average to 93\. The approach is analogous to the interpolation
     above and yields and equation that looks like this:'
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 最后，从上述步骤中插值 July 和 August 的结果，以估计 93 天的隐含波动率。最简单的方法是先从最近的一个月开始，然后加上适当的后一个月的分数部分，使得混合平均值达到
+    93。这种方法与上述插值类似，得到的方程看起来像这样：
 - en: VXV = [(A + B) / 2] + [(93-85)/(120-85) * ((C + D) / 2) – ((A + B) / 2)]
+  id: totrans-18
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: VXV = [(A + B) / 2] + [(93-85)/(120-85) * ((C + D) / 2) – ((A + B) / 2)]
 - en: This is not the same approach that is used by the CBOE, which is more complex
     and is detailed in the [CBOE S&P 500 3-Month Volatility Index Description](http://www.cboe.com/micro/vxv/3monthvix.pdf).
     This quick and dirty variant can be calculated quickly and is portable across
     any underlying with options, including the Nifty.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这不是CBOE所使用的方法，CBOE的方法更为复杂，具体细节请参阅[CBOE S&P 500 3-Month Volatility Index Description](http://www.cboe.com/micro/vxv/3monthvix.pdf)。这种快速而简略的变体可以快速计算，并且可以跨任何有期权的基础资产移植，包括Nifty。
 - en: '![](img/a394ed9d532c097619eecc81dfc793b3.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/a394ed9d532c097619eecc81dfc793b3.png)'
 - en: '*[source: optionsXpress]*'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 来源：[optionsXpress]

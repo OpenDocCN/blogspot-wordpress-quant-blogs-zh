@@ -1,53 +1,79 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 13:44:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 13:44:19'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Volume Clock, Gaps, and GOOG | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Volume Clock, Gaps, and GOOG | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2012/10/23/volume-clock-gaps-and-goog/#0001-01-01](https://quantivity.wordpress.com/2012/10/23/volume-clock-gaps-and-goog/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2012/10/23/volume-clock-gaps-and-goog/#0001-01-01](https://quantivity.wordpress.com/2012/10/23/volume-clock-gaps-and-goog/#0001-01-01)
 - en: GOOG unexpectedly disclosed their Q3 earnings early last week, on October 18th.
     While earnings were marginally interesting, much more amusing was the corresponding
     hiccup in intraday trading. This event provides an opportunity to dig into TAQ
     data, view through a HFT lens, and build intuition from some elegant ideas due
     to Mendelbrot, Clark, and Ané.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: GOOG在上周早些时候意外地披露了他们的Q3收益，即10月18日。尽管收益略显有趣，但更有趣的是日内交易中的相应小插曲。这一事件为深入研究TAQ数据、通过HFT的视角来观察，并从Mendelbrot、Clark和Ané的一些优雅观点中建立直觉提供了机会。
 - en: 'Begin by taking a look at the time-series plot of intraday trade prices for
     GOOG from the 18th (from one exchange):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先看一下18日GOOG的日内交易价格的时间序列图（来自一个交易所）：
 - en: '[![](img/da5106d47760f214cf5cd0d3159c06ff.png "goog-trades-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-trades-20121018.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/da5106d47760f214cf5cd0d3159c06ff.png "goog-trades-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-trades-20121018.png)'
 - en: 'The tape clearly illustrates some unhappy traders, with what appears to be
     a gap down in the noon hour (followed by trading halt until 3pm). Intraday dynamics
     can be better understood with a time-series summary of the corresponding trades
     and quotes:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 该磁带清楚地说明了一些不愉快的交易者，午间似乎出现了跳空下跌（后来交易停牌直到下午3点）。通过相应交易和报价的时间序列摘要，可以更好地理解日内动态：
 - en: '[![](img/314aa1c402f89d7ff1d32bbf8e1aee60.png "goog-taq-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/314aa1c402f89d7ff1d32bbf8e1aee60.png "goog-taq-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018.png)'
 - en: 'Although the price appears to gap when viewed on a low-frequency daily chart,
     drilling into the noon hour illustrates the contrary:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管从低频日线图中查看时价格似乎有所间隙，但在午间时段深入观察表明相反：
 - en: '[![](img/dfa324ae99dc9fbd0cc41be5da1aa643.png "goog-taq-20121018-noon-one")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018-noon-one.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/dfa324ae99dc9fbd0cc41be5da1aa643.png "goog-taq-20121018-noon-one")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018-noon-one.png)'
 - en: Rather than a single print gap, the price action evolved more slowly over 12:30
     to 12:40\. The spread quickly expanded after 12:30, presumably driven by the jump
     in volume subsequent to disclosure. A 5,000 share trade printed shortly after
@@ -56,116 +82,164 @@
     appear to be fairly typical response to uncertainty and toxicity, as the summary
     is qualitatively similar to other similar events such as the morning after Bear
     in 2008.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 与其说是单次打印间隙，不如说是价格行为在12:30至12:40之间较缓慢地演变。预计是由于披露后交易量的增加而推动，12:30后价格迅速扩大。12:32后不久即印出了一笔5000股的交易，当时价差开始稳定。这引发了一些恐惧和贪婪，因为做市商将价差扩大到了4美元。中午后价差动态似乎是对不确定性和毒性的典型反应，因为该摘要在质量上与其他类似事件（如2008年熊市后的早晨）相似。
 - en: 'By way of comparison, below is plot for TAQ summary on 3:25 – 4pm:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为对比，以下是TAQ摘要在下午3:25 - 4点的图表：
 - en: '[![](img/2ddca222ce0849df4689ac8a1ed1d24d.png "goog-taq-20121018-three-four")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018-three-four.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/2ddca222ce0849df4689ac8a1ed1d24d.png "goog-taq-20121018-three-four")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-taq-20121018-three-four.png)'
 - en: Now that we are familiar with the TAQ action as measured in human chronology,
     let’s view it through a different lens—following the intuition from Mandelbrot
     (1963), Clark (1971), and most recently Easley *et al.* (2012).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们已经熟悉了以人类年表为单位衡量的TAQ行动，让我们通过不同的视角来看待它——根据Mandelbrot（1963）、Clark（1971）以及最近的Easley等人（2012）的直觉。
 - en: 'To do so, begin by considering trades for GOOG from another day which is more
     normal, say the following day Oct 19\. Start with human chronology, and calculate
     the time series of first differences for 1 and 5 minute bars. Next estimate the
     [Epanechnikov kernel density](http://en.wikipedia.org/wiki/Kernel_density_estimation)
     from first differences. Finally, fit the corresponding Gaussian for the same first
     differences. Or, in R:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要做到这一点，首先考虑另一天（更正常的一天）的谷歌（GOOG）交易，比如说接下来的10月19日。从人类时间学角度出发，计算1分钟和5分钟柱状图的第一差分的时间序列。然后从第一差分中估算[Epanechnikov核密度](http://en.wikipedia.org/wiki/Kernel_density_estimation)。最后，对于相同的第一差分，拟合相应的高斯分布。或者，在R中：
 - en: '[PRE0]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Which are plotted below for Oct 19, with solid red being 1-minute difference
     density and solid blue being 5-minute difference bars (ignore black for now);
     Gaussian fits for the same differences of each are dashed:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是10月19日的图表，实线红色为1分钟差分密度，实线蓝色为5分钟差分柱状图（现在忽略黑色）；相同差分的高斯拟合为虚线：
 - en: '[![](img/111747c70c55f2747e68c58925e9c226.png "goog-clock-20121019")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-clock-20121019.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/111747c70c55f2747e68c58925e9c226.png "goog-clock-20121019")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-clock-20121019.png)'
 - en: This reproduces the familiar stylized distribution of high-frequency returns,
     consistent with Figure 1 from Clark (1971) and Exhibit 2 from Easley *et al.*
     (2012). Although certainly leptokurtic, the distributions are not too dissimilar
     from normal.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这重现了高频率回报的熟悉的风格化分布，与Clark（1971）的图1和Easley等人（2012年）的附件2一致。尽管肯定是尖峰状的，但这些分布与正态分布并没有太大不同。
 - en: Now, ignore chronological time and instead consider the trades from the perspective
     of a *clock based on volume of shares traded over the day*. In other words, generate
     a new process defined as the sequence of prices coinciding with shares traded
     on equal-sized partitions of total volume over the day. This process generates
     a “volume clock” for the trades, in doing so exemplifying a beautiful time-series
     transformation.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，忽略时间上的顺序，而是从*基于一天内交易的股票量的时钟*的角度考虑交易。换句话说，生成一个新的过程，定义为与一天内总交易量相等大小的股票交易的价格序列相吻合的序列。这个过程为交易生成了一个“量时钟”，在这样做的过程中展示了一个美丽的时间序列转换。
 - en: A similar kernel density can be estimated from this trade volume clock, which
     is plotted above in black (with dashed corresponding normal fit), assuming partition
     size of 50\. This exhibits distribution characteristics consistent with Exhibit
     2 from Easley *et al.* (2012).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以从交易量时钟中估算出类似的核密度，以上图中黑色绘制（虚线对应的正态拟合），假设分区大小为50。这展示了与Easley等人（2012年）的附件2一致的分布特征。
 - en: 'With intuition on volume clock densities, we can finally take a look at Oct
     18 through the lens of a computer via the following plot:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了对量时钟密度的直觉，我们最终可以通过以下图表从计算机的角度来看待10月18日：
 - en: '[![](img/a0b2e08784b4b6478c4bf8bf1742f927.png "goog-clock-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-clock-20121018.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a0b2e08784b4b6478c4bf8bf1742f927.png "goog-clock-20121018")](https://quantivity.wordpress.com/wp-content/uploads/2012/10/goog-clock-20121018.png)'
 - en: Needless to say, this plot for Oct 18 looks nothing like the previous plot for
     Oct 19\. The normal fits for both 5-min bars (blue) and volume clock (black) are
     especially interesting, as they have little resemblance to their corresponding
     kernel estimates. Care is required for trading on days that look like this.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 不用说，10月18日的这个图与前一天10月19日的图完全不同。尤其有趣的是，5分钟柱状图（蓝色）和交易量时钟（黑色）的正常拟合，它们与相应的核密度估计几乎没有相似之处。在看起来像这样的日子进行交易需要谨慎。
 - en: For those interested to learn more, see Clark (1971) for theory, including subordinated
     stochastic processes (originally due to Bochner (1960)). Ané and Geman (2000)
     apply a bit more sophistication, including arguing in favor of cumulative transaction
     count rather than cumulative traded volume. Perhaps worth a follow-up post to
     see if this still makes sense, given current era of predominantly algorithmic
     program trading.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些想要了解更多的人，请参阅Clark（1971）以了解理论，包括从属随机过程（最初由Bochner（1960）提出）。Ané和Geman（2000）应用了更多的复杂性，包括辩论支持累积交易次数而不是累积交易量。也许值得进行后续帖子以查看这是否仍然合理，考虑到目前主要是算法性程序交易的时代。
 - en: 'The R code to generate the above plots is:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成上述图表的R代码是：
 - en: '[PRE1]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'And, a bit of literature on subordinated processes, volume clocks, and price
     processes:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 并且，关于从属过程、量时钟和价格过程的一些文献：
 - en: Bochner, Harmonic Analysis and the Theory of Probability, University of California
     Press, Berkeley, 1960.
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Bochner，《调和分析与概率论》，加州大学出版社，伯克利，1960年。
 - en: Mandelbrot, “The Variation of Certain Speculative Prices”, Journal of Business,
     Vol. 36 (1963), p. 394-419.
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Mandelbrot，《某些投机价格的变动》，《商业杂志》，第36卷（1963年），第394-419页。
 - en: Clark, “A Subordinated Stochastic Process Model with Finite Variance for Speculative
     Prices”. Center for Economic Research. University of Minnesota, 1971.
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Clark，《具有有限方差的下位随机过程模型用于投机价格》，经济研究中心，明尼苏达大学，1971年。
 - en: Ané and Geman, “Order Flow, Transaction Clock, and Normality of Asset Returns”,
     Journal of Finance, Vol. 55, No. 5 (2000), pp. 2259-2284.
+  id: totrans-34
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Ané 和 Geman，《订单流量、交易时钟和资产收益的正态性》，《金融杂志》，第55卷，第5期（2000年），第2259-2284页。
 - en: 'Murphy and Izzeldin, “Order Flow, Transaction Clock, and Normality of Asset
     Returns: Ané and Geman (2000) Revisited”, 2006.'
+  id: totrans-35
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Murphy 和 Izzeldin，《订单流量、交易时钟和资产收益的正态性：Ané 和 Geman（2000年）的再访》，2006年。
 - en: 'Easley, de Prado, and O’Hara, “The Volume Clock: Insights into the High Frequency
     Paradigm”. Journal of Portfolio Management, May 2012.'
+  id: totrans-36
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Easley、de Prado 和 O’Hara，《成交量时钟：对高频范式的洞见》，《投资组合管理杂志》，2012年5月。

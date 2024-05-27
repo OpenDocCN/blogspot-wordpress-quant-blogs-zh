@@ -1,240 +1,387 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:21:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:21:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: A Lightweight IntraApp Event Broker for C#/.NET'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: C#/.NET的轻量级内app事件代理'
 - en: 来源：[http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01](http://magmasystems.blogspot.com/2006/04/lightweight-intraapp-event-broker-for.html#0001-01-01)
 - en: Over the years, I have managed to write a repository of interesting classes
     that has helped me in architecting and developing systems. Over the coming months,
     and as time allows, I will submit some of these classes for your use.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 多年来，我设法编写了一系列有趣的类库，这些类库帮助我在系统架构和开发中。在接下来的几个月里，有时间的话，我会提交一些这些类库供您使用。
 - en: I wrote the EventBroker about two years ago for a trading system that had Tibco
     connectivity to a message bus that published quotes. I wanted a symmetrical processing
     model from the back end to the front end, and also, within the front end. So,
     I wrote a .NET/C#-based lightweight event broker that was like a min-Tibco within
     the GUI.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 大约两年前，我为具有Tibco连接的交易系统编写了一个事件代理，该系统将报价发布到消息总线。我希望从后端到前端，以及在前端内部的对称处理模型。因此，我编写了一个基于.NET/C#的轻量级事件代理，类似于GUI内的min-Tibco。
 - en: The Microsoft CAB has something similar, and when it came out, I took a few
     ideas from it (such as the handling of WeakReferences) and integrated it into
     my own Event Broker. CAB differs from mine in several respects .... namely, it
     has the concept of Event Scope, and it also has a different way of decorating
     code (it decorates event declarations, while mine decorates methods).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Microsoft CAB有类似的东西，出来的时候，我从它那里拿了一些想法（比如弱引用处理）并整合到我的事件代理中。CAB与我不同之处在于几个方面......也就是说，它有事件范围的概念，而且它装饰代码的方式也不同（它装饰事件声明，而我不装饰方法）。
 - en: However, this event broker has been used in several trading systems and seems
     to function well.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，这个事件代理已经在几个交易系统中使用，并且似乎运行良好。
 - en: In the next several posts, I will post the code of the Event Broker. You are
     free to use it as long as my copyright is maintained and proper acknowledgement
     is given. Also, I am anxious to hear of any improvments, enhancements and bug
     fixes you might make to any of the classes that I publish here. You can always
     reach me at
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在接下来的几篇帖子中，我将发布事件代理的代码。您可以自由使用它，只要保持我的版权并给予适当的认可。另外，我很想听听您可能对我在这里发布的任何类所做的任何改进、增强和错误修复。您可以通过以下方式随时联系我：
 - en: '*magmasystems at yahoo dot com*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*magmasystems at yahoo dot com*'
 - en: .
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: '**The Event Broker**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**事件代理**'
 - en: The application uses a lightweight Publish/Subscribe (PubSub) model internally
     in order to notify the controller or UI layer of interesting events. A typical
     interesting event is a change in the underlying data model.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 应用程序使用轻量级发布/订阅（PubSub）模型内部通知控制器或UI层有趣的事件。一个典型有趣的事件是底层数据模型的变化。
 - en: The mechanism that implements PubSub within the application is called the Event
     Broker. Event publishers and event subscribers will be automatically registered
     with the Event Manager by the use of customized .NET attributes.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 实现应用程序内PubSub的机制称为事件代理。事件发布者和事件订阅者将通过使用自定义的.NET属性自动注册到事件管理器。
 - en: The use of the Event Manager in no way precludes the application from doing
     its own event management using the standard .NET event/delegate mechanism.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用事件管理器绝不妨碍应用程序用自己的.NET事件/委托机制进行事件管理。
 - en: '**Using the EventBroker in a class**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**在类中使用EventBroker**'
 - en: Any class that wants to use the Pub/Sub capabilities of the EventBroker should
     do two thing.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 任何想要使用EventBroker的发布/订阅功能的类应该做两件事。
 - en: '1) Include a reference to the EventBroker''s assembly. Also, reference the
     namespace within your class:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 添加对EventBroker程序集的引用。同样，在您的类内部引用命名空间：
 - en: using Magmasystems.TradingSystem.EventManager;
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: using Magmasystems.TradingSystem.EventManager;
 - en: '2) Register the class with the EventBroker. A good place to do this is in the
     class'' constructor. To register the class with the Event Broker, all that needs
     to be done is to put in the following line of code:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 使用EventBroker注册类。这样做的一个好地方是在类的构造函数中。要注册类以使用事件代理，只需插入以下代码行：
 - en: EventBroker.Register(this);
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: EventBroker.Register(this);
 - en: There are several .NET attributes that can be used to decorate functions in
     order to define them as either Event Publishers or Event Subscribers. When one
     of these attributes is constructed, the EventTopic parameter is examined. The
     EventTopic is added to the EventManager's internal Dictionary. A Dictionary collection
     is used in order to provide fast access to a particular Topic/Event pairing.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: There are several .NET attributes that can be used to decorate functions in
+    order to define them as either Event Publishers or Event Subscribers. When one
+    of these attributes is constructed, the EventTopic parameter is examined. The
+    EventTopic is added to the EventManager's internal Dictionary. A Dictionary collection
+    is used in order to provide fast access to a particular Topic/Event pairing.
 - en: '[EventPublisher(string EventTopic)]'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[EventPublisher(string EventTopic)]'
 - en: This registers a function or class to be an event publisher. The class will
     publish an event with a specific name. Any subscribers to that topic will be notified.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: This registers a function or class to be an event publisher. The class will
+    publish an event with a specific name. Any subscribers to that topic will be notified.
 - en: '[EventSubscriber(string EventTopic, options)]'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[EventSubscriber(string EventTopic, options)]'
 - en: 'This registers a subscriber to an event. The attribute should be placed directly
     above the function that will be used as the event handler. The options can be
     one of the following:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 'This registers a subscriber to an event. The attribute should be placed directly
+    above the function that will be used as the event handler. The options can be
+    one of the following:'
 - en: '*'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '*'
 - en: '**Background**'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Background**'
 - en: '- the handler is called asynchronously'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '- the handler is called asynchronously'
 - en: The string-based topic name can be the actual name of a published topic, or
     it can be a
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: The string-based topic name can be the actual name of a published topic, or
+    it can be a
 - en: '**wildcarded**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**wildcarded**'
 - en: topic like
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: topic like
 - en: '"Magmasystems.TradingSystem.Trade.*"'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '"Magmasystems.TradingSystem.Trade.*"'
 - en: .
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: To fire an event, the static method EventManager.Fire() is called
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: To fire an event, the static method EventManager.Fire() is called
 - en: EventManager.Fire(object obj, string eventTopic, EventArgs args);
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: EventManager.Fire(object obj, string eventTopic, EventArgs args);
 - en: 'Event handlers have the signature:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Event handlers have the signature:'
 - en: public delegate bool EventManagerEventHandler(object sender,
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: public delegate bool EventManagerEventHandler(object sender,
 - en: string topicName, EventArgs e);
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: string topicName, EventArgs e);
 - en: 'Here is a piece of code that publishes an event (The recipient could be a controller
     that processes events from views and from the models):'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 'Here is a piece of code that publishes an event (The recipient could be a controller
+    that processes events from views and from the models):'
 - en: '[EventPublisher("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '[EventPublisher("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
 - en: private void GetTrades()
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: private void GetTrades()
 - en: '{'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: GetTradeArgs args = new GetTradeArgs();args.CUSIP = "12345";EventBroker.Fire(this,
     "Barcap.Gcdit.Odc.Controller.Action.GetTrades", args);
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: GetTradeArgs args = new GetTradeArgs();args.CUSIP = "12345";EventBroker.Fire(this,
+    "Barcap.Gcdit.Odc.Controller.Action.GetTrades", args);
 - en: '}'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: Here is a piece of code from a controller that subscribes to an event
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: Here is a piece of code from a controller that subscribes to an event
 - en: '[EventSubscriber("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '[EventSubscriber("Magmasystems.TradingSystem.Controller.Action.GetTrades")]'
 - en: public void GetTrades(object sender, string topicName, System.EventArgs e)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: public void GetTrades(object sender, string topicName, System.EventArgs e)
 - en: '{'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: GetTradesUnitOfWork.GetTradesArgs args = e as GetTradesUnitOfWork.GetTradesArgs;
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: GetTradesUnitOfWork.GetTradesArgs args = e as GetTradesUnitOfWork.GetTradesArgs;
 - en: if (e == null)
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: if (e == null)
 - en: return;
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: return;
 - en: ExecuteAction(new GetTradesUnitOfWork(this._context.UIApplicationContext, args));
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: ExecuteAction(new GetTradesUnitOfWork(this._context.UIApplicationContext, args));
 - en: '}'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: There is a .Net event associated with every topic that is registered. Events
     are really Multicast Delegates. Every subscriber to an event adds an event handler
     to the list of delegates. When an event is fired, the delegate list is traversed
     and each delegate will be invoked either synchronously or asynchronously. The
     options can include the Background flag. This tells the event firing mechanism
     that the underlying delegate should be invoked asynchronously. If the
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: There is a .Net event associated with every topic that is registered. Events
+    are really Multicast Delegates. Every subscriber to an event adds an event handler
+    to the list of delegates. When an event is fired, the delegate list is traversed
+    and each delegate will be invoked either synchronously or asynchronously. The
+    options can include the Background flag. This tells the event firing mechanism
+    that the underlying delegate should be invoked asynchronously. If the
 - en: '*Background*'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Background*'
 - en: flag is not present in the attribute declaration, then the underlying delegate
     will be invoked synchronously.
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: flag is not present in the attribute declaration, then the underlying delegate
+    will be invoked synchronously.
 - en: '**Guidelines for Usage**'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Guidelines for Usage**'
 - en: Any class can publish an event, and any class can subscribe to that event. The
     event bus is global to the entire application.
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: Any class can publish an event, and any class can subscribe to that event.
 - en: The line of code that registers a class with the EventBroker is best put in
     the constructor of the Base Class.
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: The line of code that registers a class with the EventBroker is best put in
+    the constructor of the Base Class.
 - en: 'Following our adoption of a namespace convention, we have also adopted a general
     naming convention for events. This convention is:'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们采纳了命名空间约定之后，我们也采纳了一项通用的事件命名约定。这项约定是：
 - en: companyname.department.application.domainobject.action
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 公司名.部门.应用.领域对象.动作
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 马克·阿德勒 - 版权所有

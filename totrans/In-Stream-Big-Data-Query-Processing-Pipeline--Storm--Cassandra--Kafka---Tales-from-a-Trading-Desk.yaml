@@ -1,54 +1,77 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:56:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:56:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'In-Stream Big Data Query Processing Pipeline: Storm, Cassandra, Kafka | Tales
     from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 流式大数据查询处理管道：Storm、Cassandra、Kafka | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2013/12/11/in-stream-big-data-query-processing-pipeline-storm-cassandra-kafka/#0001-01-01](https://mdavey.wordpress.com/2013/12/11/in-stream-big-data-query-processing-pipeline-storm-cassandra-kafka/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2013/12/11/in-stream-big-data-query-processing-pipeline-storm-cassandra-kafka/#0001-01-01](https://mdavey.wordpress.com/2013/12/11/in-stream-big-data-query-processing-pipeline-storm-cassandra-kafka/#0001-01-01)
 - en: 'In-Stream Big Data Query Processing Pipeline: Storm, Cassandra, Kafka'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 流式大数据查询处理管道：Storm、Cassandra、Kafka
 - en: 'Interesting [read](http://highlyscalable.wordpress.com/2013/08/20/in-stream-big-data-processing/)
     on the shortcomings and drawbacks of batch-oriented data processing over on Highly
     Scalable.  Data partitioning and shuffling are discussed as solutions to large
     data sets.  Lineage tracking is also discussed 🙂 The article concludes with a
     brief overview of the solution built with Storm, Cassandra and Kafka:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于批量导向数据处理缺点的有趣[阅读](http://highlyscalable.wordpress.com/2013/08/20/in-stream-big-data-processing/)在Highly
+    Scalable上讨论了。数据分区和小范围移动被视为大数据集的解决方案。血统追踪也进行了讨论🙂文章以简要概述使用Storm、Cassandra和Kafka构建的解决方案结束：
 - en: The system naturally uses Kafka 0.8 as a partitioned fault-tolerant event buffer
     to enable stream replay and improve system extensibility by easy addition of new
     event producers and consumers. Kafka’s ability to rewind read pointers also enables
     random access to the incoming batches and, consequently, Spark-style lineage tracking.
     It is also possible to point the system input to HDFS to process the historical
     data.
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 系统自然地使用Kafka 0.8作为分区的容错事件缓冲区，以实现流重放和通过轻松添加新的事件生产者和消费者来提高系统可扩展性。Kafka回滚读指针的能力也使得可以随机访问传入的批次，进而实现Spark风格的血统追踪。还可以将系统输入指向HDFS以处理历史数据。
 - en: ''
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Cassandra is employed for state checkpointing and in-store aggregation, as described
     earlier. In many use cases, it also stores the final results.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 如早先所述，Cassandra用于状态检查点和本地聚合。在许多用例中，它还存储最终结果。
 - en: ''
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -58,17 +81,25 @@
     processes it and persist the results to Cassandra or other destination. Other
     flows are more sophisticated: one Storm topology can pass the data to another
     topology via Kafka or Cassandra.'
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 推特的Storm是系统的骨架。所有活跃的查询处理都在与Kafka和Cassandra交互的Storm拓扑中进行。一些数据流程简单直接：数据到达Kafka；Storm读取并处理它，并将结果持久化到Cassandra或其他目的地。其他的流程则更为复杂：一个Storm拓扑可以通过Kafka或Cassandra将数据传递给另一个拓扑。
 - en: In the move towards unified big data processing, as pointed out in the article,
     Apache [Spark](one%20Storm%20topology%20can%20pass%20the%20data%20to%20another%20topology%20via%20Kafka%20or%20Cassandra.)
     is of interest – streaming sample [here](https://github.com/apache/incubator-spark/tree/master/examples/src/main/java/org/apache/spark/streaming/examples).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在迈向统一的大数据处理过程中，正如文章所指出的，Apache [Spark](one%20Storm%20topology%20can%20pass%20the%20data%20to%20another%20topology%20via%20Kafka%20or%20Cassandra.)引起了人们的兴趣——流式样本[在此](https://github.com/apache/incubator-spark/tree/master/examples/src/main/java/org/apache/spark/streaming/examples)。
 - en: ~ by mdavey on December 11, 2013.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2013年12月11日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)分类下。

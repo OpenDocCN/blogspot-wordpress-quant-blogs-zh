@@ -1,33 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:18:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Historical Sources of Bond Returns-Comparison of Daily to
     Monthly'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Timely Portfolio：历史债券回报来源-每日与月度的比较
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns_17.html#0001-01-01)
 - en: Thanks so much for the comment on my last post [Historical Bond Price and Total
     Returns from 10y Yield Series](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html)
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 非常感谢您对我上篇帖子[10年收益率系列的历史债券价格和总回报](http://timelyportfolio.blogspot.com/2011/04/historical-bond-price-and-total-returns.html)的评论
 - en: “I know this might sound antithetical to a bond guy, but won't the monthly series
     get you close enough? “
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “我知道这可能
 - en: which proved me wrong and allowed me to get nine additional years of history. 
     The question caused me to go one step further in proving my statement “…but monthly
     yields from Shiller and Fed are averages of the daily yields and not month-end
@@ -35,151 +51,247 @@
     averaging has caused many problems in the past for me, but in this case, it does
     not matter.  We can see the difference in monthly averaging (GS10) and month-end
     daily values (DGS10) in this chart.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这使我错了，并让我多得到了九年的历史。这个问题使我进一步证明了我的观点..."但是Shiller和美联储的月度收益率是日收益率的平均值，而不是月末值。将这种方法应用于这些月平均值是不行的。"这种月平均值在过去给我带来了很多问题，但在这个情况下，这并不重要。我们可以在这张图表中看到月平均值（GS10）和月末日值（DGS10）的区别。
 - en: However, if we look at the price and total return series from both, the differences
     are insignificant.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，如果我们查看它们的价格和总回报序列，差异是微不足道的。
 - en: Now that I have cleared that up, I can continue Bond Market as a Casino Game
     with data back to 1953.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我已经澄清了这一点，我可以继续将债券市场当作赌场游戏，数据可以追溯到1953年。
 - en: 'R code:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: '#do everything twice to compare monthly average to daily'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#为了比较月平均值和每日值，两次做所有的事情'
 - en: require(RQuantLib)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(RQuantLib)
 - en: require(quantmod)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(PerformanceAnalytics)
 - en: 'getSymbols("DGS10",src="FRED") #load daily US Treasury 10y from Fed Fred'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("DGS10",src="FRED") #加载每日美国国债10y数据从美联储Fred'
 - en: 'getSymbols("GS10",src="FRED") # load monthly average US 10y from Fed Fred'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("GS10",src="FRED") #从美联储Fred加载月平均美国10y数据'
 - en: '#Fed monthly series of yields is the monthly average of daily yields'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '#美联储的月度收益率系列是每日收益率的月平均值'
 - en: '#Shiller series also is monthly average'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#Shiller系列也是月平均值'
 - en: '#to calculate returns monthly average does not work'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#计算回报月平均值是不行的'
 - en: '#so we get daily, take monthend with to.monthly'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我们要按日计算，然后取月末的月平均值
 - en: '#and unfortunately the series does not go back as far'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，该系列并没有追溯到那么久远
 - en: DGS10<-to.monthly(DGS10)[,4]
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10<-to.monthly(DGS10)[,4]
 - en: '#set index to yyyy-mm-dd format rather than to.monthly mmm yyy for better merging
     later'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 将索引设置为yyyy-mm-dd格式，而不是to.monthly mmm yyy，以便以后更好地合并
 - en: index(DGS10)<-as.Date(index(DGS10))
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 索引(DGS10)<-as.Date(索引(DGS10))
 - en: 'DGS10pricereturn<-DGS10  #set this up to hold price returns'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 'DGS10价格回报<-DGS10 #设置此以保存价格回报'
 - en: GS10pricereturn<-GS10
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10价格回报<-GS10
 - en: DGS10pricereturn[1,1]<-0
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10价格回报[1,1]<-0
 - en: colnames(DGS10pricereturn)<-"PriceReturn-daily to monthly DGS10"
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名(DGS10价格回报)<-"价格回报-每日到月度的DGS10"
 - en: '#I know I need to vectorize this but not qualified enough yet'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我知道我需要将这进行向量化，但还不够资格
 - en: '#Please feel free to comment to show me how to do this'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请随意评论以告诉我如何做到这一点'
 - en: for (i in 1:(NROW(DGS10)-1)) {
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于（i在1:(NROW(DGS10)-1)）{
 - en: DGS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=DGS10[i+1,1]/100,issueDate=Sys.Date(),
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10价格回报[i+1,1]<-固定利率债券价格（收益率=DGS10[i+1,1]/100,发行日期=系统日期(),
 - en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 到期日期= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
 - en: rates=DGS10[i,1]/100,period=2)[1]/100-1
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率=DGS10[i,1]/100,期限=2)[1]/100-1
 - en: '}'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: GS10pricereturn[1,1]<-0
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10价格回报[1,1]<-0
 - en: colnames(GS10pricereturn)<-"PriceReturn-monthly avg GS10"
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名(GS10价格回报)<-"价格回报-月平均GS10"
 - en: '#I know I need to vectorize this but not qualified enough yet'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 我知道我需要将这进行向量化，但还不够资格
 - en: '#Please feel free to comment to show me how to do this'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 请随意评论以告诉我如何做到这一点
 - en: for (i in 1:(NROW(GS10)-1)) {
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于（i在1:(NROW(GS10)-1)）{
 - en: GS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=GS10[i+1,1]/100,issueDate=Sys.Date(),
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10价格回报[i+1,1]<-固定利率债券价格（收益率=GS10[i+1,1]/100,发行日期=系统日期(),
 - en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 到期日期= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
 - en: rates=GS10[i,1]/100,period=2)[1]/100-1
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率=GS10[i,1]/100,期限=2)[1]/100-1
 - en: '}'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#total return will be the price return + yield/12 for one month'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '#总回报将为期一个月的价格回报+收益率/12'
 - en: DGS10totalreturn<-DGS10pricereturn+lag(DGS10,k=1)/12/100
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: DGS10总回报<-DGS10价格回报+DGS10滞后(k=1)/12/100
 - en: colnames(DGS10totalreturn)<-"Total Return-daily to monthly DGS10"
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名(DGS10总回报)<-"总回报-DGS10每日到每月"
 - en: '#total return will be the price return + yield/12 for one month'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '#总回报将为期一个月的价格回报+收益率/12'
 - en: GS10totalreturn<-GS10pricereturn+lag(GS10,k=1)/12/100
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10总回报<-GS10价格回报+DGS10滞后(k=1)/12/100
 - en: colnames(GS10totalreturn)<-"TotalReturn-monthly avg GS10"
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名(GS10总回报)<-"总回报-GS10月平均"
 - en: chartSeries(DGS10,TA="addTA(GS10,on=1);addTA((DGS10-GS10)/100)",name="Comparison
     of DGS10 and GS10",theme="white")
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表系列(DGS10,TA="添加TA(GS10,在=1);添加TA((DGS10-GS10)/100)",名称="DGS10和GS10的比较",主题="白色")
 - en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: mtext("数据来源：美联储FRED",侧=1,调整=0)
 - en: charts.PerformanceSummary(merge(DGS10pricereturn,DGS10totalreturn,GS10pricereturn,GS10totalreturn),ylog=TRUE,colorset=c("cadetblue","darkolivegreen3","goldenrod","gray70"),main="Simulated
     Returns from US10y Yield")
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.性能总结(合并(DGS10价格回报,DGS10总回报,GS10价格回报,GS10总回报),y对数=TRUE,颜色集合=c("海军蓝","深橄榄绿3","金黄色","灰色70"),主标题="美国10年收益率的模拟回报")
 - en: 'mtext("Source: Federal Reserve FRED",side=1,adj=0)'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: mtext("数据来源：美联储FRED",侧=1,调整=0)

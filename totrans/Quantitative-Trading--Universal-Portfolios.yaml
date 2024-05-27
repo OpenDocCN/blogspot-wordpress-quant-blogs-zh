@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:25:49'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:25:49
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Universal Portfolios'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：通用投资组合
 - en: 来源：[http://epchan.blogspot.com/2007/01/universal-portfolios.html#0001-01-01](http://epchan.blogspot.com/2007/01/universal-portfolios.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[链接](http://epchan.blogspot.com/2007/01/universal-portfolios.html#0001-01-01)
 - en: Let me describe a portfolio optimization scheme that, over the long run, is
     supposedly guaranteed to outperform the best stock in the portfolio.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我描述一个投资组合优化方案，长期来看，这个方案应该能保证超越组合中表现最好的股票。
 - en: 'Before we begin, let’s agree that we will rebalance our portfolio every day
     so that each stock has a fixed percent allocation of capital, just as your favorite
     financial consultant would have advised you. What this means is that if you own
@@ -29,15 +43,21 @@
     sell some IBM and use the capital to buy some more MSFT. There is a technical
     term for such portfolios: they are called “constant rebalanced portfolios”. Notice
     also the similarity with the Kelly criterion which I'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们开始之前，让我们同意我们每天都会重新平衡我们的投资组合，以便每只股票都有固定的资本百分比分配，就像你最喜欢的金融顾问会建议你的那样。这意味着如果你持有IBM和MSFT，而IBM在一天后上涨而MSFT下跌，你应该卖掉一些IBM并用这些资本购买更多的MSFT。这种投资组合有一个技术术语：它们被称为“常青平衡投资组合”。同时注意到这与凯利准则的相似性，我在
 - en: '[wrote about](http://epchan.blogspot.com/2006/10/how-much-leverage-should-you-use.html)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我写过：[链接](http://epchan.blogspot.com/2006/10/how-much-leverage-should-you-use.html)
 - en: 'before: Kelly criterion asks you to maintain a constant leverage, which is
     like maintaining a fixed percent allocation between cash (debt) and stock.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前：凯利准则要求你保持恒定的杠杆，这就像在现金（债务）和股票之间保持固定的百分比分配。
 - en: 'But what should the fixed percent allocation be? Here is where the scheme gets
     interesting. Suppose we start with an equal capital allocation, for lack of any
     better choice. At the end of the day, your portfolio has a certain net worth.
@@ -51,19 +71,25 @@
     is not fixed after-all: it gets adjusted daily, but probably not by much. Repeat
     this process everyday, always calculating a new weighted allocation by simulating
     various initial allocations since day 1.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么固定百分比分配应该是多少呢？这个方案就在这里变得有趣。假设我们从一个平等的资本分配开始，因为缺乏更好的选择。一天结束时，你的投资组合有一定的净价值。但然后你可以计算如果你开始用不同的分配会有怎样的净价值。确实，我们可以运行这个模拟：尝试所有可能的初始分配，并计算结果投资组合的假设净价值。用这些假设的净价值作为权重（在它们被所有净价值的总和标准化之后），并计算加权平均百分比分配。最后，采用这个加权平均分配作为新的期望分配，并相应地重新平衡投资组合。所以实际上这个“固定”的百分比分配根本不是固定的：它每天都会调整，但可能调整不多。每天重复这个过程，总是通过模拟从第一天开始的各种初始分配来计算新的加权分配。
 - en: This scheme of portfolio optimization can be proven to produce a net worth greater
     than just holding the best stock, given long enough time. If this sounds like
     a miracle, it is partly because this is in fact an ingenious result of information
     theory, and partly because there are various caveats that actually limit its practical
     application. The proof that it works (at least in theory) is rather technical
     and I will let the interested reader peruse the original
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种投资组合优化方案可以证明，在足够长的时间内，其净价值会超过仅仅持有最好的股票。如果这听起来像是一个奇迹，部分原因是因为这是一个信息论的巧妙结果，部分原因是因为实际上有一些限制，这些限制限制了它的实际应用。证明它有效（至少在理论上）相当技术化，我留给感兴趣的读者查阅原文
 - en: '[paper](http://itg.stanford.edu/~cover/papers/universal_portfolios.pdf)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 论文：[链接](http://itg.stanford.edu/~cover/papers/universal_portfolios.pdf)
 - en: published by Prof. Thomas Cover, a noted information theorist from Stanford
     University. He coined the term “Universal Portfolios” for portfolios rebalanced/optimized
     with this scheme. Without understanding the mathematical intuition, this scheme
@@ -76,24 +102,34 @@
     of stock prices is illusory – this scheme is supposed to work even if the stock
     prices are totally random! How can we manage to squeeze out a gain even with random
     price series? Remember that we have done the opposite before (see my earlier
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 由斯坦福大学的著名信息论者Thomas Cover教授发表。他为使用这种方案重新平衡/优化的投资组合创造了术语“普遍投资组合”。如果不理解数学直觉，这种方案可能对那些相信股票长期趋势行为的人有吸引力，因为如果一只股票过去表现非常好，我们最终会在长期内分配更多的资本给它。它也可能吸引那些相信短期均值回归行为的人，因为短期内，我们根据大约恒定的分配对股票头寸进行每日再平衡。然而，这种似乎证实了股票价格的趋势或均值回归特征的确认是幻觉的——这种方案即使股票价格完全是随机的也应该有效！我们如何设法即使在随机价格序列中也能挤出收益？记住我们之前已经做了相反的事情（参见我之前的
 - en: '[articles](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[文章](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
 - en: '): we manage to lose money even when a price series exhibits a geometric random
     walk. So it is not too surprising that we can also make money using similar information
     theoretic juggling.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ):即使价格序列表现出几何随机游走，我们还是设法亏了钱。因此，我们也能利用类似的信息论技巧赚钱，这并不令人惊讶。
 - en: 'Now for the caveats. Every time an information theorist start saying “In the
     long run, …”, you will be well-advised to ask: How long? In my geometric random
     walk'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在谈谈警告。每次信息论者开始说“长期来看，…”，你会最好地建议问：多久？在我的几何随机游走中
 - en: '[example](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[示例](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
 - en: 'where the volatility (standard deviation) of returns every period is 1%, we
     find that the compounded rate of return is an agonizingly small -0.005% per period.
     In the case of the universal portfolio scheme, the out-performance over the best
@@ -107,26 +143,34 @@
     too low volatility. Herein lies the first practical caveat with the Universal
     Portfolio scheme: it can take too long to realize its benefit if the volatility
     is low.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在每期的回报波动率（标准差）为1%的情况下，我们发现复合回报率每个周期痛苦地低至-0.005%。在普遍投资组合方案中，超越组合中最佳股票的表现同样取决于股票的波动性：波动性越高，超越表现越快。让我用由两个ETF（RTH和OIH）组成的投资组合运行一个模拟。如果我们从2001年5月17日至2006年12月29日运行普遍投资组合方案，我发现累计回报是32%（未计交易成本）。与仅仅购买并持有最佳ETF（即这里的OIH）相比：累计回报是54%。普遍投资组合输了。这意味着理论是错误的吗？其实不是：RTH和OIH的波动性可能只是太低。这就是普遍投资组合方案的第一个实际警告：如果波动性低，它可能需要太长时间才能实现其好处。
 - en: How do we find ETF’s that have high enough volatility to realize the out-performance
     of Universal Portfolio? Actually, we can simply boost the volatility of RTH and
     OIH artificially by increasing their leverage. So let’s say we leverage both of
     them 2x. This means their daily returns and volatilities are both doubled. Now
     the best ETF (which is still OIH here) has a return of 23% (why is it lower than
     the un-leveraged case? Remember the formula m-s2/2 in my previous
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们如何找到波动性足够高的ETF来实现普遍投资组合的超越表现？实际上，我们可以通过提高RTH和OIH的杠杆来简单地人为提高它们的波动性。那么假设我们将它们的杠杆都提高2倍。这意味着它们每日回报和波动性都翻倍。现在最佳ETF（仍然是这里的OIH）的回报是23%（为什么它低于未杠杆的情况？记住我之前的公式中的m-s²/2）。
 - en: '[article](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[文章](http://epchan.blogspot.com/2006/11/correction-maximizing-compounded-rate.html)'
 - en: '.) , but the Universal Portfolio has a return of 45%. So now the Universal
     Portfolio wins. But this is a Pyrrhic victory: if you factor in a transaction
     cost of 10 basis points, the Universal Portfolio scheme actually returns only
     4%. This is the second caveat of Universal Portfolios: because of the frequent
     rebalancing required, transaction costs tend to eat up all the out-performance.'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 。）然而，通用投资组合的回报率为45%。所以现在通用投资组合获胜了。但这是一种战略性胜利：如果你考虑到10个基点的交易成本，通用投资组合的实际回报率只有4%。这是通用投资组合的第二个警告：由于需要频繁重新平衡，交易成本往往侵蚀了所有的超额回报。
 - en: Now there is a final caveat. The reader may ask why I don’t just pick two stocks
     instead of two ETF’s to illustrate this scheme. Aren’t most stocks more volatile
     than ETF’s and therefore much better suited for this scheme? Indeed, most academic
@@ -138,9 +182,13 @@
     discontinuous affair), the Universal Portfolio scheme will most likely not beat
     holding just the non-bankrupt stock in the beginning. Using ETF’s eliminated this
     problem. But then ETF’s are far less volatile.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在还有一个最后的警告。读者可能要问，为什么我不选择两只股票来阐述这个方案，而不是选择两只ETF？大多数股票的波动性不是比ETF大得多，因此更适合这个方案吗？确实，大多数学术论文，包括Cover教授的原论文，都使用一对股票作为示例。但如果我们这样做，我们就有引入生存偏差的风险。自然地，如果你事先知道这两只股票都不会破产，通用投资组合方案可能看起来很棒。但如果你运行一个模拟，其中一只股票某天突然破产（这往往是一件相当数学上不连续的事情），通用投资组合方案很可能一开始就不会优于只持有非破产股票。使用ETF消除了这个问题。但然后ETF的波动性要小得多。
 - en: So given all these caveats, is Universal Portfolio really practical? Prof. Cover
     seems to think so. That’s why he has started a hedge fund to prove it.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以考虑到所有这些警告，通用投资组合真的实用吗？Cover教授似乎是这样认为的。这就是他启动了对冲基金来证明这一点。

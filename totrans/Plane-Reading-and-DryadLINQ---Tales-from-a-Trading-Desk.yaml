@@ -1,138 +1,208 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:14:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:14:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Plane Reading and DryadLINQ | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 飞机阅读和DryadLINQ | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01](https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01](https://mdavey.wordpress.com/2010/08/27/plane-reading-and-dryadlinq/#0001-01-01)
 - en: For once I wasn’t flight to New York. But as usual one has to read something
     during these long flights.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一次我没有飞往纽约。但像往常一样，在漫长的飞行中总得读点什么。
 - en: '[jQuery](http://weblogs.asp.net/jalpeshpvadgama/archive/2010/08/27/jquery-javascript-library-write-less-do-more.aspx)–
     JavaScript Library Write less do more'
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[jQuery](http://weblogs.asp.net/jalpeshpvadgama/archive/2010/08/27/jquery-javascript-library-write-less-do-more.aspx)——JavaScript库，写得更少，做得更多'
 - en: HTML5 [Reset](http://html5reset.org/)
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HTML5 [Reset](http://html5reset.org/)
 - en: HTML5 [Boilerplate](http://html5boilerplate.com/)
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: HTML5 [Boilerplate](http://html5boilerplate.com/)
 - en: Azure Throughput [Analyzer](http://research.microsoft.com/en-us/downloads/5c8189b9-53aa-4d6a-a086-013d927e15a7/default.aspx)
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Azure Throughput [分析器](http://research.microsoft.com/en-us/downloads/5c8189b9-53aa-4d6a-a086-013d927e15a7/default.aspx)
 - en: '[Orleans](http://www.zdnet.com/blog/microsoft/orleans-microsofts-next-generation-programming-model-for-the-cloud/7152):
     Microsoft’s next-generation programming model for the cloud'
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Orleans](http://www.zdnet.com/blog/microsoft/orleans-microsofts-next-generation-programming-model-for-the-cloud/7152)：微软针对云计算的下一代编程模型'
 - en: '[Rx](http://blogs.msdn.com/b/jeffva/archive/2010/08/20/rx-on-the-server-part-3-of-n-writing-an-observable-to-a-stream.aspx)
     on the server, part 3 of n: Writing an observable to a stream'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Rx](http://blogs.msdn.com/b/jeffva/archive/2010/08/20/rx-on-the-server-part-3-of-n-writing-an-observable-to-a-stream.aspx)
+    在服务器上，第n部分3：将可观察对象写入流'
 - en: So lets get back to DryadLINQ. Dryad has been on my radar for a long time –
     I’ve also blogged about it a little. One of the problem I have with Dryad and
     Windows HPC 2008 R2 is the amount of hardware you need to just do development
     😦 I’m sure that if I could get more hardware I would have done a lot more than
     I’ve currently been able to achieve. One think I’ve found to date is that the
     HPC API is “painful”.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以让我们回到DryadLINQ。Dryad已经在我雷达上很长时间了——我也稍微写过一些关于它的博客。我与Dryad和Windows HPC 2008
+    R2之间的一个问题是你需要大量的硬件才能进行开发 😦 我相信如果我能得到更多的硬件，我会做到比我现在已经实现的更多。到目前为止，我发现HPC API是“痛苦的”。
 - en: So let me get back to Dryad and Real-Time Market Risk (a topic I seem to be
     spending a fair amount of time on from solutions to iPad UX). In DryadLINQ, I
     can get the trades I want to process using
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以让我回到Dryad和实时市场风险（一个我似乎花了不少时间从解决方案到iPad UX的话题）。在DryadLINQ中，我可以使用
 - en: PartitionedTable trades = PartitionedTable.Get(inputUri);
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 分区表 trades = PartitionedTable.Get(inputUri);
 - en: 'Which lead to calculating market risk using something like:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这导致了使用类似的东西来计算市场风险：
 - en: var result = trades.Select(t => Risk(t, curves);
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 结果 var result = trades.Select(t => Risk(t, curves);
 - en: 'Assuming I have a function:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我有一个函数：
 - en: TResult Risk(Trade t, Curve[] curves);
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: TResult Risk(Trade t, Curve[] curves);
 - en: However the above is flawed, since I don’t want to send all the curves to every
     trade as its network bandwidth unfriendly 🙂
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而上面的方法是有缺陷的，因为我不想把所有的曲线都发送给每一个交易，因为这样会占用过多的网络带宽:-)
 - en: '**Sidebar:** The DryadLINQ Programming Guide’s samples are primarily driven
     from a dataset within flat files which again isn’t what I typically have the luxury
     of using as a trade repository. Given the amount of hardware/software to install
     for Dryad development, one would have thought Microsoft would propose a simulator
     mode to speed up development, and reduce cost?'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**侧边栏：** DryadLINQ编程指南的示例主要来源于平面文件中的数据集，这也不是我通常作为交易存储库所拥有的特权。考虑到为Dryad开发所需安装的硬件/软件量，微软是否会提出一个模拟模式来加速开发并降低成本呢？'
 - en: Anyway, back to a better solution which possible comes from the Histogram sample
     and specifically the BuildHistogram function.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论如何，让我们回到一个更好的解决方案，可能来自于直方图示例，特别是BuildHistogram函数。
 - en: return inputTable
+  id: totrans-23
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 返回inputTable
 - en: .SelectMany(x => x.line.Split(‘ ‘))
+  id: totrans-24
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: .SelectMany(x => x.line.Split(' '))
 - en: .GroupBy(x => x)
+  id: totrans-25
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: .GroupBy(x => x)
 - en: .Select(x => new Pair(x.Key, x.Count()))
+  id: totrans-26
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: .Select(x => new Pair(x.Key, x.Count()))
 - en: .OrderByDescending(x => x.Count)
+  id: totrans-27
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: .OrderByDescending(x => x.Count)
 - en: .Take(k);
+  id: totrans-28
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: .Take(k);
 - en: Specifically if the trade set is a full book/portfolio, then maybe we want to
     do a SelectMany and spit to trades by product and then maybe GroupBy currency.
     We could then send the appropriate yield curves to the correct trades.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 特别是如果交易集是一个完整的簿记/投资组合，那么也许我们想要进行一个SelectMany，按产品将交易分割出来，然后也许按货币进行GroupBy。我们然后可以将适当的收益率曲线发送到正确的交易。
 - en: More thought needed.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 还需要更多的思考。
 - en: ~ by mdavey on August 27, 2010.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2010年8月27日发表。
 - en: Posted in [HPC](https://mdavey.wordpress.com/category/hpc/)
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于[高性能计算](https://mdavey.wordpress.com/category/hpc/)
 - en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[微软](https://mdavey.wordpress.com/tag/microsoft/)

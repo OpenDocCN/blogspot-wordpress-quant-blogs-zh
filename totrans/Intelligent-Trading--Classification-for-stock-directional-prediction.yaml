@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 04:47:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:47:17'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Classification for stock directional prediction'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：用于股票方向预测的分类
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/classification-for-prediction.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/classification-for-prediction.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/classification-for-prediction.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/classification-for-prediction.html#0001-01-01)
 - en: The neural network tutorial focused on a type of method known as regression.
     The other common method utilized in machine learning is called classification.
     The two approaches are somewhat similar in that they identify the best possible
@@ -25,19 +37,27 @@
     to learn from the data. In the case of regression, we are often minimizing the
     distance between each exemplar and the average, whereas in classification, we
     are trying to discriminate between separate classes by region.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 神经网络教程关注一种被称为回归的方法。机器学习中常用的另一种方法称为分类。这两种方法在识别从一组数据中学习最佳可能曲线方面有些相似。区别在于他们如何使用曲线从数据中学习。在回归的情况下，我们通常是在最小化每个示例与平均值之间的距离，而在分类的情况下，我们是通过区域来区分不同类别。
 - en: Although the following example is if anything an example of market efficiency
     (i.e. not much edge in terms of prediction), it serves to illustrate the basic
     idea of classification with application towards market prediction.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管下面的例子在任何意义上都可以被视为市场效率的一个例子（即在预测方面没有太多优势），但它用来阐述通过应用市场预测的基本分类思想。
 - en: '[![](img/f20656246d5514e0ec7badd412871792.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBqoeX-26wdGl8YojW6oj12iCEpDdcekCF8_IWSVz0MmX7KAi-40fVF5h2ZEcmQjgbWrT__80a2yxFsHZRPg35D4NMZEbf2jGHg4DL0dkIG9pMKOdkKR7sjlPsUyfsYnYMy7cxxuzEvpU/s1600-h/classa1.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f20656246d5514e0ec7badd412871792.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBqoeX-26wdGl8YojW6oj12iCEpDdcekCF8_IWSVz0MmX7KAi-40fVF5h2ZEcmQjgbWrT__80a2yxFsHZRPg35D4NMZEbf2jGHg4DL0dkIG9pMKOdkKR7sjlPsUyfsYnYMy7cxxuzEvpU/s1600-h/classa1.jpg)'
 - en: Fig 1\. S&P 500 weekly change vs. VIX
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 1. 标普500周变化与VIX的变化
 - en: In the figure above, we see a common scatterplot depiction of the S&P 500 weekly
     return vs the VIX (which is a proxy for volatility). One common observation utilizing
     regression shows that the S&P 500 is negatively correlated to the VIX. Or qualitatively,
@@ -46,16 +66,21 @@
     with negative returns in the S&P 500). If we were to run a regression, we would
     quantitatively describe this correlation by the R^2 value of the slope, which
     as can be seen here visually, is a negative value.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上面的图中，我们看到标普500周回报与VIX（波动性的代理）的常见散点图表示。利用回归的常见观察表明标普500与VIX负相关。或者从定性角度看，VIX的大正值暗示S&P指数的负值变化；这是它常被称为恐慌指数（因为VIX的上升与S&P
+    500的负回报相关）的一个原因。如果我们运行一个回归，我们会通过斜率的R^2值来定量描述这种相关性，正如在这里 visually，它是一个负值。
 - en: But the regression observation says nothing about prediction into the future,
     it only says that there is a negative relationship between the two values at any
     given sample instant (in this case, weekly samples). One way to set up the prediction
     problem for illustration would be to use the current changes in both the S&P 500
     index as well as the VIX to predict the next weeks change using a classification
     method.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是回归观察并没有说出关于未来预测的任何东西，它只说在任何给定的样本瞬间（在这个案例中，是周样本）两个值之间存在负相关关系。为了说明，设定预测问题的一种方法是使用标普500指数和VIX的当前变化来预测下一周的变化，使用分类方法。
 - en: The plot shows both UP and DN changes one week later, depicted by green and
     red labels. Notice that the outcome of the prediction here is nominal and not
     numerical, which is another common distinguishing feature between classification
@@ -64,44 +89,64 @@
     in regression. Ideally if the classification scheme was able to discriminate classes
     well, it would separate classes by a curve or some type of function that would
     isolate both in sample as well as out of sample classes with a good separation.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表显示了一周后的上升（UP）和下降（DN）变化，上升用绿色标签表示，下降用红色标签表示。注意，这里的预测结果是名义上的，而不是数字上的，这是分类和回归方案之间的另一个常见区别特征。部署分类方案的常用方法包括学习树、支持向量机，以及大多数也用于回归的工具。理想情况下，如果分类方案能够很好地区分类别，它会通过曲线或某种函数将样本内和样本外的类别分开，实现良好的分离。
 - en: Unfortunately, when data is very random, it is not able to separate classes
     very well.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，当数据非常随机时，它无法很好地分离类别。
 - en: '[![](img/06624a2528e97a4a226211608fc75822.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1hGnosVsw72sDf7MVeILKqpUoYdg7Ag0T0wkat9zSPhhFvp8ZlnZlmU19OO_a7W9hm2F7zijJ0xWWRYp_Id4ap2-D_IX9MfmuCe2tI0LMdyL5Nu-qp8RSfpXxbNGt7dSjEhDGv3JGZz0/s1600-h/classplot1.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1hGnosVsw72sDf7MVeILKqpUoYdg7Ag0T0wkat9zSPhhFvp8ZlnZlmU19OO_a7W9hm2F7zijJ0xWWRYp_Id4ap2-D_IX9MfmuCe2tI0LMdyL5Nu-qp8RSfpXxbNGt7dSjEhDGv3JGZz0/s1600-h/classplot1.jpg)'
 - en: Fig 2\. Plot of classification values for S&P 500 UP and DN against VIX
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2. 标普500上升（UP）和下降（DN）与VIX的分类值图表
 - en: We can see that there is so much overlap in the UP and DN regions that it would
     be hard to find a curve that would classify the regions with good separation.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到，上升（UP）和下降（DN）区域的重叠如此之大，以至于很难找到一个曲线对这些区域进行良好的分类。
 - en: We use a common learning decision tree scheme called J.48 to attempt to predict
     out of sample results for the classifier.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们使用一种常见的决策树学习方案J.48，试图为分类器预测样本外的结果。
 - en: '[![](img/95ccb83535f162cd2482583b7562ac18.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwhLC8pK2reszc0Y_d2SUobWdiRfK6fiiCCOriy464e_i12euU0T2MNglMl_I8EhtXXHKarp3sAygbiAbv7zGSrFsABtoJyHN84iQHWx8MWbAgkCNgw_nWhvmcHJHVPRTcEiZkeOtJ5UY/s1600-h/wekaclassout.jpg)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwhLC8pK2reszc0Y_d2SUobWdiRfK6fiiCCOriy464e_i12euU0T2MNglMl_I8EhtXXHKarp3sAygbiAbv7zGSrFsABtoJyHN84iQHWx8MWbAgkCNgw_nWhvmcHJHVPRTcEiZkeOtJ5UY/s1600-h/wekaclassout.jpg)'
 - en: Fig 3\. Out of sample classification results
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3. 样本外分类结果
 - en: Using the 66% In sample (training) scheme as in the NN example, we see that
     the predictive learner had a 53% success rate out of sample. If we compare this
     result to a simple naive learner (often used as a benchmark) using the last result
     as the prediction, we get identical results. The upshot is that using the information
     we have, the markets have proved efficient against this simple prediction method.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用66%的样本内（训练）方案，如神经网络（NN）示例所示，我们发现预测学习者的样本外成功率为53%。如果我们把这个结果与一个简单的朴素学习者（通常作为一个基准）进行比较，后者使用最后一个结果作为预测，我们会得到相同的结果。这说明利用我们所拥有的信息，市场已经证明了对这种简单的预测方法是有效的。
 - en: The classification concept may be extended to other applications (such as regime
     detection, system selection, artificial immune systems, or using multivariate
     input attributes) with some creativity, but the goal here was to give a simple
     introduction to the concept as it is the one of the most important learning concepts
     in machine learning. Classification may also employ supervised or unsupervised
     methods-- in this case it was using supervised learning (training by examples).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类概念可以扩展到其他应用（如政权检测、系统选择、人工免疫系统或使用多元输入属性），但这里的目标是为机器学习中最重要的学习概念之一提供一个简单的介绍。分类也可以采用监督或无监督的方法——在这个例子中，采用的是监督学习（通过示例进行训练）。

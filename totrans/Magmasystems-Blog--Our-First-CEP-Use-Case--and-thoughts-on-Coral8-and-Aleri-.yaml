@@ -1,165 +1,226 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:06:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:06:33
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Our First CEP Use Case (and thoughts on Coral8 and Aleri)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：我们的第一个CEP用例（以及关于Coral8和Aleri的思考）
 - en: 来源：[http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01](http://magmasystems.blogspot.com/2007/11/our-first-cep-use-case-and-thoughts-on.html#0001-01-01)
 - en: 'For the Complex Event Processing (CEP) engine evaluation, we have chosen a
     very simple use case. This use case is:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于复杂事件处理（CEP）引擎评估，我们选择了一个非常简单的用例。这个用例是：
 - en: '***Tell us when orders for a sector show a greater-than-normal level.***'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '***告诉我们一个行业的订单显示出异常高水平的时候。***'
 - en: Even though this use case seems very simplistic, and would not tend to be an
     ideal use case to test a CEP engine, it is an ideal use case for our environment.
     Why? It forces us to get at various data streams that have previously been inaccessible
     to most people, and it forces the owners of these streams of data to make there
     data clean.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这个用例看起来非常简单，而且可能不是一个理想的用例来测试CEP引擎，但它是我们环境的理想用例。为什么？它迫使我们获取之前对大多数人不可访问的各种数据流，并迫使这些数据流的拥有者清理他们的数据。
 - en: '*(Note: this use case is a very generic use case and test for CEP. I am not
     giving away any special use cases that would give my company a competitve edge,
     not will I ever do so in this blog.)*'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: （注：这个用例是一个非常通用的CEP测试用例。我没有透露任何会给我的公司带来竞争优势的特殊用例，也不会在这个博客上这样做。）
 - en: At the Gartner CEP Summit last September, Mary Knox of Gartner mentioned that
     one of the obstacles for doing successful CEP projects at large organization was
     the process of liberating all of the data sources that you need, and getting the
     various silos to talk to each other. We have found this to be the case at our
     organization too. We figure that if we can get this simple use case to work, then
     we have won 50% of the battle.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 去年九月，Gartner CEP峰会上，Gartner的Mary Knox提到，大型组织成功进行CEP项目的一个障碍是解放所有需要的数据源的过程，以及让各个孤岛式系统相互对话。我们在我们的组织中也发现了这种情况。我们认为如果我们能让这个简单的用例工作，那么我们就赢得了这场战斗的50%。
 - en: What kind of data do we need to implement this use case?
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们需要什么数据来实现这个用例？
 - en: We need to tap into the real-time order flow. Order flow comes to us through
     FIX messages, and for older systems, through proprietary messages that will one
     day be deprecated. Luckily, we have found a system that provides us this information.
     Although this system is a monitoring GUI, we have identified its importance to
     our company, and we are working with the product owner to split his app into a
     subscribable order service and a thinner GUI.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我们需要接入实时订单流。订单流通过FIX消息传递给我们，对于旧系统，通过即将过时的专有消息传递。幸运的是，我们找到了一个为我们提供这些信息的系统。虽然这个系统是一个监控GUI，但我们已经认识到它对我们公司的的重要性，并且我们正在与产品所有者合作，将他的应用程序拆分为一个可订阅的订单服务和一个更薄的GUI。
 - en: We need historical order data in order to determine what “normal activity” is
     for a sector. Luckily, we have this data, and we are in the process of getting
     access to it. We also need to understand what we mean by “abnormal activity”?
     Does this mean “2 standard deviations above the 30-day moving average for a sector”?
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我们需要历史订单数据，以便确定一个行业的“正常活动”是什么。幸运的是，我们有这些数据，我们正在获取访问权限的过程中。我们还需要理解“异常活动”是什么意思？这意味着“一个行业30天移动平均线以上的2个标准差”吗？
 - en: We need to be able to get a list of sectors, and for each order, we need to
     map each ticker symbol to its sector. Sectors are signified by something called
     GIC codes, and there are 4 levels of GIC’s. The important thing that we need is
     to ensure that all corporate actions get percolated down to these mapping tables.
     So, if a company changes it ticker symbol (like SUNW to JAVA), then the new ticker
     symbol needs to be automatically added to these mapping tables.
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我们需要能够获取一个行业列表，并且对于每个订单，我们需要将每个股票代码映射到其行业。行业由所谓的GIC代码表示，共有4级GIC。我们需要确保所有公司行动都能渗透到这些映射表中。所以，如果一家公司更改其股票代码（如SUNW到JAVA），那么新的股票代码需要自动添加到这些映射表中。
 - en: Let’s say that we are able to get all of the data that we need, and that the
     stream of data is pristine. We have to get it into the CEP engine for analysis.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们能够获取所有需要的数据，而且数据流是纯净的。我们必须将其导入CEP引擎进行分析。
 - en: 'If you think if writing a normal, procedural program (i.e.: a C# app) to do
     this analysis, the steps are pretty easy.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你认为编写一个正常的、程序化的程序（即：一个C#应用）来完成这项分析，步骤很简单。
 - en: 1) Read in all of the reference data. This includes the ticker-to-sector mappings
     and the list of normal activity per sector per time-slice. We will consider a
     timeslice to be a one-minute interval. In a 6.5 hour trading day, there are 390
     minutes. There are also 11 “GIC0” sectors. So, a timeslice will be an integer
     from 0 to 389.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 读取所有参考数据。这包括股票到部门的映射以及每个部门每个时间片正常活动的列表。我们将认为时间片是一个一分钟的间隔。在6.5小时的交易日内，有390分钟。还有11个“GIC0”部门。所以，时间片将是一个从0到389的整数。
 - en: 2) Subscribe to a stream of FIX orders.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 订阅FIX订单的流。
 - en: 3) As each order comes in, extract the ticker and map it to a sector. We are
     also interested in the number of shares in the order and the time that the order
     was placed. For each order, increment a running total for that sector and for
     that timeslice.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 每当一个订单进来时，提取股票并将其映射到部门。我们还关心订单中的股票数量和下单时间。对于每个订单，为该部门和该时间片增加一个运行总计。
 - en: 4) Any orders that come in that are past the current timeslice are ignored.
     Also, any orders that come outside of the normal trading day are ignored. This
     way, we don’t consider any orders that may have been delayed through our systems.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 忽略已经超过当前时间片的任何订单。还忽略在正常交易时间之外的任何订单。这样，我们就不考虑可能通过我们的系统延迟的任何订单。
 - en: 5) If we detect a new and later timeslice, then examine all of the sectors for
     the previous timeslice. If any of the sectors show heightened activity, then alert
     the user. Then, clear the totals for all of the sectors, and start accumulating
     new totals for all of the sectors.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 如果我们检测到一个新的且较晚的时间片，那么检查前一个时间片的所有部门。如果任何一个部门显示出活动增强，那么通知用户。然后，清除所有部门的总计，并开始为所有部门积累新的总计。
 - en: This looks pretty easy. I would assign this to a good C# developer, and hope
     to get a finished program in one or two days.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 这看起来很简单。我会把这个任务分配给一个好的C#开发者，希望能在一到两天内得到一个完整的程序。
 - en: Now, the task is to map this into a CEP engine.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，任务是将此映射到CEP引擎。
 - en: Most of the CEP engines have a language that is based on SQL. So, you can imagine
     all of the processing steps above passing through multiple streams in the CEP
     engine. For step 1) above, we would have two input streams, one for the ticker-to-sector
     mapping data and the other for the “normal sector activity” data. You can imagine
     two simple SELECT statements in SQL that read this data from some external database,
     and construct two in-memory tables in the CEP engine.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数CEP引擎都有一种基于SQL的语言。所以，你可以想象上述所有处理步骤都在CEP引擎中通过多个流进行传递。对于上述步骤1)，在CEP引擎中我们将有两个输入流，一个用于股票到部门映射数据，另一个用于“正常部门活动”数据。你可以想象SQL中的两个简单的SELECT语句，它们从某个外部数据库中读取这些数据，并在CEP引擎中构建两个内存表。
 - en: For step 2, you need to write a specialized input adapter that subscribes to
     a communications channel (sockets or JMS) and reads and decodes the FIX orders.
     Most orders come through as NewOrderSingle messages (FIX message type = ‘D’).
     There are various versions of FIX, but let’s say that everything comes in as FIX
     4.2 messages.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于步骤2，你需要编写一个专门的输入适配器，它订阅一个通信通道（套接字或JMS）并读取和解析FIX订单。大多数订单作为NewOrderSingle消息传来（FIX消息类型='D'）。FIX有各种版本，但让我们假设一切都是以FIX
+    4.2消息的形式传入的。
 - en: Most of the CEP vendors support in-process and out-of-process adapters. In-process
     adapters are faster than out-of-process adapters, but out-of-process adapters
     are usually easier to write. An out-of-process adapter will read data from some
     kind of communications bus (or even from a database table or a flat file), and
     will write a data stream to the CEP engine. It would be ideal to have the CEP
     vendors support FIX in in-process input and output adapters.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数CEP供应商都支持进程内和进程外适配器。进程内适配器比进程外适配器快，但进程外适配器通常更容易编写。进程外适配器将从某种通信总线（甚至从数据库表或平面文件）中读取数据，并将数据流写入CEP引擎。理想情况下，CEP供应商应该支持FIX的进程内输入和输出适配器。
 - en: Step 4) is easy. We calculate the 0-based timeslice for an order, and if it
     is below 0 or above 389, then we ignore this order in the stream. This can be
     done with a simple WHERE clause in the SQL statement.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤4)很简单。我们为订单计算0 based 时间片，如果它低于0或高于389，那么我们在流中忽略这个订单。这可以通过SQL语句中的一个简单的WHERE子句来实现。
 - en: We also need to record the “current timeslice” and ignore any orders that come
     before the current timeslice. So, we need the concept of a “global variable” and
     when we see an order with a later timeslice, we need to update this variable.
     This is something which is easy to do with a procedural language, but what is
     the best way to do this in SQL?
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还需要记录“当前时间片”，并忽略任何在当前时间片之前的订单。因此，我们需要一个“全局变量”的概念，当我们看到一个后来时间片的订单时，我们需要更新这个变量。这在过程语言中很容易实现，但在SQL中最好的实现方式是什么？
 - en: Steps 3) and 5) are interesting. We need to keep a one minute window per sector.
     This window should only keep running totals for the current timeslice. When a
     new timeslice comes in, we need to analyze the sector activity in the current
     timeslice, do any alerts, and then clear out the totals in all sectors. Again,
     this is something that is extremely easy to do in a C# application, but translating
     it into SQL is a bit of a challenge.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 步骤3)和5)很有趣。我们需要为每个部门保留一个一分钟的窗口。这个窗口应只保留当前时间片的运行总计。当新的时间片进来时，我们需要分析当前时间片的部门活动，进行任何警报，然后清除所有部门的总计。同样，这在C#应用程序中是非常容易实现的，但将其翻译成SQL则是一个挑战。
 - en: In step 3), the mapping of ticker to sector is very easy. It’s just a join of
     the ticker in the order with the ticker in the mapping table. The interesting
     thing is the choice of window type for the stream. Do we accumulate all orders
@@ -167,8 +228,10 @@
     do we just take a COUNT() of the number of orders for each sector? Or, do we simple
     have a window with one row per sector, and keep running totals for each sector
     as an order comes in?
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在步骤3)中，将股票代码映射到部门很简单。它只是将订单中的股票代码与映射表中的股票代码进行连接。有趣的是，为流选择窗口类型。我们是累积所有部门的所有订单，以供一分钟的时间片使用，然后，当我们看到一个新的时间片时，我们只需对每个部门的订单数量进行COUNT()？还是我们简单地为每个部门保留一个窗口，每个部门作为一个订单进来时保留运行总计？
 - en: Coral8 supports the concepts of sliding and jumping windows. Aleri supports
     only sliding windows right now. With Coral8, we can set a window that will hold
     one minute’s worth of data, and we can also tell a stream that it should dump
@@ -176,80 +239,124 @@
     a FIX order message to the actual clock on the computer. We need a stream that
     will produce output on a certain value in a column, and neither Coral8 nor Aleri
     seem to have this yet.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: Coral8支持滑动和跳过窗口的概念。Aleri目前只支持滑动窗口。使用Coral8，我们可以设置一个保留一分钟数据的窗口，我们还可以告诉流，它在一分钟后的输出应该被清空。然而，我们不想将FIX订单消息中的TransactTime与计算机上的实际时钟绑定。我们需要一个流，在列的特定值上产生输出，而Coral8和Aleri似乎还没有这个功能。
 - en: 'Here is some Coral8 code that shows windows and streams:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一些Coral8代码，展示了窗口和流：
 - en: CREATE WINDOW TickerAndSector
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: CREATE WINDOW TickerAndSector
 - en: SCHEMA (Ticker STRING, Sector STRING, SectorId INTEGER, Shares INTEGER,
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: SCHEMA (Ticker STRING, Sector STRING, SectorId INTEGER, Shares INTEGER,
 - en: TransactTimeBucket INTEGER)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: TransactTimeBucket INTEGER)
 - en: KEEP EVERY 60 SECONDS;
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: KEEP EVERY 60 SECONDS;
 - en: INSERT INTO TickerAndSector
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: INSERT INTO TickerAndSector
 - en: SELECT
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择
 - en: FlattenNewOrder.Ticker,
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: FlattenNewOrder.Ticker,
 - en: TickerToSectorMap.SectorName,
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.SectorName,
 - en: TickerToSectorMap.SectorId,
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.SectorId,
 - en: TO_INTEGER(FlattenNewOrder.Qty),
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: TO_INTEGER(FlattenNewOrder.Qty),
 - en: TimeToTimeBucket(FlattenNewOrder.TransactTime, 'HH:MI:SS AM')
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: TimeToTimeBucket(FlattenNewOrder.TransactTime, 'HH:MI:SS AM')
 - en: FROM
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: FROM
 - en: FlattenNewOrder,
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: FlattenNewOrder,
 - en: TickerToSectorMap
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap
 - en: WHERE
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: WHERE
 - en: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: TickerToSectorMap.Ticker = FlattenNewOrder.Ticker
 - en: OUTPUT EVERY 60 SECONDS;
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: OUTPUT EVERY 60 SECONDS;
 - en: The first statement defines a window that keeps one minute’s worth of order
     data. After one minute, the window will empty its contents.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个语句定义了一个窗口，该窗口保留一分钟的订单数据。一分钟过后，窗口将清空其内容。
 - en: The second statement will insert a new row into the window whenever we get a
     new order. After one minute, the window will send its output to another stream
     further down the pipeline. (We hope that the data will be sent to the next stream
     before the window clears itself. Otherwise, we will lose all of the data.)
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个语句在我们收到新订单时，会向窗口插入新行。一分钟过后，窗口将其输出发送到管道下游的另一条流中。（我们希望数据在窗口清空之前发送到下一条流。否则，我们将丢失所有数据。）
 - en: So far, in my brief evaluation, I have found step 5) difficult to implement
     in Coral8\. Aleri has implemented this by using a FlexStream. A FlexStream is
     a stream that has procedural logic attached to it. Aleri has a custom C-like programming
     language that you can use to implement procedural logic in a FlexStream. But,
     if you write too much logic using FlexStreams, then wouldn’t you be better off
     to just write a nice C# application?
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止，在我的简要评估中，我发现Coral8中的第5步难以实施。Aleri通过使用FlexStream实现了这一点。FlexStream是一个附带有程序逻辑的流。Aleri有一种自定义的C语言，你可以用它来实现FlexStream中的程序逻辑。但是，如果你编写太多使用FlexStream的逻辑，那么你不如直接写一个优美的C#应用程序呢？
 - en: To validate some of the CEP engines, I ended up taking a day and writing a C#
     application that implements this use-case. For grins, I added a tab that showed
     some animated graphics using the very excellent ChartFX package. The head of the
@@ -257,22 +364,30 @@
     various traders for a look at my simple app. So, in addition to this little app
     giving the traders information that they did not have before, it provided them
     a flashy way to see real-time movement across sectors.
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了验证一些CEP引擎，我最终花了一天时间编写了一个实现此用例的C#应用程序。出于娱乐，我添加了一个标签，展示了使用非常出色的ChartFX包的一些动画图表。交易部门的负责人对我的这款简单应用程序如此兴奋，以至于他开始带来各种交易员来看我的应用程序。因此，除了这款小应用程序能给交易员提供他们之前所没有的信息外，它还提供了一种炫酷的方式，让他们可以看到各个部门的实时动态。
 - en: In addition to having SQL skills, a good CEP developer needs to readjust their
     way of thinking in order to consider pipelined streams of SQL processing. There
     is a big debate going on in the Yahoo CEP forum as to whether SQL is a suitable
     language for CEP processing. So far, with this use case, I see the suitability
     of SQL, but I also need to step out of the SQL way of thinking and apply some
     procedural logic.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 除了掌握SQL技能外，优秀的CEP开发者还需要调整自己的思维方式，以考虑流水线式的SQL处理流。在雅虎CEP论坛上，关于SQL是否是CEP处理合适的语言的争论正在进行中。到目前为止，就这个用例而言，我认为SQL是合适的，但我还需要走出SQL的思维方式，应用一些程序逻辑。
 - en: One of the things that I still need to be convinced of is that CEP engines can
     do a better job than custom code. I am all ears. Any CEP vendor (even Streambase)
     is invited to submit public comments to this blog to tell me how this use case
     can be implemented with their system.
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 我仍需说服自己的一件事是，CEP引擎能比自定义代码做得更好。我洗耳恭听。任何CEP供应商（即使是Streambase）都欢迎在本文档下留言，告诉我如何使用他们的系统实现这一用例。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

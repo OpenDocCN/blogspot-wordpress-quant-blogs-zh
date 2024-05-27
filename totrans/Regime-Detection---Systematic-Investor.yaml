@@ -1,87 +1,134 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:36:16'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:36:16
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Regime Detection | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 体制检测 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01](https://systematicinvestor.wordpress.com/2012/11/01/regime-detection/#0001-01-01)
 - en: Regime Detection comes handy when you are trying to decide which strategy to
     deploy. For example there are periods (regimes) when Trend Following strategies
     work better and there are periods when Mean Reversion strategies work better.
     Today I want to show you one way to detect market Regimes.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 体制检测在你试图决定部署哪种策略时非常有用。例如，有些时期（体制）趋势跟踪策略表现得更好，而有些时期均值回归策略表现得更好。今天我想向你展示一种检测市场体制的方法。
 - en: To detect market Regimes, I will fit a Hidden Markov Regime Switching Model
     on the set of simulated data (i.e. Bull / Bear market environments) I will use
     the excellent example from the [Markov Regime Switching Models in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)
     post and adapt it to R.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了检测市场体制，我将在模拟数据集（即牛市/熊市环境）上拟合一个隐马尔可夫体制切换模型。我将使用[Markov Regime Switching Models
+    in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)帖子中的优秀示例并将其适应到R中。
 - en: The idea behind using the Regime Switching Models to identify market states
     is that market returns might have been drawn from 2 or more distinct distributions.
     As a base case, for example, we may suppose that market returns are samples from
     one normal distribution N(mu, sigma) i.e.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用体制切换模型识别市场状态背后的想法是，市场回报可能已经被抽取自2个或更多不同的分布。作为一个基本案例，例如，我们可能假设市场回报是来自一个正态分布N(mu,
+    sigma)的样本，即。
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next we may suppose that market returns are samples from two normal distributions
     (i.e. returns during Bull market may be ~ N(mu.Bull, sigma.Bull) and returns during
     Bear market may be N(mu.Bear , sigma.Bear) i.e.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来我们可能假设市场回报来自两个正态分布（即牛市期间的回报可能~ N(mu.Bull, sigma.Bull)和熊市期间的回报可能是N(mu.Bear,
+    sigma.Bear)即。
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Fortunately we do not have to fit regimes by hand, there is the [RHmm package
     for Hidden Markov Models at CRAN](http://r-forge.r-project.org/projects/rhmm/)
     that uses the Baum-Welch algorithm to fit Hidden Markov Models.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 幸运的是，我们不必手动拟合体制，CRAN上有[RHmm包用于隐马尔可夫模型](http://r-forge.r-project.org/projects/rhmm/)，它使用Baum-Welch算法来拟合隐马尔可夫模型。
 - en: Next, let follow the steps from the [Markov Regime Switching Models in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)
     post.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，遵循[Markov Regime Switching Models in MATLAB](http://blogs.mathworks.com/pick/2011/02/25/markov-regime-switching-models-in-matlab/)帖子中的步骤。
 - en: '[PRE2]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/aa7c8c564cd91f58c0e4f2f24540a8c7.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small4.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/aa7c8c564cd91f58c0e4f2f24540a8c7.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small4.png)'
 - en: The first chart shows states (1/2) determined by the model. The second chart
     shows the probability of being in each state.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个图表显示了由模型确定的状态（1/2)。第二个图表显示了处于每个状态的概率。
 - en: Next, let’s generate some additional data and see if the model is able to identify
     the regimes
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们生成一些附加数据，看看模型是否能够识别体制。
 - en: '[PRE3]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/c2fdae8544fdf52b7dbc49dc360f245d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small4.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c2fdae8544fdf52b7dbc49dc360f245d.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small4.png)'
 - en: The first 300 observations were used to calibrate this model, the next 300 observations
     were used to see how the model can describe the new infromation. This model does
     relatively well in our toy example.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 前300个观测值用于校准此模型，接下来的300个观测值用于了解模型如何描述新信息。在这个玩具示例中，这个模型表现得相当好。
 - en: To view the complete source code for this example, please have a look at the
     [bt.regime.detection.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[bt.regime.detection.test()函数在bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 16:17:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 16:17:28
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: The VIX, Interpolation and the Roll'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX和更多：VIX，插值和滚动
 - en: 来源：[http://vixandmore.blogspot.com/2013/03/the-vix-interpolation-and-roll.html#0001-01-01](http://vixandmore.blogspot.com/2013/03/the-vix-interpolation-and-roll.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2013/03/the-vix-interpolation-and-roll.html#0001-01-01](http://vixandmore.blogspot.com/2013/03/the-vix-interpolation-and-roll.html#0001-01-01)
 - en: Almost every month, some subset of the class of investors and journalists expresses
     extreme alarm when the VIX magically plummets on the Monday before the standard
     monthly options expiration that occurs on the third Friday of every month.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 几乎每个月，一些投资者和记者的子集会在每个月第三个星期五发生的标准每月期权到期前的星期一，对VIX神奇地暴跌表示极度担忧。
 - en: 'I have written about this before, notably in:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我以前写过关于这个话题的文章，特别是：
 - en: The executive summary is that for most of its monthly cycle the VIX is an interpolated
     value derived from the first and second month S&P 500 index (SPX) options contracts.
     In an interpolation, one is presented with two values and attempts to derive a
@@ -34,8 +50,10 @@
     fall. When one wants to derive a 30-day VIX and the SPX options contracts are,
     say, 17 and 45 days out, then a simple linear interpolation accomplishes that
     goal – and that is what the VIX calculation methodology does.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: VIX的执行摘要是指在其每月周期的大部分时间里，VIX是一个通过第一个和第二个月标普500指数(SPX)期权合约进行插值的值。在插值中，你面前有两个值，然后试图得到一个介于这两个值之间的值，通常是通过在值之间画一条直线，并试图确定在那个直线上所需的值应该落在哪里。当想要得到一个30天的VIX，而SPX期权合约是比如说17和45天时，那么一个简单的线性插值就实现了这个目标——这就是VIX计算方法所做的。
 - en: Things become more interesting due to the fact that the CBOE mandates that the
     near-term month used in the VIX calculation have at least one week to expiration.
     So what happens is that on Friday the VIX used the March and April expirations
@@ -48,36 +66,52 @@
     but they accomplish this task by using a *negative* coefficient for the weighting
     of the far-term value, in addition to a coefficient that is greater than 100%
     for the near-term value.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于CBOE规定VIX计算中使用的近期月份至少有一个星期的时间到期，因此事情变得更有趣。所以发生的情况是，VIX在周五使用了3月和4月的到期，今天4月成为近期月份，5月成为远期月份。由于4月的到期日是4月19日，5月的到期日是5月17日，这意味着VIX计算中使用的两个月分别有39天和67天到期。那么CBOE是如何得出一个30天的VIX值的呢？嗯，他们仍然使用近期VIX计算（[VIN](http://vixandmore.blogspot.com/search/label/VIN)）和远期VIX计算（[VIF](http://vixandmore.blogspot.com/search/label/VIF)），但他们通过使用远期值的*负*权重系数以及远期值系数大于100%来实现这个任务。
 - en: There is nothing wrong with this approach and it delivers reasonable numbers
     when the near-term and far-term VIX have roughly the same value, but when there
     is steep contango in the SPX options [term structure](http://vixandmore.blogspot.com/search/label/term%20structure),
     which has frequently been the case over the course of the past two years, the
     resulting VIX calculation can be dramatically lower than both VIN and VIF. Right
     now, for instance, the VIX is at 11.71, while VIN is 12.48 and VIF is 13.50.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种方法没有问题，当近期和远期VIX的值大致相同时，它能提供合理的数字，但当SPX期权的[期限结构](http://vixandmore.blogspot.com/search/label/term%20structure)出现急剧的正向斜率时，在过去两年的大部分时间里都是如此，这会导致VIX计算结果远低于VIN和VIF。例如，现在VIX是11.71，而VIN是12.48，VIF是13.50。
 - en: My suggestion would be not to focus too much attention on the VIX while the
     calculation uses a negative coefficient for VIF, which will be for the remainder
     of this week. Instead, those looking for a better gauge of what the VIX is should
     probably focus on VIN for the next four days.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的建议是，在VIX计算使用VIF的负系数时，不要过分关注VIX，这将是本周剩余时间的情况。相反，那些寻找更好的VIX指标的人应该在接下来的四天里关注VIN。
 - en: Alternatively, one can refer to SPX [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility)
     calculations provided by their options data provider, such as are incorporated
     into the SPX skew graphic below, courtesy of LivevolPro.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 另外，人们可以参考他们的期权数据提供商提供的SPX[隐含波动率](http://vixandmore.blogspot.com/search/label/implied%20volatility)计算结果，这些计算结果被整合到了下面的SPX偏斜图表中，图表由LivevolPro提供。
 - en: 'Related posts:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 相关文章：
 - en: '![](img/7bbb0ba98062a242cff190b8b93f5383.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/7bbb0ba98062a242cff190b8b93f5383.png)'
 - en: '*[source(s): LivevolPro.com]*'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 数据来源：[LivevolPro.com]
 - en: '***Disclosure(s):*** *Livevol and the CBOE are advertisers on VIX and More*'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '***披露(s):*** *Livevol和CBOE是VIX and More的广告商*'

@@ -1,35 +1,53 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:37:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:37:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Research Synthesis: The VIX as a Moderator of Small vs Large Cap Performance
     and the “Generals Lead the Troops” | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 研究综合：VIX作为小盘与大盘表现调节因子以及“将军引领士兵” | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01](https://cssanalytics.wordpress.com/2010/01/17/research-synthesis-the-vix-as-a-moderator-of-small-vs-large-cap-performance-and-the-generals-lead-the-troops/#0001-01-01)
 - en: 'Readers are encouraged to check out the following background reading:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 读者可以查阅以下背景资料：
 - en: 'On the VIX as a moderator of short-term relative performance between large
     and small caps: [http://www.cxoadvisory.com/blog/external/blog7-12-06/](http://www.cxoadvisory.com/blog/external/blog7-12-06/)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于VIX作为大盘与小盘短期相对表现调节因子的讨论：[http://www.cxoadvisory.com/blog/external/blog7-12-06/](http://www.cxoadvisory.com/blog/external/blog7-12-06/)
 - en: 'On the use of the S&P500 and Russell2000 relative strength relationship to
     predict S&P500 returns: [http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/](http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于使用标普500与罗素2000相对强度关系预测标普500回报的研究：[http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/](http://marketsci.wordpress.com/2009/03/31/do-the-troops-lead-or-follow-the-generals/)
 - en: 'Sometimes interesting findings results from combining two different ideas that
     are both good—sort of a chocolate and peanut butter kind of thing. In this case,
     the relationship between the S&P500 and the Russell2000 is interesting because
@@ -52,8 +70,11 @@
     VIX was high, and underperformed when the VIX was low. These high/low levels were
     identified as being within 10-20% above or below the 75-day moving average of
     the VIX.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时候，将两个不同的好想法结合起来会产生有趣的发现——有点像巧克力和花生酱混合的感觉。在这个案例中，标普500与罗素2000之间的关系很有趣，因为它捕捉到了学术文献中记录的领导/落后自相关效应。此外，它还捕捉到了持有大型多元化公司与经济因素更紧密相关的大型公司之间的风险溢价差异，以及小型和更集中的公司：1）大多数时间对经济因素的敏感度较低，但股票特定风险较高2）在压力极端时的高敏感度——通常由于更高的信用风险。不过，解释和理论是另一天的话题（或另一篇博客），我的目标是展示结合两者有协同效应。在MarketSci文章（见上面的链接）中，介绍了一种策略，当12个月或1年回报率高于罗素2000指数时，标普500的表现往往会超过它。这种现象被称为“将军引领士兵”。这种策略与标准买入并持有策略相比，风险更低，敞口也更小。在上面来自CXO
+    Advisory的链接中，他们回顾了Dean Leistikow和Susana Yu的一篇论文，该论文测试了相对VIX水平作为短期在罗素2000（小盘）和标普500（大盘）股票指数之间切换的信号的有效性。他们发现，当VIX较高时，标普500的表现优于罗素2000；当VIX较低时，标普500的表现则不如罗素2000。这些高/低水平被确定为VIX的75天移动平均值之上或之下10-20%。
 - en: 'So with that background, lets get down to our little experiment to see how
     these two separate findings work together. In terms of methodology: I used the
     S&P500 and Russell2000 index prices from Yahoo Finance to increase the sample
@@ -63,51 +84,81 @@
     in the article, and decided to split the difference of 10-20% as being either
     15% above or below the sma. Lets look at the results for each strategy in isolation,
     and in combination.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，有了这样的背景，让我们开始我们的小实验，看看这两个独立的发现是如何一起工作的。在方法论上：我使用了雅虎财经的标普500和罗素2000指数价格来增加数据集的样本量。我将相对强势策略的超额表现定义为标普500的252天回报率大于（或小于）罗素2000的252天回报率。对于VIX，我使用了文章中提到的75天sma，并决定将10-20%的差异分为15%高于或低于sma。让我们分别看看每种策略的结果，以及它们的组合。
 - en: '| **S&P500 Average Daily Performance Under Different Conditions (5000 bars)**
     |   |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| **不同条件下标普500的平均每日表现（5000根柱子）** |  |'
 - en: '| (non-compounded–ie fixed bet) |   |   |   |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '| （非复合——即固定投注） |  |  |  |'
 - en: '|   |   |   |   |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |'
 - en: '|   |   | avg daily ret |   |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '|  |  | 平均每日回报 |  |'
 - en: '|   | avg daily return | /avg daily sd | w% (next day) |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '|  | 平均每日回报 | /平均每日标准差 | 下一天的w% |'
 - en: '| Baseline (Buy and Hold the S&P500) | 0.03% | 0.17% | 53.1% |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '| 基准线（持有标普500） | 0.03% | 0.17% | 53.1% |'
 - en: '| S&P500 (SP) is leading Russell (RUT) | 0.09% | 0.71% | 55.0% |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| 标普500(SP)领涨罗素(RUT) | 0.09% | 0.71% | 55.0% |'
 - en: '| Russell (RUT) is leading S&P500 (SP) | -0.01% | -0.10% | 51.5% |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| 罗素(RUT)领涨标普500(SP) | -0.01% | -0.10% | 51.5% |'
 - en: '| VIX/75day sma>1.15  (Vsma75>1.15) | 0.10% | 0.88% | 54.8% |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| VIX/75天sma>1.15 (Vsma75>1.15) | 0.10% | 0.88% | 54.8% |'
 - en: '| VIX/75day sma<.85 (Vsma75<.85) | -0.02% | -0.28% | 51.8% |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| VIX/75天sma<.85 (Vsma75<.85) | -0.02% | -0.28% | 51.8% |'
 - en: '| **SP> RUT  and (Vsma75>1.15)** | **0.22%** | **2.98%** | **58.0%** |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '| **标普>罗素 且 (Vsma75>1.15)** | **0.22%** | **2.98%** | **58.0%** |'
 - en: '| **SP> RUT  and (Vsma75<.85)** | **0.10%** | **2.60%** | **54.60%** |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| **标普>罗素 且 (Vsma75<.85)** | **0.10%** | **2.60%** | **54.60%** |'
 - en: '| RUT> SP  and (Vsma75>1.15) | -0.01% | -0.16% | 51.40% |'
+  id: totrans-23
   prefs: []
   type: TYPE_TB
+  zh: '| RUT>SP 且 (Vsma75>1.15) | -0.01% | -0.16% | 51.40% |'
 - en: '| **RUT>SP  and (Vsma75<.85)** | **-0.11%** | **-2.10%** | **49.66%** |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| **罗素>标普 且 (Vsma75<.85)** | **-0.11%** | **-2.10%** | **49.66%** |'
 - en: 'Conclusions: The results for combining the two studies showed  higher absolute
     and risk-adjusted performance  than either study individually over most categories.
     It appears that the dual screen of relative strength and relative VIX are more
@@ -120,5 +171,7 @@
     it is clear that the S&P underperforms buy and hold in the “normal” VIX environment
     (1.15>VIX/sma>.85) regardless of whether it is leading or lagging. Creating long
     and long/short strategies based on these regimes is a subject for a future post.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 结论：结合这两个研究的成果显示，在大多数类别中，相对于单独任何一个研究的绝对和风险调整后的表现更高。看来相对强度和相对VIX的双重筛选一起比单独使用更有效。积极方面，当标普领涨罗素且VIX较高时，标普在绝对和风险调整方面表现最佳。相反方面，当罗素领涨标普且VIX较低时，标普在绝对和风险调整方面表现最差。作为第三个观察，当VIX较低且标普优于罗素时，标普表现良好。为了简洁起见，虽然未展示，但很明显，在“正常”VIX环境中（1.15>VIX/sma>.85），无论标普是领涨还是滞后，标普的表现都不如持有。基于这些政权创建多头和多头/空头策略是一个未来文章的主题。

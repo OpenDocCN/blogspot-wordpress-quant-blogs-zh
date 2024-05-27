@@ -1,47 +1,67 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 17:53:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 17:53:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: Calculating the Implied Volatility of the VIX'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX和更多：计算VIX的隐含波动率
 - en: 来源：[http://vixandmore.blogspot.com/2009/04/calculating-implied-volatility-of-vix.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/calculating-implied-volatility-of-vix.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2009/04/calculating-implied-volatility-of-vix.html#0001-01-01](http://vixandmore.blogspot.com/2009/04/calculating-implied-volatility-of-vix.html#0001-01-01)
 - en: 'Earlier today, a reader had an excellent observation and question regarding
     the [implied volatility](http://vixandmore.blogspot.com/search/label/implied%20volatility)
     of the VIX:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天早些时候，一位读者对VIX的隐含波动率提出了一个很好的观察和问题：
 - en: '*“I noticed that the IV for ATM July options is 50 while the VIX itself is
     42 right now. That seems crazy to me since the IV for the VIX is a second derivative
     and should be much more than the VIX itself…”*'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '*“我注意到当前ATM七月期权的IV为50，而VIX本身是42。这对我来说似乎很疯狂，因为VIX的IV是二阶导数，应该比VIX本身大得多…”*'
 - en: The problem with most data sources is that they assume the cash/spot VIX is
     the underlying for [VIX options](http://vixandmore.blogspot.com/search/label/VIX%20options),
     instead of using [VIX futures](http://vixandmore.blogspot.com/search/label/VIX%20futures),
     which more accurately approximate the underlying for VIX options (which is technically
     a [variance swap](http://en.wikipedia.org/wiki/Variance_swap).)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数数据源的问题在于，它们假设现金/现货VIX是[VIX期权](http://vixandmore.blogspot.com/search/label/VIX%20options)的底层，而不是使用[VIX期货](http://vixandmore.blogspot.com/search/label/VIX%20futures)，后者更准确地近似VIX期权的底层（技术上是一个[方差互换](http://en.wikipedia.org/wiki/Variance_swap)。)
 - en: I cannot vouch for every data provider, but I believe most of the highly regarded
     options sites on the web use the cash/spot VIX to calculate VIX implied volatility,
     so the resulting calculations are distorted by the difference between the cash/spot
     VIX and the VIX futures.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我不能为每个数据提供商背书，但我相信网上大多数受高度评价的期权网站都是使用现金/现货VIX来计算VIX隐含波动率，所以由此产生的计算结果受到现金/现货VIX与VIX期货之间的差异的影响。
 - en: Several options data sources have a proprietary mean implied volatility calculations
     that they publish for optionable securities. Perhaps the best known of these is
     the “IV Index mean” from iVolatility.com. After today’s close, the [iVolatility
@@ -49,13 +69,20 @@
     was 61.38\. The International Securities Exchange has a similar calculation that
     uses the same name. Today the [ISE’s VIX IV index mean](http://www.ise.com/WebForm/md_livevol.aspx?categoryId=124&header2=true&menu1=true)
     closed at 64.98.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有几个期权数据源为可期权证券发布专有的平均隐含波动率计算。或许最著名的是来自iVolatility.com的“IV指数平均值”。今天收盘后，[iVolatility
+    VIX IV指数平均值](http://www.ivolatility.com/options.j?ticker=vix&R=0&x=0&y=0)为61.38。国际证券交易所有一个类似的计算，使用相同的名称。今天，[ISE的VIX
+    IV指数平均值](http://www.ise.com/WebForm/md_livevol.aspx?categoryId=124&header2=true&menu1=true)收盘价为64.98。
 - en: Thinkorswim calculates an IV for each month. For April, they have the VIX IV
     at 85.71\. Doing a little interpolation on the optionsXpress site, I get a VIX
     IV for April ATM options of 77.12.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 思考者交易平台为每个月计算一个IV。对于四月，他们给出的VIX IV为85.71。在optionsXpress网站上进行一些插值，我得到四月ATM期权的VIX
+    IV为77.12。
 - en: Without knowing the details behind the models that generate these VIX IV calculations,
     I cannot vouch for the integrity of any of the VIX IV outputs. I would love to
     find a source that calculates the implied volatility of the VIX using VIX futures
@@ -64,5 +91,8 @@
     futures, I would certainly be interested in hearing more about it. Until then,
     my working assumption would be that all the VIX IV data you get from your data
     provider is invalid and based on the cash/spot VIX.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在不了解生成这些VIX IV计算的模型的详细情况之前，我无法为任何VIX IV输出的一致性背书。我很想找到一个使用VIX期货作为底层计算VIX隐含波动率的来源。我的猜测是上面四个数字中没有采取这种方法。如果有人知道一个基于VIX期货发布VIX
+    IV计算的来源，我当然很想了解更多。在此之前，我的假设是所有从数据提供商那里得到的VIX IV数据都是无效的，基于现金/现货VIX。

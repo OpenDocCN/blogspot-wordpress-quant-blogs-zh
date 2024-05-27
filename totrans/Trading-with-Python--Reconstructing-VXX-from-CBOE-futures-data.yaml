@@ -1,95 +1,153 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:42:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:42:59
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Reconstructing VXX from CBOE futures data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用Python交易：从CBOE期货数据重建VXX
 - en: 来源：[http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01](http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01](http://tradingwithpython.blogspot.com/2012/01/reconstructing-vxx-from-cboe-futures.html#0001-01-01)
 - en: Many people in the blogsphere have reconstructed the VXX to see how it should
     perform before its inception. The procedure to do this is not very complicated
     and well-described in the VXX prospectus and on the
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客圈中的许多人重建了VXX，以了解它成立之前的表现如何。进行此操作的程序并不复杂，在VXX prospectus和上面
 - en: '[Intelligent Investor Blog](http://investing.kuchita.com/2011/08/16/how-the-vxx-is-calculated-and-why-backwardation-amplfies-it/)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 智能投资者博客[http://investing.kuchita.com/2011/08/16/how-the-vxx-is-calculated-and-why-backwardation-amplfies-it/](http://investing.kuchita.com/2011/08/16/how-the-vxx-is-calculated-and-why-backwardation-amplfies-it/)
 - en: . Doing this by hand however is a very tedious work, requiring to download data
     for each future separately, combine them in a spreadsheet etc.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 手动进行这项工作是非常繁琐的，需要分别下载每个期货的数据，然后在电子表格中合并它们等。
 - en: The scripts below automate this process. The first one,
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的脚本自动化了这一过程。第一个脚本，
 - en: '*downloadVixFutures.py*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '*下载VixFutures.py*'
 - en: ', gets the data from cboe, saves each file in a data directory and then combines
     them in a single csv file,'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 从cboe获取数据，将每个文件保存到数据目录中，然后将它们合并到一个csv文件中，
 - en: '*vix_futures.csv*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '*vix_futures.csv*'
 - en: The second script
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个脚本
 - en: '*reconstructVXX.py*'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '*重建VXX.py*'
 - en: parses the
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 解析了
 - en: '*vix_futures.csv,*'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '*vix_futures.csv,*'
 - en: calculates the daily returns of VXX  and saves results to
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 计算VXX的日收益并保存结果到
 - en: '*reconstructedVXX.csv*'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '*重建VXX.csv*'
 - en: .
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: To check the calculations, I've compared my simulated results with the SPVXSTR
     index data, the two agree pretty well, see the charts below.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了检查计算结果，我将我的模拟结果与SPVXSTR指数数据进行了比较，两者相当一致，请看下面的图表。
 - en: '**Note: For a fee, I can provide support to get the code running or create
     a stand-alone program, contact me if you are interested.**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注意：我可以提供费用支持来运行代码或创建一个独立程序，如果你有兴趣请联系我。**'
 - en: '--------------------------------source codes--------------------------------------------'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '--------------------------------源代码--------------------------------------------'
 - en: Code for getting futures data from CBOE and combining it into a single table
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 从CBOE获取期货数据并将它们合并到一个表中的代码
 - en: '*downloadVixFutures.py*'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '*下载VixFutures.py*'
 - en: '[PRE0]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Code for reconstructing the VXX
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 重建VXX的代码
 - en: '*reconstructVXX.py*'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '*重建VXX.py*'
 - en: '[PRE1]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'

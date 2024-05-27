@@ -1,40 +1,58 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:05:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:05:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Introduction of SVM Learning in Strategies – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 引入SVM学习到策略中 - 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/#0001-01-01](https://quantumfinancier.wordpress.com/2010/05/21/application-of-svms/#0001-01-01)
 - en: 'This post is derived from a comment I received my last post on probability
     density function for an adaptive RSI strategy. *pinner* made the following observation:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这篇文章是从我上一篇关于自适应RSI策略的概率密度函数的评论中得到的。*pinner*做出了以下观察：
 - en: '*“Alternatively you could regress the returns against the set of 6mo & 1yr
     RSI points as a means to determine the best decision. While this approach probably
     requires more historical data, it also affords more detailed metrics from which
     to make each decision.”*'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '*“或者，您可以将回报与6个月和1年的RSI点集进行回归，以确定最佳决策。虽然这种方法可能需要更多的历史数据，但它也提供了更详细的指标，可以用来做出每个决策。”*'
 - en: I am personally not a big fan of simple regression model for my trading decisions.
     However, I think there is something in the concept. Such a setup is also a good
     place to use a common traditional machine learning technique; the support vector
     machine (SVM).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 就我的交易决策而言，我个人不是简单回归模型的铁杆粉丝。但是，我认为这个概念中有一些东西。这样的设置也是使用常见的传统机器学习技术的好地方；支持向量机（SVM）。
 - en: 'From wikipedia: given a set of training examples, each marked as belonging
     to one of two categories, an SVM training algorithm builds a model that predicts
     whether a new example falls into one category or the other. Intuitively, an SVM
@@ -42,8 +60,10 @@
     examples of the separate categories are divided by a clear gap that is as wide
     as possible. New examples are then mapped into that same space and predicted to
     belong to a category based on which side of the gap they fall on.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自维基百科：给定一组训练示例，每个示例标记为属于两个类别中的一个，SVM训练算法构建一个模型，该模型预测新示例是否属于其中一个类别。直观地说，SVM模型是示例在空间中的点的表示，映射，使得不同类别的示例被一个清晰的间隔分隔，该间隔尽可能宽。然后将新示例映射到相同的空间中，并基于它们在间隔的哪一侧落到来预测它们属于哪个类别。
 - en: In concrete terms, the training algorithm separate the data into up days and
     down days then look at the predictors value. It then creates a set of rules dividing
     the data; these rules minimize the classification error while also maximizing
@@ -53,8 +73,10 @@
     should be xx%) it is a binary factor prediction, thus allowing us to derive a
     probability along with the prediction. It comes in handy when we want a confidence
     based system.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 具体而言，训练算法将数据分为上涨天和下跌天，然后查看预测器值。然后它创建一组将数据分割的规则；这些规则最小化分类错误，同时最大化安全边际，从而给模型更多的空间，结果（希望）更高的准确性。根据这组规则，算法将新数据分类到一个类别中。请注意，这不是数值预测（即，下一个交易日的回报应为xx%），而是二元因子预测，从而允许我们推导出一个概率以及预测。当我们想要一个基于信心的系统时，这是很方便的。
 - en: This is a nice technique, but it has its drawbacks. First of all, it is a parameter
     dependant technique. The effectiveness of the svm is mostly determined by two
     parameters. It is usually recommended to test different values for the pair and
@@ -62,15 +84,21 @@
     can become quite computationally annoying. Without getting to technical (or into
     details), if we want a non-linear classification algorithm, we have to choose
     the type of kernel function we want; there is several.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一种不错的技术，但它也有其缺点。首先，这是一种参数依赖的技术。SVM的有效性主要由两个参数决定。通常建议对这对参数进行不同值的测试，并在交叉验证过程中保留性能最佳的对。这可能会变得相当繁琐。不想深入技术细节（或者说进入细节），如果我们想要一个非线性分类算法，我们必须选择我们想要的内核函数的类型；有几种。
 - en: I just wanted to throw the idea out there, since pinner’s suggestion was a good
     one. If readers are interested to try it out, I encourage you to send me the results,
     I would be happy to post them. Alternatively, I might post some results depending
     on the interest. I just wanted to introduce support vector machine and its potential
     application when developing strategies.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我只是想提出这个想法，因为固定者的建议是一个好主意。如果读者有兴趣尝试，我鼓励你把结果发给我，我很乐意发布它们。另外，根据兴趣，我可能会发布一些结果。我只是想介绍支持向量机及其在开发策略时的潜在应用。
 - en: QF
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: QF

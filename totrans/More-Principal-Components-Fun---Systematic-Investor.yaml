@@ -1,48 +1,73 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:34:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:34:57'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: More Principal Components Fun | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 更多主成分乐趣 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01](https://systematicinvestor.wordpress.com/2013/01/06/more-principal-components-fun/#0001-01-01)
 - en: Today, I want to continue with the [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
     theme and show how the [Principal Component Analysis](http://en.wikipedia.org/wiki/Principal_component_analysis)
     can be used to build portfolios that are not correlated to the market. Most of
     the content for this post is based on the excellent article, [“Using PCA for spread
     trading”](http://matlab-trading.blogspot.ca/2012/12/using-pca-for-spread-trading.html)
     by Jev Kuznetsov.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天，我想继续讨论[主成分](http://en.wikipedia.org/wiki/Principal_component_analysis)主题，并展示如何使用[主成分分析](http://en.wikipedia.org/wiki/Principal_component_analysis)构建与市场不相关的投资组合。
+    本文的大部分内容基于Jev Kuznetsov的出色文章[“Using PCA for spread trading”](http://matlab-trading.blogspot.ca/2012/12/using-pca-for-spread-trading.html)。
 - en: Let’s start by loading the components of the [Dow Jones Industrial Average index](http://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)
     over last 5 years.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们从过去5年的[道琼斯工业平均指数](http://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average)加载组件开始。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s compute the [Principal Components](http://en.wikipedia.org/wiki/Principal_component_analysis)
     based on the first year of price history.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们基于价格历史的第一年计算[主成分](http://en.wikipedia.org/wiki/Principal_component_analysis)。
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[PRE2]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Please note that the first principal component is highly correlated to the
     market and all principal components have very low correlation to each other and
     very low correlation to the market. Also by construction the volatility of principal
@@ -51,37 +76,55 @@
     both correlations and volatilities using the future prices, for example, 4 years
     of prices, the principal components maintain their correlation and volatility
     profiles)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，第一个主成分与市场高度相关，所有主成分之间的相关性都很低，与市场的相关性也很低。 此外，通过构建，主成分的波动性正在减小。 您可能想自己检查的一个有趣的观察：主成分在时间上相当持久（即，如果您使用未来价格计算相关性和波动性，例如，4年的价格，主成分会保持其相关性和波动性概况）
 - en: Next, let’s check if any of the principal components are mean-reverting. I will
     use Augmented Dickey-Fuller test to check if principal components are mean-reverting.
     (small p-value => stationary i.e. mean-reverting)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们检查主成分中是否有任何均值回归。 我将使用增广迪基-富勒检验来检查主成分是否均值回归。（小的p值=>稳定，即均值回归）
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'The Augmented Dickey-Fuller test indicates that the 4th principal component
     is stationary. Let’s have a closer look at its price history and its composition:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 增广迪基-富勒检验表明第4个主成分是稳定的。 让我们更仔细地查看它的价格历史和组成：
 - en: '[PRE4]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![plot1.png.small](img/dc5d46254bee769386a9a33a827ef96a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1.png.small](img/dc5d46254bee769386a9a33a827ef96a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/01/plot1-small.png)'
 - en: The price history along with 200 day moving average and 1 and 2 Bollinger Bands
     are shown on the top pane. The portfolio weights of the 4th principal component
     are shown on the bottom pane.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 价格历史以及200天移动平均线和1、2个布林带显示在顶部窗格上。 第4个主成分的投资组合权重显示在底部窗格上。
 - en: So now you have a mean-reverting portfolio that is also uncorrelated to the
     market. There are many ways you can use this infromation. Please share your ideas
     and suggestions.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在您拥有了一个均值回归的投资组合，同时也与市场不相关。 您可以以许多方式使用这些信息。 请分享您的想法和建议。
 - en: To view the complete source code for this example, please have a look at the
     [bt.pca.trading.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的bt.test.r中的bt.pca.trading.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

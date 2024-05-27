@@ -1,39 +1,60 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-13 00:13:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-13 00:13:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: Multi-Threading and QuantLib – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多线程与QuantLib – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01](https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01](https://hpcquantlib.wordpress.com/2013/07/26/multi-threading-and-quantlib/#0001-01-01)
 - en: 'Update 23.11.2015: The [latest version](https://wordpress.com/post/hpcquantlib.wordpress.com/1376) is
     now part of the official QuantLib Release 1.7.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 23.11.2015：最新的[版本](https://wordpress.com/post/hpcquantlib.wordpress.com/1376)现在是官方QuantLib
+    1.7发布版的一部分。
 - en: 'Update 22.09.2015: Please find the latest version of the patch for QuantLib
     1.6.2 [here](https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/).'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 22.09.2015：请在此处找到QuantLib 1.6.2的最新补丁版本：[链接](https://hpcquantlib.wordpress.com/2015/09/20/quantlib-1-6-2-multithreading-patch-for-jvm-net/)。
 - en: 'Update 28.02.2015: Please find the latest version of the patch for QuantLib
     1.5 [here](http://hpc-quantlib.de/src/observer15.zip).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 28.02.2015：请在此处找到QuantLib 1.5的最新补丁版本：[链接](http://hpc-quantlib.de/src/observer15.zip)。
 - en: 'Update 11.05.2014: Please find the latest version of the patch for QuantLib
     1.4 [here](http://hpc-quantlib.de/src/observer.zip).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新 11.05.2014：请在此处找到QuantLib 1.4的最新补丁版本：[链接](http://hpc-quantlib.de/src/observer.zip)。
 - en: QuantLib is per se not thread-safe. The standard way to utilise more than one
     core is to spawn several independent processes. [Riccardo’s](https://sourceforge.net/p/quantlib/patches/71/)
     thread-safe singleton patch allows to use QuantLib within multi-threading applications
@@ -43,47 +64,67 @@
     test runner to speed it up, e.g. on a i7@3.2Ghz with four cores plus four HT cores
     the multi-threading test-suite runs in approx. two minutes whereas the single
     threaded version takes around eight minutes.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib本身不是线程安全的。利用多个核心的标准方法是生成几个独立进程。Riccardo的[线程安全单例补丁](https://sourceforge.net/p/quantlib/patches/71/)允许在多线程应用程序中使用QuantLib，只要在不同线程间没有显式共享对象。实际上这个补丁将单例模式转变为线程局部单例模式。这个补丁的一个可能用例是使用多线程测试运行器来加速测试套件，例如，在一个i7@3.2Ghz具有四个核心加四个HT核心的系统上，多线程测试套件大约运行两分钟，而单线程版本需要大约八分钟。
 - en: Using QuantLib in Java/Scala/C# or F# applications via the SWIG layer violates
     the multi-threading requirement because the garbage collector runs in a different
     thread and therefore QuantLib objects are shared among different threads. This
     creates problems with QuantLib’s implementation of the observer pattern and is
     discussed in detail [here](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/).
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过SWIG层在Java/Scala/C#或F#应用程序中使用QuantLib违反了多线程要求，因为垃圾收集器在不同的线程中运行，因此QuantLib对象在不同线程中共享。这导致QuantLib实现观察者模式的问题，具体讨论请[点击这里](https://hpcquantlib.wordpress.com/2012/02/27/quantlib-swig-and-a-thread-safe-observer-pattern-in-c/)。
 - en: An improved implementation of the observer pattern based on boost::signals2
     together with Riccardo’s thread-safe singleton patch and the multi-threading test
     runner can obtained from [github.](https://github.com/klausspanderen/quantlib)
     Under Linux/MacOS use
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 基于boost::signals2的观察者模式改进实现，以及Riccardo的线程安全单例补丁和多线程测试运行器，可以从[github](https://github.com/klausspanderen/quantlib)获取。在Linux/MacOS下使用
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: to enable the thread-safe singleton and the thread-safe observer pattern. Under
     Windows the corresponding preprocessor directives
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 以启用线程安全单例和线程安全观察者模式。在Windows下相应的预处理器指令
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: are already set in the file userconfig.hpp.  In order to enable the boost shared_ptr
     hook change the preprocessor variable BOOST_SP_ENABLE_DEBUG_HOOKS towards BOOST_SP_ENABLE_DEBUG_HOOKS_2
     in the file
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 在文件userconfig.hpp中已经设置。为了启用boost shared_ptr钩子，将预处理器变量BOOST_SP_ENABLE_DEBUG_HOOKS更改为BOOST_SP_ENABLE_DEBUG_HOOKS_2在文件中
 - en: '[PRE2]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Background: the original preprocessor variable BOOST_SP_ENABLE_DEBUG_HOOKS
     changes the memory layout of the class boost::shared_ptr which might lead to problems
     with other pre-compiled libraries which also use boost::shared_ptr.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 背景：原始预处理器变量BOOST_SP_ENABLE_DEBUG_HOOKS会改变类boost::shared_ptr的内存布局，这可能导致与使用boost::shared_ptr的其他预编译库出现问题。
 - en: The reward for this work is a stable SWIG interface for Java/Scala/C#/F# and
     a thread local singleton implementation, which allows to use QuantLib within multi-threading
     applications as long as SWIG/QuantLib objects aren’t explicitly shared among different
     threads.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这项工作的回报是一个稳定的SWIG接口，支持Java/Scala/C#/F#，以及一个线程局部单例实现，这使得只要SWIG/QuantLib对象不在不同线程之间显式共享，就能在多线程应用程序中使用QuantLib。

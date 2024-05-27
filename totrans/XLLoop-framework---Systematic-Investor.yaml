@@ -1,110 +1,172 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:35:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:35:26'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: XLLoop framework | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: XLLoop 框架 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/12/08/xlloop-framework/#0001-01-01](https://systematicinvestor.wordpress.com/2012/12/08/xlloop-framework/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/12/08/xlloop-framework/#0001-01-01](https://systematicinvestor.wordpress.com/2012/12/08/xlloop-framework/#0001-01-01)
 - en: 'Today I want to highlight the [XLLoop framework](http://xlloop.sourceforge.net/)
     : Excel User-Define Functions in in any language.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想强调 [XLLoop 框架](http://xlloop.sourceforge.net/)：Excel 用户自定义函数可以用任何语言编写。
 - en: 'The [XLLoop](http://xlloop.sourceforge.net/) consists of two main components:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[XLLoop](http://xlloop.sourceforge.net/) 由两个主要组件组成：'
 - en: An Excel addin implementation (XLL written in c++).
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一个 Excel 插件实现（用 c++ 编写的 XLL）。
 - en: A server and framework written in R (or/and in many other languages).
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一个用 R（或其他许多语言）编写的服务器和框架。
 - en: The [XLLoop](http://xlloop.sourceforge.net/) allows you to connect Excel and
     R in very simple way with almost zero installation.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[XLLoop](http://xlloop.sourceforge.net/) 允许您以非常简单的方式连接 Excel 和 R，几乎不需要安装。'
 - en: '**To get started**, please download and unzip the [xlloop-basic.zip](http://www.systematicportfolio.com/xlloop-basic.zip)
     archive that contains all files you need to make my sample application work.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**要开始**，请下载并解压 [xlloop-basic.zip](http://www.systematicportfolio.com/xlloop-basic.zip)
+    存档，其中包含使我的示例应用程序正常工作所需的所有文件。'
 - en: '**Next**, start Excel and add [XLLoop](http://xlloop.sourceforge.net/) addin.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**接下来**，启动 Excel 并添加 [XLLoop](http://xlloop.sourceforge.net/) 插件。'
 - en: I.e. in Office 2007/2010 Click File->Options->Add-Ins, press Alt+G, Click Browse
     and locate xlloop-0.3.2.xll
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 即在 Office 2007/2010 中点击 文件->选项->加载项，按 Alt+G，点击浏览并定位到 xlloop-0.3.2.xll。
 - en: in Office 2003, Click Tools->Add-Ins, Click Browse and locate xlloop-0.3.2.xll
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 Office 2003 中，点击 工具->加载项，点击浏览并定位到 xlloop-0.3.2.xll。
 - en: '**Next**, edit runr.bat that was extracted from the zip archive. Enter correct
     path to your R installation.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**接下来**，编辑从 zip 存档中提取的 runr.bat。输入正确的路径到你的 R 安装。'
 - en: '**Finally**, execute runr.bat, you will see a command window popup, next go
     to Excel and type following formula'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最后**，执行 runr.bat，你会看到一个命令窗口弹出，然后转到 Excel 并键入以下公式。'
 - en: =FS(“ProductTest”, 32, 1886.5)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: =FS(“ProductTest”, 32, 1886.5)
 - en: If all works well, you would see 60368
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果一切顺利，你会看到 60368。
 - en: 'This might seem like a bit of black magic, so let me explain what is going
     on:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这可能看起来有点像黑魔法，所以让我解释一下发生了什么：
 - en: The runr.bat batch file starts a new R session and executes rstart.r script.
     In the rstart.r script we load/define any libraries / functions that we want to
     access in Excel. Next we load code for the XLLoop server and start the server.
     Here is the code in the rstart.r script
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: runr.bat 批处理文件启动一个新的 R 会话并执行 rstart.r 脚本。在 rstart.r 脚本中，我们加载/定义要在 Excel 中访问的任何库/函数。接下来，我们加载
+    XLLoop 服务器的代码并启动服务器。以下是 rstart.r 脚本中的代码。
 - en: '[PRE0]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next to access R functionality in Excel, we use FS function, the first parameter
     is the R function that we want to execute, following by function parameters. For
     example the =FS("ProductTest", 32, 1886.5) formula calls ProductTest R fucntion
     with x = 32 and y = 1886.5
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，在 Excel 中访问 R 功能，我们使用 FS 函数，第一个参数是我们想要执行的 R 函数，后面跟着函数参数。例如 =FS("ProductTest",
+    32, 1886.5) 公式调用 ProductTest R 函数，其中 x = 32，y = 1886.5。
 - en: '*If you get “Cannot connect to the server” error message, please make sure
     that runr.bat batch is running (i.e. there is a command window) and try recalculating
     Excel (i.e. press F9)*'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '*如果你收到“无法连接到服务器”的错误消息，请确保 runr.bat 批处理正在运行（即有一个命令窗口），然后尝试重新计算 Excel（即按 F9）*'
 - en: Once, you are done working with Excel, you can just close the command window
     created by runr.bat batch file.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦你完成了在 Excel 中的工作，你可以关闭 runr.bat 批处理文件创建的命令窗口。
 - en: I have included a few examples in the xlloop.xls for you to explore.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在 xlloop.xls 中包含了一些示例供你探索。
 - en: I will show a few more examples of the [XLLoop framework](http://xlloop.sourceforge.net/)
     in the next post.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将在下一篇文章中展示更多关于 [XLLoop 框架](http://xlloop.sourceforge.net/) 的示例。
 - en: Please let me know what problems you run into while experimenting with [XLLoop](http://xlloop.sourceforge.net/).
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 在你尝试 [XLLoop](http://xlloop.sourceforge.net/) 时遇到的问题，请告诉我。
 - en: A side note. There are many options for connecting Excel and R. For example
     I have previously showed examples of [RExcel](http://en.wikipedia.org/wiki/RExcel)
     to execute R functions and display their output in Excel.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 一则旁注。连接 Excel 和 R 有许多选项。例如，我以前展示过使用 [RExcel](http://en.wikipedia.org/wiki/RExcel)
+    执行 R 函数并在 Excel 中显示其输出的示例。

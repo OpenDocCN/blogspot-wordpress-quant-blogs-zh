@@ -1,73 +1,106 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:49:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:49:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Experiments in Time Series Clustering'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：时间序列聚类实验
 - en: 来源：[http://timelyportfolio.blogspot.com/2015/03/experiments-in-time-series-clustering.html#0001-01-01](http://timelyportfolio.blogspot.com/2015/03/experiments-in-time-series-clustering.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2015/03/experiments-in-time-series-clustering.html#0001-01-01](http://timelyportfolio.blogspot.com/2015/03/experiments-in-time-series-clustering.html#0001-01-01)
 - en: Last night I spotted this tweet about the R package [TSclust](http://cran.r-project.org/web/packages/TSclust/index.html).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨晚我注意到这条关于R包[TSclust](http://cran.r-project.org/web/packages/TSclust/index.html)的推文。
 - en: I should start by saying that I really don’t know what I’m doing, **so be warned**. 
     I thought it would interesting to apply TSclust to the S&P 500 price time series. 
     I took the 1-day simple rate of change, grouped by year with dplyr, and then indexed
     by the day of the year all in one [pipeR](http://renkun.me/pipeR-tutorial/) pipeline. 
     Since the TSclust paper
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我应该首先说，我真的不知道我在做什么，**所以请小心**。我想将TSclust应用于标普500价格时间序列，看看会发生什么。我取了1天的简单变化率，用dplyr按年分组，然后用一天中的那一天索引，全部在一个[pipeR](http://renkun.me/pipeR-tutorial/)管道中完成。由于TSclust论文
 - en: 'TSclust: An R Package for Time Series Clustering'
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: TSclust：用于时间序列聚类的R包
 - en: ''
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Journal of Statistical Software, Volume 62, Issue 1
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 统计软件杂志，第62卷，第1期
 - en: ''
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: November 2014
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 2014年11月
 - en: ''
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '[http://www.jstatsoft.org/v62/i01/paper](http://www.jstatsoft.org/v62/i01/paper
     "http://www.jstatsoft.org/v62/i01/paper")'
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[http://www.jstatsoft.org/v62/i01/paper](http://www.jstatsoft.org/v62/i01/paper)'
 - en: demonstrates interoperability with hclust in their OECD interest rate example
     ( Section 5.2 ), I thought I could visualize the results nicely with [treewidget
     from the epiwidgets package](http://www.buildingwidgets.com/blog/2015/2/26/week-08-interactive-phylogeny). 
     Just because the htmlwidget was designed for phylogeny doesn’t mean we can’t use
     it for finance.  Here is the result.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在他们的经合组织利率示例中展示了与hclust的互操作性（第5.2节），我认为可以用[epiwidgets包中的treewidget](http://www.buildingwidgets.com/blog/2015/2/26/week-08-interactive-phylogeny)很好地可视化结果。仅仅因为htmlwidget是为了系统发育而设计的，并不意味着我们不能用它来处理金融数据。以下是结果。
 - en: For reference and searching, I’ll copy the code below, but all of this can be
     found in this [Github repo](https://github.com/timelyportfolio/TSclust_experiments).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了参考和搜索，我将复制下面的代码，但所有这些都可以在这[Github仓库](https://github.com/timelyportfolio/TSclust_experiments)中找到。
 - en: '[PRE0]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

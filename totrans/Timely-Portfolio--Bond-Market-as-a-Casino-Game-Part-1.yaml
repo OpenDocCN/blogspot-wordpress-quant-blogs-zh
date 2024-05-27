@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:19:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:19:09'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Bond Market as a Casino Game Part 1'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：债券市场如同赌场游戏 第一部分
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-1.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-1.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-1.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/bond-market-as-casino-game-part-1.html#0001-01-01)
 - en: With this post, I am doing something I try very hard to avoid, especially when
     communicating to my clients, and that is blurring the line between investing and
     gambling.  But after reading all of [Reuven Brenner’s](http://www.amazon.com/gp/product/0521711576/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=timelyp-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0521711576)
     books and finishing [Ralph Vince *Leverage Space Trading Model*](http://www.amazon.com/gp/product/0470455950/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=timelyp-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0470455950),
     I think blurring the line can offer additional insights and methods not traditionally
     available.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我正在做一件我尽量避免做的事情，尤其是在与我的客户沟通时，那就是模糊了投资与赌博之间的界限。但在阅读了 [Reuven Brenner 的](http://www.amazon.com/gp/product/0521711576/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=timelyp-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0521711576)
+    所有著作并完成 [Ralph Vince 的 *Leverage Space Trading Model*](http://www.amazon.com/gp/product/0470455950/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=timelyp-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0470455950)
+    之后，我认为模糊界限可以提供传统方法以外的额外见解和方法。
 - en: As a starting point, let’s apply basic probability methods on the most widely
     used bond index Barclays Aggregate Total Return to test my belief that the 1980-current
     bull run in bonds has offered one of the best games ever for any investor in the
@@ -35,65 +51,108 @@
     up 70% of all month since 1980, and the up months generate on average 1.44% return
     compared to the down months –1.02%.  If we put this in casino terms, it is like
     winning 7 of every 10 games with a payout of 1.4 to 1.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为一个起点，让我们在最广泛使用的债券指数巴克莱综合总回报上应用基本的概率方法，以测试我的信念，即自 1980 年以来的债券牛市为市场历史上任何投资者提供了最好的游戏之一（请参阅我在
+    [“债券下跌，问题开始被问出”](http://timelyportfolio.blogspot.com/2010/12/bonds-tumble-and-questions-start.html)
+    的文章）。在下面显示的 Microsoft Excel 数据透视表中，自 1980 年以来，巴克莱综合指数已经上涨了所有月份的 70%，上涨的月份平均回报为
+    1.44%，而下跌的月份为 -1.02%。如果我们把这个说成赌场术语，就像是在每 10 场游戏中赢得 7 场，并且赔率为 1.4：1。
 - en: '[![](img/be647c5847508470774cde6d65439fcb.png)](https://picasaweb.google.com/lh/photo/jTUjP4OxizVAh7mdo5-48Q?feat=embedwebsite)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/be647c5847508470774cde6d65439fcb.png)](https://picasaweb.google.com/lh/photo/jTUjP4OxizVAh7mdo5-48Q?feat=embedwebsite)'
 - en: For another look, let’s use R and PerformanceAnalytics to see the histogram
     and boxplot.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 再来看一下，让我们使用 R 和 PerformanceAnalytics 查看直方图和箱线图。
 - en: '| [![](img/ab52dc07f05f517fb90890ed2cb5ac63.png)](https://picasaweb.google.com/lh/photo/jadWQXvunFo1MoJVjc0WQA?feat=embedwebsite)
     |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '| [![](img/ab52dc07f05f517fb90890ed2cb5ac63.png)](https://picasaweb.google.com/lh/photo/jadWQXvunFo1MoJVjc0WQA?feat=embedwebsite)
+    |'
 - en: '| From [TimelyPortfolio](https://picasaweb.google.com/kentonlrussell/TimelyPortfolio02?feat=embedwebsite)
     |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '| 来自 [TimelyPortfolio](https://picasaweb.google.com/kentonlrussell/TimelyPortfolio02?feat=embedwebsite)
+    |'
 - en: '*source:Barclays Capital and thanks to the fine contributors to R and PerformanceAnalytics*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '*来源：巴克莱资本，感谢 R 和 PerformanceAnalytics 的优秀贡献者*'
 - en: Now that we have the basic probabilities secured, we can have all sorts of fun
     in later posts with the Leverage Space techniques and Monte Carlo simulations.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们已经确立了基本的概率，我们可以在后续的文章中利用杠杆空间技术和蒙特卡洛模拟进行各种有趣的尝试。
 - en: 'R code:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'R 代码:'
 - en: require(PerformanceAnalytics)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(quantstrat)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantstrat)
 - en: '#load index data given as date and total return value'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#加载日期和总回报值给出的指数数据'
 - en: BarAgg<-as.xts(read.csv("lbustruu.csv",row.names=1))
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: BarAgg<-as.xts(read.csv("lbustruu.csv",row.names=1))
 - en: '#convert to monthly return series for PerformanceAnalytics'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#转换为 PerformanceAnalytics 的月度回报系列'
 - en: '#use discrete ROC to get simple monthly return'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用离散 ROC 获取简单的月度回报'
 - en: '#((value this month-value last month)/value last month)-1'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#((本月价值-上月价值)/上月价值)-1'
 - en: BarAggReturn<-ROC(BarAgg,n=1,"discrete")
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: BarAggReturn<-ROC(BarAgg,n=1,"discrete")
 - en: 'par(mfrow=c(2,1)) #2 rows and 1 column'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 'par(mfrow=c(2,1)) #2 行 1 列'
 - en: chart.Histogram(BarAggReturn["1980::"],main="Barclays Aggregate Total Return
     Monthly % Histogram since 1980",cex.main=1,xlab=NULL,breaks=15,methods="add.centered")
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.Histogram(BarAggReturn["1980::"],main="自 1980 年以来巴克莱综合总回报月度 % 直方图",cex.main=1,xlab=NULL,breaks=15,methods="add.centered")
 - en: chart.Boxplot(BarAggReturn["1980::"],main="Barclays Aggregate Total Return Monthly
     % Boxplot since 1980",cex.main=1,xlab=NULL,names=FALSE)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表.箱线图(BarAggReturn["1980::"],主标题="自1980年以来巴克莱综合回报月度百分比箱线图",主标题字体大小=1,x轴标签=NULL,名称=FALSE)

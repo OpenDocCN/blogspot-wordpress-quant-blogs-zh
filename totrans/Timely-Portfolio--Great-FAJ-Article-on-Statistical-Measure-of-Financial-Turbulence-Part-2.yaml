@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:18:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Great FAJ Article on Statistical Measure of Financial Turbulence
     Part 2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：金融动荡统计测量的优秀 FAJ 文章第二部分
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical_26.html#0001-01-01)
 - en: '[![faj abstract](img/83360755bc97c4bdbc31c63f84665b6b.png "faj abstract")](http://www.cfapubs.org/doi/abs/10.2469/faj.v66.n5.3)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![faj 摘要](img/83360755bc97c4bdbc31c63f84665b6b.png "faj 摘要")](http://www.cfapubs.org/doi/abs/10.2469/faj.v66.n5.3)'
 - en: I did not intend for this to be a multi-part series, but after some clear thinking
     at the beach over the weekend, I decided that it needed some more analysis.  For
     those of you that read the article or know [Mahalanobis distance](http://en.wikipedia.org/wiki/Mahalanobis_distance),
@@ -29,121 +43,199 @@
     Financial Turbulence](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.htmlhttp://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.html)
     was a derivative of actual Mahalanobis distance.  To close the gap between the
     actual calculation and my measure, I thought I should show both calculations.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我并不打算让这成为一个多部分系列，但在周末海滩上经过一番清晰的思考后，我决定它需要更多的分析。对于那些阅读了文章或了解[马哈拉诺比斯距离](http://en.wikipedia.org/wiki/Mahalanobis_distance)的人，我在我的帖子[金融动荡统计测量的优秀
+    FAJ 文章](http://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.htmlhttp://timelyportfolio.blogspot.com/2011/04/great-faj-article-on-statistical.html)中呈现的度量是实际马哈拉诺比斯距离的派生物。为了弥补实际计算和我的度量之间的差距，我认为我应该展示两种计算方法。
 - en: The Mahalanobis calculation here is based on the entire dataset.  Of course,
     we do not have the luxury of hindsight in trading, so I think my real-time measure
     works well as displayed by the system shown in the first post.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的马哈拉诺比斯计算基于整个数据集。当然，在交易中我们没有后见之明的奢侈，所以我认为我的实时度量如第一篇帖子中所示的系统表现良好。
 - en: 'R code:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: require(quantmod)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: '#get data from St. Louis Federal Reserve (FRED)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从圣路易斯联邦储备（FRED）获取数据'
 - en: 'getSymbols("GS20",src="FRED") #load 20yTreasury; 20y has gap 86-93; 30y has
     gap in early 2000s'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS20",src="FRED") #加载 20yTreasury；20 年中间有间隙 86-93；30 年中间有早期 2000
+    年代的间隙'
 - en: 'getSymbols("GS30",src="FRED") #load 30yTreasury to fill 20y gap 86-93'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS30",src="FRED") #加载 30yTreasury 以填补 20y 间隙 86-93'
 - en: '#getSymbols("BAA",src="FRED") #load BAA'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#getSymbols("BAA",src="FRED") #加载 BAA'
 - en: 'getSymbols("SP500",src="FRED") #load SP500'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("SP500",src="FRED") #加载 SP500'
 - en: '#get CRB data from a csv file'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从 csv 文件获取 CRB 数据'
 - en: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-as.xts(read.csv("crb.csv",row.names=1))[,1]
 - en: '#fill 20y gap from discontinued 20y Treasuries with 30y'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#用 30y 填补从中止的 20y 国库券中的 20 年间隙'
 - en: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: GS20["1987-01::1993-09"]<-GS30["1987-01::1993-09"]
 - en: '#do a little manipulation to get the data lined up on monthly basis'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#进行一些操作，使数据在月度基础上排列'
 - en: SP500<-to.monthly(SP500)[,4]
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: SP500<-to.monthly(SP500)[,4]
 - en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将月度格式转换为 yyyy-mm-dd，以月初为准'
 - en: index(SP500)<-as.Date(index(SP500))
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: index(SP500)<-as.Date(index(SP500))
 - en: '#my CRB data is end of month; could change but more fun to do in R'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我的 CRB 数据是月底的；可能会改变，但在 R 中更有趣'
 - en: CRB<-to.monthly(CRB)[,4]
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: CRB<-to.monthly(CRB)[,4]
 - en: index(CRB)<-as.Date(index(CRB))
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: index(CRB)<-as.Date(index(CRB))
 - en: '#let''s merge all this into one xts object; CRB starts latest in 1956'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#让我们将所有这些合并到一个 xts 对象中；CRB 最晚在 1956 年开始'
 - en: assets<-na.omit(merge(GS20,SP500,CRB))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: assets<-na.omit(merge(GS20,SP500,CRB))
 - en: '#use ROC for SP500 and CRB and momentum for yield data'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用 SP500 和 CRB 的 ROC，以及收益数据的动量'
 - en: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:3],type="discrete")))
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROC<-na.omit(merge(momentum(assets[,1])/100,ROC(assets[,2:3],type="discrete")))
 - en: '#get Covariances and multiply to by 100000 for 20y to sp500 and crb and 1000
     for sp500 to crb to standardize'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取协方差并将 100000 乘以 20 年到 sp500 和 crb，以及将 1000 乘以 sp500 到 crb 以标准化'
 - en: '#don''t like this manual intervention; next post will use correlation instead'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '#不喜欢这种手动干预；下一篇文章将使用相关性'
 - en: assetCovar<-runCov(assetROC[,1],assetROC[,2],n=2)*100000+runCov(assetROC[,1],assetROC[,3],n=2)*100000+runCov(assetROC[,2],assetROC[,3],n=2)*1000
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: assetCovar<-runCov(assetROC[,1],assetROC[,2],n=2)*100000+runCov(assetROC[,1],assetROC[,3],n=2)*100000+runCov(assetROC[,2],assetROC[,3],n=2)*1000
 - en: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCSum<-assetROC[,1]+assetROC[,2]+assetROC[,3]
 - en: turbulence<-abs(assetCovar*assetROCSum)
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: turbulence<-abs(assetCovar*assetROCSum)
 - en: Sx <- cov(assetROC)
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: Sx <- cov(assetROC)
 - en: mahalanobisturbulence <- mahalanobis(assetROC, colMeans(assetROC), Sx)
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 马氏湍流 <- mahalanobis(assetROC, colMeans(assetROC), Sx)
 - en: mahalanobisturbulence<-as.xts(cbind(mahalanobisturbulence))
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 马氏湍流<-as.xts(cbind(mahalanobisturbulence))
 - en: turbulencecompare<-merge(mahalanobisturbulence,turbulence)
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 湍流比较<-merge(mahalanobisturbulence,turbulence)
 - en: colnames(turbulencecompare)<-c("Mahalanobis","MyEstimate")
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 湍流比较的列名<-c("马氏","我的估计")
 - en: chart.TimeSeries(turbulencecompare,main="Mahalanobis Distance Compared to My
     Measure",
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 时间序列图(turbulencecompare,主标题="马氏距离与我的测量比较",
 - en: colorset=c("cadetblue","darkolivegreen3"),legend.loc="topleft")
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 颜色设置=c("军兰色","深橄榄绿3"),图例位置="顶部左方")
 - en: chart.Correlation(turbulencecompare)
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 相关性图(turbulencecompare)

@@ -1,98 +1,158 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:18:32'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:18:32'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Historical Sources of Bond Returns'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 历史债券回报来源'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/historical-sources-of-bond-returns.html#0001-01-01)
 - en: As promised in [Monitoring Sources of Bond Return](http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html),
     we can show more history if we use CPI instead of expected inflation (from the
     TIP inflation breakeven yield).  Here are the results with history back to 1953.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如在[监控债券回报来源](http://timelyportfolio.blogspot.com/2011/04/monitoring-sources-of-bond-return.html)中所承诺的，如果我们使用消费者价格指数（CPI）而不是预期通胀（来自TIP通胀预期收益率），我们可以展示更多的历史数据。以下是自1953年以来的历史数据。
 - en: However, more history includes negative inflation, so I think the chart is a
     little more clear with a PerformanceAnalytics chart.TimeSeries graph.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，更多历史数据包括负通胀，因此我认为使用PerformanceAnalytics图表.TimeSeries图表会使图表更清晰。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(reshape2)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(reshape2)
 - en: require(ggplot2)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: 'getSymbols("GS10",src="FRED") #load 10yTreasury'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("GS10",src="FRED") #载入10年国债'
 - en: 'getSymbols("BAA",src="FRED") #load Corporate for credit'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("BAA",src="FRED") #载入企业债券用于信用'
 - en: 'getSymbols("CPIAUCSL",src="FRED") #load CPI for inflation'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'getSymbols("CPIAUCSL",src="FRED") #载入CPI用于通胀'
 - en: bondReturnSources<-na.omit(merge(ROC(CPIAUCSL,12,type="discrete")*100,BAA-GS10,GS10-ROC(CPIAUCSL,12,type="discrete")*100))
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSources<-na.omit(merge(ROC(CPIAUCSL,12,type="discrete")*100,BAA-GS10,GS10-ROC(CPIAUCSL,12,type="discrete")*100))
 - en: 'bondReturnSources<-merge(bondReturnSources,bondReturnSources[,1]+bondReturnSources[,2]+bondReturnSources[,3])
     #add for total'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 'bondReturnSources<-merge(bondReturnSources,bondReturnSources[,1]+bondReturnSources[,2]+bondReturnSources[,3])
+    #为总和添加'
 - en: colnames(bondReturnSources)<-c("Inflation","Credit","Real","Total")
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSources)<-c("Inflation","Credit","Real","Total")
 - en: chart.TimeSeries(bondReturnSources,legend.loc="bottom",main="Historical Sources
     of Bond Returns",ylab="Yield as %",colorset=c("darkolivegreen3","cadetblue","goldenrod","gray70"))
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(bondReturnSources,legend.loc="bottom",main="历史债券回报来源",ylab="收益率（%）",colorset=c("darkolivegreen3","cadetblue","goldenrod","gray70"))
 - en: '#use this for stacked bar, but comes out strange with too many months'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#用于堆叠条形图，但月份太多时效果奇怪'
 - en: '#chart.StackedBar(bondReturnSources["1953::"],main="Historical Sources of Bond
     Returns",ylab="Yield as %",colorset=c("darkgreen","red","blue"))'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#chart.StackedBar(bondReturnSources["1953::"],main="历史债券回报来源",ylab="收益率（%）",colorset=c("darkgreen","red","blue"))'
 - en: '#use ggplot for consistency with previous plot, but negative makes chart hard
     to read'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用ggplot保持与之前图表的一致性，但负值使得图表难以阅读'
 - en: bondReturnSourcesToGraph<-data.frame(cbind(as.Date(index(bondReturnSources)),coredata(bondReturnSources[,1:3])))
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSourcesToGraph<-data.frame(cbind(as.Date(index(bondReturnSources)),coredata(bondReturnSources[,1:3])))
 - en: colnames(bondReturnSourcesToGraph)<-c("Date","Inflation","Credit","Real")
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSourcesToGraph)<-c("Date","Inflation","Credit","Real")
 - en: bondReturnSourcesToGraph<-melt(bondReturnSourcesToGraph,id.vars=1)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: bondReturnSourcesToGraph<-melt(bondReturnSourcesToGraph,id.vars=1)
 - en: colnames(bondReturnSourcesToGraph)<-c("Date","ReturnSource","Yield")
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(bondReturnSourcesToGraph)<-c("Date","ReturnSource","Yield")
 - en: rownames(bondReturnSourcesToGraph)<-c(1:NROW(bondReturnSourcesToGraph))
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: rownames(bondReturnSourcesToGraph)<-c(1:NROW(bondReturnSourcesToGraph))
 - en: ggplot(bondReturnSourcesToGraph, stat="identity", aes(x=Date,y=Yield,fill=ReturnSource,group=ReturnSource))
     + geom_area() +scale_x_date(format = "%Y") + opts(title = "Historical Sources
     of Bond Return")
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(bondReturnSourcesToGraph, stat="identity", aes(x=Date,y=Yield,fill=ReturnSource,group=ReturnSource))
+    + geom_area() +scale_x_date(format = "%Y") + opts(title = "历史债券回报来源")

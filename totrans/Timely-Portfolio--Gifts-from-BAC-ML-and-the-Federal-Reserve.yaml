@@ -1,127 +1,207 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:16:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:16:01'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Gifts from BAC ML and the Federal Reserve'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Timely Portfolio：BAC ML 和圣路易斯联邦储备银行的礼物
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/05/gifts-from-bac-ml-and-federal-reserve.html#0001-01-01)
 - en: Bank of America Merrill Lynch and the Federal Reserve Bank of St. Louis Fed
     continue to surprise me with even more gifts.  This time they added Emerging Market
     Bond Indexes with history back to 1998 (cannot see Asia Pacific Crisis of 1997-1998
     but can see Argentina 2001-2002).  Data like this is extremely difficult to attain
     without significant subscription costs.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 美国美林银行和圣路易斯联邦储备银行继续给我带来更多惊喜。 这次，他们添加了历史可追溯到1998年的新兴市场债券指数（无法看到1997-1998年亚太危机，但可以看到2001-2002年的阿根廷危机）。
+    如果没有昂贵的订阅费用，要获得此类数据是非常困难的。
 - en: Since BAC ML and the Fed took it a step further, I feel equally obligated to
     extend my post [Bank of America Merrill Lynch Bond Returns on St. Louis Fed](http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html)
     to include some of this newly added data.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于 BAC ML 和联邦储备银行采取了更进一步的措施，我同样感到有义务扩展我的文章 [美国美林银行债券回报来自圣路易斯联邦储备银行](http://timelyportfolio.blogspot.com/2011/05/bank-of-america-merrill-lynch-bond.html)
+    以包括一些这些新增数据。
 - en: 'R code:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: '#thank you Bank of America Merrill Lynch and St. Louis Fed for this data'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '#感谢美国美林银行和圣路易斯联邦储备银行提供此数据'
 - en: require(quantmod)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(ggplot2)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: require(ggplot2)
 - en: '#get Bank of America Merrill Lynch bond index data from St. Louis Fed'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从圣路易斯联邦储备银行获取美国美林银行债券指数数据'
 - en: '#use auto.assign = FALSE so we can use shorter names'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#使用 auto.assign = FALSE 以便我们可以使用较短的名称'
 - en: MLAsiaEmCorp<-getSymbols("BAMLEMRACRPIASIATRIV",src="FRED",auto.assign=FALSE)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: MLAsiaEmCorp<-getSymbols("BAMLEMRACRPIASIATRIV",src="FRED",auto.assign=FALSE)
 - en: MLLatAmEmCorp<-getSymbols("BAMLEMRLCRPILATRIV", src="FRED", auto.assign=FALSE)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: MLLatAmEmCorp<-getSymbols("BAMLEMRLCRPILATRIV", src="FRED", auto.assign=FALSE)
 - en: MLUSCorp<-getSymbols("BAMLCC0A0CMTRIV", src="FRED", auto.assign=FALSE)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: MLUSCorp<-getSymbols("BAMLCC0A0CMTRIV", src="FRED", auto.assign=FALSE)
 - en: MLBondIndexes<-na.omit(merge(ROC(MLAsiaEmCorp,1,type="discrete"),ROC(MLLatAmEmCorp,1,type="discrete"),ROC(MLUSCorp,1,type="discrete")))
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: MLBondIndexes<-na.omit(merge(ROC(MLAsiaEmCorp,1,type="discrete"),ROC(MLLatAmEmCorp,1,type="discrete"),ROC(MLUSCorp,1,type="discrete")))
 - en: colnames(MLBondIndexes)<-c("BAC ML Asia Emerging Corporate","BAC ML Latin America
     Emerging Corp","BAC ML US Corporate Master")
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(MLBondIndexes)<-c("BAC ML 亚洲新兴企业","BAC ML 拉丁美洲新兴企业","BAC ML 美国企业总集")
 - en: charts.PerformanceSummary(MLBondIndexes,ylog=TRUE,
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(MLBondIndexes,ylog=TRUE,
 - en: colorset=c("cadetblue","darkolivegreen3","gray70"),
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: colorset=c("军校蓝","深橄榄绿3","灰色70"),
 - en: main="Bank of America Merrill Lynch Bond Indicies from St. Louis Fed")
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: main="美国美林银行债券指数来自圣路易斯联邦储备银行")
 - en: '#do some downside analysis on monthly returns'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#对月度回报进行一些风险分析'
 - en: MLBondIndexes<-merge(monthlyReturn(MLAsiaEmCorp),monthlyReturn(MLLatAmEmCorp),monthlyReturn(MLUSCorp))
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: MLBondIndexes<-merge(monthlyReturn(MLAsiaEmCorp),monthlyReturn(MLLatAmEmCorp),monthlyReturn(MLUSCorp))
 - en: colnames(MLBondIndexes)<-c("BAC ML Asia Emerging Corporate","BAC ML Latin America
     Emerging Corp","BAC ML US Corporate Master")
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(MLBondIndexes)<-c("BAC ML 亚洲新兴企业","BAC ML 拉丁美洲新兴企业","BAC ML 美国企业总集")
 - en: downsideTable<-melt(cbind(rownames(table.DownsideRisk(MLBondIndexes)),table.DownsideRisk(MLBondIndexes)))
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: downsideTable<-melt(cbind(rownames(table.DownsideRisk(MLBondIndexes)),table.DownsideRisk(MLBondIndexes))))
 - en: colnames(downsideTable)<-c("Statistic","BondIndex","Value")
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(downsideTable)<-c("统计","债券指数","数值")
 - en: ggplot(downsideTable, stat="identity", aes(x=Statistic,y=Value,fill=BondIndex))
     + geom_bar(position="dodge") + coord_flip()
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(downsideTable, stat="identity", aes(x=统计,y=数值,fill=债券指数)) + geom_bar(position="dodge")
+    + coord_flip()
 - en: '#ggplot annual returns'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '#ggplot 年度回报'
 - en: yearReturns<-na.omit(table.CalendarReturns(MLBondIndexes)[,(13:NCOL(table.CalendarReturns(MLBondIndexes)))])
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: yearReturns<-na.omit(table.CalendarReturns(MLBondIndexes)[,(13:NCOL(table.CalendarReturns(MLBondIndexes)))])
 - en: yearReturns<-melt(cbind(rownames(yearReturns),yearReturns))
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: yearReturns<-melt(cbind(rownames(yearReturns),yearReturns))
 - en: colnames(yearReturns)<-c("Year","BondIndex","Return")
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(yearReturns)<-c("年份","债券指数","回报")
 - en: ggplot(yearReturns, stat="identity", aes(x=Year,y=Return,fill=BondIndex)) +
     geom_bar(position="dodge")
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: ggplot(yearReturns, stat="identity", aes(x=年份,y=回报,fill=债券指数)) + geom_bar(position="dodge")
 - en: '#ggplot CAPM statistics'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '#ggplot CAPM 统计'
 - en: capmTable<-melt(cbind(rownames(table.CAPM(MLBondIndexes[,1:2],MLBondIndexes[,3])),table.CAPM(MLBondIndexes[,1:2],MLBondIndexes[,3])))
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: capmTable<-melt(cbind(rownames(table.CAPM(MLBondIndexes[,1:2],MLBondIndexes[,3])),table.CAPM(MLBondIndexes[,1:2],MLBondIndexes[,3])))
 - en: colnames(capmTable)<-c("Statistic","BondIndex","Return")
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '`colnames(capmTable)<-c("Statistic","BondIndex","Return")`'
 - en: ggplot(capmTable, stat="identity", aes(x=Statistic,y=Return,fill=BondIndex))
     + geom_bar(position="dodge") + coord_flip()
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '`ggplot(capmTable, stat="identity", aes(x=Statistic,y=Return,fill=BondIndex))
+    + geom_bar(position="dodge") + coord_flip()`'

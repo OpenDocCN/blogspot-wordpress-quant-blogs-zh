@@ -1,147 +1,235 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:05:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024 年 5 月 18 日 05:05:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Getting intermediate results in Streams'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 获取流中的中间结果'
 - en: 来源：[http://magmasystems.blogspot.com/2007/12/getting-intermediate-results-in-streams.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/getting-intermediate-results-in-streams.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/12/getting-intermediate-results-in-streams.html#0001-01-01](http://magmasystems.blogspot.com/2007/12/getting-intermediate-results-in-streams.html#0001-01-01)
 - en: 'Let''s say that we want to keep a running total of the number of shares that
     we have traded, and at 4:00 PM every day, we want to dump out the total. In Coral8,
     we can do something like this:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 比方说我们希望对我们交易的股票数量进行累加总，每天下午 4 点时，我们希望倾倒出总数。在 Coral8 中，我们可以这样做：
 - en: CREATE LOCAL STREAM Totals (TotalShares INTEGER);INSERT INTO TotalsSELECT SUM(shares)
     FROM TradeInputStream KEEP EVERY 1 DAY OFFSET BY 16 HOURS OUTPUT EVERY 1 DAY OFFSET
     BY 16 HOURS;
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建本地流 Totals (TotalShares INTEGER);INSERT INTO TotalsSELECT SUM(shares) FROM
+    TradeInputStream KEEP EVERY 1 DAY OFFSET BY 16 HOURS OUTPUT EVERY 1 DAY OFFSET
+    BY 16 HOURS;
 - en: This looks pretty straightforward. The Totals stream retains the totals until
     4:00PM. At 4:00 every day, it outputs the total shares to any other stream that
     is "subscribed" to Totals, and then resets itself to start accumulating new totals.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这看起来很简单。Totals 流保留了累加总数，直到下午 4 点。每天下午 4 点，它会将总股票数输出到任何其他订阅 Totals 的流中，然后重置自身以开始累积新的总数。
 - en: This is something that
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是
 - en: CEP
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engines are good at, whether it be Coral8,
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎擅长的技术，无论是 Coral8，
 - en: Aleri
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: ', or'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ，或者
 - en: Esper
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: Esper
 - en: .
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: Now, let's enhance this a little bit.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，让我们稍微完善一下。
 - en: Let's say we give the traders a .NET GUI application, and on this GUI is a "Status"
     button. The traders can press this button any time they want to know how many
     shares have been traded so far that day. So, at 2:00, a trader pushes a button
     on the GUI and we need to return to him the number of orders seen so far that
     day, the number of shares seen, the notional value of all orders, etc.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 比方说我们给交易员一个 .NET 的 GUI 应用程序，在这个 GUI 上有一个“状态”按钮。交易员可以随时按下此按钮，以了解当天到目前为止已经交易了多少股票。因此，在
+    2 点，交易员在 GUI 上按下一个按钮，我们需要向他返回当天迄今为止看到的订单数、看到的股票数、所有订单的名义价值等。
 - en: 'So, there are two questions:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，有两个问题：
 - en: 1) How can we "dump out" these accumulators on demand? In other words, is there
     a way to tell these
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 1）我们如何按需“倾倒”这些累加器？换句话说，是否有办法告诉这些
 - en: CEP
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engines to give me the contents of an aggregation stream AS OF THIS MOMENT ?
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎来给我聚合流的内容直到此时？
 - en: 2) How can we "call into" our
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 2）我们如何“调用到”我们的
 - en: CEP
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine to retrieve these values? Do the
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎来检索这些值？这些
 - en: CEP
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engines support an
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎支持一个
 - en: API
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 应用程序接口（API）
 - en: that I can use from within the GUI to say "Give me the current value of a certain
     variable in my module"? Something like
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 我可以在 GUI 内部使用，说“给我模块中某个变量的当前值”？这样的东西
 - en: IntegerFieldValue field = Coral8Service.GetObject("ccl://localhost:6789/Default/SectorFlowAnalyzer",
     "sum(Shares)") as IntegerFieldValue; int shares = field.Value;
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: IntegerFieldValue field = Coral8Service.GetObject("ccl://localhost:6789/Default/SectorFlowAnalyzer",
+    "sum(Shares)") as IntegerFieldValue; int shares = field.Value;
 - en: In a standard C# application, this would be as simple as putting a Getter on
     a variable, and just calling the getter. If I was using Web Services, then I could
     call into a Web Service and just ask for the values of some variables or for some
     sort of object.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在标准的 C# 应用程序中，这就像给一个变量放一个 Getter，并且调用 Getter 一样简单。如果我要使用 Web 服务，那么我可以调用一个 Web
+    服务，然后询问一些变量的值或某种对象的值。
 - en: '***But, from a C# app, how can I get the current value of a stream that is
     aggregating totals?***'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '***但是，从 C# 应用程序中，我怎么才能得到一个正在聚合总数的流的当前值？***'
 - en: Another way of accumulating the total number of shares in a
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 累积一个
 - en: CEP
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: 'engine is to step into the procedural world, and just define a variable. In
     Coral8, it would be something like this:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎是进入过程化世界，只需定义一个变量。在 Coral8 中，就像这样：
 - en: CREATE VARIABLE TotalShares INTEGER = 0;ON TradeInputStreamSET TotalShares =
     TotalShares + TradeInputStream.shares;
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建变量 TotalShares INTEGER = 0;ON TradeInputStreamSET TotalShares = TotalShares
+    + TradeInputStream.shares;
 - en: Then, we would need a "pulse" to fire at 4:00PM every day, and upon this pulse
     firing, we could send the
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们需要每天下午 4 点触发一个“脉冲”，当这个脉冲触发时，我们可以发送
 - en: TotalShares
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: TotalShares
 - en: to another stream.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 到另一个流。
 - en: I am sure that there are patterns in every CEP engine for accessing intermediate
     results, but something that is a no-brainer in a procedural language may not be
     so easy in a CEP vendor variant of SQL.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 我确信每个复杂事件处理(CEP)引擎都有访问中间结果的模式，但在CEP供应商的SQL变体中，那些在过程式语言中显而易见的东西可能并不那么容易。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

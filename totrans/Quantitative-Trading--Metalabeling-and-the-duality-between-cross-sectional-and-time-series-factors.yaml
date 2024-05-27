@@ -1,37 +1,55 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 同时，时间序列因子通常是市场范围或宏观经济变量，如熟悉的Fama-French 3因子：市场（简单地说，就是市场指数回报）、SMB（小盘股与大盘股的相对回报）和HML（价值股与成长股的相对回报）。这些时间序列因子非常适合金属标签，因为它们可以用来预测您的投资组合或策略的回报。
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 通常有两种因子类型：横截面和时间序列。如果您在建模股票回报，横截面因子是针对个别股票的变量，如它的收益率、股息收益率等。在我们之前的[博客文章](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)中，我们描述了如何为我们的订阅者提供40个此类因子，用于回测和实时预测。但是，我们倡导使用机器学习进行风险管理和资本配置（即[金属标签](https://www.predictnow.ai/blog/what-is-the-probability-of-profit-of-your-next-trade-introducing-predictnow-ai/)），而不是回报预测，您可能想知道这些因子如何帮助预测您的交易策略或投资组合的回报。例如，如果您有一个包含AAPL、GOOG、AMZN等科技股的长期空头组合，并且想要预测在某种市场体制下整个组合是否盈利，AAPL、GOOG和AMZN的收益率作为个别特征真的有意义吗？
 - en: 'date: 2024-05-12 18:54:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01](http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01)
 - en: 'Quantitative Trading: Metalabeling and the duality between cross-sectional
     and time-series factors'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:54:13
 - en: 来源：[http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01](http://epchan.blogspot.com/2021/07/metalabeling-and-duality-between-cross.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: By Ernest Chan and Akshay Nautiyal
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/5612d841760b6fbdee7c387f68f0f694.png)'
 - en: Features are inputs to supervised machine learning (ML) models. In traditional
     finance, they are typically called “factors”, and they are used in linear regression
     models to either explain or predict returns. In the former usage, the factors
     are contemporaneous with the target returns, while in the latter the factors must
     be from a prior period.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：Ernest Chan和Akshay Nautiyal
 - en: '[![](img/5612d841760b6fbdee7c387f68f0f694.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjc8mxor122uQ0HTbPae-Z7oJkQ64NmQR6YUoQUU9vM1-wFe-9qJlYVQO713ADmmIqqWgU2705v4e3X7ygpI2LZgNWL8OpwRD070QOhJCGn0uXGns-iDLnXhMnnFWTCipBUk8LPGA/)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'There are generally two types of factors: cross-sectional vs time-series. If
     you are modeling stock returns, cross-sectional factors are variables that are
     specific to an individual stock, such as its earnings yield, dividend yield, etc.
@@ -45,16 +63,20 @@
     predict whether the portfolio as a whole will be profitable in a certain market
     regime, does it really make sense to have the earnings yields of AAPL, GOOG, and
     AMZN as individual features?'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 特征是监督机器学习（ML）模型的输入。在传统金融中，它们通常被称为“因子”，它们用于线性回归模型来解释或预测回报。在前一种用法中，因子与目标回报是同时的，而在后一种用法中，因子必须来自一个先前的时期。
 - en: Meanwhile, time-series factors are typically market-wide or macroeconomic variables
     such as the familiar Fama-French 3-factors:market (simply, the market index return),
     SMB (the relative return of small cap vs large cap stocks), and HML (the relative
     return of value vs growth stocks). These time-series factors are eminently suitable
     for metalabeling, because they can be used to predict your portfolio or strategy’s
     returns.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化交易：金属标签与横截面和时间序列因子的双重性
 - en: Given that there are many more obvious cross-sectional factors than time-series
     factors available, it seems a pity that we cannot use cross-sectional factors
     as features for metalabeling. Actually, we can –  Eugene Fama and Ken French themselves
@@ -62,8 +84,11 @@
     do is to use it to rank the stocks, form a long-short portfolio using the rankings,
     and use the returns of this portfolio as a time-series factor. The long-short
     portfolio is called a hedge portfolio.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑到可用的横截面因素比时间序列因素更多，且更加明显，我们无法将横截面因素用作金属标注的特征，这实在是一件遗憾。实际上，我们是可以这么做的——尤金·法玛（Eugene
+    Fama）和肯·法国（Ken French）本人已经向我们展示了方法。如果我们手头有一个股票的横截面因素，我们只需使用它来对股票进行排序，根据排序形成一个多空组合，并将这个组合的回报作为一个时间序列因素。这个多空组合被称为对冲组合。
 - en: We show the process of creation of a hedge portfolio with the help of an example,
     starting with Sharadar’s fundamental cross-sectional factors (which we generated
     as shown in the [blog](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)).
@@ -78,16 +103,20 @@
     of the stock based on normalized capex. The dates are carefully chosen to capture
     change in the cross sectional factors of the maximum number of stocks post the
     quarterly filings.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们通过一个示例来展示如何创建对冲组合，这个示例从Sharadar的基本横截面因素开始（我们如博客中所示生成了这些因素 [博客](https://www.predictnow.ai/blog/introducing-pre-engineered-stock-fundamental-features-at-predictnow-ai/)）。有40个横截面因素，以三种不同的频率更新——季度、年度和十二个月滚动。在这个练习中，我们只使用季度的横截面因素。给定一个如CapEx（资本支出）的因素，我们考虑从2010年1月1日至今的特定日期的约8500只股票的标准化CapEx。每年有四个特别的日子感兴趣——1月15日、4月15日、7月15日和10月15日。我们称这些为排序日期。在每这些日期，我们根据标准化CapEx找到股票的百分位排名。这些日期是精心选择的，以捕捉季度文件发布后最多股票的横截面因素的变化。
 - en: Once the capex across stocks is ranked at each ranking date (4 dates) each year
     we obtain the stocks present in the upper quartile (i.e ranked above 75 percentile)
     and the stocks present in the lower quartile (i.e ranked below 25 percentile).
     We take a long position on the ones which showed highest normalized capex and
     take a short position on the ones with the lowest. Both these sets together make
     our long-short hedge portfolio.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦每年在四个排序日期对股票的CapEx进行排序（即每季度一次），我们就得到了处于上四分位（即排名在75百分位以上）的股票和处于下四分位（即排名在25百分位以下）的股票。我们对那些显示最高标准化CapEx的股票持多头立场，对那些最低的股票持空头立场。这两组股票共同构成了我们的多空对冲组合。
 - en: Once we have the portfolio on a given ranking date we generate the daily returns
     of the portfolio using risk parity allocation (i.e allocate proportional to inverse
     volatility). The daily returns of each chosen stock are calculated for each day
@@ -99,13 +128,17 @@
     portfolio returns. The daily returns generated in this process are the capex time
     series factors. This process is repeated for all other Sharadar cross-sectional
     factors.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦我们在给定的排序日期上有了组合，我们就可以使用风险对等分配（即按逆波动率分配）来产生组合的日回报。为每个选定的股票计算每个日期的日回报，直至下一个排序日期。每个交易日的组合权重是两个月滚动标准差的归一化倒数。这些权重每天都会变化，并将乘以单个股票的日回报，以得到组合的日回报。如果一个组合股票在排序日期之间被摘牌，我们只需删除该股票，不使用它来计算组合回报。这个过程产生的日回报是资本支出（CapEx）的时间序列因素。这个过程对所有其他Sharadar横截面因素重复进行。
 - en: So, voila! 40 cross-sectional factors become 40 time-series factors, and they
     can be used for metalabeling any portfolio or trading strategy, whether it trades
     stocks, futures, FX, or anything at all.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，就这样！40个横截面因子变成了40个时间序列因子，它们可以用于任何投资组合或交易策略的金属标签，无论它交易的是股票、期货、外汇还是其他任何东西。
 - en: What about the opposite conversion? Can we turn time-series factors into cross-sectional
     factors suitable for predicting the returns of individual stocks? Actually, there
     is no need. You can directly add any time-series factor to your feature set for
@@ -113,11 +146,15 @@
     factor model with an individual stock’s returns as dependent variable and the
     time-series factor as independent variable, a process well-known in traditional
     finance.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么反过来转换呢？我们可以把时间序列因子变成适合预测个别股票回报的横截面因子吗？实际上，并不需要。你可以直接将任何时间序列因子添加到你的特征集中，用于预测个别股票的回报。这相当于建立一个线性因子模型，以个别股票的回报为因变量，时间序列因子为自变量，这一过程在传统金融中是众所周知的。
 - en: 'On a side note: besides these 40 time-series (and their corresponding cross-sectional)
     features, we have compiled an additional 197 proprietary time-series features
     available to our [Premium subscribers](https://www.predictnow.ai/services/), and
     available via our API.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便提一下：除了这40个时间序列（及其相应的横截面）特征外，我们还编制了另外197个专有时间序列特征，供我们的[高级订阅用户](https://www.predictnow.ai/services/)使用，并通过我们的API提供。

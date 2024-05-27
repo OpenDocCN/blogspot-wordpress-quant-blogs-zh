@@ -1,69 +1,100 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:41:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:41:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Path Dependent Problem | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 路径依赖问题 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2007/10/29/path-dependent-problem/#0001-01-01](https://tr8dr.wordpress.com/2007/10/29/path-dependent-problem/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2007/10/29/path-dependent-problem/#0001-01-01](https://tr8dr.wordpress.com/2007/10/29/path-dependent-problem/#0001-01-01)
 - en: October 29, 2007 · 11:54 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2007年10月29日 · 11:54 pm
 - en: 'Saw a fun problem posed on one of the [Joel On Software](http://joelonsoftware.com/)
     forums:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[Joel On Software](http://joelonsoftware.com/)论坛上看到一个有趣的问题：
 - en: On a empty chessboard, a knight starts from a point (say location x,y) and it
     starts moving randomly, but once it moves out of board, it can’t come back inside.
     So what is the total probability that it stays within the board after N steps.
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 在一个空棋盘上，一个马从点（比如说位置x,y）开始随机移动，但一旦它走出棋盘，就不能再回到棋盘内。那么，它在N步之后还留在棋盘内的总概率是多少。
 - en: 'This problem is similar to a digital knockout barrier option, but where the
     path is the random movement of a chess piece across the board rather than the
     movement of a security price over time. The solution I wrote up was as follows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个问题与数字淘汰屏障期权相似，不同之处在于路径是棋子在棋盘上随机移动，而不是证券价格随时间的变化。我写的解决方案如下：
 - en: This can be computed as the an expectation function across all possible paths
     (including paths outside of the 8×8 grid). Think of a 8-way tree where the root
     represents the starting position and each node has 8 children representing each
     of the 8 possible moves from the current position.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 这可以表示为所有可能路径的期望函数（包括8×8网格外的路径）。想象一个8向树，根节点代表起始位置，每个节点有8个子节点，代表从当前位置的8个可能移动。
 - en: ''
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'The joint probability of:'
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 联合概率为：
 - en: ''
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: – making the move (1/8)
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: – 移动（1/8）
 - en: – within grid (0 or 1)
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: – 在网格内（0或1）
 - en: ''
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -71,48 +102,65 @@
     of length N, the joint probability of having taken the path and being fully within
     the grid is either (1/8)^N or 0\. The expectation function simply sums across
     all possible N length paths.
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 应该是任何给定节点的值（基本上是1/8或0）。对于任何长度为N的路径，采取该路径并且完全在网格内的联合概率要么是(1/8)^N，要么是0。期望函数简单地对所有可能的N长度路径求和。
 - en: ''
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 'The expectation function and paths can be expressed as a recursive sum (assuming
     i,j in chessboard for [1,8]):'
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 期望函数和路径可以表示为递归和（假设i,j在棋盘上为[1,8]）：
 - en: ''
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: E(i,j,N) =
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: E(i,j,N) =
 - en: ''
+  id: totrans-22
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: 1/8[E(i-2,j-1,N-1) + E(i-2,j+1,N-1) + E(i+2,j-1,N-1) + …] if 1 <= i,j <= 8
+  id: totrans-23
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 1/8[E(i-2,j-1,N-1) + E(i-2,j+1,N-1) + E(i+2,j-1,N-1) + …] 如果 1 <= i,j <= 8
 - en: 1 if N <= 0
+  id: totrans-24
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果 N <= 0
 - en: 0 otherwise
+  id: totrans-25
   prefs:
   - PREF_BQ
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 否则0
 - en: I would be curious to see other approaches for this problem. The recurrence
     relation with conditional function is interesting because can introduce a wide
     variety of conditions and payoffs. Would be easy to change the “barriers” and/or
     skews in the probability of moving in one direction versus another.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很想看看这个问题其他的解决方法。带有条件函数的递推关系很有趣，因为它可以引入各种各样的条件和收益。改变“屏障”和/或朝一个方向移动的概率与另一个方向的概率很容易。

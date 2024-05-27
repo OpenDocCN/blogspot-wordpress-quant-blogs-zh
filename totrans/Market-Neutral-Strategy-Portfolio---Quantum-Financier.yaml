@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:01:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:01:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Market Neutral Strategy Portfolio – Quantum Financier
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 市场中性策略组合 - 量子金融家
 - en: 来源：[https://quantumfinancier.wordpress.com/2010/12/15/market-neutral-strategy-portfolio/#0001-01-01](https://quantumfinancier.wordpress.com/2010/12/15/market-neutral-strategy-portfolio/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantumfinancier.wordpress.com/2010/12/15/market-neutral-strategy-portfolio/#0001-01-01](https://quantumfinancier.wordpress.com/2010/12/15/market-neutral-strategy-portfolio/#0001-01-01)
 - en: In continuation with last post on market neutrality, this post will look into
     obtaining market neutrality for a portfolio of strategy. As mentioned in last
     post, investors can trade many strategies with conflicting signals. For this particular
@@ -27,14 +39,18 @@
     strategy with a high turnover, while the so termed “golden cross” is a polar opposite
     very slow moving low frequency strategy. Also assume this investor allocate 50%
     of his capital to both strategy.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 继上篇关于市场中性度的文章之后，本文将探讨如何为策略组合获得市场中性。如上篇文章所述，投资者可以交易许多相互矛盾信号的策略。对于这个特定的例子，想象一个交易者正在交易两种策略；一个是RSI2，另一个是标普500的50-200移动平均线交叉。你可以想象到这些策略的信号将会是相互冲突的。RSI2是一个非常短期的策略，换手率很高，而所谓的“黄金交叉”则是一个极慢移动的低频策略。同时假设这个投资者将他资本的50%分配给这两种策略。
 - en: Now in this particular experiment, we have that portfolio of strategies and
     want to short or long some SPY in order to remain market neutral. To accomplish
     this we will use the commonly used simple linear regression and the slightly more
     robust quantile regression.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这个特定的实验中，我们拥有这样一组策略组合，并希望做空或做多一些SPY，以保持市场中性。为了实现这一点，我们将使用常用的简单线性回归和稍微更稳健的分位数回归。
 - en: Simply put, we are simply using the portfolio (dependant) and market (independent)
     returns series to obtain the prescribed hedge ratio approximated by the regression
     coefficient. Now everyone is likely familiar with the linear regression so I will
@@ -45,21 +61,29 @@
     is that we expect the regression coefficients to vary depending on the level of
     the predictor variable. Note that in this experiment I used the linear quantile
     regression but there exists a non-linear version of it.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 简单来说，我们只是使用组合（依赖）和市场（独立）回报系列来获得由回归系数所规定的对冲比率近似值。现在大家可能都熟悉线性回归，所以我将跳过简介。然而分位数回归并不那么主流。它简单地估计了条件分位数回归函数τ(![\tau](img/8680be82b79a2cba9a9bfe41df61f6d3.png))，并给出了基于当前预测变量的分位数（τ）的预期值。使用分位数回归的前提是我们期望回归系数会根据预测变量的水平而变化。注意，在这个实验中我使用了线性分位数回归，但它存在一个非线性版本。
 - en: The results below are obtained using a 60 days lookback period for the hedge
     ratio calculation. They represent the equity curves of the portfolio traded with
     the market neutral long/short hedge as prescribed by the regression coefficient.
     A note of caution here, doing this will reduce returns however, it also reduces
     volatility.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面结果显示是使用60天的回测期来计算对冲比率得到的。它们表示了按照回归系数所规定的市场中性多/空对冲交易的组合的权益曲线。这里要提个醒，这样做会减少回报，但同时也会减少波动性。
 - en: '[![](img/909fec31dcb1549ae0864384eccf9308.png "OLS vs Quantreg")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/12/ols-vs-quantreg1.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '![OLS vs Quantreg](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/12/ols-vs-quantreg1.png)'
 - en: '[![](img/bf61716ade610630b88db2382b8cc539.png "OLS vs Quantreg")](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/12/ols-vs-quantreg.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![OLS vs Quantreg](https://quantumfinancier.wordpress.com/wp-content/uploads/2010/12/ols-vs-quantreg.png)'
 - en: I think this result is interesting in a couple of ways. But first I want to
     look if market neutrality is effectively obtained. As explained in last post,
     we often say we are market neutral if our beta is zero. Readers that have experimented
@@ -69,15 +93,21 @@
     I could have used a more robust bootstrap test but I wanted to keep things simple.
     The t-test confirmed that the observed beta was effectively not different from
     zero and that we obtained theoretical market neutrality with both methods.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为这个结果在几个方面都很有趣。但首先我想看看市场中性是否有效地实现了。正如上篇文章所解释的，我们经常说我们的贝塔系数为零时，我们就是市场中性。那些尝试过这个概念的读者知道，贝塔系数永远不会严格为零，而是围绕它震荡。为了测试我的目标是否达成，我用了一个简单的t检验来检验观察到的贝塔系数的60天滚动平均值。另外，我本可以使用更稳健的bootstrap检验，但我想要保持事情的简单。t检验确认了观察到的贝塔系数有效地与零没有区别，而且我们用两种方法都达到了理论上的市场中性。
 - en: To conclude, I was happy the result confirmed my expectation with quantile regression
     which tested slightly better. I think there is value in the quantile regression
     when considering market neutrality as an objective for a strategy or a portfolio
     of strategies. The dynamic linear modelling approach is left to the interested
     reader.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 总结一下，我很高兴结果证实了我的期望， quantile回归测试略好一些。我认为在考虑将市场中性作为策略或策略组合的目标时，分位数回归是有价值的。动态线性建模方法留给感兴趣的读者。
 - en: QF
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化金融（QF）

@@ -1,41 +1,61 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:29:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:29:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Smoothed UKF | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 平滑的UKF | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01](https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01](https://tr8dr.wordpress.com/2011/08/03/smoothed-utf/#0001-01-01)
 - en: The smoothed UKF performs smoothing on the state system a-posteriori.   The
     standard form of this filter is useful in getting an accurate view on prior states,
     but will not provide a smoothed online state estimate for the current or next
     period (i.e. no better estimate than the non-smoothed UKF).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 平滑的UKF对系统状态进行后验平滑。 此滤波器的标准形式有助于准确查看先前状态，但不会为当前或下一个周期提供平滑的在线状态估计（即不会比未平滑的UKF提供更好的估计）。
 - en: 'That said the smoothed UKF is still useful as:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 话虽如此，平滑的UKF仍然很有用，因为：
 - en: can be used to estimate the MLE for a stable parameter
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 可用于估计稳定参数的MLE
 - en: a timeseries of smoothed prior states can be regressed to project a smoothed
     forward state (but is not part of the UKF framework)
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一系列平滑的先验状态的时间序列可以回归到投影平滑的前向状态（但不是UKF框架的一部分）
 - en: The form of UKF smoother that will briefly discuss is the forward-backward smoother.
       As the name suggests, the first pass is to perform standard UKF filter, estimating
     the distribution ![p({x_t}|{x_{t - 1}},{y_{1:t}})](img/c318ddce666c0cc424f4f8aebb8b4a06.png)
@@ -43,103 +63,165 @@
     reverse, implying ![p(x_{t - 1}^S|x_t^S,\Sigma _t^S)](img/820c608b665356d023f4991252ca4c40.png).
       The boundary ![x_T^S,\Sigma _T^S](img/53878ace7e48ddd2cec17f7431b78c8e.png)
     is simply the last state and covariance estimated by the forward filter.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 将简要讨论的UKF平滑器形式是前向-后向平滑器。 如其名称所示，第一遍是执行标准UKF滤波器，估计每个时间步长处的分布 ![p({x_t}|{x_{t
+    - 1}},{y_{1:t}})](img/c318ddce666c0cc424f4f8aebb8b4a06.png)。 而平滑则逆向估计平滑分布，意味着
+    ![p(x_{t - 1}^S|x_t^S,\Sigma _t^S)](img/820c608b665356d023f4991252ca4c40.png)。
+    边界 ![x_T^S,\Sigma _T^S](img/53878ace7e48ddd2cec17f7431b78c8e.png) 简单地是前向滤波器估计的最后状态和协方差。
 - en: 'The smoothing approach is then for each ![x_{t }^S, \Sigma _t^S](img/08ffe1a226d02cbdc69853d3b0af8051.png),
     determine the predicted ![x_{t+1 }^-, \Sigma _{t+1}^-, \Sigma _{t,t+1}^-](img/d9b6ac121a41b388509a08f7d44d8220.png),
     and back out an appropriate adjustment given a computed kalman gain and the difference
     between the predicted t+1 and actual t+1 state:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后对于每个 ![x_{t }^S, \Sigma _t^S](img/08ffe1a226d02cbdc69853d3b0af8051.png)，确定预测的 ![x_{t+1
+    }^-, \Sigma _{t+1}^-, \Sigma _{t,t+1}^-](img/d9b6ac121a41b388509a08f7d44d8220.png)，并根据计算的卡尔曼增益和预测
+    t+1 和实际 t+1 状态之间的差异，得出适当的调整：
 - en: '![\left[\mu _{t+1}^ - ,\sum _{t+1}^ - ,\sum _{t,t + 1}^ - \right] = UT\left(
     {{X_t},\sum _{t,t}^{},f(.), \cdots } \right)](img/43dfb3127a6aa2116dc8738a9895709f.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![左[{\mu _{t+1}^ - },\sum _{t+1}^ - ,\sum _{t,t + 1}^ - \right] = UT\left(
+    {{X_t},\sum _{t,t}^{},f(.), \cdots } \right)](img/43dfb3127a6aa2116dc8738a9895709f.png)'
 - en: '![K = \sum _{t,t + 1}^ - {\left( {\sum _{t + 1}^ - } \right)^{ - 1}}](img/b171992adaf275a263b4de9b8f59abc8.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![K = \sum _{t,t + 1}^ - {\left( {\sum _{t + 1}^ - } \right)^{ - 1}}](img/b171992adaf275a263b4de9b8f59abc8.png)'
 - en: '![X_t^S = X_t^{} + K\left( {X_{t + 1}^S - \mu _{t + 1}^ - } \right)](img/c6972ee4f94e65d0121a5d35b40fb157.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![X_t^S = X_t^{} + K\left( {X_{t + 1}^S - \mu _{t + 1}^ - } \right)](img/c6972ee4f94e65d0121a5d35b40fb157.png)'
 - en: '![\sum _t^S = \sum _t^{} + K\left( {\sum _{t + 1}^S - \sum _{t + 1}^ - } \right){K^T}](img/020ba960a42547f89578884c03623fe1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![Σ _t^S = Σ _t^{} + K\left( {Σ _{t + 1}^S - Σ _{t + 1}^ - } \right){K^T}](img/020ba960a42547f89578884c03623fe1.png)'
 - en: '**Results** A simple example of a non-linear function is the Sine function.
       Tracking the sine function using a linearization of the sine function with standard
     Kalman filter will perform poorly.  My test case for the UKF was the following
     function with noise:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结果** 一个非线性函数的简单示例是正弦函数。 使用标准卡尔曼滤波器对正弦函数进行线性化跟踪将表现不佳。 我对UKF的测试用例是以下带噪声的函数：'
 - en: '![y(t) = {a_t}\sin \left( {{\theta _t}} \right) + {\varepsilon _t}](img/11003d8b0fecd626f176d22f6638e3c6.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![y(t) = {a_t}\sin \left( {{\theta _t}} \right) + {\varepsilon _t}](img/11003d8b0fecd626f176d22f6638e3c6.png)'
 - en: 'where ![{a_t}](img/809b26324478c8cd6716386666387994.png) and ![\theta _t](img/0f7b75f318ba1c2250e26c2e7f5b189d.png)
     are linear functions of time.  The states in the system track: ![A(t),\frac{{dA}}{{dt}},\theta
     (t),\frac{{d\theta }}{{dt}}](img/46cd96d94ddd8ed7435ac3f2434029ae.png).   Here
     is UKF tracking without smoothing:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 ![{a_t}](img/809b26324478c8cd6716386666387994.png) 和 ![θ _t](img/0f7b75f318ba1c2250e26c2e7f5b189d.png)
+    是时间的线性函数。 系统中的状态跟踪： ![A(t),\frac{{dA}}{{dt}},\theta (t),\frac{{d\theta }}{{dt}}](img/46cd96d94ddd8ed7435ac3f2434029ae.png)。
+    这是没有平滑的UKF跟踪：
 - en: '[![](img/f4bfcc7bf3b42107e9218becaf640304.png "Screen shot 2011-08-03 at 11.48.18
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-48-18-am.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f4bfcc7bf3b42107e9218becaf640304.png "2011年8月3日11点48分18秒屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-48-18-am.png)'
 - en: 'And here is the same with smoothing:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是带平滑的版本：
 - en: '[![](img/597607c13583625ad846629a0c415db7.png "Screen shot 2011-08-03 at 11.49.35
     AM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-49-35-am.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/597607c13583625ad846629a0c415db7.png "2011年8月3日11点49分35秒屏幕截图")](https://tr8dr.wordpress.com/wp-content/uploads/2011/08/screen-shot-2011-08-03-at-11-49-35-am.png)'
 - en: '**Code** I’m enclosing R code for the augmented UKF and smoothed UKF.   For
     readability I have not optimized all of the R code (i.e. there are some for loops
     that could be vectorized).   Here is the common part (defining the Unscented Transform).'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**代码** 我附上了增强UKF和平滑UKF的R代码。为了可读性，我没有优化所有的R代码（即还有一些for循环可以矢量化）。以下是公共部分（定义无迹变换）。'
 - en: '[PRE0]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The **UKF without smoothing**:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**不带平滑的UKF**：'
 - en: '[PRE1]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The **UKF with smoothing**:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**带平滑的UKF**：'
 - en: '[PRE2]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Finally, here is the Sine test:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，这是正弦测试：
 - en: '[PRE3]'
+  id: totrans-29
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: If you find the above code useful or have improvements to suggest, kindly send
     me a note. Thanks.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你觉得上面的代码有用，或者有改进建议，请随时告诉我。谢谢。
 - en: '**Next Steps** Some next steps:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**下一步** 一些接下来的步骤：'
 - en: Determine state-system appropriate for market making & cycling regimes
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定适合市场制造和循环模式的状态-系统
 - en: Determine Multi-Model switching approach
+  id: totrans-33
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 确定多模型切换方法
 - en: Evaluation & Analysis
+  id: totrans-34
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 评估与分析
 - en: I will probably make a digression onto another topic in the next posting before
     revisiting this.  Stay tuned.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 我可能会在下次发文时偏离另一个主题，然后再回来 revisit this。 敬请期待。
 - en: p.s. if you use wordpress, they have a latex equation rendering capability I
     just discovered (hence better inlining in this post).
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 附言：如果你使用WordPress，他们有一个我刚刚发现的LaTeX方程渲染功能（因此在这篇文章中更好地嵌入）。

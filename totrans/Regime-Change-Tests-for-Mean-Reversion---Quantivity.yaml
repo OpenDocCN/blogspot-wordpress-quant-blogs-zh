@@ -1,55 +1,83 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:56:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:56:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Regime Change Tests for Mean Reversion | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Regime Change Tests for Mean Reversion | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/08/15/regime-change-tests-mean-reversion/#0001-01-01](https://quantivity.wordpress.com/2009/08/15/regime-change-tests-mean-reversion/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/08/15/regime-change-tests-mean-reversion/#0001-01-01](https://quantivity.wordpress.com/2009/08/15/regime-change-tests-mean-reversion/#0001-01-01)
 - en: 'An institutional algo trader recently posed the following question:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 一位机构算法交易员最近提出了以下问题：
 - en: 'Q: So I have data that is mean reverting, but then the mean changes…What are
     the best tests for me to see when that is happening?'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 问：所以我有均值回归的数据，但然后均值发生了变化……对我而言，何时发生这种情况的最佳测试是什么？
 - en: As always, there is no single “correct answer”. Answering this question depends
     upon broadly generalizing the previous post on [Quantile Stability](https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如 always，没有单一的“正确答案”。回答这个问题取决于对之前关于[Quantile Stability](https://quantivity.wordpress.com/2009/08/03/stability-by-quantile/)的博文的广泛概括。
 - en: 'Applicable detection methods depend upon the interpretation of “mean changes”
     in this context. Factors to potentially consider in this context include:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 适用检测方法取决于对“平均变化”的解释。在此背景下需要考虑的因素包括：
 - en: Signal origin (type and construction)
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 信号来源（类型和构建）
 - en: Model linearity
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 模型线性度
 - en: Discontinuity form (linear or non-linear)
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 不连续性形式（线性或非线性）
 - en: Desired detection frequency
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 所需的检测频率
 - en: Discontinuity owing to parametric stability benefit from techniques analyzing
     estimation and decomposition. Low dimensional, linear time-series discontinuities
     can be detected using classic econometric structural change methods (Chow, Quandt,
@@ -58,8 +86,10 @@
     discontinuity may be detected using [wavelet](http://en.wikipedia.org/wiki/Wavelet)
     decomposition. All of these methods can be made pseudo-adaptive, at nearly any
     frequency, by using the corresponding iterative algorithmic form.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于参数稳定性而产生的不连续性，可以通过分析估计和分解的技巧来受益。经典的经济计量学结构变化方法（Chow、Quandt、CUSUM等）可以用来检测低维、线性时间序列的不连续性。分位数回归可能有效地评估参数线性模型的非时间连续性/稳定性。高维、非线性时间序列的不连续性可以通过[小波](http://en.wikipedia.org/wiki/Wavelet)分解来检测。所有这些方法都可以通过使用相应的迭代算法形式，几乎在任何频率上变为伪自适应。
 - en: 'Discontinuity owing to variance or covariance stability benefit from techniques
     analyzing covariance structure. A very wide variety of techniques are available
     in this domain, most commonly including: variance-derived tests (e.g. variance
@@ -68,15 +98,21 @@
     or [ICA](http://en.wikipedia.org/wiki/Independent_component_analysis)), and [[G]ARCH
     family](http://en.wikipedia.org/wiki/GARCH). [Stochastic volatility](http://en.wikipedia.org/wiki/Stochastic_volatility)
     models are common in derivative disturbance models.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于方差或协方差稳定性而产生的不连续性，可从分析协方差结构的技巧中受益。在这个领域中，有很多可供选择的技术，最常见的包括：基于方差的检验（例如，方差比[ACF](http://en.wikipedia.org/wiki/Autocorrelation_function)）、正交/正交分解技术（例如[PCA](http://en.wikipedia.org/wiki/Principal_component_analysis)或[ICA](http://en.wikipedia.org/wiki/Independent_component_analysis)）、以及[[G]ARCH家族](http://en.wikipedia.org/wiki/GARCH)。在衍生品干扰模型中，[随机波动](http://en.wikipedia.org/wiki/Stochastic_volatility)模型是常见的。
 - en: Depending on methodology, readers may wish to consider modeling the discontinuities
     or disturbances. Standard disturbance / residual models include such techniques
     as [state space models](http://en.wikipedia.org/wiki/State_space_(controls)) (generalization
     of linear filters, such as Kalman).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据方法论，读者可能希望考虑对不连续性或干扰进行建模。标准的干扰/残差模型包括诸如[状态空间模型](http://en.wikipedia.org/wiki/State_space_(controls))（如Kalman的线性滤波器的推广）等技术。
 - en: Subsequent posts will dive into practical use of each of these techniques within
     the context of quantitative trading.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 后续博文将深入探讨在量化交易中使用每种技术的实际应用。

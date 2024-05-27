@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:14:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:14:14'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Exploring the Market with Hurst'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Exploring the Market with Hurst'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/06/exploring-market-with-hurst.html#0001-01-01)
 - en: Randomly trudging through PerformanceAnalytics source code, I was intrigued
     by the [Hurst Index calculation](https://r-forge.r-project.org/scm/viewvc.php/pkg/PerformanceAnalytics/R/HurstIndex.R?view=markup&root=returnanalytics),
     which I discovered is more commonly called [Hurst Exponent](http://en.wikipedia.org/wiki/Hurst_exponent). 
@@ -26,8 +38,10 @@
     and trading systems.  I found a couple of interesting articles through a [Google
     Scholar search](http://scholar.google.com/scholar?hl=en&q=hurst+exponent&as_sdt=1%2C1&as_ylo=&as_vis=0),
     and away I went.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在PerformanceAnalytics源代码中随意浏览，我对其[Hurst指数计算](https://r-forge.r-project.org/scm/viewvc.php/pkg/PerformanceAnalytics/R/HurstIndex.R?view=markup&root=returnanalytics)产生了兴趣，我发现这通常被称为[Hurst指数](http://en.wikipedia.org/wiki/Hurst_exponent)。在确认我实际上可以在R中执行滚动Hurst计算后，我想看看这个小小的发现如何应用于市场研究和交易系统。通过[谷歌学术搜索](http://scholar.google.com/scholar?hl=en&q=hurst+exponent&as_sdt=1%2C1&as_ylo=&as_vis=0)，我找到了几篇有趣的文章，然后就出发了。
 - en: The first interesting paper Bo Qian and Khaled Rasheed ["HURST EXPONENT AND
     FINANCIAL MARKET PREDICTABILITY](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.207&rep=rep1&type=pdf)
     demonstrated something I have noticed but not proven over the last 10 years of
@@ -35,8 +49,16 @@
     very different than 1980 (especially 1990)-2004.  This would fit my unscientific
     observation that momentum/trend-following strategies worked best 1950-1980 (Hurst
     > 0.55) and mean reversion performed best for 1980-2004 (Hurst < 0.5).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: The first interesting paper Bo Qian and Khaled Rasheed ["HURST EXPONENT AND
+    FINANCIAL MARKET PREDICTABILITY](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.137.207&rep=rep1&type=pdf)
+    demonstrated something I have noticed but not proven over the last 10 years of
+    system building.  Based on the chart below, the Hurst exponent for 1950-1980 seems
+    very different than 1980 (especially 1990)-2004.  This would fit my unscientific
+    observation that momentum/trend-following strategies worked best 1950-1980 (Hurst
+    > 0.55) and mean reversion performed best for 1980-2004 (Hurst < 0.5).
 - en: I had some trouble replicating and extending the Hurst exponent calculation
     from the paper to the entire set 1896-2011.  The Hurst exponent should oscillate
     mainly between 0.4 and 0.6 with an average 0.54 on a random unstructured series
@@ -46,8 +68,10 @@
     average, I get more reasonable but still incorrect results.  This happens whether
     I apply to daily, weekly, or monthly returns.  It seems that the calculation fails
     at periods > 12 months.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在将Hurst指数计算从论文扩展到整个1896-2011数据集时遇到了一些麻烦。根据论文的模拟和我所理解，Hurst指数应该主要在0.4和0.6之间振荡，平均值为0.54，这是一个基于随机无结构序列的。但正如下面所示，我的结果与预期相差甚远，Hurst指数在0.35到0.5之间振荡，明显是错误的。如果改变计算周期并应用移动平均，我得到了更合理但仍然错误的结果。不管我应用到日回报、周回报还是月回报，都会出现这种情况。对于周期大于12个月的计算，似乎都失败了。
 - en: 'What I found is that the Hurst exponent calculation is an estimation and could
     vary widely based on the technique.  The calculation in PerformanceAnalytics is
     clearly not the same as that presented in the paper.  I evidently fell into the
@@ -55,29 +79,39 @@
     site [http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html](http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html
     "http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html") found by a
     Google search:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我发现Hurst指数的计算是一种估计，并且根据技术手段的不同，计算结果可能会有很大差异。PerformanceAnalytics中的计算明显与论文中提出的计算不同。我显然落入了Hurst陷阱，许多市场学者都曾面临过同样的困境，并在此网站[http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html](http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html
+    "http://www.bearcave.com/misl/misl_tech/wavelets/hurst/index.html")（通过谷歌搜索找到的）中描述过：
 - en: '“Sadly things frequently are not as simple as they seem. Looking back, there
     are a number of things that I did not understand:'
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “遗憾的是，事情往往不像它们看起来那么简单。回顾过去，有许多事情我并不理解：
 - en: ''
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: The Hurst exponent is not so much calculated as estimated. A variety of techniques
     exist for doing this and the accuracy of the estimation can be a complicated issue.
+  id: totrans-12
   prefs:
   - PREF_BQ
   - PREF_OL
   type: TYPE_NORMAL
+  zh: Hurst指数并不是计算出来的，而是估计出来的。存在各种技术用于此目的，估计的准确性可能是一个复杂的问题。
 - en: ''
+  id: totrans-13
   prefs:
   - PREF_BQ
   - PREF_IND
   type: TYPE_NORMAL
 - en: ''
+  id: totrans-14
   prefs:
   - PREF_BQ
   - PREF_IND
@@ -88,16 +122,20 @@
     brownian motion* (or fractal gaussian noise). As I learned, generating fractional
     brownian motion data sets is a complex issue. At least as complex as estimating
     the Hurst exponent.
+  id: totrans-15
   prefs:
   - PREF_BQ
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 测试估计Hurst指数的软件可能很难。测试估计Hurst指数算法的最佳方法是使用一个已知Hurst指数值的数据集。这样的数据集常被称为**分数布朗运动**（或分形高斯噪声）。据我所知，生成分数布朗运动数据集是一个复杂的问题。至少和估计Hurst指数一样复杂。
 - en: ''
+  id: totrans-16
   prefs:
   - PREF_BQ
   - PREF_IND
   type: TYPE_NORMAL
 - en: ''
+  id: totrans-17
   prefs:
   - PREF_BQ
   - PREF_IND
@@ -107,21 +145,26 @@
     memory process or a short memory process, like autocorrelation? Since autocorrelation
     is related to the Hurst exponent (see Equation 3, below), is this really an issue
     or not?
+  id: totrans-18
   prefs:
   - PREF_BQ
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 金融时间序列是长记忆过程例子的证据是混合的。当估计Hurst指数时，结果反映的是长记忆过程还是短期记忆过程，比如自相关？由于自相关与Hurst指数有关（参见下面的方程3），这真的是一个问题吗？
 - en: ''
+  id: totrans-19
   prefs:
   - PREF_BQ
   - PREF_IND
   type: TYPE_NORMAL
 - en: ''
+  id: totrans-20
   prefs:
   - PREF_BQ
   - PREF_IND
   type: TYPE_NORMAL
 - en: ''
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -130,35 +173,49 @@
     of financial data (for example, the 5-day return time series in Figure 5) has
     lead a number of people to apply the mathematics of fractals and chaos analyzing
     these time series.”
+  id: totrans-22
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我发现认为当Hurst指数应用于金融数据时可能会提供有趣结果的想法并不孤独。金融数据直观的分形特性（例如，图5中的5天回报时间序列）使许多人将这些时间序列的分析应用到分形和混沌的数学上。”
 - en: The beautiful thing about R though is the high likelihood of another package
     that will calculate Hurst.  I chose FGN in search of a better result.  The results
     makes more sense but still does not match the observations in the paper.  However
     the stronger momentum 1950-1980 and stronger mean reversion 1980-2010 still appear. 
     This might help explain [http://www.automated-trading-system.com/turtles-just-lucky/](http://www.automated-trading-system.com/turtles-just-lucky/
     "http://www.automated-trading-system.com/turtles-just-lucky/").
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**R语言的优美之处在于很可能会有另一个包能计算Hurst指数。我选择FGN是为了得到更好的结果。结果更有说服力，但仍与论文中的观察不符。然而，1950-1980年间的动量更强，1980-2010年间的均值回归更强，这一现象仍然存在。这可能有助于解释**[http://www.automated-trading-system.com/turtles-just-lucky/](http://www.automated-trading-system.com/turtles-just-lucky/)**。'
 - en: I am sure that many brilliant mathematicians have applied the Hurst exponent
     profitably, but as of now, too much vagueness and uncertainty exist for me to
     bet my or my client’s money on it.  However, as always, I thought I would try
     to build a system with the Hurst exponent.  In the paper, the authors imply that
     for best results focus on times with a high Hurst exponent.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 我确信许多杰出的数学家已经将Hurst指数应用于盈利，但就目前而言，对于我或我的客户的钱来说，还存在太多的模糊性和不确定性。然而，像往常一样，我想尝试建立一个带有Hurst指数的系统。在论文中，作者暗示为了获得最佳效果，应关注Hurst指数较高的时期。
 - en: '**IT IS ASHAME THAT I MUST DISCLAIM.  DO NOT TRADE THIS SYSTEM.  IT COULD LOSE
     LOTS OF MONEY.**'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我必须声明这是一个遗憾。不要交易这个系统。它可能会损失很多钱。**'
 - en: '[R code (click to download):](https://docs.google.com/leaf?id=0B2qp2r96khJPNDE2NDhlNGQtNWY5NS00YTQ4LWFjODEtNDc2YWU3NmYxYWY1&hl=en_US)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码（点击下载）：](https://docs.google.com/leaf?id=0B2qp2r96khJPNDE2NDhlNGQtNWY5NS00YTQ4LWFjODEtNDc2YWU3NmYxYWY1&hl=en_US)'
 - en: '[PRE0]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[由Pretty R在inside-R.org创建](http://www.inside-r.org/pretty-r "由Pretty R在inside-R.org创建")'

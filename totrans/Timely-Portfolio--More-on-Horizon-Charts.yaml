@@ -1,231 +1,341 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:04:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日15:04:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: More on Horizon Charts'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：关于地平线图的更多信息
 - en: 来源：[http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/08/more-on-horizon-charts.html#0001-01-01)
 - en: '*for background please see prior posts [Application of Horizon Plots](http://timelyportfolio.blogspot.com/2012/07/application-of-horizon-plots.html),*
     [*Horizon Plot Already Available*](http://timelyportfolio.blogspot.com/2012/06/horizon-plot-already-available.html),
     *and* [*Cubism Horizon Charts in R*](http://timelyportfolio.blogspot.com/2012/06/cubism-horizon-charts-in-r.html)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '*背景请参阅以前的帖子[地平线图的应用](http://timelyportfolio.blogspot.com/2012/07/application-of-horizon-plots.html)，*
+    [*已有的地平线图*](http://timelyportfolio.blogspot.com/2012/06/horizon-plot-already-available.html)，*以及*
+    [*R中的立体地平线图*](http://timelyportfolio.blogspot.com/2012/06/cubism-horizon-charts-in-r.html)'
 - en: Some feedback has led me to think that I might have been a little ambitious
     with [my last post on horizon charts](http://timelyportfolio.blogspot.com/2012/07/application-of-horizon-plots.html).
     I thought it might be helpful to quickly provide an overview on horizon charts.
     Since I am not a visualization expert, I will try to compile the best examples
     and tutorials that I have found. At the end, I will do a step by step walkthrough
     of the construction of a horizon chart in R.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些反馈让我觉得在[我上一篇关于地平线图的文章](http://timelyportfolio.blogspot.com/2012/07/application-of-horizon-plots.html)中可能有点雄心勃勃。我认为快速提供地平线图概述可能会有所帮助。由于我不是可视化专家，我会尽量整理我找到的最好的例子和教程。最后，我将逐步介绍如何在R中构建地平线图。
 - en: Below is a great talk in its entirety by Mike Bostock.  For the discussion on
     horizon charts, skip to the 11:20 mark.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是迈克·博斯托克的一个完整的精彩演讲。有关地平线图的讨论，请跳到11:20处。
 - en: '[Mike Bostock @ Square talks about Time Series Visualization](http://vimeo.com/42176902)
     from [Librato](http://vimeo.com/librato) on [Vimeo](http://vimeo.com).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Mike Bostock @ Square谈论时间序列可视化](http://vimeo.com/42176902) 来自 [Librato](http://vimeo.com/librato)
+    在 [Vimeo](http://vimeo.com).'
 - en: Fortunately, Mike also provides the interactive example from the video demonstrating
     the construction of a horizon chart from an area chart.  I have embedded it below
     (see [https://bl.ocks.org/1483226](https://gist.github.com/1483226 "https://gist.github.com/1483226")
     for the full example from the original source).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 幸运的是，迈克还提供了一个交互式示例视频，演示了如何从面积图构建地平线图。我在下面嵌入了它（请参阅[https://bl.ocks.org/1483226](https://gist.github.com/1483226
+    "https://gist.github.com/1483226")获取来自原始来源的完整示例）。
 - en: This quick YouTube clip from Panopticon all the way back in 2009 also does a
     very nice job explaining construction.  If you learn better from reading, a [short
     paper from Hannes Reijner of Panopticon Software](http://www.stonesc.com/Vis08_Workshop/DVD/Reijner_submission.pdf)
     covers the same material.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个来自2009年Panopticon的快速YouTube剪辑也很好地解释了构建过程。如果你更喜欢阅读，Panopticon Software的汉斯·雷纳（Hannes
+    Reijner）撰写的一篇[简短论文](http://www.stonesc.com/Vis08_Workshop/DVD/Reijner_submission.pdf)涵盖了相同的内容。
 - en: '[http://www.youtube.com/embed/M53dYUcQbCs](http://www.youtube.com/embed/M53dYUcQbCs)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.youtube.com/embed/M53dYUcQbCs](http://www.youtube.com/embed/M53dYUcQbCs)'
 - en: VIDEO
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 视频
 - en: Jeffrey Heer of Stanford University with Nicholas Kong and Maneesh Agrawala
     from University of California, Berkeley, [investigate the effectiveness of horizon
     plots and make some recommendations for their use.](http://vis.stanford.edu/files/2009-TimeSeries-CHI.pdf) 
     The chart below also offers another explanation of the steps in building a horizon
     plot.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 斯坦福大学的杰弗里·希尔（Jeffrey Heer）与加州大学伯克利分校的尼古拉斯·孔（Nicholas Kong）和曼尼什·阿格拉沃拉（Maneesh
+    Agrawala）[调查了地平线图的有效性并提出了一些使用建议。](http://vis.stanford.edu/files/2009-TimeSeries-CHI.pdf)
+    下面的图表也提供了地平线图建立步骤的另一种解释。
 - en: '[![image](img/2ea216e118b69ef1a2bdde8572a428e7.png "image")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL1PlbyUmNnphrAe_wugnYZxdfcG5OuW5tXFU-kTD7Np_6MYELaQdu8YzWNFOdDJzpdUFORPORHWw3PTFe7ZMLai6DMOjGiYw44gY6u235aUDML30i86PUn-khofueg2IflMf4tKlQUw/s1600-h/image%25255B3%25255D.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![image](img/2ea216e118b69ef1a2bdde8572a428e7.png "image")](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL1PlbyUmNnphrAe_wugnYZxdfcG5OuW5tXFU-kTD7Np_6MYELaQdu8YzWNFOdDJzpdUFORPORHWw3PTFe7ZMLai6DMOjGiYw44gY6u235aUDML30i86PUn-khofueg2IflMf4tKlQUw/s1600-h/image%25255B3%25255D.png)'
 - en: They recommend and conclude
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们建议并得出结论
 - en: '**Layered Bands Are Beneficial As Chart Size Decreases**'
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**分层条带随着图表尺寸的减小而受益**'
 - en: We found that dividing a chart into layered bands reliably increased estimation
     time and increased estimation error at constant chart heights. However, we also
     found that 2-band mirrored charts led to better estimation accuracies for chart
     heights less than 24 pixels (6.8 mm on our displays). For larger chart sizes,
     we advise scaling 1-band mirrored charts.  For smaller sizes, we advise adding
     layered bands.
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们发现，将图表分成分层频段可以可靠地增加估计时间和增加估计误差，在保持图表高度不变的情况下。然而，我们还发现，对于小于24像素（在我们显示器上6.8毫米）的图表高度，双频段镜像图表可以提高估计精度。对于更大的图表尺寸，我们建议缩放单频段镜像图表。对于更小的尺寸，我们建议添加分层频段。
 - en: Extending the horizon into healthcare, here is an interesting [project using
     horizon graphs for visualization of diabetes care](http://ieg.ifs.tuwien.ac.at/projects/HorizonVis/).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 将视野扩展到医疗领域，这里有一个有趣的[项目，使用地平线图来可视化糖尿病护理](http://ieg.ifs.tuwien.ac.at/projects/HorizonVis/)。
 - en: HorizonVis
+  id: totrans-20
   prefs:
   - PREF_BQ
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 地平线图
 - en: ''
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Interactive Visual Exploration of Multivariate Medical Measurements in Diabetes
     Care
+  id: totrans-22
   prefs:
   - PREF_BQ
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 糖尿病护理中多变量医疗测量的交互式视觉探索
 - en: ''
+  id: totrans-23
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '![HorizonVis](img/21f21cf09795ff4b3ff64ab1886e2f20.png)'
+  id: totrans-24
   prefs:
   - PREF_BQ
   type: TYPE_IMG
+  zh: '![HorizonVis](img/21f21cf09795ff4b3ff64ab1886e2f20.png)'
 - en: ''
+  id: totrans-25
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Lead / Contact
+  id: totrans-26
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 负责人/联系人
 - en: '[Wolfgang Aigner](http://ieg.ifs.tuwien.ac.at/%7Eaigner/)'
+  id: totrans-27
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**沃尔夫冈·艾IGNER**（http://ieg.ifs.tuwien.ac.at/%7Eaigner/）'
 - en: ''
+  id: totrans-28
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Team
+  id: totrans-29
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 团队
 - en: '[Wolfgang Aigner](http://ieg.ifs.tuwien.ac.at/%7Eaigner/), Vienna University
     of Technology'
+  id: totrans-30
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**沃尔夫冈·艾IGNER**（http://ieg.ifs.tuwien.ac.at/%7Eaigner/），维也纳技术大学'
 - en: Michael Atanasov, HTBL Krems
+  id: totrans-31
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 迈克尔·阿塔纳索夫，HTBL 克雷姆斯
 - en: '[Alexander Rind](http://www.ifs.tuwien.ac.at/%7Erind/), Vienna University of
     Technology'
+  id: totrans-32
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**亚历山大·林德**（http://www.ifs.tuwien.ac.at/%7Erind/），维也纳技术大学'
 - en: Philipp Schindler, HTBL Krems
+  id: totrans-33
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 菲利普·辛德勒，HTBL 克雷姆斯
 - en: Reinhardt Wenzina, HTBL Krems
+  id: totrans-34
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 雷纳特·温茨纳，HTBL 克雷姆斯
 - en: ''
+  id: totrans-35
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Partners
+  id: totrans-36
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 合作伙伴
 - en: '[Vienna University of Technology, Institute of Software Technology & Interactive
     Systems](http://ieg.ifs.tuwien.ac.at/)'
+  id: totrans-37
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**维也纳技术大学，软件技术及交互式系统研究所**（http://ieg.ifs.tuwien.ac.at/）'
 - en: '[HTBL Krems, Department of Information Technology](http://www.htlkrems.ac.at/)'
+  id: totrans-38
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**HTBL 克雷姆斯，信息技术系**（http://www.htlkrems.ac.at/）'
 - en: '**Now For My Own Attempt at Explaining**'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '**现在让我来尝试解释一下**'
 - en: If we use yesterday’s example of a 200 day moving average system where you enter
     when above the moving average and exit when below, we might like to see a standard
     time series plot like this one.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们使用昨天的例子，一个200天移动平均系统，在移动平均线之上进入，在之下退出，我们可能会喜欢看到这样一个标准的时间序列图。
 - en: In a simple world with only one asset or stock, this might be sufficient.  However,
     we probably will have multiple instruments that we would like to monitor, and
     dedicating this much height per instrument will require lots of space.  Ideally,
     we could condense each of these plots, so that we could see many at a time.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个简单的世界里，只有一个资产或股票，这可能就足够了。然而，我们可能会有多个想要监控的仪器，为每个仪器分配这么多高度将需要很多空间。理想情况下，我们可以压缩每个这些图表，这样我们就可以一次看到很多。
 - en: In the first step toward condensing, we could extract just the information that
     is most meaningful, which I consider to be the percent above or below the moving
     average.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 在缩减的第一步，我们可以提取最有意义的信息，我认为这是移动平均线之上或之下的百分比。
 - en: We might then try an area chart to better depict above or below 0.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可能会尝试使用面积图来更好地描绘正或负0。
 - en: I’m sure you are wondering though when we will start reducing height and saving
     space.  We could start by changing all the negative values to positive values,
     and add color to represent positive or negative.  This means we cut our chart
     height by about 1/2.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 我相信你们会想知道我们何时开始减少高度和节省空间。我们可以先将所有负值改为正值，并添加颜色来表示正或负。这意味着我们的图表高度可以减少约1/2。
 - en: However, we need much more efficiency, so let’s separate the chart into bands.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我们需要更多的效率，所以让我们将这些图表分成频段。
 - en: Is there any potential way of separating each of these bands and then recombining
     them to save space?  Let’s look at each band separately.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 有没有潜在的方法将这些频段分开，然后再将它们重组以节省空间呢？让我们分别看看每个频段。
 - en: Band 1 (0 to 10%)
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 频段1（0到10%）
 - en: Band 2 (10% to 20%)
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 频段2（10%到20%）
 - en: Band 3 (20% to 30%)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 频段3（20%到30%）
 - en: Band 4 (30% to 40%) exceeding 3 bands is not recommended
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 频段4（30%到40%）超过3个频段不推荐
 - en: Notice that similar to a heat map, the band colors increase in intensity and
     opaqueness as their values increase. If we layer each band on top of each other,
     we get a horizon plot, and we can reduce the original chart by 1/6 or even more
     without significant loss of information.
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，与热力图类似，频段的颜色随着值的增加而变得更加鲜艳和不透明。如果我们把每个频段叠加在一起，我们就能得到一个地平线图，而且在不丢失信息太多的情况下，我们可以将原始图表减少1/6甚至更多。
 - en: I hope this helps explain why we might use horizon plots and how to make them. 
     If nothing else, maybe you will have learned some lattice techniques in R.
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 我希望这能解释为什么我们可能会使用地平线图以及如何制作它们。无论如何，也许你学会了R中的某些 lattice 技术。
 - en: '[R code in GIST (do raw for copy/paste):](https://gist.github.com/3230354)'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码在GIST中（为了复制/粘贴，请选择原始格式）：](https://gist.github.com/3230354)'

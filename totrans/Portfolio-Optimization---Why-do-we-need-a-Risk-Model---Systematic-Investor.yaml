@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:42:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:42:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Portfolio Optimization – Why do we need a Risk Model | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 投资组合优化——为什么我们需要一个风险模型 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/26/portfolio-optimization-why-do-we-need-a-risk-model/#0001-01-01)
 - en: In the last post, Multiple Factor Model – Building Risk Model, I have shown
     how to build a multiple factor risk model. In this post I want to explain why
     do we need a risk model and how it is used during portfolio construction process.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在前一篇帖子“多元因子模型——构建风险模型”中，我展示了如何构建一个多元因子风险模型。在这篇帖子中，我想解释为什么我们需要一个风险模型以及它在投资组合构建过程中的使用。
 - en: 'The covariance matrix is used during the [mean-variance portfolio optimization](http://en.wikipedia.org/wiki/Modern_portfolio_theory)
     to estimate portfolio risk. The sample covariance matrix can estimated using historical
     asset’s returns, but the use of the sample covariance matrix becomes problematic
@@ -30,8 +44,11 @@
     the number of observations (T). In typical applications, there can be over a thousand
     stocks to choose from, but rarely more than ten years of monthly data (i.e. N
     = 1,000 and T = 120). I recommend following references for a detailed discussion:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 协方差矩阵在[均值-方差投资组合优化](http://en.wikipedia.org/wiki/Modern_portfolio_theory)过程中用于估计投资组合风险。样本协方差矩阵可以通过历史资产回报来估计，但是当资产数量（N）与观察数量（T）的量级相同时或更大时，使用样本协方差矩阵就会变得有问题。在典型应用中，可以选择的股票可能超过一千只，但很少有超过十年的月度数据（即
+    N = 1,000 和 T = 120）。我建议参考以下资料以进行详细讨论：
 - en: 'One possible solution to estimating a covariance matrix is to model risk by
     a low-dimensional multiple factor model. Another advantage of using a multiple
     factor model to describe covariances between assets is that portfolio optimization
@@ -43,70 +60,109 @@
     orders of magnitude between using a dense covariance matrix(sample covariance
     matrix) and using the diagonal or nearly diagonal covariance matrices permitted
     by a multiple factor model of covariance.]'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 估计协方差矩阵的一种可能方法是使用低维多元因子模型来建模风险。使用多元因子模型来描述资产之间的协方差的好处之一是，因为协方差矩阵相当稀疏且结构良好，所以投资组合优化算法可以更快地工作。有关详细讨论，请阅读：[投资组合优化与因子、场景和现实短期头寸——B.
+    Jacobs, K. Levy, 和 H. Markowitz (2005)](http://www.jlem.com/articles/jlem/portfolioOptimization.pdf)
+    [在大量证券的问题中，使用密集协方差矩阵（样本协方差矩阵）和使用由多元因子模型允许的对角或接近对角的协方差矩阵，计算时间可能相差一个数量级。]
 - en: 'The outline of this post:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文大纲：
 - en: Construct minimum variance portfolio using the sample covariance matrix
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用样本协方差矩阵构建最小方差投资组合
 - en: Construct minimum variance portfolio using the multiple factor risk model we
     created in the prior post
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用我们前一篇帖子中创建的多元因子风险模型构建最小方差投资组合
 - en: Let’s start by loading the multiple factor risk model we saved at the end of
     the [prior post](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/).
     [If you are missing risk.model.Rdata file, please execute fm.risk.model.test()
     function first to create and save multiple factor risk model.] Next, I will construct
     minimum variance portfolio using the historical covariance matrix.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们首先加载我们在[前一篇帖子](https://systematicinvestor.wordpress.com/2012/02/21/multiple-factor-model-building-risk-model/)末保存的多元因子风险模型。[如果你丢失了risk.model.Rdata文件，请首先执行fm.risk.model.test()函数来创建并保存多元因子风险模型。]
+    接下来，我将使用历史协方差矩阵构建最小方差投资组合。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/31fe5b5ce82d9f5b0394addc6bda0d9f.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small3.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/31fe5b5ce82d9f5b0394addc6bda0d9f.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small3.png)'
 - en: To minimize portfolio risk computed under risk model framework we have to combine
     specific risk and factor covariance matrix into one covariance matrix. This process
     is described on pages 4-5 of the [Portfolio Optimization with Factors, Scenarios,
     and Realistic Short Positions by B. Jacobs, K. Levy, and H. Markowitz (2005)](http://www.jlem.com/articles/jlem/portfolioOptimization.pdf).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了最小化在风险模型框架下计算的投资组合风险，我们必须将特定风险和因子协方差矩阵合并为一个协方差矩阵。这个过程在[B. Jacobs, K. Levy,
+    和 H. Markowitz (2005)所著的《Portfolio Optimization with Factors, Scenarios, and Realistic
+    Short Positions》的第4-5页](http://www.jlem.com/articles/jlem/portfolioOptimization.pdf)有描述。
 - en: 'Let K be the number of factors in the risk model. We introduce K additional
     variables that represent portfolio’s factor exposure to each factor. Let’s add
     K constraints:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 设K为风险模型中的因子数量。我们引入K个额外的变量，表示投资组合对每个因子的因子暴露。让我们增加K个约束条件：
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'The new covariance matrix:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的协方差矩阵：
 - en: '[PRE2]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Next, I will construct minimum variance portfolio using the the multiple factor
     risk model we created in the prior post.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将使用我们在前面的帖子中创建的多因子风险模型构建最小方差投资组合。
 - en: '[PRE3]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/6116fe8d260016e63dc803d1ebf11247.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small4.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small4.png)'
 - en: The minimum variance portfolio computed under the risk model is more diversified.
     Also for a larger stock universe (i.e. 1000-2000 stocks) solving quadratic problem
     will take less time using a factor risk model that results in a sparse covariance
     matrix.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在风险模型下计算的最小方差投资组合更加分散。另外，对于更大的股票池（即1000-2000只股票），使用导致稀疏协方差矩阵的因子风险模型解决二次问题将节省时间。
 - en: To view the complete source code for this example, please have a look at the
     [fm.risk.model.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个例子的完整源代码，请查看[github上factor.model.test.r文件中的fm.risk.model.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

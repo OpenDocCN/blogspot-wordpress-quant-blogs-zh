@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:41:36'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:41:36
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Parallel Model Calibration using MPI and Boost.MPI – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用MPI和Boost.MPI的并行模型校准 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/04/09/parallel-model-calibration-using-mpi-and-boost-mpi/#0001-01-01](https://hpcquantlib.wordpress.com/2012/04/09/parallel-model-calibration-using-mpi-and-boost-mpi/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/04/09/parallel-model-calibration-using-mpi-and-boost-mpi/#0001-01-01](https://hpcquantlib.wordpress.com/2012/04/09/parallel-model-calibration-using-mpi-and-boost-mpi/#0001-01-01)
 - en: The message passing standard [MPI](http://www.mpi-forum.org/) is a language-independent
     communication protocol. MPI supports the parallelization of numerical algorithms
     on both massive parallel computers and on symmetric multi processor systems. MPI
@@ -25,16 +37,21 @@
     supercomputers. Even though MPI can be used in a multi-threading environment it
     is normally used in a multi-process environment. Therefore MPI is tailor-made
     to parallelize algorithms based on the non thread-safe QuantLib.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 消息传递标准[MPI](http://www.mpi-forum.org/)是一个语言无关的通信协议。MPI支持在大型并行计算机和对称多处理器系统上并行化数值算法。MPI是标准化的、高度可移植的，并且在大型并行超级计算机上是事实上的标准。尽管MPI可以在多线程环境中使用，但它通常在多进程环境中使用。因此，MPI是为基于非线程安全的QuantLib算法量身定制的并行化工具。
 - en: The roots of the MPI specification are going back to the early 90’s and you
     will feel the age if you use the C-API, which is designed to achieve maximum performance.
     The [Boost.MPI](http://www.boost.org/doc/libs/1_49_0/doc/html/mpi.html) library
     – quoting from the web page – “is a C++ friendly interface to the standard Message
     Passing Interface… Boost.MPI can build MPI data types for user-defined types using
     the [Boost.Serialization](http://www.boost.org/libs/serialization/doc) library”.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: MPI规范的根源可以追溯到上世纪90年代初，如果你使用C-API，你会感受到它的年代感，这个API是为了达到最大性能而设计的。Boost.MPI库 –
+    从网页上引用 – “是一个对标准消息传递接口的C++友好接口… Boost.MPI可以使用Boost.Serialization库为用户定义的类型构建MPI数据类型”。
 - en: Model calibration can be a very time-consuming task, e.g. the calibration of
     a Heston or a Heston-Hull-White model using American puts with discrete dividends.
     The class MPICalibrationHelper acts as a MPI wrapper for a given CalibrationHelper
@@ -44,12 +61,17 @@
     of the DAXCalibration test case (part of test-suite/hestonmodel.cpp). The code
     depends on [QuantLib 1.0](http://quantlib.org) or higher, [Boost.Thread](http://www.boost.org/doc/libs/1_49_0/doc/html/thread.html)
     and [Boost.MPI](http://www.boost.org/doc/libs/1_49_0/doc/html/mpi.html).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 模型校准可能是一个非常耗时的任务，例如使用美式期权和离散股息对Heston或Heston-Hull-White模型进行校准。类MPICalibrationHelper作为给定CalibrationHelper的MPI包装器，允许对现有的模型校准例程进行并行化（希望影响/努力最小）。源代码可在[这里](http://hpc-quantlib.de/src/mpicalibrationhelper.zip)获得。它包含了MPICalibrationHelper类，作为一个例子，还有DAXCalibration测试用例的并行版本（位于test-suite/hestonmodel.cpp中）。该代码依赖于[QuantLib
+    1.0](http://quantlib.org)或更高版本，[Boost.Thread](http://www.boost.org/doc/libs/1_49_0/doc/html/thread.html)和[Boost.MPI](http://www.boost.org/doc/libs/1_49_0/doc/html/mpi.html)。
 - en: '[![](img/da07e3f94a5b8d4ddd21875b42052c0c.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/04/plot.png)The
     diagram above shows the speed-up of a Heston-Hull-White calibration with discrete
     dividends on an eight core machine using a finite difference pricing engine. The
     main reason for the sub-linear scaling is the limited memory bandwidth between
     the CPUs and the main memory and not the MPI communication overhead.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/04/plot.png)上面的图表显示了使用有限差分定价引擎在八核机器上对离散股息的Heston-Hull-White校准的速度提升。子线性缩放的主要原因是在CPU和主内存之间的有限内存带宽，而不是MPI通信开销。'

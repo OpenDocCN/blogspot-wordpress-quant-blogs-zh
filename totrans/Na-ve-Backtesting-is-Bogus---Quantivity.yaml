@@ -1,80 +1,116 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: （以下内容为注释，不翻译）
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:55:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:55:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: （以下内容为注释，不翻译）
 - en: Naïve Backtesting is Bogus | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 简单的回测是伪的 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/#0001-01-01](https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/#0001-01-01](https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/#0001-01-01)
 - en: 'The most frequently cited [conventional wisdom](http://en.wikipedia.org/wiki/Conventional_wisdom)
     of quant trading is backtesting, often summarized as:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化交易最常被引用的[传统智慧](http://en.wikipedia.org/wiki/Conventional_wisdom)是回测，通常总结为：
 - en: Wise traders do as much [backtesting](http://en.wikipedia.org/wiki/Backtesting)
     as possible before starting to trade a system with real money.
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 明智的交易者尽可能多地进行[回测](http://en.wikipedia.org/wiki/Backtesting)后再开始用真实资金交易系统。
 - en: 'Unfortunately, this wisdom is bogus. More accurately, this *wisdom is bogus
     when practiced according to the standard backtesting formula*:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，这种智慧是伪的。更准确地说，当按照标准的回测公式实践时*这种智慧是伪的*：
 - en: 'Indicator: choose indicator (whether fundamental, technical, or statistical)'
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 指标：选择指标（无论是基本面、技术面还是统计面）
 - en: 'Data: choose long panel of data for some instrument (usually as much data as
     possible)'
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 数据：选择某种工具的长期数据面板（通常是尽可能多的数据）
 - en: 'Backtest: build strategy by optimizing entry and exit, given indicator, over
     data panel'
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 回测：给定指标，在数据面板中优化入场和出场构建策略
 - en: Profit!
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 盈利！
 - en: 'Yes, undoubtedly some traders find short-term success with this formula. This
     is actually inevitable, due to the [infinite monkey theorem](http://en.wikipedia.org/wiki/Infinite_monkey_theorem):
     enough traders doing enough [data snooping](http://en.wikipedia.org/wiki/Data-snooping_bias)
     on powerful computers will inevitably result in a small number of them discovering
     what appears to be successful strategy due to pure randomness.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 是的，毫无疑问有些交易者用这个公式找到了短期成功。这实际上是由于[无限猴子定理](http://en.wikipedia.org/wiki/Infinite_monkey_theorem)：足够多的交易者在强大的计算机上进行足够多的[数据窥探](http://en.wikipedia.org/wiki/Data-snooping_bias)最终会导致一小部分人发现由于纯粹的随机性而看起来成功的策略。
 - en: 'Consider an automotive analogy, to help illustrate the fallacy of this formula:
     predict the future [viscosity](http://en.wikipedia.org/wiki/Viscosity) of oil,
     given many measurements of viscosity at random times over a preceding period of
     time. Such measurements exhibit the following statistical attributes:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑一个汽车比喻，以帮助说明这个公式的谬误：预测未来[油粘度](http://en.wikipedia.org/wiki/Viscosity)，给定在先前一段时间内随机时间点的油粘度测量值。这些测量值具有以下统计属性：
 - en: 'Random dispersion: values appear randomly, roughly following [Brownian motion](http://en.wikipedia.org/wiki/Brownian_motion)'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 随机分散：值随机出现，大致遵循[布朗运动](http://en.wikipedia.org/wiki/Brownian_motion)
 - en: 'Two primary clusters: values appear roughly centered around two primary [clusters](http://en.wikipedia.org/wiki/Cluster_analysis)'
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 两个主要的群集：值大致围绕两个主要[群集](http://en.wikipedia.org/wiki/Cluster_analysis)
 - en: 'Random outliers: random outliers exist between the two primary clusters, mostly
     lying on the plane connecting the two clusters'
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 随机异常值：两个主要群集之间的随机异常值存在，大部分位于连接两个群集的平面上
 - en: 'These measurements very roughly follow what traders observe in low-frequency
     security prices (oil in above analogy) across bull/bear market regimes (cluster
     in above analogy). Given that, back to prediction: what will future values of
@@ -82,13 +118,17 @@
     problem, with numerous results providing mild predictiveness gained from use of
     diverse applied mathematical methods. Readers are encouraged to ponder this challenge,
     assuming they are given no more data than above.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些测量值非常粗略地遵循交易员在牛市/熊市周期（上述比喻中的群集）观察到的低频证券价格（上述比喻中的油）。鉴于这一点，回到预测：给定过去，未来油粘度的值会是什么？多年努力可能投入到分析这一问题，运用各种应用数学方法获得了有限的预测性。读者被鼓励思考这个挑战，假设他们给出的数据不超过上述内容。
 - en: 'Much of quant trading is analagous to this viscosity problem: blindly backtesting
     over myriad observed measurements, rigorously optimizing parameters using varying
     mathematical methods.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 量化交易的很大一部分类似于这个油粘度问题：盲目地回测众多观测测量值，严格地使用不同的数学方法优化参数。
 - en: 'Now, consider one additional fact being discovered: oil being measured is contained
     in an engine, which randomly varies between being “on” and “off” for periods of
     time. With this knowledge (knowing running engines are hot), quants will quickly
@@ -96,8 +136,10 @@
     someone will combine [Sutherland’s formula](http://en.wikipedia.org/wiki/Viscosity#Effect_of_temperature_on_the_viscosity_of_a_gas)
     with [cluster analysis](http://en.wikipedia.org/wiki/Cluster_analysis) and identify
     an effective prediction methodology.'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，考虑一个额外的发现：被测量的油包含在一个引擎中，它在一段时间内随机地在“开启”和“关闭”之间变化。有了这个知识（知道运行的引擎是热的），量化分析师会很快想起温度和粘度之间的关系。不久之后，有人会将[萨瑟兰公式](http://en.wikipedia.org/wiki/Viscosity#Effect_of_temperature_on_the_viscosity_of_a_gas)与[聚类分析](http://en.wikipedia.org/wiki/Cluster_analysis)结合起来，并确定一种有效的预测方法。
 - en: 'If traders have learned anything during either 2007 – 2009 (or 1998 – 2002),
     it should be that the fundamentals of economics and finance are not stable: *nearly
     every statistical measure in common use across nearly all asset classes exhibited
@@ -106,18 +148,25 @@
     economics informs us the root causes for these instabilities are many, ranging
     from [business cycles](http://en.wikipedia.org/wiki/Business_cycle) to [monetary
     policy](http://en.wikipedia.org/wiki/Monetary_policy).'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果交易者在2007年至2009年（或1998年至2002年）期间学到了任何东西，那应该就是经济学和金融的基本原理并不稳定：*几乎所有常用统计衡量指标在几乎所有资产类别中都表现出了不一致的行为*（平均值、方差、波动性、协方差、相关性、协整性、主成分、偏度、峰度、*等等*）。初级经济学告诉我们，这些不稳定的根本原因有很多，从[商业周期](http://en.wikipedia.org/wiki/Business_cycle)到[货币政策](http://en.wikipedia.org/wiki/Monetary_policy)。
 - en: Yet, despite these first-hand observations, many traders merrily go along their
     way continuing to faithfully believe in the wisdom of backtesting. By the above
     analogy, traders would benefit from refining their quantitative methodologies
     to accommodate systemic biases—rather than blindly backtesting over long periods
     of time, with no concern for [externalities](http://en.wikipedia.org/wiki/Externality)
     such as market regime.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，尽管有这些直接的观察，许多交易者仍然愉快地按照自己的方式继续前进，继续忠诚地相信回测的智慧。根据上述类比，交易者会从完善他们的量化方法以适应系统偏差中受益——而不是盲目地进行长期回测，不关心诸如市场体制等[外部性](http://en.wikipedia.org/wiki/Externality)。
 - en: The real challenge is *somehow refining the methodology of quantitative trading
     in response to this knowledge*. Subsequent posts will strive to take up this challenge,
     with hope readers contribute their expertise.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 真正的挑战是* somehow refining the methodology of quantitative trading in response
+    to this knowledge*。后续文章将努力应对这一挑战，希望读者能贡献他们的专业知识。

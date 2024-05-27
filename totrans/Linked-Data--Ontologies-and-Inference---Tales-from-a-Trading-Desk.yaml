@@ -1,69 +1,105 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:31:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:31:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Linked Data, Ontologies and Inference | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 链接数据、本体论和推理 | 交易桌边的传说
 - en: 来源：[https://mdavey.wordpress.com/2016/05/17/linked-data-ontologies-and-inference/#0001-01-01](https://mdavey.wordpress.com/2016/05/17/linked-data-ontologies-and-inference/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/05/17/linked-data-ontologies-and-inference/#0001-01-01](https://mdavey.wordpress.com/2016/05/17/linked-data-ontologies-and-inference/#0001-01-01)
 - en: Linked Data, Ontologies and Inference
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 链接数据、本体论和推理
 - en: Although a few years old, this presentation from a development manager at the
     British Museum provide some interesting [reading](http://www.slideshare.net/BarryNorton/linked-data-ontologies-and-inference).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 虽然有些年头了，但英国博物馆的一位开发经理的这次演讲提供了一些有趣的[阅读](http://www.slideshare.net/BarryNorton/linked-data-ontologies-and-inference)。
 - en: 'Which nicely leads to [ModelD2RQ](http://d2rq.org/jena):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这很好地引出了[ModelD2RQ](http://d2rq.org/jena)：
 - en: The [ModelD2RQ](http://d2rq.org/javadoc/de/fuberlin/wiwiss/d2rq/jena/ModelD2RQ.html)
     class provides a Jena Model view on the data in a D2RQ-mapped database.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[ModelD2RQ](http://d2rq.org/javadoc/de/fuberlin/wiwiss/d2rq/jena/ModelD2RQ.html)类为D2RQ映射的数据库中的数据提供了一个Jena模型的视图。'
 - en: A nice example of a SPARQL query using the ModelD2RQ engine is shown [here](http://d2rq.org/jena#sparql).
      A quick search of the web leads to an interesting discuss using similar [code](https://sourceforge.net/p/d2rq-map/mailman/message/22543261/),
     but around D2RQ and entailment (somewhat dated), showing the usage of ModelFactory.createOntologyModel()
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用ModelD2RQ引擎的一个SPARQL查询的示例[在这里](http://d2rq.org/jena#sparql)。在互联网上快速搜索导致了一个有趣的讨论，使用了类似的[代码](https://sourceforge.net/p/d2rq-map/mailman/message/22543261/)，但围绕D2RQ和蕴含（有些过时），展示了使用ModelFactory.createOntologyModel()的用法。
 - en: '[ModelFactory](https://jena.apache.org/documentation/javadoc/jena/org/apache/jena/rdf/model/ModelFactory.html)
     looks like we now have the option to add [Reasoner’s](https://jena.apache.org/documentation/javadoc/jena/org/apache/jena/reasoner/Reasoner.html)
     between the underlying data source, and the requesting SPARQL.  Interesting.  I’m
     guessing the following code would achieve some interesting results:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[ModelFactory](https://jena.apache.org/documentation/javadoc/jena/org/apache/jena/rdf/model/ModelFactory.html)看起来我们现在有了在底层数据源和请求的SPARQL之间添加[推理器](https://jena.apache.org/documentation/javadoc/jena/org/apache/jena/reasoner/Reasoner.html)的选项。有趣。我猜下面的代码会取得一些有趣的结果：'
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Some code on the web is available [here](http://www.programcreek.com/java-api-examples/com.hp.hpl.jena.rdf.model.ModelFactory),
     [here](http://massapi.com/class/in/InfModel.html), and a FOAF example with reasoner
     and rule [here](https://github.com/agastheswar/Semantic-Web-application/blob/master/HelloSemanticWeb/src/org/semweb/assign6/HelloSemanticWeb.java).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 网上有一些代码示例[在这里](http://www.programcreek.com/java-api-examples/com.hp.hpl.jena.rdf.model.ModelFactory)，[在这里](http://massapi.com/class/in/InfModel.html)，以及一个带有推理器和规则的FOAF示例[在这里](https://github.com/agastheswar/Semantic-Web-application/blob/master/HelloSemanticWeb/src/org/semweb/assign6/HelloSemanticWeb.java)。
 - en: Finally, a more recent [blog](https://blog.talentica.com/2014/08/16/semantic-web-a-technical-introduction/)
     posting on the topic, and also a reminder that the d2rq language is powerful,
     and offer the ability to join to yourself – [d2rq:alias](http://d2rq.org/d2rq-language#example-alias)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，关于这个话题的一个更近期的[博客](https://blog.talentica.com/2014/08/16/semantic-web-a-technical-introduction/)帖子，也是提醒d2rq语言很强大，并且提供了能够自我连接的能力——[d2rq:alias](http://d2rq.org/d2rq-language#example-alias)
 - en: ~ by mdavey on May 17, 2016.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由mdavey于2016年5月17日发表。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)
 - en: 'Tags: [DataLake](https://mdavey.wordpress.com/tag/datalake/), [Ontology](https://mdavey.wordpress.com/tag/ontology/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[数据湖](https://mdavey.wordpress.com/tag/datalake/)，[本体论](https://mdavey.wordpress.com/tag/ontology/)

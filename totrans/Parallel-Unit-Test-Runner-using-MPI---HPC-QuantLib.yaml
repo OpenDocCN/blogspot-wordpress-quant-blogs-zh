@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:28:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:28:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Parallel Unit Test Runner using MPI – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用MPI的并行单元测试运行器 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2015/12/22/parallel-unit-test-runner-using-mpi/#0001-01-01](https://hpcquantlib.wordpress.com/2015/12/22/parallel-unit-test-runner-using-mpi/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2015/12/22/parallel-unit-test-runner-using-mpi/#0001-01-01](https://hpcquantlib.wordpress.com/2015/12/22/parallel-unit-test-runner-using-mpi/#0001-01-01)
 - en: 'Update: 10.03.2016: added performance results of latest QuantLib test-suite
     build on a 32 Core SMP machine using boost interprocess instead of MPI.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 更新：2016年3月10日：增加了最新QuantLib测试套件在32核对称多处理机上使用boost interprocess而不是MPI的构建性能结果。
 - en: Running QuantLib’s test suite on a recent computer takes around 10min. The situation
     will improve a lot if the test runner utilises more than one core of today’s multi-core
     CPUs to run the tests in parallel. Unfortunately multi-threading won’t work because
@@ -29,23 +43,33 @@
     speed-up the test suite is via multiprocessing using message passing between the
     compute nodes based on the master-slave paradigm. The cross platform standard
     MPI together with boost::mpi is tailor-made for this task.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在最近的一台计算机上运行QuantLib的测试套件大约需要10分钟。如果测试运行器利用当今多核CPU的多个核心并行运行测试，情况将会有很大改善。不幸的是，多线程无法工作，因为boost单元测试框架不是线程安全的。加快测试套件的一个合理方法是基于主从模型的多进程使用消息传递。跨平台的标准化MPI和boost::mpi为此任务量身定制。
 - en: The missing piece is an external, parallel unit test runner, which uses MPI
     for load balancing and to collect the test results. The runner for QuantLib ‘s
     test suite needs boost version 1.59 or higher and can be found [here](http://hpc-quantlib.de/src/mpiparalleltestrunner.zip). 
     Please replace in quantlibtestsuite.cpp line 24
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 缺少的部分是一个外部并行单元测试运行器，它使用MPI进行负载平衡和收集测试结果。QuantLib测试套件的运行器需要boost版本1.59或更高，可以在[这里](http://hpc-quantlib.de/src/mpiparalleltestrunner.zip)找到。请替换quantlibtestsuite.cpp文件第24行
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: by
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 由
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: and do not link the executable with libboost_unit_test_framework.so because
     the new header file includes the header only version of the boost test framework
     (Thanks to Peter Caspers for the hint). Load balancing is a crucial point for
@@ -53,11 +77,15 @@
     tests (max. around 90 seconds), which should be scheduled first. Therefore the
     MPI test runner collects the statistics of every unit-test’s runtime and stores
     these in a local file to plan the schedule of the next runs.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 不要将可执行文件与libboost_unit_test_framework.so链接，因为新头文件包含了boost测试框架的仅头版本（感谢Peter Caspers的提示）。负载平衡是整体加速的关键点，因为QuantLib的测试套件中有很多长时间运行的测试（最多约90秒），应该首先安排这些测试。因此，MPI测试运行器收集每个单元测试的运行时间统计信息，并将这些信息存储在本地文件中，以规划下一次运行的日程安排。
 - en: '![parallel_smp](img/29e03b630addeb5972d0296abddcd54a.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![parallel_smp](img/29e03b630addeb5972d0296abddcd54a.png)'
 - en: The diagram above shows the runtime of QuantLib’s test suite for a different
     number of parallel processes and CPU configurations. The minimum runtime is set
     by the longest running test case, which is around 50 seconds. On a single CPU
@@ -65,5 +93,7 @@
     also hyper-threading cores help. Using more than sixteen real cores does not improve
     the situation any further because the overall runtime is already dominated by
     the longest running test case.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面的图表显示了不同并行进程数和CPU配置下QuantLib测试套件的运行时间。最短运行时间由最长运行的测试用例决定，约为50秒。在单个CPU上，性能随着核心数的增加而线性扩展，并且超线程核心也有所帮助。使用超过十六个真实核心并不会进一步改善情况，因为总体运行时间已经由最长运行的测试用例主导。

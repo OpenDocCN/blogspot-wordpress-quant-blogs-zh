@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:57:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:57:52
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Random Subspace Optimization (RSO) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 随机子空间优化（RSO）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/#0001-01-01](https://cssanalytics.wordpress.com/2013/10/06/random-subspace-optimization-rso/#0001-01-01)
 - en: '[![subspace](img/a5e904a8105c2a9f863a82c3ab284a81.png)](https://cssanalytics.files.wordpress.com/2013/10/subspace.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![子空间](img/a5e904a8105c2a9f863a82c3ab284a81.png)](https://cssanalytics.files.wordpress.com/2013/10/subspace.png)'
 - en: 'In the last post, we discussed [mean-variance optimization and its relationship
     to statistical theory](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/
     "Mean-Variance Optimization and Statistical Theory"). One of the challenges of
@@ -29,33 +43,48 @@
     of data is small in relation to the number of features. This is known as the curse
     of dimensionality. A good slide (Gutierrez-Osuna, Intro to Pattern Recognition)
     depicts how adding features increases data sparsity in relation to sample size:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一篇文章中，我们讨论了[均值-方差优化及其与统计理论的关系](https://cssanalytics.wordpress.com/2013/10/03/mean-variance-optimization-and-statistical-theory/
+    "均值-方差优化和统计理论")。优化和创建交易模型的一个挑战是在搜索空间很大时尝试提取可泛化的结果。当数据量相对于特征数量很小时，这尤其成问题。这被称为维度诅咒。一张很好的幻灯片（Gutierrez-Osuna，模式识别简介）描述了添加特征如何增加与样本量相比的数据稀疏性：
 - en: '[![curse of dimensionality](img/ff39012c66f6014173c5c6498d240092.png)](https://cssanalytics.files.wordpress.com/2013/10/curse-of-dimensionality.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![维度诅咒](img/ff39012c66f6014173c5c6498d240092.png)](https://cssanalytics.files.wordpress.com/2013/10/curse-of-dimensionality.png)'
 - en: 'The curse of dimensionality implies that there is an optimal number of features
     that can be selected in relation to sample size to maximize classifier performance.
     The challenge of reducing dimensionality is therefore critical:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 维度诅咒表明，相对于样本量可以选择最优的特征数量以最大化分类器性能。因此，降低维度的挑战是至关重要的：
 - en: '[![curse of dimensionality 2](img/e9d8074581cc04d36f11bcabb021f3b6.png)](https://cssanalytics.files.wordpress.com/2013/10/curse-of-dimensionality-2.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![维度诅咒 2](img/e9d8074581cc04d36f11bcabb021f3b6.png)](https://cssanalytics.files.wordpress.com/2013/10/curse-of-dimensionality-2.png)'
 - en: 'The same concepts apply to mean-variance or any other type of portfolio optimization
     method where there are a lot of inputs to estimate, a certain number of assets
     and also a calibration or lookback window to estimate the inputs. In a typical
     portfolio optimization with “K” assets and a lookback window of “N” dimensionality
     can be expressed  approximately as:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 同样的概念适用于均值-方差或其他任何类型的投资组合优化方法，在这些方法中，需要估计许多输入量，一定数量的资产以及校准或回溯窗口来估计输入量。在具有“K”个资产和“N”维度的回溯窗口的典型投资组合优化中可以大致表示为：
 - en: '**D=K/N**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**D=K/N**'
 - en: '*note this excludes the number of different types of inputs required for the
     optimization (ie returns, covariance, variance)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：这排除了为优化所需的不同输入类型的数量（即回报、协方差、方差）。
 - en: 'A large K and a small N or any other combinations that produce a high ratio
     will reduce the likelihood that an optimization is meaningful.  If for example,
     I perform mean-variance optimization on 500 stocks in the S&P 500 with 20 days
@@ -79,21 +108,31 @@
     to the S&P500, one might select 100 samples of 100 assets from the S&P500 and
     running optimization on each sample and then aggregate the weights to determine
     the final portfolio. Here is the pseudo-code:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: K较大和N较小或任何其他产生高比率的组合将降低优化有意义的风险。例如，如果我针对标普500中的500只股票使用20天的数据进行均值-方差优化，产生的组合权重应该不太可能超越一个更简单的等权重基准。理想情况下，K应该是最小的分数，同时保留数据延迟性较短的回溯窗口。重新采样/打包和收缩等方法在降低问题的维度方面并不非常有效。我想介绍一个简单的方法来直接解决这个问题。请进入[“随机子空间方法”](http://en.wikipedia.org/wiki/Random_subspace_method)（RSM），它被引入以改善基因表达等高维问题的分类。基本思想是，RSM从更大的特征集随机选择较少数量的特征，并在较低维度的“子空间”上校准分类器。然后将这些分类器在集成中聚合，它们的预测被平均以产生最终的预测或分类。在RSO中，这可以泛化为使用特定的优化方法，并从原始池中的“K”资产中随机选择“k”个资产（其中k<K）并在每个子空间上执行优化。然后以某种方式（加权或等权重）聚合这些权重以找到最终的组合权重。这应该在大多数情况下产生比同时对所有资产运行优化更稳健的最终组合。将示例扩展到标普500，我们可能会从标普500中选择100个样本的100个资产并针对每个样本进行优化，然后聚合权重以确定最终的组合。以下是伪代码：
 - en: 1) Select a value for “k”, and a number of random subspaces “s”
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 为“k”选择一个值，以及随机子空间的数量“s”
 - en: 2) Choose k assets randomly from K assets in the universe and perform optimization
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 从宇宙中的K个资产中随机选择k个资产并进行优化
 - en: 3) Repeat this procedure “s” times
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 重复此过程“s”次
 - en: 4) Average the weights across the subspaces using some heuristic- this is the
     final set of portfolio weights
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 使用某种启发式方法跨子空间平均权重-这是最终的组合权重集合
 - en: There are a lot of logical extensions to this idea- including varying the number
     of input factors used in the optimization- for example, one could assume that
     either the returns, covariances or variances are all equivalent as a method of
@@ -102,5 +141,7 @@
     and shrinkage, and these can also be performed simultaneously in the same process.
     RSO can be employed with virtually any type of optimization procedure- with the
     caveat that it is a slower procedure and is less compatible with stochastic methods.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个想法有很多逻辑上的扩展-包括变化优化中使用的输入因子的数量-例如，我们可以假设收益、协方差或方差都是等效的，作为一种投影子空间的方法。可以同时使用资产和输入因子来投影子空间。此外，RSO与重新采样/打包和收缩完全兼容，这些也可以在同一过程中同时执行。RSO几乎可以与任何类型的优化程序一起使用-前提是它是一个较慢的程序，并且与随机方法不太兼容。

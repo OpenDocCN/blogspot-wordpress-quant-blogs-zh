@@ -1,53 +1,79 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:42:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:42:18
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Backtesting dilemmas: pyalgotrade review'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用Python交易：回测困境：pyalgotrade评测
 - en: 来源：[http://tradingwithpython.blogspot.com/2014/05/backtesting-dilemmas-pyalgotrade-review.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/05/backtesting-dilemmas-pyalgotrade-review.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2014/05/backtesting-dilemmas-pyalgotrade-review.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/05/backtesting-dilemmas-pyalgotrade-review.html#0001-01-01)
 - en: 'Ok, moving on to the next contestant: [**PyAlgoTrade**](http://gbeced.github.io/pyalgotrade/)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 好的，接下来看看下一个参与者：[**PyAlgoTrade**](http://gbeced.github.io/pyalgotrade/)
 - en: 'First impression: actively developed, pretty good documentation, more than
     enough feautures ( TA indicators, optimizers etc) . Looks good, so I went on with
     the installation which also went smoothly.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 初印象：积极开发中，文档很不错，功能足够丰富（包括TA指标、优化器等）。看起来很好，所以我继续了安装过程，过程也相当顺利。
 - en: The tutorial seems to be a little bit out of date, as the first command `yahoofinance.get_daily_csv()`
     throws an error about unknown function. No worries, the documentation is up to
     date and I find that the missing function is now renamed to `yahoofinance.download_daily_bars(symbol,year,csvFile)`.
     The problem is that this function only downloads data for *one* year instead of
     everything from that year to current date. So pretty useless.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 教程似乎有点过时，因为第一个命令`yahoofinance.get_daily_csv()`抛出了一个关于未知函数的错误。不用担心，文档是更新的，我发现缺失的函数现在已重命名为`yahoofinance.download_daily_bars(symbol,year,csvFile)`。问题是这个函数只下载了*一年*的数据，而不是从那一年到当前日期的所有数据。所以这个功能相当无用。
 - en: After I downloaded the data myself and saved it to csv, I needed to adjust the
     column names because apparently pyalgotrade expects `Date,Adj Close,Close,High,Low,Open,Volume`
     to be in the header. That is all minor trouble.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我将数据自己下载并保存为csv之后，我需要调整列名，因为显然pyalgotrade期望`Date,Adj Close,Close,High,Low,Open,Volume`在头部。这些都是小问题。
 - en: 'Following through to performance testing on an SMA strategy that is provided
     in the tutorial. My dataset consists of 5370 days of SPY:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 接着，我按照教程中提供的SMA策略进行了性能测试。我的数据集包含了5370天的SPY数据：
 - en: '[PRE0]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: That is actually pretty good for an event-based framework.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这对于一个基于事件的框架来说实际上已经相当不错了。
 - en: But then I tried searching documentation for functionality needed to backtest
     spreads and multiple asset portfolios and just could not find any. Then I tried
     to find a way to feed pandas DataFrame as an input to a strategy and it happens
@@ -56,11 +82,15 @@
     post, but now I come to realisation that [pandas](http://pandas.pydata.org/) support
     is a must for any framework that works with time series data. Pandas was a reason
     for me to switch from Matlab to Python and I never want to go back.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是后来我尝试搜索有关回测价差和多资产组合功能的文档，却怎么也找不到。然后我尝试找到一种方法，将pandas DataFrame作为策略的输入，结果发现[不可能](https://github.com/gbeced/pyalgotrade/issues/4)，这又是一个大大的失望。我之前在帖子中没有把它作为一个要求提出来，但现在我意识到[pandas](http://pandas.pydata.org/)支持对于任何处理时间序列数据的框架来说是必不可少的。pandas是我从Matlab转向Python的原因，我绝不想再回去。
 - en: '**Conclusion** pyalgotrade does not meet my requrement for flexibility. It
     looks like it was designed with classic TA in mind and single instrument trading.
     I don’t see it as a good tool for backtesting strategies that involve multiple
     assets, hedging etc.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**结论** pyalgotrade不符合我对灵活性的要求。它看起来是为经典技术分析（TA）和单一乐器交易而设计的。我认为它不是一个好的多资产回测策略、对冲等工具。'

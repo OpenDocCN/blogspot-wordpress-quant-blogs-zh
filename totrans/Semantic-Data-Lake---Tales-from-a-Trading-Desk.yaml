@@ -1,42 +1,62 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:33:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:33:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Semantic Data Lake | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 语义数据湖|交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/04/28/semantic-data-lake/#0001-01-01](https://mdavey.wordpress.com/2016/04/28/semantic-data-lake/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/04/28/semantic-data-lake/#0001-01-01](https://mdavey.wordpress.com/2016/04/28/semantic-data-lake/#0001-01-01)
 - en: Semantic Data Lake
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 语义数据湖
 - en: Continuing on the data lake road, Kafka [Connect](http://www.confluent.io/blog/how-to-build-a-scalable-etl-pipeline-with-kafka-connect)
     look very interesting from a way to feed a data lake.  This leads to “Prototype
     of [Data](http://xlime.eu/images/Deliverables/xLiMe_D1.2_Prototype_of_Data_Processing_Infrastructure.pdf)
     Processing Infrastructure”, and usage of RDF and CumulusRDF.  RDF if interesting
     since its gained uptake due to [SPARQL](https://en.wikipedia.org/wiki/SPARQL)
     – semantic web.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 继续在数据湖的道路上前进，Kafka [Connect](http://www.confluent.io/blog/how-to-build-a-scalable-etl-pipeline-with-kafka-connect)
+    从一种向数据湖喂数据的方式来看非常有趣。这导致了“[数据](http://xlime.eu/images/Deliverables/xLiMe_D1.2_Prototype_of_Data_Processing_Infrastructure.pdf)处理基础设施”的原型，以及RDF和CumulusRDF的使用。RDF之所以有趣，是因为它因[SPARQL](https://en.wikipedia.org/wiki/SPARQL)——语义网而得到了采用。
 - en: 'Further searching of the web yields a very interesting article in the data
     analytics space, “Advanced Real-Time Healthcare [Analytics](https://www.linkedin.com/pulse/advanced-real-time-healthcare-analytics-apache-spark-joel-amoussou)
     with Apache Spark”.  Thankfully the article provide an appropriate architecture
     diagram, which is nicely using Apache Kafka 🙂  More interesting is that its using
     Ontologies:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 进一步在网上搜索，找到了一个在数据分析领域非常有趣的文章，“使用Apache Spark进行高级实时医疗[分析](https://www.linkedin.com/pulse/advanced-real-time-healthcare-analytics-apache-spark-joel-amoussou)”。幸运的是，该文章提供了一个适当的架构图，很好地使用了Apache
+    Kafka。更有趣的是，它使用了本体论：
 - en: The architecture is hybrid and also includes a production rule engine and an
     ontology reasoner. This is done in order to leverage existing clinical domain
     knowledge available from evidence-based clinical practice guidelines (CPGs) and
@@ -47,31 +67,45 @@
     both forward and backward chaining as well as the modeling of business processes
     (clinical workflows) with the business process modeling notation (BPMN). There
     are patterns for integrating rules and processes.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 该架构是混合的，还包括一个生产规则引擎和一个本体推理器。这是为了利用来自基于证据的临床实践指南（CPGs）和生物医学本体如SNOMED的现有临床领域知识。这种方法补充了机器学习算法在不确定性下进行临床决策的概率方法。生产规则系统可以将CPGs转换为可执行的规则，这些规则与临床过程（工作流程）和事件完全集成。Drools支持正向和反向链式以及用业务流程建模符号（BPMN）建模业务流程（临床工作流程）。有将规则和过程集成的模式。
 - en: Interestingly, there is a W3C Machine Learning Schema Community [Group](https://www.w3.org/community/ml-schema/)
     – RDF etc. There’s also a list of [projects](http://aksw.org/Groups/MOLE.html)
     on the Machine Learning and Ontology Engineering site.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，有一个W3C机器学习架构社区[小组](https://www.w3.org/community/ml-schema/)——RDF等。在机器学习和本体工程网站上还有一个[项目](http://aksw.org/Groups/MOLE.html)列表。
 - en: 'Moving on, we find “Hadoop, Triple [Stores](http://www.dataversity.net/data-lakes-get-smart-with-semantic-graph-models/),
     and the [Semantic](http://www.datanami.com/2015/05/26/hadoop-triple-stores-and-the-semantic-data-lake/)
     Data [Lake](http://allegrograph.com/semantic-data-lake/)“:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们发现“Hadoop、三元[存储](http://www.dataversity.net/data-lakes-get-smart-with-semantic-graph-models/)、以及[语义](http://www.datanami.com/2015/05/26/hadoop-triple-stores-and-the-semantic-data-lake/)数据[湖](http://allegrograph.com/semantic-data-lake/)”：
 - en: “What we’re investing most of our time in now is the semantic data lake, where
     we store data in a key value store in Hadoop [Hbase], but then index it with our
     graph database so that we can do these SPARQL queries,”
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们现在投资时间最多的是语义数据湖，在那里我们在Hadoop [Hbase]中以键值对的形式存储数据，然后用我们的图数据库对其进行索引，这样我们就可以进行这些SPARQL查询，
 - en: ~ by mdavey on April 28, 2016.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由mdavey于2016年4月28日发表。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)
 - en: 'Tags: [DataLake](https://mdavey.wordpress.com/tag/datalake/), [Ontology](https://mdavey.wordpress.com/tag/ontology/)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[DataLake](https://mdavey.wordpress.com/tag/datalake/)，[Ontology](https://mdavey.wordpress.com/tag/ontology/)

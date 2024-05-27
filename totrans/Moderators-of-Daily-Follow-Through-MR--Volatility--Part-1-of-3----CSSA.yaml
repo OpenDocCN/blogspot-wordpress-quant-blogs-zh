@@ -1,28 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:50:23'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:50:23
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Moderators of Daily Follow Through MR: Volatility (Part 1 of 3) | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '**日常跟随策略的调节因素：波动性（第1部分）** | CSSA'
 - en: 来源：[https://cssanalytics.wordpress.com/2009/08/24/moderators-of-daily-follow-through-mr-volatility-part-1-of-3/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/24/moderators-of-daily-follow-through-mr-volatility-part-1-of-3/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/08/24/moderators-of-daily-follow-through-mr-volatility-part-1-of-3/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/24/moderators-of-daily-follow-through-mr-volatility-part-1-of-3/#0001-01-01)
 - en: '**Note:** Detailed backtest reports for the Donchian Channel series can be
     found on the website built by Corey Rittenhouse: [http://www.catallacticanalysis.com/](http://www.catallacticanalysis.com/) Check
     it out!'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**注意：**详细的唐奇安通道系列回测报告可以在Corey Rittenhouse建立的网站上找到：[http://www.catallacticanalysis.com/](http://www.catallacticanalysis.com/)
+    去看看！'
 - en: Today we will take a look at one of the different factors that affect the performance
     of a standard daily follow-through mean-reversion strategy. As a refresher, the
     strategy assumes that you buy after down days, and go short after up days. Since
@@ -30,8 +45,10 @@
     in financial markets–especially for the broad market indexes. This is also a very
     good proxy for how well other short-term MR indicators such as RSI2 or DV2 will
     perform under similar circumstances.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我们将探讨影响标准日常跟随均值回归策略表现的不同因素之一。作为复习，该策略假设你在下跌后买入，在上涨后做空。自2000年代初以来，跟随下跌或上涨日的均值回归一直是金融市场的主导范式——尤其是对于宽市场指数。这也很好地代表了在其他类似情况下，RSI2或其他短期MR指标的表现如何。
 - en: Historical volatility will be addressed in this post, and tommorow we will take
     a look at implied volatility as well. Finally, in subsequent posts, i will combine
     these factors to have a better understanding of their impact on classic daily
@@ -41,35 +58,51 @@
     and when to bet on continuation from today’s closing direction in the market.
     This will help disentangle the sources of MR returns, and also broaden our understanding
     of how today’s market is functioning.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文将讨论历史波动性，明天我们将看看隐含波动性。最后，在后续文章中，我将结合这些因素，以更好地理解它们对经典日常跟随策略的影响。总的来说，这一系列的帖子还将涵盖成交量以及趋势强度或R-squared的影响。我将结合所有这些因素，创建一个矩阵，帮助更好地预测何时对均值回归下注，以及何时从今天的收盘方向对市场持续性下注。这将有助于解开MR回报的来源，并拓宽我们对今天市场运作方式的理解。
 - en: 'The first test I ran was on the impact of historical volatility on the daily
     follow-through MR.  I used 3000 bars of data on the SPY (S&P500) as a test sample
     ending last week. I classified high volatility as being in the 75th percentile,
     and low volatility as being in the 25th percentile, both with a lookback of 1-year.
     Average volatility was anything that fell in between those two levels. For comparison,
     i used both 10-day and 100-day historical volatility. Here are the results:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我所进行的第一个测试是关于历史波动性对日常跟随策略的影响。我使用了3000根SPY（标普500）的数据作为测试样本，截至上周结束。我将高波动性定义为处于75个百分位，低波动性为处于25个百分位，都有1年的历史回溯。平均波动性是指落在这两个水平之间的所有数据。作为比较，我使用了10日和100日的历史波动性。以下是结果：
 - en: '|   | **CAGR** | **Sharpe** | **% correct** | **avg daily ret** |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '**年化复合增长率** | **夏普比率** | **正确百分比** | **平均每日回报** |'
 - en: '| **High 10d Volatility** | **7.32%** | **0.45** | **52.60%** | **0.126%**
     |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '**最高10日波动性** | **7.32%** | **0.45** | **52.60%** | **0.126%** |'
 - en: '| High 100d Volatility | 5.28% | 0.32 | 51.00% | 0.087% |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: 最高100日波动性 | 5.28% | 0.32 | 51.00% | 0.087% |
 - en: '| Average Volatility | 0.62% | 0.03% | 50.30% | 0.013% |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: 平均波动性 | 0.62% | 0.03% | 50.30% | 0.013% |
 - en: '| Low 10d Volatility | 2.25% | 0.29 | 51.00% | 0.036% |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: 最低10日波动性 | 2.25% | 0.29 | 51.00% | 0.036% |
 - en: '| Low 100d Volatility | 1.47% | 0.18 | 51.20% | 0.025% |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: 最低100日波动性 | 1.47% | 0.18 | 51.20% | 0.025% |
 - en: It is immediately obvious that high volatility is far more favorable for the
     daily follow-through MR strategy. In contrast, the worst environment for daily
     follow through is the average volatility environment, followed by environments
@@ -80,30 +113,44 @@
     is superior to daily follow through MR. This suggests that continuation is more
     probable than reversion on balance, even though the market is overbought on a
     variety of metrics.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 立即显而易见，高波动性对每日跟进的MR策略更为有利。相比之下，每日跟进的最差环境是平均波动性环境，其次是低波动性环境。10日波动率比100日回溯对回报的调节作用要好得多。等待短期波动来投注均值回归是值得的，目前历史波动性处于第17个百分位。当波动性低时，遵循长期趋势（1年平均）的回报优于每日跟进MR。这表明，在平衡上，持续性比回归更可能，尽管市场在各种指标上都被超买。
 - en: In the second test, i compared what happened in the contingency when the 10-day
     volatility was lower or higher in relation to the 100-day volatility over the
     past year in different volatility regimes. I took the 10-day minus the 100-day
     and looked at the percentile ranking of the difference over the past year (technically
     above/below average is actually the median).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第二次测试中，我比较了在过去一年中，不同波动性环境下，10日波动率低于或高于100日波动率时的情境差异。我计算了10日波动率减去100日波动率的差值，并查看了过去一年中这个差值的百分位排名（技术上，高于或低于平均值实际上是中位数）。
 - en: '|   | **CAGR** | **Sharpe** | **% correct** | **avg daily ret** |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '|  | **CAGR** | **Sharpe** | **正确百分比** | **平均每日回报** |'
 - en: '| High Vol + Below Avg 10d/100d | 1.50% | 0.38 | 59.00% | 0.30% |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '| 高波动性 + 10d/100d 低于平均 | 1.50% | 0.38 | 59.00% | 0.30% |'
 - en: '| High Vol + Above Avg 10d/100d | 5.74% | 0.37 | 52.00% | 0.11% |'
+  id: totrans-20
   prefs: []
   type: TYPE_TB
+  zh: '| 高波动性 + 10d/100d 高于平均 | 5.74% | 0.37 | 52.00% | 0.11% |'
 - en: '| Low Vol + Above Avg 10d/100d | 1.05% | 0.38 | 53.60% | 0.09% |'
+  id: totrans-21
   prefs: []
   type: TYPE_TB
+  zh: '| 低波动性 + 10d/100d 高于平均 | 1.05% | 0.38 | 53.60% | 0.09% |'
 - en: '| Low Vol + Below Avg 10d/100d | 1.18% | 0.16 | 50.40% | 0.03% |'
+  id: totrans-22
   prefs: []
   type: TYPE_TB
+  zh: '| 低波动性 + 10d/100d 低于平均 | 1.18% | 0.16 | 50.40% | 0.03% |'
 - en: It seems apparent that in high volatility environments, follow-through returns
     are more consistent when the 10-day is lower in relation to the 100-day–ie you
     want to buy high volatility environments when volatility is slowing down. In contrast,
@@ -111,11 +158,15 @@
     Logically this makes sense, as it is risky to fade market direction into high
     and accelerating volatility, and also it is risky to fade extremely quiet markets
     (low volatility, low 10d/100d vol)  which are prone to major breakouts/breakdowns.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，在高波动性环境中，当10日波动率低于100日波动率时，后续回报更为一致——也就是说，当你想要在波动性减小时购买高波动性环境。相比之下，在低波动性环境中，你希望在波动性加速时购买。从逻辑上讲，这是有道理的，因为在市场方向进入高且加速的波动时，逆市场方向是危险的，同样，逆极低波动性（低波动性，低10d/100d波动率）的市场也是危险的，这种市场容易出现大幅突破/跌破。
 - en: In conclusion, historical volatility and the relationship between short-term
     and long-term volatility is an important moderator of daily follow through MR
     returns. A simple contigency matrix can help traders better understand when it
     is likely to work, and when it is not reliable.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 总结来说，历史波动性以及短期和长期波动性之间的关系是每日跟进MR回报的重要调节因素。一个简单的条件矩阵可以帮助交易员更好地理解何时可能有效，何时不可靠。

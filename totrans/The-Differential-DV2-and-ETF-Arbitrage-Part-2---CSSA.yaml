@@ -1,43 +1,61 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:53:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:53:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The Differential DV2 and ETF Arbitrage Part 2 | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Differential DV2与ETF套利（二）| CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/07/28/the-differential-dv2-and-etf-arbitrage-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2009/07/28/the-differential-dv2-and-etf-arbitrage-part-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/07/28/the-differential-dv2-and-etf-arbitrage-part-2/#0001-01-01](https://cssanalytics.wordpress.com/2009/07/28/the-differential-dv2-and-etf-arbitrage-part-2/#0001-01-01)
 - en: '*Note: Anyone that wishes to see an example spreadsheet using calculations
     to trade pairs please email me with the subject headline “Differential DV2.” 
     My email address is [dmvaradi@gmail.com](mailto:dmvaradi@gmail.com)  Furthermore,
     a comparison of the DV2 versus other methods will be compiled for distribution
     very soon.*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：任何希望看到使用计算进行交易对示例电子表格的人，请给我发送主题为“Differential DV2”的电子邮件。我的电子邮件地址是[dmvaradi@gmail.com](mailto:dmvaradi@gmail.com)。此外，DV2与其他方法的比较将很快整理好供分发。
 - en: 'There are many ways to trade pairs: 1) Bollinger bands 2) stochastics 3) RSI
     and 4) z-scores to name a few. In my opinion, the DV2 (a specific setting of the
     proprietary DVO which is a short-term ocscillator) and the DVI (intermediate oscillator)
     are vastly superior. This is not just an opinion it is borne out by internal research.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有很多交易对的方法：1) 布林带 2) 随机指标 3) RSI和4) Z分数等。在我看来，DV2（专有DVO的一个特定设置，它是一个短期振荡器）和DVI（中期振荡器）要远远优于其他方法。这不仅仅是我的观点，内部研究也证明了这一点。
 - en: The returns regardless of the parameter settings when compared appropriately
     to each of the aforementioned alternatives are substantially higher with nearly
     identical standard deviation, lower drawdowns, less time in drawdowns, and smaller
     maximum losing trades. ***Note that the same results are found when comparing
     DV indicators on individual stocks or ETFs for swing trading.***
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 无论参数设置如何，与上述替代方案适当比较时的回报要高得多，方差几乎相同，回撤更低，处于回撤中的时间更短，最大亏损交易更小。*请注意，当比较DV指标在个股或ETF上的摆动交易时，也会发现相同的结果。*
 - en: The question is why? This was partially addressed in Part1 but the reality is
     that standard indicators each suffer from certain disadvantages. I would first
     point out that Bollinger Bands, and z-scores can be grouped together, and so can
@@ -56,8 +74,10 @@
     RSI readings do not neccessarily imply that a certain overbought/oversold reading
     is actually rare or extreme based on the current environment (like the last week
     or so).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么这是为什么呢？这在第一部分中部分得到了解答，但事实是，每个标准指标都存在某些缺点。我首先要指出，布林带和Z分数可以归为一类，随机指标和尊敬的RSI也可以归为一类。布林带和Z分数的主要阿喀琉斯之踵是它们依赖于正态分布的假设。不过，不想深入讨论证券回报中正态性假设的缺陷，总之，极端事件的发生概率远高于正态分布或对数正态分布所表明的。此外，实际分布也可能在某些区域聚集严重，这对于每一只股票或ETF来说都是独特的。因此，无论是平均值上方/下方还是极端水平，都可能被误解，导致信号不佳。RSI和随机指标是相对指标，意思是使用数学尺度确定与历史数据相对的读数（如RSI）和最大值和最小值（如随机指标）。这带来了一组不同的问题，例如，随机指标的大部分时间都在极端值，而极端的RSI读数并不一定意味着基于当前环境（如最近一周左右）的某种超买/超卖读数实际上是罕见或极端的。
 - en: Additionally all of these indicators fail to take into account relevant intraday
     data and scale for it in a meaningful way. It is intuitively obvious that intraday
     highs and lows represent meaningful support and resistance levels. Additionally
@@ -65,25 +85,33 @@
     price behaviour. In the case of pairs, the very best opportunities occur intraday
     when volatility creates tremendous discrepancies. This volatility needs to captured
     adequately to understand when a pair is likely to revert to the mean.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，所有这些指标都没有考虑到相关的日内数据，并以有意义的方式对其进行缩放。直观上很明显，日内的高点和低点代表了有意义的支撑和阻力水平。此外，通过观察多日价格行为的模式，可以更准确地捕捉到极端拉伸。在配对交易中，最好的机会出现在日内，当时波动性创造了巨大的差异。这种波动性需要充分捕捉，以理解一个配对何时可能回归平均值。
 - en: The DV indicators use the “empirical distribution” which is a fancy way of saying
     that they look at the actual historical data of the stock, pair, or ETF. Capturing
     all of the strange nuances that are unique to each. Furthermore, this distribution
     is adaptive because it constantly rolls forward updating the distribution with
     fresh data. Of course these indicators also utilitze intraday data, which makes
     them even more effective.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: DV指标使用了“经验分布”，这是一种的说法，即它们查看股票、配对或ETF的实际历史数据。捕捉到每个独特的奇怪细微差别。此外，这种分布是适应性，因为它不断向前滚动，用新鲜数据更新分布。当然，这些指标也利用了日内数据，这使它们更加有效。
 - en: Pair trading and arbitrage is a competitive game, involving small returns and
     fixed costs in the way of commissions. Any edge that can be extracted can mean
     the difference between survival and failure, especially when margins are driven
     down by competition. Using simple, but intelligent refinements that are unique
     like the DV2 give you an edge that your competitors do not have.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 配对交易和套利是一场竞争激烈的游戏，涉及到的回报较小，而佣金成本是固定的。任何可以提取的边缘优势都可能意味着生存与失败的差别，尤其是在竞争推动利润率下降时。采用简单但智能的独特改进，如DV2，能给你带来竞争对手所没有的边缘优势。
 - en: In the next post i will provide specific ideas for different types of arbitrage
     opportunities and several different strategy ideas (no more gratuitous plugging
     of my own indicators!).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将提供不同类型的套利机会的具体想法以及几种不同的策略想法（不再随意推广我自己的指标了！）。

@@ -1,66 +1,100 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:55:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:55:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Loss aversion is not a behavioral bias'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：损失厌恶不是一个行为偏差
 - en: 来源：[http://epchan.blogspot.com/2018/06/loss-aversion-is-not-behavioral-bias.html#0001-01-01](http://epchan.blogspot.com/2018/06/loss-aversion-is-not-behavioral-bias.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2018/06/loss-aversion-is-not-behavioral-bias.html#0001-01-01](http://epchan.blogspot.com/2018/06/loss-aversion-is-not-behavioral-bias.html#0001-01-01)
 - en: In his famous book "
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在他的著名书籍 "
 - en: '[Thinking, Fast and Slow](https://amzn.to/2yU4IKr)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[思考，快与慢](https://amzn.to/2yU4IKr)'
 - en: '", the Nobel laureate Daniel Kahneman described one common example of a behavioral
     finance bias:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: ”，诺贝尔奖得主丹尼尔·卡尼曼描述了一个行为金融偏差的常见例子：
 - en: '"You are offered a gamble on the toss of a [fair] coin.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 你被提供了一个抛[公平]硬币的赌博。
 - en: If the coin shows tails, you lose $100.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果硬币显示反面，你损失100美元。
 - en: If the coin shows heads, you win $110.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果硬币显示正面，你赢得110美元。
 - en: Is this gamble attractive? Would you accept it?"
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个赌博吸引人吗？你会接受它吗？"
 - en: (I have modified the numbers to be more realistic in a financial market setting,
     but otherwise it is a direct quote.)
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: （我修改了数字以使在金融市场环境中更加现实，但除此之外它是一个直接引述。）
 - en: Experiments show that most people would not accept this gamble, even though
     the expected gain is $5\. This is the so-called "loss aversion" behavioral bias,
     and is considered irrational. Kahneman went on to write that "professional risk
     takers" (read "traders") are more willing to act rationally and accept this gamble.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 实验显示，大多数人不会接受这个赌博，尽管预期收益是5美元。这就是所谓的“损失厌恶”行为偏差，并被认为是不合理的。卡尼曼继续写道，“专业风险承担者”（读作“交易员”）更愿意理性地接受这个赌博。
 - en: It turns out that the loss averse "layman" is the one acting rationally here.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果表明，损失厌恶的“外行人”在这里是行为合理的。
 - en: It is true that if we have infinite capital, and can play infinitely many rounds
     of this game simultaneously, we should expect $5 gain per round. But trading isn't
     like that. We are dealt one coin at a time, and if we suffer a string of losses,
     our capital will be depleted and we will be in debtor prison if we keep playing.
     The proper way to evaluate whether this game is attractive is to evaluate the
     expected compound rate of growth of our capital.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 确实，如果我们有无限资本，并且可以同时进行无限多轮的游戏，我们应预期每轮获得5美元。但交易并非如此。我们一次只能拿到一枚硬币，如果我们遭受一系列损失，我们的资本将会耗尽，如果我们继续玩，我们将破产。评估这个游戏是否吸引人的正确方法是评估我们资本的预期复合增长率。
 - en: Let's say we are starting with a capital of $1,000\. The expected return of
     playing this game once is initially 0.005.  The standard deviation of the return
     is 0.105\. To simplify matters, let's say we are allowed to adjust the payoff
@@ -68,15 +102,21 @@
     each round. For e.g. if at some point we earned so much that we doubled our capital
     to $2,000, we are allowed to win $220 or lose $200 per round. What is the expected
     growth rate of our capital? According to standard
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们起始资金为1000美元。玩这个游戏的预期回报最初是0.005。回报的标准差是0.105。为了简化问题，假设我们被允许调整每轮的回报，以便我们每轮都有相同的预期回报和回报的标准差。例如，如果我们某一点赚了很多，使我们的资本翻倍到2000美元，我们被允许每轮赢220美元或损失200美元。我们的资本预期增长率是多少？根据标准
 - en: '[stochastic calculus](http://epchan.blogspot.com/2017/05/paradox-resolved-why-risk-decreases.html)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[随机微积分](http://epchan.blogspot.com/2017/05/paradox-resolved-why-risk-decreases.html)'
 - en: ', in the continuous approximation it is -0.0005125 per round - we are losing,
     not gaining! The layman is right to refuse this gamble.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 在连续近似中，每轮是-0.0005125 - 我们正在亏损，而不是获利！外行人拒绝这个赌博是对的。
 - en: Loss aversion, in the context of a risky game played repeatedly, is rational,
     and not a behavioral bias. Our primitive, primate instinct grasped a truth that
     behavioral economists cannot.  It only seems like a behavioral bias if we take
@@ -85,68 +125,108 @@
     capital to play many rounds of this game in sequence, provided we don't go broke
     at some point). The time series view is the one relevant to all traders. In other
     words, take time average, not ensemble average, when evaluating real-world risks.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 在反复进行的风险游戏中，损失厌恶是理性的，并不是行为偏差。我们原始的，猿类的本能把握了一个行为经济学家无法理解的事实。如果我们采取“集合观点”（即允许无限资本同时进行多轮游戏），而不是“时间序列观点”（即只允许有限资本依次进行多轮游戏，前提是我们不会在某个时候破产），那么它看起来就像是一种行为偏差。时间序列观点是所有交易员都相关的一个观点。换句话说，在评估现实世界的风险时，应该采用时间平均而不是集合平均。
 - en: The important difference between ensemble average and time average has been
     raised in this
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ensemble average与time average之间的重要区别已经被提出。
 - en: '[paper](https://aip.scitation.org/doi/full/10.1063/1.4940236)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[论文](https://aip.scitation.org/doi/full/10.1063/1.4940236)'
 - en: by Ole Peters and Murray Gell-Mann (another Nobel laureate like Kahneman.) It
     deserves to be much more widely read in the behavioral economics community. But
     beyond academic interest, there is a practical importance in emphasizing that
     loss aversion is rational. As traders, we should
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 由Ole Peters和Murray Gell-Mann（另一位诺贝尔奖得主，与Kahneman相同。）这本书在行为经济学界应该被更广泛地阅读。但除了学术兴趣之外，强调损失厌恶是理性的实践重要性。作为交易员，我们应该
 - en: '**not**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**不是**'
 - en: 'only focus on average returns: risks can depress compound returns severely.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 只关注平均回报：风险可能会严重抑制复合回报。
 - en: ===
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: Industry update
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 行业更新
 - en: 1)
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 1)
 - en: '[Alpaca](https://alpaca.markets/))'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Alpaca](https://alpaca.markets/)'
 - en: is a new an algo-trading API brokerage platform with zero commissions.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个新的零佣金算法交易API经纪平台。
 - en: 2)
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 2)
 - en: '[AlgoTrader](https://www.algotrader.com/features/)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '[AlgoTrader](https://www.algotrader.com/features/)'
 - en: started a new quant strategy development and implementation platform.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 启动了一个新的量化策略开发和实施平台。
 - en: '**My Upcoming Workshop**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我的即将举行的研讨会**'
 - en: 'August 4 and 11:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 8月4日和11日：
 - en: '[Artificial Intelligence Techniques for Traders](http://www.epchan.com/workshops/)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '[交易员的人工智能技术](http://www.epchan.com/workshops/)'
 - en: I briefly discussed why AI/ML techniques are now part of the standard toolkit
     for quant traders
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 我简要讨论了为什么AI/ML技术现在已成为量化交易者的标准工具箱的一部分。
 - en: '[here](https://www.youtube.com/watch?v=5-nG8NSzE1s&t=5s)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '[在此处](https://www.youtube.com/watch?v=5-nG8NSzE1s&t=5s)'
 - en: . This real-time online workshop will take you through many of the nuances of
     applying these techniques to trading.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 。这次实时在线研讨会将带你了解如何将这些技术应用于交易的许多细微差别。

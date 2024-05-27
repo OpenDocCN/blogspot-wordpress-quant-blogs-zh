@@ -1,65 +1,95 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:20:24'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:20:24'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Parameterless trading models'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：无参数交易模型
 - en: 来源：[http://epchan.blogspot.com/2008/05/parameterless-trading-models.html#0001-01-01](http://epchan.blogspot.com/2008/05/parameterless-trading-models.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2008/05/parameterless-trading-models.html#0001-01-01](http://epchan.blogspot.com/2008/05/parameterless-trading-models.html#0001-01-01)
 - en: A portfolio manager that I used to work for like to pronounce that his trading
     models have "no free parameters". As is customary in our secretive industry, he
     would not elaborate further on his technique.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我以前工作过的投资组合经理喜欢宣称他的交易模型“没有自由参数”。在我们这个保密的行业中，他不会进一步阐述他的技术。
 - en: Lately, I begin to understand what a trading model with no free parameter means.
     It doesn't mean that it does not contain any lookback period for calculating trends,
     or thresholds for entry or exit. I think that would be impossible. It just means
     that all such parameters are
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近，我开始理解无参数交易模型的含义。它并不意味着在计算趋势时没有回望期，或者没有入场或离场阈值。我认为那是 impossible。它只是意味着所有这些参数都是
 - en: dynamically
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 动态
 - en: 'optimized in a moving lookback window. This way, if you ask: "Does the model
     have a fixed profit cap?", the trader can honestly reply: "No, profit cap is not
     an input parameter. It is determined by the model itself."'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一个移动回望窗口中进行优化。这样，如果你问：“模型的盈利上限是固定的吗？”交易员可以诚实地回答：“不，盈利上限不是一个输入参数。它是由模型本身确定的。”
 - en: The advantage of a parameterless trading model is that it minimizes the danger
     of overfitting the model to multiple input parameters. (The so-called "data-snooping
     bias".) So the backtest performance should be much closer to the actual forward
     performance.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 无参数交易模型的优点是，它最小化了模型对多个输入参数过拟合的危险。（所谓的“数据窥视偏差”）。所以回测表现应该更接近实际的前向表现。
 - en: Now, it is quite computationally challenging to optimize all these parameters
     just-in-time for your next order, but it is often even more difficult to do that
     in a backtest, given that a multidimensional optimization need to be performed
     for each historical bar. As a result, I personally have seldom traded parameterless
     models, until I get to research my
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，计算上挑战性很大，要在下一个订单时恰好优化所有这些参数，但在回测时这样做更难，因为需要为每个历史K线执行多维优化。结果是，我个人很少交易无参数模型，直到我开始研究我的
 - en: '[regime-switching model](http://epchan.blogspot.com/2008/05/machine-learning-regime-switching.html)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[政权转换模型](http://epchan.blogspot.com/2008/05/machine-learning-regime-switching.html)'
 - en: . That model is almost parameterless (I left out a few parameters from optimization
     because of a lack of time, not because of any technical difficulties).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我留下的几个参数未优化，是因为时间不足，而不是因为任何技术困难。
 - en: The reason backtest optimization can now be done within a few minutes is due
     to my use of Alphacet Discovery's server-based optimization engine. There may
     be other optimization software out there that performs similar functions efficiently
     -- I welcome comments from the reader.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在回测优化可以在几分钟内完成，这要归功于我使用Alphacet Discovery的服务器优化引擎。可能还有其他能高效执行类似功能的优化软件 -- 读者可以发表评论。

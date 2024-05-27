@@ -1,38 +1,54 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:30:38'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:30:38
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Intraday, high Resolution Day Counters – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 日内高分辨率日计数器——HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2015/01/04/intraday-high-resolution-day-counters/#0001-01-01](https://hpcquantlib.wordpress.com/2015/01/04/intraday-high-resolution-day-counters/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2015/01/04/intraday-high-resolution-day-counters/#0001-01-01](https://hpcquantlib.wordpress.com/2015/01/04/intraday-high-resolution-day-counters/#0001-01-01)
 - en: At the time being QuantLib’s smallest time resolution is a single day and QuantLib
     does not support “intraday pricing”. Close to an option’s maturity date this inaccuracy
     leads to wrong greeks. Especially at maturity date QuantLib gives back zero option
     npv and greeks. A temporary solution would be to shift the expiry date of the
     option one day forward but this still leads to wrong valuation of the price and
     the [pin risk](http://en.wikipedia.org/wiki/Pin_risk_%28options%29) of the option.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 目前QuantLib支持的最小时间分辨率是一个完整的日子，并不支持“日内定价”。在期权到期日附近，这种不准确性会导致错误的希腊字母值计算。特别是在到期日，QuantLib会返回零期权净现值和希腊字母值。一个临时的解决办法是将期权的到期日向后推移一天，但这仍然会导致价格和期权的[锁定风险](http://en.wikipedia.org/wiki/Pin_risk_%28options%29)的错误估值。
 - en: The root of the problem is DayCounter’s yearFraction method, which acts on dates
     and the Date class does not support any time resolution smaller than days. On
     the other hand the Date class is probably the most widely used QuantLib class
     and therefore any solution must be backwards compatible. One solution for this
     problem has recently been discussed [here](http://quantlib.10058.n7.nabble.com/Intraday-patch-td16122.html).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题的根源是DayCounter的yearFraction方法，它作用于日期，而Date类不支持比天更小的时间分辨率。另一方面，Date类可能是QuantLib中最广泛使用的类，因此任何解决方案都必须是向后兼容的。这个问题的一个解决方案最近在这里[讨论](http://quantlib.10058.n7.nabble.com/Intraday-patch-td16122.html)过。
 - en: Instead of adding new derived Date classes another solution will be to change
     the Date class itself to cope with intraday time information. The advantage of
     this approach is that all overloaded operators remain consistent. The date time
@@ -42,26 +58,38 @@
     penalty. In order to allow backwards compatibility all signatures and behavior
     of the existing Date and DayCounter classes should stay the same. Additional methods
     are inter alia a new high-resolution date constructor
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 与其增加新的派生日期类，另一种解决方案将是修改日期类本身以处理日内时间信息。这种方法的优点是所有重载的运算符仍然保持一致。日期时间算术已经使用boost::posix_time::ptime类实现。如果一个人对时区和夏令时的正确处理感兴趣，应使用boost::local_time::local_date_time，但这会带来性能损失。为了允许向后兼容，所有现有Date和DayCounter类的签名和行为应该保持不变。附加方法包括但不限于一个新的高分辨率日期构造函数。
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: and methods to get the differences in days between two points in time including
     the fractions of the days. The maximal resolution of the methods is either micro
     or nano seconds depending on the underlying boost installation.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及获取两个时间点之间天数差异（包括日分数）的方法。这些方法的最大分辨率是微秒或纳秒，这取决于底层boost安装。
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Last bit missing now is to change the corresponding day counters, e.g. the yearFraction
     method of the Actual365Fixed day counter becomes
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在最后缺失的部分是要更改相应的日计数器，例如Actual365Fixed日计数器的yearFraction方法变为
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The new Date and DayCounter implementation is available [here](http://hpc-quantlib.de/src/date.zip).
     It acts as a drop-in replacement for the existing classes, meaning the QuantLib
     test suite runs properly without any changes. Only the day counters Actual360,
@@ -70,8 +98,12 @@
     pricing of an ATM option during the last two and a half hours of the last trading
     day based on the Heston model and the finite difference pricing engine FDHestonVanillaEngine.
     The resulting Gamma and NPV of the option are shown in the diagram below.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 新的Date和DayCounter实现可在此处找到[http://hpc-quantlib.de/src/date.zip](http://hpc-quantlib.de/src/date.zip)。它可以作为现有类的替代品使用，意味着QuantLib测试套件在没有任何更改的情况下可以正常运行。只有实际360、实际365固定、实际实际日计数器允许严格单调的时间定义，并且只有这些被适应了。补丁还包含一个示例，展示了基于Heston模型和有限差分定价引擎FDHestonVanillaEngine的ATM期权在最后交易日的最后两个半小时内的日内定价。下图显示了期权的Gamma和NPV。
 - en: '[![gamma](img/fa6bd25dd2410ca9e7d2262f8ffa1e85.png)](https://hpcquantlib.wordpress.com/wp-content/uploads/2015/01/gamma.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![gamma](img/fa6bd25dd2410ca9e7d2262f8ffa1e85.png)](https://hpcquantlib.wordpress.com/wp-content/uploads/2015/01/gamma.png)'

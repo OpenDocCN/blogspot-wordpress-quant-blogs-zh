@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:44:13'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:44:13
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Protecting Client Interests: Anonymity in US Equities | Mechanical Markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 保护客户利益：美国股票市场的匿名性 | 机械市场
 - en: 来源：[https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01](https://mechanicalmarkets.wordpress.com/2015/02/16/protecting-client-interests-anonymity-in-us-equities/#0001-01-01)
 - en: Anonymity is the top concern for many market participants and the entire order
     handling chain has a responsibility to protect traders’ identities. Still, there
     are plenty of exceptions to anonymous trading in US equities. When is it OK for
@@ -25,31 +37,41 @@
     this post I will discuss a few situations where trading is not fully anonymous,
     briefly outline an HFT strategy that relies on one of these situations, as well
     as ask some related ethical questions.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 匿名性是许多市场参与者的首要关注点，整个订单处理链都有责任保护交易者的身份。尽管如此，美国股票市场的匿名交易仍有许多例外。何时证券经纪商和交易所透露可能识别客户的信息是合理的？在这篇文章中，我将讨论几种交易并非完全匿名的情况，简要概述了一种依赖这些情况的超高速交易策略，并提出了一些相关伦理问题。
 - en: Many exchanges allow Broker-Dealers to optionally identify their orders to the
     entire market (e.g. [Nasdaq](http://www.nasdaqtrader.com/content/ProductsServices/Trading/OrderTypesG.pdf)).
     In the previous posts, we examined order characteristics in an effort to identify
     desirable trading partners. In keeping with that spirit, the first thing we’ll
     explore is the performance of Nasdaq trades identifiable by counterparty MPID
     (Market Participant ID).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多交易所允许证券经纪商可选地将他们的订单标识给整个市场（例如[纳斯达克](http://www.nasdaqtrader.com/content/ProductsServices/Trading/OrderTypesG.pdf)）。在之前的文章中，我们研究了订单特征以识别理想的交易伙伴。本着同样的精神，我们要探索的第一个问题是纳斯达克通过对手方MPID（市场参与者ID）可识别的交易表现。
 - en: Here is a chart of trades’ performance grouped by MPID relative to the market
     price. The MPID with by far the most trades is UBSS (UBS Securities).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是按MPID与市场价格相对关系分组的交易表现图表。交易量最多的MPID是UBSS（瑞银证券）。
 - en: '[![toa-mpid-UBSS-800](img/c7726288b7c620c30f700dbb23e31fa5.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-1366.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![toa-mpid-UBSS-800](img/c7726288b7c620c30f700dbb23e31fa5.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-1366.png)'
 - en: 'Top panel: Average profit or loss per share vs distance in time from trade.
     For example 60 seconds after a trade, the average UBSS order has lost 1.05 cents
     compared to the market and the average anonymous order has lost 0.37 cents. Market
     price here is estimated by the average price of the most recent 100 shares traded
     on Nasdaq, exclusive of fees and rebates. Chart is over 3 weeks in August. Bottom
     panel: Shares traded on Nasdaq vs time from trade (including fiducial trade).'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：平均每股利润或损失与交易时间距离。例如，交易后60秒，平均UBSS订单相较于市场亏损了1.05美分，而平均匿名订单亏损了0.37美分。此处市场价格是通过排除费用和回扣后，纳斯达克最近100股交易的平均价格估算的。图表为8月份3周的数据。底部面板：纳斯达克交易的股票与交易时间（包括基准交易）。
 - en: 'The orders marked UBSS have dramatically poorer performance over the long term
     than those marked anonymous. This tendency is robust across stocks with different
     liquidity profiles (e.g. price, spread, volume). We’ve discussed in earlier posts
@@ -71,18 +93,24 @@
     to the market. That would imply that their broker was leaking information to the
     market by flagging these orders with their MPID, presumably not in the customer’s
     interest.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 标记为UBSS的订单与标记为匿名的订单相比，长期表现要差得多。这种倾向在具有不同流动性概况的股票（例如价格、买卖差价、成交量）中都是成立的。我们在先前的帖子中讨论了为什么看似有效的市场没有消除这种差异。一种直观的反应可能是：“哇，如果他们在交易时损失这么多钱，UBS处理客户订单的能力真是差。”我不知道这些订单通常代表谁发送的，但合理猜测它们可能是零售类型的客户。在你说“典型的银行，剥削最不成熟的客户”之前，我认为UBS可能正是从客户的角度出发，做对了所有的事情。如果这些订单来自不太成熟的人，它们可能是限价订单，价格是客户而不是经纪人选择的；在这种情况下，客户想要的只是最大化以提交的价格成交的概率，而不管之后的几分钟内会发生什么。通过带有MPID字段的纳斯达克提交它们，UBS实际上在这些订单上贴上了一个巨大的“打我”标签，这应该能提高它们的成交率，即使其他市场参与者因此获利。尽管这可能看起来反直觉，但更令人担忧的是，这些订单实际上表现得出奇地好，相对于市场来说。那将暗示他们的经纪人通过带有他们MPID的标签向市场泄露信息，这显然不是为了客户的利益。
 - en: Ah, you ask, but this refers to the order’s alpha only when it trades, what
     if it actually has a poor fill rate and as soon as it’s posted to Nasdaq the price
     starts to move away from it? Just to be sure this isn’t what’s happening, here
     is a chart of the market price around the time of submission of said orders, when
     they are submitted within 10 cents of the NBBO. [[1](#bottom)]
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 啊，你可能会问，但这仅当订单成交时才指的是订单的alpha，如果它实际的成交率很低，并且一提交到纳斯达克市场价格就远离它呢？为了确保这不是正在发生的事情，这里有一个市场价格图表，在提交所述订单的时间附近，当它们以比NBBO高或低10美分的价格提交时。[[1](#bottom)]
 - en: '[![toa-mpid-UBSS-add-800](img/cee55d1d21e19210285b9ebc2e7d2327.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-add-1366.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 图片：![toa-mpid-UBSS-add-800](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-add-1366.png)
 - en: 'Top panel: Average profit or loss per share (relative to order price) vs distance
     in time from order submit time. For example 0 seconds after an order with the
     UBSS MPID has been submitted its price is on average 3.15 cents less aggressively
@@ -91,15 +119,22 @@
     time from order add. Note that it it’s not until over 100ms after the UBSS order
     is added for 100 shares to have traded on average, suggesting there’s no immediate
     reaction to the order being posted.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 顶部面板：每股平均利润或损失（相对于订单价格）与从订单提交时间开始的距离。例如，在UBSS MPID的订单提交后0秒钟，其价格平均比市场价格低3.15美分。请注意，这些订单有大约37%的提供量被成交，这相当高。底部面板：纳斯达克交易的股票数量与从订单添加时间开始的时间。请注意，直到UBSS订单添加100股平均交易超过100毫秒后，才出现对订单提交的即时反应，这暗示着订单提交后并没有立即的价格变动。
 - en: UBS hasn’t exactly earned itself a sterling reputation lately ([Libor](http://www.reuters.com/article/2012/12/19/us-ubs-libor-idUSBRE8BI00020121219),
     [equities](http://www.bloomberg.com/news/articles/2015-01-15/sec-fines-ubs-dark-pool-more-than-14-million-for-breaking-rules),
     [FX](http://dealbook.nytimes.com/2014/11/12/british-and-u-s-regulators-fine-big-banks-3-16-billion-in-foreign-exchange-scandal/),
     [taxes](http://www.bloomberg.com/news/articles/2015-02-04/ubs-said-to-be-under-new-tax-evasion-investigation-in-u-s-)),
     but on this one I’m willing to give them the benefit of the doubt.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   瑞银最近并没有为自己赢得一颗璀璨的声誉([Libor](http://www.reuters.com/article/2012/12/19/us-ubs-libor-idUSBRE8BI00020121219),
+    [股票](http://www.bloomberg.com/news/articles/2015-01-15/sec-fines-ubs-dark-pool-more-than-14-million-for-breaking-rules),
+    [外汇](http://dealbook.nytimes.com/2014/11/12/british-and-u-s-regulators-fine-big-banks-3-16-billion-in-foreign-exchange-scandal/),
+    [税收](http://www.bloomberg.com/news/articles/2015-02-04/ubs-said-to-be-under-new-tax-evasion-investigation-in-u-s-)),但在这一点上，我愿意给他们一些信任。'
 - en: Unlike Nasdaq, DirectEdge does offer a financial incentive for firms to display
     their MPID to the market (see “Edge Attribution Incentive Program” [here](http://www.bats.com/us/equities/membership/fee_schedule/edgx/)).
     Unfortunately, DirectEdge charges extra for a subscription to its MPID attributed
@@ -111,12 +146,17 @@
     the revenue offered by DirectEdge. Again, I’m not saying this is happening on
     Edge, but this sort of incentive program is fraught with danger and I can’t help
     but wonder why it’s even offered. [[2](#bottom)]
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   与纳斯达克不同，DirectEdge确实为公司向市场展示他们的MPID提供了金融激励（参见“边缘属性激励计划”[此处](http://www.bats.com/us/equities/membership/fee_schedule/edgx/)）。不幸的是，DirectEdge为其标记订单数据订阅收取额外费用，所以我没有可用的数据来重复对EdgeX的分析。但我非常好奇，看看与任何特定MPID相关的订单是否具有异常属性，特别是如果它们的表现优于市场。如果是这样，这表明（当然这是一种猜测）可能存在一种可能性，即经纪人愿意泄露对市场有影响的客户数据，以换取DirectEdge提供的收入。再次强调，我不是说这在Edge上正在发生，但这种激励计划充满危险，我不禁想知道为什么它甚至被提供。
+    [[2](#bottom)]'
 - en: A Trading Strategy
+  id: totrans-17
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '-   交易策略'
 - en: I won’t bore you with too many details, since we’ve already seen strategies
     that capitalize on analogous low-alpha orders. The basic idea here is that when
     we see a UBSS order trade, we send orders trying to trade with any quantity remaining.
@@ -124,18 +164,24 @@
     30$/shr to mop up the quantity available. Note that the profit margins are about
     the same if we send 100 or 1000 share orders, which does hint that these (typically
     large) UBSS orders come from retail clients.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   我不会向您详细介绍太多细节，因为我们已经看到了利用类似低alpha订单的策略。这里的基本想法是，当我们看到一个UBSS订单成交时，我们会发送订单尝试与剩余的任何数量交易。下面的模拟仅仅是那样，向股价超过30美元/股的股票发送1000股订单以清理可用的数量。请注意，如果我们发送100股或1000股订单，利润率几乎是一样的，这确实表明这些（通常是大型）UBSS订单来自零售客户。'
 - en: '[![toa-mpid-UBSS-sim-800](img/dcc461d10cf5c5244f2f8d29df4b3442.png)](https://mechanicalmarkets.wordpress.com/wp-content/uploads/2015/02/toa-mpid-ubss-sim-1366.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '![toa-mpid-UBSS-sim-800](img/dcc461d10cf5c5244f2f8d29df4b3442.png)（图片链接，不翻译）'
 - en: 'Top Panel: Performance of simulated trades executed by the above strategy (during
     9 days in July). Note this strategy is latency-sensitive and has not been run
     in a production environment; the simulation could be optimistic if Nasdaq tends
     to slow down around the time of a UBSS execution. Bottom Panel: Share volume on
     Nasdaq (excluding simulated trade)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '-   顶部面板：7月份9天内执行的模拟交易的性能。（注意：这个策略对延迟非常敏感，并且没有在生产环境中运行；如果纳斯达克在执行UBSS时倾向于放慢速度，那么模拟可能会有点乐观。）底部面板：纳斯达克的成交量（不包括模拟交易）'
 - en: The strategy makes about 100 mils after fees on 4000 trades per day with an
     average trade size of 250 shares, netting 10k/day (assuming minimal exit costs).
     Another 5k/day can be had by sending identical orders to EdgeX. And there’s potential
@@ -143,19 +189,25 @@
     aggressive price. This strategy is somewhat latency-sensitive and there’s a noticeable
     uptick in volume 50us after a UBSS order executes, suggesting that someone is
     wise to the MPID feature.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个策略在每天4000笔交易中，每笔平均交易量为250股后，扣除费用大约能赚1000万美元，每天净赚10,000美元（假设退出成本最低）。通过向EdgeX发送相同订单，还能再赚5,000美元/天。还有潜力赚得更多；通过提交更具侵略性的价格，可以将成交量提高到更高的水平。这个策略对延迟比较敏感，在UBSS订单执行后50微秒，成交量明显增加，这表明有人已经注意到MPID特性。
 - en: The previous posts focused on order properties that could signal the identity
     of their senders. Orders displaying fewer HFT-like characteristics make for desirable
     counterparties. Now we see that knowing the broker’s identity also can tell us
     a great deal about the client. Imagine how much we might make if we knew the broker
     for every order we encountered!
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前帖子关注的是可能透露发送者身份的订单属性。显示较少HFT特征的订单成为理想的对手方。现在我们发现，知道经纪人的身份也能让我们了解到关于客户的大量信息。想象一下，如果我们知道遇到的每个订单的经纪人会怎样！
 - en: Ethical Questions
+  id: totrans-23
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 道德问题
 - en: These examples are not the only exceptions to anonymity of the markets. Certainly
     some dark pools openly advertise that they filter out toxic counterparties or
     allow users to choose which sub-population of the pool they’d like to interact
@@ -167,8 +219,11 @@
     a noise trader to Getco and could get executed near the midpoint; another order
     sent from Goldman immediately afterwards may scare them and won’t get executed
     at all.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些例子并不是市场上匿名性的唯一例外。当然，一些暗池公开宣传它们过滤掉有毒的对手方，或者允许用户选择与池中的哪个子群体互动（我们看到了巴克莱因这类声明而陷入麻烦）。据我所知，内部人士可以看到一些
+    incoming orders 的识别特征。这种识别背后的普遍想法是，它可能导致客户在执行时获得更好的价格。通过Charles Schwab发送的市场订单可能对Getco来说就像噪音交易者，可能会在中间点附近执行；随后通过Goldman发送的另一笔订单可能会吓到他们，根本不会执行。
 - en: This does sound like good client service, but there are a few issues that deserve
     consideration. Instead of passing on their market-making revenue to the Schwab
     client through NBBO improvement, what if some of it were diverted to Schwab itself
@@ -180,37 +235,52 @@
     or size can clue us in to who might have sent an order, so Schwab could even unwittingly
     transmit sensitive data. I have no reason to believe Schwab does so, but it’s
     a thought that could make investors uncomfortable. [[3](#bottom)]
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 这听起来像是良好的客户服务，但有一些问题值得考虑。与其将他们的市场制造收入通过改善NBBO传给Schwab客户，那么部分收入能否转给Schwab本身通过订单流量支付？在这种情况下，Schwab可能会有激励与Getco分享不一定总是符合客户利益的信息。Schwab是否会透露任何可能让内部人士认为订单不是来自你祖父母的退休金账户，而是高管在行使股票期权的信息？从我们的例子中记住，即使像时间戳或数量这样平凡的信息也能让我们知道可能是谁下了订单，所以Schwab甚至可能无意中传输敏感数据。我没有理由相信Schwab会这样做，但这是会让投资者感到不安的想法。
+    [[3](#bottom)]
 - en: 'This hypothetical brings us to the definition of front-running. Is it front-running
     to sell client information to outsiders? If selling the information helps the
     client, then it seems like the answer should be no. But what if it doesn’t? Let’s
     say hypothetically the following happens:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种假设让我们来到了前冲交易定义的问题。向外界出售客户信息算不算前冲交易？如果出售信息能帮助客户，那么答案似乎应该是否定的。但如果不是呢？让我们假设性地看看以下情况会发生什么：
 - en: Broker has clients that tend to continue trading on the same side after their
     first order
+  id: totrans-27
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经纪人拥有在首次下单后倾向于继续在同一方向交易的客户。
 - en: Broker forwards such an order from Trader A to DirectEdge.
+  id: totrans-28
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经纪人将交易员A的订单转发给DirectEdge。
 - en: Broker tells DirectEdge to expose it’s MPID to the market. DirectEdge pays broker.
+  id: totrans-29
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 经纪人告诉DirectEdge向市场透露其MPID。DirectEdge支付给经纪人。
 - en: Trader B pays DirectEdge for the MPID data.
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易员B向DirectEdge支付MPID数据的费用。
 - en: Trader B sees the newly added order and, anticipating the price to move away
     from it, sends other orders that degrade the fill quality of Trader A’s current
     or future orders.
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 交易员B看到新增的订单后，预计价格会从中偏离，于是发送其他订单，从而降低交易员A当前或未来订单的成交质量。
 - en: It doesn’t sound so different from a broker calling up a friend upon receiving
     a client’s instructions, the friend using that info to make money, and then handing
     the broker a briefcase of cash. I’m not a lawyer, but if something akin to the
@@ -218,8 +288,10 @@
     the consequences. I’ll stress one more time that this scenario is hypothetical;
     for all I know DirectEdge doesn’t even have subscribers to their attributed data
     feed.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 这听起来与经纪人在接到客户指令后给朋友打电话没有太大区别，朋友利用这些信息赚钱，然后给经纪人一个手提箱装满现金。我不是律师，但如果发生类似的事情，它将对任何了解后果的参与方产生非常负面的影响。我再强调一次，这种情况是假设性的；据我所知，DirectEdge甚至可能没有订阅他们归属数据源的订阅者。
 - en: 'One final point about the broader consequences of reduced anonymity in markets:
     even if clients’ interests are looked after meticulously, de-anonymization of
     traders can result in a two-tiered market with heavy fragmentation. Because noise
@@ -228,8 +300,10 @@
     You could argue that this is exactly what’s happened to today’s markets; retail
     flow goes through internalizers and institutions are left to fight each other
     elsewhere, with HFT connecting the two.'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于市场匿名性降低的更广泛后果的最后一点是：即使客户的利益被精心照顾，交易员的去匿名化也可能导致一个两层市场，且市场碎片化严重。由于噪音交易者在身份部分透露后可以获得更好的价格，因此保持完全匿名的订单往往来自大型机构交易者。你可以说这正是当今市场所发生的事情；零售流量通过内部交易者，而机构则在其他地方相互竞争，HFT连接了这两者。
 - en: '[[1](#1)] “NBBO” here means an approximation of the real NBBO, essentially
     an estimate based on a subset of exchanges. Note that orders with the UBSS MPID
     do exhibit significant toxicity if they are submitted at prices more aggressive
@@ -238,18 +312,24 @@
     order that improves the NBBO) and their very high fill rate near 80%, I don’t
     find that thought particularly convincing. The posted plot includes these orders
     in its averages.'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**1.** 这里的“NBBO”意味着实际NBBO的一个近似值，基本上是基于交易所子集的一个估计。请注意，带有UBSS MPID的订单如果在比NBBO更激进的价格提交，它们确实表现出显著的毒性。也许这是来自MPID的信息泄露的迹象，但考虑到这些订单的巨大规模（通常是改善NBBO的典型纳斯达克订单规模的10倍）以及它们的非常高成交率接近80%，我不认为这种想法特别有说服力。公布的图表在其平均值中包括了这些订单。'
 - en: '[[2](#2)] I can think of a rationale behind this attribution incentive program
     that does not suggest any undesirable behavior. DirectEdge could simply be incentivizing
     Broker-Dealers who had already decided to reveal their MPID to send their orders
     to EdgeX over other exchanges. If there are any client orders among these, the
     Broker-Dealers could have determined that posting the MPID helps clients get a
     better execution.'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**2.** 我可以想到一个合理的理由来解释这种归属激励计划背后的动机，这并不暗示任何不希望的行为。DirectEdge可能只是在激励那些已经决定透露其MPID的券商，让他们将订单发送到EdgeX，而不是其他交易所。如果有这些订单中的客户订单，券商可能已经确定透露MPID有助于客户获得更好的执行。'
 - en: '[[3](#3)] The company names here are just placeholders. I don’t know if Schwab
     does business with Getco or other internalizers, or accepts payments for order
     flow at all.'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**公司名称**在这里只是占位符。我不知道Schwab是否与Getco或其他内部交易者做生意，或者是否接受订单流支付。'

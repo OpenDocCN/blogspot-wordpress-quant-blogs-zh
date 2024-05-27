@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:09:09'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:09:09
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Improving Trend-Following Strategies With Counter-Trend Entries | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过逆趋势入场提高趋势跟随策略的效果 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/#0001-01-01](https://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/#0001-01-01](https://cssanalytics.wordpress.com/2011/07/29/improving-trend-following-strategies-with-counter-trend-entries/#0001-01-01)
 - en: It is possible to make minor adjustments to strategies that can both improve
     their backtest performance, but also reduce the real costs of trading. The trend-follower
      will always pay more to enter a trade due to the increased slippage and market
@@ -32,8 +44,10 @@
     is also critical to preserve the  nature of trend-following strategies which is
     to reduce tail risk. In other words, we do not want to create an exit into strength
     that may never be filled and leaving the trader faced with a significant drawdown.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有可能对策略进行微调，既能提高其回测表现，又能减少交易的实时成本。趋势跟随者由于增加的滑点和对市场影响的成本，始终会支付更高的入场费用。在现代时代，所有市场上的进一步“税收”是短期均值回归的影响——由于市场不再频繁地跟随，趋势交易往往在短期的高点或低点被触发。这导致了不佳的入场，限制了交易盈利的潜力。这个问题明显的解决方案是在给定的趋势跟随策略中纳入一个短期逆趋势/均值回归的入场和出场。关键是要使用一个足够频繁的发生入场，以避免错过交易并尽快进入。对于出场，快速和及时的信号很重要，同时保留趋势跟随策略的性质，即减少尾风险，也至关重要。换句话说，我们不想创建一个可能永远不会成交的强势出场，让交易者面临显著的回撤。
 - en: 'The most significant impact of a counter-trend entry exit is typically found
     when combining it with a short-term moving average. The value of improving the
     performance of a short-term trend signal cannot be overstated because it allows
@@ -49,11 +63,15 @@
     is above the 10-day simple moving average and selling when the close is below
     the sma. The “mean-reversion tax” is quite evident, and the actual trading costs
     with slippage and commission are not even factored in:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 逆趋势入场退场最大的影响通常是在与短期移动平均结合时发现的。提高短期趋势信号性能的价值无法过分强调，因为它让你能更好地跟踪基础资产的趋势，同时滞后程度大幅降低。自1998年以来，SPY/S&P500已经基本呈现出均值回归的特征，大多数交易者已经转而使用较长周期的移动平均和趋势过滤器，如200周期移动平均或金叉。问题是，在当今市场——充斥着意外反弹的市场——长期移动平均以上的尾风险已经变得更高。滞后成本可能导致可怕的回撤，正如今年大多数趋势跟随者所经历的那样。如果你能更准确地跟随短期趋势，你可以大幅降低这种风险。让我们看看短期趋势策略的表现——当收盘价高于10日简单移动平均时买入，当收盘价低于sma时卖出。“均值回归税”非常明显，而且实际交易成本（包括滑点和佣金）甚至还没有考虑在内：
 - en: '[![](img/1401249d703bef7717be73cd8ed5adb3.png "040")](https://cssanalytics.files.wordpress.com/2011/07/040.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '![040](https://cssanalytics.files.wordpress.com/2011/07/040.png)'
 - en: 'Now lets look at a counter-trend overlay on the same strategy. In this case,
     we will look at a short-term range mean-reversion indicator– the DVB, and set
     it to the shortest period for maximum response which is one period. The indicator
@@ -72,14 +90,21 @@
     trade from -.09% to .73%. The difference in the two backtests would be even more
     extreme with real-world trading costs. But what about tail risk?  Lets take a
     closer look to see if that has increased:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看同样的策略上的逆趋势重叠。在这种情况下，我们将研究一个短期范围均值回归指标——DVB，并将其设置为最大响应的最短周期，即一个周期。该指标进行了归一化处理，使得入口/出口的频率保持稳定，与RSI相比，DVB改变值所需的真正均值回归要少得多。在这种情况下，我们将使用四分之一最低值作为入口，四分之一最高值作为出口。因此，策略将是当收盘价>10sma但仅当DVB1<25时进入，而当收盘价<10sma但仅当DVB1>75时退出。有效地，我们在新的短期趋势出现的第一个弱点时买入，在该趋势结束时的第一个强度时卖出。令人惊讶的是，这使得跟随10sma的失败策略变得有盈利的可能性：[![](img/01957247d1a7511fdbccb58c30ec8b33.png
+    "041")](https://cssanalytics.files.wordpress.com/2011/07/041.png)显然是一个显著的改进——不性感，但能完成工作。这种策略最有益的地方是，它非常快地抓住反弹并退出弱点，同时将盈利的交易比例从33%提高到41%，并将平均交易额从-0.09%提高到0.73%。两种回测之间的差异在现实世界的交易成本中会更加极端。但是关于尾风险呢？让我们仔细看看是否有所增加：
 - en: '![](img/8546ff3f7bbdf945173ee5c2ed6e769e.png "001")'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/8546ff3f7bbdf945173ee5c2ed6e769e.png "001")'
 - en: '![](img/19460facbe07dcfc15c9da79c426c1e0.png "002")'
+  id: totrans-11
   prefs: []
   type: TYPE_IMG
+  zh: '![](img/19460facbe07dcfc15c9da79c426c1e0.png "002")'
 - en: '![](img/e5a34cf6535ba90c298efe851c770cfd.png "003")It seems like there is virtually
     no difference in terms of value at risk (the 5th percentile of daily returns),
     and the worst trade for counter-trend is marginally higher. Looking at the drawdowns,
@@ -88,5 +113,7 @@
     This method is robust to moving average length, and appears to improve performance
     universally. While not shown here, even a 200sma strategy is substantially improved
     by such a minor change in entry and exit.'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/e5a34cf6535ba90c298efe851c770cfd.png "003")似乎在价值风险（每日回报的第五个百分位）方面几乎没有区别，逆趋势交易的最坏情况略高一些。观察回撤，我们发现趋势跟踪在震荡中真正具有风险，而传统策略的回撤几乎是三倍高。这种方法对移动平均线长度具有鲁棒性，并且似乎普遍提高性能。虽然这里没有展示，即使是200sma策略，通过入口和出口的微小变化也显著改善。'

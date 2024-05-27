@@ -1,154 +1,241 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:15:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:15:25'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Object Cache Considerations (Part 2)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 对象缓存考虑因素（第2部分）'
 - en: 来源：[http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/object-cache-considerations-part-2.html#0001-01-01)
 - en: '**Object Versioning**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**对象版本控制**'
 - en: You can consider the ‘version’ of an object to be two different things.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 你可以将对象的“版本”看作是两回事。
 - en: 'In the first case, the ‘version’ of an object could represent the number of
     times a particular object has been written to. When an object is first created,
     its version number is set to 1, and then each time a client updates the object,
     the version number is increased. So, we can have an API call is our object cache
     that tests to see if we are holding on to the most recent version:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第一种情况下，一个对象的“版本”可以代表该对象被写入的次数。当一个对象第一次被创建时，它的版本号被设置为1，然后每次客户端更新该对象时，版本号都会增加。因此，我们可以在对象缓存中调用一个API，以检查我们是否持有最新版本：
 - en: if (!ObjectCache.IsCurrent(object))
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: if (!ObjectCache.IsCurrent(object))
 - en: object = ObjectCache.Get(object.Key);
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: object = ObjectCache.Get(object.Key);
 - en: 'or, if we are using a object that has a proxy to the cache, we can do something
     like this:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 或者，如果我们使用的是具有到缓存的代理的对象，我们可以这样做：
 - en: if (!object.IsCurrent())
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: if (!object.IsCurrent())
 - en: object.Refresh();
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: object.Refresh();
 - en: 'In the second (and substantially more complex) case, the ‘version’ can represent
     the actual layout or shape of an object’s class. Consider a Trade object:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在第二种（并且复杂得多）情况下，“版本”可以代表对象类的实际布局或形状。考虑一个 Trade 对象：
 - en: 'public class Trade : CachedObject'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 'public class Trade : CachedObject'
 - en: '{'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: public int SecurityId;
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: public int SecurityId;
 - en: public double Price;
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: public double Price;
 - en: '}'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: This would be version 1.0 of the class.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是该类的1.0版。
 - en: Let’s say that we have a trading system that has to run 24x7, as is the current
     rage. Systems that run 24x7 theoretically have no chance to be bounced. Even a
     system that runs 24x6.5 has a window for maintenance. Our trading system has version
     1.0 of the Trade object.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们有一个必须24x7运行的交易系统，这是当前的趋势。24x7运行的系统在理论上没有重启的机会。即使是24x6.5运行的系统也有维护窗口。我们的交易系统拥有
+    Trade 对象的1.0版。
 - en: Now let’s say that we have a request to add sales attribution to the trading
     system, so now we need to add the id of the sales trader that took the trade request.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们现在有一个请求，需要将销售归因添加到交易系统中，因此现在我们需要添加执行交易请求的销售交易员的id。
 - en: 'public class Trade : CachedObject'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 'public class Trade : CachedObject'
 - en: '{'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '{'
 - en: public int SecurityId;
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: public int SecurityId;
 - en: public double Price;
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: public double Price;
 - en: public int BrokerId;
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: public int BrokerId;
 - en: '}'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: This is now version 1.1 of the class.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是该课程的1.1版。
 - en: Our object cache holds version 1.0 objects, and all of our subscribers also
     hold version 1.0 objects. But, now let’s say that the system that writes new trades
     into the object cache now has to write version 1.1 objects. What do we do?
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的对象缓存包含1.0版对象，所有订阅者也持有1.0版对象。但是，现在假设将新交易写入对象缓存的系统现在必须写入1.1版对象。我们该怎么办？
 - en: There are several things to consider here. How do we represent the object in
     the cache? Because we are using name/value pairs, all new objects will just have
     the BrokerId/
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里有几件事情需要考虑。我们如何表示缓存中的对象？因为我们在使用名称/值对，所有新对象都将具有BrokerId/
 - en: <id>field added. The old 1.0 objects that are in the cache do not have to change.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: <id>字段已添加。旧的1.0对象不需要更改。
 - en: The object cache might want to broadcast a message to all subscribers, telling
     them that the version number of the Trade object has changed. Since the subscribers
     may be systems that must run 24x7, then the systems might not be able to be bounced
     in order to rebuild their trade caches. The systems must be able to read and write
     the new version 1.1 objects as well as continue to support the older 1.0 objects.
     But, we cannot reconfigure the layout of the objects dynamically, can we?
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 对象缓存可能希望向所有订阅者广播一条消息，告诉他们 Trade 对象的版本号已更改。由于订阅者可能是必须24x7运行的系统，因此系统可能无法重新启动以重建其交易缓存。系统必须能够读取和写入新版本1.1对象，同时继续支持旧版本1.0对象。但是，我们能否动态地重新配置对象的结构呢？
 - en: 'Instead of using C# objects, we might consider using dictionaries of dictionaries
     to represent an app’s object cache. But this is a different kind of programming
     model. Instead of coding:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可能会考虑使用字典的字典来表示应用程序的对象缓存，而不是使用C#对象。但这是一种不同的编程模型。我们不是编写：
 - en: Trade obj = ObjectCache.Get(“102374”);
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: Trade obj = ObjectCache.Get("102374");
 - en: int broker = obj.BrokerId;
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 经纪人 = obj.BrokerId;
 - en: 'We might have to do the following (taking advantage of C# 2.0’s nullable types)
     :'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '我们可能需要做以下事情（利用C# 2.0的可空类型）:'
 - en: TradeDictionaryObject obj = ObjectCache.Get(“1002374”);
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: TradeDictionaryObject obj = ObjectCache.Get("1002374");
 - en: int? broker = obj.GetInt(“BrokerId”);
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: int? 经纪人 = obj.GetInt("BrokerId");
 - en: What a mess!
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 多么混乱啊！
 - en: What does this tell us? When using an object cache for a 24x7 system, make sure
     you get your class definition right the first time, and avoid object versioning!
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 这告诉我们什么？在为24x7系统使用对象缓存时，确保你第一次就获得你的类定义正确，并避免对象版本化！
 - en: ©2006 Marc Adler - All Rights Reserved</id>
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有</id>

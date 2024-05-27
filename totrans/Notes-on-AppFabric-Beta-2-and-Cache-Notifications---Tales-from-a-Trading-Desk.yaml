@@ -1,96 +1,145 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:12:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:12:41
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Notes on AppFabric Beta 2 and Cache Notifications | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 关于AppFabric Beta 2和缓存通知的说明 | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01](https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01](https://mdavey.wordpress.com/2010/03/03/notes-on-appfabric-beta-2-and-cache-notifications/#0001-01-01)
 - en: Notes on AppFabric Beta 2 and Cache Notifications
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于AppFabric Beta 2和缓存通知的说明
 - en: 'After successfully installing [AppFabric](http://msdn.microsoft.com/en-us/data/cc655792.aspx)
     beta 2, I though it was time to look at hooking Velocity into a Proof Of Concept
     (POC) I’m working on. Having played around with [Velocity](http://blogs.msdn.com/velocity)
     during the CTP1/2 timeframe it provide painful to remember what to do to get the
     cache running. Hence here are a few notes:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在成功安装[AppFabric](http://msdn.microsoft.com/en-us/data/cc655792.aspx) beta 2之后，我认为是时候看看如何将Velocity集成到一个我正在工作的概念验证（POC）中。在CTP1/2阶段玩过[Velocity](http://blogs.msdn.com/velocity)之后，要记住如何让缓存运行起来是非常痛苦的。因此，这里有一些说明：
 - en: Open “Windows PowerShell Modules” from the Start menu in Windows 7
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从Windows 7的启动菜单中打开“Windows PowerShell模块”
 - en: '[Use-CacheCluster](http://msdn.microsoft.com/en-us/library/ee767586(WS.10).aspx)
     will provide a view of the cluster you have just displayed. The cluster will probably
     have a status of DOWN.'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '[Use-CacheCluster](http://msdn.microsoft.com/en-us/library/ee767586(WS.10).aspx)将提供您刚刚显示的集群视图。集群可能处于DOWN状态。'
 - en: Start the cluster using Start-CacheCluster
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用Start-CacheCluster启动集群
 - en: Download the Beta 2 samples from [here](http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=55a4dceb-a116-4135-b629-035e91390031)
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从[这里](http://www.microsoft.com/downloads/details.aspx?displaylang=en&FamilyID=55a4dceb-a116-4135-b629-035e91390031)下载Beta
+    2样本
 - en: It’s worth reading [this](http://blogs.msdn.com/velocity/archive/2009/03/02/how-to-use-c-to-perform-cluster-administration-in-velocity.aspx)
     posting on cluster admin.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 值得一读的是关于集群管理的这篇文章[这里](http://blogs.msdn.com/velocity/archive/2009/03/02/how-to-use-c-to-perform-cluster-administration-in-velocity.aspx)
 - en: Some Microsoft [performance](http://blogs.msdn.com/velocity/archive/2009/04/21/more-performance-numbers.aspx)
     numbers are available here
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 一些微软的[性能](http://blogs.msdn.com/velocity/archive/2009/04/21/more-performance-numbers.aspx)数据在这里
 - en: 'The problem I now have is that I have configured the DataCacheFactoryProperties
     for notifications:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我现在的问题是，我已经为通知配置了DataCacheFactoryProperties：
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'But I still get an exception (System.NotSupportedException: Notifications are
     not supported because Cache is not configured to support notifications) when I
     update the cache? Anyone know what I’ve missed? Answer appear to be [here](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx).'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是我更新缓存时仍然得到一个异常（System.NotSupportedException：不支持通知，因为缓存没有配置为支持通知）？有人知道我错过了什么吗？答案似乎在这里[这里](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx)。
 - en: '**Update**: There answer to the above issue as [here](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx).
     If your running with the default settings you need to run the following:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**更新**：关于上述问题的答案可以在这里找到[链接](http://blogs.microsoft.co.il/blogs/gilf/archive/2009/11/13/using-velocity-cache-notifications.aspx)。如果你使用默认设置，你需要运行以下命令：'
 - en: Stop-CacheCluster
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 停止缓存集群
 - en: Set-CacheCluster -CacheName default -NotificationsEnabled True
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 设置缓存集群 -CacheName default -NotificationsEnabled True
 - en: Start-CacheCluster
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 开始缓存集群
 - en: ~ by mdavey on March 3, 2010.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2010年3月3日
 - en: Posted in [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [Microsoft](https://mdavey.wordpress.com/tag/microsoft/)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[微软](https://mdavey.wordpress.com/tag/microsoft/)

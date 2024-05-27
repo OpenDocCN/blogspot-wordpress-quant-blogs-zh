@@ -1,262 +1,396 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:08:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日08:08:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Scraping data from the internet with Python and BeautifulSoup | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python和BeautifulSoup从互联网抓取数据 | 量化角落
 - en: 来源：[https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/#0001-01-01)
 - en: I needed a daily time series of crude soybean oil prices in Central Illinois
     (yes, I did …). After a bit of search, I found out that the data I needed are
     available on the [Iowa Farm Bureau](http://www.iowafarmbureau.com "Iowa Farm Bureau") website.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我需要中伊利诺伊州粗大黄豆油价格的每日时间序列（是的，我需要……）。经过一番搜索，我发现我需要的数据在[Iowa农场局](http://www.iowafarmbureau.com
+    "Iowa农场局")的网站上可获得。
 - en: More specifically, there is no time series available but data are accessible
     playing a bit with the URLs. It was a case for **Python** and **BeautifulSoup!**
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 具体来说，没有可用的时间序列，但可以通过玩弄URL来访问数据。这是**Python**和**BeautifulSoup**的一个案例！
 - en: The snippet code provided below is straightforward and can easily modified to
     suit specific needs. There is no optimization or exceptions mechanisms. That just
     do the work.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面提供的代码片段非常直接，可以轻松地根据特定需求进行修改。没有优化或异常机制。那只是在做工作。
 - en: '[![iowa Farm Bureau](img/8b97c406ff6d30de6eb2e6c3c331a626.png)](https://quantcorner.wordpress.com/wp-content/uploads/2014/03/iowa_farm_bureau.jpg)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![爱荷华农场局](img/8b97c406ff6d30de6eb2e6c3c331a626.png)](https://quantcorner.wordpress.com/wp-content/uploads/2014/03/iowa_farm_bureau.jpg)'
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '##################################################'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '##################################################'
 - en: 'Edouard TALLENT @TaGoMa . Tech, March, 2014    #'
+  id: totrans-12
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Edouard TALLENT @TaGoMa . Tech, March, 2014    #'
 - en: 'Scraping Central Illinois crude soyoil prices  #'
+  id: totrans-13
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '抓取中伊利诺伊州粗大黄豆油价格 #'
 - en: 'from http://markets.iowafarmbureau.com/        #'
+  id: totrans-14
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'from http://markets.iowafarmbureau.com/        #'
 - en: 'QuantCorner @ https://quantcorner.wordpress.com #'
+  id: totrans-15
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '量化角落 @ https://quantcorner.wordpress.com #'
 - en: '##################################################'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '##################################################'
 - en: Required headers
+  id: totrans-17
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 所需标题
 - en: 'import urllib2                          # Read webpages'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 'import urllib2                          # 读取网页'
 - en: 'from bs4 import BeautifulSoup           # bs4 fonctions'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 'from bs4 import BeautifulSoup           # bs4函数'
 - en: 'import time                             # Time, time elapsed'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 'import time                             # 时间，流逝时间'
 - en: 'import re                               # Regex, removing characters'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 'import re                               # 正则表达式，删除字符'
 - en: Arrays that will contain the desired datas
+  id: totrans-22
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 将包含所需数据的数组
 - en: '#d = []      # Dates'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#d = []      # 日期'
 - en: '#l = []      # Lows'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#l = []      # 最低价'
 - en: '#h = []      # Highs'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '#h = []      # 最高价'
 - en: URLs
+  id: totrans-26
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: URL
 - en: 'start_urls = 4539   # Most recent webpage to start parsing'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 'start_urls = 4539   # 最新的网页开始解析'
 - en: 'nb_quotes = 200     # Number of quotes desired'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 'nb_quotes = 200     # 所需行情数'
 - en: 'for urls in range (start_urls, start_urls - nb_quotes, -1):'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 'for urls in range (start_urls, start_urls - nb_quotes, -1):'
 - en: Start time
+  id: totrans-30
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 开始时间
 - en: start_time = time.time()
+  id: totrans-31
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: start_time = time.time()
 - en: construct the URLs strings
+  id: totrans-32
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 构造URL字符串
 - en: url = 'http://markets.iowafarmbureau.com/pages/usdacash.php?id=' + str(urls)
+  id: totrans-33
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: url = 'http://markets.iowafarmbureau.com/pages/usdacash.php?id=' + str(urls)
 - en: Read the HTML page content
+  id: totrans-34
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 读取HTML页面内容
 - en: page = urllib2.urlopen(url)
+  id: totrans-35
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: page = urllib2.urlopen(url)
 - en: Create a beautifulsoup object
+  id: totrans-36
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 创建一个beautifulsoup对象
 - en: soup = BeautifulSoup(page)
+  id: totrans-37
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: soup = BeautifulSoup(page)
 - en: Search the table to be parsed in the whole HTML code
+  id: totrans-38
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在整个HTML代码中搜索要解析的表格
 - en: tables = soup.findAll('table')
+  id: totrans-39
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: tables = soup.findAll('table')
 - en: 'tab = tables[1]                 # This is the table to be parsed'
+  id: totrans-40
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 'tab = tables[1]                 # 这是要解析的表格'
 - en: Search the date
+  id: totrans-41
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 搜索日期
 - en: <option value='4539'>Mar 03, 2014</option>
+  id: totrans-42
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: <option value='4539'>2014年3月3日</option>
 - en: 'date = str(soup.find(''option'', {''value'' : str(urls)}).string)'
+  id: totrans-43
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 'date = str(soup.find(''option'', {''value'' : str(urls)}).string)'
 - en: Pick up the content of the desired cells in tab
+  id: totrans-44
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在tab中获取所需单元格的内容
 - en: http://www.briancarpio.com/2012/12/02/website-scraping-with-python-and-beautiful-soup/
+  id: totrans-45
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: http://www.briancarpio.com/2012/12/02/website-scraping-with-python-and-beautiful-soup/
 - en: ''''''''
+  id: totrans-46
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: ''''''''
 - en: <td>Crude Soybean Oil</td>
+  id: totrans-47
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: <td>粗大黄豆油</td>
 - en: <td>Processor</td>
+  id: totrans-48
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: <td>处理器</td>
 - en: <td>+40.01</td>
+  id: totrans-49
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: <td>+40.01</td>
 - en: <td>+40.36</td>
+  id: totrans-50
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: <td>+40.36</td>
 - en: <td>
+  id: totrans-51
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: <td>
 - en: ''''''''
+  id: totrans-52
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: ''''''''
 - en: 'low_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[2].string)     #Low price'
+  id: totrans-53
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 'low_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[2].string)     # 最低价格'
 - en: 'low = re.sub(''[+]'', '''', low_tmp)                                # Remove
     the ''+'' sign'
+  id: totrans-54
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 'low = re.sub(''[+]'', '''', low_tmp)                                # 移除''+''符号'
 - en: 'high_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[3].string)    # High
     price'
+  id: totrans-55
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 'high_tmp = str(tab.findAll(''tr'')[8].findAll(''td'')[3].string)    # 最高价格'
 - en: 'high = re.sub(''[+]'', '''', high_tmp)                              # Remoce
     the ''+'' sign'
+  id: totrans-56
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '高值 = re.sub(''[+]'', '''', 高值_tmp)                              # 移除 ''+''
+    符号'
 - en: Stop time
+  id: totrans-57
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 停止时间
 - en: stop_time = time.time()
+  id: totrans-58
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 停止时间 = 时间.time()
 - en: Print out to the screen
+  id: totrans-59
   prefs:
   - PREF_IND
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在屏幕上打印输出
 - en: print date, '\t', low , '\t', high, '(%0.1f s)' % (stop_time - start_time)
+  id: totrans-60
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 打印日期，'\t'，低值，'\t'，高值，'(%0.1f 秒)' % (停止时间 - 开始时间)
 - en: Store values parsed in arrays for later use
+  id: totrans-61
   prefs:
   - PREF_IND
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 将解析的值存储在数组中以供以后使用
 - en: '#d.append(date)'
+  id: totrans-62
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '#d.append(date)'
 - en: '#l.append(low)'
+  id: totrans-63
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '#l.append(low)'
 - en: '#h.append(high)'
+  id: totrans-64
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '#h.append(high)'
 - en: '[PRE1]'
+  id: totrans-65
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'

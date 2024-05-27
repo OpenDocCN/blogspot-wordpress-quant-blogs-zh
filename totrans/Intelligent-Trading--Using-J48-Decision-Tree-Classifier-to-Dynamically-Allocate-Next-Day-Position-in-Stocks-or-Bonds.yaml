@@ -1,157 +1,239 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:47:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:47:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Using J48 Decision Tree Classifier to Dynamically Allocate
     Next Day Position in Stocks or Bonds'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：使用J48决策树分类器动态分配第二天股票或债券的头寸
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/prior-introduction-using-simple-model.html#0001-01-01)
 - en: The prior introduction using a simple model to determine next weeks change based
     on the S&P 500 index and VIX did not look very promising, although hopefully it
     served to familiarize yourself with how classification is used in augmenting trading
     decisions. Wouldn't it be nice if we had something that performed a little better?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 之前使用简单模型来确定基于标普500指数和波动率指数的下一周变化并没有看起来那么有希望，尽管希望它使您熟悉了如何使用分类来增强交易决策。如果我们有更好的东西会怎么样？
 - en: Well, let's look at an application of using a decision tree type classification
     in order to predict whether to invest in stocks or bonds one day ahead of time.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么，让我们来看一个使用决策树类型的分类来预测是否要在一天前投资股票或债券的应用。
 - en: We will use a very simple input model stimulus in order to arrive at a decision.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将使用一个非常简单的输入模型刺激来做出决策。
 - en: The following will be used as input attributes.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下将作为输入属性使用。
 - en: 1) VIX 1 day change
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 波动率指数(VIX)一日变化
 - en: 2) TLT 1 day change
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 国债延长到期收益率(TLT)一日变化
 - en: 3) SPY 1 day change
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 标普500一日变化
 - en: 4) VIX 5 day momentum
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 波动率指数(VIX)五日动量
 - en: 5) TLT 5 day momentum
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 国债延长到期收益率(TLT)五日动量
 - en: 6) SPY 5 day momentum
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 标普500五日动量
 - en: The VIX is used as a volatility proxy to measure fear, which leads (presumably)
     to flights to safer instruments (bonds).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率指数(VIX)作为波动性的代理来衡量恐惧，这导致（假设地）人们寻求更安全的仪器（债券）。
 - en: The TLT is the iShares Barclays 20+ Year Treas Bond ETF used to track treasury
     bonds with an average duration of 20 years.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 国债延长到期收益率(TLT)是追踪持有平均到期为20年的国债的iShares Barclays 20+ Year Treas Bond ETF。
 - en: 'The SPY is an ETF that tracks the general market index: S&P500\.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 标普500(SPY)是一个追踪通用市场指数：标普500的ETF。
 - en: The remaining 5 day momentum attributes are simply nominal attributes of UP
     or DN used to generally ascertain the momentum of the index over the last 5 days.
     In addition to the input attributes, we append one output attribute which is the
     superior instrument to invest in the following day-- SPY or TLT (stocks or bonds).
     This is what we are trying to predict and decide upon. The training and testing
     data sample is from the period 7/31/2002 up until present.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 剩余的五日动量属性仅仅是用来大致确定指数在过去五天的动量的名义属性，上升(UP)或下降(DN)。除了输入属性外，我们还增加了一个输出属性，即第二天投资的优秀仪器——标普500(SPY)或国债延长到期收益率(TLT)(股票或债券)。这就是我们要预测和决定的。训练和测试数据样本来自2002年7月31日至现在的期间。
 - en: By entering the information into Weka (via .csv, see prior tutorials), we will
     choose the J.48 decision tree learner and use 90%/10% training/test split in order
     to develop a model tree that will predict which class of instrument to invest
     in based upon the prior days input stimulus.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过将信息输入Weka（通过.csv，见之前的教程），我们将选择J.48决策树学习器，并使用90%/10%的训练/测试分割，以便开发一个模型树，该树将根据前一天的输入刺激预测要投资的仪器类别。
 - en: '[![](img/b65a9f2c7976bae8197054a289d74c84.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfHCZvDIu2KeCy3Lyol51LhiSXwtkUbCEYqwq57T0ZySoGnb8QUhTfHHS6ovdvLHcP4caq49xHQMQFOqm7Pz_L1FwITe5tSOsOj2LpZRw2BmhvVkvIyGAGZoErA_tVihFOt8j4FA6G4BY/s1600-h/fig1_tree2_raw2.jpg)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b65a9f2c7976bae8197054a289d74c84.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjfHCZvDIu2KeCy3Lyol51LhiSXwtkUbCEYqwq57T0ZySoGnb8QUhTfHHS6ovdvLHcP4caq49xHQMQFOqm7Pz_L1FwITe5tSOsOj2LpZRw2BmhvVkvIyGAGZoErA_tVihFOt8j4FA6G4BY/s1600-h/fig1_tree2_raw2.jpg)'
 - en: Fig 1\. Resulting Model Decision Tree
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 结果模型决策树
 - en: 'The decision tree can be read from the top down as making a decision based
     upon certain conditions. I.e. If we traverse the far left branch for example,
     it would give us the following rule:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 决策树可以从顶部向下阅读，作为基于某些条件做出决策。例如，如果我们遍历最左边的分支，它会给我们以下规则：
 - en: IF 5 day SPY momentum is DN and 1 day TLT change is <=.91% and 5 day TLT momentum
     is UP and 5 day VIX momentum is UP then
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果5日标普500动量下降(DN)且1日国债延长到期收益率(TLT)变化率小于等于0.91%，且5日国债延长到期收益率(TLT)动量上升(UP)且5日波动率指数(VIX)动量上升(UP)，则
 - en: invest the next day in SPY.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二天投资标普500(SPY)。
 - en: We can traverse each branch similarly to obtain an all encompassing set of rules
     to make a decision on what to invest in the following day.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以类似地遍历每个分支，以获得一组全面的规则，决定第二天投资什么。
 - en: Although the tree looks a bit daunting, if you can program the rule set into
     your favorite language, it is a simple matter for the algorithm to take that model
     and process it forward.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这棵树看起来有点令人望而却步，但如果你能把规则集编程到你喜欢的语言中，对算法来说，把那个模型处理向前就很简单了。
 - en: Finally, we want to see if the prediction scheme was any better or worse than
     guessing.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们想看看预测方案是否比猜测更好或更差。
 - en: '[![](img/b284ad75d98ac721495d02896216a0cb.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMxPa_STm5q-cM7cklIDcKnF-ven6TOVUs38iDht2IwVzxVtS5huiJGne7DVOAh2GW_kXuNb5O1gganpouTPZfBmxgc2CckWGjxqgqhmGy9VzmOCHXp7KSJx6h_fETj8YlQTMDRgpi-LY/s1600-h/fig2_results_raw2.jpg)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图2. J.48模型树90/10训练/验证结果](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMxPa_STm5q-cM7cklIDcKnF-ven6TOVUs38iDht2IwVzxVtS5huiJGne7DVOAh2GW_kXuNb5O1gganpouTPZfBmxgc2CckWGjxqgqhmGy9VzmOCHXp7KSJx6h_fETj8YlQTMDRgpi-LY/s1600-h/fig2_results_raw2.jpg)'
 - en: Fig 2\. 90/10 split train/validation results of J.48 Model Tree
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 图2. J.48模型树90/10训练/验证结果
 - en: The results are pretty good. Using a very simple and intuitive model, we were
     able to select the better instrument to buy with a 59% success rate on the 10%
     out of sample validation set. The same type of methodology can be used to select
     between trading systems with a little ingenuity.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果相当不错。利用一个非常简单直观的模型，我们能够以59%的成功率在10%的样本外验证集中选择更好的购买工具。同样的方法可以用来在交易系统之间进行选择，只要稍加创新即可。
 - en: '[![](img/1fa32ee80d32b0fc0f6b3bc1afc851e9.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPj9wuNNqr7CI4jbwqTaWnRuyLoFrDr6Ks4pGCF5GOXl2n64Pwi0HkflGNZPwsxHm0PA8Jqt9S7RcwrSjszZSOcxzhT-C8mZoXrWHmjx6skrnTvhIPEcsQ6_L_7kh3WuCyh_VgQnrqljc/s1600-h/fig3_eq_curve.jpg)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图3. 股票曲线](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPj9wuNNqr7CI4jbwqTaWnRuyLoFrDr6Ks4pGCF5GOXl2n64Pwi0HkflGNZPwsxHm0PA8Jqt9S7RcwrSjszZSOcxzhT-C8mZoXrWHmjx6skrnTvhIPEcsQ6_L_7kh3WuCyh_VgQnrqljc/s1600-h/fig3_eq_curve.jpg)'
 - en: Fig 3\. Equity Curve comparison of Learner System to investment classes on out
     of sample data
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 图3. 学习系统与投资类别在样本外数据上的股票曲线比较
 - en: Finally, we take a look at the equity curve of investing in
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，我们来看看投资于
 - en: 1) The results of the classifier system we modeled
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 我们建模的分类器系统的结果
 - en: 2) Investing in SPY or TLT alone (Stocks or Bonds)
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 仅投资SPY或TLT（股票或债券）
 - en: 3) Investing half in each
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 各投资一半
 - en: Notice the terminal wealth results from our system only slightly beat
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，我们的系统终端财富结果仅略微优于其他系统。
 - en: all of the other systems. It's a good example of how you might have a good hit
     rate and only moderate improvement in net results, since hit rate does not account
     for magnitude. In addition, the costs associated with commission and slippage
     from trading many times in an out would likely overcome the systematic edge. Later
     on as we discuss Genetic Algorithms, we will see there are many other ways to
     optimize.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有其他系统。这是一个很好的例子，说明你可能有一个很好的命中率，但净结果的改进只是适中，因为命中率并不考虑大小。此外，由于多次在内外交易中产生的佣金和滑点成本可能会抵消系统性的优势。后来当我们讨论遗传算法时，我们会看到还有许多其他优化方法。
 - en: As always, please do your own due diligence and thoroughly verify any results
     you may use to make decisions in your own trading.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如往常一样，请务必做好自己的尽职调查，并彻底验证您可能用于自己交易决策的任何结果。

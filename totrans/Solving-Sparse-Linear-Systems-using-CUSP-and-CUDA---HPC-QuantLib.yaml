@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-17 23:42:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-17 23:42:14'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Solving Sparse Linear Systems using CUSP and CUDA – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用CUSP和CUDA解决稀疏线性系统 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/#0001-01-01](https://hpcquantlib.wordpress.com/2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/#0001-01-01](https://hpcquantlib.wordpress.com/2011/11/13/solving-sparse-linear-systems-using-cusp-and-cuda/#0001-01-01)
 - en: A finite difference equation can be represented and solved based on a sparse
     linear system. When using schemes with implicit parts to solve the equation one
     needs to calculate the inverse of this sparse matrix. Iterative solvers like the
@@ -25,16 +37,21 @@
     In addition these solvers can easily be adapted to parallel computing architectures
     like modern GPUs. The cusp library [1] implements a set of common iterative solvers
     for sparse matrices based on CUDA and thrust [2].
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有限差分方程可以基于稀疏线性系统表示并求解。当使用包含隐部的方案来求解方程时，需要计算这个稀疏矩阵的逆。迭代求解器如BiCGStab算法（加上预处理器）是为这类问题量身定制的。此外，这些求解器可以轻松适应像现代GPU这样的并行计算架构。cusp库[1]
+    实现了一组基于CUDA和thrust[2]的稀疏矩阵的常用迭代求解器。
 - en: Alternatively operator splitting techniques can be used to solve the problem.
     In this case only tridiagonal linear systems have to be inverted. The Thomas algorithm
     (named after Liewellyn Thomas) can solve such systems in ![O(n)](img/96728d95b82ba397b34d5747dcae71df.png)
     operations instead of ![O(n^3)](img/fbc716f86b4dc2e159077e5ea61995e1.png) operations
     required by the Gaussian elimination. But it is not easy to parallelize the Thomas
     algorithm.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 另外，可以使用操作分解技术来解决问题。在这种情况下，只需要反转三对角线性系统。托马斯算法（以Liewellyn Thomas的名字命名）可以以![O(n)](img/96728d95b82ba397b34d5747dcae71df.png)操作而不是![O(n^3)](img/fbc716f86b4dc2e159077e5ea61995e1.png)操作解决此类系统，而不是高斯消元所需操作。但是，托马斯算法不容易并行化。
 - en: On a CPU operator splitting usually outperforms iterative solvers like BiCGStab
     for the implicit part. The VPP pricing problem from the previous blog entries
     will now serve as a benchmark to compare the solver performance on the CPU against
@@ -45,11 +62,19 @@
     and cusp [here](http://www.hpc-quantlib.de/src/gpubicgstab.zip). [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot2.png)
     [![](img/fd2dec968687852b5795f80d4a27c8db.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot4.png)
     [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot1.png)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在CPU上，对于隐部，操作分解通常比BiCGStab等迭代求解器表现更好。之前的博客文章中的VPP定价问题现在将作为基准，以比较CPU上的求解器性能与GPU上的性能。如下图所示，在CPU上，操作分解比BiCGStab求解器加上预处理器更快。但是，即使对应的GPU预处理器尚未实现，BiCGStab在GPU上显然获得了领先。请在此处找到QuantLib/boost::ublas与cusp之间的接口类[here](http://www.hpc-quantlib.de/src/gpubicgstab.zip)。[](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot2.png)
+    [![](img/fd2dec968687852b5795f80d4a27c8db.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot4.png)
+    [](https://hpcquantlib.wordpress.com/wp-content/uploads/2011/11/plot1.png)
 - en: '[1] cusp, [Generic Parallel Algorithms for Sparse Matrix and Graph Computations](http://code.google.com/p/cusp-library/)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] cusp, [用于稀疏矩阵和图计算的通用并行算法](http://code.google.com/p/cusp-library/)'
 - en: '[2] thrust, [Code at the speed of light](http://code.google.com/p/thrust/)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[2] thrust, [以光速编写代码](http://code.google.com/p/thrust/)'

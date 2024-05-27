@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:47:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:47:25
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Practical Implementation of Neural Network based time
     series (stock) prediction -PART 5'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：基于神经网络的时间序列（股票）预测的实用实现 - 第5部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neual.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neual.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neual.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neual.html#0001-01-01)
 - en: Following is an example of what it looks like to predict an actual univariate
     price series. The period of the signal that was sampled was already in stationary
     form, so not much massaging was needed other than normalization (described earlier).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一个预测实际单变量价格序列的例子。被采样的信号周期已经处于稳定状态，因此除了正常化（前面描述过）之外，不需要进行太多的处理。
 - en: What's important to notice when you see these kinds of neural network predictions
     (particularly in marketing snapshots for software vendors or trading book examples)
     is that they look fantastic out of sample from a bird's eye view. Unfortunately,
@@ -40,14 +54,20 @@
     about the magnitude of the predictions, which are important to have a positive
     net expectation. The type of result you see here, however, is common for predicting
     specific univariate time series data values.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当你看到这类神经网络预测时（特别是在软件供应商的市场快照中或交易书籍示例中），需要注意的是，从鸟瞰图的角度来看，它们看起来非常棒。不幸的是，细节总是决定性的。如果你放大视野，预测的准确性不如整体画面所表现的那样好。评估预测表现更准确的方法是查看每个预测值的变化百分比。我们可以简单地将实际变化百分比的符号与预测变化进行比较。在这种情况下，样本外的测试结果有43%的命中率，这比一个简单的预测器预测的要差。好消息是，你可以翻转这些结果，只需预测相反的方向，就能达到57%的命中率。然而，你总是要小心，做好尽职调查，验证这些预测在不同条件下的稳健性。另外，需要注意的是，命中率只能告诉你正确预测的数量，但无法告诉你预测的幅度，这对于获得积极的净期望值很重要。然而，你所看到的这类结果在预测具体的单变量时间序列数据值时是常见的。
 - en: '[![](img/f0fbefd1422a4f8c51b7c5ba13d91609.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGwHEfy1ohPTOCXXI-PeKbHVzGBG06dr2rIxCcHxc4FIdg7R9Jp0iMDVkGRO9gnRJjGvX-r-4WthAdp7kh4YUwZhPnwt8dZkqApsMJbk3yWkNun_vEP4GC5ijUK9txXZGA6B62Sxn76LM/s1600-h/stock2resutls.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/f0fbefd1422a4f8c51b7c5ba13d91609.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGwHEfy1ohPTOCXXI-PeKbHVzGBG06dr2rIxCcHxc4FIdg7R9Jp0iMDVkGRO9gnRJjGvX-r-4WthAdp7kh4YUwZhPnwt8dZkqApsMJbk3yWkNun_vEP4GC5ijUK9txXZGA6B62Sxn76LM/s1600-h/stock2resutls.jpg)'
 - en: Fig 1\. Stock Prediction with out of sample region highlighted
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 股票预测，突出了样本外的区域
 - en: You now have a practical example to get you started with building your own prediction
     system with free tools (except excel, which you likely have), and some ideas and
     methods to build your own prediction system. Any professional software you purchase
@@ -55,5 +75,7 @@
     the internal architecture of the neural network. I have not shown more detailed
     examples on advanced techniques, but might incorporate some later if there is
     demand.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在你有了一个实用的例子，可以让你开始使用免费工具（除了Excel，你很可能已经有了）构建你自己的预测系统，以及一些构建你自己的预测系统的想法和方法。任何专业软件你购买的都不会有很大区别，除了使用不同的属性进行训练或修改神经网络的内部架构。我没有展示更详细的关于高级技术的例子，但如果有需求，我可能会稍后加入一些。

@@ -1,101 +1,156 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，以下内容已从原文中删除：
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:44:40'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:44:40'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: （请注意，以上内容已从原文中删除）
 - en: Simple and Profitable | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 简单且有利可图 | 系统化投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/09/simple-and-profitable/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/09/simple-and-profitable/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/12/09/simple-and-profitable/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/09/simple-and-profitable/#0001-01-01)
 - en: 'The end of the month effect was examined by [MarketSci](http://marketsci.wordpress.com)
     in the [The Last Day of the Month Blahs](http://marketsci.wordpress.com/2010/03/24/the-last-day-of-the-month-blahs/)
     post. The idea is simple: buy on the last day of the month and sell a few days
     later. This idea was put into a strategy by Quanting Dutchman in the [Strategy
     2 – Monthly End-of-the-Month (MEOM)](http://quantingdutchman.wordpress.com/2010/06/30/strategy-2-monthly-end-of-the-month-meom/)
     post.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场科学公司在[月底的 blahs](http://marketsci.wordpress.com/2010/03/24/the-last-day-of-the-month-blahs/)一文中检查了月底效应。这个想法很简单：在月底买入，几天后卖出。量化荷兰人在[策略2
+    - 月末结束策略（MEOM）](http://quantingdutchman.wordpress.com/2010/06/30/strategy-2-monthly-end-of-the-month-meom/)一文中提出了这个策略。
 - en: I will follow the outline of the Quanting Dutchman’s strategy and will implement
     it using the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将遵循量化荷兰人的策略大纲，并使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库来实现它。
 - en: 'The strategy invests into the top 2 ETFs that are trading above a medium term
     moving avarage (WMA89) from the universe of 26 ETF’s: DIA, EEM, EFA, EWH, EWJ,
     EWT, EWZ, FXI, GLD, GSG, IEF, ILF, IWM, IYR, QQQ, SPY, VNQ, XLB, XLE, XLF, XLI,
     XLP, XLU, XLV, XLY, XLK. The strategy enters positions on the last day of the
     month at the close. The strategy exits positions two days later at the close.
     I will study two ranking schemes to select top two ETFs each month:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 该策略投资于26个ETF中的交易价格高于中期移动平均（WMA89）的前2个ETF：DIA, EEM, EFA, EWH, EWJ, EWT, EWZ,
+    FXI, GLD, GSG, IEF, ILF, IWM, IYR, QQQ, SPY, VNQ, XLB, XLE, XLF, XLI, XLP, XLU,
+    XLV, XLY, XLK。策略在每月底的最后一天进入头寸。策略在两天后的收盘时退出头寸。我将研究两种排名方案，每月选择两个ETF：
 - en: Rank1 = MA( C/Ref(C,-2), 5 ) * MA( C/Ref(C,-2), 40 )
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Rank1 = MA( C/Ref(C,-2), 5 ) * MA( C/Ref(C,-2), 40 )
 - en: Rank2 = MA( C/Ref(C,-2), 5 ) * Ref( MA( C/Ref(C,-2), 10 ), -5 )
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Rank2 = MA( C/Ref(C,-2), 5 ) * Ref( MA( C/Ref(C,-2), 10 ), -5 )
 - en: 'Following code implements this strategy using the backtesting library in the
     [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下代码实现了使用[Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库的此策略：
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/279a481daef0915051870052b8a6c94b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/279a481daef0915051870052b8a6c94b.png "plot1.png.small")（图片未翻译，因为是静态图片，不包含文本）'
 - en: '[![](img/59f132682d72e5df52bd21060a535fea.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small1.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/59f132682d72e5df52bd21060a535fea.png "plot2.png.small")（图片未翻译，因为是静态图片，不包含文本）'
 - en: '[![](img/7ddf4c91b71d0a968dbb33d07e3fd5fb.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/7ddf4c91b71d0a968dbb33d07e3fd5fb.png "plot3.png.small")（图片未翻译，因为是静态图片，不包含文本）'
 - en: This a great little strategy that is only invested 10% of time. You can improve
     returns by investing in a fixed income for the rest of the time. Quanting Dutchman
     tested this idea in [My thoughts on “Go-In-Cash”](http://quantingdutchman.wordpress.com/2010/10/24/my-thoughts-on-go-in-cash/)
     post.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个非常小且仅在10%的时间内投资的策略。您可以通过在剩余时间内投资固定收益来提高回报。量化荷兰人在[我对“Go-In-Cash”的思考](http://quantingdutchman.wordpress.com/2010/10/24/my-thoughts-on-go-in-cash/)一文中测试了这个想法。
 - en: 'I also found promising results by using current Dow Jones Components instead
     of ETFs. To run the End of the Month strategy on current Dow Jones Components
     substitute:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还发现，使用当前道琼斯成分股而不是ETF取得了有希望的结果。要运行使用当前道琼斯成分股的月底策略，请替换：
 - en: '[PRE1]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: with
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 为
 - en: '[PRE2]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: in the above code. Here are the summary stats for the End of the Month strategy
     using current Dow Jones Components.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上面的代码中。以下是使用当前道琼斯成分股的月底策略的摘要统计数据。
 - en: '[![](img/2d4b72f7666e46b333ecf143a5af3f73.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/2d4b72f7666e46b333ecf143a5af3f73.png "plot4.png.small")（图片未翻译，因为是静态图片，不包含文本）'
 - en: '[![](img/3dc2488adb0fc531dd8a7394e4e847e6.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot5-small.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot5.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot5-small.png)'
 - en: '[![](img/de2ce2d55ec37cbee8db40eaf1b99a77.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot6-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot6.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot6-small.png)'
 - en: To view the complete source code for this example, please have a look at the
     [bt.meom.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[bt.meom.test()函数在 github 上的 bt.test.r](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

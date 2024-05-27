@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 19:30:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:30:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: SpreadServe AMI part I | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 扩散服务AMI第一部分 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2017/01/16/spreadserve-ami-part-i/#0001-01-01](https://etrading.wordpress.com/2017/01/16/spreadserve-ami-part-i/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2017/01/16/spreadserve-ami-part-i/#0001-01-01](https://etrading.wordpress.com/2017/01/16/spreadserve-ami-part-i/#0001-01-01)
 - en: SpreadServe AMI part I
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 扩散服务AMI第一部分
 - en: January 16, 2017
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2017年1月16日
 - en: Recently I’ve been working on building an [EC2 AMI](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)
     for [SpreadServe](http://spreadserve.com), so deployment becomes a one click operation
     for [Amazon AWS](https://aws.amazon.com/) users. I ran into an interesting snag
@@ -46,5 +62,11 @@
     and is on the system path. After much experimenting I couldn’t find a way to stop
     Windows Service Host from using the system path, so I had to change it to replace
     cfn-bootstrap with SpreadServe directories. Problem solved…
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我一直在为[SpreadServe](http://spreadserve.com)构建一个[EC2 AMI](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)，以便在[Amazon
+    AWS](https://aws.amazon.com/)上进行部署，成为一键操作。我遇到了一个有趣的问题，所以我决定在这里记录下来。我的目标是将SpreadServe部署为在[AWS
+    Windows Server 2012 R2](https://aws.amazon.com/marketplace/pp/B00KQOWCAQ)镜像上的Windows服务，所以我使用了[pywin32](https://pypi.python.org/pypi/pywin32)的[win32service](https://pypi.python.org/pypi/infi.win32service)模块。这是我在Python中为Windows服务的一个[github模板项目](https://github.com/osullivj/MTWService)。在我的AWS主机上，我的SpreadServe
+    Windows服务无法启动，系统或应用程序事件日志中没有留下任何痕迹。pywin32service有一个调试模式；当我尝试时，我得到了一个Windows 0xc00007b错误，这表明有32位和64位二进制文件的混合。SpreadServe完全是32位的，所以有些地方出了问题。我转向[procmon](https://technet.microsoft.com/en-us/sysinternals/processmonitor.aspx)试图找出哪里出了问题。procmon显示我的32位pythonservice.exe正在加载一个64位的python27.dll，而不是SpreadServe安装树中的32位python27.dll。64位的DLL来自C:\Program
+    Files\Amazon\cfn-bootstrap目录，Amazon将其添加到标准的Windows 2012 R2镜像中以支持[CloudFormation](https://aws.amazon.com/cloudformation/)，并且它在系统路径上。经过大量的实验，我无法找到阻止Windows服务主机使用系统路径的方法，所以我不得不将其更改为用SpreadServe目录替换cfn-bootstrap。问题解决…

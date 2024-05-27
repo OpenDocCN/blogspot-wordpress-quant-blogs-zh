@@ -1,54 +1,78 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:46:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Linear Optimization | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：线性优化 | 金融与科技的一切事物...
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/04/27/introducing-quantlib-linear-optimization/#0001-01-01](https://mhittesdorf.wordpress.com/2013/04/27/introducing-quantlib-linear-optimization/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/04/27/introducing-quantlib-linear-optimization/#0001-01-01](https://mhittesdorf.wordpress.com/2013/04/27/introducing-quantlib-linear-optimization/#0001-01-01)
 - en: Many classes of problems exist in finance for which there is more than one answer
     and the goal is to find the single, best answer. Often, the best, or *optimal*,
     answer must also satisfy a number of specific conditions, which further constrain
     the solution. Problems of this variety include portfolio construction, asset-liability
     cash flow matching, and mean-variance analysis, among others.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 金融领域存在许多问题，对于这些问题，有不止一个答案，目标是找到最佳答案。通常，最佳答案，或*最优*答案也必须满足一些具体条件，这进一步限制了解决方案。这类问题包括投资组合构建、资产负债现金流量匹配和均值-方差分析等。
 - en: The problem of finding the best solution from a set of possible, or feasible,
     solutions is known as an optimization problem.  An optimization problem involves
     minimizing (or maximizing) an *objective* *function, *subject to zero or more
     constraints.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 从未知数组中寻找最佳解的问题称为优化问题。优化问题包括最小化（或最大化）一个*目标函数*，并受到零个或多个约束条件。
 - en: 'Optimization problems can be broadly defined as belonging to one of two categories:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 优化问题可以广泛定义为属于两大类之一：
 - en: linear programming problems – the objective function and constraints are expressed
     as first-order, linear equations.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 线性规划问题——目标函数和约束条件用一阶线性方程表示。
 - en: non-linear programming problems – the objective function is expressed as an
     n-order, non-linear equation. The constraints can be linear or non-linear.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 非线性规划问题——目标函数表示为n阶非线性方程。约束条件可以是线性的或非线性的。
 - en: 'In this post, I’m going to demonstrate how to use QuantLib to represent and
     solve a classic linear programming problem: portfolio construction. In an upcoming
     post, I’ll tackle a non-linear programming problem: mean-variance portfolio optimization.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇文章中，我将展示如何使用QuantLib来表示和解决一个经典线性规划问题：投资组合构建。在接下来的文章中，我将处理一个非线性规划问题：均值-方差投资组合优化。
 - en: A great number of different algorithms have been devised to solve linear programs.
     One of the most widely applied and most successful methods is the Simplex method,
     invented in 1947 by George Dantzig.  In fact, the Simplex method is the basis
@@ -56,14 +80,18 @@
     package, [Calc](http://www.libreoffice.org/features/calc/), which is part of the
     OpenOffice.org and LibreOffice suite of office productivity tools.  As I’m a big
     booster of open-source software, let’s look more closely at Calc’s [Solver](http://wiki.openoffice.org/wiki/Optimization_Solver).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 已经设计出了许多不同的算法来解决线性规划问题。最广泛应用和最成功的方法之一是单纯形法，由乔治·丹齐格于1947年发明。事实上，单纯形法是微软Excel和开源电子表格软件包[Calc](http://www.libreoffice.org/features/calc/)（OpenOffice.org和LibreOffice办公套件的一部分）中线性求解器的基础。由于我是一个开源软件的大力支持者，让我们更详细地了解一下Calc中的[Solver](http://wiki.openoffice.org/wiki/Optimization_Solver)。
 - en: The solver tool in Calc allows the user to specify a cell to be maximized or
     minimized, one or more variables to modify, and, optionally, a set of constraints. 
     Clicking the Solve button kicks off an iterative search process that, after a
     short time, produces a solution, if one exists.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: Calc中的求解器工具允许用户指定一个要最大化或最小化的单元格，一个或多个要修改的变量，以及可选的约束集合。点击“求解”按钮会启动一个迭代搜索过程，在短时间内，如果存在解决方案，会产生一个解决方案。
 - en: Let me demonstrate with an example borrowed from the excellent book [*Optimization
     Methods in Finance*](http://www.amazon.com/Optimization-Methods-Finance-Mathematics-Risk/dp/0521861705),
     by Cornuejols and Tutuncu, which I highly recommend  for those of you who might
@@ -76,84 +104,124 @@
     two bonds such that the resulting portfolio has an average credit rating no worse
     than Aa (score <= 1.5) and an average maturity of at most 3.6 years while maximizing
     the portfolio’s yield.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我以一本优秀的书《*金融优化方法*》（http://www.amazon.com/Optimization-Methods-Finance-Mathematics-Risk/dp/0521861705）为例，该书由Cornuejols和Tutuncu合著，我强烈推荐给那些对金融优化话题感兴趣且希望深入了解的读者。本书中的问题旨在构建一个由公司债券和政府债券组成的债券投资组合。公司债券收益率为4%，信用评级为“A”（得分=2），到期时间为3年。政府债券收益率为3%，信用评级为“Aaa”（得分=1），到期时间为4年。目标是将10万美元的比重分配给这两种债券，使得投资组合的平均信用评级不超过Aa（得分<=1.5）且平均到期时间不超过3.6年，同时最大化投资组合的收益率。
 - en: 'To solve this linear programming problem, maximize the objective function:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了解决这个线性规划问题，需要最大化目标函数：
 - en: Z = (4×1 + 3×2)/100, where x1 represents the corporate bond’s weighting in the
     portfolio and x2 represents the government bond’s weighting.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: Z = (4×1 + 3×2)/100，其中x1代表投资组合中公司债券的权重，x2代表政府债券的权重。
 - en: 'The solution is subject to the following constraints, modeled as linear inequalities:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决方案受到以下约束条件的限制，这些约束条件建模为线性不等式：
 - en: x1 + x2 <= 100 (The weighting of the bonds must not exceed 100%)
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: x1 + x2 <= 100 （债券的权重不得超过100%）
 - en: (2×1 + x2)/100 <= 1.5 (The portfolio’s average credit rating must be at most
     1.5)
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: （2×1 + x2）/100 <= 1.5 （投资组合的平均信用评级不得超过1.5）
 - en: (3×1 + 4×2)/100 <= 3.6 (The portfolio’s average maturity must be no greater
     than 3.6 years)
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: （3×1 + 4×2）/100 <= 3.6 （投资组合的平均到期时间不得超过3.6年）
 - en: x1, x2 >= 0 (A bond cannot have a negative weighting; short sales are not allowed)
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: x1, x2 >= 0 （债券的权重不能为负；不允许卖空）
 - en: 'Together the objective function and the constraints form a system of linear
     equations and can be set up in OpenOffice.org/LibreOffice’s Solver like so:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 目标函数和约束条件共同构成了一个线性方程组，可以在OpenOffice.org/LibreOffice的Solver中设置如下：
 - en: '[![calcsolver](img/ec55c9801f7e5c84f2e00c46374b982d.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/04/calcsolver3.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '![calcsolver](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/04/calcsolver3.png)'
 - en: 'The optimal solution to the problem is to allocate the $100,000 equally to
     the corporate and government bond: x1 = 50 and x2 = 50, such that the portfolio
     yields 3.5%:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题的最优解是将10万美元平均分配给公司和政府债券：x1 = 50 和 x2 = 50，使得投资组合的收益率为3.5%：
 - en: '[![calcsolversolution](img/f3b6adb5b1475fd600fc52f84198de64.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/04/calcsolversolution4.png)'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '![calcsolversolution](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/04/calcsolversolution4.png)'
 - en: Now let’s see how to reproduce this result using QuantLib’s [Simplex](http://quantlib.org/reference/class_quant_lib_1_1_simplex.html)
     class. The Simplex class is one of five optimization algorithms available in Quantlib.
     The others are [LevenbergMarquardt](http://quantlib.org/reference/class_quant_lib_1_1_levenberg_marquardt.html), [ConjugateGradient](http://quantlib.org/reference/class_quant_lib_1_1_conjugate_gradient.html), [SteepestDescent](http://quantlib.org/reference/class_quant_lib_1_1_steepest_descent.html) and [BGFS](http://quantlib.org/reference/class_quant_lib_1_1_b_f_g_s.html).
      I’ll not discuss these other algorithms in this post but they are well documented
     on the quantlib.org Web site.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看如何使用QuantLib的[Simplex](http://quantlib.org/reference/class_quant_lib_1_1_simplex.html)类重复这个结果。Simplex类是Quantlib中可用的五个优化算法之一。其他算法包括[LevenbergMarquardt](http://quantlib.org/reference/class_quant_lib_1_1_levenberg_marquardt.html)、[ConjugateGradient](http://quantlib.org/reference/class_quant_lib_1_1_conjugate_gradient.html)、[SteepestDescent](http://quantlib.org/reference/class_quant_lib_1_1_steepest_descent.html)和[BGFS](http://quantlib.org/reference/class_quant_lib_1_1_b_f_g_s.html)。我在这篇文章中不会讨论这些其他算法，但它们在quantlib.org网站上都有很好的文档。
 - en: 'The C++ code to solve the bond portfolio construction problem is shown below:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决债券投资组合构建问题的C++代码如下：
 - en: '[PRE0]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The program produces the following output when run:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 程序运行时会产生以下输出：
 - en: '`Simplex solution type: StationaryPoint'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '`单纯形解决方案类型：固定点'
 - en: Allocate 50.00 percent to bond 1 and 50.00 percent to bond 2.`
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 将50.00%分配给债券1和50.00%分配给债券2。`
 - en: So the Solver and the QuantLib C++ code arrive at the same, optimal solution,
     which should give us confidence in the correctness of the result. With that, I’ll
     bring this installment of my ‘Introducing QuantLib’ series to a close. I hope
     you enjoyed it. As always, I encourage you to leave comments and/or questions.
     Have fun with QuantLib!
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，求解器和对QuantLib C++代码得出了相同的最佳解决方案，这应该让我们对结果的正确性充满信心。至此，我将结束我的“介绍QuantLib”系列的这一部分。希望您喜欢。和往常一样，我鼓励您留下评论和/或问题。祝您玩转QuantLib！
 - en: About Mick Hittesdorf
+  id: totrans-33
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于Mick Hittesdorf的介绍
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -163,5 +231,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一位多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我曾负责管理一个全球数据科学和分析平台，开发了低延迟的专有交易系统，管理过软件开发团队，制定了企业架构策略，撰写了白皮书和博客，在行业期刊上发表文章，并以咨询和技术销售的身份向客户提供创新解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R和云计算。

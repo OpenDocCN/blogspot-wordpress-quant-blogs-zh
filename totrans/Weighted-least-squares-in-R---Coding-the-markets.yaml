@@ -1,42 +1,63 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:51:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:51:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Weighted least squares in R | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在 R 中的加权最小二乘 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2006/08/18/weighted-least-squares-in-r/#0001-01-01](https://etrading.wordpress.com/2006/08/18/weighted-least-squares-in-r/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2006/08/18/weighted-least-squares-in-r/#0001-01-01](https://etrading.wordpress.com/2006/08/18/weighted-least-squares-in-r/#0001-01-01)
 - en: Weighted least squares in R
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 在 R 中的加权最小二乘
 - en: August 18, 2006
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2006年8月18日
 - en: I’m using R to fit curves to data that has outliers backed by low observation
     counts. I’ve been thrashing round trying different R fitting methods, including
     [glm.fit](https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/).
     But linear fits were obviously wrong. Not being a maths graduate, I was a bit
     stumped until I had a chat with one of our more maths and tech minded model traders.
     He looked at my charts and data, and suggested a weighted least squares fit.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我正在使用 R 对具有由低观测次数支持的离群值的数据进行曲线拟合。我一直在尝试使用不同的 R 拟合方法，包括 [glm.fit](https://etrading.wordpress.com/2006/08/15/the-power-of-r-curve-fitting/)。但是线性拟合显然是错误的。作为一个非数学专业毕业生，我有点困惑，直到我和我们更数学和技术头脑的模型交易员交谈。他看了我的图表和数据，并建议使用加权最小二乘拟合。
 - en: In R we can do a least squares fit with loess() and predict(). Given sample
     data including weights, loess() will generate fitting parameters. The you feed
     data points to be charted through predict(), along with the fitting parameters,
     and plot the nicely smoothed result. Do example(loess) in R to get started.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在 R 中，我们可以使用 `loess()` 和 `predict()` 进行最小二乘拟合。给定包括权重在内的样本数据，`loess()` 将生成拟合参数。然后，你将数据点通过
+    `predict()` 传递给图表化，同时传递拟合参数，并绘制出漂亮的平滑结果。在 R 中执行 `example(loess)` 即可开始。

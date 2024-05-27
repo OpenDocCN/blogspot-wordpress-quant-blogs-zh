@@ -1,49 +1,77 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 08:07:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:07:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: OHLC time series in Quantlib | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: OHLC 时间序列在 Quantlib 中 | Quant Corner
 - en: 来源：[https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2015/05/10/ohlc-time-series-in-quantlib/#0001-01-01)
 - en: Below is a demo code creating a **QuantLib** (‘***QL***‘, thereafter) object with OHLC
     (Open, High, Low, Close) data extracted from a standard *.csv file.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一个使用从标准 *.csv* 文件中提取的 OHLC（开盘价、最高价、最低价、收盘价）数据的 **QuantLib**（此后简称 **QL**）对象的示例代码。
 - en: '***QL*** provides the *QuantLib::TimeSeries* class which is a container for
     historical data. It can be used for simple date/quote time series (eg [here](https://quantcorner.wordpress.com/2013/02/10/an-example-code-using-quantlib-timeseries/
     "Time series & QuantLib")). Nice thing is that is can also be overloaded with
     *QuantLib::IntervalPrice* to create OHLC objects.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**QL** 提供了 *QuantLib::TimeSeries* 类，这是一个用于历史数据的容器。它可以用于简单日期/报价时间序列（例如 [在这里](https://quantcorner.wordpress.com/2013/02/10/an-example-code-using-quantlib-timeseries/
+    "时间序列 & QuantLib")）。好处是它还可以用 *QuantLib::IntervalPrice* 重载以创建 OHLC 对象。'
 - en: For some reason, *QuantLib::IntervalPrice* returns OCHL objects (?). It is not
     so much of a problem, yet it can cause confusion while calling methods/using inspectors.
     We then start by making changes to the ***QL***‘ s *prices.hpp* file, essentially swapping
     constructor parameters/variable names. Notice all changes made are not required
     to get what we want to achieve; some are purely cosmetics.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 出于某种原因，*QuantLib::IntervalPrice* 返回 OCHL 对象（？）。这并不是什么大问题，但在调用方法/使用检查器时可能会引起混淆。我们首先对
+    **QL** 的 *prices.hpp* 文件进行更改，本质上交换构造参数/变量名称。注意所做的一切改变并非都是为了实现我们想要的结果；有些纯粹是外观上的。
 - en: 'Below is the diff *prices.hpp* file:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是 *prices.hpp* 文件的diff：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'We can now turn to our wrapper:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在可以转向我们的包装器：
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'

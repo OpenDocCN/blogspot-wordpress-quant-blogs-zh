@@ -1,96 +1,139 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:30:31'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:30:31
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: What you don’t know … | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: '[你不知道的…… | Tr8dr](https://tr8dr.wordpress.com/2011/02/17/what-you-dont-know/#0001-01-01)'
 - en: 来源：[https://tr8dr.wordpress.com/2011/02/17/what-you-dont-know/#0001-01-01](https://tr8dr.wordpress.com/2011/02/17/what-you-dont-know/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2011/02/17/what-you-dont-know/#0001-01-01](https://tr8dr.wordpress.com/2011/02/17/what-you-dont-know/#0001-01-01)
 - en: February 17, 2011 · 12:29 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2011年2月17日 · 下午12:29
 - en: Sometimes there are precipitous drops (or ascents) in price over a very short
     period in the market.   Over a short period,  momentum analysis from prices or
     order flow, is not going to allow one to avoid becoming a casualty — Unless, you
     have  up-front information or lower-latency access to the event source than most
     participants.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时市场上价格会在很短的时间内急剧下降（或上升）。 在短时间内，从价格或订单流中进行的动量分析，不会使一个人避免成为受害者 —— 除非你拥有比大多数参与者更早的信息或更低的延迟访问事件源。
 - en: 'However, when it comes to information impacting intra-day FX, it is disproportionately
     known to a small # of players:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，当涉及影响日内外汇的信息时，只有少数几位玩家知晓：
 - en: large market makers (such as banks in the FX market) have access to significant
     flow and therefore can have a read on supply and demand for a given asset.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 大型市场制造商（例如外汇市场的银行）可以获取大量流量，因此可以了解特定资产的供求情况。
 - en: banks also know who their trading-counterparts (customers) are and whether the
     customer is “smart”,  tending to trade ahead of movements.  They also have a good
     view on how much size is traded over what period.  This is valuable information
     that they can piggyback on.
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 银行还知道他们的交易对手（客户）是谁以及客户是否“聪明”，倾向于提前交易。 他们还很好地了解在何时期间交易了多少量。 这是他们可以跟随的宝贵信息。
 - en: The small HF hedge fund participates on the anonymous venues without access
     to either of these.    Now a fund may have better models, but still lacks a direct
     view of the market flows as indicated above.    Whether it be large-flow houses
     or smart hedge funds, some smaller % of orders represent “smart” or in-the-know
     money and the larger % will tend to be more reactive.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 小型高频对冲基金参与匿名交易场所，但无法访问其中任何一个。 现在，基金可能有更好的模型，但仍然缺乏对市场流动的直接观察，如上文所述。 无论是大流量的机构还是聪明的对冲基金，一部分较小的订单代表“聪明”的或知情的资金，较大的部分往往更具反应性。
 - en: A Drop
+  id: totrans-12
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 一个下跌
 - en: 'Here is an example of a ~10 pip drop that occurred over a period of 200ms:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个在200ms内发生的约10个点的下跌的示例：
 - en: '[![](img/ed86c7ff2bd5ff4e88d1f5bb0c1b5dde.png "Screen shot 2011-02-17 at 12.01.18
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-17-at-12-01-18-pm.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ed86c7ff2bd5ff4e88d1f5bb0c1b5dde.png "屏幕截图 2011-02-17 下午12.01.18")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-17-at-12-01-18-pm.png)'
 - en: The bottom pane contains order-streams for a few bid-side orders of interest
     in this discussion.   **dp** is expressed in distance from the inside price (for
     the bid side this means a larger DP means a lower order price).   By order-streams,
     referring to implicit cancel/replace activity by a trader (algo).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 底部窗格包含本讨论中几个感兴趣的买方订单的订单流。 **dp** 表示距离内部价格的距离（对于买方来说，这意味着较大的 DP 意味着较低的订单价格）。
+    通过订单流，指的是交易员（算法）的隐式取消/替换活动。
 - en: Notice that the orders have been moved deeper into the book (as seen by a spike
     in **dp**) as a defensive move against a falling price.  Looking more closely,
     this set of orders actually made the move **before** the drop (aha, “smart” algo
     working here).
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，订单已经深入到书中（通过 **dp** 的峰值可见），作为针对价格下跌的防御举措。 更仔细地看，这组订单实际上在跌价之前就进行了移动（啊哈，“聪明”的算法在此处发挥作用）。
 - en: '[![](img/29aa7870075c29efa6f670411c877185.png "Screen shot 2011-02-17 at 12.21.16
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-17-at-12-21-16-pm.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/29aa7870075c29efa6f670411c877185.png "屏幕截图 2011-02-17 下午12.21.16")](https://tr8dr.wordpress.com/wp-content/uploads/2011/02/screen-shot-2011-02-17-at-12-21-16-pm.png)'
 - en: Notice that four of the order streams (green – blue) moved orders deeper into
     the book ~60ms before the drop and the other colors a ms or 2 before drop but
     in-time to avoid a fill.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，四个订单流（绿色 - 蓝色）在跌价前约60ms将订单深入书中，而其他颜色在跌价前1或2ms，但及时避免了成交。
 - en: Conclusion
+  id: totrans-19
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 结论
 - en: If you don’t have early access to information, look for a participant who does
     and use appropriately.   This is easier said than done, however. Detecting participants
     (i.e. order-streams) and determining whether they are “smart” or “dumb” is not
     straightforward.   I will touch on some of the related problems in a later post,
     but unfortunately cannot discuss everything in detail.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你无法提前获取信息，就寻找一个有权限获取信息的参与者，并进行适当利用。然而，这样做并不容易。检测参与者（即订单流）并确定他们是“聪明”还是“蠢”并不是一件简单的事情。我会在后续的帖子中提到一些相关的问题，但遗憾的是不能详细讨论所有内容。

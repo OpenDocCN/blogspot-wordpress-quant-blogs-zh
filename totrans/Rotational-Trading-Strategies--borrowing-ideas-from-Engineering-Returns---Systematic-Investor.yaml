@@ -1,117 +1,179 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:44:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:44:28
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Rotational Trading Strategies: borrowing ideas from Engineering Returns | Systematic
     Investor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 旋转交易策略：借鉴工程回报的想法 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/20/rotational-trading-strategies-borrowing-ideas-from-engineering-returns/#0001-01-01)
 - en: 'Frank Hassler at [Engineering Returns](http://engineering-returns.com) blog
     wrote an excellent article [Rotational Trading: how to reduce trades and improve
     returns](http://engineering-returns.com/2011/07/06/rotational-trading-how-to-reducing-trades-and-improve-returns/).
     The article presents four methods to reduce trades:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[工程回报](http://engineering-returns.com)博客的Frank Hassler写了一篇优秀的文章[轮换交易：如何减少交易并提高回报率](http://engineering-returns.com/2011/07/06/rotational-trading-how-to-reducing-trades-and-improve-returns/)。
+    文章提出了四种减少交易的方法：'
 - en: Trade less frequently. I.e. weekly instead of daily rebalancing.
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 减少交易频率。 即每周重新平衡而不是每日重新平衡。
 - en: Different criteria for enter / exit a trade.
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 不同的进入/退出交易标准。
 - en: Smooth the rank over the last couple of bars.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 平滑排名在过去几个条中的变化。
 - en: Combination of above.
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 上述方法的组合。
 - en: I want show how to implement these ideas using the backtesting library in the
     [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
     I will use the 21 ETFs from the [ETF Sector Strategy](http://www.etfscreen.com/sectorstrategy.php)
     post as the investment universe.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想展示如何使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库来实现这些想法。
+    我将使用[ETF行业战略](http://www.etfscreen.com/sectorstrategy.php)帖子中的21个ETF作为投资范围。
 - en: 'Following code loads historical prices from Yahoo Fiance and compares performance
     of the daily versus weekly rebalancing using the backtesting library in the [Systematic
     Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下代码从Yahoo Finance加载历史价格，并使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)中的回测库比较每日与每周重新平衡的表现：
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/6029588ec3cb57ee319da66de7d7ef5b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small4.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6029588ec3cb57ee319da66de7d7ef5b.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small4.png)'
 - en: The number of trades falls down from 443 to 164 as we switch from daily to weekly
     rebalancing. The additional bonus is the better returns for the weekly rebalancing.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着我们从每日重新平衡转换为每周重新平衡，交易次数从443下降到164。 额外的好处是每周重新平衡的更好回报。
 - en: Next, let’s examine different entry/exit rank. We will buy top 2 ETFs and will
     keep them till their ranks drop below 4 /6.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们检查不同的入场/出场排名。 我们将购买排名前2位的ETF，并将它们保持在排名低于4/6之前。
 - en: '[PRE1]'
+  id: totrans-17
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/803c5f808638ad801e3a5a19ef9e6a24.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small4.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/803c5f808638ad801e3a5a19ef9e6a24.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small4.png)'
 - en: The number of trades falls down from 443 to 95 to 52 as we hold on to our selection
     for longer periods.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着我们将选择保持更长时间段，交易次数从443下降到95到52。
 - en: Next, let’s examine rank smoothing. Instead of using the most recent rank, we
     will use different averages of rank’s recent values.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们检查排名平滑。 我们将不再使用最近的排名，而是使用排名最近值的不同平均值。
 - en: '[PRE2]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/d0bd6597065db25848ba604e0002546b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small4.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d0bd6597065db25848ba604e0002546b.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small4.png)'
 - en: The number of trades falls down as we increase the length of period used in
     averaging. There is no big difference in using simple moving average (SMA) versus
     exponential smoothing average (EMA).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着我们在平均值中使用的周期长度增加，交易次数下降。 使用简单移动平均（SMA）与指数平滑平均（EMA）没有太大区别。
 - en: Next, let’s combine different methods to reduce number of trades.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们组合不同的方法来减少交易次数。
 - en: '[PRE3]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/0c319dc34696601d4358e2cba26bf430.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small2.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0c319dc34696601d4358e2cba26bf430.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot4-small2.png)'
 - en: The overall winner is a weekly strategy that buys top 2 ETF’s based on 10 week
     exponential average rank and keeps them till their ranks drop below 6\. The number
     of trades falls down from 443 to 28 and performance (CAGR) goes up from 2.4% to
     7.3%.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 总体胜出者是一种每周策略，该策略基于10周指数平均排名购买排名前2的ETF，并持有它们直到它们的排名降至6以下。交易次数从443下降到28，表现（年化复合增长率）从2.4%上升到7.3%。
 - en: The next step, which you can do as a homework, is to find ways to control the
     strategy’s drawdowns. One solution is discussed in the [Avoiding severe draw downs](http://engineering-returns.com/2010/07/26/rotational-trading-system/)
     post.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一个步骤，你可以作为家庭作业来做，就是寻找控制策略回撤的方法。一个解决方案在[避免严重回撤](http://engineering-returns.com/2010/07/26/rotational-trading-system/)这篇文章中讨论。
 - en: To view the complete source code for this example, please have a look at the
     [bt.rotational.trading.trades.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看GitHub上的[bt.rotational.trading.trades.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

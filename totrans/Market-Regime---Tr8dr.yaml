@@ -1,136 +1,198 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:33:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:33:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Market Regime | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 市场体制 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/03/24/market-regime/#0001-01-01](https://tr8dr.wordpress.com/2010/03/24/market-regime/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/03/24/market-regime/#0001-01-01](https://tr8dr.wordpress.com/2010/03/24/market-regime/#0001-01-01)
 - en: 'I tend to design strategies that are largely market agnostic, however, I do
     have a strategy that has behavior conditioned on, what I will loosely call,”market
     regime”.  I am not using “regime” as the basis of a strategy, rather a means to
     distinguish modality in the distributions used in the strategy.  By market regime
     may include the following:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我倾向于设计大多与市场无关的策略，然而，我确实有一个策略，其行为基于，我宽松地称之为，“市场体制”。我不是用“体制”作为策略的基础，而是一种区分策略中使用的分布模式的方法。市场体制可能包括以下内容：
 - en: medium – strong trend upward
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 中等 - 强劲上升趋势
 - en: medium – strong trend downward
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 中等 - 强劲下降趋势
 - en: consolidating / range bound
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 巩固 / 区间波动
 - en: gapping
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 缺口
 - en: I’m starting to dust off some work I had done a couple of years ago in detecting
     these sort of things.  The trick, as always, is in detecting with a minimum of
     lag, determining the window of analysis, and technique.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我开始整理几年前做的一些工作，用于检测这类事情。诀窍，如往常一样，在于用最少的滞后检测，确定分析窗口，和技术。
 - en: '**Timeseries Approaches'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**时间序列方法'
 - en: I’ve implemented or considered a number of approaches to detecting the above:**
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经实施或考虑了多种检测上述内容的方法：**
 - en: '**signal decomposition**'
+  id: totrans-14
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**信号分解**'
 - en: The signal is decomposed into wavelet-like bases.   The power of the bases is
     evaluated to determine which base carries the most power.   The most powerful
     base is the most representative of the market direction and mode.   This approach
     is sensitive to window.  May work well with volatility inverse scaled window size.
+  id: totrans-15
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 信号被分解成类小波基底。基底的能量被评估以确定哪个基底携带的能量最多。能量最强的基底最能代表市场方向和模式。这种方法对窗口很敏感。可能会用波动率反缩窗口大小工作得很好。
 - en: '**filter bank**'
+  id: totrans-16
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**滤波器组**'
 - en: 'A bank of filters targeting periods of 2^n are evaluated against the series
     (ewma’s for example).   Based on whether series above or below # of filters determines
     degree of trend.   Oscillation and period can also be measured.'
+  id: totrans-17
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: '针对2的n次幂周期的滤波器组与系列（例如ewma）进行评估。根据系列 above 或 below # of filters 确定趋势的程度。还可以测量振荡和周期。'
 - en: '**technical indicators?**'
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: '**技术指标？**'
 - en: Haven’t done much here, perhaps some readers have some ideas.   Observing the
     average width and direction of a bolinger band can give indications about consolidation,
     etc.   How does one adjust or choose the MA window?
+  id: totrans-19
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这里我没有做太多，也许有些读者有一些想法。观察布林带的平均宽度和方向可以给出关于巩固等的信息。如何调整或选择MA窗口？
 - en: '**Statistical Approach'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**统计方法**'
 - en: Now the above is an explicit “technicals” view on market modes.   The idea in
     the technicals approach is that each of the states implies a different distribution,
     so depending on what mode you are in, one selects the appropriate distribution
     (or a blend thereof for a fuzzy approach).**
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面是关于市场模式的明确“技术”观点。技术方法的想法是，每个状态都隐含不同的分布，所以根据你处于哪种模式，选择适当的分布（或者对于模糊方法，混合 thereof）。**
 - en: '**It occurred to me that a more statistical approach requiring no prior assumptions
     would be to **use an algorithm to determine the modes (or categories) within the
     multivariate distribution**.**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我突然想到，一个不需要先验假设的更统计的方法是**使用算法在多元分布中确定模式（或类别）。**'
 - en: I need to do this on high-dimensional multivariate distributions.  If the distribution
     is dense or continuous this is relatively straightforward to do.   For a dense
     empirical distribution one could project a smoothing kernel and solve for maximum
     points by setting the derivative to 0.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 我需要在高维多元分布上进行这个操作。如果分布是密集或连续的，这样做相对简单。对于一个密集的经验分布，可以将平滑核投影并求解最大点，将导数设为0。
 - en: '**Simple 1D case**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**简单的1D案例**'
 - en: 'On a 1 dimensional distribution, this is easy to see:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在一维分布上，这是显而易见的：
 - en: '[![](img/bfed0205a3794c276fb15e1fdf49e3a2.png "1D")](https://tr8dr.wordpress.com/wp-content/uploads/2010/03/1d.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bfed0205a3794c276fb15e1fdf49e3a2.png "1D")](https://tr8dr.wordpress.com/wp-content/uploads/2010/03/1d.png)'
 - en: Even in the simple case, determining the degree of smoothing and hence the number
     of local maxima requires either a judgement call and/or cross validation against
     model performance.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使在简单的案例中，确定平滑程度和 hence 局部最大值的数量也需要判断 call 和/或模型性能交叉验证。
 - en: '**High Dimensional Sparse Case**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**高维稀疏情况**'
 - en: Attempting to determine the modes in a high dimensional multivariate distribution
     is a much more difficult.   It occurred to me that one of the machine-learning
     clustering algorithms may be the best approach here.   K-means is one such algorithm.
       I have not yet investigated the efficacy of the approach for my requirements,
     will post more later when I circle back on this one.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 试图在高维多元分布中确定模式要困难得多。我想到机器学习中的某个聚类算法可能是这里最好的方法。K-means是这样的一个算法。我还没有对我的需求调查这种方法的效力，当我回头再考虑这个问题时，我会后续发布更多的内容。
 - en: '**Tentative Conclusion** I believe the statistical approach may be superior,
     particularly as it can capture modes one may not even be aware of.   The statistical
     approach, however, does not attach any meaning to the modes.   In other words
     is an opaque model.   Perhaps a mix of determining what factors give rise to the
     modes via a clustering approach followed by codifying makes more sense.'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**试验性结论**我相信统计方法可能是更优的，特别是因为它能捕捉到你可能甚至没意识到的模式。然而，统计方法并没有给这些模式附带任何意义。换句话说，它是一个不透明的模型。或许混合使用通过聚类方法确定产生模式的因子，然后进行编码的方式，更有意义。'

@@ -1,28 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:18:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:18:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'Timely Portfolio: Barron’s Spring 2008 Big Money Poll'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：巴伦周刊2008年春季大钱调查
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/barrons-spring-2008-big-money-poll.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/barrons-spring-2008-big-money-poll.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/barrons-spring-2008-big-money-poll.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/barrons-spring-2008-big-money-poll.html#0001-01-01)
 - en: '[Barron''s April 28, 2008, Cover Story "Back in the Pool"](http://online.barrons.com/article/SB120916344041346031.html#articleTabs_panel_article%3D1
     "http://online.barrons.com/article/SB120916344041346031.html#articleTabs_panel_article%3D1")
     offers a great hindsight look at our wonderful foresight:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[巴伦周刊2008年4月28日封面故事“回到泳池中”](http://online.barrons.com/article/SB120916344041346031.html#articleTabs_panel_article%3D1
+    "http://online.barrons.com/article/SB120916344041346031.html#articleTabs_panel_article%3D1")为我们美好的先见之明提供了一个很好的事后看法：'
 - en: '**“AND NOW, FOR SOME GOOD NEWS: THE OTHER SHOE** isn''t going to drop. After
     a winter of discontent marked by massive write-offs on Wall Street and a wilting
     economy on Main, America''s portfolio managers have declared that the worst is
@@ -30,9 +45,11 @@
     Big Money poll say they''re bullish or very bullish about the prospects for stocks
     through the end of 2008\. Their forecasts suggest they''re even more upbeat about
     the first half of 2009.”'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '**“现在，让我们来点好消息：另一只鞋**不会掉下来。在华尔街大规模减记和主要街道经济萎靡不振的冬天之后，美国投资组合经理们宣布最糟糕的已经过去了。超过一半的机构投资者参加了我们最新的大钱调查，他们表示对2008年底前股票的前景持乐观或非常乐观态度。他们的预测表明他们对2009年上半年更加乐观。“'
 - en: Even the world’s greatest investors had been trained by the market from 1980-2000
     to buy every 20% dip and ignore fears.  However, as usual, the market trains you
     over rolling 5-20 year periods to make the wrong decision.  Closing your eyes
@@ -40,43 +57,67 @@
     your eyes and buying in 2009 was the right decision.  Closing your eyes and buying/holding
     anything now without regard to how we got here is very precarious.  It will be
     very interesting to see the results of this spring’s Barrons Big Money Poll.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使世界上最伟大的投资者也曾在1980-2000年间被市场训练得每次下跌20%时就买入并忽视恐慌。然而，像往常一样，市场会在滚动5-20年的周期内训练你做出错误的决定。2008年闭上眼睛买入显然是错误的决定，我还不确定2009年闭上眼睛买入是否是正确的决定。在没有考虑我们是如何到达这里的的情况下，现在闭上眼睛买入/持有任何东西是非常危险的。将非常有趣地看到今年春天巴伦周刊的大钱调查的结果。
 - en: '**As always, I use this blog as my own record to avoid the errors of hindsight
     bias and cognitive dissonance.  In no way am I advising you to believe me since
     I could be as wrong as the money managers in Barrons April 2008.  You are responsible
     for your own investment gains and losses.**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**像往常一样，我利用这个博客作为我的记录，以避免事后偏见和认知失调的错误。我绝不是建议你相信我，因为我可能和巴伦周刊2008年4月中的基金经理一样错误。你应对自己的投资收益和损失负责。**'
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '```R代码：'
 - en: require(quantmod)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: tckr<-"^GSPC"
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: tckr<-"^GSPC"
 - en: start<-"1990-01-01"
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 开始<-"1990-01-01"
 - en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '结束<- 格式化(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
 - en: Pull tckr index data from Yahoo! Finance
+  id: totrans-15
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 从雅虎!财经获取tckr指数数据
 - en: getSymbols(tckr, from=start, to=end, adjust=TRUE)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 获取符号(tckr, 从=开始, 到=结束, 调整=TRUE)
 - en: chartSeries(to.weekly(GSPC["2007::2009"]),theme="white",name="S&P 500-Safe to
     Get Back in the Pool?",TA=NULL)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 图表系列(to.weekly(GSPC["2007::2009"]),主题="白色",名称="S&P 500-安全回归泳池?",TA=NULL)
 - en: '#has to be a better way to label; let me know if you know how'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '```has to be a better way to label; let me know if you know how'
 - en: text(230, GSPC["2008-05-02",4]+25, labels="Safe and Bullish???")
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 文本(230, GSPC["2008-05-02",4]+25, 标签="安全和看涨???")

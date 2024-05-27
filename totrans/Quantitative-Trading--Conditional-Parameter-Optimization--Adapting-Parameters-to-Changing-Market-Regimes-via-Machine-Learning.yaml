@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:54:19'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:54:19
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Conditional Parameter Optimization: Adapting Parameters
     to Changing Market Regimes via Machine Learning'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：条件参数优化：通过机器学习适应市场制度的参数调整
 - en: 来源：[http://epchan.blogspot.com/2021/04/conditional-parameter-optimization.html#0001-01-01](http://epchan.blogspot.com/2021/04/conditional-parameter-optimization.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2021/04/conditional-parameter-optimization.html#0001-01-01](http://epchan.blogspot.com/2021/04/conditional-parameter-optimization.html#0001-01-01)
 - en: Every trader knows that there are market regimes that are favorable to their
     strategies, and other regimes that are not. Some regimes are obvious, like bull
     vs bear markets, calm vs choppy markets, etc. These regimes affect many strategies
@@ -32,8 +44,10 @@
     what those 5 regimes are, and which of the 5 we are in today, not to mention predicting
     which regime we *will* be in tomorrow. We won’t even know that there are exactly
     5!
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个交易员都知道，有些市场制度有利于他们的策略，而其他制度则不利。一些制度很明显，比如牛市对熊市、平静市场对波动市场等。这些制度会影响许多策略和投资组合（除非它们是市场中性或波动性中性投资组合），并且是可以轻易观察和识别的（尽管可能不可预测）。其他制度则更为微妙，可能只影响您的特定策略。制度可能每天都在变化，而且可能不可观察。通常并不是说市场有两个制度，我们现在处于制度2而不是1。例如，对于您特定策略的盈利性，市场可能有5个不同的制度。但确切地指定这5个制度是什么，以及我们今天处于其中的哪一个，更不用说预测我们明天将处于哪一个制度了。我们甚至不知道确切的制度数量是5个！
 - en: Regime changes sometimes necessitate a complete change of trading strategy (e.g.
     trading a mean-reverting instead of momentum strategy). Other times, traders just
     need to change the parameters of their existing trading strategy to adapt to a
@@ -42,8 +56,10 @@
     Parameter Optimization” (CPO). This patent-pending invention allows traders to
     adapt new parameters as frequently as they like—perhaps for every trading day
     or even every single trade.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场制度的变化有时需要交易策略的根本改变（例如，交易均值回归策略而不是动量策略）。在其他时候，交易员只需要改变他们现有交易策略的参数以适应不同的制度。PredictNow.ai的我和我的同事们提出了一种新颖的适应交易策略参数的方法，我们称之为“条件参数优化”（CPO）。这项正在申请专利的发明允许交易员像他们喜欢的那样频繁地适应新参数——也许是对每一笔交易或者每一次交易都进行调整。
 - en: CPO uses machine learning to place orders optimally based on changing market
     conditions (*regimes*) in any market. Traders in these markets typically already
     possess a basic trading strategy that decides the timing, pricing, type, and/or
@@ -63,8 +79,10 @@
     to rapidly changing market conditions. Ideally, we would like trading parameters
     that are much more sensitive to the market conditions and yet are trained on a
     large enough amount of data.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: CPO利用机器学习根据任何市场的变化市场条件(*制度*)最优化地下单。这些市场的交易员通常已经拥有一个基本的交易策略，该策略决定订单的时间、定价、类型和/或大小。这个交易策略通常具有少数可调整的交易参数。传统上，它们通常是基于一个固定的历史数据集（“训练集”）进行优化的。或者，它们可能定期使用扩展或滚动训练集进行重新优化。（后者通常被称为“前进优化”）使用固定训练集，交易参数显然无法适应变化的制度。使用扩展训练集，交易参数仍然无法响应快速变化的市场状况，因为附加数据只是现有训练集的一小部分。即使使用滚动训练集，也没有证据表明最近历史时期优化的参数在样本外表现更好。滚动训练集太小也会因统计意义不足而给出不稳定和不可靠的预测结果。所有这些传统的优化程序都可以被称为*无条件参数优化*，因为交易参数并没有智能地响应快速变化的市场状况。理想情况下，我们希望能够使交易参数更加敏感于市场状况，同时又在足够多的数据上进行训练。
 - en: To address this adaptability problem, we apply a supervised machine learning
     algorithm (specifically, random forest with boosting) to learn from a large predictor
     (“feature”) set that captures various aspects of the prevailing market conditions,
@@ -78,26 +96,39 @@
     trading strategy for the next period. The trader can make such predictions and
     adjust the trading strategy as frequently as needed to respond to rapidly changing
     market conditions.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了解决这种适应性问题，我们应用了一种监督式机器学习算法（具体来说，是带有提升的随机森林），从大量预测因子（“特征”）集中学习，这些特征集捕捉了当前市场状况的各种方面，以及特定的交易参数值，来预测交易策略的结果。（一个结果的例子是策略未来的单日回报。）一旦这样的机器学习模型被训练出来预测结果，我们就可以通过输入代表最新市场状况的各种特征以及交易参数的各种组合，将其应用于实际交易。产生最优预测结果（例如，未来单日回报最高）的参数集将被选为最优，并用于下一期的交易策略。交易员可以根据需要频繁地进行此类预测和调整交易策略，以应对快速变化的市场状况。
 - en: 'In the example you can download [here](https://py.predictnow.ai/request_cpo_paper),
     I illustrate how we apply CPO using PredictNow.ai’s financial machine learning
     API to adapt the parameters of a Bollinger Band-based mean reversion strategy
     on GLD (the gold ETF) and obtain superior results which I highlight here:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在您可以从这里下载的[示例](https://py.predictnow.ai/request_cpo_paper)中，我说明了如何使用PredictNow.ai的金融机器学习API适应基于Bollinger
+    Bands的平均回归策略的参数（黄金ETF）并取得优越的结果，我在这里突出显示：
 - en: '|  | Unconditional Optimization | Conditional Optimization |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '|  | 无条件优化 | 条件优化 |'
 - en: '| Annual Return | 17.29% | 19.77% |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '| 年化回报 | 17.29% | 19.77% |'
 - en: '| Sharpe Ratio | 1.947 | 2.325 |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| 夏普比率 | 1.947 | 2.325 |'
 - en: '| Calmar Ratio | 0.984 | 1.454 |'
+  id: totrans-14
   prefs: []
   type: TYPE_TB
+  zh: '| 卡马尔比率 | 0.984 | 1.454 |'
 - en: The CPO technique is useful in industry verticals other than finance as well
     – after all, optimization under time varying and stochastic condition is a very
     general problem. For example, wait times in a hospital emergency room may be minimized
@@ -110,9 +141,13 @@
     to predict the wait time under various parameter combinations, and thereby find
     the optimal combination under the current conditions in order to achieve the shortest
     wait time.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**CPO技术**在金融业以外的工业垂直领域也非常有用——毕竟，在时变和随机条件下的优化是一个非常普遍的问题。例如，通过优化人员配置水平、设备和物资准备情况、出院率等各种参数，医院急诊室的等待时间可能得到最小化。目前最先进的方法通常是通过查看过去平均表现最好的情况来找到最优参数。基于这些参数也没有确切的数学函数能精确确定等待时间。CPO技术利用其他变量，如一天中的时间、一周中的某一天、季节、天气、是否最近有大型活动等，来预测在各种参数组合下的等待时间，从而找到在当前条件下实现最短等待时间的最优组合。'
 - en: We can provide you with the scripts to run CPO on your own strategy using Predictnow.ai’s
     API. Please email [info@predictnow.ai](mailto:info@predictnow.ai) for a free trial.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以为您提供脚本，使用Predictnow.ai的API运行CPO。请发送电子邮件至[info@predictnow.ai](mailto:info@predictnow.ai)获取免费试用。

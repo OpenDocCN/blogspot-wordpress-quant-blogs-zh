@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 07:01:30'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 07:01:30
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Physics Perspective: Markets -- increasingly complex dynamics over the past
     decade'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 物理视角：市场——过去十年日益复杂的动态
 - en: 来源：[http://physicsoffinance.blogspot.com/2012/01/markets-increasingly-complex-dynamics.html#0001-01-01](http://physicsoffinance.blogspot.com/2012/01/markets-increasingly-complex-dynamics.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://physicsoffinance.blogspot.com/2012/01/markets-increasingly-complex-dynamics.html#0001-01-01](http://physicsoffinance.blogspot.com/2012/01/markets-increasingly-complex-dynamics.html#0001-01-01)
 - en: Didier Sornette is among the most creative scientists I know, and always seems
     to come up with an approach to problems that is more or less orthogonal to what
     anyone has done before. [In a paper just out](http://www.unifr.ch/econophysics/paper/show/id/1201.3572)
@@ -39,8 +51,10 @@
     much more strongly driven by internal, endogenous dynamics than they were before.
     As the authors point out, this could well reflect the explosion of algorithmic
     trading, as computers interact with one another in lots of complex feedback loops.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 迪迪埃·索内特是我所认识的最有创造力的科学家之一，他总是能提出一种与之前任何人所做的都或多或少垂直的问题解决方法。在一篇刚刚发表的论文（作为预印本）中，他和弗拉基米尔·菲利莫诺夫对一个老问题进行了真正新颖的分析：市场运动是否由A.外部因素如新闻（外生原因）引起，还是B.市场内部因素如情绪、信念和意见的雪崩等（内生原因）引起。当然，这个问题直接触及到臭名昭著的效率市场假说，该假说坚持解释A（全部A，没有B）。我以前写过（例如[这里](http://physicsoffinance.blogspot.com/2011/10/what-moves-markets-part-ii.html)和[这里](http://physicsoffinance.blogspot.com/2011/10/private-information-and-jumps-in-market.html)）关于一些试图将新闻源与市场大波动相匹配的研究，以查看后者是否可以由前者解释。通常，证据表明不是，这意味着A和B的某种混合。现在索内特和菲利莫诺夫采取了一种非常不同的方法，试图使用数学直接测量时间序列动态中有多少可以归因于内生、内部原因。这种数学技术本身很有趣。如果它可以被信赖，那么结果表明，与之前相比，过去十年的市场受到了更多的内生、内部动态的驱动。正如作者指出的，这可能很好地反映了算法交易的爆炸性增长，因为计算机以许多复杂的反馈循环相互交互。
 - en: The authors envision their technique as a device for measuring the amount of
     "reflexivity" in the market, referring to the term used by George Soros to describe
     how human perceptions and misperceptions interact in the market to drive changes.
@@ -55,8 +69,10 @@
     it's possible to let the arrival of buy and sell orders have strong correlations
     in time, as they in fact do in real markets. This technique is referred to as
     a "self-excited Hawkes model."
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者们将他们的技术设想为一种测量市场“反射性”量的装置，这里指的是乔治·索罗斯用来描述人类感知和误判如何在市场中相互作用以推动变化的术语。如果能够实现的话，这是一个非常吸引人的想法。它是这样运作的。索内特和菲利莫诺夫将价格时间序列建模为统计“点过程”生成的——这个想法是通过模拟市场中的实际买入和卖出订单的到来生成价格动态。最简单的方法是使用泊松过程，所有时间点的概率相等。这产生了一个随机的价格变动时间序列，但这是一个不切实际的序列，缺乏真实市场最有趣的属性——收益分布的厚尾和波动性（以及成交量波动）的长期记忆。为了得到真实的时间序列，可以让买入和卖出订单的到达时间在时间上具有强的相关性，正如实际市场中所发生的那样。这种技术被称为“自我激励的霍克斯模型”。
 - en: 'Another way to put this is as follows. In an ordinary Poisson process, the
     average number of events striking in an interval dt (say, 1 second) is a constant,
     λ. In the richer process with correlations, this will now be a function of time
@@ -66,8 +82,10 @@
     as news, which drive the market, and 2\. a feedback contribution coming from the
     tendency for orders now to have consequences, leading to further orders in the
     future. The result is eq.(1) of the paper:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种表述方式如下。在普通的泊松过程中，平均每单位时间dt（比如说，1秒）内发生的事件数量是一个常数，λ。在具有相关性的更丰富的过程中，现在这将是一个关于时间t的函数λ(t)。分析的关键在于将这个量（本质上，是关于时间t周围买入和卖出订单的到达率）表述为两个非常不同的过程的和——1.由于外部事件（如新闻）等驱动的市场而产生的背景贡献，以及2.由于现在的订单具有后续影响，从而导致未来进一步订单的反馈贡献。结果就是论文中的方程(1)：
 - en: '![](img/70f7e1c05be65c015fd5a603bb80ec7d.png)Here the first term on the right
     is the background (which drives the exogenous dynamics) and the second term is
     the feedback, with h being some function that reflects the likelihood that an
@@ -91,41 +109,56 @@
     mechanisms. In contrast, the background of exogenous shocks -- information driven
     dynamics -- remains more constant (except with a spike around the time of the
     Lehman Bros collapse). From this the authors offer a few comments:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/70f7e1c05be65c015fd5a603bb80ec7d.png) 这里，右侧的第一个项是背景（推动外部动态），第二个项是反馈，h是某种反映事件在时间t[i]生成另一个事件在稍后时间t的可能性函数。第一个项创造了一个稳定的事件流，第二个项创造了产生事件的事件，从而产生进一步后果的分支流。现在，将此类过程生成的
+    时间序列拟合到实际金融数据的任务更为复杂，依赖于一些标准的最大似然技术。作者还假设为了简化，函数h具有指数形式（事件倾向于在发生后不久引起其他事件，随时间增加则较少如此）。此类拟合中出现的的关键参数是n，它可以解释为内生事件的份额，或实际上，由内部动态引起的市场活动的份额。统计拟合还估计了μ，这是由外部冲击的背景水平，随时间上升和下降。Sornette和Filimonov使用大约12年的E-mini期货的每秒数据进行分析，其关键结果在下面的图表中得出。
+    ![](img/adf9ad0118eebd34b51e7109990f5922.png) 向下四部分显示了成交量、价格，然后是估计的背景和由内部动态引起的事件的份额，n。最有趣的特点是过去十年中n的普遍上升，显示内部动态的
+    increasing影响力，或通过内部市场机制引起进一步事件的事件。相比之下，外部冲击的背景——信息驱动的动态——保持相对恒定（除了在雷曼兄弟破产前后出现峰值）。从中，作者提出了一些评论：'
 - en: 'The first important observation is that, since 2002, n has been consistently
     above 0.6 and, since 2007, between 0.7 and 0.8 with spikes at 0.9\. These values
     translate directly into the conclusion that, since 2007, more than 70% of the
     price moves are endogenous in nature, i.e., are not due to exogenous news but
     result from positive feedbacks from past price moves. The second remarkable fact
     is the existence of four market regimes over the period 1998-2010:'
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 第一个重要观察是，自2002年以来，n始终高于0.6，自2007年以来，在0.7和0.8之间，偶尔达到0.9。这些值直接转化为结论，自2007年以来，超过70%的价格变动本质上是内生的，即不是由于外部新闻而是由于过去价格变动的正反馈。第二个显著的事实是在1998-2010年期间存在四种市场体制：
 - en: (i) In the period from Q1-1998 to Q2-2000, the final run-up of the dotcom bubble
     is associated with a stationary branching ratio n fluctuation around 0.3.
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: (i) 在1998年第一季度到2000年第二季度的期间，互联网泡沫的最后冲刺与n围绕0.3的稳定分支比波动有关。
 - en: (ii) From Q3-2000 to Q3-2002, n increases from 0.3 to 0.6\. This regime corresponds
     to the succession of rallies and panics that characterized the aftermath of the
     burst of the dot-com bubble and an economic recession.
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: (ii) 从2000年第三季度到2002年第三季度，n从0.3增加到0.6。这个阶段对应于互联网泡沫破裂和经济衰退后的一系列涨跌和恐慌。
 - en: (iii) From Q4-2002 to Q4-2006, one can observe a slow increase of n from 0.6
     to 0.7\. This period corresponds to the “glorious years” of the twin real-estate
     bubble, financial product CDO and CDS bubbles, stock market bubble and commodity
     bubbles.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: (iii) 从2002年第四季度到2006年第四季度，可以看到n从0.6缓慢增加到0.7。这一时期对应于双房地产泡沫、金融产品CDO和CDS泡沫、股市泡沫和商品泡沫的“辉煌岁月”。
 - en: (iv) After Q1-2007 the branching ratio stabilized between 0.7 and 0.8 corresponding
     to the start of the problems of the subprime financial crisis (first alert in
     Feb. 2007), whose aftershocks are still resonating at the time of writing.
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: （iv）在Q1-2007之后，分支比稳定在0.7至0.8之间，这与次贷金融危机（首次警报于2007年2月）的开始相对应，而这场危机的余震在撰写本文时仍在共振。
 - en: 'It should be emphasized that the analysis here is only sensitive to endogenous
     dynamics over timescales of only around 10 minutes or less. This stems from some
     assumptions necessary to deal with the highly non-stationary character of the
@@ -148,8 +181,10 @@
     the 6 May Flash Crash shows a sudden spike in the internal dynamics. Hence, based
     on this example, it appears that this parameter n acts like a flag, identifying
     events caused by powerful internal feedbacks. As the authors put it,'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 应当强调的是，本文的分析仅对内生动态变化敏感，时间尺度仅约为10分钟或更短。这是由于需要一些假设来处理数据的高度非平稳特性，因为过去十年交易量爆炸式增长。因此，十年初期n的较低值可能反映了该分析未能检测到在更长时间尺度上（例如互联网泡沫破裂时）重要的内生反馈。现在谈谈可能是本文最吸引人的一点——这个分析或许能够区分由真实新闻或其他基本变化引起的大型市场波动，与纯粹由人类行为（恐慌等）或算法反馈引起的泡沫。Sornette和Filimonov研究了两个具体事件，分别是2010年4月27日和5月6日，市场在这两天突然并以戏剧性方式移动。第一个事件是由标普下调希腊债务评级引起的，第二个事件当然是“闪崩”。使用他们的方法对这两个事件进行相同分析显示，这两个事件的结果截然不同：![](img/52d36849a9a89ff4951542e12f5811eb.png) 这里的“分支比”就是我们一直在谈论的n——市场动态中由内生动态引起的比例。最显著的发现是，尽管4月27日的第一个事件显示这个值绝对没有变化，这可以理解，因为该事件的明显外部信息起源，但5月6日的“闪崩”显示了内生动态的突然激增。因此，基于这个例子，看来这个参数n像是一面旗帜，标识由强大内生反馈引起的事件。正如作者所说的，
 - en: The top four panels of Fig. 3 show that the two extreme events of April 27 and
     May 6, 2010 have similar price drops and volume of transactions. In particular,
     we find that the volume was multiplied by 4.7 for April 27, 2010 and by 5.3 times
@@ -163,9 +198,11 @@
     At the peak, n reaches 95% from a previous average level of 72%, which means that,
     at the peak (14:45 EST), more than 95% of the trading was due to endogenous triggering
     effects rather than genuine news.
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 图3的顶部四个面板显示，2010年4月27日和5月6日发生的两个极端事件具有相似的价格下跌和交易量。特别是，我们发现与前一日95%的分位数相比，2010年4月27日的交易量增加了4.7倍，而2010年5月6日的交易量增加了5.3倍。主要区别在于交易率和分支比。实际上，根据我们对Hawkes模型的校准，2010年4月27日的事件可以被分类为一个纯粹的外生事件，因为分支比n（图3D1）与之前和之后的时期相比没有显示出任何统计上显著的变化。相比之下，对于2010年5月6日的闪崩，我们可以观察到统计上显著的n（图3D2）内生性水平的增加。在高峰时，n从之前平均水平的72%增加到95%，这意味着在高峰时刻（东部时间下午2:45），超过95%的交易是由内生触发效应引起的，而不是真实新闻。
 - en: Do you believe it? It sounds plausible to me. I guess the thing that would be
     good to see is some thorough tests of the method applied to time series for which
     we know the origin of the dynamics. That is, take something like a chaotic oscillator
@@ -179,5 +216,8 @@
     at all that n has increased markedly over the past decade. This is precisely what
     one would expect as trading moves over to algorithms that react to what other
     algorithms do on a sub second basis.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 你相信吗？我觉得这个说法挺有道理的。我猜最好能看到的是这种方法应用于我们知道其动态来源的时间序列的一些彻底测试。也就是说，拿一个混沌振荡器这样的东西，用可控水平的
+    external noise 去驱动它，看看这个方法是否能 generally 给出可靠的结果，以判断发生的事情有多少是由噪声驱动的，有多少是由内部动态驱动的。也许这已经在描述自我激励Hawkes模型发展的某些论文中已经完成了。我会试着去查查这个。无论如何，我认为这无疑是一种对市场内生与外生动态这个古老问题的新颖且具有挑衅性的新方法。实际上，我一点也不觉得n在过去十年显著增加的结果令人惊讶。这正是随着交易转向以毫秒级对其他算法行为的反应的算法，我们所预期的精确结果。

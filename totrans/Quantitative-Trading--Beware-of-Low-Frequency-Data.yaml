@@ -1,55 +1,85 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-12 18:56:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:56:59'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Beware of Low Frequency Data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Quantitative Trading: Beware of Low Frequency Data'
 - en: 来源：[http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html#0001-01-01](http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html#0001-01-01](http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html#0001-01-01)
 - en: (This post is based on the talk of the same title I gave at Quantopian's NYC
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: (This post is based on the talk of the same title I gave at Quantopian's NYC
 - en: '[conference](http://quantcon.com/)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[会议](http://quantcon.com/)'
 - en: which commenced at 3.14.15 9:26:54\. Do these numbers remind you of something?)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 于3.14.15 9:26:54启动。这些数字让你想起了什么吗？）
 - en: A correct backtest of a trading strategy requires accurate historical data.
     This isn't controversial. Historical data that is full of errors will generate
     fictitious profits for mean-reverting strategies, since noise in prices is mean-reverting.
     However, what is lesser known is how perfectly accurate capture of historical
     prices, if done in a sub-optimal way, can still lead to dangerously inflated backtest
     results. I will illustrate this with three simple strategies.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 正确回测交易策略需要准确的历史数据。这不是有争议的。充满错误的历史数据会对均值回归策略产生虚构的利润，因为价格中的噪音是均值回归的。然而，鲜为人知的是，即使是以完美准确的方式捕获历史价格，如果方法不佳，仍可能导致危险地膨胀的回测结果。我将用三个简单的策略来说明这一点。
 - en: CEF Premum Reversion
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: CEF优先权反转
 - en: Patro
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Patro
 - en: '*et al*'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '*et al*'
 - en: published a
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: published a
 - en: '[paper](http://ssrn.com/abstract=2468061)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[paper](http://ssrn.com/abstract=2468061)'
 - en: 'on trading the mean reversion of closed-end funds’ (CEF) premium. Based on
     rational analysis, the market value of a CEF should be the same as the net asset
     value (NAV) of its holdings. So the strategy to exploit any differences is both
@@ -59,32 +89,44 @@
     and repeat. (You can try this on a daily basis too, since Bloomberg provides daily
     NAV data.) The Sharpe ratio of this strategy from 1998-2011 is 1.5\. Transaction
     costs are ignored, but shouldn''t be significant for a monthly rebalance strategy.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供的高质量价格数据方面无可指责，他们在交易封闭式基金（CEF）溢价回归方面的研究十分出色。基于理性分析，CEF的市场价值应与其持有的净资产价值（NAV）相同。因此，利用任何差异的策略既合理又简单：将所有CEF按其市场价值和NAV之间的%差异（“溢价”）排名，对溢价为最高的五分之一进行空头交易，对溢价为最低的五分之一（可能为负）进行多头交易。持有一个月，然后重复。你也可以尝试每天这样做，因为彭博社提供了每日的NAV数据。）这个策略从1998-2011年的夏普比率是1.5。忽略了交易成本，但对于每月重新平衡策略来说，成本不应该很重要。
 - en: The authors are irreproachable for their use of high quality price data provided
     by
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者在利用为
 - en: '[CRSP](http://crsp.com/)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[CRSP](http://crsp.com/)'
 - en: 'and monthly fund NAV data from Bloomberg for their backtest. So I was quite
     confident that I can reproduce their results with the same data from CRSP, and
     with historical NAV data from Compustat instead. Indeed, here is the cumulative
     returns chart from my own backtest (click to enlarge):'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及彭博社的月度基金NAV数据用于他们的回测。因此，我非常有信心可以使用CRSP的相同数据重现他们的结果，并使用Compustat的历史NAV数据代替。确实，以下是我自己回测的累计回报图表（点击放大）：
 - en: However, I also know that there is one detail that many traders and academic
     researchers neglect when they backtest daily strategies for stocks, ETFs, or CEFs.
     They often use the "consolidated" closing price as the execution price, instead
     of the "official" (also called "auction" or "primary") closing price. To understand
     the difference, one has to remember that the US stock market is a network of over
     60 "market centers" (see the
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我也知道许多交易员和学术研究人员在回测股票、ETF或CEF的日间策略时忽略了一个细节。他们通常使用“合并”收盘价作为执行价格，而不是“官方”（也称为“拍卖”或“主”）收盘价。要理解这两者的区别，必须记住美国股票市场是一个由60多个“市场中心”组成的网络（参见
 - en: '[teaching notes](http://pages.stern.nyu.edu/~jhasbrou/TeachingMaterials/STPPms08.pdf)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[teaching notes](http://pages.stern.nyu.edu/~jhasbrou/TeachingMaterials/STPPms08.pdf)'
 - en: of Prof. Joel Hasbrouck for an excellent review of the US stock market structure).
     The exact price at which one's order will be executed is highly dependent on the
     exact market center to which it has been routed. A natural way to execute this
@@ -100,8 +142,10 @@
     particular market center and was executed at that price at all. Unfortunately,
     the CEF strategy was tested on this consolidated price. So I decide to backtest
     it again with the official closing price.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 乔尔·哈斯布鲁克教授的优秀美国股票市场结构综述)。一个人的订单将被执行的确切价格高度依赖于它被路由到的确切市场中心。执行这种CEF策略的自然方式是在收盘附近发送市场收盘订单（MOC）或限价收盘订单（LOC），因为这是我们参与收盘拍卖并避免支付买卖差价的方式。这样的订单将被路由到每只股票、ETF或CEF的主要交易所，并在该交易所填充的价格将是官方/拍卖/主要价格。另一方面，大多数免费数据服务（如雅虎财经）提供的价格是合并价格，这只是证券信息处理器（SIP）在东部时间下午4点或之前从这些市场中心接收的最后交易的价格。没有理由相信一个人的订单将被路由到那个特定的市场中心，并且在该价格执行。不幸的是，CEF策略就是在这种合并价格上进行测试的。所以我决定用官方收盘价再次回测它。
 - en: 'Where can we find historical official closing price? Bloomberg provides that,
     but it is an expensive subscription. CRSP data has conveniently included the last
     bid and ask that can be used to compute the mid price at 4pm which is a good estimate
@@ -109,89 +153,124 @@
     But the CRSP data also doesn''t come cheap - I only used it because my academic
     affiliation allowed me free access. There is, however, an unexpected source that
     does provide the official closing price at a reasonable rate:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以在哪里找到历史官方收盘价呢？彭博社提供了这些数据，但这是一个昂贵的订阅。CRSP数据 conveniently included了最后的买入价和卖出价，可以用来计算下午4点的mid
+    price，这是官方收盘价的很好的估计。这个mid price是我用于修订回测的。但CRSP数据也不是便宜货 - 我只因为它允许我免费访问学术机构而使用它。然而，还有一个意想不到的来源确实以合理的价格提供了官方收盘价：
 - en: '[QuantGo.com](https://quantgo.com/?affid=17d)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '[QuantGo.com](https://quantgo.com/?affid=17d)'
 - en: 'will rent us tick data that has a Cross flag for the closing auction trade.
     How ironic: the cheapest way to properly backtest a strategy that trades only
     once a month requires tick data time-stamped at 1 millisecond, with special tags
     for each trade!'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 将向我们出租带有收盘拍卖交易标记的tick数据。多么讽刺：最便宜的适当回测每月只交易一次的策略需要时间戳为1毫秒的tick数据，每笔交易都有特殊标签！
 - en: So what is the cumulative returns using the mid price for our backtest?
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么，在我们的回测中，使用中间价格计算累计回报会怎样呢？
 - en: Opening Gap Reversion
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 开盘跳空回归
 - en: Readers of my
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的
 - en: '[book](http://tinyurl.com/lcqvhqh)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[书籍](http://tinyurl.com/lcqvhqh)'
 - en: 'will be familiar with this strategy (Example 4.1): start with the SPX universe,
     buy the 10 stocks that gapped down most at the open, and short the 10 that gapped
     up most. Liquidate everything at the close. We can apply various technical or
     fundamental filters to make this strategy more robust, but the essential driver
     of the returns is mean-reversion of the overnight gap (i.e. reversion of the return
     from the previous close to today''s open).'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 读者可能对我的策略（例4.1）感到熟悉：从SPX宇宙开始，购买开盘时跌幅最大的10只股票，同时做空开盘时涨幅最大的10只股票。在收盘时清算一切。我们可以应用各种技术或基本面筛选器来使这个策略更加稳健，但回报的本质驱动是隔夜跳空的均值回归（即从昨日收盘到今日开盘的回报的回归）。
 - en: 'We have backtested this strategy using the closing mid price as I recommended
     above, and including a further 5 bps transaction cost each for the entry and exit
     trade. The backtest looked wonderful, so we traded it live. Here is the comparison
     of the backtest vs live cumulative P&L:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们已经按照我上面推荐的方式，使用收盘mid价格回测了这种策略，并在进入和退出交易中各自增加了5个基点的交易成本。回测看起来很棒，所以我们现场交易了。以下是回测与现场累计盈亏的比较：
 - en: 'Yes, it is still mildly profitable, but nowhere near the profitability of the
     backtest, or more precisely, walk-forward test. What went wrong? Two things:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 是的，它仍然略有盈利，但盈利能力远不及回测，或者更准确地说，是前进测试。哪里出了问题？两个问题：
 - en: Just like the closing price, we should have used the official/auction/primary
     open price. Unfortunately CRSP does not provide the opening bid-ask, so we couldn't
     have estimated the open price from the mid price. QuantGo, though, does provide
     a Cross flag for the opening auction trade as well.
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 就像收盘价一样，我们应该使用官方/拍卖/主要开盘价。不幸的是，CRSP不提供开盘买入价/卖出价，所以我们无法从中间价估计开盘价。不过，QuantGo确实为开盘拍卖交易提供了交叉标志。
 - en: To generate the limit on open (LOO) or market on open (MOO) orders suitable
     for executing this strategy, we need to submit the order using the pre-market
     quotes before 9:28am ET, based on Nasdaq's rules.
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 为了生成适合执行此策略的限价开盘（LOO）或市价开盘（MOO）订单，我们需要在东部时间上午9:28之前根据纳斯达克的规定，使用预开盘报价提交订单。
 - en: Once again, a strategy that is seemingly low frequency, with just an entry at
     the open and an exit at the close, actually requires TAQ (ticks and quotes) data
     to backtest properly.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次强调，这个看似低频的策略，仅在开盘时进入并在收盘时退出，实际上需要TAQ（买卖盘和报价）数据才能正确回测。
 - en: Futures Momentum
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 期货动量策略
 - en: Lest you think that this requirement for TAQ data for backtesting only applies
     to mean reversion strategies, we can consider the following futures momentum strategy
     that can be applied to the gasoline (RB), gold (GC), or various other contracts
     trading on the NYMEX.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 不要以为只有均值回归策略需要TAQ数据进行回测，我们可以考虑将以下期货动量策略应用于纽约商品交易所交易的汽油（RB）、黄金（GC）或其他各种合约。
 - en: At the end of a trading session (defined as the previous day's open outcry close
     to today's open outcry close), rank all the trades or quotes in that session.
     We buy a contract in the next session if the last price is above the 95th percentile,
     sell it if it drops below the 60th (this serves as a stop loss). Similarly, we
     short a contract if the last price is below the 5th percentile, and buy cover
     if it goes above the 40th.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 在交易时段结束时（定义为昨天的开盘喊价到今天的开盘喊价之间的收盘），对该时段内的所有交易或报价进行排名。如果最后的价格高于95百分位，我们就在下一个交易时段买入合约；如果它跌破60百分位，则卖出（这作为止损）。同样，如果最后的价格低于5百分位，我们就做空合约；如果它上升至40百分位以上，我们就买入平仓。
 - en: 'Despite being an intraday strategy, it typically trades only 1 roundtrip a
     day - a low frequency strategy. We backtested it two ways: with 1-min trade bars
     (prices are from back-adjusted continuous contracts provided by eSignal), and
     with best bid-offer (BBO) quotes with 1 ms time stamps (from QuantGo''s actual
     contract prices, not backadjusted).'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管这是一个日内策略，但它通常只交易1次往返 - 这是一个低频策略。我们用两种方式回测了它：一种是用1分钟交易条形图（价格来自eSignal提供的回调整续合约），另一种是用带有1毫秒时间戳的最佳买卖价（BBO）报价（来自QuantGo的实际合约价格，而非回调整续合约）。
 - en: 'For all the contracts that we have tested, the 1-ms data produced much worse
     returns than the 1-min data. The reason is interesting: 1-ms data shows that the
     strategy exhibits high frequency flip-flops. These are sudden changes in the order
@@ -207,8 +286,10 @@
     reversals of course create losses. These losses are very real, and we experienced
     it in live trading. But these losses are also undetectable if we backtest using
     1-min bar data.'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们测试的所有合约中，1毫秒的数据产生的回报远低于1分钟的数据。原因很有趣：1毫秒的数据显示了策略表现出高频翻转现象。这些是订单簿（特别是BBO报价）的突然变化，然后迅速恢复。一些观察者将这些翻转称为“小型闪崩”，它们在期货市场和股票市场的频率一样，有时也会在现货外汇市场出现。一些人将其归咎于高频交易员。但我认为翻转这个词比闪崩更适合描述情况，因为闪崩意味着报价或流动性突然从订单簿中消失，而在翻转情况下，新的高于BBO的报价/流动性可以在几毫秒内突然出现和消失，与此同时，订单簿另一侧的报价也消失和重新出现。由于我们的是一个动量策略，这样的逆转当然会造成损失。这些损失是非常真实的，我们在实盘交易中经历过。但如果我们使用1分钟条形数据回测，这些损失也是无法检测到的。
 - en: 'Some readers may object: if the 1-min bar backtest shows good profits, why
     not just trade this live with 1-min bar data and preserve its profit? Let''s consider
     why this doesn''t actually allow us to avoid using TAQ data. Note that we were
@@ -222,8 +303,11 @@
     9:02:00.001, ...], etc. This backtest, however, still requires TAQ data, since
     no historical data vendor I know of provides such multiple sets of time-shifted
     bars!'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些读者可能会提出异议：如果1分钟条形数据回测显示良好的利润，为什么不直接使用1分钟条形数据进行实盘交易并保留其利润呢？让我们考虑一下为什么这实际上并不能让我们避免使用TAQ数据。请注意，我们之所以能够避免使用1分钟数据时的翻转现象，仅仅是因为我们在回测中运气好——并不是因为我们有一个交易规则，在我们进入或退出位置时防止了翻转的发生。那么我们如何确保我们的运气在实盘数据上继续呢？至少，我们必须使用多组1分钟条形数据测试这个策略，并选择表现最差的一组作为我们的压力测试的一部分。例如，一组可能是[9:00:00,
+    9:01:00, 9:02:00, ...,]，第二组可能是[9:00:00.001, 9:01:00.001, 9:02:00.001, ...]，等等。然而，这个回测仍然需要TAQ数据，因为据我所知，没有一家历史数据供应商提供这样的多组时间偏移条形数据！
 - en: As I mentioned above, these  flip-flops are omnipresent in the stock market
     as well. This shouldn't be surprising considering that 50% of the stock transaction
     volume is due to high frequency trading. It is particularly damaging when we are
@@ -231,38 +315,58 @@
     a leg may represent a big percentage change in the spread, which itself may be
     just a few ticks wide. So such flip-flops can frequently trigger orders which
     are filled at much worse prices than expected.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如我之前提到的，这些翻转现象在股市中也非常普遍。考虑到50%的股票交易量是由高频交易引起的，这并不令人惊讶。当我们交易差价时，比如ETF对EWA与EWC，一条腿的BBO的小幅变化可能代表差价本身的大比例变化，而这个差价可能只有几档宽。因此，这样的翻转现象经常会触发订单，这些订单的成交价格比预期的要差得多。
 - en: Conclusion
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 结论
 - en: The three example strategies above illustrate that even when a strategy trades
     at low frequency, maybe as low as once a month, we often still require high frequency
     TAQ data to backtest it properly, or even economically. If the strategy trades
     intraday, even if just once a day, then this requirement becomes all the more
     important due to the flip-flopping of the order book in the millisecond time frame.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面提到的三个示例策略说明，即使一个策略的交易频率很低，也许低至每月一次，我们通常仍然需要高频率的TAQ数据来正确地回测它，甚至从经济角度考虑也是如此。如果策略进行日内交易，即使只是每天一次，那么由于订单簿在毫秒时间框架内的波动，这一要求变得更加重要。
 - en: ===
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**My Upcoming  Talks and Workshops**'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我即将进行的演讲和研讨会**'
 - en: '5/13-14: "Mean Reversion Strategies", "AI techniques in Trading" and "Portfolio
     Optimization" at [Q-Trade Bootcamp 2015](http://qtradebootcamp.com/), **Milan**,
     Italy.'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 5月13-14日：“均值回归策略”、“交易中的AI技术”和“投资组合优化”在[Q-Trade Bootcamp 2015](http://qtradebootcamp.com/)，意大利**米兰**举行。
 - en: ===
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Managed Account Program Update**'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '**管理账户计划更新**'
 - en: ===
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '关注我Twitter: @chanep'

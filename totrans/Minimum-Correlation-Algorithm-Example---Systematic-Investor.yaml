@@ -1,91 +1,141 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:37:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:37:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Minimum Correlation Algorithm Example | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最小相关算法示例 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/24/minimum-correlation-algorithm-example/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/24/minimum-correlation-algorithm-example/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/24/minimum-correlation-algorithm-example/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/24/minimum-correlation-algorithm-example/#0001-01-01)
 - en: Today I want to follow up with the [Minimum Correlation Algorithm Paper](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)
     post and show how to incorporate the Minimum Correlation Algorithm into your portfolio
     construction work flow and also explain why I like the Minimum Correlation Algorithm.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今日我想对[最小相关算法论文](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)进行跟进，并展示如何将最小相关算法纳入您的投资组合构建工作流程，并解释为什么我喜欢最小相关算法。
 - en: First, let’s load the ETF’s data set used in the [Minimum Correlation Algorithm
     Paper](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们加载用于[最小相关算法论文](https://systematicinvestor.wordpress.com/2012/09/22/minimum-correlation-algorithm-paper/)的ETF数据集，使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, I created the portfolio.allocation.helper() function to ease the back-testing
     of portfolio construction algorithms:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我创建了portfolio.allocation.helper()函数，以简化投资组合构建算法的回测：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Please note that I assigned acronyms to various portfolio allocation algorithms
     in the code above.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，我在上面的代码中为各种投资组合分配算法分配了缩写。
 - en: For example, the Minimum Correlation Algorithm’s acronym is MC and the actual
     function that does all computations is min.corr.portfolio() function.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，最小相关算法的缩写是MC，实际进行所有计算的功能是min.corr.portfolio()函数。
 - en: 'Next let’s create various summary reports to see the performance and allocations
     of different algorithms:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建各种摘要报告以查看不同算法的表现和分配：
 - en: '[PRE2]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/b9487edde5fac3fd5712d73a4244f063.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small2.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b9487edde5fac3fd5712d73a4244f063.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot1-small2.png)'
 - en: '[![](img/d9a950f8f016f3d9419e79af186d420a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot2-small1.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d9a950f8f016f3d9419e79af186d420a.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot2-small1.png)'
 - en: '[![](img/595f8a1805722eeb5d862a1a5a1fa9c3.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small2.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/595f8a1805722eeb5d862a1a5a1fa9c3.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot3-small2.png)'
 - en: '[![](img/d38677cc321052ddfa0da27ecd6443b0.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot4-small1.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d38677cc321052ddfa0da27ecd6443b0.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot4-small1.png)'
 - en: '[![](img/0ab1f6c4e647168ec7cfa0137ceeb06a.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot5-small.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0ab1f6c4e647168ec7cfa0137ceeb06a.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot5-small.png)'
 - en: '[![](img/38eaa35303904525621e0ef66d099dc2.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot6-small.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/38eaa35303904525621e0ef66d099dc2.png "plot6.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/09/plot6-small.png)'
 - en: Looking at the summary statistics, you mind wonder what makes the the Minimum
     Correlation Algorithm different and why do I like it?
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 查看摘要统计数据，您可能会想知道最小相关算法有何不同，以及为什么我喜欢它？
 - en: The overall characteristics of the Minimum Correlation Algorithm makes it attractive
     for me. Specifically it has reasonable perfromance, limited draw-down, low turnover
     and high composite diversification score. The combination of these attractive
     properties does differentiate the Minimum Correlation Algorithm from others.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小相关算法的整体特性使其对我具有吸引力。特别是，它的性能合理，回撤有限，换手率低，复合多样化得分高。这些吸引人的特性的结合确实将最小相关算法与其他算法区分开来。
 - en: In the next post, I will show the speed benchmarks for the Minimum Correlation
     Algorithm.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将展示最小相关算法的速度基准。
 - en: To view the complete source code for this example, please have a look at the
     [bt.mca.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看[github上的bt.mca.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

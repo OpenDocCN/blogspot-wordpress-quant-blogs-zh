@@ -1,59 +1,91 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:38:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:38:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Merging Current Stock Quotes with Historical Prices | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 将当前股票报价与历史价格合并 | 系统化投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01](https://systematicinvestor.wordpress.com/2012/09/05/merging-current-stock-quotes-with-historical-prices/#0001-01-01)
 - en: I got a question last week about going from the backtest to the trading. For
     example, if our system is based on today’s close, we can approximate the close
     value by the price at say 3:30pm, determine the signal and still have time enter
     the trade. It is not perfect, but one of possible solutions.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 上周我收到一个问题，是关于从回测转向实际交易的。例如，如果我们系统是基于今天的收盘价，我们可以通过下午3:30的价格来近似收盘价，确定信号并且还有时间进入交易。这并不完美，但是一种可能的解决方案。
 - en: 'Unfortunately calling the getSymbols() function during the trading session
     will only return closing prices for the prior session. Following is an example
     I run today during the trading session:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 不幸的是，在交易时段调用getSymbols()函数只会返回前一个交易日的收盘价。以下是我今天在交易时段运行的示例：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[PRE1]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: There is no information for September 4th.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有9月4日的信息。
 - en: 'To incorporate current stock quotes, we need to combine current quotes from
     getQuote() function with historical prices from getSymbols() function. Following
     is an example I run today during the trading session:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了融入当前股票报价，我们需要将getQuote()函数中的当前报价与getSymbols()函数中的历史价格结合起来。以下是我今天在交易时段运行的示例：
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[PRE3]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: The current stock quotes are now present. We can run our strategy at say around
     3:30pm, determine the signal and still have time enter the trade.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当前的股票报价已经出现。我们可以在下午3:30左右运行我们的策略，确定信号并且还有时间进入交易。
 - en: To view the complete source code for this example, please have a look at the
     [bt.current.quote.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个例子的完整源代码，请查看[github上bt.test.r文件中的bt.current.quote.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

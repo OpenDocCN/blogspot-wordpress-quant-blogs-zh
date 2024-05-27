@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:19:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:19:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using Non-Parametric Statistics to Improve Portfolio Optimization | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用非参数统计学改进投资组合优化 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/09/08/using-non-parametric-statistics-to-improve-portfolio-optimization/#0001-01-01](https://cssanalytics.wordpress.com/2010/09/08/using-non-parametric-statistics-to-improve-portfolio-optimization/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/09/08/using-non-parametric-statistics-to-improve-portfolio-optimization/#0001-01-01](https://cssanalytics.wordpress.com/2010/09/08/using-non-parametric-statistics-to-improve-portfolio-optimization/#0001-01-01)
 - en: '*David Varadi and Henry Bee*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**David Varadi和Henry Bee**'
 - en: 'Financial markets are noisy and do not follow gaussian distributions nor do
     they conform neatly to analysis using linear regression. This is because of the
     lack of stationarity as well as a healthy degree of noise relative to the underlying
@@ -41,8 +55,10 @@
     make a fixed solution impractical.  Allowing for non-linear statistics with the
     use of recursion to improve estimation is absolutely essential for various forms
     of modern “rocket science”. Why should allocating capital be any different?'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 金融市场是嘈杂的，并不遵循高斯分布，也不整齐地符合使用线性回归分析。这是因为缺乏稳定性以及与数据中潜在关系相比有相当大的噪声。因此，传统做法是使用经典统计学和线性优化方法进行投资组合分配或指标，这是很奇怪的。这一点在博客上已经强调了很多次，我再怎么强调也不为过：在处理金融数据时，你需要尽可能少地做出假设，以创建有用的工具或应用程序。这意味着你应该使用百分位数/直方图和其他非参数统计学作为你分析的基础。像现代投资组合理论和CAPM这样，以数学证明为基础来分配资本，是荒谬的。然而，在现实世界的资产管理中，这却是标准做法——因此金融公司低估风险并“崩溃”也就不足为奇了。在其他行业，解决复杂问题的方法更加实用。军队并不依赖固定的方程式来引导导弹击中目标，否则它们将会非常不准确。有太多像风、压力和温度这样的变量需要考虑，使得固定解决方案不切实际。允许使用非线性统计学，并通过递归来提高估计的精度，对于各种形式的现代“火箭科学”来说绝对是必不可少的。分配资本为什么会有所不同呢？
 - en: One of the weaknesses of portfolio optimization outside of the process are the
     inputs that are incorporated into calculations. The correlation coefficient is
     one of the prime offenders because it is most effective when there is a linear
@@ -56,8 +72,11 @@
     the relationship. This permits the actual relationship to be any type of shape,
     but if it is systematic than the coefficient will be high- much like the regular
     correlation coefficient.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资组合优化之外的一个弱点是纳入计算中的输入数据。相关系数是主要罪魁祸首之一，因为它在两个变量之间存在线性关系时最为有效。任何有在金融市场数据上运行回归经验的人都会理解，强线性关系是寥寥无几的。通常表示金融关系的点簇在某些区域比其他区域更密集，而且这种关系往往具有非线性特征。衡量这种相关性的最佳方法是使用非参数变体，即斯皮尔曼相关系数[http://en.wikipedia.org/wiki/Spearman’s_rank_correlation_coefficient](http://en.wikipedia.org/wiki/Spearman's_rank_correlation_coefficient)
+    。斯皮尔曼相关系数实际上使用排名而不是原始数据来判断关系。这使得实际关系可以是任何形状，但如果它是系统性的，那么系数将会很高——就像普通的的相关系数一样。
 - en: To test this hypothesis we looked at a variety of different allocation exercises
     with different assets as well as individual trading strategies. In this case,
     we performed a Kelly Portfolio Optimization using the covariance matrix and returns
@@ -68,14 +87,20 @@
     useful especially for strategy allocation (think RSI2, moving averages etc). Across
     a variety of allocation exercises with different parameters the Spearman correlation
     was consistently superior to the conventional Pearson correlation.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了测试这个假设，我们研究了各种不同的分配练习，包括不同的资产以及个别交易策略。在此案例中，我们使用协方差矩阵和9个组成标普500的 sector ETFs（SPYDERS）的回报进行了凯利投资组合优化。对于那些曾经使用过SPYDERS的人来说，它们是非常嘈杂的，并且不会产生许多系统性效应。我们选择了3年窗口（756天）的协方差和CAGR输入，这对于长期投资组合分配是典型的，同时对于策略分配（如RSI2，移动平均线等）也是有帮助的。在不同的参数和分配练习中，斯皮尔曼相关系数始终优于传统的皮尔逊相关系数。
 - en: '**Figure 1**: *the Spearman Covariance can improve results dramatically.*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**图1**：*斯皮尔曼协方差可以显著提高结果。*'
 - en: '[![](img/4be208d6873644ffd5d208bf79f3684c.png "sector_756cagr_756spearman_pearson")](https://cssanalytics.files.wordpress.com/2010/09/sector_756cagr_756spearman_pearson.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 图![](img/4be208d6873644ffd5d208bf79f3684c.png "sector_756cagr_756spearman_pearson")(https://cssanalytics.files.wordpress.com/2010/09/sector_756cagr_756spearman_pearson.png)
 - en: Below is a performance summary that shows that the Spearman covariance was substantially
     more useful in the portfolio allocation exercise. Using shorter-term lookbacks
     such as 252-day for CAGR and 60-day for correlation yielded the same conclusion.
@@ -85,8 +110,12 @@
     a classic recipe is superior ingredients.” CSS has been doing extensive research
     into creating superior versions of classic portfolio allocation inputs—expect
     more to come.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一个性能摘要，显示斯皮尔曼协方差在投资组合分配练习中非常有用。使用如252天短期回溯的CAGR和60天的相关性得出了同样的结论。在其他资产类别以及策略分配上的结果更为明显。虽然斯皮尔曼本身可以大幅改进，但就其基本形式而言，它是一个很好的改进。正如烹饪中所说——“改进经典食谱的全部所需只是更优质的食材。”CSS已经进行了大量研究，以创造经典投资组合分配输入的高级版本——期待更多内容。
 - en: '[![](img/cd5a3c79a8156e0825e49c13fc622897.png "sector_kelly_summary_table")](https://cssanalytics.files.wordpress.com/2010/09/sector_kelly_summary_table.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 图![](img/cd5a3c79a8156e0825e49c13fc622897.png "sector_kelly_summary_table")(https://cssanalytics.files.wordpress.com/2010/09/sector_kelly_summary_table.png)

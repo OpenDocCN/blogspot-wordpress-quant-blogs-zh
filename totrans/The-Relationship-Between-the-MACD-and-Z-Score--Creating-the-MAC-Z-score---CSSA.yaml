@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:27:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:27:03
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'The Relationship Between the MACD and Z-Score: Creating the MAC-Z score | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: MACD与Z-Score之间的关系：创建MAC-Z分数 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/05/11/the-relationship-between-the-macd-and-z-score-creating-the-mac-z-score/#0001-01-01](https://cssanalytics.wordpress.com/2010/05/11/the-relationship-between-the-macd-and-z-score-creating-the-mac-z-score/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/05/11/the-relationship-between-the-macd-and-z-score-creating-the-mac-z-score/#0001-01-01](https://cssanalytics.wordpress.com/2010/05/11/the-relationship-between-the-macd-and-z-score-creating-the-mac-z-score/#0001-01-01)
 - en: 'The MACD stands for moving average confluence/divergence and was introduced
     by Gerald Appel a long time ago as a means of tracking trends. Some background
     reading on the MACD can be found here: [http://en.wikipedia.org/wiki/MACD](http://en.wikipedia.org/wiki/MACD)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: MACD代表移动平均汇聚/发散，很久以前由Gerald Appel引入，作为一种跟踪趋势的手段。关于MACD的一些背景阅读可以在这里找到：[http://en.wikipedia.org/wiki/MACD](http://en.wikipedia.org/wiki/MACD)
 - en: Effectively the MACD represents the difference between two moving averages–a
     short moving average and a longer moving average. As a consequence the MACD tracks
     the acceleration or rate of change in the trend. The Z-Score in contrast is related
@@ -31,8 +45,11 @@
     reading on the Z-score can be found [here](http://en.wikipedia.org/wiki/Standard_score). Effectively
     the Z-score is the difference between the current price and a moving average divided
     by the standard deviation of price over the same time period.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，MACD表示两个移动平均值之间的差异——一个短期移动平均值和一个长期移动平均值。因此，MACD跟踪趋势的加速度或变化率。相比之下，Z-Score与布林带（Bollinger
+    Bands）和正态分布有关。它旨在跟踪价格分布中的位置，通过波动率进行标准化。关于Z-score的一些背景阅读可以在[这里](http://en.wikipedia.org/wiki/Standard_score)找到。实际上，Z-score是当前价格与移动平均值之间的差异除以同一时间段内价格的标准差。
 - en: 'So, many of you are already asking the question: “OK so what is the relationship
     here?” Well it comes down to how the math works–especially as it applies to financial
     data. The Z-score is effectively a normalized, rolling and de-trended measurement
@@ -49,8 +66,10 @@
     Refinements can be made to improve the MACD (see the DVMM at dvindicators.com).
     So to me the MACD and the Z-score are complementary and can be combined to create
     an improved indicator– especially if they are scaled to be the same length.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以，很多人可能已经在问这个问题了：“好的，那么这里有什么关系呢？” 其实这要归结于数学是如何运作的，特别是它如何应用于金融数据。Z-score实际上是一种去趋势的、标准化测量，用于度量与平均值的偏差。例如，大多数人使用Z-score作为均值回归指标，尤其是在短期内。这是因为股票或指数的价格很少会与其移动平均值相差太远，无论趋势如何，都倾向于回归到中间值——即零。超过1或-1的值，尤其是2或-2的值，非常可能回归到平均值。MACD能够很好地检测趋势的实际加速度和方向，这是因为它关注的是移动平均值之间的差异，而不是价格与移动平均值之间的偏差。实际上，使用移动平均值代替价格可以去除数据中的大部分噪声，更清晰地反映趋势。MACD为正时表示看涨，为负时表示看跌或中性。可以对MACD进行改进以提高其效果（参见dvindicators.com上的DVMM）。所以在我看来，MACD和Z-score是互补的，如果它们的时间长度相同，可以结合起来创建一个改进的指标。
 - en: 'The general idea is that counter-trend component of the Z-score can be used
     to adjust/improve the trend component of the MACD. In this case my suggestion
     is to take the 12/25 MACD and the 25-day Z-score as an example of parameters that
@@ -63,15 +82,24 @@
     static) formula to properly combine the separate mean-reversion and trend components
     within a given time frame. We shall call this new formula the “MAC-Z Score” for
     reference:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**MAC-Z 分数** 的基本思想是，Z 分数的反趋势组成部分可以用来调整/改善 MACD 的趋势组成部分。在此情况下，我建议以 12/25 MACD
+    和 25 天的 Z 分数作为可能使用的参数为例。结合这两个指标的关键是将它们恢复到相似的尺度。MACD 的弱点在于它是两个价格移动平均值之间的未标量差。通过取原始的
+    MACD（12 SMA 与 25 SMA 之间的差），基本上可以通过除以 25 天的标准差来缩放这个指标。现在我们得到了以标准差单位表示的差，这与 Z 分数的尺度相同。现在我们可以创建一个自适应（或静态）公式，以适当地在给定时间框架内结合独立的均值回归和趋势组成部分。我们将这种新公式称为“MAC-Z
+    分数”以供参考：'
 - en: '**MAC-Z= (Z-score, 25)*A+ (MACD,25)/(Stdeva,25)*B**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**MAC-Z = (Z 分数, 25) * A + (MACD, 25) / (Stdeva, 25) * B**'
 - en: where A and B are constants that can range between 2 and -2 in .2 increments
     to reduce computational time.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 A 和 B 是可以在 .2 增量中从 2 到 -2 变化的常数，以减少计算时间。
 - en: It is recommended that if you want to create a composite trend indicator the
     constant “A” should be negative. However this depends on the parameter length
     selected (in this case both use a 25 day as the long length) where the shorter
@@ -80,8 +108,11 @@
     trend impact of the MACD. Either way, as an optimization problem, the MAC-Z can
     be run with all iterations either way across a basket of securities, or to be
     customized to the security in question.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 建议如果你想要创建一个组合趋势指标，常数“A”应该是负值。然而，这取决于所选参数长度（在此案例中，两者都使用 25 天作为长长度），参数长度越短，“A”应该是负值的概率越高。对于“B”，对于组合趋势指标，这应该是正值，以反映
+    MACD 的趋势影响。无论如何，作为一个优化问题，MAC-Z 可以在证券组合中以所有迭代的方式运行，或者根据具体情况定制。
 - en: The advantage of the MAC-Z is that it is a more accurate and “assumption-free”
     indicator that can more accurately describe how a market or stock actually works
     in a given time frame. To more accurately understand where to best apply it, you
@@ -89,5 +120,8 @@
     it or create a composite indicator. I will leave this for creative readers to
     have fun with—if anyone finds some interesting results I will be happy to post
     it.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: MAC-Z 的优点是它是一个更准确且“无假设”的指标，可以更准确地描述市场或股票在给定时间框架内实际是如何运作的。为了更准确地了解如何应用它，你可以优化多个时间框架的
+    MAC-Z，找到最佳应用时间框架或创建组合指标。我将留给有创造力的读者去享受——如果有人找到一些有趣的结果，我将很乐意发布出来。

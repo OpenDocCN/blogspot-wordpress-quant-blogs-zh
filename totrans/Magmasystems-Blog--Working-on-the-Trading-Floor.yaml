@@ -1,46 +1,66 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:08:07'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:08:07
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Working on the Trading Floor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 在交易大厅工作'
 - en: 来源：[http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01](http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01](http://magmasystems.blogspot.com/2007/08/working-on-trading-floor.html#0001-01-01)
 - en: A few weeks ago, Terry left a comment, asking what it was like to work on the
     trading floor.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 几周前，Terry留下了一条评论，询问在交易大厅工作是什么样子。
 - en: I sit on a very large Equities trading floor that overlooks the Hudson River
     in lower Manhattan. Our particular area of the floor has the Derivatives Analytics
     group (my group) and Algorithmic Trading. The next row has the High Frequency
     Trading guys and some of the guys who control the high-speed market data systems.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我坐在一个非常大的股票交易大厅里，从这里可以俯瞰曼哈顿下城的哈德逊河。我们这个区域的交易大厅里有衍生品分析小组（我的小组）和算法交易部门。下一排有高频交易团队和一些控制高速市场数据系统的团队成员。
 - en: Needless to say, the past few weks have been crazy. There is such an energy
     on the floor that, sometimes, everyone is our row just stops working in order
     to absorb the electricity. 15 minutes before the opening, things start humming.
     At the bell, it's chaos for about a half hour. People screaming out orders, groups
     of traders applauding and whooping when a trade turns out favorable. After 10,
     things really slow down until about 3PM.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 不用说，过去的几周一直都很疯狂。交易大厅里的气氛如此强烈，有时，我们这一排的人都会停止工作，以便吸收这种能量。开盘前15分钟，事情开始热闹起来。铃声响起时，大约半小时内都是混乱的。人们大声下达订单，交易员小组在交易有利时鼓掌欢呼。10点后，事情真的开始放缓，直到下午3点左右。
 - en: Our group is composed of Quants. We trade our own positions, and we write software
     which enable us and other groups to trade. Almost all of our software is in C#/.NET
     2.0, heavy use of generics and anonymous delegates.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们小组由量化分析师组成。我们交易自己的头寸，并且编写软件，使我们和其他小组能够进行交易。我们几乎所有的软件都是用C#/.NET 2.0编写的，大量使用泛型和匿名委托。
 - en: The group is ethnically diverse. 4 Americans, 1 Brit, 3 Far-East Asians, and
     a couple of Russians for good measure (what's a good Quant group without the Russians!).
     3 of the guys have PHDs, the rest have MS's. Actually, the head of the group does
@@ -48,21 +68,28 @@
     at one of the top business schools in the world. Most of the group is fairly young.
     If you are in your early 30's, you are ancient. That makes me a pile of ash on
     the floor.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个小组民族构成多样。有4个美国人，1个英国人，3个远东亚洲人，还有几个俄罗斯人（没有俄罗斯人的优秀量化分析小组是不完整的！）。3个人有博士学位，其余的人有硕士学位。实际上，小组的负责人并没有硕士学位……然而，他在世界顶尖商学院之一，用3年时间获得了3个学士学位。小组里的大部分人年纪都比较轻。如果你30出头，那就是“古老”了。这使我成了地板上的一堆灰烬。
 - en: The group has its own framework. The framework is typical Russian mad scientist
     code. With this kind of code, it's never "A calls B". It's "A starts 5 threads,
     waits for completion signals, creates other objects via some dependency injection,
     does a few somersaults, and then calls B." But the framework is highly performant.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个小组有自己的框架。这个框架是典型的俄罗斯疯狂科学家代码。这种代码，永远不会是“A调用B”。而是“A启动5个线程，等待完成信号，通过某种依赖注入创建其他对象，翻几个跟头，然后调用B。”但这个框架的性能非常高。
 - en: One of the things I am doing is writing some risk hedging apps using my own
     framework that my team developed for Equities. So, I am eating my own dogfood.
     I have not found any bugs in my stuff, but I have had to extend it a bit so that
     it cooperates with some of the stuff that Derivs Analytics have previously written
     (like Live Greek Servers).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我所做的一件事是使用我们团队为股票开发的自定义框架编写一些风险对冲应用程序。所以，我正在“食用”自己的“狗食”。我还没有在我的东西里找到任何错误，但我不得不稍微扩展一下，使其与衍生品分析小组之前编写的某些东西（如Live
+    Greek Servers）协同工作。
 - en: As exciting as the trading floor is, I welcome the one or two days a week that
     I work from home. If I have to do really major thinking and design work, I cannot
     do it at work! It is hard to work at work. Luckily, a lot of Wall Street is starting
@@ -70,8 +97,12 @@
     I save on commuting to NYC is time that I put into work. Now that my son is off
     at college, I don't have to worry about his heavy-metal bands coming into the
     house at 3:00 every afternoon to thrash around the basement.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管交易大厅的工作非常令人兴奋，但我还是欢迎每周在家工作的一两天。如果我需要进行真正重大的思考和设计工作，我是不可能在工作场所完成的！在工作场所工作是困难的。幸运的是，华尔街越来越多地开始实行一种允许人们在家兼职工作的模式。我省下的三小时通勤时间都投入到了工作中。现在我的儿子已经上大学了，我不用担心他那重金属乐队每天下午三点钟闯进房子在地下室疯狂弹跳。
 - en: ©2007 Marc Adler - All Rights Reserved
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2007 Marc Adler - 版权所有

@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:56:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: 'Quantitative Trading: An open-source genetic algorithm software (Guest post)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：开源遗传算法软件（嘉宾文章）
 - en: 来源：[http://epchan.blogspot.com/2015/10/an-open-source-genetic-algorithm.html#0001-01-01](http://epchan.blogspot.com/2015/10/an-open-source-genetic-algorithm.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2015/10/an-open-source-genetic-algorithm.html#0001-01-01](http://epchan.blogspot.com/2015/10/an-open-source-genetic-algorithm.html#0001-01-01)
 - en: '*By Lukasz Wojtow*'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：**Lukasz Wojtow**
 - en: 'Mechanical traders never stop researching for the next market edge. Not only
     to get better results but also to have more than one system. The best trading
     results can be achieved with multiple non-correlated systems traded simultaneously.
@@ -28,8 +42,10 @@
     in trend following, some in mean reversion and so on. That''s because learning
     to exploit one kind of edge is hard enough, mastering all of them – impossible.
     It would be beneficial to have a software that creates many non-related systems.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 机械交易员从未停止寻找下一个市场优势。不仅为了获得更好的结果，而且还因为拥有多个系统。通过同时交易多个非相关的系统可以实现最佳的交易成果。不幸的是，大多数交易员使用类似的市场无效性：一些交易员专门从事趋势跟踪，一些从事均值回归等等。那是因为学习利用一种优势已经足够困难，掌握所有这些——不可能的。拥有能够创建许多不相关系统的软件将是有益的。
 - en: 'Recently I released Genotick - an open source software that can create and
     manage a group of trading systems. At the Genotick''s core lies an epiphany: if
     it''s possible to create any software with just a handful of assembler instructions,
@@ -38,8 +54,10 @@
     extremely powerful when combined together. Right instructions in the right order
     can create any type of mechanical system: trend following, mean reverting or even
     based on fundamental data.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我发布了Genotick——一个开源软件，可以创建和管理一组交易系统。Genotick的核心是一个启示：如果仅用几条汇编指令就能创建任何软件，那么也应该有可能用同样简单的一组指令创建任何交易系统。这些简单且单独无意义的指令当组合在一起时会变得极其强大。顺序正确的正确指令可以创建任何类型的机械系统：趋势跟踪、均值回归，甚至基于基本数据。
 - en: 'The driving engine behind Genotick''s power is a genetic algorithm. Current
     implementation is quite basic, but with some extra quirks. For example, if any
     of the systems is really bad – it stays in the population but its predictions
@@ -51,8 +69,10 @@
     removing systems that didn''t yet have a chance to prove themselves) and inheriting
     initial system''s weight from parents. These options give users plenty of room
     for experimentation.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 驱动Genotick强大功能的引擎是一种遗传算法。目前的实现相当基础，但有一些额外的怪癖。例如，如果任何一个系统表现得真的很糟糕——它仍然留在群体中，但它的预测被反转了。另一个技巧是用来帮助识别有偏见的交易系统：如果一个系统在镜像数据上没有产生镜像预测，那么它可以被移除。所以例如，GBP/USD上的头寸必须与USD/GBP上的头寸相反。Genotick还支持可选的精英主义（其中最好的系统总是留在群体中，而其他系统则因年龄大而被淘汰），对新系统的保护（避免移除尚未有机会证明自己的系统）以及从父母继承初始系统权重。这些选项给用户留下了大量的实验空间。
 - en: 'When Genotick is run for the first time - there are no systems. They are created
     at the start using randomly chosen instructions. Then, a genetic algorithm takes
     over: each system is executed to check its prediction on historical data. Systems
@@ -64,8 +84,11 @@
     exactly as if it was executed in real life: one day at a time. In fact, there
     is no separate “training” phase, program learns a little bit as each day passes
     by.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 当Genotick第一次运行时 - 没有系统。它们在开始时使用随机选择的指令创建。然后，遗传算法接管：每个系统都用于检查其在历史数据上的预测。预测正确的系统在未来的预测中增加权重，预测错误的系统失去权重。随着时间的推移，每天人口的增长。差的系统被移除，好的系统繁殖。每天的预测是通过添加当时可用的所有系统的预测来计算的。Genotick不会多次迭代相同的历史数据
+    - 训练过程看起来就像是在现实生活中执行一样：一天一天地进行。实际上，没有单独的“训练”阶段，程序随着每一天的推移而稍微学习。
 - en: 'Interestingly, Genotick doesn''t check for rationale behind created systems.
     As each system is created out of random instructions, it''s possible (and actually
     very likely) that some systems use ridiculous logic. For example, it''s possible
@@ -84,65 +107,100 @@
     And so, the only rationale behind every trading system should be very simple:
     “Does it work?”. Nothing more, nothing less. This is the only metric Genotick
     uses to gauge systems.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 有趣的是，Genotick不会检查创建系统的理由。由于每个系统都是随机指令创建的，因此可能（实际上非常可能）某些系统使用荒谬的逻辑。例如，一个系统可能会在42天前成交量
+    positive时给出“买入”信号。另一个系统可能希望每次昨天的最高价的第三位数字与今天的开盘价的第二个数字相同时做空。当然，这样的系统在现实世界中永远不可能生存，而且在Genotick的群体中也生存不了多久。因为每个系统的初始权重为零，它们永远不会获得任何
+    significant权重，因此不会破坏程序给出的累积预测。一开始就允许这样的系统似乎有点愚蠢，但这使得Genotick能够测试不受交易者信仰、误导性观点和个人局限性影响的算法。可悲的事实是，市场不在乎你使用什么系统，以及你投入了多少汗水和泪水。市场会做它想做的事情——没有问题，不带走任何俘虏。市场甚至不在乎你是否使用任何形式的智力，无论是人工的还是其他的。因此，每个交易系统的唯一理由应该非常简单：“它有效吗？”。没有更多，没有更少。这是Genotick衡量系统的唯一指标。
 - en: 'Each program''s run will be a little bit different. Equity chart below shows
     one possible performance. Years shown are 2007 until 2015 with actual training
     starting in 2000\. There is nothing special about year 2007, remember – Genotick
     learns as it goes along. However, I felt it''s important to look how it performed
     during financial crisis. Markets traded were:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 每个程序的运行都会略有不同。下面的股票图表显示了一种可能的绩效。显示的年份是从2007年到2015年，实际的训练始于2000年。2007年并没有什么特别的，记住——Genotick随着运行而学习。然而，我觉得它在金融危机期间的性能很重要。交易的市场包括：
 - en: USD/CHF, USD/JPY, 10 Year US Bond Yield, SPX, EUR/USD, GBP/USD and Gold.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 美元/瑞士法郎，美元/日元，10年美国国债收益率，SPX，欧元/美元，英镑/美元和黄金。
 - en: '(In some cases, I tested the system on a market index such as SPX instead of
     an instrument that tracks the index such as SPY, but the difference should be
     minor.)  All markets were mirrored to allow removing biased systems. Some vital
     numbers:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: （在某些情况下，我使用市场指数如SPX测试系统，而不是跟踪指数的仪器如SPY，但差异应该很小。）所有市场都被镜像，以允许移除有偏见的系统。一些关键数字：
 - en: 'CAGR: 9.88%'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 复合年化增长率：9.88%
 - en: 'Maxim drawdown: -21.6%'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大回撤：-21.6%
 - en: 'Longest drawdown: 287 trading days'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 最长回撤：287个交易日
 - en: 'Profitable days: 53.3 %'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 盈利交易日：53.3 %
 - en: 'CALMAR ratio: 0.644'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 卡马尔比率：0.644
 - en: 'Sharpe ratio: 1.06'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 夏普比率：1.06
 - en: 'Mean annual gain: 24.1%'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 年均收益平均值：24.1%
 - en: 'Losing year: 2013 (-12%)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 亏损年份：2013年（-12%）
 - en: (Click the cumulative returns in % chart below to enlarge.)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: （点击下面的累积回报百分比图表以放大。）
 - en: '| [![](img/8b4ab8b704e79c380947329e99b67f49.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFGAHlup3ESxhuboRWWsCSC-H-HfuIQHR-c50b3KSHlXivn1PJ_1e6ZFuXLV7CZmqXfE2LoWeLgSLoxgn38gW-76nyZu_gYp1s1QGB9ppUqaGzpmstg69wQSqUwBB1JbSbrmdWyg/s1600/equity.png)
     |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| ![累积回报](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFGAHlup3ESxhuboRWWsCSC-H-HfuIQHR-c50b3KSHlXivn1PJ_1e6ZFuXLV7CZmqXfE2LoWeLgSLoxgn38gW-76nyZu_gYp1s1QGB9ppUqaGzpmstg69wQSqUwBB1JbSbrmdWyg/s1600/equity.png)
+    |'
 - en: '| Cumulative Returns (%) since 2007 |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '| 自2007年以来的累积回报（%）|'
 - en: These numbers represent only “directional edge” offered by the software. There
     were no stop-losses, no leverage and no position sizing, which could greatly improve
     real life results. The performance assumes that at the end of each day, the positions
     are rebalanced so that each instrument starts with equal dollar value. (I.e. this
     is a constant rebalanced portfolio.)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些数字仅代表了软件所提供的“方向性优势”。没有止损，没有杠杆和没有仓位大小，这可能会极大地改善真实生活的结果。假设在每天结束时，仓位都会重新平衡，使每个工具都以相等的美元价值开始。（即这是一个恒定再平衡的投资组合。）
 - en: Artificial Intelligence is a hot topic. Self driving cars that drive better
     than an average human and chess algorithms that beat an average player are facts.
     The difference is that using AI for trading is perfectly legal and opponents may
@@ -150,31 +208,47 @@
     markets and it may take us longer to notice when AI starts winning. Best hedge
     funds can be still run by humans but if any trading method is really superior,
     AI will figure it out as well.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 人工智能是一个热门话题。自动驾驶汽车比普通人类驾驶得更好，国际象棋算法能打败普通玩家都是事实。不同的是，用AI进行交易是完全合法的，对手可能永远不知道。与国际象棋和驾驶不同，金融市场中有大量的随机性，而且可能需要更长的时间才能注意到当AI开始赢。尽管最佳对冲基金仍然可以由人类管理，但如果任何交易方法确实更优越，AI也会发现。
 - en: At the moment Genotick is more of a proof-of-concept rather than production-ready.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 目前Genotick更像是一个概念验证，而不是生产准备。
 - en: It is very limited in usability, it doesn't forgive mistakes and it's best to
     ask before using it for real trading. You will need Java 7 to run it. It's tested
     on both Linux and Windows 10\. Example historical data is included. Any questions
     or comments are welcomed.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 它的可用性非常有限，它不会原谅错误，最好在用于真实交易之前先咨询。你需要Java 7来运行它。它在Linux和Windows 10上都经过测试。包含示例历史数据。任何问题或评论都受欢迎。
 - en: ===
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**My Upcoming Workshop**'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我的即将举行的工作坊**'
 - en: Momentum strategies have performed superbly in the recent market turmoil, since
     they are long volatility. This course will cover momentum strategies on a variety
     of asset classes and with a range of trading horizons.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 动量策略在近期市场动荡中表现出色，因为它们看多波动性。本课程将涵盖各种资产类别和不同交易周期的动量策略。
 - en: ====
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: ====
 - en: 'Follow me on Twitter: @chanep'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 关注我：@chanep

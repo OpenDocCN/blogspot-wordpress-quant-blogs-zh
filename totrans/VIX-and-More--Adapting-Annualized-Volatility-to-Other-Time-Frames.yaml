@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 17:19:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 17:19:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'VIX and More: Adapting Annualized Volatility to Other Time Frames'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX和更多：将年化波动率适应于其他时间框架
 - en: 来源：[http://vixandmore.blogspot.com/2009/12/adapting-annualized-volatility-to-other.html#0001-01-01](http://vixandmore.blogspot.com/2009/12/adapting-annualized-volatility-to-other.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://vixandmore.blogspot.com/2009/12/adapting-annualized-volatility-to-other.html#0001-01-01](http://vixandmore.blogspot.com/2009/12/adapting-annualized-volatility-to-other.html#0001-01-01)
 - en: In [Calculating Centered and Non-centered Historical Volatility](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html)
     I attempted to walk through the steps and calculations necessary for determining
     of [historical volatility](http://vixandmore.blogspot.com/search/label/historical%20volatility)
     (HV) using an Excel spreadsheet.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[计算中心化和非中心化历史波动率](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html)一文中，我试图详细说明确定[历史波动率](http://vixandmore.blogspot.com/search/label/historical%20volatility)（HV）的步骤和计算，使用Excel电子表格。
 - en: The second to last step in the calculation (before translating the final number
     into a percentage) is to annualize the standard deviation by multiplying it by
     the square root of the number of days in a year. In the example I chose, I used
@@ -37,13 +51,17 @@
     would yield a historical volatility number about 20.4% higher (e.g., 18.81 instead
     of the 15.63 I arrived at in the example in [Calculating Centered and Non-centered
     Historical Volatility](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html).)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 计算过程中的倒数第二步（在将最终数字转换为百分比之前）是将标准差年化，通过将其与一年的天数平方根相乘。在我选择的示例中，我使用了252个交易日，理由是一年有365天，104个周末日和大约9个假日。人们也可以认为，虽然市场在周末和假日关闭，但有市场推动的新闻使得从周五到周日的波动通常比典型的隔夜期间更大。从这种推理来看，在计算中使用365个日历日可能是合适的。我不了解任何使用365平方根而不是252进行计算的期权交易员，但请注意，这种方法将使历史波动率数字大约高出20.4%（例如，18.81而不是我在[计算中心化和非中心化历史波动率](http://vixandmore.blogspot.com/2009/12/calculating-centered-and-non-centered.html)示例中得到的15.63。）
 - en: Most floor traders simplified the volatility calculation process by assuming
     256 trading days in a year. With the square root of 256 an even 16, this greatly
     simplified the calculations that were done in one’s head.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数场内交易员通过假设一年有256个交易日来简化波动率计算过程。由于256的平方根是一个整洁的16，这大大简化了在脑海中进行的计算。
 - en: Not everyone is interested in annualized volatility data. Traders who have options
     expiring in a week are more interested in determining historical volatility in
     weekly terms. In order to calculate weekly volatility instead of annualized volatility,
@@ -53,23 +71,33 @@
     translates into 7.11 per cent weekly volatility. A similar approach could be used
     to calculate historical volatility over other periods, such as a month or perhaps
     even two years.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 并非所有人都对年化波动率数据感兴趣。那些一周内就要到期的期权交易员更关心的是以周为单位确定历史波动率。为了计算周波动率而不是年化波动率，只需将252的平方根替换为52.14（一年中的周数）。这样确定周波动率的乘数就变成了7.22。使用上面提到的示例，15.63%的年化波动率转化为7.11%的周波动率。可以使用类似的方法计算其他时间段的历史波动率，例如一个月，甚至可能是两年。
 - en: Sometimes called statistical volatility or realized volatility, the 15.63 historical
     volatility means that looking backward, approximately 68% of the time (one standard
     deviation), the underlying (S&P 500 index) moved 15.63% or less on an annualized
     basis. Similarly, given the same data set, approximately 68% of the time the underlying
     moved 7.11% or less on a weekly basis.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 有时被称为统计波动率或实现波动率，15.63的历史波动率意味着回顾过去，大约68%的时间（一个标准差），标的资产（标普500指数）在年度化基础上波动不超过15.63%。同样，基于相同的数据集，大约68%的时间内，标的资产在周度基础上波动不超过7.11%。
 - en: Before I wrap up the current discussion of historical volatility, I will use
     the next two or three posts to talk about how investors might want to use historical
     volatility data.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我结束关于历史波动率的当前讨论之前，我将在接下来的两到三篇文章中讨论投资者可能如何使用历史波动率数据。
 - en: 'For more on historical volatility, readers are encouraged to check out:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于历史波动率的更多信息，建议读者查阅：
 - en: '****Disclosure:*** *none**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '****披露：*** *无*'

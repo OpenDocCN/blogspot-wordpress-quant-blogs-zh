@@ -1,135 +1,217 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:20:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:20:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Services for the Wall Street Stack'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：华尔街堆栈的服务
 - en: 来源：[http://magmasystems.blogspot.com/2006/05/services-for-wall-street-stack.html#0001-01-01](http://magmasystems.blogspot.com/2006/05/services-for-wall-street-stack.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/05/services-for-wall-street-stack.html#0001-01-01](http://magmasystems.blogspot.com/2006/05/services-for-wall-street-stack.html#0001-01-01)
 - en: I have blogged before about the need for a standardized Wall Street Stack. At
     my current client, there are several different frameworks that have been built
     over the years, but no framework has gained enterprise-wide acceptance.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前在博客上写过关于需要一个标准化的华尔街堆栈的需求。在我当前的客户那里，多年来已经建立了几个不同的框架，但没有哪个框架获得了企业范围内的接受。
 - en: These are the services that are generally needed for a complete application
     framework. If you can think of any other, let me know.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些都是一个完整的应用程序框架通常需要的服务。如果你能想到其他的，请告诉我。
 - en: '**Authentication**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**认证**'
 - en: '- logging in to various databases, web servers, internal systems, etc. Best
     implemented through an enterprise-wide authentication service (using the user''s
     Kerberos token, etc)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 登录各种数据库、web服务器、内部系统等。最好通过企业范围内的认证服务实现（使用用户的Kerberos令牌等）'
 - en: '**Authorization**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**授权**'
 - en: (Entitlements) - what actions can a user perform within an application and what
     data is a user entitled to see. Best accomplished through an enterprise-wide system.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: (授权) - 用户在应用程序中可以执行哪些操作以及用户有权查看哪些数据。最好通过企业范围内的系统实现。
 - en: '**Logging**'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**日志记录**'
 - en: '- log interesting things that happen in an application. Log4Net is a good framework.'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 记录应用程序中发生的重要事情。Log4Net是一个很好的框架。'
 - en: '**User Preferences**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**用户偏好**'
 - en: '- load and save the state of the UI'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 加载和保存UI的状态'
 - en: '**User Data**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**用户数据**'
 - en: '- each application may want to persist the last state of the application when
     the user logged off'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 每个应用程序可能希望在用户登出时保存应用程序的最后一个状态'
 - en: '**Configuration**'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '**配置**'
 - en: '- Each application should be configurable through a series of XMl files.'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 每个应用程序都应该通过一系列的XMl文件进行配置。'
 - en: '**General Services Manager**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**通用服务管理器**'
 - en: '- drives the entire service locator framework'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 驱动整个服务定位框架。'
 - en: '**Applet Management**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**小程序管理**'
 - en: '- load applets from .NET assemblies'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 从.NET程序集中加载小应用程序。'
 - en: '**Internal Event Broker**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**内部事件代理**'
 - en: '- lightweight communication between applets'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 小程序之间的轻量级通信'
 - en: '**Data and Persistence layer**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**数据和持久化层**'
 - en: '- ways to load, query, update and cache data. Should be configurable so that
     we can go through different transport layers'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 加载、查询、更新和缓存数据的方法。应该是可配置的，这样我们就可以通过不同的传输层'
 - en: '**Service Agents**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**服务代理**'
 - en: '- processed async notifications that come to us through subscriptions.'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 处理通过订阅到达我们的异步通知。'
 - en: '**Shell**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**外壳程序**'
 - en: '- handles initialization of the application, calls all of the various services,
     provides presentation services for the applets'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 处理应用程序的初始化，调用所有的各种服务，为小应用程序提供展示服务。'
 - en: '**UI**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**用户界面**'
 - en: '- menu manager, status bar manager, navbar manager, toolbar manager'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 菜单管理器，状态栏管理器，导航栏管理器，工具栏管理器'
 - en: '**Security/Cryptography**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**安全/密码学**'
 - en: '- does the data need to be encrypted and decrypted? (passwords, sensitive data)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 数据需要加密和解密吗？（密码，敏感数据）'
 - en: '**Exception Handling**'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '**异常处理**'
 - en: '- provides a unified way of handling errors that occur in shell and the various
     applets'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 为外壳程序和各种小应用程序中发生的错误提供了一种统一处理方式'
 - en: '**Threading**'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '**线程**'
 - en: '- model for async processing'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 异步处理的模型'
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

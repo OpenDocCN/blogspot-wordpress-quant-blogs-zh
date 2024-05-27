@@ -1,138 +1,199 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:00:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:00:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: 'Magmasystems Blog: First experiments with Velocity'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：使用Velocity的第一次实验
 - en: 来源：[http://magmasystems.blogspot.com/2008/07/first-experiments-with-velocity.html#0001-01-01](http://magmasystems.blogspot.com/2008/07/first-experiments-with-velocity.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/07/first-experiments-with-velocity.html#0001-01-01](http://magmasystems.blogspot.com/2008/07/first-experiments-with-velocity.html#0001-01-01)
 - en: I played around with
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对
 - en: '**Microsoft Velocity**'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Microsoft Velocity**'
 - en: this past weekend, and I put together a little Order Cache. This application
     reads
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个周末，我组装了一个小型的订单缓存应用。这个应用可以读取
 - en: '**FIX**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**FIX**'
 - en: messages off of a
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 从
 - en: '**Tibco EMS**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Tibco EMS**'
 - en: bus, turns the messages into a C# object, and stores the object in the Velocity
     cache.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 总线，把消息转换成C#对象，并把对象存入Velocity缓存中。
 - en: The primary key of the Order Cache is the
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单缓存的主键是
 - en: '**ClOrdId**'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ClOrdId**'
 - en: ', and this value should be unique for each trading day. Every time we see a
     FIX message, we check to see if an object with the same ClOrdId is in the cache.
     If it is, the Order object is updated, and store the object back in the cache.
     The order and execution state is kept, the quantities are updated, and Cancels
     and Cancel/Replaces are accounted for.'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: ，并且这个值对于每个交易日都应该是唯一的。每次我们看到一个FIX消息，我们就检查缓存中是否有一个相同的ClOrdId的对象。如果有，订单对象就会被更新，并把对象重新存入缓存。保持订单和执行状态，数量被更新，取消和取消/替换被核算。
 - en: Admittedly, it is an extremely simple application, but I did it just so I could
     get familiar with the first CTP of Velocity. One cache holds all order objects.
     I did not try to alpha-partition the orders by symbols amongst different caches,
     nor did I experiment with multiple regions yet. Just simple Gets, Puts and Adds.
     I used Reflector a bit to peer into the Velocity code, and I could see that there
     is a lot more hidden under the surface of Velocity that has not been exposed yet.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 坦白说，这是一个极其简单的应用，但我这么做只是为了熟悉Velocity的第一个CTP版本。一个缓存持有所有订单对象。我没有尝试按符号在不同缓存中对订单进行alpha分区，也没有尝试多个区域。仅仅是简单的获取、放置和添加。我稍微用了Reflector来窥视Velocity的代码，并且我能看到Velocity表面之下还有许多尚未暴露的东西。
 - en: Where can we use an object cache with a Complex Event Processing system?
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以在复杂事件处理系统中使用对象缓存的地方在哪里？
 - en: First, we can use it to support resiliency of the CEP system. Let’s say that
     our CEP engine crashes in the middle of the day. We want to be able to retrieve
     the current state of our orders and executions, but we don’t want to have to go
     back to some sort of FIX repository, and play back each FIX message in order to
     re-create the state of the CEP engine. We can use the object cache to aid in recovering
     the state.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们可以用它来支持CEP系统的弹性。比如说我们的CEP引擎在一天的中间崩溃了。我们希望能够检索到我们订单和执行的当前状态，但我们不想回到某种FIX仓库，再回放每一个FIX消息来重新创建CEP引擎的状态。我们可以使用对象缓存来帮助恢复状态。
 - en: Now, most CEP engines have a facility where they can save state. For instance,
     with Coral8, you can choose to save all windows out to a database every n seconds
     or minutes. But, there is a certain tension with persistence of a CEP engine that
     is processing fast streams of real-time data. If you persist too frequently, you
     can slow down the CEP engine. If you persist infrequently, then you can lose a
     significant amount of your state if the CEP engine fails.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，大多数CEP引擎都有保存状态的功能。例如，使用Coral8，你可以选择每隔n秒或分钟将所有窗口保存到数据库中。但是，处理实时数据快速流的CEP引擎的状态持久化存在一定的紧张关系。如果你频繁地持久化，可能会减慢CEP引擎的速度。如果你不频繁地持久化，那么如果CEP引擎失败，你可能会丢失大量的状态。
 - en: Most of the CEP engines will use an external database like SleepyCat, BerkeleyDB,
     and SQL Server to store state. But, depending on the size and shape of your saved
     data, recovery might be slow. So, why not save to an object cache? Reading and
     writing to an object cache would be extremely fast, and if the object cache supports
     asynchronous storage to a back-end database (or Microsoft’s SSDS), then you can
     have the best of both worlds.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 大多数CEP引擎将使用外部数据库，如SleepyCat、BerkeleyDB和SQL Server来存储状态。但是，根据您保存数据的规模和形状，恢复可能会很慢。那么，为什么不保存到对象缓存中呢？对对象缓存的读写速度会非常快，如果对象缓存支持异步将数据存储到后端数据库（或微软的SSDS），那么你就可以兼得鱼和熊掌。
 - en: Among the various CEP engines, I have not seen any built-in adapter support
     for object caches, like Gemfire, Tangasol, GigaSpaces, and Velocity. It would
     be fairly easy to write one, but it takes time to marshal between a native C#
     object and something like a Coral8 tuple.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 在各种CEP引擎中，我还没有看到任何内置适配器支持对象缓存，如Gemfire、Tangasol、GigaSpaces和Velocity。编写一个并不困难，但需要在本地C#对象和类似Coral8元组之间进行序列化。
 - en: '**Wish #1: The CEP vendors to explore object caches as a way to do persistence.**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**愿望#1：事件处理引擎供应商探索对象缓存作为持久化的方法。**'
 - en: Another use of an object cache is to assist with a query façade. CEP engines
     like Coral8 support the notion of ad-hoc queries of the windows. If the CEP engine
     is aggregating data like orders and executions inside a publicly queryable window,
     any application should be able to query the CEP engine for something like “What
     are the top ten stocks that have open orders between 10:15 and 10:30”.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 对象缓存的一种其他用途是协助查询界面。像Coral8这样的CEP引擎支持对窗口的即兴查询。如果CEP引擎正在聚合像订单和执行数据这样的数据，并且这些数据是在一个可以公开查询的窗口内，任何应用程序都应该能够查询CEP引擎，例如“10:15至10:30之间有哪些拥有开放订单的前十大股票”。
 - en: 'We don’t want external applications connecting directly to the CEP engine.
     There are compliance and security issues involved, and we don’t want any application
     tied to a particular variant of Streaming SQL. (Note: Coral8 has SQLite embedded
     in it, and that is what you use to query the public windows.) Therefore, we want
     to provide a “query façade”. All applications have to connect to the query façade
     in order to do ad-hoc querying of the CEP engine.'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们不希望外部应用程序直接连接到CEP引擎。涉及合规性和安全问题，我们也不希望任何应用程序绑定到特定版本的流式SQL。（注：Coral8中嵌入了SQLite，这就是你用来查询公共窗口的东西。）因此，我们想要提供一个“查询界面”。所有应用程序都必须连接到查询界面，以便对CEP引擎进行即兴查询。
 - en: There is a cost to performing ad-hoc queries on the CEP engine while it is trying
     to process tons of streaming data. And, unless you index your public window correctly,
     the ad-hoc query can be very slow.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在CEP引擎处理大量流数据的同时执行即兴查询是有成本的。而且，除非你正确地索引公共窗口，否则即兴查询可能会非常慢。
 - en: So, why not be able to query the object cache instead? If we are storing aggregated
     orders and execution data inside of Velocity, why can’t we query Velocity to find
     the top ten stocks that have open orders between 10:15 and 10:30? In other words,
     querying an object cache should be almost the same as querying an SQL Server database.
     I don’t care if the query language is SQL 92, Streaming SQL, LINQ, or the LINQ-ish
     thing that SSDS has…. As long as it’s not Q :-)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么，为什么不能查询对象缓存呢？如果我们将在Velocity中存储聚合的订单和执行数据，为什么我们不能查询Velocity以找到10:15至10:30之间有开放订单的前十大股票呢？换句话说，查询对象缓存应该与查询SQL
+    Server数据库几乎一样。我不在乎查询语言是SQL 92、流式SQL、LINQ还是SSDS有的那种LINQ式的玩意……只要不是Q就行了。
 - en: '**Wish #2: Microsoft will get together with the object cache and CEP vendors
     and come up with a common method to query database, caches, and CEP engines.**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**愿望#2：微软将与对象缓存和CEP引擎供应商共同制定一种通用方法，用于查询数据库、缓存和CEP引擎。**'
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 所有意见均属个人，与我的雇主无关。

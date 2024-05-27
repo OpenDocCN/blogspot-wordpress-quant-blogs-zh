@@ -1,70 +1,108 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:42:10'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:42:10
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Simple backtesting module'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python进行交易：简单的回测模块
 - en: 来源：[http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/07/simple-backtesting-module.html#0001-01-01)
 - en: My search of an ideal backtesting tool (my definition of 'ideal' is described
     in the earlier 'Backtesting dilemmas' posts) did not result in something that
     I could use right away. However, reviewing the available options helped me to
     understand better what I really want. Of the options I've looked at,
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我对理想回测工具的搜索（我之前在“回测困境”文章中描述了“理想”的定义）并没有立即找到我可以使用的工具。然而，回顾现有的选项帮助我更好地了解我真正想要什么。在我查看的选项中，
 - en: '[pybacktest](https://github.com/ematvey/pybacktest)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[pybacktest](https://github.com/ematvey/pybacktest)'
 - en: was the one I liked most because of its simplicity and speed. After going through
     the source code,  I've got some ideas to make it simpler and a bit more elegant.
     From there, it was only a small step to writing my own backtester, which is now
     available in the
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 是我最喜欢的一个，因为其简单和快速。查看源代码后，我有一些让它更简单和更优雅的想法。从那里，只需一小步就可以编写出我自己的回测器，现在它可以在
 - en: '[TradingWithPython library](http://www.tradingwithpython.com/?page_id=504)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[TradingWithPython库](http://www.tradingwithpython.com/?page_id=504)'
 - en: .
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: I have chosen an approach where the backtester contains functionality which
     all trading strategies share and that often gets copy-pasted. Things like calculating
     positions and pnl, performance metrics and making plots.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我选择了一种方法，其中回测器包含所有交易策略共享的功能，这些功能通常会被复制粘贴。比如计算持仓和盈亏、绩效指标和绘制图表。
 - en: 'Strategy specific functionality, like determining entry and exit points should
     be done outside of the backtester. A typical workflow would be:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 策略特定的功能，如确定买卖点应该在回测器外部完成。典型的流程如下：
 - en: '*find entry and exits -> calculate pnl and make plots with backtester -> post-process
     strategy data*'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '*寻找买卖点 -> 使用回测器计算盈亏并绘制图表 -> 后期处理策略数据*'
 - en: At this moment the module is very minimal (take a look at the source
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 目前该模块非常基础（查看源代码）
 - en: '[here](https://code.google.com/p/trading-with-python/source/browse/trunk/lib/backtest.py)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[在此处](https://code.google.com/p/trading-with-python/source/browse/trunk/lib/backtest.py)'
 - en: ), but in the future I plan on adding profit and stop-loss exits and multi-asset
     portfolios.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ），但未来我计划添加利润和止损退出以及多资产组合。
 - en: Usage of the backtesting module is shown in this
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 回测模块的使用方法在本页面展示
 - en: '[**example notebook**](http://nbviewer.ipython.org/urls/dl.dropboxusercontent.com/u/11352905/notebooks/twp_302b_backtesting.ipynb)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[**示例笔记本**](http://nbviewer.ipython.org/urls/dl.dropboxusercontent.com/u/11352905/notebooks/twp_302b_backtesting.ipynb)'

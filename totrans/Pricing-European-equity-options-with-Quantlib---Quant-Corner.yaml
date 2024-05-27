@@ -1,77 +1,119 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 08:07:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:07:28
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Pricing European equity options with Quantlib | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Quantlib定价欧式股票期权 | 量化角
 - en: 来源：[https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01](https://quantcorner.wordpress.com/2011/01/27/a-pricer-for-european-style-options-on-stocks-a-smooth-start-with-quantlib/#0001-01-01)
 - en: Below is a piece of code to price **European-style options** on **stocks** with
     **continuous dividend**. Option value is calculated **analytically**.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是一段用于定价带有**连续股息**的**欧式股票期权**的代码。期权价值是**解析地**计算的。
 - en: This is the first code C++ based on **Quantlib** on this blog site. For the
     one familiar with C++, it clearly isn’t professional coding. But, we don’t care
     that much for now. It is a starting point.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是基于**Quantlib**的第一个C++代码。对于熟悉C++的人来说，这显然不是专业的编程。但是，我们现在不在乎那么多。这是一个起点。
 - en: It provides the reader with a base structure that will later be improved and
     derived to price other option types and/or to use other computing methods. Thus,
     it is very important to understand well this code. Please, refer to both the **Quantlib**
     and **Boost** documentations.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 它为读者提供了一个基本结构，后来将进行改进和派生，以定价其他期权类型和/或使用其他计算方法。因此，充分理解这段代码非常重要。请参阅**Quantlib**和**Boost**的文档。
 - en: We end up this post with comments on  required and possible improvements.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们在本文的最后提出了需要和可能的改进意见。
 - en: ________________________________________
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: ________________________________________
 - en: Option type = call
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权类型 = 看涨
 - en: Option strike = 40
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权执行价格 = 40
 - en: Stock Price = 47
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 股票价格 = 47
 - en: Risk-free rate = 5%
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 无风险利率 = 5%
 - en: Volatility = 20%
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率 = 20%
 - en: Option expiration = May 27^(th), 2011
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 期权到期日 = 2011年5月27日
 - en: ________________________________________
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ________________________________________
 - en: '[PRE0]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Concluding comments
+  id: totrans-19
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 总结评论
 - en: The code above works well, and our ‘European option calculator’ provides exact
     calculation results. But, this code is not ‘pure’ C++ coding, and it has limitations
     from the user’s standpoint.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面的代码运行良好，我们的“欧式期权计算器”提供了确切的计算结果。但是，这段代码不是“纯”的C++代码，从用户的角度来看，它有局限性。
 - en: First, we knew beforehand this code would work. But, what if the code contained
     fanciful parameters, for example? Thus, we should add some lines able to check
     some conditions that we ourselves have to define. This is called an **exception
@@ -80,8 +122,10 @@
     generally take the form of **try**, **throw** and **catch** blocks. Exceptions
     are named explicitly. For example, one might encounter a DividedByZero exception
     in the maths and finance areas.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我们事先知道这段代码是有效的。但是，如果代码中包含了奇异的参数，例如呢？因此，我们应该增加一些能够检查我们自行定义的一些条件的行。这被称为**异常机制**，也就是说——简单来说——代码能够警告出错了什么，是什么出了问题，以及问题出现在代码的哪个位置。异常机制通常采用**try**、**throw**和**catch**代码块的形式。异常是明确命名的。例如，在数学和金融领域可能会遇到一个DividedByZero异常。
 - en: Second, this code is all but user-friendly. It computes the value of a unique
     option the parameters of which are (pre)defined at the time of coding. An obvious
     improvement is allowing the user to enter its own option parameters. The **STL
@@ -89,5 +133,7 @@
     one might want a rich-designed user interface. In this case, one good choice is
     using **Qt** as it allows to build good-looking **GUI** in no-time. For now, we
     let the reader exploring those possibilities by him(her-)self.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 其次，这段代码几乎不是用户友好的。它计算了一个唯一期权的价值，其参数在编码时间是（预）定义的。一个明显的改进是允许用户输入自己的期权参数。**STL库**有一个人需要的一切（基本上，**std::cin**）。此外，一个人可能想要一个丰富设计的用户界面。在这种情况下，一个不错的选择是使用**Qt**，因为它可以迅速构建外观良好的**GUI**。现在，我们让读者自己探索这些可能性。

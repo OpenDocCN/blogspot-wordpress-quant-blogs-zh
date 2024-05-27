@@ -1,152 +1,238 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:38:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:38:35
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Introduction to PloTA library in the Systematic Investor Toolbox | Systematic
     Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Systematic Investor Toolbox中PloTA库的介绍 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/10/04/introduction-to-plota-library-in-the-systematic-investor-toolbox/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/04/introduction-to-plota-library-in-the-systematic-investor-toolbox/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/10/04/introduction-to-plota-library-in-the-systematic-investor-toolbox/#0001-01-01](https://systematicinvestor.wordpress.com/2011/10/04/introduction-to-plota-library-in-the-systematic-investor-toolbox/#0001-01-01)
 - en: 'PloTA ( plot + ta ) library in the Systematic Investor Toolbox is a simple
     plot interface to charting Time Series and Technical Analysis plots. I created
     it as an alternative to charting functionality in [quantmod](http://www.quantmod.com/)
     package. It is designed to mimic default plot interface and works with [xts](http://cran.r-project.org/web/packages/xts/index.html)
     objects. PloTA implements following methods:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: PloTA（plot + ta）库在Systematic Investor Toolbox中是一个简单的绘图接口，用于绘制时间序列和技术分析图。我创建它是为了替代[quantmod](http://www.quantmod.com/)包中的绘图功能。它设计成模仿默认的绘图接口，并且与[xts](http://cran.r-project.org/web/packages/xts/index.html)对象一起工作。PloTA实现以下方法：
 - en: plota – main plot method
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota – 主要绘图方法
 - en: plota2Y – add second Y axis to existing plot
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota2Y – 添加第二个Y轴到现有绘图
 - en: plota.lines – plot lines
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.lines – 绘制线条
 - en: plota.candle – plot Candle
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.candle – 绘制蜡烛图
 - en: plota.ohlc – plot Open/High/Low/Close
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.ohlc – 绘制开/高/低/收
 - en: plota.hl – plot High/Low
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.hl – 绘制高/低
 - en: plota.volume – plot Volume
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.volume – 绘制交易量
 - en: plota.scale.volume – scale Volume
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.scale.volume – 缩放交易量
 - en: plota.grid – add grid
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.grid – 添加网格
 - en: plota.legend – plot legend
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.legend – 绘制图例
 - en: plota.layout – specify plot layout
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.layout – 指定绘图布局
 - en: plota.theme.blue.red – color theme
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.theme.blue.red – 颜色主题
 - en: plota.theme.green.orange – color theme
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.theme.green.orange – 颜色主题
 - en: plota.theme.gray.orange – color theme
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: plota.theme.gray.orange – 颜色主题
 - en: 'To start using PloTA, let’s first load Systematic Investor Toolbox:'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 要开始使用PloTA，请先加载Systematic Investor Toolbox：
 - en: '[PRE0]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next let’s load [quantmod](http://www.quantmod.com/) package and download price
     history for SPY and IBM:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们加载[quantmod](http://www.quantmod.com/)包，并下载SPY和IBM的价格历史记录：
 - en: '[PRE1]'
+  id: totrans-24
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next I will show a few simple uses of PloTA library.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来我将展示几个PloTA库的简单用法。
 - en: 'To create a simple chart of SPY:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 要创建一个简单的SPY图表：
 - en: '[PRE2]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/053d8c39835934155121037727667699.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/053d8c39835934155121037727667699.png "plot1")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot1.png)'
 - en: 'To create a simple chart of SPY with RSI and Legend:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 要创建一个带有RSI和图例的SPY简单图表：
 - en: '[PRE3]'
+  id: totrans-30
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/7d89e8f5b3ef6e0d910cfa76a9d206c2.png "plot2")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7d89e8f5b3ef6e0d910cfa76a9d206c2.png "plot2")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot2.png)'
 - en: 'To create a chart with second Y axis:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 要创建带有第二个Y轴的图表：
 - en: '[PRE4]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/234a9a4be13a12203161b44dd57608d0.png "plot3")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/234a9a4be13a12203161b44dd57608d0.png "plot3")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot3.png)'
 - en: 'To plot daily and monthly on the same plot:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 要在同一图中绘制每日和每月：
 - en: '[PRE5]'
+  id: totrans-36
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: '[![](img/d7655fe6cb02da7a432aee3da1422890.png "plot4")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot42.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d7655fe6cb02da7a432aee3da1422890.png "plot4")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot42.png)'
 - en: 'To plot daily, weekly and monthly:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 要绘制每日、每周和每月：
 - en: '[PRE6]'
+  id: totrans-39
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '[![](img/fd5eb335929f1af9b328ea046bd0dae9.png "plot5")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5.png)'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/fd5eb335929f1af9b328ea046bd0dae9.png "plot5")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/10/plot5.png)'
 - en: I will show more examples of PloTA in the future posts.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 我会在未来的文章中展示更多关于PloTA的示例。
 - en: To view the complete source code for this example, please have a look at the
     [plota.test() function in plota.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/plota.r).
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[plota.r中的plota.test()函数在github上](https://github.com/systematicinvestor/SIT/blob/master/R/plota.r)。

@@ -1,178 +1,266 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:36:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:36:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Mean in the context of Mean-Reversion | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 在平均回归背景下的均值| Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/12/02/mean-in-the-context-of-mean-reversion-take-3/#0001-01-01](https://tr8dr.wordpress.com/2009/12/02/mean-in-the-context-of-mean-reversion-take-3/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/12/02/mean-in-the-context-of-mean-reversion-take-3/#0001-01-01](https://tr8dr.wordpress.com/2009/12/02/mean-in-the-context-of-mean-reversion-take-3/#0001-01-01)
 - en: December 2, 2009 · 7:45 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年12月2日 晚上7:45
 - en: 'I want a running mean estimator that acts as a mode through mean reversion
     cycles of target amplitude or frequency.   The key characteristics should be:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我希望有一个运行均值估计器，在目标振幅或频率的平均回归周期中起到模式的作用。   关键特性应该包括：
 - en: '**adaptation to local volatility**'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**适应局部波动性**'
 - en: determination of diffusion related squared return
+  id: totrans-9
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 确定扩散相关平方回报
 - en: determination of jump related squared return
+  id: totrans-10
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 确定跳跃相关平方回报
 - en: determination as to how much of the jump should be absorbed into the mean
+  id: totrans-11
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 确定跳跃应吸收多少到均值中
 - en: '**model of mean reversion**'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**平均回归模型**'
 - en: calibrated to a desired long-run rate of reversion
+  id: totrans-13
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 校准到期望的平均回归率
 - en: allowance for changes in reversion constant and reversion to long run
+  id: totrans-14
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 允许回归常数和长期回归的变化
 - en: '**model of mean**'
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**均值模型**'
 - en: autoregressive
+  id: totrans-16
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 自回归
 - en: innovations scaled by sigma term (with MR component and jumps removed)
+  id: totrans-17
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创新按sigma项缩放（去除MR组件和跳跃）
 - en: '**recursive backward estimation of ML**'
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**递归向后估计ML**'
 - en: implicitly decide how innovation is distributed amongst mean, mean-reversion,
     and noise
+  id: totrans-19
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 隐式决定创新如何在均值、平均回归和噪声之间分配
 - en: '**A SDE-based Approach**'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '**基于SDE的方法**'
 - en: 'The model is an expanded variant of the familiar *Ornstein*–*Uhlenbeck* process,
     with specialized mean-reversion, mean, and volatility processes.   It also attempts
     to correct for jumps.    Let’s start with the following SDEs (in continuous time):'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 该模型是熟悉的*奥恩斯坦*–*乌伦贝克*过程的扩展变体，具有特殊的平均回归、均值和波动过程。   它还试图修正跳跃。   让我们从以下SDE（在连续时间）开始：
 - en: '[![](img/9907860d771ceb5db1955ddc0504f201.png "Picture 5")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-5.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/9907860d771ceb5db1955ddc0504f201.png "Picture 5")（图片5）'
 - en: '**Variance**'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方差**'
 - en: '![](img/b00f73655502dcb9de9b6ec20bcfb769.png)There are many approaches to modeling
     volatility (all with issues).   Initially I had though to use a predictive model
     based on:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/b00f73655502dcb9de9b6ec20bcfb769.png)有许多建模波动性的方法（都有问题）。   最初，我以为要使用一个基于以下预测模型：'
 - en: '**intensity process** (based on “first exit” duration)'
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**强度过程**（基于“首次退出”持续时间）'
 - en: This is a very complex process.  First approximations have been to use ACD,
     a family of AR models for duration.   ACD models perform very poorly on HF data
     however.    It seems that a markov chain model recognizing the patterns will be
     most appropriate.
+  id: totrans-26
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这是一个非常复杂的过程。   首先的近似是使用ACD，一个基于持续时间的AR模型家族。   ACD模型在HF数据上表现非常差。   似乎一个识别模式的马尔可夫链模型将是最合适的。
 - en: '**amplitude process**'
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '**振幅过程**'
 - en: The amplitudes of squared returns seem to follow a largely AR process.   This
     seems fairly well behaved.
+  id: totrans-28
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 平方回报的振幅似乎主要遵循一个AR过程。   这似乎相当行为良好。
 - en: 'Before fully committing to a complex volatility model thought its makes sense
     to first try with a non-predictive measure of realized variance.  I will use:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 在完全致力于复杂的波动模型之前，先尝试使用一个非预测的实际方差度量似乎是合理的。   我将使用：
 - en: '[![](img/1d5bd43b41c946b3b1ade923efd84773.png "Picture 7")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-7.png)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/1d5bd43b41c946b3b1ade923efd84773.png "Picture 7")（图片7）](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-7.png)'
 - en: 'The choice of α determines the degree of smoothing with previous values based
     on how local (and noisy) we want this function to be.   For example, here is the
     estimate with a smoothing factor of 60 and a threshold of 3e-5:'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: α的选择决定了平滑程度，基于我们想要这个函数有多局部（或多噪声）。   例如，这里是用平滑因子60和阈值3e-5的估计：
 - en: '[![](img/1c603e5c48c096ccff4f43863946cab8.png "Picture 3")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-3.png)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/1c603e5c48c096ccff4f43863946cab8.png "Picture 3")（图片3）'
 - en: '**Discretising**'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '**离散化**'
 - en: 'Using Ito’s lemma we discretise the processes as follows:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用伊藤公式，我们将过程如下离散化：
 - en: '[![](img/a80eba0c5d660e1d156ed14c8529d7fd.png "Picture 8")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-8.png)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '![](img/a80eba0c5d660e1d156ed14c8529d7fd.png "Picture 8")（图片8）'
 - en: 'Simplifying the volatility term in S(t), we first determine the variance of
     the SDE:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 简化 S(t) 中的波动率项，我们首先要确定 SDE 的方差：
 - en: '[![](img/88eca04b14c1bd1b11423fa4ab821041.png "Picture 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-2.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/88eca04b14c1bd1b11423fa4ab821041.png "图片 2")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-2.png)'
 - en: 'We reorganize as follows:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以重新组织成如下形式：
 - en: '[![](img/78094f037da4c59e22548924e4af890e.png "Picture 3")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-31.png)'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/78094f037da4c59e22548924e4af890e.png "图片 3")](https://tr8dr.wordpress.com/wp-content/uploads/2009/12/picture-31.png)'
 - en: '**Putting it together**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '**综合起来**'
 - en: We can now model this discretely as a state-space based filter, searching for
     parameters that fit a-posteriori idealized view on the mode and mean-reversion
     process.   Post-parameterization, the process can be used in real-time to provide
     an estimate of the mode.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在可以将其离散化，作为一个基于状态空间滤波器的模型，寻找适合后验理想化观点的参数，关于模式和均值回归过程。在参数化之后，该过程可以实时用于提供模式估计。
 - en: '**Final Notes**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**最终说明**'
 - en: As you may have seen I took a (useful) 2-3 week diversion before coming back
     to the SDE based approach.   This is not a final model by any means, but I think
     a a solid starting point.    The purpose of the above is as a one of a number
     of factors in a multi-factor  strategy that want to optimize further.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如您可能已经看到的，我在回到基于 SDE 的方法之前先暂时偏离了大约 2-3 周（这个过程很有用）。这绝不是一个最终的模型，但我认为它是一个扎实的起点。上述内容是我在一个多因子策略中的一个因素，我想要进一步优化这个策略。

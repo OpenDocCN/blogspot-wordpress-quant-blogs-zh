@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:46:26'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:46:26
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Return Decomposition via Mixing | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 通过混合实现的回报分解 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/12/28/estimating-mixture-index-return-decomposition-via-maximum-likelihood/#0001-01-01](https://quantivity.wordpress.com/2011/12/28/estimating-mixture-index-return-decomposition-via-maximum-likelihood/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/12/28/estimating-mixture-index-return-decomposition-via-maximum-likelihood/#0001-01-01](https://quantivity.wordpress.com/2011/12/28/estimating-mixture-index-return-decomposition-via-maximum-likelihood/#0001-01-01)
 - en: A variety of techniques exist for estimating parameters of the return decomposition
     model, previously introduced in [Index Return Decomposition](https://quantivity.wordpress.com/2011/12/14/index-return-decomposition/).
     This post considers estimation of an *independent mixture model* via maximum likelihood
     (MLE), a workhorse of frequentist statistics and always a nice place to begin.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 存在各种技术用于估计回报分解模型的参数，先前在[指数回报分解](https://quantivity.wordpress.com/2011/12/14/index-return-decomposition/)中介绍过。本文考虑通过最大似然估计（MLE）来估计*独立混合模型*，这是频率统计学的主要工具，也是一个很好的起点。
 - en: 'Recall ![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png) is *unobserved*, and
     thus the model cannot be directly estimated via MLE. Thus, need to decide how
     to approach estimation for this latent variable. One way is to be naive, and simply
@@ -32,11 +46,17 @@
     as formalized by [Severini and Wong [1992]](http://people.csail.mit.edu/~jrennie/trg/papers/severini-conditionally-92.pdf),
     which [Murphy and Van Der Vaart [2000]](http://www.jstor.org/pss/2669386) verify
     is well-behaved consistent with exact likelihood):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 请记住![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)是*不可观测*的，因此模型不能直接通过MLE估计。因此，需要决定如何为这个潜在变量进行估计。一种方法是很天真的，简单地假设![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)是股票和指数之间回报的确定性差异（从技术上讲，这会生成一个[轮廓似然](http://en.wikipedia.org/wiki/Likelihood_function#Profile_likelihood)，由[Severini和Wong
+    [1992]](http://people.csail.mit.edu/~jrennie/trg/papers/severini-conditionally-92.pdf)形式化，[Murphy和Van
+    Der Vaart [2000]](http://www.jstor.org/pss/2669386)验证与确切似然函数一致）：
 - en: '![z_t = r_t - i_t ](img/9406f569aca4e251c598dbe26d85eef1.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_IMG
+  zh: '![z_t = r_t - i_t ](img/9406f569aca4e251c598dbe26d85eef1.png)'
 - en: 'This assumption permits focus on estimating ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png),
     providing insight into the *mixing behavior* of the return being decomposed: if
     a stock return behaves like its index, then mixing is low with small ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)
@@ -44,8 +64,11 @@
     stock behaves identical to its index, as no mixing is required); in contrast,
     the stock return behaves independent from its index on a regular basis, then mixing
     is high with a large ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png).'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个假设使得我们可以专注于估计![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)，从而提供对被分解的回报*混合行为*的洞察：如果股票回报的行为类似于其指数，那么混合度很低，![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)很小（当股票的行为与其指数完全相同时，混合度为零，即![\alpha
+    = 0](img/52b5c00309e065e19db837bc8b91a752.png)，因为不需要混合）；相反，如果股票回报与其指数经常不相关，那么混合度很高，![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)很大。
 - en: 'Autocorrelation of ![i](img/6aed483d693a0743f647c27ec4372c2a.png) and ![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)
     is worth consideration, as that helps determine whether time indexing is required
     for ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png). For returns with insignificant
@@ -55,28 +78,42 @@
     and ![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png), consistent with previous posts
     in the [Proxy / Cross Hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)
     series (illustrating r-z copula for CRM / QQQ example below):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 值得考虑的是![i](img/6aed483d693a0743f647c27ec4372c2a.png)和![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)的自相关性，因为这有助于确定是否需要对![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)进行时间索引。对于自相关性不显著的回报（常见于*有符号*的股票回报），时间索引被舍弃，并且估计一个单一的![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)。然而，*条件依赖关系*通常存在于![i](img/6aed483d693a0743f647c27ec4372c2a.png)和![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)之间，与[代理/交叉套期保值](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)系列中的先前帖子一致（下面是CRM
+    / QQQ示例的r-z copula示意图）：
 - en: '[![](img/d52a149560df398f8f8a27d96db1a5c4.png "z-r-empirical-copula")](https://quantivity.wordpress.com/wp-content/uploads/2011/12/z-r-empirical-copula.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/d52a149560df398f8f8a27d96db1a5c4.png "z-r-empirical-copula")](https://quantivity.wordpress.com/wp-content/uploads/2011/12/z-r-empirical-copula.png)'
 - en: 'Use of this identity for ![z_i](img/1088d8d1a22a00dc3cf8fd0af3dbde55.png) transforms
     the decomposition model into:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用该身份证明![z_i](img/1088d8d1a22a00dc3cf8fd0af3dbde55.png)将分解模型转换为：
 - en: '![r_t = s_t \left[ \alpha_t | (r_t - i_t) | + (1 - \alpha_t) \beta | i_t |
     \right] ](img/f32c42b7f1f93f3ffdcab23e1872b887.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![r_t = s_t \left[ \alpha_t | (r_t - i_t) | + (1 - \alpha_t) \beta | i_t |
+    \right] ](img/f32c42b7f1f93f3ffdcab23e1872b887.png)'
 - en: 'The model is further simplified into a familiar *independent mixture model*
     by dropping sign ![s_t](img/3d34b6bd645c53954926164c36a40ae9.png) and ![\beta](img/e59dd600f7eb22f952e355797bceba2e.png),
     and estimating via MLE using density ![f](img/f6f5c905b764a946a65bee80b6736fe6.png)
     and return distribution functions ![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png):'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 该模型进一步简化为熟悉的*独立混合模型*，通过放弃符号![s_t](img/3d34b6bd645c53954926164c36a40ae9.png)和![\beta](img/e59dd600f7eb22f952e355797bceba2e.png)，并使用密度![f](img/f6f5c905b764a946a65bee80b6736fe6.png)和回报分布函数![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)进行最大似然估计（MLE）：
 - en: '![f(r_t; \boldsymbol{\theta}) = \alpha \phi_1(r_t - i_t) + (1 - \alpha) \phi_2(i_t)  ](img/4882ebdb6e48051d820ea02018a5f2f1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![f(r_t; \boldsymbol{\theta}) = \alpha \phi_1(r_t - i_t) + (1 - \alpha) \phi_2(i_t)  ](img/4882ebdb6e48051d820ea02018a5f2f1.png)'
 - en: 'MLE estimation requires assumption of parametric distributions for ![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png),
     of which common choices from the literature are normal, student-t, skew-t, or
     skew hyperbolic student-t ([Aas and Haff [2006]](http://www.econ.ku.dk/fru/conference/Programme/Sunday/F4/Aas_226.pdf)).
@@ -86,60 +123,91 @@
     and ![\sigma_i](img/63292fcbee22336be0cef01660cacbe6.png) if ![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)
     is assumed to be normal). As ![i_t](img/d1ba04e50950b99d9eabd6f208278285.png)
     is observed, one way to proceed is via two-step estimation:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: MLE估计需要对![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)的参数分布进行假设，其中文献中常见的选择为正态、学生-t、偏t或偏超bolic学生-t（[Aas
+    and Haff [2006]](http://www.econ.ku.dk/fru/conference/Programme/Sunday/F4/Aas_226.pdf)）。下一个问题是如何估计![\boldsymbol{\theta}](img/fd899b1331662dd5d038aff6ddde37b9.png)参数：![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)和一系列![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)参数（*例如*如果![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)假设为正态，则![\mu_i](img/9840e9175f3add00a2433beec43402e8.png)和![\sigma_i](img/63292fcbee22336be0cef01660cacbe6.png)）。由于观察到![i_t](img/d1ba04e50950b99d9eabd6f208278285.png)，一种方法是通过两步估计进行：
 - en: Estimate ![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png) parameters via
     MLE from ![i_t](img/d1ba04e50950b99d9eabd6f208278285.png)
+  id: totrans-17
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 通过从![i_t](img/d1ba04e50950b99d9eabd6f208278285.png)中的最大似然估计（MLE）来估计![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png)参数。
 - en: Jointly estimate ![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png) and ![\phi_1](img/bc97634b37bdf282a3d4ff84cec42357.png)
     parameters via MLE on the mixture, holding ![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png)
     parameters constant
+  id: totrans-18
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 通过对混合物进行最大似然估计（MLE），共同估计![\alpha](img/9a53e012ad26523af8c1a6778d340c3f.png)和![\phi_1](img/bc97634b37bdf282a3d4ff84cec42357.png)参数，保持![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png)参数不变。
 - en: 'For both, recall the likelihood ![\mathcal{L} ](img/8639f7e55dad758d20f029b786e751d6.png),
     and log likelihood ![ln \mathcal{L} ](img/4c1a27f1b1e4e4bbf2a5638e366df39a.png),
     are defined as:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于两者，回顾似然度![\mathcal{L} ](img/8639f7e55dad758d20f029b786e751d6.png)，对数似然度![ln
+    \mathcal{L} ](img/4c1a27f1b1e4e4bbf2a5638e366df39a.png)，定义如下：
 - en: '![\mathcal{L} = \prod\limits_{t=1}^T f(r_t; \boldsymbol{\theta}) ](img/69dd76d6496656f37973a0ce3b9e18d5.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_IMG
+  zh: '![ \mathcal{L} = \prod\limits_{t=1}^T f(r_t; \boldsymbol{\theta}) ](img/69dd76d6496656f37973a0ce3b9e18d5.png)'
 - en: '![\ln \mathcal{L} = \sum\limits_{t=1}^T \ln f(r_t; \boldsymbol{\theta}) ](img/7eed25417f5e550d7141b12079f83278.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![ln \mathcal{L} = \sum\limits_{t=1}^T \ln f(r_t; \boldsymbol{\theta}) ](img/7eed25417f5e550d7141b12079f83278.png)'
 - en: 'From which MLE of the mixture is maximization of the likelihood over ![\boldsymbol{\theta}](img/fd899b1331662dd5d038aff6ddde37b9.png),
     where log is chosen for numeric stability:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中混合物的MLE是通过对![\boldsymbol{\theta}](img/fd899b1331662dd5d038aff6ddde37b9.png)参数进行似然度最大化来完成的，其中选择对数以确保数值稳定性：
 - en: '![\displaystyle \max_{\boldsymbol{\theta}} \ln \mathcal{L} = \max_{\boldsymbol{\theta}}
     \sum\limits_{t=1}^T \left( \ln \left[ \alpha (r_t - i_t) + (1 - \alpha) i_t \right]
     \right)](img/cdf953d7d59bf32767f8f0679d0f2692.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![ \displaystyle \max_{\boldsymbol{\theta}} \ln \mathcal{L} = \max_{\boldsymbol{\theta}}
+    \sum\limits_{t=1}^T \left( \ln \left[ \alpha (r_t - i_t) + (1 - \alpha) i_t \right]
+    \right)](img/cdf953d7d59bf32767f8f0679d0f2692.png)'
 - en: This optimization can be performed numerically in R via minimization using `DEoptim`
     of the negative log likelihood `negLogLikeFun` (negative is due to minimization
     in `DEoptim` versus maximization of ![\ln \mathcal{L}](img/4967bf980eb26ee995662054c8a70def.png)).
     `DEoptim` is chosen due to rapid convergence on non-smooth global optimizations.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 此优化可以通过在R中使用`DEoptim`对负对数似然`negLogLikeFun`进行最小化来实现（负值是因为`DEoptim`中的最小化与![\ln
+    \mathcal{L}](img/4967bf980eb26ee995662054c8a70def.png)的最大化相对）。选择`DEoptim`是因为它在对非光滑全局优化方面具有快速的收敛性。
 - en: 'For example, continuing the example of CRM / QQQ introduced in the previous
     posts on [Proxy / Cross Hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)
     generates the results:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 例如，继续在[代理/交叉对冲](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)的前一篇帖子中介绍的CRM/QQQ例子，生成的结果如下：
 - en: '[PRE0]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'These results correspond to the following density functions for the skew-t
     mixture:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些结果对应于偏态t混合的以下密度函数：
 - en: '[![](img/bd68b0d9020342a45209d7d160be8274.png "return-decomp-mixture-densities-skewt")](https://quantivity.wordpress.com/wp-content/uploads/2011/12/return-decomp-mixture-densities-skewt2.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/bd68b0d9020342a45209d7d160be8274.png "return-decomp-mixture-densities-skewt")](https://quantivity.wordpress.com/wp-content/uploads/2011/12/return-decomp-mixture-densities-skewt2.png)'
 - en: 'One interesting observation of these densities is their location parameters
     are on opposing side of zero: ![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png) has
     positive location, while ![i](img/6aed483d693a0743f647c27ec4372c2a.png) has negative
@@ -148,39 +216,58 @@
     while negative returns originate from the index ![i_t](img/d1ba04e50950b99d9eabd6f208278285.png).
     Economically, this is plausible: positive news is often idiosyncratic, while negative
     news is often market-wide.'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些密度的一个有趣观察是它们的位置参数位于零的相反侧：![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)具有正位置，而![i](img/6aed483d693a0743f647c27ec4372c2a.png)具有负位置。这种解释的一个意思是，CRM的正回报很大程度上源自于个别的![z_t](img/74d890ac7e079882a239837ea3afdf8c.png)回报，而负回报则源自于指数![i_t](img/d1ba04e50950b99d9eabd6f208278285.png)。从经济角度来看，这是合理的：正面消息通常是特有的，而负面消息通常是广泛的。
 - en: 'Several additional inferences can be drawn from these results:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以从这些结果中得出几个额外的推论：
 - en: 'Model selection: likelihood suggests skew-t is the preferred model, indicating
     long tails and skewness (matching stylized facts)'
+  id: totrans-31
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 模型选择：似然性表明偏态t分布是首选模型，表明长尾巴和偏度（与风格化事实相匹配）。
 - en: 'Mixing: ![\alpha = 0.24](img/2ba46f580ddd22c68f4055ca912bb243.png) indicating
     that over 75% of CRM returns are determined by the corresponding QQQ index; remaining
     25% are determined by the unobserved ![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)
     return series'
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 混合：![\alpha = 0.24](img/2ba46f580ddd22c68f4055ca912bb243.png)，表明超过75%的CRM回报由相应的QQQ指数决定；剩余的25%由未观察到的![z](img/7d74f7d8fdd6545e22c6dd9de0af53b3.png)回报系列决定。
 - en: 'Tails: CRM ![\phi_1](img/bc97634b37bdf282a3d4ff84cec42357.png) df = 2.89 which
     indicates significantly thicker tails than QQQ ![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png)
     df = 26.56 (matching stylized facts for individual stocks versus indices)'
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 尾巴：CRM ![\phi_1](img/bc97634b37bdf282a3d4ff84cec42357.png) df = 2.89，这表明其尾巴比QQQ
+    ![\phi_2](img/99322676b5ef63b1e34f31e85ad3be1b.png) df = 26.56要厚（与个股相对于指数的风格化事实相匹配）。
 - en: Subsequent posts may consider alternative estimation techniques for this model.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 后续帖子可能考虑这个模型中的替代估计技术。
 - en: '* * *'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'R code for generating two-stage MLE estimation of return decomposition via
     mixing:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成通过混合的两阶段MLE回报分解的R代码：
 - en: '[PRE1]'
+  id: totrans-37
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'

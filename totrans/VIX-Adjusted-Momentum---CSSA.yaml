@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:53:02'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:53:02
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: VIX-Adjusted Momentum | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: VIX-Adjusted Momentum | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/#0001-01-01](https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/#0001-01-01](https://cssanalytics.wordpress.com/2014/07/29/vix-adjusted-momentum/#0001-01-01)
 - en: 'The addition of many small details can make a big difference in seemingly simple
     strategies. I often like to use cooking analogies, and so I like to think of tomato
     sauce as a classic example: it contains few ingredients and is simple to make
@@ -29,44 +41,64 @@
     to use un-adjusted price data in conjunction with a moving average strategy, or
     even taking the simple compound return or ROC (rate of change) can lead to potentially
     poor timing decisions and increase the frequency of trading.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 许多看似简单的策略中加入许多小细节可以产生很大的不同。我经常喜欢用烹饪的类比，所以我喜欢把番茄酱看作是一个经典例子：它的配料很少，制作简单，但若不理解各成分之间的相互作用，则难以掌握。趋势跟随策略也不过如此：任何人都可以创建一个简单的策略，很少有人能掌握其细微之处。在衡量金融市场数据中的趋势时，一个问题是方差不是恒定的。在统计学中，我们知道异方差性[(heteroscedacity)](http://en.wikipedia.org/wiki/Heteroscedasticity)可以使传统回归分析变得没有意义。因此，在与移动平均策略结合使用未调整的价格数据，甚至简单地采用复合回报或ROC（变化率）都可能导致潜在的时机决策失误并增加交易的频率。
 - en: 'The good news is that it is well-accepted that volatility is highly predictable
     in financial markets. Perhaps one of the best measures of volatility is implied
     volatility reflected by market participants in the VIX. A simple idea would be
     to use the VIX to adjust daily returns in order to create a trend-following strategy
     that is more robust to non-constant variance. The method as follows is very simple:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 好消息是，在金融市场中，波动性是可以高度预测的。或许，最好的波动性衡量指标就是市场参与者反映在VIX中的隐含波动性。一个简单的想法就是使用VIX来调整日回报率，以创建一个对非恒定方差更具鲁棒性的趋势跟随策略。以下方法非常简单：
 - en: 1) compute daily returns or log returns for the S&P500 time series
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 计算S&P500时间序列的日回报率或对数回报率
 - en: 2) divide each daily return by the VIX level on the same day
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 将每日的回报率除以当天的VIX水平
 - en: 3) take a lag of your choosing and compute the simple average–say 200-days in
     this example
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 选择一个滞后期，并计算简单平均数——例如在这个例子中是200天
 - en: 'Strategy: Go LONG when the VIX-Adjusted Momentum>0, Go to cash if sma, cash
     if not) and a 200-day traditional momentum strategy (go long when the ROC>0, cash
     if not).'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 策略：当VIX调整动量>0时做多，如果sma则持现金，否则做空）以及一个200天的传统动量策略（当ROC>0时做多，否则持现金）。
 - en: '[![vix mom table](img/0f43b78f199f87dc024c6a585d6af90f.png)](https://cssanalytics.files.wordpress.com/2014/07/vix-mom-table.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '![vix mom table](img/0f43b78f199f87dc024c6a585d6af90f.png)'
 - en: 'here is a graph comparing the strategies:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是策略比较的图表：
 - en: '[![vix mom graph](img/2f24be5aa398ef540833bd1dc111b6dc.png)](https://cssanalytics.files.wordpress.com/2014/07/vix-mom-graph.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![vix mom graph](img/2f24be5aa398ef540833bd1dc111b6dc.png)'
 - en: Clearly the VIX-ajusted momentum is superior to the traditional trend-following
     strategies using this set of parameters. This concept can be extended in several
     different ways- for example, one could instead use historical volatility, or the
     difference between historical and implied in other creative ways. Hopefully readers
     will be inspired to take a fresh look at improving upon a simple and traditional
     strategy.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，VIX调整后的动量优于使用这一组参数的传统趋势跟随策略。这个概念可以通过几种不同的方式进行扩展——例如，一个人可以相反地使用历史波动性，或者在创造性的方式下使用历史和隐含之间的差异。希望读者能受到启发，重新审视并改进一个简单且传统的策略。

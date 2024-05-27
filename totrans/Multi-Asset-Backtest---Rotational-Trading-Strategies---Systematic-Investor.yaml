@@ -1,84 +1,130 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:45:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:45:01
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Multi-Asset Backtest : Rotational Trading Strategies | Systematic Investor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 多资产回测：旋转交易策略 | 系统性投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01](https://systematicinvestor.wordpress.com/2011/12/06/multi-asset-backtest-rotational-trading-strategies/#0001-01-01)
 - en: 'I want to discuss the implementation of Rotational Trading Strategies using
     the backtesting library in the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).The
     Rotational Trading strategy switches investment allocations throughout the time,
     betting on few top ranked assets. For example, the ranking can be based on relative
     strength or momentum. A few examples of the Rotational Trading Strategies (or
     Tactical Asset Allocation) are:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想讨论使用系统性投资者工具箱中的回测库来实现旋转交易策略。旋转交易策略会在时间上调整投资分配，投注于少数顶级排名的资产。例如，排名可以基于相对强度或动量。旋转交易策略（或战术资产配置）的一些例子包括：
 - en: I want to illustrate the Rotational Trading using the strategy introduced at
     ETF Screen in the [ETF Sector Strategy](http://www.etfscreen.com/sectorstrategy.php)
     post. Each month, this strategy invests into the top two of the 21 ETFs sorted
     by their 6 month returns. To reduce the turnover, in subsequent months the ETF
     positions are kept as long as these ETFs are in the top 6 rank.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想通过在 [ETF Sector Strategy](http://www.etfscreen.com/sectorstrategy.php) 帖子中介绍的
+    ETF 筛选策略来说明旋转交易。每个月，这个策略投资于按六个月回报率排序的 21 个 ETF 中的前两个。为了降低换手率，后续月份中只要这些 ETF 保持在前六名，就会保持这些
+    ETF 头寸。
 - en: 'Before we can implement this strategy, we need to create two helper routines.
     First, let’s create a function that will select the top N positions for each period:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们实施这个策略之前，我们需要创建两个辅助程序。首先，让我们创建一个函数，该函数将为每个时期选择 top N 头寸：
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Next, let’s create a function that will select the top N positions for each
     period and keep them until they drop below KeepN rank:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们创建一个函数，该函数将为每个时期选择 top N 头寸，并在它们跌出 KeepN 排名之前保持它们：
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: 'Now we are ready to implement this strategy using the backtesting library in
     the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/):'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们准备使用系统性投资者工具箱中的回测库来实现这个策略：
 - en: '[PRE2]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/4d415ebcb3b2fb3f6a2feaad40aa21b1.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 请点击[此处](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot1-small.png)查看图表。
 - en: '[![](img/2c9e33d86a10c2c872661f0dd099baea.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 请点击[此处](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot2-small.png)查看图表。
 - en: '[![](img/839301868b96026d5ab1967fad619cd5.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 请点击[此处](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/12/plot3-small.png)查看图表。
 - en: 'There are many ways to improve this strategy. Here is a sample list of additional
     ways to consider:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有许多方法可以改进这个策略。以下是一些建议的附加方法：
 - en: The only boundary is your imagination. I would also recommend to do sensitivity
     analysis during your strategy development to make sure your are not overfitting
     the data.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 唯一的限制就是你的想象力。我还会建议你在策略开发过程中进行敏感性分析，以确保你没有过度拟合数据。
 - en: To view the complete source code for this example, please have a look at the
     [bt.rotational.trading.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此例的完整源代码，请查看 GitHub 上的 [bt.rotational.trading.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。
 - en: For more examples, please have a look at the implementation of the Timing Model
     as presented in [A Quantitative Approach to Tactical Asset Allocation by M. Faber
     (2006)](http://www.mebanefaber.com/timing-model/) at the [bt.timing.model.test()
     function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 更多关于示例，请查看 [M. Faber](http://www.mebanefaber.com/timing-model/) 在 [bt.timing.model.test()
+    函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)中呈现的定时模型实现，该函数位于
+    GitHub 上的 bt.test.r。

@@ -1,184 +1,293 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:11:03'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 15:11:03'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Update on Scary Derivatives'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 更新可怕衍生品'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/11/after-reading-bloombergs-article.html#0001-01-01)
 - en: After reading Bloomberg’s article,
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 阅读彭博社的文章后，
 - en: JPMorgan Chase & Co. and Goldman Sachs Group Inc., among the world’s biggest
     traders of credit derivatives, disclosed to shareholders that they have sold protection
     on more than $5 trillion of debt globally.
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 摩根大通银行和和高盛集团公司，世界上最大的信用衍生品交易商之一，向股东披露，他们已经在全球范围内出售了超过5万亿美元的债务保护。
 - en: ''
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: '[http://bloom.bg/txiyuG](http://bloom.bg/txiyuG)'
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: '[http://bloom.bg/txiyuG](http://bloom.bg/txiyuG)'
 - en: I thought we should update my post [Scary Derivatives and Scary XML in R](http://timelyportfolio.blogspot.com/2011/07/scary-derivatives-and-scary-xml-in-r.html)
     in which I said
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我认为我们应该更新我的帖子[R中的可怕衍生品和可怕的XML](http://timelyportfolio.blogspot.com/2011/07/scary-derivatives-and-scary-xml-in-r.html)，其中我说
 - en: The massive damage caused in 2008-2009 by the sliver of derivatives called credit
     default swaps seems like a faint warning siren when we see that they only represent
     < 7% of total derivatives exposure. Interest rate and currency derivatives, also
     where I think the next disaster occurs, are more than 10 times larger than these
     credit contracts at $226 Trillion.
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 2008-2009年，被称为信用违约掉期的衍生品小部分造成了巨大的损害，这似乎是一个微弱的警告警报，当我们看到它们只代表总衍生品风险的< 7%时。利率和货币衍生品，也是我认为下一个灾难发生的地方，比这些信用合同大10倍以上，达到226万亿美元。
 - en: This amount of money, bilaterally netted or not, is truly unbelievable and staggering. 
     Total debt outstanding of the sovereign nations is not the real problem.  Like
     housing, the exponential exacerbation caused by the leverage and derivatives traded
     on the underlying is where the real potential catastrophe occurs.  No government
     and no central bank has the ability to counter any major damage in currencies
     or interest rates.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这笔钱，无论双边净额如何，都是真正令人难以置信和震惊的。总债务 outstanding of the 主权国家并不是真正的问题。像房地产一样，由杠杆和衍生品加剧的指数恶化是真正的潜在灾难发生的地方。没有政府和中央银行有能力抵消任何主要货币或利率的损害。
 - en: '[R code (click to download from Google Docs):](https://docs.google.com/open?id=0B2qp2r96khJPYjUwNDNkNTktMGFkZC00ZGViLWEyNjAtNTZiZWI2M2VlMWNi)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码（点击从Google Docs下载）：](https://docs.google.com/open?id=0B2qp2r96khJPYjUwNDNkNTktMGFkZC00ZGViLWEyNjAtNTZiZWI2M2VlMWNi)'
 - en: '#read xml derivatives data from the'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#从'
 - en: '#US Treasury OCC Quarterly Derivatives Report'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#美国财政部OCC季度衍生品报告'
 - en: '#2 methods'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '#2种方法'
 - en: '#still way too manual since it appears the format changes'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '#仍然过于手动，因为它看起来格式发生了变化'
 - en: '#each reporting period'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '#每个报告期'
 - en: '#as far as I can tell'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#据我所知'
 - en: '#the first published example of how to read'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#第一个公开的读取'
 - en: '#Microsoft Excel xml workbooks'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#微软Excel的xml工作簿'
 - en: require(XML)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: require(XML)
 - en: '#require(ggplot2)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '#require(ggplot2)'
 - en: '#get 2nd Quarter of 2011 report (dq211)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取2011年第二季度报告（dq211）'
 - en: url = "[http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml"](http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml%22)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: url = "[http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml](http://www.occ.treas.gov/topics/capital-markets/financial-markets/trading/derivatives/dq211-xml.xml%22)
 - en: doc = xmlInternalTreeParse(url)
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: doc = xmlInternalTreeParse(url)
 - en: '#define namespaces'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#定义命名空间'
 - en: '#figuring this out took hours'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '#弄清楚这需要几个小时'
 - en: '#but using getNodeSet was much cleaner than the'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '#但使用getNodeSet比'
 - en: '#next method'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '#下一个方法'
 - en: namespaces = c(o="urn:schemas-microsoft-com:office:office",
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: namespaces = c(o="urn:schemas-microsoft-com:office:office",
 - en: x="urn:schemas-microsoft-com:office:excel",
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: x="urn:schemas-microsoft-com:office:excel",
 - en: ss="urn:schemas-microsoft-com:office:spreadsheet",
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: ss="urn:schemas-microsoft-com:office:spreadsheet",
 - en: html="[http://www.w3.org/TR/REC-html40")](http://www.w3.org/TR/REC-html40%22))
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: html="[http://www.w3.org/TR/REC-html40")](http://www.w3.org/TR/REC-html40%22))
 - en: '#this gets row 41 from the Table 3 worksheet for the total $ of derivatives'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '#此方法从表3工作表中获取总衍生品的第41行'
 - en: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[41]]
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[41]]
 - en: amt <- df <- as.data.frame(as.numeric(xmlSApply(ns, xmlValue))[4:11])
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: amt <- df <- as.data.frame(as.numeric(xmlSApply(ns, xmlValue))[4:11])
 - en: '#believe it or not this is $trillions of dollars'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '#信不信由你，这是万亿美元的美元'
 - en: '#remove some zeros so we can label better on the graph'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '#移除一些零，这样我们可以在图表上更好地标记'
 - en: amt <- amt/1000000
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: amt <- amt/100000
 - en: df <- df/1000000
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: df <- df/1000000
 - en: '#this gets row 10 for labels'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '#此部分获取第10行的标签'
 - en: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[10]]
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: ns <- getNodeSet(doc,"/ss:Workbook/ss:Worksheet[@ss:Name='Table 3']/ss:Table/ss:Row",namespaces)[[10]]
 - en: lab <- as.character(xmlSApply(ns, xmlValue)[4:11])
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签 <- 作为字符串的xmlSApply(ns, xmlValue)[4:11]
 - en: '#combine the labels with'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '#将标签与'
 - en: df <- cbind(lab,df)
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: df <- cbind(标签,df)
 - en: '#jpeg(filename="derivatives by type.jpg",quality=100,'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '#jpeg(filename="按类型划分的衍生品.jpg",quality=100,'
 - en: '#    width=6.25, height = 8,  units="in",res=96)'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '#    宽度=6.25, 高度 = 8, 单位="英寸", 分辨率=96)'
 - en: barplot(df[5:8,2],names.arg = factor(df[5:8,1]),main="US Bank Derivatives by
     Type
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: barplot(df[5:8,2],名称参数=因子(df[5:8,1]),主标题="美国银行按类型划分的衍生品
 - en: Q2 2011",ylab="$ (in trillions)",ylim=c(0,max(df[5:8,2]+50)),space=0,
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二季度2011年",y轴标签="（万亿美元）",y轴范围=c(0,max(df[5:8,2]+50)),空间=0,
 - en: col=c("indianred4","darkolivegreen4","cadetblue4","goldenrod3"))
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 颜色=c("indianred4","darkolivegreen4","cadetblue4","goldenrod3"))
 - en: 'mtext("Source: US Dept of Treasury OCC Quarterly Derivatives Report",'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: mtext("数据来源：美国财政部货币监理署季度衍生品报告",
 - en: side=1,line=3,cex=0.8,adj=0)
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 侧边=1,线宽=3,字体大小=0.8,位置调整=0)
 - en: '#dev.off()'
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: '#关闭设备'

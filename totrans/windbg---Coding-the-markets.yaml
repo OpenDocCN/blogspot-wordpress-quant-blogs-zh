@@ -1,35 +1,53 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:29:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:29:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: windbg | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: windbg | 编码市场
 - en: 来源：[https://etrading.wordpress.com/windbg/#0001-01-01](https://etrading.wordpress.com/windbg/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/windbg/#0001-01-01](https://etrading.wordpress.com/windbg/#0001-01-01)
 - en: '**A collection of windbg links, tips and tricks**'
+  id: totrans-6
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**windbg 链接、技巧和窍门集锦**'
 - en: Introductory material
+  id: totrans-7
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 入门材料
 - en: Tips & tricks
+  id: totrans-8
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: 贴士与技巧
 - en: 'Your PDBs must match your DLLs and EXEs. Even if you’ve built with the same
     set of compiler switches, they won’t match if they’re not from the same build,
     as the compiler injects a checksum that windbg checks. You can find some hacky
@@ -38,67 +56,100 @@
     in windbg starts just working when bins and PDBs match: breakpointing on C++ method
     names, variable inspection, automatic viewing of source code when stepping up
     and down the stack with “.frame N” etc.'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 你的 PDB（调试信息文件）必须与你的 DLL（动态链接库）和 EXE（可执行文件）相匹配。即使你使用相同的编译器开关构建了它们，如果它们不是来自同一次构建，它们也不会匹配，因为编译器会注入一个
+    windbg 检查的校验和。你可以在 stackoverflow 上找到一些绕过这个问题的方法。但如果可能的话，重新构建并生成一套匹配的 bins 和 PDBs
+    吧。你会发现，当 bins 和 PDBs 匹配时，windbg 中的许多功能都会奇迹般地开始正常工作：在 C++ 方法名上设置断点、变量检查、在“ .frame
+    N”中上下跟踪堆栈时自动查看源代码等。
 - en: Clear down registry keys to reset windbg. For instance, if you can’t get the
     command window to issue g, bp, bl etc, then using regedit to clear keys can help.
     Delete everything under HKCU\Software\Microsoft\Windbg
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 清理注册表键以重置 windbg。例如，如果你无法让命令窗口发出 g、bp、bl 等命令，则使用 regedit 清除键可以有所帮助。删除 HKCU\Software\Microsoft\Windbg
+    下的所有内容。
 - en: If you’re debugging a 32 bit binary, use the 32 bit debugger. Don’t attempt
     to make the 64 bit debugger work in 32 bit mode with the .effmach x86 command
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如果你正在调试一个 32 位二进制文件，请使用 32 位调试器。不要尝试使用 .effmach x86 命令将 64 位调试器工作在 32 位模式下。
 - en: The .expr command will tell you if you’re using MASM or C++ style symbols. Use
     “.expr /s c++” to flip into C++ symbol mode if not already in that mode. Setting
     breakpoints and examining variables will be much easier.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: .expr 命令会告诉你是否使用了 MASM 或 C++ 风格的符号。如果还没有处于那种模式，使用“ .expr /s c++”来切换到 C++ 符号模式。设置断点和检查变量会更容易。
 - en: 'Type conflict error at ‘<EOL>’: I get this sometimes setting a breakpoint when
     I get a module name wrong. Check your ‘bp module!class::method’ syntax. The module
     is the same as the DLL name, without the .dll suffix.'
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在‘<EOL>’处出现类型冲突错误：有时我在设置断点时，如果模块名称写错了，就会出现这种情况。检查你的‘bp module!class::method’语法。模块与
+    DLL 名称相同，不包括 .dll 后缀。
 - en: windbg commands
+  id: totrans-14
   prefs:
   - PREF_H4
   type: TYPE_NORMAL
+  zh: windbg 命令
 - en: '[PRE0]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Sys Internals
+  id: totrans-16
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: Sys Internals（系统内部工具）
 - en: SysInternal’s tools Process Explorer and Process Monitor are essential debugging
     tools. Here are some common debugging scenarios they can resolve quickly…
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: SysInternal 的工具进程资源管理器和进程监视器是必不可少的调试工具。以下是它们可以快速解决的一些常见调试场景…
 - en: Process Explorer
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 进程资源管理器
 - en: Windows gives you “permission denied” when you attempt to overwrite a DLL. You’ve
     got write permission, so you know some running process must have that DLL loaded.
     But which one? Use PE’s Find/Find Handle or DLL menu option
+  id: totrans-19
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 当你尝试覆盖一个 DLL 时，Windows 会给出“权限被拒绝”的错误。你有写权限，所以你知道某个运行中的进程必须已加载了该 DLL。但是是哪个进程呢？使用
+    PE 的 Find/Find Handle 或 DLL 菜单选项。
 - en: Process Monitor
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 进程监视器
 - en: 'DLL hell: which DLLs are loading, and why? And which are failing to load? depends.exe
     can tell you a lot, but it won’t help with runtime behaviour. With event filters
     set to file system and Registry, PM will show you which ProgId and ClassId entries
     are checked in the registry, and which paths on the FS a binary is looking at.'
+  id: totrans-21
   prefs:
   - PREF_IND
   - PREF_UL
   type: TYPE_NORMAL
+  zh: DLL 地狱：哪些 DLL 正在加载，以及为什么？哪些加载失败了？depends.exe 可以告诉你很多信息，但它不会帮助你处理运行时行为。设置事件过滤器为文件系统和注册表，PM
+    将显示你在注册表中检查了哪些 ProgId 和 ClassId 条目，以及一个二进制文件正在查看哪些文件系统路径。

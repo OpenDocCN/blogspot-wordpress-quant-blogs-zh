@@ -1,166 +1,260 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:14:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:14:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: CAB and WorkItems'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：CAB和工作项
 - en: 来源：[http://magmasystems.blogspot.com/2006/11/cab-and-workitems.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-and-workitems.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/11/cab-and-workitems.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-and-workitems.html#0001-01-01)
 - en: '**WorkItems**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工作项**'
 - en: A
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个
 - en: '**WorkItem**'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工作项**'
 - en: is considered to represent a “use case” in CAB terminology. Ignore this. It
     is really just a container of other kinds of objects along with some state information.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在CAB术语中，它被认为代表一个“用例”。忽略这个。它实际上只是一个包含其他类型对象以及一些状态信息的容器。
 - en: A CAB application has a tree of WorkItems. The main CabApplication class contains
     a reference to the root WorkItem, which is referred to by the
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个CAB应用程序有一个工作项树。主要的CabApplication类包含对根工作项的引用，它是由
 - en: '**RootWorkItem**'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**根工作项**'
 - en: property. Given a WorkItem, you can go up one level to its ParentWorkItem, or
     down to the next level by accessing the workItem.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 属性。给定一个工作项，您可以向上移动一个级别到其父工作项，或者通过访问工作项向下移动到下一个级别。
 - en: '**WorkItems**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工作项**'
 - en: collection.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 集合。
 - en: 'Recall that the main application class is defined like this:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 回想一下，主应用程序类是这样定义的：
 - en: '**class CABQuoteViewerApplication : FormShellApplication**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**类CABQuoteViewerApplication：FormShellApplication**'
 - en: The first argument in the generic’s argument list is the type of WorkItem that
     will be the RootWorkItem of our entire application. All other WorkItems will be
     descendants of this RootWorkItem. A WorkItem has access to any of its descendant’s
     properties; however, sibling WorkItems cannot access eachother’s properties directly.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 在泛型的参数列表中的第一个参数是将成为我们整个应用程序的`RootWorkItem`的工作项类型。所有其他的工作项都将是这个`RootWorkItem`的子项。一个工作项可以访问其任何子项的属性；然而，兄弟姐妹工作项不能直接访问彼此的属性。
 - en: 'A WorkItem also contains various other collections. It has collections of:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 工作项还包含各种其他集合。它有如下集合：
 - en: Workspaces
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 工作区
 - en: SmartParts
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 智能部件
 - en: Commands
+  id: totrans-21
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 命令
 - en: EventTopics
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 事件主题
 - en: Services
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 服务
 - en: Items (you can stick any object in this collection, including state, views,
     etc)
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 项目（您可以将任何对象放入这个集合中，包括状态、视图等）
 - en: A WorkItem can contain a
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个工作项可以包含一个
 - en: '**State**'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '**状态**'
 - en: . This is a named collection of name/value pairs. Events are fired when a value
     in the State changes. When a WorkItem is saved, its State is saved along with
     it.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 。这是一个命名集合，包含名称/值对。当状态中的值发生变化时会触发事件。当工作项被保存时，其状态会与其一起保存。
 - en: You can Activate/Deactivate a WorkItem, Terminate it, and persist it (Save and
     Load).
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 您可以激活/去激活一个工作项，终止它，并持久化它（保存和加载）。
 - en: There is a virtual function called
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 有一个名为
 - en: '***OnRunStarted***'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '***OnRunStarted***'
 - en: () that you can override in order to create views, read data, etc.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: ()，您可以重写它以创建视图、读取数据等。
 - en: '**WorkItemExtensions**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工作项扩展**'
 - en: A
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个
 - en: '**WorkItemExtension**'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工作项扩展**'
 - en: 'is a way of extending the behavior of a WorkItem without having to change the
     WorkItem’s code nor resorting to subclassing the WorkItem. It is a class that
     just receives certain events that happen to the associated WorkItem. These events
     are:'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 是一种扩展工作项行为的方法，而无需更改工作项的代码或诉诸于工作项的子类化。它是一个类，只是接收与关联工作项发生的某些事件。这些事件包括：
 - en: Initialized
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 初始化
 - en: RunStarted
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 运行开始
 - en: Activated
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 激活
 - en: Deactivated
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 去激活
 - en: Terminated
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 终止
 - en: To extend a WorkItem, you need to create a new subclass of WorkItemExtension.
     Then you need to create an object of that class; this object is associated with
     an underlying WorkItem. Then you just handle certain events that happen to the
     WorkItem.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 要扩展工作项，您需要创建一个工作项扩展的子类。然后，您需要创建该类的对象；这个对象与底层的工作项相关联。然后，您只需处理工作项发生的某些事件。
 - en: '[PRE0]'
+  id: totrans-42
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'And, to use this new WorkItemExtension, you would do the following:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用这个新的工作项扩展，您需要做以下操作：
 - en: '[PRE1]'
+  id: totrans-44
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: This concept is very much akin to the “advice” that AOP containers like Spring.Net
     provide for you, except that you do not have any runtime code injection.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个概念与Spring.Net等AOP容器提供的“建议”非常相似，只不过你没有任何运行时代码注入。
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

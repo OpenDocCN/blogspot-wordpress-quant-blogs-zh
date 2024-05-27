@@ -1,95 +1,152 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:34:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年05月18日 05:34:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: RStudio H2O Data Munging | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: RStudio H2O 数据处理 | 交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/04/04/rstudio-h2o-data-munging/#0001-01-01](https://mdavey.wordpress.com/2016/04/04/rstudio-h2o-data-munging/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/04/04/rstudio-h2o-data-munging/#0001-01-01](https://mdavey.wordpress.com/2016/04/04/rstudio-h2o-data-munging/#0001-01-01)
 - en: The following is probably already well known to [RStudio](https://www.rstudio.com/) H2O
     experts, but for anyone not familiar with [H2O](http://www.h2o.ai/), it may aid.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下可能对 [RStudio](https://www.rstudio.com/) 的 H2O 专家来说已经非常熟悉，但对于不熟悉 [H2O](http://www.h2o.ai/)
+    的任何人来说，这可能会有所帮助。
 - en: 'Some context to begin:  I’ve got various data sets, and want to begin to experiment
     with the various H2O algo’s, ideally to gain insight from the data through predictions,
     and how the data is clustered.  The initial data set isn’t large, but will I suspect
     inhibit algorithms such as deep learning.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些开始的上下文：我有各种数据集，并希望开始尝试各种 H2O 算法，理想情况下通过预测从数据中获得见解，以及数据是如何聚类的。初始数据集并不大，但我怀疑会阻碍诸如深度学习之类的算法。
 - en: When loading a CSV file with headers via h2o.uploadFile, make sure each column
     header is unique 🙂  Obvious, but not sometimes 🙂
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 当通过 `h2o.uploadFile` 加载带标题的 CSV 文件时，请确保每个列标题是唯一的🙂 显而易见，但有时并不是🙂
 - en: '[PRE0]'
+  id: totrans-9
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'Colnames and summary are useful sometimes:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 列名和摘要有时很有用：
 - en: '[PRE1]'
+  id: totrans-11
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: RStudio [Tips](https://twitter.com/rstudiotips) can be useful.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: RStudio [技巧](https://twitter.com/rstudiotips) 可能很有用。
 - en: 'Histograms can be easily displayed for a column using:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 柱状图可以通过以下方式轻松显示一列：
 - en: '[PRE2]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Get to the help page of a H2O algorithm using help:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用 `help` 获取 H2O 算法的帮助页面：
 - en: '[PRE3]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[Cross Validated](http://stats.stackexchange.com/) is a question and answer
     site for people interested in statistics, machine learning, data analysis, data
     mining, and data visualization – I’ve found it useful a few times for answers
     to questions.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[交叉验证](http://stats.stackexchange.com/) 是一个问题和答案网站，专门为对统计学、机器学习、数据分析、数据挖掘和数据可视化感兴趣的人士设计
+    - 我发现有几次对问题的答案很有用。'
 - en: The R H2O [tutorial](http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/Ruser/rtutorial.html)
     is helpful, but what is missing is more detail on understanding the output from
     the algorithms.  As an example, take the sample code for prostate.csv.  Once the Generalized
     linear model is applied to the dataset, more information on the output, and also
     the summary() output would aid beginners.  I suspect this is some book or other
     reading material that solve this knowledge gap.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: R H2O [教程](http://h2o-release.s3.amazonaws.com/h2o/rel-lambert/5/docs-website/Ruser/rtutorial.html)
+    很有帮助，但缺少更多关于理解算法输出的细节。例如，拿 `prostate.csv` 的示例代码来说。一旦将广义线性模型应用于数据集，对输出的更多信息以及 `summary()`
+    输出将有助于初学者。我怀疑这是某本书或其他阅读材料解决这个知识缺口的地方。
 - en: 'Re-writing the prostate code for 3.8.06 H2O, leads to the following:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 为3.8.06 H2O重新编写前列腺代码，得到以下结果：
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: 'Which provides the following output form summary():'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 提供了以下 `summary()` 的输出格式：
 - en: '[PRE5]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: Which based on this [posting](http://www.r-bloggers.com/things-to-try-after-user-part-1-deep-learning-with-h2o/),
     provides “the predicted label with the probabilities of all possible outcomes
     (or numeric outputs for regression problems)”
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 根据这个 [帖子](http://www.r-bloggers.com/things-to-try-after-user-part-1-deep-learning-with-h2o/)，提供了“具有所有可能结果的概率的预测标签（或回归问题的数值输出）”
 - en: ~ by mdavey on April 4, 2016.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：mdavey，2016年4月4日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/), [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在 [数据](https://mdavey.wordpress.com/category/data/)、[未分类](https://mdavey.wordpress.com/category/uncategorized/)
+    中

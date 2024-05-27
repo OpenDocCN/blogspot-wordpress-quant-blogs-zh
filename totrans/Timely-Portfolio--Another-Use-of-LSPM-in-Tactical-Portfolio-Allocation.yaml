@@ -1,522 +1,857 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:17:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:17:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Another Use of LSPM in Tactical Portfolio Allocation'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：LSPM在战术投资组合分配中的另一种应用
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/another-use-of-lspm-in-tactical.html#0001-01-01)
 - en: After the slightly unconventional use of LSPM presented in [Slightly Different
     Use of Ralph Vince’s Leverage Space Trading Model](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html),
     I thought I should follow up with something that more closely resembles my interpretation
     of Ralph Vince’s book.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[Ralph Vince的杠杆空间交易模型](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html)的稍微不寻常使用之后，我认为我应该跟进一些更接近我对Ralph
+    Vince书籍的解释的内容。
 - en: LSPM seems to work well for portfolio allocation problems.  In this tactical
     allocation system, I will use optimal f derived in R with the LSPM package to
     build a portfolio with SP500, US10y, and the CRB.  If we use the optimal f as
     our allocation to SP500 and CRB, then the results look like this.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: LSPM似乎在投资组合分配问题中表现良好。在这个战术分配系统中，我将使用R中LSPM包生成的最优f来构建包含SP500、美国10年和CRB的投资组合。如果我们使用最优f作为对SP500和CRB的分配，那么结果看起来像这样。
 - en: In general, my biggest problem is applying my systems to an entire portfolio. 
     The components are easy, but the blending is troublesome.  If I apply a basic
     method of monthly rebalancing of the SP500 and CRB, I get something like this
     (not using any leverage).
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，我最大的问题是在整个投资组合中应用我的系统。组成部分很简单，但是融合很麻烦。如果我应用基本的方法对SP500和CRB进行月度再平衡，我会得到这样东西（不使用任何杠杆）。
 - en: SP500 component improves, but because of my 50% limit on the more mean reverting
     CRB, the CRB component underperforms the straight optimal f allocation.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: SP500组成部分有所改善，但由于我对更倾向于回归均值的CRB设定了50%的限制，CRB组成部分的表现不及直接最优的f分配。
 - en: Since most clients don’t like cash, we can fill the portfolio with bonds when
     there is room left over after the CRB and SP500 allocation.  The total package
     look like this.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于大多数客户不喜欢现金，当分配完CRB和SP500后还有剩余空间时，我们可以用债券填满投资组合。整个套餐看起来像这样。
 - en: As always, I would like my posts to stimulate discussion and thought.  The drawdown
     here is much more severe than I would like.  Please let me know how you would
     improve this system.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如我之前的所有帖子一样，我希望我的帖子能激发讨论和思考。这里的回撤比我希望的要严重得多。请告诉我您如何改进这个系统。
 - en: 'R code:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: '#Please see au.tra.sy blog [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请参阅au.tra.sy博客[http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
 - en: '#for original walkforward/optimize code and [http://www.fosstrading.com](http://www.fosstrading.com)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#原始前进/优化代码和[http://www.fosstrading.com](http://www.fosstrading.com)'
 - en: '#for other techniques'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#用于其他技术'
 - en: require(PerformanceAnalytics)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 要求（PerformanceAnalytics）
 - en: require(quantmod)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要求（quantmod）
 - en: require(RQuantLib)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 要求（RQuantLib）
 - en: '#get bond returns to avoid proprietary data problems'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '#获取债券回报以避免专有数据问题'
 - en: '#see previous timelyportfolio blogposts for explanation'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请参阅之前的timelyportfolio博客文章，以了解解释'
 - en: '#probably need to make this a function since I will be using so much'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '#可能需要将其制成函数，因为我将大量使用'
 - en: 'getSymbols("GS10",src="FRED") #load US Treasury 10y from Fed Fred'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '获取符号("GS10"，来源="FRED") #从美联储弗雷德加载美国国债10年'
 - en: 'GS10pricereturn<-GS10  #set this up to hold price returns'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 'GS10pricereturn<-GS10 #设置此符号以持有价格回报'
 - en: GS10pricereturn[1,1]<-0
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10pricereturn[1,1]<-0
 - en: colnames(GS10pricereturn)<-"PriceReturn"
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(GS10pricereturn)<-"PriceReturn"
 - en: '#I know I need to vectorize this but not qualified enough yet'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我知道我需要将此内容向量化，但还不够资格'
 - en: '#Please feel free to comment to show me how to do this'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请随意留言，告诉我如何做到这一点'
 - en: for (i in 1:(NROW(GS10)-1)) {
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于（i 在 1:（NROW(GS10)-1））{
 - en: GS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=GS10[i+1,1]/100,issueDate=Sys.Date(),
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10pricereturn[i+1,1]<-FixedRateBondPriceByYield(yield=GS10[i+1,1]/100,issueDate=Sys.Date(),
 - en: maturityDate= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 到期日= advance("UnitedStates/GovernmentBond", Sys.Date(), 10, 3),
 - en: rates=GS10[i,1]/100,period=2)[1]/100-1
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: rates=GS10[i,1]/100,period=2)[1]/100-1
 - en: '}'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#interest return will be yield/12 for one month'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '#利息回报将是收益率/12的一个月'
 - en: GS10interestreturn<-lag(GS10,k=1)/12/100
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10interestreturn<-lag(GS10,k=1)/12/100
 - en: colnames(GS10interestreturn)<-"Interest Return"
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(GS10interestreturn)<-"Interest Return"
 - en: '#total return will be the price return + interest return'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '#总回报将是价格回报+利息回报'
 - en: GS10totalreturn<-GS10pricereturn+GS10interestreturn
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: GS10totalreturn<-GS10pricereturn+GS10interestreturn
 - en: colnames(GS10totalreturn)<-"Bond Total Return"
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '`colnames(GS10totalreturn)<-"Bond Total Return"`'
 - en: '#get sp500 returns from FRED'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 从 FRED 获取 sp500 收益率'
 - en: 'getSymbols("SP500",src="FRED") #load SP500'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '`getSymbols("SP500",src="FRED")` # 加载 SP500'
 - en: '#unfortunately cannot get substitute for proprietary CRB data'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 不幸的是，无法替代专有的 CRB 数据'
 - en: '#get data series from csv file'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 从 csv 文件获取数据系列'
 - en: CRB<-as.xts(read.csv("spxcrbndrbond.csv",row.names=1))[,2]
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '`CRB<-as.xts(read.csv("spxcrbndrbond.csv",row.names=1))[,2]`'
 - en: '#do a little manipulation to get the data lined up on monthly basis'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '#对数据进行一些操作，以便按月份排列数据'
 - en: GS10totalreturn<-to.monthly(GS10totalreturn)[,4]
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '`GS10totalreturn<-to.monthly(GS10totalreturn)[,4]`'
 - en: SP500<-to.monthly(SP500)[,4]
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '`SP500<-to.monthly(SP500)[,4]`'
 - en: '#get monthly format to yyyy-mm-dd with the first day of the month'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 将月份格式化为 yyyy-mm-dd，第一天为月初'
 - en: index(SP500)<-as.Date(index(SP500))
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`index(SP500)<-as.Date(index(SP500))`'
 - en: '#my CRB data is end of month; could change but more fun to do in R'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我的 CRB 数据是每月末; 可以改变但在 R 中更有趣'
 - en: CRB<-to.monthly(CRB)[,4]
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: '`CRB<-to.monthly(CRB)[,4]`'
 - en: index(CRB)<-as.Date(index(CRB))
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '`index(CRB)<-as.Date(index(CRB))`'
 - en: '#now lets merge to get asset class returns'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '#现在让我们合并以获取资产类别回报'
 - en: assetROC<-na.omit(merge(ROC(SP500,type="discrete"),CRB,GS10totalreturn))
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '`assetROC<-na.omit(merge(ROC(SP500,type="discrete"),CRB,GS10totalreturn))`'
 - en: Set Walk-Forward parameters (number of periods)
+  id: totrans-54
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 设置 Walk-Forward 参数（周期数）
 - en: 'optim<-12 #1 year = 12 monthly returns'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '`optim<-12` #1 年 = 12 个月收益率'
 - en: 'wf<-1 #walk forward 1 monthly returns'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: '`wf<-1` #每月向前行走 1 步'
 - en: numsys<-2
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '`numsys<-2`'
 - en: Calculate number of WF cycles
+  id: totrans-58
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 计算 WF 周期数
 - en: numCycles = floor((nrow(assetROC)-optim)/wf)
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '`numCycles = floor((nrow(assetROC)-optim)/wf)`'
 - en: Define JPT function
+  id: totrans-60
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 定义 JPT 函数
 - en: this is now part of LSPM package, but fails when no negative returns
+  id: totrans-61
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 现在这是 LSPM 包的一部分，但是当没有负回报时会失败
 - en: so I still include this where I can force a negative return
+  id: totrans-62
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 因此我仍然在这里包括可以强制负回报的内容
 - en: jointProbTable <- function(x, n=3, FUN=median, ...) {
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '`jointProbTable <- function(x, n=3, FUN=median, ...) {`'
 - en: '# Load LSPM'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 加载 LSPM'
 - en: if(!require(LSPM,quietly=TRUE)) stop(warnings())
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（`!require(LSPM,quietly=TRUE)`）则停止（警告）
 - en: '# handle case with no negative returns'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 处理没有负回报的情况'
 - en: for (sys in 1:numsys) {
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于 `sys` 中的每个系统 {
 - en: if (min(x[,sys])> -1) x[,sys][which.min(x[,sys])]<- -0.03
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（`min(x[,sys])> -1`）`x[,sys][which.min(x[,sys])]<- -0.03`
 - en: '}'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '# Function to bin data'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 将数据进行分组的函数'
 - en: quantize <- function(x, n, FUN=median, ...) {
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: '`quantize <- function(x, n, FUN=median, ...) {`'
 - en: if(is.character(FUN)) FUN <- get(FUN)
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（`is.character(FUN)`）`FUN <- get(FUN)`
 - en: bins <- cut(x, n, labels=FALSE)
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: '`bins <- cut(x, n, labels=FALSE)`'
 - en: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '`res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))`'
 - en: '}'
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '# Allow for different values of ''n'' for each system in ''x'''
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 允许在 ''x'' 中的每个系统中使用不同的 ''n'' 值'
 - en: if(NROW(n)==1) {
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果（`NROW(n)==1`）{
 - en: n <- rep(n,NCOL(x))
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: '`n <- rep(n,NCOL(x))`'
 - en: '} else'
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: '} else'
 - en: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果 `n` 的行数不等于 `x` 的列数，则停止（"invalid 'n'"）。
 - en: '# Bin data in ''x'''
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 将 ''x'' 中的数据进行分组'
 - en: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: '`qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))`'
 - en: '# Aggregate probabilities'
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 聚合概率'
 - en: probs <- rep(1/NROW(x),NROW(x))
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: '`probs <- rep(1/NROW(x),NROW(x))`'
 - en: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '`res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)`'
 - en: '# Clean up output, return lsp object'
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 清理输出，返回 lsp 对象'
 - en: colnames(res) <- colnames(x)
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: '`colnames(res) <- colnames(x)`'
 - en: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '`res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])`'
 - en: return(res)
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: '`return(res)`'
 - en: '}'
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: for (i in 0:(numCycles-1)) {
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于 `i` 在 `0:(numCycles-1)` 之间 {
 - en: '# Define cycle boundaries'
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 定义周期边界'
 - en: start<-1+(i*wf)
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: '`start<-1+(i*wf)`'
 - en: end<-optim+(i*wf)
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: '`end<-optim+(i*wf)`'
 - en: '# Get returns for optimization cycle and create the JPT'
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 获取优化周期的收益率并创建 JPT'
 - en: '# specify number of bins; does not seem to drastically affect results'
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 指定箱数; 看起来不会对结果产生重大影响'
 - en: numbins<-6
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: '`numbins<-6`'
 - en: jpt <- jointProbTable(assetROC[start:end,1:numsys],n=rep(numbins,numsys))
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: '`jpt <- jointProbTable(assetROC[start:end,1:numsys],n=rep(numbins,numsys))`'
 - en: outcomes<-jpt[[1]]
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: '`outcomes<-jpt[[1]]`'
 - en: probs<-jpt[[2]]
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: '`probs<-jpt[[2]]`'
 - en: port<-lsp(outcomes,probs)
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: '`port<-lsp(outcomes,probs)`'
 - en: '# DEoptim parameters (see ?DEoptim)'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '# DEoptim 参数（参见?DEoptim）'
 - en: 'np=numsys*10       # 10 * number of mktsys'
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: '`np=numsys*10`       # 10 * mktsys 的数量'
 - en: 'imax=1000       #maximum number of iterations'
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: '`imax=1000`       # 最大迭代次数'
 - en: 'crossover=0.6       #probability of crossover'
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: '`crossover=0.6`       # 交叉概率'
 - en: NR <- NROW(port$f)
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: '`NR <- NROW(port$f)`'
 - en: DEctrl <- list(NP=np, itermax=imax, CR=crossover, trace=TRUE)
+  id: totrans-107
   prefs: []
   type: TYPE_NORMAL
+  zh: '`DEctrl <- list(NP=np, itermax=imax, CR=crossover, trace=TRUE)`'
 - en: '# Optimize f'
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 优化 f'
 - en: res <- optimalf(port, control=DEctrl)
+  id: totrans-109
   prefs: []
   type: TYPE_NORMAL
+  zh: '`res <- optimalf(port, control=DEctrl)`'
 - en: '# use upper to restrict to a level that you might feel comfortable'
+  id: totrans-110
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 使用 upper 来限制到您可能感到舒适的水平'
 - en: '#res <- optimalf(port, control=DEctrl, lower=rep(0,13), upper=rep(0.2,13))'
+  id: totrans-111
   prefs: []
   type: TYPE_NORMAL
+  zh: '#res <- optimalf(port, control=DEctrl, lower=rep(0,13), upper=rep(0.2,13))'
 - en: '# these are other possibilities but I gave up after 24 hours'
+  id: totrans-112
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 这些是其他可能性，但我在 24 小时后放弃了'
 - en: '#maxProbProfit from Foss Trading'
+  id: totrans-113
   prefs: []
   type: TYPE_NORMAL
+  zh: '#来自 Foss Trading 的 maxProbProfit'
 - en: '#res<-maxProbProfit(port, 1e-6, 6, probDrawdown, 0.1, DD=0.2, control=DEctrl)'
+  id: totrans-114
   prefs: []
   type: TYPE_NORMAL
+  zh: '#res<-maxProbProfit(port, 1e-6, 6, probDrawdown, 0.1, DD=0.2, control=DEctrl)'
 - en: '#probDrawdown from Foss Trading'
+  id: totrans-115
   prefs: []
   type: TYPE_NORMAL
+  zh: '#来自Foss Trading的probDrawdown'
 - en: '#res<-optimalf(port,probDrawdown,0.1,DD=0.2,horizon=6,control=DEctrl)'
+  id: totrans-116
   prefs: []
   type: TYPE_NORMAL
+  zh: '#res<-optimalf(port,probDrawdown,0.1,DD=0.2,horizon=6,control=DEctrl)'
 - en: '# Save leverage amounts as optimal f'
+  id: totrans-117
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 将杠杆金额保存为最优f'
 - en: '# Examples in the book Ralph Vince Leverage Space Trading Model'
+  id: totrans-118
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 书中的例子Ralph Vince Leverage Space Trading Model'
 - en: '# all in dollar terms which confuses me'
+  id: totrans-119
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 全部以美元为单位，这让我感到困惑'
 - en: '# until I resolve I changed lev line to show optimal f output'
+  id: totrans-120
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 直到我解决了将Lev线变更为显示最优f输出为止'
 - en: lev<-res$f[1:numsys]
+  id: totrans-121
   prefs: []
   type: TYPE_NORMAL
+  zh: lev<-res$f[1:numsys]
 - en: '#lev<-c(res$f[1]/(-jpt$maxLoss[1]/10),res$f[2]/(-jpt$maxLoss[2]/10))'
+  id: totrans-122
   prefs: []
   type: TYPE_NORMAL
+  zh: '#lev<-c(res$f[1]/(-jpt$maxLoss[1]/10),res$f[2]/(-jpt$maxLoss[2]/10))'
 - en: 'levmat<-c(rep(1,wf)) %o% lev #so that we can multiply with the wfassetROC'
+  id: totrans-123
   prefs: []
   type: TYPE_NORMAL
+  zh: 'levmat<-c(rep(1,wf)) %o% lev #这样我们就可以与wfassetROC相乘'
 - en: '# Get the returns for the next Walk-Forward period'
+  id: totrans-124
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 获取下一个Walk-Forward期间的收益'
 - en: wfassetROC <- assetROC[(end+1):(end+wf),1:numsys]
+  id: totrans-125
   prefs: []
   type: TYPE_NORMAL
+  zh: wfassetROC <- assetROC[(end+1):(end+wf),1:numsys]
 - en: 'wflevassetROC <- wfassetROC*levmat #apply leverage to the returns'
+  id: totrans-126
   prefs: []
   type: TYPE_NORMAL
+  zh: 'wflevassetROC <- wfassetROC*levmat #将杠杆应用于收益'
 - en: if (i==0) fullassetROC<-wflevassetROC else fullassetROC<-rbind(fullassetROC,wflevassetROC)
+  id: totrans-127
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) fullassetROC<-wflevassetROC else fullassetROC<-rbind(fullassetROC,wflevassetROC)
 - en: if (i==0) levered<-levmat else levered<-rbind(levered,levmat)
+  id: totrans-128
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) levered<-levmat else levered<-rbind(levered,levmat)
 - en: '}'
+  id: totrans-129
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#not super familiar with xts, but this add dates to levered'
+  id: totrans-130
   prefs: []
   type: TYPE_NORMAL
+  zh: '#对xts不是很熟悉，但这会给levered添加日期'
 - en: levered<-xts(levered,order.by=index(fullassetROC) )
+  id: totrans-131
   prefs: []
   type: TYPE_NORMAL
+  zh: levered<-xts(levered,order.by=index(fullassetROC) )
 - en: colnames(levered)<-c("sp500 optimal f","crb optimal f")
+  id: totrans-132
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(levered)<-c("sp500最优f","crb最优f")
 - en: chart.TimeSeries(levered, legend.loc="topleft", cex.legend=0.6)
+  id: totrans-133
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(levered, legend.loc="topleft", cex.legend=0.6)
 - en: '#review the optimal f values'
+  id: totrans-134
   prefs: []
   type: TYPE_NORMAL
+  zh: '#审查最优f值'
 - en: '#I had to fill the window to my screen to avoid a error from R on margins'
+  id: totrans-135
   prefs: []
   type: TYPE_NORMAL
+  zh: '#我必须将窗口填满到屏幕上，以避免R报错边距'
 - en: par(mfrow=c(numsys,1))
+  id: totrans-136
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(numsys,1))
 - en: for (i in 1:numsys) {
+  id: totrans-137
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 1:numsys) {
 - en: chart.TimeSeries(levered[,i],xlab=NULL)
+  id: totrans-138
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(levered[,i],xlab=NULL)
 - en: '}'
+  id: totrans-139
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#charts.PerformanceSummary(fullassetROC, ylog=TRUE, main="Performance Summary
     with Optimal f Applied as Allocation")'
+  id: totrans-140
   prefs: []
   type: TYPE_NORMAL
+  zh: '#charts.PerformanceSummary(fullassetROC, ylog=TRUE, main="Performance Summary
+    with Optimal f Applied as Allocation")'
 - en: assetROCAnalyze<-merge(assetROC,fullassetROC)
+  id: totrans-141
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCAnalyze<-merge(assetROC,fullassetROC)
 - en: colnames(assetROCAnalyze)<-c("sp500","crb","US10y","sp500 f","crb f")
+  id: totrans-142
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(assetROCAnalyze)<-c("sp500","crb","US10y","sp500 f","crb f")
 - en: charts.PerformanceSummary(assetROCAnalyze,ylog=TRUE,main="Performance Summary
     with Optimal f Applied as Allocation")
+  id: totrans-143
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(assetROCAnalyze,ylog=TRUE,main="Performance Summary
+    with Optimal f Applied as Allocation")
 - en: '#build a portfolio with sp500 and crb'
+  id: totrans-144
   prefs: []
   type: TYPE_NORMAL
+  zh: '#建立一个包含SP500和CRB的投资组合'
 - en: leveredadjust<-levered
+  id: totrans-145
   prefs: []
   type: TYPE_NORMAL
+  zh: leveredadjust<-levered
 - en: '#allow up to 50% allocation in CRB'
+  id: totrans-146
   prefs: []
   type: TYPE_NORMAL
+  zh: '#允许CRB的分配高达50%'
 - en: leveredadjust[,2]<-ifelse(levered[,2]<0.25,0,0.5)
+  id: totrans-147
   prefs: []
   type: TYPE_NORMAL
+  zh: leveredadjust[,2]<-ifelse(levered[,2]<0.25,0,0.5)
 - en: '#allow up to 100% allocation in SP500 but portfolio constrained to 1 leverage'
+  id: totrans-148
   prefs: []
   type: TYPE_NORMAL
+  zh: '#允许在SP500中分配高达100%，但投资组合受到1倍杠杆的限制'
 - en: leveredadjust[,1]<-ifelse(levered[,1]<0.25,0,1-levered[,2])
+  id: totrans-149
   prefs: []
   type: TYPE_NORMAL
+  zh: leveredadjust[,1]<-ifelse(levered[,1]<0.25,0,1-levered[,2])
 - en: colnames(leveredadjust)<-c("sp500 portfolio allocation","crb portfolio allocation")
+  id: totrans-150
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(leveredadjust)<-c("sp500投资组合分配","crb投资组合分配")
 - en: assetROCadjust<-merge(assetROCAnalyze,leveredadjust[,1:2]*assetROC[,1:2])
+  id: totrans-151
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCadjust<-merge(assetROCAnalyze,leveredadjust[,1:2]*assetROC[,1:2])
 - en: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","sp500 system
     component","crb system component")
+  id: totrans-152
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","sp500系统组件","crb系统组件")
 - en: charts.PerformanceSummary(assetROCadjust,ylog=TRUE)
+  id: totrans-153
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(assetROCadjust,ylog=TRUE)
 - en: '#review the allocations versus optimal f'
+  id: totrans-154
   prefs: []
   type: TYPE_NORMAL
+  zh: '#审查分配与最优f'
 - en: '#I had to fill the window to my screen to avoid a error from R on margins'
+  id: totrans-155
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 我必须将窗口填满到屏幕上，以避免R报错边距'
 - en: par(mfrow=c(numsys,1))
+  id: totrans-156
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(numsys,1))
 - en: for (i in 1:numsys) {
+  id: totrans-157
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 1:numsys) {
 - en: chart.TimeSeries(merge(levered[,i],leveredadjust[,i]),xlab=NULL,legend.loc="topleft",main="")
+  id: totrans-158
   prefs: []
   type: TYPE_NORMAL
+  zh: chart.TimeSeries(merge(levered[,i],leveredadjust[,i]),xlab=NULL,legend.loc="topleft",main="")
 - en: '}'
+  id: totrans-159
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '#add bonds when out of sp500 or crb'
+  id: totrans-160
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 当脱离SP500或CRB时添加债券'
 - en: assetROCportfolio<-assetROCadjust[,6]+assetROCadjust[,7]+ifelse(leveredadjust[,1]+leveredadjust[,2]
     >= 1,0,(1-leveredadjust[,1]-leveredadjust[,2])*assetROC[,3])
+  id: totrans-161
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCportfolio<-assetROCadjust[,6]+assetROCadjust[,7]+ifelse(leveredadjust[,1]+leveredadjust[,2]
+    >= 1,0,(1-leveredadjust[,1]-leveredadjust[,2])*assetROC[,3])
 - en: assetROCadjust<-merge(assetROCAnalyze,assetROCportfolio)
+  id: totrans-162
   prefs: []
   type: TYPE_NORMAL
+  zh: assetROCadjust<-merge(assetROCAnalyze,assetROCportfolio)
 - en: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","system
     portfolio")
+  id: totrans-163
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(assetROCadjust)<-c("sp500","crb","US10y","sp500 f","crb f","系统投资组合")
 - en: charts.PerformanceSummary(assetROCadjust[,c(1:3,6)],ylog=TRUE,main="Optimal
     f System Portfolio with Bond Filler")
+  id: totrans-164
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(assetROCadjust[,c(1:3,6)],ylog=TRUE,main="Optimal
+    f System Portfolio with Bond Filler")

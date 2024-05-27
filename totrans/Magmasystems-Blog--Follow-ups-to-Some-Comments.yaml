@@ -1,83 +1,121 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:55:52'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:55:52'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Follow-ups to Some Comments'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 对一些评论的后续'
 - en: 来源：[http://magmasystems.blogspot.com/2009/02/follow-ups-to-some-comments.html#0001-01-01](http://magmasystems.blogspot.com/2009/02/follow-ups-to-some-comments.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2009/02/follow-ups-to-some-comments.html#0001-01-01](http://magmasystems.blogspot.com/2009/02/follow-ups-to-some-comments.html#0001-01-01)
 - en: Marco says:>> What do you mean by "Entitlements on output events"?
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Marco说：>> “输出事件上的权限”是什么意思？
 - en: I have blogged about this here before. When our CEP engine generates alerts,
     we do not want everyone to see them. There might be very few people who can see
     alerts on orders. Prop traders should not see many of the the alerts that sales
     traders see. One trading desk might not be able to receive the alerts that another
     trading desk should see.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前在这里写过关于这个话题的博客。当我们的CEP引擎生成警报时，我们不希望每个人都看到它们。可能只有很少的人能看到订单上的警报。证券交易员不应该看到很多销售交易员看到的警报。一个交易台可能无法接收到另一个交易台应该看到的警报。
 - en: We have the concept of coarse-grained and fine-grained alerts. A coarse-grained
     alert might be filtered out by role. For example, a particular alert should only
     be seen by a North American Cash Trader, and not by derivative traders. In the
     case of fine-grained entitlements, we might have to filter by certain data that
     is within the alert's payload. For example, someone might not be able to see an
     alert if the symbol is IBM and the volume is greater that 1000 shares.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们有粗粒度警报和细粒度警报的概念。一个粗粒度警报可能会被角色过滤掉。例如，一个特定的警报应该只被北美现金交易员看到，而不是衍生品交易员。在细粒度权限的情况下，我们可能需要针对警报有效负载中的某些数据进行过滤。例如，如果股票代码是IBM，且成交量超过1000股，某人可能无法看到警报。
 - en: There is also the matter of entitlements on real-time aggregations, but that
     is another long topic.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 还有实时聚合上的权限问题，但这又是另一个话题。
 - en: Charlie Skelton from KX says:>> "don't make us code in Q" Please can you elaborate?
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Charlie Skelton来自KX说：>> “不要让我们用Q编程”请详细说明一下？
 - en: Charlie, I have written ad nauseum here about Kdb and Q. I actually started
     to learn Q a few months ago in order to be able to read some of the code that
     was thrown our way. I have a greater appreciation of Q than I did a few months
     ago, but I would not want to ask all of my developers to learn Q.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Charlie，我这里已经写了很多关于Kdb和Q的东西。实际上，几个月前我开始学习Q，以便能够阅读一些扔给我们的代码。我对Q的理解比几个月前要深，但我不想让所有的开发者都去学习Q。
 - en: My opinion is that, if you have a facade (input adapter) to a database, then
     you should be able to code in some database-agnostic way and leave the db-specific
     language access to the drivers. Look what you can do with O/R frameworks like
     Hibernate and iBatis.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的看法是，如果你有一个面向数据库的界面（输入适配器），那么你应该能够以一种与数据库无关的方式编写代码，并将特定于数据库的语言访问留给驱动程序。看看你可以用像Hibernate和iBatis这样的O/R框架做些什么。
 - en: Hans asked about Unit Testing
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: Hans询问了关于单元测试的问题
 - en: When we first started to use Coral8, we actually wrote a C# application that
     did the exact same thing as our Coral8 application and we did reconciliations
     between the two. We had found an issue or two with Coral8, which they were able
     to fix fairly rapidly. We also found some issues with our Coral8 coding, which
     helped us learn Coral8 better.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们第一次开始使用Coral8时，我们实际上编写了一个C#应用程序，它与我们的大Coral8应用程序完全一样，我们在这两个程序之间进行了对账。我们在Coral8中发现了一个问题或两个，他们能够相当快地修复这些问题。我们还发现我们自己的Coral8编码中有一些问题，这使我们更好地了解了Coral8。
 - en: Unit testing is still something that is not mature in our Coral8 processing,
     although we do have unit tests for our internal framework. We have fabricated
     data in flat files that we can pump into our C8 engine, and we can do regression
     testing against a known set of outputs. However, we know that we can do a better
     job.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 单元测试仍然是我们Coral8处理中不够成熟的一个方面，尽管我们确实为我们的内部框架编写了单元测试。我们制作了在平面文件中的数据，我们可以将其泵入我们的C8引擎，我们可以针对一组已知的输出进行回归测试。然而，我们知道我们可以做得更好。
 - en: I would like to hear more about Streambase's unit testing capabilities.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想了解更多关于Streambase的单元测试功能。
 - en: ©2009 Marc Adler - All Rights Reserved.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2009 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里所有的观点都是个人的，与我的雇主无关。

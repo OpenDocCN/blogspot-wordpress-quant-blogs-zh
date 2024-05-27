@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:47:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:47:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Using a Self-Similarity Metric with Intraday Data to Define Market Regimes |
     CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用日内数据定义市场区域的自我相似性指标 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2015/03/13/using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01](https://cssanalytics.wordpress.com/2015/03/13/using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2015/03/13/using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01](https://cssanalytics.wordpress.com/2015/03/13/using-a-self-similarity-metric-with-intraday-data-to-define-market-regimes/#0001-01-01)
 - en: '[![koch snowflake and serpinski triangle](img/517de835227058a2dd047503d392923e.png)](https://cssanalytics.files.wordpress.com/2015/03/koch-snowflake-and-serpinski-triangle.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![koch snowflake and serpinski triangle](img/517de835227058a2dd047503d392923e.png)](https://cssanalytics.files.wordpress.com/2015/03/koch-snowflake-and-serpinski-triangle.png)'
 - en: The images above are the famous [Sierpinski Triangle](http://en.wikipedia.org/wiki/Sierpinski_triangle)
     and the [Koch Snowflake](http://en.wikipedia.org/wiki/Koch_snowflake). These objects
     are “self-similar” and this means that examination at finer levels of resolution
@@ -37,8 +51,10 @@
     the market is wild and unpredictable. The question is how we can effectively determine
     which regime the market is in so that we can apply the appropriate trading strategies
     to mitigate risk.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面图片中的著名[谢尔宾斯基三角形](http://en.wikipedia.org/wiki/Sierpinski_triangle)和[科赫雪花](http://en.wikipedia.org/wiki/Koch_snowflake)。这些对象是“自我相似”的，这意味着在更高分辨率的检查下会显示出相同的形状。两者都是“分形”几何的例子，这种几何形状在很多自然现象中如山脉、晶体和气体中都有特征。自我相似的对象与简单性、冗余性相关，因此具有鲁棒性。自我不相似的对象与复杂性和混沌相关。包括曼德尔布罗特在内的几位数学家观察到市场显然不是高斯分布或正态分布。市场表现出“厚尾”现象，其分布与勒维分布更为相似，而不是在量化金融中经常使用的正态分布。但市场并不具有恒定的分布-有时市场行为相当正常，而在其他时候市场则是狂野且不可预测的。问题是，我们如何有效地确定市场所处的区域，以便我们可以应用适当的交易策略来缓解风险。
 - en: 'The essence of self-similarity and complexity is to compare the whole to its
     component parts. For example lets take a square that is divided into four separate
     squares of equal size. The area of the larger square is equivalent to the sum
@@ -60,35 +76,52 @@
     rank of past returns. Relative measures tend to be more stationary than absolute
     values. To compute this measure of self-similarity I use the intraday range (high
     minus low) versus a longer range window. Here is how it is calculated:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 自我相似性和复杂性的本质在于将整体与它的组成部分进行比较。例如，让我们拿一个被等分成了四个相等大小正方形的正方形。大正方形的面积等于其每个组成部分正方形面积的总和。当然，对于一维线段，其等价于其各部分的和。在股市中识别自我相似性的方法之一是观察最高价和最低价之间的范围或差异。我们期望在一个完全自我相似的市场中，较长的范围等于在较短时间间隔内测量的各个范围的和。市场越混乱，这两个测量值之间的差异就越大。这样的市场状况通常由小范围之和与较长范围测量值的较大比率来表示。本质上，这种关系被称为分形维数，是复杂性的一个度量。有多种不同的方法可以测量这一点，包括使用
+    Hurst 指数，但在我自己的谦逊研究中，我总是发现由特定绝对值定义的建议阈值似乎并不反映与理论一致的信息。我发现相对度量通常更稳健、更一致——这与过去回报的绝对值相比，过去回报的相对排名具有更少的预测价值的情况类似。相对度量通常比绝对值更稳定。为了计算这种自我相似性的度量，我使用日内范围（最高价减去最低价）与更长时间窗口的范围进行比较。计算方法如下：
 - en: 1) find the high minus the low for each day going back 10 days
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 找出过去10天每天的高价减去低价
 - en: 2) take the sum of these values (sum of the pieces)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 取这些值的总和（各部分的和）
 - en: 3) find the 10-day range by taking the 10-day maximum (including the highs)
     and subtracting out the 10-day minimum (whole range)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 通过取10天的最大值（包括最高价）和减去10天的最小值（整个范围）来找到10天的范围
 - en: 4) divide the sum of the pieces by the whole range- this is a basic measure
     of fractal dimension/complexity
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 将各部分的和除以整个范围——这是分形维数/复杂性的基本度量
 - en: 5) take the 60-day average of the 10-day series of the complexity values- this
     is the quarterly “chaos/stability” metric
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 取10天系列复杂值60天的平均值——这是季度的“混沌/稳定性”指标
 - en: 6) use either the 252-day normsdist of the z-score or the percentile ranking
     of the chaos/stability metric
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 使用z-分数的252天标准差或混沌/稳定性指标的百分位数排名
 - en: 7) values above .5 indicate that the market is in a “chaos” regime and is much
     less predictable and non-stationary, values below .5 indicate that the market
     is stable and much more predictable.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 高于0.5的值表明市场处于“混沌”状态，预测性更差，非平稳性更高；低于0.5的值表明市场稳定，更可预测。
 - en: 'When the market is “stable” it is easier to apply effective quantitative trading
     systems. When the market is in “chaos” mode, it is not necessarily volatile- but
     rather it is too complex to use for standard measurement and calibration of basic
@@ -96,14 +129,20 @@
     using the S&P500 as a test set. The high and low values are generally the same
     until about 1963 which is when we will begin this test. Here is how the market
     performed in both regimes over the last 50+ years:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 当市场“稳定”时，更容易应用有效的量化交易系统。当市场处于“混沌”模式时，它不一定具有波动性——而是过于复杂，无法使用标准测量和校准基本线性预测。让我们看看使用标普500作为测试集，这种度量在长时间内表现如何。直到大约1963年，最高值和最低值通常相同，这是我们开始这项测试的时间。以下是过去50多年市场在两种状态下表现如何：
 - en: '[![ssm1](img/d0278fa3029417e240e8f76535a7ce4c.png)](https://cssanalytics.files.wordpress.com/2015/03/ssm1.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![ssm1](img/d0278fa3029417e240e8f76535a7ce4c.png)](https://cssanalytics.files.wordpress.com/2015/03/ssm1.png)'
 - en: '[![ssm2](img/84d4b9e53c89e1e61d49e5cadbc83eed.png)](https://cssanalytics.files.wordpress.com/2015/03/ssm2.png)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![ssm2](img/84d4b9e53c89e1e61d49e5cadbc83eed.png)](https://cssanalytics.files.wordpress.com/2015/03/ssm2.png)'
 - en: The market performs quite poorly in “chaos” conditions, and seems to make all
     of its long-term returns in the “stable” regime. Note however that the volatility
     is not materially different between both regimes- this means that we are capturing
@@ -114,5 +153,7 @@
     to be used to define regimes rather than as a trading signal to go long or short,
     but clearly there are some interesting attributes worthy of further exploration
     and refinement.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: “混沌”状态下市场表现相当糟糕，而且似乎在其“稳定”阶段实现了所有的长期回报。然而，需要注意的是，在这两种状态下波动性并没有本质上的区别——这意味着我们捕捉的不仅仅是高波动性和低波动性市场条件。此外，混沌指标信号与例如200日移动平均线的基本趋势信号之间的相关性为-0.116。这意味着我们捕捉的不仅仅是市场趋势。这个指标旨在用于定义不同的市场阶段，而不是作为做多或做空的交易信号，但显然有一些有趣的属性值得进一步探索和优化。

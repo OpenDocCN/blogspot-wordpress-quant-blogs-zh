@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:28:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:28:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Showstopper! | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Showstopper! | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2020/12/08/showstopper/#0001-01-01](https://etrading.wordpress.com/2020/12/08/showstopper/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2020/12/08/showstopper/#0001-01-01](https://etrading.wordpress.com/2020/12/08/showstopper/#0001-01-01)
 - en: Showstopper!
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Showstopper!
 - en: December 8, 2020
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2020年12月8日
 - en: 'I’ve just finished reading Zachary’s Showstopper, a riveting account of the
     development of Windows NT at Microsoft in the late 80s and early 90s. I do love
     industry war stories, so I’m puzzled by the fact I missed this book somehow. Other
@@ -39,53 +55,72 @@
     of VMS at DEC. The narrative follows an arc familiar to any who have worked on
     a large software project, with all the typical setbacks and pressures. Here are
     the points that surprised me…'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我刚刚读完扎卡里亚的《Showstopper》，这是一本关于20世纪80年代和90年代晚期在微软开发Windows NT的扣人心弦的记录。我非常喜欢行业战争故事，所以我有点困惑，自己是怎么错过这本书的。其他我喜欢的类似作品包括弗格森的《No
+    Prisoners》，基德德的《新机器的灵魂》和勒维的《黑客》。书中有些地方由于对核心开发活动（如编码、测试、调试和构建）的笨拙解释而略显逊色。扎卡里亚是一名科技记者，但显然不是一名程序员。除了这个轻微的反对意见外，还有很多值得欣赏的地方，还有几个惊喜。那些在过去几十年里一直在软件世界工作的人会认出这些主要人物：比尔·盖茨、史蒂夫·鲍尔默、内森·迈尔沃德，以及NT的负责人，DEC的VMS开发者戴夫·卡特勒。叙述遵循任何大型软件项目都熟悉的弧线，以及所有典型的挫折和压力。以下是我感到惊讶的要点……
 - en: Cutler joined MS in Oct 88, and NT development was well underway before the
     decision to make NT the successor to Windows 3\. Originally OS/2 had taken that
     role. But the unexpected success of Windows 3 in 1990, and Microsoft’s strained
     relationship with IBM changed all that. Before that NT was a traditional multitasking
     console OS like VMS or Unix.
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Cutler于1988年10月加入微软，而在决定将NT作为Windows 3的继承者之前，NT的开发已经进行了一段时间。最初，OS/2承担了那个角色。但是1990年Windows
+    3的意外成功，以及微软与IBM紧张的关系改变了一切。在那之前，NT是一个传统的多任务控制台操作系统，类似于VMS或Unix。
 - en: 'Cutler had three prime design directives: reliability, personality and portability.
     Reliability was achieved with a properly partitioned kernel mode, unlike DOS &
     Windows. Personality was accomplished by presenting a different user mode API
     (Win32) to apps, and keeping the kernel API private. Which much later in WinNT’s
     history would enable WSL version 1\. Personality also enabled Windows 3 apps to
     run under NT. Portability meant minimizing assembly coding.'
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Cutler的设计指导原则有三个：可靠性、个性和可移植性。可靠性通过一个适当划分的内核模式来实现，与DOS和Windows不同。个性是通过向应用程序呈现不同的用户模式API（Win32），并保持内核API私有来实现的。这在WinNT的历史上后来的版本1中使WSL成为可能。个性还使Windows
+    3应用程序能够在NT下运行。可移植性意味着尽量减少汇编代码的使用。
 - en: Cutler original target CPU was Intel’s RISC offering, the i860\. A CPU so new
     and buggy that Cutler brought his hardware buddy Roy Short over from DEC to build
     i860 based systems at MS. Gates wanted to target 80386 first, but deferred to
     Cutler on many key decisions. Later support for MIPS and DEC Alpha would be added.
     I remember seeing Alpha based NT workstations in the mid 90s and being very impressed
     by the power and speed.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Cutler原始目标CPU是英特尔的RISC产品，即i860。这是一款如此新且存在缺陷的CPU，以至于Cutler将他的硬件伙伴罗伊·肖特从DEC请过来，在微软建造基于i860的系统。盖茨最初想先针对80386，但在许多关键决策上推迟给了Cutler。后来增加了对MIPS和DEC
+    Alpha的支持。我记得在90年代中期看到基于Alpha的NT工作站，并对它的强大和速度印象深刻。
 - en: Manual builds! There was no CI/CD automation back then. The guys running the
     “Build Lab” selected the patches they would take, merged, and built. And the build
     took 19 hours.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 手动构建！那时还没有CI/CD自动化。运行“构建实验室”的这些人选择了他们将要采用的补丁，合并并构建。构建需要19个小时。
 - en: Most of NT was coded in C, but much of the graphics was in C++. The graphics
     coders were long time Microsofties, not Cutler cronies from DEC, and they had
     Gates support in C++. Since Windows graphics only entered the NT picture in 1990,
     and Cutler was not a GUI guy, they didn’t have to follow his language choice.
     I remember early C++ compilers – Glockenspiel CommonView anyone? Coding part of
     a new OS in C++ in 1990 was a very bold choice.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 大部分NT是用C语言编写的，但很多图形界面是用C++编写的。这些图形编码者是长期在微软工作的人，而不是来自DEC的Cutler的同盟，他们在C++方面得到了Gates的支持。由于Windows图形界面直到1990年才加入NT项目，而Cutler并不是一个GUI爱好者，所以他们不必遵循他的语言选择。我记得早期的C++编译器——Glockenspiel
+    CommonView有人记得吗？1990年用C++编写新操作系统的部分是一个非常大的胆的选择。
 - en: 20% of the NT team were first jobbers!
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: NT团队有20%是第一次就业的人！
 - en: Will we ever see a big new OS dev project again? Maybe not. Cutler’s Personality
     idea enabled the pivot to Windows by NT, but now we have virtualization and cheap
     hardware, so the Personality job is done by hypervisors. Just look at WSL2 compared
@@ -94,5 +129,8 @@
     is a strong recommend from me, and a nostalgic read for this veteran dev. Almost
     a “when dinosaurs roamed the earth” experience. And Cutler may have been difficult
     to work with, but he obviously had massive coding chops.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们还会再次看到一个大型的新操作系统开发项目吗？也许不会。Cutler的Personality理念通过NT实现了向Windows的转变，但现在我们有虚拟化和廉价硬件，所以Personality的工作由虚拟化器完成。只需看看WSL2和WSL1的区别！操作系统已经变得商品化，由于Linux是开源的，它促进了一种
+    proprietary OSes 无法比拟的创新风格。所以，总的来说，Showstopper是我强烈推荐的一本书，对于这位资深开发者来说，是一次怀旧的阅读。几乎是一种“当恐龙在地球上漫游”的经历。而Cutler可能很难共事，但他显然有着卓越的编程能力。

@@ -1,63 +1,95 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:41:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:41:17
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Tracking Liquidity | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 跟踪流动性 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01](https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01](https://tr8dr.wordpress.com/2007/10/31/tracking-liquidity/#0001-01-01)
 - en: October 31, 2007 · 10:10 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2007年10月31日 · 22:10
 - en: Encountered a problem in trading where we did not properly adjust the liquidity
     (depth) level coming back from the exchange. Basically when we push down an order
     would decrement available liquidity. The next tick from the exchange would reflect
     the new available liquidity (or so we naively thought).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在交易中遇到一个问题，我们没有正确调整从交易所返回的流动性（深度）水平。基本上，当我们推送一个订单时，会减少可用的流动性。来自交易所的下一个ticks将反映新的可用流动性（或者我们天真地认为是这样）。
 - en: The reality is that one or more ticks can be received before a order (which
     was filled) is reflected in the depth level. Given this, the affect of the order
     will not be represented in the depth.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际情况是，在订单（已被填充）在深度级别上反映之前，可能会收到一个或多个ticks。鉴于这一点，订单的影响不会在深度中体现。
 - en: 'To fix this, two different approaches could be taken:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了解决这个问题，可以采取两种不同的方法：
 - en: Estimate latency in hitting the depth x 2
+  id: totrans-10
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 估计达到深度x 2的延迟
 - en: Hold the order impact across any ticks within this period
+  id: totrans-11
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 在整个期间内保持订单影响
 - en: Hold the order impact across ticks until trade confirm comes back
+  id: totrans-12
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在交易确认返回之前保持订单影响
 - en: This is the most conservative approach. On some venues trade confirms are sent
     back with lower priority, so can be an overly conservative method of measurement.
+  id: totrans-13
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这是最保守的方法。在某些平台上，交易确认以较低的优先级返回，因此可能是一种过于保守的测量方法。
 - en: The net affect of not handling this properly was that we saw more depth than
     was actually there. This meant that for aggresive algos trying to pull some part
     of advertised depth, ended up with partial fills based on a flawed liquidity tracking
     model.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 不正确处理此问题的净影响是我们看到了比实际更多的深度。这意味着对于试图拉取所宣传深度的积极算法，最终基于有缺陷的流动性跟踪模型产生了部分填充。
 - en: Have taken the conservative approach at this point.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 目前采取了保守的方法。

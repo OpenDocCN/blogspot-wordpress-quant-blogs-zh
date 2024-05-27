@@ -1,163 +1,253 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:14:35'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:14:35'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: The CAB Application Class Hierarchy'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems Blog：CAB应用程序类层次结构
 - en: 来源：[http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01](http://magmasystems.blogspot.com/2006/11/cab-application-class-hierarchy.html#0001-01-01)
 - en: '**CAB Application Classes**'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**CAB Application Classes**'
 - en: The hierarchy of the CABApplication classes is shown in the diagram below. The
     top three classes should never be derived from. In almost all classes, your WinForms-based
     application will derive from FormShellApplication.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图显示了CABApplication类的层次结构。前三个类不应该被派生。在几乎所有类中，基于WinForms的应用程序将从FormShellApplication派生。
 - en: '[![](img/e2bb983832bd11fa12dbe0ca781cee0e.png)](http://photos1.blogger.com/x/blogger/138/258/1600/637361/CabApplication%20hierarchy.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e2bb983832bd11fa12dbe0ca781cee0e.png)](http://photos1.blogger.com/x/blogger/138/258/1600/637361/CabApplication%20hierarchy.jpg)'
 - en: A CAB Application will be driven by the base
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: CAB应用程序将由基础驱动
 - en: '**CabApplication**'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '**CabApplication**'
 - en: class. This class does most of the work to get the CAB application started.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 类。这个类完成了启动CAB应用程序的大部分工作。
 - en: The only field that the CabApplication class has is the root
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: CabApplication类唯一的字段是根
 - en: '**WorkItem**'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**WorkItem**'
 - en: ', which as the name implies, is the root node of the entire application’s WorkItem
     tree. I will discuss WorkItems later.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ，正如名称所示，它是整个应用程序工作项树的根节点。稍后我会讨论WorkItems。
 - en: The constructor of CabApplication does nothing; it is the
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: CabApplication的构造函数什么也不做；这是
 - en: '**Run**'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Run**'
 - en: '() method (which is called by your application’s Main() function) that bootstraps
     the entire application. The Run() method will do the following:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: （由应用程序的Main()函数调用）引导整个应用程序的()方法。Run()方法将执行以下操作：
 - en: Create the pre-defined services
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建预定义的服务
 - en: Authenticate the user.
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 验证用户。
 - en: Reads the config file (*ProfileCatalog.xml*) that contains a list all of the
     plug-in modules that the app wants to load.
+  id: totrans-20
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 读取包含应用程序要加载的所有插件模块列表的配置文件（*ProfileCatalog.xml*）。
 - en: Each module can have an optional list of Roles. The module will be loaded only
     if the current user belongs to that role. If a module has no role information
     associated with it, then the module will be loaded.
+  id: totrans-21
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 每个模块可以有一个可选的角色列表。只有当前用户属于该角色时，才会加载该模块。如果模块没有与之关联的角色信息，则将加载该模块。
 - en: 'Creates the Shell (ie: the MainForm)'
+  id: totrans-22
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建Shell（即：主窗体）
 - en: Loads all of the modules that are permitted to be loaded.
+  id: totrans-23
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 加载所有允许加载的模块。
 - en: In each class in the module that derived from the ModuleInit class, all fields
     that are tagged with the [ServiceDependency] attribute are created.
+  id: totrans-24
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 在从ModuleInit类派生的模块的每个类中，所有标记有[ServiceDependency]属性的字段都会被创建。
 - en: All classes tagged with the [Service] attribute are added to the application’s
     list of services.
+  id: totrans-25
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 所有标记有[Service]属性的类都会被添加到应用程序的服务列表中。
 - en: RootWorkItem.Run() is called for the applications root WorkItem.
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 对应用程序的根WorkItem调用RootWorkItem.Run()。
 - en: In the FormShellApplication class, the WinForm’s method Application.Run() is
     called to start the WinForm app.
+  id: totrans-27
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在FormShellApplication类中，调用WinForm的Application.Run()方法启动WinForm应用程序。
 - en: '**The Derived Application Classes**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**The Derived Application Classes**'
 - en: The
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: The
 - en: '**CabShellApplication**'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '**CabShellApplication**'
 - en: class extends the CabApplication by
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 类通过扩展CabApplication来扩展
 - en: Keeping a reference to the Shell (our MainForm) by adding it to the RootWorkItem’s
     list of items.
+  id: totrans-32
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 通过将其添加到RootWorkItem的项目列表中来保持对Shell（我们的MainForm）的引用。
 - en: Adding BeforeShellCreated and AfterShellCreated virtual methods. These methods
     can be overridden in your application class.
+  id: totrans-33
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 添加BeforeShellCreated和AfterShellCreated虚拟方法。这些方法可以在您的应用程序类中重写。
 - en: The
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: The
 - en: '**WindowsFormApplication**'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '**WindowsFormApplication**'
 - en: extends the CabShellApplication class by
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过扩展CabShellApplication类来扩展
 - en: Using a WindowsForm Visualizer
+  id: totrans-37
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用WindowsForm可视化程序
 - en: Adding some UI and command-routine services
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 添加一些UI和命令例程服务
 - en: The
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: The
 - en: '**FormShellApplication**'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '**FormShellApplication**'
 - en: class merely overrides the Start() method and calls the familiar WinForms method
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 类仅覆盖Start()方法并调用熟悉的WinForms方法
 - en: Application.Run(mainform)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: Application.Run(mainform)
 - en: .
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: ©2006 Marc Adler - All Rights Reserved
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2006 Marc Adler - 版权所有

@@ -1,59 +1,84 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:29:08'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:29:08
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: No QAs | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: No QAs | Tales from a Trading Desk
 - en: 来源：[https://mdavey.wordpress.com/2016/10/18/no-qas/#0001-01-01](https://mdavey.wordpress.com/2016/10/18/no-qas/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/10/18/no-qas/#0001-01-01](https://mdavey.wordpress.com/2016/10/18/no-qas/#0001-01-01)
 - en: Interesting article from a Scrum Master at [Sky](https://www.linkedin.com/pulse/so-were-going-qas-how-do-we-get-devs-enough-testing-steve-wells?),
     “So we’re going “No QAs”. How do we get the devs to do enough testing?”.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自[Sky](https://www.linkedin.com/pulse/so-were-going-qas-how-do-we-get-devs-enough-testing-steve-wells?)的一位Scrum
+    Master的文章很有趣，“所以我们准备‘没有QA’了。我们怎样才能让开发者做足够的测试？”。
 - en: I find it hard not to agree with a number of points in the article.  QAs in
     my mind are a get out of jail card for engineering to throw code over the wall
     and run to the next story.  Further, its a great excuse to avoid writing tests
     which a lot of engineer find boring.  Finally, its a great reason why TDD, and
     BDD (my preference) is largely ignored on a lot of projects, allowing engineer
     to assume the role of a “hacker”.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我发现自己很难不同意这篇文章中的许多观点。在我心目中，QA是工程部门的一张“免罪符”，可以将代码扔过墙，然后跑去看下一个故事。此外，这也是一个很好的借口，可以避免编写许多工程师认为枯燥的测试。最后，这也是为什么在许多项目中，TDD（我个人偏好）和BDD（我个人偏好）被广泛忽视的原因，这使得工程师们可以假设“黑客”的角色。
 - en: dedicated QAs allows developers to abdicate the responsibility for quality to
     someone else
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 专门的QA让开发者可以将质量责任推卸给别人
 - en: “Hacker” engineer is what a lot of engineers are.  They don’t design the solution,
     or consider how to get to “done”.  They write the code, and refactor until though
     basic minimal manual testing, the solution does the right thing.  They then write
     a few tests, commit, and in their minds, they are done.  No QAs forces the engineering
     team to own responsibility and eat their own cut corners.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: “黑客”工程师是许多工程师的写照。他们不设计解决方案，或不考虑如何到达“完成”的状态。他们编写代码，重构，直到通过基本的简单手动测试，解决方案做到了正确的事情。然后他们会写一些测试，提交，在他们看来，这就完成了。没有QA迫使工程团队承担责任和纠正自己的疏忽。
 - en: Without QAs, the devs have a vested interest in speeding up testing by automation
     (which pure testers don’t; why would they put themselves out of a job?)
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 没有QA，开发者有动力通过自动化加速测试（纯粹的测试者不会有这种动力；他们为什么要让自己失业？）
 - en: The QA world has gone though various re-branding activities in the last few
     years.  More recently the “Check and Test” re-brand.  At the end of the day, a
     lot of defects are either due to the engineering solution, and lack of appropriate
     engineering tests (unit, integration, etc), or due to the problem not being fully
     defined during analysis/discussion of the story.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 过去几年，QA领域经历了各种重新品牌化的活动。最近的一次是“检查和测试”的重新品牌。说到底，许多缺陷要么是由于工程解决方案，缺乏适当的工程测试（单元测试、集成测试等），要么是因为在故事分析/讨论期间问题没有完全定义。
 - en: QAs usually want to hold up a build until every possible test has been run.
      Unfortunately this isn’t the real world anymore.  Its not uncommon to make n
     releases a day, hour, week.  Further, business demands can mean that you need
@@ -62,8 +87,10 @@
     never going to release defect free software.  What is actually more important
     is having a continuous deployment pipeline that is efficient, so that if we find
     defects, we can release to resolve the issue.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: QA通常希望暂停构建，直到完成了所有可能的测试。不幸的是，这不再是现实世界。一天、一小时、一周内发布n个版本并不罕见。此外，商业需求可能意味着你需要带着缺陷发布，但这些缺陷并不是业务关键。我们还应该记住，世界并不完美，有了技术，我们今天永远不可能发布没有缺陷的软件。实际上更重要的是，拥有一个高效的持续部署管道，这样如果我们发现了缺陷，我们就可以发布以解决问题。
 - en: Which  brings us to defects.  Defects are defects when the acceptance criteria/tests
     fail, and the UI doesn’t look like the UX.  Are defects really defects when the
     story didn’t provide the appropriate information?  Or are they new features that
@@ -72,14 +99,22 @@
     Analysis land, or becoming engineers that can improve the standards of code delivered
     to production.  At the end of the day, the solution is only worth something when
     its in production, and being used.  Until that time, its waste, with no payback
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这让我们想到了缺陷。当验收标准/测试失败，并且用户界面与用户体验不符时，缺陷就是缺陷。但如果故事没有提供适当的信息，缺陷真的是缺陷吗？或者它们是新出现的功能，继续细化解决方案。在我看来，质量保证（QA）人员过于关注缺陷跟踪等。也许一些QA应该考虑去业务分析领域工作，或者成为可以提高生产环境中交付代码标准的工程师。说到底，只有当解决方案投入生产并得到使用时，它才具有价值。在此之前，它只是浪费，没有任何回报。
 - en: ~ by mdavey on October 18, 2016.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2016年10月18日发表。
 - en: Posted in [Agile](https://mdavey.wordpress.com/category/agile/), [Uncategorized](https://mdavey.wordpress.com/category/uncategorized/)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布于[敏捷](https://mdavey.wordpress.com/category/agile/)，[未分类](https://mdavey.wordpress.com/category/uncategorized/)
 - en: 'Tags: [StoryTesting](https://mdavey.wordpress.com/tag/storytesting/)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[故事测试](https://mdavey.wordpress.com/tag/storytesting/)

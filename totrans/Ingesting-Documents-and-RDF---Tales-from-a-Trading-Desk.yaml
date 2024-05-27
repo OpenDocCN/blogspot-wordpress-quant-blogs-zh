@@ -1,38 +1,57 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 05:31:04'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:31:04
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Ingesting Documents and RDF | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 处理文档和RDF | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01](https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01](https://mdavey.wordpress.com/2016/06/10/ingesting-documents-and-rdf/#0001-01-01)
 - en: Ingesting Documents and RDF
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 处理文档和RDF
 - en: Strangle, [MarkLogic](http://www.marklogic.com/) appears to have some best documentation
     of dealing with documents and RDF in a single data hub, even though the concept
     isn’t unique to MarkLogic.  As I’ve blogged about before, there are a number of
     other products, and its conceivable to build your own using various open source
     frameworks and libraries (Apache [Jena](https://jena.apache.org/index.html) etc)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 斯特兰奇，[MarkLogic](http://www.marklogic.com/)似乎有一些关于在单一数据集中处理文档和RDF的最佳文档，尽管这个概念并不是MarkLogic独有的。正如我之前在博客中提到的，还有许多其他产品，也可以使用各种开源框架和库（如Apache
+    [Jena](https://jena.apache.org/index.html)等）来构建自己的系统。
 - en: The BBC [News](https://developer.marklogic.com/learn/semantics-exercises/loading-data)
     sample is probably the best I’ve found so far.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: BBC [新闻](https://developer.marklogic.com/learn/semantics-exercises/loading-data)示例可能是迄今为止我所找到的最好的。
 - en: We started with each article as a single XHTML document. We then used OpenCalais
     to analyze the articles and find the entities (real-world things) within them.
     OpenCalais spotted entities like people, their roles, places (cities and countries)
@@ -41,30 +60,45 @@
     for one news article, OpenCalais generated triples for us that indicated the item
     was about war, identified the places mentioned in the article, and provided geo-location
     information for those places
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们最初将每篇文章作为一个单独的XHTML文档。然后我们使用OpenCalais来分析文章并找出其中的实体（现实世界中的事物）。OpenCalais发现了像人、他们的角色、地点（城市和国家）和组织这样的人类实体。在此基础上，它将个人与他们的角色联系起来，并确定文档的主题标题（类别）。例如，对于一篇新闻文章，OpenCalais生成了三元组，指出该文章是关于战争的，识别了文章中提到的地点，并为这些地点提供了地理定位信息。
 - en: The results can be seen in the downloadable zip, which provides a directory
     for the source (XHTML articles), and a directory wih the generated RDF file from [OpenCalais](http://www.opencalais.com/).
      The RDF file uses rdf:Description to reference to the original BBC URL of the
     article.  Both the XHTML and the RDF files are then ingested into MarkLogic –
     as expected.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果可以在下载的zip文件中看到，该文件提供了一个包含源文件（XHTML文章）的目录和一个包含从[OpenCalais](http://www.opencalais.com/)生成的RDF文件的目录。RDF文件使用rdf:Description来引用文章的原始BBC网址。正如预期的那样，
+    both the XHTML and the RDF files are then ingested into MarkLogic。
 - en: Finally, “SPARQL and XQuery [Together](https://developer.marklogic.com/learn/semantics-exercises/sparql-and-xquery)”
     shows how to leverage both content structures.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，“SPARQL和XQuery [一起](https://developer.marklogic.com/learn/semantics-exercises/sparql-and-xquery)”展示了如何利用这两种内容结构。
 - en: Interested in anyones experience of MarkLogic, as the documents hints at a cool
     product.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 想了解任何人在MarkLogic方面的经验，因为文章暗示了一个很酷的产品。
 - en: ~ by mdavey on June 10, 2016.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2016年6月10日。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)
 - en: 'Tags: [Ontology](https://mdavey.wordpress.com/tag/ontology/)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[本体论](https://mdavey.wordpress.com/tag/ontology/)

@@ -1,29 +1,43 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:44:33'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:44:33
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Spatio-Temporal Data Mining: 2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：时空数据挖掘：2
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2011/10/spatiotemporal-data-mining-2.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/10/spatiotemporal-data-mining-2.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2011/10/spatiotemporal-data-mining-2.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/10/spatiotemporal-data-mining-2.html#0001-01-01)
 - en: There are many visual methods used to identify patterns in space and time. I've
     discussed some in prior threads and will show a few others briefly here. One of
     the most difficult questions I often hear from others regarding markov type approaches,
     is how to identify states to be processed.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 有许多视觉方法用于在空间和时间中识别模式。我在之前的帖子中讨论过一些，这里会简要展示其他几个。关于马尔可夫类型方法，我经常从别人那里听到的一个最困难的问题是如何识别要处理的态。
 - en: It is a similar problem that one encounters using simple linear type factor
     analysis. Unfortunately, there is no simple answer; however, because data streams
     are becoming so vast it becomes almost impossible to enumerate over all possible
@@ -31,20 +45,28 @@
     that space as well as feature reduction.  I often use these types of visualizations
     back and forth with unsupervised classification type learners to converge on useful
     state identifications.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这与使用简单线性类型因子分析时遇到的问题类似。不幸的是，没有简单的答案；然而，由于数据流变得如此巨大，几乎不可能枚举所有可能的态集合。视觉挖掘技术可以在缩小空间以及特征降维方面非常有帮助。我经常将这些类型的可视化与无监督分类类型的学习者来回使用，以达到有用的态识别。
 - en: Fig 1\. Spatio-Temporal State plot
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 1. 时空态图
 - en: Figure 1 gives an idea on visualizing states with respect to time. But having
     such knowledge in isolation doesn't give us much use. We are more interested in
     looking for Bayesian type relationships between states that give some probabilities
     between linked states in time.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1给出了关于随时间可视化态的想法。但是，孤立地拥有这种知识并没有多大用处。我们更感兴趣的是寻找贝叶斯类型态之间的关系，这些关系在时间链接的态之间给出一些概率。
 - en: Fig 2\. Fluctuation Plot
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: Fig 2. 波动图
 - en: Several visual methods exist to capture the relationships visually. One common
     plot used in language processing and information theory, is a fluctuation plot.
     The above plot was built using the same state data as the first graph. It is often
@@ -54,13 +76,18 @@
     be to think of the letters yzy more commonly followed by g (as in syzygy) than
     any other state token; thus, one would expect to quickly spot a larger box across
     a row of states representing the 'yzy' row token n-gram and 'g' column token .
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 存在一些用于视觉捕捉关系的视觉方法。在语言处理和信息理论中常用的一种图表是波动图。上面的图表是使用与第一张图表相同的态数据构建的。它通常用于确定符号（如字母标记）之间的条件关系。每个箱子的大小与表中行和列态之间的转移概率权重成正比。一个例子是想一想字母yzy后面更常跟着g（如syzygy）而不是任何其他态标记；因此，人们期望能快速在代表'yzy'行标记n-gram和'g'列标记的行态中找到一个更大的箱子。
 - en: Both plots were produced in R.  ggflucuation() is a plot command utilized from
     ggplot2.  I am currently investigating how much easier and faster it might be
     to process such visualizations in tools like protovis and processing.  I've been
     especially inspired by reading some of Nathan Yau's excellent visualization work
     in his book, 'Visualize This.' I included it in the link to the right for interested
     readers.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 这两个图表都是在R中制作的。ggflucuation()是从ggplot2中使用的绘图命令。我目前正在研究使用像protovis和processing这样的工具处理此类可视化可能会更容易、更快速的程度。阅读了Nathan
+    Yau在书中的一些出色的可视化工作后，我特别受启发，《Visualize This》是一本很好的书。我把它包含在右边的链接里，供有兴趣的读者阅读。

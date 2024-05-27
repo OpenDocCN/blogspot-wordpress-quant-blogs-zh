@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 06:46:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:46:39
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: The Efficient Frontier | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 引入QuantLib：有效前沿 | 金融与科技的一切事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01](https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01](https://mhittesdorf.wordpress.com/2013/05/25/introducing-quantlib-the-efficient-frontier/#0001-01-01)
 - en: 'No, the title of my latest blog post isn’t some obscure Star Trek reference. 
     Rather, the Efficient Frontier is a concept at the very core of modern portfolio
     theory.  The father of modern portfolio theory,  Harry Markowitz, defined the
@@ -31,51 +43,69 @@
     of risk. All portfolios on the efficient frontier satisfy that requirement.  There
     is no  other portfolio that produces a higher return for a given amount of risk
     than the one on the Efficient Frontier.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 不是的，我最新博客文章的标题并不是什么晦涩的星际迷航引用。实际上，有效前沿是现代投资组合理论的核心概念。现代投资组合理论的奠基人哈里·马科维茨将有效前沿定义为所有有效投资组合的集合，有效投资组合是指在给定风险水平下，最大化投资组合预期回报的资产权重组合，该风险水平由投资组合回报的标准差衡量。绘制每个有效投资组合的波动性与其预期回报产生的图形如下：[![efficient](img/33feeaf66b7fe4258d7e7f6744774dbe.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/05/efficient.png)
+    这为什么重要呢？大多数人都是风险厌恶者。因此，人们更愿意投资于在较低风险下产生最大回报的资产。有效前沿上的所有投资组合都满足这一要求。没有其他投资组合能在给定风险水平下产生比有效前沿上的投资组合更高的回报。
 - en: In many ways, modern portfolio theory and its seminal idea, the Efficient Frontier,
     along with the Black-Scholes option pricing formula, can be credited with giving
     birth to the field that we now call quantitative finance.  So even though there
     is not a lot in the QuantLib library that specifically addresses the Efficient
     Frontier, I feel I would be remiss if I didn’t cover it.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在许多方面，现代投资组合理论与其开创性思想——有效前沿，以及布莱克-斯科尔斯期权定价公式，可以被认为赋予了定量金融领域诞生的灵感。所以即使QuantLib库中没有太多与有效前沿直接相关的内容，我觉得如果不涉及有效前沿我会感到很遗憾。
 - en: As I’ve done in previous posts, I want to first motivate the C++ code that is
     to follow by presenting an example calculated in a spreadsheet. I will then reproduce
     the results  in C++ using QuantLib. But first, let me present a few fundamental
     definitions and some simple equations that are necessary in order to understand
     the analysis.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 像我之前的文章一样，我首先通过一个在电子表格中计算的示例来激发接下来的C++代码。然后使用QuantLib在C++中重现这些结果。但在那之前，让我先介绍一些基本定义和一些简单的方程式，这些方程式对于理解分析是必要的。
 - en: '**Expected Return:** E(Rp) – the percentage increase/decrease in the value
     of a portfolio that is consistent with the historical performance of the assets
     in the portfolio and the relative proportion, or weightings, of those assets,
     where the total weight must sum to one.   The formula for calculating the expected
     return of a two-asset (i.e. two stocks) portfolio is:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**预期回报：** E(Rp) – 与投资组合历史表现一致的资产回报百分比增加/减少，其中总权重必须等于1。计算两个资产（即两只股票）投资组合的预期回报的公式如下：'
 - en: E(Rp) = w1*R1 + (1 – w1)*R2 . where Rp is the portfolio’s expected return, R1
     is the mean return of asset1, w1 is the percentage weighting of asset1 in the
     portfolio, and R2 is the mean return of asset2.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 投资组合的预期回报 E(Rp) = w1*R1 + (1 – w1)*R2 ，其中 Rp 是投资组合的预期回报，R1 是资产1的平均回报，w1 是资产1在投资组合中的百分比权重，R2
+    是资产2的平均回报。
 - en: '**Variance:** (Vp) – the amount of deviation or dispersion of the portfolio’s
      return from the historical mean return of the portfolio given the weighting of
     the assets in the portfolio, their respective variances and the degree to which
     the asset’s returns move or don’t move together, known as covariance.  The formula
     for calculating portfolio variance for a two asset portfolio is:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**方差：（Vp）**——投资组合回报的历史平均回报与投资组合中资产权重的偏差、各自方差以及资产回报的协方差程度。计算两资产投资组合方差的公式为：'
 - en: Vp = w1^2*V1 + (1-w1)^2*V2 + 2*w1*(1-w1)*cov(R1,R2), where Vp is the portfolio’s
     variance, V1 is the variance of asset1’s returns, V2 is the variance of asset2’s
     returns and cov(R1,R2) is a measure of how much or how little asset1 and asset2’s
     returns move in the same direction at the same time.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: Vp = w1^2*V1 + (1-w1)^2*V2 + 2*w1*(1-w1)*cov(R1,R2)，其中Vp是投资组合的方差，V1是资产1回报的方差，V2是资产2回报的方差，cov(R1,R2)是衡量资产1和资产2回报同时同向移动或不移动程度的指标。
 - en: '**Volatility (σ) ‘sigma’**– the most well-accepted measure of risk. It is nothing
     more than scaled variance, calculated as: σp = sqrt(Vp)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '**波动性（σ）‘sigma’**——最被广泛接受的风险度量。它不过是方差的缩放，计算公式为：σp = sqrt(Vp)'
 - en: Generating the Efficient Frontier requires maximizing the portfolio’s return
     for a given portfolio variance or conversely minimizing the portfolio variance
     for a given level of return.  As such, calculating the efficient portfolio amounts
@@ -93,206 +123,325 @@
     the problem using matrix notation and then solves a system of linear equations
     in order to compute a table of minimum variance/maximum return values for a given
     asset weighting.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成有效前沿需要在不改变投资组合方差的情况下最大化投资组合的回报，或者在不改变回报水平的情况下最小化投资组合的方差。因此，计算有效投资组合相当于解决一个优化问题。如果你读过我上篇关于线性优化的帖子，你可能还记得投资组合优化并不是一个线性优化问题。现在你看到了投资组合风险和回报的公式，你可能就会明白为什么了。计算方差的公式是非线性的，它是一个二次多项式函数。因此，我们不能用我上篇帖子中展示的线性规划方法来找到有效前沿。我们可以采用非线性的二次规划方法逐一求解所有有效投资组合，保持投资组合风险恒定并最大化回报函数，或者等价地，保持投资组合回报恒定并最小化投资组合方差函数。正如我上篇帖子所暗示的，我将在未来的帖子中展示这种方法。然而，在这篇帖子中，我将应用经典的程序，用矩阵表示法来表示问题，然后解决一个线性方程组，以计算给定资产权重的最小方差/最大回报值表格。
 - en: 'The problem can be represented in matrix notation like so:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 该问题可以用矩阵表示法表示如下：
 - en: 'R – c = Sz  such that z = inverse(S) {R – c}, where R is the vector of asset
     returns, c is a constant rate of return, S is the covariance matrix and z  is
     a vector that leads to the solution of the efficient portfolio weightings, x,
     defined as:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: R – c = Sz 使得 z = inverse(S) {R – c}，其中R是资产回报的向量，c是一个常数回报率，S是协方差矩阵，z是导致有效投资组合权重解决方案的向量，定义为：
 - en: x = {x1….xn} where each xi represents the weighting of the respective asset
     in the portfolio  such that the sum of all the xi’s equals 1; where a particular
     weighting xi = zi/sum of all the zi’s.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: x = {x1….xn} 其中每个xi代表投资组合中相应资产的权重，所有xi的和等于1；其中特定的权重xi = zi/所有zi的和。
 - en: 'Solving this problem involves a fair bit of linear algebra and matrix manipulation.
       I created a LibreOffice spreadsheet to illustrate the procedure, which I’ve
     uploaded to my Box account at [https://www.box.com/s/zgl8qm0ujcw0xf05rehu](https://www.box.com/s/zgl8qm0ujcw0xf05rehu).
     A screenshot is below:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 解决这个问题需要相当多的线性代数和矩阵操作。我创建了一个LibreOffice电子表格来展示这个过程，我已经将其上传到我的Box账户中：[https://www.box.com/s/zgl8qm0ujcw0xf05rehu](https://www.box.com/s/zgl8qm0ujcw0xf05rehu)。以下是截图：
 - en: '[![efcalc](img/0748cbd36f850a8e73d4e644d029a350.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/05/efcalc.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![efcalc](img/0748cbd36f850a8e73d4e644d029a350.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/05/efcalc.png)'
 - en: The specifics of the problem and the solution technique are taken from Simon
     Benninga’s excellent book, [*Financial Modeling*, 2nd Edition](http://www.amazon.com/Financial-Modeling-2nd-Edition-Includes/dp/0262024829/ref=sr_1_1?ie=UTF8&qid=1369539924&sr=8-1&keywords=Financial+Modeling+2nd+edition),
     which I highly recommend. I find myself coming back to it time and time again.
      In the interest of time and space, I won’t go through the spreadsheet in any
     detail. For that I encourage you to download the spreadsheet and go through it
     yourself.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 该问题和解决方法的具体信息来自 Simon Benninga 的优秀著作，[*Financial Modeling*, 2nd Edition](http://www.amazon.com/Financial-Modeling-2nd-Edition-Includes/dp/0262024829/ref=sr_1_1?ie=UTF8&qid=1369539924&sr=8-1&keywords=Financial+Modeling+2nd+edition)，我强烈推荐。我发现自己一次又一次地回头看它。为了节省时间和空间，我不会详细介绍电子表格。因此，我鼓励您下载电子表格并自行查看。
 - en: In summary, the spreadsheet defines the covariance matrix of returns for four
     stocks, AAPL, IBM, ORCL and GOOG.  It also defines the mean return for each stock
     in the Returns vector.  The constant, c, is defined somewhat arbitrarily as 5%.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，电子表格为四支股票（AAPL、IBM、ORCL 和 GOOG）定义了收益的协方差矩阵。它还为 Returns 向量中的每支股票定义了平均收益。常数
+    c 被相对任意地定义为 5%。
 - en: 'NOTE: In variations of this procedure, c is equated to the risk-free rate,
     rf, and, in this case, the efficient portfolio on the tangent line (i.e. the Capital
     Market Line (CML) ) drawn from the risk-free rate of return to the Efficient Frontier
     is known as the Market portfolio.  For more information regarding these concepts,
     I again recommend Simon Benninga’s book.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意：在这个过程的变体中，c 被等同于无风险利率 rf，而在这种情况下，从无风险收益率到有效边界的切线上的有效投资组合（即资本市场线（CML））被称为市场组合。有关这些概念的更多信息，请再次参考
+    Simon Benninga 的书籍。
 - en: The excess return vector is defined as Returns – c.  Two efficient portfolios
     are then calculated, Portfolio A and Portfolio B.  Given these two portfolios,
     the entire Efficient Frontier can be generated by combining these two portfolios
     in various proportions that sum to 1 (e.g. invest 80% in portfolio A and 20% in
     portfolio B).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 过剩收益向量定义为收益 - c。然后计算两个有效组合，组合 A 和组合 B。给定这两个组合，可以通过将这两个组合以各种比例组合起来生成整个有效边界，这些比例总和为
+    1（例如，在组合 A 中投资 80%，在组合 B 中投资 20%）。
 - en: Effectively, the two efficient portfolios are asset1 and asset2 defined in the
     expected return and variance formulas defined above.  Again, for the specifics
     of the procedure, check out my spreadsheet.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，两个有效组合是上面定义的预期收益和方差公式中定义的 asset1 和 asset2。再次强调，有关程序的具体信息，请查看我的电子表格。
 - en: 'Phew! So that was a lot of work to set the stage for the real meat of this
     post, which is to show how to generate the Efficient Frontier in C++ using QuantLib.
     Without further delay, here is the code:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 哎呀！这需要大量的工作来为本文的真正重点做准备，即展示如何使用 QuantLib 在 C++ 中生成有效边界。不多说了，这是代码：
 - en: '[PRE0]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: The code produces the following output
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 该代码产生以下输出
 - en: '`Covariance matrix of returns:'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '`收益的协方差矩阵：'
 - en: '| 0.4 0.05 0.02 0.04 |'
+  id: totrans-29
   prefs: []
   type: TYPE_TB
+  zh: '| 0.4 0.05 0.02 0.04 |'
 - en: '| 0.05 0.2 0.01 -0.06 |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: '| 0.05 0.2 0.01 -0.06 |'
 - en: '| 0.02 0.01 0.3 0.03 |'
+  id: totrans-31
   prefs: []
   type: TYPE_TB
+  zh: '| 0.02 0.01 0.3 0.03 |'
 - en: '| 0.04 -0.06 0.03 0.15 |`'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.04 -0.06 0.03 0.15 |`'
 - en: '`Portfolio return vector'
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio return vector'
 - en: '| 0.1 |'
+  id: totrans-34
   prefs: []
   type: TYPE_TB
+  zh: '| 0.1 |'
 - en: '| 0.03 |'
+  id: totrans-35
   prefs: []
   type: TYPE_TB
+  zh: '| 0.03 |'
 - en: '| 0.07 |'
+  id: totrans-36
   prefs: []
   type: TYPE_TB
+  zh: '| 0.07 |'
 - en: '| 0.08 |`'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.08 |`'
 - en: '`Portfolio return vector minus constant rate (c = 0.050000)'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '`投资组合收益向量减去常数率（c = 0.050000）'
 - en: '| 0.05 |'
+  id: totrans-39
   prefs: []
   type: TYPE_TB
+  zh: '| 0.05 |'
 - en: '| -0.02 |'
+  id: totrans-40
   prefs: []
   type: TYPE_TB
+  zh: '| -0.02 |'
 - en: '| 0.02 |'
+  id: totrans-41
   prefs: []
   type: TYPE_TB
+  zh: '| 0.02 |'
 - en: '| 0.03 |`'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.03 |`'
 - en: '`Portfolio A z vector'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio A z vector'
 - en: '| 0.150387 |'
+  id: totrans-44
   prefs: []
   type: TYPE_TB
+  zh: '| 0.150387 |'
 - en: '| 0.27627 |'
+  id: totrans-45
   prefs: []
   type: TYPE_TB
+  zh: '| 0.27627 |'
 - en: '| 0.156862 |'
+  id: totrans-46
   prefs: []
   type: TYPE_TB
+  zh: '| 0.156862 |'
 - en: '| 0.572366 |`'
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.572366 |`'
 - en: '`Portfolio B z vector'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio B z vector'
 - en: '| 0.122915 |'
+  id: totrans-49
   prefs: []
   type: TYPE_TB
+  zh: '| 0.122915 |'
 - en: '| -0.0977877 |'
+  id: totrans-50
   prefs: []
   type: TYPE_TB
+  zh: '| -0.0977877 |'
 - en: '| 0.0499195 |'
+  id: totrans-51
   prefs: []
   type: TYPE_TB
+  zh: '| 0.0499195 |'
 - en: '| 0.118124 |`'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.118124 |`'
 - en: '`Portfolio A weights'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio A weights'
 - en: '| 0.130105 |'
+  id: totrans-54
   prefs: []
   type: TYPE_TB
+  zh: '| 0.130105 |'
 - en: '| 0.239012 |'
+  id: totrans-55
   prefs: []
   type: TYPE_TB
+  zh: '| 0.239012 |'
 - en: '| 0.135707 |'
+  id: totrans-56
   prefs: []
   type: TYPE_TB
+  zh: '| 0.135707 |'
 - en: '| 0.495176 |`'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.495176 |`'
 - en: '`Portfolio B weights'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio B weights'
 - en: '| 0.636303 |'
+  id: totrans-59
   prefs: []
   type: TYPE_TB
+  zh: '| 0.636303 |'
 - en: '| -0.506224 |'
+  id: totrans-60
   prefs: []
   type: TYPE_TB
+  zh: '| -0.506224 |'
 - en: '| 0.258422 |'
+  id: totrans-61
   prefs: []
   type: TYPE_TB
+  zh: '| 0.258422 |'
 - en: '| 0.611499 |`'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 0.611499 |`'
 - en: '`Portfolio A expected return: 0.069294'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Portfolio A 预期收益率：0.069294'
 - en: 'Portfolio A variance: 0.059949'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: Portfolio A 方差：0.059949
 - en: 'Portfolio A standard deviation: 0.244845'
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: Portfolio A 标准差：0.244845
 - en: 'Portfolio B expected return: 0.115453'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: Portfolio B 预期收益率：0.115453
 - en: 'Portfolio B variance: 0.338835'
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: Portfolio B 方差：0.338835
 - en: 'Portfolio B standard deviation: 0.582096'
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: Portfolio B 标准差：0.582096
 - en: 'Covariance of portfolio A and B: 0.099883'
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: 组合 A 和 B 的协方差：0.099883
 - en: 'Correlation of portfolio A and B: 0.700817'
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: 组合 A 和 B 的相关性：0.700817
 - en: Maximum portfolio return for risk of 0.227896 is 0.060063`
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: 在风险为0.227896的情况下，投资组合的最大收益为0.060063`
 - en: Towards the end of the source code listing, you can see that all of the envelope
     portfolios are written to disk. The envelope portfolios constitute the superset
     of all portfolios generated by this procedure, some of which are NOT efficient.
@@ -300,8 +449,10 @@
     do this so I can chart the Efficient Frontier with my favorite open-source charting
     tool, [gnuplot](http://www.gnuplot.info/).  In the commented section at the end
     of my code listing, you can find the gnuplot script I wrote to create the chart.
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: 在源代码列表的末尾，您可以看到所有env包组合都被写入磁盘。env包组合构成了由此过程生成的所有组合的超集，其中一些并不是有效的。最后，位于有效前沿的组合被写入磁盘。我这样做是为了使用我最喜欢的开源绘图工具[gnuplot](http://www.gnuplot.info/)绘制有效前沿。在我的代码列表的注释部分，您可以找到我编写的创建图表的gnuplot脚本。
 - en: As you may have noticed, I made heavy use of the QuantLib [Matrix](http://quantlib.org/reference/class_quant_lib_1_1_matrix.html)
     class in this example. The Matrix class supports the most common linear algebra
     functions including inverse, transpose, determinant and matrix multiplication/division/addition/subtraction.
@@ -313,10 +464,15 @@
     Matrix class, such as [SVD](http://quantlib.org/reference/class_quant_lib_1_1_s_v_d.html).
     In addition several QuantLib namespace level functions are provided to operate
     on instances of Matrix, such as factorReduction() and CholeskyDecomposition().
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如您可能已经注意到的，在这个例子中我大量使用了QuantLib的[Matrix](http://quantlib.org/reference/class_quant_lib_1_1_matrix.html)类。Matrix类支持最常用的线性代数函数，包括逆、转置、行列式以及矩阵的乘法/除法/加法/减法。与Matrix类相辅相成的是一个[Array](http://quantlib.org/reference/class_quant_lib_1_1_array.html)类，它可以用来表示向量，尽管在这个例子中我没有实际使用Array类。实际上，我发现直接使用nx1矩阵更容易且更一致。QuantLib还提供了一些定义在`<ql/math/matrixutilities/...
+    />`中的矩阵分解实用类，可以操作Matrix类，如[SVD](http://quantlib.org/reference/class_quant_lib_1_1_s_v_d.html)。此外，QuantLib还提供了一些命名空间级别的函数，可以操作Matrix实例，如factorReduction()和CholeskyDecomposition()。
 - en: With that, I’ll bring this rather lengthy post to its conclusion. I hope you
     enjoyed it and as always please post questions, comments and suggestions. Have
     fun with QuantLib!
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: 至此，我将结束这篇相当长的帖子。希望您喜欢它，并且和往常一样，请提出问题、评论和建议。祝您使用QuantLib愉快！

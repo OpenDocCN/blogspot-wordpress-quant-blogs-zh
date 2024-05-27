@@ -1,221 +1,361 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:59:17'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Optimizing Performance in a CEP System'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：优化CEP系统的性能
 - en: 来源：[http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01](http://magmasystems.blogspot.com/2008/09/optimizing-performance-in-cep-system.html#0001-01-01)
 - en: Here are some lessons learned that helped us reduce message backup from our
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是我们减少来自我们的消息备份的一些经验教训
 - en: Tibco
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: EMS broker into our
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: EMS代理到我们的
 - en: CEP
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: Input Server.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 输入服务器。
 - en: 1) Make sure that you have fast networking between the
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 确保你在
 - en: Tibco
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: broker and your servers.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 继电器和你的服务器。
 - en: We just happened to find out that the hardware folks gave us legacy 100MB connections
     between our
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们碰巧发现硬件工程师给了我们遗留的100MB连接
 - en: Tibco
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 可能有帮助将“
 - en: EMS broker and our
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: EMS代理和我们的
 - en: CEP
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: Input Server. We asked them to upgrade us to
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 输入服务器。我们要求他们升级我们到
 - en: GigE
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: GigE
 - en: immediately. Unless you have personally installed your hardware, never assume
     anything in your infrastructure.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 立即。除非你亲自安装了你的硬件，在你的基础设施中绝不要假设任何东西。
 - en: 2) It might be helpful to turn the "
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ，按股票代码
 - en: AutoAcknowledge
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 自动确认
 - en: '" flag off in your'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于每条FIX消息的所有权放在
 - en: Tibco
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: session.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 会话之间。
 - en: To do this, change
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了做到这一点，改变
 - en: this.m_connection.CreateSession(false, SessionMode.AutoAcknowledge);
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: this.m_connection.CreateSession(false, SessionMode.AutoAcknowledge);
 - en: to
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 到
 - en: this.m_connection.CreateSession(false, SessionMode.NoAcknowledge);
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: this.m_connection.CreateSession(false, SessionMode.NoAcknowledge);
 - en: Be careful about using No
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:59:17
 - en: Acks
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 确认
 - en: . What is the impact to your
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 。这对你的影响是什么
 - en: CEP
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: system if you happen to drop a message?
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统如果你碰巧丢失了一条消息？
 - en: 3) Implement threaded queues on the input from
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 在
 - en: Tibco
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: to your input server, and on the output from your input server to the
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 到你的输入服务器，并从你的输入服务器到
 - en: CEP
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 供应商。
 - en: system.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 系统。
 - en: If you need more performance, change the single threaded queue that reads messages
     from
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你需要更好的性能，改变从
 - en: Tibco
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: to a load-balanced multiple queues, each with its own thread. The load
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: balancer
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 负载均衡器
 - en: can partition by
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 可以按
 - en: Tibco
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 到一个负载均衡的多个队列，每个队列都有自己的线程。负载
 - en: topic, by ticker, or by
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 主题消息之前在你的输入服务器中对消息进行一些
 - en: OrderId
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 订单ID
 - en: .
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: Of course, you can always use the built-in adapters from your
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: 当然，你也可以使用来自你的
 - en: CEP
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendor. But that may come at an extra monetary cost, so check with your
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: 供应商。但这可能会额外增加成本，所以请向你的
 - en: CEP
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendor to see if a certain input adapter comes free of charge. Also, the more
     of the
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: 供应商，看看某个输入适配器是否免费。另外，越多
 - en: CEP
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendor's infrastructure you use, the more it ties you into the
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 你使用的供应商基础设施越多，就越容易与之捆绑在一起
 - en: CEP
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: vendor.
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: 要小心使用无
 - en: 4) Try to do some
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 试着在传递给
 - en: pre
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: Tibco
 - en: -filtering of messages in your input server before passing them on to the
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: '- 过滤在传递给'
 - en: CEP
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine.
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎。
 - en: Recently, we were able to reduce the CPU usage of Coral8 by about 50% (according
     to our Coral8 guy) by filtering out FIX messages that we knew that Coral8 was
     not interested in.
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近，我们成功将Coral8的CPU使用率减少了约50%（根据我们的Coral8专家），通过过滤我们知道Coral8不感兴趣的FIX消息。
 - en: 5) Continually optimize your code. Just this morning, I did a code review of
     the input server, and I was able to suggest a change which reduced one
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 持续优化你的代码。就在今天早上，我审查了输入服务器的代码，并提出了一项更改，减少了一个
 - en: hashtable lookup
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: hashtable查找
 - en: on each FIX message. I know that there are tons of other places in our code
     that can do with some optimization. If you need to parse FIX messages into C#
     objects, then do some investigation and benchmarking of FIX engines.
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: 的网络连接快速。
 - en: 6) Use the Server Garbage collector
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 使用服务器垃圾收集器
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的所有意见都是个人意见，与我的雇主无关。

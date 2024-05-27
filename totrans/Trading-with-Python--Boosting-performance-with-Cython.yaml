@@ -1,105 +1,165 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:42:14'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:42:14
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Trading with Python: Boosting performance with Cython'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Trading with Python：使用Cython提高性能
 - en: 来源：[http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01](http://tradingwithpython.blogspot.com/2014/06/even-with-my-old-pc-amd-athlon-ii-3gb.html#0001-01-01)
 - en: Even with my old pc (AMD Athlon II, 3GB ram), I seldom run into performance
     issues when running vectorized code. But unfortunately there are plenty of cases
     where that can not be easily vectorized, for example the
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使在我的旧电脑上（AMD Athlon II，3GB内存），运行向量化代码时也很少遇到性能问题。但不幸的是，有许多情况无法轻松地向量化，例如
 - en: '*drawdown*'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '*drawdown*'
 - en: function. My implementation of such was extremely slow, so I decided to use
     it as a test case for speeding things up. I'll be using the SPY timeseries with
     ~5k samples as test data. Here comes the original version of my
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 函数。我实现的此类函数极其缓慢，因此我决定将其作为提高速度的测试用例。我将使用大约5k个样本的SPY时间序列作为测试数据。下面是我在上述博客中提到的原始版本。
 - en: '*drawdown*'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '*drawdown*'
 - en: function (as it is now implemented in the
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 函数（如现在在
 - en: '*TradingWithPython*'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '*TradingWithPython*'
 - en: library)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 库中实现）
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Hmm 1.2 seconds is not too speedy for such a simple function. There are some
     things here that could be a great drag to performance, such as a list *highwatermark*
     that is being appended on each loop iteration. Accessing Series by their index
     should also involve some processing that is not strictly necesarry. Let's take
     a look at what happens when this function is rewritten to work with numpy data
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: Hmm 1.2秒对于这样一个简单的函数来说并不是太快。有些东西可能会对性能产生很大的影响，比如每次循环迭代都在追加的列表*highwatermark*。通过索引访问Series也应该涉及一些不必要的处理。让我们看看当这个函数被重写以使用numpy数据时会发生什么。
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Well, this is
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 嗯，这是
 - en: '**much**'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**很多**'
 - en: faster than the original function, approximately 40x speed increase. Still there
     is much room for improvement by moving to compiled code with
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 比原始函数快，大约提高了40倍的运行速度。仍有很大的改进空间，通过移动到编译代码来实现。
 - en: '*[cython](http://cython.org/)*'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '*[cython](http://cython.org/)*'
 - en: Now I rewrite the dd function from above, but using optimisation tips that I've
     found on the
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我用上面提到的dd函数重写，但使用我在
 - en: '[cython tutorial](http://docs.cython.org/src/tutorial/numpy.html)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[cython教程](http://docs.cython.org/src/tutorial/numpy.html)'
 - en: . Note that this is my first try ever at optimizing functions with Cython.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 上找到的优化提示。注意，这是我用Cython优化函数的第一次尝试。
 - en: '[PRE2]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Wow, this version runs in 122
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 哇，这个版本在122
 - en: '*micro*'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '*micro*'
 - en: seconds, making it
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 秒，使其
 - en: '**ten thousand**'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '**十万**'
 - en: times faster than my original version! I must say that I'm very impressed by
     what the Cython and IPython teams have achieved! The speed compared with ease
     of use is just awesome!
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 比我的原始版本快很多倍！我必须说我对Cython和IPython团队所取得的成就印象深刻！速度与易用性之间的比较真是太棒了！
 - en: P.S. I used to do code optimisations in Matlab using pure C and .mex wrapping,
     it was all just pain in the ass compared to this.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: P.S. 我以前在Matlab中使用纯C和.mex包装进行代码优化，这和现在比起来就是小菜一碟。

@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:47:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:47:58
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Practical Implementation of Neural Network based time
     series (stock) prediction - PART 2'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：基于神经网络的时间序列（股票）预测的实用实现 - 第2部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/01/practical-implementation-of-neural.html#0001-01-01)
 - en: As a brief follow up to the series, I want to take a moment to describe a bit
     about Weka, which is the machine learning tool that we will be using to implement
     the neural network. It is a fantastic open source JAVA based tool that was developed
@@ -27,60 +39,90 @@
     or classification scenario a snap. More advanced JAVA programmers may opt to use
     a command shell or customize their own classes. In addition there are numerous
     support options, including a fantastic Nabble thread that you may subscribe to--
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为系列文章的后续，我想花点时间介绍一下Weka，这是我们用来实现神经网络的机器学习工具。它是一个出色的开源JAVA工具，由新西兰的Waikato大学开发。编程经验不多的用户可以使用GUI外壳，使得运行回归或分类场景变得轻而易举。更高级的JAVA程序员可以选择使用命令行或定制自己的类。此外，还有许多支持选项，包括一个出色的Nabble论坛，你可以订阅它——
 - en: '[Weka thread](http://old.nabble.com/WEKA-f435.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Weka论坛](http://old.nabble.com/WEKA-f435.html)'
 - en: 'I have found that questions are answered very promptly and there is a lot of
     activity at the site, so you don''t have to wait a long time to get a response.
     In addition there are some great books put out by Ian Witten and Eibe Frank that
     guide you through the practical data mining with a minimal barrage of mathematical
     theory:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我发现问题回答得非常迅速，网站上有很多活动，所以你不必等待很长时间就能得到回复。此外，Ian Witten和Eibe Frank出版了一些很好的书籍，引导你通过最小数学理论的实践数据挖掘：
 - en: '[Data Mining Practical Machine Learning Tools and Techniques With Java Implementations](http://www.amazon.com/Data-Mining-Practical-Techniques-Management/dp/0120884070/ref=sr_1_1?ie=UTF8&s=books&qid=1264903087&sr=8-1http://www.amazon.com/Data-Mining-Practical-Techniques-Management/dp/0120884070/ref=sr_1_1?ie=UTF8&s=books&qid=1264903087&sr=8-1)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[数据挖掘：实用机器学习工具和技术Java实现](http://www.amazon.com/Data-Mining-Practical-Techniques-Management/dp/0120884070/ref=sr_1_1?ie=UTF8&s=books&qid=1264903087&sr=8-1)'
 - en: I have the first edition and have found it an immensely useful reference.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我拥有第一版，并发现它是一个非常有用的参考书。
 - en: There are a variety of built in learning modules included in the free utility
     (Weka), such as linear regression, neural networks (a.k.a multilayer perceptrons),
     decision trees, support vector machines, and even genetic algorithms.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 免费工具（Weka）中包含了各种内置的学习模块，比如线性回归、神经网络（亦称多层感知器）、决策树、支持向量机，甚至还有遗传算法。
 - en: '[![](img/ce485b5bb1edec1e5954eac139004467.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZNqm-WKrMONM33pPAU3w5mRbpOiWFVK87iZbUk09snDORrMaYu7Qpcgh5BxI0m-SF8yfuO8skZBRisWEPRKd1x5dTenZF3AO33cJI8kPMM-ggWotljRFK_i9MxOHH7Yt5PHdgROi6z9Q/s1600-h/weka_gui1.jpg)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ce485b5bb1edec1e5954eac139004467.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZNqm-WKrMONM33pPAU3w5mRbpOiWFVK87iZbUk09snDORrMaYu7Qpcgh5BxI0m-SF8yfuO8skZBRisWEPRKd1x5dTenZF3AO33cJI8kPMM-ggWotljRFK_i9MxOHH7Yt5PHdgROi6z9Q/s1600-h/weka_gui1.jpg)'
 - en: Fig 1\. Using the Weka Gui
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 使用Weka GUI
 - en: In Fig 1., we see the Weka GUI Chooser has been opened and the Explorer option
     was selected. The native format that Weka commonly uses is the .ARFF format, fortunately
     for us, however, it also reads in .CSV files, which are easily created with a
     save option in excel. The excel file we will first train is sim_training_set_perfect_sin.csv.
     Once loaded, you will see all of the relevant variables in the Weka Explorer shell.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在图1中，我们看到Weka GUI选择器已打开，并选择了探索器选项。Weka常用的本地格式是.ARFF格式，幸运的是，它还可以读取.CSV文件，这些文件可以通过Excel的保存选项轻松创建。我们将首先训练的Excel文件是sim_training_set_perfect_sin.csv。一旦加载，你将在Weka探索器壳中看到所有相关变量。
 - en: '[![](img/4f715de20b798cb4df251342b3ee4327.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpfEeU7bgRZ4opAxbAGkBtvZqoKjVHX8_gA4Ufwz811irkZtognHnNpV6KL0y-oiNKGSkvXe02uYKGZ8YlgJln9J-vsH-dnqPcmTFB58t3l3hlv5RnleBt0SYv5ROQ9pRdDt_kfyqPC4E/s1600-h/fig2_pt2back.jpg)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4f715de20b798cb4df251342b3ee4327.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpfEeU7bgRZ4opAxbAGkBtvZqoKjVHX8_gA4Ufwz811irkZtognHnNpV6KL0y-oiNKGSkvXe02uYKGZ8YlgJln9J-vsH-dnqPcmTFB58t3l3hlv5RnleBt0SYv5ROQ9pRdDt_kfyqPC4E/s1600-h/fig2_pt2back.jpg)'
 - en: Fig 2\. Loaded Excel csv training source file for Weka
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 2. Weka 的加载 Excel csv 训练源文件
 - en: We notice some new variables have been introduced that were not in part 1.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们注意到有些新变量已经被引入，在第一部分中并没有。
 - en: To understand why, let's show the CSV file that is used here.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了理解原因，让我们展示在此使用的 CSV 文件。
 - en: '[![](img/4ae769e63be56b723db891d9a210830f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt7EMZXcsBv3SpPF52IH76q5HJALLe1wkp75wgQyNAUywZd9nxnBqKJqAometVgId3fIJHB96Ya36BlvtaBqDUHHjIEZ1XaNVYsFl_n0KqYK5poB_EnvldShQPyeVMOi9ucjmw9Z-8FzA/s1600-h/fig2_training_sin-pt2.jpg)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4ae769e63be56b723db891d9a210830f.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt7EMZXcsBv3SpPF52IH76q5HJALLe1wkp75wgQyNAUywZd9nxnBqKJqAometVgId3fIJHB96Ya36BlvtaBqDUHHjIEZ1XaNVYsFl_n0KqYK5poB_EnvldShQPyeVMOi9ucjmw9Z-8FzA/s1600-h/fig2_training_sin-pt2.jpg)'
 - en: Fig 3\. Training set variables.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 3. 训练集变量。
 - en: What we see is that the original perfect sine wave signal has been preserved
     in the column labeled signal. The additional signals, s-1, s-2, s-3, s-4 are often
     called delayed or embedded (dimension) variables. They are simply lagged values
@@ -94,60 +136,90 @@
     value or it will have large offset errors that will obstruct convergence. The
     bias node accomplishes that operation. Those familiar with Engineering theory
     will recognize this node as a DC bias.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们所看到的是，原始的完美正弦波信号在名为 signal 的列中保持不变。附加的信号 s-1、s-2、s-3、s-4 通常被称为延迟或嵌入（维度）变量。它们仅仅是信号的滞后值，用于训练神经网络。确定滞后值的数量没有确切的方法，尽管存在许多不同的方法。现在，我们将简单地接受四个信号的滞后值是有用的。最后一列，称为偏置，是神经网络共有的。偏置节点允许神经网络通过训练将常数信号输入移动到网络中。例如，想象我们的信号平均值为
+    2.0 但是我们正在学习它。神经网络需要一些输入来跟踪那个常数值，否则它将会有很大的偏移误差，妨碍收敛。偏置节点完成了该操作。熟悉工程理论的人会 recognize
+    this node as a DC bias.
 - en: Ok, so once other thing we notice in the GUI interface is the Class:signal(num)
     is selected on the bottom right. This is because we are predicting a numerical
     class, rather than a nominal one (which is the typical default for classification
     schemes).
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，所以在 GUI 界面中我们注意到的另一件事是，在右下角选择了类：信号(数字)。这是因为我们是预测一个数字类，而不是一个名义类（这对于分类方案来说是典型的默认值）。
 - en: Next, we select the classify tab to select our learning scheme, which in this
     case will be the MultilayerPerceptron.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我们选择分类标签以选择我们的学习方案，在此案例中将是多层感知器。
 - en: '[![](img/21d063482de4721d0636bb8274dc3c3b.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjU7-yjl4QjPOkkYnNluypDObLLFfv_sjLPoVc2JeiSw0_6hvoXXq7kXbZQ-Ro0DhN7FYIkRS7MkOPEGHpZup9wnYYNzMTTY1hQcZeAJKcoBvbbG57SmQFaQViGFZTJ5Kj-yJLzkfl7pM/s1600-h/fig4_mlpselect_pt2.jpg)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/21d0634'
 - en: We then want to make sure certain options are selected.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们想确保某些选项被选中。
 - en: '[![](img/4fcc16230fcbba02e41ed75f901bf4c4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMV1Zq9uPUxGfVIK2E96dFxs2JhhFvxjYWSi7Yr34H7II7D0-H3TnV8l1ypsL6QDiw7DGugZmEpNFqVn8epuP4pKOhrnOvATPB8wNMONjyWRruSWco3qS0Zp_fDUXA1YAT3npct067BZs/s1600-h/fig5_MLP_options_pt2.jpg)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/4fcc16230fcbba02e41ed75f901bf4c4.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMV1Zq9uPUxGfVIK2E96dFxs2JhhFvxjYWSi7Yr34H7II7D0-H3TnV8l1ypsL6QDiw7DGugZmEpNFqVn8epuP4pKOhrnOvATPB8wNMONjyWRruSWco3qS0Zp_fDUXA1YAT3npct067BZs/s1600-h/fig5_MLP_options_pt2.jpg)'
 - en: We set nominalToBinaryFilter and normalize attributes as False, as we don't
     wish to modify the input data to be binary and are not using nominal attributes.
     However, we
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将 nominalToBinaryFilter 和 normalize 属性设置为 False，因为我们不希望修改输入数据以变为二进制，并且我们没有使用名义属性。然而，我们
 - en: want the normalizeNumericClass set to True as mentioned earlier, it will force
     the normalization scheme to be set to Weka's internal limiting range, so we don't
     have to. Also, we will train for 1000 epochs.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们想要将`normalizeNumericClass`设置为True，就像之前提到的那样，它将强制将规范化方案设置为Weka的内部限制范围，因此我们就不必自己设置了。此外，我们将训练1000个epochs。
 - en: '[![](img/92b83515cdc46aaea995bc1a44914697.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8SQWMNUa9ET41uCP4V03aZZWPfzgJRhP82NwIxHAP-4T2UqvYc4Q08a_CVhA5yutodVey587fU-VuhFx6r3sCrVBtYrjQiYBACb69NgqTO2tOzcqHoeNNbiSYoRK6HcYZrtLQ9aIW3oM/s1600-h/fig6_pt2_MLP_options.jpg)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8SQWMNUa9ET41uCP4V03aZZWPfzgJRhP82NwIxHAP-4T2UqvYc4Q08a_CVhA5yutodVey587fU-VuhFx6r3sCrVBtYrjQiYBACb69NgqTO2tOzcqHoeNNbiSYoRK6HcYZrtLQ9aIW3oM/s1600-h/fig6_pt2_MLP_options.jpg)'
 - en: Fig 6\. Preferences for MLP training model.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 图6。MLP训练模型的首选项。
 - en: We will build a model by training on 66% of the data. We want to store and output
     the predictions so that we can visually see what they look like. Lastly, we will
     Preserve order for split as it allows us to display the predicted out of sample
     time series in the original order. With all of these features set, we simply click
     OK and the start button and it will quickly build our first Neural Network model!
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们将通过对66%的数据进行训练来构建模型。我们希望存储和输出预测结果，以便我们可以直观地看到它们的样
 - en: '[![](img/e4eba101ecb3ee3bd50242e52f910087.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwxxresRDCU3sHYERfBwT-WxA-wrO2NXxnnYcVFE-RAIHctwXjuIBwvL3x-kNSjRC5ARHftXGBfM6I3XP8HEkJ5SY7cLh7LleGuYaPsU08KKJ-TVN8ZBGo9kHrJ0RjUlFE4Gv4F02gdwE/s1600-h/fig7_pt2_MLP_simple_sin.jpg)'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwxxresRDCU3sHYERfBwT-WxA-wrO2NXxnnYcVFE-RAIHctwXjuIBwvL3x-kNSjRC5ARHftXGBfM6I3XP8HEkJ5SY7cLh7LleGuYaPsU08KKJ-TVN8ZBGo9kHrJ0RjUlFE4Gv4F02gdwE/s1600-h/fig7_pt2_MLP_simple_sin.jpg)'
 - en: Fig 7\. Results with summary of statistics console.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 图7。带有统计摘要的结果控制台。
 - en: If we scroll up we can see the actual weights that the model converged upon
     for our Multilayer Perceptron that will be used to predict the out of sample data.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们向上滚动，我们可以看到模型收敛的实际权重，这些权重将用于预测样本外数据。
 - en: We can see that there is a nice printout of the last 34% of results (271 out
     of sample data points) along with the predicted value and error, as well as a
     useful summary of statistics in the bottom of the console. We often use Root mean
@@ -157,50 +229,76 @@
     it with the left mouse button and dragging), then copy this data back into excel.
     As a result, we can then plot the actual versus predicted out of sample results
     inside of excel.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到，最后34%的结果（271个样本数据点）有一个很好的打印输出，以及预测值和误差，以及控制台底部有一个有用的统计摘要。我们经常使用均方根误差作为神经网络回归的性能度量。在这种情况下，数字0.0005相当不错。但让我们使用一个小技巧来视觉检查一下有多好。我们实际上可以从控制台抓取数据（通过使用鼠标左键选择并拖动），然后将这些数据复制回Excel。因此，我们可以在Excel中绘制实际与预测的样本外结果。
 - en: '[![](img/d12260af2d62e8b316034d99bce1311e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9FF-MGVDLWuDBDaTr0vAvksQ7gL1MIdK0h-g7qOK4OvxuQZZ_GjTssfxzbvf7TTJxjV4Pxu6QmML6gw88nJAa7LsZdEYwm3pz1xl7Dk9W09k3MWAtrKKR7-j_Z6GLAtJAWKoHQrxABrM/s1600-h/fig8_pt2_MLP_excelimport.jpg)'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9FF-MGVDLWuDBDaTr0vAvksQ7gL1MIdK0h-g7qOK4OvxuQZZ_GjTssfxzbvf7TTJxjV4Pxu6QmML6gw88nJAa7LsZdEYwm3pz1xl7Dk9W09k3MWAtrKKR7-j_Z6GLAtJAWKoHQrxABrM/s1600-h/fig8_pt2_MLP_excelimport.jpg)'
 - en: Fig 8\. Importing prediction results back into Excel.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 图8。将预测结果导入回Excel。
 - en: Notice that we cut and paste the data from the Weka console back into Excel,
     but must select text to columns in order to separate the data back into columns.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 注意，我们将数据从Weka控制台剪切并粘贴回Excel，但必须选择文本以将数据分隔成列。
 - en: '[![](img/a222551fbb9e05ed684e3233eb53f199.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFQrjZnlPmgpJxBAz4ZPFi60Nf-xS_TmX8y9uhB3BPsIm_z1TrwBPq2qsIBytKZ08mXDNdMWgI4sPe4AdicNNXcB7KtRz3ShOeRZ-ooEAAjO3aGIuXc36BYy-m7mUjzDgBtttenjoRuek/s1600-h/fig9_pt2_MLP_txttocolumns.jpg)'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图片](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFQrjZnlPmgpJxBAz4ZPFi60Nf-xS_TmX8y9uhB3BPsIm_z1TrwBPq2qsIBytKZ08mXDNdMWgI4sPe4AdicNNXcB7KtRz3ShOeRZ-ooEAAjO3aGIuXc36BYy-m7mUjzDgBtttenjoRuek/s1600-h/fig9_pt2_MLP_txttocolumns.jpg)'
 - en: Fig 9\. Selecting the regions to separate as columns.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 图9。选择要分隔为列的区域。
 - en: And tada! We can now plot the predicted vs. actual values. And look how nicely
     they line up. The errors are extremely small on the out of sample set, notice
     some are 0, others are .001, imperceptible to the eye, without zooming way in
     on that point.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 瞧！现在我们可以绘制预测值与实际值的图表了。看它们排列得多好。在样本外集合上的误差非常小，注意有些是0，其他的是.001，肉眼几乎无法察觉，不放大那个点很难看出。
 - en: It actually found a perfect model for this time series (we will expand a bit
     later why), and the errors can be attributed to numerical precision.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，它找到了一个完美的时间序列模型（稍后我们会解释为什么会这样），误差可以归因于数值精度。
 - en: '[![](img/7ebd9421261e89d9889e43d3295ae1a6.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUrZEtp4jaBC9LR7IoY07YnJJb_J1SCAcB2iZOsKVVvN7K6PWJutnsgbQ_qxJ962XqdTz4mUkt4GBhMmOXkNhxDolbcbnEfuruyxBKsF1QIr_JSXZq2fTh1-yWtHPuZcvLk4I0lbrbmpA/s1600-h/fig10_pt2_results.jpg)'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图10](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUrZEtp4jaBC9LR7IoY07YnJJb_J1SCAcB2iZOsKVVvN7K6PWJutnsgbQ_qxJ962XqdTz4mUkt4GBhMmOXkNhxDolbcbnEfuruyxBKsF1QIr_JSXZq2fTh1-yWtHPuZcvLk4I0lbrbmpA/s1600-h/fig10_pt2_results.jpg)'
 - en: Fig 10\. Resulting plot of predicted vs. actual data.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 图10。预测值与实际数据的结果图。
 - en: We have now just built a basic Neural Network with a simple sine wave time series
     using Weka and Excel. The predicted out of sample results were extremely good.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们现在刚刚使用Weka和Excel构建了一个基本的神经网络，用于简单的正弦波时间序列。预测的样本外结果非常好。
 - en: However, as we will see, the data signal we used, the simple sine wave is a
     very easy signal to learn as it is perfectly repetitive and stationary. We will
     see that as the signal gets increasingly complex, the prediction results do not
     work as well.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，正如我们将看到的，我们使用的数据信号，即简单的正弦波，是一个非常容易学习的信号，因为它完全重复且平稳。我们会发现，随着信号变得越来越复杂，预测结果就不那么好了。
 - en: That's it for Part 2, comments are welcome.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二部分就到这里，欢迎留言。

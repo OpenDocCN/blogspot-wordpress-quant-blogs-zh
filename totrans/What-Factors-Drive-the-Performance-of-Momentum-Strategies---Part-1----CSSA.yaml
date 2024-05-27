@@ -1,26 +1,40 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 17:53:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:53:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: What Factors Drive the Performance of Momentum Strategies? (Part 1) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 什么因素驱动动量策略的表现？（第 1 部分） | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2014/06/25/what-factors-drive-the-performance-of-momentum-strategies-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2014/06/25/what-factors-drive-the-performance-of-momentum-strategies-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2014/06/25/what-factors-drive-the-performance-of-momentum-strategies-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2014/06/25/what-factors-drive-the-performance-of-momentum-strategies-part-1/#0001-01-01)
 - en: '[![factors](img/2a4c47ef6f2e59c3753d88e268b2d054.png)](https://cssanalytics.files.wordpress.com/2014/06/factors.png)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![factors](img/2a4c47ef6f2e59c3753d88e268b2d054.png)](https://cssanalytics.files.wordpress.com/2014/06/factors.png)'
 - en: Momentum strategies generate a lot of hype and deservedly so- it is the “premier
     market anomaly”- a praise heaped by no less a skeptic than Eugene Fama himself.
     For those who do not know Fama, he happens to be both a founder and ardent proponent
@@ -28,8 +42,10 @@
     market anomaly has no less fervor in financial circles than organized religion.
     Doubt its existence and you are akin to a quack or relegated to amateur status
     among the experienced.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 动量策略引起了很多炒作，当之无愧-它是“首要市场异常”-这是一位怀疑者甚至尤金·法玛本人都对此给予的赞扬。对于不了解法玛的人来说，他恰好是所谓的“有效市场假设”的创始人和坚定支持者。在金融圈中，将动量视为合法市场异常的信仰不亚于有组织的宗教。怀疑它的存在，你就相当于一个庸医，或者在经验丰富的人群中处于业余状态。
 - en: But any real scientist worth their salt should always question “why?” if only
     to gain a better understanding of the phenomenon. This is not just academic, it
     is also a practical matter for those who trade with real money. A deeper analysis
@@ -44,8 +60,12 @@
     exist as a legitimate anomaly at the same time. This isn’t a quirk borne of quantum
     physics, but rather the implication of some basic math and demonstrated conclusively
     using simulated financial data.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 但是，任何真正值得尊敬的科学家都应该始终质疑“为什么？”，即使只是为了更好地理解现象。这不仅仅是学术上的问题，对于那些用真钱交易的人来说，这也是一个实际的问题。对动量表现的驱动因素进行更深入的分析以及它可能存在的条件可以揭示出优秀策略的潜力。有几篇具有里程碑意义的论文阐明了这个问题，由于它们的技术性质，毫无疑问已经被遗忘或忽视了。例如，Lo
+    和 MacKinlay（[反向投机利润是由于股票市场反应过度吗](http://www.finance.martinsewell.com/stylized-facts/dependence/LoMacKinlay1990.pdf)）以及
+    Conrad 和 Kaul（[交易策略的解剖](http://www.eco.sdu.edu.cn/jrtzx/uploadfile/pdf/empiricalfinance/55.pdf)）。这些文章提出的论点和证据有助于解决法玛先生如何既相信有效市场又认为动量也存在于同一时间的合法异常。这不是量子物理学的怪癖，而是一些基本数学的推论，并且使用模拟金融数据得出了明确的结论。
 - en: 'In a previous post, I presented some ideas and testing related to identifying
     [superior universes for momentum strategies](https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/
     "Momentum Strategies and Universe Selection"). A simple/naaive method of finding
@@ -56,11 +76,16 @@
     strategies. Since momentum is the polar opposite of contrarian, what is good for
     one is bad for the other. The table below shows the three ingredients that affect
     momentum performance:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 在之前的一篇帖子中，我提出了一些与识别[动量策略的优越宇宙](https://cssanalytics.wordpress.com/2014/06/04/momentum-strategies-and-universe-selection/
+    "动量策略和宇宙选择")相关的想法和测试。通过蛮力寻找表现最佳的宇宙的简单/天真方法表现出了一些希望，但是存在陷阱，因为该方法未捕捉到动量绩效的驱动因素。因此，让我们从颠倒了Lo和MacKinlay引入的描述特定宇宙对反向或均值回归策略有利的基本数学开始。由于动量是反向的极端，一个对一个有利的对另一个来说是不利的。下表显示了影响动量绩效的三个因素：
 - en: '[![momentum score 2](img/9e7229b526a17ede2ee7d456d60202f2.png)](https://cssanalytics.files.wordpress.com/2014/06/momentum-score-2.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![momentum score 2](img/9e7229b526a17ede2ee7d456d60202f2.png)](https://cssanalytics.files.wordpress.com/2014/06/momentum-score-2.png)'
 - en: The first factor- time series predictability- relates to how predictable or
     “auto-correlated” an asset or group of assets is on the basis of whether high
     (low) past returns predict high (low) future returns. If a universe contains highly
@@ -80,8 +105,10 @@
     to momentum profits. In summary, the equation shows that a “momentum score” can
     be formulated by adding the time series predictability factor, the dispersion
     in means factor and subtracting the lead/lag relationship factor.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个因素——时间序列可预测性——与资产或一组资产的可预测性或“自相关性”有关，即过去高（低）收益是否预测未来高（低）收益。如果一个宇宙包含高度可预测的资产，那么动量策略将更能够利用过去绩效的测量。第二个因素——平均收益的离散度——与一组资产的平均或平均收益是否可能彼此差异很大有关。包含不同资产类别的异质宇宙将具有不同的收益来源——因此离散度更大——而类似股票指数内的部门等同质宇宙将具有较小的离散度。最后一个因素——领先/滞后关系——是某些资产或股票领先或滞后于另一资产或股票的倾向强度的度量。例如，这种倾向可能发生在大型流动性股票和小型非流动性股票之间。在这种情况下，正向关系将意味着如果说可口可乐今天上涨，那么明天小型可乐公司也会上涨。这对于买入较小型可乐公司并做空可口可乐的反向策略是有利的，但显然对于动量策略是不利的——因此这个因素与动量利润呈负相关。总之，该方程显示了可以通过添加时间序列可预测性因素、平均收益离散度因素并减去领先/滞后关系因素来制定“动量得分”。
 - en: Let’s show a tangible example to demonstrate how the math matches up with intuition.
     I calculate a momentum score using the last five years of data for both a diverse
     asset class universe (SPY,DBC,GLD,TLT,IEF,RWX,IYR,EEM,EWJ,IEV) and also a sector
@@ -89,14 +116,20 @@
     covers a bull market which would easily obscure comparisons based on just back-testing
     momentum strategy performance on each universe. The momentum score (higher is
     better) is broken down by contribution in each table for the two different universes.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们展示一个具体的例子来证明数学与直觉相符。我使用过去五年的数据分别计算了一个多元化的资产类别宇宙（SPY，DBC，GLD，TLT，IEF，RWX，IYR，EEM，EWJ，IEV）和一个行业宇宙（XLE，XLU，XLP，XLB，XLV，XLF，XLK，XLY，XLI）的动量得分。请注意，过去五年涵盖了一轮牛市，这很容易掩盖仅基于对每个宇宙的动量策略回溯测试的比较。动量得分（得分越高越好）在每个表中被分解为两个不同宇宙的贡献。
 - en: '[![global asset class universe](img/ea684b8dfca42f30abc180cab414e30f.png)](https://cssanalytics.files.wordpress.com/2014/06/global-asset-class-universe.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![全球资产类别宇宙](img/ea684b8dfca42f30abc180cab414e30f.png)](https://cssanalytics.files.wordpress.com/2014/06/global-asset-class-universe.png)'
 - en: '[![sector universe](img/e76c5ae4e5faac95e217e76f40816b29.png)](https://cssanalytics.files.wordpress.com/2014/06/sector-universe.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![行业宇宙](img/e76c5ae4e5faac95e217e76f40816b29.png)](https://cssanalytics.files.wordpress.com/2014/06/sector-universe.png)'
 - en: 'Clearly the asset class universe is considered to be superior to just using
     a sector universe for momentum strategies. This certainly jives with intuition
     and also empirical performance. But what is more interesting is looking at the
@@ -115,11 +148,15 @@
     proxy for this effect. To better demonstrate the effect of adding variation, lets
     look at how adding different assets to the sector universe individually can change
     the momentum score:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 显然，资产类别宇宙被认为优于仅使用行业宇宙进行动量策略。这与直觉和经验表现一致。但更有趣的是看看两个宇宙之间差异的最大贡献。我们看到，平均值的离散度或横截面平均收益的变化是将资产类别宇宙与行业宇宙分开的最大因素。其他两个因素几乎互相抵消。这是有道理的，因为大多数行业收益共享一个主导因素-股市的回报或者说标普500指数的回报。当市场上涨（或下跌）时，大多数行业都会上涨（或下跌）到不同程度。相比之下，在资产类别宇宙中，你可能会有更多的变化-股票可能上涨，债券可能下跌，商品可能上涨。绩效的变化要大得多。请注意，绩效的变化或平均值的离散度并不等同于相关性，后者衡量短期收益之间的比例关系。拥有低交叉相关性的宇宙并不是这种效应的良好代理。为了更好地展示添加变化的效果，让我们看看如何分别将不同资产添加到行业宇宙中可以改变动量得分的情况：
 - en: '[![mom score sectors](img/d6a0ac49102327fc7f6767267aa63e0a.png)](https://cssanalytics.files.wordpress.com/2014/06/mom-score-sectors.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![行业动量得分](img/d6a0ac49102327fc7f6767267aa63e0a.png)](https://cssanalytics.files.wordpress.com/2014/06/mom-score-sectors.png)'
 - en: Simply adding long-term bonds (TLT) nearly doubles the momentum score versus
     the baseline of using just the sectors. On the flip side adding the dominant common
     factor- the S&P500 (SPY)- reduces the momentum score versus the baseline. Adding
@@ -132,5 +169,7 @@
     chunk of its returns from the momentum effect. In the next post we will clarify
     why Mr. Fama can both believe in efficient markets and in momentum as an anomaly
     and also provide some interesting implications and further analysis.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 只需添加长期债券（TLT），动量评分几乎是基准使用只有行业的两倍。另一方面，添加主导的共同因素——标普500指数（SPY）——会降低动量评分。实际上，添加黄金要优于添加10年期/中期国债（IEF），后者通常用于代表大多数投资组合中的债券部分——尽管IEF的相关性远远低于GLD。利用这种分析可以提供一些非常有趣的，有时是违反直觉的见解（尽管大多数都是直观的）。但更实际的是，它可以用来创建适用动量策略或任何其他策略的良好投资组合，这些策略获得了大部分收益来自动量效应。在下一篇文章中，我们将阐明为什么法马先生既可以相信市场有效性，也可以认为动量是一种异常，并提出一些有趣的影响和进一步分析。

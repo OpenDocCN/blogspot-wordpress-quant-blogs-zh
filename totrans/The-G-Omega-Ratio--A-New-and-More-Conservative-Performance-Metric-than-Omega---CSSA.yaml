@@ -1,24 +1,36 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:06:25'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:06:25'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'The G-Omega Ratio: A New and More Conservative Performance Metric than Omega
     | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: G-Omega比率：一种比Omega更保守的绩效指标 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2012/03/19/the-g-omega-ratio-a-new-and-more-conservative-performance-metric-than-omega/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/19/the-g-omega-ratio-a-new-and-more-conservative-performance-metric-than-omega/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2012/03/19/the-g-omega-ratio-a-new-and-more-conservative-performance-metric-than-omega/#0001-01-01](https://cssanalytics.wordpress.com/2012/03/19/the-g-omega-ratio-a-new-and-more-conservative-performance-metric-than-omega/#0001-01-01)
 - en: The Omega ratio [http://en.wikipedia.org/wiki/Omega_ratio](http://en.wikipedia.org/wiki/Omega_ratio) is
     a relatively new performance metric  invented by Keating and Shadwick. It was
     designed to be a better way to capture all moments of the distribution to give
@@ -32,29 +44,42 @@
     those that have non-normal distributions. Winton Capital provides an interesting
     white paper on the topic [http://www.performance-measurement.org/Winton2003.pdf](http://www.performance-measurement.org/Winton2003.pdf) of
     using the Omega for performance evaluation.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Omega比率[http://en.wikipedia.org/wiki/Omega_ratio](http://en.wikipedia.org/wiki/Omega_ratio)是一种相对较新的绩效指标，由Keating和Shadwick发明。它旨在更好地捕捉分布的所有时刻，以公平地计算上行与下行风险，优于夏普比率。从语义角度来看，它确实捕捉了“奖励与风险”的概念，大多数投资者都熟悉这些概念。Omega使用一个阈值或所需的回报水平来计算阈值以上的上行与阈值以下的下行回报。我自己的测试表明，Omega实际上在许多应用中与夏普比率竞争或更优越。它通常更适用于对资产、策略或投资组合经理进行排名，尤其是那些具有非正态分布的。Winton
+    Capital提供了一篇关于使用Omega进行绩效评估的有趣白皮书[http://www.performance-measurement.org/Winton2003.pdf](http://www.performance-measurement.org/Winton2003.pdf)。
 - en: 'The calculation of the Omega statistic is actually quite simple–don’t let the
     fancy notation deter you.  The calcuation boils down to a few simple steps:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: Omega统计量的计算实际上相当简单——别让复杂的符号吓倒你。计算归结为几个简单的步骤：
 - en: 1) identify a threshold, T– lets say it is zero for this example
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 确定一个阈值，T——假设在这个例子中是零
 - en: 2) calculate the excess returns > T, or take the sum of the returns >0 in this
     example minus the threshold (subtract zero for all returns above zero and take
     the sum)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 计算小于T的过量回报，或者在这个例子中，取小于0的回报之和减去阈值（对于所有大于零的回报，减去零，然后取和）
 - en: 3) calculate the excess returns< T, or take the sum of the returns <0 in this
     example minus the threshold (subtract zero for all returns below zero and take
     the sum)
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 计算超过T的过量回报，或者在这个例子中，取超过0的回报之和减去阈值（对于所有低于零的回报，减去零，然后取和）
 - en: 4) take the sum in step 2 divided by -1* the sum in step 3……….this is the Omega
     Ratio
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 步骤2中的和除以-1*步骤3中的和……这是Omega比率
 - en: The conventional Omega Ratio suffers from a few minor flaws. First, it is skewed
     by outliers because it simply takes the ratio of the sum above versus the sum
     below the threshold. Any extreme observations will lead to an Omega Ratio that
@@ -67,8 +92,10 @@
     takes the sum of returns versus the threshold. This does not address the fact
     that compounding requires a low variance around returns to comparably match the
     sum or arithmetic mean of returns.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 传统的Omega比率存在几个小缺点。首先，它会被异常值所扭曲，因为它仅仅是阈值以上和以下总和的比率。任何极端观察值都会导致Omega比率无法正确捕捉分布的真实性质。其次，使用总和测量方法未能考虑到上行与下行回报潜力的真实比率，在两者频率没有差异的情况下。也就是说，假设阈值以上和以下的回报频率会有很大变化，那么有效的上行与下行比率是多少。第三，Omega没有考虑到复利回报的影响——它仅仅是阈值以上和以下回报的总和。这没有解决复利需要低回报方差才能与回报的总和或算术平均值相比较的问题。
 - en: The “G-Omega” is a simple modification to the above ratio that addresses these
     concerns. The simple difference is that the G-Omega uses the geometric average
     of returns above the threshold versus the geometric average of returns below the
@@ -83,5 +110,7 @@
     when tail risk is high. From this perspective, the G-Omega can provide a very
     conservative view of an asset, strategy or portfolio. It is potentially a nice
     complement to the original Omega metric.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: “G-Omega”是对上述比率的简单修改，解决了这些问题。简单的区别是，G-Omega使用了阈值以上的回报的几何平均值与阈值以下的回报的几何平均值，而不是受最大值10和最小值0限制的总和。这个比率完全专注于上行复利潜力和下行复利潜力的演变。G-Omega对阈值以上和以下的回报频率无关。它对异常值也不那么敏感，因为它取了几个值的平均值。当主要是正面观察值与负面观察值时，G-Omega的值甚至可能小于1。这是因为当尾部风险高时，阈值以下的平均回报可以超过阈值以上的平均回报。从这个角度看，G-Omega可以提供一种非常保守的资产、策略或投资组合的观点。它可能是原始Omega指标的一个很好的补充。

@@ -1,386 +1,630 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 15:17:55'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:17:55
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Slightly Different Use of Ralph Vince’s Leverage Space Trading
     Model'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Timely Portfolio：对 Ralph Vince 的杠杆空间交易模型稍微不同的使用
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/04/slightly-different-use-of-ralph-vinces.html#0001-01-01)
 - en: In honor of the press release [Dow Jones Indexes To Develop, Co-Brand Index
     Family With LSP Partners](http://press.djindexes.com/index.php/dow-jones-indexes-to-develop-co-brand-index-family-with-lsp-partners/)
     two days ago, I thought I would show another slightly different use of Ralph Vince’s
     *The Leverage Space Trading Model.*
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了纪念两天前的新闻稿[Dow Jones Indexes To Develop, Co-Brand Index Family With LSP Partners](http://press.djindexes.com/index.php/dow-jones-indexes-to-develop-co-brand-index-family-with-lsp-partners/)，我想展示
+    Ralph Vince 的 *杠杆空间交易模型* 的另一种略微不同的用法。
 - en: Using the R LSPM package, we can build a monthly system around the probProfit
     calculation.  This particular system will enter long when the short term (12 month)
     probProfit exceeds the longer term (36 month) probProfit.  It exits when the short
     term falls below the longer term.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用 R LSPM 包，我们可以围绕 probProfit 计算构建一个月度系统。这个特定的系统在短期（12 个月）的 probProfit 超过长期（36
+    个月）的 probProfit 时进入多头。当短期低于长期时退出。
 - en: Feel free to substitute any index.  Some of my favorites are German Dax GDAXI,
     Japan Nikkei N225, Korea Kospi KS11, and Signapore Straits Times STI for international
     testing.  Additional US testing might look at NDX, RUT, CYC, XBD, HGX, REI, DJUSBK,
     OSX or anything that you can think of to break it.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 随意替换任何指数。一些我喜欢的是德国 Dax GDAXI，日本 Nikkei N225，韩国 Kospi KS11 和新加坡 Straits Times
+    STI 进行国际测试。额外的美国测试可能会考虑 NDX、RUT、CYC、XBD、HGX、REI、DJUSBK、OSX 或任何您可以想到的内容来进行测试。
 - en: The results are not fantastic, but the considerable drawdown reductions is nice. 
     Let me know how you would improve.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果并不太好，但可观的回撤减少是不错的。请告诉我您如何改进。
 - en: 'R code:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: R 代码：
 - en: '#Please see au.tra.sy blog [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '#请参见 au.tra.sy 博客 [http://www.automated-trading-system.com/](http://www.automated-trading-system.com/)'
 - en: '#for original code and [http://www.fosstrading.com](http://www.fosstrading.com)
     for some of the'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#for original code and [http://www.fosstrading.com](http://www.fosstrading.com)
+    for some of the'
 - en: '#other techniques'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#其他技术'
 - en: require(PerformanceAnalytics)
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PerformanceAnalytics)
 - en: require(PApages)
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: require(PApages)
 - en: require(quantmod)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: require(quantmod)
 - en: require(LSPM)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: require(LSPM)
 - en: tckr<-"^GSPC"
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: tckr<-"^GSPC"
 - en: start<-"1929-01-01"
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: start<-"1929-01-01"
 - en: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 'end<- format(Sys.Date(),"%Y-%m-%d") # yyyy-mm-dd'
 - en: Pull tckr index data from Yahoo! Finance
+  id: totrans-21
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 从雅虎金融获取 tckr 指数数据
 - en: getSymbols(tckr, from=start, to=end)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols(tckr, from=start, to=end)
 - en: GSPC<-adjustOHLC(GSPC,use.Adjusted=T)
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: GSPC<-adjustOHLC(GSPC,use.Adjusted=T)
 - en: GSPC<-to.monthly(GSPC)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: GSPC<-to.monthly(GSPC)
 - en: rtn<-monthlyReturn(GSPC[,4])
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: rtn<-monthlyReturn(GSPC[,4])
 - en: Define JPT function
+  id: totrans-26
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 定义 JPT 函数
 - en: jointProbTable <- function(x, n=3, FUN=median, ...) {
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: jointProbTable <- function(x, n=3, FUN=median, ...) {
 - en: '# handle case with no negative returns; use -0.01'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 处理没有负回报的情况；使用 -0.01'
 - en: for (sys in 1:numsys) {
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: for (sys in 1:numsys) {
 - en: if (min(x[,sys])> -1) x[,sys][which.min(x[,sys])]<- -0.01
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: if (min(x[,sys])> -1) x[,sys][which.min(x[,sys])]<- -0.01
 - en: '}'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '# Function to bin data'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 函数用于对数据进行分组'
 - en: quantize <- function(x, n, FUN=median, ...) {
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: quantize <- function(x, n, FUN=median, ...) {
 - en: if(is.character(FUN)) FUN <- get(FUN)
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: if(is.character(FUN)) FUN <- get(FUN)
 - en: bins <- cut(x, n, labels=FALSE)
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: bins <- cut(x, n, labels=FALSE)
 - en: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: res <- sapply(1:NROW(x), function(i) FUN(x[bins==bins[i]], ...))
 - en: '}'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: '# Allow for different values of ''n'' for each system in ''x'''
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 允许对 ''x'' 中的每个系统的 ''n'' 使用不同的值'
 - en: if(NROW(n)==1) {
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: if(NROW(n)==1) {
 - en: n <- rep(n,NCOL(x))
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: n <- rep(n,NCOL(x))
 - en: '} else'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '} else'
 - en: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: if(NROW(n)!=NCOL(x)) stop("invalid 'n'")
 - en: '# Bin data in ''x'''
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 对 ''x'' 中的数据进行分组'
 - en: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: qd <- sapply(1:NCOL(x), function(i) quantize(x[,i],n=n[i],FUN=FUN,...))
 - en: '# Aggregate probabilities'
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 聚合概率'
 - en: probs <- rep(1/NROW(x),NROW(x))
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: probs <- rep(1/NROW(x),NROW(x))
 - en: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: res <- aggregate(probs, by=lapply(1:NCOL(qd), function(i) qd[,i]), sum)
 - en: '# Clean up output, return lsp object'
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 清理输出，返回 lsp 对象'
 - en: colnames(res) <- colnames(x)
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(res) <- colnames(x)
 - en: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: res <- lsp(res[,1:NCOL(x)],res[,NCOL(res)])
 - en: return(res)
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: return(res)
 - en: '}'
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: I know there are prettier ways to accomplish
+  id: totrans-53
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 我知道有更漂亮的方法来完成
 - en: but I have to live within my limits
+  id: totrans-54
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 但我必须在我的限制范围内生活
 - en: numsys<-1
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: numsys<-1
 - en: numbins<-12
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: numbins<-12
 - en: Set Walk-Forward parameters (number of periods) for short
+  id: totrans-57
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 设置短期的前进步数（期数）
 - en: 'optim<-9 # 9 monthly returns'
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: '优化<-9 # 9个月收益'
 - en: 'wf<-1 #walk forward 1 month; we''ll set horizon separately'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: 'wf<-1 #向前走1个月；我们将单独设置地平线'
 - en: Calculate number of WF cycles
+  id: totrans-60
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 计算WF周期数
 - en: numCycles = floor((nrow(rtn)-optim)/wf)
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: numCycles = floor((nrow(rtn)-optim)/wf)
 - en: for (i in 0:(numCycles-1)) {
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 0:(numCycles-1)) {
 - en: '# Define cycle boundaries'
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 定义周期边界'
 - en: start<-1+(i*wf)
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: start<-1+(i*wf)
 - en: end<-optim+(i*wf)
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: end<-optim+(i*wf)
 - en: '# Get returns for optimization cycle and create the JPT'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 获取优化周期的收益并创建JPT'
 - en: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
 - en: outcomes<-jpt[[1]]
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: outcomes<-jpt[[1]]
 - en: probs<-jpt[[2]]
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: probs<-jpt[[2]]
 - en: port<-lsp(outcomes,probs)
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: port<-lsp(outcomes,probs)
 - en: profitProb<-probProfit(port,target=0,horizon=6)
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProb<-probProfit(port,target=0,horizon=6)
 - en: profitProbWF<-c(rep(1,wf)) %o% profitProb
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProbWF<-c(rep(1,wf)) %o% profitProb
 - en: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
 - en: '#make xts'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 创建xts'
 - en: profitProbWF<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProbWF<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
 - en: maxLossWF<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: maxLossWF<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
 - en: if (i==0) profitProbHistory<-profitProbWF else profitProbHistory<-rbind(profitProbHistory,profitProbWF)
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) profitProbHistory<-profitProbWF else profitProbHistory<-rbind(profitProbHistory,profitProbWF)
 - en: if (i==0) maxLossHistory<-maxLossWF else maxLossHistory<-rbind(maxLossHistory,maxLossWF)
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) maxLossHistory<-maxLossWF else maxLossHistory<-rbind(maxLossHistory,maxLossWF)
 - en: '}'
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: Set Walk-Forward parameters (number of periods) for long
+  id: totrans-80
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 设置长期步行前进参数（周期数）
 - en: 'optim<-30 # 30 monthly returns'
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: '优化<-30 # 30个月收益'
 - en: 'wf<-1 #walk forward 1 month; we''ll set horizon separately'
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: 'wf<-1 #向前走1个月；我们将单独设置地平线'
 - en: Calculate number of WF cycles
+  id: totrans-83
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 计算WF周期数
 - en: numCycles = floor((nrow(rtn)-optim)/wf)
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: numCycles = floor((nrow(rtn)-optim)/wf)
 - en: for (i in 0:(numCycles-1)) {
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: for (i in 0:(numCycles-1)) {
 - en: '# Define cycle boundaries'
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 定义周期边界'
 - en: start<-1+(i*wf)
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: start<-1+(i*wf)
 - en: end<-optim+(i*wf)
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: end<-optim+(i*wf)
 - en: '# Get returns for optimization cycle and create the JPT'
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 获取优化周期的收益并创建JPT'
 - en: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: jpt <- jointProbTable(rtn[start:end,1:numsys],n=rep(numbins,numsys))
 - en: outcomes<-jpt[[1]]
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: outcomes<-jpt[[1]]
 - en: probs<-jpt[[2]]
+  id: totrans-92
   prefs: []
   type: TYPE_NORMAL
+  zh: probs<-jpt[[2]]
 - en: port<-lsp(outcomes,probs)
+  id: totrans-93
   prefs: []
   type: TYPE_NORMAL
+  zh: port<-lsp(outcomes,probs)
 - en: profitProb<-probProfit(port,target=0,horizon=3)
+  id: totrans-94
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProb<-probProfit(port,target=0,horizon=3)
 - en: profitProbWF<-c(rep(1,wf)) %o% profitProb
+  id: totrans-95
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProbWF<-c(rep(1,wf)) %o% profitProb
 - en: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
+  id: totrans-96
   prefs: []
   type: TYPE_NORMAL
+  zh: maxLossWF<-c(rep(1,wf)) %o% jpt$maxLoss
 - en: '#make xts'
+  id: totrans-97
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 创建xts'
 - en: profitProbWFlong<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
+  id: totrans-98
   prefs: []
   type: TYPE_NORMAL
+  zh: profitProbWFlong<-xts(profitProbWF,order.by=index(rtn[(end+1):(end+wf)]))
 - en: maxLossWFlong<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
+  id: totrans-99
   prefs: []
   type: TYPE_NORMAL
+  zh: maxLossWFlong<-xts(maxLossWF,order.by=index(rtn[(end+1):(end+wf)]))
 - en: if (i==0) profitProbHistorylong<-profitProbWFlong else profitProbHistorylong<-rbind(profitProbHistorylong,profitProbWFlong)
+  id: totrans-100
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) profitProbHistorylong<-profitProbWFlong else profitProbHistorylong<-rbind(profitProbHistorylong,profitProbWFlong)
 - en: if (i==0) maxLossHistorylong<-maxLossWFlong else maxLossHistorylong<-rbind(maxLossHistorylong,maxLossWFlong)
+  id: totrans-101
   prefs: []
   type: TYPE_NORMAL
+  zh: if (i==0) maxLossHistorylong<-maxLossWFlong else maxLossHistorylong<-rbind(maxLossHistorylong,maxLossWFlong)
 - en: '}'
+  id: totrans-102
   prefs: []
   type: TYPE_NORMAL
+  zh: '}'
 - en: signalshortterm<-profitProbHistory
+  id: totrans-103
   prefs: []
   type: TYPE_NORMAL
+  zh: signalshortterm<-profitProbHistory
 - en: '#adjust the long term with maxLoss to hopefully reduce drawdown'
+  id: totrans-104
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 调整长期最大损失，希望降低回撤'
 - en: signallongterm<-profitProbHistorylong - maxLossHistorylong
+  id: totrans-105
   prefs: []
   type: TYPE_NORMAL
+  zh: signallongterm<-profitProbHistorylong - maxLossHistorylong
 - en: chartSeries(signalshortterm,TA="addTA(signallongterm,on=1)", theme="white",
     name="Short and Long Term Probability of Profit")
+  id: totrans-106
   prefs: []
   type: TYPE_NORMAL
+  zh: chartSeries(signalshortterm,TA="addTA(signallongterm,on=1)", theme="white",
+    name="短期和长期盈利概率")
 - en: Create the signals and enter when long term is < short term
+  id: totrans-107
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 创建信号，并在长期<短期时进入
 - en: sigup <- ifelse(signallongterm < signalshortterm,1,0)
+  id: totrans-108
   prefs: []
   type: TYPE_NORMAL
+  zh: sigup <- ifelse(signallongterm < signalshortterm,1,0)
 - en: no need for lag since signal generated from previous months]
+  id: totrans-109
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 不需要滞后，因为信号是从以前的月份生成的]
 - en: 'sigup <- lag(sigup,1) # Note k=1 implies a move *forward*'
+  id: totrans-110
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'sigup <- lag(sigup,1) # 注意 k=1 意味着向前移动'
 - en: Replace missing signals with no position
+  id: totrans-111
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 用无位置替换缺失的信号
 - en: (generally just at beginning of series)
+  id: totrans-112
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: （通常仅在系列开头）
 - en: sigup[is.na(sigup)] <- 0
+  id: totrans-113
   prefs: []
   type: TYPE_NORMAL
+  zh: sigup[is.na(sigup)] <- 0
 - en: '#Calculate equity curves'
+  id: totrans-114
   prefs: []
   type: TYPE_NORMAL
+  zh: '# 计算资产曲线'
 - en: eq_up <- cumprod(1+(rtn)*sigup)
+  id: totrans-115
   prefs: []
   type: TYPE_NORMAL
+  zh: eq_up <- cumprod(1+(rtn)*sigup)
 - en: perf_compare<-merge(sigup*rtn,rtn[(optim+1):NROW(rtn)])
+  id: totrans-116
   prefs: []
   type: TYPE_NORMAL
+  zh: perf_compare<-merge(sigup*rtn,rtn[(optim+1):NROW(rtn)])
 - en: colnames(perf_compare)<-c("LSPM probProfit System",tckr)
+  id: totrans-117
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(perf_compare)<-c("LSPM probProfit系统",tckr)
 - en: charts.PerformanceSummary(perf_compare,ylog=TRUE,legend.loc="topleft",main="LSPM
     probProfit System Performance Comparison")
+  id: totrans-118
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(perf_compare,ylog=TRUE,legend.loc="topleft",main="LSPM
+    probProfit系统性能比较")

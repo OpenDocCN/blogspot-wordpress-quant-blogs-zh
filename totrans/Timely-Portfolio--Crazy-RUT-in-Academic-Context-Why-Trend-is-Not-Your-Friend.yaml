@@ -1,68 +1,99 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:05:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:05:54
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: Crazy RUT in Academic Context Why Trend is Not Your Friend'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: Crazy RUT in Academic Context Why Trend is Not Your Friend'
 - en: 来源：[http://timelyportfolio.blogspot.com/2012/06/crazy-rut-in-academic-context.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/06/crazy-rut-in-academic-context.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2012/06/crazy-rut-in-academic-context.html#0001-01-01](http://timelyportfolio.blogspot.com/2012/06/crazy-rut-in-academic-context.html#0001-01-01)
 - en: In response to [Where are the Fat Tails?](http://timelyportfolio.blogspot.com/2012/06/where-are-fat-tails.html),
     reader vonjd very helpfully referred me to this paper [The Trend is Not Your Friend!
     Why Empirical Timing Success is Determined by the Underlying’s Price Characteristics
     and Market Efficiency is Irrelevant](http://www.frankfurt-school.de/clicnetclm/fileDownload.do?goid=000000311260AB4)
     by Peter Scholz and Ursula Walther.  The authors conclude
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 针对[肥尾在哪里？](http://timelyportfolio.blogspot.com/2012/06/where-are-fat-tails.html)的问题，读者
+    vonjd 非常热心地引用了这篇论文 [趋势不是你的朋友！为什么实证时机成功取决于底层的价格特征和市场效率是无关的](http://www.frankfurt-school.de/clicnetclm/fileDownload.do?goid=000000311260AB4)
+    by Peter Scholz and Ursula Walther。作者总结
 - en: “Our study on the basis of real data clearly confirms the hypothesis that the
     asset price characteristics of the underlying price process have a crucial impact
     on timing results. This allows us to forecast the timing success depending on
     the market's parameters. An OLS
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “我们的基于真实数据的研究清楚地证实了假设：底层价格过程的资产价格特征对时机结果有重要影响。这使我们能够根据市场的参数预测时机成功。一个OLS
 - en: regression analysis supports our predictions and verifies our assumption that
     the drift has the
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 回归分析支持我们的预测，并验证了我们的假设，即漂移具有
 - en: strongest influence on timing success. By contrast, the higher moments (skewness,
     kurtosis)
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 对时机成功有最强影响。相比之下，高阶矩（偏度，峰度）
 - en: seem not to have any significant impact on the timing result in the empirical
     sample. As we
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 似乎在实证样本中对时机结果没有显著影响。正如我们
 - en: presumed, the level of market development, and hence the degree of efficiency,
     does not play
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 假设，市场发展的水平，因此效率的程度，并不起作用
 - en: any role. Trading worked coincidentally rather well in the developed world and
     quite poorly in
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 任何作用。在发达国家，交易意外地非常好，而在
 - en: the emerging markets. The driving factor for the timing success is the parametric
     environment the trading system stumbles on…
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 新兴市场表现较差。影响时机成功的驱动因素是交易系统跌倒的参数环境…
 - en: ''
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -73,15 +104,19 @@
     benchmark if the underlying price path exhibits negative drifts, high serial autocorrelation,
     low volatilities of returns, and highly clustered volatilities. Drift and autocorrelation
     of the underlying asset seem to have the largest impact, though.”'
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 我们的研究通过提供对最重要的价格过程参数的相关性的结构分析，为讨论做出了贡献。因此，可以放弃对时机成功的传统解释：我们发现，如果底层价格路径表现出负漂移、高序列自相关、低回报波动性以及高度聚集的波动性，SMA交易规则很可能产生超过其基准的超额回报。底层资产的漂移和自相关似乎影响最大，尽管如此。”
 - en: 'They go a long way toward answering my puzzle “Why has the Russell 2000 been
     so difficult to beat over the last decade?”  I have made a lot of progress in
     replicating their research in R, but for now, let’s have a messy look at their
     **Table 2: Descriptive statistics of 35 leading equity indices** with ggplot2.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们在很大程度上解答了我心中的疑惑：“为什么在过去十年里，罗素2000指数如此难以击败？”我在R中复制他们的研究取得了很大进展，但现在，让我们用ggplot2混乱地看看他们的**表2：35个领先股票指数的描述性统计**。
 - en: 'Now let’s combine **Table 2** with their **Table 21: Average excess return
     from timing in the 35 selected leading equity indices**with a little graphical
     help from R.  The colors in the chart indicate the sum of all outperformance by
@@ -89,17 +124,25 @@
     underperformance of the moving average strategies versus buy and hold.  If excess
     return was symmetrical, we would expect bright green similar to the bright red,
     but instead we only see dull gray in the bottom left indicating slight outperformance.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们结合**表2**和他们的**表21：35个精选领先股票指数的定时超额回报**，用R提供一点图形帮助。图表中的颜色表示所有超越表现的多个移动平均线的总和。红色，比如中国和俄罗斯，显示了移动平均策略相对于买入并持有的巨大表现不佳。如果超额回报是对称的，我们会期待亮绿色类似于亮红色，但取而代之的是左下角的暗灰色，表明轻微的超额表现。
 - en: Now that we have established the context, we will explore in future posts where
     the Russell 2000 fits in terms of statistical properties and see if the this fits
     the authors discoveries.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 既然我们已经建立了背景，接下来在后续文章中我们将探讨 Russell 2000 在统计属性方面的位置，并看看这是否符合作者的发现。
 - en: Thanks again to reader vonjd for leading me to this fine work by Peter Scholz
     and Ursula Walther.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 再次感谢读者vonjd引导我发现了彼得·舒尔茨和乌尔苏拉·沃尔瑟的这项优秀工作。
 - en: '[R code from GIST (choose raw for copy/paste):](https://gist.github.com/2996948)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码源自GIST（选择raw以便复制/粘贴）：](https://gist.github.com/2996948)'

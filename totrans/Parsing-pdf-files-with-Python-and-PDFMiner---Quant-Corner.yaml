@@ -1,48 +1,72 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 08:08:05'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 08:08:05
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Parsing pdf files with Python and PDFMiner | Quant Corner
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 使用Python和PDFMiner解析pdf文件 | 量化角
 - en: 来源：[https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01](https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01](https://quantcorner.wordpress.com/2014/03/16/parsing-pdf-files-with-python-and-pdfminer/#0001-01-01)
 - en: This time I needed a time series of cash biodiesel prices in Iowa (yes, I did
     ….).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这次我需要爱荷华州现金生物柴油价格的时间序列（是的，我确实……）。
 - en: Weekly biodiesel prices in Iowa are available in the [National Weekly Ag Energy
     Round-Up](http://www.ams.usda.gov/mnreports/lswagenergy.pdf "National Weekly Ag
     Energy Round-Up") report released every Friday by the The Agricultural Marketing
     Service (AMS/USDA). This report is published in **pdf** format while we recently
     parsed **html **with [Python and BeautifulSoup](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/
     "Scraping data from the internet with Python and BeautifulSoup").
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 爱荷华州每周生物柴油价格可在美国农业部市场营销服务局（AMS/USDA）每周五发布的《国家每周农业能源汇总》报告中找到。[报告](http://www.ams.usda.gov/mnreports/lswagenergy.pdf
+    "National Weekly Ag Energy Round-Up")以**pdf**格式发布，而我们最近使用**html**格式[通过Python和BeautifulSoup](https://quantcorner.wordpress.com/2014/03/05/scraping-data-from-the-internet-with-python-and-beautifulsoup/
+    "Scraping data from the internet with Python and BeautifulSoup")对其进行了解析。
 - en: Below is a **Python** snippet using the [PDFMiner](http://www.unixuser.org/~euske/python/pdfminer/
     "PDFMiner") library. It gets through a certain number AMS’s online pdf files and
     extracts the data desired.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是一个使用[PDFMiner](http://www.unixuser.org/~euske/python/pdfminer/ "PDFMiner")库的**Python**代码片段。它遍历一定数量的AMS在线pdf文件，提取所需的数据。
 - en: One can’t say it is robust, but it does the job quite okay. We wrote a basic
     error handling mechanism so that the program goes on whatever happens. In fact,
     there shall be Fridays when the weekly report in question was not released eg
     due to  banking holidays, some reports of the US agriculture agency are missing
     due to last November’s partial US Government shutdown, … . Other possible error
     types would also be ignored and NAs would be output instead.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 不能说它非常健壮，但完成任务还是相当不错的。我们编写了一个基本的错误处理机制，以便在任何情况下程序都能继续运行。实际上，可能会有星期五报告没有发布，例如因为银行假日，美国农业部的一些报告因去年11月的美国政府部分关门而缺失……。其他可能的错误类型也会被忽略，并输出NA。
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'

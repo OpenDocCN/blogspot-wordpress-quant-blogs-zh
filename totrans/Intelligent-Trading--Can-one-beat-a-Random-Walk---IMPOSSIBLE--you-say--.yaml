@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:44:56'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:44:56
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Can one beat a Random Walk-- IMPOSSIBLE (you say?)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：能打败随机游走吗？-- 不可能（你说呢？）
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2011/03/can-one-beat-random-walk-impossible-you.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/03/can-one-beat-random-walk-impossible-you.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2011/03/can-one-beat-random-walk-impossible-you.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2011/03/can-one-beat-random-walk-impossible-you.html#0001-01-01)
 - en: Firstly, apologies for the long absence as I've been busy with a few things. 
     Secondly, apologies for the horrific use of caps in the title (for the grammar
     monitors).  Certainly, you'll gain something useful from today's musing, as it's
@@ -25,80 +37,125 @@
     carefully, whether or not to divulge this concept, but considering it's often
     overlooked and in the public literature (I'll even share a source), I decided
     to discuss it.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，为长时间的缺席道歉，因为我忙于几件事情。其次，为标题中可怕的粗体道歉（对于语法监控员）。 当然，你从今天的沉思中会得到一些有用的东西，因为它对大多数人来说是一个相当深刻的洞察（对我当时也是）。我还仔细考虑过是否要透露这个概念，但考虑到它经常被忽视并且在公共文献中（我甚至会分享一个来源），我决定讨论它。
 - en: Fig 1\. Random Walk and the 75% rule
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1. 随机游走和75%规则
 - en: I've seen the same debate launched over and over on various chat boards, which
     concerns the impossibility of theoretically beating a random walk.  In this case,
     I am giving you the code to determine the answer yourself.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在各种聊天板上反复看到同样的辩论，这涉及到理论上打败随机游走的可能性。在这种情况下，我给你代码来确定答案自己。
 - en: 'The requirements: 1) the generated data must be from an IID gaussian distribution
     2) series must be coaxed to a stationary form.'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 要求：1) 生成的数据必须来自IID正态分布 2) 系列必须被引导到稳定的形式。
 - en: The following script will generate a random series of data and follow the so
     called 75% rule which says,
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的脚本将生成一个随机数据系列，并遵循所谓的75%规则，该规则说明，
 - en: Pr[Price>Price(n-1) & Price(n-1) < Price_median] Or [Price < Price(n-1) & Price(n-1)
     > Price_median] = 75%.  This very insightful rule (which is explained both mathematically
     and in layman's terms in the book 'Statistical Arbitrage' linked on the amazon
     box to the right), shows that given some stationary, IID, random sequence that
     has an underlying Gaussian distribution, the above rule set can be shown to converge
     to a correct prediction rate of 75%!
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Pr[Price>Price(n-1) & Price(n-1) < Price_median] 或 [Price < Price(n-1) & Price(n-1)
+    > Price_median] = 75%。 这个非常有洞察力的规则（在右边亚马逊框中链接的《统计套利》一书中，既从数学上又用通俗语言解释了这一规则），表明在给定一些稳定的，独立的，同分布的随机序列，并且这个序列有一个底层的正态分布，上述规则集可以被证明趋向于75%的正确预测率！
 - en: Now, we all know that market data is not Gaussian (nor is it commision/slippage/friction
     free), and therein lies the rub. But hopefully, it gives you some food for thought
     as well as a bit of knowledge to retort, when you hear the debates about impossibilities
     of beating a random walk.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们都知道市场数据不是高斯分布的（也不是无佣金/滑点/摩擦的），这就是问题所在。但是，当你听到有关打败随机游走的不可能性的争论时，它也许能给你一些启发，也提供了一些知识来反驳。
 - en: R Code is below.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是R代码。
 - en: '##################################################'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#################################################'
 - en: '#gen rnd seq for 75% RULE'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成75%规则的随机序列
 - en: '#generate stationary rw time series'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 生成稳定的随机游走时间序列
 - en: rw<-rnorm(100)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: rw<-rnorm(100)
 - en: m<-median(rw)
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: m<-median(rw)
 - en: trade<-rep(0,length(rw))
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: trade<-rep(0,长度(rw))
 - en: for(i in 1:(length(rw)-1)){
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于(i 在 1:(长度(rw)-1)){
 - en: if(rw[i] < m) trade[i]<- (rw[i+1]-rw[i])
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果(rw[i] < m) trade[i]<- (rw[i+1]-rw[i])
 - en: if(rw[i] > m) trade[i]<- (rw[i]-rw[i+1])
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果(rw[i] > m) trade[i]<- (rw[i]-rw[i+1])
 - en: if(rw[i] == m) trade[i]<- 0}
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果(rw[i] == m) trade[i]<- 0}
 - en: eq_curve<-cumsum(trade)
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: eq_curve<-cumsum(trade)
 - en: par(mfrow=c(2,1))
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: par(mfrow=c(2,1))
 - en: plot(rw,type='l',main='random walk')
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 绘制(rw,类型='l',主标题='随机游走')
 - en: plot(eq_curve,type='l',main='eq_curve')
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 绘制(eq_curve,类型='l',主标题='eq_curve')

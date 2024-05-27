@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:42:58'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:42:58'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Multiple Factor Model – Building CSFB Factors | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 构建CSFB因子 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/#0001-01-01](https://systematicinvestor.wordpress.com/2012/02/13/multiple-factor-model-building-csfb-factors/#0001-01-01)
 - en: This is the third post in the series about Multiple Factor Models. I will build
     on the code presented in the prior post, [Multiple Factor Model – Building Fundamental
     Factors](https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/),
@@ -25,63 +37,96 @@
     Framework. For details of the CSFB Alpha Factor Framework please read [CSFB Quantitative
     Research, Alpha Factor Framework on page 11, page 49 by P. N. Patel, S. Yao, R.
     Carlson, A. Banerji, J. Handelman](http://www.scribd.com/mobile/documents/62210581/download?commit=Download+Now&secret_password=).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是关于多因子模型的系列中的第三篇文章。我将在之前的帖子中介绍的代码基础上进行讲解，[多因子模型 - 构建基本因子](https://systematicinvestor.wordpress.com/2012/02/04/multiple-factor-model-building-fundamental-factors/)，并展示如何构建CSFB
+    Alpha因子框架中描述的大多数因子。有关CSFB Alpha因子框架的详细信息，请阅读[CSFB定量研究，Alpha因子框架第11页，第49页，作者为P.
+    N. Patel、S. Yao、R. Carlson、A. Banerji、J. Handelman](http://www.scribd.com/mobile/documents/62210581/download?commit=Download+Now&secret_password=)。
 - en: This post will include long sections of code to extract/format data and build
     factors. I created a few helper functions for data manipulations and visualizations
     in the [factor.model.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.r).
     For example, consecutive.changes function counts the number of consecutive positive
     changes.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文将包括长篇代码以提取/格式化数据和构建因子。我在[github上的factor.model.r](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.r)创建了一些数据操作和可视化的辅助函数。例如，consecutive.changes函数计算连续正变化的数量。
 - en: 'The outline of this post:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文的大纲：
 - en: Create majority of CSFB factors
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建大部分CSFB因子
 - en: Create and test Composite Average factor
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建并测试复合平均因子
 - en: Run cross sectional regression to estimate factor loading
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 运行横截面回归以估计因子载荷
 - en: Create and test Alpha model using estimated factor loading
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建并测试使用估计因子载荷的Alpha模型
 - en: Let’s start by getting Fundamental data and creating factors. In the prior post,
     I mentioned that it takes a while to download historical fundamental data for
     all companies in the Dow Jones index, and I recommend saving fundamental data
     with save(data.fund, file=’data.fund.Rdata’) command. In the following code I
     will just load historical fundamental data with load(file=’data.fund.Rdata’) command
     instead of downloading all data again.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们从获取基本数据并创建因子开始。在之前的帖子中，我提到下载道琼斯指数中所有公司的历史基本数据需要一段时间，我建议使用`save(data.fund,
+    file=’data.fund.Rdata’)`命令保存基本数据。在以下代码中，我将使用`load(file=’data.fund.Rdata’)`命令加载历史基本数据，而不是再次下载所有数据。
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Next let’s create majority of CSFB factors.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们创建大部分CSFB因子。
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next let’s create Composite Average factor and chart its performance.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来让我们创建复合平均因子并绘制其表现图。
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/ca57aa43f968203c50f43d5bd2258cac.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small1.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/ca57aa43f968203c50f43d5bd2258cac.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot1-small1.png)'
 - en: '[![](img/16f8ddfa4c3c0c8393f0ab4c5c5f8e33.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small2.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/16f8ddfa4c3c0c8393f0ab4c5c5f8e33.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot2-small2.png)'
 - en: Please note that I’m using the current Dow Jones index components through out
     the whole history. This is a problem because the Dow Jones index changed its composition
     a few times in the last 20 years. One of the signs of this bias is high spread
@@ -89,50 +134,73 @@
     and selling high priced stocks should consistently make money; but it makes sense,
     if we know beforehand that that low priced companies will be part of Dow Jones
     index at some point.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，我在整个历史上都使用当前的道琼斯指数成分。这是一个问题，因为在过去20年中，道琼斯指数的构成已经多次变化。这种偏差的一个迹象是小型规模因子的高散布。低价股票和高价股票交易不一定会一直赚钱；但是如果我们事先知道低价公司将成为道琼斯指数的一部分，这是有道理的。
 - en: Instead of using a simple average of all factors to rank stocks, we can run
     cross sectional regression to estimate factor loading, and create Alpha model
     using estimated factor loading. For a complete description of this process, I
     recommend reading [Commonality In The Determinants Of Expected Stock Returns by
     R. Haugen, N. Baker (1996)](http://www.quantitativeinvestment.com/documents/common.pdf)
     pages 8-9.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们不是简单地对所有因子的平均值来对股票进行排名，而是可以运行横截面回归来估计因子载荷，并使用估计的因子载荷创建Alpha模型。关于这一过程的完整描述，我推荐阅读R.
+    Haugen, N. Baker (1996)的[《Expected Stock Returns的确定因素》](http://www.quantitativeinvestment.com/documents/common.pdf)第8-9页。
 - en: '[PRE3]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/5b284732329e9996457fd518271e0605.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot3-small.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot3-small.png)'
 - en: The performance of the regression model lags the performance of the simple average
     of all factors to rank stocks. There are might be many reasons for this, but I
     want to show you one quick and rational way to increase performance of the regression
     model.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 回归模型的表现滞后于所有因子简单平均值对股票进行排名的表现。这可能有多种原因，但我想向您展示一种快速且合理的方法来提高回归模型的表现。
 - en: 'We do not restrict estimated factor loadings during regression; however, a
     negative coefficient for a Value factor does not make sense. I don’t want explicitly
     say that good Value companies should have lower ranks than bad Value companies,
     just because there is a negative coefficient for a Value factor. One possible
     solution is to only use factor loadings that are positive to construct Alpha score.
     Here is the modified code:'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 在回归过程中，我们不对估计的因子载荷进行限制；然而，对于价值因子来说，负系数是没有意义的。我不想明确地说好的价值公司应该比差的价值公司排名低，仅仅因为价值因子有一个负系数。一个可能的解决方案是只使用正因子载荷来构建Alpha得分。以下是修改后的代码：
 - en: '[PRE4]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/f80756c3bd3b4a3a57aac4dc276a1d4c.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot4-small.png)'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot4.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/02/plot4-small.png)'
 - en: The regression model still lags the performance of the simple average of all
     factors to rank stocks.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 回归模型仍然滞后于所有因子简单平均值对股票进行排名的表现。
 - en: In the next post I will show how to create a risk model and estimate risk.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将介绍如何创建一个风险模型并估计风险。
 - en: To view the complete source code for this example, please have a look at the
     [fm.all.factor.test() function in factor.model.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r).
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看[github上的fm.all.factor.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/factor.model.test.r)。

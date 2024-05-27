@@ -1,160 +1,252 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:44:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:44:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'Intelligent Trading: MINE: Maximal Information-based NonParametric Exploration'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Intelligent Trading: MINE: Maximal Information-based NonParametric Exploration'
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2012/01/there-was-lot-of-buzz-in-blogosphere-as.html#0001-01-01)
 - en: There was a lot of buzz in the blogosphere as well as the science community
     about a new family of algorithms that are able to find non-linear relationships
     over extremely large fields of data. What makes it particularly useful is that
     the measure(s) it uses are based upon mutual information rather than standard
     pearson's correlation type measures, which do not capture non-linear relationships
     well.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 博客圈和科学界对一类新算法产生了很大关注，这类算法能够在大数据集上找到非线性关系。其特别有用之处在于，所使用的度量基于互信息，而不是基于标准皮尔逊相关系数的度量，后者不能很好地捕捉非线性关系。
 - en: 'The (java based) software can be downloaded here: http://www.exploredata.net/
     In addition, there is the capability to directly run the software from R.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: （基于 Java 的）软件可以在此处下载：http://www.exploredata.net/ 此外，软件还有直接从 R 运行的能力。
 - en: Fig 1\. Typical non-linear relationship exemplified by intermarket relationships.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 1. 由跨市场关系示例的典型非线性关系。
 - en: The algorithm seems promising as it would allow us to possibly mine very large
     data sets (such as financial intermarket relationships) and find potentially meaningful
     non-linear relationships. If we were to use the typical pearson's correlation
     measures, such relationships would show very small R^2 values, and thus be discarded
     as non significant relationships.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 算法似乎很有希望，因为它将允许我们可能挖掘非常大的数据集（如金融跨市场关系），并找到可能具有意义的非线性关系。如果我们使用典型的皮尔逊相关系数衡量，这种关系将显示出非常小的
+    R^2 值，因此被视为不显著的关系。
 - en: I decided to take it for a spin on an example of a non-linear example, taken
     from M. Katsanos' book on intermarket trading strategies (p 25\. fig 2.3). In
     figure 1, we can clearly see that the relationship between markets is non-linear,
     and thus the traditional linear fit returns a low R^2 value of .143 (red line),
     a loess fit is also shown in blue. After running the same data through MINE, the
     results returned in a .csv file, were...
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我决定在一个非线性示例上尝试一下，该示例来自 M. Katsanos 的《跨市场交易策略》一书（第 25 页，图 2.3）。在图 1 中，我们可以清楚地看到市场之间的关系是非线性的，因此传统的线性拟合返回了一个低
+    R^2 值 of .143（红线），也展示了蓝色的局部加权回归拟合。在将相同数据通过 MINE 处理后，结果以 .csv 文件返回...
 - en: MIC           (strength)    MIC-p^2          (nonlinearity)
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: MIC    （强度）   MIC-p^2  （非线性度）
 - en: 0.16691002    0.62445            7.129283    -0.3777441
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 0.16691002    0.62445      7.129283    -0.3777441
 - en: The MIC (Mutual Information Coefficient) of .167 was not much greater than theR^2
     measure of .143 above. However, one of the mentions in the paper was that as the
     signal becomes more obscured by noise, the MIC will degrade comparably.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '`.167` 的 MIC（互信息系数）并不比上面提到的 .143 的 R^2 度量高很多。然而，论文中提到的一个提及是，随着信号被噪声更多地模糊，MIC
+    将相应地退化。'
 - en: The next step would be too find some type of fit to minimize the noise component
     and make updated comparisons.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 下一步将是寻找某种类型的拟合，以最小化噪声成分并进行更新比较。
 - en: In order to show a better illustration of how useful it might be, I am attaching
     a screenshot of the reference material here.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了更好地说明它可能有多么有用，我在这里附上参考资料的屏幕截图。
 - en: Figure 2\. Reproduced from Fig 6\. 'www.sciencemag.org/cgi/content/full/334/6062/1518/DC1'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 2. 来自 'www.sciencemag.org/cgi/content/full/334/6062/1518/DC1' 的 Fig 6 复制
 - en: Notice the MIC Score measure outperforms other traditional methods on many non-linear
     structural relationships.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，MIC 评分度量在许多非线性结构关系上超过了其他传统方法。
 - en: Here is the full R-Code to repeat the basic experiment.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是完整 R 代码以重复基本实验。
 - en: '###############################################'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '###############################################'
 - en: MINE example from intelligenttradingtech.blogspot.com 1/31/2012
+  id: totrans-20
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: MINE 示例来自 intelligenttradingtech.blogspot.com 1/31/2012
 - en: library(quantmod)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '`library(quantmod)`'
 - en: library(ggplot2)
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '`library(ggplot2)`'
 - en: getSymbols('^GSPC',src='yahoo',from='1992-01-07',to='2007-12-31')
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '`getSymbols(''^GSPC'', src = ''yahoo'', from = ''1992-01-07'', to = ''2007-12-31'')`'
 - en: getSymbols('^N225',src='yahoo',from='1992-01-07',to='2007-12-31')
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '`getSymbols(''^N225'', src = ''yahoo'', from = ''1992-01-07'', to = ''2007-12-31'')`'
 - en: sym_frame<-merge(GSPC[,6],N225[,6],all=FALSE)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '`sym_frame` <- merge(GSPC[, 6], N225[, 6], all = FALSE)'
 - en: names(sym_frame)<-c('GSPC','N225')
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '`names(sym_frame)` <- c(''GSPC'', ''N225'')'
 - en: p<-qplot(N225, GSPC, data=data.frame(coredata(sym_frame)),
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '`p<-qplot(N225, GSPC, data=data.frame(coredata(sym_frame)),`'
 - en: geom=c('point'), xlab='NIKKEI',ylab='S&P_500',main='S&P500 vs NIKKEI 1992-2007')
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '`geom=c(''point''), xlab=''NIKKEI'',ylab=''S&P_500'',main=''S&P500 对 NIKKEI
+    1992-2007'')`'
 - en: fit<-lm(GSPC~ N225, data=data.frame(coredata(sym_frame)))
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '`fit<-lm(GSPC~ N225, data=data.frame(coredata(sym_frame)))`'
 - en: summary(fit)
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '`summary(fit)`'
 - en: fitParam<-coef(fit)
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '`fitParam<-coef(fit)`'
 - en: p+geom_abline(intercept=fitParam[1], slope=fitParam[2],colour='red',size=2)+geom_smooth(method='loess',size=2,colour='blue')
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '`p+geom_abline(intercept=fitParam[1], slope=fitParam[2],colour=''red'',size=2)+geom_smooth(method=''loess'',size=2,colour=''blue'')`'
 - en: MINE results
+  id: totrans-33
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '`MINE` 结果'
 - en: library("rJava")
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '`library("rJava")`'
 - en: setwd('/home/self/Desktop/MINE/')
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '`setwd(''/home/self/Desktop/MINE/'')`'
 - en: write.csv(data.frame(coredata(sym_frame)),file="GSPC_N225.csv",row.names=FALSE)
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: '`write.csv(data.frame(coredata(sym_frame)),file="GSPC_N225.csv",row.names=FALSE)`'
 - en: source("MINE.r")
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '`source("MINE.r")`'
 - en: MINE("GSPC_N225.csv","all.pairs")
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '`MINE("GSPC_N225.csv","all.pairs")`'
 - en: '##########################################################'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
 - en: The referenced paper is, "Detecting Novel Associations in Large Data Sets"
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 参考的论文是，“在大数据集中检测新关联”
 - en: David N. Reshef, et al.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 大卫·N·雷舍夫，等人
 - en: Science 334, 1518 (2011)
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 《科学》 334, 1518 (2011)
 - en: As an aside, I've been hooked on a sitcom series called, "Numb3rs," playing
     on Amazon Prime. It's about an FBI agent who gets assistance from his genius brother,
     a professor of Mathematics at a prestigious University. So far, they've discussed
     markov chains, bayesian statistics, data mining, econometrics, heat maps, and
     a host of other similar concepts applied to forensics.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便说一下，我一直沉迷于一部情景喜剧，叫《数字追凶》，在亚马逊Prime上播放。这是关于一名FBI特工从他的天才兄弟那里获得帮助的故事，他是一位知名大学的数学教授。到目前为止，他们讨论了马尔可夫链、贝叶斯统计、数据挖掘、计量经济学、热图以及一系列其他类似的概念，这些概念应用于法医学。

@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:11:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:11:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: ttrTests: Its Great Thesis and Incredible Potential'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: ttrTests：它的伟大论文和惊人的潜力'
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/09/ttrtests-its-great-thesis-and.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/09/ttrtests-its-great-thesis-and.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/09/ttrtests-its-great-thesis-and.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/09/ttrtests-its-great-thesis-and.html#0001-01-01)
 - en: 'I stumbled on the ttrTests R package as mentioned in my post [ttrTests Experimentation](http://timelyportfolio.blogspot.com/2011/08/ttrtests-experimentation.html). 
     I did not recognize its potential until I spent much more time absorbing the basis
     of the package—David St. John’s thesis [Technical Analysis Based on Moving Average
@@ -27,43 +39,61 @@
     beyond MACD to all systematic methods and describes tests to ensure luck is not
     the source of a system’s returns.  In the package documentation, there is a summary
     of the 5 main tests:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在我的帖子[ttrTests实验](http://timelyportfolio.blogspot.com/2011/08/ttrtests-experimentation.html)中提到了ttrTests
+    R包。直到我花更多时间吸收该包的基础知识——David St. John的论文[基于移动平均收敛和发散的技术分析](http://math.uic.edu/~dstjohn/thesis.pdf)，我才意识到它的潜力。由于论文的标题特别提到了MACD，而我在这方面运气不佳，所以我忽略了大部分内容。然而，论文的力量远远超出了MACD，适用于所有系统性方法，并描述了确保运气不是系统回报来源的测试。在包文档中，有5个主要测试的摘要：
 - en: '“Contains five major tests supported by other functions: Did the TTR strategy
     outperform a benchmark in the past data? Is the excess return significant, using
     bootstrapping to construct a confidence interval? Is the excess return explained
     by data snooping? Is the ’good’ choice of parameters robust across sub-samples?
     Is this robustness significant, using bootstrapping to construct a confidence
     interval?”'
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: “包含五个主要测试以及其他功能的支持：TTR策略在过去数据中超越了基准吗？使用自助法构建置信区间，超额回报是否显著？超额回报是否由数据窥探解释？参数’良好’的选择在子样本中是否稳健？这种稳健性是否显著，使用自助法构建置信区间？”
 - en: The tests expose luck, data snooping, trading costs, and parameter persistence
     across both degrees of freedom and subperiods.  I look forward to documenting
     its power in my blog and also potentially working with the author to include in
     other R packages such as quantstrat.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试揭示了运气、数据窥探、交易成本和参数持久性，跨越了自由度和子周期。我期待在我的博客中记录其力量，并可能与作者合作，将其包括在其他R包中，如quantstrat。
 - en: Since I am running out of time, I first want to apply each of the tests to MACD
     in the same style as the package documentation and the thesis paper, but this
     time on a xts DJI object gathered through getSymbols rather than the spData provided
     with the package.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 由于我时间不多了，我首先想以与包文档和论文相同的风格将MACD应用于每个测试，但这次是在通过getSymbols获取的xts DJI对象上，而不是包中提供的spData。
 - en: The output from the tests is very cumbersome, but I hope this set of examples
     will help provide a flavor for the package and its powerful tests.  In my next
     couple of posts, I will run each test in much further detail on my basic custom
     CUD indicator and try to get the cumbersome output in a far more digestible and
     graphical format.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 测试的输出非常繁琐，但我希望这套示例能帮助您了解该套餐及其强大的测试。在我的下一两篇帖子中，我将对我的基本自定义CUD指标进行更详细的每个测试，并尝试以更易消化和图形化的格式获取繁琐的输出。
 - en: '[R code (click to download from Google Docs):](https://docs.google.com/leaf?id=0B2qp2r96khJPMDZjNjA3M2UtNDI2OS00NTRjLTg3ZjgtNzVlY2MxZDEzMmUz&hl=en_US)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[R代码（点击从Google Docs下载）：](https://docs.google.com/leaf?id=0B2qp2r96khJPMDZjNjA3M2UtNDI2OS00NTRjLTg3ZjgtNzVlY2MxZDEzMmUz&hl=en_US)'
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[Created by Pretty R at inside-R.org](http://www.inside-r.org/pretty-r "Created
     by Pretty R at inside-R.org")'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 由Pretty R at inside-R.org创建](http://www.inside-r.org/pretty-r "Created by Pretty
+    R at inside-R.org")

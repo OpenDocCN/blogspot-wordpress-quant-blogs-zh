@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 19:33:06'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:33:06
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: tornado & websockets | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: tornado & websockets | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2014/04/26/tornado-websockets/#0001-01-01](https://etrading.wordpress.com/2014/04/26/tornado-websockets/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2014/04/26/tornado-websockets/#0001-01-01](https://etrading.wordpress.com/2014/04/26/tornado-websockets/#0001-01-01)
 - en: tornado & websockets
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: tornado & websockets
 - en: April 26, 2014
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2014年4月26日
 - en: 'The core of my [POC prototype](https://etrading.wordpress.com/2014/02/16/poc-m1-running/
     "Proof of concept") is a server engine, which doesn’t really make for a great
     demo. Generally, people grasp concepts quicker if they can see a tangible realization.
@@ -54,5 +70,13 @@
     to the browser. And tornado proved to be a good choice. Simple, lightweight, lots
     of worked examples and focused entirely on websockets. It didn’t take long to
     get ticking data into a webpage. Recommended!'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的[POC原型](https://etrading.wordpress.com/2014/02/16/poc-m1-running/ "Proof of
+    concept")的核心是一个服务器引擎，这并不适合做一个很好的演示。通常，如果人们能看到一个实在的实现，他们会更快地掌握概念。所以我需要一个现实的方法来展示服务器产生的实时跳动数据。一个浏览器GUI似乎是一个自然的选择。作为一个Python主义者，我想要用Python进行服务器编码。直到最近，将实时跳动数据推送到浏览器上是一件大事，需要像[Caplin
+    Liberator](http://www.caplin.com/developer/component/liberator)这样的复杂服务器产品，以及像[Caplin
+    Trader](http://www.caplin.com/caplin-trader)这样的丰富GUI工具包。幸运的是，现在使用一些非常简单的[jQuery](http://jquery.com/)
+    & [websockets](http://www.websocket.org/)在浏览器中以及[tornado](http://www.tornadoweb.org/en/stable/)在服务器端编写一些演示软件是可能的，形式为一个实时跳动网页。JavaScript和浏览器GUI不是我的强项，所以我不再评论，只是要注意这看起来比五年前容易多了。尽管如此，在服务器端，我的经验确实更多。早在2000年，我就在使用Python进行服务器端网络开发，使用的是[Zope](http://www.zope.org/)。Zope是一个非常强大的系统，具有内置的对象数据库和实例继承而不是类机制的称为获取。因此，它有一个相当陡峭的学习曲线。近年来，[Plone](http://plone.org/)作为建立在Zope之上的CMS获得了一些关注。在2001/2年，我发现了[Twisted
+    Matrix](https://twistedmatrix.com/trac/)，一个你可以用来构建任何基于IP的网络功能的通用网络工具包。再次，有一个陡峭的学习曲线，但它比Zope轻得多，现在非常成熟。我将使用Twisted为我的核心产品构建一个通用的套接字服务器功能：我已经有C++和Python
+    API，但我需要一个套接字服务器用于Java支持。但我在演示目的上需要的是实时服务器推送到浏览器。而tornado被证明是一个很好的选择。简单，轻量级，有很多工作示例，完全集中在websockets上。很快就把跳动数据带入网页。推荐！

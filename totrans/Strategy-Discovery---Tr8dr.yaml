@@ -1,200 +1,294 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:39:43'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:39:43
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Strategy Discovery | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 策略发现 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01](https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01](https://tr8dr.wordpress.com/2009/08/03/strategy-discovery/#0001-01-01)
 - en: 'Today I want to discuss the process of building or discovering a strategy.
     Generally medium to high-frequency models fall into one of the following catagories:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 今天我想讨论构建或发现策略的过程。一般来说，中高频模型属于以下类别之一：
 - en: set of rules / heuristics on top of statistical observations
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 在统计观察之上的规则集/启发式方法。
 - en: analysis of price signal
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 价格信号分析。
 - en: evolving state-based model of prices
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 进化的基于状态的定价模型。
 - en: spread or portfolio based relationships
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 基于扩散或投资组合的关系。
 - en: technical indicators
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 技术指标。
 - en: some combination of these within an bayesian or amplification framework
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 这些的一些组合在一个贝叶斯或放大框架内。
 - en: These models share a common problem in that they are just crude approximations.
     They attempt to accurately determine behavior on a macro level.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这些模型有一个共同的问题，那就是它们只是粗略的近似。它们试图准确地确定宏观层面的行为。
 - en: The market is the emergent behavior of the trades and order activity of all
     of its participants. The perfect model is one that would have to be able to predict
     the behavior of each individual participant and be aware of all external stimuli
     affecting their behavior. This is at worst unknowable and at best would require
     something akin to an omniscient AI.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 市场是其所有参与者的交易和订单活动的涌现行为。完美模型是一种能够预测每个个体参与者行为并意识到所有影响他们行为的外部刺激的模型。这最多是不可知的，最少也需要类似全知AI的东西。
 - en: 'The best we can do is have a view or views around how to model market behavior.
     We can chose one of three approaches towards modelling:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们所能做的就是有一个或多个关于如何模拟市场行为的观点。我们可以选择三种建模方法中的一种：
 - en: create models that rationalize some statistical or behavioral aspect of the
     market
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建能够理性化市场某些统计或行为方面的模型。
 - en: create models using a evolved program or regression, without a preconceived
     rationalization
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用进化的程序或回归方法创建模型，不要有先入为主的理性化观念。
 - en: create models that embody a combination of the above two approaches
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 创建体现上述两种方法结合的模型。
 - en: Preconceived models have the advantage of being explainable, whereas, generated
     models often are not. That said, it is intriguing to pursue evolution and/or program
     generation as a means of discovering strategies in an automated fashion.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 先入为主的模型优点在于其可解释性，而生成模型往往不具备。话说回来，追求进化以及/或程序生成作为自动发现策略的手段是很有趣的。
 - en: Rationale
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 理性化。
 - en: Manual model development and testing is very time consuming. One will start
     with a conjecture or skeleton idea for a new strategy. The parameter space or
     variants of the idea may be large. Each has to be tested, optimized, retested.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 手动建模和测试非常耗时。你将从一个新策略的假设或骨架想法开始。该想法的参数空间或变体可能很大。每一个都需要测试、优化、再次测试。
 - en: '**Many of my strategies start out as models that digest raw prices and produce
     some form of “hidden state”. This hidden state is designed to tell us something
     useful with less noise than the original signal. This state may be multidimensional
     and may require further regression to map to buy and sell signals.'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我的许多策略最初都是模型，这些模型消化原始价格并产生某种形式的“隐藏状态”。这种隐藏状态旨在用比原始信号更少的噪音告诉我们一些有用的信息。这种状态可能是多维的，可能需要进一步的回归来映射买入和卖出信号。'
 - en: Obtaining optimal strategies point towards a multivariate numerical or codified
     regression approach. The testing and discovery of parameters and model variations
     would best be automated.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 获得最优策略指向多元数值或编码回归方法。测试和发现参数和模型变体最好是自动化的。
 - en: '**Tools**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**工具**'
 - en: 'There are a number of approaches used in optimization, regression, or discovery
     problems:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 在优化、回归或发现问题中使用了多种方法：
 - en: Regression
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 回归。
 - en: ANN (Artificial Neural Nets), SVM (Scalable Vector Machine), RL (Reinforcement
     Learning)
+  id: totrans-27
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: ANN (人工神经网络)，SVM (可扩展向量机)，RL (强化学习)。
 - en: Optimization
+  id: totrans-28
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 优化。
 - en: GA (Genetic Algorithms), Gradient Descent, Quadratic Optimization, etc
+  id: totrans-29
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: GA (遗传算法)，梯度下降，二次优化等。
 - en: Discovery
+  id: totrans-30
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 发现。
 - en: GP (Genetic Programming), perhaps ANN as well
+  id: totrans-31
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: GP (遗传编程)，也许还有ANN。
 - en: '**Strategy Discovery**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**策略发现**'
 - en: Thus far I have mostly used tools in the Regression and Optimization categories
     to calibrate models. Genetic Programming represents an interesting alternative,
     where we generate “programs” or strategies, testing for viability and performance.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 到目前为止，我主要使用了回归和优化类别中的工具来校准模型。遗传编程代表了一种有趣的替代方案，在那里我们生成“程序”或策略，测试其可行性和性能。
 - en: The “program” represents a random combination from an algebra of possible operations
     that operates on a set of inputs to produce an output. In our case, our inputs
     will be the digested information that our models produce. The program will map
     this into something that can be used to generate buy/sell/out signals.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: “程序”代表从可能的操作代数中随机组合的运算，它作用于一组输入以产生一个输出。在我们这个案例中，输入将是我们的模型产生的消化信息。程序将把这映射为可用于生成买入/卖出/持有信号的东西。
 - en: Thousands of such programs are generated and evaluated against a fitness function.
     The fitest programs replicate, perform crossover, and mutate. This can be repeated
     for thousands of generations until programs with strong trading performance are
     determined.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 产生了成千上万的此类程序，并使用适应度函数进行评估。最适合的程序将复制、进行交叉和突变。这可以重复数千年，直到确定具有强大交易性能的程序。
 - en: An alternative and perhaps simpler approach is to use an ANN coupled with a
     GA. The GA generates weights / connections between neurons to produce a model
     between inputs and outputs.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一种可能更简单的方法是使用与遗传算法（GA）相结合的人工神经网络。遗传算法生成神经元之间的权重/连接以产生输入和输出之间的模型。
 - en: '**Questions Under Consideration** ANNs and GPs differ in a number of important
     ways. Need to think further on the following:'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '**考虑中的问题** 人工神经网络和广义脉冲响应在许多重要方面都有所不同。需要对以下内容进一步思考：'
 - en: ANNs and GPs can represent an infinite number of functions
+  id: totrans-38
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 人工神经网络（ANNs）和广义脉冲响应（GPs）可以表示无限数量的函数。
 - en: ANNs accomplish this, though, at the cost of numerous neurons
+  id: totrans-39
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 人工神经网络实现了这一点，但代价是神经元数量众多。
 - en: ANNs and GPs may have a very different search space in terms of volume
+  id: totrans-40
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 人工神经网络（ANNs）和广义脉冲响应（GPs）在搜索空间的体积上可能非常不同。
 - en: We want to choose an approach that will converge more quickly (ie have a smaller
     search space)
+  id: totrans-41
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 我们希望选择一个更快收敛的方法（即搜索空间更小）。
 - en: How should we constrain the algebra or permutations to affect convergence
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我们应该如何限制代数或排列以影响收敛
 - en: There are many “programs” which are equivalent, there may also be certain permutations
     we may not want to allow.
+  id: totrans-43
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 有许多等效的“程序”，也可能有一些我们不希望允许的排列。
 - en: What sort of inputs are useful and how do we detect those that are not
+  id: totrans-44
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 哪些输入是有用的，我们如何检测那些无用的
 - en: Inputs that are not useful should ultimately have very little trace through
     the model. Will have to determine how to detect and prune these.
+  id: totrans-45
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 无用的输入最终在模型中应该几乎没有痕迹。将需要确定如何检测并修剪这些。
 - en: More thought needed …**
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要更多思考……**

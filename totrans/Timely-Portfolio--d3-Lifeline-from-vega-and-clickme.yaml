@@ -1,42 +1,62 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:00:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:00:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: d3 Lifeline from vega and clickme'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：来自vega和clickme的d3生命线
 - en: 来源：[http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/04/d3-lifeline-from-vega-and-clickme.html#0001-01-01)
 - en: This has been an exciting week for [d3.js](http://d3js.org) and [R](http://r-project.org)
     with the
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 这周对[d3.js](http://d3js.org)和[R](http://r-project.org)来说是一个激动人心的时刻，随着
 - en: release of [**vega**](https://github.com/trifacta/vega) by the data vis powerhouses
     at [Trifacta](http://trifacta.com/about)
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 数据可视化巨头[Trifacta](http://trifacta.com/about)发布了[**vega**](https://github.com/trifacta/vega)
 - en: launch of [**clickme**](https://github.com/nachocab/clickme) and already significant
     rewrite to accommodate **vega**
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 推出了[**clickme**](https://github.com/nachocab/clickme)并且已经进行了重大的重写以适应**vega**
 - en: inception of a very promising d3 templates [DexCharts](https://github.com/PatMartin/DexCharts)
     described in [multiple posts](http://dexvis.wordpress.com).
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 一个非常有前途的d3模板[DexCharts](https://github.com/PatMartin/DexCharts)在[多篇文章](http://dexvis.wordpress.com)中描述。
 - en: I am glad to have had time to play with all three, and I have actually already
     used them for legitimate purposes. I only understand the basics, but I thought
     I would post how we can combine a **clickme** ractive and a **vega** template
@@ -46,32 +66,44 @@
     well documented, especially for early releases. I strongly recommend reading through
     both wikis to quickly progress along the learning curve. I will try to fill in
     some gaps in [the **clickme** “**clickme** and **vega**” wiki page](https://github.com/nachocab/clickme/wiki/clickme-and-vega).
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很高兴有时间玩这三个，实际上我已经用它们处理过合法的工作了。我只懂基础，但我还是想分享如何将一个**clickme** ractive和一个**vega**模板结合起来，以生成**vega**中包含的[生命线示例](http://trifacta.github.com/vega/editor/)。我喜欢生命线示例，因为它有最复杂的数据源和最多的d3元素。幸运的是，这两个项目都有很好的文档，特别是对于早期版本。我强烈建议阅读两个维基百科，以快速提高学习曲线。我会在[**clickme**“**clickme**和**vega**”维基页](https://github.com/nachocab/clickme/wiki/clickme-and-vega)中填补一些空白。
 - en: '**vega** frameworks'
+  id: totrans-11
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**vega**框架'
 - en: '**vega** frameworks are JSON objects to ease the construction of interactive
     d3 visualizations. In the [wiki](https://github.com/trifacta/vega/wiki/Documentation),
     the authors liken **vega** to **ggplot2** but say'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '**vega**框架是JSON对象，用于简化交互式d3可视化的构建。在[维基百科](https://github.com/trifacta/vega/wiki/Documentation)中，作者将**vega**比作**ggplot2**，但说'
 - en: However, in service of rapid specification these systems make a number of decisions
     on behalf of the user, and also impose limits on the type of visualizations one
     can create. **vega** is intended to be lower-level, enabling fine-gained control
     of the visualization design.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 然而，为了快速制定规格，这些系统在用户不知情的情况下做出了许多决定，并且对可以创建的图表类型施加了限制。**vega**旨在成为更底层的技术，以实现对可视化设计的精细控制。
 - en: '**ggplot2** and **lattice** users should immediately be familiar with words
     like “axes”,“scales”, “data”, and “marks”.'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '**ggplot2**和**lattice**用户应该立即熟悉诸如“轴”，“刻度”，“数据”和“标记”之类的词汇。'
 - en: '**clickme** ractives'
+  id: totrans-15
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**clickme** ractives'
 - en: '**clickme** ractives are a directory structure with files that provide at a
     minimum a R markdown template (template.rmd) for a visualization and a R translator
     (translator.r) to allow the use of R data and calculations in the finished HTML5
@@ -81,100 +113,147 @@
     7 **vega** examples with all the same template.rmd and translator.r. **vega**
     templates now fall in the spec subdirectory of the data directory of a **clickme**
     ractive.'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '**clickme** ractives是一个文件夹结构，包含至少一个R markdown模板（template.rmd）和一个R翻译器（translator.r），以便在最终的HTML5渲染中使用R数据和计算。尽管**clickme**是在不知道**vega**的情况下开发的，但作者立即看到了将两者结合的可能性，并重写了**clickme**以实现轻松集成。这两个的协同作用体现在能够使用相同的template.rmd和translator.r创建7个**vega**示例。现在**vega**模板位于**clickme**
+    ractive的数据目录的spec子目录中。'
 - en: '**clickme** filling **vega**'
+  id: totrans-17
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: '**clickme**填充**vega**'
 - en: If we look at the original [lifelines **vega** spec](https://github.com/trifacta/vega/blob/master/examples/vega/lifelines.json),
     we will see some spots where we might like R to provide the information, such
     as
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们查看原始的[lifelines **vega**规格](https://github.com/trifacta/vega/blob/master/examples/vega/lifelines.json)，我们会看到一些我们可能希望R提供信息的地方，比如：
 - en: '[PRE0]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: I am guessing that some R users might stumble a little with the data section
     of this JSON, so let's translate into lists, something I hope might be a little
     more familiar.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我猜测一些R用户可能对这个JSON的数据部分有点困惑，所以让我们将其转换为列表，这是我希望稍微更熟悉一点的东西。
 - en: '[PRE1]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Then in the translator.R part of our ractive, we can use the [rjson package](http://cran.r-project.org/web/packages/rjson/index.html)
     to translate the list into a JSON equivalent. Most of the data for d3 and **vega**
     can usually  just come from data.frames. The **clickme** author actually also
     wrote **df2json** to better handle the translation of data.frames to JSON, and
     there are numerous ractive examples using data.frames in the **clickme** package.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后在我们的ractive的translator.R部分，我们可以使用[rjson包](http://cran.r-project.org/web/packages/rjson/index.html)将列表转换为JSON等价物。大多数d3和**vega**的数据通常可以直接来自data.frames。**clickme**作者实际上还写了**df2json**以更好地处理data.frames到JSON的转换，**clickme**包中有许多使用data.frames的ractive示例。
 - en: '[PRE2]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Now we just need to fill the **vega** spec with our data. We can replace the
     data section with
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们只需要用我们的数据填充**vega**规格。我们可以用以下内容替换数据部分：
 - en: '[PRE3]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: When we run the **clickme_vega** function, **clickme** will use the [**knit_expand**
     function](https://github.com/yihui/knitr/blob/master/man/knit_expand.Rd) from
     **knitr** to expand/run the get_data_as_json function on the data supplied as
     a parameter to **clickme_vega** and replace like a mail merge with our translated
     JSON data representation.  With our ractive, we will also specify height, width,
     margins, title, etc. We can produce our HTML page with just one line.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们运行**clickme_vega**函数时，**clickme**将使用**knitr**中的[**knit_expand**函数](https://github.com/yihui/knitr/blob/master/man/knit_expand.Rd)来扩展/运行在**clickme_vega**中作为参数提供的数据上的get_data_as_json函数，并使用我们的翻译JSON数据表示进行替换，就像邮件合并一样。在我们的ractive中，我们还将指定高度、宽度、边距、标题等。我们只需一行就能生成我们的HTML页面。
 - en: '[PRE4]'
+  id: totrans-27
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: R to clickme to vega to d3 visualization workflow
+  id: totrans-28
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: R到clickme到vega到d3可视化的工作流程
 - en: 'Assuming we already have a predefined **clickme** ractive and **vega** spec,
     the workflow from R to a pretty d3 visualization becomes ridiculously easy:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们已经有了一个预定义的**clickme** ractive和**vega**规格，从R到漂亮d3可视化的流程变得荒谬地简单：
 - en: Just like we would if we were creating an R graph, we get our data, clean our
     data, and run our calculations
+  id: totrans-30
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 就像我们创建R图表时一样，我们获取数据、清洗数据、运行计算
 - en: in R, we run clickme_vega(data=our_data_from_step1, ractive=nameofourractive)
+  id: totrans-31
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 在R中，我们运行clickme_vega(data=our_data_from_step1, ractive=nameofourractive)
 - en: show off and use our amazing, beautiful, and interactive visualization (might
     need a simple http server for some cases).
+  id: totrans-32
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 展示并使用我们惊人的、美丽的、互动式的可视化（某些情况下可能需要一个简单的http服务器）。
 - en: If we do not have a predefined **clickme** ractive, then we can easily borrow/steal
     from the [unbelievable repository of d3 examples](http://biovisualize.github.com/d3visualization/)
     or a possible future **vega** repository, and follow the instructions in the [**clickme**
     wiki](https://github.com/nachocab/clickme/wiki/Creating-the-%22par_coord%22-ractive)
     to convert into a ractive.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果我们没有一个预定义的**clickme** ractive，那么我们可以很容易地从[令人难以置信的d3示例仓库](http://biovisualize.github.com/d3visualization/)或可能的未来**vega**仓库中借鉴/窃取，并遵循[**clickme**维基](https://github.com/nachocab/clickme/wiki/Creating-the-%22par_coord%22-ractive)中的说明将其转换为ractive。
 - en: Live Example
+  id: totrans-34
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 实时示例
 - en: if embed does not show go to [http://bl.ocks.org/timelyportfolio/5316682](http://bl.ocks.org/timelyportfolio/5316682).
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果嵌入式显示不出来，请访问[http://bl.ocks.org/timelyportfolio/5316682](http://bl.ocks.org/timelyportfolio/5316682)。
 - en: Reproduce me
+  id: totrans-36
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 复制我
 - en: Below is all the code to run this specific example. The ractive and **vega**
     spec are in this [Git repo](https://github.com/timelyportfolio/clickme_vega_lifelines/).
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面是运行这个特定示例的所有代码。ractive和**vega**规格在这个[Git仓库](https://github.com/timelyportfolio/clickme_vega_lifelines/)中。
 - en: '[PRE5]'
+  id: totrans-38
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'

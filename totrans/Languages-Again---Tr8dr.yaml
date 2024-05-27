@@ -1,82 +1,118 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 15:30:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日 15:30:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Languages Again | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 再次讨论语言 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2010/10/03/languages-again/#0001-01-01](https://tr8dr.wordpress.com/2010/10/03/languages-again/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2010/10/03/languages-again/#0001-01-01](https://tr8dr.wordpress.com/2010/10/03/languages-again/#0001-01-01)
 - en: October 3, 2010 · 11:35 am
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2010年10月3日 · 11:35 am
 - en: I do a lot of my production/  performance-oriented stuff in Java (for better
     or worse) because it is so portable and is very close to the performance of C++
     if you know what you are doing.   I would much prefer to be using F# / C#, as
     they are far superior as languages in my view (though C# owes its heritage to
     Java more than any other language).
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我大量的工作/性能相关的东西都是用Java写的（不管好坏），因为它非常便携，如果你知道你在做什么，它的性能非常接近C++。我更愿意使用F# / C#，因为在我看来，它们是远远优越的语言（尽管C#的遗产比任何其他语言都要多）。
 - en: 'The problem is that I need to deploy on Linux (and for that matter, my dev
     platform of choice is osx).  Here are some performance #s for 500 million iterations
     of the nbody problem on a core i7 920 linux box:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 问题是，我需要在Linux（以及事实上，我最喜欢的开发平台是osx）上部署。下面是在一个core i7 920 linux盒子上进行5亿次nbody问题迭代的性能#数据：
 - en: '[![](img/a8bdd7a103ae21f3b4e5649a57933437.png "Screen shot 2010-10-03 at 12.20.32
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/10/screen-shot-2010-10-03-at-12-20-32-pm.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/a8bdd7a103ae21f3b4e5649a57933437.png "Screen shot 2010-10-03 at 12.20.32
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/10/screen-shot-2010-10-03-at-12-20-32-pm.png)'
 - en: 'The nbody problem uses sqrt when calculating the euclidean distance between
     bodies.  Began to wonder whether much of the difference is in the implementation
     of the library math functions.   So I did an implementation that uses a (slow)
     numerical algorithm to calculate the sqrt, common across the languages.   In that
     way we have an apples-to-apples comparison.   The C++ vs Java numbers are now:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: nbody问题在计算物体之间的欧几里得距离时使用了sqrt。我开始想知道差异是否在于库数学函数的实现上。所以我做了一个使用（慢速）数值算法来计算sqrt的实现，这个算法在各种语言中都是通用的。这样我们就有了一个苹果对苹果的比较。C++与Java的数字现在是：
 - en: '[![](img/88ba614012eb3bef2498b8531cd4a66f.png "Screen shot 2010-10-03 at 12.20.48
     PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/10/screen-shot-2010-10-03-at-12-20-48-pm.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/88ba614012eb3bef2498b8531cd4a66f.png "Screen shot 2010-10-03 at 12.20.48
+    PM")](https://tr8dr.wordpress.com/wp-content/uploads/2010/10/screen-shot-2010-10-03-at-12-20-48-pm.png)'
 - en: The difference is now 1.9%.   In fact the additional 10 seconds difference may
     be Java startup + JIT compilation.   This resonates with other comparisons I have
     done in the past.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在差异是1.9%。实际上，额外的10秒差异可能是Java启动加上JIT编译。这与我过去所做的其他比较相呼应。
 - en: I have code in Java that outperforms equivalent C++ code.  For instance, the
     JIT compilation is clever enough to avoid virtual function invocation when it
     can be avoided / determined at runtime.   The same cannot always be done as effectively
     with static compilation.    (The cost of virtual function calls is 3x more expensive
     than non-virtual on the intel architecture).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 我用Java写的代码在性能上超过了等效的C++代码。例如，JIT编译在可以避免/在运行时可以确定的情况下，足够聪明地避免虚拟函数调用。用静态编译通常不能如此有效地做到。在英特尔架构上，虚拟函数调用的成本是非虚拟的3倍。
 - en: The JVM is just the best VM around (even faster than the MS .NET vm).   I would
     love to see the JIT compilation technology in the JVM applied to a cross-platform
     .NET VM, such as Mono.   Alternatively, if the JVM was expanded to include value
     types, a properly implemented generic type system, and some functional features,
     could imagine targeting IL for the JVM.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: JVM是目前最好的虚拟机（甚至比MS .NET vm还要快）。我多么希望看到JVM中的JIT编译技术应用到一个跨平台的.NET VM，比如Mono。或者，如果JVM扩展到包括值类型、一个正确实现的泛型类型系统和一些函数式特性，可以想象针对JVM的IL进行目标。
 - en: My ideal would be to be able to cross-compile C# and F# to JVM bytecode (much
     in the way one can map java bytecode to the CLR with ikvm).   The .NET libraries
     would be a much smaller problem given that the Mono implementation already exists.
        The mono guys have their hands full, and seem to have focused more on breadth
     rather than ultra-high performance.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的理想是可以将C#和F#交叉编译到JVM字节码（就像ikvm可以将Java字节码映射到CLR一样）。考虑到Mono实现已经存在，.NET库将是一个更大的问题。Mono的开发者们手头的事情很多，似乎更专注于广度而不是超高性能。
 - en: I suppose the .NET and Java communities are mostly distinct, so probably few
     people interested in seeing F# targetted to the JVM.   Can only hope that either
     the mono VM continues to improve performance and GC or a new subsuming VM fills
     the gap where the JVM once ruled.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 我猜测.NET和Java社区大体上是分开的，所以可能很少有人希望看到F#针对JVM进行优化。只能希望mono VM继续提高性能和垃圾回收效率，或者一个新的包容性虚拟机填补JVM曾经统治过的空白。

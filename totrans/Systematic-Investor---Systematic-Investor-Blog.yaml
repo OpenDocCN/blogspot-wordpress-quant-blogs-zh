@@ -1,97 +1,149 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:49:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:49:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Systematic Investor | Systematic Investor Blog
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 系统投资者 | 系统投资者博客
 - en: 来源：[https://systematicinvestor.wordpress.com#0001-01-01](https://systematicinvestor.wordpress.com#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com#0001-01-01](https://systematicinvestor.wordpress.com#0001-01-01)
 - en: Calendar Strategy is a very simple strategy that buys an sells at the predetermined
     days, known in advance. Today I want to show how we can easily investigate performance
     at and around Month End days.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 日历策略是一个非常简单的策略，它在预定的日子买入和卖出。今天我想展示我们如何轻松地研究在月底及其附近日期的表现。
 - en: First let’s load historical prices for SPY from Yahoo Fiance and compute SPY
     perfromance at the month-ends. I.e. strategy will open long position at the close
     on the 30th and sell position at the close on the 31st.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，让我们从雅虎财经加载SPY的历史价格，并计算月底的SPY表现。即策略在30号收盘时买入，在31号收盘时卖出。
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: Please note that above, in the bt.run.share call, I set do.lag parameter equal
     to zero (the default value for the do.lag parameter is one). The reason for default
     setting equal to one is due to signal (decision to trade) is derived using all
     information available today, so the position can only be implement next day. I.e.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 请注意，在上面的bt.run.share调用中，我将do.lag参数设置为零（do.lag参数的默认值为一）。默认设置为一的原因是由于信号（交易决策）是使用今天可用的所有信息得出的，所以头寸只能在下一天实施。即
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: However, in case of the calendar strategy there is no need to lag signal because
     the trade day is known in advance. I.e.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，在日历策略中，无需滞后信号，因为交易日期可以提前知道。即
 - en: '[PRE2]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: 'Next, I created two functions to help with signal creation and strategy testing:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我创建了两个函数来帮助生成信号和策略测试：
 - en: '[PRE3]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Above, T0 is a calendar strategy that buys on 30th and sells on 31st. I.e. position
     is only held on a month end day. P1 and P2 are two strategies that buy a day prior
     and two days prior correspondingly. N1 and N2 are two strategies that buy a day
     after and two days after correspondingly.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 上面，T0是一个在30号买入，在31号卖出的日历策略。即只在月底这一天持有头寸。P1和P2是在前一天和前两天买入的两个策略。N1和N2是在后一天和后两天买入的两个策略。
 - en: '[![plot1](img/d51c50acb92a9002039c12feb4f43f17.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot11.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1](img/d51c50acb92a9002039c12feb4f43f17.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot11.png)'
 - en: '[![plot2](img/ec98f2ac18b175409b655990b03e4bff.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot21.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2](img/ec98f2ac18b175409b655990b03e4bff.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot21.png)'
 - en: The N1 strategy, buy on 31st and sell on the 1st next month seems to be working
     best for SPY.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: N1策略，在31号买入，在下一个月的1号卖出，似乎对SPY最有效。
 - en: 'Finally, let’s look at the actual trades:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们看看实际交易：
 - en: '[PRE4]'
+  id: totrans-20
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![plot3](img/b39ff87b24429f673ae03ea809c2754a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot3.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3](img/b39ff87b24429f673ae03ea809c2754a.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2014/04/plot3.png)'
 - en: The P2 strategy enters position at the close 3 days before the month end and
     exits positions at the close 2 days before the month end. I.e. the performance
     is due to returns only 2 days before the month end.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: P2策略在月底前3天收盘时进入头寸，在月底前2天收盘时退出头寸。即表现仅由月底前2天的回报决定。
 - en: With this post I wanted to show how easily we can study calendar strategy performance
     using the [Systematic Investor Toolbox](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/).
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过这篇文章，我想展示我们如何轻松地使用[系统投资者工具箱](https://systematicinvestor.wordpress.com/systematic-investor-toolbox/)来研究日历策略的表现。
 - en: Next, I will demonstrate calendar strategy applications to variety of important
     dates.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，我将演示日历策略在各种重要日期的应用。
 - en: To view the complete source code for this example, please have a look at the
     [bt.calendar.strategy.month.end.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看GitHub上的[bt.calendar.strategy.month.end.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

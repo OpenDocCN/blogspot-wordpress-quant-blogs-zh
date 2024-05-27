@@ -1,34 +1,50 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:51:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:51:47
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Normalizing Bollinger Bands Using DV Bands (part 1) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Normalizing Bollinger Bands Using DV Bands (part 1) | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2009/08/05/normalizing-bollinger-bands-using-dv-bands-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/05/normalizing-bollinger-bands-using-dv-bands-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2009/08/05/normalizing-bollinger-bands-using-dv-bands-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2009/08/05/normalizing-bollinger-bands-using-dv-bands-part-1/#0001-01-01)
 - en: '*The link to Part 2 was missed by most people, you can find it here:* [https://cssanalytics.wordpress.com/2009/08/06/](https://cssanalytics.wordpress.com/2009/08/06/)part-2-improvi…-intraday-data/'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '*大多数人错过了第二部分的内容，你可以在这里找到：* [https://cssanalytics.wordpress.com/2009/08/06/](https://cssanalytics.wordpress.com/2009/08/06/)part-2-improvi…-intraday-data/'
 - en: The key impetus behind designing bollinger bands was to find a method that could
     accurately contain most price movements for a given security. The standard setting
     of 20 days as the average, and 2 standard deviations above and below, should theorectically
     contain 95% of prices if prices are normally distributed. In his book–“Bolliinger
     on Bollinger Bands,” John Bollinger states that in testing prices are actually
     contained within the bands 89% of the time using this default setting.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 设计布林带的主要推动力在于寻找一种能够准确包含给定证券大多数价格波动的方法。将标准设置为20天平均值，上下2个标准差，如果价格呈正态分布，理论上应该能包含95%的价格。在约翰·布林格的书籍《布林格谈布林带》中提到，使用默认设置，测试价格实际上有89%的时间被包含在布林带中。
 - en: One of the key insights that goes into my work, is the normalization of indicators
     and even stock rankings using the empirical distribution. I decided to take a
     look at how this applies to bollinger bands–which is a very popular indicator
@@ -38,24 +54,36 @@
     z-score using the PERCENTRANK function with a lookback of 252 days. DV bands like
     bollinger bands are set at 20 and 2, with 20 being the 20-day average of prices
     and +/- 2 standard deviations representing the upper and lower bands.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我的工作中一个关键的洞见是，使用经验分布对指标甚至股票排名进行标准化。我决定研究一下这种方法如何应用于布林带——这是交易员非常流行的一个指标。我选择测试SPY从1995年以来的数据。我将布林带与DV带进行比较，以确定该过程是否增加了统计价值。DV带就是通过使用252天回溯的PERCENTRANK函数对当前z分数进行排名后标准化得到的布林带。DV带和布林带都设置为20和2，其中20是价格的20天平均值，±2个标准差分别表示上轨和下轨。
 - en: 'First i ran a test of how many prices actually fell within the two bands using
     both methods:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，我运行了一个测试，看看实际上有多少价格在两种方法下落在了两个布林带之间：
 - en: '|   | actual % of prices falling | historical |'
+  id: totrans-10
   prefs: []
   type: TYPE_TB
+  zh: '|  | 实际价格下跌百分比 | 历史 |'
 - en: '|   |  between upper and lower bands | error |'
+  id: totrans-11
   prefs: []
   type: TYPE_TB
+  zh: '|   |  上下轨之间的误差 |  |'
 - en: '| Bollinger Bands (20,2) | **91%** | **-4%** |'
+  id: totrans-12
   prefs: []
   type: TYPE_TB
+  zh: '| 布林带 (20,2) | **91%** | **-4%** |'
 - en: '| DV Bands (20,2) | **95%** | **0%** |'
+  id: totrans-13
   prefs: []
   type: TYPE_TB
+  zh: '| DV Bands (20,2) | **95%** | **0%** |'
 - en: 'As you can see, Bollinger Bands contain only 91% of historical prices, which
     is 4% less than would be expected if the values were normally distributed. In
     contrast DV Bands contain 95% of historical prices—exactly what we would expect,
@@ -63,23 +91,35 @@
     distribution of the stock as it evolves over time. But what about out of sample?
     What percentage of prices are contained within the bands, if today they were contained
     within the bands?  Here are the results:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的，布林带只包含了91%的历史价格，这比如果值呈正态分布预期的要少4%。相比之下，DV带包含了95%的历史价格——这正是我们所预期的，因为这些带子不假设价格呈正态分布，而是随着股票随时间演化的经验分布进行适应。那么超出样本呢？如果今天它们被包含在布林带中，那么今天它们包含在布林带中的价格百分比是多少？以下是结果：
 - en: '|   | *next day  % of prices falling | forecast |'
+  id: totrans-15
   prefs: []
   type: TYPE_TB
+  zh: '|  | 下一交易日价格下跌百分比 | 预测 |'
 - en: '|   |  between upper and lower bands | error |'
+  id: totrans-16
   prefs: []
   type: TYPE_TB
+  zh: '|  |  上下轨之间的误差 |  |'
 - en: '| Bollinger Bands (20,2) | **89%** | **-6%** |'
+  id: totrans-17
   prefs: []
   type: TYPE_TB
+  zh: '| 布林带 (20,2) | **89%** | **-6%** |'
 - en: '| DV Bands (20,2) | **91%** | **-4%** |'
+  id: totrans-18
   prefs: []
   type: TYPE_TB
+  zh: '| DV Bands (20,2) | **91%** | **-4%** |'
 - en: '|   |   |   |'
+  id: totrans-19
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |'
 - en: '| *if today the price is between the upper and lower band Out of sample, we
     also see an improvement in forecast error. Note that if you use even longer lookbacks
     periods (percentrank), such as 4 or 5 years, performance improves even more. There
@@ -89,35 +129,56 @@
     but rising.Using ATR bands simultaneously would likely also add  additional information
     because they are not perfectly correlated with bollinger bands, as they contain
     intraday data. Now lets take at the raw impact of trading with these improvements:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 如果今天的价格在上限和下限之间，样本外，我们还可以看到预测误差的改善。请注意，如果你使用更长的时间回溯期（percentrank），比如4年或5年，性能改善甚至更多。还有方法可以进一步改善这一点，比如使用不同历史值的ADX以及最后20天内的历史带宽来训练带宽。推测当带宽紧缩且ADX低但上升时，违反带宽的情况会更为频繁。同时使用ATR带宽
+    likely also add 额外的信息，因为它们与布林带宽不完全相关，因为它们包含日内数据。现在让我们看看这些改进对交易的影响：'
 - en: '&#124;   &#124; *next day avg  return if **BELOW** the mean &#124;'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '|    | 第二天平均回报如果**低于**平均值   |'
 - en: '&#124;   &#124; AND  between upper and lower bands &#124;'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '|    | 并且在上限和下限之间   |'
 - en: '&#124; Bollinger Bands (20,2) &#124; **0.016%** &#124;'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 布林带宽（20,2）   | **0.016%**   |'
 - en: '&#124; DV Bands (20,2) &#124; **0.0250%** &#124;'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '| DV 带宽（20,2）   | **0.0250%**   |'
 - en: '&#124;   &#124;   &#124;'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: '|    |    |'
 - en: '&#124;   &#124; *next day  return if **ABOVE** the mean &#124;'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '|    | 如果**高于**平均值，第二天返回   |'
 - en: '&#124;   &#124; AND  between upper and lower bands &#124;'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '|    | 并且在上限和下限之间   |'
 - en: '&#124; Bollinger Bands (20,2) &#124; **-0.004%** &#124;'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '| 布林带宽（20,2）   | **-0.004%**   |'
 - en: '&#124; DV  Bands (20,2) &#124; **-0.012%** &#124;'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '| DV 带宽（20,2）   | **-0.012%**   |'
 - en: Average daily returns are over 50% higher when buying below the mean using DV
     Bands versus bollinger bands. Average daily returns are 200% lower above the mean
     using DV Bands versus bollinger bands. The impact for traders, is actually quite
@@ -128,5 +189,8 @@
     using these results to more accurately represent the fair price. In the future
     (part 2), i will present more extensive results, and check for robustness across
     different asset classes. |   |
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均每日回报在使用DV带宽时低于平均值购买相比布林带宽时高出50%以上。平均每日回报在使用DV带宽时高于平均值购买相比布林带宽时低200%。对交易员来说，这种影响实际上相当大。结果在不同带宽组合之间相当一致。证据似乎清楚地表明，标准化可以提高布林带宽的实用性。应用范围超越简单的均值回归策略，对期权交易员的影响可能最大。可以利用这些结果推导出一个新期权公式，以更准确地表示公平价格。在未来的研究（第2部分）中，我将展示更广泛的结果，并检查在不同资产类别之间鲁棒性。  
+    |    |

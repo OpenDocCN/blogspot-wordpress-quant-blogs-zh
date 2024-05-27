@@ -1,104 +1,143 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:55:59'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:55:59
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: '```'
 - en: Levered ETFs and Market Close | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 杠杆化ETF和市场收盘 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2009/07/28/leveraged-etfs-market-close/#0001-01-01](https://quantivity.wordpress.com/2009/07/28/leveraged-etfs-market-close/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2009/07/28/leveraged-etfs-market-close/#0001-01-01](https://quantivity.wordpress.com/2009/07/28/leveraged-etfs-market-close/#0001-01-01)
 - en: 'Cheng and Madhavan from [BGI](http://www.barclaysglobal.com/) recently published
     a research article entitled [“The Dynamics of Leveraged and Inverse Exchange-Traded
     Funds”](http://www.barclaysglobal.com/secure/repository/publications/usa/ResearchPapers/Leveraged_ETF.pdf).
     This article models and analyzes numerous dynamics of levered ETF, for which traders
     may be unaware: daily returns, return divergence, path dependency, tracking errors
     vs underlying, rebalancing, and hedging.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自[BGI](http://www.barclaysglobal.com/)的程和Madhavan最近发表了一篇题为[“杠杆化和反向交易所交易基金的动力学”](http://www.barclaysglobal.com/secure/repository/publications/usa/ResearchPapers/Leveraged_ETF.pdf)的研究文章。这篇文章模型并分析了杠杆化ETF的许多动态，这些动态可能是交易员所不知晓的：每日回报、回报分歧、路径依赖、跟踪误差与基础资产之间的关系、再平衡和套保。
 - en: 'Their results motivate a seemingly-contradictory (and *a priori* unexpected)
     hypothesis: *side effects of levered ETF will influence behavior of quantitative
     strategies which do not trade the corresponding ETFs*. To use a [quantum mechanics](http://en.wikipedia.org/wiki/Quantum_mechanics)
     analogy: levered ETFs will have [action at a distance](http://en.wikipedia.org/wiki/Action_at_a_distance_(physics))
     effect on wholly-unrelated strategies.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 他们的结果激发了一个看似矛盾的（并且*先验*意外）假设：*杠杆化ETF的副作用会影响不交易相应ETF的量化策略的行为*。用[量子力学](http://en.wikipedia.org/wiki/Quantum_mechanics)的类比来说：杠杆化ETF将对完全无关的策略产生[远距作用](http://en.wikipedia.org/wiki/Action_at_a_distance_(physics))的效果。
 - en: 'This absurd-sounding relationship is driven by hedging and closing prices,
     as extant funds promise a multiple of the underlying *daily* return. The following
     quote from the article sums up the hedging argument (p. 9):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这种听起来荒谬的关系是由对冲和收盘价驱动的，现有基金承诺的是基础资产*每日*回报的倍数。文章中的以下引用总结了对冲论点（第9页）：
 - en: Hedging demand provides an additional momentum effect to same-day returns that
     increases the price pressure effect of any signed order inbalance regardless of
     its source…The presence of the hedge induces serial correlation in returns because
     the previous period’s hedge is linearly related to the previous return. Thus,
     hedging flows in leveraged and inverse ETFs can exacerbate same-day volatility,
     add momentum effects, and induce serial correlation in returns.
+  id: totrans-9
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 套保需求为当天的回报提供了额外的动量效应，增加了任何签名的订单不平衡的价格压力效应，无论其来源如何…套保的存在使得回报出现序列相关性，因为上一期的套保与上一期的回报线性相关。因此，杠杆化和反向ETF的套保流动可能会加剧当天的波动性，增加动量效应，并诱导回报出现序列相关性。
 - en: 'In other words, momentum and serial correlation of underlying returns will
     be magnified by leveraged ETF hedging. While readers may be inclined to dismiss
     this effect as inconsequential, the impact is unexpectedly *massive* (p. 11 and
     Table 5):'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 换句话说，基础资产的动量和回报序列相关性将被杠杆化ETF的套保放大。虽然读者可能倾向于认为这种影响微不足道，但其影响意外地*巨大*（第11页和表5）：
 - en: A broad 1% move in the US equity market would result in additional MOC demand
     of about 17%, while a 5% move is associated with demands equal to 50% of the close.
+  id: totrans-11
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 美国股市 broad 1% 的波动将导致额外的MOC需求增加约17%，而5% 的波动则与收盘需求相等，约为50%。
 - en: 'Wow! This effect is not surprising in retrospect, as it is driven by simple
     arithmetic:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 哇！这种效果回顾起来并不令人惊讶，因为它是由简单的算术驱动的：
 - en: Since we are essentially computing a weighted average, the market-on-close demand
     in value terms is just a linear function of return. However, the demand as a fraction
     of closing volume is a non-linear function of return because the re-balancing
     demand is added to the denominator too.
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 因为我们本质上是在计算加权平均值，所以市值收盘需求在价值方面只是一个回报的线性函数。然而，由于再平衡需求也被加到分母中，所以需求作为收盘量的百分比是一个回报的非线性函数。
 - en: Further, “as [AUM](http://en.wikipedia.org/wiki/Assets_under_management) changes
     and more levered and ultra short products gain traction, we would expect this
     slope to steepen” (p. 11). In other words, this effect will only become more dominant
     as these ETFs gain further traction.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 进一步地，“随着[资产管理规模（AUM）](http://en.wikipedia.org/wiki/Assets_under_management)的变化，更多杠杆化和超短产品获得了关注，我们预计这个斜率将会变得更加陡峭”（第11页）。换句话说，随着这些ETF获得更多的关注，这种效应将会变得更加显著。
 - en: 'At this point, readers may well be asking what any of this has to do with *unrelated*
     strategies. The crux is closing prices: many strategies depend upon closing prices,
     whether directly or indirect. Examples range from the well-documented overnight
     effect (*e.g.* [Goldman](http://www.bloomberg.com/apps/news?pid=newsarchive&sid=aXhs9g9il2rk))
     to the myriad close-to-close strategies. In this vein, authors calculate numerous
     regressions based upon rebalancing flows. The effects are equally interesting:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 至此，读者可能很想知道所有这些与*无关*策略有什么关系。关键在于收盘价：许多策略都依赖于收盘价，无论是直接还是间接。例子包括广为人知的隔夜效应(*例如*
+    [高盛](http://www.bloomberg.com/apps/news?pid=newsarchive&sid=aXhs9g9il2rk))到各种各样的收盘价策略。在这方面，作者根据再平衡流动计算了许多回归。这些效应同样有趣：
 - en: Closing period is 15.4% of the total trading day, but is a higher fraction (about
     25%) of the day’s volume and hence of the day’s return as implied by the estimates.
     The estimate of β [2] suggests that after controlling for the day’s return movement,
     $1 billion of re-balancing flow adds 0.54% to the closing period’s return
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 收盘期占总交易日的15.4%，但占当天交易量（约25%）的比例更高，因此也占当天回报的更大比例，如估计所示。β [2] 的估计表明，在控制了当天回报变动之后，10亿美元的再平衡流动增加了0.54%的收盘期回报。
 - en: Finally, using the daily value of [VIX](http://finance.yahoo.com/q?s=%5EVIX),
     the authors evaluate the relationship between rebalancing flows and closing period
     volatility. Predictably, the result is “greater imbalances add to closing volatility”
     (p. 13).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，作者利用[VIX](http://finance.yahoo.com/q?s=%5EVIX)的日度值来评估再平衡流动与收盘期波动性之间的关系。不出所料，结果显示“更大的不平衡增加了收盘期的波动性”（第13页）。
 - en: For those readers running close-to-close strategies, this may partially contribute
     to the increasing instabilities observed over the past few months. Finally, rebalancing
     and hedging flows beg for strategies to exploit “predictable and concentrated
     trading activity near the market closes” (p. 22).
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于那些运行收盘价策略的读者来说，这可能部分导致了过去几个月观察到的 increasing 不稳定性的增加。最后，再平衡和套保流动迫切需要策略来利用“市场收盘附近可预测且集中的交易活动”（第22页）。

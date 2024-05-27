@@ -1,141 +1,218 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:42:01'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:42:01'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Portfolio Optimization: Specify constraints with GNU MathProg language | Systematic
     Investor'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 投资组合优化：使用GNU MathProg语言指定约束 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01](https://systematicinvestor.wordpress.com/2012/03/14/portfolio-optimization-specify-constraints-with-gnu-mathprog-language/#0001-01-01)
 - en: 'I have previously described a few examples of portfolio construction:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我之前描述了一些投资组合构建的例子：
 - en: I created a number of helper functions to simplify process of making the constraints(
     i.e. minimum / maximum investment constraints, fully invested constraint – weights
     must sum to 1, and etc.)
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我创建了许多辅助函数来简化约束的制定（例如，最低/最高投资约束，权重必须总和为1的全投资约束等）。
 - en: new.constraints
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: new.constraints
 - en: add.constraints
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: add.constraints
 - en: add.variables
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: add.variables
 - en: 'However, even with help of these functions, the process of describing the constraints
     is not simple and user-friendly. Fortunately, there is an alternative way to specify
     linear constraints using [GNU MathProg language](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29).
     MathProg resembles a subset of [AMPL](//en.wikipedia.org/wiki/AMPL). To find more
     about [GNU MathProg language](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29),
     I recommend reading following resources:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，即使有了这些函数的帮助，描述约束的过程也不简单且用户友好。幸运的是，有一种使用[GNU MathProg语言](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29)指定线性约束的替代方法。MathProg类似于[AMPL](//en.wikipedia.org/wiki/AMPL)的一个子集。要了解更多关于[GNU
+    MathProg语言](http://en.wikibooks.org/wiki/GLPK/GMPL_%28MathProg%29)的信息，我推荐阅读以下资源：
 - en: Let’s start by solving a simple portfolio construction problem using helper
     functions to specify the constraints.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们先用辅助函数来指定约束，解决一个简单的投资组合构建问题。
 - en: '[PRE0]'
+  id: totrans-13
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![](img/5d28648af470d84a25bbe589a5cb43c5.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/5d28648af470d84a25bbe589a5cb43c5.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot1-small2.png)'
 - en: 'Now let’s create a GNU MathProg language model that will impose the same constraints.
     Please copy and save the following model description in the “model1.mod” file:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们创建一个GNU MathProg语言模型，以施加相同的约束。请将以下模型描述复制并保存在“model1.mod”文件中：
 - en: '[PRE1]'
+  id: totrans-16
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Next, let’s use this model to find minimum variance portfolio.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们使用这个模型来寻找最小方差的投资组合。
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/563d9476e188d994830a244e4c5aef09.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small2.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/563d9476e188d994830a244e4c5aef09.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot2-small2.png)'
 - en: 'Next, let’s describe the problem from the [Minimum Investment and Number of
     Assets Portfolio Cardinality Constraints](https://systematicinvestor.wordpress.com/2011/10/20/minimum-investment-and-number-of-assets-portfolio-cardinality-constraints/)
     post. Please copy and save the following model description in the “model2.mod”
     file:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们描述来自[最小投资和资产数量投资组合基数约束](https://systematicinvestor.wordpress.com/2011/10/20/minimum-investment-and-number-of-assets-portfolio-cardinality-constraints/)文章的问题。请将以下模型描述复制并保存在“model2.mod”文件中：
 - en: '[PRE3]'
+  id: totrans-21
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: Next, let’s use this model to find minimum variance portfolio.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们使用这个模型来寻找最小方差的投资组合。
 - en: '[PRE4]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/7f58a30832cb28964c2e91f3e1f427e0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small2.png)'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7f58a30832cb28964c2e91f3e1f427e0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot3-small2.png)'
 - en: 'I described another interesting portfolio construction problem in the [130/30
     Portfolio Construction](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)
     post. Please copy and save the following model description in the “model3.mod”
     file:'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 我还在[130/30投资组合构建](https://systematicinvestor.wordpress.com/2011/10/18/13030-porfolio-construction/)文章中描述了另一个有趣的投资组合构建问题。请将以下模型描述复制并保存在“model3.mod”文件中：
 - en: '[PRE5]'
+  id: totrans-26
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'
 - en: Next, let’s use this model to find minimum variance portfolio.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们使用这个模型来寻找最小方差的投资组合。
 - en: '[PRE6]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE6]'
 - en: '[![](img/3dcc68a4bd8141e9540fb3d0ecc5039d.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small2.png)'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/3dcc68a4bd8141e9540fb3d0ecc5039d.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot4-small2.png)'
 - en: 'Another interesting portfolio construction problem is limiting portfolio turnover,
     or limiting minimum trade size and number of trades. Following model is restricting
     the trade size to be between 5% and 20% and no more than 8 trades. Please copy
     and save the following model description in the “model4.mod” file:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 另一个有趣的投资组合构建问题是如何限制投资组合的换手率，或者限制最小的交易规模和交易次数。以下模型将交易规模限制在5%到20%之间，且交易次数不超过8次。请复制并保存以下模型描述在“model4.mod”文件中：
 - en: '[PRE7]'
+  id: totrans-31
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE7]'
 - en: Next, let’s use this model to find minimum variance portfolio.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，让我们使用这个模型来寻找最小方差的投资组合。
 - en: '[PRE8]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE8]'
 - en: '[![](img/64fb4da6beb878a58991265d9ec40d3e.png "plot5.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot5-small.png)'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot5.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/03/plot5-small.png)'
 - en: BA and GE are held constant at 10% and other 8 stocks are traded with trade
     size at least 5% and no more than 20%.
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 将BA和GE保持不变为10%，其他8只股票的交易规模至少为5%，且不超过20%。
 - en: Please let me know what other type of constraints you like to impose during
     portfolio construction process.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 请让我知道在投资组合构建过程中您想要施加的其他类型的约束。
 - en: To view the complete source code for this example, please have a look at the
     [portopt.mathprog.test() function in aa.gmpl.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.gmpl.r).
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看这个示例的完整源代码，请查看[GitHub上的aa.gmpl.r文件中的portopt.mathprog.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.gmpl.r)。

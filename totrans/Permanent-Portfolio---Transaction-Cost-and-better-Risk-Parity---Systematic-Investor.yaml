@@ -1,72 +1,114 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yaml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:36:41'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:36:41'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: →
 - en: Permanent Portfolio – Transaction Cost and better Risk Parity | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Permanent Portfolio – Transaction Cost and better Risk Parity | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2012/10/10/permanent-portfolio-transaction-cost-and-better-risk-parity/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/10/permanent-portfolio-transaction-cost-and-better-risk-parity/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2012/10/10/permanent-portfolio-transaction-cost-and-better-risk-parity/#0001-01-01](https://systematicinvestor.wordpress.com/2012/10/10/permanent-portfolio-transaction-cost-and-better-risk-parity/#0001-01-01)
 - en: 'I want to address comments that were asked in my last post, [Permanent Portfolio
     – Simple Tools](https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/),
     about [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
     strategy. Specifically:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 'I want to address comments that were asked in my last post, [Permanent Portfolio
+    – Simple Tools](https://systematicinvestor.wordpress.com/2012/10/05/permanent-portfolio-simple-tools/),
+    about [Permanent Portfolio](https://systematicinvestor.wordpress.com/2012/09/18/permanent-portfolio/)
+    strategy. Specifically:'
 - en: The impact of transaction costs on the perfromance and
+  id: totrans-7
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 交易成本对表现的影响
 - en: 'Create a modified version of risk allocation portfolio that distributes weights
     across 3 asset classes: stocks(SPY), gold(GLD), and treasuries(TLT), and only
     invests into cash(SHY) to fill the residual portfolio exposure once we scale the
     SPY/GLD/TLT portfolio to the target volatility'
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 'Create a modified version of risk allocation portfolio that distributes weights
+    across 3 asset classes: stocks(SPY), gold(GLD), and treasuries(TLT), and only
+    invests into cash(SHY) to fill the residual portfolio exposure once we scale the
+    SPY/GLD/TLT portfolio to the target volatility'
 - en: 'The first point is easy, to incorporate the transaction cost into your back-test
     just add commission=0.1 parameter to the bt.run.share() function call.For example,
     to see the dollar allocation strategy perfromance assuming 10c a share commission,
     use following code:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一个观点很简单，只需在bt.run.share()函数调用中添加commission=0.1参数，就可以将交易成本纳入回测。例如，要查看假设每股10美分的佣金，美元分配策略的表现，请使用以下代码：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'The second point is a bit more work. First, let’s allocate risk across only
     to 3 asset classes: stocks(SPY), gold(GLD), and treasuries(TLT). Next, let’s scale
     the SPY/GLD/TLT portfolio to the 7% target volatility. And finally, let’s allocate
     to cash(SHY) the residual portfolio exposure.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二个观点需要做一些更复杂的工作。首先，让我们只在三个资产类别之间分配风险：股票（SPY）、黄金（GLD）和国债（TLT）。接下来，让我们将SPY/GLD/TLT投资组合调整到7%的目标波动性。最后，让我们将剩余的投资组合风险分配给现金（SHY）。
 - en: '[PRE1]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/3e9933b5eabcfb5467b838268db7a146.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small2.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot1-small2.png)'
 - en: '[![](img/bbb1650ac9d647e8e120ae0f78434ea3.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot2-small2.png)'
 - en: '[![](img/957e1c6d2e16841d1e6aea72cca908e0.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot3-small1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2012/10/plot3-small1.png)'
 - en: The modified version of risk allocation portfolio performs well relative to
     other portfolios even after incorporating the 10c transaction cost.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使考虑每笔交易10美分的成本，修改后的风险分配投资组合的表现仍然优于其他投资组合。
 - en: To view the complete source code for this example, please have a look at the
     [bt.permanent.portfolio3.test() function in bt.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看GitHub上的[bt.permanent.portfolio3.test()函数](https://github.com/systematicinvestor/SIT/blob/master/R/bt.test.r)。

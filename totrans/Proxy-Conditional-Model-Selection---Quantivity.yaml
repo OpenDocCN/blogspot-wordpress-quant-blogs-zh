@@ -1,31 +1,46 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:45:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:45:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Proxy Conditional Model Selection | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 代理条件模型选择 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/10/30/proxy-cross-hedge-conditional-model-selection/#0001-01-01](https://quantivity.wordpress.com/2011/10/30/proxy-cross-hedge-conditional-model-selection/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/10/30/proxy-cross-hedge-conditional-model-selection/#0001-01-01](https://quantivity.wordpress.com/2011/10/30/proxy-cross-hedge-conditional-model-selection/#0001-01-01)
 - en: '[Lag Dynamics with Autocopulas](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas)
     investigated autocopulas for underlying and hedge instruments as applied to [proxy
     / cross hedging](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging),
     concluding the existence of *large-magnitude temporal volatility clustering*.
     This is indeed a known stylized fact of financial returns (see [Tsay 2010](http://books.google.com/books?id=OKUGARAXKMwC),
     Chapters 2 and 3).'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用自动相关copulas进行滞后动态研究，应用于[代理/交叉对冲](https://quantivity.wordpress.com/2011/10/02/proxy-cross-hedging/)，得出存在*大幅度的时间波动聚类*的结论。这确实是金融收益率的一个已知的风格化事实（参见[Tsay
+    2010](http://books.google.com/books?id=OKUGARAXKMwC)，第2章和第3章）。
 - en: 'The classic *discrete-time* models for capturing such *statistical conditionality*
     are [ARMA](http://en.wikipedia.org/wiki/Autoregressive%E2%80%93moving-average_model)
     (see [Box *et. al* (1994)](http://books.google.com/books?id=lJnnPQAACAAJ)) and
@@ -36,27 +51,42 @@
     and error distribution for underlying and hedge*. This post describes and implements
     such [model selection](http://en.wikipedia.org/wiki/Model_selection) for choosing
     a model from the universe of standard parameters and non-normal error distributions.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 捕捉这种*统计条件性*的经典*离散时间*模型有[ARMA](http://en.wikipedia.org/wiki/Autoregressive%E2%80%93moving-average_model)（参见[Box
+    *et. al* (1994)](http://books.google.com/books?id=lJnnPQAACAAJ)）和[GARCH](http://en.wikipedia.org/wiki/Autoregressive_conditional_heteroskedasticity#GARCH)（参见[Engle
+    (1982)](http://www.jstor.org/pss/1912773)和[Bollerslev (1986)](http://www.sciencedirect.com/science/article/pii/0304407686900631)），分别用于收益率和波动性。然而，这里有一个面对对冲分析的实际问题：*需要选择一个具有最优参数和误差分布的模型来对冲*.本文描述并实现了从标准参数和非正态误差分布的宇宙中选择模型的[模型选择](http://en.wikipedia.org/wiki/Model_selection)。
 - en: To illustrate this methodology for proxy hedging, begin by reviewing required
     statistical machinery. Next, illustrate results and graphical visualization with
     ongoing example of a well-known equity and QQQ. Finally, finish with R code.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了说明代理对冲的这种方法，首先回顾所需的统计机器。然后，用一个知名股票和QQQ为例说明结果和图形可视化。最后，用R代码结束。
 - en: '**Statistical Models**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**统计模型**'
 - en: 'Three pieces of statistical machinery are required, briefly reviewed here:
     ARMA, GARCH, and BIC.'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要三种统计机器，在这里简要回顾：ARMA，GARCH和BIC。
 - en: 'Conditional returns can be described by the ARMA(*p*, *q*) model:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 条件收益率可以用ARMA(*p*, *q*)模型来描述：
 - en: '![r_t = \left[ \phi_0 + \sum\limits_{i=1}^p \phi_i r_{t-i} \right] + \left[
     a_t + \sum\limits_{j=1}^q \theta_j a_{t-j} \right] ](img/9d7a689bfb16831b8da2318ac9cc1f08.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_IMG
+  zh: '![r_t = \left[ \phi_0 + \sum\limits_{i=1}^p \phi_i r_{t-i} \right] + \left[
+    a_t + \sum\limits_{j=1}^q \theta_j a_{t-j} \right] ](img/9d7a689bfb16831b8da2318ac9cc1f08.png)'
 - en: The ![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png) are autoregressive polynomial
     and ![\theta_i](img/371dcd1052b4d2a2d886c085fa72de17.png) is moving average polynomial.
     Recall from [Why Moving Averages](https://quantivity.wordpress.com/2010/01/08/why-moving-averages/)
@@ -64,18 +94,27 @@
     due to [Wold decomposition](http://en.wikipedia.org/wiki/Wold%27s_theorem). Worth
     recalling is any model whose absolute parameter values are less than 1 is weakly
     stationary.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '![\phi_i](img/be9f6c685169bb91b421eb34dc9abdb4.png)是自回归多项式，![\theta_i](img/371dcd1052b4d2a2d886c085fa72de17.png)是移动平均多项式。回忆一下[为什么移动平均](https://quantivity.wordpress.com/2010/01/08/why-moving-averages/)中的内容，任何*平稳*的随机过程都可以表示为![\text{ARMA}(0,\infty)](img/3009b4de1f75918f07dfeaa769c60c85.png)，这是由于[沃德分解](http://en.wikipedia.org/wiki/Wold%27s_theorem)。值得回忆的是，任何绝对参数值小于1的模型都是弱平稳的。'
 - en: 'Conditional volatility can be described by the GARCH(*m*, *s*) model:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 条件波动性可以用GARCH(*m*, *s*)模型来描述：
 - en: '![\sigma_t^2 = \omega + \sum\limits_{j=1}^s \beta_j \sigma^2_{t-j} + \sum\limits_{i=1}^m
     \alpha_i a^2_{t-i} ](img/ba4bffdfa2c583116700c9f69614707b.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_IMG
+  zh: '![\sigma_t^2 = \omega + \sum\limits_{j=1}^s \beta_j \sigma^2_{t-j} + \sum\limits_{i=1}^m
+    \alpha_i a^2_{t-i} ](img/ba4bffdfa2c583116700c9f69614707b.png)'
 - en: '![a_t = r_t - \mu_t = \sigma_t \epsilon_t](img/1ba9b8d851ca99d8792c52225a7bb582.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_IMG
+  zh: '![a_t = r_t - \mu_t = \sigma_t \epsilon_t](img/1ba9b8d851ca99d8792c52225a7bb582.png)'
 - en: 'From this formulation, GARCH is nicely illustrated as ARMA applied to the squared
     series ![a^2_t](img/4fcb3319795c723c813ecf492858cfa3.png). The ![\epsilon](img/fa45401b4ac499b260e1f16cdc22b992.png)
     is sequence of iid variables, drawn from one of the following distributions: student-t,
@@ -83,68 +122,102 @@
     posts (and voluminous literature), which illustrate residuals following such distributions.
     Readers may wish to note relationship between this squared series and previous
     autocopula post.'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 从这种形式来看，GARCH很好地说明了对平方序列![a^2_t](img/4fcb3319795c723c813ecf492858cfa3.png)应用ARMA。![\epsilon](img/fa45401b4ac499b260e1f16cdc22b99
 - en: 'Finally, the [Bayesian Information Criteria (BIC)](http://en.wikipedia.org/wiki/Bayesian_information_criterion)
     provides the statistic for ranking comparative model fitness of two more ARMA+GARCH
     models:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，[贝叶斯信息准则（BIC）](http://en.wikipedia.org/wiki/Bayesian_information_criterion)为两个以上ARMA+GARCH模型的比较拟合提供了统计量：
 - en: '![BIC = -2 \times \text{ln} (L) + k \times \text{ln} (n) ](img/89979cf4214995b5ca3a22d2d24811a2.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![BIC = -2 \times \text{ln} (L) + k \times \text{ln} (n) ](img/89979cf4214995b5ca3a22d2d24811a2.png)'
 - en: where ![L](img/e4307f9079182d7a5f19771e368b52e4.png) is model-maximized likelihood
     value, ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png) is number of observations,
     and ![k](img/7881e4ad2e7a375a9b4dd9dea1f6a3ae.png) is number of free parameters.
     Thus, the best model is that with the highest log likelihood penalized by number
     of estimated parameters (*i.e.* ![n - k](img/5d12bb645900fbd654f320da6b6ca26d.png)).
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中![L](img/e4307f9079182d7a5f19771e368b52e4.png)是模型最大似然值，![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png)是观测次数，![k](img/7881e4ad2e7a375a9b4dd9dea1f6a3ae.png)是自由参数个数。因此，最好的模型是
+    log 似然值（惩罚估计参数个数，即![n - k](img/5d12bb645900fbd654f320da6b6ca26d.png)）。
 - en: '**Proxy Models**'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '**代理模型**'
 - en: 'The following performs model selection for CRM and QQQ, over the 5-year observation
     period:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是对CRM和QQQ在5年观测期内的模型选择：
 - en: '[PRE0]'
+  id: totrans-23
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'CRM is fitted as *GARCH(1,1) with student-t errors*:'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: CRM被拟合为*GARCH(1,1)带有学生t误差*：
 - en: '[PRE1]'
+  id: totrans-25
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: Thus, autoregressive coefficient is order-1, significant, and equal to 0.0355;
     variance coefficient is order-1, significant, and equal to 0.9544\. Sum of coefficients
     is 0.9899, thus model possesses either IGARCH unit root or long-memory (*e.g.*
     [Andersen (1999)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1298332)).
     The residuals are student-t with 4.25 df, which is broadly consistent with the
     previous distribution fit undertaken in [Empirical Copulas and Hedge Basis Risk](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk).
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，自回归系数是阶-1的，显著的，且等于0.0355；方差系数是阶-1的，显著的，且等于0.9544。系数之和为0.9899，因此模型具有单位根IGARCH或长记忆性（例如[Andersen
+    (1999)](http://papers.ssrn.com/sol3/papers.cfm?abstract_id=1298332)）。残差是自由度为4.25的学生t分布，与[Empirical
+    Copulas and Hedge Basis Risk](https://quantivity.wordpress.com/2011/10/10/empirical-copulas-and-proxy-cross-hedge-basis-risk)中进行的前分布拟合大体一致。
 - en: 'QQQ is fitted as *GARCH(1,1) with skew-t errors*:'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: QQQ被拟合为*GARCH(1,1)带有偏态t误差*：
 - en: '[PRE2]'
+  id: totrans-28
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: Thus, autoregressive coefficient is order-1, significant, and equal to 0.1;
     variance coefficient is order-1, significant, and equal to 0.8956\. The residuals
     are skew-t with df = 6.62 and skew = 0.852 (recall student-t is limit of skew-t
     with skew=0; see [McNeil, Frey, and Embrechts [2005]](http://books.google.com/books?id=vgy98mM9zQUC)).
     Note autoregression coefficient is nearly 3x larger for QQQ than CRM. Sum of coefficients
     is 0.9956, thus also possesses either IGARCH unit root or long-memory.
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，自回归系数是阶-1的，显著的，且等于0.1；方差系数是阶-1的，显著的，且等于0.8956。残差是自由度为6.62的偏态t分布，偏度为0.852（回忆学生t分布是偏态t分布当偏度为0时的极限；参见[McNeil,
+    Frey, and Embrechts [2005]](http://books.google.com/books?id=vgy98mM9zQUC)）。注意自回归系数对于QQQ几乎是CRM的三倍。系数之和为0.9956，因此也具有单位根IGARCH或长记忆性。
 - en: 'The preceding models can be visualized in several ways. To begin, visualize
     the conditional volatility for both instruments:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 前面的模型可以通过多种方式进行可视化。首先，可视化两种工具的条件波动性：
 - en: '[![](img/22a1931e7810661192040c9cc108f6ae.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-vol.png)'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/22a1931e7810661192040c9cc108f6ae.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-vol.png)'
 - en: 'Volatility broadly matches intuition and plots from previous posts, with significant
     spikes during the financial crisis. As observed in previous posts, CRM volatility
     is significantly larger than QQQ. Note CRM has numerous significant volatility
@@ -152,46 +225,72 @@
     (late-August and mid-November). Kendall correlation of conditional volatility
     between CRM and QQQ is 0.529, thus there exists a modest volatility dependence
     relationship:'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动性普遍符合直觉和之前的帖子中的图表，在金融危机期间有显著的峰值。正如之前帖子中所观察到的，CRM波动性显著大于QQQ。注意CRM在2009年和2010年有多个显著的波动性尖峰，而QQQ没有，这对应于收益公告（8月底和11月中旬）。CRM和QQQ之间条件波动的肯德尔相关系数为0.529，因此存在适度的波动性依赖关系：
 - en: '[PRE3]'
+  id: totrans-33
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: 'The copula of the GARCH volatility dependence exhibits large probability of
     absolute changes conditional on previous large changes, consistent with [Lag Dynamics
     with Autocopulas](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas):'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: GARCH波动性依赖的copula在先前大变化条件下绝对变化的大概率，与[自相关copula的滞后动态](https://quantivity.wordpress.com/2011/10/16/lag-dynamics-with-autocopulas)一致：
 - en: '[![](img/e3dc471a213c0b1bcd4aed9ff97cdc34.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-vol-copula.png)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e3dc471a213c0b1bcd4aed9ff97cdc34.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-vol-copula.png)'
 - en: 'Next, GARCH residuals exhibit some shortcoming in model fitness, given they
     retain modest heteroskedasticity:'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 接下来，由于它们保留了适度的异方差性，GARCH残差在模型拟合方面存在一些不足：
 - en: '[![](img/cfd5f0f049fe8a493e1c4280dfc450d9.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-residuals.png)'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/cfd5f0f049fe8a493e1c4280dfc450d9.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-residuals.png)'
 - en: 'Finally, consider plot of fitted GARCH residual distributions:'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，考虑拟合GARCH残差的分布图：
 - en: '[![](img/e7e4544f71762e460294f55f0845b203.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-error-dist.png)'
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/e7e4544f71762e460294f55f0845b203.png)](https://quantivity.wordpress.com/wp-content/uploads/2011/10/proxy-garch-error-dist.png)'
 - en: 'Which illustrates the significant difference in distribution, both versus each
     other and normality. Large positive skew for QQQ is particularly interesting.
     This plot is generated by, where `p` is the price matrix:'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 这展示了分布之间的显著差异，彼此之间以及与正态性相比。QQQ的大正偏斜特别有趣。这个图表是由什么生成的，其中`p`是价格矩阵：
 - en: '[PRE4]'
+  id: totrans-41
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '* * *'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '* * *'
 - en: 'R code for proxy hedging model selection:'
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码用于选择代理对冲模型：
 - en: '[PRE5]'
+  id: totrans-44
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE5]'

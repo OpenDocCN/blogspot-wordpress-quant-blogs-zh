@@ -1,32 +1,49 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 05:35:28'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:35:28'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Neo4j Node Data Storage | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Neo4j 节点数据存储 | 交易桌面故事
 - en: 来源：[https://mdavey.wordpress.com/2016/03/14/neo4j-node-data-storage/#0001-01-01](https://mdavey.wordpress.com/2016/03/14/neo4j-node-data-storage/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2016/03/14/neo4j-node-data-storage/#0001-01-01](https://mdavey.wordpress.com/2016/03/14/neo4j-node-data-storage/#0001-01-01)
 - en: Neo4j Node Data Storage
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Neo4j 节点数据存储
 - en: '[Neo4j](http://neo4j.com/) (graph database) is cool piece of technology.  Graph
     databases,  need to be used appropriately, they like blockchain, and other technologies
     in the sweet store, are not silver bullets in their own right.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[Neo4j](http://neo4j.com/)（图形数据库）是一项很棒的技术。图数据库需要适当使用，它们像区块链和其他甜品店的科技一样，并不是
+    silver bullets。'
 - en: When considering what to store in a graph database, its easy to leverage the
     nodes and linkage between nodes, relationships, to generate a graph, and traverse
     a graph.  What is unclear, or not well documented, is how much data you should
@@ -35,52 +52,75 @@
     followed by users has clear graph benefits.  What isn’t clear is if the postings
     themselves which could be lengthy in terms of text, and may include images at
     a minimum, should also be stored on the post node as a [property/label](http://stackoverflow.com/questions/31028504/what-is-the-difference-between-a-label-and-a-property-in-neo4j)?
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 当考虑在图数据库中存储什么数据时，很容易利用节点和节点间的链接、关系来生成一个图，并遍历这个图。不清楚的是，或者没有很好地文档化的是，你应该在节点上存储多少数据。例如，Christophe
+    Willemsen 在 GraphAware 上关于使用 Neo4j 建模用户关注的博客和帖子有一个清晰的图优势。不明确的是，帖子本身可能是文本上的冗长，并且至少包括图片，是否也应该作为[属性/标签](http://stackoverflow.com/questions/31028504/what-is-the-difference-between-a-label-and-a-property-in-neo4j)存储在帖子节点上？
 - en: 'GitHub [neo4j-contrib/neo4j-faq](https://github.com/neo4j-contrib/neo4j-faq)
     offer the following, which maybe relevant:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: GitHub [neo4j-contrib/neo4j-faq](https://github.com/neo4j-contrib/neo4j-faq)
+    提供了以下内容，可能相关：
 - en: Neo4j is currently not suitable for storing BLOBs/CLOBs. Nodes, relationships,
     and properties are not co-located on disk. This might be introduced in the future.
+  id: totrans-10
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: Neo4j 目前不适用于存储 BLOBs/CLOBs。节点、关系和属性在磁盘上不是共同定位的。这可能会在未来得到改进。
 - en: 'The 1st edition (unfortunately I don’t have the latest version) of [Graph Databases](http://graphdatabases.com/)
     by Ian Robinson, Jim Webber & Emil Eifrem provides the following:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 第一版（不幸的是我没有最新版本）的[《图数据库》](http://graphdatabases.com/)，由 Ian Robinson、Jim Webber
+    和 Emil Eifrem 编写，提供了以下内容：
 - en: The node store file stores node records
+  id: totrans-12
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 节点存储文件存储节点记录
 - en: ''
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Like most of the Neo4j store files, the node store is a fixed-size record store,
     where each record is 9 bytes in length
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 与 Neo4j 的大多数存储文件一样，节点存储是一个固定大小的记录存储，每个记录的长度为 9 字节。
 - en: ''
+  id: totrans-15
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: Correspondingly, relationships are stored in the relationship store file.
+  id: totrans-16
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 相应地，关系存储在关系存储文件中。
 - en: ''
+  id: totrans-17
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
 - en: The relationship store consists of fixed-size records—in this case each record
     is 33 bytes long.
+  id: totrans-18
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 关系存储由固定大小的记录组成——在这种情况下，每个记录的长度为 33 字节。
 - en: ''
+  id: totrans-19
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -89,10 +129,13 @@
     that Neo4j, being a property graph database, allows properties—name-value pairs—to
     be attached to both nodes and relationships. The property stores, therefore, are
     referenced from both node and relationship records.
+  id: totrans-20
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 除了包含图结构的节点和关系存储之外，我们还有属性存储文件。这些文件存储用户的键值对。回顾一下，Neo4j 作为一个属性图数据库，允许将属性（名称-值对）附加到节点和关系上。因此，属性存储是从节点和关系记录中引用的。
 - en: ''
+  id: totrans-21
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
@@ -101,16 +144,24 @@
     to fit in one or more of a record’s four property blocks. In practice this means
     that data like phone numbers and zip codes can be inlined in the property store
     file directly, rather than being pushed out to the dynamic stores.
+  id: totrans-22
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: Neo4j 支持存储优化，通过直接将一些属性内联到属性存储文件中。当属性数据可以编码以适合记录的四个属性块之一或多个时，会发生这种情况。实际上这意味着电话号码和邮政编码等数据可以直接内联到属性存储文件中，而不是推送到动态存储。
 - en: Back to the Christophe Willemsen article, should the postings be stored in Neo4j,
     or outside with a relevant ID to allow Neo4j linkage?
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 回到**Christophe Willemsen**的文章，帖子应该存储在Neo4j中，还是存储在外面，并有一个相关的ID以允许与Neo4j的链接？
 - en: ~ by mdavey on March 14, 2016.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2016年3月14日发表。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/)
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)分类中

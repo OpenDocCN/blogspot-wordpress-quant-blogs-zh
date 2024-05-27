@@ -1,92 +1,136 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:37:27'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:37:27
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Midori: Fine-Grained Process Scaling | Tales from a Trading Desk'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Midori：细粒度进程扩展 | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01](https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01](https://mdavey.wordpress.com/2015/12/02/midori-fine-grained-process-scaling/#0001-01-01)
 - en: 'Midori: Fine-Grained Process Scaling'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: Midori：细粒度进程扩展
 - en: Finally, Joe [Duffy](http://joeduffyblog.com/) has started blogging again, and
     with it, we get details of [Midori](http://joeduffyblog.com/2015/11/03/blogging-about-midori/) (programming
     language, compilers, OS, its services, applications, and the overall programming
     models), the multi-year journey.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，Joe [Duffy](http://joeduffyblog.com/) 重新开始博客了，随之而来的是关于[Midori](http://joeduffyblog.com/2015/11/03/blogging-about-midori/)的详细内容（编程语言，编译器，操作系统，其服务，应用程序以及整体的编程模型），这是多年的旅程。
 - en: A key to achieving asynchronous everything was ultra-lightweight processes
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 实现异步处理的关键是超轻量级进程。
 - en: I’d be interested to know if Midori influenced [Orleans](http://research.microsoft.com/en-us/projects/orleans/)
     – given the actor model similarities.  Orleans code is available in [GitHub](http://dotnet.github.io/orleans/).
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我很想知道Midori是否影响了[Orleans](http://research.microsoft.com/en-us/projects/orleans/)——考虑到两者在演员模型上的相似性。Orleans的代码可以在[GitHub](http://dotnet.github.io/orleans/)上找到。
 - en: 'Throughout the “Asynchronous Everything” article there are a number of great
     callouts:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在“异步处理一切”这篇文章中，有很多很好的亮点：
 - en: Midori did not have demand paging which, in a classical system, means that touching
     a piece of memory may physically block to perform IO.
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Midori没有采用按需分页，在传统的系统中，这意味着访问内存可能会物理性地阻塞以执行I/O操作。
 - en: Midori was an entire OS written to use garbage collected memory – Unfortunately,
     we don’t see Joe offer a view if Midori was a viable production OS.
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Midori是一个完整的操作系统，它旨在使用垃圾收集的内存——不幸的是，我们没有看到Joe提供Midori是否是一个可行的生产操作系统的观点。
 - en: Avoid superfluous allocations like the plague.  Gen0 collections are NOT free.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 避免不必要的分配，比如瘟疫。Gen0收集不是免费的。
 - en: One of the tricks to garbage collection working at the scale of Midori was precisely
     the fine-grained process model, where each process had a distinct heap that was
     independently collectible.
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 垃圾回收在Midori这样的系统中能够大规模工作，其中一个诀窍就是精细的进程模型，每个进程都有自己的堆，可以独立进行垃圾回收。
 - en: Processes were ultra-lightweight and single-threaded – event loop based.
+  id: totrans-15
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 进程超轻量级且单线程——基于事件循环。
 - en: Batches of messages could be stuffed into channels before they filled up. They
     were delivered in chunks at-a-time – Interesting, as similar concepts have been
     used in financial software for many years.
+  id: totrans-16
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 可以在通道中一次性填充大量消息，在通道满之前它们就被发送了。它们是以块为单位一次又一次地交付的——很有趣，因为类似的观念在金融软件中已经被使用了多年。
 - en: “zero-copy”, SharedData was a automatic ref-counted pointer to some immutable
     data in a heap shared between processes.  Interested in how this worked across
     machines
+  id: totrans-17
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: “零拷贝”，SharedData是对某些不可变数据在进程间共享的堆上的自动引用计数指针。很想了解这个技术是如何跨机器工作的。
 - en: causality IDs that flowed with messages across processes
+  id: totrans-18
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 随消息跨进程流动的因果关系ID。
 - en: asynchronous everywhere
+  id: totrans-19
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 无处不在的异步处理。
 - en: ~ by mdavey on December 2, 2015.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 作者：mdavey，日期：2015年12月2日。
 - en: Posted in [.NET](https://mdavey.wordpress.com/category/languages/net/)
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 发表于[.NET](https://mdavey.wordpress.com/category/languages/net/)分类下

@@ -1,34 +1,51 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:48:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 05:48:44'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Skill Cloud – Part 4 – Spring Data and Neo4j | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 技能云 – 第4部分 – Spring Data和Neo4j | 交易桌上的故事
 - en: 来源：[https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01](https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01](https://mdavey.wordpress.com/2014/06/13/skill-cloud-part-4-spring-data-and-neo4j/#0001-01-01)
 - en: Skill Cloud – Part 4 – Spring Data and Neo4j
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 技能云 – 第4部分 – Spring Data和Neo4j
 - en: 'Spent the last flight banging my head against [Spring Data](http://projects.spring.io/spring-data-neo4j/)
     and Neo4j.  I was hoping Spring Data would save me some code writing, but the
     pain of Maven dependency hell, coupled with exceptions that are meaningless in
     many way, has almost driven the will to live out of me.  At the moment I’m in
     the world of:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在最近的航班上，我一直在头疼如何使用[Spring Data](http://projects.spring.io/spring-data-neo4j/)和Neo4j。我希望Spring
+    Data能帮我减少一些代码编写工作，但是Maven依赖地狱的痛苦，以及许多情况下毫无意义的异常，几乎让我失去了生存的意志。此刻我正处在这样的环境中：
 - en: 'Exception in thread “main” org.springframework.beans.factory.BeanCreationException:
     Error creating bean with name ‘entityFetchHandler’ defined in class path resource
     [org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]:
@@ -39,21 +56,37 @@
     Error creating bean with name ‘nodeStateTransmitter’ defined in class path resource
     [org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]:
     Initialization of bean failed; nested exception is java.lang.reflect.MalformedParameterizedTypeException'
+  id: totrans-8
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 线程“main”中的异常 org.springframework.beans.factory.BeanCreationException：在类路径资源[org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]中定义的名为“entityFetchHandler”的bean创建失败；内部异常是
+    org.springframework.beans.factory.BeanDefinitionStoreException：工厂方法[public org.springframework.data.neo4j.support.mapping.Neo4jEntityFetchHandler
+    org.springframework.data.neo4j.config.Neo4jConfiguration.entityFetchHandler()
+    throws java.lang.Exception]抛出异常；内部异常是 org.springframework.beans.factory.BeanCreationException：在类路径资源[org/springframework/data/neo4j/aspects/config/Neo4jAspectConfiguration.class]中定义的名为“nodeStateTransmitter”的bean初始化失败；内部异常是
+    java.lang.reflect.MalformedParameterizedTypeException
 - en: 'Which even after a number of google’s is still not resolved.  I did walk into
     [LockException](https://jira.spring.io/browse/DATAGRAPH-478) compatibility issues
     with Neo4j 2.1.1, and then the Spring Data [3.0.1](http://forum.spring.io/forum/spring-projects/data/nosql/746297-spring-data-neo4j-fails-on-upgrade-to-3-0-1)
     issue 😦  Here’s my pom.xml, which could be the root of the issue, who knows:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 即使在进行了许多次谷歌搜索之后仍未解决。我确实遇到了与Neo4j 2.1.1不兼容的[LockException](https://jira.spring.io/browse/DATAGRAPH-478)问题，然后又遇到了Spring
+    Data [3.0.1](http://forum.spring.io/forum/spring-projects/data/nosql/746297-spring-data-neo4j-fails-on-upgrade-to-3-0-1)的问题😦 
+    以下是我的pom.xml，可能是问题的根源，谁知道呢：
 - en: '[PRE0]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: ~ by mdavey on June 13, 2014.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ mdavey于2014年6月13日发表。
 - en: Posted in [Data](https://mdavey.wordpress.com/category/data/), [Java](https://mdavey.wordpress.com/category/languages/java/)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 发布在[数据](https://mdavey.wordpress.com/category/data/)、[Java](https://mdavey.wordpress.com/category/languages/java/)分类

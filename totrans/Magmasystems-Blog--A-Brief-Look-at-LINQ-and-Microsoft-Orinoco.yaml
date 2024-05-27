@@ -1,145 +1,233 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:53:22'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:53:22
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: A Brief Look at LINQ and Microsoft Orinoco'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: 简要查看 LINQ 和微软 Orinoco'
 - en: 来源：[http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01](http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01](http://magmasystems.blogspot.com/2009/05/brief-look-at-linq-and-microsoft.html#0001-01-01)
 - en: This was taken from the Microsoft whitepaper on Orinoco. Thanks for the Orinoco
     team for providing this to me.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 本文节选自微软关于 Orinoco 的白皮书。感谢 Orinoco 团队为我提供这份资料。
 - en: Let's assume that you have a number of power meters that you need to monitor.
     The "InputStream" contains a stream of tuples where each tuple contains a power
     reading from an individual meter. The reading happens to come in as the wattage
     times 10.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们假设你有多个需要监控的电力仪表。“InputStream”包含一个元组流，每个元组包含一个单独仪表的电力读数。读数碰巧以功耗的10倍形式出现。
 - en: We can capture each reading a project a new stream that has the normalized wattage.
     We can also create a sliding 3-second window of meter readings that we can do
     calculations against.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以捕获每个读数并投影一个新的流，该流具有归一化的功耗。我们还可以创建一个滑动的三秒窗口，其中包含电表读数，我们可以对其进行计算。
 - en: var realValueStream =
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: var realValueStream =
 - en: from e in InputStream
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 InputStream
 - en: select new MeterWattage((double)e.Consumption / 10);
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的 MeterWattage((double)e.Consumption / 10);
 - en: var windowedStream =
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: var windowedStream =
 - en: from e in realValueStream.SlidingWindow(TimeSpan.FromSeconds(3))
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 realValueStream.SlidingWindow(TimeSpan.FromSeconds(3))
 - en: select new MeterWattage(e.wattage);
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的 MeterWattage(e.wattage);
 - en: We can then create a stream that has the average power reading over a sliding
     3 second period.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我们可以创建一个流，该流在一个滑动的三秒周期内具有平均功耗读数。
 - en: var averagedStream =
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: var averagedStream =
 - en: from e in windowedStream
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 windowedStream
 - en: select new OneMeterAverage(CEPAggregates.Average(e.wattage));
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的 OneMeterAverage(CEPAggregates.Average(e.wattage));
 - en: (I think that this next query may be incorrect, as the ID field was not captured
     in the windowedStream, but I will continue with the example anyway).
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: （我认为下一个查询可能是不正确的，因为 ID 字段没有捕获在 windowedStream 中，但无论如何我都会继续举例）。
 - en: 'If you want to get the 3-second sliding average for each individual meter,
     you can do the following 2 queries:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你想要为每个单独的电表获取3秒滑动平均值，你可以执行以下两个查询：
 - en: var meterStreamGroups =
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: var meterStreamGroups =
 - en: from e in windowedStream
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 windowedStream
 - en: group e by e.id;
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 按 e.id 分组 e
 - en: var groupedAveragedStream =
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: var groupedAveragedStream =
 - en: from eb in meterStreamGroups
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 eb 的 meterStreamGroups
 - en: from e in eb
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 eb
 - en: select new MeterAverage(eb.Key, CEPAggregates.Avg(e.wattage));
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的 MeterAverage(eb.Key, CEPAggregates.Avg(e.wattage));
 - en: Now, we want to compute the ratio of consumption for each meter over the 3-second
     window.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，我们想要计算每个仪表在3秒窗口内的功耗比。
 - en: var sumStream =
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: var sumStream =
 - en: from e in groupedAveragedStream
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 groupedAveragedStream
 - en: select new MeterSum(CEPAggregates.Sum(e.wattage));
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的 MeterSum(CEPAggregates.Sum(e.wattage));
 - en: var ratioStream =
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: var ratioStream =
 - en: from e1 in groupedAveragedStream
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e1 在 groupedAveragedStream
 - en: join e2 in sumStream on true equals true
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 连接 e2 在 sumStream true 等于 true
 - en: select new
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择新的
 - en: MeterRatio(e1.Id, e1.Wattage, e1.Wattage / e2.TotalWattage);
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: MeterRatio(e1.Id, e1.Wattage, e1.Wattage / e2.TotalWattage);
 - en: 'Finally, we just want to capture the ratio of power consumption from meter
     #2.'
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: '最后，我们只想捕捉来自电表 #2 的功耗比。'
 - en: var filteredStream =
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: var filteredStream =
 - en: from e in ratioStream
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自 e 在 ratioStream
 - en: where e.id == 2
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 其中 e.id == 2
 - en: select e;
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 选择 e；
 - en: ©2009 Marc Adler - All Rights Reserved.
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2009 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里的所有观点都是个人的，与我的雇主无关。

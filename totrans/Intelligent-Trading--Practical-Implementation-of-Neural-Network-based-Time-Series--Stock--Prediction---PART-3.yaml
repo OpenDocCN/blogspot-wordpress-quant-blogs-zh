@@ -1,106 +1,164 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:47:47'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 04:47:47'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Practical Implementation of Neural Network based Time
     Series (Stock) Prediction - PART 3'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：基于神经网络的时间序列（股票）预测的实际实现 - 第3部分
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/02/practical-implementation-of-neural.html#0001-01-01)
 - en: Ok, now that we have seen how well the perfect sine wave signal was learned,
     let's turn it up a notch and see how well the complex sine wave was learned.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 好了，现在我们已经看到完美正弦波信号学习得很好，让我们提高难度，看看复杂正弦波学习得如何。
 - en: '[![](img/be78ef478a6c33e71a3499bb627e77ae.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj86nmSv2reFnkTVbYph2-cB-S06g6LDuFCDqJgbvkLZyTbOAKqQav-XR19bIJbyVl_4EXqPS5Ln8rYFeibUgZewiXs5PdsPhy-gHWZ2rYr662RFD_7utdbVDON4andf2OJpJSu6Gc1ZjM/s1600-h/fig1_pt3_complex_rsltplot.jpg)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/be78ef478a6c33e71a3499bb627e77ae.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj86nmSv2reFnkTVbYph2-cB-S06g6LDuFCDqJgbvkLZyTbOAKqQav-XR19bIJbyVl_4EXqPS5Ln8rYFeibUgZewiXs5PdsPhy-gHWZ2rYr662RFD_7utdbVDON4andf2OJpJSu6Gc1ZjM/s1600-h/fig1_pt3_complex_rsltplot.jpg)'
 - en: Fig 1\. Summary of Actual Vs. Predicted out of sample complex sine waveform
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 1\. 复杂正弦波的实际 vs. 预测的摘要
 - en: Uh Oh. What happened, the out of sample data does not look quite as good. But,
     let's take a look at the summary statistics.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 哎呀。发生了什么，样本外数据看起来不那么好。但是，让我们看看摘要统计数据。
 - en: '[![](img/7a7746b1949552d0900e068f28bfd233.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgpnC-n_ca5tp_MpfHeW0k4rgBExKQzsd0kGacTdVDaakqLC9OxD7YW5IKFNadrAjoXUnamh57FMoIleiNMaNqQzbqV3F26LQSJJ0_Os0sMxaRiZIzku0Y9u95yvPYOUwF8HHMzWZF9tg/s1600-h/figg_2_weka_rslts.jpg)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/7a7746b1949552d0900e068f28bfd233.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgpnC-n_ca5tp_MpfHeW0k4rgBExKQzsd0kGacTdVDaakqLC9OxD7YW5IKFNadrAjoXUnamh57FMoIleiNMaNqQzbqV3F26LQSJJ0_Os0sMxaRiZIzku0Y9u95yvPYOUwF8HHMzWZF9tg/s1600-h/figg_2_weka_rslts.jpg)'
 - en: Fig 2\. Weka Summary for Actual vs Predicted OOS complex sine waveform
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 2\. Weka 对实际 vs. 预测的样本外复杂正弦波摘要
 - en: We see that the rmse went way up from 0 to about .92, even though the correlation
     coefficient is still pretty good looking. What's happening is that even though
     the signal is still perfectly deterministic, the NN needs more training data or
     more work on the architecture to approximate the new function properly.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到均方根误差从0增加到了约0.92，尽管相关系数看起来仍然相当不错。发生的情况是，即使信号仍然是完全确定的，但神经网络需要更多的训练数据或更多的工作来正确地逼近新函数。
 - en: Lastly, let's add some random noise to the signal.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，让我们向信号添加一些随机噪音。
 - en: '[![](img/c0c9cde3e9b00460c9a80a6b10fcbf66.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBV2AecCzgcudvRPJrfRA4hG28hm0_g-8uxs3IG2jnG1OwIpM9B__EhwB6bP40oiPAPwPfkgGHZ5nTm3ul1KEbpmNfHrSwLkFsbVVzX_TNQGIdr-zhaCcbcbZ7GN3_f0K59qjU0PxImK4/s1600-h/fig3_noiseadded.jpg)'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/c0c9cde3e9b00460c9a80a6b10fcbf66.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBV2AecCzgcudvRPJrfRA4hG28hm0_g-8uxs3IG2jnG1OwIpM9B__EhwB6bP40oiPAPwPfkgGHZ5nTm3ul1KEbpmNfHrSwLkFsbVVzX_TNQGIdr-zhaCcbcbZ7GN3_f0K59qjU0PxImK4/s1600-h/fig3_noiseadded.jpg)'
 - en: fig 3\. complex sin with noise added.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 3\. 添加了噪音的复杂正弦波。
 - en: And let's try to train on the random signal.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后让我们试着在随机信号上训练。
 - en: '[![](img/15b797e2d8f64053978bec840e22f170.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgro8u6fhKAa0j5ljGrTmUhI6R5jvh_tUjvdscv5BviHhyphenhyphenpJaoGHJmxcP_JitNjVD_V0QzhL5EjWwi3jHh8S7qjwzJMKf2bMcDnyMIcxp1q7jGivCbThIsBlTi6VrNrot-urlzTVz_F8V8/s1600-h/fig4_act_vs_pred_rslts_nois.jpg)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/15b797e2d8f64053978bec840e22f170.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgro8u6fhKAa0j5ljGrTmUhI6R5jvh_tUjvdscv5BviHhyphenhyphenpJaoGHJmxcP_JitNjVD_V0QzhL5EjWwi3jHh8S7qjwzJMKf2bMcDnyMIcxp1q7jGivCbThIsBlTi6VrNrot-urlzTVz_F8V8/s1600-h/fig4_act_vs_pred_rslts_nois.jpg)'
 - en: fig 4\. Actual vs prediction complex sin with noise added
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 图 4\. 实际 vs 预测的添加了噪音的复杂正弦波
 - en: We see that the predictions are starting to look downright bad.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到预测开始变得非常糟糕。
 - en: The rmse went to .3, but it can be a bit misleading as the signal magnitude
     of the predicted waveform has dropped considerably. More importantly the correlation
     coefficient dropped from .9 down to .3.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 均方根误差增加到了0.3，但可能有点误导，因为预测波形的信号幅度大大降低了。更重要的是，相关系数从0.9下降到了0.3。
 - en: '[![](img/1e422186c8d10c3c1d7043e11f4033aa.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9qdLdKBgbmBMbpMuuwgFSigfi2XH6UtQzFyt4TiThTYFYcuWMwBJhqgbO4BS0_uwOVswkjpqXTpamG3AQNMV4jW8U1-h-sL7UkFJZNbExqZKQKXZK8v9P1c7W0xYGuCHxWdAWwknmmu4/s1600-h/fig5_rstls.jpg)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/1e422186c8d10c3c1d7043e11f4033aa.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9qdLdKBgbmBMbpMuuwgFSigfi2XH6UtQzFyt4TiThTYFYcuWMwBJhqgbO4BS0_uwOVswkjpqXTpamG3AQNMV4jW8U1-h-sL7UkFJZNbExqZKQKXZK8v9P1c7W0xYGuCHxWdAWwknmmu4/s1600-h/fig5_rstls.jpg)'
 - en: fig 5\. Weka summary of Results.
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 图5. Weka结果总结。
 - en: Although the rmse doesn't look too bad, the correlation coefficient dropped
     from .9 all the way to .3 and relative error jumped from 15% to 97%.
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管RMSE看起来并不太糟糕，但相关系数从0.9一路下降到0.3，相对误差从15%激增至97%。
 - en: Conclusion, the more noisy or high frequency the signal we train, the worse
     the results. Let's try to understand this from a different perspective.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 结论是，我们训练的信号越噪声或频率越高，结果就越糟糕。让我们从另一个角度尝试理解这个问题。
 - en: Let's think about why the first simple complex predictions were so nice.
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们思考一下为什么第一个简单的复杂预测如此美好。
 - en: What does a neural network really do? You might have heard that it is a universal
     function approximator. This is essentially true. Just as a line fit, y=mx+b is
     a universal linear function estimate, a neural network thrives on learning any
     non-linear unknown general function. But, let's have a look at the scatterplot
     of only the original sine vs it's previous lagged value.
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 神经网络究竟做了什么？你可能听说过它是一个通用函数逼近器。这本质上是真的。正如一条直线y=mx+b是通用线性函数逼近，神经网络擅长学习任何非线性的未知一般函数。但是，让我们来看看原始正弦与其前一个滞后值的散点图。
 - en: '[![](img/0c535cd90a95938354875df93269404e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWpsbFamZkQaMNOizYm_p-ANKx7phW62mQm24qfOvxk3YRoMCKkUTEMSN8MlL4ulAsrCebXalW9mrPN3-1ckoKJ5TCHheypRpj5MvOcYZgmdMcQ57TIW60G8DItFt_ggwXTNjnrfgPSSU/s1600-h/fig6_scatter1.jpg)'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/0c535cd90a95938354875df93269404e.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWpsbFamZkQaMNOizYm_p-ANKx7phW62mQm24qfOvxk3YRoMCKkUTEMSN8MlL4ulAsrCebXalW9mrPN3-1ckoKJ5TCHheypRpj5MvOcYZgmdMcQ57TIW60G8DItFt_ggwXTNjnrfgPSSU/s1600-h/fig6_scatter1.jpg)'
 - en: fig 6\. Scatterplot of perfect sine vs. lagged one value and time series plot.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 图6. 完美正弦与滞后一个值和时间序列图的散点图。
 - en: What we notice is that when we lag the sine against itself, we see a nice deterministic
     pattern as we expect. This pattern is also sometimes called a lissajou pattern.
     But, what happens when we try to predict a value from only the previous lagged
@@ -112,15 +170,21 @@
     be the average of the two possible output states. But, remember we added lagged
     values as inputs to be trained on. Well, what happens when we do a scatterplot
     of the perfect sine against the prior two lagged values?
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们注意到，当我们使正弦相对于自身滞后时，我们会看到一个预期的确定性模式。这个模式有时也被称为李萨茹模式。但是，当我们尝试仅从先前的滞后值预测一个值时会发生什么？有两个可能的输出，点A和点B。如果你回想一下很久以前的代数，一个函数是将一组点映射到范围中的一个独一无二的输出，但在这里我们看到有两个。因此，即使模型是完美的，它也无法正确预测下一个值，因为有两个可能的结局；这就像抛硬币一样。所以实际的预测结果将是两个可能的输出状态的平均值。但是，记住我们添加了滞后值作为输入进行训练。那么，当我们做一个完美正弦与先前两个滞后值的散点图时会发生什么？
 - en: '[![](img/b98625f6a7b9dd84d2c34ec5145a41d3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz48EmxjvtCWb0mHyQnyavJ6yoMjiwCgN-AxMpEG8cgzQYUmfbRXhWtPd9R41SfBCyzVo7sCn_VFIBXwYABqisDUDQodmc6MxrZ-QjS9UrtAUIek3TVYgjLeovaA51KZlZ9GE2Ap2AC2I/s1600-h/fig7_3dscatter.jpg)'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/b98625f6a7b9dd84d2c34ec5145a41d3.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz48EmxjvtCWb0mHyQnyavJ6yoMjiwCgN-AxMpEG8cgzQYUmfbRXhWtPd9R41SfBCyzVo7sCn_VFIBXwYABqisDUDQodmc6MxrZ-QjS9UrtAUIek3TVYgjLeovaA51KZlZ9GE2Ap2AC2I/s1600-h/fig7_3dscatter.jpg)'
 - en: fig 7\. 3D Scatterplot of perfect sine wave against two lagged values and ts
     plot.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 图7. 完美正弦波与两个滞后值和时间序列图的3D散点图。
 - en: What we see is that by conditioning the function on the prior two lagged value
     pair, there is only one and only one unique corresponding output point! There
     is no more ambiguity, therefore there exists a perfect function that can fit this
@@ -128,56 +192,83 @@
     had such a perfect fit on the neural network regression. It is another way to
     think about how a neural network learns patterns and why using embedded dimensions
     or lagged variables to train on is useful.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到，通过使函数依赖于先前的两个滞后值对，只有一个独一无二的对应输出点！再也没有模糊性，因此存在一个完美的函数能够适应这个条件预测。这就是为什么第一个带有嵌入变量的完美正弦在神经网络回归中具有如此完美的拟合。这是思考神经网络如何学习模式和为什么使用嵌入维度或滞后变量进行训练是有益的另一种方式。
 - en: What happens though when we corrupt the sin with noise?
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 那如果我们用噪声污染这个正弦会发生什么呢？
 - en: Here is the scatterplot.
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是散点图。
 - en: '[![](img/8e6557d4511ea4bb300956e8cfb4b540.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLiS3iu8czz5myaFpSGIFOxLyeLbcyx1a4BDL1LXJTOJOPnvCqUhIIlFGhSBkeKwGJeva5HPsJ_QVaCizw3rVqSJOOe6zZ_CEh6gFwSDer18TZAy4kPvL1iyU4kxY0GC8-GfVFGRwS0l8/s1600-h/fig8_noisiysinscatter.jpg)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '![无标题](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLiS3iu8czz5myaFpSGIFOxLyeLbcyx1a4BDL1LXJTOJOPnvCqUhIIlFGhSBkeKwGJeva5HPsJ_QVaCizw3rVqSJOOe6zZ_CEh6gFwSDer18TZAy4kPvL1iyU4kxY0GC8-GfVFGRwS0l8/s1600-h/fig8_noisiysinscatter.jpg)'
 - en: fig8\. Noisy Sine Scatterplot against lagged values.
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: fig8. 带有滞后值的噪声正弦散点图。
 - en: Look at all the possible ambiguous outputs each prior input predicts! It's no
     wonder the poor neural network has a hard time learning. It will either give some
     average output, or depending on the embedded dimension structure (lagged values),
     a very different prediction than we would expect.
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 看看每个先前的输入预测的所有可能的模糊输出！难怪可怜的神经网络学习起来有困难。它要么给出一些平均输出，要么根据嵌入的维度结构（滞后值），给出与我们期望非常不同的预测。
 - en: In conclusion, I hope I've given you some food for thought about what a neural
     net likes and how it learns well.
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 总之，我希望我给了你一些关于神经网络喜欢什么以及它是如何学得好的思考。
 - en: It may need more than one lagged dimension to learn well and it does NOT like
     noisy inputs! This is a problem I have found with a lot of the literature that
     uses neural networks to predict and gives it a bad rap. They summarize using metrics
     like hit rate as an objective function. Yet, this is like trying to track a coin
     toss, it's just not always the most useful objective.
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 它可能需要一个以上的滞后维度来学得很好，而且它不喜欢噪声输入！这是我发现许多使用神经网络预测的文献中存在的问题，给它带来了坏名声。他们用命中率之类的指标作为目标函数进行总结。然而，这就像试图跟踪硬币抛掷，这并不总是最
+    useful 的目标。
 - en: I want you to also think about it another way, as it might apply to stock prediction.
     Look at the following signal.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 我希望你也从另一个角度思考这个问题，这可能适用于股票预测。看看以下的信号。
 - en: '[![](img/edffea9560b68b922c99c80bb129131a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMaOTw_lw5HW0okr_nE94zHwRdEsy74NnATB5TaZAGEEl26UEEMlTtKab5B_Urxyi0h3NRiE4U2JWBz7bXQDHSNG8eTzv_rFO0_WxMWDTEvFi132slIStGdTIhcNVJ2qVSG80b9cVqbfg/s1600-h/fig9.jpg)'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: '![无标题](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMaOTw_lw5HW0okr_nE94zHwRdEsy74NnATB5TaZAGEEl26UEEMlTtKab5B_Urxyi0h3NRiE4U2JWBz7bXQDHSNG8eTzv_rFO0_WxMWDTEvFi132slIStGdTIhcNVJ2qVSG80b9cVqbfg/s1600-h/fig9.jpg)'
 - en: fig 9\. Momentum tracking with smooth sine
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: fig 9. 跟踪平滑正弦的动量
 - en: Take a look at what we are doing by tracking the 'smoothed' version of the sine.
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: 看看我们通过跟踪正弦的'平滑'版本在做什么。
 - en: We are simply tracking the momentum-- up or down (and possibly sideways)-- that's
     it. Or another way to think about it is we are tracking the trend, but not each
     little wiggle. We can also see that there is strong serial or auto-correlation
     in the momentum, unlike a high frequency raw time series.
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们只是在跟踪动量——上升或下降（可能还有横向），就是这样。另一种思考方式是，我们正在跟踪趋势，但不是每个小小的波动。我们还可以看到，动量中存在强烈的序列或自相关，与高频原始时间序列不同。
 - en: By using a 'smoothed' version of a signal, we can focus on tracking the signal
     and not the noise. So things like hit rate are not that important. What's important
     is that we captured most of the meat of the trend. A secondary benefit is that
@@ -189,8 +280,10 @@
     like a statistical control chart, while allowing the neural net to focus on and
     track the signal while not getting bogged down in trying to track noise, which
     can be counterproductive.
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 通过使用信号的'平滑'版本，我们可以专注于跟踪信号而不是噪声。所以像命中率这样的东西并不那么重要。重要的是我们捕捉到了趋势的大部分实质。另一个好处是我们不会像野马一样被抛来抛去，被搅动得那么厉害。在通信中，我们使用一种叫做相位锁定环的东西来跟踪时间域噪声（抖动）中嵌入的时钟信号，在这里我们专注于跟踪金融'信号'，而不是每个小小的波动。确实会有残余波动，但这些回撤可以通过统计控制图来监控，同时允许神经网络专注于跟踪信号，而不是试图跟踪噪声，这可能是适得其反的。
 - en: Another way to think about this issue is as follows. If you are familiar with
     econometrics, there are no shortage of models that try to predict all of the sharp
     turns and high frequency components (AR, ARMA family, etc.). Normally they will
@@ -204,13 +297,19 @@
     to take an average prediction rather than a precise one. Predicting the averages
     has found much success, including the well known NETFLIX prize, where they stack
     learners.
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于这个问题，还有一个思考方式如下。如果你熟悉计量经济学，那么有很多模型尝试预测所有的剧烈转折和高频成分（AR，ARMA家族等）。通常它们会告诉你，如果残差仍然存在一些序列相关性，那么你没有很好地建模，需要进行额外的微调。如果你试图完美地拟合一个模型（演绎地），这当然很好，但是它在样本外表现（归纳地）相当糟糕，因为你本质上是在过度拟合模型。近年来从机器学习领域涌现出的一个非常有趣的成功概念，就是集成平均方法的思想。有几种工具，如装袋、提升、堆叠和委员会投票，试图进行平均预测而不是精确预测。预测平均值已经取得了很大的成功，包括众所周知的NETFLIX奖，他们使用堆叠学习者。
 - en: If this is starting to sound foreign to you, just think about the point of this
     post, which is to try to smooth the signal and follow the average, rather than
     predict the high frequency fluctuations.
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你觉得这听起来很陌生，只需想想这篇文章的目的，那就是试图平滑信号并跟随平均值，而不是预测高频波动。
 - en: NEXT. Part 4\. The Stock Prediction example.
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: NEXT. 第4部分。股票预测示例。

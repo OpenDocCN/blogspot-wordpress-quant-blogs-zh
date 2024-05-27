@@ -1,51 +1,73 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 14:58:39'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:58:39'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: I Want ggplot2/lattice and d3 (gridSVG–The Glue)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Timely Portfolio: 我想要ggplot2/lattice和d3（gridSVG–粘合剂）'
 - en: 来源：[http://timelyportfolio.blogspot.com/2013/08/gridsvganother-glue-for-r-to-svg.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/08/gridsvganother-glue-for-r-to-svg.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2013/08/gridsvganother-glue-for-r-to-svg.html#0001-01-01](http://timelyportfolio.blogspot.com/2013/08/gridsvganother-glue-for-r-to-svg.html#0001-01-01)
 - en: 'I really like interactive graphics, especially when they come straight from
     R.  I posted a lot about [rCharts](http://rcharts.io/site), but it is not the
     only way.  In my mind there are three types of glue to link R to SVG/HTML/Javascript:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我非常喜欢交互式图表，尤其是当它们直接来自R时。我在[rCharts](http://rcharts.io/site)上发布了大量内容，但这不是唯一的方法。在我心中，有三种粘合剂可以将R与SVG/HTML/JavaScript链接起来：
 - en: Let R do the data and then send the data to Javascript to create the SVG graphics.
     This is the process employed by [rCharts](http://rcharts.io/site), [clickme](http://rclickme.com/),[d3network](http://christophergandrud.github.io/d3Network/),
     [googleVis](http://cran.r-project.org/web/packages/googleVis/index.html), [gigvis](https://github.com/rstudio/gigvis),
     and [tabplotd3](http://cran.r-project.org/web/packages/tabplotd3/index.html).
+  id: totrans-7
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让R处理数据，然后将数据发送到JavaScript以创建SVG图形。这种过程被[rCharts](http://rcharts.io/site)、[clickme](http://rclickme.com/)、[d3network](http://christophergandrud.github.io/d3Network/)、[googleVis](http://cran.r-project.org/web/packages/googleVis/index.html)、[gigvis](https://github.com/rstudio/gigvis)和[tabplotd3](http://cran.r-project.org/web/packages/tabplotd3/index.html)采用。
 - en: Let R both do the data and render the graph then export the SVG to get interactivity
     from Javascript. We see this with the new and improved [gridSVG](http://sjp.co.nz/projects/gridsvg/)
     and the predecessor [SVGAnnotation](http://www.omegahat.org/SVGAnnotation/SVGAnnotationPaper/SVGAnnotationPaper.html#bib:SVGAnnotation).
+  id: totrans-8
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 让R处理数据并生成图表，然后将SVG图形发送到JavaScript以实现交互性。[gridSVG](http://sjp.co.nz/projects/gridsvg/)和[SVGAnnotation](http://www.omegahat.org/SVGAnnotation/SVGAnnotationPaper/SVGAnnotationPaper.html#bib:SVGAnnotation)是两个例子，展示了如何实现这一点。
 - en: Use 1\. or 2\. and then maintain bidirectional communication between R and Javascript
     through [shiny](http://rstudio.com/shiny), [Rook](http://cran.r-project.org/web/packages/Rook/index.html),
     or some other web server type interface.
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 使用1或2，然后通过[shiny](http://rstudio.com/shiny)、[Rook](http://cran.r-project.org/web/packages/Rook/index.html)或其他类型的网络服务器接口，在R和JavaScript之间保持双向通信。
 - en: Let’s think about method 2.  R has ggplot2 and lattice.  Javascript has d3. 
     I want both.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们考虑方法2。R有ggplot2和lattice。JavaScript有d3。我想要两者都。
 - en: We R users are very spoiled by the ggplot2 and lattice engines that rival or
     beat the plotting libraries of any language.  Wouldn’t it be nice to have all
     the power of these engines to create interactive graphs?  Well, [Paul Murrell](https://www.stat.auckland.ac.nz/~paul/),
@@ -57,13 +79,19 @@
     own, but I, of course, wanted to combine gridSVG with [d3](http://d3js.org). 
     Click [here](http://timelyportfolio.github.io/gridSVG_intro) or on the screenshot
     below to see a walkthrough applying a little gridSVG glue to ggplot2 and d3\.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们R用户非常依赖ggplot2和lattice引擎，这些引擎可以与任何语言的绘图库相媲美或超越。难道不好吗？[保罗·默雷尔](https://www.stat.auckland.ac.nz/~paul/)（ggplot2和lattice的平台作者）编写了[gridSVG](http://sjp.co.nz/projects/gridsvg/)来实现这一点。[西蒙·波特](http://sjp.co.nz/projects/gridsvg/)在默雷尔的指导下，为他的荣誉项目完善了gridSVG。现在它是一个功能齐全、健壮的包，能够将您最复杂的ggplot2和lattice杰作发送到SVG。gridSVG可以独立完成许多令人惊叹的事情，但我想将gridSVG与[d3](http://d3js.org)结合起来。点击[这里](http://timelyportfolio.github.io/gridSVG_intro)或下面的屏幕截图，了解如何将一点gridSVG胶水应用到ggplot2和d3上。
 - en: '[![image](img/9a3b752d307d8b4523b2a8851c885eec.png "image")](http://timelyportfolio.github.io/gridSVG_intro)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![image](img/9a3b752d307d8b4523b2a8851c885eec.png "image")](http://timelyportfolio.github.io/gridSVG_intro)'
 - en: Thanks to Paul Murrell, Simon Potter, Hadley Wickham, Mike Bostock, Duncan Temple
     Lang, Deborah Nolan, Juliana Williams, Andreas Neumann, Ramnath Vaidyanathan and
     all the folks along the way that have made this possible.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 感谢保罗·默雷尔、西蒙·波特、哈迪利·威克姆、迈克·博斯特克、邓肯·坦普尔 lang、黛博拉·诺尔顿、朱利安娜·威廉姆斯、安德烈亚斯·恩umann、拉姆纳斯·瓦伊达纳特和其他许多人，是你们让这一切成为可能。

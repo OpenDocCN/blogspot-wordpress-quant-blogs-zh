@@ -1,61 +1,97 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:11:15'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:11:15
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Timely Portfolio: System in 10 Minutes After Twitter'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 及时投资组合：系统在推特后10分钟内
 - en: 来源：[http://timelyportfolio.blogspot.com/2011/10/system-in-10-minutes-after-twitter.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/10/system-in-10-minutes-after-twitter.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://timelyportfolio.blogspot.com/2011/10/system-in-10-minutes-after-twitter.html#0001-01-01](http://timelyportfolio.blogspot.com/2011/10/system-in-10-minutes-after-twitter.html#0001-01-01)
 - en: On Twitter last night, I spotted @milktrader from [www.algorithmzoo.com](http://www.algorithmzoo.com)
     doing some range research on equity indexes.  I offered a tweet on the crazy Russell
     2000 17% move over 7 days.  Within 10 minutes, I discovered a signal that worked
     very well.  It probably is worthless, but I thought I would share in case someone
     cares to play with it.  THIS IS NOT INVESTMENT ADVICE AND WILL PROBABLY LOSE INCREDIBLE
     AMOUNTS OF MONEY.  If nothing else, it illustrates the power of R.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 昨晚在推特上，我注意到来自[www.algorithmzoo.com](http://www.algorithmzoo.com)的@milktrader正在对股票指数进行一些范围研究。我发了一条关于疯狂的罗素2000在7天内上涨17%的推文。在10分钟内，我发现了一个非常好用的信号。它可能毫无价值，但我想分享一下，以防有人想玩玩它。这不是投资建议，而且可能会损失大量的钱。无论如何，它展示了R的威力。
 - en: 'R code:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: R代码：
 - en: require(quantmod)
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(quantmod)
 - en: require(PerformanceAnalytics)
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 需要(PerformanceAnalytics)
 - en: getSymbols("^RUT",from="1896-01-01",to=Sys.Date())
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: getSymbols("^RUT",from="1896-01-01",to=Sys.Date())
 - en: signal<-ifelse(runMax(RUT[,2],7)/runMin(RUT[,3],7)-1-
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: signal<-ifelse(runMax(RUT[,2],7)/runMin(RUT[,3],7)-1-
 - en: ROC(RUT[,4],n=20,type="discrete")<0.02,1,0)
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: ROC(RUT[,4],n=20,type="discrete")<0.02,1,0)
 - en: perf<-merge(lag(signal,k=1)*ROC(RUT[,4],type="discrete",n=1),
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: perf<-merge(lag(signal,k=1)*ROC(RUT[,4],type="discrete",n=1),
 - en: ROC(RUT[,4],type="discrete",n=1))
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: ROC(RUT[,4],type="discrete",n=1))
 - en: colnames(perf)<-c("System","Russell 2000")
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: colnames(perf)<-c("系统","罗素2000")
 - en: charts.PerformanceSummary(perf,ylog=TRUE,
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: charts.PerformanceSummary(perf,ylog=TRUE,
 - en: main="Quick Untested Russell 2000 System")
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 主要内容："快速未测试的罗素2000系统")

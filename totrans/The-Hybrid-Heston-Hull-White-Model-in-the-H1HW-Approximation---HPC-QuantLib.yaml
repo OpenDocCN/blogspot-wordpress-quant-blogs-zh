@@ -1,39 +1,57 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-17 23:31:11'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-17 23:31:11
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The Hybrid Heston-Hull-White Model in the H1HW Approximation – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: H1HW近似中的混合Heston-Hull-White模型 - HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2012/08/17/the-hybrid-heston-hull-white-model-in-the-h1hw-approximation/#0001-01-01](https://hpcquantlib.wordpress.com/2012/08/17/the-hybrid-heston-hull-white-model-in-the-h1hw-approximation/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2012/08/17/the-hybrid-heston-hull-white-model-in-the-h1hw-approximation/#0001-01-01](https://hpcquantlib.wordpress.com/2012/08/17/the-hybrid-heston-hull-white-model-in-the-h1hw-approximation/#0001-01-01)
 - en: 'In his PhD thesis [1] Lech Grzelak studies several hybrid equity interest rate
     models. Among others the thesis presents the H1HW approximation of the hybrid
     Heston-Hull-White model:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在他的博士论文[1]中，Lech Grzelak研究了几种混合股权利率模型。其中，论文提出了混合Heston-Hull-White模型的H1HW近似：
 - en: '![\begin{array}{rcl} dS_t &=& (r_t-q_t) S_t dt + \sqrt{v_t} S_t dW_t^S \\ dv_t
     &=& \kappa_v (\theta_v - v_t) dt + \sigma_v \sqrt{v_t} dW_t^v \\ dr_t & = & \kappa_r(\theta_{r,t}-r_t)
     dt + \sigma_r dW_t^r \\ \rho_{Sv} dt &=& dW_t^S dW_t^v\\ \rho_{Sr} dt &=& dW_t^S
     dW_t^r \\ \rho_{vr} dt &=& dW_t^v dW_t^r \end{array} ](img/d22f9b2f071c87cf69db05c3a2ad288e.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_IMG
+  zh: '![![](img/d22f9b2f071c87cf69db05c3a2ad288e.png)](img/d22f9b2f071c87cf69db05c3a2ad288e.png)'
 - en: This model is tailor-made to analyse the impact of stochastic interest rates
     on structured equity notes like e.g. auto-callables. The corresponding partial
     differential equation
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个模型是专门为分析随机利率对结构化股票票据（如自动调用期权）的影响而量身定制的。相应的偏微分方程
 - en: '![\begin{array}{rcl} 0 &=& \frac{\partial u}{\partial t} + \frac{1}{2}S^2\nu
     \frac{\partial^2 u}{\partial S^2}+ \frac{1}{2}\sigma_\nu^2\nu\frac{\partial^2u}{\partial
     \nu^2}+ \frac{1}{2}\sigma_r^2\frac{\partial^2 u}{\partial r^2} + \rho_{S\nu}\sigma_\nu
@@ -41,39 +59,55 @@
     u}{\partial S\partial r} \nonumber\\ &+& (r-q)S\frac{\partial u}{\partial S}+
     \kappa_v(\theta_v-\nu)\frac{\partial u}{\partial \nu}+ \kappa_r(\theta_{r,t}-r)\frac{\partial
     u}{\partial r} -ru \nonumber \end{array} ](img/65b5f976ac97a5585117017854522f0b.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_IMG
+  zh: '![![](img/65b5f976ac97a5585117017854522f0b.png)](img/65b5f976ac97a5585117017854522f0b.png)'
 - en: does not fit into into the affine diffusion process framework and therefore
     has no closed form solution based on the characteristic function like the Heston
     model.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 不符合仿射扩散过程框架，因此没有基于特征函数的封闭形式解，例如Heston模型。
 - en: The H1HW approximation replaces the term ![\sqrt \nu](img/dbdc75526aa267f4dcb07536b8de3bf2.png)
     in the correlation interaction by its expectation value ![E(\sqrt\nu)](img/e2a619d190fff9e31510e33a2a7d533c.png).
     Semi closed form solutions for ![E(\sqrt\nu)](img/e2a619d190fff9e31510e33a2a7d533c.png)
     exist, if ![\nu_t](img/c56c88dfcf2d52e0221304d7c3dd90f9.png) is a CIR type process.
     The corresponding hybrid model is affine and a pricing engine for plain vanilla
     options can easily be implemented in QL based on the characteristic function framework.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: H1HW近似将相关性交互中的项![![](img/dbdc75526aa267f4dcb07536b8de3bf2.png)](img/dbdc75526aa267f4dcb07536b8de3bf2.png)替换为其期望值![![](img/e2a619d190fff9e31510e33a2a7d533c.png)](img/e2a619d190fff9e31510e33a2a7d533c.png)。如果![![](img/c56c88dfcf2d52e0221304d7c3dd90f9.png)](img/c56c88dfcf2d52e0221304d7c3dd90f9.png)是CIR类型的过程，则存在![![](img/e2a619d190fff9e31510e33a2a7d533c.png)](img/e2a619d190fff9e31510e33a2a7d533c.png)的半封闭形式解。相应的混合模型是仿射的，基于特征函数框架可以很容易地在QL中实现普通欧式期权的定价引擎。
 - en: The diagram below shows the root-mean-square error for vanilla european options
     with strikes equal to 40%, 80%, 100%, 120% and 180%. The parameters of the process
     are given by
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 下图显示了具有行权价格为40%、80%、100%、120%和180%的普通欧式期权的均方根误差。过程的参数如下所示
 - en: '![\kappa_v=0.3, \theta_v=0.05, \rho_{S\nu}=0.3, \rho_{Sr}=-0.6, \kappa_r=0.01,
     \sigma_r=0.01](img/f4474d7071754907801dd8d43b55d803.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_IMG
+  zh: '![![](img/f4474d7071754907801dd8d43b55d803.png)](img/f4474d7071754907801dd8d43b55d803.png)'
 - en: The vol-of-vol ![\sigma_{\nu}](img/ce905c110a635d6ba6fd20f2fc5b9f81.png) is
     set so that the Feller parameter ![\sigma_\nu^2/(\kappa_v \theta_v)](img/f6039600c502feb6512481b53a9ff498.png)
     varies between 0.25 and 128\. The reference prices are calculated using the finite
     difference Heston-Hull-White engine.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率的波动 ![\sigma_{\nu}](img/ce905c110a635d6ba6fd20f2fc5b9f81.png) 被设定为使得 Feller
+    参数 ![\sigma_\nu^2/(\kappa_v \theta_v)](img/f6039600c502feb6512481b53a9ff498.png)
+    在 0.25 到 128 之间变化。参考价格使用有限差分的 Heston-Hull-White 引擎进行计算。
 - en: '[![](img/c51e1878fa71680364f086a75c309373.png "plot")](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/08/plot1.png)'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图](https://hpcquantlib.wordpress.com/wp-content/uploads/2012/08/plot1.png)'
 - en: The results of the H1HW approximation look very well if the Feller constraint
     ![\sigma_\nu^2/(\kappa_\nu \theta_\nu) < 2](img/8a789aed8b9f33a0d99393c4b6d49fb8.png)
     is fulfilled but has problems in high ![\sigma_\nu](img/81d93c05287608ce1d2bc01b770fec62.png)
@@ -81,9 +115,17 @@
     becomes unstable if ![\rho_{Sr} < 0](img/faf51378befbc30a70ae5d660c0cfce0.png).
     The example code is available [here](http://hpc-quantlib.de/src/h1hw.zip) and
     depends on the latest QL version based from the [SVN trunk.](http://sourceforge.net/p/quantlib/code/HEAD/tree/)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 当 Feller 约束 ![\sigma_\nu^2/(\kappa_\nu \theta_\nu) < 2](img/8a789aed8b9f33a0d99393c4b6d49fb8.png)
+    被满足时，H1HW 近似的结果看起来非常好，但在高 ![\sigma_\nu](img/81d93c05287608ce1d2bc01b770fec62.png)
+    场景下会有问题。如果 ![\rho_{Sr} < 0](img/faf51378befbc30a70ae5d660c0cfce0.png)，H1HW 近似特征函数的积分就会变得不稳定。示例代码可在此处获得
+    [http://hpc-quantlib.de/src/h1hw.zip](http://hpc-quantlib.de/src/h1hw.zip)，并且依赖于基于最新
+    QL 版本的 SVN 主干 [http://sourceforge.net/p/quantlib/code/HEAD/tree/](http://sourceforge.net/p/quantlib/code/HEAD/tree/)。
 - en: '[1] Lech A. Grzelak: [Equity and Foreign Exchange Hybrid Models for Pricing
     Long-Maturity Financial Derivatives](a8e1a007-bd89-481a-aee3-0e22f15ade6b/PhDThesis_main.pdf)'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '[1] Lech A. Grzelak: [定价长期金融衍生品用的股票和外汇混合模型](a8e1a007-bd89-481a-aee3-0e22f15ade6b/PhDThesis_main.pdf)'

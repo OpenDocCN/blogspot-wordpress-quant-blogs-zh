@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:36:42'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 18:36:42'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Introduction to D-VaR Position Sizing (Part 1) | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍D-VaR头寸规模（第一部分） | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/#0001-01-01](https://cssanalytics.wordpress.com/2010/02/04/introduction-to-d-var-position-sizing-part-1/#0001-01-01)
 - en: Position-sizing is the least exciting topic in trading. We all find ourselves
     too busy looking for the ultimate trading strategies or indicators to bother with
     spending time thinking about how much to bet. Contrary to what you might think,
@@ -25,8 +37,11 @@
     expected edge. Unlike casino games with defined odds, markets are uncertain and
     adjusting for the unexpected tail loss is just as important as adjusting for the 
     expected size of your edge.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 头寸规模是交易中最无趣的话题。 我们都发现自己太忙于寻找最终的交易策略或指标，以至于没有时间思考应该投注多少。 与你可能认为的相反，确定你应该投注多少并不只是确定你的预期优势。
+    与具有确定赔率的赌场游戏不同，市场是不确定的，调整意外尾部损失的重要性与调整预期优势的大小一样重要。
 - en: This concept is not new to hedge funds, and to those that trade for a living;
     They often think about risk first because their continued existence depends on
     staying in the game. For this sophisticated bunch, position-sizing, diversification,
@@ -43,29 +58,44 @@
     since you a) don’t face timing risk and b) can only lose what is invested–if you
     bet 5% of your portfolio no surprise gaps will lead you to losing more than you
     have bet.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 对于对冲基金和那些以交易为生的人来说，这个概念并不新鲜； 他们通常首先考虑风险，因为他们的持续存在取决于能否留在游戏中。对于这些 sophisticates
+    来说，头寸规模、多元化和对冲是他们风险管理方法的基础。 他们中的许多人非常清楚，初始止损（与非常有用的跟踪止损相反）在管理风险方面被高度高估了——如果使用不当，会增加你破产的机会。
+    这是因为如果它们设置得太紧，它们将保护你免受尾部风险，但使你面临更多的噪音。 如果设置得太远，反之亦然——尤其是意想不到的缺口。 权衡很简单： 一次严重打击致死，或千刀万剐。
+    找到最佳的平衡是非常困难的。 初始止损本身不足以通过管理风险，与其结合其他风险管理工具时效果会更好。 相比之下，头寸规模非常有用，因为你a）不需要面对时机风险，b）只能损失已投资的部分——如果你投注你组合的5%，意外的缺口不会让你损失超过你所投注的。
 - en: 'To the best of my knowledge, I do not believe that this particular position-sizing method
     has been published somewhere before. However I do know that it is based on the
     well-known concept of “Value-at-Risk.”  From Investopedia this is defined as follows
     [http://www.investopedia.com/terms/v/var.asp](http://www.investopedia.com/terms/v/var.asp):'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '据我所知，我不认为这种特定的头寸规模方法之前已经发表过。 然而，我知道它是基于“价值在风险”这个广为人知的概念。 从 Investopedia 来看，这是如下定义的：[http://www.investopedia.com/terms/v/var.asp](http://www.investopedia.com/terms/v/var.asp):'
 - en: '**What Does *Value at Risk – VaR* Mean?**'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '**什么是*价值在风险 - VaR*？**'
 - en: A technique used to estimate the probability of portfolio losses based on the
     statistical analysis of historical price trends and volatilities.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 一种基于历史价格趋势和波动性的统计分析来估计投资组合损失概率的技术。
 - en: '**Investopedia explains *Value at Risk – VaR***'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '**Investopedia解释了*价值在风险 - VaR***'
 - en: VaR is commonly used by banks, security firms and companies that are involved
     in trading energy and other commodities. VaR is able to measure risk while it
     happens and is an important consideration when firms make trading or hedging decisions.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: VaR通常被银行、证券公司和从事能源及其他商品交易的 公司所使用。VaR能够在风险发生时测量风险，并且在公司做出交易或对冲决策时是一个重要的考虑因素。
 - en: Generally speaking VaR looks at tail risk ,which in the industry is defined
     by the magnitude of expected losses at the 95th percentile (or 5% percentile of
     the daily P/L distribution of any strategy). Knowing the maximum losses that 
@@ -82,64 +112,100 @@
     (more on this later) Why not simply look at the empirical distribution of daily
     returns? After all, our own empirical observation tells us that normal distributions
     are flawed, so why not manage risk based on experience?
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 总的来说，VaR关注尾部风险，这在业内定义为在95%置信水平（或任何策略每日盈亏分布的5%置信水平）下的预期损失的大小。知道在极端情况下可能发生的最大亏损有助于风险管理专业人士为最坏的情况做好准备。如果你知道你的投资组合可能承担的风险百分比，理论上你可以为你的投资组合或个别股票仓位大小制定一个给定的最大值。传统做法是使用正态分布来进行这项任务——所需要知道的就是均值和标准差，这个估计可以很容易地得出。不幸的是，对于那些滑尺男孩来说，金融市场实际上并不是正态分布的，而且往往表现出“厚尾”特征。这意味着在乌托邦式的交易宇宙中所预期的最大风险（或上行）实际上更可能发生，并且规模更大。这意味着基于波动性的仓位大小本质上建立在一个不稳定的基础上。（关于这一点后面还会详细讨论）为什么不简单地查看每日回报的实证分布呢？毕竟，我们自己的实证观察告诉我们正态分布是有缺陷的，那么为什么不由经验来管理风险呢？
 - en: 'In this method we will use an incredibly simple approach:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这种方法中，我们将使用一个非常简单的方法：
 - en: 1) take the daily returns for a given stock, index or strategy
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 获取给定股票、指数或策略的每日回报
 - en: 2) compute the 5th percentile of returns (max tail loss)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 计算回报的5%分位数（最大尾部亏损）
 - en: 3) select a budgeted risk level as a maximum daily loss such as 1% (conservative) or
     1.5% (aggressive)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 3) 选择一个预算风险水平作为最大每日亏损，比如1%（保守）或1.5%（激进）
 - en: 4) your position size is the budgeted risk level divided by the absolute value
     of the max tail loss
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 你的仓位大小是预算风险水平除以最大尾部亏损的绝对值
 - en: 5) this position may not exceed 200%
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 这个仓位不得超过200%
 - en: 'Our goals are the following:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们的目标是以下这些：
 - en: 1) Reduce the size of the worst maximum loss – especially relative to a passive
     buy and hold strategy
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) 减小最坏的最大亏损大小——特别是相对于被动的购买并持有策略
 - en: 2) Improve the sharpe ratio or risk-adjusted return- also relative to a passive
     buy and hold strategy
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 2) 提高夏普比率或风险调整后的回报率——也相对于被动的购买并持有策略
 - en: 'The following test was done on the Dow Jones Industrial Average using Yahoo
     Finance data going back slightly more than 20000 bars back to 1928:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下测试是在道琼斯工业平均指数上进行的，使用的是回溯到1928年的雅虎财经数据，超过20000个柱子：
 - en: '| VAR Position- Sizing DJIA 1928-Present |   |   |'
+  id: totrans-24
   prefs: []
   type: TYPE_TB
+  zh: '| VAR仓位大小道琼斯1928年至今 |  |  |'
 - en: '|   |   |   |   |   |   |'
+  id: totrans-25
   prefs: []
   type: TYPE_TB
+  zh: '|  |  |  |  |  |  |'
 - en: '|   | **Gross ** |  |  | **worst daily** |'
+  id: totrans-26
   prefs: []
   type: TYPE_TB
+  zh: '|  | **总** |  |  | **最坏每日** |'
 - en: '|  | **Sharpe** | **CAGR** | **SD** | **loss** |   |'
+  id: totrans-27
   prefs: []
   type: TYPE_TB
+  zh: '|  | **夏普** | **年化复合增长率** | **标准差** | **亏损** |  |'
 - en: '| Buy and Hold | 0.24 | 4.5% | 18.4% | -22.6% |   |'
+  id: totrans-28
   prefs: []
   type: TYPE_TB
+  zh: '| 购买并持有 | 0.24 | 4.5% | 18.4% | -22.6% |  |'
 - en: '| D-VAR 1% risk | **0.45** | 5.2% | 11.5% | **-7.6%** |   |'
+  id: totrans-29
   prefs: []
   type: TYPE_TB
+  zh: '| D-VAR 1%风险 | **0.45** | 5.2% | 11.5% | **-7.6%** |  |'
 - en: '| D-VAR 1.5% risk | 0.41 | **6.9%** | 16.7% | -11.4% |   |'
+  id: totrans-30
   prefs: []
   type: TYPE_TB
+  zh: '| D-VAR 1.5%风险 | 0.41 | **6.9%** | 16.7% | -11.4% |  |'
 - en: As you can see, both goals are achieved– D-VaR shows much lower tail risk and
     a higher sharpe ratio. As a side bonus, it actually produces a higher CAGR than
     buy and hold. From the crash of 1929,the crash of 1987, the Asian crisis in 1998,
@@ -148,5 +214,8 @@
     sizing method that works in real-life. In subsequent posts I will give some more
     examples how this can be used in basic trading strategies that are both long and
     short.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所看到的，两个目标都实现了——D-VaR显示的尾部风险更低，夏普比率更高。作为一个额外的奖励，它实际上产生的年化复合增长率比购买并持有还要高。从1929年的大崩溃，到1987年的大崩溃，1998年的亚洲危机，再到2008年10月，D-Var在没有使用任何与时机相关的工具的情况下，
+    limited tail risk地存活了下来。这使得它成为一个 Definite candidate作为一种在现实生活中起作用的新仓位大小方法。在随后的帖子中，我将给出一些更多的例子，说明这个可以在基本的交易策略中如何使用，这些策略既可以做多也可以做空。

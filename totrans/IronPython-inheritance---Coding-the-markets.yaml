@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:45:54'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-12 19:45:54'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: IronPython inheritance | Coding the markets
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: IronPython 继承关系 | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2007/10/02/ironpython-inheritance/#0001-01-01](https://etrading.wordpress.com/2007/10/02/ironpython-inheritance/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2007/10/02/ironpython-inheritance/#0001-01-01](https://etrading.wordpress.com/2007/10/02/ironpython-inheritance/#0001-01-01)
 - en: IronPython inheritance
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: IronPython 继承关系
 - en: October 2, 2007
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2007 年 10 月 2 日
 - en: So I’m starting to make some progress with my C++/managed C++/C#/IronPython
     desktop stack. And I’ve discovered that inheritance only works one way in the
     CLR. Namely, Python classes can inherit from C# bases, but Python inheritance
@@ -36,9 +52,16 @@
     doing similar inheritance from C# base classes. The IronPython assembly introduces
     its own runtime infrastructure that doesn’t meet the expectations of other CLR
     languages in terms.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 所以我开始在我的 C++/托管 C++/C#/IronPython 桌面栈中取得一些进展。我发现 CLR 中的继承只能单向工作。具体来说，Python
+    类可以从 C# 基类中继承，但 Python 继承对 C# 反射代码是透明的。如果一个人有一个从 C# 基类和 C# 接口派生的 Python 类，那么尝试使用反射来访问该
+    Python 类的 C# 代码将会失败。为了理解原因，使用 Lutz Roeder 的 Reflector 工具查看 IronPython 程序集的内部，并将符号与从
+    C# 基类中进行类似继承的 C# 程序集进行比较。IronPython 程序集引入了自己的运行时基础设施，这不符合其他 CLR 语言的期望。
 - en: So what’s the workaround ?  As ever in integration exercises, I introduced a
     shim in C# that meets the expectations of the C# code while dispatching into Python.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么有什么解决办法？正如在集成练习中一如既往，我在 C# 中引入了一个符合 C# 代码期望的垫片，同时将其转发到 Python。

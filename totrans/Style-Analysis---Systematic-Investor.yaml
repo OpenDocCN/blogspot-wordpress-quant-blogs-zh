@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 14:45:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 14:45:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Style Analysis | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 风格分析 | 系统投资者
 - en: 来源：[https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01](https://systematicinvestor.wordpress.com/2011/11/18/style-analysis/#0001-01-01)
 - en: 'During the final stage of asset allocation process we have to decide how to
     implement our desired allocation. In many cases we will allocate capital to the
     mutual fund managers who will invest money according to their fund’s mandate.
@@ -27,81 +39,125 @@
     funds performance to the performance of asset classes by running the constrained
     linear regression. For a detailed review of Style Analysis I recommend following
     articles:'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在资产分配过程的最后阶段，我们必须决定如何实施我们的理想分配。在许多情况下，我们将资本分配给基金经理，他们将根据基金的投资方针投资资金。通常资产类别和基金经理之间没有完美的关系。为了确定经理的真实风格，可以检查其历史持仓或进行风格分析。风格分析是一个试图将基金表现归因于资产类别表现的过程，通过运行受约束的线性回归。对于风格分析的详细审查，我推荐阅读以下文章：
 - en: 'I want to examine to the style of the [Fidelity Worldwide Fund (FWWFX)](http://fundresearch.fidelity.com/mutual-funds/summary/315910505).
     First, let’s get the historical fund and asset class prices from [Yahoo Fiance](http://finance.yahoo.com):'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我想 examine [Fidelity Worldwide Fund (FWWFX)](http://fundresearch.fidelity.com/mutual-funds/summary/315910505)
+    的风格。首先，让我们从 [Yahoo Fiance](http://finance.yahoo.com) 获取历史基金和资产类别价格：
 - en: '[PRE0]'
+  id: totrans-8
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'To determine the Fidelity Worldwide Fund style, I will run a regression of
     fund returns on the country asset classes over a rolling 36 months window. First,
     let’s run the regression naively without any constraints:'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 为了确定 Fidelity Worldwide Fund 的风格，我将运行一个回归模型，在滚动 36 个月窗口期内，将基金回报对国家资产类别进行回归。首先，让我们天真地运行回归，不施加任何约束：
 - en: '[PRE1]'
+  id: totrans-10
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: '[![](img/78d9f1e68c3493622e5f9c998c877eda.png "plot1.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small7.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot1.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot1-small7.png)'
 - en: 'The allocations jump up and down in no consistent fashion. The regression also
     suggests that fund uses leverage (i.e. Cash -171%) which is not the case. To fix
     these problems, I will introduce following constraints:'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 分配起起伏伏没有 consistent fashion。回归 also 表明基金使用了 leverage (即 Cash -171%)，这并不是 case。为
+    fix 这些问题，我将 introduce 以下约束：
 - en: All style weights are between 0% and 100%.
+  id: totrans-13
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 所有风格权重都在 0% 和 100% 之间。
 - en: The sum of style weights is equal up to 100%.
+  id: totrans-14
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 风格权重之和等于 100%。
 - en: '[PRE2]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: '[![](img/aaad74bf30b8d4da1d06eb743f13c867.png "plot2.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small6.png)'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot2.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot2-small6.png)'
 - en: 'After introducing the constraints, the allocations are more stable, but the
     historical allocation to USA (highlighted with yellow) varies from 0% in 2000
     to 60% in 2006\. This is very suspicious, and the only way to check if this is
     true, is to look at the fund memorandum and historical holdings. For now, I will
     assume that the asset class allocations can vary around the current fund’s allocations.
     To get the current fund’s allocations, I will examine its current holdings at:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 引入约束后，分配更稳定，但历史美国分配（用黄色突出显示）从 2000 年的 0% 波动到 2006 年的 60%。这非常可疑，唯一检查这是否属实的 way
+    是查看基金备忘录和持仓。现在，我假设资产类别分配可以围绕当前基金分配 vary。为获取当前基金分配，我将检查其当前持仓于：
 - en: 'I imposed additional lower and upper bounds constrains:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 我施加了额外的下限和上限约束：
 - en: '[PRE3]'
+  id: totrans-19
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE3]'
 - en: '[![](img/0dcfc96989f27fea2afb29287f4aaf39.png "plot3.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small4.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '![plot3.png.small](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot3-small4.png)'
 - en: The last style allocation looks more probable. If historical fund’s holdings
     were readily available we could have examined them to refine the upper and lower
     boundaries. The last step is to analyze fund’s actual returns vs returns implied
     by its style matrix.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后的风格分配看起来更有可能。如果历史基金持仓 readily available 我们，我们就可以 examine 它们来 refine 上下边界。最后一步是分析基金实际回报
+    vs 风格矩阵暗示的回报。
 - en: '[PRE4]'
+  id: totrans-22
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE4]'
 - en: '[![](img/bd6139f5958715b6ad3569783bbfdc92.png "plot4.png.small")](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small2.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 请参考附件中的[图片](https://systematicinvestor.wordpress.com/wp-content/uploads/2011/11/plot4-small2.png)。
 - en: The Fidelity Worldwide Fund outperformed its proxy, implied from the style matrix,
     consistently over the last decade. The fund’s alpha is 2.9% and standard deviation
     of alpha is 3.9%. So if you want to invest into Worldwide Fund, the Fidelity Worldwide
     Fund is not a bad choice.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去十年中，富达全球基金的表现一直优于其代理，这一点从风格矩阵中可以看出。该基金的 alpha 收益为 2.9%，alpha 收益的标准差为 3.9%。所以，如果你想投资全球基金，富达全球基金是一个不错的选择。
 - en: To view the complete source code for this example, please have a look at the
     [aa.style.test() function in aa.test.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r).
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 要查看此示例的完整源代码，请查看 github 上的 [aa.style.test() 函数](https://github.com/systematicinvestor/SIT/blob/master/R/aa.test.r)。

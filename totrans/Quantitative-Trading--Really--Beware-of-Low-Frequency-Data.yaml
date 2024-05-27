@@ -1,139 +1,209 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 18:56:20'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:56:20
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Quantitative Trading: Really, Beware of Low Frequency Data'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 量化交易：真的，要小心低频数据
 - en: 来源：[http://epchan.blogspot.com/2016/09/really-beware-of-low-frequency-data.html#0001-01-01](http://epchan.blogspot.com/2016/09/really-beware-of-low-frequency-data.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://epchan.blogspot.com/2016/09/really-beware-of-low-frequency-data.html#0001-01-01](http://epchan.blogspot.com/2016/09/really-beware-of-low-frequency-data.html#0001-01-01)
 - en: I wrote in a
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我在一篇中写道
 - en: '[previous article](http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '[以前的文章](http://epchan.blogspot.com/2015/04/beware-of-low-frequency-data.html)'
 - en: about why we should backtest even end-of-day (daily) strategies with intraday
     quote data. Otherwise, the performance of such strategies can be inflated. Here
     is another brilliant example that I came across recently.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 关于为什么我们应该用盘后市场（每日）策略回测甚至用盘中行情数据。否则，这类策略的表现可能会被夸大。这是我最近遇到的另一个精彩例子。
 - en: Consider the oil futures ETF USO and its evil twin, the inverse oil futures
     ETF DNO*. In theory, if USO has a
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 考虑油期货 ETF USO 及其邪恶孪生品 DNO*。理论上，如果 USO 有一个
 - en: '*daily*'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: '*每日*'
 - en: return of x%, DNO will have a daily return of -x%. In practice, if we plot the
     daily returns of DNO against that of USO from 2010/9/27-2016/9/9, using the usual
     consolidated end-of-day data that you can find on Yahoo! Finance or any other
     vendor,
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 返回 x% 的情况下，DNO 的日回报率将为 -x%。实际上，如果我们绘制 DNO 的日回报率与 USO 的日回报率的图表，使用的是从 2010/9/27
+    到 2016/9/9 的通常的每日收盘数据，你可以在 Yahoo! Finance 或任何其他供应商那里找到。
 - en: we see that though the slope is indeed -1 (to within a standard error of 0.004),
     there are many days with significant deviation from the straight line. The trader
     in us will immediately think "arbitrage opportunities!"
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们看到，尽管斜率确实是 -1（在标准误差为 0.004 内），但有很多天与直线有明显偏离。我们作为交易者会立即想到“套利机会！”
 - en: 'Indeed, if we backtest a simple mean reversion strategy on this pair - just
     buy equal dollar amount of USO and DNO when the sum of their daily returns is
     less than 40 bps at the market close, hold one day, and vice versa - we will find
     a strategy with a decent Sharpe ratio of 1 even after deducting 5 bps per side
     as transaction costs. Here is the equity curve:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 实际上，如果我们对这对进行简单的均值回归策略的回测 - 当它们的日回报率之和在市场收盘时低于 40 个基点时，以等额的美元金额买入 USO 和 DNO，持有一天，反之亦然
+    - 我们将找到一种在扣除每边 5 个基点的交易成本后仍具有体面夏普比率为 1 的策略。这是资本曲线：
 - en: 'Looks reasonable, doesn''t it? However, if we backtest this strategy again
     with BBO data at the market close, taking care to subtract half the bid-ask spread
     as transaction cost, we find this equity curve:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 看起来合理，是吗？然而，如果我们再次用市场收盘时的 BBO 数据对此策略进行回测，注意扣除一半的买卖价差作为交易成本，我们会发现这个资本曲线：
 - en: We can see that the problem is not only that we lose money on practically every
     trade, but that there was seldom any trade triggered. When the daily EOD data
     suggests a trade should be triggered, the 1-min bar BBO data tells us that in
     fact there was no deviation from the mean.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们可以看到问题不仅仅是我们在几乎每一次交易中都亏钱，而且很少触发任何交易。当每日收盘数据表明应该触发一笔交易时，1 分钟的最佳买卖价数据告诉我们实际上没有偏离平均值。
 - en: (By the way, the returns above were calculated before we even deduct the borrow
     costs of occasionally shorting these ETFs. The "rebate rate" for USO is about
     1% per annum on Interactive Brokers, but a steep 5.6% for DNO.)
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: （顺便说一句，上述回报是在我们甚至还没有扣除偶尔做空这些 ETF 的借款成本之前计算出来的。USO 的“折扣率”在 Interactive Brokers
+    上大约是每年 1%，但 DNO 的则是陡峭的 5.6%。）
 - en: In case you think this problem is peculiar to USO vs DNO, you can try TBT vs
     UBT as well.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 如果你认为这个问题只存在于 USO 对 DNO 的情况下，你也可以尝试 TBT 对 UBT。
 - en: 'Incidentally, we have just verified a golden rule of financial markets: apparent
     deviation from efficient market is allowed when no one can profitably trade on
     the arbitrage opportunity.'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺便说一句，我们刚刚验证了金融市场的一个黄金规则：当没有人能够从套利机会中获利时，对有效市场的明显偏离是允许的。
 - en: ===
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '*Note: according to www.etf.com, "The issuer [of DNO] has temporarily suspended
     creations for this fund as of Mar 22, 2016 pending the filing of new paperwork
     with the SEC. This action could create unusual or excessive premiums— an increase
     of the market price of the fund relative to its fair value. Redemptions are not
     affected. Trade with care; check iNAV vs. price." For an explanation of "creation"
     of ETF units, see my article "'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '*注：根据 www.etf.com，“发行人 [DNO] 截至 2016 年 3 月 22 日已暂停该基金的创立，等待提交新的与 SEC 相关的文件。此举可能会产生异常或过高的溢价
+    - 基金市价相对其公允价值的增加。赎回不受影响。请小心交易；检查 iNAV 与价格。”关于 ETF 单位的“创立”的解释，请参阅我的文章”'
 - en: '[Things You Don''t Want to Know about ETFs and ETNs](http://epchan.blogspot.ca/2016/06/some-things-you-dont-want-to-know-about.html)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[关于ETF和ETN的你不希望知道的事情](http://epchan.blogspot.ca/2016/06/some-things-you-dont-want-to-know-about.html)'
 - en: '".'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 。
 - en: ===
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Industry Update**'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: '**行业动态**'
 - en: Quantiacs.com just recently registered as a CTA and operates a marketplace for
     trading algorithms that anyone can contribute. They also published an educational
     blog post for Python and Matlab backtesters: https://quantiacs.com/Blog/Intro-to-Algorithmic-Trading-with-Heikin-Ashi.aspx
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: Quantiacs.com最近注册为CTA，并运营一个任何人都可贡献交易算法的市场。他们还发布了一篇关于Python和Matlab回测者的教育博客文章：https://quantiacs.com/Blog/Intro-to-Algorithmic-Trading-with-Heikin-Ashi.aspx
 - en: I will be moderating a panel discussion on "How can funds leverage non-traditional
     data sources to drive investment returns?" at [Quant World Canada](http://www.terrapinn.com/conference/quant-world-canada/)
     in Toronto, November 10, 2016.
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 我将在2016年11月10日在多伦多的[Quant World Canada](http://www.terrapinn.com/conference/quant-world-canada/)会议上主持一个关于“基金如何利用非传统数据源来驱动投资回报？”的圆桌讨论。
 - en: ===
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ===
 - en: '**Upcoming Workshops**'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '**即将举行的研讨会**'
 - en: Momentum strategies are for those who want to
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 动量策略适合那些想要的人。
 - en: '*benefit*'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '*受益*'
 - en: from tail events. I will discuss the fundamental reasons for the existence of
     momentum in various markets, as well as specific momentum strategies that hold
     positions from hours to days.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 来自尾部事件的启示。我将讨论在不同市场中存在动量的基本原因，以及具体的动量策略，这些策略持有从几小时到几天的头寸。
 - en: 'A senior director at a major bank wrote me: "…thank you again for the Momentum
     Strategies training course this week. It was very beneficial. I found your explanations
     of the concepts very clear and the examples well developed. I like the rigorous
     approach that you take to strategy evaluation.”'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 一家大型银行的资深董事给我写信说：“……再次感谢您这周的动量策略培训课程。这对我很有帮助。我觉得您对概念的解释非常清晰，例子也很充分。我喜欢您对策略评估采取的严谨方法。”

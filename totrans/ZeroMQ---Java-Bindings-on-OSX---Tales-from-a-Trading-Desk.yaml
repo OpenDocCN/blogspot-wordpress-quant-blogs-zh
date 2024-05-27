@@ -1,77 +1,118 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:36:57'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024年5月18日 06:36:57
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: ZeroMQ + Java Bindings on OSX | Tales from a Trading Desk
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: OSX上的ZeroMQ + Java绑定 | 一名交易台的故事
 - en: 来源：[https://mdavey.wordpress.com/2012/08/02/zeromq-java-bindings-on-osx/#0001-01-01](https://mdavey.wordpress.com/2012/08/02/zeromq-java-bindings-on-osx/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mdavey.wordpress.com/2012/08/02/zeromq-java-bindings-on-osx/#0001-01-01](https://mdavey.wordpress.com/2012/08/02/zeromq-java-bindings-on-osx/#0001-01-01)
 - en: ZeroMQ + Java Bindings on OSX
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: OSX上的ZeroMQ + Java绑定
 - en: 'Sometime ago I under took the joy of building ZeroMQ on OSX.  It wasn’t actually
     that bad an experience thanks to the usual Google assistance.  Here are the notes
     for anyone following:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 不久前，我进行了在OSX上构建ZeroMQ的乐趣体验。由于通常的Google帮助，这实际上并不是一次糟糕的经历。以下是给那些在追随的人的笔记：
 - en: Download the latest stable release from [here](http://www.zeromq.org/area:download/)
+  id: totrans-8
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 从[这里](http://www.zeromq.org/area:download/)下载最新稳定版本
 - en: The “To build on UNIX-like systems” is generally correct for OSX, apart from
     the fact that if you don’t execute “brew install pkg-config” prior to the building,
     you’ll end up with the “newline token” and PKG_CHECK_MODULES error as per [stackoverflow](http://stackoverflow.com/questions/3522248/how-do-i-compile-jzmq-for-zeromq-on-osx)
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: “在类UNIX系统上构建”通常对OSX来说是正确的，除了如果你在构建之前不执行“brew install pkg-config”，你将会遇到“换行标记”和PKG_CHECK_MODULES错误，如[stackoverflow](http://stackoverflow.com/questions/3522248/how-do-i-compile-jzmq-for-zeromq-on-osx)所述
 - en: When installing pkg-config as per above, I found I had to copy the pkg.m4 file
     into /usr/share/aclocal and /usr/share/aclocal-1.10 as I couldn’t be bothered
     to check which aclocal was being used 😦
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 如上所述安装pkg-config时，我发现我必须将pkg.m4文件复制到/usr/share/aclocal和/usr/share/aclocal-1.10中，因为我懒得检查使用了哪个aclocal
+    😦
 - en: With “sudo make install” [complete](http://www.zeromq.org/area:download/), go
     and download the Java [bindings](http://www.zeromq.org/bindings:java) for ZeroMQ
+  id: totrans-11
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 用“sudo make install”[完成](http://www.zeromq.org/area:download/)后，前往下载ZeroMQ的Java[绑定](http://www.zeromq.org/bindings:java)
 - en: 'The building of the Java bindings is pain free, allowing a quick test to validate
     everything running the following in separate terminals:'
+  id: totrans-12
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 构建Java绑定是非常简单的，允许快速测试以验证一切是否正常在两个分离的终端运行以下内容：
 - en: java -Djava.library.path=/usr/local/lib -classpath /usr/local/share/java/zmq.jar:../src/zmq.jar:zmq-perf.jar
     local_lat tcp://127.0.0.1:5555 1 100
+  id: totrans-13
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: java -Djava.library.path=/usr/local/lib -classpath /usr/local/share/java/zmq.jar:../src/zmq.jar:zmq-perf.jar
+    local_lat tcp://127.0.0.1:5555 1 100
 - en: java -Djava.library.path=/usr/local/lib -classpath /usr/local/share/java/zmq.jar:../src/zmq.jar:zmq-perf.jar
     remote_lat tcp://127.0.0.1:5555 1 100
+  id: totrans-14
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: java -Djava.library.path=/usr/local/lib -classpath /usr/local/share/java/zmq.jar:../src/zmq.jar:zmq-perf.jar
+    remote_lat tcp://127.0.0.1:5555 1 100
 - en: Time now to leverage ZeroMQ in some home project 😉
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在是时候在一些家庭项目中利用ZeroMQ了 😉
 - en: ~ by mdavey on August 2, 2012.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: ~ 由mdavey于2012年8月2日发布。
 - en: Posted in [Java](https://mdavey.wordpress.com/category/languages/java/)
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: Posted in [Java](https://mdavey.wordpress.com/category/languages/java/)
 - en: 'Tags: [Messaging](https://mdavey.wordpress.com/tag/messaging/)'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签：[消息传递](https://mdavey.wordpress.com/tag/messaging/)

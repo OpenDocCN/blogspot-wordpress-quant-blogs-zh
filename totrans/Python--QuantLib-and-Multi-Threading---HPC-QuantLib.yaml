@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-13 00:11:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-13 00:11:00'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Python, QuantLib and Multi-Threading – HPC-QuantLib
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Python, QuantLib 和 多线程 – HPC-QuantLib
 - en: 来源：[https://hpcquantlib.wordpress.com/2021/11/29/python-quantlib-and-multithreading/#0001-01-01](https://hpcquantlib.wordpress.com/2021/11/29/python-quantlib-and-multithreading/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://hpcquantlib.wordpress.com/2021/11/29/python-quantlib-and-multithreading/#0001-01-01](https://hpcquantlib.wordpress.com/2021/11/29/python-quantlib-and-multithreading/#0001-01-01)
 - en: Python is – thanks to the [GIL](https://en.wikipedia.org/wiki/Global_interpreter_lock)
     – not the language of choice for modern multi-threading programming and also is
     QuantLib not really thread safe, even though the thread safe observer pattern
@@ -25,8 +37,12 @@
     the risks (In short as a general advise do not share objects between threads,
     do not change global state like e.g. the evaluation date in an uncontrolled manner
     and enable QL_ENABLE_THREAD_SAFE_OBSERVER_PATTERN.).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: Python 是——得益于 [GIL](https://en.wikipedia.org/wiki/Global_interpreter_lock) ——并不是现代多线程编程的首选语言，而且
+    QuantLib 也不是真正线程安全的，尽管线程安全的观察者模式实现和线程安全的单例初始化有助于降低风险（简单来说，作为一般建议，不要在线程之间共享对象，不要以不可控的方式更改全局状态，例如评估日期，并启用
+    QL_ENABLE_THREAD_SAFE_OBSERVER_PATTERN 选项）。
 - en: Even then – other than in Java/Scala/C# or C++ – there is not much to gain in
     Python by default because the [SWIG](http://www.swig.org/) generated interface
     code will not release the GIL while running C++ code. Hence all threads except
@@ -37,10 +53,19 @@
     Py_XDECREF. Every block with low level Python C API calls has to be guarded with
     the SWIG_PYTHON_THREAD_BEGIN_BLOCK macro at the beginning of the block to acquire
     the GIL, in total 60 times.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 即便如此——除了 Java/Scala/C# 或 C++ 以外的其他语言——在 Python 中默认情况下并没有太多可以获得的优势，因为由 [SWIG](http://www.swig.org/)
+    生成的接口代码在运行 C++ 代码时不会释放 GIL。因此，当运行长时间持续的 QuantLib 计算时，所有除了一个线程外的所有线程都会被阻塞。但并非完全绝望，可以通过命令行参数“-threads”指示
+    SWIG 在调用 QuantLib 方法前释放 GIL。这里的唯一注意事项是，QuantLib 的 SWIG 接口文件中包含了一些低级别的 Python C
+    API 调用，例如 Py_XDECREF。每个包含低级别 Python C API 调用的块都需要在块的开始处用 SWIG_PYTHON_THREAD_BEGIN_BLOCK
+    宏来获取 GIL，总共 60 次。
 - en: As a reward, the GIL will be released when running QuantLib code in Python and
     multi-threading can be used to speed-up multiple, long lasting QuantLib calls
     in the same manner as in the other languages.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为回报，当在 Python 中运行 QuantLib 代码时，GIL 将被释放，并且可以使用多线程来加速相同方式下的多个长时间持续的 QuantLib
+    调用，就像在其他语言中一样。

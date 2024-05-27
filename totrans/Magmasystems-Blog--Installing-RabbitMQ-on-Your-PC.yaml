@@ -1,299 +1,483 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:48:51'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:48:51
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Installing RabbitMQ on Your PC'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems Blog：在您的PC上安装RabbitMQ
 - en: 来源：[http://magmasystems.blogspot.com/2011/11/installing-rabbitmq-on-your-pc.html#0001-01-01](http://magmasystems.blogspot.com/2011/11/installing-rabbitmq-on-your-pc.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2011/11/installing-rabbitmq-on-your-pc.html#0001-01-01](http://magmasystems.blogspot.com/2011/11/installing-rabbitmq-on-your-pc.html#0001-01-01)
 - en: For the past 7 years, I have been running an old copy of Tibco EMS on my laptop,
     and I've been using this whenever I need to do some prototyping and development
     of new message-based apps. But in these cost-conscious times, many of my clients
     are looking for low-cost solutions. So, time to seriously consider RabbitMQ.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在过去的7年里，我一直在我的笔记本上运行Tibco EMS的旧版本，每当我需要做一些原型设计和开发新的基于消息的应用时，我就会使用它。但在这些成本意识的年代，我的许多客户都在寻找低成本的解决方案。所以，是时候认真考虑RabbitMQ了。
 - en: This is a quick guide that I wrote to get RabbitMQ up and running on a local
     PC in preparation for some .NET development.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一份我写的快速指南，以便在准备一些.NET开发时，在本地PC上安装并运行RabbitMQ。
 - en: 1) RabbitMQ requires the Erlang runtime. You can download the Erlang/OTP runtime
     from
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 1) RabbitMQ需要Erlang运行时。您可以从
 - en: . You need to install Erlang before downloading and installing the RabbitMQ
     server.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 您需要在下载并安装RabbitMQ服务器之前安装Erlang。
 - en: 2a) Install RabbitMQ. It will install a Windows Service and will automatically
     start it.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 2a) 安装RabbitMQ。它会安装一个Windows服务，并自动启动它。
 - en: and verify that the RabbitMQ service has started.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 并验证RabbitMQ服务是否已启动。
 - en: 3a) Download the .NET 3.0 version of the RabbitMQ client libraries and samples.
     The file is called rabbitmq-dotnet-client-2.6.1-
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 3a) 下载.NET 3.0版本的RabbitMQ客户端库和示例。这个文件叫做rabbitmq-dotnet-client-2.6.1-
 - en: 3b) Extract the ZIP file to C:\Program Files\RabbitMQDotNetClient (you can pick
     any location that you want).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 3b) 将ZIP文件提取到C:\Program Files\RabbitMQDotNetClient（您可以选择您想要的任何位置）。
 - en: 3c) In C:\Program Files\RabbitMQDotNetClient\
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 3c) 在C:\Program Files\RabbitMQDotNetClient\
 - en: <wbr>
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: <wbr>
 - en: bin, there is the main assembly called
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: bin中，有一个名为
 - en: '***RabbitMQ.Client.dll***'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: '**RabbitMQ.Client.dll**'
 - en: . In the same directory is the assembly for WCF integration called
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 在同一目录中，有一个名为
 - en: '***RabbitMQ.ServiceModel.dll***'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: '**RabbitMQ.ServiceModel.dll**'
 - en: .
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: .
 - en: 4) From the Windows Start Menu, go to the RabbitMQ Server item, and then run
     RabbitMQ Command Prompt
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 4) 从Windows开始菜单，找到RabbitMQ服务器项，然后运行RabbitMQ命令提示符
 - en: 4a) rabbitmqctl.bat is the command-line utility that lets you control RabbitMQ
     and list various objects. A sample command to list the RabbitMQ exchanges is
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 4a) rabbitmqctl.bat是让您控制RabbitMQ并列表各种对象的命令行工具。一个用于列出RabbitMQ交换的示例命令是
 - en: rabbitmqctl list_exchanges
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: rabbitmqctl list_exchanges
 - en: However, we will use the management console, not the command line.
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 然而，我们将使用管理控制台，而不是命令行。
 - en: 5) Download and install the RabbitMQ management plugins from
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 5) 从
 - en: '[http://www.rabbitmq.com/<wbr>plugins.html](http://www.rabbitmq.com/plugins.html)'
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://www.rabbitmq.com/plugins.html](http://www.rabbitmq.com/plugins.html)'
 - en: 5a) Download all of the EZ files associated with rabbitmq_management_visualiser
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 5a) 下载与rabbitmq_management_visualiser相关的所有EZ文件
 - en: 5b) Drop these files into the RabbitMQ Server\plugins directory, which on my
     system is C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-2.6.1\
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 5b) 将这些文件拖放到我的系统上的C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-2.6.1\
 - en: <wbr>
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: <wbr>
 - en: plugins
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 插件
 - en: 5c) Restart the RabbitMQ server. You can do this through the Services.msc applet
     on your Windows machine.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 5c) 重新启动RabbitMQ服务器。您可以通过在您的Windows机器上的Services.msc小程序来完成此操作。
 - en: '**Test It Out Using the Management Console**'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: '**使用管理控制台测试**'
 - en: Now we will test out RabbitMQ by sending a message into an exchange and have
     a wildcard subscriber read that message.
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们将通过将消息发送到交换区并让通配符订阅者读取该消息来测试RabbitMQ。
 - en: '6) As a test of the RabbitMQ management console, try this URL in your browser:'
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 6) 为了测试RabbitMQ管理控制台，请在您的浏览器中尝试这个URL：
 - en: '[http://localhost:55672/mgmt/](http://localhost:55672/mgmt/)'
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: '[http://localhost:55672/mgmt/](http://localhost:55672/mgmt/)'
 - en: Use the user id "guest" and password "guest"
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用用户ID“guest”和密码“guest”
 - en: 7) Go to the
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 7) 转到
 - en: '*Exchange*'
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: '*交换区*'
 - en: tab and add a new exchange called
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签并添加一个名为
 - en: '*CalcExchange*'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: '*CalcExchange*'
 - en: 'that is non-durable (transient) topic. Fill in the name, type and durability
     as follows:'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个非持久（临时）主题。填写名称、类型和持久性，如下所示：
 - en: '**Name:**'
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: '**名称：**'
 - en: CalcExchange
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: CalcExchange
 - en: '**Type:**'
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: '**类型：**'
 - en: topic
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: 主题
 - en: '**Durability:**'
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: '**持久性：**'
 - en: Transient
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 临时
 - en: 8) Go to the
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 8) 转到
 - en: '*Queues*'
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: '*队列*'
 - en: tab and add a new durable queue called
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签并添加一个名为
 - en: '*Calc.Queue.1*'
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Calc.Queue.1*'
 - en: 9) Stay in the
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: 9) 留在
 - en: '*Queues*'
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: '*队列*'
 - en: tab. In the table of queues, click on
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签页。在队列表中，点击
 - en: '*Calc.Queue.1*'
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Calc.Queue.1*'
 - en: '9a) Add a binding. In the Exchange and Routing Key fields, add the following:'
+  id: totrans-56
   prefs: []
   type: TYPE_NORMAL
+  zh: 9a) 添加一个绑定。在交换和路由键字段中，添加以下内容：
 - en: '**Exchange:**'
+  id: totrans-57
   prefs: []
   type: TYPE_NORMAL
+  zh: '**交换:**'
 - en: CalcExchange
+  id: totrans-58
   prefs: []
   type: TYPE_NORMAL
+  zh: CalcExchange
 - en: '**Routing Key:**'
+  id: totrans-59
   prefs: []
   type: TYPE_NORMAL
+  zh: '**路由键:**'
 - en: Calc.Data.*.1
+  id: totrans-60
   prefs: []
   type: TYPE_NORMAL
+  zh: Calc.Data.*.1
 - en: This binds any messages that have the routing key
+  id: totrans-61
   prefs: []
   type: TYPE_NORMAL
+  zh: 这将绑定任何具有路由键
 - en: '*Calc.Data.*.1*'
+  id: totrans-62
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Calc.Data.*.1*'
 - en: to the
+  id: totrans-63
   prefs: []
   type: TYPE_NORMAL
+  zh: 到
 - en: '*Calc.Queue.1*'
+  id: totrans-64
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Calc.Queue.1*'
 - en: message queue. So, if you publish a message with the key
+  id: totrans-65
   prefs: []
   type: TYPE_NORMAL
+  zh: 消息队列。所以，如果你使用键
 - en: '*Calc.Data.Foobaz.1*'
+  id: totrans-66
   prefs: []
   type: TYPE_NORMAL
+  zh: '*Calc.Data.Foobaz.1*'
 - en: ', it will be routed to this queue, where the subscriber will pick up the message
     for processing.'
+  id: totrans-67
   prefs: []
   type: TYPE_NORMAL
+  zh: ，它将被路由到此队列，订阅者将从此队列中获取消息进行处理。
 - en: Now we will try to send a sample message using the management console.
+  id: totrans-68
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在我们将尝试使用管理控制台发送一个示例消息。
 - en: 10) Go back to the Exchanges tab and click on the CalcExchange item
+  id: totrans-69
   prefs: []
   type: TYPE_NORMAL
+  zh: 10) 返回“交换”标签页，点击CalcExchange项
 - en: 10a) Go down to the
+  id: totrans-70
   prefs: []
   type: TYPE_NORMAL
+  zh: 10a) 向下滚动到
 - en: '*Publish Message*'
+  id: totrans-71
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发布消息*'
 - en: section.
+  id: totrans-72
   prefs: []
   type: TYPE_NORMAL
+  zh: 部分。
 - en: '10b) Type in the following entries for the Routing Key and Payload fields:'
+  id: totrans-73
   prefs: []
   type: TYPE_NORMAL
+  zh: 10b) 为路由键和载荷字段输入以下内容：
 - en: '**Routing Key:**'
+  id: totrans-74
   prefs: []
   type: TYPE_NORMAL
+  zh: '**路由键:**'
 - en: Calc.Data.ABC123.1,
+  id: totrans-75
   prefs: []
   type: TYPE_NORMAL
+  zh: Calc.Data.ABC123.1,
 - en: '**Payload:**'
+  id: totrans-76
   prefs: []
   type: TYPE_NORMAL
+  zh: '**载荷:**'
 - en: This is a test message for Calc Node 1
+  id: totrans-77
   prefs: []
   type: TYPE_NORMAL
+  zh: 这是一个给Calc Node 1的测试消息
 - en: 10c) Press the
+  id: totrans-78
   prefs: []
   type: TYPE_NORMAL
+  zh: 10c) 点击
 - en: '*Publish*'
+  id: totrans-79
   prefs: []
   type: TYPE_NORMAL
+  zh: '*发布*'
 - en: button. When the status message pops up, just close it. The status message should
     have a green background, indicating success.
+  id: totrans-80
   prefs: []
   type: TYPE_NORMAL
+  zh: 按钮。当状态消息弹出时，只需关闭它。状态消息应该有一个绿色背景，表示成功。
 - en: 11) Go back to the
+  id: totrans-81
   prefs: []
   type: TYPE_NORMAL
+  zh: 11) 返回
 - en: '*Queues*'
+  id: totrans-82
   prefs: []
   type: TYPE_NORMAL
+  zh: '*队列*'
 - en: tab, and click on Calc.Queue.1
+  id: totrans-83
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签页，点击Calc.Queue.1
 - en: 11a) Go down to the
+  id: totrans-84
   prefs: []
   type: TYPE_NORMAL
+  zh: 11a) 向下滚动到
 - en: '*Get Messages*'
+  id: totrans-85
   prefs: []
   type: TYPE_NORMAL
+  zh: '*获取消息*'
 - en: section and press the "Get Message(s)" button. You should see the message that
     you just sent.
+  id: totrans-86
   prefs: []
   type: TYPE_NORMAL
+  zh: 部分并点击“获取消息(s)”按钮。你应该看到你刚刚发送的消息。
 - en: 12) You can also go to the last tab of the management page, which should be
     the
+  id: totrans-87
   prefs: []
   type: TYPE_NORMAL
+  zh: 12) 你也可以访问管理页面最后的标签页，应该是
 - en: '*Visualizer*'
+  id: totrans-88
   prefs: []
   type: TYPE_NORMAL
+  zh: '*可视化器*'
 - en: tab, and view the topology.
+  id: totrans-89
   prefs: []
   type: TYPE_NORMAL
+  zh: 标签页，查看拓扑结构。
 - en: As an aside, the sample programs that come with the .NET Client need a bunch
     of mods before you can get them to load into Visual Studio 2010.
+  id: totrans-90
   prefs: []
   type: TYPE_NORMAL
+  zh: 顺带一提，随.NET客户端提供的示例程序需要在加载到Visual Studio 2010之前进行大量修改。
 - en: ©2011 Marc Adler - All Rights Reserved. All opinions here are personal, and
     have no relation to my employer.
+  id: totrans-91
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2011 Marc Adler - 版权所有。此处所有观点均为个人观点，与我的雇主无关。

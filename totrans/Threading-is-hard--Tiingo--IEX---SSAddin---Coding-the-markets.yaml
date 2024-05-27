@@ -1,31 +1,47 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 19:30:34'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 19:30:34
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Threading is hard: Tiingo, IEX & SSAddin | Coding the markets'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 线程化很难：Tiingo, IEX & SSAddin | 编码市场
 - en: 来源：[https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01](https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01](https://etrading.wordpress.com/2016/05/26/threading-is-hard-tiingo-iex-ssaddin/#0001-01-01)
 - en: 'Threading is hard: Tiingo, IEX & SSAddin'
+  id: totrans-6
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 线程化很难：Tiingo, IEX & SSAddin
 - en: May 26, 2016
+  id: totrans-7
   prefs:
   - PREF_H3
   type: TYPE_NORMAL
+  zh: 2016年5月26日
 - en: Recently I’ve been rediscovering the fact that threading is hard. I’ve been
     extending the [SpreadServe Addin](https://github.com/SpreadServe/SSAddin) to support
     [Tiingo](https://www.tiingo.com/)‘s [IEX market data feed](https://api.tiingo.com/docs/iex/realtime).
@@ -56,5 +72,9 @@
     the [borrow checker](https://doc.rust-lang.org/book/ownership.html). Thirdly,
     thanks heavens for [lock reentrancy](http://stackoverflow.com/questions/391913/re-entrant-locks-in-c-sharp)
     in .net!
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近我重新发现了一个事实：线程化很难。我一直扩展[SpreadServe Addin](https://github.com/SpreadServe/SSAddin)以支持[Tiingo](https://www.tiingo.com/)的[IEX市场数据](https://api.tiingo.com/docs/iex/realtime)实时行情数据。通常只有投资银行、经纪人和大型对冲基金才能获取实时跳动的市场数据，因为要直接连接交易所或通过[路透社](http://www.reuters.com/finance/global-market-data)订阅，需要大量的资金和基础设施。即使是像[xignite](http://www.xignite.com/products)这样的新兴互联网竞争者也非常昂贵。Tiingo的IEX数据提供了一种前所未有的价格点的实时跳动股票簿顶数据。这是我想在SSAddin中支持的一个激动人心的新发展。编写它使我重新认识到多线程代码可以有多复杂。SSAddin用C#编写，打包成一个[XLL](https://msdn.microsoft.com/en-us/library/office/bb687883.aspx)，使用[ExcelDNA](https://github.com/Excel-DNA/ExcelDna)。与任何Excel
+    XLL一样，它定义的工作表函数在主Excel线程上执行。如果它们运行时间过长，它们将阻塞GUI。因此，工作表函数将工作转交给后台线程。这意味着SSAddin可以在不阻塞主Excel线程的情况下进行[quandl](https://www.quandl.com/)和tiingo历史数据查询。查询结果被缓存，还有一组工作表函数可以从缓存中提取结果。到目前为止还不错。然而，向Tiingo的IEX市场数据添加订阅增加了更多复杂性。在.net中，web
+    socket事件的回调在池线程上分派。跳动数据通过[RTD](https://support.microsoft.com/en-us/kb/285339)推回Excel。因此，需要很多锁语句来协调访问队列，将工作从Excel线程传递到后台线程，以及协调访问订阅管理数据结构和RTDServer在线程和池线程之间传递socket回调。都是很好玩的事情，这也引发了一些思考。首先，线程化很难！其次，我必须抽时间学习[Rust](http://blog.rust-lang.org/)并理解[借用检查器](https://doc.rust-lang.org/book/ownership.html)。第三，谢天谢地，.net中有[锁重入](http://stackoverflow.com/questions/391913/re-entrant-locks-in-c-sharp)！

@@ -1,187 +1,299 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 05:03:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 05:03:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Of Pipes, CEP, and Traders'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 'Magmasystems Blog: Of Pipes, CEP, and Traders'
 - en: 来源：[http://magmasystems.blogspot.com/2008/02/of-pipes-cep-and-traders.html#0001-01-01](http://magmasystems.blogspot.com/2008/02/of-pipes-cep-and-traders.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/02/of-pipes-cep-and-traders.html#0001-01-01](http://magmasystems.blogspot.com/2008/02/of-pipes-cep-and-traders.html#0001-01-01)
 - en: In our Complex Event Processing system, we will eventually want to be able to
     give a front-end to our traders which will let the trader develop ad-
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们的复杂事件处理系统中，我们最终希望提供一个前端给我们的交易员，该前端将让交易员开发附加
 - en: hoc
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: hoc
 - en: streaming queries on real-time streams. We also want to allow the traders to
     implement their own analytics by doing back-testing on several years’ worth of
     data.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 实时流上的流查询打包的。我们还希望允许交易员通过在几年的数据上进行回测来实现他们自己的分析。
 - en: I have been looking at Yahoo Pipes a bit recently, and it is conceptually the
     same thing as the kind of GUI that I have been envisioning for the traders. In
     Yahoo Pipes, you can take the output of one or more high-level objects and pipe
     it into the inputs of another high-level object.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我最近稍微看了看雅虎管道，它的概念和我一直为交易员设想的那种GUI是一样的。在雅虎管道中，你可以把一个或多个高级对象输出的结果管道的输入另一个高级对象。
 - en: 'Here is an example of a Yahoo Pipes gadget:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 这里是一个雅虎管道的器件示例：
 - en: '[![](img/6a98f1f1cf2abe9282d57092f19bbe08.png)](http://3.bp.blogspot.com/_BNP90JOg4yU/R8Al0Pk0_KI/AAAAAAAAACg/XTmXTh0KN2A/s1600-h/Yahoo+Pipes.jpg)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![](img/6a98f1f1cf2abe9282d57092f19bbe08.png)](http://3.bp.blogspot.com/_BNP90JOg4yU/R8Al0Pk0_KI/AAAAAAAAACg/XTmXTh0KN2A/s1600-h/Yahoo+Pipes.jpg)'
 - en: In our simple use case, let’s say that we define high-level objects that are
     of interest to traders. Such objects could be
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们的简单用例中，假设我们定义了交易员感兴趣的高级对象。这样的对象可以是
 - en: a real-time market data stream,
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个实时市场数据流，
 - en: a historical market data stream,
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个历史市场数据流，
 - en: a real time order flow stream and cache,
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个实时订单流流和缓存，
 - en: a historical order flow stream,
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个历史订单流流，
 - en: a ticker-to-sector mapper and filter, and
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 一个从行情到行业的映射器和过滤器，以及
 - en: some calculation modules.
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 一些计算模块。
 - en: These are the kinds of “queries” that we built in the Complex Event Processing
     engines (
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 中构建的“查询”类型。
 - en: Streambase
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: ', Coral8,'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: ，Coral8，
 - en: Aleri
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: ','
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: ，
 - en: NEsper
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: NEsper
 - en: ) during our evaluation process. However, just like Domain-Specific Languages
     (
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: ) 在我们的评估过程中。然而，正如领域特定语言（
 - en: DSL
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: DSL
 - en: ) can be created to make developing applications in a certain domain easier,
     we can make a domain-specific version of Yahoo Pipes that is geared for analyzing
     Equities data.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: ）可以创建，以使在特定领域开发应用程序变得更容易，我们可以制作一个针对分析股票数据而设计的雅虎管道的领域特定版本。
 - en: Once the trader has put together his Pipes, the result can be translated into
     one of the languages that the
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 一旦交易员组装了他的管道的结果可以被翻译成
 - en: CEP
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine supports. If we encapsulate the code generation module, then we can have
     code generators for Coral8,
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎支持。如果我们封装代码生成模块，那么我们可以为Coral8、
 - en: Streambase
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: ','
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: ，
 - en: Aleri
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: ','
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: ，
 - en: NEsper
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: NEsper
 - en: ', and others. I am pretty sure that all of these engines allow you to dynamically
     register and'
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: ，以及其他引擎拥有代码生成器。我敢肯定，所有这些引擎都允许您动态注册和
 - en: unregister
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 取消注册
 - en: queries. You can dynamically read the status and output of the
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 查询。您可以动态读取
 - en: CEP
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: CEP
 - en: engine and feed it back into the GUI.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 引擎并将它反馈到GUI中。
 - en: Aleri
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: Aleri
 - en: and
+  id: totrans-42
   prefs: []
   type: TYPE_NORMAL
+  zh: 以及
 - en: Streambase
+  id: totrans-43
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: have GUI builders for their developers that look a lot like Yahoo Pipes. However,
     the
+  id: totrans-44
   prefs: []
   type: TYPE_NORMAL
+  zh: 为他们的开发者提供了类似于雅虎管道的GUI构建器。然而，这些是我们在复杂事件处理引擎（
 - en: GUIs
+  id: totrans-45
   prefs: []
   type: TYPE_NORMAL
+  zh: GUI
 - en: are not packaged as
+  id: totrans-46
   prefs: []
   type: TYPE_NORMAL
+  zh: 不是作为
 - en: toolkits
+  id: totrans-47
   prefs: []
   type: TYPE_NORMAL
+  zh: 工具包
 - en: ; in other words, you could not take the
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: ;也就是说，你不能采取
 - en: Streambase
+  id: totrans-49
   prefs: []
   type: TYPE_NORMAL
+  zh: Streambase
 - en: GUI and adapt it for your own needs. Coral8 does not really have a fancy GUI
     builder; as mentioned here before, their GUI is fairly spartan.
+  id: totrans-50
   prefs: []
   type: TYPE_NORMAL
+  zh: GUI并进行适应以满足您的需求。Coral8并没有真正的豪华GUI构建器；如前面提到的，他们的GUI相当简陋。
 - en: NEsper
+  id: totrans-51
   prefs: []
   type: TYPE_NORMAL
+  zh: NEsper
 - en: /
+  id: totrans-52
   prefs: []
   type: TYPE_NORMAL
+  zh: /
 - en: Esper
+  id: totrans-53
   prefs: []
   type: TYPE_NORMAL
+  zh: Esper
 - en: does not have any kind of GUI to speak of, as their model of embedding the engine
     inside of an application is different that the model used by the other vendors.
+  id: totrans-54
   prefs: []
   type: TYPE_NORMAL
+  zh: 没有所谓的GUI，因为他们的模型是将引擎嵌入应用程序内部，这与其他供应商使用的模型不同。
 - en: ©2008 Marc Adler - All Rights Reserved
+  id: totrans-55
   prefs: []
   type: TYPE_NORMAL
+  zh: 版权所有 ©2008 Marc Adler - 保留所有权利

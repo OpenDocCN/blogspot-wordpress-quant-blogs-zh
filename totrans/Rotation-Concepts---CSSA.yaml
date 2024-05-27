@@ -1,27 +1,41 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-12 18:35:21'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 18:35:21
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Rotation Concepts | CSSA
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 旋转概念 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2010/02/23/rotation-concepts/#0001-01-01](https://cssanalytics.wordpress.com/2010/02/23/rotation-concepts/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2010/02/23/rotation-concepts/#0001-01-01](https://cssanalytics.wordpress.com/2010/02/23/rotation-concepts/#0001-01-01)
 - en: 'For all examples in this post I am using the Rotation application in ETF Rewind:
     [http://marketrewind.blogspot.com/2010/02/etf-rewind-announcing-customizable.html](http://marketrewind.blogspot.com/2010/02/etf-rewind-announcing-customizable.html)'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在本篇博文中，我使用的是ETF Rewind中的旋转应用：[http://marketrewind.blogspot.com/2010/02/etf-rewind-announcing-customizable.html](http://marketrewind.blogspot.com/2010/02/etf-rewind-announcing-customizable.html)
 - en: 'Rotational or relative strength models are a simple means of buying the stocks
     or ETFs that either have the strongest trend or are rising the fastest. The methods
     for creating effective relative strength models are beyond the scope of this article,
@@ -37,8 +51,11 @@
     A 52-week ROC strategy will have its periods of over/underperformance, but will
     persist over long periods of time due to its robustness—even more so in my opinion
     than say timing with a 200-day moving average.'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 旋转或相对强度模型是购买趋势最强或增长最快的股票或ETF的一种简单方法。创建有效的相对强度模型的方法超出了本文的范围，但可以说有各种各样的不同类型。一个好的相对强度/旋转模型的优点是能够提供：1)
+    高回报/风险调整回报 2) 中等周转率 3) 适应熊市的能力 4) 适应速度——这与回撤风险直接相关。ETF Rewind旋转工具具有所有这些功能——而一个简单的52周ROC动量策略显然并不具备。传统的RS策略都使用某种形式的52周ROC，而在过去几年中，排名最高的股票的表现大幅落后于排名最低的股票。如果您做过任何尽职调查或研究——这应该不会让人感到惊讶，然而这是一种非常耐用的长期策略。52周ROC策略会有表现出色或不佳的时期，但由于其健壮性，会在长时间内持续存在——甚至在我看来，这比使用200天移动平均值进行时机把握更为可靠。
 - en: 'All of that aside, there is a lot more required to develop a good strategy
     than just a good algorithm. Rotational strategies are relative, and they depend
     on the universe of stocks/ETFs that are chosen. This is actually the most critical
@@ -64,43 +81,69 @@
     to sectors, which are inferior to indexes, and asset classes etc). This increases
     turnover in rotational models, and also makes it difficult for the algorithm chosen
     to determine when to switch.'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 除此之外，开发一个好的策略需要的不仅仅是好的算法。轮动策略是相对的，它们取决于所选的股票/ETF universe。这实际上是建立良好模型的最关键一步。其他问题涉及到您将选择多少资产（股票/ETF）以及您将如何频繁轮动。在这种情况下，我们寻找的是在具有：**1)
+    低内在相关性**的资产之间轮动——理想情况下，您将拥有不同的资产类别或板块。低相关性是唯一能让您真正实现免费午餐的东西，因为它大幅降低了风险，同时对回报的伤害不如更多相关性的策略。此外，即使您只选择一个资产，低相关性也将允许近乎序列独立的机遇：这意味着一个资产可能在上升，而其他资产则在下跌或盘整-
+    这可能会让您一直冲浪新的浪潮。使用内在相关性资产宇宙（例如同一板块内的5只股票）是无法实现这一技术的。您选择轮动模型的另一个重要特征是具有**2) 内在良好的潜在回报/波动性**的资产，这通常通过使用指数ETF、商品或大盘股来实现——其他任何东西都需要极大的多样化才能有效。例如小盘股的问题在于收益或新闻风险，这可能导致一只股票在一天内暴跌40-50%，或上涨数倍。它们的高特异性风险使它们成为一个非常危险的赌注——但更重要的是，它们的趋势失败率非常高：小盘股不像大盘股那样长时间保持其趋势（相应地，这些不如板块，不如指数，不如资产类别等）。这增加了轮动模型的换手率，同时也使得所选算法的确定切换时机变得困难。
 - en: '*Lets look at the first example. All tests use the REWIND model and backtests
     are 3-years in duration from March 2007 to present. The method is LONG ONLY*'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '*让我们看看第一个例子。所有测试都使用REWIND模型，回测从2007年3月至今持续3年。方法是仅做多*'
 - en: 'Lets use the three major index ETFs to start: SPY, IWM, QQQQ and choose the
     top #1\. Here are the results:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们首先使用三大指数ETF开始：SPY、IWM、QQQQ，并选择表现最好的#1。以下是结果：
 - en: Hypothetical
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设
 - en: 'Top # Performance'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 表现最好的#
 - en: 1 Model SPY
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 1 个模型 SPY
 - en: 3-Yr. Gross +1.8% -14.5%
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 3年总收益率 +1.8% -14.5%
 - en: C.A.G.R. +0.6% -5.1%
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 复合年化增长率 +0.6% -5.1%
 - en: Sharpe 0.02 0.19
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 夏普比率 0.02 0.19
 - en: Maximum +13.3% +13.3%
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大值 +13.3% +13.3%
 - en: Minimum -16.3% -19.8%
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 最小值 -16.3% -19.8%
 - en: Average +0.1% -0.0%
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均值 +0.1% -0.0%
 - en: This is certainly very reasonable performance–better than most relative strength
     algorithms that were longer-term over this brutal bear market. However in an absolute
     sense, the returns are still quite low–reflecting the fact that there was nowhere
@@ -112,35 +155,56 @@
     (Europe, Asia and the Far East). Although there is some overlap, these two are
     the biggies that pretty much cover the rest of the world. Again in this test we
     will rotate to the top index.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这无疑是非常合理的绩效——优于大多数在这个残酷的熊市中较长周期的相对强度算法。然而，从绝对意义上讲，收益率仍然相当低——反映了当市场下跌时没有地方可以轮动的事实。指数之间的相关性太高，不能单独使用。那么，“国际多元化”怎么样，也就是那些大多数无知或自满的财务顾问经常吹嘘的夸大概念呢？让我们来看看——在这里，我将添加EEM-涵盖巴西、俄罗斯、印度和中国等新兴市场ETF以及EFA-涵盖MSCI
+    EAFE指数（欧洲、亚洲和远东）的ETF。尽管有一些重叠，这两个ETF基本上涵盖了世界上其他大部分地区。再次强调，在这个测试中我们将轮动到顶级指数。
 - en: Hypothetical
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设
 - en: 'Top # Performance'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 表现最佳前#名
 - en: 1 Model SPY
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 1个模型 SPY
 - en: 3-Yr. Gross +9.0% -15.0%
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 3年期总收益率 +9.0% -15.0%
 - en: C.A.G.R. +2.9% -5.3%
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 复合年增长率增长率 +2.9% -5.3%
 - en: Sharpe 0.09 0.17
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 夏普比率 0.09 0.17
 - en: Maximum +13.3% +16.5%
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 最高收益率 +13.3% +16.5%
 - en: Minimum -16.3% -16.3%
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 最低收益率 -16.3% -16.3%
 - en: Average +0.1% -0.0%
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均收益率 +0.1% -0.0%
 - en: 'A modest return improvement, but clearly not enough diversification to make
     a material difference. After all the correlations between the indexes are quite
     high, and especially so in bear markets (note that in bull markets this differential
@@ -148,35 +212,55 @@
     bonds/cash. For bonds we will use AGG- Lehman Aggregate Bond Index , and for a
     cash proxy we will use SHY which is the 1-3 year Barclays treasury bond index.
     Lets look at the results:'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 收益率有所提高，但显然不足以实现实质性多元化。毕竟指数之间的相关性相当高，尤其是在熊市中（值得注意的是，在牛市中这种差异会更大）。现在让我们添加一些真正的多元化工具——债券和短期债券/现金。对于债券，我们将使用AGG-莱曼综合债券指数，而对于现金代理，我们将使用SHY，这是1-3年巴克莱国债指数。让我们看看结果：
 - en: Hypothetical
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设
 - en: 'Top # Performance'
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 表现最佳前#名
 - en: 1 Model SPY
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 1个模型 SPY
 - en: 3-Yr. Gross +44.7% -15.0%
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: 3年期总收益率 +44.7% -15.0%
 - en: C.A.G.R. +13.1% -5.3%
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: 复合年增长率增长率 +13.1% -5.3%
 - en: Sharpe 0.61 0.17
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: 夏普比率 0.61 0.17
 - en: Maximum +8.6% +16.5%
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: 最高收益率 +8.6% +16.5%
 - en: Minimum -11.2% -16.3%
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: 最低收益率 -11.2% -16.3%
 - en: Average +0.3% -0.0%
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: 平均收益率 +0.3% -0.0%
 - en: 'OK so much better results in this run. A CAGR of 13% in this bear market was
     nothing to sneeze at, especially with a Sharpe Ratio of .61\. As you can clearly
     see, the ability to rotate to uncorrelated assets was a major help, and sort of
@@ -189,10 +273,15 @@
     reference to relative strength many MBAs,CFAs and PhD’s fail to put cash/bonds
     in their rotational models (including yours truly in earlier iterations many moons
     ago).'
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 好吧，这次运行的结果要好得多。在熊市中取得13%的复合年增长率并非易事，尤其是当夏普比率为0.61时。正如你可以清晰看到的，转向不相关资产的能力是一个巨大的帮助，可以说是市场时机的工具。任何轮动模型必须包含债券或现金——最好是像SHY这样的现金代理，因为它下行风险更小。不要去管所有在熊市提高现金
+    etc那些愚蠢的轶事——那太过模糊。使用REWIND轮动模型很简单——如果现金排在第一，那就是时候离开市场了。我可以想象，一些复杂的读者可能对多元化等话题不屑一顾，但事实上，在参考相对强度时，许多MBA、CFA和博士都未能将现金/债券纳入他们的轮动模型（包括我自己在内的早期版本）。
 - en: In the next post we will improve upon this substantially by expanding upon the
     same concepts. Furthermore, I will show you some cool tricks to employ to make
     things a lot better.
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我们将通过扩展相同的概念来显著改进这一点。此外，我会向你展示一些技巧，让事情变得更好。

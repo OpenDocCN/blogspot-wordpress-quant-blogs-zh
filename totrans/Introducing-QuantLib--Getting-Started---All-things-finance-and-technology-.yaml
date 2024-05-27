@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:45:48'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:45:48
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--
 - en: 'Introducing QuantLib: Getting Started | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：入门 | 所有关于金融和科技的事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/#0001-01-01](https://mhittesdorf.wordpress.com/2013/02/03/introducing-quantlib-getting-started/#0001-01-01)
 - en: In my last post, I introduced QuantLib (www.quantlib.org) , an open-source C++
     library for quantitative finance. In this post, I’m going to show you how to start
     using QuantLib in your own programs.  I won’t assume any specialized financial
@@ -26,8 +38,11 @@
      Also, I’ve chosen to structure my code examples as Boost unit test cases rather
     than individual test programs. See the Boost Test Library at [http://www.boost.org](http://www.boost.org)
     for more information.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我上一次的帖子中，我介绍了QuantLib（www.quantlib.org），一个开源的C++库用于定量金融。在本帖中，我将向您展示如何在您自己的程序中开始使用QuantLib。我不会假设您有专业的金融知识。然而，我期望您至少熟悉C++，并且对一些更常见的Boost
+    C++库组件，如共享指针有所了解。另外，我选择将我的代码示例结构化为Boost单元测试案例，而不是独立的测试程序。有关更多信息，请参见Boost测试库：[http://www.boost.org](http://www.boost.org)
 - en: So where should we start? Most introductions to finance begin with the ‘time
     value of money’ so that’s where we will begin as well.  The concept of the ‘time
     value of money’ alludes to the fact that money is worth more now than it will
@@ -35,8 +50,10 @@
     in the present, the borrower must compensate him until the loan is repaid, in
     the future.  This leads to several important and closely related concepts, the
     ‘future value’ of money, the ‘present value’ of money and interest rates.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么我们应该从哪里开始呢？大多数金融介绍课程从“金钱的时间价值”开始，所以我们也将从这里开始。金钱的时间价值的概念暗示了现在的钱比将来的钱更有价值。如果一个人现在被剥夺了他金钱的效用，借款人必须在未来偿还贷款时补偿他。这导致了几种重要且紧密相关概念的出现，“金钱的未来价值”，“金钱的现值”和利率。
 - en: 'Taken in the context of what we’ve just learned about the time value of money,
     the interest rate is the compensation earned by the lender on the amount of money
     loaned, called the principal.  The principal plus the interest payment due at
@@ -45,89 +62,140 @@
     value, which in the case of a loan, is the same as the principal.  In simple mathematical
     terms where FV = Future Value, PV = Present Value, R = interest rate, and P =
     principal:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我们刚刚学过的金钱时间价值的背景下，利率是贷款人针对贷款本金所获得的报酬。本金加上到贷款到期时应支付的利息就是贷款的未来价值。相反，从贷款偿还中减去利息，就可以得到贷款的现值，对于贷款来说，现值等同于本金。在简单的数学表达中，其中
+    FV = 未来价值，PV = 现值，R = 利率，P = 本金：
 - en: 'Future Value: FV = P (1 + R)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 未来价值：FV = P (1 + R)
 - en: 'Present Value: PV = FV/(1+R)'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 现值：PV = FV/(1+R)
 - en: Calculating and manipulating present values, future values and rates of interest
     turns out to be fundamental to much of the field of finance and financial mathematics.
      So let’s see how QuantLib can be applied to these concepts. Take a look at the
     code below. It shows how to calculate the forward value of a loan, the amount
     due when the loan matures.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 计算和操作现值、未来价值和利率的概念证明在金融和金融数学领域中是非常基础的。那么让我们看看QuantLib如何应用于这些概念。看看下面的代码。它展示了如何计算贷款的未来价值，即贷款到期时的应付款项。
 - en: '#include <ql/quantlib.hpp>'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <ql/quantlib.hpp>'
 - en: '#include <iostream>'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <iostream>'
 - en: '#define BOOST_AUTO_TEST_MAIN'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: '#define BOOST_AUTO_TEST_MAIN'
 - en: '#include <boost/test/unit_test.hpp>'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '#include <boost/test/unit_test.hpp>'
 - en: using namespace QuantLib;
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用命名空间 QuantLib；
 - en: BOOST_AUTO_TEST_CASE(testCalculateLoanPayment) {
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: BOOST_AUTO_TEST_CASE(testCalculateLoanPayment) {
 - en: typedef FixedRateCoupon Loan;
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 定义了一个固定利率债券类 Loan；
 - en: Natural lengthOfLoan = 365;
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 自然贷款期限 lengthOfLoan = 365；
 - en: Real loanAmount = 100.0;
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 实贷款金额 loanAmount = 100.0；
 - en: Rate rate = .05;
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 利率 rate = 0.05；
 - en: Date today = Date::todaysDate();
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期 today = Date::todaysDate();
 - en: Date paymentDate = today + lengthOfLoan;
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期 paymentDate = today + lengthOfLoan；
 - en: Loan loan(paymentDate, loanAmount, rate, ActualActual(), today, paymentDate);
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: Loan loan(paymentDate, loanAmount, rate, ActualActual(), today, paymentDate);
 - en: Real payment = loanAmount + loan.accruedAmount(paymentDate);
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 实付款项 payment = loanAmount + loan.accruedAmount(paymentDate);
 - en: std::cout << “Payment due in ” << lengthOfLoan << ” days on loan amount of $”
     <<
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: '```cpp'
 - en: 'loanAmount << ” at annual rate of ” << rate*100 << “% is: $” << payment <<
     std::endl;'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: '```cpp'
 - en: '}'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: '```cpp'
 - en: 'The output of the program when run is:'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 程序运行后的输出结果为：
 - en: '`Payment due in 365 days on loan amount of $100 at annual rate of 5% is: $105`'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: '`贷款金额为$100，年利率为5%，365天后应还金额为：$105`'
 - en: In my next post, I’ll go through this sample code and explain how it works.
     From there, I’ll show how to calculate present value and discuss QuantLib’s InterestRate
     class.  Check back soon!
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下一篇文章中，我将通过这个示例代码讲解它是如何工作的。之后，我会展示如何计算现值，并讨论QuantLib中的InterestRate类。敬请期待！
 - en: About Mick Hittesdorf
+  id: totrans-32
   prefs:
   - PREF_H2
   type: TYPE_NORMAL
+  zh: 关于Mick Hittesdorf
 - en: I'm a versatile technical leader with a passion for data analytics, data science
     and Big Data technology. I have experience working for both large and small organizations,
     in a variety of roles. I've been responsible for the management and operations
@@ -137,5 +205,7 @@
     and delivered innovative solutions to clients, both in a consulting and technical
     sales capacity. My current areas of focus include Big Data, data engineering,
     data science, R, and Cloud computing
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是一位多才多艺的技术领导者，对数据分析、数据科学和大数据技术充满热情。我在大型和小型组织中都有工作经验，担任过各种角色。我曾负责管理一个全球数据科学和分析平台，开发了低延迟的专有交易系统，管理过软件开发团队，制定了企业架构策略，撰写了白皮书和博客，发表过行业期刊文章，并以咨询和技术销售的身份向客户提供了创新的解决方案。我当前的关注领域包括大数据、数据工程、数据科学、R语言和云计算。

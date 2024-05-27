@@ -1,124 +1,189 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 04:58:02'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:58:02
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Magmasystems Blog: Forays into C++'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: Magmasystems博客：深入C++
 - en: 来源：[http://magmasystems.blogspot.com/2008/10/forays-into-c.html#0001-01-01](http://magmasystems.blogspot.com/2008/10/forays-into-c.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://magmasystems.blogspot.com/2008/10/forays-into-c.html#0001-01-01](http://magmasystems.blogspot.com/2008/10/forays-into-c.html#0001-01-01)
 - en: We have a C#/.NET-based Reuters market data adapter that we wrote ourselves
     (well, actually, I wrote it). This is an out-of-process Coral8 adapter that reads
     real-time ticks from RMDS, turns then into Coral8 tuples, and feeds them into
     our Coral8 engine. The adapter has two caches in it, and since market data is
     last reliable, we can publish the last-reliable ticks from one of the caches at
     specific intervals.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 我们有一个基于C#/.NET的路透社市场数据适配器，我们自己写的（好吧，实际上是写的我）。这是一个进程外的Coral8适配器，它从RMDS读取实时滴答声，将它们转换为Coral8元组，并将它们喂给我们的Coral8引擎。适配器中有两个缓存，由于市场数据是最后可靠的，我们可以从其中一个缓存中以特定间隔发布最后可靠的滴答声。
 - en: When we hooked the market data adapter up to our Coral8 engine, we started seeing
     an immediate backup in the pending message queue. We were sending Coral8 about
     3000 ticks per second. In addition, our Coral8 engine was processing our order
     flow, which could hit a max of another 3000 messages per second.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 当我们将市场数据适配器连接到我们的Coral8引擎时，我们开始看到挂起消息队列立即出现拥堵。我们向Coral8发送大约3000滴答声每秒。此外，我们的Coral8引擎正在处理我们的订单流程，峰值时可能达到另一3000条消息每秒。
 - en: My first thought was that it was taking too long for Coral8 to deserialize the
     market data tuple, so I wanted to transform our market data adapter from an out-of-process
     adapter to an in-process adapter. Unfortunately, in-process adapters have to be
     written as a vanilla, Win32-based C/C++ DLL.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的第一个想法是Coral8反序列化市场数据元组的时间太长，所以我想要将我们的市场数据适配器从进程外适配器转换为进程内适配器。不幸的是，进程内适配器必须作为普通的，基于Win32的C/C++
+    DLL编写。
 - en: I grew up on C++. However, I have not touched a lick of C++ since diving into
     .NET in 2001\. I was scared. I was frightened. However, I know that my teams needs
     some experience in writing in-process adapters for Coral8, and since my team consists
     of very strong .NET and Java people, I decided to bite the bullet and take one
     for the team.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 我是在C++中长大的。然而，自从2001年深入.NET以来，我再也没有碰过C++。我很害怕。我很害怕。然而，我知道我的团队需要一些编写Coral8进程内适配器的经验，而且由于我的团队由非常强大的.NET和Java人员组成，我决定挺身而出，为团队做贡献。
 - en: Man, oh man! I can't believe how much I had forgotten! Strange symbols like
     '*' and '->' were coming from my fingers. Compilation errors sprang up everywhere.
     There was no
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 哦，天哪！我简直不敢相信我忘记了多少！'*'和'->'这样的奇怪符号从我指尖流出。编译错误无处不在。没有
 - en: Resharper
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: Resharper
 - en: to help me along. Linker errors to strange
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 帮助我进行。链接器错误到奇怪
 - en: obfuscated
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 混淆
 - en: functions that I swear I never wrote started appearing in the error window.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 我发誓我从未写过的函数开始出现在错误窗口中。
 - en: Perhaps I need to use a little bit of
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 也许我需要在这里使用一点
 - en: extern "C"
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 外部"C"
 - en: here? Maybe there? Maybe everywhere!
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 也许在那里？也许到处都是！
 - en: Where was my .NET Thread class? Where was System.Timer? How do I do events?
     There is a new kind of pain that you have to go through in order to get callbacks
     to work within
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的.NET线程类在哪里？System.Timer又在哪里？我如何处理事件？为了在内部获得回调工作，你必须经历一种新的痛苦。
 - en: templated
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 模板
 - en: C++ classes. It took me hours to get simple callbacks to work.
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: C++类。我花了几个小时才让简单的回调工作。
 - en: Finally, after two days of work, I got the market data adapter ported over to
     Coral8\. To start with, let's try reading the ticks from a flat data file instead
     of from Reuters. Whew, it works. I see the ticks appearing
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 最后，经过两天的努力，我将市场数据适配器成功移植到Coral8。首先，让我们尝试从平面数据文件中读取滴答声，而不是从路透社那里。哇，它起作用了。我看到滴答声出现在
 - en: in the
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 在
 - en: Coral8 stream viewer. Now, let's try Reuters. After a bit of tweaking and some
     crashes on the
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: Coral8流查看器。现在，让我们试试路透社。经过一些调整和一些在
 - en: destructors
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 析构函数
 - en: ', ticks are finally coming in.'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 终于，时钟开始进来了。
 - en: Then, I get an email from our Coral8 developer telling me that the reason why
     the market data feed was slow in Coral8 was because of one of those mysterious
     coral8 queries that he wrote that clogged the system! So, my
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 然后，我收到我们Coral8开发者的电子邮件，告诉我市场数据馈送之所以在Coral8中缓慢，是因为他写的那些神秘Coral8查询之一堵塞了系统！所以，我的
 - en: inproc
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 进程内
 - en: adapter was not needed anymore. Market data was now zooming through our Coral8
     engine.
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 适配器不再需要。市场数据现在正快速通过我们的Coral8引擎。
 - en: Nevertheless, it was a fascinating experience to return to my C++ roots from
     a 7-year hiatus in the .NET world. Never again!
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 尽管如此，从.NET世界长达7年的休眠期中回归到我的C++根源，这段经历真是令人着迷。绝不再来！
 - en: ©2008 Marc Adler - All Rights Reserved.
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: ©2008 Marc Adler - 版权所有。
 - en: All opinions here are personal, and have no relation to my employer.
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这里表达的所有观点均为个人观点，与我的雇主无关。

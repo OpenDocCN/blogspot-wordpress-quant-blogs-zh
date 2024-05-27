@@ -1,103 +1,156 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 13:43:45'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 13:43:45
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Why Log Returns | Quantivity
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 为什么要使用对数收益率 | Quantivity
 - en: 来源：[https://quantivity.wordpress.com/2011/02/21/why-log-returns/#0001-01-01](https://quantivity.wordpress.com/2011/02/21/why-log-returns/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://quantivity.wordpress.com/2011/02/21/why-log-returns/#0001-01-01](https://quantivity.wordpress.com/2011/02/21/why-log-returns/#0001-01-01)
 - en: 'A reader recently asked an important question, one which often puzzles those
     new to quantitative finance (especially those coming from [technical analysis](http://en.wikipedia.org/wiki/Technical_analysis),
     which relies upon price pattern analysis):'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最近有读者提出了一个重要问题，这个问题经常让那些新接触量化金融的人感到困惑（尤其是那些从[技术分析](http://en.wikipedia.org/wiki/Technical_analysis)转来的人，技术分析依赖于价格模式分析）：
 - en: Why use the logarithm of returns, rather than price or raw returns?
+  id: totrans-7
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 为什么要使用对数收益率，而不是价格或原始收益？
 - en: The answer is several fold, each of whose individual importance varies by problem
     domain.
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 答案有几个方面，每个方面的重要性因问题领域而异。
 - en: 'Begin by defining a return: ![r_i](img/86041fc7cdb750d937fb4e877af28a1e.png)
     at time ![i](img/6aed483d693a0743f647c27ec4372c2a.png), where ![p_i](img/cf77e53f898b49e52240e8ba57932b24.png)
     is the price at time ![i](img/6aed483d693a0743f647c27ec4372c2a.png) and ![j \equiv
     (i - 1)](img/1aca8f5dfc45306cceb405d34f6622a3.png):'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 从定义一个收益开始：![\\(r_i\\)](img/86041fc7cdb750d937fb4e877af28a1e.png) 在时间 ![\\(i\\)](img/6aed483d693a0743f647c27ec4372c2a.png)，其中
+    ![\\(p_i\\)](img/cf77e53f898b49e52240e8ba57932b24.png) 是时间 ![\\(i\\)](img/6aed483d693a0743f647c27ec4372c2a.png)
+    的价格，而 ![\\(j \equiv (i - 1)\\)](img/1aca8f5dfc45306cceb405d34f6622a3.png)：
 - en: '![r_i = \frac{p_i - p_j}{ p_j } ](img/49ecbc13c2cb8772895271279f41192a.png)'
+  id: totrans-10
   prefs: []
   type: TYPE_IMG
+  zh: '![\\(r_i = \frac{p_i - p_j}{ p_j }\\) ](img/49ecbc13c2cb8772895271279f41192a.png)'
 - en: 'Benefit of using *returns*, versus prices, is *normalization*: measuring all
     variables in a comparable metric, thus enabling evaluation of analytic relationships
     amongst two or more variables despite originating from price series of unequal
     values. This is a requirement for many multidimensional statistical analysis and
     machine learning techniques. For example, interpreting an equity [covariance matrix](http://en.wikipedia.org/wiki/Covariance)
     is made sane when the variables are both measured in percentage.'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用*returns*而不是价格的好处是*标准化*：以可比较的度量单位测量所有变量，从而使得尽管来自不同价值的价格序列，但仍能够评估两个或多个变量之间的分析关系。这是许多多维统计分析和机器学习技术的要求。例如，当变量都以百分比来衡量时，解释股票的[协方差矩阵](http://en.wikipedia.org/wiki/Covariance)是合理的。
 - en: Several benefits of using *log returns*, both theoretic and algorithmic.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用*log returns*的几个好处，无论是理论上的还是算法上的。
 - en: 'First, *log-normality*: if we *assume* that prices are distributed [log normally](http://en.wikipedia.org/wiki/Log-normal_distribution)
     (which, in practice, may or may not be true for any given price series), then
     ![log(1 + r_i)](img/f97d06f6d5c52058818dda135267a3b7.png) is conveniently [normally
     distributed](http://en.wikipedia.org/wiki/Normal_distribution), because:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 首先，*对数正态性*：如果我们*假设*价格以[对数正态分布](http://en.wikipedia.org/wiki/Log-normal_distribution)分布（实际上，对于任何给定的价格序列可能是真实的也可能是不真实的），那么
+    ![\\log(1 + r_i)\\](img/f97d06f6d5c52058818dda135267a3b7.png) 很方便地是[正态分布](http://en.wikipedia.org/wiki/Normal_distribution)，因为：
 - en: '![1 + r_i = \frac{p_i}{p_j} = \exp^{\log(\frac{p_i}{p_j})} ](img/7e6e5fcd19efb43c4a5e3b84e92ea0c2.png)'
+  id: totrans-14
   prefs: []
   type: TYPE_IMG
+  zh: '![\\(1 + r_i = \frac{p_i}{p_j} = \exp^{\log(\frac{p_i}{p_j})}\\) ](img/7e6e5fcd19efb43c4a5e3b84e92ea0c2.png)'
 - en: This is handy given much of classic statistics presumes normality.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在许多经典统计学中，这非常方便地假设正态性。
 - en: 'Second, *approximate raw-log equality*: when returns are very small (common
     for trades with short holding durations), the following approximation ensures
     they are close in value to raw returns:'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 第二，*近似原始对数相等性*：当收益非常小（对于持有时间较短的交易而言很常见）时，以下近似确保它们与原始收益的值接近：
 - en: '![\log(1 + r) \approx r](img/3c8ca8caed09f6fd7ed86e7608569b03.png) , ![r \ll
     1 ](img/1abb56562a0bb9449d4a6af15e3fe057.png)'
+  id: totrans-17
   prefs: []
   type: TYPE_IMG
+  zh: '![\\log(1 + r) \approx r\\](img/3c8ca8caed09f6fd7ed86e7608569b03.png) , ![\\(r
+    \ll 1 )\\](img/1abb56562a0bb9449d4a6af15e3fe057.png)'
 - en: 'Third, *time-additivity*: consider an ordered sequence of ![n](img/4f0c9881324df3a61e8d3cc580ec06e6.png)
     trades. A statistic frequently calculated from this sequence is the *compounding
     return*, which is the running return of this sequence of trades over time:'
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 第三，*时间可加性*：考虑一个有序的 ![\\(n\\)](img/4f0c9881324df3a61e8d3cc580ec06e6.png) 个交易序列。从这个序列中经常计算的一个统计量是*复合收益*，它是这个交易序列随时间的运行收益：
 - en: '![\displaystyle (1 + r_1)(1 + r_2)  \cdots (1 + r_n) = \prod_i (1+r_i)](img/c70af4ee8d1b96751b4118512fe679d3.png)'
+  id: totrans-19
   prefs: []
   type: TYPE_IMG
+  zh: '![\\(1 + r_1)(1 + r_2)  \cdots (1 + r_n) = \prod_i (1+r_i)\\](img/c70af4ee8d1b96751b4118512fe679d3.png)'
 - en: 'This formula is fairly unpleasant, as probability theory reminds us the product
     of normally-distributed variables is *not normal*. Instead, the sum of normally-distributed
     variables is normal (important technicality: only when all variables are *uncorrelated*),
     which is useful when we recall the following logarithmic identity:'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个公式相当让人不快，因为概率论提醒我们，正态分布变量的乘积*不是正态分布*。相反，正态分布变量的和是正态分布（重要的技术细节：只有当所有变量*不相关*时），当我们回想起以下对数恒等式时，这是有用的：
 - en: '![\log(1 + r_i) = log(\frac{p_i}{p_j}) = \log(p_i) - log(p_j) ](img/ebe0b43bc7b39f463d9699826cc219b6.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_IMG
+  zh: '![\log(1 + r_i) = log(\frac{p_i}{p_j}) = \log(p_i) - log(p_j) ](img/ebe0b43bc7b39f463d9699826cc219b6.png)'
 - en: 'Thus, compounding returns are normally distributed. Finally, this identity
     leads us to a pleasant algorithmic benefit; a simple formula for calculating compound
     returns:'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，复合收益是正态分布的。最后，这个恒等式给我们带来了一个愉快的算法优势；一个简单的公式来计算复合收益：
 - en: '![\displaystyle \sum_i \log(1+r_i) = \log(1 + r_1) + \log(1 + r_2)  + \cdots
     + \log(1 + r_n) = \log(p_n) - \log(p_0)](img/f3f8851ad0094949ddd8d083b0397afc.png)'
+  id: totrans-23
   prefs: []
   type: TYPE_IMG
+  zh: '![\displaystyle \sum_i \log(1+r_i) = \log(1 + r_1) + \log(1 + r_2)  + \cdots
+    + \log(1 + r_n) = \log(p_n) - \log(p_0)](img/f3f8851ad0094949ddd8d083b0397afc.png)'
 - en: Thus, the compound return over *n* periods is merely the difference in log between
     initial and final periods. In terms of [algorithmic complexity](http://en.wikipedia.org/wiki/Big_O_notation),
     this simplification reduces O(n) multiplications to O(1) additions. This is a
@@ -105,28 +158,40 @@
     returns diverge from normal, as the [central limit theorem](http://en.wikipedia.org/wiki/Central_limit_theorem)
     reminds us that the sample average of this sum will converge to normality (presuming
     finite first and second moments).
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 因此，*n*期的复合回报仅仅是初始和最终期间的对数差。从[算法复杂度](http://en.wikipedia.org/wiki/Big_O_notation)的角度来看，这种简化将O(n)次乘法降低为O(1)次加法。这对于中等到大型的*n*是一个巨大的优势。此外，这个和对于收益偏离正态分布的情况是有用的，因为[中心极限定理](http://en.wikipedia.org/wiki/Central_limit_theorem)提醒我们，这个和的样本平均值将收敛于正态分布（假设有限的一阶和二阶矩）。
 - en: 'Fourth, *mathematical ease*: from [calculus](http://en.wikipedia.org/wiki/Calculus),
     we are reminded (ignoring the [constant of integration](http://en.wikipedia.org/wiki/Constant_of_integration)):'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 第四，*数学上的便利*：从[微积分](http://en.wikipedia.org/wiki/Calculus)中，我们被提醒（忽略[积分常数](http://en.wikipedia.org/wiki/Constant_of_integration)）：
 - en: '![e^x = \int e^x dx = \frac{d}{dx} e^x = e^x ](img/1aec1a820b3d7042a5267a1a05c4ac64.png)'
+  id: totrans-26
   prefs: []
   type: TYPE_IMG
+  zh: '![e^x = \int e^x dx = \frac{d}{dx} e^x = e^x ](img/1aec1a820b3d7042a5267a1a05c4ac64.png)'
 - en: This identity is tremendously useful, as much of financial mathematics is built
     upon [continuous time stochastic processes](http://en.wikipedia.org/wiki/Continuous-time_stochastic_process)
     which rely heavily upon integration and differentiation.
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个恒等式非常有用，因为许多金融数学是建立在[连续时间随机过程](http://en.wikipedia.org/wiki/Continuous-time_stochastic_process)之上的，这些过程严重依赖于积分和微分。
 - en: 'Fifth, *numerical stability*: addition of small numbers is numerically safe,
     while multiplying small numbers is not as it is subject to [arithmetic underflow](http://en.wikipedia.org/wiki/Arithmetic_underflow).
     For many interesting problems, this is a serious potential problem. To solve this,
     either the algorithm must be modified to be numerically robust or it can be transformed
     into a numerically safe summation via logs.'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 第五，*数值稳定性*：小数的加法在数值上是安全的，而小数的乘法则不然，因为它容易受到[算术下溢](http://en.wikipedia.org/wiki/Arithmetic_underflow)的影响。对于许多有趣的问题，这是一个严重的潜在问题。为了解决这个问题，算法必须被修改为数值稳健的，或者通过对数变换可以将其转化为数值安全的求和。
 - en: 'As suggested by John Hall, there are downsides to using log returns. Here are
     two recent papers to consider (along with their references):'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如约翰·霍尔建议的，使用对数收益也有缺点。以下是要考虑的两篇最近的论文（以及它们的参考文献）：

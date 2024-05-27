@@ -1,28 +1,42 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 14:33:18'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 14:33:18'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: Maximum Sharpe Portfolio | Systematic Investor
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 最大夏普投资组合 | Systematic Investor
 - en: 来源：[https://systematicinvestor.wordpress.com/2013/03/22/maximum-sharpe-portfolio/#0001-01-01](https://systematicinvestor.wordpress.com/2013/03/22/maximum-sharpe-portfolio/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://systematicinvestor.wordpress.com/2013/03/22/maximum-sharpe-portfolio/#0001-01-01](https://systematicinvestor.wordpress.com/2013/03/22/maximum-sharpe-portfolio/#0001-01-01)
 - en: Maximum Sharpe Portfolio or Tangency Portfolio is a portfolio on the [efficient
     frontier](http://en.wikipedia.org/wiki/Efficient_frontier) at the point where
     line drawn from the point (0, risk-free rate) is tangent to the [efficient frontier](http://en.wikipedia.org/wiki/Efficient_frontier).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 最大夏普投资组合或正切投资组合是[有效前沿](http://en.wikipedia.org/wiki/Efficient_frontier)上的投资组合，在点（0，无风险利率）画出的直线与[有效前沿](http://en.wikipedia.org/wiki/Efficient_frontier)相切的点。
 - en: There is a great discussion about Maximum Sharpe Portfolio or Tangency Portfolio
     at [quadprog optimization](http://stackoverflow.com/questions/10526243/quadprog-optimization)
     question. In general case, finding the Maximum Sharpe Portfolio requires a non-linear
@@ -34,64 +48,102 @@
     if we multiply w by a number, the constraint is unchanged – for example, w1 >
     0 is equivalent to 5*w1 > 5*0), the quadratic solver can be used to find Maximum
     Sharpe Portfolio or Tangency Portfolio.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 在[quadprog optimization](http://stackoverflow.com/questions/10526243/quadprog-optimization)的问题中有关于最大夏普投资组合或正切投资组合的很好的讨论。一般情况下，找到最大夏普投资组合需要一个非线性求解器，因为我们想要找到投资组合权重
+    `w` 来最大化 `w' mu / sqrt( w' V w )`（即[夏普比率](http://www.stanford.edu/~wfsharpe/art/sr/sr.htm)是
+    `w` 的非线性函数）。但是，如在[quadprog optimization](http://stackoverflow.com/questions/10526243/quadprog-optimization)的问题中讨论的，存在特殊的情况可以使用二次求解器来找到最大夏普投资组合。只要所有约束的齐次度为
+    0（即，如果我们将 `w` 乘以一个数，约束不变化– 例如，w1 > 0 相当于 5*w1 > 5*0 ），就可以使用二次求解器来找到最大夏普投资组合或正切投资组合。
 - en: 'I have implemented the logic to find Maximum Sharpe Portfolio or Tangency Portfolio
     in the [max.sharpe.portfolio() function in strategy.r at github](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r).
     You can specify following 2 parameters:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 我已经在 [github 的 strategy.r 中实现了找到最大夏普投资组合或正切投资组合的逻辑](https://github.com/systematicinvestor/SIT/blob/master/R/strategy.r)。您可以指定以下
+    2 个参数：
 - en: 'Type of portfolio: ‘long-only’, ‘long-short’, or ‘market-neutral’'
+  id: totrans-9
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 投资组合类型：‘仅多头’、‘多头-空头’或‘市场中性’
 - en: Portfolio exposure. For example, ‘long-only’ with exposure = 1, is a fully invested
     portfolio
+  id: totrans-10
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 投资组合曝光。例如，“仅多头”（‘long-only’）的曝光 = 1，是一个完全投资的投资组合
 - en: Now, let’s construct a sample [efficient frontier](http://en.wikipedia.org/wiki/Efficient_frontier)
     and plot Maximum Sharpe Portfolio.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，让我们构建一个样本[有效前沿](http://en.wikipedia.org/wiki/Efficient_frontier)，并绘制最大夏普投资组合。
 - en: '[PRE0]'
+  id: totrans-12
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: '[![plot1.png.small](img/a0f4356752b4dae522bbe28f8668ebfb.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot1-small1.png)'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot1.png.small](img/a0f4356752b4dae522bbe28f8668ebfb.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot1-small1.png)'
 - en: 'Now let’s see how to construct ‘long-only’, ‘long-short’, or ‘market-neutral’
     Maximum Sharpe Portfolio or Tangency Portfolios:'
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在让我们看看如何构建‘仅多头’、‘多头-空头’或‘市场中性’最大夏普投资组合或正切投资组合：
 - en: '[PRE1]'
+  id: totrans-15
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE1]'
 - en: The long-only Maximum Sharpe portfolio as expected has exposure of 100%. The
     long-short Maximum Sharpe portfolio is 227% long and 127% short. The market-neutral
     Maximum Sharpe portfolio is 100% long and 100% short.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 预期的仅多头最大夏普投资组合的曝光为 100%。多头-空头最大夏普投资组合为多头 227%，空头 127%。市场中性最大夏普投资组合为多头 100%，空头
+    100%。
 - en: As the last step, I run Maximum Sharpe algo vs other portfolio optimization
     methods I have previously discussed (i.e. Risk Parity, Minimum Variance, Maximum
     Diversification, Minimum Correlation) on the 10 asset universe used in the [Adaptive
     Asset Allocation](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/)
     post.
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为最后一步，我在 [适应性资产配置](https://systematicinvestor.wordpress.com/2012/08/14/adaptive-asset-allocation/)
+    帖子中使用了 10 个资产组合的最大夏普算法与我之前讨论过的其他投资组合优化方法进行了比较（即风险平价、最小方差、最大多样化、最小相关性）。
 - en: '[PRE2]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE2]'
 - en: The allocation using Maximum Sharpe Portfolio produced more concentrated portfolios
     with higher total return, higher Sharpe ratio, and higher turnover.
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用最大夏普比率组合进行资产配置产生的组合更为集中，具有更高的总回报、更高的夏普比率和更高的换手率。
 - en: '[![plot2.png.small](img/ee6d190c88f03e53f6b133eade01f6f6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot2-small.png)'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot2.png.small](img/ee6d190c88f03e53f6b133eade01f6f6.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot2-small.png)'
 - en: '[![plot3.png.small](img/19e754e52d1390746979bcd39cc75b41.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot3-small.png)'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot3.png.small](img/19e754e52d1390746979bcd39cc75b41.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot3-small.png)'
 - en: '[![plot4.png.small](img/a4f8b0a768c6af157ee3cb54d50c8c6d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot4-small.png)'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![plot4.png.small](img/a4f8b0a768c6af157ee3cb54d50c8c6d.png)](https://systematicinvestor.wordpress.com/wp-content/uploads/2013/03/plot4-small.png)'

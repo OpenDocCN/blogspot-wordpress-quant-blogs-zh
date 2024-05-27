@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 06:45:44'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 06:45:44
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: The Volatility Surface | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：波动率表面 | 金融与科技的一切事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01](https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01](https://mhittesdorf.wordpress.com/2013/10/10/introducing-quantlib-the-volatility-surface/#0001-01-01)
 - en: In this post, which largely builds upon my previous post on implied volatility,
     I’m going to introduce the concept of a volatility surface. A volatility surface
     renders a volatility measure, such as implied volatility or forward volatility,
@@ -28,44 +40,60 @@
     simply locate the point on the surface corresponding to the option’s strike and
     expiration. The volatility can then be used to price the option with an appropriate
     option pricing model, such as [Black-Scholes](https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/).
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在这篇博客文章中，我将介绍波动率表面的概念，这个概念建立在我在之前关于隐含波动率的博客文章的基础上。波动率表面可以沿着到期时间和罢工价格的两个维度呈现波动率测量值，如隐含波动率或未来波动率。因此，它不仅将期权的波动率与罢工价格相关联，还描绘了期权合同的波动率期限结构，这与利率期限结构类似。要找到特定期权的波动率，只需在表面上找到与期权到期和罢工价格相对应的点。然后，可以使用适当的期权定价模型（如[Black-Scholes](https://mhittesdorf.wordpress.com/2013/07/29/introducing-quantlib-black-scholes-and-the-greeks/)）来定价该期权。
 - en: A volatility surface can be visualized as a series of volatility smiles, one
     for each option expiration, where the x axis is strike, y is time to maturity
     and z is volatility (sigma). Essentially, the volatility surface is constructed
     by computing the volatility smile for each option expiration and knitting them
     together, filling in missing data with interpolated or extrapolated values as
     necessary, such that the result is a continuous, smooth, 3D surface.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 波动率表面可以被可视化为一系列波动率微笑图，每个期权到期都有一个，其中x轴是罢工价格，y是到期时间，z是波动率（sigma）。本质上，波动率表面是通过为每个期权到期计算波动率微笑图并将它们编织在一起构建的，如有必要，用插值或外推值填充缺失的数据，结果是一个连续、平滑的三维表面。
 - en: 'An example is shown below, which was generated using implied volatility values
     for options on the the CBOE’s S&P E-Mini futures contract (symbol: ES).'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的例子展示了如何使用CBOE的S&P E-Mini期货合约（符号：ES）期权的隐含波动率值生成的。
 - en: '[![volsurface](img/df6900fc533685bfe9b0dbda9766f7c1.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/10/volsurface.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![volsurface](img/df6900fc533685bfe9b0dbda9766f7c1.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/10/volsurface.png)'
 - en: 'The data used to create the volatility surface above was taken from the Implied
     Vol. column of this Interactive Brokers screenshot:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 创建上述波动率表面的数据是从这个Interactive Brokers屏幕截图的隐含波动率列中获取的：
 - en: '[![esoptions9302013-0903](img/b3d9cd108a56626f3ac9e451e2efcb5f.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/10/esoptions9302013-0903.png)'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--img/b3d9cd108a56626f3ac9e451e2efcb5f.png-->
 - en: QuantLib provides explicit support for creating and working with volatility
     surface objects through its [BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)
     class. The BlackVarianceSurface class requires a list of strikes, a list of maturity
     dates and Matrix of volatilities, where the rows of the Matrix correspond to the
     strikes and the columns correspond to the option expiration dates.
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: QuantLib通过其[BlackVarianceSurface](http://quantlib.org/reference/class_quant_lib_1_1_black_variance_surface.html)类明确支持创建和处理波动率表面对象。BlackVarianceSurface类需要一系列的罢工价格、一系列的到期日期和波动率矩阵，其中矩阵的行对应于罢工价格，列对应于期权的到期日期。
 - en: The example code below shows how to construct an instance of a BlackVarianceSurface
     class from implied volatilities obtained from Interactive Brokers for the September,
     2013 through December, 2014 ES future option contract expirations. Alternatively,
     one could solve for the implied volatilities using the technique described in
     my previous post in this series.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的示例代码显示了如何从Interactive Brokers获得的2013年9月至2014年12月ES期货期权到期日的隐含波动率构建BlackVarianceSurface类的实例。或者，我们可以使用我在本系列上一篇文章中描述的技术求解隐含波动率。
 - en: An important feature of the BlackVarianceSurface class that deserves mention
     is that it allows for the interpolation algorithm to be specified by the programmer.
     The default algorithm is [BilinearInterpolation](http://quantlib.org/reference/class_quant_lib_1_1_bilinear_interpolation.html). 
@@ -73,74 +101,114 @@
     and [Polynomial2DSpline](http://quantlib.org/reference/class_quant_lib_1_1_polynomial2_d_spline.html),
     which all inherit from the [Interpolation2D](http://quantlib.org/reference/class_quant_lib_1_1_interpolation2_d.html)
     base class.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 值得提及的黑波动率表面类的一个重要特性是，它允许程序员指定插值算法。默认算法是[双线性插值](http://quantlib.org/reference/class_quant_lib_1_1_bilinear_interpolation.html)。QuantLib还提供了其他插值类，如[双三次样条插值](http://quantlib.org/reference/class_quant_lib_1_1_bicubic_spline.html)和[二维多项式样条插值](http://quantlib.org/reference/class_quant_lib_1_1_polynomial2_d_spline.html)，它们都继承自[二维插值](http://quantlib.org/reference/class_quant_lib_1_1_interpolation2_d.html)基类。
 - en: In the example that follows, I extract the volatility for several strikes and
     maturities from the ES volatility surface, including strikes that must be interpolated. 
     Then I set the  interpolator to be BicubicSpline and calculate the volatilities
     again for the same strikes and maturities.  Lastly, I export the x, y and z volatility
     surface values to a file so that I can generate a 3D surface plot with [gnuplot](http://www.gnuplot.info/),
     an open-source charting tool.
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 在下面的示例中，我从ES波动率表面中提取了多个执行价格和到期日的波动率，包括必须插值的执行价格。然后我将插值器设置为双三次样条插值，再次为相同的执行价格和到期日计算波动率。最后，我将x、y和z波动率表面值导出到文件中，以便使用开源图表工具[gnuplot](http://www.gnuplot.info/)生成3D表面图。
 - en: The gnuplot script commands follow the C++ code at the end of the listing. I
     encourage you to run the gnuplot script on your own machine, as gnuplot supports
     some pretty cool features that allow you  to explore the volatility surface interactively.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的gnuplot脚本命令遵循列表末尾的C++代码。我鼓励你在自己的机器上运行gnuplot脚本，因为gnuplot支持一些很酷的功能，可以让你交互式地探索波动率表面。
 - en: 'So here is the code:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 以下是代码：
 - en: '[PRE0]'
+  id: totrans-18
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'When run, the program produces the following output:'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 运行程序后，产生以下输出：
 - en: '`Using standard bilinear interpolation...'
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用标准双线性插值...
 - en: 'Dec13 1650.0 volatility: 0.156400'
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1650.0 波动率：0.156400
 - en: 'Dec13 1655.0 volatility (interpolated): 0.154922'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1655.0 波动率（插值）：0.154922
 - en: 'Dec13 1685.0 volatility (interpolated): 0.143587'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1685.0 波动率（插值）：0.143587
 - en: 'Jun14 1655.0 volatility (interpolated): 0.163246'
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: 6月14日 1655.0 波动率（插值）：0.163246
 - en: 'Sep14 1680.0 volatility: 0.160420'
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: 9月14日 1680.0 波动率：0.160420
 - en: Using bicubic spline interpolation...
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: 使用双三次样条插值...
 - en: 'Dec13 1650.0 volatility: 0.156400'
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1650.0 波动率：0.156400
 - en: 'Dec13 1655.0 volatility (interpolated): 0.154662'
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1655.0 波动率（插值）：0.154662
 - en: 'Dec13 1685.0 volatility (interpolated): 0.143587'
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: 12月13日 1685.0 波动率（插值）：0.143587
 - en: 'Jun14 1655.0 volatility (interpolated): 0.163750'
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: 6月14日 1655.0 波动率（插值）：0.163750
 - en: 'Sep14 1680.0 volatility: 0.160420`'
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: 9月14日 1680.0 波动率：0.160420
 - en: As you can see, the choice of interpolator can impact the shape of the volatility
     surface which can, in turn, alter the price of options calculated with the corresponding
     volatilities.
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: 如你所见，插值器的选择可以影响波动率表面的形状，这反过来又可能改变相应波动率计算出的期权的价格。
 - en: So that’s about it for this latest installment of my Introducing QuantLib series.
     I hope you enjoyed it. Please do not hesitate to post any comments or questions
     you might have. I would love to get some more feedback on these posts from my
     readers. As always, until next time, have fun with QuantLib!
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: 这就是我最新一期的《介绍QuantLib》系列文章的内容了。希望你能喜欢。请不要犹豫，留下任何评论或问题。我很乐意从我的读者那里得到更多关于这些文章的反馈。像往常一样，下次再见，祝你在QuantLib中玩得开心！

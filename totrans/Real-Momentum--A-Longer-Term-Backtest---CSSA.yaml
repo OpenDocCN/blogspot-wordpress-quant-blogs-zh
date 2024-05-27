@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-12 17:46:32'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-12 17:46:32
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Real Momentum: A Longer-Term Backtest | CSSA'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 真实动量：更长期的回测 | CSSA
 - en: 来源：[https://cssanalytics.wordpress.com/2015/05/09/real-momentum-a-longer-term-backtest/#0001-01-01](https://cssanalytics.wordpress.com/2015/05/09/real-momentum-a-longer-term-backtest/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://cssanalytics.wordpress.com/2015/05/09/real-momentum-a-longer-term-backtest/#0001-01-01](https://cssanalytics.wordpress.com/2015/05/09/real-momentum-a-longer-term-backtest/#0001-01-01)
 - en: 'In the [last pos](https://cssanalytics.wordpress.com/2015/05/07/real-momentum-a-time-seriesabsolute-momentum-strategy-including-inflation-expectations/
     "Real Momentum:  A Time-Series/Absolute Momentum Strategy Including Inflation
     Expectations")t I introduced the concept of “real momentum” which is a trend following
@@ -43,11 +55,18 @@
     on cash here are the results compared to a traditional absolute/time-series momentum
     strategy that uses a risk-free rate or proxy such as short-term treasurys (SHY).
     Note that rebalancing was done on a monthly basis.'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 在上一次[文章](https://cssanalytics.wordpress.com/2015/05/07/real-momentum-a-time-seriesabsolute-momentum-strategy-including-inflation-expectations/
+    "真实动量：包括通胀预期的时间序列/绝对动量策略")中，我介绍了“真实动量”的概念，它是一种基于真实回报的趋势跟踪信号。在文章中，我使用了预期的通胀率和无风险回报来从标普500中扣除，以创建一个真实超额回报。这样做是为了使得买入位置的门槛高于标准方法。几位读者的评论表明这是“重复计算”，从经济角度来看，这是正确的：真实回报应该只扣除通胀（或预期通胀）的回报。理论指导我们应该采用这种方法而不是真实超额回报。由于这是一个简化，这是可取的，因为它更好地避免了“数据窥探”的主张。此外，由于这是一个初步研究，在上篇文章中，我用了只有10年的数据进行了快速测试，可用的ETF。显然，这并不是评估概念是否有价值或是否健壮的理想方法。为了获得更多数据，我使用了TIP和IEF的互换基金代理。我能够将结果追溯到1995年（对于TIP，我使用了Loomis
+    Sayles通胀保护证券互换基金（LSGSX），对于IEF，我使用了T Rowe Price美国国债中期基金）。遵循读者的建议，我仅减去预期通胀率——这是TIP和IEF之间的差异回报（使用可选的回溯
+    smooth，3-10天之间类似的结果，我选择了5天进行这些测试）——从标普500（SPY）的每日回报中，然后取这些回报的平均值。如果回报为正，则做多，如果为负，则持现金。在这里不假设现金回报。与使用无风险利率或代理的传统绝对/时间序列动量策略（如短期国债（SHY））相比，以下是结果。注意，再平衡是每月进行一次。
 - en: '[![real mom long term](img/16dab2739804732c0b576d3db0d19caa.png)](https://cssanalytics.files.wordpress.com/2015/05/real-mom-long-term.png)'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: '![真实动量长期](img/16dab2739804732c0b576d3db0d19caa.png)'
 - en: 'The results seem to clearly favor Real Momentum- which is impressive considering
     we simplified the calculation and also extended the lookback for 10-years that
     are “out of sample.”  On average, the Real Momentum signal produces nearly a 1%
@@ -60,15 +79,22 @@
     Momentum is negative.  Using a 120-day  Real Momentum with the strategy parameters
     above, a baseline strategy goes long SPY/S&P500 when Real Momentum is >0 and holds
     TIP when momentum is <0\. Here is what this looks like:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 结果显示，真实动量（Real Momentum）似乎明显占优，考虑到我们简化了计算，并将回溯期扩展到了10年（“样本外”），这令人印象深刻。平均而言，真实动量信号使得年化复合增长率（CAGR）提高了近1%，夏普比率（Sharpe
+    Ratio）提高了约15%。表面上看，对于能够影响市场的较大投资者来说，真实股票风险溢价可能更为重要。但正如我的同事Corey Rittenhouse指出的，如果你不打算投资那些实际回报率为负的资产，那么你需要一个替代方案。我同意这个观点，一个逻辑上的选择是在真实动量为负时持有TIP（或通货膨胀保护国债）。使用上述策略参数和120天的真实动量，基准策略是在真实动量大于0时买入SPY/标普500，而在动量小于0时持有TIP。以下是这种情况的样子：
 - en: '[![rmom 1](img/d27c11f15610e2303ead19b25daca5f8.png)](https://cssanalytics.files.wordpress.com/2015/05/rmom-1.png)'
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![rmom 1](img/d27c11f15610e2303ead19b25daca5f8.png)](https://cssanalytics.files.wordpress.com/2015/05/rmom-1.png)'
 - en: 'For comparison, here is absolute momentum using SPY and SHY with the same 120-day
     parameter:'
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 作为对比，这里是用SPY和SHY相同的120天参数的绝对动量策略：
 - en: 'As you can see the Real Momentum strategy outperforms the Absolute Momentum
     strategy, with higher accuracy on winning trades and higher gains per trade along
     with higher return and a higher sharpe ratio with a similar maximum drawdown.
@@ -77,11 +103,15 @@
     is superior so that is unlikely to be the driving factor. But just to prove that,
     here is the Absolute Momentum strategy using SHY as the asset to trigger the signal
     but holding TIP as the cash asset:'
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 正如你所见，真实动量策略在胜率、每笔交易的收益以及回报率和夏普比率上都优于绝对动量策略，且最大回撤相似。一些读者可能会指出，这种比较可能不公平，因为TIP作为现金资产的回报超过了SHY。但正如第一张表格所示，时机信号本身更优越，这不太可能是驱动因素。但为了证明这一点，这里是用SHY作为触发信号的资产，而持有TIP作为现金资产的绝对动量策略：
 - en: '[![rmom 3](img/a145d4feaa6ede935d352b9c416e7387.png)](https://cssanalytics.files.wordpress.com/2015/05/rmom-3.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![rmom 3](img/a145d4feaa6ede935d352b9c416e7387.png)](https://cssanalytics.files.wordpress.com/2015/05/rmom-3.png)'
 - en: This is substantially worse than the  Real Momentum strategy and worse than
     the Absolute Momentum strategy using SHY as the cash asset. While not shown, using
     TIP as the signal asset and the cash asset does the worst of all. So apparently
@@ -99,5 +129,7 @@
     very good returns and risk-adjusted returns and beats buy and hold over a 20-year
     period by nearly 5% annualized. The strategy also happens to be relatively tax-efficient
     compared to more complex strategies which is a bonus.
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 这比使用真实动量策略要糟糕得多，甚至比使用SHY作为现金资产的绝对动量策略还要差。虽然未展示，但使用TIP作为信号资产和现金资产的表现是最差的。所以显然在观察真实动量方面有一些东西——或者实际上是对广泛股票市场/标普500的预期真实回报。这并不是对该策略的最终评价，进行更长期测试（如他们所说……数据永远不会太多）将是有帮助的。但在查看使用这一信号的其他风险资产的表现后，我无法否定初次的假设，即在那里确实有一些东西。这是一个有意义的发现，并且在简化后进行了样本外测试，数据似乎也支持这一点。进行更深入的分析以了解发生了什么以及这是否仅仅是由其他因素驱动的偶然结果将会很有趣。一个基本的真实动量策略，当预期真实回报为正时持有标普500，当为负时持有国债通胀保护证券，可以获得非常好的回报和风险调整后的回报，并且在20年的持有期间几乎比买入并持有策略高出5%的年化回报。该策略碰巧比更复杂的策略具有较高的税务效率，这是一个额外的优势。

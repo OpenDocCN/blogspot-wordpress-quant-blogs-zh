@@ -1,41 +1,61 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 分类：未分类
 - en: 'date: 2024-05-18 04:45:12'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 04:45:12
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Intelligent Trading: Quantitative Candlestick Pattern Recognition (Part 2 --
     What''s this Natural Language Processing stuff?)'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 智能交易：量化蜡烛图模式识别（第二部分 -- 自然语言处理是啥？）
 - en: 来源：[http://intelligenttradingtech.blogspot.com/2010/08/quantitative-candlestick-pattern.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/08/quantitative-candlestick-pattern.html#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[http://intelligenttradingtech.blogspot.com/2010/08/quantitative-candlestick-pattern.html#0001-01-01](http://intelligenttradingtech.blogspot.com/2010/08/quantitative-candlestick-pattern.html#0001-01-01)
 - en: '**I wanted to briefly add one more thought regarding the temporal nature of
     probabilities as was alluded to in my correspondence with Adam, as well as the
     prior closing comments on the Chaos post (structure coalescing and dispersing).'
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: '**我想顺便补充一下有关概率的时间性质，正如我在与亚当的通信中所暗示的那样，以及关于混沌帖子（结构凝聚和分散）的先前的评论。'
 - en: I will borrow from the field of Natural Language Processing and introduce one
     common visual description of how the states evolve over time using something called
     a Lexical Dispersion Plot.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 我将从自然语言处理领域借鉴，引入一种常见的视觉描述，描述状态随时间演变的方式，使用所谓的词汇散点图。
 - en: '[![](img/ff5b71b54726c511588246601d36e90a.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoaTPYUutx1kzrK0yVpZbF7mIiD2h416WneNw-bP9j1pYlHAeQedOv4mxL4t5JiyceMm4vgd07k3On-nByqlBXItSzTDL9ECEphPr3_TtO_3MDgq_wORBOfNVjuWlEUnIxb1It_afqqSU/s1600/dsip_plot.jpg)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '![图1](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoaTPYUutx1kzrK0yVpZbF7mIiD2h416WneNw-bP9j1pYlHAeQedOv4mxL4t5JiyceMm4vgd07k3On-nByqlBXItSzTDL9ECEphPr3_TtO_3MDgq_wORBOfNVjuWlEUnIxb1It_afqqSU/s1600/dsip_plot.jpg)'
 - en: Fig 1\. Lexical (cluster state vocabulary) Dispersion Plot of Clustered Candlestick
     States over time
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 图1。词汇（聚类状态词汇）随时间变化的散点图。
 - en: In studies of language, we are often interested in observing how statistical
     patterns and relationships of sounds, characters, and words, evolve over time. 
     Natural Language Processing is an entire field that has been dedicated to finding
@@ -46,8 +66,10 @@
     "spider", "man", and "spider man".  The first two terms are isolated words, and
     the third term is called a bigram, which is a joint occurrence of two states in
     sequential order.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 在语言研究中，我们经常关注统计模式和声音、字符、单词等随时间演变的关系。自然语言处理是一个专门致力于寻找适当工具和术语来描述这些统计学的领域。使用词汇散点图的想法，是为了观察词汇本身随时间的演变。为了给出一个简单的例子，我们可能会从某个图书馆借来一些流行文化文本，并查看以下三个词状态的出现；“蜘蛛”，“人”，和“蜘蛛人”。前两个术语是孤立的词，第三个术语称为二元组，是两个状态按顺序共同出现。
 - en: Now, although I haven't created the proposed lexical dispersion plot for the
     above scenario, one could reasonably expect for the number of occurrences of the
     single words, spider and man, to be relatively frequent and uniform from about
@@ -59,15 +81,20 @@
     hundred years later, that the joint term and character popularity might just wane
     and eventually die off, even though the two unimodal terms (spider and man) are
     still frequently observed.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，尽管我为上述情景没有创建所提议的词汇散点图，但人们可以合理地预期，单词“蜘蛛”和“人”的出现次数在1900年至1960年左右相对频繁且均匀，而联合对（蜘蛛，人）可能相对稀疏。然而，在60年代以后，我们会注意到联合对（蜘蛛，人）的出现增加，因为虚构人物开始在大众流行意识中变得越来越受欢迎。我们可能还会预期，在电影近期流行的情况下，二元组的大频率出现。然而，几百年后，这种联合术语和人物可能会衰落并最终消失，尽管两个单模态术语（蜘蛛和人）仍然经常出现。
 - en: Ok, so what's the point to this? Well, we are commonly taught in statistics
     that there is a population that exists to describe the ultimate best statistical
     model of any observational set that lies somewhat beyond the notion of time (much
     like Plato's ideas of forms existing behind the scenes to describe all nature
     over all time, for philosophy fans).
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么这有什么意义呢？嗯，我们在统计学中通常被教导说，存在一个总体，它用来描述任何观测集合的终极最佳统计模型，这个总体 somewhat beyond the
+    notion of time（对于哲学爱好者来说，就像柏拉图的理念一样，存在着幕后的事物来描述所有自然界的所有时间）。
 - en: But one of the things that disturbed me earlier on is exactly what I described
     in the prior paragraph on the joint bigram of spider man, which is that sometimes
     we have to pragmatically shed some of our beliefs about 'ideal' populations and
@@ -79,8 +106,12 @@
     of fleeting patterns. From a statistical viewpoint, I suppose I would lean more
     on the side of the Bayesian inference camp (constantly updating beliefs online,
     rather than the frequentist approach).
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 但早期让我不安的事情正是我在上一段中描述的关于“蜘蛛侠”联合二元组的，即有时候我们必须实际地放弃一些关于“理想”总体的信念，只是尝试观察时间上发生的统计现象。
+    正如混沌引言中提到的，某些模式只是自发地出现（蜘蛛侠），然后随着时间的推移消失。 所以，幕后存在一个更大的总体（以及与之相关的所有统计严谨性）的概念，可能过于复杂，甚至误导我们试图捕捉短暂模式的本质。
+    从统计学角度看，我想我会更倾向于贝叶斯推断阵营（不断在线更新信念，而不是频率主义方法）。
 - en: It's common knowledge in markets that financial time series are not IID (independent
     and independently distributed) over time. Rather, we accept that there are clusters
     of regions of behavior that tend to occur frequently together, and likewise, disappear
@@ -89,8 +120,11 @@
     (differing variance) as opposed to homoscedasticity (constant variance) of observations.
     We might also notice such behavior being binned and quantified into certain 'regimes'
     of local stability.
+  id: totrans-14
   prefs: []
   type: TYPE_NORMAL
+  zh: 在市场中，众所周知金融时间序列并不是随时间独立且独立分布的（IID）。相反，我们接受存在一些行为区域的集群，这些区域倾向于频繁地一起出现，同样，随着时间的推移，这些区域也会消失（尽管不总是如此）。
+    这方面的知识，特别是与波动性相关的，合理地被称为异方差性（方差不同）而不是同方差性（恒定方差）的观察。 我们也可能注意到这种行为被归类并量化为某些“区域”的局部稳定性。
 - en: Now, if any of the above meandering made any sense, I will describe how it relates
     to the Quantitative Candlestick Pattern Recognition article. Recall that using
     clustering, we were attempting to identify a vocabulary of states that best describe
@@ -108,8 +142,10 @@
     in time). Keep in mind, the dispersion example is not only limited to single symbols
     over time, but can be extended to any number of n-gram pairs or symbols (such
     as the two word bigram state for spider man).
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 现在，如果上述蜿蜒的文字有任何意义，我将描述它与“量化蜡烛图模式识别”文章的关系。回想起来，利用聚类，我们试图确定一组最能描述有限特征（在示例中，确定了六个状态）的词汇，以便无监督地将相关的蜡烛图符号按状态分割。然而，图1中的分散图显示，从中心群体的角度来看，这些状态在时间上并不是均匀分布（IID）的，相反，一些在相对较长的时间内频繁出现，而其他则在合理的时间窗口内出现和消失。集合中的一和二状态往往发生得相当频繁，因为它们是非常小的移动（如ドキ和此类），随着时间的推移经常发生。然而，在状态3和4中捕捉到的某些较大移动，往往会持续一段时间，然后在其他间隔内消失。可能的解释是，较大的移动往往与波动性相关，正如我们所知，波动性表现出异方差性（在时间上聚集在一起）。请记住，分散示例不仅限于时间上的单个符号，还可以扩展到任何数量的n-gram对或符号（如蜘蛛侠的两个词二元状态）。
 - en: With that knowledge in mind, it doesn't always make a whole lot of sense to
     try to develop and require a central fixed body of pattern statistics and related
     models over long periods of time, or even require many related statistical tests
@@ -122,15 +158,19 @@
     of time, while rejecting many potential pockets of temporal success since they
     were thrown in and bootstrapped with much longer periods of data to draw conclusions
     about statistical significance of hypotheses related to better than chance success.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 有了这样的知识，试图开发和要求在长时间内保持固定的模式统计和相关模型，或者甚至要求许多相关的统计测试作为必要条件（比如在对非常大数据序列进行n-折交叉验证、进行重抽样的引导式自助法，以及要求几十年回测训练数据以获得信心，认为我们找到了描述数据的最佳模式词汇），这并不总是有意义的。例如，在交易者统计学较好的书籍之一，“基于证据的技术分析”，由阿隆森撰写，许多测试是使用整个金融序列和规则的长期t检验进行的，同时拒绝了許多潜在的时间成功口袋，因为它们与更长周期的数据一起进行了引导式自助法，以得出关于与优于随机成功相关的假设的统计显著性结论。
 - en: This is not to say that common trading statistics should be thrown out; not
     at all. Instead, it is hopefully to try to look at how the information being evaluated
     is processed over time (for instance, we may look at long term statistics of trade
     results, but focus more on short term statistics and modelling of the underlying
     patterns they are dependent upon).
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 这并不是说常见的交易统计数据应该被丢弃；绝非如此。相反，希望的是尝试看看正在评估的信息是如何随时间处理的（例如，我们可以查看交易结果的长期统计数据，但更多地关注短期统计数据及其所依赖的底层模式的建模）。
 - en: Additionally, we might be interested in breaking up the pattern information
     stream into smaller segments and observing and adapting to how the segments of
     data streams evolve and change over time. The key savior or benefit to us, is
@@ -140,5 +180,7 @@
     that work with evolving (such as adding and pruning pattern model parameters)
     data streams over time and space. I have been spending some time evaluating one
     of them recently (although, I'm not saying which at the moment) which looks promising.**
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: 此外，我们可能还感兴趣将模式信息流分解成更小的片段，并观察和适应数据流片段随时间演变和变化的方式。对我们来说，关键的挽救或好处在于，这些数据流中的模式往往会在相当长的时间内（通常合理长的时间）保持在一起，然后才会分散并转向新的模式形式。有几个不同的人工智能概念正在涌现，这些概念与随时间变化的（例如添加和修剪模式模型参数）数据流在时间和空间上进行工作。我最近花了一些时间评估其中的一个（尽管此刻我不会说哪一个）看起来很有希望。**

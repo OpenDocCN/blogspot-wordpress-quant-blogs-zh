@@ -1,118 +1,174 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: '```yml'
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 类别：未分类
 - en: 'date: 2024-05-18 15:37:50'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 日期：2024-05-18 15:37:50
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: The “Mean”, take 2 | Tr8dr
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: “均值”，再次尝试 | Tr8dr
 - en: 来源：[https://tr8dr.wordpress.com/2009/11/04/the-mean-take-2/#0001-01-01](https://tr8dr.wordpress.com/2009/11/04/the-mean-take-2/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://tr8dr.wordpress.com/2009/11/04/the-mean-take-2/#0001-01-01](https://tr8dr.wordpress.com/2009/11/04/the-mean-take-2/#0001-01-01)
 - en: November 4, 2009 · 1:01 pm
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 2009年11月4日 · 1:01 pm
 - en: Thinking about the prior post, am not satisfied with the approach in that it
     does not quantify properties of the mean and price relative to the mean in a way
     that is explicit.
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 思考先前的帖子，我对那种方法不满意，因为它没有以明确的方式量化均值和价格与均值的关系。
 - en: 'Let’s examine various properties the system should represent:'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: 让我们检查系统应表示的各种属性：
 - en: Integral of Y[t] – μ[t] should be close to 0
+  id: totrans-9
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: ∫Y[t] – μ[t] 应该接近于0
 - en: This implies that the mean’s course is balanced between time/distance spent
     below the mean and above the mean.
+  id: totrans-10
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 这意味着均值的过程在时间/距离上在均值以下和以上之间保持平衡。
 - en: average max amplitude should meet a target amplitude
+  id: totrans-11
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 平均最大振幅应达到目标振幅
 - en: We want a predictable mean reversion process.   One approach to this is ensuring
     that the mean is such that it allows for some average max deviation.   We will
     be working with an evolving  distribution of amplitudes to modify the behavior
     of the mean.
+  id: totrans-12
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 我们希望有一个可预测的均值回归过程。确保均值允许一些平均最大偏差是一种方法。我们将与演变分布的振幅一起工作，以修改均值的行为。
 - en: Should be smooth and continuous with exception of jumps
+  id: totrans-13
   prefs:
   - PREF_OL
   type: TYPE_NORMAL
+  zh: 应该平滑且连续，除了跳跃之外
 - en: That is we minimize the integral of μ”(t)^2 in some ratio with other constraints.  
     Alternatively we could require a AR(p) process to provide continuity with prior
     μ(t) observations.
+  id: totrans-14
   prefs:
   - PREF_IND
   type: TYPE_NORMAL
+  zh: 也就是说，我们最小化 μ”(t)^2 的积分，与其他约束以某种比例进行。或者我们可以要求一个 AR(p) 过程提供与先前的 μ(t) 观察值连续性。
 - en: '**A-posteriori Approach**'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: '**后验方法**'
 - en: This is a relatively simple problem to solve after-the-fact, where we find a
     regressor f(t) that meets the above requirements.   The tricky aspect is in the
     observation of minima and maxima of the price difference in a way that we can
     integrate into a system of equations.
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: 事后解决这个问题相对简单，我们找到一个满足上述要求的回归器 f(t)。观察价格差异的最小值和最大值，以便我们可以将其整合到方程系统中。
 - en: 'Assuming we have the regressor f(t), and a function that evaluates the average
     amplitude over the regressor Ea (f), we can express as:'
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: 假设我们有回归器 f(t)，以及一个评估回归器上平均振幅的函数 Ea (f)，我们可以表示为：
 - en: '![Picture 3](img/798782db731b3d369b6b03afae021f15.png "Picture 3")'
+  id: totrans-18
   prefs: []
   type: TYPE_IMG
+  zh: '![Picture 3](img/798782db731b3d369b6b03afae021f15.png "Picture 3")'
 - en: 'The problem with this is that though it is optimal for the data set over which
     it is evaluated it is unlikely to be optimal relative to future values of Yi. 
     Observe how the regressors differ (the red with the original data series and the
     green relative to an additional hour of data):'
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: 这个问题是，尽管它在评估的数据集上是最优的，但相对于未来的 Yi 值，它很可能不是最优的。观察回归器如何不同（红色与原始数据系列，绿色与额外一个小时的数据相对）：
 - en: '![Picture 2](img/f56417f46674251ebd3848f8212e8a0a.png "Picture 2")'
+  id: totrans-20
   prefs: []
   type: TYPE_IMG
+  zh: '![Picture 2](img/f56417f46674251ebd3848f8212e8a0a.png "Picture 2")'
 - en: The initial regressor (red) is no longer optimal given another hr of data. 
     The green regressor now represents the optimum.   This analysis points in the
     direction of determining an “online” estimate of the mean which works probabilistically.
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: 初始回归器（红色）在额外一个小时的数据显示下已不再是最优的。现在的绿色回归器代表了最优解。这种分析指向了确定一个“在线”均值估计的方向，该估计在概率上有效。
 - en: '**Online Approach**'
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: '**在线方法**'
 - en: 'I do not yet have a concrete solution in mind, so what follows is a train of
     thought:'
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: 我目前还没有具体的解决方案，所以接下来的内容是一个思路链：
 - en: use an evolving stochastic cubic system with constraints to guide coefficient
     processes (what constraints from above and how)
+  id: totrans-24
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 使用带有约束的演变随机三次系统来引导系数过程（上述和如何约束）。
 - en: alternatively model the mean on an autoregressive process with innovations in
     proportion to a running variance estimate.   Equating variance and level-duration
     arrive at a formulation for the amount of “innovation” and therefore deviation
     from the mean allowed.
+  id: totrans-25
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 或者将均值模型化为一个自回归过程，创新性与运行方差估计成比例。将方差和平稳持续期等同，得出“创新”的数量以及因此允许的均值偏差。
 - en: Another variant of the above approach is to adjust the AR coefficients to respond
     to changes in volatility.
+  id: totrans-26
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 上述方法的一种变体是对AR系数进行调整，以响应波动的变化。
 - en: I’ll update as the ideas mature …
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: 随着想法的成熟我会进行更新…

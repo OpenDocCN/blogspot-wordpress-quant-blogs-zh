@@ -1,23 +1,35 @@
 - en: <!--yml
+  id: totrans-0
   prefs: []
   type: TYPE_NORMAL
+  zh: <!--yml
 - en: 'category: 未分类'
+  id: totrans-1
   prefs: []
   type: TYPE_NORMAL
+  zh: 'category: 未分类'
 - en: 'date: 2024-05-18 06:46:00'
+  id: totrans-2
   prefs: []
   type: TYPE_NORMAL
+  zh: 'date: 2024-05-18 06:46:00'
 - en: -->
+  id: totrans-3
   prefs: []
   type: TYPE_NORMAL
+  zh: -->
 - en: 'Introducing QuantLib: Implied Volatility | All things finance and technology…'
+  id: totrans-4
   prefs:
   - PREF_H1
   type: TYPE_NORMAL
+  zh: 介绍QuantLib：隐含波动率 | 所有关于金融和科技的事物…
 - en: 来源：[https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01)
+  id: totrans-5
   prefs:
   - PREF_BQ
   type: TYPE_NORMAL
+  zh: 来源：[https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01](https://mhittesdorf.wordpress.com/2013/08/29/introducing-quantlib-implied-volatility/#0001-01-01)
 - en: Welcome back! If you read my last two posts, you are now well acquainted with
     the fundamentals of option theory and pricing. In particular, we have seen that
     volatility (or sigma) is a key input to any option valuation formula. In fact,
@@ -26,8 +38,10 @@
     volatility is the only input that must be derived or estimated. Assuming no dividends,
     which have some uncertainty as to timing and size, the value of an option, then,
     can be thought of as a function of one unknown.
+  id: totrans-6
   prefs: []
   type: TYPE_NORMAL
+  zh: 欢迎回来！如果你阅读了我的前两篇帖子，你现在对期权理论和定价的基础知识已经非常熟悉了。特别是，我们已经看到波动率（或sigma）是任何期权估值公式的关键输入。实际上，由于输入变量如执行价格、到期日、利率和标的资产价格在合同中规定或在市场上可观察，因此是众所周知的，波动率是唯一必须导出或估计的输入。假设没有股息，其时间和大小都有些不确定性，那么，期权价值可以被看作是一个未知数的函数。
 - en: 'So how does one identify the ‘correct’ level of volatility (sigma) for an option?
     One place to start is to look at quoted market prices for an option chain and
     back out sigma for every out-of-the money call and put. Sigma, in this case, is
@@ -35,19 +49,25 @@
     the market price of an option has been calculated. The resulting set of implied
     volatilities, if charted by strike, constitute what is referred to as a *volatility
     smile*, an example of which is depicted below:'
+  id: totrans-7
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么，一个人应如何确定期权的“正确”波动率（sigma）水平呢？一个着手的地方是查看期权的市场价格，并反推出每个虚值看涨期权和看跌期权的sigma。在这种情况下，sigma被称为*隐含波动率*，因为它是从市场价格计算出的期权波动率水平。如果按执行价格绘制这些隐含波动率，构成所谓的*波动率微笑*，如下所示：
 - en: '[![volsmile](img/2df782b837fb71c7fca65b0518f0607c.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/volsmile.png)'
+  id: totrans-8
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![volsmile](img/2df782b837fb71c7fca65b0518f0607c.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/volsmile.png)'
 - en: Both the shape and level of the smile say a lot about the current market price
     of risk for a particular underlying or asset class. Often, what one observes is
     that the low delta options, the ‘wing’ options, are trading at a higher implied
     volatility than the at-the-money options. Likewise, it is common that the out-of-the-money
     puts are priced with a higher sigma than the out-of-the-money calls, a phenomenon
     termed ‘skew’, which is manifested in the chart above.
+  id: totrans-9
   prefs: []
   type: TYPE_NORMAL
+  zh: 微笑的形状和水平都清楚地表明了特定标的资产或资产类别的当前市场风险价格。通常，观察到低delta期权，“翅膀”期权，的交易隐含波动率高于平值期权。同样，通常观察到虚值看跌期权的sigma高于虚值看涨期权，这种现象称为“偏斜”，在上面的图表中表现出来。
 - en: With knowledge of the implied volatilities for each strike in an option chain,
     one can then begin to assess whether an option is fairly priced. Is the level
     of volatility being charged for a particular option too high or too low? If the
@@ -55,147 +75,232 @@
     estimate of [realized volatility](http://en.wikipedia.org/wiki/Realized_variance)
     over the life of the option, then you may want to sell it. Likewise, if sigma
     is too low, then you may want to buy the option.
+  id: totrans-10
   prefs: []
   type: TYPE_NORMAL
+  zh: 知道了每个执行价格的隐含波动率后，我们就可以开始评估期权是否公平定价。某个期权的sigma水平相对于通过期权生命周期内的独立[实现波动率](http://en.wikipedia.org/wiki/Realized_variance)估计得出的公平价值来说，是太高还是太低？如果期权的sigma相对于公平价值过高，那么你可能想出售它。反之，如果sigma太低，那么你可能想购买这个期权。
 - en: So let’s look at how to generate the ES volatility smile above with QuantLib.
     ES is the exchange symbol for the CBOE’s E-Mini futures contract. The market as
     of 8/26/2013 (at approximately 2:30 Chicago time) for ES options expiring on 9/20/2013
     (ESU3) is shown below. The data comes from my Interactive Brokers paper trading
     account.
+  id: totrans-11
   prefs: []
   type: TYPE_NORMAL
+  zh: So let’s look at how to generate the ES volatility smile above with QuantLib.
+    ES is the exchange symbol for the CBOE’s E-Mini futures contract. The market as
+    of 8/26/2013 (at approximately 2:30 Chicago time) for ES options expiring on 9/20/2013
+    (ESU3) is shown below. The data comes from my Interactive Brokers paper trading
+    account.
 - en: '[![esoptions8262013-1430](img/1188de4898f26010c2981b89fb38231a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/esoptions8262013-1430.png)'
+  id: totrans-12
   prefs: []
   type: TYPE_NORMAL
+  zh: '[![esoptions8262013-1430](img/1188de4898f26010c2981b89fb38231a.png)](https://mhittesdorf.wordpress.com/wp-content/uploads/2013/08/esoptions8262013-1430.png)'
 - en: 'The QuantLib C++ code listing below solves for the implied volatilities corresponding
     to the ES option prices in the screen shot above:'
+  id: totrans-13
   prefs: []
   type: TYPE_NORMAL
+  zh: 下面的 QuantLib C++ 代码列表解决了屏幕截图中 ES 期权价格对应的隐含波动率问题：
 - en: '[PRE0]'
+  id: totrans-14
   prefs: []
   type: TYPE_PRE
+  zh: '[PRE0]'
 - en: 'When run, the code produces the following output:'
+  id: totrans-15
   prefs: []
   type: TYPE_NORMAL
+  zh: 当运行时，代码产生以下输出：
 - en: '`Time to maturity: 0.070148'
+  id: totrans-16
   prefs: []
   type: TYPE_NORMAL
+  zh: '`Time to maturity: 0.070148'
 - en: IV of 1600.000000 put is 0.1584
+  id: totrans-17
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1600.000000 put is 0.1584
 - en: IV of 1605.000000 put is 0.1566
+  id: totrans-18
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1605.000000 put is 0.1566
 - en: IV of 1610.000000 put is 0.1532
+  id: totrans-19
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1610.000000 put is 0.1532
 - en: IV of 1615.000000 put is 0.1511
+  id: totrans-20
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1615.000000 put is 0.1511
 - en: IV of 1620.000000 put is 0.1482
+  id: totrans-21
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1620.000000 put is 0.1482
 - en: IV of 1625.000000 put is 0.1456
+  id: totrans-22
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1625.000000 put is 0.1456
 - en: IV of 1630.000000 put is 0.1430
+  id: totrans-23
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1630.000000 put is 0.1430
 - en: IV of 1635.000000 put is 0.1405
+  id: totrans-24
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1635.000000 put is 0.1405
 - en: IV of 1640.000000 put is 0.1379
+  id: totrans-25
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1640.000000 put is 0.1379
 - en: IV of 1645.000000 put is 0.1345
+  id: totrans-26
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1645.000000 put is 0.1345
 - en: IV of 1650.000000 put is 0.1324
+  id: totrans-27
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1650.000000 put is 0.1324
 - en: IV of 1655.000000 put is 0.1293
+  id: totrans-28
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1655.000000 put is 0.1293
 - en: IV of 1660.000000 call is 0.1267
+  id: totrans-29
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1660.000000 call is 0.1267
 - en: IV of 1665.000000 call is 0.1237
+  id: totrans-30
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1665.000000 call is 0.1237
 - en: IV of 1670.000000 call is 0.1211
+  id: totrans-31
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1670.000000 call is 0.1211
 - en: IV of 1675.000000 call is 0.1187
+  id: totrans-32
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1675.000000 call is 0.1187
 - en: IV of 1680.000000 call is 0.1167
+  id: totrans-33
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1680.000000 call is 0.1167
 - en: IV of 1685.000000 call is 0.1150
+  id: totrans-34
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1685.000000 call is 0.1150
 - en: IV of 1690.000000 call is 0.1119
+  id: totrans-35
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1690.000000 call is 0.1119
 - en: IV of 1695.000000 call is 0.1100
+  id: totrans-36
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1695.000000 call is 0.1100
 - en: IV of 1700.000000 call is 0.1087
+  id: totrans-37
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1700.000000 call is 0.1087
 - en: IV of 1705.000000 call is 0.1072
+  id: totrans-38
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1705.000000 call is 0.1072
 - en: IV of 1710.000000 call is 0.1060`
+  id: totrans-39
   prefs: []
   type: TYPE_NORMAL
+  zh: IV of 1710.000000 call is 0.1060`
 - en: My output does not exactly reproduce the IVs published by Interactive Brokers
     but they are generally very close and the overall shape of my implied volatility
     smile is consistent with the IB values.
+  id: totrans-40
   prefs: []
   type: TYPE_NORMAL
+  zh: 我的输出并没有完全复制 Interactive Brokers 发布的 IV，但它们通常非常接近，并且我的隐含波动率曲线的整体形状与 IB 的值一致。
 - en: 'Before I wrap this post up, a few comments on the code:'
+  id: totrans-41
   prefs: []
   type: TYPE_NORMAL
+  zh: 在我结束这篇文章之前，对代码的一些评论：
 - en: 'The QuantLib [Bisection](http://quantlib.org/reference/class_quant_lib_1_1_bisection.html)
     solver is used to back out the implied volatility of each out-of-the-money option
     in a fashion very similar to how I demonstrated the calculation of a bond’s internal
     rate of return in the post ‘[Introducing QuantLib: Internal Rate of Return](https://mhittesdorf.wordpress.com/2013/03/03/introducing-quantlib-internal-rate-of-return/)‘.'
+  id: totrans-42
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: '使用 QuantLib [Bisection](http://quantlib.org/reference/class_quant_lib_1_1_bisection.html)
+    求解器，类似于我在文章 ‘[Introducing QuantLib: Internal Rate of Return](https://mhitt'
 - en: As options on ES are options on futures, I employed the QuantLib [BlackCalculator](http://quantlib.org/reference/class_quant_lib_1_1_black_calculator.html),
     which implements the [Black 76](http://www.wilmottwiki.com/wiki/index.php?title=Black_76)
     variant of the Black-Scholes model, rather than the BlackScholesCalculator, which
     I featured in my last post.
+  id: totrans-43
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 由于 ES 期权是期货期权，我使用了 QuantLib [BlackCalculator](http://quantlib.org/reference/class_quant_lib_1_1_black_calculator.html)，它实现了
+    Black-Scholes 模型的 [Black 76](http://www.wilmottwiki.com/wiki/index.php?title=Black_76)
+    变体，而不是我上一篇文章中介绍的 BlackScholesCalculator。
 - en: The interest rate of .0273% is the point on the LIBOR curve corresponding to
     the expiration date of the option. This rate was found by interpolating between
     the September and October Eurodollar futures contracts (symbols = EDU3, EDV3).
+  id: totrans-44
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 利率为 0.0273% 的利率是对应于期权到期日的 LIBOR 曲线上的点。这个利率是通过在九月和十月欧元美元期货合约（符号 = EDU3, EDV3）之间插值得到的。
 - en: The value of an option decays continuously so time to maturity was measured
     to minute-level precision and then annualized as a year fraction.
+  id: totrans-45
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 期权的价值持续衰减，因此到期时间被测量到分钟级别的精度，然后年化为年分数。
 - en: The mid-point of the option bid/ask spread was used as the option price as the
     market on an option is typically made some width around its theoretical value.
+  id: totrans-46
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 期权买卖价差的中间点被用作期权价格，因为期权的市场价格通常在其理论值周围有一定宽度。
 - en: The bid serves as the underlying price for calls while the offer serves as the
     underlying price for puts because options are typically delta hedged. As such,
     a call (positive delta) would be hedged by selling futures on the bid and a put
     would be hedged by buying futures on  the offer.
+  id: totrans-47
   prefs:
   - PREF_UL
   type: TYPE_NORMAL
+  zh: 买价作为看涨期权的标的价格，而卖价作为看跌期权的标的价格，因为期权通常是对冲的。因此，看涨期权（正的 delta）将通过在买价上卖出期货进行对冲，而看跌期权将通过在卖价上购买期货进行对冲。
 - en: So that’s about it for this installment of my ‘Introducing QuantLib’ series.
     I hope that I have now equipped you with a working understanding of  implied volatility
     and how to compute it using QuantLib.  As always, have fun with QuantLib!
+  id: totrans-48
   prefs: []
   type: TYPE_NORMAL
+  zh: 那么，关于我‘介绍QuantLib’系列的这一部分就到这里了。我希望我现在已经向你提供了一个对隐含波动率以及如何使用QuantLib来计算它的基本理解。*一如既往，祝您使用QuantLib愉快！*
