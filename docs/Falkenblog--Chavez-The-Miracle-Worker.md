@@ -1,0 +1,25 @@
+<!--yml
+
+类别：未分类
+
+日期：2024-05-12 20:08:48
+
+-->
+
+# 福肯博客：查韦斯的奇迹工作者
+
+> 来源：[`falkenblog.blogspot.com/2013/03/chavez-miracle-worker.html#0001-01-01`](http://falkenblog.blogspot.com/2013/03/chavez-miracle-worker.html#0001-01-01)
+
+虽然我一点也不想杀人，但我确实愿意愉快地读一些讣告。 雨果·查韦斯是一个典型的暴君，如果我发现自己处在这样一个国家，我肯定会移民。 然而，许多左派人不同意，并指出火车准时开行。 《沙龙》有一篇题为"
+
+[雨果·查韦斯的经济奇迹](http://www.salon.com/2013/03/06/hugo_chavezs_economic_miracle/)
+
+，并强调他在任期内官方贫困率下降了。 我对由独裁者统治的国家计算的贫困统计数据持怀疑态度，特别是那些谋杀率是墨西哥的四倍的国家。 我猜我们可能在事实上不会达成一致意见，但我也怀疑我们有不同的偏好。
+
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFzePdY4AtF5N3csZypTlWnv9jxgnucrL5Kaof7kNm8ONhS2DScKmDs7DfQQRXWUGjhyphenhyphenQXA9SHzyCc6KMKjKeHey0YiCjF33yx57wL5aRnrBqsy-iSOW3LQXkafQrLDq4IdhYScw/s1600/lenin_tomb_with_stalin.jpg)
+
+幸运的是，查韦斯将会是
+
+[保持[尸体经过防腐处理](http://bigstory.ap.org/article/chavez-body-be-permanently-displayed)
+
+就像他的英雄列宁一样，我很高兴远离我有不同意见的人有一个纪念碑。 我希望他的一位西方支持者不仅仅赞扬这些家伙，而是真的搬到那里去。 也就是说，如果古巴、委内瑞拉、中国或阿尔巴尼亚是社会主义天堂，那么为什么这些家伙中没有人真的想要住在那里。

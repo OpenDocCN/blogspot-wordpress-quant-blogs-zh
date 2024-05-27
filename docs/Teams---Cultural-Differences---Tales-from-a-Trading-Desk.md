@@ -1,0 +1,19 @@
+```yaml
+
+category: 未分类
+
+日期：2024-05-18 05:56:49
+
+-->
+
+# 团队 - 文化差异 | 交易桌旁的故事
+
+> 来源：[`mdavey.wordpress.com/2013/12/02/teams-cultural-differences/#0001-01-01`](https://mdavey.wordpress.com/2013/12/02/teams-cultural-differences/#0001-01-01)
+
+## 团队 - 文化差异
+
+如前所述，[Getting More](http://www.gettingmore.com/) 一书由 Stuart Diamond 撰写，提供了关于文化差异的一些宝贵[评论](http://books.google.co.uk/books?id=iti_XnB2ockC&lpg=PT245&ots=cwI4zl1-L2&dq=getting%20more%20stuart%20diamond%20cultural&pg=PT239#v=onepage&q&f=false)，以及犯错的影响。无论如何，处理多区域团队、互动或谈判时，应认真考虑阅读 Stuart 的书，了解文化，而不是做出“假设”。对于有兴趣的人来说，Stuart Diamond 在 2011 年 Google 演讲的视频可以在 [YouTube](http://www.youtube.com/watch?v=ZOZo6Lx70ok&feature=youtu.be) 上找到。
+
+~ 由 mdavey 于 2013 年 12 月 2 日发表。
+
+发布在 [未分类](https://mdavey.wordpress.com/category/uncategorized/)

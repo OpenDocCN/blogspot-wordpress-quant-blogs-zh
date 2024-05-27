@@ -1,0 +1,31 @@
+<!--yml
+
+类别：未分类
+
+日期：2024-05-18 15:02:45
+
+-->
+
+# 及时组合：根据回撤确定头寸大小
+
+> 来源：[`timelyportfolio.blogspot.com/2012/11/drawdown-determined-position-size.html#0001-01-01`](http://timelyportfolio.blogspot.com/2012/11/drawdown-determined-position-size.html#0001-01-01)
+
+当我搜索更多关于我最喜欢的风险衡量指标回撤的学术研究时，这个引起了我的注意。
+
+> 杨，Z.乔治和钟，梁，《控制最大回撤的最优投资组合策略》
+> 
+> 基于风险的动态资产配置案例*（2012 年 2 月 25 日）。
+> 
+> 在 SSRN 上可获得： [`ssrn.com/abstract=2053854`](http://ssrn.com/abstract=2053854) 或 [`dx.doi.org/10.2139/ssrn.2053854`](http://dx.doi.org/10.2139/ssrn.2053854)
+
+该论文试图做我尝试过但没有真正成功的事情——使用回撤来帮助确定头寸大小。我感到有动力在 R 中复制他们的衡量指标，即滚动经济回撤控制最优投资组合策略（REDD-COPS）。由于回撤存在显著滞后，作者建议使用滚动回撤来抵消其中一些内嵌的滞后：
+
+> "直观地说，回撤回顾期 H[滚动周期的长度] somewhat shorter than or similar to the market decline cycle 是实现最优化的关键。将 EDD 替换为更低的 REDD 在方程（1）中，我们有更高的风险资产配置以提高投资组合回报
+> 
+> 在市场反弹阶段。在以下示例中，我们将一直使用 H = 1 年。"
+
+作者将 REDD-COPS 校准在标普 500 作为一个单一资产，然后使用 REDD-COPS 在包含三个资产（标普 500 - SPY，美国 20+年国债 - TLT，和道琼斯瑞银商品指数）的组合背景下。我将展示我尝试复制单一资产测试的结果。抱歉感恩节的丑陋颜色，但我就是忍不住。
+
+他们的研究结果很有趣，但我并不是完全相信使用 REDD-COPS 来确定头寸大小的系统的稳健性，尤其是考虑到他们使用整个周期的夏普比率需要后见之明。然而，尽管最终结果，我帖子中讨论的副产品发现[Cash–Opportunity Lost or Opportunity Gained](http://timelyportfolio.blogspot.com/2012/11/cashopportunity-lost-or-opportunity.html)是非常值得努力的。敬请期待我尝试做多资产 REDD-COPS 系统。
+
+[R 代码在 GIST 中：](https://gist.github.com/4115759)

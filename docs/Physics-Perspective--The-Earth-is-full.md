@@ -1,0 +1,63 @@
+<!--yml
+
+category: 未分类
+
+date: 2024-05-18 07:08:12
+
+-->
+
+# Physics Perspective: The Earth is full
+
+> 来源：[`physicsoffinance.blogspot.com/2011/06/earth-is-full.html#0001-01-01`](http://physicsoffinance.blogspot.com/2011/06/earth-is-full.html#0001-01-01)
+
+Sometimes
+
+*New York Times*
+
+columnist Thomas Friedman really does hit the nail on the head, as he does in his column today,
+
+[地球已满](http://www.nytimes.com/2011/06/08/opinion/08friedman.html?_r=1&hp)
+
+.
+
+Economists have been glorifying unending economic growth for half a century, while systematically discounting (
+
+[quite literally](http://physicsoffinance.blogspot.com/2011/05/deep-discounting-errors.html)
+
+) the social and ecological costs, especially in the long term. So much economic analysis seems to take place in a weird vacuum in which the laws of physics and biology don't apply, but an increasing number of scientists 和 economists have begin questioning this, as Peter Victor did
+
+[last year](http://www.nature.com/nature/journal/v468/n7322/full/468370a.html)
+
+in
+
+*Nature*
+
+。正如 Victor 指出的，质疑经济增长通常被视为异端，尽管它对我们依赖的物理和生物环境有明显的恶果。在追求增长的过程中，我们仅在 20 世纪就增加了我们原材料和燃料的总量近 10 倍，使我们向环境排放的退化废物（包括废热能，见下文）增加了类似的倍数。因此， perhaps not at all surprising that a different article in
+
+*Nature*
+
+, as Victor notes, concludes that...
+
+> "Humanity has gone beyond the 'safe operating space' of the planet with respect to climate change, nitrogen loadings and biodiversity loss, and threatens to do so with six other major global environmental issues."
+
+Friedman puts the same point -- that we face real consequences from physical and biological limits, no matter how clever our economics -- in more vibrant terms:
+
+> "You really do have to wonder whether a few years from now we’ll look back at the first decade of the 21st century — when food prices spiked, energy prices soared, world population surged, tornadoes plowed through cities, floods and droughts set records, populations were displaced and governments were threatened by the confluence of it all — and ask ourselves: What were we thinking? How did we not panic when the evidence was so obvious that we’d crossed some growth/climate/natural resource/population red lines all at once?"
+
+当然，面对这样的红线，自然反应是建议用足够的聪明才智找到绕过它们的方法，也许甚至
+
+*增长*
+
+我们可以绕过它们——现在投资商业和技术，并奇迹般地发现永动机。我认为这解释了为什么许多人对德国决定在未来十年内逐步淘汰核能计划持轻蔑态度。他们为什么要限制自己的选择，尤其是考虑到我们面临的二氧化碳排放的真实限制？很可能或甚至德国的决定是对日本福岛灾难后的无能和情绪化反应，但这也可能，即使不是有意为之，尊重与 Friedman 标题相关的一些不可改变的事实——地球已经满了。
+
+几年前，Nick Cowern 和 Chihak Ahn
+
+[估计](http://arxiv.org/abs/0811.0476)
+
+我们人类通过能源使用以热能形式向环境释放的能量量。目前，这种能量在整体能源预算中扮演的角色非常小，且意义不大。但是，全球能源使用以每年 2%的速度增长，他们展示，在 100 到 150 年后，即使在一个我们控制了与二氧化碳排放相关的温暖的梦幻世界里，也将足够重新引发气候变暖。结论是，我们很快将简单地使用太多能量，根据热力学定律，这些能量将会加热地球环境。我们变得太大。地球太满了——充满了我们。所以，我们可能会转向核能，这样做可能会帮助我们暂时对抗由二氧化碳引起的温暖，但它并不能摆脱我们正在（或很快将）使用和释放太多能量的根本问题。Cowern-Ahn 论文的摘要描述了这一分析的教训：
+
+> 全球变暖源于“温度强迫”，这是进入和离开气候系统的能量通量之间的净不平衡，以及在其中产生的能量。人类通过温室气体排放、农业和燃料燃烧的热排放引入温度强迫。到目前为止，气候预测忽视热排放，通常预见到 2050 年左右达到最大强迫，然后下降。在本文中，我们展示，如果人类的能源使用以每年 1%的速度增长，低于近期历史水平，并且如果不通过新型能源技术控制热排放，除非通过地球工程对抗，温度强迫将无限期增加。另外，人类可以更优雅地利用可再生能源，如风能、波浪能、潮汐能、海洋温差能和太阳能能量***这些能量流动已经存在于气候系统中***，或者作为有效的热能汇。
+
+我加粗和斜体标记的部分是关键。核能通过迅速释放原本在核力中长时间封存的能量，将另一种能量来源引入地球。如果我们继续增加能源使用，正如增长的热情人士认为我们必须做的那样，避免气候变暖的唯一方法将是通过某种方式抵消我们增加的耗散，同时减少环境其他来源的耗散。核能做不到这一点。
+
+这只是另一种看待增长确实存在物理极限的方式，对我们来说和细菌群体扩散进糖水罐子一样。为什么这么多人发现这难以接受呢？

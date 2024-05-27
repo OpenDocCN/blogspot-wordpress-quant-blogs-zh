@@ -1,0 +1,79 @@
+<!--yml
+
+类别：未分类
+
+日期：2024-05-18 01:37:21
+
+-->
+
+# 谦逊的市场学生：如何交易美联储耳语者的反弹
+
+> 来源：[`humblestudentofthemarkets.blogspot.com/2022/10/how-to-trade-fed-whisperer-rally.html#0001-01-01`](https://humblestudentofthemarkets.blogspot.com/2022/10/how-to-trade-fed-whisperer-rally.html#0001-01-01)
+
+**前言：解释我们的市场定时模型**
+
+我们维护了几个市场定时模型，每个模型的时间范围都不同。 "
+
+**终极市场定时模型**
+
+"是一个基于我们帖子中概述的研究的长期市场定时模型，
+
+[构建终极市场定时模型](https://humblestudentofthemarkets.com/2016/01/26/building-the-ultimate-market-timing-model/)
+
+. 这个模型通常每个十年只会产生少数几个信号。
+
+The
+
+**趋势资产配置模型**
+
+是一个基于全球股票和商品价格输入的趋势跟踪原则的资产配置模型。这个模型的时间范围较短，通常每年转换 4-6 次。基于趋势模型的样本外信号的模型组合的性能和详细信息可以找到
+
+[在此](https://humblestudentofthemarkets.com/trend-model-report-card/)
+
+.
+
+我内心的交易者使用一个
+
+**交易模型**
+
+，这是价格动量（趋势模型是否变得更加看涨或看跌？）和超买/超卖极端（如果趋势超买，不要买入，反之亦然）的组合。订阅者会收到模型变化的实时警报，以及电子邮件警报的假设交易记录每周更新
+
+[在此](https://humblestudentofthemarkets.com/trading-track-record/)
+
+. 下面展示了从 2016 年 3 月开始的真实时间警报的交易模型的假设交易记录。
+
+每个模型的最新信号如下：
+
++   终极市场定时模型：出售股票*
+
++   趋势模型信号：中性*
+
++   交易模型：看涨*
+
+**性能图表和模型读数已经因为尊重我们的付费订阅者而延迟一周。**更新时间表
+
+: 我通常在我的
+
+[网站](https://humblestudentofthemarkets.com/)
+
+在周末以及在@humblestudent 上发布周中观察。订阅者会收到交易模型变化的实时警报，以及那些电子邮件警报的假设交易记录显示
+
+[在此](https://humblestudentofthemarkets.com/trading-track-record/)
+
+.
+
+订阅者可以实时访问最新的信号
+
+[在此](https://humblestudentofthemarkets.com/my-inner-trader/)
+
+.
+
+**仍然是一个单一的宏观交易**
+
+投资者应该如何解读最近的风险偏好上升？这仍然是一个大的宏观交易。标普 500 指数继续与美元指数成反比，这主要是受到美联储立场减弱预期的推动。美元指数 helpful breakdown through a minor rising trend line，这对风险偏好是一个积极的信号。
+
+完整帖子可以找到
+
+[这里](https://humblestudentofthemarkets.com/2022/10/30/how-to-trade-the-fed-whisperer-rally/)
+
+。

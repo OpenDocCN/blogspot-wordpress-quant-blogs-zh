@@ -1,0 +1,15 @@
+<!--yml
+
+分类：未分类
+
+日期：2024-05-18 18:53:40
+
+-->
+
+# 波动性指数与更多内容：纳西姆·尼古拉斯·塔勒布在查理·罗斯节目上的讨论
+
+> 来源：[`vixandmore.blogspot.com/2007/11/nassim-nicholas-taleb-on-charlie-rose.html#0001-01-01`](http://vixandmore.blogspot.com/2007/11/nassim-nicholas-taleb-on-charlie-rose.html#0001-01-01)
+
+## 博客宗旨
+
+本博客的目的是教育、告知和娱乐读者，同时作为一个存档的学习实验室，我在这里尝试磨砺自己在波动性、市场情绪和技术分析等领域的思考。我也喜欢跑题，希望读者在这些偏离主题的内容中能找到一些启示或至少是一些乐趣。

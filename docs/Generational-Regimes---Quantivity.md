@@ -1,0 +1,35 @@
+<!--yml
+
+类别：未分类
+
+日期：2024-05-18 13:53:21
+
+-->
+
+# 代际制度 | Quantivity
+
+> 来源：[`quantivity.wordpress.com/2010/02/28/generational-regimes/#0001-01-01`](https://quantivity.wordpress.com/2010/02/28/generational-regimes/#0001-01-01)
+
+[Buttonwood](http://www.economist.com/blogs/buttonwood)来自[经济学人](http://www.economist.com/)最近刊登了一篇有趣的文章，描述了*代际制度*的实质，总结了[巴克莱资本 2010 年资产收益研究](http://www.barcap.com/egs/)的结果（2 月 27 日印刷版，第 82 页）。尽管在短期交易中似乎无关紧要，但理解代际制度对两个原因至关重要：
+
++   政权[自相似性](http://en.wikipedia.org/wiki/Self-similarity)：代际制度证明了金融在所有投资地域上都是广泛的自相似，从日内到代际。
+
++   上下文：代际制度对交易的意义好比[宇宙背景辐射](http://en.wikipedia.org/wiki/Cosmic_microwave_background_radiation)对[天体物理学](http://en.wikipedia.org/wiki/Astrophysics)的意义，提供了所有短期波动所覆盖的长期基础
+
+代际制度是为什么[天真的反向测试是伪造的](https://quantivity.wordpress.com/2009/08/16/naive-backtesting-is-bogus/)的另一个根本原因，因为假设在代际制度中[稳态和遍历性](https://quantivity.wordpress.com/2009/07/25/bias-stationarity-ergodicity/)是经济上不合常理的。然而，尽管事实如此，为调整定量反向测试以应对代际制度的方法仍然是一个有趣的开放性研究问题。
+
+有关代际制度的关键引用与市场顶部有关：
+
+> 从实际（通货膨胀调整后）来看，华尔街在 1928 年、1968 年和 1999 年达到高峰。这些模式表明，每一代都会对股权投资产生热情，而随之而来的是失望。
+
+用吸引行为金融的解释：
+
+> 正是对不断上涨的股价的信念推动了股市估值达到荒谬的水平，从而确保随后的表现不佳。
+
+并且，代际人口统计学：
+
+> 人口统计可能是罪魁祸首。关键的“储蓄年龄”是 35 至 54 岁的一代人。当他们为退休做准备时，他们会涌入当前的资产类别*du jour*。
+
+对于想要了解更多关于代际制度的读者，品读《资产收益研究》是有趣的。对于那些想要了解代际动力学及其宏观经济影响的人来说，《即将到来的代际风暴：关于美国经济前景你需要知道的事情》，作者是 Kotlikoff 和 Burns，是一部研究介绍（忽略标题中夸张的营销炒作）。
+
+尽管已经发表近五年，Quantivity 预计这个梗将会在未来十年中像在过去五年中一样具有预言性。

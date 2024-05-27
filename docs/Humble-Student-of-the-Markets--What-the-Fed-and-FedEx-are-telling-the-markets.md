@@ -1,0 +1,23 @@
+<!--yml
+
+分类：未分类
+
+日期：2024-05-18 01:39:08
+
+-->
+
+# 谦逊的市场学生：美联储和联邦快递正在告诉市场什么
+
+> 来源：[`humblestudentofthemarkets.blogspot.com/2022/09/what-fed-and-fedex-are-telling-markets.html#0001-01-01`](https://humblestudentofthemarkets.blogspot.com/2022/09/what-fed-and-fedex-are-telling-markets.html#0001-01-01)
+
+美联储和联邦快递都给市场传递了衰退的信号。美联储主席杰罗姆·鲍威尔表示，美联储将加息，直到有明确且令人信服的迹象表明通胀正在向 2%的目标迈进，其预测相当于一个要么在今年晚些时候要么在明年年初开始的衰退。联邦快递则警告全球运量放缓和衰退状况。
+
+随着我们接近第三季度的财报季，衍生品市场中出现了一个有趣的分歧。尽管标普 500 的 SKEW（衡量期权尾部风险的价格）较低，但个别股票的 SKEW 一直较高。这反映出随着财报季的临近，市场对于个别股票可能出现的爆炸性风险的担忧日益增加。
+
+然而，对风险的回顾表明，事情并不像表面看起来那么简单。
+
+全文可以在
+
+[在此](https://humblestudentofthemarkets.com/2022/09/24/what-the-fed-and-fedex-are-telling-the-markets/)
+
+找到。

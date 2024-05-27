@@ -1,1 +1,0 @@
-["```\n# use Quandl Kenneth French Fama/French factors\n# http://www.quandl.com/KFRENCH/FACTORS_D\n\nlibrary(Quandl)\nlibrary(quantmod)\n\nf <- Quandl(\n  \"KFRENCH/FACTORS_D\"\n)\n\nf <- as.xts(f[,-1],order.by=f[,1])\n\nplot.zoo( f, main = NA )\nmtext(\n  text = \"Fama/French Factors from Quandl\"\n  , adj = 0\n  , outer = T\n  , line = -2\n  , cex = 2\n)\n\n```"]

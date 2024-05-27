@@ -1,0 +1,25 @@
+<!--yml
+
+分类：未分类
+
+日期：2024-05-18 06:16:38
+
+-->
+
+# BUILD：Keynote Day 2 Notes – F# 3.0 and More | 一个交易台的故事
+
+> 来源：[`mdavey.wordpress.com/2011/09/15/build-keynote-day-2-notes-f-3-0-and-more/#0001-01-01`](https://mdavey.wordpress.com/2011/09/15/build-keynote-day-2-notes-f-3-0-and-more/#0001-01-01)
+
+## BUILD：Keynote Day 2 Notes – F# 3.0 and More
+
+Nuno 提供了来自 [BUILD](http://geekswithblogs.net/cyoung/archive/2011/09/15/windows-8-metro-and-ie10-first-impressions.aspx?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+geekswithblogs+%28Geekswithblogs.net%29) 第二天的一些 [笔记](http://msmvps.com/blogs/nunogodinho/archive/2011/09/14/build-windows-conference-2011-keynote-2.aspx)。Sean 提供了一些屏幕截图 – 平台和工具。Michael 提供了一些 [文档](http://blogs.msdn.com/b/vsue/archive/2011/09/14/visual-studio-11-developer-preview-available.aspx) 链接 – 特别感兴趣的是，C++ 加速的大规模 [并行性](http://msdn.microsoft.com/en-us/library/hh265137(VS.110).aspx)。
+
+Sasha 提供了一些有关 [WinRT](http://blogs.microsoft.co.il/blogs/sasha/archive/2011/09/15/sessions-at-build-day-2-and-windows-8.aspx) 和 [.NET](http://blogs.microsoft.co.il/blogs/sasha/archive/2011/09/15/winrt-and-net-in-windows-8.aspx) 的笔记。
+
+更多阅读：
+
+~ 作者 mdavey，于 2011 年 9 月 15 日。
+
+发表在 [未分类](https://mdavey.wordpress.com/category/uncategorized/) 中
+
+标签：[BUILD](https://mdavey.wordpress.com/tag/build/)，[Microsoft](https://mdavey.wordpress.com/tag/microsoft/)

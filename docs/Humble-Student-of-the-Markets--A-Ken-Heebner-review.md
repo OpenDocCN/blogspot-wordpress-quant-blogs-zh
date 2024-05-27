@@ -1,0 +1,53 @@
+<!--yml
+
+分类：未分类
+
+日期：2024-05-18 03:50:39
+
+-->
+
+# 谦卑的市场学生：肯·希布纳回顾
+
+> 来源：[`humblestudentofthemarkets.blogspot.com/2013/08/a-ken-heebner-review.html#0001-01-01`](https://humblestudentofthemarkets.blogspot.com/2013/08/a-ken-heebner-review.html#0001-01-01)
+
+我的一位长期读者最近
+
+询问
+
+关于肯·希布纳在美国长期国债的持仓。然后我想起
+
+[我早期的一篇帖子](http://humblestudentofthemarkets.blogspot.com/2007/12/is-bill-miller-becoming-gasp-value.html)
+
+展示了我的一种反向工程基金因子暴露的技术，我曾写过关于肯·希布纳的 CGM Focus
+
+[之前](http://humblestudentofthemarkets.blogspot.com/2008/06/bill-miller-ken-heebner-study-in.html)
+
+..
+
+应要求，我翻出了自 2010 年以来未再使用的模型，以分析希布纳的
+
+[CGM Focus 基金](http://performance.morningstar.com/fund/performance-return.action?t=CGMFX&region=USA&culture=en-US)
+
+，尽管波动较大，但长期表现良好。由于肯·希布纳的风格倾向于关注宏观层面，并且他有着敢于冒险的声誉，我对他所暴露的投资因素很感兴趣。尽管这种分析方法并不完美，且暴露程度的大小并不总是能得到很好的校准，以下是我对 CGMFX 过去几年的预估因子贝塔暴露。
+
+首先，针对读者的提问，CGMFX 曾做空美国长期国债，尽管空头仓位似乎在减少。
+
+他仍然对住宅建筑商的持仓过重，并且继续增加这些仓位。
+
+我的分析还显示，他的基金对摩根士丹利周期指数的贝塔值为正且在增长，但尚不清楚其中有多少与住宅建筑持仓有关。其他值得注意的部门持仓包括对金融股的过度持仓，该股表现良好。
+
+同时，希布纳似乎捕捉到了医疗保健股的走势，这些股票也是市场的领导者。
+
+他对科技股的持仓不足：
+
+...以及能源：
+
+我对部门相对实力的分析显示，金融、可选消费和医疗保健是近期的领导者，而资源相关行业以及科技股则是落后者。这表明任何购买 CGMFX 的人都在购买一个高价格动量组合。
+
+正如我的
+
+[之前分析价格动量和趋势跟踪模型的相互作用](http://humblestudentofthemarkets.blogspot.com/2012/09/momentum-bull-market-chocolate-peanut.html)
+
+显示，动量追逐策略在牛市阶段表现良好，但在熊市阶段和市场调整时会受到重创。虽然我认识到肯·希布纳以不怕交易进出而闻名，但投资者应该认识到这种方法的风险，并相应地分散他们的风格持仓。
+
+*Cam Hui 是 [Qwest 投资基金管理有限公司](http://www.qwestfunds.com/)（“Qwest”）的投资组合经理。博客中表达的观点和任何建议都是作者个人的，并不代表 Qwest 的观点和建议。Qwest 审核 Cam Hui 先生的博客，以确保其与 Cam Hui 先生公平、诚实、诚信地对待博客读者的义务相联系。**本博客中表达的信息或观点，都不构成对任何证券或其他工具购买或销售的招揽。本博客中的任何内容都不构成投资建议，可能包含的任何建议并未基于对任何特定接收者的投资目标、财务状况或个别需求的考虑。任何证券或其他工具的购买或销售行为应基于您自己的分析和结论。过去的表现并不预示未来的结果。Qwest 或我本人可能持有或控制所提及证券或工具的长仓或短仓。* 

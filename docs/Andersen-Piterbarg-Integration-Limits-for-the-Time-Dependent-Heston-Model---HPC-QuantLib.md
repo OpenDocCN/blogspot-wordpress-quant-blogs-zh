@@ -1,0 +1,37 @@
+<!--yml
+
+category: 未分类
+
+date: 2024-05-13 00:18:06
+
+-->
+
+# 安德森-皮特巴格方法中的积分限制与时间相关 Heston 模型 - HPC-QuantLib
+
+> 来源：[`hpcquantlib.wordpress.com/2017/06/05/andersen-piterbarg-integration-limits-for-the-time-dependent-heston-model/#0001-01-01`](https://hpcquantlib.wordpress.com/2017/06/05/andersen-piterbarg-integration-limits-for-the-time-dependent-heston-model/#0001-01-01)
+
+分段常数时间相关 Heston 模型的标准化特征函数 ![\phi_t(z)](img/ddec00299646ff7c75edd27c0cede087.png)
+
+![\begin{array}{rcl} d \ln S_t&=& \left(r_t - q_t - \frac{\nu_t}{2}\right)dt + \sqrt\nu_t dW^{S}_t \nonumber \\ d\nu_t&=& \kappa_t\left(\theta_t-\nu_t \right ) dt + \sigma_t\sqrt\nu_t dW^{\nu}_t \nonumber \\ \rho_t dt &=& dW^{S}_tdW^{\nu}_t \end{array}](img/573589a5b9dad58d81b7498cb3fe7a18.png)
+
+其中 ![n](img/17deaa124310c647ec1dd85566e7b1e5.png) 个时间间隔 ![ [t_0=0, t_1], ... ,[t_{n-1}, t_n] ](img/fd1badfce7ffa80b1d419a25dc1d5603.png) 内的常数参数
+
+![\kappa_t = \kappa_j \wedge \theta_t = \theta_j \wedge \sigma_t=\sigma_j \wedge \rho_t=\rho_j \forall j\in [1, n] \wedge t\in [t_{j-1}, t_j]](img/3b364ddb75a8f68816304d1f561941c9.png)
+
+给出了递推关系
+
+![\begin{array}{rcl}  k_j &=& \kappa_j - iz\rho_j\sigma_j \nonumber \\ d_j &=& \sqrt{k_j² +\sigma_j²(z²+iz)} \nonumber \\  g_j &=&\displaystyle \frac{k_j- d_j}{k_j + d_j} \nonumber \\ \tilde{g_j} &=& \displaystyle \frac{k_j- d_j - D_{j+1}\sigma_j²}{k_j + d_j - D_{j+1}\sigma_j²} \nonumber \\ D_j &=&  \displaystyle \frac{k_j + d_j}{\sigma_j²}\frac{g_j-\tilde{g_j} e^{-d_j \tau_j}}{1-\tilde{g_j} e^{-d_j\tau_j}} \nonumber \\ C_j &=& \displaystyle \frac{\kappa_j\theta_j}{\sigma_j²} \left( (k_j- d_j )\tau_j - 2\ln\left(\frac{1-\tilde{g_j}e^{-d_j\tau_j}}{1-\tilde{g_j}}\right)\right) + C_{j+1} \nonumber \\ \tau_j &=& t_j - t_{j-1} \nonumber \\ \phi_{t_n}(z) &=& \exp{\left(C_1(z)+D_1(z)\nu_0\right)}\end{array}](img/6ca76a4b2c48385e8f793311e6d21e1e.png)
+
+和初始条件
+
+![C_{n+1} = D_{n+1} = 0](img/3c249c34214dda0b860dc7e40e5bddf5.png)
+
+这个公式中的复对数可以限制在主分支上而不引入任何不连续性[1]。 在使用安德森-皮特巴格方法和控制变量时，了解![C_1(z)+D_1(z)\nu_0](img/9de5c3579179ac1a40f9f88238307bb4.png)的渐近行为以计算特征函数积分的截断点是很重要的[2]。 一个 Mathematica 脚本给出了
+
+![\begin{array}{rcl} \displaystyle \lim_{u\to\infty}\frac{D_1(u)}{u} &=& \displaystyle-\frac{i\rho_1 + \sqrt{1-\rho_1²} }{\sigma_1} \nonumber \\ \displaystyle\lim_{u\to\infty}\frac{C_1(u)}{u} &=& \displaystyle -\sum_{j=1}^n \frac{\kappa_j\theta_j}{\sigma_j}\left(\sqrt{1-\rho_j²} + i\rho_j\right)\tau_j\end{array}](img/a8c1e12125d468a0b8bf6fe62412bff3.png)
+
+Andersen-Piterbarg 方法在分段常数时间相关 Heston 模型的实现是拉取请求[#251](https://github.com/lballabio/QuantLib/pull/251)的一部分。
+
+[1] Afshani, S. (2010) [复数对数和分段常数扩展](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1615153) [Heston 模型。](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1615153)
+
+[2] Andersen, L. 和 Piterbarg, V. (2010) 利率建模，第一卷：基础和香草模型，(Atlantic Financial Press London)。

@@ -1,0 +1,33 @@
+<!--yml
+
+类别：未分类
+
+日期：2024 年 05 月 12 日 19:23:22
+
+-->
+
+# 量化交易：配对交易股票和策略的生命周期
+
+> 来源：[`epchan.blogspot.com/2007/06/pair-trading-stocks-and-life-cycle-of.html#0001-01-01`](http://epchan.blogspot.com/2007/06/pair-trading-stocks-and-life-cycle-of.html#0001-01-01)
+
+我在各种文章中讨论了交易一篮子股票对之间的价差
+
+[ETF](http://epchan.blogspot.com/2006/11/gold-vs-gold-miners-another-arbitrage.html)
+
+或者在
+
+[一篮子股票](http://epchan.blogspot.com/2007/02/in-looking-for-pairs-of-financial.html)
+
+使用协整技术对冲基金。然而，有一个明显的遗漏，因为我还没有提到经典的统计套利策略：配对交易股票。
+
+将协整应用于配对交易股票有利有弊。在有利的一面：由于股票数量众多，我们可以享受到高度多样化的投资组合，从而提高结果的有效性。即使一些价差未来未能协整，我们也可以依靠仍然保持协整的更多价差。（例如，我的[USO-XLE](http://epchan.blogspot.com/2006/11/update-on-energy-stocks-vs-futures.html)价差崩溃了，而[GLD-GDX](http://epchan.blogspot.com/2006/11/reader-suggested-possible-trading.html)价差仍然紧密协整。）主要有两个缺点：1）股票面临各种特定风险，这可能使我们的纯统计模型失效，特别是在并购情况下。因此，当这些股票涉及特殊情况时，通常会将其从我们的投资组合中删除-然而，当消息公开时，我们可能已经遭受了巨大的损失；还有 2）由于这种技术有着悠久的历史，它为许多对冲基金甚至金融学学生所熟知，因此配对交易股票并不是非常有利可图，尤其是在 2003-2005 年期间。在这里，我绘制了从 20010102 年到 20041231 年应用于美国银行股的策略超额收益。（超额收益意味着未包括保证金余额上的信用利息。）
+
+![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkDtN8r3H9M6vz1tRj75p_0wjM5m_77dccJ9AmFR0gR90tmPLh2dqs4Kg1S9pZjqpV4km0__2WeUaKeE6M7Z60CiFJdl8NghQZEMkGcN51hYg7GFIaMjWJ_Qq6BL0sPqSe-vfPfQ/s1600-h/netret2000_2005.bmp)
+
+有趣的是，当一种策略变得过于流行和不那么有利可图时，许多交易者开始放弃它，或者至少减少投入到该策略中的交易资本。过了一段时间，它的流行度降低，盈利能力恢复了！这种策略生命周期的现象表现为策略的均值回归，在股票价格的均值回归之上。在我们的案例中，这种策略的复苏始于 2005 年，并且仍然全面推进。在这里，我绘制了从 20050103 年到 20070531 年应用于美国银行股的策略超额收益：
+
+![图](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhvV95jGx0lwig6qm8N_PtXk_21eizJ377LlioSZVPS84lwXjdfz1yLaOVII_sKBUvslEtIsAzcE7wLI9JzQi0qx7HrfLOK1KSpcUNY0ZN8ByXCTXTXl5N9x1qnkXDSIqGPEoMXNA/s1600-h/usbanks_netret_2005-07.bmp)
+
+从 2005 年至今，平均年超额回报率约为 7.7%（单边资本），夏普比率为 0.8。由于我只在单一行业组别中应用了这一技巧，因此分散投资有限，夏普比率较低。对于感兴趣的读者，他们可以尝试将这一技巧应用于更多的行业组别，或许能够产生更高的夏普比率。即使只有一个行业组别，此交易策略也可以作为趋势跟踪策略占重的投资组合的良好补充，因此需要一个反转模型来平滑回报。
+
+我在[订阅](http://epchan.com/subscriptions.html)区的模型组合中开始实施这一策略，该组合将于东部时间下午 3 点左右更新。该策略的更多细节将在该处的配套文章中详细说明。
