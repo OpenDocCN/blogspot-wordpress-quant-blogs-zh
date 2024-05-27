@@ -3581,6 +3581,7 @@
 +   [谦卑的市场学生：黄金上涨如何使股市牛市的轨道脱轨](docs/Humble-Student-of-the-Markets--How-a-gold-rally-could-derail-the-stock-bull.md)
 +   [谦卑的市场学生：一场征服之战如何演变成痛苦的较量](docs/Humble-Student-of-the-Markets--How-a-war-of-conquest-has-become-a-contest-of-pain.md)
 +   [谦卑市场学生：美国政策如何可能坑害中国](docs/Humble-Student-of-the-Markets--How-American-policy-could-tank-China.md)
++   [Markets 的谦逊学生：独立苏格兰如何变得繁荣](docs/Humble-Student-of-the-Markets--How-an-independent-Scotland-could-become-prosperous.md)
 +   [谦逊的市场学生：金融行业的状况有多糟糕？](docs/Humble-Student-of-the-Markets--How-bad-are-the-Financials-.md)
 +   [谦逊的市场学生：中国债务危机能有多糟？](docs/Humble-Student-of-the-Markets--How-bad-could-a-Chinese-debt-crisis-get-.md)
 +   [谦逊的市场学生：熊变牛的方式](docs/Humble-Student-of-the-Markets--How-bears-turn-into-bulls.md)
